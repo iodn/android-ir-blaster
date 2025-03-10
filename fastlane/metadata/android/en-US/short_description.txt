@@ -1,1 +1,1 @@
-Unlock the full potential of your Android IR blaster by importing Flipper Zero .IR files.
+IR blaster that supports hex code, raw signal and Flipper Zero .IR files
