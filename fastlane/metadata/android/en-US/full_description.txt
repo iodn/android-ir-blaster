@@ -1,0 +1,13 @@
+An Android app that lets you create custom remotes for controlling infrared (IR) devices.
+
+Features:
+
+ - Supports Parsed Hex Codes
+
+ - Supports Raw IR signals
+
+ - Supports Import of Flipper Zero .IR files
+
+ - Backup / Restore remotes
+
+Note: Requires a phone with a built-in IR emitter to function.
