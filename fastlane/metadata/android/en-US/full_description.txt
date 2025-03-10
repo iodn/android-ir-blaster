@@ -1,4 +1,4 @@
-An Android app that lets you create custom remotes for controlling infrared (IR) devices.
+Create custom infrared (IR) remotes using hex codes, raw data, or Flipper Zero .IR files.
 
 Features:
 
