@@ -23,16 +23,18 @@ IR Blaster supports both hexadecimal (e.g., NEC, NECext) and raw IR codes, offer
 ## Installation
 
 1. **Download the APK:**
+   
 [<img src="https://fdroid.gitlab.io/artwork/badge/get-it-on.png"
      alt="Get it on F-Droid"
      height="80">](https://f-droid.org/packages/org.nslabs.ir_blaster/)
+     
 Or you can download the latest APK from the [Releases Section](https://github.com/iodn/android-ir-blaster/releases/latest).
 
-2. **Install the Application:**
+3. **Install the Application:**
    - Enable installation from unknown sources if needed.
    - Follow the on-screen instructions to install IR Blaster.
 
-3. **Launch and Configure:**
+4. **Launch and Configure:**
    - Open IR Blaster.
    - Begin creating custom remote commands or import your Flipper Zero `.IR` file.
 
