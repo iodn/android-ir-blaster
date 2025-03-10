@@ -1,5 +1,9 @@
 # IR Blaster
 
+<a href="https://f-droid.org/packages/org.nslabs.ir_blaster/">
+  <img src="https://github.com/user-attachments/assets/8531b640-4436-46da-a709-6a6014bdf3f6" alt="Android Infrared Blaster App">
+</a>
+
 IR Blaster is an Android application that unlocks the full potential of your built-in infrared (IR) blaster. The app lets you control a wide range of devices using custom remote commands.
 
 ## Overview
