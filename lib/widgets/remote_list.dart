@@ -20,15 +20,9 @@ class RemoteList extends StatefulWidget {
 class _RemoteListState extends State<RemoteList> {
   Future<void> requestStoragePermission() async {
     if (Platform.isAndroid) {
-      // First, check if the permission is already granted
-      if (await Permission.manageExternalStorage.isGranted) {
-        return;
-      }
-
-      // Request storage permission
+      if (await Permission.manageExternalStorage.isGranted) return;
       PermissionStatus status =
           await Permission.manageExternalStorage.request();
-
       if (!status.isGranted) {
         if (!mounted) return;
         ScaffoldMessenger.of(context).showSnackBar(
@@ -39,8 +33,7 @@ class _RemoteListState extends State<RemoteList> {
   }
 
   Future<void> backupRemotes() async {
-    await requestStoragePermission(); // Ensure permission request
-
+    await requestStoragePermission();
     if (Platform.isAndroid) {
       if (!await Permission.manageExternalStorage.isGranted) {
         if (!mounted) return;
@@ -49,16 +42,12 @@ class _RemoteListState extends State<RemoteList> {
         );
         return;
       }
-
       Directory? downloadsDir = Directory('/storage/emulated/0/Download');
       if (!downloadsDir.existsSync()) {
         downloadsDir = await getExternalStorageDirectory();
       }
-
       final timestamp = DateTime.now().millisecondsSinceEpoch;
       String path = '${downloadsDir!.path}/remotes_backup_$timestamp.json';
-
-      // Save the file
       final File backupFile = File(path);
       final String jsonString =
           jsonEncode(remotes.map((r) => r.toJson()).toList());
@@ -71,17 +60,14 @@ class _RemoteListState extends State<RemoteList> {
   }
 
   Future<void> importRemotes() async {
-    // Use FileType.any to allow any file to be picked.
     FilePickerResult? result = await FilePicker.platform.pickFiles(
       type: FileType.any,
     );
-
     if (result != null) {
       final filePath = result.files.single.path;
       if (filePath != null) {
         final file = File(filePath);
         final contents = await file.readAsString();
-
         if (filePath.toLowerCase().endsWith('.json')) {
           try {
             List<dynamic> jsonData = jsonDecode(contents);
@@ -89,7 +75,7 @@ class _RemoteListState extends State<RemoteList> {
                 .map((data) => Remote.fromJson(data as Map<String, dynamic>))
                 .toList();
             setState(() {
-              remotes = imported; // or remotes.addAll(imported);
+              remotes = imported; // or use remotes.addAll(imported);
             });
           } catch (e) {
             if (!mounted) return;
@@ -108,7 +94,6 @@ class _RemoteListState extends State<RemoteList> {
           );
           return;
         }
-
         await writeRemotelist(remotes);
         if (!mounted) return;
         ScaffoldMessenger.of(context).showSnackBar(
@@ -122,11 +107,9 @@ class _RemoteListState extends State<RemoteList> {
     List<String> blocks = content.split('#');
     List<IRButton> buttons = [];
     String remoteName = "Flipper IR Remote";
-
     for (String block in blocks) {
       block = block.trim();
       if (block.isEmpty) continue;
-
       if (block.contains("type: parsed")) {
         final nameMatch = RegExp(r'name:\s*(.+)').firstMatch(block);
         final addressMatch =
@@ -135,7 +118,6 @@ class _RemoteListState extends State<RemoteList> {
         final commandMatch =
             RegExp(r'command:\s*([0-9A-Fa-f]{2})\s+([0-9A-Fa-f]{2})')
                 .firstMatch(block);
-
         if (nameMatch != null && addressMatch != null && commandMatch != null) {
           String name = nameMatch.group(1)!.trim();
           String hexCode = convertToLIRCHex(addressMatch, commandMatch);
@@ -150,12 +132,10 @@ class _RemoteListState extends State<RemoteList> {
         final nameMatch = RegExp(r'name:\s*(.+)').firstMatch(block);
         final frequencyMatch = RegExp(r'frequency:\s*(\d+)').firstMatch(block);
         final dataMatch = RegExp(r'data:\s*([\d\s]+)').firstMatch(block);
-
         if (nameMatch != null && frequencyMatch != null && dataMatch != null) {
           String name = nameMatch.group(1)!.trim();
           int frequency = int.parse(frequencyMatch.group(1)!);
           String rawData = dataMatch.group(1)!.trim();
-
           buttons.add(IRButton(
               code: null,
               rawData: rawData,
@@ -165,7 +145,6 @@ class _RemoteListState extends State<RemoteList> {
         }
       }
     }
-
     if (buttons.isNotEmpty) {
       Remote newRemote =
           Remote(name: remoteName, useNewStyle: true, buttons: buttons);
@@ -178,14 +157,12 @@ class _RemoteListState extends State<RemoteList> {
     int addrByte2 = int.parse(addressMatch.group(2)!, radix: 16);
     int cmdByte1 = int.parse(commandMatch.group(1)!, radix: 16);
     int cmdByte2 = int.parse(commandMatch.group(2)!, radix: 16);
-
     int lircCmd = bitReverse(addrByte1);
     int lircCmdInv =
         (addrByte2 == 0) ? (0xFF - lircCmd) : bitReverse(addrByte2);
     int lircAddr = bitReverse(cmdByte1);
     int lircAddrInv =
         (cmdByte2 == 0) ? (0xFF - lircAddr) : bitReverse(cmdByte2);
-
     return "${lircCmd.toRadixString(16).padLeft(2, '0')}${lircCmdInv.toRadixString(16).padLeft(2, '0')}${lircAddr.toRadixString(16).padLeft(2, '0')}${lircAddrInv.toRadixString(16).padLeft(2, '0')}"
         .toUpperCase();
   }
@@ -198,13 +175,22 @@ class _RemoteListState extends State<RemoteList> {
 
   @override
   Widget build(BuildContext context) {
-    // Use the theme color for cards.
     final cardColor = Theme.of(context).colorScheme.primary.withOpacity(0.2);
-
     return Scaffold(
       appBar: AppBar(
         title: const Text("Remotes"),
         actions: [
+          // Launch a full-screen search UI.
+          IconButton(
+            tooltip: 'Search Remotes',
+            icon: const Icon(Icons.search),
+            onPressed: () {
+              showSearch(
+                context: context,
+                delegate: RemoteSearchDelegate(remotes),
+              );
+            },
+          ),
           IconButton(
             tooltip: 'Import Remotes',
             icon: const Icon(Icons.file_upload),
@@ -227,6 +213,7 @@ class _RemoteListState extends State<RemoteList> {
         child: const Icon(Icons.save),
       ),
       body: SafeArea(
+        // No search field on load; the grid shows all remotes.
         child: GridView.builder(
           padding: const EdgeInsets.all(20),
           itemCount: remotes.length + 1, // Extra tile for "Add a remote"
@@ -280,7 +267,8 @@ class _RemoteListState extends State<RemoteList> {
                                   ),
                                 );
                                 setState(() {
-                                  remotes[index] = editedRemote;
+                                  int originalIndex = remotes.indexOf(remote);
+                                  remotes[originalIndex] = editedRemote;
                                 });
                               } catch (e) {
                                 // Handle error if needed.
@@ -291,7 +279,7 @@ class _RemoteListState extends State<RemoteList> {
                             icon: const Icon(Icons.delete),
                             onPressed: () {
                               setState(() {
-                                remotes.removeAt(index);
+                                remotes.remove(remote);
                               });
                             },
                           ),
@@ -302,7 +290,7 @@ class _RemoteListState extends State<RemoteList> {
                 ),
               );
             } else {
-              // "Add a remote" tile
+              // "Add a remote" tile.
               return Card(
                 color: cardColor,
                 shape: RoundedRectangleBorder(
@@ -342,6 +330,162 @@ class _RemoteListState extends State<RemoteList> {
           },
         ),
       ),
+    );
+  }
+}
+
+class RemoteSearchDelegate extends SearchDelegate {
+  final List<Remote> remotes;
+  RemoteSearchDelegate(this.remotes);
+
+  @override
+  List<Widget>? buildActions(BuildContext context) {
+    return [
+      if (query.isNotEmpty)
+        IconButton(
+            onPressed: () {
+              query = '';
+            },
+            icon: const Icon(Icons.clear))
+    ];
+  }
+
+  @override
+  Widget? buildLeading(BuildContext context) {
+    return IconButton(
+        onPressed: () {
+          close(context, null);
+        },
+        icon: const Icon(Icons.arrow_back));
+  }
+
+  @override
+  Widget buildResults(BuildContext context) {
+    final results = remotes
+        .where(
+            (remote) => remote.name.toLowerCase().contains(query.toLowerCase()))
+        .toList();
+    return GridView.builder(
+      padding: const EdgeInsets.all(20),
+      itemCount: results.length,
+      gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+        crossAxisCount: 2,
+        childAspectRatio: 1.3,
+        mainAxisSpacing: 8,
+        crossAxisSpacing: 1,
+      ),
+      itemBuilder: (BuildContext context, int index) {
+        final Remote remote = results[index];
+        return Card(
+          color: Theme.of(context).colorScheme.primary.withOpacity(0.2),
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(8),
+          ),
+          child: InkWell(
+            onTap: () {
+              close(context, null);
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (context) => RemoteView(remote: remote),
+                ),
+              );
+            },
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                Padding(
+                  padding: const EdgeInsets.all(8.0),
+                  child: Text(
+                    remote.name,
+                    style: const TextStyle(
+                        fontSize: 18, fontWeight: FontWeight.bold),
+                    textAlign: TextAlign.center,
+                  ),
+                ),
+                OverflowBar(
+                  alignment: MainAxisAlignment.center,
+                  children: [
+                    IconButton(
+                      icon: const Icon(Icons.edit),
+                      onPressed: () async {
+                        try {
+                          Remote editedRemote = await Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                              builder: (context) =>
+                                  CreateRemote(remote: remote),
+                            ),
+                          );
+                          int originalIndex = remotes.indexOf(remote);
+                          remotes[originalIndex] = editedRemote;
+                          showSuggestions(context);
+                        } catch (e) {
+                          // Handle error if needed.
+                        }
+                      },
+                    ),
+                    IconButton(
+                      icon: const Icon(Icons.delete),
+                      onPressed: () {
+                        remotes.remove(remote);
+                        showSuggestions(context);
+                      },
+                    ),
+                  ],
+                ),
+              ],
+            ),
+          ),
+        );
+      },
+    );
+  }
+
+  @override
+  Widget buildSuggestions(BuildContext context) {
+    final suggestions = remotes
+        .where(
+            (remote) => remote.name.toLowerCase().contains(query.toLowerCase()))
+        .toList();
+    return GridView.builder(
+      padding: const EdgeInsets.all(20),
+      itemCount: suggestions.length,
+      gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+        crossAxisCount: 2,
+        childAspectRatio: 1.3,
+        mainAxisSpacing: 8,
+        crossAxisSpacing: 1,
+      ),
+      itemBuilder: (BuildContext context, int index) {
+        final Remote remote = suggestions[index];
+        return Card(
+          color: Theme.of(context).colorScheme.primary.withOpacity(0.2),
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(8),
+          ),
+          child: InkWell(
+            onTap: () {
+              query = remote.name;
+              showResults(context);
+            },
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                Padding(
+                  padding: const EdgeInsets.all(8.0),
+                  child: Text(
+                    remote.name,
+                    style: const TextStyle(
+                        fontSize: 18, fontWeight: FontWeight.bold),
+                    textAlign: TextAlign.center,
+                  ),
+                ),
+              ],
+            ),
+          ),
+        );
+      },
     );
   }
 }
