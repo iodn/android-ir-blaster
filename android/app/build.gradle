@@ -23,6 +23,7 @@ if (!keystorePropertiesFile.exists()) {
 }
 
 keystoreProperties.load(new FileInputStream(keystorePropertiesFile))
+
 android {
     namespace "org.nslabs.ir_blaster"
     compileSdkVersion 35
@@ -46,6 +47,12 @@ android {
         targetSdkVersion flutter.targetSdkVersion
         versionCode flutterVersionCode.toInteger()
         versionName flutterVersionName
+
+        resConfigs "en"
+
+        ndk {
+            abiFilters 'armeabi-v7a', 'arm64-v8a', 'x86', 'x86_64'
+        }
     }
 
     signingConfigs {
@@ -60,6 +67,9 @@ android {
     buildTypes {
         release {
             signingConfig signingConfigs.release
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+            minifyEnabled true
+            shrinkResources true
         }
     }
 
