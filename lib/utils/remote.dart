@@ -5,9 +5,9 @@ import 'package:image_picker/image_picker.dart';
 import 'package:path_provider/path_provider.dart';
 
 class IRButton {
-  final int? code; // For hex codes.
-  final String? rawData; // For raw IR signals (space-separated string).
-  final int? frequency; // Frequency for raw signals.
+  final int? code;
+  final String? rawData;
+  final int? frequency;
   final String image;
   final bool isImage;
 
@@ -39,24 +39,32 @@ class IRButton {
 }
 
 class Remote {
+  int id;
   final List<IRButton> buttons;
   String name;
   bool useNewStyle;
 
+  // Static counter to auto-generate incremental IDs.
+  static int _nextId = 1;
+
   Remote({
+    int? id,
     required this.buttons,
     required this.name,
     this.useNewStyle = false,
-  });
+  }) : id = id ?? _nextId++;
 
   Map<String, dynamic> toJson() => {
+        'id': id,
         'buttons': buttons.map((b) => b.toJson()).toList(),
         'name': name,
         'useNewStyle': useNewStyle,
       };
 
   factory Remote.fromJson(Map<String, dynamic> json) {
+    // If the JSON doesn't include an id, let the constructor assign one.
     return Remote(
+      id: json['id'] != null ? json['id'] as int : null,
       buttons: (json['buttons'] as List)
           .map((data) => IRButton.fromJson(data as Map<String, dynamic>))
           .toList(),
@@ -89,9 +97,15 @@ Future<List<Remote>> readRemotes() async {
     List<Remote> remotes = (jsonDecode(contents) as List)
         .map((json) => Remote.fromJson(json as Map<String, dynamic>))
         .toList();
+    // Update _nextId to be one greater than the maximum loaded remote id.
+    if (remotes.isNotEmpty) {
+      int maxId = remotes.fold(
+          0, (prev, remote) => remote.id > prev ? remote.id : prev);
+      Remote._nextId = maxId + 1;
+    }
     return remotes;
   } catch (e) {
-    // If encountering an error, return an empty list.
+    // If encountering an error (e.g. file not found), return an empty list.
     return <Remote>[];
   }
 }
@@ -162,7 +176,7 @@ List<Remote> writeDefaultRemotes() {
   return [irblasterRemote];
 }
 
-/// Gets an image from the user using the image_picker library
+/// Gets an image from the user using the image_picker library.
 Future<String?> getImage() async {
   final ImagePicker picker = ImagePicker();
   final XFile? image = await picker.pickImage(source: ImageSource.gallery);

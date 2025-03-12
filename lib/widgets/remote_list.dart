@@ -1,14 +1,15 @@
 import 'dart:convert';
 import 'dart:io';
 
-import 'package:permission_handler/permission_handler.dart';
-import 'package:file_picker/file_picker.dart';
 import 'package:flutter/material.dart';
-import 'package:irblaster_controller/widgets/create_remote.dart';
 import 'package:irblaster_controller/main.dart';
 import 'package:irblaster_controller/utils/remote.dart';
+import 'package:irblaster_controller/widgets/create_remote.dart';
 import 'package:irblaster_controller/widgets/remote_view.dart';
+import 'package:permission_handler/permission_handler.dart';
+import 'package:file_picker/file_picker.dart';
 import 'package:path_provider/path_provider.dart';
+import 'package:reorderable_grid_view/reorderable_grid_view.dart';
 
 class RemoteList extends StatefulWidget {
   const RemoteList({super.key});
@@ -75,7 +76,11 @@ class _RemoteListState extends State<RemoteList> {
                 .map((data) => Remote.fromJson(data as Map<String, dynamic>))
                 .toList();
             setState(() {
-              remotes = imported; // or use remotes.addAll(imported);
+              remotes = imported;
+              // Reassign ids based on the new order.
+              for (int i = 0; i < remotes.length; i++) {
+                remotes[i].id = i + 1;
+              }
             });
           } catch (e) {
             if (!mounted) return;
@@ -149,6 +154,10 @@ class _RemoteListState extends State<RemoteList> {
       Remote newRemote =
           Remote(name: remoteName, useNewStyle: true, buttons: buttons);
       remotes.add(newRemote);
+      // Reassign ids after adding the new remote.
+      for (int i = 0; i < remotes.length; i++) {
+        remotes[i].id = i + 1;
+      }
     }
   }
 
@@ -163,7 +172,10 @@ class _RemoteListState extends State<RemoteList> {
     int lircAddr = bitReverse(cmdByte1);
     int lircAddrInv =
         (cmdByte2 == 0) ? (0xFF - lircAddr) : bitReverse(cmdByte2);
-    return "${lircCmd.toRadixString(16).padLeft(2, '0')}${lircCmdInv.toRadixString(16).padLeft(2, '0')}${lircAddr.toRadixString(16).padLeft(2, '0')}${lircAddrInv.toRadixString(16).padLeft(2, '0')}"
+    return "${lircCmd.toRadixString(16).padLeft(2, '0')}"
+            "${lircCmdInv.toRadixString(16).padLeft(2, '0')}"
+            "${lircAddr.toRadixString(16).padLeft(2, '0')}"
+            "${lircAddrInv.toRadixString(16).padLeft(2, '0')}"
         .toUpperCase();
   }
 
@@ -175,12 +187,12 @@ class _RemoteListState extends State<RemoteList> {
 
   @override
   Widget build(BuildContext context) {
-    final cardColor = Theme.of(context).colorScheme.primary.withOpacity(0.2);
+    final cardColor =
+        Theme.of(context).colorScheme.primary.withValues(alpha: 0.2);
     return Scaffold(
       appBar: AppBar(
         title: const Text("Remotes"),
         actions: [
-          // Launch a full-screen search UI.
           IconButton(
             tooltip: 'Search Remotes',
             icon: const Icon(Icons.search),
@@ -207,127 +219,139 @@ class _RemoteListState extends State<RemoteList> {
         onPressed: () {
           writeRemotelist(remotes).then((value) {
             ScaffoldMessenger.of(context).showSnackBar(
-                const SnackBar(content: Text("Remotes have been saved")));
+              const SnackBar(content: Text("Remotes have been saved")),
+            );
           });
         },
         child: const Icon(Icons.save),
       ),
       body: SafeArea(
-        // No search field on load; the grid shows all remotes.
-        child: GridView.builder(
-          padding: const EdgeInsets.all(20),
-          itemCount: remotes.length + 1, // Extra tile for "Add a remote"
-          gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-            crossAxisCount: 2,
-            childAspectRatio: 1.3,
-            mainAxisSpacing: 8,
-            crossAxisSpacing: 1,
-          ),
-          itemBuilder: (BuildContext context, int index) {
-            if (index < remotes.length) {
-              final Remote remote = remotes[index];
-              return Card(
-                color: cardColor,
-                shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(8),
+        child: Column(
+          children: [
+            // Use a ReorderableGridView to show remotes in two columns.
+            Expanded(
+              child: ReorderableGridView.builder(
+                padding: const EdgeInsets.all(20),
+                gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+                  crossAxisCount: 2,
+                  childAspectRatio: 1.3,
+                  mainAxisSpacing: 8,
+                  crossAxisSpacing: 1,
                 ),
-                child: InkWell(
-                  onTap: () {
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                        builder: (context) => RemoteView(remote: remote),
-                      ),
-                    );
-                  },
-                  child: Column(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [
-                      Padding(
-                        padding: const EdgeInsets.all(8.0),
-                        child: Text(
-                          remote.name,
-                          style: const TextStyle(
-                              fontSize: 18, fontWeight: FontWeight.bold),
-                          textAlign: TextAlign.center,
-                        ),
-                      ),
-                      OverflowBar(
-                        alignment: MainAxisAlignment.center,
-                        children: [
-                          IconButton(
-                            icon: const Icon(Icons.edit),
-                            onPressed: () async {
-                              try {
-                                Remote editedRemote = await Navigator.push(
-                                  context,
-                                  MaterialPageRoute(
-                                    builder: (context) =>
-                                        CreateRemote(remote: remote),
-                                  ),
-                                );
-                                setState(() {
-                                  int originalIndex = remotes.indexOf(remote);
-                                  remotes[originalIndex] = editedRemote;
-                                });
-                              } catch (e) {
-                                // Handle error if needed.
-                              }
-                            },
+                itemCount: remotes.length,
+                itemBuilder: (context, index) {
+                  final remote = remotes[index];
+                  return Card(
+                    // Use ObjectKey(remote) so the key stays constant even if remote.id is updated.
+                    key: ObjectKey(remote),
+                    color: cardColor,
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(8),
+                    ),
+                    child: InkWell(
+                      onTap: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => RemoteView(remote: remote),
                           ),
-                          IconButton(
-                            icon: const Icon(Icons.delete),
-                            onPressed: () {
-                              setState(() {
-                                remotes.remove(remote);
-                              });
-                            },
+                        );
+                      },
+                      child: Column(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                          Padding(
+                            padding: const EdgeInsets.all(8.0),
+                            child: Text(
+                              remote.name,
+                              style: const TextStyle(
+                                  fontSize: 18, fontWeight: FontWeight.bold),
+                              textAlign: TextAlign.center,
+                            ),
+                          ),
+                          OverflowBar(
+                            alignment: MainAxisAlignment.center,
+                            children: [
+                              IconButton(
+                                icon: const Icon(Icons.edit),
+                                onPressed: () async {
+                                  try {
+                                    Remote editedRemote = await Navigator.push(
+                                      context,
+                                      MaterialPageRoute(
+                                        builder: (context) =>
+                                            CreateRemote(remote: remote),
+                                      ),
+                                    );
+                                    setState(() {
+                                      remotes[index] = editedRemote;
+                                    });
+                                  } catch (e) {
+                                    // Handle error if needed.
+                                  }
+                                },
+                              ),
+                              IconButton(
+                                icon: const Icon(Icons.delete),
+                                onPressed: () {
+                                  setState(() {
+                                    remotes.removeAt(index);
+                                    // Reassign ids after removal.
+                                    for (int i = 0; i < remotes.length; i++) {
+                                      remotes[i].id = i + 1;
+                                    }
+                                  });
+                                },
+                              ),
+                            ],
                           ),
                         ],
                       ),
-                    ],
-                  ),
-                ),
-              );
-            } else {
-              // "Add a remote" tile.
-              return Card(
-                color: cardColor,
-                shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(8),
-                ),
-                child: TextButton(
-                  onPressed: () async {
-                    try {
-                      Remote newRemote = await Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                          builder: (context) => const CreateRemote(),
-                        ),
-                      );
-                      setState(() {
-                        remotes.add(newRemote);
-                      });
-                      writeRemotelist(remotes);
-                    } catch (e) {
-                      return;
+                    ),
+                  );
+                },
+                onReorder: (oldIndex, newIndex) {
+                  setState(() {
+                    if (newIndex > oldIndex) newIndex--;
+                    final Remote movedRemote = remotes.removeAt(oldIndex);
+                    remotes.insert(newIndex, movedRemote);
+                    // Reassign ids based on the new order.
+                    for (int i = 0; i < remotes.length; i++) {
+                      remotes[i].id = i + 1;
                     }
-                  },
-                  child: const Column(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      Icon(Icons.add, size: 40),
-                      SizedBox(height: 10),
-                      Text(
-                        "Add a remote",
-                        style: TextStyle(fontSize: 16),
+                  });
+                },
+              ),
+            ),
+            // "Add a remote" button below the grid.
+            Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: ElevatedButton.icon(
+                onPressed: () async {
+                  try {
+                    Remote newRemote = await Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => const CreateRemote(),
                       ),
-                    ],
-                  ),
-                ),
-              );
-            }
-          },
+                    );
+                    setState(() {
+                      remotes.add(newRemote);
+                      // Reassign ids after adding a new remote.
+                      for (int i = 0; i < remotes.length; i++) {
+                        remotes[i].id = i + 1;
+                      }
+                    });
+                    writeRemotelist(remotes);
+                  } catch (e) {
+                    return;
+                  }
+                },
+                icon: const Icon(Icons.add),
+                label: const Text("Add a remote"),
+              ),
+            ),
+          ],
         ),
       ),
     );
@@ -343,20 +367,22 @@ class RemoteSearchDelegate extends SearchDelegate {
     return [
       if (query.isNotEmpty)
         IconButton(
-            onPressed: () {
-              query = '';
-            },
-            icon: const Icon(Icons.clear))
+          onPressed: () {
+            query = '';
+          },
+          icon: const Icon(Icons.clear),
+        )
     ];
   }
 
   @override
   Widget? buildLeading(BuildContext context) {
     return IconButton(
-        onPressed: () {
-          close(context, null);
-        },
-        icon: const Icon(Icons.arrow_back));
+      onPressed: () {
+        close(context, null);
+      },
+      icon: const Icon(Icons.arrow_back),
+    );
   }
 
   @override
@@ -365,23 +391,52 @@ class RemoteSearchDelegate extends SearchDelegate {
         .where(
             (remote) => remote.name.toLowerCase().contains(query.toLowerCase()))
         .toList();
-    return GridView.builder(
+    return ListView.builder(
       padding: const EdgeInsets.all(20),
       itemCount: results.length,
-      gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-        crossAxisCount: 2,
-        childAspectRatio: 1.3,
-        mainAxisSpacing: 8,
-        crossAxisSpacing: 1,
-      ),
       itemBuilder: (BuildContext context, int index) {
-        final Remote remote = results[index];
+        final remote = results[index];
         return Card(
-          color: Theme.of(context).colorScheme.primary.withOpacity(0.2),
+          key: ObjectKey(remote),
+          color: Theme.of(context).colorScheme.primary.withValues(alpha: 0.2),
           shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(8),
           ),
-          child: InkWell(
+          child: ListTile(
+            title: Text(
+              remote.name,
+              style: const TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+            ),
+            trailing: Row(
+              mainAxisSize: MainAxisSize.min,
+              children: [
+                IconButton(
+                  icon: const Icon(Icons.edit),
+                  onPressed: () async {
+                    try {
+                      Remote editedRemote = await Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => CreateRemote(remote: remote),
+                        ),
+                      );
+                      int originalIndex = remotes.indexOf(remote);
+                      remotes[originalIndex] = editedRemote;
+                      showSuggestions(context);
+                    } catch (e) {
+                      // Handle error if needed.
+                    }
+                  },
+                ),
+                IconButton(
+                  icon: const Icon(Icons.delete),
+                  onPressed: () {
+                    remotes.remove(remote);
+                    showSuggestions(context);
+                  },
+                ),
+              ],
+            ),
             onTap: () {
               close(context, null);
               Navigator.push(
@@ -391,51 +446,6 @@ class RemoteSearchDelegate extends SearchDelegate {
                 ),
               );
             },
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                Padding(
-                  padding: const EdgeInsets.all(8.0),
-                  child: Text(
-                    remote.name,
-                    style: const TextStyle(
-                        fontSize: 18, fontWeight: FontWeight.bold),
-                    textAlign: TextAlign.center,
-                  ),
-                ),
-                OverflowBar(
-                  alignment: MainAxisAlignment.center,
-                  children: [
-                    IconButton(
-                      icon: const Icon(Icons.edit),
-                      onPressed: () async {
-                        try {
-                          Remote editedRemote = await Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                              builder: (context) =>
-                                  CreateRemote(remote: remote),
-                            ),
-                          );
-                          int originalIndex = remotes.indexOf(remote);
-                          remotes[originalIndex] = editedRemote;
-                          showSuggestions(context);
-                        } catch (e) {
-                          // Handle error if needed.
-                        }
-                      },
-                    ),
-                    IconButton(
-                      icon: const Icon(Icons.delete),
-                      onPressed: () {
-                        remotes.remove(remote);
-                        showSuggestions(context);
-                      },
-                    ),
-                  ],
-                ),
-              ],
-            ),
           ),
         );
       },
@@ -448,41 +458,26 @@ class RemoteSearchDelegate extends SearchDelegate {
         .where(
             (remote) => remote.name.toLowerCase().contains(query.toLowerCase()))
         .toList();
-    return GridView.builder(
+    return ListView.builder(
       padding: const EdgeInsets.all(20),
       itemCount: suggestions.length,
-      gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-        crossAxisCount: 2,
-        childAspectRatio: 1.3,
-        mainAxisSpacing: 8,
-        crossAxisSpacing: 1,
-      ),
       itemBuilder: (BuildContext context, int index) {
-        final Remote remote = suggestions[index];
+        final remote = suggestions[index];
         return Card(
-          color: Theme.of(context).colorScheme.primary.withOpacity(0.2),
+          key: ObjectKey(remote),
+          color: Theme.of(context).colorScheme.primary.withValues(alpha: 0.2),
           shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(8),
           ),
-          child: InkWell(
+          child: ListTile(
+            title: Text(
+              remote.name,
+              style: const TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+            ),
             onTap: () {
               query = remote.name;
               showResults(context);
             },
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                Padding(
-                  padding: const EdgeInsets.all(8.0),
-                  child: Text(
-                    remote.name,
-                    style: const TextStyle(
-                        fontSize: 18, fontWeight: FontWeight.bold),
-                    textAlign: TextAlign.center,
-                  ),
-                ),
-              ],
-            ),
           ),
         );
       },

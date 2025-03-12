@@ -140,7 +140,7 @@ class RemoteViewState extends State<RemoteView> {
           shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(8),
           ),
-          color: Theme.of(context).colorScheme.primary.withOpacity(0.2),
+          color: Theme.of(context).colorScheme.primary..withValues(alpha: 0.2),
           child: InkWell(
             onTap: () => sendIR(button),
             child: Padding(
@@ -167,7 +167,7 @@ class RemoteViewState extends State<RemoteView> {
                       color: Theme.of(context)
                           .colorScheme
                           .onSurface
-                          .withOpacity(0.7),
+                          .withValues(alpha: 0.2),
                     ),
                   ),
                 ],
