@@ -1,6 +1,23 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="org.nslabs.ir_blaster">
-   <application
+
+    <!-- Declare which external ACTION_* intents your app will use -->
+    <queries>
+        <!-- User-import: pick an existing IR file -->
+        <intent>
+            <action android:name="android.intent.action.OPEN_DOCUMENT"/>
+            <category android:name="android.intent.category.OPENABLE"/>
+            <data android:mimeType="*/*"/>
+        </intent>
+        <!-- User-export: create/save an IR file -->
+        <intent>
+            <action android:name="android.intent.action.CREATE_DOCUMENT"/>
+            <category android:name="android.intent.category.OPENABLE"/>
+            <data android:mimeType="*/*"/>
+        </intent>
+    </queries>
+
+    <application
         android:label="IR Blaster"
         android:name="${applicationName}"
         android:icon="@mipmap/ic_launcher">
@@ -17,9 +34,8 @@
                  while the Flutter UI initializes. After that, this theme continues
                  to determine the Window background behind the Flutter UI. -->
             <meta-data
-              android:name="io.flutter.embedding.android.NormalTheme"
-              android:resource="@style/NormalTheme"
-              />
+                android:name="io.flutter.embedding.android.NormalTheme"
+                android:resource="@style/NormalTheme"/>
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
                 <category android:name="android.intent.category.LAUNCHER"/>
@@ -31,8 +47,7 @@
             android:name="flutterEmbedding"
             android:value="2" />
     </application>
+
+    <!-- IR transmission permission -->
     <uses-permission android:name="android.permission.TRANSMIT_IR" />
-    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
-    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
-    <uses-permission android:name="android.permission.MANAGE_EXTERNAL_STORAGE"/>
 </manifest>
