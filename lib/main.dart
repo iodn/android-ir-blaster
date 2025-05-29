@@ -2,10 +2,13 @@ import 'package:dynamic_color/dynamic_color.dart';
 import 'package:flutter/material.dart';
 import 'package:irblaster_controller/utils/remote.dart';
 import 'package:irblaster_controller/widgets/remote_list.dart';
+import 'package:media_store_plus/media_store_plus.dart';
 
 List<Remote> remotes = [];
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
+  await MediaStore.ensureInitialized();
+  MediaStore.appFolder = 'IRBlaster';
   remotes = await readRemotes();
 
   if (remotes.isEmpty) {

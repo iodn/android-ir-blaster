@@ -128,7 +128,7 @@ class RemoteViewState extends State<RemoteView> {
 
         // If raw => "RAW", else => 8-digit hex (or "NO CODE" if null)
         final String codeLabel = isRaw
-            ? 'RAW'
+            ? 'RAW CODE'
             : (button.code != null
                 ? button.code!.toRadixString(16).padLeft(8, '0').toUpperCase()
                 : 'NO CODE');
@@ -140,7 +140,7 @@ class RemoteViewState extends State<RemoteView> {
           shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(8),
           ),
-          color: Theme.of(context).colorScheme.primary..withValues(alpha: 0.2),
+          color: Theme.of(context).colorScheme.primary.withValues(alpha: 0.2),
           child: InkWell(
             onTap: () => sendIR(button),
             child: Padding(
@@ -167,7 +167,7 @@ class RemoteViewState extends State<RemoteView> {
                       color: Theme.of(context)
                           .colorScheme
                           .onSurface
-                          .withValues(alpha: 0.2),
+                          .withValues(alpha: 0.6),
                     ),
                   ),
                 ],

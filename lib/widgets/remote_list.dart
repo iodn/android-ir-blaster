@@ -9,6 +9,7 @@ import 'package:irblaster_controller/widgets/remote_view.dart';
 import 'package:permission_handler/permission_handler.dart';
 import 'package:file_picker/file_picker.dart';
 import 'package:path_provider/path_provider.dart';
+import 'package:media_store_plus/media_store_plus.dart';
 import 'package:reorderable_grid_view/reorderable_grid_view.dart';
 
 class RemoteList extends StatefulWidget {
@@ -34,28 +35,36 @@ class _RemoteListState extends State<RemoteList> {
   }
 
   Future<void> backupRemotes() async {
-    await requestStoragePermission();
-    if (Platform.isAndroid) {
-      if (!await Permission.manageExternalStorage.isGranted) {
-        if (!mounted) return;
-        ScaffoldMessenger.of(context).showSnackBar(
-          const SnackBar(content: Text('Storage permission denied')),
-        );
-        return;
-      }
-      Directory? downloadsDir = Directory('/storage/emulated/0/Download');
-      if (!downloadsDir.existsSync()) {
-        downloadsDir = await getExternalStorageDirectory();
-      }
+    final mediaStore = MediaStore();
+
+    try {
       final timestamp = DateTime.now().millisecondsSinceEpoch;
-      String path = '${downloadsDir!.path}/remotes_backup_$timestamp.json';
-      final File backupFile = File(path);
-      final String jsonString =
-          jsonEncode(remotes.map((r) => r.toJson()).toList());
-      await backupFile.writeAsString(jsonString);
+      final fileName = 'irblaster_backup_$timestamp.json';
+      final jsonString = jsonEncode(remotes.map((r) => r.toJson()).toList());
+
+      final tempDir = await getTemporaryDirectory();
+      final tempPath = '${tempDir.path}/$fileName';
+      final tempFile = File(tempPath);
+      await tempFile.writeAsString(jsonString);
+
+      await mediaStore.saveFile(
+        tempFilePath: tempPath,
+        dirType: DirType.download,
+        dirName: DirName.download,
+      );
+
+      final publicPath = '/storage/emulated/0/Download' +
+          '/${MediaStore.appFolder}' +
+          '/$fileName';
+
       if (!mounted) return;
       ScaffoldMessenger.of(context).showSnackBar(
-        SnackBar(content: Text('Backup saved in: $path')),
+        SnackBar(content: Text('Backup saved in: $publicPath')),
+      );
+    } catch (e) {
+      if (!mounted) return;
+      ScaffoldMessenger.of(context).showSnackBar(
+        SnackBar(content: Text('Failed to save backup: $e')),
       );
     }
   }
@@ -64,11 +73,13 @@ class _RemoteListState extends State<RemoteList> {
     FilePickerResult? result = await FilePicker.platform.pickFiles(
       type: FileType.any,
     );
+
     if (result != null) {
       final filePath = result.files.single.path;
       if (filePath != null) {
         final file = File(filePath);
         final contents = await file.readAsString();
+
         if (filePath.toLowerCase().endsWith('.json')) {
           try {
             List<dynamic> jsonData = jsonDecode(contents);
@@ -76,11 +87,7 @@ class _RemoteListState extends State<RemoteList> {
                 .map((data) => Remote.fromJson(data as Map<String, dynamic>))
                 .toList();
             setState(() {
-              remotes = imported;
-              // Reassign ids based on the new order.
-              for (int i = 0; i < remotes.length; i++) {
-                remotes[i].id = i + 1;
-              }
+              remotes = imported; // or remotes.addAll(imported);
             });
           } catch (e) {
             if (!mounted) return;
@@ -99,6 +106,7 @@ class _RemoteListState extends State<RemoteList> {
           );
           return;
         }
+
         await writeRemotelist(remotes);
         if (!mounted) return;
         ScaffoldMessenger.of(context).showSnackBar(
@@ -248,7 +256,7 @@ class _RemoteListState extends State<RemoteList> {
                     shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(8),
                     ),
-                    child: InkWell(
+                    child: GestureDetector(
                       onTap: () {
                         Navigator.push(
                           context,

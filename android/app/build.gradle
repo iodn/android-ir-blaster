@@ -43,7 +43,7 @@ android {
 
     defaultConfig {
         applicationId "org.nslabs.ir_blaster"
-        minSdkVersion 19
+        minSdkVersion flutter.minSdkVersion
         targetSdkVersion flutter.targetSdkVersion
         versionCode flutterVersionCode.toInteger()
         versionName flutterVersionName
@@ -70,6 +70,16 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
             minifyEnabled true
             shrinkResources true
+        }
+    }
+
+    packagingOptions {
+        jniLibs {
+            each { file ->
+                if (file.name.endsWith('.so')) {
+                    file.alignment = 16384 // 16 KB
+                }
+            }
         }
     }
 
