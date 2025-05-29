@@ -1,6 +1,6 @@
 # IR Blaster
 
-<a href="https://f-droid.org/packages/org.nslabs.ir_blaster/">
+<a href="https://play.google.com/store/apps/details?id=org.nslabs.ir_blaster">
   <img src="https://github.com/user-attachments/assets/8531b640-4436-46da-a709-6a6014bdf3f6" alt="Android Infrared Blaster App">
 </a>
 
@@ -28,9 +28,9 @@ IR Blaster supports both hexadecimal (e.g., NEC, NECext) and raw IR codes, offer
 
 1. **Download the APK:**
    
-[<img src="https://fdroid.gitlab.io/artwork/badge/get-it-on.png"
-     alt="Get it on F-Droid"
-     height="80">](https://f-droid.org/packages/org.nslabs.ir_blaster/)
+[<img src="https://raw.githubusercontent.com/pioug/google-play-badges/06ccd9252af1501613da2ca28eaffe31307a4e6d/svg/English.svg"
+     alt="Get it on Google Play"
+     height="80">](https://play.google.com/store/apps/details?id=org.nslabs.ir_blaster)
      
 Or you can download the latest APK from the [Releases Section](https://github.com/iodn/android-ir-blaster/releases/latest).
 
