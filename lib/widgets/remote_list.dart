@@ -1,6 +1,5 @@
 import 'dart:convert';
 import 'dart:io';
-
 import 'package:flutter/material.dart';
 import 'package:irblaster_controller/main.dart';
 import 'package:irblaster_controller/utils/remote.dart';
@@ -36,27 +35,22 @@ class _RemoteListState extends State<RemoteList> {
 
   Future<void> backupRemotes() async {
     final mediaStore = MediaStore();
-
     try {
       final timestamp = DateTime.now().millisecondsSinceEpoch;
       final fileName = 'irblaster_backup_$timestamp.json';
       final jsonString = jsonEncode(remotes.map((r) => r.toJson()).toList());
-
       final tempDir = await getTemporaryDirectory();
       final tempPath = '${tempDir.path}/$fileName';
       final tempFile = File(tempPath);
       await tempFile.writeAsString(jsonString);
-
       await mediaStore.saveFile(
         tempFilePath: tempPath,
         dirType: DirType.download,
         dirName: DirName.download,
       );
-
       final publicPath = '/storage/emulated/0/Download' +
           '/${MediaStore.appFolder}' +
           '/$fileName';
-
       if (!mounted) return;
       ScaffoldMessenger.of(context).showSnackBar(
         SnackBar(content: Text('Backup saved in: $publicPath')),
@@ -73,13 +67,11 @@ class _RemoteListState extends State<RemoteList> {
     FilePickerResult? result = await FilePicker.platform.pickFiles(
       type: FileType.any,
     );
-
     if (result != null) {
       final filePath = result.files.single.path;
       if (filePath != null) {
         final file = File(filePath);
         final contents = await file.readAsString();
-
         if (filePath.toLowerCase().endsWith('.json')) {
           try {
             List<dynamic> jsonData = jsonDecode(contents);
@@ -106,7 +98,6 @@ class _RemoteListState extends State<RemoteList> {
           );
           return;
         }
-
         await writeRemotelist(remotes);
         if (!mounted) return;
         ScaffoldMessenger.of(context).showSnackBar(
@@ -250,13 +241,12 @@ class _RemoteListState extends State<RemoteList> {
                 itemBuilder: (context, index) {
                   final remote = remotes[index];
                   return Card(
-                    // Use ObjectKey(remote) so the key stays constant even if remote.id is updated.
                     key: ObjectKey(remote),
                     color: cardColor,
                     shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(8),
                     ),
-                    child: GestureDetector(
+                    child: InkWell(
                       onTap: () {
                         Navigator.push(
                           context,
@@ -265,53 +255,77 @@ class _RemoteListState extends State<RemoteList> {
                           ),
                         );
                       },
+                      borderRadius: BorderRadius.circular(8),
                       child: Column(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
-                          Padding(
-                            padding: const EdgeInsets.all(8.0),
-                            child: Text(
-                              remote.name,
-                              style: const TextStyle(
-                                  fontSize: 18, fontWeight: FontWeight.bold),
-                              textAlign: TextAlign.center,
+                          // Make the top area expandable and clickable
+                          Expanded(
+                            child: Container(
+                              width: double.infinity,
+                              padding: const EdgeInsets.all(8.0),
+                              alignment: Alignment.center,
+                              child: Text(
+                                remote.name,
+                                style: const TextStyle(
+                                  fontSize: 18,
+                                  fontWeight: FontWeight.bold,
+                                ),
+                                textAlign: TextAlign.center,
+                                overflow: TextOverflow.ellipsis,
+                                maxLines: 2,
+                              ),
                             ),
                           ),
-                          OverflowBar(
-                            alignment: MainAxisAlignment.center,
-                            children: [
-                              IconButton(
-                                icon: const Icon(Icons.edit),
-                                onPressed: () async {
-                                  try {
-                                    Remote editedRemote = await Navigator.push(
-                                      context,
-                                      MaterialPageRoute(
-                                        builder: (context) =>
-                                            CreateRemote(remote: remote),
-                                      ),
-                                    );
-                                    setState(() {
-                                      remotes[index] = editedRemote;
-                                    });
-                                  } catch (e) {
-                                    // Handle error if needed.
-                                  }
-                                },
+                          // Keep the buttons at the bottom
+                          Container(
+                            decoration: BoxDecoration(
+                              color: Theme.of(context)
+                                  .colorScheme
+                                  .surface
+                                  .withValues(alpha: 0.1),
+                              borderRadius: const BorderRadius.only(
+                                bottomLeft: Radius.circular(8),
+                                bottomRight: Radius.circular(8),
                               ),
-                              IconButton(
-                                icon: const Icon(Icons.delete),
-                                onPressed: () {
-                                  setState(() {
-                                    remotes.removeAt(index);
-                                    // Reassign ids after removal.
-                                    for (int i = 0; i < remotes.length; i++) {
-                                      remotes[i].id = i + 1;
+                            ),
+                            child: OverflowBar(
+                              alignment: MainAxisAlignment.center,
+                              children: [
+                                IconButton(
+                                  icon: const Icon(Icons.edit),
+                                  onPressed: () async {
+                                    try {
+                                      Remote editedRemote =
+                                          await Navigator.push(
+                                        context,
+                                        MaterialPageRoute(
+                                          builder: (context) =>
+                                              CreateRemote(remote: remote),
+                                        ),
+                                      );
+                                      setState(() {
+                                        remotes[index] = editedRemote;
+                                      });
+                                    } catch (e) {
+                                      // Handle error if needed.
                                     }
-                                  });
-                                },
-                              ),
-                            ],
+                                  },
+                                ),
+                                IconButton(
+                                  icon: const Icon(Icons.delete),
+                                  onPressed: () {
+                                    setState(() {
+                                      remotes.removeAt(index);
+                                      // Reassign ids after removal.
+                                      for (int i = 0; i < remotes.length; i++) {
+                                        remotes[i].id = i + 1;
+                                      }
+                                    });
+                                  },
+                                ),
+                              ],
+                            ),
                           ),
                         ],
                       ),
@@ -368,6 +382,7 @@ class _RemoteListState extends State<RemoteList> {
 
 class RemoteSearchDelegate extends SearchDelegate {
   final List<Remote> remotes;
+
   RemoteSearchDelegate(this.remotes);
 
   @override

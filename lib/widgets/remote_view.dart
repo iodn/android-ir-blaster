@@ -55,6 +55,15 @@ class RemoteViewState extends State<RemoteView> {
     });
   }
 
+  // Add this method to handle button press with haptic feedback
+  void _handleButtonPress(IRButton button) {
+    // Trigger haptic feedback
+    HapticFeedback.lightImpact();
+    
+    // Send IR signal
+    sendIR(button);
+  }
+
   @override
   Widget build(BuildContext context) {
     final bool useNewStyle = widget.remote.useNewStyle;
@@ -62,6 +71,9 @@ class RemoteViewState extends State<RemoteView> {
     return Scaffold(
       floatingActionButton: FloatingActionButton(
         onPressed: () {
+          // Add haptic feedback for FAB
+          HapticFeedback.selectionClick();
+          
           // Navigate to your remote list screen
           Navigator.push(
             context,
@@ -99,10 +111,10 @@ class RemoteViewState extends State<RemoteView> {
                 child: button.image.startsWith("assets/")
                     ? Image.asset(button.image)
                     : Image.file(File(button.image)),
-                onTap: () => sendIR(button),
+                onTap: () => _handleButtonPress(button),
               )
             : TextButton(
-                onPressed: () => sendIR(button),
+                onPressed: () => _handleButtonPress(button),
                 child: Text(button.image),
               );
       },
@@ -133,7 +145,7 @@ class RemoteViewState extends State<RemoteView> {
                 ? button.code!.toRadixString(16).padLeft(8, '0').toUpperCase()
                 : 'NO CODE');
 
-        // The "title" (top line) can be the button’s image string or name
+        // The "title" (top line) can be the button's image string or name
         final String topLine = button.image;
 
         return Card(
@@ -142,7 +154,7 @@ class RemoteViewState extends State<RemoteView> {
           ),
           color: Theme.of(context).colorScheme.primary.withValues(alpha: 0.2),
           child: InkWell(
-            onTap: () => sendIR(button),
+            onTap: () => _handleButtonPress(button),
             child: Padding(
               padding: const EdgeInsets.all(8.0),
               child: Column(
