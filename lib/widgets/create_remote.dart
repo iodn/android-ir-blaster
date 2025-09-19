@@ -7,6 +7,7 @@ import 'package:irblaster_controller/utils/remote.dart';
 
 class CreateRemote extends StatefulWidget {
   final Remote? remote;
+
   const CreateRemote({super.key, this.remote});
 
   @override
@@ -24,7 +25,6 @@ class _CreateRemoteState extends State<CreateRemote> {
   void initState() {
     remote = widget.remote ?? Remote(buttons: [], name: "Untitled Remote");
     textEditingController.value = TextEditingValue(text: remote.name);
-
     // If editing an existing remote, reflect its current style choice
     useNewStyle = remote.useNewStyle;
     super.initState();
@@ -42,7 +42,6 @@ class _CreateRemoteState extends State<CreateRemote> {
             }
             // Save the style choice into the remote
             remote.useNewStyle = useNewStyle;
-
             Navigator.pop(context, remote);
           },
           child: const Icon(Icons.save)),
@@ -68,6 +67,7 @@ class _CreateRemoteState extends State<CreateRemote> {
               },
             ),
           ),
+
           // 2) The rest of your UI (the grid of buttons, etc.)
           Expanded(
             child: Center(
@@ -79,7 +79,6 @@ class _CreateRemoteState extends State<CreateRemote> {
                   crossAxisCount: 4,
                 ),
                 itemBuilder: (context, index) {
-                  // ... your existing code for displaying or adding buttons ...
                   if (index < remote.buttons.length) {
                     IRButton button = remote.buttons[index];
                     return _buildButtonItem(button, index);

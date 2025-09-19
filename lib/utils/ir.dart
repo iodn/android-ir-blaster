@@ -1,5 +1,6 @@
 import 'package:flutter/foundation.dart';
 import 'package:flutter/services.dart';
+
 import 'remote.dart';
 
 const platform = MethodChannel('org.nslabs/irtransmitter');
@@ -69,7 +70,11 @@ NECParams parseNecParamsFromString(String rawData) {
         final eq = p.indexOf('=');
         if (eq <= 0) continue;
         final key = p.substring(0, eq).trim().toLowerCase();
-        final values = p.substring(eq + 1).split(RegExp(r'[, ]+')).where((e) => e.trim().isNotEmpty).toList();
+        final values = p
+            .substring(eq + 1)
+            .split(RegExp(r'[, ]+'))
+            .where((e) => e.trim().isNotEmpty)
+            .toList();
         if (key == 'h' || key == 'header') {
           if (values.length >= 2) {
             headerMark = int.tryParse(values[0]) ?? headerMark;
@@ -98,14 +103,20 @@ NECParams parseNecParamsFromString(String rawData) {
       );
     } else {
       // Simple 6-number CSV format
-      final nums = body.split(RegExp(r'[, ]+')).where((e) => e.trim().isNotEmpty).toList();
+      final nums = body
+          .split(RegExp(r'[, ]+'))
+          .where((e) => e.trim().isNotEmpty)
+          .toList();
       if (nums.length >= 6) {
-        final headerMark = int.tryParse(nums[0]) ?? NECParams.defaults.headerMark;
-        final headerSpace = int.tryParse(nums[1]) ?? NECParams.defaults.headerSpace;
+        final headerMark =
+            int.tryParse(nums[0]) ?? NECParams.defaults.headerMark;
+        final headerSpace =
+            int.tryParse(nums[1]) ?? NECParams.defaults.headerSpace;
         final bitMark = int.tryParse(nums[2]) ?? NECParams.defaults.bitMark;
         final zeroSpace = int.tryParse(nums[3]) ?? NECParams.defaults.zeroSpace;
         final oneSpace = int.tryParse(nums[4]) ?? NECParams.defaults.oneSpace;
-        final trailerMark = int.tryParse(nums[5]) ?? NECParams.defaults.trailerMark;
+        final trailerMark =
+            int.tryParse(nums[5]) ?? NECParams.defaults.trailerMark;
         return NECParams(
           headerMark: headerMark,
           headerSpace: headerSpace,
@@ -127,7 +138,8 @@ NECParams parseNecParamsFromString(String rawData) {
 /// - Many saved NEC codes are already bit-reversed per byte (LIRC-style).
 /// - Sending MSB-first of that stored value yields LSB-first on the wire.
 /// Times are in microseconds; returns a list alternating mark/space durations.
-List<int> buildNecPatternFromStoredCodeMSBFirst(int code32, {NECParams params = NECParams.defaults}) {
+List<int> buildNecPatternFromStoredCodeMSBFirst(int code32,
+    {NECParams params = NECParams.defaults}) {
   final int nec = code32 & 0xFFFFFFFF;
 
   final List<int> pattern = [];
@@ -153,7 +165,8 @@ List<int> buildNecPatternFromStoredCodeMSBFirst(int code32, {NECParams params = 
 }
 
 /// Optional builder if you ever store non-bit-reversed raw codes and want literal LSB-first.
-List<int> buildNecPatternLSBFirst(int code32, {NECParams params = NECParams.defaults}) {
+List<int> buildNecPatternLSBFirst(int code32,
+    {NECParams params = NECParams.defaults}) {
   final int nec = code32 & 0xFFFFFFFF;
   final List<int> pattern = [];
   pattern.add(params.headerMark);
@@ -225,7 +238,8 @@ Future<void> transmitRaw(int frequency, List<int> pattern) async {
   _validateFrequency(frequency);
   _validatePattern(pattern, where: 'rawPattern');
   try {
-    await platform.invokeMethod("transmitRaw", {"frequency": frequency, "list": pattern});
+    await platform
+        .invokeMethod("transmitRaw", {"frequency": frequency, "list": pattern});
   } catch (e, st) {
     _reportFlutterError('transmitRaw()', e, st);
     rethrow;
@@ -254,8 +268,10 @@ List<int> convertNECtoList(int nec) {
 /// Helper function that sends the IR signal based on the button type.
 /// If the button contains rawData and frequency:
 ///   - If rawData encodes "NEC:..." custom timings and the button has a hex code,
-///     it synthesizes a NEC pattern from the stored code (MSB-first over stored value)
-///     and transmits as raw at the provided frequency.
+///     it synthesizes a NEC pattern from the stored code and transmits as raw
+///     at the provided frequency. Bit order can be chosen via button.necBitOrder:
+///       * 'lsb' => literal LSB-first
+///       * 'msb' (default) => MSB-first over stored value (compat with LIRC-style)
 ///   - Otherwise it parses rawData as space-separated integers and transmits raw.
 /// Else if the button has a hex NEC code, it uses default NEC timings.
 Future<void> sendIR(IRButton button) async {
@@ -264,13 +280,14 @@ Future<void> sendIR(IRButton button) async {
 
   if (hasRaw && hasFreq) {
     if (isNecConfigString(button.rawData)) {
-      // Custom NEC timings path (compatible bit order for stored codes)
+      // Custom NEC timings path
       if (button.code != null) {
         final params = parseNecParamsFromString(button.rawData!);
-        final pattern = buildNecPatternFromStoredCodeMSBFirst(
-          button.code!,
-          params: params,
-        );
+        final useLsb =
+            (button.necBitOrder ?? 'msb').toLowerCase().trim() == 'lsb';
+        final pattern = useLsb
+            ? buildNecPatternLSBFirst(button.code!, params: params)
+            : buildNecPatternFromStoredCodeMSBFirst(button.code!, params: params);
         await transmitRaw(button.frequency ?? kDefaultNecFrequencyHz, pattern);
         return;
       } else {
@@ -292,7 +309,8 @@ Future<void> sendIR(IRButton button) async {
     for (int i = 0; i < parts.length; i++) {
       final parsed = int.tryParse(parts[i]);
       if (parsed == null) {
-        throw FormatException('Invalid integer in raw data at index $i: "${parts[i]}"');
+        throw FormatException(
+            'Invalid integer in raw data at index $i: "${parts[i]}"');
       }
       pattern.add(parsed);
     }

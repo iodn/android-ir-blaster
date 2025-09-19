@@ -1,12 +1,15 @@
 import 'dart:io';
+
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+
 import 'package:irblaster_controller/widgets/code_test.dart';
 import 'package:irblaster_controller/utils/remote.dart';
 import 'package:irblaster_controller/utils/ir.dart';
 
 class CreateButton extends StatefulWidget {
   final IRButton? button;
+
   const CreateButton({super.key, this.button});
 
   @override
@@ -16,20 +19,32 @@ class CreateButton extends StatefulWidget {
 class _CreateButtonState extends State<CreateButton> {
   // Hex inputs
   final TextEditingController codeController = TextEditingController(); // for hex
-  final TextEditingController hexFreqController = TextEditingController(); // for hex frequency (optional/custom)
+  final TextEditingController hexFreqController =
+      TextEditingController(); // for hex frequency (optional/custom)
+
   // Raw inputs
-  final TextEditingController rawDataController = TextEditingController(); // for raw pattern
-  final TextEditingController freqController = TextEditingController(); // for raw frequency
+  final TextEditingController rawDataController =
+      TextEditingController(); // for raw pattern
+  final TextEditingController freqController =
+      TextEditingController(); // for raw frequency
+
   // Label inputs
-  final TextEditingController nameController = TextEditingController(); // for button text
+  final TextEditingController nameController =
+      TextEditingController(); // for button text
 
   // Advanced NEC timing controllers
-  final TextEditingController headerMarkCtrl = TextEditingController(text: NECParams.defaults.headerMark.toString());
-  final TextEditingController headerSpaceCtrl = TextEditingController(text: NECParams.defaults.headerSpace.toString());
-  final TextEditingController bitMarkCtrl = TextEditingController(text: NECParams.defaults.bitMark.toString());
-  final TextEditingController zeroSpaceCtrl = TextEditingController(text: NECParams.defaults.zeroSpace.toString());
-  final TextEditingController oneSpaceCtrl = TextEditingController(text: NECParams.defaults.oneSpace.toString());
-  final TextEditingController trailerMarkCtrl = TextEditingController(text: NECParams.defaults.trailerMark.toString());
+  final TextEditingController headerMarkCtrl =
+      TextEditingController(text: NECParams.defaults.headerMark.toString());
+  final TextEditingController headerSpaceCtrl =
+      TextEditingController(text: NECParams.defaults.headerSpace.toString());
+  final TextEditingController bitMarkCtrl =
+      TextEditingController(text: NECParams.defaults.bitMark.toString());
+  final TextEditingController zeroSpaceCtrl =
+      TextEditingController(text: NECParams.defaults.zeroSpace.toString());
+  final TextEditingController oneSpaceCtrl =
+      TextEditingController(text: NECParams.defaults.oneSpace.toString());
+  final TextEditingController trailerMarkCtrl =
+      TextEditingController(text: NECParams.defaults.trailerMark.toString());
 
   Widget? image;
   String? imagePath;
@@ -40,9 +55,13 @@ class _CreateButtonState extends State<CreateButton> {
   // When true, use custom NEC timings for hex code (stored in rawData as "NEC:..." and use hexFreqController).
   bool useCustomNec = false;
 
+  // Bit order toggle for custom NEC synthesis: false = MSB (compat), true = LSB (literal).
+  bool necBitOrderIsLsb = false;
+
   @override
   void initState() {
     super.initState();
+
     // If editing an existing button, fill fields accordingly
     if (widget.button != null) {
       final b = widget.button!;
@@ -52,16 +71,19 @@ class _CreateButtonState extends State<CreateButton> {
       if (hasRaw && isNecConfigString(b.rawData)) {
         isHex = true;
         useCustomNec = true;
+
         // Hex code
         if (b.code != null) {
           codeController.text = b.code!.toRadixString(16);
         }
+
         // Frequency for hex
         if (b.frequency != null && b.frequency! > 0) {
           hexFreqController.text = b.frequency!.toString();
         } else {
           hexFreqController.text = kDefaultNecFrequencyHz.toString();
         }
+
         // Parse NEC params
         final params = parseNecParamsFromString(b.rawData!);
         headerMarkCtrl.text = params.headerMark.toString();
@@ -70,6 +92,9 @@ class _CreateButtonState extends State<CreateButton> {
         zeroSpaceCtrl.text = params.zeroSpace.toString();
         oneSpaceCtrl.text = params.oneSpace.toString();
         trailerMarkCtrl.text = params.trailerMark.toString();
+
+        // Bit order (optional)
+        necBitOrderIsLsb = (b.necBitOrder ?? 'msb').toLowerCase() == 'lsb';
       } else if (hasRaw) {
         // Regular raw pattern
         isHex = false;
@@ -128,7 +153,8 @@ class _CreateButtonState extends State<CreateButton> {
               child: SizedBox(
                 height: 220,
                 child: Builder(builder: ((context) {
-                  final TabController tabController = DefaultTabController.of(context);
+                  final TabController tabController =
+                      DefaultTabController.of(context);
                   tabController.addListener(() {
                     if (tabController.index == 1) {
                       setState(() {
@@ -173,7 +199,8 @@ class _CreateButtonState extends State<CreateButton> {
                                   return AlertDialog(
                                     content: Column(
                                       mainAxisSize: MainAxisSize.min,
-                                      mainAxisAlignment: MainAxisAlignment.center,
+                                      mainAxisAlignment:
+                                          MainAxisAlignment.center,
                                       children: [
                                         TextButton(
                                           onPressed: () {
@@ -202,21 +229,32 @@ class _CreateButtonState extends State<CreateButton> {
                                                   content: SizedBox(
                                                     width: 300,
                                                     child: GridView.builder(
-                                                      gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+                                                      gridDelegate:
+                                                          const SliverGridDelegateWithFixedCrossAxisCount(
                                                         crossAxisCount: 2,
                                                       ),
-                                                      itemCount: defaultImages.length,
-                                                      padding: const EdgeInsets.all(1),
-                                                      itemBuilder: (context, index) {
+                                                      itemCount:
+                                                          defaultImages.length,
+                                                      padding:
+                                                          const EdgeInsets.all(
+                                                              1),
+                                                      itemBuilder:
+                                                          (context, index) {
                                                         return ElevatedButton(
                                                           onPressed: () {
-                                                            Navigator.pop(context);
-                                                            Navigator.pop(context);
+                                                            Navigator.pop(
+                                                                context);
+                                                            Navigator.pop(
+                                                                context);
                                                             setState(() {
-                                                              image = Image.asset(
-                                                                defaultImages[index],
+                                                              image =
+                                                                  Image.asset(
+                                                                defaultImages[
+                                                                    index],
                                                               );
-                                                              imagePath = defaultImages[index];
+                                                              imagePath =
+                                                                  defaultImages[
+                                                                      index];
                                                             });
                                                           },
                                                           child: Image.asset(
@@ -268,7 +306,9 @@ class _CreateButtonState extends State<CreateButton> {
                 })),
               ),
             ),
+
             const SizedBox(height: 10),
+
             // 2) Radio row: pick Hex code vs. Raw code
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
@@ -296,6 +336,7 @@ class _CreateButtonState extends State<CreateButton> {
                 const Text("Raw code"),
               ],
             ),
+
             // 3) Conditionally show fields
             const Divider(),
             if (isHex)
@@ -340,7 +381,8 @@ class _CreateButtonState extends State<CreateButton> {
           );
           return;
         }
-        if (hexFreqController.text.isNotEmpty && int.tryParse(hexFreqController.text) == null) {
+        if (hexFreqController.text.isNotEmpty &&
+            int.tryParse(hexFreqController.text) == null) {
           ScaffoldMessenger.of(context).showSnackBar(
             const SnackBar(content: Text("Frequency must be numeric")),
           );
@@ -371,17 +413,28 @@ class _CreateButtonState extends State<CreateButton> {
       // If using custom NEC timings, encode NEC params in rawData as "NEC:..." and use hex frequency.
       String? rawDataForNec;
       int? freqForNec;
+      String? bitOrder;
+
       if (useCustomNec) {
-        final hMark = int.tryParse(headerMarkCtrl.text) ?? NECParams.defaults.headerMark;
-        final hSpace = int.tryParse(headerSpaceCtrl.text) ?? NECParams.defaults.headerSpace;
-        final bMark = int.tryParse(bitMarkCtrl.text) ?? NECParams.defaults.bitMark;
-        final zSpace = int.tryParse(zeroSpaceCtrl.text) ?? NECParams.defaults.zeroSpace;
-        final oSpace = int.tryParse(oneSpaceCtrl.text) ?? NECParams.defaults.oneSpace;
-        final tMark = int.tryParse(trailerMarkCtrl.text) ?? NECParams.defaults.trailerMark;
+        final hMark = int.tryParse(headerMarkCtrl.text) ??
+            NECParams.defaults.headerMark;
+        final hSpace = int.tryParse(headerSpaceCtrl.text) ??
+            NECParams.defaults.headerSpace;
+        final bMark =
+            int.tryParse(bitMarkCtrl.text) ?? NECParams.defaults.bitMark;
+        final zSpace =
+            int.tryParse(zeroSpaceCtrl.text) ?? NECParams.defaults.zeroSpace;
+        final oSpace =
+            int.tryParse(oneSpaceCtrl.text) ?? NECParams.defaults.oneSpace;
+        final tMark = int.tryParse(trailerMarkCtrl.text) ??
+            NECParams.defaults.trailerMark;
+
         // Keyed format for forward-compatibility and readability.
         rawDataForNec = "NEC:h=$hMark,$hSpace;b=$bMark,$zSpace,$oSpace;t=$tMark";
         freqForNec = int.tryParse(hexFreqController.text);
         freqForNec ??= kDefaultNecFrequencyHz;
+
+        bitOrder = necBitOrderIsLsb ? 'lsb' : 'msb';
       }
 
       button = IRButton(
@@ -390,6 +443,7 @@ class _CreateButtonState extends State<CreateButton> {
         frequency: rawDataForNec != null ? freqForNec : null,
         image: imagePath ?? nameController.text,
         isImage: imagePath != null,
+        necBitOrder: bitOrder,
       );
     } else {
       // Parse raw data + freq
@@ -460,6 +514,16 @@ class _CreateButtonState extends State<CreateButton> {
             ),
             if (useCustomNec) ...[
               const SizedBox(height: 8),
+
+              // Bit order switch for custom NEC
+              SwitchListTile(
+                title: const Text("Send literal LSB-first"),
+                subtitle: const Text(
+                    "Off = MSB-first"),
+                value: necBitOrderIsLsb,
+                onChanged: (v) => setState(() => necBitOrderIsLsb = v),
+              ),
+
               // Frequency for hex (raw transmit)
               TextField(
                 controller: hexFreqController,
@@ -473,6 +537,7 @@ class _CreateButtonState extends State<CreateButton> {
                 ),
               ),
               const SizedBox(height: 12),
+
               Row(
                 children: [
                   Expanded(
@@ -501,6 +566,7 @@ class _CreateButtonState extends State<CreateButton> {
                 ],
               ),
               const SizedBox(height: 10),
+
               Row(
                 children: [
                   Expanded(
@@ -529,6 +595,7 @@ class _CreateButtonState extends State<CreateButton> {
                 ],
               ),
               const SizedBox(height: 10),
+
               Row(
                 children: [
                   Expanded(
@@ -556,11 +623,12 @@ class _CreateButtonState extends State<CreateButton> {
                   ),
                 ],
               ),
-              const SizedBox(height: 8),
+              const SizedBox(height: 10),
+
               const Align(
                 alignment: Alignment.centerLeft,
                 child: Text(
-                  "Note: NEC sends 32 bits LSB-first. These timings are per NEC spec but can be adjusted for device variations.",
+                  "Note: NEC sends 32 bits LSB-first on the wire. Use LSB mode if your hex code is stored in natural order or use MSB mode for LIRC-style stored codes.",
                   style: TextStyle(fontSize: 12),
                 ),
               ),

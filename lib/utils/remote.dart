@@ -11,12 +11,17 @@ class IRButton {
   final String image;
   final bool isImage;
 
+  // Bit order hint for NEC synthesis when using custom NEC timings:
+  // 'msb' (default/compat) or 'lsb' (literal LSB-first on wire).
+  final String? necBitOrder;
+
   const IRButton({
     this.code,
     this.rawData,
     this.frequency,
     required this.image,
     required this.isImage,
+    this.necBitOrder, // optional
   });
 
   Map<String, dynamic> toJson() => {
@@ -25,6 +30,7 @@ class IRButton {
         'frequency': frequency,
         'image': image,
         'isImage': isImage,
+        'necBitOrder': necBitOrder,
       };
 
   factory IRButton.fromJson(Map<String, dynamic> json) {
@@ -34,6 +40,7 @@ class IRButton {
       frequency: json['frequency'],
       image: json['image'],
       isImage: json['isImage'],
+      necBitOrder: json['necBitOrder'],
     );
   }
 }
