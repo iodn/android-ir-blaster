@@ -13,7 +13,7 @@ import io.flutter.plugin.common.MethodChannel
 class MainActivity: FlutterActivity() {
     companion object {
         private const val CHANNEL = "org.nslabs/irtransmitter"
-        private const val DEFAULT_HEX_FREQUENCY = 38028
+        private const val DEFAULT_HEX_FREQUENCY = 38000
     }
 
     private var irManager: ConsumerIrManager? = null
