@@ -1,5 +1,6 @@
 import 'dart:convert';
 import 'dart:io';
+
 import 'package:flutter/material.dart';
 import 'package:irblaster_controller/main.dart';
 import 'package:irblaster_controller/utils/remote.dart';
@@ -22,8 +23,7 @@ class _RemoteListState extends State<RemoteList> {
   Future<void> requestStoragePermission() async {
     if (Platform.isAndroid) {
       if (await Permission.manageExternalStorage.isGranted) return;
-      PermissionStatus status =
-          await Permission.manageExternalStorage.request();
+      PermissionStatus status = await Permission.manageExternalStorage.request();
       if (!status.isGranted) {
         if (!mounted) return;
         ScaffoldMessenger.of(context).showSnackBar(
@@ -43,14 +43,17 @@ class _RemoteListState extends State<RemoteList> {
       final tempPath = '${tempDir.path}/$fileName';
       final tempFile = File(tempPath);
       await tempFile.writeAsString(jsonString);
+
       await mediaStore.saveFile(
         tempFilePath: tempPath,
         dirType: DirType.download,
         dirName: DirName.download,
       );
-      final publicPath = '/storage/emulated/0/Download' +
-          '/${MediaStore.appFolder}' +
+
+      final publicPath = '/storage/emulated/0/Download'
+          '/${MediaStore.appFolder}'
           '/$fileName';
+
       if (!mounted) return;
       ScaffoldMessenger.of(context).showSnackBar(
         SnackBar(content: Text('Backup saved in: $publicPath')),
@@ -67,11 +70,13 @@ class _RemoteListState extends State<RemoteList> {
     FilePickerResult? result = await FilePicker.platform.pickFiles(
       type: FileType.any,
     );
+
     if (result != null) {
       final filePath = result.files.single.path;
       if (filePath != null) {
         final file = File(filePath);
         final contents = await file.readAsString();
+
         if (filePath.toLowerCase().endsWith('.json')) {
           try {
             List<dynamic> jsonData = jsonDecode(contents);
@@ -98,6 +103,7 @@ class _RemoteListState extends State<RemoteList> {
           );
           return;
         }
+
         await writeRemotelist(remotes);
         if (!mounted) return;
         ScaffoldMessenger.of(context).showSnackBar(
@@ -111,9 +117,11 @@ class _RemoteListState extends State<RemoteList> {
     List<String> blocks = content.split('#');
     List<IRButton> buttons = [];
     String remoteName = "Flipper IR Remote";
+
     for (String block in blocks) {
       block = block.trim();
       if (block.isEmpty) continue;
+
       if (block.contains("type: parsed")) {
         final nameMatch = RegExp(r'name:\s*(.+)').firstMatch(block);
         final addressMatch =
@@ -122,41 +130,46 @@ class _RemoteListState extends State<RemoteList> {
         final commandMatch =
             RegExp(r'command:\s*([0-9A-Fa-f]{2})\s+([0-9A-Fa-f]{2})')
                 .firstMatch(block);
+
         if (nameMatch != null && addressMatch != null && commandMatch != null) {
           String name = nameMatch.group(1)!.trim();
           String hexCode = convertToLIRCHex(addressMatch, commandMatch);
+
           buttons.add(IRButton(
-              code: int.parse(hexCode, radix: 16),
-              rawData: null,
-              frequency: null,
-              image: name,
-              isImage: false));
+            code: int.parse(hexCode, radix: 16),
+            rawData: null,
+            frequency: null,
+            image: name,
+            isImage: false,
+          ));
         }
       } else if (block.contains("type: raw")) {
         final nameMatch = RegExp(r'name:\s*(.+)').firstMatch(block);
         final frequencyMatch = RegExp(r'frequency:\s*(\d+)').firstMatch(block);
         final dataMatch = RegExp(r'data:\s*([\d\s]+)').firstMatch(block);
+
         if (nameMatch != null && frequencyMatch != null && dataMatch != null) {
           String name = nameMatch.group(1)!.trim();
           int frequency = int.parse(frequencyMatch.group(1)!);
           String rawData = dataMatch.group(1)!.trim();
+
           buttons.add(IRButton(
-              code: null,
-              rawData: rawData,
-              frequency: frequency,
-              image: name,
-              isImage: false));
+            code: null,
+            rawData: rawData,
+            frequency: frequency,
+            image: name,
+            isImage: false,
+          ));
         }
       }
     }
+
     if (buttons.isNotEmpty) {
       Remote newRemote =
           Remote(name: remoteName, useNewStyle: true, buttons: buttons);
       remotes.add(newRemote);
       // Reassign ids after adding the new remote.
-      for (int i = 0; i < remotes.length; i++) {
-        remotes[i].id = i + 1;
-      }
+      _reassignIds();
     }
   }
 
@@ -165,12 +178,13 @@ class _RemoteListState extends State<RemoteList> {
     int addrByte2 = int.parse(addressMatch.group(2)!, radix: 16);
     int cmdByte1 = int.parse(commandMatch.group(1)!, radix: 16);
     int cmdByte2 = int.parse(commandMatch.group(2)!, radix: 16);
+
     int lircCmd = bitReverse(addrByte1);
-    int lircCmdInv =
-        (addrByte2 == 0) ? (0xFF - lircCmd) : bitReverse(addrByte2);
+    int lircCmdInv = (addrByte2 == 0) ? (0xFF - lircCmd) : bitReverse(addrByte2);
     int lircAddr = bitReverse(cmdByte1);
     int lircAddrInv =
         (cmdByte2 == 0) ? (0xFF - lircAddr) : bitReverse(cmdByte2);
+
     return "${lircCmd.toRadixString(16).padLeft(2, '0')}"
             "${lircCmdInv.toRadixString(16).padLeft(2, '0')}"
             "${lircAddr.toRadixString(16).padLeft(2, '0')}"
@@ -180,8 +194,77 @@ class _RemoteListState extends State<RemoteList> {
 
   int bitReverse(int x) {
     return int.parse(
-        x.toRadixString(2).padLeft(8, '0').split('').reversed.join(),
-        radix: 2);
+      x.toRadixString(2).padLeft(8, '0').split('').reversed.join(),
+      radix: 2,
+    );
+  }
+
+  void _reassignIds() {
+    for (int i = 0; i < remotes.length; i++) {
+      remotes[i].id = i + 1;
+    }
+  }
+
+  Future<bool> _confirmDeleteRemote(BuildContext context, Remote remote) async {
+    final theme = Theme.of(context);
+    return await showModalBottomSheet<bool>(
+          context: context,
+          useSafeArea: true,
+          isScrollControlled: false,
+          shape: const RoundedRectangleBorder(
+            borderRadius: BorderRadius.vertical(top: Radius.circular(16)),
+          ),
+          builder: (ctx) {
+            return Padding(
+              padding: const EdgeInsets.fromLTRB(16, 16, 16, 24),
+              child: Column(
+                mainAxisSize: MainAxisSize.min,
+                children: [
+                  Icon(Icons.warning_amber_rounded,
+                      size: 44, color: theme.colorScheme.error),
+                  const SizedBox(height: 12),
+                  Text(
+                    "Delete remote?",
+                    style: theme.textTheme.titleLarge
+                        ?.copyWith(fontWeight: FontWeight.w700),
+                  ),
+                  const SizedBox(height: 8),
+                  Text(
+                    "“${remote.name}” will be permanently removed. This action can’t be undone.",
+                    textAlign: TextAlign.center,
+                    style: theme.textTheme.bodyMedium?.copyWith(
+                      color:
+                          theme.colorScheme.onSurface.withValues(alpha: 0.75),
+                    ),
+                  ),
+                  const SizedBox(height: 16),
+                  Row(
+                    children: [
+                      Expanded(
+                        child: OutlinedButton(
+                          onPressed: () => Navigator.of(ctx).pop(false),
+                          child: const Text("Cancel"),
+                        ),
+                      ),
+                      const SizedBox(width: 12),
+                      Expanded(
+                        child: ElevatedButton.icon(
+                          style: ElevatedButton.styleFrom(
+                            backgroundColor: theme.colorScheme.error,
+                            foregroundColor: theme.colorScheme.onError,
+                          ),
+                          onPressed: () => Navigator.of(ctx).pop(true),
+                          icon: const Icon(Icons.delete_forever),
+                          label: const Text("Delete"),
+                        ),
+                      ),
+                    ],
+                  ),
+                ],
+              ),
+            );
+          },
+        ).then((value) => value ?? false);
   }
 
   @override
@@ -308,20 +391,29 @@ class _RemoteListState extends State<RemoteList> {
                                         remotes[index] = editedRemote;
                                       });
                                     } catch (e) {
-                                      // Handle error if needed.
+                                      // Swallow if cancelled
                                     }
                                   },
                                 ),
                                 IconButton(
                                   icon: const Icon(Icons.delete),
-                                  onPressed: () {
+                                  onPressed: () async {
+                                    final confirmed = await _confirmDeleteRemote(
+                                        context, remote);
+                                    if (!confirmed) return;
+
                                     setState(() {
                                       remotes.removeAt(index);
-                                      // Reassign ids after removal.
-                                      for (int i = 0; i < remotes.length; i++) {
-                                        remotes[i].id = i + 1;
-                                      }
+                                      _reassignIds();
                                     });
+                                    await writeRemotelist(remotes);
+                                    if (!mounted) return;
+                                    ScaffoldMessenger.of(context).showSnackBar(
+                                      SnackBar(
+                                        content: Text(
+                                            "Deleted “${remote.name}”. This action can’t be undone."),
+                                      ),
+                                    );
                                   },
                                 ),
                               ],
@@ -338,13 +430,12 @@ class _RemoteListState extends State<RemoteList> {
                     final Remote movedRemote = remotes.removeAt(oldIndex);
                     remotes.insert(newIndex, movedRemote);
                     // Reassign ids based on the new order.
-                    for (int i = 0; i < remotes.length; i++) {
-                      remotes[i].id = i + 1;
-                    }
+                    _reassignIds();
                   });
                 },
               ),
             ),
+
             // "Add a remote" button below the grid.
             Padding(
               padding: const EdgeInsets.all(8.0),
@@ -360,12 +451,11 @@ class _RemoteListState extends State<RemoteList> {
                     setState(() {
                       remotes.add(newRemote);
                       // Reassign ids after adding a new remote.
-                      for (int i = 0; i < remotes.length; i++) {
-                        remotes[i].id = i + 1;
-                      }
+                      _reassignIds();
                     });
                     writeRemotelist(remotes);
                   } catch (e) {
+                    // Swallow if cancelled
                     return;
                   }
                 },
@@ -384,6 +474,37 @@ class RemoteSearchDelegate extends SearchDelegate {
   final List<Remote> remotes;
 
   RemoteSearchDelegate(this.remotes);
+
+  Future<bool> _confirmDelete(BuildContext context, String remoteName) async {
+    final theme = Theme.of(context);
+    return await showDialog<bool>(
+      context: context,
+      builder: (ctx) => AlertDialog(
+        icon: Icon(Icons.warning_amber_rounded,
+            color: theme.colorScheme.error, size: 32),
+        title: const Text('Delete remote?'),
+        content: Text(
+          "“$remoteName” will be permanently removed. This action can’t be undone.",
+          style: theme.textTheme.bodyMedium,
+        ),
+        actions: [
+          TextButton(
+            onPressed: () => Navigator.of(ctx).pop(false),
+            child: const Text('Cancel'),
+          ),
+          FilledButton.tonalIcon(
+            onPressed: () => Navigator.of(ctx).pop(true),
+            icon: const Icon(Icons.delete_forever),
+            label: const Text('Delete'),
+            style: FilledButton.styleFrom(
+              foregroundColor: theme.colorScheme.onErrorContainer,
+              backgroundColor: theme.colorScheme.errorContainer,
+            ),
+          ),
+        ],
+      ),
+    ).then((v) => v ?? false);
+  }
 
   @override
   List<Widget>? buildActions(BuildContext context) {
@@ -414,11 +535,13 @@ class RemoteSearchDelegate extends SearchDelegate {
         .where(
             (remote) => remote.name.toLowerCase().contains(query.toLowerCase()))
         .toList();
+
     return ListView.builder(
       padding: const EdgeInsets.all(20),
       itemCount: results.length,
       itemBuilder: (BuildContext context, int index) {
         final remote = results[index];
+
         return Card(
           key: ObjectKey(remote),
           color: Theme.of(context).colorScheme.primary.withValues(alpha: 0.2),
@@ -447,15 +570,25 @@ class RemoteSearchDelegate extends SearchDelegate {
                       remotes[originalIndex] = editedRemote;
                       showSuggestions(context);
                     } catch (e) {
-                      // Handle error if needed.
+                      // Swallow if cancelled
                     }
                   },
                 ),
                 IconButton(
                   icon: const Icon(Icons.delete),
-                  onPressed: () {
+                  onPressed: () async {
+                    final confirm =
+                        await _confirmDelete(context, remote.name);
+                    if (!confirm) return;
                     remotes.remove(remote);
+                    await writeRemotelist(remotes);
                     showSuggestions(context);
+                    ScaffoldMessenger.of(context).showSnackBar(
+                      SnackBar(
+                        content: Text(
+                            "Deleted “${remote.name}”. This action can’t be undone."),
+                      ),
+                    );
                   },
                 ),
               ],
@@ -481,11 +614,13 @@ class RemoteSearchDelegate extends SearchDelegate {
         .where(
             (remote) => remote.name.toLowerCase().contains(query.toLowerCase()))
         .toList();
+
     return ListView.builder(
       padding: const EdgeInsets.all(20),
       itemCount: suggestions.length,
       itemBuilder: (BuildContext context, int index) {
         final remote = suggestions[index];
+
         return Card(
           key: ObjectKey(remote),
           color: Theme.of(context).colorScheme.primary.withValues(alpha: 0.2),
