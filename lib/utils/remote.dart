@@ -87,7 +87,8 @@ Future<File> get _remotesFile async {
 Future<File> writeRemotelist(List<Remote> remotes) async {
   final file = await _remotesFile;
   return file.writeAsString(
-      jsonEncode(remotes.map((remote) => remote.toJson()).toList()));
+    jsonEncode(remotes.map((remote) => remote.toJson()).toList()),
+  );
 }
 
 Future<List<Remote>> readRemotes() async {
@@ -97,10 +98,11 @@ Future<List<Remote>> readRemotes() async {
     List<Remote> remotes = (jsonDecode(contents) as List)
         .map((json) => Remote.fromJson(json as Map<String, dynamic>))
         .toList();
+
     // Update _nextId to be one greater than the maximum loaded remote id.
     if (remotes.isNotEmpty) {
-      int maxId = remotes.fold(
-          0, (prev, remote) => remote.id > prev ? remote.id : prev);
+      int maxId =
+          remotes.fold(0, (prev, remote) => remote.id > prev ? remote.id : prev);
       Remote._nextId = maxId + 1;
     }
     return remotes;
@@ -141,33 +143,181 @@ List<String> defaultImages = [
   "assets/6h.png",
 ];
 
+// Default NEC config for synthesized patterns and a standard 38 kHz carrier.
+const int kDefaultCarrierHz = 38000;
+const String kDefaultNecConfig = "NEC:9000,4500,560,560,1690,560";
+
 List<Remote> writeDefaultRemotes() {
   Remote irblasterRemote = Remote(
     buttons: const [
-      IRButton(code: 0xF700FF, image: "assets/UP.png", isImage: true),
-      IRButton(code: 0xF7807F, image: "assets/DOWN.png", isImage: true),
-      IRButton(code: 0xF740BF, image: "assets/OFF.png", isImage: true),
-      IRButton(code: 0xF7C03F, image: "assets/ON.png", isImage: true),
-      IRButton(code: 0xF720DF, image: "assets/RED.png", isImage: true),
-      IRButton(code: 0xF7A05F, image: "assets/GREEN.png", isImage: true),
-      IRButton(code: 0xF7609F, image: "assets/BLUE.png", isImage: true),
-      IRButton(code: 0xF7E01F, image: "assets/WARM.png", isImage: true),
-      IRButton(code: 0xF710EF, image: "assets/RED0.png", isImage: true),
-      IRButton(code: 0xF7906F, image: "assets/GREEN0.png", isImage: true),
-      IRButton(code: 0xF750AF, image: "assets/BLUE0.png", isImage: true),
-      IRButton(code: 0xF7D02F, image: "assets/FLASH.png", isImage: true),
-      IRButton(code: 0xF730CF, image: "assets/RED1.png", isImage: true),
-      IRButton(code: 0xF7B04F, image: "assets/GREEN1.png", isImage: true),
-      IRButton(code: 0xF7708F, image: "assets/BLUE1.png", isImage: true),
-      IRButton(code: 0xF7F00F, image: "assets/STROBE.png", isImage: true),
-      IRButton(code: 0xF708F7, image: "assets/RED2.png", isImage: true),
-      IRButton(code: 0xF78877, image: "assets/GREEN2.png", isImage: true),
-      IRButton(code: 0xF748B7, image: "assets/BLUE2.png", isImage: true),
-      IRButton(code: 0xF7C837, image: "assets/COOL.png", isImage: true),
-      IRButton(code: 0xF728D7, image: "assets/1h.png", isImage: true),
-      IRButton(code: 0xF7A857, image: "assets/2h.png", isImage: true),
-      IRButton(code: 0xF76897, image: "assets/4h.png", isImage: true),
-      IRButton(code: 0xF7E817, image: "assets/6h.png", isImage: true),
+      IRButton(
+        code: 0x00F700FF,
+        rawData: kDefaultNecConfig,
+        frequency: kDefaultCarrierHz,
+        image: "assets/UP.png",
+        isImage: true,
+      ),
+      IRButton(
+        code: 0x00F7807F,
+        rawData: kDefaultNecConfig,
+        frequency: kDefaultCarrierHz,
+        image: "assets/DOWN.png",
+        isImage: true,
+      ),
+      IRButton(
+        code: 0x00F740BF,
+        rawData: kDefaultNecConfig,
+        frequency: kDefaultCarrierHz,
+        image: "assets/OFF.png",
+        isImage: true,
+      ),
+      IRButton(
+        code: 0x00F7C03F,
+        rawData: kDefaultNecConfig,
+        frequency: kDefaultCarrierHz,
+        image: "assets/ON.png",
+        isImage: true,
+      ),
+      IRButton(
+        code: 0x00F720DF,
+        rawData: kDefaultNecConfig,
+        frequency: kDefaultCarrierHz,
+        image: "assets/RED.png",
+        isImage: true,
+      ),
+      IRButton(
+        code: 0x00F7A05F,
+        rawData: kDefaultNecConfig,
+        frequency: kDefaultCarrierHz,
+        image: "assets/GREEN.png",
+        isImage: true,
+      ),
+      IRButton(
+        code: 0x00F7609F,
+        rawData: kDefaultNecConfig,
+        frequency: kDefaultCarrierHz,
+        image: "assets/BLUE.png",
+        isImage: true,
+      ),
+      IRButton(
+        code: 0x00F7E01F,
+        rawData: kDefaultNecConfig,
+        frequency: kDefaultCarrierHz,
+        image: "assets/WARM.png",
+        isImage: true,
+      ),
+      IRButton(
+        code: 0x00F710EF,
+        rawData: kDefaultNecConfig,
+        frequency: kDefaultCarrierHz,
+        image: "assets/RED0.png",
+        isImage: true,
+      ),
+      IRButton(
+        code: 0x00F7906F,
+        rawData: kDefaultNecConfig,
+        frequency: kDefaultCarrierHz,
+        image: "assets/GREEN0.png",
+        isImage: true,
+      ),
+      IRButton(
+        code: 0x00F750AF,
+        rawData: kDefaultNecConfig,
+        frequency: kDefaultCarrierHz,
+        image: "assets/BLUE0.png",
+        isImage: true,
+      ),
+      IRButton(
+        code: 0x00F7D02F,
+        rawData: kDefaultNecConfig,
+        frequency: kDefaultCarrierHz,
+        image: "assets/FLASH.png",
+        isImage: true,
+      ),
+      IRButton(
+        code: 0x00F730CF,
+        rawData: kDefaultNecConfig,
+        frequency: kDefaultCarrierHz,
+        image: "assets/RED1.png",
+        isImage: true,
+      ),
+      IRButton(
+        code: 0x00F7B04F,
+        rawData: kDefaultNecConfig,
+        frequency: kDefaultCarrierHz,
+        image: "assets/GREEN1.png",
+        isImage: true,
+      ),
+      IRButton(
+        code: 0x00F7708F,
+        rawData: kDefaultNecConfig,
+        frequency: kDefaultCarrierHz,
+        image: "assets/BLUE1.png",
+        isImage: true,
+      ),
+      IRButton(
+        code: 0x00F7F00F,
+        rawData: kDefaultNecConfig,
+        frequency: kDefaultCarrierHz,
+        image: "assets/STROBE.png",
+        isImage: true,
+      ),
+      IRButton(
+        code: 0x00F708F7,
+        rawData: kDefaultNecConfig,
+        frequency: kDefaultCarrierHz,
+        image: "assets/RED2.png",
+        isImage: true,
+      ),
+      IRButton(
+        code: 0x00F78877,
+        rawData: kDefaultNecConfig,
+        frequency: kDefaultCarrierHz,
+        image: "assets/GREEN2.png",
+        isImage: true,
+      ),
+      IRButton(
+        code: 0x00F748B7,
+        rawData: kDefaultNecConfig,
+        frequency: kDefaultCarrierHz,
+        image: "assets/BLUE2.png",
+        isImage: true,
+      ),
+      IRButton(
+        code: 0x00F7C837,
+        rawData: kDefaultNecConfig,
+        frequency: kDefaultCarrierHz,
+        image: "assets/COOL.png",
+        isImage: true,
+      ),
+      IRButton(
+        code: 0x00F728D7,
+        rawData: kDefaultNecConfig,
+        frequency: kDefaultCarrierHz,
+        image: "assets/1h.png",
+        isImage: true,
+      ),
+      IRButton(
+        code: 0x00F7A857,
+        rawData: kDefaultNecConfig,
+        frequency: kDefaultCarrierHz,
+        image: "assets/2h.png",
+        isImage: true,
+      ),
+      IRButton(
+        code: 0x00F76897,
+        rawData: kDefaultNecConfig,
+        frequency: kDefaultCarrierHz,
+        image: "assets/4h.png",
+        isImage: true,
+      ),
+      IRButton(
+        code: 0x00F7E817,
+        rawData: kDefaultNecConfig,
+        frequency: kDefaultCarrierHz,
+        image: "assets/6h.png",
+        isImage: true,
+      ),
     ],
     name: "Osram Remote",
   );
@@ -182,8 +332,10 @@ Future<String?> getImage() async {
   final XFile? image = await picker.pickImage(source: ImageSource.gallery);
   if (image != null) {
     // Save the image to the app's local directory.
-    await image.saveTo(await _localPath + image.name);
-    return await _localPath + image.name;
+    final dir = await _localPath;
+    final filePath = '$dir/${image.name}';
+    await image.saveTo(filePath);
+    return filePath;
   }
   return null;
 }
