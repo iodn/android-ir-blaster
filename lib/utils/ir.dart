@@ -164,7 +164,7 @@ List<int> buildNecPatternFromStoredCodeMSBFirst(int code32,
   return pattern;
 }
 
-/// Optional builder if you ever store non-bit-reversed raw codes and want literal LSB-first.
+/// Optional builder if you ever store non-bit-reversed raw signals and want literal LSB-first.
 List<int> buildNecPatternLSBFirst(int code32,
     {NECParams params = NECParams.defaults}) {
   final int nec = code32 & 0xFFFFFFFF;

@@ -225,7 +225,7 @@ class RemoteViewState extends State<RemoteView> {
                 ? (button.code != null
                     ? button.code!.toRadixString(16).padLeft(8, '0').toUpperCase()
                     : 'NEC')
-                : 'RAW CODE')
+                : 'RAW SIGNAL')
             : (button.code != null
                 ? button.code!.toRadixString(16).padLeft(8, '0').toUpperCase()
                 : 'NO CODE');

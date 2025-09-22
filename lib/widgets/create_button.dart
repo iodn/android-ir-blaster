@@ -49,7 +49,7 @@ class _CreateButtonState extends State<CreateButton> {
   Widget? image;
   String? imagePath;
 
-  // True => hex code, false => raw code
+  // True => hex code, false => raw signal
   bool isHex = true;
 
   // When true, use custom NEC timings for hex code (stored in rawData as "NEC:..." and use hexFreqController).
@@ -309,7 +309,7 @@ class _CreateButtonState extends State<CreateButton> {
 
             const SizedBox(height: 10),
 
-            // 2) Radio row: pick Hex code vs. Raw code
+            // 2) Radio row: pick Hex code vs. Raw signal
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
@@ -333,7 +333,7 @@ class _CreateButtonState extends State<CreateButton> {
                     });
                   },
                 ),
-                const Text("Raw code"),
+                const Text("Raw signal"),
               ],
             ),
 

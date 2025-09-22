@@ -58,7 +58,7 @@ class Remote {
     int? id,
     required this.buttons,
     required this.name,
-    this.useNewStyle = false,
+    this.useNewStyle = true,
   }) : id = id ?? _nextId++;
 
   Map<String, dynamic> toJson() => {
@@ -326,7 +326,7 @@ List<Remote> writeDefaultRemotes() {
         isImage: true,
       ),
     ],
-    name: "Osram Remote",
+    name: "Demo Remote",
   );
 
   writeRemotelist([irblasterRemote]);
