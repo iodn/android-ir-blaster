@@ -1,0 +1,16 @@
+/android/key.properties
+/android/app/key.properties
+*.jks
+*.keystore
+# Flutter / Dart
+.dart_tool/
+build/
+
+# Android
+android/local.properties
+android/app/key.properties
+android/app/debug-info/
+android/.gradle/
+android/app/build/
+android/build/
+assets/db/irblaster.sqlite
