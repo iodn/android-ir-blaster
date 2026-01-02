@@ -1,0 +1,177 @@
+## Changelogs notes
+
+### Highlights
+- **Multi-transmitter support (no built-in IR required)**
+  - **Internal IR** (ConsumerIrManager) on devices with an IR emitter
+  - **USB IR dongle** support with device discovery, permission flow, and bulk transfers
+  - **Audio IR adapters**: **Audio (1 LED / mono)** and **Audio (2 LED / stereo anti-phase)** for audio-to-IR hardware
+- **Signal Tester / IR Finder (Infrared bruteforcer)**
+  - Guided brute-force workflow to systematically discover working codes
+  - Protocol-specific input validation and progress/run controls
+  - Optional **hex prefix constraint** support to reduce the search space
+- **Modernized UI**
+  - Material 3 + **dynamic color**
+  - Dark mode support
+  - Clear tab layout: **Remotes**, **Signal Tester**, **Settings**
+- **Remotes import/export**
+  - Import JSON backups
+  - Import Flipper Zero **`.ir`** files
+  - Export backups to **Downloads**
+  - Maintenance actions: restore demo remote, delete all remotes
+
+---
+
+## New infrared protocols (20)
+This release expands protocol coverage by adding the following **20 new protocol encoders**:
+
+1. **Denon**
+2. **F12_relaxed**
+3. **JVC**
+4. **NECx1**
+5. **NECx2**
+6. **Pioneer**
+7. **RC5**
+8. **RC6**
+9. **RCA_38**
+10. **RCC0082**
+11. **RCC2026**
+12. **REC80**
+13. **RECS80**
+14. **RECS80_L**
+15. **Samsung36**
+16. **SONY12**
+17. **SONY15**
+18. **SONY20**
+19. **Thomson7**
+20. **Proton**
+
+> Note: Protocol definitions and display names are maintained in `lib/ir/ir_protocol_registry.dart`. Encoders validate inputs and output explicit frequency + alternating mark/space durations (µs).
+
+---
+
+## Transmitters & hardware support
+
+### Internal IR (built-in)
+- Uses Android **ConsumerIrManager** when available.
+- Optional frequency range reporting when supported by the device.
+
+### USB IR dongle
+- Device filtering support (current expected dongle profile):
+  - Vendor IDs: **0x10C4** or **0x045E**
+  - Product ID: **0x8468**
+  - Requires one interface with **bulk IN/OUT** endpoints
+- Permission & discovery:
+  - Scans supported devices
+  - Requests permission (Android 12+ compatible PendingIntent behavior)
+  - Reacts to attach/detach events
+- Transfer pipeline:
+  - Handshake on open
+  - RLE-encoded mark/space payload
+  - Fragmentation into **56-byte chunks** over bulk OUT
+  - Short-lived background reader drains bulk IN for stability/compatibility
+- Compatibility improvements:
+  - Tail-gap normalization for even-length patterns to match dongle expectations
+
+### Audio IR (no USB/built-in IR required)
+- **Audio (1 LED / mono)** and **Audio (2 LED / stereo anti-phase)**
+- Implemented using **AudioTrack** at **48 kHz PCM (16-bit)**
+- Marks synthesized as tone windows; spaces as silence
+- Usage note: requires a compatible audio-to-IR adapter and **high/max media volume**
+
+---
+
+## Auto Switch behavior (Internal ↔ USB)
+- Optional **Auto Switch** mode:
+  - If the device has Internal IR, the app prefers **USB** when a permitted dongle is attached
+  - When the dongle is removed, it switches back to **Internal**
+- Auto Switch is **disabled when Audio** mode is selected.
+- Manual transmitter selection may disable Auto Switch to avoid unexpected changes.
+
+---
+
+## Signal Tester / IR Finder (Infrared bruteforcer)
+- Iterates through valid protocol/code combinations and transmits via the currently selected transmitter (Internal / USB / Audio).
+- Input validation is derived from `IrProtocolDefinition` and `IrFieldDef`.
+- Hex prefix handling (from `lib/ir_finder/ir_prefix.dart`):
+  - Accepts formats like `AA`, `AA BB`, `0xAABB`, `AA:BB:CC`
+  - Enforces even hex digits, clamps max bytes, normalizes uppercase
+  - Produces structured error messages for invalid input
+- Raw signal guardrails (when used):
+  - Max entries: **4096**
+  - Frequency clamp: **10–100 kHz** (default 38 kHz)
+  - Auto-appends a trailing space if pattern ends on a mark (odd length)
+  - Safe trailing-gap handling to avoid malformed frames
+
+---
+
+## Remotes management
+Available under **Settings → Remotes**:
+- Import:
+  - JSON backups
+  - Flipper Zero `.ir` files
+- Export:
+  - Save JSON backup to **Downloads**
+- Maintenance:
+  - Restore built-in demo remote
+  - Delete all remotes
+
+---
+
+## Platform & architecture notes (for developers)
+
+### Platform channels
+- Method channel: `org.nslabs/irtransmitter`
+- Event channel: `org.nslabs/irtransmitter_events`
+- Implemented methods include:
+  - `transmit`, `transmitRaw`, `hasIrEmitter`
+  - `getTransmitterCapabilities`
+  - `setTransmitterType`, `getTransmitterType`
+  - `getPreferredTransmitterType`, `setPreferredTransmitterType`
+  - `getAutoSwitchEnabled`, `setAutoSwitchEnabled`
+  - `usbScanAndRequest`, `usbDescribe`
+  - `getSupportedFrequencies`
+  - `usbDescribe`
+- The event channel emits capability snapshots on:
+  - USB attach/detach
+  - permission responses
+  - transmitter type changes
+
+### Persistence
+Stored in SharedPreferences:
+- `tx_type` (active transmitter type)
+- `ui_tx_type` (preferred UI selection)
+- `auto_switch` (Auto Switch toggle)
+
+---
+
+## Android manifest / permissions (summary)
+- Declares intent queries for document import/export:
+  - `OPEN_DOCUMENT`, `CREATE_DOCUMENT`
+- Optional USB host feature:
+  - `android.hardware.usb.host` (not required)
+- Legacy storage permissions limited to API ≤ 28:
+  - `READ_EXTERNAL_STORAGE`, `WRITE_EXTERNAL_STORAGE` with `maxSdkVersion="28"`
+- IR permission:
+  - `android.permission.TRANSMIT_IR`
+- USB permission receiver:
+  - `.UsbPermissionReceiver` for `org.nslabs.irblaster.USB_PERMISSION`
+
+---
+
+## Requirements
+- Android **11+**
+- At least one transmit path:
+  - Internal IR (built-in), **or**
+  - supported USB IR dongle, **or**
+  - audio-to-IR adapter
+
+---
+
+## Known limitations / notes
+- USB dongle support is limited to devices matching the VID/PID and endpoint profile described above.
+- Audio IR quality depends heavily on the adapter and volume; use **maximum media volume** and a known-good adapter for best results.
+- On older Android versions, some file picker paths may require legacy storage permission; the app requests this only when needed.
+
+---
+
+IR Blaster is open source, check out our GitHub repository at https://github.com/iodn/android-ir-blaster if you want to contribute.

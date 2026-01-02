@@ -1,10 +1,10 @@
 // This is a generated file; do not edit or check into version control.
-FLUTTER_ROOT=/home/intra/Downloads/flutter_linux_3.29.2-stable/flutter
-FLUTTER_APPLICATION_PATH=/home/intra/Downloads/android-ir-blaster
+FLUTTER_ROOT=/home/intra/snap/flutter/common/flutter
+FLUTTER_APPLICATION_PATH=/home/intra/Documents/android-ir-blaster
 COCOAPODS_PARALLEL_CODE_SIGN=true
 FLUTTER_BUILD_DIR=build
-FLUTTER_BUILD_NAME=1.2.9
-FLUTTER_BUILD_NUMBER=11
+FLUTTER_BUILD_NAME=2.0.0
+FLUTTER_BUILD_NUMBER=8
 DART_OBFUSCATION=false
 TRACK_WIDGET_CREATION=true
 TREE_SHAKE_ICONS=false

@@ -6,6 +6,10 @@ Features:
 
  - Supports Raw IR signals
 
+ - Multi-transmitter support, send IR via built-in emitter, supported USB IR dongles, or audio-to-IR adapters
+
+ - Signal Tester (bruteforcer) to help discover unknown working IR codes
+
  - Supports Import of Flipper Zero .IR files
 
  - Backup / Restore remotes

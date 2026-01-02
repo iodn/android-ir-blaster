@@ -1,11 +1,11 @@
 #!/bin/sh
 # This is a generated file; do not edit or check into version control.
-export "FLUTTER_ROOT=/home/intra/Downloads/flutter_linux_3.29.2-stable/flutter"
-export "FLUTTER_APPLICATION_PATH=/home/intra/Downloads/android-ir-blaster"
+export "FLUTTER_ROOT=/home/intra/snap/flutter/common/flutter"
+export "FLUTTER_APPLICATION_PATH=/home/intra/Documents/android-ir-blaster"
 export "COCOAPODS_PARALLEL_CODE_SIGN=true"
 export "FLUTTER_BUILD_DIR=build"
-export "FLUTTER_BUILD_NAME=1.2.9"
-export "FLUTTER_BUILD_NUMBER=11"
+export "FLUTTER_BUILD_NAME=2.0.0"
+export "FLUTTER_BUILD_NUMBER=8"
 export "DART_OBFUSCATION=false"
 export "TRACK_WIDGET_CREATION=true"
 export "TREE_SHAKE_ICONS=false"

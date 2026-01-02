@@ -1,15 +1,9 @@
-import 'dart:convert';
-import 'dart:io';
-
 import 'package:flutter/material.dart';
-import 'package:irblaster_controller/main.dart';
+import 'package:flutter/services.dart';
+import 'package:irblaster_controller/state/remotes_state.dart';
 import 'package:irblaster_controller/utils/remote.dart';
 import 'package:irblaster_controller/widgets/create_remote.dart';
 import 'package:irblaster_controller/widgets/remote_view.dart';
-import 'package:permission_handler/permission_handler.dart';
-import 'package:file_picker/file_picker.dart';
-import 'package:path_provider/path_provider.dart';
-import 'package:media_store_plus/media_store_plus.dart';
 import 'package:reorderable_grid_view/reorderable_grid_view.dart';
 
 class RemoteList extends StatefulWidget {
@@ -20,184 +14,7 @@ class RemoteList extends StatefulWidget {
 }
 
 class _RemoteListState extends State<RemoteList> {
-  Future<void> requestStoragePermission() async {
-    if (Platform.isAndroid) {
-      if (await Permission.manageExternalStorage.isGranted) return;
-      PermissionStatus status = await Permission.manageExternalStorage.request();
-      if (!status.isGranted) {
-        if (!mounted) return;
-        ScaffoldMessenger.of(context).showSnackBar(
-          const SnackBar(content: Text('Storage permission denied')),
-        );
-      }
-    }
-  }
-
-  Future<void> backupRemotes() async {
-    final mediaStore = MediaStore();
-    try {
-      final timestamp = DateTime.now().millisecondsSinceEpoch;
-      final fileName = 'irblaster_backup_$timestamp.json';
-      final jsonString = jsonEncode(remotes.map((r) => r.toJson()).toList());
-      final tempDir = await getTemporaryDirectory();
-      final tempPath = '${tempDir.path}/$fileName';
-      final tempFile = File(tempPath);
-      await tempFile.writeAsString(jsonString);
-
-      await mediaStore.saveFile(
-        tempFilePath: tempPath,
-        dirType: DirType.download,
-        dirName: DirName.download,
-      );
-
-      final publicPath = '/storage/emulated/0/Download'
-          '/${MediaStore.appFolder}'
-          '/$fileName';
-
-      if (!mounted) return;
-      ScaffoldMessenger.of(context).showSnackBar(
-        SnackBar(content: Text('Backup saved in: $publicPath')),
-      );
-    } catch (e) {
-      if (!mounted) return;
-      ScaffoldMessenger.of(context).showSnackBar(
-        SnackBar(content: Text('Failed to save backup: $e')),
-      );
-    }
-  }
-
-  Future<void> importRemotes() async {
-    FilePickerResult? result = await FilePicker.platform.pickFiles(
-      type: FileType.any,
-    );
-
-    if (result != null) {
-      final filePath = result.files.single.path;
-      if (filePath != null) {
-        final file = File(filePath);
-        final contents = await file.readAsString();
-
-        if (filePath.toLowerCase().endsWith('.json')) {
-          try {
-            List<dynamic> jsonData = jsonDecode(contents);
-            List<Remote> imported = jsonData
-                .map((data) => Remote.fromJson(data as Map<String, dynamic>))
-                .toList();
-            setState(() {
-              remotes = imported; // or remotes.addAll(imported);
-            });
-          } catch (e) {
-            if (!mounted) return;
-            ScaffoldMessenger.of(context).showSnackBar(
-              const SnackBar(content: Text('Import failed: Invalid JSON file')),
-            );
-            return;
-          }
-        } else if (filePath.toLowerCase().endsWith('.ir')) {
-          parseIRFile(contents);
-          setState(() {});
-        } else {
-          if (!mounted) return;
-          ScaffoldMessenger.of(context).showSnackBar(
-            const SnackBar(content: Text('Unsupported file type selected')),
-          );
-          return;
-        }
-
-        await writeRemotelist(remotes);
-        if (!mounted) return;
-        ScaffoldMessenger.of(context).showSnackBar(
-          const SnackBar(content: Text('Import successful')),
-        );
-      }
-    }
-  }
-
-  void parseIRFile(String content) {
-    List<String> blocks = content.split('#');
-    List<IRButton> buttons = [];
-    String remoteName = "Flipper IR Remote";
-
-    for (String block in blocks) {
-      block = block.trim();
-      if (block.isEmpty) continue;
-
-      if (block.contains("type: parsed")) {
-        final nameMatch = RegExp(r'name:\s*(.+)').firstMatch(block);
-        final addressMatch =
-            RegExp(r'address:\s*([0-9A-Fa-f]{2})\s+([0-9A-Fa-f]{2})')
-                .firstMatch(block);
-        final commandMatch =
-            RegExp(r'command:\s*([0-9A-Fa-f]{2})\s+([0-9A-Fa-f]{2})')
-                .firstMatch(block);
-
-        if (nameMatch != null && addressMatch != null && commandMatch != null) {
-          String name = nameMatch.group(1)!.trim();
-          String hexCode = convertToLIRCHex(addressMatch, commandMatch);
-
-          buttons.add(IRButton(
-            code: int.parse(hexCode, radix: 16),
-            rawData: null,
-            frequency: null,
-            image: name,
-            isImage: false,
-          ));
-        }
-      } else if (block.contains("type: raw")) {
-        final nameMatch = RegExp(r'name:\s*(.+)').firstMatch(block);
-        final frequencyMatch = RegExp(r'frequency:\s*(\d+)').firstMatch(block);
-        final dataMatch = RegExp(r'data:\s*([\d\s]+)').firstMatch(block);
-
-        if (nameMatch != null && frequencyMatch != null && dataMatch != null) {
-          String name = nameMatch.group(1)!.trim();
-          int frequency = int.parse(frequencyMatch.group(1)!);
-          String rawData = dataMatch.group(1)!.trim();
-
-          buttons.add(IRButton(
-            code: null,
-            rawData: rawData,
-            frequency: frequency,
-            image: name,
-            isImage: false,
-          ));
-        }
-      }
-    }
-
-    if (buttons.isNotEmpty) {
-      Remote newRemote =
-          Remote(name: remoteName, useNewStyle: true, buttons: buttons);
-      remotes.add(newRemote);
-      // Reassign ids after adding the new remote.
-      _reassignIds();
-    }
-  }
-
-  String convertToLIRCHex(RegExpMatch addressMatch, RegExpMatch commandMatch) {
-    int addrByte1 = int.parse(addressMatch.group(1)!, radix: 16);
-    int addrByte2 = int.parse(addressMatch.group(2)!, radix: 16);
-    int cmdByte1 = int.parse(commandMatch.group(1)!, radix: 16);
-    int cmdByte2 = int.parse(commandMatch.group(2)!, radix: 16);
-
-    int lircCmd = bitReverse(addrByte1);
-    int lircCmdInv = (addrByte2 == 0) ? (0xFF - lircCmd) : bitReverse(addrByte2);
-    int lircAddr = bitReverse(cmdByte1);
-    int lircAddrInv =
-        (cmdByte2 == 0) ? (0xFF - lircAddr) : bitReverse(cmdByte2);
-
-    return "${lircCmd.toRadixString(16).padLeft(2, '0')}"
-            "${lircCmdInv.toRadixString(16).padLeft(2, '0')}"
-            "${lircAddr.toRadixString(16).padLeft(2, '0')}"
-            "${lircAddrInv.toRadixString(16).padLeft(2, '0')}"
-        .toUpperCase();
-  }
-
-  int bitReverse(int x) {
-    return int.parse(
-      x.toRadixString(2).padLeft(8, '0').split('').reversed.join(),
-      radix: 2,
-    );
-  }
+  bool _reorderMode = false;
 
   void _reassignIds() {
     for (int i = 0; i < remotes.length; i++) {
@@ -205,263 +22,629 @@ class _RemoteListState extends State<RemoteList> {
     }
   }
 
+  void _setReorderMode(bool v) {
+    if (_reorderMode == v) return;
+    setState(() => _reorderMode = v);
+    HapticFeedback.selectionClick();
+    if (v && mounted) {
+      ScaffoldMessenger.of(context).hideCurrentSnackBar();
+      ScaffoldMessenger.of(context).showSnackBar(
+        const SnackBar(
+          content: Text('Reorder mode: long-press and drag a card to move it.'),
+          duration: Duration(seconds: 2),
+        ),
+      );
+    }
+  }
+
   Future<bool> _confirmDeleteRemote(BuildContext context, Remote remote) async {
     final theme = Theme.of(context);
     return await showModalBottomSheet<bool>(
-          context: context,
-          useSafeArea: true,
-          isScrollControlled: false,
-          shape: const RoundedRectangleBorder(
-            borderRadius: BorderRadius.vertical(top: Radius.circular(16)),
-          ),
-          builder: (ctx) {
-            return Padding(
-              padding: const EdgeInsets.fromLTRB(16, 16, 16, 24),
-              child: Column(
-                mainAxisSize: MainAxisSize.min,
+      context: context,
+      useSafeArea: true,
+      isScrollControlled: false,
+      shape: const RoundedRectangleBorder(
+        borderRadius: BorderRadius.vertical(top: Radius.circular(18)),
+      ),
+      builder: (ctx) {
+        return Padding(
+          padding: const EdgeInsets.fromLTRB(16, 14, 16, 24),
+          child: Column(
+            mainAxisSize: MainAxisSize.min,
+            children: [
+              Icon(Icons.warning_amber_rounded,
+                  size: 44, color: theme.colorScheme.error),
+              const SizedBox(height: 12),
+              Text(
+                "Delete remote?",
+                style: theme.textTheme.titleLarge
+                    ?.copyWith(fontWeight: FontWeight.w800),
+              ),
+              const SizedBox(height: 8),
+              Text(
+                "“${remote.name}” will be permanently removed. This action can’t be undone.",
+                textAlign: TextAlign.center,
+                style: theme.textTheme.bodyMedium?.copyWith(
+                  color: theme.colorScheme.onSurface.withValues(alpha: 0.75),
+                  fontWeight: FontWeight.w600,
+                ),
+              ),
+              const SizedBox(height: 16),
+              Row(
                 children: [
-                  Icon(Icons.warning_amber_rounded,
-                      size: 44, color: theme.colorScheme.error),
-                  const SizedBox(height: 12),
-                  Text(
-                    "Delete remote?",
-                    style: theme.textTheme.titleLarge
-                        ?.copyWith(fontWeight: FontWeight.w700),
-                  ),
-                  const SizedBox(height: 8),
-                  Text(
-                    "“${remote.name}” will be permanently removed. This action can’t be undone.",
-                    textAlign: TextAlign.center,
-                    style: theme.textTheme.bodyMedium?.copyWith(
-                      color:
-                          theme.colorScheme.onSurface.withValues(alpha: 0.75),
+                  Expanded(
+                    child: OutlinedButton(
+                      onPressed: () => Navigator.of(ctx).pop(false),
+                      child: const Text("Cancel"),
                     ),
                   ),
-                  const SizedBox(height: 16),
-                  Row(
-                    children: [
-                      Expanded(
-                        child: OutlinedButton(
-                          onPressed: () => Navigator.of(ctx).pop(false),
-                          child: const Text("Cancel"),
-                        ),
+                  const SizedBox(width: 12),
+                  Expanded(
+                    child: ElevatedButton.icon(
+                      style: ElevatedButton.styleFrom(
+                        backgroundColor: theme.colorScheme.error,
+                        foregroundColor: theme.colorScheme.onError,
                       ),
-                      const SizedBox(width: 12),
-                      Expanded(
-                        child: ElevatedButton.icon(
-                          style: ElevatedButton.styleFrom(
-                            backgroundColor: theme.colorScheme.error,
-                            foregroundColor: theme.colorScheme.onError,
-                          ),
-                          onPressed: () => Navigator.of(ctx).pop(true),
-                          icon: const Icon(Icons.delete_forever),
-                          label: const Text("Delete"),
-                        ),
-                      ),
-                    ],
+                      onPressed: () => Navigator.of(ctx).pop(true),
+                      icon: const Icon(Icons.delete_forever),
+                      label: const Text("Delete"),
+                    ),
                   ),
                 ],
               ),
-            );
-          },
-        ).then((value) => value ?? false);
+            ],
+          ),
+        );
+      },
+    ).then((value) => value ?? false);
   }
 
-  @override
-  Widget build(BuildContext context) {
-    final cardColor =
-        Theme.of(context).colorScheme.primary.withValues(alpha: 0.2);
-    return Scaffold(
-      appBar: AppBar(
-        title: const Text("Remotes"),
-        actions: [
-          IconButton(
-            tooltip: 'Search Remotes',
-            icon: const Icon(Icons.search),
-            onPressed: () {
-              showSearch(
-                context: context,
-                delegate: RemoteSearchDelegate(remotes),
-              );
-            },
-          ),
-          IconButton(
-            tooltip: 'Import Remotes',
-            icon: const Icon(Icons.file_upload),
-            onPressed: () => importRemotes(),
-          ),
-          IconButton(
-            tooltip: 'Backup Remotes',
-            icon: const Icon(Icons.file_download),
-            onPressed: () => backupRemotes(),
-          ),
-        ],
-      ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: () {
-          writeRemotelist(remotes).then((value) {
-            ScaffoldMessenger.of(context).showSnackBar(
-              const SnackBar(content: Text("Remotes have been saved")),
-            );
-          });
-        },
-        child: const Icon(Icons.save),
-      ),
-      body: SafeArea(
-        child: Column(
-          children: [
-            // Use a ReorderableGridView to show remotes in two columns.
-            Expanded(
-              child: ReorderableGridView.builder(
-                padding: const EdgeInsets.all(20),
-                gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-                  crossAxisCount: 2,
-                  childAspectRatio: 1.3,
-                  mainAxisSpacing: 8,
-                  crossAxisSpacing: 1,
-                ),
-                itemCount: remotes.length,
-                itemBuilder: (context, index) {
-                  final remote = remotes[index];
-                  return Card(
-                    key: ObjectKey(remote),
-                    color: cardColor,
-                    shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(8),
-                    ),
-                    child: InkWell(
-                      onTap: () {
-                        Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                            builder: (context) => RemoteView(remote: remote),
-                          ),
-                        );
-                      },
-                      borderRadius: BorderRadius.circular(8),
-                      child: Column(
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        children: [
-                          // Make the top area expandable and clickable
-                          Expanded(
-                            child: Container(
-                              width: double.infinity,
-                              padding: const EdgeInsets.all(8.0),
-                              alignment: Alignment.center,
-                              child: Text(
-                                remote.name,
-                                style: const TextStyle(
-                                  fontSize: 18,
-                                  fontWeight: FontWeight.bold,
-                                ),
-                                textAlign: TextAlign.center,
-                                overflow: TextOverflow.ellipsis,
-                                maxLines: 2,
-                              ),
-                            ),
-                          ),
-                          // Keep the buttons at the bottom
-                          Container(
-                            decoration: BoxDecoration(
-                              color: Theme.of(context)
-                                  .colorScheme
-                                  .surface
-                                  .withValues(alpha: 0.1),
-                              borderRadius: const BorderRadius.only(
-                                bottomLeft: Radius.circular(8),
-                                bottomRight: Radius.circular(8),
-                              ),
-                            ),
-                            child: OverflowBar(
-                              alignment: MainAxisAlignment.center,
-                              children: [
-                                IconButton(
-                                  icon: const Icon(Icons.edit),
-                                  onPressed: () async {
-                                    try {
-                                      Remote editedRemote =
-                                          await Navigator.push(
-                                        context,
-                                        MaterialPageRoute(
-                                          builder: (context) =>
-                                              CreateRemote(remote: remote),
-                                        ),
-                                      );
-                                      setState(() {
-                                        remotes[index] = editedRemote;
-                                      });
-                                    } catch (e) {
-                                      // Swallow if cancelled
-                                    }
-                                  },
-                                ),
-                                IconButton(
-                                  icon: const Icon(Icons.delete),
-                                  onPressed: () async {
-                                    final confirmed = await _confirmDeleteRemote(
-                                        context, remote);
-                                    if (!confirmed) return;
+  Future<void> _addRemote() async {
+    if (_reorderMode) _setReorderMode(false);
+    try {
+      final Remote newRemote = await Navigator.push(
+        context,
+        MaterialPageRoute(builder: (context) => const CreateRemote()),
+      );
+      setState(() {
+        remotes.add(newRemote);
+        _reassignIds();
+      });
+      await writeRemotelist(remotes);
+      notifyRemotesChanged();
+    } catch (_) {
+      // cancelled
+    }
+  }
 
-                                    setState(() {
-                                      remotes.removeAt(index);
-                                      _reassignIds();
-                                    });
-                                    await writeRemotelist(remotes);
-                                    if (!mounted) return;
-                                    ScaffoldMessenger.of(context).showSnackBar(
-                                      SnackBar(
-                                        content: Text(
-                                            "Deleted “${remote.name}”. This action can’t be undone."),
-                                      ),
-                                    );
-                                  },
-                                ),
-                              ],
-                            ),
+  Future<void> _editRemoteAt(int index) async {
+    if (_reorderMode) _setReorderMode(false);
+    final Remote remote = remotes[index];
+    try {
+      final Remote editedRemote = await Navigator.push(
+        context,
+        MaterialPageRoute(builder: (context) => CreateRemote(remote: remote)),
+      );
+      setState(() {
+        remotes[index] = editedRemote;
+      });
+      await writeRemotelist(remotes);
+      notifyRemotesChanged();
+
+      if (!mounted) return;
+      HapticFeedback.selectionClick();
+      ScaffoldMessenger.of(context).showSnackBar(
+        SnackBar(content: Text('Updated “${editedRemote.name}”.')),
+      );
+    } catch (_) {
+      // cancelled
+    }
+  }
+
+  Future<void> _deleteRemoteAt(int index) async {
+    if (_reorderMode) _setReorderMode(false);
+    final Remote remote = remotes[index];
+    final confirmed = await _confirmDeleteRemote(context, remote);
+    if (!confirmed) return;
+
+    setState(() {
+      remotes.removeAt(index);
+      _reassignIds();
+    });
+    await writeRemotelist(remotes);
+    notifyRemotesChanged();
+
+    if (!mounted) return;
+    HapticFeedback.selectionClick();
+    ScaffoldMessenger.of(context).showSnackBar(
+      SnackBar(
+        content: Text("Deleted “${remote.name}”. This action can’t be undone."),
+      ),
+    );
+  }
+
+  Future<void> _openRemoteActionsSheet(Remote remote, int index) async {
+    if (_reorderMode) return;
+
+    final theme = Theme.of(context);
+    final cs = theme.colorScheme;
+
+    await showModalBottomSheet<void>(
+      context: context,
+      showDragHandle: true,
+      useSafeArea: true,
+      shape: const RoundedRectangleBorder(
+        borderRadius: BorderRadius.vertical(top: Radius.circular(18)),
+      ),
+      builder: (ctx) {
+        return SafeArea(
+          child: Padding(
+            padding: const EdgeInsets.fromLTRB(16, 10, 16, 14),
+            child: Column(
+              mainAxisSize: MainAxisSize.min,
+              children: [
+                Row(
+                  children: [
+                    CircleAvatar(
+                      backgroundColor:
+                          cs.primaryContainer.withValues(alpha: 0.65),
+                      child: Icon(Icons.settings_remote_rounded,
+                          color: cs.onPrimaryContainer),
+                    ),
+                    const SizedBox(width: 12),
+                    Expanded(
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Text(
+                            remote.name,
+                            maxLines: 1,
+                            overflow: TextOverflow.ellipsis,
+                            style: theme.textTheme.titleLarge
+                                ?.copyWith(fontWeight: FontWeight.w900),
+                          ),
+                          const SizedBox(height: 2),
+                          Text(
+                            '${remote.buttons.length} button(s) · ${remote.useNewStyle ? 'Comfort' : 'Compact'}',
+                            style: theme.textTheme.bodySmall?.copyWith(
+                              color: cs.onSurface.withValues(alpha: 0.7),
+                              fontWeight: FontWeight.w600),
                           ),
                         ],
                       ),
                     ),
-                  );
-                },
-                onReorder: (oldIndex, newIndex) {
-                  setState(() {
-                    if (newIndex > oldIndex) newIndex--;
-                    final Remote movedRemote = remotes.removeAt(oldIndex);
-                    remotes.insert(newIndex, movedRemote);
-                    // Reassign ids based on the new order.
-                    _reassignIds();
-                  });
-                },
-              ),
-            ),
-
-            // "Add a remote" button below the grid.
-            Padding(
-              padding: const EdgeInsets.all(8.0),
-              child: ElevatedButton.icon(
-                onPressed: () async {
-                  try {
-                    Remote newRemote = await Navigator.push(
+                  ],
+                ),
+                const SizedBox(height: 12),
+                const Divider(height: 0),
+                ListTile(
+                  contentPadding: EdgeInsets.zero,
+                  leading: const Icon(Icons.play_arrow_rounded),
+                  title: const Text('Open'),
+                  subtitle: const Text('Use this remote'),
+                  trailing: const Icon(Icons.chevron_right_rounded),
+                  onTap: () {
+                    Navigator.of(ctx).pop();
+                    Navigator.push(
                       context,
                       MaterialPageRoute(
-                        builder: (context) => const CreateRemote(),
+                        builder: (context) => RemoteView(remote: remote),
                       ),
                     );
-                    setState(() {
-                      remotes.add(newRemote);
-                      // Reassign ids after adding a new remote.
-                      _reassignIds();
-                    });
-                    writeRemotelist(remotes);
-                  } catch (e) {
-                    // Swallow if cancelled
-                    return;
-                  }
-                },
-                icon: const Icon(Icons.add),
-                label: const Text("Add a remote"),
+                  },
+                ),
+                const Divider(height: 0),
+                ListTile(
+                  contentPadding: EdgeInsets.zero,
+                  leading: const Icon(Icons.edit_outlined),
+                  title: const Text('Edit'),
+                  subtitle: const Text('Rename, and edit buttons'),
+                  trailing: const Icon(Icons.chevron_right_rounded),
+                  onTap: () {
+                    Navigator.of(ctx).pop();
+                    _editRemoteAt(index);
+                  },
+                ),
+                const Divider(height: 0),
+                ListTile(
+                  contentPadding: EdgeInsets.zero,
+                  leading: Icon(Icons.delete_outline, color: cs.error),
+                  title: Text(
+                    'Delete',
+                    style: TextStyle(
+                      color: cs.error,
+                      fontWeight: FontWeight.w800,
+                    ),
+                  ),
+                  subtitle: const Text('This cannot be undone'),
+                  onTap: () async {
+                    Navigator.of(ctx).pop();
+                    await _deleteRemoteAt(index);
+                  },
+                ),
+                const SizedBox(height: 6),
+              ],
+            ),
+          ),
+        );
+      },
+    );
+  }
+
+  Future<bool> _onWillPop() async {
+    if (_reorderMode) {
+      _setReorderMode(false);
+      return false;
+    }
+    return true;
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    final theme = Theme.of(context);
+    final cardColor = theme.colorScheme.primary.withValues(alpha: 0.16);
+
+    return ValueListenableBuilder<int>(
+      valueListenable: remotesRevision,
+      builder: (context, _, __) {
+        return WillPopScope(
+          onWillPop: _onWillPop,
+          child: Scaffold(
+            appBar: AppBar(
+              title: const Text("Remotes"),
+              actions: [
+                if (!_reorderMode)
+                  IconButton(
+                    tooltip: 'Search Remotes',
+                    icon: const Icon(Icons.search),
+                    onPressed: () {
+                      showSearch(
+                        context: context,
+                        delegate: RemoteSearchDelegate(
+                          remotes,
+                          onOpen: (remote) {
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                builder: (context) =>
+                                    RemoteView(remote: remote),
+                              ),
+                            );
+                          },
+                          onEdit: (remote) async {
+                            final int idx = remotes.indexOf(remote);
+                            if (idx < 0) return;
+                            await _editRemoteAt(idx);
+                          },
+                          onDelete: (remote) async {
+                            final int idx = remotes.indexOf(remote);
+                            if (idx < 0) return;
+                            await _deleteRemoteAt(idx);
+                          },
+                        ),
+                      );
+                    },
+                  ),
+                IconButton(
+                  tooltip: _reorderMode ? 'Done' : 'Reorder remotes',
+                  icon: Icon(_reorderMode
+                      ? Icons.check_rounded
+                      : Icons.drag_indicator_rounded),
+                  onPressed: () => _setReorderMode(!_reorderMode),
+                ),
+              ],
+            ),
+            floatingActionButton: FloatingActionButton.extended(
+              onPressed: _reorderMode ? null : _addRemote,
+              icon: const Icon(Icons.add),
+              label: const Text('Add remote'),
+            ),
+            body: SafeArea(
+              child: remotes.isEmpty
+                  ? _EmptyState(onAdd: _addRemote)
+                  : Column(
+                      children: [
+                        AnimatedSwitcher(
+                          duration: const Duration(milliseconds: 180),
+                          child: !_reorderMode
+                              ? const SizedBox.shrink()
+                              : _ReorderHintBanner(
+                                  key: const ValueKey('reorder_hint'),
+                                  onDone: () => _setReorderMode(false),
+                                ),
+                        ),
+                        Expanded(
+                          child: ReorderableGridView.builder(
+                            padding: const EdgeInsets.all(16),
+                            gridDelegate:
+                                const SliverGridDelegateWithFixedCrossAxisCount(
+                              crossAxisCount: 2,
+                              childAspectRatio: 1.05,
+                              mainAxisSpacing: 12,
+                              crossAxisSpacing: 12,
+                            ),
+                            itemCount: remotes.length,
+                            dragStartDelay: _reorderMode
+                                ? const Duration(milliseconds: 200)
+                                : const Duration(days: 3650),
+                            itemBuilder: (context, index) {
+                              final remote = remotes[index];
+                              return _RemoteCard(
+                                key: ObjectKey(remote),
+                                remote: remote,
+                                color: cardColor,
+                                reorderMode: _reorderMode,
+                                onTap: () {
+                                  if (_reorderMode) return;
+                                  Navigator.push(
+                                    context,
+                                    MaterialPageRoute(
+                                      builder: (context) =>
+                                          RemoteView(remote: remote),
+                                    ),
+                                  );
+                                },
+                                onLongPress: () =>
+                                    _openRemoteActionsSheet(remote, index),
+                                onOverflow: () =>
+                                    _openRemoteActionsSheet(remote, index),
+                              );
+                            },
+                            onReorder: (oldIndex, newIndex) async {
+                              if (!_reorderMode) return;
+
+                              setState(() {
+                                if (newIndex > oldIndex) newIndex--;
+                                final Remote movedRemote =
+                                    remotes.removeAt(oldIndex);
+                                remotes.insert(newIndex, movedRemote);
+                                _reassignIds();
+                              });
+                              await writeRemotelist(remotes);
+                              notifyRemotesChanged();
+                              if (!mounted) return;
+                              HapticFeedback.selectionClick();
+                            },
+                          ),
+                        ),
+                      ],
+                    ),
+            ),
+          ),
+        );
+      },
+    );
+  }
+}
+
+class _ReorderHintBanner extends StatelessWidget {
+  final VoidCallback onDone;
+  const _ReorderHintBanner({super.key, required this.onDone});
+
+  @override
+  Widget build(BuildContext context) {
+    final theme = Theme.of(context);
+    final cs = theme.colorScheme;
+
+    return Material(
+      color: cs.secondaryContainer.withValues(alpha: 0.55),
+      child: Padding(
+        padding: const EdgeInsets.fromLTRB(16, 10, 12, 10),
+        child: Row(
+          children: [
+            Icon(Icons.drag_indicator_rounded,
+                color: cs.onSecondaryContainer.withValues(alpha: 0.9)),
+            const SizedBox(width: 10),
+            Expanded(
+              child: Text(
+                'Reorder mode: long-press and drag a card to move it.',
+                style: theme.textTheme.bodyMedium?.copyWith(
+                  fontWeight: FontWeight.w700,
+                  color: cs.onSecondaryContainer.withValues(alpha: 0.92),
+                ),
               ),
+            ),
+            const SizedBox(width: 8),
+            FilledButton.tonal(
+              onPressed: onDone,
+              child: const Text('Done'),
+            ),
+          ],
+        ),
+      ),
+    );
+  }
+}
+
+class _RemoteCard extends StatelessWidget {
+  final Remote remote;
+  final Color color;
+  final bool reorderMode;
+  final VoidCallback onTap;
+  final VoidCallback onLongPress;
+  final VoidCallback onOverflow;
+
+  const _RemoteCard({
+    super.key,
+    required this.remote,
+    required this.color,
+    required this.reorderMode,
+    required this.onTap,
+    required this.onLongPress,
+    required this.onOverflow,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    final theme = Theme.of(context);
+    final cs = theme.colorScheme;
+    final int count = remote.buttons.length;
+
+    return Card(
+      color: color,
+      elevation: 0,
+      shape: RoundedRectangleBorder(
+        borderRadius: BorderRadius.circular(16),
+        side: reorderMode
+            ? BorderSide(color: cs.primary.withValues(alpha: 0.35))
+            : BorderSide.none,
+      ),
+      clipBehavior: Clip.antiAlias,
+      child: InkWell(
+        onTap: reorderMode ? null : onTap,
+        onLongPress: reorderMode ? null : onLongPress,
+        borderRadius: BorderRadius.circular(16),
+        child: Padding(
+          padding: const EdgeInsets.fromLTRB(14, 12, 12, 12),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Row(
+                children: [
+                  Container(
+                    width: 40,
+                    height: 40,
+                    decoration: BoxDecoration(
+                      color: cs.primaryContainer.withValues(alpha: 0.6),
+                      borderRadius: BorderRadius.circular(12),
+                      border: Border.all(
+                        color: cs.outlineVariant.withValues(alpha: 0.25),
+                      ),
+                    ),
+                    child: Icon(
+                      Icons.settings_remote_rounded,
+                      color: cs.onPrimaryContainer,
+                    ),
+                  ),
+                  const Spacer(),
+                  if (!reorderMode)
+                    IconButton(
+                      tooltip: 'More',
+                      onPressed: onOverflow,
+                      icon: const Icon(Icons.more_vert_rounded),
+                    )
+                  else
+                    Tooltip(
+                      message: 'Reorder mode',
+                      child: Container(
+                        padding: const EdgeInsets.all(8),
+                        decoration: BoxDecoration(
+                          color: cs.surfaceContainerHighest
+                              .withValues(alpha: 0.55),
+                          borderRadius: BorderRadius.circular(12),
+                          border: Border.all(
+                            color: cs.outlineVariant.withValues(alpha: 0.25),
+                          ),
+                        ),
+                        child: Icon(
+                          Icons.drag_indicator_rounded,
+                          size: 14,
+                          color: cs.onSurface.withValues(alpha: 0.85),
+                        ),
+                      ),
+                    ),
+                ],
+              ),
+              const SizedBox(height: 10),
+              Text(
+                remote.name,
+                style: theme.textTheme.titleMedium?.copyWith(
+                  fontWeight: FontWeight.w900,
+                ),
+                maxLines: 2,
+                overflow: TextOverflow.ellipsis,
+              ),
+              const SizedBox(height: 6),
+              Wrap(
+                spacing: 8,
+                runSpacing: 8,
+                children: [
+                  _Chip(
+                    label: '$count button(s)',
+                    icon: Icons.grid_view_rounded,
+                  ),
+                ],
+              ),
+              const Spacer(),
+            ],
+          ),
+        ),
+      ),
+    );
+  }
+}
+
+class _Chip extends StatelessWidget {
+  final String label;
+  final IconData icon;
+  const _Chip({required this.label, required this.icon});
+
+  @override
+  Widget build(BuildContext context) {
+    final theme = Theme.of(context);
+    final cs = theme.colorScheme;
+
+    return Container(
+      padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 6),
+      decoration: BoxDecoration(
+        color: cs.surfaceContainerHighest.withValues(alpha: 0.55),
+        borderRadius: BorderRadius.circular(999),
+        border: Border.all(color: cs.outlineVariant.withValues(alpha: 0.25)),
+      ),
+      child: Row(
+        mainAxisSize: MainAxisSize.min,
+        children: [
+          Icon(icon, size: 16, color: cs.onSurface.withValues(alpha: 0.8)),
+          const SizedBox(width: 6),
+          Text(
+            label,
+            style: theme.textTheme.labelMedium?.copyWith(
+              fontWeight: FontWeight.w800,
+              color: cs.onSurface.withValues(alpha: 0.85),
+            ),
+          ),
+        ],
+      ),
+    );
+  }
+}
+
+class _EmptyState extends StatelessWidget {
+  final VoidCallback onAdd;
+  const _EmptyState({required this.onAdd});
+
+  @override
+  Widget build(BuildContext context) {
+    final theme = Theme.of(context);
+
+    return Center(
+      child: Padding(
+        padding: const EdgeInsets.all(24),
+        child: Column(
+          mainAxisSize: MainAxisSize.min,
+          children: [
+            Icon(Icons.grid_view_outlined,
+                size: 52, color: theme.colorScheme.primary),
+            const SizedBox(height: 12),
+            Text(
+              'No remotes yet',
+              style: theme.textTheme.titleLarge
+                  ?.copyWith(fontWeight: FontWeight.w800),
+            ),
+            const SizedBox(height: 8),
+            Text(
+              'Create a remote to start sending IR codes.',
+              textAlign: TextAlign.center,
+              style: theme.textTheme.bodyMedium?.copyWith(
+                color: theme.colorScheme.onSurface.withValues(alpha: 0.75),
+                fontWeight: FontWeight.w600,
+              ),
+            ),
+            const SizedBox(height: 16),
+            FilledButton.icon(
+              onPressed: onAdd,
+              icon: const Icon(Icons.add),
+              label: const Text('Add remote'),
             ),
           ],
         ),
@@ -472,8 +655,16 @@ class _RemoteListState extends State<RemoteList> {
 
 class RemoteSearchDelegate extends SearchDelegate {
   final List<Remote> remotes;
+  final void Function(Remote remote)? onOpen;
+  final Future<void> Function(Remote remote)? onEdit;
+  final Future<void> Function(Remote remote)? onDelete;
 
-  RemoteSearchDelegate(this.remotes);
+  RemoteSearchDelegate(
+    this.remotes, {
+    this.onOpen,
+    this.onEdit,
+    this.onDelete,
+  });
 
   Future<bool> _confirmDelete(BuildContext context, String remoteName) async {
     final theme = Theme.of(context);
@@ -511,20 +702,16 @@ class RemoteSearchDelegate extends SearchDelegate {
     return [
       if (query.isNotEmpty)
         IconButton(
-          onPressed: () {
-            query = '';
-          },
+          onPressed: () => query = '',
           icon: const Icon(Icons.clear),
-        )
+        ),
     ];
   }
 
   @override
   Widget? buildLeading(BuildContext context) {
     return IconButton(
-      onPressed: () {
-        close(context, null);
-      },
+      onPressed: () => close(context, null),
       icon: const Icon(Icons.arrow_back),
     );
   }
@@ -532,109 +719,121 @@ class RemoteSearchDelegate extends SearchDelegate {
   @override
   Widget buildResults(BuildContext context) {
     final results = remotes
-        .where(
-            (remote) => remote.name.toLowerCase().contains(query.toLowerCase()))
+        .where((remote) =>
+            remote.name.toLowerCase().contains(query.toLowerCase()))
         .toList();
-
-    return ListView.builder(
-      padding: const EdgeInsets.all(20),
-      itemCount: results.length,
-      itemBuilder: (BuildContext context, int index) {
-        final remote = results[index];
-
-        return Card(
-          key: ObjectKey(remote),
-          color: Theme.of(context).colorScheme.primary.withValues(alpha: 0.2),
-          shape: RoundedRectangleBorder(
-            borderRadius: BorderRadius.circular(8),
-          ),
-          child: ListTile(
-            title: Text(
-              remote.name,
-              style: const TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
-            ),
-            trailing: Row(
-              mainAxisSize: MainAxisSize.min,
-              children: [
-                IconButton(
-                  icon: const Icon(Icons.edit),
-                  onPressed: () async {
-                    try {
-                      Remote editedRemote = await Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                          builder: (context) => CreateRemote(remote: remote),
-                        ),
-                      );
-                      int originalIndex = remotes.indexOf(remote);
-                      remotes[originalIndex] = editedRemote;
-                      showSuggestions(context);
-                    } catch (e) {
-                      // Swallow if cancelled
-                    }
-                  },
-                ),
-                IconButton(
-                  icon: const Icon(Icons.delete),
-                  onPressed: () async {
-                    final confirm =
-                        await _confirmDelete(context, remote.name);
-                    if (!confirm) return;
-                    remotes.remove(remote);
-                    await writeRemotelist(remotes);
-                    showSuggestions(context);
-                    ScaffoldMessenger.of(context).showSnackBar(
-                      SnackBar(
-                        content: Text(
-                            "Deleted “${remote.name}”. This action can’t be undone."),
-                      ),
-                    );
-                  },
-                ),
-              ],
-            ),
-            onTap: () {
-              close(context, null);
-              Navigator.push(
-                context,
-                MaterialPageRoute(
-                  builder: (context) => RemoteView(remote: remote),
-                ),
-              );
-            },
-          ),
-        );
-      },
-    );
+    return _buildList(context, results);
   }
 
   @override
   Widget buildSuggestions(BuildContext context) {
     final suggestions = remotes
-        .where(
-            (remote) => remote.name.toLowerCase().contains(query.toLowerCase()))
+        .where((remote) =>
+            remote.name.toLowerCase().contains(query.toLowerCase()))
         .toList();
+    return _buildList(context, suggestions);
+  }
 
-    return ListView.builder(
-      padding: const EdgeInsets.all(20),
-      itemCount: suggestions.length,
+  Widget _buildList(BuildContext context, List<Remote> items) {
+    final theme = Theme.of(context);
+    final cs = theme.colorScheme;
+
+    return ListView.separated(
+      padding: const EdgeInsets.all(16),
+      itemCount: items.length,
+      separatorBuilder: (_, __) => const SizedBox(height: 10),
       itemBuilder: (BuildContext context, int index) {
-        final remote = suggestions[index];
-
+        final remote = items[index];
         return Card(
           key: ObjectKey(remote),
-          color: Theme.of(context).colorScheme.primary.withValues(alpha: 0.2),
-          shape: RoundedRectangleBorder(
-            borderRadius: BorderRadius.circular(8),
-          ),
+          color: cs.primary.withValues(alpha: 0.12),
+          shape:
+              RoundedRectangleBorder(borderRadius: BorderRadius.circular(14)),
+          clipBehavior: Clip.antiAlias,
           child: ListTile(
+            contentPadding:
+                const EdgeInsets.symmetric(horizontal: 14, vertical: 6),
+            leading: Container(
+              width: 44,
+              height: 44,
+              decoration: BoxDecoration(
+                color: cs.primaryContainer.withValues(alpha: 0.55),
+                borderRadius: BorderRadius.circular(12),
+                border: Border.all(
+                    color: cs.outlineVariant.withValues(alpha: 0.25)),
+              ),
+              child: Icon(Icons.settings_remote_rounded,
+                  color: cs.onPrimaryContainer),
+            ),
             title: Text(
               remote.name,
-              style: const TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+              style: theme.textTheme.titleMedium
+                  ?.copyWith(fontWeight: FontWeight.w900),
+              maxLines: 1,
+              overflow: TextOverflow.ellipsis,
+            ),
+            subtitle: Text(
+              '${remote.buttons.length} button(s) · ${remote.useNewStyle ? 'Comfort' : 'Compact'}',
+              style: theme.textTheme.bodySmall?.copyWith(
+                color: cs.onSurface.withValues(alpha: 0.7),
+                fontWeight: FontWeight.w600,
+              ),
+            ),
+            trailing: PopupMenuButton<_RemoteMenuAction>(
+              tooltip: 'Actions',
+              onSelected: (_RemoteMenuAction a) async {
+                if (a == _RemoteMenuAction.open) {
+                  close(context, null);
+                  onOpen?.call(remote);
+                  return;
+                }
+                if (a == _RemoteMenuAction.edit) {
+                  await onEdit?.call(remote);
+                  showSuggestions(context);
+                  return;
+                }
+                if (a == _RemoteMenuAction.delete) {
+                  final confirm = await _confirmDelete(context, remote.name);
+                  if (!confirm) return;
+                  await onDelete?.call(remote);
+                  showSuggestions(context);
+                  if (!context.mounted) return;
+                  ScaffoldMessenger.of(context).showSnackBar(
+                    SnackBar(
+                      content: Text(
+                          "Deleted “${remote.name}”. This action can’t be undone."),
+                    ),
+                  );
+                }
+              },
+              itemBuilder: (ctx) => const [
+                PopupMenuItem(
+                  value: _RemoteMenuAction.open,
+                  child: ListTile(
+                    leading: Icon(Icons.play_arrow_rounded),
+                    title: Text('Open'),
+                  ),
+                ),
+                PopupMenuItem(
+                  value: _RemoteMenuAction.edit,
+                  child: ListTile(
+                    leading: Icon(Icons.edit_outlined),
+                    title: Text('Edit'),
+                  ),
+                ),
+                PopupMenuDivider(),
+                PopupMenuItem(
+                  value: _RemoteMenuAction.delete,
+                  child: ListTile(
+                    leading: Icon(Icons.delete_outline),
+                    title: Text('Delete'),
+                  ),
+                ),
+              ],
             ),
             onTap: () {
-              query = remote.name;
-              showResults(context);
+              close(context, null);
+              onOpen?.call(remote);
             },
           ),
         );
@@ -642,3 +841,5 @@ class RemoteSearchDelegate extends SearchDelegate {
     );
   }
 }
+
+enum _RemoteMenuAction { open, edit, delete }

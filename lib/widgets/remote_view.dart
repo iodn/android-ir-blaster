@@ -1,32 +1,55 @@
+import 'dart:async';
 import 'dart:io';
 
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-
-import 'package:irblaster_controller/widgets/remote_list.dart';
+import 'package:irblaster_controller/ir/ir_protocol_registry.dart';
+import 'package:irblaster_controller/state/remotes_state.dart';
 import 'package:irblaster_controller/utils/ir.dart';
 import 'package:irblaster_controller/utils/remote.dart';
+import 'package:irblaster_controller/widgets/create_remote.dart';
 
 class RemoteView extends StatefulWidget {
   final Remote remote;
 
-  const RemoteView({super.key, required this.remote});
+  /// - onEditRemote: open your remote editor UI.
+  /// - onDeleteRemote: delete the remote from storage, then pop.
+  final VoidCallback? onEditRemote;
+  final Future<void> Function()? onDeleteRemote;
+
+  const RemoteView({
+    super.key,
+    required this.remote,
+    this.onEditRemote,
+    this.onDeleteRemote,
+  });
 
   @override
   RemoteViewState createState() => RemoteViewState();
 }
 
 class RemoteViewState extends State<RemoteView> {
+  late Remote _remote;
+
+  // ===== Loop sending (repeat) =====
+  static const Duration _kLoopInterval = Duration(milliseconds: 250);
+  Timer? _loopTimer;
+  IRButton? _loopButton;
+  bool _loopSending = false;
+
+  bool get _isLooping => _loopTimer != null;
+  bool _isLoopingThis(IRButton b) => _isLooping && identical(_loopButton, b);
+
   @override
   void initState() {
     super.initState();
+    _remote = widget.remote;
 
-    // Check IR emitter availability
     hasIrEmitter().then((value) {
-      if (!value) {
+      if (!value && mounted) {
         showDialog<void>(
           context: context,
-          barrierDismissible: false, // user must tap button!
+          barrierDismissible: false,
           builder: (BuildContext context) {
             return AlertDialog(
               title: const Text('No IR emitter'),
@@ -41,15 +64,12 @@ class RemoteViewState extends State<RemoteView> {
               actions: <Widget>[
                 TextButton(
                   child: const Text('Dismiss'),
-                  onPressed: () {
-                    Navigator.of(context).pop();
-                  },
+                  onPressed: () => Navigator.of(context).pop(),
                 ),
                 TextButton(
                   child: const Text('Close'),
-                  onPressed: () {
-                    SystemChannels.platform.invokeMethod('SystemNavigator.pop');
-                  },
+                  onPressed: () =>
+                      SystemChannels.platform.invokeMethod('SystemNavigator.pop'),
                 ),
               ],
             );
@@ -59,32 +79,395 @@ class RemoteViewState extends State<RemoteView> {
     });
   }
 
-  // Handle button press with haptic feedback
-  void _handleButtonPress(IRButton button) async {
-    HapticFeedback.lightImpact();
-    try {
-      await sendIR(button);
-    } catch (e) {
-      if (!mounted) return;
-      ScaffoldMessenger.of(context).showSnackBar(
-        SnackBar(content: Text('Failed to send IR: $e')),
-      );
+  @override
+  void didUpdateWidget(covariant RemoteView oldWidget) {
+    super.didUpdateWidget(oldWidget);
+    if (!identical(oldWidget.remote, widget.remote)) {
+      _remote = widget.remote;
     }
   }
 
-  // Helper to know if it's a plain NEC hex (no rawData) -> defaults apply (MSB @ 38 kHz)
-  bool _isPlainNecHex(IRButton b) {
-    final hasRaw = b.rawData != null && b.rawData!.trim().isNotEmpty;
-    return b.code != null && !hasRaw;
+  @override
+  void dispose() {
+    _stopLoop(silent: true);
+    super.dispose();
   }
 
-  // Small rounded label used as a "chip" without extra dependencies.
+  Future<void> _sendOnce(IRButton button, {bool silent = false}) async {
+    if (!silent) HapticFeedback.lightImpact();
+    try {
+      await sendIR(button);
+    } catch (e) {
+      if (!silent && mounted) {
+        ScaffoldMessenger.of(context).showSnackBar(
+          SnackBar(content: Text('Failed to send IR: $e')),
+        );
+      }
+      rethrow;
+    }
+  }
+
+  Future<void> _handleButtonPress(IRButton button) async {
+    await _sendOnce(button);
+  }
+
+  void _startLoop(IRButton button) {
+    // Replace any existing loop.
+    _stopLoop(silent: true);
+
+    setState(() {
+      _loopButton = button;
+      _loopSending = false;
+    });
+
+    // UX: immediate feedback + avoid waiting for first timer tick.
+    _sendOnce(button, silent: true).catchError((e) {
+      _stopLoop(silent: true);
+      if (!mounted) return;
+      ScaffoldMessenger.of(context).showSnackBar(
+        SnackBar(content: Text('Failed to start loop: $e')),
+      );
+    });
+
+    _loopTimer = Timer.periodic(_kLoopInterval, (_) async {
+      if (_loopSending) return;
+      final b = _loopButton;
+      if (b == null) return;
+
+      _loopSending = true;
+      try {
+        await sendIR(b);
+      } catch (e) {
+        _stopLoop(silent: true);
+        if (!mounted) return;
+        ScaffoldMessenger.of(context).showSnackBar(
+          SnackBar(content: Text('Loop stopped (send failed): $e')),
+        );
+      } finally {
+        _loopSending = false;
+      }
+    });
+
+    if (!mounted) return;
+    final title = _buttonTitle(button);
+    ScaffoldMessenger.of(context).hideCurrentSnackBar();
+    ScaffoldMessenger.of(context).showSnackBar(
+      SnackBar(
+        content: Text('Looping “$title”. Tap Stop in the top bar to stop.'),
+        duration: const Duration(seconds: 3),
+      ),
+    );
+    HapticFeedback.selectionClick();
+  }
+
+  void _stopLoop({bool silent = false}) {
+    _loopTimer?.cancel();
+    _loopTimer = null;
+
+    final hadLoop = _loopButton != null;
+    setState(() {
+      _loopButton = null;
+      _loopSending = false;
+    });
+
+    if (!silent && hadLoop && mounted) {
+      ScaffoldMessenger.of(context).hideCurrentSnackBar();
+      ScaffoldMessenger.of(context).showSnackBar(
+        const SnackBar(
+          content: Text('Loop stopped.'),
+          duration: Duration(seconds: 2),
+        ),
+      );
+      HapticFeedback.selectionClick();
+    }
+  }
+
+  int _findRemoteIndexInGlobalList() {
+    // Prefer identity match, then fall back to id match.
+    final int byIdentity = remotes.indexWhere((r) => identical(r, _remote));
+    if (byIdentity >= 0) return byIdentity;
+
+    final int id = _remote.id;
+    if (id > 0) {
+      final int byId = remotes.indexWhere((r) => r.id == id);
+      if (byId >= 0) return byId;
+    }
+
+    return -1;
+  }
+
+  void _reassignIds() {
+    for (int i = 0; i < remotes.length; i++) {
+      remotes[i].id = i + 1;
+    }
+  }
+
+  Future<void> _editRemote() async {
+    if (_isLooping) _stopLoop(silent: false);
+
+    if (widget.onEditRemote != null) {
+      widget.onEditRemote!.call();
+      return;
+    }
+
+    final int idx = _findRemoteIndexInGlobalList();
+
+    try {
+      final Remote edited = await Navigator.push(
+        context,
+        MaterialPageRoute(builder: (context) => CreateRemote(remote: _remote)),
+      );
+
+      if (!mounted) return;
+
+      setState(() => _remote = edited);
+
+      // Persist if this remote is from the global list.
+      if (idx >= 0 && idx < remotes.length) {
+        remotes[idx] = edited;
+        await writeRemotelist(remotes);
+        notifyRemotesChanged();
+      } else {
+        ScaffoldMessenger.of(context).showSnackBar(
+          const SnackBar(
+            content: Text(
+              'Remote updated on screen. It was not found in the saved list.',
+            ),
+          ),
+        );
+      }
+
+      HapticFeedback.selectionClick();
+      ScaffoldMessenger.of(context).showSnackBar(
+        SnackBar(content: Text('Updated “${edited.name}”.')),
+      );
+    } catch (_) {
+      // cancelled
+    }
+  }
+
+  Future<void> _deleteRemote() async {
+    if (_isLooping) _stopLoop(silent: false);
+
+    if (widget.onDeleteRemote != null) {
+      final ok = await _confirmDeleteRemote();
+      if (!ok) return;
+
+      try {
+        await widget.onDeleteRemote!.call();
+      } catch (e) {
+        if (!mounted) return;
+        ScaffoldMessenger.of(context).showSnackBar(
+          SnackBar(content: Text('Delete failed: $e')),
+        );
+        return;
+      }
+
+      if (!mounted) return;
+      Navigator.of(context).maybePop();
+      return;
+    }
+
+    final bool ok = await _confirmDeleteRemote();
+    if (!ok) return;
+
+    final int idx = _findRemoteIndexInGlobalList();
+    if (idx < 0 || idx >= remotes.length) {
+      if (!mounted) return;
+      ScaffoldMessenger.of(context).showSnackBar(
+        const SnackBar(content: Text('Remote not found in saved list.')),
+      );
+      return;
+    }
+
+    final String name = _remote.name;
+
+    setState(() {
+      remotes.removeAt(idx);
+      _reassignIds();
+    });
+
+    await writeRemotelist(remotes);
+    notifyRemotesChanged();
+
+    if (!mounted) return;
+
+    HapticFeedback.selectionClick();
+    ScaffoldMessenger.of(context).showSnackBar(
+      SnackBar(content: Text('Deleted “$name”.')),
+    );
+    Navigator.of(context).maybePop();
+  }
+
+  String _stripFileExtension(String s) {
+    final int dot = s.lastIndexOf('.');
+    if (dot <= 0) return s;
+    return s.substring(0, dot);
+  }
+
+  String _buttonTitle(IRButton b) {
+    final raw = b.image.trim();
+    if (raw.isEmpty) return 'Button';
+    if (!b.isImage) return raw;
+
+    // If it's an image path, show a friendly filename (without extension).
+    final s = raw.replaceAll('\\', '/');
+    final parts = s.split('/');
+    final last = parts.isNotEmpty ? parts.last : raw;
+    final clean = last.isEmpty ? 'Image' : _stripFileExtension(last);
+    return clean.isEmpty ? 'Image' : clean;
+  }
+
+  bool _hasProtocol(IRButton b) =>
+      b.protocol != null && b.protocol!.trim().isNotEmpty;
+
+  /// Returns protocol params Map if present; null if absent.
+  /// This is compatible with:
+  /// - legacy: protocolParams == null
+  /// - new: protocolParams is a JSON map (decoded) stored on IRButton
+  Map<String, dynamic>? _protocolParams(IRButton b) {
+    final dynamic p = b.protocolParams;
+    if (p is Map<String, dynamic>) return p;
+    if (p is Map) return p.map((k, v) => MapEntry(k.toString(), v));
+    return null;
+  }
+
+  String _protocolLabel(IRButton b) {
+    if (_hasProtocol(b)) return IrProtocolRegistry.displayName(b.protocol);
+    if (_isRawSignalButton(b)) return 'RAW';
+    return 'NEC';
+  }
+
+  /// New-format raw signal: protocol == 'raw' with protocolParams {pattern, frequencyHz}
+  bool _isRawProtocol(IRButton b) {
+    if (!_hasProtocol(b)) return false;
+    final String id = b.protocol!.trim();
+    if (id != 'raw') return false;
+
+    final params = _protocolParams(b);
+    if (params == null) return true; // still "raw" logically
+    final pattern = params['pattern'];
+    return pattern is String && pattern.trim().isNotEmpty;
+  }
+
+  /// Legacy raw signal: rawData contains pulse timings and protocol is null/empty
+  bool _isLegacyRawSignalButton(IRButton b) {
+    final String? raw = b.rawData?.trim();
+    if (raw == null || raw.isEmpty) return false;
+
+    // If protocol is set, legacy rawData is not a raw timing blob for UI purposes.
+    if (_hasProtocol(b)) return false;
+
+    // NEC config strings are not "raw timings" in UI terms.
+    if (isNecConfigString(raw)) return false;
+
+    // Heuristic: raw timings usually contain many integer durations.
+    final int numbers = RegExp(r'-?\d+').allMatches(raw).length;
+    final bool hasSeparators = RegExp(r'[,\s]').hasMatch(raw);
+    return numbers >= 6 && hasSeparators;
+  }
+
+  /// Raw signal should be true for either:
+  /// - legacy rawData timings
+  /// - new-format protocol 'raw' with protocolParams.pattern
+  bool _isRawSignalButton(IRButton b) {
+    if (_isRawProtocol(b)) return true;
+    return _isLegacyRawSignalButton(b);
+  }
+
+  String _formatHex(int value, {required int minWidth}) {
+    final s = value.toRadixString(16).toUpperCase();
+    if (s.length >= minWidth) return s;
+    return s.padLeft(minWidth, '0');
+  }
+
+  String? _extractHexToken(String s) {
+    // Prefer 0x.... patterns
+    final m0x = RegExp(r'0x([0-9a-fA-F]{1,16})').firstMatch(s);
+    if (m0x != null) return m0x.group(1)!.toUpperCase();
+
+    // Otherwise pick the longest hex run of length >= 1
+    final matches = RegExp(r'([0-9a-fA-F]{1,16})').allMatches(s).toList();
+    if (matches.isEmpty) return null;
+
+    matches.sort((a, b) => b.group(1)!.length.compareTo(a.group(1)!.length));
+    return matches.first.group(1)!.toUpperCase();
+  }
+
+  /// Read hex code from both formats:
+  /// - legacy: IRButton.code (int) (NEC etc.)
+  /// - new: protocolParams['hex'] (string)
+  ///
+  /// Display rules:
+  /// - raw signal -> null (we show RAW SIGNAL)
+  /// - protocol-based -> min width 4 (but do not truncate if longer)
+  /// - non-protocol NEC legacy -> min width 8
+  String? _displayHex(IRButton b) {
+    if (_isRawSignalButton(b)) return null;
+
+    // New format: protocolParams.hex
+    if (_hasProtocol(b)) {
+      final params = _protocolParams(b);
+      final dynamic hexDyn = params?['hex'];
+      if (hexDyn is String && hexDyn.trim().isNotEmpty) {
+        final extracted = _extractHexToken(hexDyn.trim());
+        if (extracted == null) return null;
+        // Keep full length if provided (e.g., 8 for NEC), otherwise at least 4.
+        final int minWidth = extracted.length >= 8 ? 8 : 4;
+        return extracted.padLeft(minWidth, '0');
+      }
+    }
+
+    // Legacy: b.code int
+    final int? v = b.code;
+    if (v != null) {
+      if (_hasProtocol(b)) return _formatHex(v, minWidth: 4);
+      return _formatHex(v, minWidth: 8);
+    }
+
+    // Fallback: some old protocol implementations may have stored payload in rawData.
+    if (_hasProtocol(b)) {
+      final String? raw = b.rawData?.trim();
+      if (raw != null && raw.isNotEmpty) {
+        final extracted = _extractHexToken(raw);
+        if (extracted != null) return extracted.padLeft(4, '0');
+      }
+    }
+
+    return null;
+  }
+
+  int _effectiveFrequencyHz(IRButton b) {
+    // New-format raw: prefer protocolParams.frequencyHz
+    if (_isRawProtocol(b)) {
+      final params = _protocolParams(b);
+      final dynamic f = params?['frequencyHz'];
+      if (f is int && f > 0) return f;
+      if (f is num && f.toInt() > 0) return f.toInt();
+    }
+
+    // If user provided a frequency, it always wins (legacy field).
+    final int? f = b.frequency;
+    if (f != null && f > 0) return f;
+
+    // Otherwise show default frequency used by the app per type.
+    if (_hasProtocol(b)) return 38000;
+    if (_isRawSignalButton(b)) return 38000;
+    return kDefaultNecFrequencyHz;
+  }
+
+  String _freqLabelKhz(IRButton b) {
+    final int khz = (_effectiveFrequencyHz(b) / 1000).round();
+    return '${khz}kHz';
+  }
+
   Widget _pill(
     BuildContext context,
     String text, {
     Color? bg,
     Color? fg,
-    EdgeInsets padding = const EdgeInsets.symmetric(horizontal: 6, vertical: 2),
+    EdgeInsets padding = const EdgeInsets.symmetric(horizontal: 8, vertical: 3),
+    double radius = 999,
   }) {
     final colorScheme = Theme.of(context).colorScheme;
     final Color background =
@@ -94,222 +477,595 @@ class RemoteViewState extends State<RemoteView> {
       padding: padding,
       decoration: BoxDecoration(
         color: background,
-        borderRadius: BorderRadius.circular(10),
+        borderRadius: BorderRadius.circular(radius),
+        border: Border.all(
+          color: colorScheme.outlineVariant.withValues(alpha: 0.25),
+        ),
       ),
       child: Text(
         text,
+        maxLines: 1,
+        overflow: TextOverflow.ellipsis,
         style: TextStyle(
-          fontSize: 10.5,
-          fontWeight: FontWeight.w600,
+          fontSize: 11,
+          fontWeight: FontWeight.w800,
           color: foreground,
-          letterSpacing: 0.3,
+          letterSpacing: 0.2,
         ),
       ),
     );
   }
 
-  String? _necMode(IRButton b) {
-    final hasRaw = (b.rawData != null && b.rawData!.isNotEmpty);
-    final isNecCustom = hasRaw && isNecConfigString(b.rawData);
-    if (isNecCustom) {
-      return (b.necBitOrder ?? 'msb').toUpperCase() == 'LSB' ? 'LSB' : 'MSB';
-    }
-    if (_isPlainNecHex(b)) {
-      // Plain hex NEC defaults to MSB compatibility mode
-      return 'MSB';
-    }
-    return null;
-  }
+  Future<void> _openRemoteActionsSheet() async {
+    final theme = Theme.of(context);
+    final cs = theme.colorScheme;
 
-  @override
-  Widget build(BuildContext context) {
-    final bool useNewStyle = widget.remote.useNewStyle;
-    return Scaffold(
-      floatingActionButton: FloatingActionButton(
-        onPressed: () {
-          // Haptic feedback for FAB
-          HapticFeedback.selectionClick();
-
-          // Navigate to your remote list screen
-          Navigator.push(
-            context,
-            MaterialPageRoute(builder: (context) => const RemoteList()),
-          );
-        },
-        child: const Icon(Icons.list),
+    await showModalBottomSheet<void>(
+      context: context,
+      showDragHandle: true,
+      useSafeArea: true,
+      shape: const RoundedRectangleBorder(
+        borderRadius: BorderRadius.vertical(top: Radius.circular(18)),
       ),
-      appBar: AppBar(
-        automaticallyImplyLeading: false,
-        centerTitle: true,
-        title: Text(widget.remote.name),
-      ),
-      body: SafeArea(
-        child: Center(
-          child: useNewStyle ? _buildNewStyleGrid() : _buildOldStyleGrid(),
-        ),
-      ),
-    );
-  }
-
-  // ============== OLD LAYOUT (4 columns) ==============
-  Widget _buildOldStyleGrid() {
-    return GridView.builder(
-      shrinkWrap: true,
-      itemCount: widget.remote.buttons.length,
-      gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-        crossAxisCount: 4, // old style
-      ),
-      itemBuilder: (context, index) {
-        IRButton button = widget.remote.buttons[index];
-        final String? mode = _necMode(button);
-
-        final content = button.isImage
-            ? (button.image.startsWith("assets/")
-                ? Image.asset(button.image)
-                : Image.file(File(button.image)))
-            : Center(
-                child: Text(
-                  button.image,
-                  textAlign: TextAlign.center,
-                ),
-              );
-
-        // Overlay a small corner badge ("LSB"/"MSB") for quick scanning.
-        return GestureDetector(
-          onTap: () => _handleButtonPress(button),
-          child: Stack(
-            children: [
-              Positioned.fill(child: content),
-              if (mode != null)
-                Positioned(
-                  top: 4,
-                  right: 4,
-                  child: Tooltip(
-                    message: 'Bit order: $mode',
-                    child: _pill(
-                      context,
-                      mode,
-                      padding:
-                          const EdgeInsets.symmetric(horizontal: 6, vertical: 1.5),
+      builder: (ctx) {
+        return SafeArea(
+          child: Padding(
+            padding: const EdgeInsets.fromLTRB(16, 8, 16, 12),
+            child: Column(
+              mainAxisSize: MainAxisSize.min,
+              children: [
+                Row(
+                  children: [
+                    CircleAvatar(
+                      backgroundColor:
+                          cs.primaryContainer.withValues(alpha: 0.65),
+                      child: Icon(Icons.settings_remote_rounded,
+                          color: cs.onPrimaryContainer),
                     ),
-                  ),
+                    const SizedBox(width: 12),
+                    Expanded(
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Text(
+                            _remote.name,
+                            style: theme.textTheme.titleLarge
+                                ?.copyWith(fontWeight: FontWeight.w900),
+                            maxLines: 1,
+                            overflow: TextOverflow.ellipsis,
+                          ),
+                          const SizedBox(height: 2),
+                          Text(
+                            '${_remote.buttons.length} button(s) · ${_remote.useNewStyle ? 'Comfort' : 'Compact'}',
+                            style: theme.textTheme.bodySmall?.copyWith(
+                              color: cs.onSurface.withValues(alpha: 0.7),
+                              fontWeight: FontWeight.w600,
+                            ),
+                          ),
+                        ],
+                      ),
+                    ),
+                  ],
                 ),
-            ],
+                const SizedBox(height: 12),
+                const Divider(height: 0),
+                ListTile(
+                  contentPadding: EdgeInsets.zero,
+                  leading: const Icon(Icons.edit_outlined),
+                  title: const Text('Edit remote'),
+                  subtitle: const Text('Rename, reorder, and edit buttons'),
+                  trailing: const Icon(Icons.chevron_right_rounded),
+                  onTap: () {
+                    Navigator.of(ctx).pop();
+                    _editRemote();
+                  },
+                ),
+                const Divider(height: 0),
+                ListTile(
+                  contentPadding: EdgeInsets.zero,
+                  leading: Icon(Icons.delete_outline, color: cs.error),
+                  title: Text(
+                    'Delete remote',
+                    style:
+                        TextStyle(color: cs.error, fontWeight: FontWeight.w800),
+                  ),
+                  subtitle: const Text('This cannot be undone'),
+                  onTap: () async {
+                    Navigator.of(ctx).pop();
+                    await _deleteRemote();
+                  },
+                ),
+                const SizedBox(height: 6),
+              ],
+            ),
           ),
         );
       },
     );
   }
 
-  // ============== NEW LAYOUT (2 columns, "cards") ==============
-  Widget _buildNewStyleGrid() {
-    return GridView.builder(
-      shrinkWrap: true,
-      // 2 columns, more rectangular
-      gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-        crossAxisCount: 2,
-        childAspectRatio: 2.2,
-      ),
-      itemCount: widget.remote.buttons.length,
-      itemBuilder: (context, index) {
-        final IRButton button = widget.remote.buttons[index];
+  Future<bool> _confirmDeleteRemote() async {
+    final theme = Theme.of(context);
+    final cs = theme.colorScheme;
 
-        // Determine label for code line (monospace for hex if present).
-        final bool hasRaw =
-            (button.rawData != null && button.rawData!.isNotEmpty);
-        final bool isNecCustom = hasRaw && isNecConfigString(button.rawData);
-        final bool isPlainNec = _isPlainNecHex(button);
-
-        final String codeText = hasRaw
-            ? (isNecCustom
-                ? (button.code != null
-                    ? button.code!.toRadixString(16).padLeft(8, '0').toUpperCase()
-                    : 'NEC')
-                : 'RAW SIGNAL')
-            : (button.code != null
-                ? button.code!.toRadixString(16).padLeft(8, '0').toUpperCase()
-                : 'NO CODE');
-
-        // Build small chips row: NEC + LSB/MSB + frequency
-        final List<Widget> chips = [];
-        if (isNecCustom) {
-          chips.add(_pill(context, 'NEC'));
-          final String mode = (button.necBitOrder ?? 'msb').toUpperCase();
-          chips.add(_pill(context, mode));
-          if (button.frequency != null && button.frequency! > 0) {
-            final int khz = (button.frequency! / 1000).round();
-            chips.add(_pill(context, '${khz}kHz'));
-          }
-        } else if (isPlainNec) {
-          // Default behavior for plain hex NEC: MSB at 38 kHz
-          chips.add(_pill(context, 'NEC'));
-          chips.add(_pill(context, 'MSB'));
-          final int khz = (kDefaultNecFrequencyHz / 1000).round();
-          chips.add(_pill(context, '${khz}kHz'));
-        } else if (hasRaw) {
-          chips.add(_pill(context, 'RAW'));
-          if (button.frequency != null && button.frequency! > 0) {
-            final int khz = (button.frequency! / 1000).round();
-            chips.add(_pill(context, '${khz}kHz'));
-          }
-        }
-
-        // The "title" (top line) can be the button's image string or name
-        final String topLine = button.image;
-
-        return Card(
-          shape: RoundedRectangleBorder(
-            borderRadius: BorderRadius.circular(8),
+    return await showDialog<bool>(
+      context: context,
+      builder: (ctx) => AlertDialog(
+        icon: Icon(Icons.warning_amber_rounded, color: cs.error),
+        title: const Text('Delete remote?'),
+        content: Text(
+          '“${_remote.name}” will be deleted permanently.',
+          style: theme.textTheme.bodyMedium,
+        ),
+        actions: [
+          TextButton(
+            onPressed: () => Navigator.of(ctx).pop(false),
+            child: const Text('Cancel'),
           ),
-          color: Theme.of(context).colorScheme.primary.withValues(alpha: 0.2),
+          FilledButton.tonal(
+            style: FilledButton.styleFrom(
+              foregroundColor: cs.onErrorContainer,
+              backgroundColor: cs.errorContainer,
+            ),
+            onPressed: () => Navigator.of(ctx).pop(true),
+            child: const Text('Delete'),
+          ),
+        ],
+      ),
+    ).then((v) => v ?? false);
+  }
+
+  Future<void> _openButtonActions(IRButton b) async {
+    final theme = Theme.of(context);
+    final cs = theme.colorScheme;
+
+    final String label = _buttonTitle(b);
+    final String proto = _protocolLabel(b);
+    final String freq = _freqLabelKhz(b);
+    final bool isRaw = _isRawSignalButton(b);
+    final String? displayHex = _displayHex(b);
+
+    final bool loopingThis = _isLoopingThis(b);
+
+    final String typeLine = 'Type: $proto';
+    final String codeLine =
+        isRaw ? 'Code: Raw signal' : 'Code: ${displayHex ?? 'NO CODE'}';
+    final String freqLine = 'Frequency: $freq';
+
+    await showModalBottomSheet<void>(
+      context: context,
+      showDragHandle: true,
+      useSafeArea: true,
+      shape: const RoundedRectangleBorder(
+        borderRadius: BorderRadius.vertical(top: Radius.circular(18)),
+      ),
+      builder: (ctx) {
+        return SafeArea(
+          child: Padding(
+            padding: const EdgeInsets.fromLTRB(16, 8, 16, 14),
+            child: Column(
+              mainAxisSize: MainAxisSize.min,
+              children: [
+                Row(
+                  children: [
+                    CircleAvatar(
+                      backgroundColor:
+                          cs.secondaryContainer.withValues(alpha: 0.75),
+                      child: Icon(Icons.touch_app_outlined,
+                          color: cs.onSecondaryContainer),
+                    ),
+                    const SizedBox(width: 12),
+                    Expanded(
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Text(
+                            label,
+                            style: theme.textTheme.titleLarge
+                                ?.copyWith(fontWeight: FontWeight.w900),
+                            maxLines: 1,
+                            overflow: TextOverflow.ellipsis,
+                          ),
+                          const SizedBox(height: 2),
+                          Text(
+                            typeLine,
+                            style: theme.textTheme.bodySmall?.copyWith(
+                              color: cs.onSurface.withValues(alpha: 0.7),
+                              fontWeight: FontWeight.w600,
+                            ),
+                          ),
+                        ],
+                      ),
+                    ),
+                  ],
+                ),
+                const SizedBox(height: 10),
+                Container(
+                  width: double.infinity,
+                  padding: const EdgeInsets.all(12),
+                  decoration: BoxDecoration(
+                    color: cs.surfaceContainerHighest.withValues(alpha: 0.55),
+                    borderRadius: BorderRadius.circular(12),
+                    border: Border.all(
+                        color: cs.outlineVariant.withValues(alpha: 0.3)),
+                  ),
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Text(
+                        codeLine,
+                        style: theme.textTheme.bodyMedium?.copyWith(
+                          fontFamily: isRaw ? null : 'monospace',
+                          fontWeight: FontWeight.w800,
+                        ),
+                      ),
+                      const SizedBox(height: 6),
+                      Text(
+                        freqLine,
+                        style: theme.textTheme.bodySmall?.copyWith(
+                          color: cs.onSurface.withValues(alpha: 0.75),
+                          fontWeight: FontWeight.w600,
+                        ),
+                      ),
+                      const SizedBox(height: 8),
+                      Row(
+                        children: [
+                          Icon(
+                            loopingThis ? Icons.sync_rounded : Icons.info_outline,
+                            size: 16,
+                            color: cs.onSurface.withValues(alpha: 0.75),
+                          ),
+                          const SizedBox(width: 6),
+                          Expanded(
+                            child: Text(
+                              loopingThis
+                                  ? 'Loop is running for this button.'
+                                  : 'Tip: Use Loop to repeat until you stop it.',
+                              style: theme.textTheme.bodySmall?.copyWith(
+                                color: cs.onSurface.withValues(alpha: 0.75),
+                                fontWeight: FontWeight.w600,
+                              ),
+                            ),
+                          ),
+                        ],
+                      ),
+                    ],
+                  ),
+                ),
+                const SizedBox(height: 10),
+                Row(
+                  children: [
+                    Expanded(
+                      child: FilledButton.icon(
+                        onPressed: () {
+                          Navigator.of(ctx).pop();
+                          _handleButtonPress(b);
+                        },
+                        icon: const Icon(Icons.play_arrow_rounded),
+                        label: const Text('Send'),
+                      ),
+                    ),
+                    const SizedBox(width: 12),
+                    Expanded(
+                      child: FilledButton.tonalIcon(
+                        onPressed: (isRaw || displayHex == null)
+                            ? null
+                            : () async {
+                                await Clipboard.setData(
+                                  ClipboardData(text: displayHex),
+                                );
+                                if (!mounted) return;
+                                Navigator.of(ctx).pop();
+                                ScaffoldMessenger.of(context).showSnackBar(
+                                  const SnackBar(content: Text('Code copied.')),
+                                );
+                                HapticFeedback.selectionClick();
+                              },
+                        icon: const Icon(Icons.copy_rounded),
+                        label: const Text('Copy code'),
+                      ),
+                    ),
+                  ],
+                ),
+                const SizedBox(height: 12),
+                SizedBox(
+                  width: double.infinity,
+                  child: loopingThis
+                      ? FilledButton.icon(
+                          style: FilledButton.styleFrom(
+                            backgroundColor: cs.error,
+                            foregroundColor: cs.onError,
+                          ),
+                          onPressed: () {
+                            Navigator.of(ctx).pop();
+                            _stopLoop(silent: false);
+                          },
+                          icon: const Icon(Icons.stop_rounded),
+                          label: const Text('Stop loop'),
+                        )
+                      : FilledButton.tonalIcon(
+                          onPressed: () {
+                            Navigator.of(ctx).pop();
+                            _startLoop(b);
+                          },
+                          icon: const Icon(Icons.loop_rounded),
+                          label: const Text('Start loop'),
+                        ),
+                ),
+              ],
+            ),
+          ),
+        );
+      },
+    );
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    final theme = Theme.of(context);
+    final cs = theme.colorScheme;
+
+    final bool useNewStyle = _remote.useNewStyle;
+    final int count = _remote.buttons.length;
+
+    return Scaffold(
+      appBar: AppBar(
+        centerTitle: true,
+        title: Column(
+          mainAxisSize: MainAxisSize.min,
+          children: [
+            Text(_remote.name, maxLines: 1, overflow: TextOverflow.ellipsis),
+            const SizedBox(height: 2),
+            Text(
+              '$count button(s)',
+              style: theme.textTheme.labelSmall?.copyWith(
+                color: cs.onSurface.withValues(alpha: 0.65),
+                fontWeight: FontWeight.w600,
+              ),
+            ),
+          ],
+        ),
+        actions: [
+          if (_isLooping)
+            IconButton(
+              tooltip: 'Stop loop',
+              onPressed: () => _stopLoop(silent: false),
+              icon: Icon(Icons.stop_circle_rounded, color: cs.error),
+            ),
+          IconButton(
+            tooltip: 'Manage remote',
+            onPressed: _openRemoteActionsSheet,
+            icon: const Icon(Icons.more_vert_rounded),
+          ),
+        ],
+      ),
+      body: SafeArea(
+        child: count == 0
+            ? _EmptyRemoteState(onManage: _openRemoteActionsSheet)
+            : (useNewStyle ? _buildComfortGrid() : _buildCompactGrid()),
+      ),
+    );
+  }
+
+  /// Compact (4 columns): keep original behavior/feel, but show protocol/type pill.
+  Widget _buildCompactGrid() {
+    final theme = Theme.of(context);
+    final cs = theme.colorScheme;
+    final cardColor = cs.primary.withValues(alpha: 0.20);
+
+    return GridView.builder(
+      padding: EdgeInsets.fromLTRB(
+        12,
+        12,
+        12,
+        12 + MediaQuery.of(context).padding.bottom,
+      ),
+      itemCount: _remote.buttons.length,
+      gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+        crossAxisCount: 4,
+        mainAxisSpacing: 10,
+        crossAxisSpacing: 10,
+        childAspectRatio: 1.0,
+      ),
+      itemBuilder: (context, index) {
+        final IRButton button = _remote.buttons[index];
+
+        final bool hasProtocol = _hasProtocol(button);
+        final String proto = _protocolLabel(button);
+
+        final Widget content = button.isImage
+            ? (button.image.startsWith("assets/")
+                ? Image.asset(button.image, fit: BoxFit.contain)
+                : Image.file(File(button.image), fit: BoxFit.contain))
+            : Center(
+                child: Padding(
+                  padding: const EdgeInsets.all(8),
+                  child: Text(
+                    button.image,
+                    textAlign: TextAlign.center,
+                    maxLines: 3,
+                    overflow: TextOverflow.ellipsis,
+                    style: theme.textTheme.bodyMedium?.copyWith(
+                      fontWeight: FontWeight.w900,
+                      color: cs.onSurface,
+                    ),
+                  ),
+                ),
+              );
+
+        return Material(
+          color: cardColor,
+          borderRadius: BorderRadius.circular(14),
+          clipBehavior: Clip.antiAlias,
           child: InkWell(
             onTap: () => _handleButtonPress(button),
+            onLongPress: () => _openButtonActions(button),
+            child: Stack(
+              children: [
+                Positioned.fill(
+                  child: Padding(
+                    padding: const EdgeInsets.all(8),
+                    child: content,
+                  ),
+                ),
+                Positioned(
+                  top: 6,
+                  right: 6,
+                  child: Tooltip(
+                    message: hasProtocol ? 'Protocol: $proto' : 'Type: $proto',
+                    child: _pill(
+                      context,
+                      proto,
+                      padding: const EdgeInsets.symmetric(
+                        horizontal: 7,
+                        vertical: 2.5,
+                      ),
+                    ),
+                  ),
+                ),
+              ],
+            ),
+          ),
+        );
+      },
+    );
+  }
+
+  /// Comfort (2 columns): show only:
+  /// - Button name
+  /// - Hex code (except raw -> show "RAW SIGNAL")
+  /// - Pills: [Protocol/Type] [Frequency (user or default)]
+  Widget _buildComfortGrid() {
+    final theme = Theme.of(context);
+    final cs = theme.colorScheme;
+    final cardColor = cs.primary.withValues(alpha: 0.20);
+
+    return GridView.builder(
+      padding: EdgeInsets.fromLTRB(
+        12,
+        12,
+        12,
+        12 + MediaQuery.of(context).padding.bottom,
+      ),
+      gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+        crossAxisCount: 2,
+        mainAxisExtent: 115,
+        mainAxisSpacing: 12,
+        crossAxisSpacing: 12,
+      ),
+      itemCount: _remote.buttons.length,
+      itemBuilder: (context, index) {
+        final IRButton button = _remote.buttons[index];
+
+        final bool isRaw = _isRawSignalButton(button);
+        final String title = _buttonTitle(button);
+        final String proto = _protocolLabel(button);
+        final String freq = _freqLabelKhz(button);
+
+        final String? displayHex = _displayHex(button);
+        final String codeText = isRaw ? 'RAW SIGNAL' : (displayHex ?? 'NO CODE');
+
+        final List<Widget> chips = <Widget>[
+          _pill(context, proto),
+          _pill(context, freq),
+        ];
+
+        return Card(
+          elevation: 0,
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(16),
+            side: BorderSide(color: cs.outlineVariant.withValues(alpha: 0.35)),
+          ),
+          color: cardColor,
+          clipBehavior: Clip.antiAlias,
+          child: InkWell(
+            onTap: () => _handleButtonPress(button),
+            onLongPress: () => _openButtonActions(button),
             child: Padding(
-              padding: const EdgeInsets.all(8.0),
+              padding: const EdgeInsets.fromLTRB(14, 14, 14, 14),
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  // Title
                   Text(
-                    topLine,
+                    title,
                     textAlign: TextAlign.center,
-                    style: TextStyle(
-                      fontSize: 16,
-                      fontWeight: FontWeight.bold,
-                      color: Theme.of(context).colorScheme.onSurface,
+                    maxLines: 2,
+                    overflow: TextOverflow.ellipsis,
+                    style: theme.textTheme.titleMedium?.copyWith(
+                      fontWeight: FontWeight.w900,
+                      color: cs.onSurface,
                     ),
                   ),
-                  const SizedBox(height: 6),
-
-                  // Code line (hex or RAW/NO CODE)
+                  const SizedBox(height: 10),
                   Text(
                     codeText,
-                    style: TextStyle(
-                      fontSize: 13,
-                      fontFamily: 'monospace',
-                      color: Theme.of(context)
-                          .colorScheme
-                          .onSurface
-                          .withValues(alpha: 0.8),
+                    maxLines: 1,
+                    overflow: TextOverflow.ellipsis,
+                    style: theme.textTheme.bodyMedium?.copyWith(
+                      fontFamily: isRaw ? null : 'monospace',
+                      fontWeight: FontWeight.w800,
+                      color: cs.onSurface.withValues(alpha: 0.82),
                     ),
                   ),
-
-                  // Chips row for mode/frequency (if applicable)
-                  if (chips.isNotEmpty) ...[
-                    const SizedBox(height: 6),
-                    Wrap(
-                      alignment: WrapAlignment.center,
-                      spacing: 6,
-                      runSpacing: 4,
-                      children: chips,
-                    ),
-                  ],
+                  const SizedBox(height: 12),
+                  Wrap(
+                    alignment: WrapAlignment.center,
+                    spacing: 6,
+                    runSpacing: 6,
+                    children: chips,
+                  ),
                 ],
               ),
             ),
           ),
         );
       },
+    );
+  }
+}
+
+class _EmptyRemoteState extends StatelessWidget {
+  final VoidCallback onManage;
+  const _EmptyRemoteState({required this.onManage});
+
+  @override
+  Widget build(BuildContext context) {
+    final theme = Theme.of(context);
+    final cs = theme.colorScheme;
+
+    return Center(
+      child: Padding(
+        padding: const EdgeInsets.all(24),
+        child: Column(
+          mainAxisSize: MainAxisSize.min,
+          children: [
+            Icon(Icons.grid_off_rounded,
+                size: 52, color: cs.onSurface.withValues(alpha: 0.45)),
+            const SizedBox(height: 12),
+            Text(
+              'No buttons in this remote',
+              style: theme.textTheme.titleMedium
+                  ?.copyWith(fontWeight: FontWeight.w900),
+              textAlign: TextAlign.center,
+            ),
+            const SizedBox(height: 6),
+            Text(
+              'Use “Edit remote” to add or configure buttons.',
+              style: theme.textTheme.bodyMedium?.copyWith(
+                color: cs.onSurface.withValues(alpha: 0.7),
+                fontWeight: FontWeight.w600,
+              ),
+              textAlign: TextAlign.center,
+            ),
+            const SizedBox(height: 14),
+            FilledButton.tonalIcon(
+              onPressed: onManage,
+              icon: const Icon(Icons.more_horiz_rounded),
+              label: const Text('Manage remote'),
+            ),
+          ],
+        ),
+      ),
     );
   }
 }
