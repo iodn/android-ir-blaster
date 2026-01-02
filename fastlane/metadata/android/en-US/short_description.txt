@@ -1,1 +1,1 @@
-IR blaster that supports hex code, raw signal and Flipper Zero .IR files
+Turn your Android into an IR remote: hex/raw/Flipper Zero .ir + Signal Tester

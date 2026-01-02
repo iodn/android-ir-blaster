@@ -1,17 +1,22 @@
-Create custom infrared (IR) remotes using hex codes, raw data, or Flipper Zero .IR files.
+IR Blaster turns your Android device into a universal infrared remote.
+Create, import, test, and send IR signals using hex codes, raw timings, or Flipper Zero .ir files.
 
-Features:
+• Send IR in multiple ways
 
- - Supports Parsed Hex Codes
+			- Built-in IR emitter (for supported phones)
 
- - Supports Raw IR signals
+			- Supported USB IR dongles
 
- - Multi-transmitter support, send IR via built-in emitter, supported USB IR dongles, or audio-to-IR adapters
+			- Audio-to-IR adapters: 1-LED (mono) / 2-LED (stereo anti-phase)
 
- - Signal Tester (bruteforcer) to help discover unknown working IR codes
+• Powerful IR tools
 
- - Supports Import of Flipper Zero .IR files
+			- Works with 20+ IR protocols, including NEC, Denon, RC5/RC6, Sony 12/15/20, Thomson7, Proton, RCC0082/RCC2026, and more
 
- - Backup / Restore remotes
+• Signal Tester (bruteforcer) to help discover working codes when you don't know the correct one
 
-Note: Requires a phone with a built-in IR emitter to function.
+• Import Flipper Zero .ir files
+
+• Backup & Restore your remotes
+
+Open source: https://github.com/iodn/android-ir-blaster
