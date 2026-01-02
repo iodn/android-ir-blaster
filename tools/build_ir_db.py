@@ -20,18 +20,15 @@ def main() -> None:
 
     con = sqlite3.connect(str(OUT_DB))
     try:
-        # Speed/reproducibility-friendly pragmas (optional)
         con.execute("PRAGMA journal_mode=OFF;")
         con.execute("PRAGMA synchronous=OFF;")
         con.execute("PRAGMA temp_store=MEMORY;")
 
-        # Apply the dump (schema + inserts)
         con.executescript(sql)
         con.commit()
     finally:
         con.close()
 
-    # Basic sanity check: file exists and is non-trivial
     if not OUT_DB.exists() or OUT_DB.stat().st_size < 1024:
         raise SystemExit(f"DB generation failed or produced tiny output: {OUT_DB}")
 
