@@ -114,8 +114,8 @@ class SettingsScreen extends StatelessWidget {
   Future<void> _restoreDemoRemote(BuildContext context) async {
     final confirmed = await _confirmAction(
       context,
-      title: 'Restore demo remote?',
-      message: 'This will replace your current remotes with the built-in demo remote. '
+      title: 'Restore demo remotes?',
+      message: 'This will replace your current remotes with the built-in demo remotes. '
           'A backup is recommended if you want to keep your current list.',
       confirmLabel: 'Restore demo',
       icon: Icons.restore_rounded,

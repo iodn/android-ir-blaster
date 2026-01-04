@@ -42,7 +42,7 @@ class _IrFinderScreenState extends State<IrFinderScreen> {
   String? _model;
   bool _dbOnlySelectedProtocol = true;
   bool _dbQuickWinsFirst = true;
-  int _dbMaxKeysToTest = 2000;
+  int _dbMaxKeysToTest = 1000000;
 
   // Test/run state
   bool _running = false;

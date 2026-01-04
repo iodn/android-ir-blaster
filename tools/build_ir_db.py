@@ -23,14 +23,13 @@ def main() -> None:
         con.execute("PRAGMA journal_mode=OFF;")
         con.execute("PRAGMA synchronous=OFF;")
         con.execute("PRAGMA temp_store=MEMORY;")
-
         con.executescript(sql)
         con.commit()
     finally:
         con.close()
 
     if not OUT_DB.exists() or OUT_DB.stat().st_size < 1024:
-        raise SystemExit(f"DB generation failed or produced tiny output: {OUT_DB}")
+        raise SystemExit(f"DB generation failed: {OUT_DB}")
 
     print(f"[OK] Generated {OUT_DB} ({OUT_DB.stat().st_size} bytes)")
 
