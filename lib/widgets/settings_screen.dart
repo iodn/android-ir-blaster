@@ -1,11 +1,10 @@
-// ./lib/widgets/settings_screen.dart
-
 import 'dart:async';
 import 'dart:convert';
 import 'dart:typed_data';
 
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:irblaster_controller/state/app_theme.dart';
 import 'package:irblaster_controller/state/remotes_state.dart';
 import 'package:irblaster_controller/utils/ir_transmitter_platform.dart';
 import 'package:irblaster_controller/utils/remote.dart';
@@ -255,6 +254,17 @@ class SettingsScreen extends StatelessWidget {
           ),
           const SizedBox(height: 8),
           _SupportProjectCard(onTap: () => _openSupportProject(context)),
+
+          // -------------------- THEME HANDLING (requested placement) --------------------
+          const SizedBox(height: 20),
+          _SectionHeader(
+            title: 'Appearance',
+            subtitle: 'Theme selection (saved)',
+          ),
+          const SizedBox(height: 8),
+          const _ThemeCard(),
+          // ---------------------------------------------------------------------------
+
           const SizedBox(height: 20),
           _SectionHeader(
             title: 'About',
@@ -302,6 +312,117 @@ class SettingsScreen extends StatelessWidget {
           ),
         ],
       ),
+    );
+  }
+}
+
+class _ThemeCard extends StatelessWidget {
+  const _ThemeCard();
+
+  Future<void> _setTheme(BuildContext context, ThemeMode next) async {
+    await AppThemeController.instance.setMode(next);
+    if (!context.mounted) return;
+
+    ScaffoldMessenger.of(context).showSnackBar(
+      SnackBar(content: Text('Theme: ${next.displayName}')),
+    );
+    HapticFeedback.selectionClick();
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    final theme = Theme.of(context);
+    final cs = theme.colorScheme;
+
+    return AnimatedBuilder(
+      animation: AppThemeController.instance,
+      builder: (context, _) {
+        final mode = AppThemeController.instance.mode;
+        final sys = MediaQuery.platformBrightnessOf(context);
+        final sysLabel = (sys == Brightness.dark) ? 'Dark' : 'Light';
+
+        final String subtitle = switch (mode) {
+          ThemeMode.system => 'Follow device settings (currently $sysLabel)',
+          ThemeMode.light => 'Always use Light theme',
+          ThemeMode.dark => 'Always use Dark theme',
+        };
+
+        return Card(
+          clipBehavior: Clip.antiAlias,
+          child: Padding(
+            padding: const EdgeInsets.all(16),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Row(
+                  children: [
+                    Icon(Icons.palette_outlined, color: cs.primary),
+                    const SizedBox(width: 10),
+                    Expanded(child: Text('Theme', style: theme.textTheme.titleMedium)),
+                    Container(
+                      padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 6),
+                      decoration: BoxDecoration(
+                        color: cs.primaryContainer.withValues(alpha: 0.65),
+                        borderRadius: BorderRadius.circular(999),
+                        border: Border.all(color: cs.outlineVariant.withValues(alpha: 0.25)),
+                      ),
+                      child: Row(
+                        mainAxisSize: MainAxisSize.min,
+                        children: [
+                          Icon(mode.icon, size: 16, color: cs.onPrimaryContainer),
+                          const SizedBox(width: 6),
+                          Text(
+                            mode.displayName,
+                            style: TextStyle(
+                              color: cs.onPrimaryContainer,
+                              fontWeight: FontWeight.w800,
+                              fontSize: 12.5,
+                            ),
+                          ),
+                        ],
+                      ),
+                    ),
+                  ],
+                ),
+                const SizedBox(height: 8),
+                Text(
+                  subtitle,
+                  style: theme.textTheme.bodyMedium?.copyWith(
+                    color: cs.onSurface.withValues(alpha: 0.72),
+                    fontWeight: FontWeight.w600,
+                  ),
+                ),
+                const SizedBox(height: 12),
+                SegmentedButton<ThemeMode>(
+                  segments: const <ButtonSegment<ThemeMode>>[
+                    ButtonSegment<ThemeMode>(
+                      value: ThemeMode.system,
+                      label: Text('System'),
+                      icon: Icon(Icons.brightness_auto_rounded),
+                    ),
+                    ButtonSegment<ThemeMode>(
+                      value: ThemeMode.light,
+                      label: Text('Light'),
+                      icon: Icon(Icons.light_mode_rounded),
+                    ),
+                    ButtonSegment<ThemeMode>(
+                      value: ThemeMode.dark,
+                      label: Text('Dark'),
+                      icon: Icon(Icons.dark_mode_rounded),
+                    ),
+                  ],
+                  selected: <ThemeMode>{mode},
+                  onSelectionChanged: (s) {
+                    final next = s.first;
+                    if (next == mode) return;
+                    _setTheme(context, next);
+                  },
+                ),
+              ],
+            ),
+          ),
+        );
+      },
     );
   }
 }
@@ -604,7 +725,6 @@ class _SupportProjectSheetState extends State<_SupportProjectSheet> {
             const Divider(height: 0),
             const SizedBox(height: 12),
 
-            // Replaces TabBar (prevents blank screen/crash when no TabController is present).
             SegmentedButton<_DonationChain>(
               segments: const <ButtonSegment<_DonationChain>>[
                 ButtonSegment<_DonationChain>(

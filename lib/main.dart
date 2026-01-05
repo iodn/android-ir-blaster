@@ -4,12 +4,13 @@ import 'dart:ui';
 import 'package:dynamic_color/dynamic_color.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
+import 'package:irblaster_controller/state/app_theme.dart';
 import 'package:irblaster_controller/state/remotes_state.dart';
 import 'package:irblaster_controller/utils/remote.dart';
 import 'package:irblaster_controller/widgets/home_shell.dart';
 import 'package:media_store_plus/media_store_plus.dart';
 
-void main() {
+Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
 
   FlutterError.onError = (details) {
@@ -21,6 +22,12 @@ void main() {
     debugPrint('Uncaught platform error: $error\n$stack');
     return true;
   };
+
+  try {
+    await AppThemeController.instance.load();
+  } catch (e, st) {
+    debugPrint('Failed to load theme preference: $e\n$st');
+  }
 
   runZonedGuarded(() {
     runApp(const _App());
@@ -34,22 +41,29 @@ class _App extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return DynamicColorBuilder(
-      builder: (lightDynamic, darkDynamic) {
-        final ColorScheme lightScheme =
-            lightDynamic ?? ColorScheme.fromSeed(seedColor: Colors.blue);
-        final ColorScheme darkScheme = darkDynamic ??
-            ColorScheme.fromSeed(
-              seedColor: Colors.blue,
-              brightness: Brightness.dark,
-            );
+    return AnimatedBuilder(
+      animation: AppThemeController.instance,
+      builder: (context, _) {
+        return DynamicColorBuilder(
+          builder: (lightDynamic, darkDynamic) {
+            final ColorScheme lightScheme =
+                lightDynamic ?? ColorScheme.fromSeed(seedColor: Colors.blue);
 
-        return MaterialApp(
-          title: 'IR Blaster',
-          debugShowCheckedModeBanner: false,
-          theme: ThemeData(colorScheme: lightScheme, useMaterial3: true),
-          darkTheme: ThemeData(colorScheme: darkScheme, useMaterial3: true),
-          home: const _BootstrapScreen(),
+            final ColorScheme darkScheme = darkDynamic ??
+                ColorScheme.fromSeed(
+                  seedColor: Colors.blue,
+                  brightness: Brightness.dark,
+                );
+
+            return MaterialApp(
+              title: 'IR Blaster',
+              debugShowCheckedModeBanner: false,
+              themeMode: AppThemeController.instance.mode,
+              theme: ThemeData(useMaterial3: true, colorScheme: lightScheme, brightness: Brightness.light),
+              darkTheme: ThemeData(useMaterial3: true, colorScheme: darkScheme, brightness: Brightness.dark),
+              home: const _BootstrapScreen(),
+            );
+          },
         );
       },
     );
@@ -67,24 +81,26 @@ class _BootstrapScreenState extends State<_BootstrapScreen> {
   late Future<void> _future = _bootstrap();
 
   Future<void> _bootstrap() async {
-    // Prevent “infinite splash” if a platform call hangs.
-    await MediaStore.ensureInitialized()
-        .timeout(const Duration(seconds: 8), onTimeout: () {
-      throw TimeoutException('MediaStore.ensureInitialized() timed out');
-    });
+    await MediaStore.ensureInitialized().timeout(
+      const Duration(seconds: 8),
+      onTimeout: () {
+        throw TimeoutException('MediaStore.ensureInitialized() timed out');
+      },
+    );
 
     MediaStore.appFolder = 'IRBlaster';
 
-    // Load remotes (also guarded against hangs).
-    remotes = await readRemotes()
-        .timeout(const Duration(seconds: 8), onTimeout: () {
-      throw TimeoutException('readRemotes() timed out');
-    });
+    /* Load remotes (also guarded against hangs). */
+    remotes = await readRemotes().timeout(
+      const Duration(seconds: 8),
+      onTimeout: () {
+        throw TimeoutException('readRemotes() timed out');
+      },
+    );
 
     if (remotes.isEmpty) {
       remotes = writeDefaultRemotes();
     }
-
     notifyRemotesChanged();
   }
 
@@ -96,14 +112,12 @@ class _BootstrapScreenState extends State<_BootstrapScreen> {
         if (snap.connectionState != ConnectionState.done) {
           return const _Splash();
         }
-
         if (snap.hasError) {
           return _BootstrapError(
             error: snap.error,
             onRetry: () => setState(() => _future = _bootstrap()),
           );
         }
-
         return const HomeShell();
       },
     );
