@@ -62,7 +62,7 @@ class _RemoteListState extends State<RemoteList> {
               ),
               const SizedBox(height: 8),
               Text(
-                "“${remote.name}” will be permanently removed. This action can’t be undone.",
+                '"${remote.name}" will be permanently removed. This action can\'t be undone.',
                 textAlign: TextAlign.center,
                 style: theme.textTheme.bodyMedium?.copyWith(
                   color: theme.colorScheme.onSurface.withValues(alpha: 0.75),
@@ -113,7 +113,6 @@ class _RemoteListState extends State<RemoteList> {
       await writeRemotelist(remotes);
       notifyRemotesChanged();
     } catch (_) {
-      // cancelled
     }
   }
 
@@ -130,14 +129,12 @@ class _RemoteListState extends State<RemoteList> {
       });
       await writeRemotelist(remotes);
       notifyRemotesChanged();
-
       if (!mounted) return;
       HapticFeedback.selectionClick();
       ScaffoldMessenger.of(context).showSnackBar(
-        SnackBar(content: Text('Updated “${editedRemote.name}”.')),
+        SnackBar(content: Text('Updated "${editedRemote.name}".')),
       );
     } catch (_) {
-      // cancelled
     }
   }
 
@@ -146,29 +143,25 @@ class _RemoteListState extends State<RemoteList> {
     final Remote remote = remotes[index];
     final confirmed = await _confirmDeleteRemote(context, remote);
     if (!confirmed) return;
-
     setState(() {
       remotes.removeAt(index);
       _reassignIds();
     });
     await writeRemotelist(remotes);
     notifyRemotesChanged();
-
     if (!mounted) return;
     HapticFeedback.selectionClick();
     ScaffoldMessenger.of(context).showSnackBar(
       SnackBar(
-        content: Text("Deleted “${remote.name}”. This action can’t be undone."),
+        content: Text('Deleted "${remote.name}". This action can\'t be undone.'),
       ),
     );
   }
 
   Future<void> _openRemoteActionsSheet(Remote remote, int index) async {
     if (_reorderMode) return;
-
     final theme = Theme.of(context);
     final cs = theme.colorScheme;
-
     await showModalBottomSheet<void>(
       context: context,
       showDragHandle: true,
@@ -186,8 +179,7 @@ class _RemoteListState extends State<RemoteList> {
                 Row(
                   children: [
                     CircleAvatar(
-                      backgroundColor:
-                          cs.primaryContainer.withValues(alpha: 0.65),
+                      backgroundColor: cs.primaryContainer.withValues(alpha: 0.65),
                       child: Icon(Icons.settings_remote_rounded,
                           color: cs.onPrimaryContainer),
                     ),
@@ -207,8 +199,8 @@ class _RemoteListState extends State<RemoteList> {
                           Text(
                             '${remote.buttons.length} button(s) · ${remote.useNewStyle ? 'Comfort' : 'Compact'}',
                             style: theme.textTheme.bodySmall?.copyWith(
-                              color: cs.onSurface.withValues(alpha: 0.7),
-                              fontWeight: FontWeight.w600),
+                                color: cs.onSurface.withValues(alpha: 0.7),
+                                fontWeight: FontWeight.w600),
                           ),
                         ],
                       ),
@@ -279,11 +271,39 @@ class _RemoteListState extends State<RemoteList> {
     return true;
   }
 
+  int _calculateCrossAxisCount(BuildContext context) {
+    final width = MediaQuery.of(context).size.width;
+    final orientation = MediaQuery.of(context).orientation;
+    
+    if (orientation == Orientation.landscape) {
+      if (width >= 1200) return 5;
+      if (width >= 900) return 4;
+      if (width >= 600) return 3;
+      return 2;
+    } else {
+      if (width >= 900) return 4;
+      if (width >= 600) return 3;
+      return 2;
+    }
+  }
+
+  double _calculateChildAspectRatio(BuildContext context) {
+    final width = MediaQuery.of(context).size.width;
+    final crossAxisCount = _calculateCrossAxisCount(context);
+    final horizontalPadding = 16.0 * 2;
+    final spacing = 12.0 * (crossAxisCount - 1);
+    final availableWidth = width - horizontalPadding - spacing;
+    final cardWidth = availableWidth / crossAxisCount;
+    final cardHeight = cardWidth * 1.05;
+    
+    return cardWidth / cardHeight;
+  }
+
   @override
   Widget build(BuildContext context) {
     final theme = Theme.of(context);
     final cardColor = theme.colorScheme.primary.withValues(alpha: 0.16);
-
+    
     return ValueListenableBuilder<int>(
       valueListenable: remotesRevision,
       builder: (context, _, __) {
@@ -306,8 +326,7 @@ class _RemoteListState extends State<RemoteList> {
                             Navigator.push(
                               context,
                               MaterialPageRoute(
-                                builder: (context) =>
-                                    RemoteView(remote: remote),
+                                builder: (context) => RemoteView(remote: remote),
                               ),
                             );
                           },
@@ -354,56 +373,61 @@ class _RemoteListState extends State<RemoteList> {
                                 ),
                         ),
                         Expanded(
-                          child: ReorderableGridView.builder(
-                            padding: const EdgeInsets.all(16),
-                            gridDelegate:
-                                const SliverGridDelegateWithFixedCrossAxisCount(
-                              crossAxisCount: 2,
-                              childAspectRatio: 1.05,
-                              mainAxisSpacing: 12,
-                              crossAxisSpacing: 12,
-                            ),
-                            itemCount: remotes.length,
-                            dragStartDelay: _reorderMode
-                                ? const Duration(milliseconds: 200)
-                                : const Duration(days: 3650),
-                            itemBuilder: (context, index) {
-                              final remote = remotes[index];
-                              return _RemoteCard(
-                                key: ObjectKey(remote),
-                                remote: remote,
-                                color: cardColor,
-                                reorderMode: _reorderMode,
-                                onTap: () {
-                                  if (_reorderMode) return;
-                                  Navigator.push(
-                                    context,
-                                    MaterialPageRoute(
-                                      builder: (context) =>
-                                          RemoteView(remote: remote),
-                                    ),
+                          child: LayoutBuilder(
+                            builder: (context, constraints) {
+                              final crossAxisCount = _calculateCrossAxisCount(context);
+                              final aspectRatio = _calculateChildAspectRatio(context);
+                              
+                              return ReorderableGridView.builder(
+                                padding: const EdgeInsets.all(16),
+                                gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                                  crossAxisCount: crossAxisCount,
+                                  childAspectRatio: aspectRatio,
+                                  mainAxisSpacing: 12,
+                                  crossAxisSpacing: 12,
+                                ),
+                                itemCount: remotes.length,
+                                dragStartDelay: _reorderMode
+                                    ? const Duration(milliseconds: 200)
+                                    : const Duration(days: 3650),
+                                itemBuilder: (context, index) {
+                                  final remote = remotes[index];
+                                  return _RemoteCard(
+                                    key: ObjectKey(remote),
+                                    remote: remote,
+                                    color: cardColor,
+                                    reorderMode: _reorderMode,
+                                    onTap: () {
+                                      if (_reorderMode) return;
+                                      Navigator.push(
+                                        context,
+                                        MaterialPageRoute(
+                                          builder: (context) =>
+                                              RemoteView(remote: remote),
+                                        ),
+                                      );
+                                    },
+                                    onLongPress: () =>
+                                        _openRemoteActionsSheet(remote, index),
+                                    onOverflow: () =>
+                                        _openRemoteActionsSheet(remote, index),
                                   );
                                 },
-                                onLongPress: () =>
-                                    _openRemoteActionsSheet(remote, index),
-                                onOverflow: () =>
-                                    _openRemoteActionsSheet(remote, index),
+                                onReorder: (oldIndex, newIndex) async {
+                                  if (!_reorderMode) return;
+                                  setState(() {
+                                    if (newIndex > oldIndex) newIndex--;
+                                    final Remote movedRemote =
+                                        remotes.removeAt(oldIndex);
+                                    remotes.insert(newIndex, movedRemote);
+                                    _reassignIds();
+                                  });
+                                  await writeRemotelist(remotes);
+                                  notifyRemotesChanged();
+                                  if (!mounted) return;
+                                  HapticFeedback.selectionClick();
+                                },
                               );
-                            },
-                            onReorder: (oldIndex, newIndex) async {
-                              if (!_reorderMode) return;
-
-                              setState(() {
-                                if (newIndex > oldIndex) newIndex--;
-                                final Remote movedRemote =
-                                    remotes.removeAt(oldIndex);
-                                remotes.insert(newIndex, movedRemote);
-                                _reassignIds();
-                              });
-                              await writeRemotelist(remotes);
-                              notifyRemotesChanged();
-                              if (!mounted) return;
-                              HapticFeedback.selectionClick();
                             },
                           ),
                         ),
@@ -425,7 +449,6 @@ class _ReorderHintBanner extends StatelessWidget {
   Widget build(BuildContext context) {
     final theme = Theme.of(context);
     final cs = theme.colorScheme;
-
     return Material(
       color: cs.secondaryContainer.withValues(alpha: 0.55),
       child: Padding(
@@ -498,6 +521,7 @@ class _RemoteCard extends StatelessWidget {
           padding: const EdgeInsets.fromLTRB(14, 12, 12, 12),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
+            mainAxisSize: MainAxisSize.min,
             children: [
               Row(
                 children: [
@@ -546,13 +570,15 @@ class _RemoteCard extends StatelessWidget {
                 ],
               ),
               const SizedBox(height: 10),
-              Text(
-                remote.name,
-                style: theme.textTheme.titleMedium?.copyWith(
-                  fontWeight: FontWeight.w900,
+              Flexible(
+                child: Text(
+                  remote.name,
+                  style: theme.textTheme.titleMedium?.copyWith(
+                    fontWeight: FontWeight.w900,
+                  ),
+                  maxLines: 2,
+                  overflow: TextOverflow.ellipsis,
                 ),
-                maxLines: 2,
-                overflow: TextOverflow.ellipsis,
               ),
               const SizedBox(height: 6),
               Wrap(
@@ -577,13 +603,13 @@ class _RemoteCard extends StatelessWidget {
 class _Chip extends StatelessWidget {
   final String label;
   final IconData icon;
+
   const _Chip({required this.label, required this.icon});
 
   @override
   Widget build(BuildContext context) {
     final theme = Theme.of(context);
     final cs = theme.colorScheme;
-
     return Container(
       padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 6),
       decoration: BoxDecoration(
@@ -611,12 +637,12 @@ class _Chip extends StatelessWidget {
 
 class _EmptyState extends StatelessWidget {
   final VoidCallback onAdd;
+
   const _EmptyState({required this.onAdd});
 
   @override
   Widget build(BuildContext context) {
     final theme = Theme.of(context);
-
     return Center(
       child: Padding(
         padding: const EdgeInsets.all(24),
@@ -675,7 +701,7 @@ class RemoteSearchDelegate extends SearchDelegate {
             color: theme.colorScheme.error, size: 32),
         title: const Text('Delete remote?'),
         content: Text(
-          "“$remoteName” will be permanently removed. This action can’t be undone.",
+          '"$remoteName" will be permanently removed. This action can\'t be undone.',
           style: theme.textTheme.bodyMedium,
         ),
         actions: [
@@ -719,8 +745,7 @@ class RemoteSearchDelegate extends SearchDelegate {
   @override
   Widget buildResults(BuildContext context) {
     final results = remotes
-        .where((remote) =>
-            remote.name.toLowerCase().contains(query.toLowerCase()))
+        .where((remote) => remote.name.toLowerCase().contains(query.toLowerCase()))
         .toList();
     return _buildList(context, results);
   }
@@ -728,8 +753,7 @@ class RemoteSearchDelegate extends SearchDelegate {
   @override
   Widget buildSuggestions(BuildContext context) {
     final suggestions = remotes
-        .where((remote) =>
-            remote.name.toLowerCase().contains(query.toLowerCase()))
+        .where((remote) => remote.name.toLowerCase().contains(query.toLowerCase()))
         .toList();
     return _buildList(context, suggestions);
   }
@@ -747,12 +771,10 @@ class RemoteSearchDelegate extends SearchDelegate {
         return Card(
           key: ObjectKey(remote),
           color: cs.primary.withValues(alpha: 0.12),
-          shape:
-              RoundedRectangleBorder(borderRadius: BorderRadius.circular(14)),
+          shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(14)),
           clipBehavior: Clip.antiAlias,
           child: ListTile(
-            contentPadding:
-                const EdgeInsets.symmetric(horizontal: 14, vertical: 6),
+            contentPadding: const EdgeInsets.symmetric(horizontal: 14, vertical: 6),
             leading: Container(
               width: 44,
               height: 44,
@@ -801,7 +823,7 @@ class RemoteSearchDelegate extends SearchDelegate {
                   ScaffoldMessenger.of(context).showSnackBar(
                     SnackBar(
                       content: Text(
-                          "Deleted “${remote.name}”. This action can’t be undone."),
+                          'Deleted "${remote.name}". This action can\'t be undone.'),
                     ),
                   );
                 }
