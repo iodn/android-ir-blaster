@@ -725,6 +725,7 @@ class _IrTransmitterCardState extends State<_IrTransmitterCard> {
   IrTransmitterType _active = IrTransmitterType.internal;
   IrTransmitterCapabilities? _caps;
   bool _autoSwitchEnabled = false;
+  bool _openOnUsbAttachEnabled = false;
 
   StreamSubscription<IrTransmitterCapabilities>? _capsSub;
 
@@ -781,15 +782,20 @@ class _IrTransmitterCardState extends State<_IrTransmitterCard> {
       final caps = await IrTransmitterPlatform.getCapabilities();
 
       bool autoSwitch = false;
+      bool openOnUsbAttach = false;
       try {
         autoSwitch = await IrTransmitterPlatform.getAutoSwitchEnabled();
       } catch (_) {
         autoSwitch = caps.autoSwitchEnabled;
       }
 
-      if (!mounted) return;
+      try {
+       openOnUsbAttach = await IrTransmitterPlatform.getOpenOnUsbAttachEnabled();
+     } catch (_) {}
 
-      IrTransmitterType effectivePreferred = preferred;
+     if (!mounted) return;
+
+     IrTransmitterType effectivePreferred = preferred;
       final bool activeIsAudio =
           caps.currentType == IrTransmitterType.audio1Led || caps.currentType == IrTransmitterType.audio2Led;
       bool effectiveAuto = (caps.hasInternal && !activeIsAudio) ? autoSwitch : false;
@@ -814,6 +820,7 @@ class _IrTransmitterCardState extends State<_IrTransmitterCard> {
         _caps = caps;
         _active = caps.currentType;
         _autoSwitchEnabled = effectiveAuto;
+        _openOnUsbAttachEnabled = openOnUsbAttach;
         _loading = false;
         _busy = false;
       });
@@ -1109,17 +1116,43 @@ class _IrTransmitterCardState extends State<_IrTransmitterCard> {
           ),
           const Divider(height: 18),
           SwitchListTile(
-            contentPadding: EdgeInsets.zero,
-            value: _autoSwitchEnabled,
-            onChanged: (_busy || !caps.hasInternal || activeIsAudio) ? null : (v) => _setAutoSwitch(v),
-            title: const Text('Auto-switch'),
-            subtitle: Text(
-              activeIsAudio
-                  ? 'Disabled while using Audio mode'
-                  : (caps.hasInternal ? 'Uses USB when connected, otherwise Internal' : 'Unavailable on this device'),
-            ),
-          ),
-          const Divider(height: 18),
+           contentPadding: EdgeInsets.zero,
+           value: _autoSwitchEnabled,
+           onChanged: (_busy || !caps.hasInternal || activeIsAudio) ? null : (v) => _setAutoSwitch(v),
+           title: const Text('Auto-switch'),
+           subtitle: Text(
+             activeIsAudio
+                 ? 'Disabled while using Audio mode'
+                 : (caps.hasInternal ? 'Uses USB when connected, otherwise Internal' : 'Unavailable on this device'),
+           ),
+         ),
+         const Divider(height: 18),
+         SwitchListTile(
+           contentPadding: EdgeInsets.zero,
+           value: _openOnUsbAttachEnabled,
+           onChanged: _busy ? null : (v) async {
+             setState(() { _busy = true; _openOnUsbAttachEnabled = v; });
+             try {
+               final ok = await IrTransmitterPlatform.setOpenOnUsbAttachEnabled(v);
+               if (!mounted) return;
+               setState(() { _openOnUsbAttachEnabled = ok; });
+               ScaffoldMessenger.of(context).showSnackBar(
+                 SnackBar(content: Text(ok ? 'Will suggest opening IR Blaster when a supported USB dongle is attached.' : 'Won\'t suggest opening on USB attach.')),
+               );
+             } catch (_) {
+               if (!mounted) return;
+               ScaffoldMessenger.of(context).showSnackBar(
+                 const SnackBar(content: Text('Failed to update setting.')),
+               );
+             } finally {
+               if (!mounted) return;
+               setState(() { _busy = false; });
+             }
+           },
+           title: const Text('Open on USB attach'),
+           subtitle: const Text('Android may suggest opening the app when a supported USB IR dongle is connected.'),
+         ),
+         const Divider(height: 18),
           for (final t in IrTransmitterType.values) ...[
             _TransmitterOptionTile(
               type: t,

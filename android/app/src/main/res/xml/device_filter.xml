@@ -1,4 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <usb-device />
+    <!-- Restrict to known IR dongles to avoid matching unrelated USB devices like headsets -->
+    <usb-device vendor-id="0x10C4" product-id="0x8468" />
+    <usb-device vendor-id="0x045E" product-id="0x8468" />
 </resources>

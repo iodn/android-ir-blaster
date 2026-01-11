@@ -210,4 +210,14 @@ class IrTransmitterPlatform {
     final v = await _ch.invokeMethod('setAutoSwitchEnabled', <String, dynamic>{'enabled': enabled});
     return v == true;
   }
+
+  static Future<bool> getOpenOnUsbAttachEnabled() async {
+    final v = await _ch.invokeMethod('getOpenOnUsbAttachEnabled');
+    return v == true;
+  }
+
+  static Future<bool> setOpenOnUsbAttachEnabled(bool enabled) async {
+    final v = await _ch.invokeMethod('setOpenOnUsbAttachEnabled', <String, dynamic>{'enabled': enabled});
+    return v == true;
+  }
 }

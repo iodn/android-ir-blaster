@@ -10,6 +10,8 @@ import android.hardware.usb.UsbManager
 import android.os.Handler
 import android.os.Looper
 import android.util.Log
+import android.content.pm.PackageManager
+import android.content.ComponentName
 import androidx.annotation.NonNull
 import io.flutter.embedding.android.FlutterActivity
 import io.flutter.embedding.engine.FlutterEngine
@@ -26,6 +28,7 @@ class MainActivity : FlutterActivity() {
 
   private var currentTxType: TxType = TxType.INTERNAL
   private var autoSwitchEnabled: Boolean = false
+  private var openOnUsbAttachEnabled: Boolean = false
 
   private var irManager: ConsumerIrManager? = null
   private var internalTx: InternalIrTransmitter? = null
@@ -74,6 +77,26 @@ class MainActivity : FlutterActivity() {
 
   private fun saveAutoSwitchToPrefs(v: Boolean) {
     prefs.edit().putBoolean("auto_switch", v).apply()
+  }
+
+  private fun loadOpenOnUsbAttachFromPrefs(defaultValue: Boolean): Boolean {
+    return try { prefs.getBoolean("open_on_usb_attach", defaultValue) } catch (_: Throwable) { defaultValue }
+  }
+
+  private fun saveOpenOnUsbAttachToPrefs(v: Boolean) {
+    prefs.edit().putBoolean("open_on_usb_attach", v).apply()
+  }
+
+  private fun setUsbAttachAliasEnabled(enabled: Boolean) {
+    val pm = applicationContext.packageManager
+    val cn = ComponentName(applicationContext, "org.nslabs.ir_blaster.UsbAttachAlias")
+    val state = if (enabled) PackageManager.COMPONENT_ENABLED_STATE_ENABLED else PackageManager.COMPONENT_ENABLED_STATE_DISABLED
+    try {
+      pm.setComponentEnabledSetting(cn, state, PackageManager.DONT_KILL_APP)
+      Log.i(TAG, "UsbAttachAlias set to ${if (enabled) "ENABLED" else "DISABLED"}")
+    } catch (t: Throwable) {
+      Log.w(TAG, "Failed to toggle UsbAttachAlias: ${t.message}")
+    }
   }
 
   private fun internalAvailable(): Boolean = (irManager?.hasIrEmitter() == true)
@@ -252,6 +275,8 @@ class MainActivity : FlutterActivity() {
 
     currentTxType = loadTxTypeFromPrefs()
     autoSwitchEnabled = loadAutoSwitchFromPrefs(defaultValue = internalAvailable())
+    openOnUsbAttachEnabled = loadOpenOnUsbAttachFromPrefs(defaultValue = false)
+    setUsbAttachAliasEnabled(openOnUsbAttachEnabled)
 
     if (currentTxType == TxType.AUDIO_1_LED || currentTxType == TxType.AUDIO_2_LED) {
       autoSwitchEnabled = false
@@ -301,6 +326,8 @@ class MainActivity : FlutterActivity() {
           "setPreferredTransmitterType" -> handleSetPreferredUiTxType(call, result)
           "getAutoSwitchEnabled" -> result.success(autoSwitchEnabled)
           "setAutoSwitchEnabled" -> handleSetAutoSwitchEnabled(call, result)
+          "getOpenOnUsbAttachEnabled" -> result.success(openOnUsbAttachEnabled)
+          "setOpenOnUsbAttachEnabled" -> handleSetOpenOnUsbAttachEnabled(call, result)
           else -> result.notImplemented()
         }
       }
@@ -581,6 +608,14 @@ class MainActivity : FlutterActivity() {
     emitTxStatusDelayed("set_auto_switch_delayed", 350L)
 
     result.success(autoSwitchEnabled)
+  }
+
+  private fun handleSetOpenOnUsbAttachEnabled(call: MethodCall, result: MethodChannel.Result) {
+    val enabled = call.argument<Boolean>("enabled") ?: false
+    openOnUsbAttachEnabled = enabled
+    saveOpenOnUsbAttachToPrefs(openOnUsbAttachEnabled)
+    setUsbAttachAliasEnabled(openOnUsbAttachEnabled)
+    result.success(openOnUsbAttachEnabled)
   }
 
   private fun handleUsbDescribe(result: MethodChannel.Result) {

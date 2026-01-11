@@ -69,15 +69,21 @@
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
-            <!-- Launchable on USB attach -->
-            <intent-filter>
-                <action android:name="android.hardware.usb.action.USB_DEVICE_ATTACHED" />
-            </intent-filter>
-
-            <meta-data
-                android:name="android.hardware.usb.action.USB_DEVICE_ATTACHED"
-                android:resource="@xml/device_filter" />
         </activity>
+
+       <!-- Alias used only to receive USB attach when the user enables the setting -->
+       <activity-alias
+           android:name=".UsbAttachAlias"
+           android:enabled="false"
+           android:exported="true"
+           android:targetActivity=".MainActivity">
+           <intent-filter>
+               <action android:name="android.hardware.usb.action.USB_DEVICE_ATTACHED" />
+           </intent-filter>
+           <meta-data
+               android:name="android.hardware.usb.action.USB_DEVICE_ATTACHED"
+               android:resource="@xml/device_filter" />
+       </activity-alias>
 
         <receiver
             android:name=".UsbPermissionReceiver"
