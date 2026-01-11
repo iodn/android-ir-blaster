@@ -1,10 +1,10 @@
 import 'dart:async';
-
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:irblaster_controller/utils/ir_transmitter_platform.dart';
 import 'package:irblaster_controller/widgets/ir_finder_screen.dart';
 import 'package:irblaster_controller/widgets/remote_list.dart';
+import 'package:irblaster_controller/widgets/macros_tab.dart';
 import 'package:irblaster_controller/widgets/settings_screen.dart';
 
 class HomeShell extends StatefulWidget {
@@ -18,17 +18,16 @@ class _HomeShellState extends State<HomeShell> {
   int _index = 0;
   final List<Widget> _pages = const <Widget>[
     RemoteList(),
+    MacrosTab(),
     IrFinderScreen(),
     SettingsScreen(),
   ];
 
   IrTransmitterCapabilities? _caps;
   StreamSubscription<IrTransmitterCapabilities>? _capsSub;
-
   bool _startupNoticeShown = false;
   bool _bannerDismissed = false;
   bool _busy = false;
-
   bool _startupSheetOpen = false;
   BuildContext? _startupSheetContext;
 
@@ -50,7 +49,6 @@ class _HomeShellState extends State<HomeShell> {
   void _closeStartupSheetIfOpen() {
     final ctx = _startupSheetContext;
     if (!_startupSheetOpen || ctx == null) return;
-
     WidgetsBinding.instance.addPostFrameCallback((_) {
       final liveCtx = _startupSheetContext;
       if (!_startupSheetOpen || liveCtx == null) return;
@@ -64,14 +62,10 @@ class _HomeShellState extends State<HomeShell> {
     _capsSub = IrTransmitterPlatform.capabilitiesEvents().listen(
       (caps) {
         if (!mounted) return;
-
         setState(() {
           _caps = caps;
         });
-
         final needsNotice = _needsHardwareNotice(caps);
-
-        /* If hardware becomes available, clear banner automatically. */
         if (!needsNotice) {
           if (mounted) {
             setState(() {
@@ -79,8 +73,6 @@ class _HomeShellState extends State<HomeShell> {
             });
           }
         }
-
-        /* Auto-close the startup bottom sheet once USB is ready / notice no longer needed. */
         if (!needsNotice) {
           _closeStartupSheetIfOpen();
         }
@@ -99,9 +91,7 @@ class _HomeShellState extends State<HomeShell> {
         if (!mounted) return;
         _maybeShowStartupNotice(caps);
       });
-    } catch (_) {
-      /* Non-fatal: app still works for browsing/remotes creation. */
-    }
+    } catch (_) {}
   }
 
   bool _isAudio(IrTransmitterType t) {
@@ -109,8 +99,6 @@ class _HomeShellState extends State<HomeShell> {
   }
 
   bool _needsHardwareNotice(IrTransmitterCapabilities caps) {
-    /* Notice is specifically for: no internal IR + USB not ready. */
-    /* If user is in Audio mode, we do not block them with this notice. */
     final audioSelected = _isAudio(caps.currentType);
     return !audioSelected && !caps.hasInternal && !caps.usbReady;
   }
@@ -118,11 +106,9 @@ class _HomeShellState extends State<HomeShell> {
   Future<void> _maybeShowStartupNotice(IrTransmitterCapabilities caps) async {
     if (_startupNoticeShown) return;
     if (!_needsHardwareNotice(caps)) return;
-
     _startupNoticeShown = true;
     _startupSheetOpen = true;
     _startupSheetContext = null;
-
     try {
       await showModalBottomSheet<void>(
         context: context,
@@ -134,18 +120,14 @@ class _HomeShellState extends State<HomeShell> {
         ),
         builder: (ctx) {
           _startupSheetContext = ctx;
-
           final liveCaps = _caps;
           if (liveCaps != null && !_needsHardwareNotice(liveCaps)) {
             _closeStartupSheetIfOpen();
           }
-
           final theme = Theme.of(ctx);
           final cs = theme.colorScheme;
-
           final bool hasUsb = caps.hasUsb;
           final bool usbReady = caps.usbReady;
-
           final String headline = 'IR hardware required to send commands';
           final String message = (!hasUsb)
               ? 'This phone does not include a built-in IR emitter, and no supported USB IR dongle is currently connected.\n\n'
@@ -154,25 +136,20 @@ class _HomeShellState extends State<HomeShell> {
                   ? 'This phone does not include a built-in IR emitter. A USB IR dongle is detected, but permission is not granted yet.\n\n'
                       'Approve the USB permission prompt to enable sending IR.'
                   : 'This phone does not include a built-in IR emitter.';
-
           final List<_HardwareOption> options = <_HardwareOption>[
             _HardwareOption(
               icon: Icons.usb_rounded,
               title: 'USB IR dongle (recommended)',
               subtitle: hasUsb
-                  ? (usbReady
-                      ? 'Ready to use.'
-                      : 'Plugged in — permission required.')
+                  ? (usbReady ? 'Ready to use.' : 'Plugged in — permission required.')
                   : 'Plug in a supported USB IR dongle, then approve permission.',
             ),
             const _HardwareOption(
               icon: Icons.graphic_eq_rounded,
               title: 'Audio IR adapter (alternative)',
-              subtitle:
-                  'Settings → IR Transmitter → Audio (1 LED / 2 LED). Requires an audio-to-IR adapter.',
+              subtitle: 'Settings → IR Transmitter → Audio (1 LED / 2 LED). Requires an audio-to-IR adapter.',
             ),
           ];
-
           return Padding(
             padding: EdgeInsets.only(
               left: 16,
@@ -254,7 +231,7 @@ class _HomeShellState extends State<HomeShell> {
                       child: OutlinedButton.icon(
                         onPressed: () {
                           Navigator.of(ctx).pop();
-                          setState(() => _index = 2);
+                          setState(() => _index = 3);
                           HapticFeedback.selectionClick();
                         },
                         icon: const Icon(Icons.settings_rounded),
@@ -323,19 +300,16 @@ class _HomeShellState extends State<HomeShell> {
     if (caps == null) return const SizedBox.shrink();
     if (_bannerDismissed) return const SizedBox.shrink();
     if (!_needsHardwareNotice(caps)) return const SizedBox.shrink();
-
     final theme = Theme.of(context);
     final cs = theme.colorScheme;
     final bool hasUsb = caps.hasUsb;
     final bool usbReady = caps.usbReady;
-
     final String title = 'No IR transmitter available';
     final String subtitle = hasUsb
         ? (usbReady
             ? 'USB is ready.'
             : 'USB dongle detected — permission required to send IR.')
         : 'This phone has no built-in IR. Connect a USB IR dongle or enable Audio mode in Settings.';
-
     return Padding(
       padding: const EdgeInsets.fromLTRB(12, 12, 12, 6),
       child: Card(
@@ -378,15 +352,14 @@ class _HomeShellState extends State<HomeShell> {
                       children: [
                         FilledButton.tonalIcon(
                           onPressed: () {
-                            setState(() => _index = 2);
+                            setState(() => _index = 3);
                             HapticFeedback.selectionClick();
                           },
                           icon: const Icon(Icons.settings_rounded),
                           label: const Text('Settings'),
                         ),
                         OutlinedButton.icon(
-                          onPressed: () =>
-                              setState(() => _bannerDismissed = true),
+                          onPressed: () => setState(() => _bannerDismissed = true),
                           icon: const Icon(Icons.close_rounded),
                           label: const Text('Dismiss'),
                         ),
@@ -421,6 +394,11 @@ class _HomeShellState extends State<HomeShell> {
             icon: Icon(Icons.settings_remote_outlined),
             selectedIcon: Icon(Icons.settings_remote),
             label: 'Remotes',
+          ),
+          NavigationDestination(
+            icon: Icon(Icons.playlist_play_rounded),
+            selectedIcon: Icon(Icons.playlist_play),
+            label: 'Macros',
           ),
           NavigationDestination(
             icon: Icon(Icons.radar_outlined),
@@ -459,7 +437,6 @@ class _OptionCard extends StatelessWidget {
   Widget build(BuildContext context) {
     final theme = Theme.of(context);
     final cs = theme.colorScheme;
-
     return Card(
       elevation: 0,
       color: cs.surfaceContainerHighest.withValues(alpha: 0.55),

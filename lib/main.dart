@@ -1,34 +1,31 @@
 import 'dart:async';
 import 'dart:ui';
-
 import 'package:dynamic_color/dynamic_color.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:irblaster_controller/state/app_theme.dart';
 import 'package:irblaster_controller/state/remotes_state.dart';
+import 'package:irblaster_controller/state/macros_state.dart';
 import 'package:irblaster_controller/utils/remote.dart';
+import 'package:irblaster_controller/utils/macros_io.dart';
 import 'package:irblaster_controller/widgets/home_shell.dart';
 import 'package:media_store_plus/media_store_plus.dart';
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
-
   FlutterError.onError = (details) {
     FlutterError.presentError(details);
     debugPrint('FlutterError: ${details.exception}\n${details.stack}');
   };
-
   PlatformDispatcher.instance.onError = (error, stack) {
     debugPrint('Uncaught platform error: $error\n$stack');
     return true;
   };
-
   try {
     await AppThemeController.instance.load();
   } catch (e, st) {
     debugPrint('Failed to load theme preference: $e\n$st');
   }
-
   runZonedGuarded(() {
     runApp(const _App());
   }, (error, stack) {
@@ -46,15 +43,11 @@ class _App extends StatelessWidget {
       builder: (context, _) {
         return DynamicColorBuilder(
           builder: (lightDynamic, darkDynamic) {
-            final ColorScheme lightScheme =
-                lightDynamic ?? ColorScheme.fromSeed(seedColor: Colors.blue);
-
-            final ColorScheme darkScheme = darkDynamic ??
-                ColorScheme.fromSeed(
-                  seedColor: Colors.blue,
-                  brightness: Brightness.dark,
-                );
-
+            final ColorScheme lightScheme = lightDynamic ?? ColorScheme.fromSeed(seedColor: Colors.blue);
+            final ColorScheme darkScheme = darkDynamic ?? ColorScheme.fromSeed(
+              seedColor: Colors.blue,
+              brightness: Brightness.dark,
+            );
             return MaterialApp(
               title: 'IR Blaster',
               debugShowCheckedModeBanner: false,
@@ -87,21 +80,24 @@ class _BootstrapScreenState extends State<_BootstrapScreen> {
         throw TimeoutException('MediaStore.ensureInitialized() timed out');
       },
     );
-
     MediaStore.appFolder = 'IRBlaster';
-
-    /* Load remotes (also guarded against hangs). */
     remotes = await readRemotes().timeout(
       const Duration(seconds: 8),
       onTimeout: () {
         throw TimeoutException('readRemotes() timed out');
       },
     );
-
     if (remotes.isEmpty) {
       remotes = writeDefaultRemotes();
     }
     notifyRemotesChanged();
+    macros = await readMacros().timeout(
+      const Duration(seconds: 8),
+      onTimeout: () {
+        throw TimeoutException('readMacros() timed out');
+      },
+    );
+    notifyMacrosChanged();
   }
 
   @override
@@ -163,7 +159,6 @@ class _BootstrapError extends StatelessWidget {
     final theme = Theme.of(context);
     final cs = theme.colorScheme;
     final msg = (error == null) ? 'Unknown error' : error.toString();
-
     return Scaffold(
       body: SafeArea(
         child: Padding(
