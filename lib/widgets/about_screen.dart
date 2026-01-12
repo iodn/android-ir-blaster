@@ -115,16 +115,12 @@ class _AboutScreenState extends State<AboutScreen> {
 
   List<_OtherApp> _otherApps() {
     return const <_OtherApp>[
-      _OtherApp(name: 'IR Blaster', query: 'IR%20Blaster'),
-      _OtherApp(name: 'USBDevInfo', query: 'USBDevInfo'),
-      _OtherApp(name: 'GadgetFS', query: 'GadgetFS'),
-      _OtherApp(name: 'TapDucky', query: 'TapDucky'),
-      _OtherApp(name: 'HIDWiggle', query: 'HIDWiggle'),
+      _OtherApp(name: 'IR Blaster', url: 'https://github.com/iodn/android-ir-blaster'),
+      _OtherApp(name: 'USBDevInfo', url: 'https://github.com/iodn/android-usb-device-info'),
+      _OtherApp(name: 'GadgetFS', url: 'https://github.com/iodn/gadgetfs'),
+      _OtherApp(name: 'TapDucky', url: 'https://github.com/iodn/tap-ducky'),
+      _OtherApp(name: 'HIDWiggle', url: 'https://github.com/iodn/hid-wiggle'),
     ];
-  }
-
-  String _githubSearchUrlForRepo(String query) {
-    return 'https://github.com/search?q=org%3Aiodn+$query&type=repositories';
   }
 
   @override
@@ -278,10 +274,10 @@ class _AboutScreenState extends State<AboutScreen> {
                   ListTile(
                     leading: const Icon(Icons.launch_rounded),
                     title: Text(a.name),
-                    subtitle: const Text('Open GitHub repositories search'),
+                    subtitle: const Text('Open GitHub repository'),
                     trailing: const Icon(Icons.open_in_new_rounded),
-                    onTap: () => _launchExternal(context, _githubSearchUrlForRepo(a.query)),
-                    onLongPress: () => _copy(context, _githubSearchUrlForRepo(a.query), 'Search link copied'),
+                    onTap: () => _launchExternal(context, a.url),
+                    onLongPress: () => _copy(context, a.url, 'Repository link copied'),
                   ),
                   if (a != _otherApps().last) const Divider(height: 1),
                 ],
@@ -443,10 +439,10 @@ class _AppLogo extends StatelessWidget {
 
 class _OtherApp {
   final String name;
-  final String query;
+  final String url;
 
   const _OtherApp({
     required this.name,
-    required this.query,
+    required this.url,
   });
 }
