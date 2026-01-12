@@ -73,23 +73,12 @@ class _AboutScreenState extends State<AboutScreen> {
   Future<void> _launchExternal(BuildContext context, String url) async {
     try {
       final uri = Uri.parse(url);
-      final ok = await canLaunchUrl(uri);
-      if (!ok) {
+      final launched = await launchUrl(uri, mode: LaunchMode.externalApplication);
+      if (!launched) {
         if (!context.mounted) return;
         ScaffoldMessenger.of(context).showSnackBar(
           SnackBar(
             content: const Text('No browser available'),
-            backgroundColor: Theme.of(context).colorScheme.error,
-            behavior: SnackBarBehavior.floating,
-          ),
-        );
-        return;
-      }
-      final launched = await launchUrl(uri, mode: LaunchMode.externalApplication);
-      if (!launched && context.mounted) {
-        ScaffoldMessenger.of(context).showSnackBar(
-          SnackBar(
-            content: const Text('Failed to open link'),
             backgroundColor: Theme.of(context).colorScheme.error,
             behavior: SnackBarBehavior.floating,
           ),
