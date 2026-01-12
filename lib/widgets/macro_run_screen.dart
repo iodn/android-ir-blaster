@@ -1,4 +1,6 @@
 import 'dart:async';
+import 'dart:ui';
+
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:irblaster_controller/models/macro_step.dart';
@@ -20,8 +22,7 @@ class MacroRunScreen extends StatefulWidget {
   State<MacroRunScreen> createState() => _MacroRunScreenState();
 }
 
-class _MacroRunScreenState extends State<MacroRunScreen>
-    with SingleTickerProviderStateMixin {
+class _MacroRunScreenState extends State<MacroRunScreen> with SingleTickerProviderStateMixin {
   bool _running = false;
   bool _waitingForManual = false;
   bool _executing = false;
@@ -57,6 +58,7 @@ class _MacroRunScreenState extends State<MacroRunScreen>
   Future<void> _start() async {
     if (_executing) return;
     if (widget.macro.steps.isEmpty) return;
+
     setState(() {
       _running = true;
       _waitingForManual = false;
@@ -66,8 +68,10 @@ class _MacroRunScreenState extends State<MacroRunScreen>
       _startTime = DateTime.now();
       _lastError = null;
     });
+
     _pulseController.repeat(reverse: true);
     HapticFeedback.mediumImpact();
+
     await _executeSteps();
   }
 
@@ -85,25 +89,58 @@ class _MacroRunScreenState extends State<MacroRunScreen>
   Future<void> _continueManual() async {
     if (!_waitingForManual) return;
     if (_executing) return;
+
     setState(() {
       _waitingForManual = false;
       if (_currentStep < widget.macro.steps.length) {
         _currentStep++;
       }
     });
+
     HapticFeedback.selectionClick();
+
     if (_running) {
       await _executeSteps();
     }
   }
 
+  IRButton? _findButtonById(String? id) {
+    final key = (id ?? '').trim();
+    if (key.isEmpty) return null;
+    try {
+      return widget.remote.buttons.firstWhere((b) => b.id == key);
+    } catch (_) {
+      return null;
+    }
+  }
+
+  IRButton? _findButtonByRef(String? ref) {
+    final key = normalizeButtonKey(ref ?? '');
+    if (key.isEmpty) return null;
+    try {
+      return widget.remote.buttons.firstWhere((b) => normalizeButtonKey(b.image) == key);
+    } catch (_) {
+      return null;
+    }
+  }
+
+  IRButton? _resolveButton(MacroStep step) {
+    final byId = _findButtonById(step.buttonId);
+    if (byId != null) return byId;
+
+    final byRef = _findButtonByRef(step.buttonRef) ?? _findButtonByRef(step.buttonId);
+    return byRef;
+  }
+
   Future<void> _executeSteps() async {
     if (_executing) return;
     _executing = true;
+
     try {
       final steps = widget.macro.steps;
       while (mounted && _running && _currentStep < steps.length) {
         final step = steps[_currentStep];
+
         if (!step.isValid) {
           setState(() {
             _running = false;
@@ -115,46 +152,57 @@ class _MacroRunScreenState extends State<MacroRunScreen>
           _pulseController.reset();
           return;
         }
+
         if (step.type == MacroStepType.send) {
-          final button = _findButton(step.buttonId);
+          final button = _resolveButton(step);
           if (button != null) {
             try {
               await sendIR(button);
               HapticFeedback.lightImpact();
+              if (!mounted) return;
               setState(() {
                 _lastError = null;
               });
-            } catch (e) {
+            } catch (_) {
+              if (!mounted) return;
               setState(() {
-                _lastError = 'Failed to send: ${step.buttonId}';
+                _lastError = 'Failed to send: ${formatButtonDisplayName(button.image)}';
               });
             }
           } else {
+            final fallback = (step.buttonRef ?? step.buttonId ?? '').trim();
+            if (!mounted) return;
             setState(() {
-              _lastError = 'Button not found: ${step.buttonId}';
+              _lastError = fallback.isEmpty ? 'Button not found' : 'Button not found: ${formatButtonDisplayName(fallback)}';
             });
           }
+
           if (!mounted) return;
           setState(() {
             _currentStep++;
           });
           continue;
         }
+
         if (step.type == MacroStepType.delay) {
           final ms = step.delayMs ?? 0;
           if (!mounted) return;
           setState(() {
             _remainingMs = ms;
           });
+
           await _delayWithCountdown(ms);
+
           if (!mounted) return;
           if (!_running) return;
+
           setState(() {
             _remainingMs = 0;
             _currentStep++;
           });
           continue;
         }
+
         if (step.type == MacroStepType.manualContinue) {
           if (!mounted) return;
           setState(() {
@@ -165,6 +213,7 @@ class _MacroRunScreenState extends State<MacroRunScreen>
           return;
         }
       }
+
       if (!mounted) return;
       if (_running) {
         setState(() {
@@ -189,45 +238,44 @@ class _MacroRunScreenState extends State<MacroRunScreen>
       }
       return;
     }
+
     final sw = Stopwatch()..start();
     const tickMs = 100;
+
     while (mounted && _running) {
       final remaining = ms - sw.elapsedMilliseconds;
       if (remaining <= 0) {
         setState(() => _remainingMs = 0);
         return;
       }
+
       setState(() => _remainingMs = remaining);
+
       final sleep = remaining < tickMs ? remaining : tickMs;
       await Future.delayed(Duration(milliseconds: sleep));
     }
   }
 
-  IRButton? _findButton(String? id) {
-    final key = (id ?? '').trim();
-    if (key.isEmpty) return null;
-    try {
-      return widget.remote.buttons.firstWhere((b) => b.image == key);
-    } catch (_) {
-      return null;
-    }
-  }
-
   String _formatDuration(Duration d) {
-    final sec = d.inSeconds;
-    if (sec < 60) return '${sec}s';
-    final min = sec ~/ 60;
-    final remSec = sec % 60;
-    return '${min}m ${remSec}s';
+    final int s = d.inSeconds;
+    if (s < 60) return '${s}s';
+    final int m = s ~/ 60;
+    final int rs = s % 60;
+    if (m < 60) return '${m}m ${rs}s';
+    final int h = m ~/ 60;
+    final int rm = m % 60;
+    return '${h}h ${rm}m';
   }
 
   @override
   Widget build(BuildContext context) {
     final theme = Theme.of(context);
     final cs = theme.colorScheme;
+
     final total = widget.macro.steps.length;
     final progress = total == 0 ? 0.0 : (_currentStep / total).clamp(0.0, 1.0);
     final elapsed = _startTime == null ? null : DateTime.now().difference(_startTime!);
+
     final canStart = !_running && total > 0 && !_completed;
     final canRestart = !_running && total > 0 && _completed;
     final canCancel = _running;
@@ -255,14 +303,10 @@ class _MacroRunScreenState extends State<MacroRunScreen>
                   children: [
                     _buildStatusCard(theme, cs, total, progress, elapsed),
                     const SizedBox(height: 16),
-                    if (_running && _remainingMs > 0)
-                      _buildDelayCard(theme, cs),
-                    if (_waitingForManual)
-                      _buildManualContinueCard(theme, cs),
-                    if (_lastError != null)
-                      _buildErrorCard(theme, cs),
-                    if (_completed)
-                      _buildCompletionCard(theme, cs, elapsed),
+                    if (_running && _remainingMs > 0) _buildDelayCard(theme, cs),
+                    if (_waitingForManual) _buildManualContinueCard(theme, cs),
+                    if (_lastError != null) _buildErrorCard(theme, cs),
+                    if (_completed) _buildCompletionCard(theme, cs, elapsed),
                     const SizedBox(height: 16),
                     _buildStepsList(theme, cs),
                   ],
@@ -283,12 +327,12 @@ class _MacroRunScreenState extends State<MacroRunScreen>
     double progress,
     Duration? elapsed,
   ) {
-    final stepLabel = total == 0
-        ? 'No steps'
-        : 'Step ${(_currentStep + 1).clamp(1, total)} / $total';
+    final stepLabel = total == 0 ? 'No steps' : 'Step ${(_currentStep + 1).clamp(1, total)} / $total';
+
     IconData statusIcon;
     Color statusColor;
     String statusLabel;
+
     if (_completed) {
       statusIcon = Icons.check_circle_rounded;
       statusColor = Colors.green;
@@ -321,9 +365,7 @@ class _MacroRunScreenState extends State<MacroRunScreen>
             Row(
               children: [
                 ScaleTransition(
-                  scale: _running && !_waitingForManual
-                      ? _pulseAnimation
-                      : const AlwaysStoppedAnimation(1.0),
+                  scale: _running && !_waitingForManual ? _pulseAnimation : const AlwaysStoppedAnimation(1.0),
                   child: Container(
                     padding: const EdgeInsets.all(16),
                     decoration: BoxDecoration(
@@ -357,10 +399,7 @@ class _MacroRunScreenState extends State<MacroRunScreen>
                 ),
                 if (elapsed != null)
                   Container(
-                    padding: const EdgeInsets.symmetric(
-                      horizontal: 12,
-                      vertical: 8,
-                    ),
+                    padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 8),
                     decoration: BoxDecoration(
                       color: cs.primaryContainer.withValues(alpha: 0.5),
                       borderRadius: BorderRadius.circular(12),
@@ -630,6 +669,7 @@ class _MacroRunScreenState extends State<MacroRunScreen>
 
   Widget _buildStepsList(ThemeData theme, ColorScheme cs) {
     if (widget.macro.steps.isEmpty) return const SizedBox.shrink();
+
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
@@ -665,6 +705,7 @@ class _MacroRunScreenState extends State<MacroRunScreen>
   ) {
     IconData icon;
     Color iconColor;
+
     switch (step.type) {
       case MacroStepType.send:
         icon = Icons.send_rounded;
@@ -679,6 +720,7 @@ class _MacroRunScreenState extends State<MacroRunScreen>
         iconColor = cs.tertiary;
         break;
     }
+
     return Padding(
       padding: const EdgeInsets.only(bottom: 8),
       child: Row(
@@ -710,9 +752,7 @@ class _MacroRunScreenState extends State<MacroRunScreen>
                       style: TextStyle(
                         fontSize: 12,
                         fontWeight: FontWeight.w900,
-                        color: isActive
-                            ? iconColor
-                            : cs.onSurface.withValues(alpha: 0.6),
+                        color: isActive ? iconColor : cs.onSurface.withValues(alpha: 0.6),
                       ),
                     ),
             ),
@@ -722,14 +762,10 @@ class _MacroRunScreenState extends State<MacroRunScreen>
             child: Container(
               padding: const EdgeInsets.all(12),
               decoration: BoxDecoration(
-                color: isActive
-                    ? iconColor.withValues(alpha: 0.1)
-                    : cs.surfaceContainerHighest.withValues(alpha: 0.3),
+                color: isActive ? iconColor.withValues(alpha: 0.1) : cs.surfaceContainerHighest.withValues(alpha: 0.3),
                 borderRadius: BorderRadius.circular(12),
                 border: Border.all(
-                  color: isActive
-                      ? iconColor.withValues(alpha: 0.5)
-                      : cs.outlineVariant.withValues(alpha: 0.3),
+                  color: isActive ? iconColor.withValues(alpha: 0.5) : cs.outlineVariant.withValues(alpha: 0.3),
                 ),
               ),
               child: Row(
@@ -741,9 +777,7 @@ class _MacroRunScreenState extends State<MacroRunScreen>
                       _stepLabel(step),
                       style: theme.textTheme.bodyMedium?.copyWith(
                         fontWeight: isActive ? FontWeight.w900 : FontWeight.w600,
-                        color: isActive
-                            ? cs.onSurface
-                            : cs.onSurface.withValues(alpha: 0.7),
+                        color: isActive ? cs.onSurface : cs.onSurface.withValues(alpha: 0.7),
                       ),
                     ),
                   ),
@@ -759,7 +793,15 @@ class _MacroRunScreenState extends State<MacroRunScreen>
   String _stepLabel(MacroStep step) {
     switch (step.type) {
       case MacroStepType.send:
-        return step.buttonId ?? 'Unknown';
+        final button = _resolveButton(step);
+        if (button != null) {
+          final pretty = formatButtonDisplayName(button.image);
+          return pretty.isEmpty ? 'Unnamed' : pretty;
+        }
+        final fallback = (step.buttonRef ?? step.buttonId ?? '').trim();
+        if (fallback.isEmpty) return 'Unknown Button';
+        final pretty = formatButtonDisplayName(fallback);
+        return pretty.isEmpty ? 'Unknown Button' : pretty;
       case MacroStepType.delay:
         return 'Wait ${step.delayMs ?? 0}ms';
       case MacroStepType.manualContinue:

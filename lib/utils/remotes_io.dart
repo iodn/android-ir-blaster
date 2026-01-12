@@ -3,29 +3,38 @@ import 'dart:io';
 
 import 'package:file_picker/file_picker.dart';
 import 'package:flutter/material.dart';
+import 'package:irblaster_controller/models/timed_macro.dart';
+import 'package:irblaster_controller/utils/macros_io.dart';
+import 'package:irblaster_controller/utils/remote.dart';
 import 'package:media_store_plus/media_store_plus.dart';
 import 'package:path_provider/path_provider.dart';
 import 'package:permission_handler/permission_handler.dart';
-
-import 'package:irblaster_controller/utils/remote.dart';
+import 'package:uuid/uuid.dart';
 
 class ImportResult {
   final List<Remote> remotes;
+  final List<TimedMacro>? macros;
   final String message;
-  const ImportResult({required this.remotes, required this.message});
+
+  const ImportResult({
+    required this.remotes,
+    required this.macros,
+    required this.message,
+  });
 }
 
-/* Legacy external storage permission: only relevant on older Android devices.
- * We request it only as a fallback when an operation fails. */
 Future<bool> _requestLegacyStoragePermission(BuildContext context) async {
   if (!Platform.isAndroid) return true;
-
   final status = await Permission.storage.request();
   if (status.isGranted) return true;
 
   if (!context.mounted) return false;
   ScaffoldMessenger.of(context).showSnackBar(
-    const SnackBar(content: Text('Storage permission denied (needed on some older Android devices).')),
+    const SnackBar(
+      content: Text(
+        'Storage permission denied (needed on some older Android devices).',
+      ),
+    ),
   );
   return false;
 }
@@ -33,13 +42,23 @@ Future<bool> _requestLegacyStoragePermission(BuildContext context) async {
 Future<void> exportRemotesToDownloads(
   BuildContext context, {
   required List<Remote> remotes,
+  List<TimedMacro> macros = const <TimedMacro>[],
 }) async {
   final mediaStore = MediaStore();
 
   Future<void> doSave() async {
     final timestamp = DateTime.now().millisecondsSinceEpoch;
     final fileName = 'irblaster_backup_$timestamp.json';
-    final jsonString = jsonEncode(remotes.map((r) => r.toJson()).toList());
+
+    final payload = <String, dynamic>{
+      'schema': 'irblaster.backup',
+      'version': 1,
+      'exportedAt': DateTime.now().toIso8601String(),
+      'remotes': remotes.map((r) => r.toJson()).toList(),
+      'macros': macros.map((m) => m.copyWith(version: 1).toJson()).toList(),
+    };
+
+    final jsonString = jsonEncode(payload);
 
     final tempDir = await getTemporaryDirectory();
     final tempPath = '${tempDir.path}/$fileName';
@@ -66,8 +85,7 @@ Future<void> exportRemotesToDownloads(
   try {
     await doSave();
     return;
-  } catch (e) {
-    // Retry once after requesting legacy storage permission (older Android fallback).
+  } catch (_) {
     final ok = await _requestLegacyStoragePermission(context);
     if (!ok) return;
 
@@ -102,6 +120,7 @@ Future<ImportResult?> importRemotesFromPicker(
     if (path == null) {
       return const ImportResult(
         remotes: <Remote>[],
+        macros: null,
         message: 'Import failed: unable to read the selected file.',
       );
     }
@@ -110,6 +129,7 @@ Future<ImportResult?> importRemotesFromPicker(
     } catch (_) {
       return const ImportResult(
         remotes: <Remote>[],
+        macros: null,
         message: 'Import failed: invalid or unreadable file.',
       );
     }
@@ -117,13 +137,13 @@ Future<ImportResult?> importRemotesFromPicker(
 
   final nameLower = pf.name.toLowerCase();
   final extLower = (pf.extension ?? '').toLowerCase();
-
   final isJson = extLower == 'json' || nameLower.endsWith('.json');
   final isIr = extLower == 'ir' || nameLower.endsWith('.ir');
 
   if (!isJson && !isIr) {
     return const ImportResult(
       remotes: <Remote>[],
+      macros: null,
       message: 'Unsupported file type selected.',
     );
   }
@@ -133,23 +153,102 @@ Future<ImportResult?> importRemotesFromPicker(
   try {
     if (isJson) {
       final dynamic decoded = jsonDecode(contents);
-      if (decoded is! List) {
-        return const ImportResult(
-          remotes: <Remote>[],
-          message: 'Import failed: JSON format must be a list of remotes.',
+
+      if (decoded is List) {
+        final importedRemotes = decoded
+            .whereType<Map>()
+            .map((data) => Remote.fromJson(data.cast<String, dynamic>()))
+            .toList();
+
+        _reassignIds(importedRemotes);
+
+        return ImportResult(
+          remotes: importedRemotes,
+          macros: null,
+          message:
+              'Imported ${importedRemotes.length} remotes from legacy JSON backup. Macros were not changed.',
         );
       }
 
-      final imported = decoded
-          .map((data) => Remote.fromJson(data as Map<String, dynamic>))
-          .toList()
-          .cast<Remote>();
+      if (decoded is Map) {
+        final hasRemotesKey = decoded.containsKey('remotes');
+        final hasMacrosKey = decoded.containsKey('macros');
 
-      _reassignIds(imported);
+        final dynamic remotesRaw = decoded['remotes'];
+        final dynamic macrosRaw = decoded['macros'];
 
-      return ImportResult(
-        remotes: imported,
-        message: 'Imported ${imported.length} remotes from JSON.',
+        if (hasRemotesKey && remotesRaw is! List) {
+          return const ImportResult(
+            remotes: <Remote>[],
+            macros: null,
+            message:
+                'Import failed: backup "remotes" must be a JSON list when present.',
+          );
+        }
+        if (hasMacrosKey && macrosRaw is! List) {
+          return const ImportResult(
+            remotes: <Remote>[],
+            macros: null,
+            message:
+                'Import failed: backup "macros" must be a JSON list when present.',
+          );
+        }
+
+        final List<Remote> importedRemotes = (remotesRaw is List)
+            ? remotesRaw
+                .whereType<Map>()
+                .map((data) => Remote.fromJson(data.cast<String, dynamic>()))
+                .toList()
+            : <Remote>[];
+
+        _reassignIds(importedRemotes);
+
+        List<TimedMacro>? importedMacros;
+        if (macrosRaw is List) {
+          final parsed = macrosRaw
+              .whereType<Map>()
+              .map((data) => TimedMacro.fromJson(data.cast<String, dynamic>()))
+              .toList();
+
+          final byName = <String, Remote>{};
+          for (final r in importedRemotes) {
+            final k = r.name.trim();
+            if (k.isNotEmpty) byName[k] = r;
+          }
+
+          importedMacros = parsed.map((m) {
+            final r = byName[m.remoteName.trim()];
+            if (r == null) return m;
+            return bindMacroToRemote(m, r);
+          }).toList();
+        }
+
+        if (importedRemotes.isEmpty && importedMacros == null) {
+          return const ImportResult(
+            remotes: <Remote>[],
+            macros: null,
+            message:
+                'Import failed: invalid backup format (expected legacy List or Map with remotes/macros).',
+          );
+        }
+
+        final rCount = importedRemotes.length;
+        final mCount = importedMacros?.length ?? 0;
+
+        return ImportResult(
+          remotes: importedRemotes,
+          macros: importedMacros,
+          message: importedMacros == null
+              ? 'Imported $rCount remotes from backup. Macros were not changed.'
+              : 'Imported $rCount remotes and $mCount macros from backup.',
+        );
+      }
+
+      return const ImportResult(
+        remotes: <Remote>[],
+        macros: null,
+        message:
+            'Import failed: invalid backup format (expected legacy List or Map with remotes/macros).',
       );
     }
 
@@ -158,6 +257,7 @@ Future<ImportResult?> importRemotesFromPicker(
       if (remoteFromIr == null) {
         return const ImportResult(
           remotes: <Remote>[],
+          macros: null,
           message: 'Import failed: no valid buttons found in .ir file.',
         );
       }
@@ -165,34 +265,29 @@ Future<ImportResult?> importRemotesFromPicker(
       final next = <Remote>[...current, remoteFromIr];
       _reassignIds(next);
 
-      return const ImportResult(
-        remotes: <Remote>[],
-        message: 'Imported 1 remote from Flipper .ir.',
-      ).copyWith(remotes: next);
+      return ImportResult(
+        remotes: next,
+        macros: null,
+        message: 'Imported 1 remote from Flipper .ir. Macros were not changed.',
+      );
     }
 
     return const ImportResult(
       remotes: <Remote>[],
+      macros: null,
       message: 'Unsupported file type selected.',
     );
   } catch (_) {
     return const ImportResult(
       remotes: <Remote>[],
+      macros: null,
       message: 'Import failed: invalid or unreadable file.',
     );
   }
 }
 
-extension on ImportResult {
-  ImportResult copyWith({List<Remote>? remotes, String? message}) {
-    return ImportResult(
-      remotes: remotes ?? this.remotes,
-      message: message ?? this.message,
-    );
-  }
-}
-
 Remote? _parseFlipperIrFile(String content) {
+  final uuid = const Uuid();
   final List<String> blocks = content.split('#');
   final List<IRButton> buttons = <IRButton>[];
   const String remoteName = 'Flipper IR Remote';
@@ -201,11 +296,12 @@ Remote? _parseFlipperIrFile(String content) {
     block = block.trim();
     if (block.isEmpty) continue;
 
-    // Parsed NEC-style blocks
     if (block.contains('type: parsed')) {
       final nameMatch = RegExp(r'name:\s*(.+)').firstMatch(block);
-      final addressMatch = RegExp(r'address:\s*([0-9A-Fa-f]{2})\s+([0-9A-Fa-f]{2})').firstMatch(block);
-      final commandMatch = RegExp(r'command:\s*([0-9A-Fa-f]{2})\s+([0-9A-Fa-f]{2})').firstMatch(block);
+      final addressMatch = RegExp(r'address:\s*([0-9A-Fa-f]{2})\s+([0-9A-Fa-f]{2})')
+          .firstMatch(block);
+      final commandMatch = RegExp(r'command:\s*([0-9A-Fa-f]{2})\s+([0-9A-Fa-f]{2})')
+          .firstMatch(block);
 
       if (nameMatch != null && addressMatch != null && commandMatch != null) {
         final String name = nameMatch.group(1)!.trim();
@@ -213,6 +309,7 @@ Remote? _parseFlipperIrFile(String content) {
 
         buttons.add(
           IRButton(
+            id: uuid.v4(),
             code: int.parse(hexCode, radix: 16),
             rawData: null,
             frequency: null,
@@ -224,7 +321,6 @@ Remote? _parseFlipperIrFile(String content) {
       continue;
     }
 
-    // Raw blocks
     if (block.contains('type: raw')) {
       final nameMatch = RegExp(r'name:\s*(.+)').firstMatch(block);
       final frequencyMatch = RegExp(r'frequency:\s*(\d+)').firstMatch(block);
@@ -237,6 +333,7 @@ Remote? _parseFlipperIrFile(String content) {
 
         buttons.add(
           IRButton(
+            id: uuid.v4(),
             code: null,
             rawData: rawData,
             frequency: frequency,
@@ -266,6 +363,7 @@ String _convertToLircHex(RegExpMatch addressMatch, RegExpMatch commandMatch) {
 
   final int lircCmd = _bitReverse(addrByte1);
   final int lircCmdInv = (addrByte2 == 0) ? (0xFF - lircCmd) : _bitReverse(addrByte2);
+
   final int lircAddr = _bitReverse(cmdByte1);
   final int lircAddrInv = (cmdByte2 == 0) ? (0xFF - lircAddr) : _bitReverse(cmdByte2);
 

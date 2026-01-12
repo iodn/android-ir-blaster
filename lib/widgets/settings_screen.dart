@@ -1,10 +1,13 @@
 import 'dart:async';
+
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:irblaster_controller/state/app_theme.dart';
 import 'package:irblaster_controller/state/dynamic_color.dart';
+import 'package:irblaster_controller/state/macros_state.dart';
 import 'package:irblaster_controller/state/remotes_state.dart';
 import 'package:irblaster_controller/utils/ir_transmitter_platform.dart';
+import 'package:irblaster_controller/utils/macros_io.dart';
 import 'package:irblaster_controller/utils/remote.dart';
 import 'package:irblaster_controller/utils/remotes_io.dart';
 import 'package:irblaster_controller/widgets/about_screen.dart';
@@ -21,10 +24,8 @@ class SettingsScreen extends StatelessWidget {
   static const String _issuesUrl = 'https://github.com/iodn/android-ir-blaster/issues';
   static const String _licenseUrl = 'https://github.com/iodn/android-ir-blaster/blob/main/LICENSE';
   static const String _companyUrl = 'https://neroswarm.com';
-
   static const String _creatorName = 'KaijinLab Inc.';
   static const String _liberapayUrl = 'https://liberapay.com/KaijinLab/donate';
-
   static const String _btcAddress = 'bc1qtf79uecssueu4u4u86zct46vcs0vcd2cnmvw6f';
   static const String _ethAddress = '0xCaCc52Cd2D534D869a5C61dD3cAac57455f3c2fD';
 
@@ -53,7 +54,6 @@ class SettingsScreen extends StatelessWidget {
       );
     }
   }
-
 
   Future<void> _copyToClipboard(
     BuildContext context, {
@@ -109,7 +109,11 @@ class SettingsScreen extends StatelessWidget {
     final result = await importRemotesFromPicker(context, current: remotes);
     if (result == null) return;
 
-    if (result.remotes.isEmpty && result.message.toLowerCase().contains('failed')) {
+    final isFailure = result.message.toLowerCase().contains('failed') ||
+        result.message.toLowerCase().contains('unsupported') ||
+        result.message.toLowerCase().contains('invalid');
+
+    if (result.remotes.isEmpty && isFailure) {
       if (!context.mounted) return;
       ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text(result.message)));
       return;
@@ -120,12 +124,22 @@ class SettingsScreen extends StatelessWidget {
     remotes = await readRemotes();
     notifyRemotesChanged();
 
+    if (result.macros != null) {
+      await writeMacrosList(result.macros!);
+      final freshMacros = await readMacros();
+      setMacros(freshMacros);
+    }
+
     if (!context.mounted) return;
     ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text(result.message)));
   }
 
   Future<void> _doExport(BuildContext context) async {
-    await exportRemotesToDownloads(context, remotes: remotes);
+    await exportRemotesToDownloads(
+      context,
+      remotes: remotes,
+      macros: macros,
+    );
   }
 
   Future<void> _restoreDemoRemote(BuildContext context) async {
@@ -243,7 +257,6 @@ class SettingsScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final cs = Theme.of(context).colorScheme;
-
     return Scaffold(
       appBar: AppBar(title: const Text('Settings')),
       body: ListView(
@@ -290,9 +303,7 @@ class SettingsScreen extends StatelessWidget {
                     ],
                   ),
                   borderRadius: BorderRadius.circular(14),
-                  border: Border.all(
-                    color: cs.outlineVariant.withOpacity(0.3),
-                  ),
+                  border: Border.all(color: cs.outlineVariant.withOpacity(0.3)),
                 ),
                 child: Text(
                   'No ads, no tracking, no locked features. Your support funds protocol work, USB dongle support, and better compatibility across devices.',
@@ -426,7 +437,6 @@ class SettingsScreen extends StatelessWidget {
                   SwitchListTile.adaptive(
                     secondary: const Icon(Icons.wallpaper_rounded),
                     title: const Text('Use dynamic colors'),
-                    subtitle: const Text('Match Material You palette on Android 12+. Disable to use the app palette.'),
                     value: DynamicColorController.instance.enabled,
                     onChanged: (v) async {
                       await DynamicColorController.instance.setEnabled(v);
@@ -519,22 +529,22 @@ class SettingsScreen extends StatelessWidget {
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 16),
       child: SectionCard(
-        title: 'Remotes',
-        subtitle: 'Import/export and maintenance actions',
-        leading: Icon(Icons.settings_remote_rounded, color: cs.primary),
+        title: 'Backup',
+        subtitle: 'Import/export remotes and macros',
+        leading: Icon(Icons.storage_rounded, color: cs.primary),
         child: Column(
           children: [
             ListTile(
               leading: const Icon(Icons.file_upload_outlined),
-              title: const Text('Import remotes'),
-              subtitle: const Text('Import .json backups or Flipper Zero .ir files'),
+              title: const Text('Import backup'),
+              subtitle: const Text('Import remotes/macros backup or Flipper Zero .ir files'),
               onTap: () => _doImport(context),
             ),
             const Divider(height: 1),
             ListTile(
               leading: const Icon(Icons.file_download_outlined),
-              title: const Text('Export remotes'),
-              subtitle: const Text('Save a JSON backup to Downloads'),
+              title: const Text('Export backup'),
+              subtitle: const Text('Save remotes + macros as one JSON file to Downloads'),
               onTap: () => _doExport(context),
             ),
             const Divider(height: 1),
@@ -548,13 +558,13 @@ class SettingsScreen extends StatelessWidget {
             ListTile(
               leading: Icon(Icons.delete_forever, color: theme.colorScheme.error),
               title: Text('Delete all remotes', style: TextStyle(color: theme.colorScheme.error)),
-              subtitle: const Text('Remove everything from this device'),
+              subtitle: const Text('Remove every remote from this device'),
               onTap: () => _deleteAllRemotes(context),
             ),
             Padding(
               padding: const EdgeInsets.fromLTRB(16, 0, 16, 16),
               child: Text(
-                'Tip: export a backup before large edits. Import supports both JSON backups and Flipper Zero .ir files.',
+                'Tip: export a backup before large edits. Import supports full backups, legacy remotes-only JSON backups, and Flipper Zero .ir files.',
                 style: TextStyle(color: cs.onSurfaceVariant),
               ),
             ),
@@ -588,7 +598,10 @@ class SettingsScreen extends StatelessWidget {
                   trailing: const Icon(Icons.chevron_right),
                   onTap: () {
                     Navigator.of(context).push(
-                      MaterialPageRoute(builder: (context) => AboutScreen(repoUrl: _repoUrl, issuesUrl: _issuesUrl, liberapayUrl: _liberapayUrl)),
+                      MaterialPageRoute(
+                        builder: (context) =>
+                            AboutScreen(repoUrl: _repoUrl, issuesUrl: _issuesUrl, liberapayUrl: _liberapayUrl),
+                      ),
                     );
                   },
                 );
@@ -735,6 +748,7 @@ class _IrTransmitterCardState extends State<_IrTransmitterCard> {
   IrTransmitterType _preferred = IrTransmitterType.internal;
   IrTransmitterType _active = IrTransmitterType.internal;
   IrTransmitterCapabilities? _caps;
+
   bool _autoSwitchEnabled = false;
   bool _openOnUsbAttachEnabled = false;
 
@@ -794,6 +808,7 @@ class _IrTransmitterCardState extends State<_IrTransmitterCard> {
 
       bool autoSwitch = false;
       bool openOnUsbAttach = false;
+
       try {
         autoSwitch = await IrTransmitterPlatform.getAutoSwitchEnabled();
       } catch (_) {
@@ -801,14 +816,15 @@ class _IrTransmitterCardState extends State<_IrTransmitterCard> {
       }
 
       try {
-       openOnUsbAttach = await IrTransmitterPlatform.getOpenOnUsbAttachEnabled();
-     } catch (_) {}
+        openOnUsbAttach = await IrTransmitterPlatform.getOpenOnUsbAttachEnabled();
+      } catch (_) {}
 
-     if (!mounted) return;
+      if (!mounted) return;
 
-     IrTransmitterType effectivePreferred = preferred;
+      IrTransmitterType effectivePreferred = preferred;
       final bool activeIsAudio =
           caps.currentType == IrTransmitterType.audio1Led || caps.currentType == IrTransmitterType.audio2Led;
+
       bool effectiveAuto = (caps.hasInternal && !activeIsAudio) ? autoSwitch : false;
 
       if (!caps.hasInternal) {
@@ -863,8 +879,8 @@ class _IrTransmitterCardState extends State<_IrTransmitterCard> {
   Future<void> _refreshCaps() async {
     try {
       final caps = await IrTransmitterPlatform.getCapabilities();
-
       bool autoSwitch = _autoSwitchEnabled;
+
       try {
         autoSwitch = await IrTransmitterPlatform.getAutoSwitchEnabled();
       } catch (_) {
@@ -875,6 +891,7 @@ class _IrTransmitterCardState extends State<_IrTransmitterCard> {
 
       final bool activeIsAudio =
           caps.currentType == IrTransmitterType.audio1Led || caps.currentType == IrTransmitterType.audio2Led;
+
       setState(() {
         _caps = caps;
         _active = caps.currentType;
@@ -899,6 +916,7 @@ class _IrTransmitterCardState extends State<_IrTransmitterCard> {
     try {
       await IrTransmitterPlatform.setAutoSwitchEnabled(enabled);
       await _refreshCaps();
+
       if (!mounted) return;
 
       if (enabled) {
@@ -929,7 +947,8 @@ class _IrTransmitterCardState extends State<_IrTransmitterCard> {
     if (caps != null && !caps.hasInternal && t == IrTransmitterType.internal) return;
 
     final bool selectedIsAudio = t == IrTransmitterType.audio1Led || t == IrTransmitterType.audio2Led;
-    final bool turningOffAutoNow = (_autoSwitchEnabled && (selectedIsAudio || t == IrTransmitterType.internal || t == IrTransmitterType.usb));
+    final bool turningOffAutoNow =
+        (_autoSwitchEnabled && (selectedIsAudio || t == IrTransmitterType.internal || t == IrTransmitterType.usb));
 
     setState(() {
       _busy = true;
@@ -1127,43 +1146,56 @@ class _IrTransmitterCardState extends State<_IrTransmitterCard> {
           ),
           const Divider(height: 18),
           SwitchListTile(
-           contentPadding: EdgeInsets.zero,
-           value: _autoSwitchEnabled,
-           onChanged: (_busy || !caps.hasInternal || activeIsAudio) ? null : (v) => _setAutoSwitch(v),
-           title: const Text('Auto-switch'),
-           subtitle: Text(
-             activeIsAudio
-                 ? 'Disabled while using Audio mode'
-                 : (caps.hasInternal ? 'Uses USB when connected, otherwise Internal' : 'Unavailable on this device'),
-           ),
-         ),
-         const Divider(height: 18),
-         SwitchListTile(
-           contentPadding: EdgeInsets.zero,
-           value: _openOnUsbAttachEnabled,
-           onChanged: _busy ? null : (v) async {
-             setState(() { _busy = true; _openOnUsbAttachEnabled = v; });
-             try {
-               final ok = await IrTransmitterPlatform.setOpenOnUsbAttachEnabled(v);
-               if (!mounted) return;
-               setState(() { _openOnUsbAttachEnabled = ok; });
-               ScaffoldMessenger.of(context).showSnackBar(
-                 SnackBar(content: Text(ok ? 'Will suggest opening IR Blaster when a supported USB dongle is attached.' : 'Won\'t suggest opening on USB attach.')),
-               );
-             } catch (_) {
-               if (!mounted) return;
-               ScaffoldMessenger.of(context).showSnackBar(
-                 const SnackBar(content: Text('Failed to update setting.')),
-               );
-             } finally {
-               if (!mounted) return;
-               setState(() { _busy = false; });
-             }
-           },
-           title: const Text('Open on USB attach'),
-           subtitle: const Text('Android may suggest opening the app when a supported USB IR dongle is connected.'),
-         ),
-         const Divider(height: 18),
+            contentPadding: EdgeInsets.zero,
+            value: _autoSwitchEnabled,
+            onChanged: (_busy || !caps.hasInternal || activeIsAudio) ? null : (v) => _setAutoSwitch(v),
+            title: const Text('Auto-switch'),
+            subtitle: Text(
+              activeIsAudio
+                  ? 'Disabled while using Audio mode'
+                  : (caps.hasInternal ? 'Uses USB when connected, otherwise Internal' : 'Unavailable on this device'),
+            ),
+          ),
+          const Divider(height: 18),
+          SwitchListTile(
+            contentPadding: EdgeInsets.zero,
+            value: _openOnUsbAttachEnabled,
+            onChanged: _busy
+                ? null
+                : (v) async {
+                    setState(() {
+                      _busy = true;
+                      _openOnUsbAttachEnabled = v;
+                    });
+                    try {
+                      final ok = await IrTransmitterPlatform.setOpenOnUsbAttachEnabled(v);
+                      if (!mounted) return;
+                      setState(() {
+                        _openOnUsbAttachEnabled = ok;
+                      });
+                      ScaffoldMessenger.of(context).showSnackBar(
+                        SnackBar(
+                          content: Text(ok
+                              ? 'Will suggest opening IR Blaster when a supported USB dongle is attached.'
+                              : 'Won\'t suggest opening on USB attach.'),
+                        ),
+                      );
+                    } catch (_) {
+                      if (!mounted) return;
+                      ScaffoldMessenger.of(context).showSnackBar(
+                        const SnackBar(content: Text('Failed to update setting.')),
+                      );
+                    } finally {
+                      if (!mounted) return;
+                      setState(() {
+                        _busy = false;
+                      });
+                    }
+                  },
+            title: const Text('Open on USB attach'),
+            subtitle: const Text('Android may suggest opening the app when a supported USB IR dongle is connected.'),
+          ),
+          const Divider(height: 18),
           for (final t in IrTransmitterType.values) ...[
             _TransmitterOptionTile(
               type: t,
@@ -1239,7 +1271,6 @@ class _TransmitterOptionTile extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final cs = Theme.of(context).colorScheme;
     return ListTile(
       enabled: enabled,
       leading: Icon(icon),

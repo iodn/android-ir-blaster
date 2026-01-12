@@ -1,6 +1,5 @@
 import 'dart:async';
 import 'dart:io';
-
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:irblaster_controller/ir/ir_protocol_registry.dart';
@@ -11,9 +10,6 @@ import 'package:irblaster_controller/widgets/create_remote.dart';
 
 class RemoteView extends StatefulWidget {
   final Remote remote;
-
-  /// - onEditRemote: open your remote editor UI.
-  /// - onDeleteRemote: delete the remote from storage, then pop.
   final VoidCallback? onEditRemote;
   final Future<void> Function()? onDeleteRemote;
 
@@ -31,7 +27,6 @@ class RemoteView extends StatefulWidget {
 class RemoteViewState extends State<RemoteView> {
   late Remote _remote;
 
-  // ===== Loop sending (repeat) =====
   static const Duration _kLoopInterval = Duration(milliseconds: 250);
   Timer? _loopTimer;
   IRButton? _loopButton;
@@ -44,7 +39,6 @@ class RemoteViewState extends State<RemoteView> {
   void initState() {
     super.initState();
     _remote = widget.remote;
-
     hasIrEmitter().then((value) {
       if (!value && mounted) {
         showDialog<void>(
@@ -68,8 +62,7 @@ class RemoteViewState extends State<RemoteView> {
                 ),
                 TextButton(
                   child: const Text('Close'),
-                  onPressed: () =>
-                      SystemChannels.platform.invokeMethod('SystemNavigator.pop'),
+                  onPressed: () => SystemChannels.platform.invokeMethod('SystemNavigator.pop'),
                 ),
               ],
             );
@@ -112,15 +105,11 @@ class RemoteViewState extends State<RemoteView> {
   }
 
   void _startLoop(IRButton button) {
-    // Replace any existing loop.
     _stopLoop(silent: true);
-
     setState(() {
       _loopButton = button;
       _loopSending = false;
     });
-
-    // UX: immediate feedback + avoid waiting for first timer tick.
     _sendOnce(button, silent: true).catchError((e) {
       _stopLoop(silent: true);
       if (!mounted) return;
@@ -128,12 +117,10 @@ class RemoteViewState extends State<RemoteView> {
         SnackBar(content: Text('Failed to start loop: $e')),
       );
     });
-
     _loopTimer = Timer.periodic(_kLoopInterval, (_) async {
       if (_loopSending) return;
       final b = _loopButton;
       if (b == null) return;
-
       _loopSending = true;
       try {
         await sendIR(b);
@@ -147,13 +134,12 @@ class RemoteViewState extends State<RemoteView> {
         _loopSending = false;
       }
     });
-
     if (!mounted) return;
     final title = _buttonTitle(button);
     ScaffoldMessenger.of(context).hideCurrentSnackBar();
     ScaffoldMessenger.of(context).showSnackBar(
       SnackBar(
-        content: Text('Looping “$title”. Tap Stop in the top bar to stop.'),
+        content: Text('Looping "$title". Tap Stop in the top bar to stop.'),
         duration: const Duration(seconds: 3),
       ),
     );
@@ -163,13 +149,11 @@ class RemoteViewState extends State<RemoteView> {
   void _stopLoop({bool silent = false}) {
     _loopTimer?.cancel();
     _loopTimer = null;
-
     final hadLoop = _loopButton != null;
     setState(() {
       _loopButton = null;
       _loopSending = false;
     });
-
     if (!silent && hadLoop && mounted) {
       ScaffoldMessenger.of(context).hideCurrentSnackBar();
       ScaffoldMessenger.of(context).showSnackBar(
@@ -183,16 +167,13 @@ class RemoteViewState extends State<RemoteView> {
   }
 
   int _findRemoteIndexInGlobalList() {
-    // Prefer identity match, then fall back to id match.
     final int byIdentity = remotes.indexWhere((r) => identical(r, _remote));
     if (byIdentity >= 0) return byIdentity;
-
     final int id = _remote.id;
     if (id > 0) {
       final int byId = remotes.indexWhere((r) => r.id == id);
       if (byId >= 0) return byId;
     }
-
     return -1;
   }
 
@@ -204,25 +185,18 @@ class RemoteViewState extends State<RemoteView> {
 
   Future<void> _editRemote() async {
     if (_isLooping) _stopLoop(silent: false);
-
     if (widget.onEditRemote != null) {
       widget.onEditRemote!.call();
       return;
     }
-
     final int idx = _findRemoteIndexInGlobalList();
-
     try {
       final Remote edited = await Navigator.push(
         context,
         MaterialPageRoute(builder: (context) => CreateRemote(remote: _remote)),
       );
-
       if (!mounted) return;
-
       setState(() => _remote = edited);
-
-      // Persist if this remote is from the global list.
       if (idx >= 0 && idx < remotes.length) {
         remotes[idx] = edited;
         await writeRemotelist(remotes);
@@ -236,23 +210,18 @@ class RemoteViewState extends State<RemoteView> {
           ),
         );
       }
-
       HapticFeedback.selectionClick();
       ScaffoldMessenger.of(context).showSnackBar(
-        SnackBar(content: Text('Updated “${edited.name}”.')),
+        SnackBar(content: Text('Updated "${edited.name}".')),
       );
-    } catch (_) {
-      // cancelled
-    }
+    } catch (_) {}
   }
 
   Future<void> _deleteRemote() async {
     if (_isLooping) _stopLoop(silent: false);
-
     if (widget.onDeleteRemote != null) {
       final ok = await _confirmDeleteRemote();
       if (!ok) return;
-
       try {
         await widget.onDeleteRemote!.call();
       } catch (e) {
@@ -262,15 +231,12 @@ class RemoteViewState extends State<RemoteView> {
         );
         return;
       }
-
       if (!mounted) return;
       Navigator.of(context).maybePop();
       return;
     }
-
     final bool ok = await _confirmDeleteRemote();
     if (!ok) return;
-
     final int idx = _findRemoteIndexInGlobalList();
     if (idx < 0 || idx >= remotes.length) {
       if (!mounted) return;
@@ -279,22 +245,17 @@ class RemoteViewState extends State<RemoteView> {
       );
       return;
     }
-
     final String name = _remote.name;
-
     setState(() {
       remotes.removeAt(idx);
       _reassignIds();
     });
-
     await writeRemotelist(remotes);
     notifyRemotesChanged();
-
     if (!mounted) return;
-
     HapticFeedback.selectionClick();
     ScaffoldMessenger.of(context).showSnackBar(
-      SnackBar(content: Text('Deleted “$name”.')),
+      SnackBar(content: Text('Deleted "$name".')),
     );
     Navigator.of(context).maybePop();
   }
@@ -309,8 +270,6 @@ class RemoteViewState extends State<RemoteView> {
     final raw = b.image.trim();
     if (raw.isEmpty) return 'Button';
     if (!b.isImage) return raw;
-
-    // If it's an image path, show a friendly filename (without extension).
     final s = raw.replaceAll('\\', '/');
     final parts = s.split('/');
     final last = parts.isNotEmpty ? parts.last : raw;
@@ -318,13 +277,8 @@ class RemoteViewState extends State<RemoteView> {
     return clean.isEmpty ? 'Image' : clean;
   }
 
-  bool _hasProtocol(IRButton b) =>
-      b.protocol != null && b.protocol!.trim().isNotEmpty;
+  bool _hasProtocol(IRButton b) => b.protocol != null && b.protocol!.trim().isNotEmpty;
 
-  /// Returns protocol params Map if present; null if absent.
-  /// This is compatible with:
-  /// - legacy: protocolParams == null
-  /// - new: protocolParams is a JSON map (decoded) stored on IRButton
   Map<String, dynamic>? _protocolParams(IRButton b) {
     final dynamic p = b.protocolParams;
     if (p is Map<String, dynamic>) return p;
@@ -338,38 +292,26 @@ class RemoteViewState extends State<RemoteView> {
     return 'NEC';
   }
 
-  /// New-format raw signal: protocol == 'raw' with protocolParams {pattern, frequencyHz}
   bool _isRawProtocol(IRButton b) {
     if (!_hasProtocol(b)) return false;
     final String id = b.protocol!.trim();
     if (id != 'raw') return false;
-
     final params = _protocolParams(b);
-    if (params == null) return true; // still "raw" logically
+    if (params == null) return true;
     final pattern = params['pattern'];
     return pattern is String && pattern.trim().isNotEmpty;
   }
 
-  /// Legacy raw signal: rawData contains pulse timings and protocol is null/empty
   bool _isLegacyRawSignalButton(IRButton b) {
     final String? raw = b.rawData?.trim();
     if (raw == null || raw.isEmpty) return false;
-
-    // If protocol is set, legacy rawData is not a raw timing blob for UI purposes.
     if (_hasProtocol(b)) return false;
-
-    // NEC config strings are not "raw timings" in UI terms.
     if (isNecConfigString(raw)) return false;
-
-    // Heuristic: raw timings usually contain many integer durations.
     final int numbers = RegExp(r'-?\d+').allMatches(raw).length;
     final bool hasSeparators = RegExp(r'[,\s]').hasMatch(raw);
     return numbers >= 6 && hasSeparators;
   }
 
-  /// Raw signal should be true for either:
-  /// - legacy rawData timings
-  /// - new-format protocol 'raw' with protocolParams.pattern
   bool _isRawSignalButton(IRButton b) {
     if (_isRawProtocol(b)) return true;
     return _isLegacyRawSignalButton(b);
@@ -382,50 +324,31 @@ class RemoteViewState extends State<RemoteView> {
   }
 
   String? _extractHexToken(String s) {
-    // Prefer 0x.... patterns
     final m0x = RegExp(r'0x([0-9a-fA-F]{1,16})').firstMatch(s);
     if (m0x != null) return m0x.group(1)!.toUpperCase();
-
-    // Otherwise pick the longest hex run of length >= 1
     final matches = RegExp(r'([0-9a-fA-F]{1,16})').allMatches(s).toList();
     if (matches.isEmpty) return null;
-
     matches.sort((a, b) => b.group(1)!.length.compareTo(a.group(1)!.length));
     return matches.first.group(1)!.toUpperCase();
   }
 
-  /// Read hex code from both formats:
-  /// - legacy: IRButton.code (int) (NEC etc.)
-  /// - new: protocolParams['hex'] (string)
-  ///
-  /// Display rules:
-  /// - raw signal -> null (we show RAW SIGNAL)
-  /// - protocol-based -> min width 4 (but do not truncate if longer)
-  /// - non-protocol NEC legacy -> min width 8
   String? _displayHex(IRButton b) {
     if (_isRawSignalButton(b)) return null;
-
-    // New format: protocolParams.hex
     if (_hasProtocol(b)) {
       final params = _protocolParams(b);
       final dynamic hexDyn = params?['hex'];
       if (hexDyn is String && hexDyn.trim().isNotEmpty) {
         final extracted = _extractHexToken(hexDyn.trim());
         if (extracted == null) return null;
-        // Keep full length if provided (e.g., 8 for NEC), otherwise at least 4.
         final int minWidth = extracted.length >= 8 ? 8 : 4;
         return extracted.padLeft(minWidth, '0');
       }
     }
-
-    // Legacy: b.code int
     final int? v = b.code;
     if (v != null) {
       if (_hasProtocol(b)) return _formatHex(v, minWidth: 4);
       return _formatHex(v, minWidth: 8);
     }
-
-    // Fallback: some old protocol implementations may have stored payload in rawData.
     if (_hasProtocol(b)) {
       final String? raw = b.rawData?.trim();
       if (raw != null && raw.isNotEmpty) {
@@ -433,24 +356,18 @@ class RemoteViewState extends State<RemoteView> {
         if (extracted != null) return extracted.padLeft(4, '0');
       }
     }
-
     return null;
   }
 
   int _effectiveFrequencyHz(IRButton b) {
-    // New-format raw: prefer protocolParams.frequencyHz
     if (_isRawProtocol(b)) {
       final params = _protocolParams(b);
       final dynamic f = params?['frequencyHz'];
       if (f is int && f > 0) return f;
       if (f is num && f.toInt() > 0) return f.toInt();
     }
-
-    // If user provided a frequency, it always wins (legacy field).
     final int? f = b.frequency;
     if (f != null && f > 0) return f;
-
-    // Otherwise show default frequency used by the app per type.
     if (_hasProtocol(b)) return 38000;
     if (_isRawSignalButton(b)) return 38000;
     return kDefaultNecFrequencyHz;
@@ -466,12 +383,12 @@ class RemoteViewState extends State<RemoteView> {
     String text, {
     Color? bg,
     Color? fg,
-    EdgeInsets padding = const EdgeInsets.symmetric(horizontal: 8, vertical: 3),
+    EdgeInsets padding = const EdgeInsets.symmetric(horizontal: 8, vertical: 4),
     double radius = 999,
+    double fontSize = 10,
   }) {
     final colorScheme = Theme.of(context).colorScheme;
-    final Color background =
-        bg ?? colorScheme.secondaryContainer.withValues(alpha: 0.9);
+    final Color background = bg ?? colorScheme.secondaryContainer.withValues(alpha: 0.9);
     final Color foreground = fg ?? colorScheme.onSecondaryContainer;
     return Container(
       padding: padding,
@@ -487,7 +404,7 @@ class RemoteViewState extends State<RemoteView> {
         maxLines: 1,
         overflow: TextOverflow.ellipsis,
         style: TextStyle(
-          fontSize: 11,
+          fontSize: fontSize,
           fontWeight: FontWeight.w800,
           color: foreground,
           letterSpacing: 0.2,
@@ -499,7 +416,6 @@ class RemoteViewState extends State<RemoteView> {
   Future<void> _openRemoteActionsSheet() async {
     final theme = Theme.of(context);
     final cs = theme.colorScheme;
-
     await showModalBottomSheet<void>(
       context: context,
       showDragHandle: true,
@@ -517,10 +433,8 @@ class RemoteViewState extends State<RemoteView> {
                 Row(
                   children: [
                     CircleAvatar(
-                      backgroundColor:
-                          cs.primaryContainer.withValues(alpha: 0.65),
-                      child: Icon(Icons.settings_remote_rounded,
-                          color: cs.onPrimaryContainer),
+                      backgroundColor: cs.primaryContainer.withValues(alpha: 0.65),
+                      child: Icon(Icons.settings_remote_rounded, color: cs.onPrimaryContainer),
                     ),
                     const SizedBox(width: 12),
                     Expanded(
@@ -566,8 +480,7 @@ class RemoteViewState extends State<RemoteView> {
                   leading: Icon(Icons.delete_outline, color: cs.error),
                   title: Text(
                     'Delete remote',
-                    style:
-                        TextStyle(color: cs.error, fontWeight: FontWeight.w800),
+                    style: TextStyle(color: cs.error, fontWeight: FontWeight.w800),
                   ),
                   subtitle: const Text('This cannot be undone'),
                   onTap: () async {
@@ -587,14 +500,13 @@ class RemoteViewState extends State<RemoteView> {
   Future<bool> _confirmDeleteRemote() async {
     final theme = Theme.of(context);
     final cs = theme.colorScheme;
-
     return await showDialog<bool>(
       context: context,
       builder: (ctx) => AlertDialog(
         icon: Icon(Icons.warning_amber_rounded, color: cs.error),
         title: const Text('Delete remote?'),
         content: Text(
-          '“${_remote.name}” will be deleted permanently.',
+          '"${_remote.name}" will be deleted permanently.',
           style: theme.textTheme.bodyMedium,
         ),
         actions: [
@@ -618,20 +530,15 @@ class RemoteViewState extends State<RemoteView> {
   Future<void> _openButtonActions(IRButton b) async {
     final theme = Theme.of(context);
     final cs = theme.colorScheme;
-
     final String label = _buttonTitle(b);
     final String proto = _protocolLabel(b);
     final String freq = _freqLabelKhz(b);
     final bool isRaw = _isRawSignalButton(b);
     final String? displayHex = _displayHex(b);
-
     final bool loopingThis = _isLoopingThis(b);
-
     final String typeLine = 'Type: $proto';
-    final String codeLine =
-        isRaw ? 'Code: Raw signal' : 'Code: ${displayHex ?? 'NO CODE'}';
+    final String codeLine = isRaw ? 'Code: Raw signal' : 'Code: ${displayHex ?? 'NO CODE'}';
     final String freqLine = 'Frequency: $freq';
-
     await showModalBottomSheet<void>(
       context: context,
       showDragHandle: true,
@@ -649,10 +556,8 @@ class RemoteViewState extends State<RemoteView> {
                 Row(
                   children: [
                     CircleAvatar(
-                      backgroundColor:
-                          cs.secondaryContainer.withValues(alpha: 0.75),
-                      child: Icon(Icons.touch_app_outlined,
-                          color: cs.onSecondaryContainer),
+                      backgroundColor: cs.secondaryContainer.withValues(alpha: 0.75),
+                      child: Icon(Icons.touch_app_outlined, color: cs.onSecondaryContainer),
                     ),
                     const SizedBox(width: 12),
                     Expanded(
@@ -804,10 +709,8 @@ class RemoteViewState extends State<RemoteView> {
   Widget build(BuildContext context) {
     final theme = Theme.of(context);
     final cs = theme.colorScheme;
-
     final bool useNewStyle = _remote.useNewStyle;
     final int count = _remote.buttons.length;
-
     return Scaffold(
       appBar: AppBar(
         centerTitle: true,
@@ -847,12 +750,10 @@ class RemoteViewState extends State<RemoteView> {
     );
   }
 
-  /// Compact (4 columns): keep original behavior/feel, but show protocol/type pill.
   Widget _buildCompactGrid() {
     final theme = Theme.of(context);
     final cs = theme.colorScheme;
     final cardColor = cs.primary.withValues(alpha: 0.20);
-
     return GridView.builder(
       padding: EdgeInsets.fromLTRB(
         12,
@@ -869,30 +770,27 @@ class RemoteViewState extends State<RemoteView> {
       ),
       itemBuilder: (context, index) {
         final IRButton button = _remote.buttons[index];
-
-        final bool hasProtocol = _hasProtocol(button);
         final String proto = _protocolLabel(button);
-
         final Widget content = button.isImage
             ? (button.image.startsWith("assets/")
                 ? Image.asset(button.image, fit: BoxFit.contain)
                 : Image.file(File(button.image), fit: BoxFit.contain))
             : Center(
                 child: Padding(
-                  padding: const EdgeInsets.all(8),
+                  padding: const EdgeInsets.all(6),
                   child: Text(
                     button.image,
                     textAlign: TextAlign.center,
                     maxLines: 3,
                     overflow: TextOverflow.ellipsis,
-                    style: theme.textTheme.bodyMedium?.copyWith(
+                    style: theme.textTheme.bodySmall?.copyWith(
                       fontWeight: FontWeight.w900,
                       color: cs.onSurface,
+                      height: 1.1,
                     ),
                   ),
                 ),
               );
-
         return Material(
           color: cardColor,
           borderRadius: BorderRadius.circular(14),
@@ -904,23 +802,21 @@ class RemoteViewState extends State<RemoteView> {
               children: [
                 Positioned.fill(
                   child: Padding(
-                    padding: const EdgeInsets.all(8),
+                    padding: const EdgeInsets.all(6),
                     child: content,
                   ),
                 ),
                 Positioned(
-                  top: 6,
-                  right: 6,
-                  child: Tooltip(
-                    message: hasProtocol ? 'Protocol: $proto' : 'Type: $proto',
-                    child: _pill(
-                      context,
-                      proto,
-                      padding: const EdgeInsets.symmetric(
-                        horizontal: 7,
-                        vertical: 2.5,
-                      ),
+                  top: 4,
+                  right: 4,
+                  child: _pill(
+                    context,
+                    proto,
+                    padding: const EdgeInsets.symmetric(
+                      horizontal: 6,
+                      vertical: 3,
                     ),
+                    fontSize: 9,
                   ),
                 ),
               ],
@@ -931,15 +827,10 @@ class RemoteViewState extends State<RemoteView> {
     );
   }
 
-  /// Comfort (2 columns): show only:
-  /// - Button name
-  /// - Hex code (except raw -> show "RAW SIGNAL")
-  /// - Pills: [Protocol/Type] [Frequency (user or default)]
   Widget _buildComfortGrid() {
     final theme = Theme.of(context);
     final cs = theme.colorScheme;
     final cardColor = cs.primary.withValues(alpha: 0.20);
-
     return GridView.builder(
       padding: EdgeInsets.fromLTRB(
         12,
@@ -949,27 +840,19 @@ class RemoteViewState extends State<RemoteView> {
       ),
       gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
         crossAxisCount: 2,
-        mainAxisExtent: 115,
+        mainAxisExtent: 130,
         mainAxisSpacing: 12,
         crossAxisSpacing: 12,
       ),
       itemCount: _remote.buttons.length,
       itemBuilder: (context, index) {
         final IRButton button = _remote.buttons[index];
-
         final bool isRaw = _isRawSignalButton(button);
         final String title = _buttonTitle(button);
         final String proto = _protocolLabel(button);
         final String freq = _freqLabelKhz(button);
-
         final String? displayHex = _displayHex(button);
-        final String codeText = isRaw ? 'RAW SIGNAL' : (displayHex ?? 'NO CODE');
-
-        final List<Widget> chips = <Widget>[
-          _pill(context, proto),
-          _pill(context, freq),
-        ];
-
+        final String codeText = isRaw ? 'RAW' : (displayHex ?? 'NO CODE');
         return Card(
           elevation: 0,
           shape: RoundedRectangleBorder(
@@ -982,37 +865,48 @@ class RemoteViewState extends State<RemoteView> {
             onTap: () => _handleButtonPress(button),
             onLongPress: () => _openButtonActions(button),
             child: Padding(
-              padding: const EdgeInsets.fromLTRB(14, 14, 14, 14),
+              padding: const EdgeInsets.all(14),
               child: Column(
-                mainAxisAlignment: MainAxisAlignment.center,
+                crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  Text(
-                    title,
-                    textAlign: TextAlign.center,
-                    maxLines: 2,
-                    overflow: TextOverflow.ellipsis,
-                    style: theme.textTheme.titleMedium?.copyWith(
-                      fontWeight: FontWeight.w900,
-                      color: cs.onSurface,
+                  Expanded(
+                    child: Center(
+                      child: Text(
+                        title,
+                        textAlign: TextAlign.center,
+                        maxLines: 2,
+                        overflow: TextOverflow.ellipsis,
+                        style: theme.textTheme.titleMedium?.copyWith(
+                          fontWeight: FontWeight.w900,
+                          color: cs.onSurface,
+                          height: 1.2,
+                        ),
+                      ),
+                    ),
+                  ),
+                  const SizedBox(height: 8),
+                  Center(
+                    child: Text(
+                      codeText,
+                      maxLines: 1,
+                      overflow: TextOverflow.ellipsis,
+                      style: theme.textTheme.bodySmall?.copyWith(
+                        fontFamily: isRaw ? null : 'monospace',
+                        fontWeight: FontWeight.w800,
+                        color: cs.onSurface.withValues(alpha: 0.82),
+                        fontSize: 11,
+                      ),
                     ),
                   ),
                   const SizedBox(height: 10),
-                  Text(
-                    codeText,
-                    maxLines: 1,
-                    overflow: TextOverflow.ellipsis,
-                    style: theme.textTheme.bodyMedium?.copyWith(
-                      fontFamily: isRaw ? null : 'monospace',
-                      fontWeight: FontWeight.w800,
-                      color: cs.onSurface.withValues(alpha: 0.82),
-                    ),
-                  ),
-                  const SizedBox(height: 12),
                   Wrap(
                     alignment: WrapAlignment.center,
                     spacing: 6,
                     runSpacing: 6,
-                    children: chips,
+                    children: [
+                      _pill(context, proto, fontSize: 9),
+                      _pill(context, freq, fontSize: 9),
+                    ],
                   ),
                 ],
               ),
@@ -1026,21 +920,20 @@ class RemoteViewState extends State<RemoteView> {
 
 class _EmptyRemoteState extends StatelessWidget {
   final VoidCallback onManage;
+
   const _EmptyRemoteState({required this.onManage});
 
   @override
   Widget build(BuildContext context) {
     final theme = Theme.of(context);
     final cs = theme.colorScheme;
-
     return Center(
       child: Padding(
         padding: const EdgeInsets.all(24),
         child: Column(
           mainAxisSize: MainAxisSize.min,
           children: [
-            Icon(Icons.grid_off_rounded,
-                size: 52, color: cs.onSurface.withValues(alpha: 0.45)),
+            Icon(Icons.grid_off_rounded, size: 52, color: cs.onSurface.withValues(alpha: 0.45)),
             const SizedBox(height: 12),
             Text(
               'No buttons in this remote',
@@ -1050,7 +943,7 @@ class _EmptyRemoteState extends StatelessWidget {
             ),
             const SizedBox(height: 6),
             Text(
-              'Use “Edit remote” to add or configure buttons.',
+              'Use "Edit remote" to add or configure buttons.',
               style: theme.textTheme.bodyMedium?.copyWith(
                 color: cs.onSurface.withValues(alpha: 0.7),
                 fontWeight: FontWeight.w600,
@@ -1069,3 +962,4 @@ class _EmptyRemoteState extends StatelessWidget {
     );
   }
 }
+

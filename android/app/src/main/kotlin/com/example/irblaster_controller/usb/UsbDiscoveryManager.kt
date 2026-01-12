@@ -43,12 +43,28 @@ class UsbDiscoveryManager(
             return null
         }
 
-        val intf: UsbInterface = device.getInterface(0)
+        // Search all interfaces for a pair of BULK OUT + BULK IN endpoints.
+        var selectedInterface: UsbInterface? = null
+        var outEp: UsbEndpoint? = null
+        var inEp: UsbEndpoint? = null
+        for (i in 0 until device.interfaceCount) {
+            val intf = device.getInterface(i)
+            val pair = findBulkOutIn(intf)
+            if (pair != null) {
+                selectedInterface = intf
+                outEp = pair.first
+                inEp = pair.second
+                break
+            }
+        }
 
-        val (outEp, inEp) = findBulkOutIn(intf) ?: run {
-            Log.w(TAG, "Could not find required BULK OUT + BULK IN endpoints on interface 0")
+        val intf: UsbInterface = selectedInterface ?: run {
+            Log.w(TAG, "Could not find required BULK OUT + BULK IN endpoints on any interface")
             return null
         }
+
+        val outEpNonNull = outEp!!
+        val inEpNonNull = inEp!!
 
         val conn: UsbDeviceConnection = usb.openDevice(device) ?: run {
             Log.w(TAG, "openDevice() returned null")
@@ -74,8 +90,8 @@ class UsbDiscoveryManager(
             device = device,
             connection = conn,
             claimedInterface = intf,
-            outEndpoint = outEp,
-            inEndpoint = inEp,
+            outEndpoint = outEpNonNull,
+            inEndpoint = inEpNonNull,
             formatter = UsbProtocolFormatter
         )
     }
@@ -99,11 +115,13 @@ class UsbDiscoveryManager(
     }
 
     private fun permissionPiFlags(): Int {
-        // Uses FLAG_MUTABLE on S+ (0x02000000). Without MUTABLE, extras may be missing.
+        // Use UPDATE_CURRENT so repeated requests reuse/update the same PendingIntent.
+        // On Android S+ require MUTABLE so system can add extras.
+        val base = PendingIntent.FLAG_UPDATE_CURRENT
         return if (android.os.Build.VERSION.SDK_INT >= 31) {
-            PendingIntent.FLAG_MUTABLE
+            base or PendingIntent.FLAG_MUTABLE
         } else {
-            0
+            base
         }
     }
 }

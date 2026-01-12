@@ -28,9 +28,11 @@ class _MacroEditorScreenState extends State<MacroEditorScreen> {
     final m = widget.macro;
     _nameCtl.text = m?.name ?? '';
     _nameCtl.addListener(_onNameChanged);
+
     final loaded = (m?.steps ?? const <MacroStep>[])
         .map((s) => s.id.trim().isEmpty ? s.copyWith(id: MacroStep.newId()) : s)
         .toList();
+
     _steps.addAll(loaded);
   }
 
@@ -73,7 +75,8 @@ class _MacroEditorScreenState extends State<MacroEditorScreen> {
         MacroStep(
           id: MacroStep.newId(),
           type: MacroStepType.send,
-          buttonId: button.image,
+          buttonId: button.id,
+          buttonRef: button.image,
         ),
       );
     });
@@ -113,7 +116,7 @@ class _MacroEditorScreenState extends State<MacroEditorScreen> {
       final button = await _pickButton();
       if (button == null) return;
       setState(() {
-        _steps[index] = step.copyWith(buttonId: button.image);
+        _steps[index] = step.copyWith(buttonId: button.id, buttonRef: button.image);
       });
       HapticFeedback.selectionClick();
       return;
@@ -129,29 +132,37 @@ class _MacroEditorScreenState extends State<MacroEditorScreen> {
     }
   }
 
-  String _displayCommandName(String raw) {
-    var s = raw.trim();
-    if (s.isEmpty) return s;
-
-    final slash = s.lastIndexOf('/');
-    if (slash >= 0 && slash < s.length - 1) {
-      s = s.substring(slash + 1);
+  IRButton? _findButtonById(String? id) {
+    final key = (id ?? '').trim();
+    if (key.isEmpty) return null;
+    try {
+      return widget.remote.buttons.firstWhere((b) => b.id == key);
+    } catch (_) {
+      return null;
     }
+  }
 
-    final lower = s.toLowerCase();
-    const exts = <String>['.png', '.jpg', '.jpeg'];
-    for (final ext in exts) {
-      if (lower.endsWith(ext)) {
-        s = s.substring(0, s.length - ext.length);
-        break;
-      }
+  IRButton? _findButtonByRef(String? ref) {
+    final key = normalizeButtonKey(ref ?? '');
+    if (key.isEmpty) return null;
+    try {
+      return widget.remote.buttons.firstWhere((b) => normalizeButtonKey(b.image) == key);
+    } catch (_) {
+      return null;
     }
+  }
 
-    if (s.startsWith('assets/')) {
-      s = s.substring('assets/'.length);
-    }
+  String _stepSendLabel(MacroStep step) {
+    final byId = _findButtonById(step.buttonId);
+    if (byId != null) return formatButtonDisplayName(byId.image);
 
-    return s;
+    final byRef = _findButtonByRef(step.buttonRef) ?? _findButtonByRef(step.buttonId);
+    if (byRef != null) return formatButtonDisplayName(byRef.image);
+
+    final fallback = (step.buttonRef ?? step.buttonId ?? '').trim();
+    if (fallback.isEmpty) return 'Unknown Command';
+    final pretty = formatButtonDisplayName(fallback);
+    return pretty.isEmpty ? 'Unknown Command' : pretty;
   }
 
   Future<IRButton?> _pickButton() async {
@@ -193,7 +204,7 @@ class _MacroEditorScreenState extends State<MacroEditorScreen> {
                 itemCount: widget.remote.buttons.length,
                 itemBuilder: (context, i) {
                   final b = widget.remote.buttons[i];
-                  final label = _displayCommandName(b.image);
+                  final label = formatButtonDisplayName(b.image).trim();
                   return Card(
                     margin: const EdgeInsets.only(bottom: 8),
                     child: ListTile(
@@ -442,6 +453,7 @@ class _MacroEditorScreenState extends State<MacroEditorScreen> {
       name: _nameCtl.text.trim(),
       remoteName: widget.remote.name,
       steps: List<MacroStep>.from(_steps),
+      version: 1,
     );
     Navigator.of(context).pop(macro);
     HapticFeedback.selectionClick();
@@ -819,9 +831,7 @@ class _MacroEditorScreenState extends State<MacroEditorScreen> {
   String _stepTitle(MacroStep step) {
     switch (step.type) {
       case MacroStepType.send:
-        final raw = step.buttonId ?? '';
-        final pretty = _displayCommandName(raw);
-        return pretty.isEmpty ? 'Unknown Command' : pretty;
+        return _stepSendLabel(step);
       case MacroStepType.delay:
         return '${step.delayMs ?? 0}ms';
       case MacroStepType.manualContinue:

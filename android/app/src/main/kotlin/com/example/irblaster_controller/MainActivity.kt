@@ -124,7 +124,7 @@ class MainActivity : FlutterActivity() {
 
   private fun applyAutoSwitchIfEnabled(reason: String) {
     if (!autoSwitchEnabled) return
-    if (!internalAvailable()) return
+    // Allow auto-switch even when there is no internal IR emitter.
     if (currentTxType == TxType.AUDIO_1_LED || currentTxType == TxType.AUDIO_2_LED) return
 
     val usbReady = ensureUsbOpenedIfPermitted()
@@ -430,6 +430,12 @@ class MainActivity : FlutterActivity() {
       TxType.INTERNAL -> {
         val internalOk = internalTx?.transmitRaw(frequency, pattern) == true
         if (internalOk) { result.success(null); return }
+        // Fallback: try USB if internal is unavailable/failed
+        val usb = getOrOpenUsbTransmitterOrRequest()
+        if (usb != null) {
+          val ok = usb.transmitRaw(frequency, pattern)
+          if (ok) { result.success(null); return }
+        }
         result.error("NO_IR", "Internal IR transmit failed or IR emitter not available", null)
       }
 
@@ -476,6 +482,12 @@ class MainActivity : FlutterActivity() {
       TxType.INTERNAL -> {
         val ok = internalTx?.transmitRaw(safeFreq, pattern) == true
         if (ok) { result.success(null); return }
+        // Fallback: try USB if internal is unavailable/failed
+        val usb = getOrOpenUsbTransmitterOrRequest()
+        if (usb != null) {
+          val uok = usb.transmitRaw(safeFreq, pattern)
+          if (uok) { result.success(null); return }
+        }
         result.error("NO_IR", "Internal IR transmit failed or IR emitter not available", null)
       }
 
@@ -503,7 +515,8 @@ class MainActivity : FlutterActivity() {
 
   private fun handleUsbScanAndRequest(result: MethodChannel.Result) {
     val disc = usbDiscovery
-    if (disc == null) {
+    val mgr = usbManager
+    if (disc == null || mgr == null) {
       result.error("NO_USB", "UsbManager not available", null)
       return
     }
@@ -512,7 +525,19 @@ class MainActivity : FlutterActivity() {
       result.success(false)
       return
     }
-    disc.requestPermission(devices.first())
+    val dev = devices.first()
+    if (mgr.hasPermission(dev)) {
+      // Already granted: open immediately.
+      val opened = openUsbDevice(dev)
+      if (opened != null) {
+        usbTransmitter = opened
+        emitTxStatus("usb_already_permitted_opened")
+        emitTxStatusDelayed("usb_already_permitted_opened_delayed", 250L)
+        result.success(true)
+        return
+      }
+    }
+    disc.requestPermission(dev)
     emitTxStatus("usb_scan_request")
     emitTxStatusDelayed("usb_scan_request_delayed", 350L)
     result.success(true)

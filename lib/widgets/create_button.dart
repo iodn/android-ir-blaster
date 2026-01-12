@@ -2,6 +2,8 @@ import 'dart:io';
 
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:uuid/uuid.dart';
+
 import 'package:irblaster_controller/ir/ir_protocol_registry.dart';
 import 'package:irblaster_controller/ir/ir_protocol_types.dart';
 import 'package:irblaster_controller/utils/ir.dart';
@@ -14,6 +16,7 @@ enum _NecBitOrder { msb, lsb }
 
 class CreateButton extends StatefulWidget {
   final IRButton? button;
+
   const CreateButton({super.key, this.button});
 
   @override
@@ -21,10 +24,11 @@ class CreateButton extends StatefulWidget {
 }
 
 class _CreateButtonState extends State<CreateButton> {
-  // Helper text wrapping on small screens.
   static const int _kHelperMaxLines = 4;
   static const int _kHintMaxLines = 2;
   static const int _kErrorMaxLines = 3;
+
+  late final String _buttonId;
 
   final TextEditingController codeController = TextEditingController();
   final TextEditingController hexFreqController = TextEditingController();
@@ -52,10 +56,8 @@ class _CreateButtonState extends State<CreateButton> {
 
   _LabelType _labelType = _LabelType.image;
   _SignalType _signalType = _SignalType.hex;
-
   bool useCustomNec = false;
   _NecBitOrder _necBitOrder = _NecBitOrder.msb;
-
   String _selectedProtocolId = IrProtocolIds.nec;
 
   Widget? _imagePreview;
@@ -66,6 +68,8 @@ class _CreateButtonState extends State<CreateButton> {
   @override
   void initState() {
     super.initState();
+
+    _buttonId = widget.button?.id ?? const Uuid().v4();
 
     hexFreqController.text = kDefaultNecFrequencyHz.toString();
 
@@ -89,35 +93,28 @@ class _CreateButtonState extends State<CreateButton> {
       if (b.protocol != null && b.protocol!.trim().isNotEmpty) {
         final normalized = b.protocol!.trim();
         _selectedProtocolId = normalized;
-
         if (IrProtocolRegistry.definitionFor(_selectedProtocolId) == null) {
           _selectedProtocolId = IrProtocolIds.nec;
         }
-
         _signalType = _SignalType.protocol;
         _selectedProtocolId = b.protocol!.trim();
-
         if (b.frequency != null && b.frequency! > 0) {
           protoFreqController.text = b.frequency!.toString();
         }
-
         _syncProtocolControllersFromDefinition(
           b.protocolParams ?? const <String, dynamic>{},
         );
       } else if (hasRaw && isNecConfigString(b.rawData)) {
         _signalType = _SignalType.hex;
         useCustomNec = true;
-
         if (b.code != null) {
           codeController.text = b.code!.toRadixString(16);
         }
-
         if (b.frequency != null && b.frequency! > 0) {
           hexFreqController.text = b.frequency!.toString();
         } else {
           hexFreqController.text = kDefaultNecFrequencyHz.toString();
         }
-
         final params = parseNecParamsFromString(b.rawData!);
         headerMarkCtrl.text = params.headerMark.toString();
         headerSpaceCtrl.text = params.headerSpace.toString();
@@ -125,16 +122,12 @@ class _CreateButtonState extends State<CreateButton> {
         zeroSpaceCtrl.text = params.zeroSpace.toString();
         oneSpaceCtrl.text = params.oneSpace.toString();
         trailerMarkCtrl.text = params.trailerMark.toString();
-
         _necBitOrder =
-            ((b.necBitOrder ?? 'msb').toLowerCase() == 'lsb')
-                ? _NecBitOrder.lsb
-                : _NecBitOrder.msb;
+            ((b.necBitOrder ?? 'msb').toLowerCase() == 'lsb') ? _NecBitOrder.lsb : _NecBitOrder.msb;
       } else if (hasRaw) {
         _signalType = _SignalType.raw;
         rawDataController.text = b.rawData!;
-        freqController.text =
-            (b.frequency ?? kDefaultNecFrequencyHz).toString();
+        freqController.text = (b.frequency ?? kDefaultNecFrequencyHz).toString();
       } else if (b.code != null) {
         _signalType = _SignalType.hex;
         useCustomNec = false;
@@ -148,27 +141,18 @@ class _CreateButtonState extends State<CreateButton> {
     _attachListenersOnce();
   }
 
-  void _syncProtocolControllersFromDefinition(
-      Map<String, dynamic> existingParams) {
+  void _syncProtocolControllersFromDefinition(Map<String, dynamic> existingParams) {
     final def = IrProtocolRegistry.definitionFor(_selectedProtocolId);
-
     _protoControllers.forEach((_, c) => c.dispose());
     _protoControllers.clear();
-
     if (def == null) return;
 
     for (final field in def.fields) {
       final c = TextEditingController();
-
       dynamic v = existingParams[field.id];
-
-      // Default value if not provided
       v ??= field.defaultValue;
 
-      // For choice fields, ensure a valid selection exists
-      if (v == null &&
-          field.type == IrFieldType.choice &&
-          field.options.isNotEmpty) {
+      if (v == null && field.type == IrFieldType.choice && field.options.isNotEmpty) {
         v = field.options.first;
       }
 
@@ -180,7 +164,7 @@ class _CreateButtonState extends State<CreateButton> {
             c.text = v.toString();
           }
         } else if (field.type == IrFieldType.boolean) {
-          c.text = _coerceBool(v).toString(); // "true"/"false"
+          c.text = _coerceBool(v).toString();
         } else {
           c.text = v.toString();
         }
@@ -189,7 +173,6 @@ class _CreateButtonState extends State<CreateButton> {
       c.addListener(() {
         if (mounted) setState(() {});
       });
-
       _protoControllers[field.id] = c;
     }
   }
@@ -207,14 +190,12 @@ class _CreateButtonState extends State<CreateButton> {
     rawDataController.addListener(onChanged);
     freqController.addListener(onChanged);
     nameController.addListener(onChanged);
-
     headerMarkCtrl.addListener(onChanged);
     headerSpaceCtrl.addListener(onChanged);
     bitMarkCtrl.addListener(onChanged);
     zeroSpaceCtrl.addListener(onChanged);
     oneSpaceCtrl.addListener(onChanged);
     trailerMarkCtrl.addListener(onChanged);
-
     protoFreqController.addListener(onChanged);
   }
 
@@ -225,25 +206,20 @@ class _CreateButtonState extends State<CreateButton> {
     rawDataController.dispose();
     freqController.dispose();
     nameController.dispose();
-
     headerMarkCtrl.dispose();
     headerSpaceCtrl.dispose();
     bitMarkCtrl.dispose();
     zeroSpaceCtrl.dispose();
     oneSpaceCtrl.dispose();
     trailerMarkCtrl.dispose();
-
     protoFreqController.dispose();
-
     for (final c in _protoControllers.values) {
       c.dispose();
     }
-
     super.dispose();
   }
 
-  String get _screenTitle =>
-      widget.button == null ? "Create Button" : "Edit Button";
+  String get _screenTitle => widget.button == null ? "Create Button" : "Edit Button";
 
   bool get _hasLabel {
     if (_labelType == _LabelType.image) return _imagePath != null;
@@ -260,7 +236,6 @@ class _CreateButtonState extends State<CreateButton> {
 
   bool get _rawLooksValid {
     if (_signalType != _SignalType.raw) return true;
-
     if (rawDataController.text.trim().isEmpty) return false;
     if (freqController.text.trim().isEmpty) return false;
 
@@ -273,13 +248,10 @@ class _CreateButtonState extends State<CreateButton> {
         .split(RegExp(r'\s+'))
         .where((e) => e.isNotEmpty)
         .toList();
-
     if (parts.isEmpty) return false;
-
     for (final p in parts) {
       if (int.tryParse(p) == null) return false;
     }
-
     return true;
   }
 
@@ -295,7 +267,6 @@ class _CreateButtonState extends State<CreateButton> {
       oneSpaceCtrl.text,
       trailerMarkCtrl.text,
     ].every((t) => int.tryParse(t.trim()) != null);
-
     if (!allNumeric) return false;
 
     final freqText = hexFreqController.text.trim();
@@ -310,7 +281,6 @@ class _CreateButtonState extends State<CreateButton> {
 
   bool get _protocolLooksValid {
     if (_signalType != _SignalType.protocol) return true;
-
     if (_selectedProtocolId.trim().isEmpty) return false;
 
     final freqText = protoFreqController.text.trim();
@@ -325,7 +295,6 @@ class _CreateButtonState extends State<CreateButton> {
 
     for (final field in def.fields) {
       if (!field.required) continue;
-
       final c = _protoControllers[field.id];
       if (c == null) return false;
 
@@ -338,28 +307,19 @@ class _CreateButtonState extends State<CreateButton> {
         if (int.tryParse(t, radix: 16) == null) return false;
       } else if (field.type == IrFieldType.choice) {
         if (!field.options.contains(t)) return false;
-      } else if (field.type == IrFieldType.boolean) {
-        // always valid if present (we coerce on save)
       }
     }
 
     return true;
   }
 
-  bool get _canSave =>
-      _hasLabel &&
-      _hexLooksValid &&
-      _rawLooksValid &&
-      _customNecLooksValid &&
-      _protocolLooksValid;
+  bool get _canSave => _hasLabel && _hexLooksValid && _rawLooksValid && _customNecLooksValid && _protocolLooksValid;
 
   void _showSnack(String message) {
-    ScaffoldMessenger.of(context)
-        .showSnackBar(SnackBar(content: Text(message)));
+    ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text(message)));
   }
 
-  Future<void> _pasteInto(TextEditingController controller,
-      {bool hexOnly = false}) async {
+  Future<void> _pasteInto(TextEditingController controller, {bool hexOnly = false}) async {
     final data = await Clipboard.getData('text/plain');
     final text = data?.text;
     if (text == null || text.trim().isEmpty) return;
@@ -376,8 +336,8 @@ class _CreateButtonState extends State<CreateButton> {
     final value = await getImage();
     if (!mounted) return;
     if (value == null) return;
-    final fimg = File(value);
 
+    final fimg = File(value);
     setState(() {
       _imagePath = value;
       _imagePreview = Image.file(fimg, fit: BoxFit.contain);
@@ -396,8 +356,7 @@ class _CreateButtonState extends State<CreateButton> {
           child: Column(
             mainAxisSize: MainAxisSize.min,
             children: [
-              Text('Choose a built-in icon',
-                  style: Theme.of(ctx).textTheme.titleMedium),
+              Text('Choose a built-in icon', style: Theme.of(ctx).textTheme.titleMedium),
               const SizedBox(height: 12),
               Flexible(
                 child: GridView.builder(
@@ -446,8 +405,7 @@ class _CreateButtonState extends State<CreateButton> {
     });
   }
 
-  Widget _sectionHeader(String title,
-      {String? subtitle, IconData? icon}) {
+  Widget _sectionHeader(String title, {String? subtitle, IconData? icon}) {
     final theme = Theme.of(context);
     return Padding(
       padding: const EdgeInsets.fromLTRB(4, 16, 4, 8),
@@ -462,16 +420,13 @@ class _CreateButtonState extends State<CreateButton> {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                Text(title,
-                    style: theme.textTheme.titleMedium
-                        ?.copyWith(fontWeight: FontWeight.w700)),
+                Text(title, style: theme.textTheme.titleMedium?.copyWith(fontWeight: FontWeight.w700)),
                 if (subtitle != null) ...[
                   const SizedBox(height: 2),
                   Text(
                     subtitle,
                     style: theme.textTheme.bodySmall?.copyWith(
-                      color: theme.colorScheme.onSurface
-                          .withValues(alpha: 0.75),
+                      color: theme.colorScheme.onSurface.withValues(alpha: 0.75),
                     ),
                   ),
                 ],
@@ -498,9 +453,7 @@ class _CreateButtonState extends State<CreateButton> {
       chips.add(_chip('HEX / NEC', icon: Icons.numbers));
       if (useCustomNec) {
         chips.add(_chip('Custom timings', icon: Icons.tune));
-        chips.add(_chip(
-            _necBitOrder == _NecBitOrder.lsb ? 'LSB' : 'MSB',
-            icon: Icons.swap_horiz));
+        chips.add(_chip(_necBitOrder == _NecBitOrder.lsb ? 'LSB' : 'MSB', icon: Icons.swap_horiz));
         final f = int.tryParse(hexFreqController.text.trim());
         if (f != null && f > 0) {
           chips.add(_chip('${(f / 1000).round()} kHz', icon: Icons.waves));
@@ -519,12 +472,10 @@ class _CreateButtonState extends State<CreateButton> {
       final name = IrProtocolRegistry.displayName(_selectedProtocolId);
       chips.add(_chip('PROTOCOL', icon: Icons.tune));
       chips.add(_chip(name, icon: Icons.settings_remote_outlined));
-
       final implemented = IrProtocolRegistry.isImplemented(_selectedProtocolId);
       if (!implemented) {
         chips.add(_chip('Not implemented', icon: Icons.hourglass_empty));
       }
-
       final f = int.tryParse(protoFreqController.text.trim());
       if (f != null && f > 0) {
         chips.add(_chip('${(f / 1000).round()} kHz', icon: Icons.waves));
@@ -559,6 +510,7 @@ class _CreateButtonState extends State<CreateButton> {
       }
 
       return IRButton(
+        id: _buttonId,
         code: parsedHex,
         rawData: rawDataForNec,
         frequency: rawDataForNec != null ? freqForNec : null,
@@ -571,6 +523,7 @@ class _CreateButtonState extends State<CreateButton> {
     if (_signalType == _SignalType.raw) {
       final int freq = int.tryParse(freqController.text.trim()) ?? kDefaultNecFrequencyHz;
       return IRButton(
+        id: _buttonId,
         code: null,
         rawData: rawDataController.text.trim(),
         frequency: freq,
@@ -579,7 +532,6 @@ class _CreateButtonState extends State<CreateButton> {
       );
     }
 
-    // Protocol
     final def = IrProtocolRegistry.definitionFor(_selectedProtocolId);
     final Map<String, dynamic> params = <String, dynamic>{};
 
@@ -587,7 +539,6 @@ class _CreateButtonState extends State<CreateButton> {
       for (final field in def.fields) {
         final c = _protoControllers[field.id];
         if (c == null) continue;
-
         final t = c.text.trim();
         if (t.isEmpty) continue;
 
@@ -600,17 +551,15 @@ class _CreateButtonState extends State<CreateButton> {
         } else if (field.type == IrFieldType.boolean) {
           params[field.id] = _coerceBool(t);
         } else {
-          // choice/string
           params[field.id] = t;
         }
       }
     }
 
-    final int? f = protoFreqController.text.trim().isEmpty
-        ? null
-        : int.tryParse(protoFreqController.text.trim());
+    final int? f = protoFreqController.text.trim().isEmpty ? null : int.tryParse(protoFreqController.text.trim());
 
     return IRButton(
+      id: _buttonId,
       code: null,
       rawData: null,
       frequency: f,
@@ -626,29 +575,14 @@ class _CreateButtonState extends State<CreateButton> {
     final theme = Theme.of(context);
 
     final labelSegments = <ButtonSegment<_LabelType>>[
-      const ButtonSegment(
-          value: _LabelType.image,
-          label: Text('Image'),
-          icon: Icon(Icons.image_outlined)),
-      const ButtonSegment(
-          value: _LabelType.text,
-          label: Text('Text'),
-          icon: Icon(Icons.text_fields)),
+      const ButtonSegment(value: _LabelType.image, label: Text('Image'), icon: Icon(Icons.image_outlined)),
+      const ButtonSegment(value: _LabelType.text, label: Text('Text'), icon: Icon(Icons.text_fields)),
     ];
 
     final signalSegments = <ButtonSegment<_SignalType>>[
-      const ButtonSegment(
-          value: _SignalType.hex,
-          label: Text('Hex (NEC)'),
-          icon: Icon(Icons.numbers)),
-      const ButtonSegment(
-          value: _SignalType.raw,
-          label: Text('Raw timings'),
-          icon: Icon(Icons.graphic_eq)),
-      const ButtonSegment(
-          value: _SignalType.protocol,
-          label: Text('Protocol'),
-          icon: Icon(Icons.tune)),
+      const ButtonSegment(value: _SignalType.hex, label: Text('Hex (NEC)'), icon: Icon(Icons.numbers)),
+      const ButtonSegment(value: _SignalType.raw, label: Text('Raw timings'), icon: Icon(Icons.graphic_eq)),
+      const ButtonSegment(value: _SignalType.protocol, label: Text('Protocol'), icon: Icon(Icons.tune)),
     ];
 
     IrPreview? preview;
@@ -736,27 +670,24 @@ class _CreateButtonState extends State<CreateButton> {
                         width: double.infinity,
                         decoration: BoxDecoration(
                           borderRadius: BorderRadius.circular(12),
-                          color: theme.colorScheme.surfaceContainerHighest
-                              .withValues(alpha: 0.6),
-                          border: Border.all(
-                              color: theme.colorScheme.outlineVariant
-                                  .withValues(alpha: 0.8)),
+                          color: theme.colorScheme.surfaceContainerHighest.withValues(alpha: 0.6),
+                          border: Border.all(color: theme.colorScheme.outlineVariant.withValues(alpha: 0.8)),
                         ),
                         child: Center(
                           child: _imagePreview ??
                               Column(
                                 mainAxisSize: MainAxisSize.min,
                                 children: [
-                                  Icon(Icons.add_photo_alternate_outlined,
-                                      size: 40,
-                                      color: theme.colorScheme.onSurface
-                                          .withValues(alpha: 0.7)),
+                                  Icon(
+                                    Icons.add_photo_alternate_outlined,
+                                    size: 40,
+                                    color: theme.colorScheme.onSurface.withValues(alpha: 0.7),
+                                  ),
                                   const SizedBox(height: 6),
                                   Text(
                                     'No image selected',
                                     style: theme.textTheme.bodySmall?.copyWith(
-                                      color: theme.colorScheme.onSurface
-                                          .withValues(alpha: 0.75),
+                                      color: theme.colorScheme.onSurface.withValues(alpha: 0.75),
                                     ),
                                   ),
                                 ],
@@ -867,8 +798,7 @@ class _CreateButtonState extends State<CreateButton> {
                             if (next == _SignalType.protocol) {
                               if (_protoControllers.isEmpty) {
                                 _syncProtocolControllersFromDefinition(
-                                  widget.button?.protocolParams ??
-                                      const <String, dynamic>{},
+                                  widget.button?.protocolParams ?? const <String, dynamic>{},
                                 );
                               }
                             }
@@ -927,15 +857,13 @@ class _CreateButtonState extends State<CreateButton> {
                     if (preview != null) ...[
                       Text(
                         'Mode: ${preview.mode}',
-                        style: theme.textTheme.titleSmall
-                            ?.copyWith(fontWeight: FontWeight.w700),
+                        style: theme.textTheme.titleSmall?.copyWith(fontWeight: FontWeight.w700),
                       ),
                       const SizedBox(height: 6),
                       Text(
                         'Frequency: ${preview.frequencyHz} Hz',
                         style: theme.textTheme.bodySmall?.copyWith(
-                          color: theme.colorScheme.onSurface
-                              .withValues(alpha: 0.8),
+                          color: theme.colorScheme.onSurface.withValues(alpha: 0.8),
                         ),
                       ),
                       const SizedBox(height: 8),
@@ -971,21 +899,18 @@ class _CreateButtonState extends State<CreateButton> {
                           ),
                         ],
                       ),
-                      if (_signalType == _SignalType.protocol &&
-                          !IrProtocolRegistry.isImplemented(_selectedProtocolId)) ...[
+                      if (_signalType == _SignalType.protocol && !IrProtocolRegistry.isImplemented(_selectedProtocolId)) ...[
                         const SizedBox(height: 10),
                         Row(
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
-                            Icon(Icons.info_outline,
-                                color: theme.colorScheme.primary),
+                            Icon(Icons.info_outline, color: theme.colorScheme.primary),
                             const SizedBox(width: 10),
                             Expanded(
                               child: Text(
                                 'This protocol is registered but encoding is not implemented yet.',
                                 style: theme.textTheme.bodySmall?.copyWith(
-                                  color: theme.colorScheme.onSurface
-                                      .withValues(alpha: 0.8),
+                                  color: theme.colorScheme.onSurface.withValues(alpha: 0.8),
                                 ),
                               ),
                             ),
@@ -996,8 +921,7 @@ class _CreateButtonState extends State<CreateButton> {
                       Text(
                         'Enter valid inputs to generate a preview.',
                         style: theme.textTheme.bodySmall?.copyWith(
-                          color: theme.colorScheme.onSurface
-                              .withValues(alpha: 0.75),
+                          color: theme.colorScheme.onSurface.withValues(alpha: 0.75),
                         ),
                       ),
                     ],
@@ -1007,8 +931,7 @@ class _CreateButtonState extends State<CreateButton> {
             ),
             const SizedBox(height: 12),
             Card(
-              color: theme.colorScheme.surfaceContainerHighest
-                  .withValues(alpha: 0.35),
+              color: theme.colorScheme.surfaceContainerHighest.withValues(alpha: 0.35),
               child: Padding(
                 padding: const EdgeInsets.all(12),
                 child: Row(
@@ -1020,8 +943,7 @@ class _CreateButtonState extends State<CreateButton> {
                       child: Text(
                         'Tip: HEX/NEC is best for standard remotes. Use Protocol mode to store future protocol-specific data without breaking legacy behavior.',
                         style: theme.textTheme.bodySmall?.copyWith(
-                          color: theme.colorScheme.onSurface
-                              .withValues(alpha: 0.8),
+                          color: theme.colorScheme.onSurface.withValues(alpha: 0.8),
                         ),
                       ),
                     ),
@@ -1037,6 +959,7 @@ class _CreateButtonState extends State<CreateButton> {
 
   Widget _buildHexSection() {
     final theme = Theme.of(context);
+
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
@@ -1045,10 +968,7 @@ class _CreateButtonState extends State<CreateButton> {
           maxLength: 8,
           maxLines: 1,
           textAlign: TextAlign.center,
-          style: const TextStyle(
-              fontFamily: 'monospace',
-              fontSize: 18,
-              letterSpacing: 1.1),
+          style: const TextStyle(fontFamily: 'monospace', fontSize: 18, letterSpacing: 1.1),
           inputFormatters: [
             FilteringTextInputFormatter.allow(RegExp("[0-9a-fA-F]")),
           ],
@@ -1057,9 +977,7 @@ class _CreateButtonState extends State<CreateButton> {
             helperText: '8 hex digits (example: 00F700FF).',
             helperMaxLines: _kHelperMaxLines,
             hintMaxLines: _kHintMaxLines,
-            errorText: (_signalType == _SignalType.hex && !_hexLooksValid)
-                ? 'Enter a valid hex code.'
-                : null,
+            errorText: (_signalType == _SignalType.hex && !_hexLooksValid) ? 'Enter a valid hex code.' : null,
             errorMaxLines: _kErrorMaxLines,
             suffixIcon: SizedBox(
               width: 96,
@@ -1068,8 +986,7 @@ class _CreateButtonState extends State<CreateButton> {
                 children: [
                   IconButton(
                     tooltip: 'Paste',
-                    onPressed: () =>
-                        _pasteInto(codeController, hexOnly: true),
+                    onPressed: () => _pasteInto(codeController, hexOnly: true),
                     icon: const Icon(Icons.content_paste_outlined),
                   ),
                   IconButton(
@@ -1079,9 +996,7 @@ class _CreateButtonState extends State<CreateButton> {
                         final String a = await Navigator.push(
                           context,
                           MaterialPageRoute(
-                            builder: (context) => CodeTest(
-                              code: codeController.value.text.padLeft(8, '0'),
-                            ),
+                            builder: (context) => CodeTest(code: codeController.value.text.padLeft(8, '0')),
                           ),
                         );
                         codeController.text = a.replaceAll(" ", "");
@@ -1107,24 +1022,17 @@ class _CreateButtonState extends State<CreateButton> {
 
   Widget _buildNecAdvancedSection() {
     final theme = Theme.of(context);
+
     final bitOrderSegments = <ButtonSegment<_NecBitOrder>>[
-      const ButtonSegment(
-          value: _NecBitOrder.msb,
-          label: Text('MSB'),
-          icon: Icon(Icons.check_circle_outline)),
-      const ButtonSegment(
-          value: _NecBitOrder.lsb,
-          label: Text('LSB'),
-          icon: Icon(Icons.swap_horiz)),
+      const ButtonSegment(value: _NecBitOrder.msb, label: Text('MSB'), icon: Icon(Icons.check_circle_outline)),
+      const ButtonSegment(value: _NecBitOrder.lsb, label: Text('LSB'), icon: Icon(Icons.swap_horiz)),
     ];
 
     return ExpansionTile(
       initiallyExpanded: useCustomNec,
       title: const Text('Advanced (optional)'),
       subtitle: Text(
-        useCustomNec
-            ? 'Custom NEC timings and carrier frequency'
-            : 'Use defaults unless a device requires custom timings',
+        useCustomNec ? 'Custom NEC timings and carrier frequency' : 'Use defaults unless a device requires custom timings',
         style: theme.textTheme.bodySmall?.copyWith(
           color: theme.colorScheme.onSurface.withValues(alpha: 0.75),
         ),
@@ -1134,8 +1042,7 @@ class _CreateButtonState extends State<CreateButton> {
         SwitchListTile(
           contentPadding: EdgeInsets.zero,
           title: const Text("Use custom NEC timings"),
-          subtitle: const Text(
-              "Stores a NEC:... config and transmits as raw with the chosen frequency."),
+          subtitle: const Text("Stores a NEC:... config and transmits as raw with the chosen frequency."),
           value: useCustomNec,
           onChanged: (v) => setState(() => useCustomNec = v),
         ),
@@ -1157,8 +1064,7 @@ class _CreateButtonState extends State<CreateButton> {
             alignment: Alignment.centerLeft,
             child: Text(
               'Bit order',
-              style: theme.textTheme.labelLarge
-                  ?.copyWith(fontWeight: FontWeight.w700),
+              style: theme.textTheme.labelLarge?.copyWith(fontWeight: FontWeight.w700),
             ),
           ),
           const SizedBox(height: 6),
@@ -1167,8 +1073,7 @@ class _CreateButtonState extends State<CreateButton> {
             child: SegmentedButton<_NecBitOrder>(
               segments: bitOrderSegments,
               selected: {_necBitOrder},
-              onSelectionChanged: (s) =>
-                  setState(() => _necBitOrder = s.first),
+              onSelectionChanged: (s) => setState(() => _necBitOrder = s.first),
             ),
           ),
           const SizedBox(height: 12),
@@ -1181,15 +1086,11 @@ class _CreateButtonState extends State<CreateButton> {
               helperText: "Carrier frequency, e.g. 38000",
               helperMaxLines: _kHelperMaxLines,
               hintMaxLines: _kHintMaxLines,
-              errorText: !_customNecLooksValid
-                  ? 'Enter a valid frequency (15k–60k).'
-                  : null,
+              errorText: !_customNecLooksValid ? 'Enter a valid frequency (15k–60k).' : null,
               errorMaxLines: _kErrorMaxLines,
               suffixIcon: IconButton(
                 tooltip: 'Reset to 38000',
-                onPressed: () => setState(() =>
-                    hexFreqController.text =
-                        kDefaultNecFrequencyHz.toString()),
+                onPressed: () => setState(() => hexFreqController.text = kDefaultNecFrequencyHz.toString()),
                 icon: const Icon(Icons.restart_alt),
               ),
             ),
@@ -1200,8 +1101,7 @@ class _CreateButtonState extends State<CreateButton> {
           Align(
             alignment: Alignment.centerLeft,
             child: Text(
-              "MSB mode is kept for compatibility with existing stored codes. "
-              "Switch to LSB if your stored hex is in natural order for your device.",
+              "MSB mode is kept for compatibility with existing stored codes. Switch to LSB if your stored hex is in natural order for your device.",
               style: theme.textTheme.bodySmall?.copyWith(
                 color: theme.colorScheme.onSurface.withValues(alpha: 0.75),
               ),
@@ -1232,8 +1132,7 @@ class _CreateButtonState extends State<CreateButton> {
           children: [
             Expanded(child: numField(headerMarkCtrl, "Header Mark (µs)", "9000")),
             const SizedBox(width: 10),
-            Expanded(
-                child: numField(headerSpaceCtrl, "Header Space (µs)", "4500")),
+            Expanded(child: numField(headerSpaceCtrl, "Header Space (µs)", "4500")),
           ],
         ),
         const SizedBox(height: 10),
@@ -1258,6 +1157,7 @@ class _CreateButtonState extends State<CreateButton> {
 
   Widget _buildRawSection() {
     final theme = Theme.of(context);
+
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
@@ -1270,9 +1170,7 @@ class _CreateButtonState extends State<CreateButton> {
             helperText: "Required. Example: 38000",
             helperMaxLines: _kHelperMaxLines,
             hintMaxLines: _kHintMaxLines,
-            errorText: (_signalType == _SignalType.raw && !_rawLooksValid)
-                ? 'Enter a valid frequency (15k–60k).'
-                : null,
+            errorText: (_signalType == _SignalType.raw && !_rawLooksValid) ? 'Enter a valid frequency (15k–60k).' : null,
             errorMaxLines: _kErrorMaxLines,
             suffixIcon: IconButton(
               tooltip: 'Reset to 38000',
@@ -1341,8 +1239,7 @@ class _CreateButtonState extends State<CreateButton> {
           },
           decoration: InputDecoration(
             labelText: 'Protocol',
-            helperText:
-                'Encoding is implemented only for protocols marked as implemented.',
+            helperText: 'Encoding is implemented only for protocols marked as implemented.',
             helperMaxLines: _kHelperMaxLines,
             hintMaxLines: _kHintMaxLines,
           ),
@@ -1354,8 +1251,7 @@ class _CreateButtonState extends State<CreateButton> {
           inputFormatters: [FilteringTextInputFormatter.digitsOnly],
           decoration: InputDecoration(
             labelText: 'Frequency (Hz)',
-            helperText:
-                'Optional. If empty, protocol default is used where available.',
+            helperText: 'Optional. If empty, protocol default is used where available.',
             helperMaxLines: _kHelperMaxLines,
             hintMaxLines: _kHintMaxLines,
             errorText: (_signalType == _SignalType.protocol && !_protocolLooksValid)
@@ -1409,15 +1305,11 @@ class _CreateButtonState extends State<CreateButton> {
 
     if (field.type == IrFieldType.choice) {
       final opts = field.options;
-
       String? current = c.text.trim().isEmpty ? null : c.text.trim();
 
-      // Enforce a valid selection (defer to post-frame to avoid rebuild loops)
       if (current == null || !opts.contains(current)) {
         final dynamic dv = field.defaultValue;
-        final String? fallback =
-            (dv is String && opts.contains(dv)) ? dv : (opts.isNotEmpty ? opts.first : null);
-
+        final String? fallback = (dv is String && opts.contains(dv)) ? dv : (opts.isNotEmpty ? opts.first : null);
         if (fallback != null) {
           WidgetsBinding.instance.addPostFrameCallback((_) {
             if (!mounted) return;
@@ -1456,7 +1348,7 @@ class _CreateButtonState extends State<CreateButton> {
         decoration: InputDecoration(
           labelText: field.label,
           helperText: field.helperText,
-          helperMaxLines: _kHelperMaxLines, // <-- fixes truncation on small screens
+          helperMaxLines: _kHelperMaxLines,
           hintMaxLines: _kHintMaxLines,
           errorText: errorText,
           errorMaxLines: _kErrorMaxLines,
@@ -1471,10 +1363,8 @@ class _CreateButtonState extends State<CreateButton> {
       );
     }
 
-    // BOOLEAN -> switch
     if (field.type == IrFieldType.boolean) {
-      final bool value =
-          _coerceBool(c.text.trim().isEmpty ? field.defaultValue : c.text);
+      final bool value = _coerceBool(c.text.trim().isEmpty ? field.defaultValue : c.text);
       return SwitchListTile(
         contentPadding: EdgeInsets.zero,
         title: Text(field.label),
@@ -1484,7 +1374,6 @@ class _CreateButtonState extends State<CreateButton> {
       );
     }
 
-    // TEXT / INT -> TextField
     final bool isHex = field.type == IrFieldType.intHex;
     final bool isDec = field.type == IrFieldType.intDecimal;
 
@@ -1510,7 +1399,6 @@ class _CreateButtonState extends State<CreateButton> {
       if (isDec && int.tryParse(t) == null) errorText = 'Must be a number';
       if (isHex && int.tryParse(t, radix: 16) == null) errorText = 'Must be hex';
 
-      // optional bounds (UX only)
       if (errorText == null && (isDec || isHex)) {
         final int? n = isHex ? int.tryParse(t, radix: 16) : int.tryParse(t);
         if (n != null) {
@@ -1531,7 +1419,7 @@ class _CreateButtonState extends State<CreateButton> {
         hintText: field.hint,
         hintMaxLines: _kHintMaxLines,
         helperText: field.helperText,
-        helperMaxLines: _kHelperMaxLines, // <-- fixes truncation on small screens
+        helperMaxLines: _kHelperMaxLines,
         errorText: errorText,
         errorMaxLines: _kErrorMaxLines,
         suffixIcon: t.isEmpty
@@ -1610,6 +1498,7 @@ class _CreateButtonState extends State<CreateButton> {
       }
 
       final button = IRButton(
+        id: _buttonId,
         code: parsedHex,
         rawData: rawDataForNec,
         frequency: rawDataForNec != null ? freqForNec : null,
@@ -1617,37 +1506,32 @@ class _CreateButtonState extends State<CreateButton> {
         isImage: _labelType == _LabelType.image,
         necBitOrder: bitOrder,
       );
-
       Navigator.pop(context, button);
       return;
     }
 
     if (_signalType == _SignalType.raw) {
       if (!_rawLooksValid) {
-        _showSnack(
-            "Raw data must be integers separated by spaces/newlines, and frequency must be 15k–60k.");
+        _showSnack("Raw data must be integers separated by spaces/newlines, and frequency must be 15k–60k.");
         return;
       }
 
       final int freq = int.parse(freqController.text.trim());
-
       final button = IRButton(
+        id: _buttonId,
         code: null,
         rawData: rawDataController.text.trim(),
         frequency: freq,
         image: labelValue,
         isImage: _labelType == _LabelType.image,
       );
-
       Navigator.pop(context, button);
       return;
     }
 
-    // Protocol
     if (_signalType == _SignalType.protocol) {
       if (!_protocolLooksValid) {
-        _showSnack(
-            "Fill required protocol fields and ensure frequency is 15k–60k if set.");
+        _showSnack("Fill required protocol fields and ensure frequency is 15k–60k if set.");
         return;
       }
 
@@ -1679,11 +1563,10 @@ class _CreateButtonState extends State<CreateButton> {
         }
       }
 
-      final int? f = protoFreqController.text.trim().isEmpty
-          ? null
-          : int.tryParse(protoFreqController.text.trim());
+      final int? f = protoFreqController.text.trim().isEmpty ? null : int.tryParse(protoFreqController.text.trim());
 
       final button = IRButton(
+        id: _buttonId,
         code: null,
         rawData: null,
         frequency: f,
@@ -1692,7 +1575,6 @@ class _CreateButtonState extends State<CreateButton> {
         protocol: _selectedProtocolId,
         protocolParams: params,
       );
-
       Navigator.pop(context, button);
       return;
     }
@@ -1712,6 +1594,7 @@ class _CreateButtonState extends State<CreateButton> {
 
 class _PatternPreview extends StatelessWidget {
   final List<int> pattern;
+
   const _PatternPreview({required this.pattern});
 
   @override
@@ -1719,7 +1602,6 @@ class _PatternPreview extends StatelessWidget {
     final theme = Theme.of(context);
     final int count = pattern.length;
     final int sum = pattern.fold(0, (p, v) => p + v);
-
     final int headN = count > 16 ? 16 : count;
     final String head = pattern.take(headN).join(', ');
     final String text = count <= headN ? head : '$head, …';
@@ -1730,8 +1612,7 @@ class _PatternPreview extends StatelessWidget {
       decoration: BoxDecoration(
         color: theme.colorScheme.surfaceContainerHighest.withValues(alpha: 0.5),
         borderRadius: BorderRadius.circular(12),
-        border: Border.all(
-            color: theme.colorScheme.outlineVariant.withValues(alpha: 0.8)),
+        border: Border.all(color: theme.colorScheme.outlineVariant.withValues(alpha: 0.8)),
       ),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,

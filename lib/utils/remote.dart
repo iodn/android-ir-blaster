@@ -3,8 +3,10 @@ import 'dart:io';
 
 import 'package:image_picker/image_picker.dart';
 import 'package:path_provider/path_provider.dart';
+import 'package:uuid/uuid.dart';
 
 class IRButton {
+  final String id;
   final int? code;
   final String? rawData;
   final int? frequency;
@@ -15,6 +17,7 @@ class IRButton {
   final Map<String, dynamic>? protocolParams;
 
   const IRButton({
+    required this.id,
     this.code,
     this.rawData,
     this.frequency,
@@ -26,6 +29,7 @@ class IRButton {
   });
 
   Map<String, dynamic> toJson() => {
+        'id': id,
         'code': code,
         'rawData': rawData,
         'frequency': frequency,
@@ -38,15 +42,41 @@ class IRButton {
 
   factory IRButton.fromJson(Map<String, dynamic> json) {
     final pp = json['protocolParams'];
+    final rawId = (json['id'] as String?)?.trim();
     return IRButton(
-      code: json['code'],
-      rawData: json['rawData'],
-      frequency: json['frequency'],
-      image: json['image'],
-      isImage: json['isImage'],
-      necBitOrder: json['necBitOrder'],
-      protocol: json['protocol'],
+      id: (rawId == null || rawId.isEmpty) ? const Uuid().v4() : rawId,
+      code: json['code'] is int ? json['code'] as int? : int.tryParse('${json['code']}'),
+      rawData: json['rawData'] as String?,
+      frequency: json['frequency'] is int ? json['frequency'] as int? : int.tryParse('${json['frequency']}'),
+      image: (json['image'] as String?) ?? '',
+      isImage: (json['isImage'] as bool?) ?? true,
+      necBitOrder: json['necBitOrder'] as String?,
+      protocol: json['protocol'] as String?,
       protocolParams: (pp is Map) ? Map<String, dynamic>.from(pp) : null,
+    );
+  }
+
+  IRButton copyWith({
+    String? id,
+    int? code,
+    String? rawData,
+    int? frequency,
+    String? image,
+    bool? isImage,
+    String? necBitOrder,
+    String? protocol,
+    Map<String, dynamic>? protocolParams,
+  }) {
+    return IRButton(
+      id: id ?? this.id,
+      code: code ?? this.code,
+      rawData: rawData ?? this.rawData,
+      frequency: frequency ?? this.frequency,
+      image: image ?? this.image,
+      isImage: isImage ?? this.isImage,
+      necBitOrder: necBitOrder ?? this.necBitOrder,
+      protocol: protocol ?? this.protocol,
+      protocolParams: protocolParams ?? this.protocolParams,
     );
   }
 }
@@ -75,12 +105,13 @@ class Remote {
 
   factory Remote.fromJson(Map<String, dynamic> json) {
     return Remote(
-      id: json['id'] != null ? json['id'] as int : null,
-      buttons: (json['buttons'] as List)
-          .map((data) => IRButton.fromJson(data as Map<String, dynamic>))
+      id: json['id'] is int ? json['id'] as int : int.tryParse('${json['id']}'),
+      buttons: (json['buttons'] as List<dynamic>? ?? const [])
+          .whereType<Map>()
+          .map((data) => IRButton.fromJson(data.cast<String, dynamic>()))
           .toList(),
-      name: json['name'],
-      useNewStyle: json['useNewStyle'] ?? false,
+      name: (json['name'] as String?) ?? '',
+      useNewStyle: (json['useNewStyle'] as bool?) ?? false,
     );
   }
 }
@@ -99,17 +130,42 @@ Future<File> writeRemotelist(List<Remote> remotes) async {
   final file = await _remotesFile;
   return file.writeAsString(
     jsonEncode(remotes.map((remote) => remote.toJson()).toList()),
+    flush: true,
   );
 }
 
 Future<List<Remote>> readRemotes() async {
   try {
     final file = await _remotesFile;
+    if (!await file.exists()) return <Remote>[];
     final contents = await file.readAsString();
+    final decoded = jsonDecode(contents);
+    if (decoded is! List) return <Remote>[];
 
-    final List<Remote> remotes = (jsonDecode(contents) as List)
-        .map((json) => Remote.fromJson(json as Map<String, dynamic>))
-        .toList();
+    var mutated = false;
+    final uuid = const Uuid();
+
+    final List<Map<String, dynamic>> normalized = [];
+    for (final item in decoded) {
+      if (item is! Map) continue;
+      final map = item.cast<String, dynamic>();
+      final buttons = map['buttons'];
+      if (buttons is List) {
+        for (final b in buttons) {
+          if (b is Map) {
+            final bm = b.cast<String, dynamic>();
+            final rawId = (bm['id'] as String?)?.trim();
+            if (rawId == null || rawId.isEmpty) {
+              bm['id'] = uuid.v4();
+              mutated = true;
+            }
+          }
+        }
+      }
+      normalized.add(map);
+    }
+
+    final remotes = normalized.map((m) => Remote.fromJson(m)).toList();
 
     if (remotes.isNotEmpty) {
       final int maxId = remotes.fold<int>(
@@ -119,10 +175,43 @@ Future<List<Remote>> readRemotes() async {
       Remote._nextId = maxId + 1;
     }
 
+    if (mutated) {
+      await writeRemotelist(remotes);
+    }
+
     return remotes;
   } catch (_) {
     return <Remote>[];
   }
+}
+
+String formatButtonDisplayName(String raw) {
+  var s = raw.trim();
+  if (s.isEmpty) return s;
+
+  final slash = s.lastIndexOf('/');
+  if (slash >= 0 && slash < s.length - 1) {
+    s = s.substring(slash + 1);
+  }
+
+  final lower = s.toLowerCase();
+  const exts = <String>['.png', '.jpg', '.jpeg'];
+  for (final ext in exts) {
+    if (lower.endsWith(ext)) {
+      s = s.substring(0, s.length - ext.length);
+      break;
+    }
+  }
+
+  if (s.startsWith('assets/')) {
+    s = s.substring('assets/'.length);
+  }
+
+  return s;
+}
+
+String normalizeButtonKey(String raw) {
+  return formatButtonDisplayName(raw).trim().toLowerCase();
 }
 
 List<String> defaultImages = [
@@ -159,40 +248,12 @@ List<String> defaultImages = [
 const int kDefaultCarrierHz = 38000;
 const String kDefaultNecConfig = "NEC:9000,4500,560,560,1690,560";
 
-String _labelFromAsset(String assetPath) {
-  // "assets/UP.png" -> "UP"
-  String s = assetPath.trim();
-  if (s.isEmpty) return s;
-  final int slash = s.lastIndexOf('/');
-  if (slash >= 0) s = s.substring(slash + 1);
-  final int dot = s.lastIndexOf('.');
-  if (dot > 0) s = s.substring(0, dot);
-  return s;
-}
-
-List<IRButton> _makeComfortButtonsFromClassicAssets(List<IRButton> classic) {
-  return classic
-      .map(
-        (b) => IRButton(
-          code: b.code,
-          rawData: b.rawData,
-          frequency: b.frequency,
-          // Keep the asset path so your UI can still render the image,
-          // but use a human-friendly label without ".png" as the button "name".
-          image: _labelFromAsset(b.image),
-          isImage: b.isImage,
-          necBitOrder: b.necBitOrder,
-          protocol: b.protocol,
-          protocolParams: b.protocolParams,
-        ),
-      )
-      .toList(growable: false);
-}
-
 List<Remote> writeDefaultRemotes() {
-  // Classic demo: keeps image paths exactly as before.
-  final List<IRButton> classicDemoButtons = const [
+  final uuid = const Uuid();
+
+  final List<IRButton> demoButtons = [
     IRButton(
+      id: uuid.v4(),
       code: 0x00F700FF,
       rawData: kDefaultNecConfig,
       frequency: kDefaultCarrierHz,
@@ -200,6 +261,7 @@ List<Remote> writeDefaultRemotes() {
       isImage: true,
     ),
     IRButton(
+      id: uuid.v4(),
       code: 0x00F7807F,
       rawData: kDefaultNecConfig,
       frequency: kDefaultCarrierHz,
@@ -207,6 +269,7 @@ List<Remote> writeDefaultRemotes() {
       isImage: true,
     ),
     IRButton(
+      id: uuid.v4(),
       code: 0x00F740BF,
       rawData: kDefaultNecConfig,
       frequency: kDefaultCarrierHz,
@@ -214,6 +277,7 @@ List<Remote> writeDefaultRemotes() {
       isImage: true,
     ),
     IRButton(
+      id: uuid.v4(),
       code: 0x00F7C03F,
       rawData: kDefaultNecConfig,
       frequency: kDefaultCarrierHz,
@@ -221,6 +285,7 @@ List<Remote> writeDefaultRemotes() {
       isImage: true,
     ),
     IRButton(
+      id: uuid.v4(),
       code: 0x00F720DF,
       rawData: kDefaultNecConfig,
       frequency: kDefaultCarrierHz,
@@ -228,6 +293,7 @@ List<Remote> writeDefaultRemotes() {
       isImage: true,
     ),
     IRButton(
+      id: uuid.v4(),
       code: 0x00F7A05F,
       rawData: kDefaultNecConfig,
       frequency: kDefaultCarrierHz,
@@ -235,6 +301,7 @@ List<Remote> writeDefaultRemotes() {
       isImage: true,
     ),
     IRButton(
+      id: uuid.v4(),
       code: 0x00F7609F,
       rawData: kDefaultNecConfig,
       frequency: kDefaultCarrierHz,
@@ -242,154 +309,33 @@ List<Remote> writeDefaultRemotes() {
       isImage: true,
     ),
     IRButton(
+      id: uuid.v4(),
       code: 0x00F7E01F,
       rawData: kDefaultNecConfig,
       frequency: kDefaultCarrierHz,
       image: "assets/WARM.png",
       isImage: true,
     ),
-    IRButton(
-      code: 0x00F710EF,
-      rawData: kDefaultNecConfig,
-      frequency: kDefaultCarrierHz,
-      image: "assets/RED0.png",
-      isImage: true,
-    ),
-    IRButton(
-      code: 0x00F7906F,
-      rawData: kDefaultNecConfig,
-      frequency: kDefaultCarrierHz,
-      image: "assets/GREEN0.png",
-      isImage: true,
-    ),
-    IRButton(
-      code: 0x00F750AF,
-      rawData: kDefaultNecConfig,
-      frequency: kDefaultCarrierHz,
-      image: "assets/BLUE0.png",
-      isImage: true,
-    ),
-    IRButton(
-      code: 0x00F7D02F,
-      rawData: kDefaultNecConfig,
-      frequency: kDefaultCarrierHz,
-      image: "assets/FLASH.png",
-      isImage: true,
-    ),
-    IRButton(
-      code: 0x00F730CF,
-      rawData: kDefaultNecConfig,
-      frequency: kDefaultCarrierHz,
-      image: "assets/RED1.png",
-      isImage: true,
-    ),
-    IRButton(
-      code: 0x00F7B04F,
-      rawData: kDefaultNecConfig,
-      frequency: kDefaultCarrierHz,
-      image: "assets/GREEN1.png",
-      isImage: true,
-    ),
-    IRButton(
-      code: 0x00F7708F,
-      rawData: kDefaultNecConfig,
-      frequency: kDefaultCarrierHz,
-      image: "assets/BLUE1.png",
-      isImage: true,
-    ),
-    IRButton(
-      code: 0x00F7F00F,
-      rawData: kDefaultNecConfig,
-      frequency: kDefaultCarrierHz,
-      image: "assets/STROBE.png",
-      isImage: true,
-    ),
-    IRButton(
-      code: 0x00F708F7,
-      rawData: kDefaultNecConfig,
-      frequency: kDefaultCarrierHz,
-      image: "assets/RED2.png",
-      isImage: true,
-    ),
-    IRButton(
-      code: 0x00F78877,
-      rawData: kDefaultNecConfig,
-      frequency: kDefaultCarrierHz,
-      image: "assets/GREEN2.png",
-      isImage: true,
-    ),
-    IRButton(
-      code: 0x00F748B7,
-      rawData: kDefaultNecConfig,
-      frequency: kDefaultCarrierHz,
-      image: "assets/BLUE2.png",
-      isImage: true,
-    ),
-    IRButton(
-      code: 0x00F7C837,
-      rawData: kDefaultNecConfig,
-      frequency: kDefaultCarrierHz,
-      image: "assets/COOL.png",
-      isImage: true,
-    ),
-    IRButton(
-      code: 0x00F728D7,
-      rawData: kDefaultNecConfig,
-      frequency: kDefaultCarrierHz,
-      image: "assets/1h.png",
-      isImage: true,
-    ),
-    IRButton(
-      code: 0x00F7A857,
-      rawData: kDefaultNecConfig,
-      frequency: kDefaultCarrierHz,
-      image: "assets/2h.png",
-      isImage: true,
-    ),
-    IRButton(
-      code: 0x00F76897,
-      rawData: kDefaultNecConfig,
-      frequency: kDefaultCarrierHz,
-      image: "assets/4h.png",
-      isImage: true,
-    ),
-    IRButton(
-      code: 0x00F7E817,
-      rawData: kDefaultNecConfig,
-      frequency: kDefaultCarrierHz,
-      image: "assets/6h.png",
-      isImage: true,
-    ),
   ];
 
-  // 1) Comfort style: useNewStyle=true AND button "image" field becomes a clean label (no ".png").
-  //    This matches your requirement, assuming your comfort UI treats IRButton.image as the label.
-  final Remote comfortDemo = Remote(
-    buttons: _makeComfortButtonsFromClassicAssets(classicDemoButtons),
-    name: "Demo Remote (Comfort)",
+  final Remote demo = Remote(
+    buttons: demoButtons,
+    name: "Demo Remote",
     useNewStyle: true,
   );
 
-  // 2) Classic compact style: unchanged, keeps asset paths in IRButton.image.
-  final Remote classicDemo = Remote(
-    buttons: classicDemoButtons,
-    name: "Demo Remote (Classic)",
-    useNewStyle: false,
-  );
-
-  final List<Remote> defaults = [comfortDemo, classicDemo];
+  final List<Remote> defaults = [demo];
   writeRemotelist(defaults);
   return defaults;
 }
 
 Future<String?> getImage() async {
-  final ImagePicker picker = ImagePicker();
+  final picker = ImagePicker();
   final XFile? image = await picker.pickImage(source: ImageSource.gallery);
-  if (image != null) {
-    final dir = await _localPath;
-    final filePath = '$dir/${image.name}';
-    await image.saveTo(filePath);
-    return filePath;
-  }
-  return null;
+  if (image == null) return null;
+
+  final dir = await _localPath;
+  final filePath = '$dir/${image.name}';
+  await image.saveTo(filePath);
+  return filePath;
 }

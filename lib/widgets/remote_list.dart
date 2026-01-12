@@ -52,8 +52,7 @@ class _RemoteListState extends State<RemoteList> {
           child: Column(
             mainAxisSize: MainAxisSize.min,
             children: [
-              Icon(Icons.warning_amber_rounded,
-                  size: 44, color: theme.colorScheme.error),
+              Icon(Icons.warning_amber_rounded, size: 44, color: theme.colorScheme.error),
               const SizedBox(height: 12),
               Text(
                 "Delete remote?",
@@ -112,8 +111,7 @@ class _RemoteListState extends State<RemoteList> {
       });
       await writeRemotelist(remotes);
       notifyRemotesChanged();
-    } catch (_) {
-    }
+    } catch (_) {}
   }
 
   Future<void> _editRemoteAt(int index) async {
@@ -134,8 +132,7 @@ class _RemoteListState extends State<RemoteList> {
       ScaffoldMessenger.of(context).showSnackBar(
         SnackBar(content: Text('Updated "${editedRemote.name}".')),
       );
-    } catch (_) {
-    }
+    } catch (_) {}
   }
 
   Future<void> _deleteRemoteAt(int index) async {
@@ -180,8 +177,7 @@ class _RemoteListState extends State<RemoteList> {
                   children: [
                     CircleAvatar(
                       backgroundColor: cs.primaryContainer.withValues(alpha: 0.65),
-                      child: Icon(Icons.settings_remote_rounded,
-                          color: cs.onPrimaryContainer),
+                      child: Icon(Icons.settings_remote_rounded, color: cs.onPrimaryContainer),
                     ),
                     const SizedBox(width: 12),
                     Expanded(
@@ -274,7 +270,6 @@ class _RemoteListState extends State<RemoteList> {
   int _calculateCrossAxisCount(BuildContext context) {
     final width = MediaQuery.of(context).size.width;
     final orientation = MediaQuery.of(context).orientation;
-    
     if (orientation == Orientation.landscape) {
       if (width >= 1200) return 5;
       if (width >= 900) return 4;
@@ -294,8 +289,7 @@ class _RemoteListState extends State<RemoteList> {
     final spacing = 12.0 * (crossAxisCount - 1);
     final availableWidth = width - horizontalPadding - spacing;
     final cardWidth = availableWidth / crossAxisCount;
-    final cardHeight = cardWidth * 1.05;
-    
+    final cardHeight = cardWidth * 1.15;
     return cardWidth / cardHeight;
   }
 
@@ -303,7 +297,6 @@ class _RemoteListState extends State<RemoteList> {
   Widget build(BuildContext context) {
     final theme = Theme.of(context);
     final cardColor = theme.colorScheme.primary.withValues(alpha: 0.16);
-    
     return ValueListenableBuilder<int>(
       valueListenable: remotesRevision,
       builder: (context, _, __) {
@@ -346,9 +339,7 @@ class _RemoteListState extends State<RemoteList> {
                   ),
                 IconButton(
                   tooltip: _reorderMode ? 'Done' : 'Reorder remotes',
-                  icon: Icon(_reorderMode
-                      ? Icons.check_rounded
-                      : Icons.drag_indicator_rounded),
+                  icon: Icon(_reorderMode ? Icons.check_rounded : Icons.drag_indicator_rounded),
                   onPressed: () => _setReorderMode(!_reorderMode),
                 ),
               ],
@@ -377,7 +368,6 @@ class _RemoteListState extends State<RemoteList> {
                             builder: (context, constraints) {
                               final crossAxisCount = _calculateCrossAxisCount(context);
                               final aspectRatio = _calculateChildAspectRatio(context);
-                              
                               return ReorderableGridView.builder(
                                 padding: const EdgeInsets.all(16),
                                 gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
@@ -402,23 +392,19 @@ class _RemoteListState extends State<RemoteList> {
                                       Navigator.push(
                                         context,
                                         MaterialPageRoute(
-                                          builder: (context) =>
-                                              RemoteView(remote: remote),
+                                          builder: (context) => RemoteView(remote: remote),
                                         ),
                                       );
                                     },
-                                    onLongPress: () =>
-                                        _openRemoteActionsSheet(remote, index),
-                                    onOverflow: () =>
-                                        _openRemoteActionsSheet(remote, index),
+                                    onLongPress: () => _openRemoteActionsSheet(remote, index),
+                                    onOverflow: () => _openRemoteActionsSheet(remote, index),
                                   );
                                 },
                                 onReorder: (oldIndex, newIndex) async {
                                   if (!_reorderMode) return;
                                   setState(() {
                                     if (newIndex > oldIndex) newIndex--;
-                                    final Remote movedRemote =
-                                        remotes.removeAt(oldIndex);
+                                    final Remote movedRemote = remotes.removeAt(oldIndex);
                                     remotes.insert(newIndex, movedRemote);
                                     _reassignIds();
                                   });
@@ -443,6 +429,7 @@ class _RemoteListState extends State<RemoteList> {
 
 class _ReorderHintBanner extends StatelessWidget {
   final VoidCallback onDone;
+
   const _ReorderHintBanner({super.key, required this.onDone});
 
   @override
@@ -455,8 +442,7 @@ class _ReorderHintBanner extends StatelessWidget {
         padding: const EdgeInsets.fromLTRB(16, 10, 12, 10),
         child: Row(
           children: [
-            Icon(Icons.drag_indicator_rounded,
-                color: cs.onSecondaryContainer.withValues(alpha: 0.9)),
+            Icon(Icons.drag_indicator_rounded, color: cs.onSecondaryContainer.withValues(alpha: 0.9)),
             const SizedBox(width: 10),
             Expanded(
               child: Text(
@@ -502,7 +488,6 @@ class _RemoteCard extends StatelessWidget {
     final theme = Theme.of(context);
     final cs = theme.colorScheme;
     final int count = remote.buttons.length;
-
     return Card(
       color: color,
       elevation: 0,
@@ -518,12 +503,12 @@ class _RemoteCard extends StatelessWidget {
         onLongPress: reorderMode ? null : onLongPress,
         borderRadius: BorderRadius.circular(16),
         child: Padding(
-          padding: const EdgeInsets.fromLTRB(14, 12, 12, 12),
+          padding: const EdgeInsets.all(14),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
-            mainAxisSize: MainAxisSize.min,
             children: [
               Row(
+                crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Container(
                     width: 40,
@@ -538,14 +523,21 @@ class _RemoteCard extends StatelessWidget {
                     child: Icon(
                       Icons.settings_remote_rounded,
                       color: cs.onPrimaryContainer,
+                      size: 22,
                     ),
                   ),
                   const Spacer(),
                   if (!reorderMode)
-                    IconButton(
-                      tooltip: 'More',
-                      onPressed: onOverflow,
-                      icon: const Icon(Icons.more_vert_rounded),
+                    SizedBox(
+                      width: 36,
+                      height: 36,
+                      child: IconButton(
+                        tooltip: 'More',
+                        onPressed: onOverflow,
+                        icon: const Icon(Icons.more_vert_rounded, size: 20),
+                        padding: EdgeInsets.zero,
+                        constraints: const BoxConstraints(),
+                      ),
                     )
                   else
                     Tooltip(
@@ -553,83 +545,69 @@ class _RemoteCard extends StatelessWidget {
                       child: Container(
                         padding: const EdgeInsets.all(8),
                         decoration: BoxDecoration(
-                          color: cs.surfaceContainerHighest
-                              .withValues(alpha: 0.55),
-                          borderRadius: BorderRadius.circular(12),
+                          color: cs.surfaceContainerHighest.withValues(alpha: 0.55),
+                          borderRadius: BorderRadius.circular(10),
                           border: Border.all(
                             color: cs.outlineVariant.withValues(alpha: 0.25),
                           ),
                         ),
                         child: Icon(
                           Icons.drag_indicator_rounded,
-                          size: 14,
+                          size: 16,
                           color: cs.onSurface.withValues(alpha: 0.85),
                         ),
                       ),
                     ),
                 ],
               ),
-              const SizedBox(height: 10),
-              Flexible(
-                child: Text(
-                  remote.name,
-                  style: theme.textTheme.titleMedium?.copyWith(
-                    fontWeight: FontWeight.w900,
-                  ),
-                  maxLines: 2,
-                  overflow: TextOverflow.ellipsis,
+              const SizedBox(height: 12),
+              Expanded(
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    Text(
+                      remote.name,
+                      style: theme.textTheme.titleMedium?.copyWith(
+                        fontWeight: FontWeight.w900,
+                        height: 1.2,
+                      ),
+                      maxLines: 2,
+                      overflow: TextOverflow.ellipsis,
+                    ),
+                  ],
                 ),
               ),
-              const SizedBox(height: 6),
-              Wrap(
-                spacing: 8,
-                runSpacing: 8,
-                children: [
-                  _Chip(
-                    label: '$count button(s)',
-                    icon: Icons.grid_view_rounded,
-                  ),
-                ],
+              const SizedBox(height: 8),
+              Container(
+                padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 6),
+                decoration: BoxDecoration(
+                  color: cs.surfaceContainerHighest.withValues(alpha: 0.55),
+                  borderRadius: BorderRadius.circular(999),
+                  border: Border.all(color: cs.outlineVariant.withValues(alpha: 0.25)),
+                ),
+                child: Row(
+                  mainAxisSize: MainAxisSize.min,
+                  children: [
+                    Icon(Icons.grid_view_rounded, size: 14, color: cs.onSurface.withValues(alpha: 0.8)),
+                    const SizedBox(width: 6),
+                    Flexible(
+                      child: Text(
+                        '$count button${count != 1 ? 's' : ''}',
+                        style: theme.textTheme.labelSmall?.copyWith(
+                          fontWeight: FontWeight.w800,
+                          color: cs.onSurface.withValues(alpha: 0.85),
+                        ),
+                        maxLines: 1,
+                        overflow: TextOverflow.ellipsis,
+                      ),
+                    ),
+                  ],
+                ),
               ),
-              const Spacer(),
             ],
           ),
         ),
-      ),
-    );
-  }
-}
-
-class _Chip extends StatelessWidget {
-  final String label;
-  final IconData icon;
-
-  const _Chip({required this.label, required this.icon});
-
-  @override
-  Widget build(BuildContext context) {
-    final theme = Theme.of(context);
-    final cs = theme.colorScheme;
-    return Container(
-      padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 6),
-      decoration: BoxDecoration(
-        color: cs.surfaceContainerHighest.withValues(alpha: 0.55),
-        borderRadius: BorderRadius.circular(999),
-        border: Border.all(color: cs.outlineVariant.withValues(alpha: 0.25)),
-      ),
-      child: Row(
-        mainAxisSize: MainAxisSize.min,
-        children: [
-          Icon(icon, size: 16, color: cs.onSurface.withValues(alpha: 0.8)),
-          const SizedBox(width: 6),
-          Text(
-            label,
-            style: theme.textTheme.labelMedium?.copyWith(
-              fontWeight: FontWeight.w800,
-              color: cs.onSurface.withValues(alpha: 0.85),
-            ),
-          ),
-        ],
       ),
     );
   }
@@ -649,8 +627,7 @@ class _EmptyState extends StatelessWidget {
         child: Column(
           mainAxisSize: MainAxisSize.min,
           children: [
-            Icon(Icons.grid_view_outlined,
-                size: 52, color: theme.colorScheme.primary),
+            Icon(Icons.grid_view_outlined, size: 52, color: theme.colorScheme.primary),
             const SizedBox(height: 12),
             Text(
               'No remotes yet',
@@ -697,8 +674,7 @@ class RemoteSearchDelegate extends SearchDelegate {
     return await showDialog<bool>(
       context: context,
       builder: (ctx) => AlertDialog(
-        icon: Icon(Icons.warning_amber_rounded,
-            color: theme.colorScheme.error, size: 32),
+        icon: Icon(Icons.warning_amber_rounded, color: theme.colorScheme.error, size: 32),
         title: const Text('Delete remote?'),
         content: Text(
           '"$remoteName" will be permanently removed. This action can\'t be undone.',
@@ -761,7 +737,6 @@ class RemoteSearchDelegate extends SearchDelegate {
   Widget _buildList(BuildContext context, List<Remote> items) {
     final theme = Theme.of(context);
     final cs = theme.colorScheme;
-
     return ListView.separated(
       padding: const EdgeInsets.all(16),
       itemCount: items.length,
@@ -784,8 +759,7 @@ class RemoteSearchDelegate extends SearchDelegate {
                 border: Border.all(
                     color: cs.outlineVariant.withValues(alpha: 0.25)),
               ),
-              child: Icon(Icons.settings_remote_rounded,
-                  color: cs.onPrimaryContainer),
+              child: Icon(Icons.settings_remote_rounded, color: cs.onPrimaryContainer),
             ),
             title: Text(
               remote.name,
