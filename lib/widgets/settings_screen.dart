@@ -2,6 +2,7 @@ import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:irblaster_controller/state/app_theme.dart';
+import 'package:irblaster_controller/state/dynamic_color.dart';
 import 'package:irblaster_controller/state/remotes_state.dart';
 import 'package:irblaster_controller/utils/ir_transmitter_platform.dart';
 import 'package:irblaster_controller/utils/remote.dart';
@@ -422,6 +423,16 @@ class SettingsScreen extends StatelessWidget {
                     ),
                   ),
                   const SizedBox(height: 16),
+                  SwitchListTile.adaptive(
+                    secondary: const Icon(Icons.wallpaper_rounded),
+                    title: const Text('Use dynamic colors'),
+                    subtitle: const Text('Match Material You palette on Android 12+. Disable to use the app palette.'),
+                    value: DynamicColorController.instance.enabled,
+                    onChanged: (v) async {
+                      await DynamicColorController.instance.setEnabled(v);
+                      HapticFeedback.selectionClick();
+                    },
+                  ),
                   Row(
                     children: [
                       Expanded(
@@ -577,7 +588,7 @@ class SettingsScreen extends StatelessWidget {
                   trailing: const Icon(Icons.chevron_right),
                   onTap: () {
                     Navigator.of(context).push(
-                      MaterialPageRoute(builder: (context) => const AboutScreen()),
+                      MaterialPageRoute(builder: (context) => AboutScreen(repoUrl: _repoUrl, issuesUrl: _issuesUrl, liberapayUrl: _liberapayUrl)),
                     );
                   },
                 );

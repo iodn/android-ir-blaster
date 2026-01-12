@@ -1,75 +1,141 @@
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:package_info_plus/package_info_plus.dart';
 import 'package:url_launcher/url_launcher.dart';
 
-class AboutScreen extends StatelessWidget {
-  const AboutScreen({super.key});
+import 'settings/widgets/section_card.dart';
+import 'settings/widgets/support_pill.dart';
 
-  static const String _repoUrl = 'https://github.com/iodn/android-ir-blaster';
-  static const String _issuesUrl = 'https://github.com/iodn/android-ir-blaster/issues';
-  static const String _licenseUrl = 'https://github.com/iodn/android-ir-blaster/blob/main/LICENSE';
-  static const String _companyUrl = 'https://neroswarm.com';
+class AboutScreen extends StatefulWidget {
+  final String repoUrl;
+  final String issuesUrl;
+  final String liberapayUrl;
 
-  Future<void> _launchUrl(BuildContext context, String url) async {
-    final uri = Uri.tryParse(url);
+  const AboutScreen({
+    super.key,
+    required this.repoUrl,
+    required this.issuesUrl,
+    required this.liberapayUrl,
+  });
 
-    if (uri == null || !(uri.isScheme('http') || uri.isScheme('https'))) {
-      if (!context.mounted) return;
-      _showError(context, 'Invalid link: $url');
-      return;
-    }
+  @override
+  State<AboutScreen> createState() => _AboutScreenState();
+}
 
-    try {
-      final bool opened =
-          await launchUrl(uri, mode: LaunchMode.externalApplication) ||
-          await launchUrl(uri, mode: LaunchMode.platformDefault);
+class _AboutScreenState extends State<AboutScreen> {
+  PackageInfo? _info;
+  String? _logoAssetPath;
 
-      if (!opened) {
-        await Clipboard.setData(ClipboardData(text: url));
-        if (!context.mounted) return;
-        _showError(context, 'Could not open link. URL copied to clipboard.');
-        HapticFeedback.selectionClick();
-      }
-    } on PlatformException catch (_) {
-      await Clipboard.setData(ClipboardData(text: url));
-      if (!context.mounted) return;
-      _showError(context, 'Could not open link. URL copied to clipboard.');
-      HapticFeedback.selectionClick();
-    } catch (e) {
-      await Clipboard.setData(ClipboardData(text: url));
-      if (!context.mounted) return;
-      _showError(context, 'Error opening link. URL copied to clipboard.');
-      HapticFeedback.selectionClick();
-    }
+  static const List<String> _logoCandidates = <String>[
+    'assets/images/logo.png',
+    'assets/logo.png',
+  ];
+
+  @override
+  void initState() {
+    super.initState();
+    _load();
   }
 
-  void _showError(BuildContext context, String message) {
+  Future<void> _load() async {
+    final info = await PackageInfo.fromPlatform();
+    final logo = await _findFirstExistingAsset(_logoCandidates);
+    if (!mounted) return;
+    setState(() {
+      _info = info;
+      _logoAssetPath = logo;
+    });
+  }
+
+  Future<String?> _findFirstExistingAsset(List<String> candidates) async {
+    for (final p in candidates) {
+      try {
+        await rootBundle.load(p);
+        return p;
+      } catch (_) {}
+    }
+    return null;
+  }
+
+  Future<void> _copy(BuildContext context, String text, String message) async {
+    await Clipboard.setData(ClipboardData(text: text));
+    if (!context.mounted) return;
     ScaffoldMessenger.of(context).showSnackBar(
       SnackBar(
         content: Text(message),
-        backgroundColor: Theme.of(context).colorScheme.error,
         behavior: SnackBarBehavior.floating,
-        action: SnackBarAction(
-          label: 'Dismiss',
-          textColor: Theme.of(context).colorScheme.onError,
-          onPressed: () {
-            ScaffoldMessenger.of(context).hideCurrentSnackBar();
-          },
-        ),
       ),
     );
+    HapticFeedback.selectionClick();
   }
 
-  Future<void> _copyToClipboard(
-    BuildContext context,
-    String text,
-    String message,
-  ) async {
-    await Clipboard.setData(ClipboardData(text: text));
-    if (!context.mounted) return;
-    ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text(message)));
-    HapticFeedback.selectionClick();
+  Future<void> _launchExternal(BuildContext context, String url) async {
+    try {
+      final uri = Uri.parse(url);
+      final ok = await canLaunchUrl(uri);
+      if (!ok) {
+        if (!context.mounted) return;
+        ScaffoldMessenger.of(context).showSnackBar(
+          SnackBar(
+            content: const Text('No browser available'),
+            backgroundColor: Theme.of(context).colorScheme.error,
+            behavior: SnackBarBehavior.floating,
+          ),
+        );
+        return;
+      }
+      final launched = await launchUrl(uri, mode: LaunchMode.externalApplication);
+      if (!launched && context.mounted) {
+        ScaffoldMessenger.of(context).showSnackBar(
+          SnackBar(
+            content: const Text('Failed to open link'),
+            backgroundColor: Theme.of(context).colorScheme.error,
+            behavior: SnackBarBehavior.floating,
+          ),
+        );
+      }
+    } catch (e) {
+      if (!context.mounted) return;
+      ScaffoldMessenger.of(context).showSnackBar(
+        SnackBar(
+          content: Text('Failed to open: $e'),
+          backgroundColor: Theme.of(context).colorScheme.error,
+          behavior: SnackBarBehavior.floating,
+        ),
+      );
+    }
+  }
+
+  String _buildModeLabel() {
+    if (kReleaseMode) return 'Release';
+    if (kProfileMode) return 'Profile';
+    return 'Debug';
+  }
+
+  String _versionLabel() {
+    final info = _info;
+    if (info == null) return '—';
+    final v = info.version.trim().isEmpty ? '—' : info.version.trim();
+    final b = info.buildNumber.trim().isEmpty ? '—' : info.buildNumber.trim();
+    return '$v+$b';
+  }
+
+  String _packageName() => _info?.packageName ?? '—';
+  String _appName() => (_info?.appName.trim().isNotEmpty ?? false) ? _info!.appName : 'IR Blaster';
+
+  List<_OtherApp> _otherApps() {
+    return const <_OtherApp>[
+      _OtherApp(name: 'IR Blaster', query: 'IR%20Blaster'),
+      _OtherApp(name: 'USBDevInfo', query: 'USBDevInfo'),
+      _OtherApp(name: 'GadgetFS', query: 'GadgetFS'),
+      _OtherApp(name: 'TapDucky', query: 'TapDucky'),
+      _OtherApp(name: 'HIDWiggle', query: 'HIDWiggle'),
+    ];
+  }
+
+  String _githubSearchUrlForRepo(String query) {
+    return 'https://github.com/search?q=org%3Aiodn+$query&type=repositories';
   }
 
   @override
@@ -77,222 +143,214 @@ class AboutScreen extends StatelessWidget {
     final theme = Theme.of(context);
     final cs = theme.colorScheme;
 
+    final appName = _appName();
+    final ver = _versionLabel();
+    final pkg = _packageName();
+    final mode = _buildModeLabel();
+    final year = DateTime.now().year;
+
     return Scaffold(
-      appBar: AppBar(title: const Text('About IR Blaster')),
+      appBar: AppBar(title: const Text('About')),
       body: ListView(
-        padding: const EdgeInsets.all(16),
+        padding: const EdgeInsets.fromLTRB(16, 16, 16, 24),
         children: [
           Center(
             child: Column(
               children: [
-                Container(
-                  width: 100,
-                  height: 100,
-                  decoration: BoxDecoration(
-                    boxShadow: [
-                      BoxShadow(
-                        color: Colors.black.withOpacity(0.1),
-                        blurRadius: 20,
-                        offset: const Offset(0, 8),
-                      ),
-                    ],
-                  ),
-                  child: Image.asset(
-                    'assets/images/logo.png',
-                    width: 100,
-                    height: 100,
-                    fit: BoxFit.contain,
-                    errorBuilder: (_, __, ___) {
-                      return Container(
-                        decoration: BoxDecoration(
-                          color: cs.surfaceContainerHighest.withOpacity(0.6),
-                          borderRadius: BorderRadius.circular(18),
-                          border: Border.all(color: cs.outlineVariant.withOpacity(0.35)),
-                        ),
-                        child: Icon(Icons.settings_remote_rounded, size: 54, color: cs.primary),
-                      );
-                    },
-                  ),
+                _AppLogo(
+                  assetPath: _logoAssetPath,
+                  size: 88,
+                  backgroundColor: cs.primaryContainer.withOpacity(0.7),
+                  iconColor: cs.onPrimaryContainer,
                 ),
-                const SizedBox(height: 16),
+                const SizedBox(height: 12),
                 Text(
-                  'IR Blaster',
-                  style: theme.textTheme.headlineMedium?.copyWith(fontWeight: FontWeight.w900),
+                  appName,
+                  style: theme.textTheme.headlineSmall?.copyWith(fontWeight: FontWeight.w900),
+                  textAlign: TextAlign.center,
                 ),
                 const SizedBox(height: 4),
                 Text(
-                  'by KaijinLab Inc.',
-                  style: theme.textTheme.titleMedium?.copyWith(
+                  'Version $ver',
+                  style: theme.textTheme.bodySmall?.copyWith(
                     color: cs.onSurface.withOpacity(0.7),
-                    fontWeight: FontWeight.w600,
+                    fontWeight: FontWeight.w700,
                   ),
                 ),
-                const SizedBox(height: 8),
-                FutureBuilder<PackageInfo>(
-                  future: PackageInfo.fromPlatform(),
-                  builder: (context, snapshot) {
-                    final info = snapshot.data;
-                    if (info == null) return const SizedBox.shrink();
-                    return Container(
-                      padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
-                      decoration: BoxDecoration(
-                        color: cs.surfaceContainerHighest,
-                        borderRadius: BorderRadius.circular(20),
-                        border: Border.all(color: cs.outlineVariant.withOpacity(0.5)),
-                      ),
-                      child: Text(
-                        'Version ${info.version} (${info.buildNumber})',
-                        style: theme.textTheme.bodyMedium?.copyWith(
-                          fontWeight: FontWeight.w700,
-                          fontFamily: 'monospace',
+                const SizedBox(height: 6),
+                Text(
+                  'KaijinLab Inc.',
+                  style: theme.textTheme.bodyMedium?.copyWith(
+                    color: cs.onSurface.withOpacity(0.8),
+                    fontWeight: FontWeight.w800,
+                  ),
+                ),
+              ],
+            ),
+          ),
+          const SizedBox(height: 18),
+          SectionCard(
+            title: 'Links',
+            subtitle: 'Repository, issues, and donations',
+            leading: Icon(Icons.link_rounded, color: cs.primary),
+            child: Column(
+              children: [
+                ListTile(
+                  leading: const Icon(Icons.code_rounded),
+                  title: const Text('Repository'),
+                  subtitle: Text(widget.repoUrl),
+                  trailing: const Icon(Icons.open_in_new_rounded),
+                  onTap: () => _launchExternal(context, widget.repoUrl),
+                  onLongPress: () => _copy(context, widget.repoUrl, 'Repository link copied'),
+                ),
+                const Divider(height: 1),
+                ListTile(
+                  leading: const Icon(Icons.bug_report_outlined),
+                  title: const Text('Report an issue'),
+                  subtitle: Text(widget.issuesUrl),
+                  trailing: const Icon(Icons.open_in_new_rounded),
+                  onTap: () => _launchExternal(context, widget.issuesUrl),
+                  onLongPress: () => _copy(context, widget.issuesUrl, 'Issues link copied'),
+                ),
+                const Divider(height: 1),
+                ListTile(
+                  leading: const Icon(Icons.favorite_rounded),
+                  title: const Text('Donate via Liberapay'),
+                  subtitle: Text(widget.liberapayUrl),
+                  trailing: const Icon(Icons.open_in_new_rounded),
+                  onTap: () => _launchExternal(context, widget.liberapayUrl),
+                  onLongPress: () => _copy(context, widget.liberapayUrl, 'Liberapay link copied'),
+                ),
+              ],
+            ),
+          ),
+          const SizedBox(height: 12),
+          SectionCard(
+            title: 'What this app is',
+            subtitle: 'Infrared control toolkit',
+            leading: Icon(Icons.settings_remote_rounded, color: cs.primary),
+            child: Padding(
+              padding: const EdgeInsets.all(14),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Text(
+                    'IR Blaster helps build and use custom IR remotes on Android: transmit with internal emitters, compatible USB IR dongles, or audio-to-IR LED adapters, and import signals from Flipper Zero .ir files. No accounts, no tracking, no ads.',
+                    style: theme.textTheme.bodyMedium?.copyWith(
+                      color: cs.onSurface.withOpacity(0.85),
+                      height: 1.35,
+                      fontWeight: FontWeight.w600,
+                    ),
+                  ),
+                  const SizedBox(height: 12),
+                  const Wrap(
+                    spacing: 8,
+                    runSpacing: 8,
+                    children: [
+                      SupportPill(icon: Icons.settings_remote_rounded, label: 'Custom remotes'),
+                      SupportPill(icon: Icons.settings_input_antenna_rounded, label: 'Internal IR'),
+                      SupportPill(icon: Icons.usb_rounded, label: 'USB dongles'),
+                      SupportPill(icon: Icons.volume_up_rounded, label: 'Audio adapter'),
+                      SupportPill(icon: Icons.file_upload_outlined, label: 'Flipper .ir import'),
+                    ],
+                  ),
+                ],
+              ),
+            ),
+          ),
+          const SizedBox(height: 12),
+          SectionCard(
+            title: 'Build information',
+            subtitle: 'Version, package, and build mode',
+            leading: Icon(Icons.info_outline, color: cs.primary),
+            child: Padding(
+              padding: const EdgeInsets.all(14),
+              child: Column(
+                children: [
+                  _InfoRow(label: 'App', value: appName),
+                  const SizedBox(height: 10),
+                  _InfoRow(label: 'Version', value: ver),
+                  const SizedBox(height: 10),
+                  _InfoRow(label: 'Package', value: pkg),
+                  const SizedBox(height: 10),
+                  _InfoRow(label: 'Build', value: mode),
+                ],
+              ),
+            ),
+          ),
+          const SizedBox(height: 12),
+          SectionCard(
+            title: 'Other apps by KaijinLab',
+            subtitle: 'More security and hardware-adjacent tools',
+            leading: Icon(Icons.apps_rounded, color: cs.primary),
+            child: Column(
+              children: [
+                for (final a in _otherApps()) ...[
+                  ListTile(
+                    leading: const Icon(Icons.launch_rounded),
+                    title: Text(a.name),
+                    subtitle: const Text('Open GitHub repositories search'),
+                    trailing: const Icon(Icons.open_in_new_rounded),
+                    onTap: () => _launchExternal(context, _githubSearchUrlForRepo(a.query)),
+                    onLongPress: () => _copy(context, _githubSearchUrlForRepo(a.query), 'Search link copied'),
+                  ),
+                  if (a != _otherApps().last) const Divider(height: 1),
+                ],
+              ],
+            ),
+          ),
+          const SizedBox(height: 12),
+          SectionCard(
+            title: 'Legal',
+            subtitle: 'Open-source licenses and acknowledgements',
+            leading: Icon(Icons.gavel_rounded, color: cs.primary),
+            child: Column(
+              children: [
+                ListTile(
+                  leading: const Icon(Icons.article_outlined),
+                  title: const Text('Open-source licenses'),
+                  subtitle: const Text('View third-party dependency licenses'),
+                  trailing: const Icon(Icons.chevron_right_rounded),
+                  onTap: () {
+                    showLicensePage(
+                      context: context,
+                      applicationName: appName,
+                      applicationVersion: ver,
+                      applicationIcon: Padding(
+                        padding: const EdgeInsets.all(16),
+                        child: _AppLogo(
+                          assetPath: _logoAssetPath,
+                          size: 56,
+                          backgroundColor: cs.primaryContainer.withOpacity(0.7),
+                          iconColor: cs.onPrimaryContainer,
                         ),
                       ),
                     );
                   },
                 ),
-              ],
-            ),
-          ),
-          const SizedBox(height: 32),
-          Card(
-            child: Padding(
-              padding: const EdgeInsets.all(20),
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Row(
-                    children: [
-                      Icon(Icons.description_outlined, color: cs.primary),
-                      const SizedBox(width: 12),
-                      Text(
-                        'About',
-                        style: theme.textTheme.titleLarge?.copyWith(fontWeight: FontWeight.w900),
-                      ),
-                    ],
-                  ),
-                  const SizedBox(height: 12),
-                  Text(
-                    'IR Blaster is an open-source infrared toolkit for Android. Create and manage fully custom remotes, transmit IR using internal emitters, supported USB IR dongles, or audio-to-IR LED adapters, and import signals from Flipper Zero .ir files.',
-                    style: theme.textTheme.bodyMedium?.copyWith(
-                      color: cs.onSurface.withOpacity(0.85),
-                      height: 1.5,
-                    ),
-                  ),
-                  const SizedBox(height: 16),
-                  Wrap(
-                    spacing: 8,
-                    runSpacing: 8,
-                    children: [
-                      _FeatureChip(icon: Icons.settings_remote_rounded, label: 'Custom Remotes', colorScheme: cs),
-                      _FeatureChip(icon: Icons.settings_input_antenna_rounded, label: 'Internal IR', colorScheme: cs),
-                      _FeatureChip(icon: Icons.usb_rounded, label: 'USB Dongles', colorScheme: cs),
-                      _FeatureChip(icon: Icons.volume_up_rounded, label: 'Audio Adapter', colorScheme: cs),
-                      _FeatureChip(icon: Icons.file_upload_outlined, label: 'Flipper .ir Import', colorScheme: cs),
-                      _FeatureChip(icon: Icons.search_rounded, label: 'Code Discovery', colorScheme: cs),
-                    ],
-                  ),
-                ],
-              ),
-            ),
-          ),
-          const SizedBox(height: 16),
-          Card(
-            child: Column(
-              children: [
-                ListTile(
-                  leading: const Icon(Icons.code),
-                  title: const Text('Source Code'),
-                  subtitle: const Text('View on GitHub'),
-                  trailing: const Icon(Icons.open_in_new),
-                  onTap: () => _launchUrl(context, _repoUrl),
-                  onLongPress: () => _copyToClipboard(context, _repoUrl, 'Repository URL copied'),
-                ),
                 const Divider(height: 1),
                 ListTile(
-                  leading: const Icon(Icons.bug_report),
-                  title: const Text('Report Issue'),
-                  subtitle: const Text('Bug reports & feature requests'),
-                  trailing: const Icon(Icons.open_in_new),
-                  onTap: () => _launchUrl(context, _issuesUrl),
-                  onLongPress: () => _copyToClipboard(context, _issuesUrl, 'Issues URL copied'),
-                ),
-                const Divider(height: 1),
-                ListTile(
-                  leading: const Icon(Icons.gavel),
-                  title: const Text('License'),
-                  subtitle: const Text('Open-source license'),
-                  trailing: const Icon(Icons.open_in_new),
-                  onTap: () => _launchUrl(context, _licenseUrl),
-                  onLongPress: () => _copyToClipboard(context, _licenseUrl, 'License URL copied'),
-                ),
-                const Divider(height: 1),
-                ListTile(
-                  leading: const Icon(Icons.business),
-                  title: const Text('KaijinLab Inc.'),
-                  subtitle: const Text('Visit our website'),
-                  trailing: const Icon(Icons.open_in_new),
-                  onTap: () => _launchUrl(context, _companyUrl),
-                  onLongPress: () => _copyToClipboard(context, _companyUrl, 'Company URL copied'),
+                  leading: const Icon(Icons.content_copy_rounded),
+                  title: const Text('Copy build details'),
+                  subtitle: const Text('Version + package + build mode'),
+                  onTap: () {
+                    final text =
+                        '$appName\nVersion: $ver\nPackage: $pkg\nBuild: $mode\nRepo: ${widget.repoUrl}\n';
+                    _copy(context, text, 'Build details copied');
+                  },
                 ),
               ],
             ),
           ),
-          const SizedBox(height: 16),
-          Card(
-            color: cs.errorContainer.withOpacity(0.3),
-            child: Padding(
-              padding: const EdgeInsets.all(20),
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Row(
-                    children: [
-                      Icon(Icons.warning_amber_rounded, color: cs.error),
-                      const SizedBox(width: 12),
-                      Text(
-                        'Usage Note',
-                        style: theme.textTheme.titleMedium?.copyWith(
-                          fontWeight: FontWeight.w900,
-                          color: cs.onErrorContainer,
-                        ),
-                      ),
-                    ],
-                  ),
-                  const SizedBox(height: 12),
-                  Text(
-                    'Use IR Blaster only on devices you own or are authorized to control. Some equipment (TVs, AC units, gateways) may behave unexpectedly when receiving unknown codes. Test responsibly.',
-                    style: theme.textTheme.bodySmall?.copyWith(
-                      color: cs.onErrorContainer.withOpacity(0.9),
-                      height: 1.5,
-                    ),
-                  ),
-                ],
-              ),
-            ),
-          ),
-          const SizedBox(height: 16),
+          const SizedBox(height: 14),
           Center(
-            child: Padding(
-              padding: const EdgeInsets.symmetric(vertical: 16),
-              child: Column(
-                children: [
-                  Text(
-                    '© ${DateTime.now().year} KaijinLab Inc.',
-                    style: theme.textTheme.bodySmall?.copyWith(
-                      color: cs.onSurface.withOpacity(0.6),
-                      fontWeight: FontWeight.w600,
-                    ),
-                  ),
-                  const SizedBox(height: 4),
-                  Text(
-                    'Made for reliable IR control',
-                    style: theme.textTheme.bodySmall?.copyWith(
-                      color: cs.onSurface.withOpacity(0.5),
-                      fontStyle: FontStyle.italic,
-                    ),
-                  ),
-                ],
+            child: Text(
+              '© $year KaijinLab • Open-source software',
+              style: theme.textTheme.bodySmall?.copyWith(
+                color: cs.onSurface.withOpacity(0.55),
+                fontWeight: FontWeight.w700,
               ),
+              textAlign: TextAlign.center,
             ),
           ),
         ],
@@ -301,41 +359,105 @@ class AboutScreen extends StatelessWidget {
   }
 }
 
-class _FeatureChip extends StatelessWidget {
-  final IconData icon;
+class _InfoRow extends StatelessWidget {
   final String label;
-  final ColorScheme colorScheme;
+  final String value;
 
-  const _FeatureChip({
-    required this.icon,
+  const _InfoRow({
     required this.label,
-    required this.colorScheme,
+    required this.value,
   });
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 8),
-      decoration: BoxDecoration(
-        color: colorScheme.primaryContainer.withOpacity(0.5),
-        borderRadius: BorderRadius.circular(20),
-        border: Border.all(color: colorScheme.primary.withOpacity(0.3)),
-      ),
-      child: Row(
-        mainAxisSize: MainAxisSize.min,
-        children: [
-          Icon(icon, size: 16, color: colorScheme.onPrimaryContainer),
-          const SizedBox(width: 6),
-          Text(
+    final theme = Theme.of(context);
+    final cs = theme.colorScheme;
+
+    return Row(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        SizedBox(
+          width: 92,
+          child: Text(
             label,
-            style: TextStyle(
-              color: colorScheme.onPrimaryContainer,
-              fontWeight: FontWeight.w700,
-              fontSize: 12,
+            style: theme.textTheme.bodySmall?.copyWith(
+              color: cs.onSurface.withOpacity(0.65),
+              fontWeight: FontWeight.w800,
             ),
           ),
-        ],
-      ),
+        ),
+        const SizedBox(width: 10),
+        Expanded(
+          child: SelectableText(
+            value,
+            style: theme.textTheme.bodyMedium?.copyWith(
+              fontWeight: FontWeight.w800,
+              color: cs.onSurface.withOpacity(0.9),
+              height: 1.25,
+            ),
+          ),
+        ),
+      ],
     );
   }
+}
+
+class _AppLogo extends StatelessWidget {
+  final String? assetPath;
+  final double size;
+  final Color backgroundColor;
+  final Color iconColor;
+
+  const _AppLogo({
+    required this.assetPath,
+    required this.size,
+    required this.backgroundColor,
+    required this.iconColor,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    final cs = Theme.of(context).colorScheme;
+
+    Widget child;
+    if (assetPath != null) {
+      child = ClipRRect(
+        borderRadius: BorderRadius.circular(size / 5),
+        child: Image.asset(
+          assetPath!,
+          width: size,
+          height: size,
+          fit: BoxFit.cover,
+          filterQuality: FilterQuality.high,
+          errorBuilder: (context, error, stackTrace) {
+            return Icon(Icons.settings_remote_rounded, size: size * 0.6, color: iconColor);
+          },
+        ),
+      );
+    } else {
+      child = Icon(Icons.settings_remote_rounded, size: size * 0.6, color: iconColor);
+    }
+
+    return Container(
+      width: size,
+      height: size,
+      decoration: BoxDecoration(
+        color: backgroundColor,
+        borderRadius: BorderRadius.circular(size / 4),
+        border: Border.all(color: cs.outlineVariant.withOpacity(0.35)),
+      ),
+      alignment: Alignment.center,
+      child: child,
+    );
+  }
+}
+
+class _OtherApp {
+  final String name;
+  final String query;
+
+  const _OtherApp({
+    required this.name,
+    required this.query,
+  });
 }

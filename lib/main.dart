@@ -4,6 +4,7 @@ import 'package:dynamic_color/dynamic_color.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:irblaster_controller/state/app_theme.dart';
+import 'package:irblaster_controller/state/dynamic_color.dart';
 import 'package:irblaster_controller/state/remotes_state.dart';
 import 'package:irblaster_controller/state/macros_state.dart';
 import 'package:irblaster_controller/utils/remote.dart';
@@ -23,6 +24,7 @@ Future<void> main() async {
   };
   try {
     await AppThemeController.instance.load();
+    await DynamicColorController.instance.load();
   } catch (e, st) {
     debugPrint('Failed to load theme preference: $e\n$st');
   }
@@ -39,15 +41,17 @@ class _App extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return AnimatedBuilder(
-      animation: AppThemeController.instance,
+      animation: Listenable.merge([AppThemeController.instance, DynamicColorController.instance]),
       builder: (context, _) {
         return DynamicColorBuilder(
           builder: (lightDynamic, darkDynamic) {
-            final ColorScheme lightScheme = lightDynamic ?? ColorScheme.fromSeed(seedColor: Colors.blue);
-            final ColorScheme darkScheme = darkDynamic ?? ColorScheme.fromSeed(
-              seedColor: Colors.blue,
-              brightness: Brightness.dark,
-            );
+            final useDynamic = DynamicColorController.instance.enabled;
+            final ColorScheme lightScheme = useDynamic
+                ? (lightDynamic ?? ColorScheme.fromSeed(seedColor: Colors.blue))
+                : ColorScheme.fromSeed(seedColor: Colors.blue);
+            final ColorScheme darkScheme = useDynamic
+                ? (darkDynamic ?? ColorScheme.fromSeed(seedColor: Colors.blue, brightness: Brightness.dark))
+                : ColorScheme.fromSeed(seedColor: Colors.blue, brightness: Brightness.dark);
             return MaterialApp(
               title: 'IR Blaster',
               debugShowCheckedModeBanner: false,
