@@ -1,0 +1,13 @@
+name: release
+
+flutter-version: '8b872868494e429d94fa06dca855c306438b22c0'
+
+on:
+  workflow_dispatch:
+
+jobs:
+  noop:
+    runs-on: ubuntu-latest
+    steps:
+      - name: noop
+        run: echo "ok"
