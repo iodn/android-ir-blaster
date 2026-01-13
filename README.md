@@ -225,6 +225,16 @@ Or download the latest APK from the Releases Section.
 - Use maximum media volume when transmitting via audio.
 - Requires a compatible audio‑to‑IR LED adapter (mono or stereo anti‑phase).
 
+## ScreenShots
+<img width="180" height="400" alt="1" src="https://github.com/user-attachments/assets/d552259e-b1b1-4dbd-857d-a3ab38e0cf61" />
+<img width="180" height="400" alt="2" src="https://github.com/user-attachments/assets/ab913545-6858-4c0e-a654-5ec524060e56" />
+<img width="180" height="400" alt="4" src="https://github.com/user-attachments/assets/4a4b757c-5b95-4a99-bad5-a7331c43d58b" />
+<img width="180" height="400" alt="5" src="https://github.com/user-attachments/assets/abdded4c-ed28-4ca9-8a0a-1e7466464aee" />
+<img width="180" height="400" alt="6" src="https://github.com/user-attachments/assets/47f974cf-ed08-4392-aad8-0e9c7765b405" />
+
+
+
+
 ## Contributing
 
 Contributions are welcome! If you'd like to help improve IR Blaster:
