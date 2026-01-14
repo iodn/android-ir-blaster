@@ -194,6 +194,10 @@ Notes:
      alt="Get it on Google Play"
      height="80">](https://play.google.com/store/apps/details?id=org.nslabs.ir_blaster)
 
+[<img src="https://fdroid.gitlab.io/artwork/badge/get-it-on.png"
+     alt="Get it on F-Droid"
+     height="113">](https://f-droid.org/en/packages/org.nslabs.ir_blaster/)
+     
 Or download the latest APK from the Releases Section.
 
 2. Install the Application:
