@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:irblaster_controller/state/haptics.dart';
+import 'package:irblaster_controller/state/haptics.dart';
 import 'package:flutter/services.dart';
 import 'package:irblaster_controller/models/macro_step.dart';
 import 'package:irblaster_controller/models/timed_macro.dart';
@@ -80,7 +82,7 @@ class _MacroEditorScreenState extends State<MacroEditorScreen> {
         ),
       );
     });
-    HapticFeedback.selectionClick();
+    Haptics.selectionClick();
   }
 
   Future<void> _addDelayStep() async {
@@ -95,7 +97,7 @@ class _MacroEditorScreenState extends State<MacroEditorScreen> {
         ),
       );
     });
-    HapticFeedback.selectionClick();
+    Haptics.selectionClick();
   }
 
   void _addManualContinueStep() {
@@ -107,7 +109,7 @@ class _MacroEditorScreenState extends State<MacroEditorScreen> {
         ),
       );
     });
-    HapticFeedback.selectionClick();
+    Haptics.selectionClick();
   }
 
   Future<void> _editStep(int index) async {
@@ -118,7 +120,7 @@ class _MacroEditorScreenState extends State<MacroEditorScreen> {
       setState(() {
         _steps[index] = step.copyWith(buttonId: button.id, buttonRef: button.image);
       });
-      HapticFeedback.selectionClick();
+      Haptics.selectionClick();
       return;
     }
     if (step.type == MacroStepType.delay) {
@@ -127,7 +129,7 @@ class _MacroEditorScreenState extends State<MacroEditorScreen> {
       setState(() {
         _steps[index] = step.copyWith(delayMs: ms);
       });
-      HapticFeedback.selectionClick();
+      Haptics.selectionClick();
       return;
     }
   }
@@ -434,7 +436,7 @@ class _MacroEditorScreenState extends State<MacroEditorScreen> {
     setState(() {
       _steps.removeAt(index);
     });
-    HapticFeedback.selectionClick();
+    Haptics.selectionClick();
   }
 
   void _reorderSteps(int oldIndex, int newIndex) {
@@ -443,7 +445,7 @@ class _MacroEditorScreenState extends State<MacroEditorScreen> {
       final step = _steps.removeAt(oldIndex);
       _steps.insert(newIndex, step);
     });
-    HapticFeedback.mediumImpact();
+    Haptics.mediumImpact();
   }
 
   void _save() {
@@ -456,7 +458,7 @@ class _MacroEditorScreenState extends State<MacroEditorScreen> {
       version: 1,
     );
     Navigator.of(context).pop(macro);
-    HapticFeedback.selectionClick();
+    Haptics.selectionClick();
   }
 
   @override

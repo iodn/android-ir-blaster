@@ -2,7 +2,9 @@ import 'dart:async';
 import 'dart:ui';
 
 import 'package:flutter/material.dart';
+import 'package:irblaster_controller/state/haptics.dart';
 import 'package:flutter/services.dart';
+import 'package:irblaster_controller/state/orientation_pref.dart';
 import 'package:irblaster_controller/models/macro_step.dart';
 import 'package:irblaster_controller/models/timed_macro.dart';
 import 'package:irblaster_controller/utils/ir.dart';
@@ -70,7 +72,7 @@ class _MacroRunScreenState extends State<MacroRunScreen> with SingleTickerProvid
     });
 
     _pulseController.repeat(reverse: true);
-    HapticFeedback.mediumImpact();
+    await Haptics.mediumImpact();
 
     await _executeSteps();
   }
@@ -83,7 +85,7 @@ class _MacroRunScreenState extends State<MacroRunScreen> with SingleTickerProvid
     });
     _pulseController.stop();
     _pulseController.reset();
-    HapticFeedback.selectionClick();
+    Haptics.selectionClick();
   }
 
   Future<void> _continueManual() async {
@@ -97,7 +99,7 @@ class _MacroRunScreenState extends State<MacroRunScreen> with SingleTickerProvid
       }
     });
 
-    HapticFeedback.selectionClick();
+    Haptics.selectionClick();
 
     if (_running) {
       await _executeSteps();
@@ -158,7 +160,7 @@ class _MacroRunScreenState extends State<MacroRunScreen> with SingleTickerProvid
           if (button != null) {
             try {
               await sendIR(button);
-              HapticFeedback.lightImpact();
+              Haptics.lightImpact();
               if (!mounted) return;
               setState(() {
                 _lastError = null;
@@ -224,7 +226,7 @@ class _MacroRunScreenState extends State<MacroRunScreen> with SingleTickerProvid
         });
         _pulseController.stop();
         _pulseController.reset();
-        HapticFeedback.heavyImpact();
+        Haptics.heavyImpact();
       }
     } finally {
       _executing = false;
@@ -285,6 +287,15 @@ class _MacroRunScreenState extends State<MacroRunScreen> with SingleTickerProvid
       appBar: AppBar(
         title: Text(widget.macro.name),
         actions: [
+          IconButton(
+            tooltip: RemoteOrientationController.instance.flipped ? 'Orientation: flipped (tap to normal)' : 'Orientation: normal (tap to flip)',
+            onPressed: () async {
+              final next = !RemoteOrientationController.instance.flipped;
+              await RemoteOrientationController.instance.setFlipped(next);
+              setState(() {});
+            },
+            icon: const Icon(Icons.screen_rotation_rounded),
+          ),
           if (canCancel && !canContinue)
             IconButton(
               tooltip: 'Cancel',
@@ -294,7 +305,9 @@ class _MacroRunScreenState extends State<MacroRunScreen> with SingleTickerProvid
         ],
       ),
       body: SafeArea(
-        child: Column(
+        child: Transform.rotate(
+          angle: RemoteOrientationController.instance.flipped ? 3.1415926535897932 : 0.0,
+          child: Column(
           children: [
             Expanded(
               child: SingleChildScrollView(
@@ -316,8 +329,9 @@ class _MacroRunScreenState extends State<MacroRunScreen> with SingleTickerProvid
             _buildControls(theme, cs, canStart, canRestart, canCancel, canContinue),
           ],
         ),
-      ),
-    );
+       ),
+     ),
+   );
   }
 
   Widget _buildStatusCard(

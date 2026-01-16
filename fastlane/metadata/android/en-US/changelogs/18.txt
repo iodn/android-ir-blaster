@@ -1,0 +1,10 @@
+## Changelog notes
+
+### Fixed
+
+* Fixed an issue where remote buttons could not be reordered.
+* Fixed Flipper Zero `.ir` imports: files using the **Kaseikyo** protocol were incorrectly sent as **NECext**. Imported Flipper Zero files now preserve the correct protocol.
+
+### Added
+
+* Added an option to change the **Remote View orientation** (rotate layout), useful when your USB IR dongle is plugged into a phone port located at the bottom/top so the buttons remain easy to read.

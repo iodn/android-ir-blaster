@@ -1,10 +1,12 @@
 import 'dart:async';
+
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
+import 'package:irblaster_controller/state/haptics.dart';
+import 'package:irblaster_controller/state/transmitter_prefs.dart';
 import 'package:irblaster_controller/utils/ir_transmitter_platform.dart';
 import 'package:irblaster_controller/widgets/ir_finder_screen.dart';
-import 'package:irblaster_controller/widgets/remote_list.dart';
 import 'package:irblaster_controller/widgets/macros_tab.dart';
+import 'package:irblaster_controller/widgets/remote_list.dart';
 import 'package:irblaster_controller/widgets/settings_screen.dart';
 
 class HomeShell extends StatefulWidget {
@@ -15,7 +17,11 @@ class HomeShell extends StatefulWidget {
 }
 
 class _HomeShellState extends State<HomeShell> {
+  // Global capabilities listener for USB Audio auto-select
+  StreamSubscription<IrTransmitterCapabilities>? _capsEventsSub;
+
   int _index = 0;
+
   final List<Widget> _pages = const <Widget>[
     RemoteList(),
     MacrosTab(),
@@ -25,23 +31,33 @@ class _HomeShellState extends State<HomeShell> {
 
   IrTransmitterCapabilities? _caps;
   StreamSubscription<IrTransmitterCapabilities>? _capsSub;
+
   bool _startupNoticeShown = false;
   bool _bannerDismissed = false;
   bool _busy = false;
+
   bool _startupSheetOpen = false;
   BuildContext? _startupSheetContext;
 
   @override
   void initState() {
     super.initState();
+
     _listenCaps();
     unawaited(_loadCapsAndMaybeShowStartupNotice());
+
+    _capsEventsSub =
+        IrTransmitterPlatform.capabilitiesEvents().listen(_onCaps);
   }
 
   @override
   void dispose() {
+    _capsEventsSub?.cancel();
+    _capsEventsSub = null;
+
     _capsSub?.cancel();
     _capsSub = null;
+
     _startupSheetContext = null;
     super.dispose();
   }
@@ -49,12 +65,16 @@ class _HomeShellState extends State<HomeShell> {
   void _closeStartupSheetIfOpen() {
     final ctx = _startupSheetContext;
     if (!_startupSheetOpen || ctx == null) return;
+
     WidgetsBinding.instance.addPostFrameCallback((_) {
       final liveCtx = _startupSheetContext;
       if (!_startupSheetOpen || liveCtx == null) return;
+
       try {
         Navigator.of(liveCtx).pop();
-      } catch (_) {}
+      } catch (_) {
+        // ignore
+      }
     });
   }
 
@@ -62,18 +82,18 @@ class _HomeShellState extends State<HomeShell> {
     _capsSub = IrTransmitterPlatform.capabilitiesEvents().listen(
       (caps) {
         if (!mounted) return;
+
         setState(() {
           _caps = caps;
         });
+
         final needsNotice = _needsHardwareNotice(caps);
-        if (!needsNotice) {
-          if (mounted) {
-            setState(() {
-              _bannerDismissed = false;
-            });
-          }
-        }
-        if (!needsNotice) {
+
+        // When hardware becomes available again, reset the banner
+        if (!needsNotice && mounted) {
+          setState(() {
+            _bannerDismissed = false;
+          });
           _closeStartupSheetIfOpen();
         }
       },
@@ -86,16 +106,21 @@ class _HomeShellState extends State<HomeShell> {
     try {
       final caps = await IrTransmitterPlatform.getCapabilities();
       if (!mounted) return;
+
       setState(() => _caps = caps);
+
       WidgetsBinding.instance.addPostFrameCallback((_) {
         if (!mounted) return;
         _maybeShowStartupNotice(caps);
       });
-    } catch (_) {}
+    } catch (_) {
+      // ignore
+    }
   }
 
   bool _isAudio(IrTransmitterType t) {
-    return t == IrTransmitterType.audio1Led || t == IrTransmitterType.audio2Led;
+    return t == IrTransmitterType.audio1Led ||
+        t == IrTransmitterType.audio2Led;
   }
 
   bool _needsHardwareNotice(IrTransmitterCapabilities caps) {
@@ -103,12 +128,95 @@ class _HomeShellState extends State<HomeShell> {
     return !audioSelected && !caps.hasInternal && !caps.usbReady;
   }
 
+  /// Missing handler you referenced in initState().
+  Future<void> _onCaps(IrTransmitterCapabilities caps) async {
+    final prev = _caps;
+
+    // React only when USB becomes authorized (false -> true)
+    final bool becameUsbReady =
+        (prev?.usbReady ?? false) == false && caps.usbReady;
+
+    final bool activeIsAudio = _isAudio(caps.currentType);
+
+    if (becameUsbReady && !activeIsAudio) {
+      final autoPick = TransmitterPrefs.instance.autoSelectAudioForUsbAudio;
+
+      if (!mounted) return;
+
+      if (autoPick) {
+        // Auto-switch with Undo
+        final prevType = caps.currentType;
+
+        try {
+          await IrTransmitterPlatform.setPreferredType(
+            IrTransmitterType.audio1Led,
+          );
+          await IrTransmitterPlatform.setActiveType(
+            IrTransmitterType.audio1Led,
+          );
+          if (!mounted) return;
+
+          ScaffoldMessenger.of(context).showSnackBar(
+            SnackBar(
+              content:
+                  const Text('Audio (1 LED) enabled for USB Audio dongle.'),
+              action: SnackBarAction(
+                label: 'Undo',
+                onPressed: () async {
+                  try {
+                    await IrTransmitterPlatform.setPreferredType(prevType);
+                    await IrTransmitterPlatform.setActiveType(prevType);
+                  } catch (_) {
+                    // ignore
+                  }
+                },
+              ),
+            ),
+          );
+        } catch (_) {
+          // ignore
+        }
+      } else {
+        // Ask user to switch
+        ScaffoldMessenger.of(context).showSnackBar(
+          SnackBar(
+            content: const Text(
+              'USB Audio dongle detected. Switch to Audio (1 LED)?',
+            ),
+            action: SnackBarAction(
+              label: 'Use Audio',
+              onPressed: () async {
+                try {
+                  await IrTransmitterPlatform.setPreferredType(
+                    IrTransmitterType.audio1Led,
+                  );
+                  await IrTransmitterPlatform.setActiveType(
+                    IrTransmitterType.audio1Led,
+                  );
+                } catch (_) {
+                  // ignore
+                }
+              },
+            ),
+          ),
+        );
+      }
+    }
+
+    if (!mounted) return;
+    setState(() {
+      // rebuild
+    });
+  }
+
   Future<void> _maybeShowStartupNotice(IrTransmitterCapabilities caps) async {
     if (_startupNoticeShown) return;
     if (!_needsHardwareNotice(caps)) return;
+
     _startupNoticeShown = true;
     _startupSheetOpen = true;
     _startupSheetContext = null;
+
     try {
       await showModalBottomSheet<void>(
         context: context,
@@ -120,15 +228,20 @@ class _HomeShellState extends State<HomeShell> {
         ),
         builder: (ctx) {
           _startupSheetContext = ctx;
+
           final liveCaps = _caps;
           if (liveCaps != null && !_needsHardwareNotice(liveCaps)) {
             _closeStartupSheetIfOpen();
           }
+
           final theme = Theme.of(ctx);
           final cs = theme.colorScheme;
+
           final bool hasUsb = caps.hasUsb;
           final bool usbReady = caps.usbReady;
-          final String headline = 'IR hardware required to send commands';
+
+          const String headline = 'IR hardware required to send commands';
+
           final String message = (!hasUsb)
               ? 'This phone does not include a built-in IR emitter, and no supported USB IR dongle is currently connected.\n\n'
                   'You can still create, import, and manage remotes — but to transmit IR signals you need one of the options below.'
@@ -136,20 +249,25 @@ class _HomeShellState extends State<HomeShell> {
                   ? 'This phone does not include a built-in IR emitter. A USB IR dongle is detected, but permission is not granted yet.\n\n'
                       'Approve the USB permission prompt to enable sending IR.'
                   : 'This phone does not include a built-in IR emitter.';
+
           final List<_HardwareOption> options = <_HardwareOption>[
             _HardwareOption(
               icon: Icons.usb_rounded,
               title: 'USB IR dongle (recommended)',
               subtitle: hasUsb
-                  ? (usbReady ? 'Ready to use.' : 'Plugged in — permission required.')
+                  ? (usbReady
+                      ? 'Ready to use.'
+                      : 'Plugged in — permission required.')
                   : 'Plug in a supported USB IR dongle, then approve permission.',
             ),
             const _HardwareOption(
               icon: Icons.graphic_eq_rounded,
               title: 'Audio IR adapter (alternative)',
-              subtitle: 'Settings → IR Transmitter → Audio (1 LED / 2 LED). Requires an audio-to-IR adapter.',
+              subtitle:
+                  'Settings → IR Transmitter → Audio (1 LED / 2 LED). Requires an audio-to-IR adapter.',
             ),
           ];
+
           return Padding(
             padding: EdgeInsets.only(
               left: 16,
@@ -166,10 +284,10 @@ class _HomeShellState extends State<HomeShell> {
                       width: 44,
                       height: 44,
                       decoration: BoxDecoration(
-                        color: cs.errorContainer.withValues(alpha: 0.65),
+                        color: cs.errorContainer.withOpacity(0.65),
                         borderRadius: BorderRadius.circular(14),
                         border: Border.all(
-                          color: cs.outlineVariant.withValues(alpha: 0.25),
+                          color: cs.outlineVariant.withOpacity(0.25),
                         ),
                       ),
                       child: Icon(
@@ -197,16 +315,16 @@ class _HomeShellState extends State<HomeShell> {
                   width: double.infinity,
                   padding: const EdgeInsets.all(12),
                   decoration: BoxDecoration(
-                    color: cs.surfaceContainerHighest.withValues(alpha: 0.55),
+                    color: cs.surfaceContainerHighest.withOpacity(0.55),
                     borderRadius: BorderRadius.circular(14),
                     border: Border.all(
-                      color: cs.outlineVariant.withValues(alpha: 0.22),
+                      color: cs.outlineVariant.withOpacity(0.22),
                     ),
                   ),
                   child: Text(
                     message,
                     style: theme.textTheme.bodyMedium?.copyWith(
-                      color: cs.onSurface.withValues(alpha: 0.85),
+                      color: cs.onSurface.withOpacity(0.85),
                       fontWeight: FontWeight.w600,
                     ),
                   ),
@@ -232,7 +350,7 @@ class _HomeShellState extends State<HomeShell> {
                         onPressed: () {
                           Navigator.of(ctx).pop();
                           setState(() => _index = 3);
-                          HapticFeedback.selectionClick();
+                          Haptics.selectionClick();
                         },
                         icon: const Icon(Icons.settings_rounded),
                         label: const Text('Open Settings'),
@@ -249,6 +367,7 @@ class _HomeShellState extends State<HomeShell> {
                                   final ok = await IrTransmitterPlatform
                                       .usbScanAndRequest();
                                   if (!mounted) return;
+
                                   ScaffoldMessenger.of(context).showSnackBar(
                                     SnackBar(
                                       content: Text(
@@ -263,15 +382,19 @@ class _HomeShellState extends State<HomeShell> {
                                   ScaffoldMessenger.of(context).showSnackBar(
                                     const SnackBar(
                                       content: Text(
-                                          'Failed to request USB permission.'),
+                                        'Failed to request USB permission.',
+                                      ),
                                     ),
                                   );
                                 } finally {
-                                  if (mounted) setState(() => _busy = false);
+                                  if (mounted) {
+                                    setState(() => _busy = false);
+                                  }
                                 }
                               },
                         icon: const Icon(Icons.usb_rounded),
-                        label: Text(_busy ? 'Working…' : 'Request USB permission'),
+                        label:
+                            Text(_busy ? 'Working…' : 'Request USB permission'),
                       ),
                     ),
                   ],
@@ -280,7 +403,7 @@ class _HomeShellState extends State<HomeShell> {
                 Text(
                   'Tip: You can still build and organize remotes now. Hardware is only required when transmitting.',
                   style: theme.textTheme.bodySmall?.copyWith(
-                    color: cs.onSurface.withValues(alpha: 0.65),
+                    color: cs.onSurface.withOpacity(0.65),
                     fontWeight: FontWeight.w600,
                   ),
                 ),
@@ -300,21 +423,25 @@ class _HomeShellState extends State<HomeShell> {
     if (caps == null) return const SizedBox.shrink();
     if (_bannerDismissed) return const SizedBox.shrink();
     if (!_needsHardwareNotice(caps)) return const SizedBox.shrink();
+
     final theme = Theme.of(context);
     final cs = theme.colorScheme;
+
     final bool hasUsb = caps.hasUsb;
     final bool usbReady = caps.usbReady;
-    final String title = 'No IR transmitter available';
+
+    const String title = 'No IR transmitter available';
     final String subtitle = hasUsb
         ? (usbReady
             ? 'USB is ready.'
             : 'USB dongle detected — permission required to send IR.')
         : 'This phone has no built-in IR. Connect a USB IR dongle or enable Audio mode in Settings.';
+
     return Padding(
       padding: const EdgeInsets.fromLTRB(12, 12, 12, 6),
       child: Card(
         elevation: 0,
-        color: cs.errorContainer.withValues(alpha: 0.22),
+        color: cs.errorContainer.withOpacity(0.22),
         shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(16)),
         child: Padding(
           padding: const EdgeInsets.all(12),
@@ -323,7 +450,7 @@ class _HomeShellState extends State<HomeShell> {
             children: [
               Icon(
                 Icons.info_outline_rounded,
-                color: cs.onErrorContainer.withValues(alpha: 0.95),
+                color: cs.onErrorContainer.withOpacity(0.95),
               ),
               const SizedBox(width: 10),
               Expanded(
@@ -334,14 +461,14 @@ class _HomeShellState extends State<HomeShell> {
                       title,
                       style: theme.textTheme.titleSmall?.copyWith(
                         fontWeight: FontWeight.w900,
-                        color: cs.onErrorContainer.withValues(alpha: 0.95),
+                        color: cs.onErrorContainer.withOpacity(0.95),
                       ),
                     ),
                     const SizedBox(height: 4),
                     Text(
                       subtitle,
                       style: theme.textTheme.bodySmall?.copyWith(
-                        color: cs.onErrorContainer.withValues(alpha: 0.88),
+                        color: cs.onErrorContainer.withOpacity(0.88),
                         fontWeight: FontWeight.w700,
                       ),
                     ),
@@ -353,13 +480,14 @@ class _HomeShellState extends State<HomeShell> {
                         FilledButton.tonalIcon(
                           onPressed: () {
                             setState(() => _index = 3);
-                            HapticFeedback.selectionClick();
+                            Haptics.selectionClick();
                           },
                           icon: const Icon(Icons.settings_rounded),
                           label: const Text('Settings'),
                         ),
                         OutlinedButton.icon(
-                          onPressed: () => setState(() => _bannerDismissed = true),
+                          onPressed: () =>
+                              setState(() => _bannerDismissed = true),
                           icon: const Icon(Icons.close_rounded),
                           label: const Text('Dismiss'),
                         ),
@@ -437,9 +565,10 @@ class _OptionCard extends StatelessWidget {
   Widget build(BuildContext context) {
     final theme = Theme.of(context);
     final cs = theme.colorScheme;
+
     return Card(
       elevation: 0,
-      color: cs.surfaceContainerHighest.withValues(alpha: 0.55),
+      color: cs.surfaceContainerHighest.withOpacity(0.55),
       shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(16)),
       child: Padding(
         padding: const EdgeInsets.all(12),
@@ -450,9 +579,11 @@ class _OptionCard extends StatelessWidget {
               width: 40,
               height: 40,
               decoration: BoxDecoration(
-                color: cs.primaryContainer.withValues(alpha: 0.65),
+                color: cs.primaryContainer.withOpacity(0.65),
                 borderRadius: BorderRadius.circular(14),
-                border: Border.all(color: cs.outlineVariant.withValues(alpha: 0.22)),
+                border: Border.all(
+                  color: cs.outlineVariant.withOpacity(0.22),
+                ),
               ),
               child: Icon(option.icon, color: cs.onPrimaryContainer),
             ),
@@ -470,7 +601,7 @@ class _OptionCard extends StatelessWidget {
                   Text(
                     option.subtitle,
                     style: theme.textTheme.bodySmall?.copyWith(
-                      color: cs.onSurface.withValues(alpha: 0.72),
+                      color: cs.onSurface.withOpacity(0.72),
                       fontWeight: FontWeight.w700,
                     ),
                   ),

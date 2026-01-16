@@ -147,6 +147,7 @@ The Signal Tester is designed to help discover unknown working IR commands.
 | SONY15 | 4 hex → 15 bits (from 16 padded) | 40,000 | Same timings as SONY12; remove last duration; pad to 45,000µs; duplicate frame | Strict 4 hex |
 | SONY20 | 5 hex → 20 bits | 40,000 | Same timings as SONY12; remove last duration; pad to 45,000µs; duplicate frame | Strict 5 hex |
 | Thomson7 | 3 hex (int) | 33,000 | Mask 0xF7F; 12 bits = last4 + toggle + first7; 0=[460,2000]; 1=[460,4600]; append 460; pad to 80,000µs; duplicate frame | Toggle maintained; hex int input with min/max |
+| Kaseikyo (Panasonic) | 6 hex → 24 bits (Address12 + Command8 + VendorParity/ignored) | 37,000 | Header 3456/1728; bit mark 432, space 432 (0) or 1296 (1); this finder uses a 24-bit payload (address:12 + command:8 + low vendor nibble) to search; production encoder computes full 48-bit frame with vendor parity and 8-bit XOR parity | Use vendor defaults or provide vendor/address/command when creating a button in remotes |
 
 Notes:
 - Protocol identifiers and display names are maintained in `lib/ir/ir_protocol_registry.dart`.

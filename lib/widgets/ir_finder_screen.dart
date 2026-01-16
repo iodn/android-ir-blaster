@@ -1,8 +1,10 @@
 import 'dart:async';
 
 import 'package:flutter/material.dart';
+import 'package:irblaster_controller/state/haptics.dart';
 import 'package:flutter/services.dart';
 import 'package:irblaster_controller/ir/ir_protocol_registry.dart';
+import 'package:irblaster_controller/state/orientation_pref.dart';
 import 'package:irblaster_controller/ir/ir_protocol_types.dart';
 import 'package:irblaster_controller/ir_finder/ir_finder_models.dart';
 import 'package:irblaster_controller/ir_finder/ir_prefix.dart';
@@ -69,6 +71,7 @@ class _IrFinderScreenState extends State<IrFinderScreen> {
 
   // Protocol hex-length constraints
   static const Map<String, String> _protocolExampleHex = <String, String>{
+    'kaseikyo': '000000',
     'denon': '0000',
     'f12_relaxed': '100',
     'jvc': '0000',
@@ -276,7 +279,17 @@ class _IrFinderScreenState extends State<IrFinderScreen> {
     return s.trim().toLowerCase().replaceAll('-', '_');
   }
 
-  static String _composeHex({
+  // Kaseikyo vendor selection for brute-force
+  String _kaseikyoVendor = '2002'; // Panasonic default
+  static const Map<String,String> _kaseikyoVendorPresets = {
+    'Panasonic': '2002',
+    'Denon': '3254',
+    'Mitsubishi': 'CB23',
+    'Sharp': '5AAA',
+    'JVC': '0103',
+  };
+
+ static String _composeHex({
     required int totalHexDigits,
     required BigInt cursor,
     required List<int> prefixBytes,
@@ -376,7 +389,11 @@ class _IrFinderScreenState extends State<IrFinderScreen> {
         prefixBytes: (prefix != null && prefix.valid) ? prefix.bytes : const <int>[],
       );
 
-      final params = IrFinderParams.buildParamsForProtocol(_protocolId, codeHex);
+      final params = IrFinderParams.buildParamsForProtocol(
+        _protocolId,
+        codeHex,
+        kaseikyoVendor: _protocolId.trim().toLowerCase() == 'kaseikyo' ? _kaseikyoVendor : null,
+      );
 
       final candidate = IrFinderCandidate(
         protocolId: _protocolId,
@@ -629,8 +646,8 @@ class _IrFinderScreenState extends State<IrFinderScreen> {
 
     ScaffoldMessenger.of(context).showSnackBar(
       const SnackBar(content: Text('Saved to Results.')),
-    );
-    HapticFeedback.selectionClick();
+   );
+   Haptics.selectionClick();
   }
 
   Future<void> _testHit(IrFinderHit h) async {
@@ -669,8 +686,8 @@ class _IrFinderScreenState extends State<IrFinderScreen> {
     if (!mounted) return;
     ScaffoldMessenger.of(context).showSnackBar(
       const SnackBar(content: Text('Copied (protocol:code).')),
-    );
-    HapticFeedback.selectionClick();
+   );
+   Haptics.selectionClick();
   }
 
   Future<void> _pickBrand() async {
@@ -763,13 +780,24 @@ class _IrFinderScreenState extends State<IrFinderScreen> {
         title: const Text('IR Signal Tester'),
         actions: [
           IconButton(
+            tooltip: RemoteOrientationController.instance.flipped ? 'Orientation: flipped (tap to normal)' : 'Orientation: normal (tap to flip)',
+            onPressed: () async {
+              final next = !RemoteOrientationController.instance.flipped;
+              await RemoteOrientationController.instance.setFlipped(next);
+              setState(() {});
+            },
+            icon: const Icon(Icons.screen_rotation_rounded),
+          ),
+          IconButton(
             tooltip: 'Stop',
             onPressed: _running ? _stop : null,
             icon: const Icon(Icons.stop_circle_outlined),
           ),
         ],
       ),
-      body: IndexedStack(
+      body: Transform.rotate(
+        angle: RemoteOrientationController.instance.flipped ? 3.1415926535897932 : 0.0,
+        child: IndexedStack(
         index: _pageIndex,
         children: <Widget>[
           _buildSetupPage(
@@ -786,7 +814,8 @@ class _IrFinderScreenState extends State<IrFinderScreen> {
           _buildResultsPage(theme: theme),
         ],
       ),
-      bottomNavigationBar: NavigationBar(
+     ),
+     bottomNavigationBar: NavigationBar(
         selectedIndex: _pageIndex,
         onDestinationSelected: (i) {
           setState(() => _pageIndex = i);
@@ -961,6 +990,7 @@ class _IrFinderScreenState extends State<IrFinderScreen> {
   }
 
   Widget _buildTestPage({required ThemeData theme, required int maxAttemptsUi}) {
+    final bool isKaseikyo = _protocolId.trim().toLowerCase() == 'kaseikyo';
     return ListView(
       padding: const EdgeInsets.all(16),
       children: [
@@ -971,6 +1001,49 @@ class _IrFinderScreenState extends State<IrFinderScreen> {
           onStop: _running ? _stop : null,
         ),
         const SizedBox(height: 12),
+        if (isKaseikyo) ...[
+          Card(
+            child: Padding(
+              padding: const EdgeInsets.all(12),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Row(
+                    children: [
+                      const Icon(Icons.factory_outlined, size: 18),
+                      const SizedBox(width: 8),
+                      Text('Kaseikyo Vendor', style: theme.textTheme.titleSmall?.copyWith(fontWeight: FontWeight.w800)),
+                    ],
+                  ),
+                  const SizedBox(height: 8),
+                  Wrap(
+                    spacing: 8,
+                    runSpacing: 8,
+                    children: _kaseikyoVendorPresets.entries.map((e) {
+                      final selected = _kaseikyoVendor.toUpperCase() == e.value.toUpperCase();
+                      return ChoiceChip(
+                        label: Text('${e.key} (${e.value})'),
+                        selected: selected,
+                        onSelected: (_) => setState(() => _kaseikyoVendor = e.value),
+                      );
+                    }).toList(),
+                  ),
+                  const SizedBox(height: 10),
+                  TextField(
+                    decoration: const InputDecoration(
+                      labelText: 'Custom vendor (4 hex)',
+                      prefixIcon: Icon(Icons.edit_outlined),
+                      border: OutlineInputBorder(),
+                    ),
+                    controller: TextEditingController(text: _kaseikyoVendor),
+                    onChanged: (v) => setState(() => _kaseikyoVendor = v.toUpperCase().replaceAll(RegExp(r'[^0-9A-Fa-f]'), '')),
+                  ),
+                ],
+              ),
+            ),
+          ),
+        ],
+
         _RunStatusCard(
           theme: theme,
           mode: _mode,
@@ -1169,6 +1242,7 @@ class _ProtocolPicker extends StatelessWidget {
     'denon',
     'f12_relaxed',
     'jvc',
+    'kaseikyo',
     'pioneer',
     'proton',
     'rc5',

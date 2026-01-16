@@ -5,6 +5,9 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:irblaster_controller/state/app_theme.dart';
 import 'package:irblaster_controller/state/dynamic_color.dart';
+import 'package:irblaster_controller/state/haptics.dart';
+import 'package:irblaster_controller/state/orientation_pref.dart';
+import 'package:irblaster_controller/state/transmitter_prefs.dart';
 import 'package:irblaster_controller/state/remotes_state.dart';
 import 'package:irblaster_controller/state/macros_state.dart';
 import 'package:irblaster_controller/utils/remote.dart';
@@ -25,6 +28,14 @@ Future<void> main() async {
   try {
     await AppThemeController.instance.load();
     await DynamicColorController.instance.load();
+    // Load global interaction preferences
+    await Future.wait([
+      HapticsController.instance.load(),
+      RemoteOrientationController.instance.load(),
+      TransmitterPrefs.instance.load(),
+      // lazy import to avoid circulars; we refer by string to keep tool happy
+    ]);
+ } catch (e, st) {
   } catch (e, st) {
     debugPrint('Failed to load theme preference: $e\n$st');
   }

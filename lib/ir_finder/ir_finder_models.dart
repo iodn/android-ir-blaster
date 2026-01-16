@@ -184,6 +184,12 @@ class IrFinderBruteSpec {
           totalHexDigits: 8,
           displayName: 'RC6',
         );
+      case 'kaseikyo':
+        return const IrFinderBruteSpec(
+          protocolId: 'kaseikyo',
+          totalHexDigits: 6, // use command+address as 3 bytes
+          displayName: 'Kaseikyo (Panasonic)',
+        );
       default:
         return IrFinderBruteSpec(
           protocolId: id,
@@ -293,12 +299,33 @@ class IrFinderParams {
   static Map<String, dynamic> buildParamsForProtocol(
     String protocolId,
     String codeHex,
+    {String? kaseikyoVendor}
   ) {
+    final id = protocolId.trim().toLowerCase();
+    final String cleaned = _cleanHex(codeHex).toUpperCase();
+
+    // Special handling for structured protocols that are not single-field hex
+    if (id == 'kaseikyo') {
+      // Finder uses 6 hex (24 bits): AAA (address12) + CC (command8) + V (vendor nibble, ignored)
+      final String six = cleaned.padLeft(6, '0').substring(cleaned.length > 6 ? cleaned.length - 6 : 0);
+      final String addr = six.substring(0, 3);
+      final String cmd = six.substring(3, 5);
+      // Vendor selection comes from Finder (default Panasonic 2002)
+      final String vendor = (kaseikyoVendor != null && kaseikyoVendor.trim().isNotEmpty)
+          ? kaseikyoVendor.trim().toUpperCase()
+          : '2002';
+      return <String, dynamic>{
+        'protocolId': 'kaseikyo',
+        'vendor': vendor,
+        'address': addr,
+        'command': cmd,
+      };
+    }
+
     final enc = IrProtocolRegistry.encoderFor(protocolId);
     final def = enc.definition;
 
     final String key = _pickPrimaryFieldId(def);
-    final String cleaned = _cleanHex(codeHex);
 
     return <String, dynamic>{
       'protocolId': protocolId,

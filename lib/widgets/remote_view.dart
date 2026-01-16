@@ -2,11 +2,14 @@ import 'dart:async';
 import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:irblaster_controller/state/haptics.dart';
 import 'package:irblaster_controller/ir/ir_protocol_registry.dart';
 import 'package:irblaster_controller/state/remotes_state.dart';
+import 'package:irblaster_controller/state/orientation_pref.dart';
 import 'package:irblaster_controller/utils/ir.dart';
 import 'package:irblaster_controller/utils/remote.dart';
 import 'package:irblaster_controller/widgets/create_remote.dart';
+import 'package:reorderable_grid_view/reorderable_grid_view.dart';
 
 class RemoteView extends StatefulWidget {
   final Remote remote;
@@ -25,6 +28,10 @@ class RemoteView extends StatefulWidget {
 }
 
 class RemoteViewState extends State<RemoteView> {
+  bool _reorderMode = false;
+  // If true, rotate the entire remote UI by 180° so labels are upright when the phone is inverted.
+  bool _rotate180 = false;
+  final RemoteOrientationController _orientation = RemoteOrientationController.instance;
   late Remote _remote;
 
   static const Duration _kLoopInterval = Duration(milliseconds: 250);
@@ -39,6 +46,8 @@ class RemoteViewState extends State<RemoteView> {
   void initState() {
     super.initState();
     _remote = widget.remote;
+    // initialize orientation from global preference
+    _rotate180 = _orientation.flipped;
     hasIrEmitter().then((value) {
       if (!value && mounted) {
         showDialog<void>(
@@ -87,7 +96,7 @@ class RemoteViewState extends State<RemoteView> {
   }
 
   Future<void> _sendOnce(IRButton button, {bool silent = false}) async {
-    if (!silent) HapticFeedback.lightImpact();
+    if (!silent) await Haptics.lightImpact();
     try {
       await sendIR(button);
     } catch (e) {
@@ -143,7 +152,7 @@ class RemoteViewState extends State<RemoteView> {
         duration: const Duration(seconds: 3),
       ),
     );
-    HapticFeedback.selectionClick();
+    Haptics.selectionClick();
   }
 
   void _stopLoop({bool silent = false}) {
@@ -162,7 +171,7 @@ class RemoteViewState extends State<RemoteView> {
           duration: Duration(seconds: 2),
         ),
       );
-      HapticFeedback.selectionClick();
+      Haptics.selectionClick();
     }
   }
 
@@ -333,15 +342,30 @@ class RemoteViewState extends State<RemoteView> {
   }
 
   String? _displayHex(IRButton b) {
+    // Prefer explicit hex in protocolParams if present; fallback to code/raw-derived extractions.
+
     if (_isRawSignalButton(b)) return null;
     if (_hasProtocol(b)) {
       final params = _protocolParams(b);
+      // 1) Generic hex field provided by imports
       final dynamic hexDyn = params?['hex'];
       if (hexDyn is String && hexDyn.trim().isNotEmpty) {
         final extracted = _extractHexToken(hexDyn.trim());
         if (extracted == null) return null;
         final int minWidth = extracted.length >= 8 ? 8 : 4;
         return extracted.padLeft(minWidth, '0');
+      }
+      // 2) Structured protocol display fallbacks
+      final String protoId = b.protocol!.trim().toLowerCase();
+      if (protoId == 'kaseikyo') {
+        final String? vendor = (params?['vendor'] as String?)?.toUpperCase();
+        final String? address = (params?['address'] as String?)?.toUpperCase();
+        final String? command = (params?['command'] as String?)?.toUpperCase();
+        if (vendor != null && address != null && command != null &&
+            vendor.isNotEmpty && address.isNotEmpty && command.isNotEmpty) {
+          // Concatenate for display: VVVV + AAA + CC (e.g., 2002 080 76 -> 200208076)
+          return (vendor + address + command).replaceAll(RegExp(r'\s+'), '');
+        }
       }
     }
     final int? v = b.code;
@@ -729,12 +753,38 @@ class RemoteViewState extends State<RemoteView> {
           ],
         ),
         actions: [
+          IconButton(
+            tooltip: _rotate180 ? 'Orientation: flipped (tap to normal)' : 'Orientation: normal (tap to flip)',
+            onPressed: () async {
+              final next = !_rotate180;
+              setState(() => _rotate180 = next);
+              await _orientation.setFlipped(next);
+            },
+            icon: const Icon(Icons.screen_rotation_rounded),
+          ),
           if (_isLooping)
             IconButton(
               tooltip: 'Stop loop',
               onPressed: () => _stopLoop(silent: false),
               icon: Icon(Icons.stop_circle_rounded, color: cs.error),
             ),
+          IconButton(
+            tooltip: _reorderMode ? 'Done' : 'Reorder buttons',
+            onPressed: () {
+              setState(() => _reorderMode = !_reorderMode);
+              Haptics.selectionClick();
+              if (_reorderMode && mounted) {
+                ScaffoldMessenger.of(context).hideCurrentSnackBar();
+                ScaffoldMessenger.of(context).showSnackBar(
+                  const SnackBar(
+                    content: Text('Reorder mode: long-press and drag a button to move it.'),
+                    duration: Duration(seconds: 2),
+                  ),
+                );
+              }
+            },
+            icon: Icon(_reorderMode ? Icons.check_rounded : Icons.drag_indicator_rounded),
+          ),
           IconButton(
             tooltip: 'Manage remote',
             onPressed: _openRemoteActionsSheet,
@@ -743,18 +793,48 @@ class RemoteViewState extends State<RemoteView> {
         ],
       ),
       body: SafeArea(
-        child: count == 0
-            ? _EmptyRemoteState(onManage: _openRemoteActionsSheet)
-            : (useNewStyle ? _buildComfortGrid() : _buildCompactGrid()),
+        child: WillPopScope(
+          onWillPop: _onWillPop,
+          child: Column(
+            children: [
+              AnimatedSwitcher(
+                duration: const Duration(milliseconds: 180),
+                child: (!_reorderMode || count == 0)
+                    ? const SizedBox.shrink()
+                    : _ReorderHintBanner(
+                        key: const ValueKey('reorder_hint'),
+                        onDone: () => setState(() => _reorderMode = false),
+                      ),
+              ),
+              Expanded(
+                child: Transform.rotate(
+                  angle: _rotate180 ? 3.1415926535897932 : 0.0,
+                  child: count == 0
+                      ? _EmptyRemoteState(onManage: _openRemoteActionsSheet)
+                      : (useNewStyle ? _buildComfortGrid() : _buildCompactGrid()),
+                ),
+              ),
+            ],
+          ),
+        ),
       ),
     );
   }
 
+  Future<bool> _onWillPop() async {
+    if (_reorderMode) {
+      setState(() => _reorderMode = false);
+      return false;
+    }
+    return true;
+  }
+
   Widget _buildCompactGrid() {
+    final dragDelay = _reorderMode ? const Duration(milliseconds: 200) : const Duration(days: 3650);
     final theme = Theme.of(context);
     final cs = theme.colorScheme;
     final cardColor = cs.primary.withValues(alpha: 0.20);
-    return GridView.builder(
+    return ReorderableGridView.builder(
       padding: EdgeInsets.fromLTRB(
         12,
         12,
@@ -762,6 +842,7 @@ class RemoteViewState extends State<RemoteView> {
         12 + MediaQuery.of(context).padding.bottom,
       ),
       itemCount: _remote.buttons.length,
+      dragStartDelay: dragDelay,
       gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
         crossAxisCount: 4,
         mainAxisSpacing: 10,
@@ -792,12 +873,13 @@ class RemoteViewState extends State<RemoteView> {
                 ),
               );
         return Material(
+          key: ValueKey(button.id),
           color: cardColor,
           borderRadius: BorderRadius.circular(14),
           clipBehavior: Clip.antiAlias,
           child: InkWell(
             onTap: () => _handleButtonPress(button),
-            onLongPress: () => _openButtonActions(button),
+            onLongPress: _reorderMode ? null : () => _openButtonActions(button),
             child: Stack(
               children: [
                 Positioned.fill(
@@ -824,14 +906,30 @@ class RemoteViewState extends State<RemoteView> {
           ),
         );
       },
+      onReorder: (oldIndex, newIndex) async {
+        if (!_reorderMode) return;
+        setState(() {
+          if (newIndex > oldIndex) newIndex--;
+          final moved = _remote.buttons.removeAt(oldIndex);
+          _remote.buttons.insert(newIndex, moved);
+        });
+        final idx = _findRemoteIndexInGlobalList();
+        if (idx >= 0) {
+          remotes[idx] = _remote;
+          await writeRemotelist(remotes);
+          notifyRemotesChanged();
+        }
+        if (mounted) Haptics.selectionClick();
+      },
     );
   }
 
   Widget _buildComfortGrid() {
+    final dragDelay = _reorderMode ? const Duration(milliseconds: 200) : const Duration(days: 3650);
     final theme = Theme.of(context);
     final cs = theme.colorScheme;
     final cardColor = cs.primary.withValues(alpha: 0.20);
-    return GridView.builder(
+    return ReorderableGridView.builder(
       padding: EdgeInsets.fromLTRB(
         12,
         12,
@@ -845,6 +943,22 @@ class RemoteViewState extends State<RemoteView> {
         crossAxisSpacing: 12,
       ),
       itemCount: _remote.buttons.length,
+      dragStartDelay: dragDelay,
+      onReorder: (oldIndex, newIndex) async {
+        if (!_reorderMode) return;
+        setState(() {
+          if (newIndex > oldIndex) newIndex--;
+          final moved = _remote.buttons.removeAt(oldIndex);
+          _remote.buttons.insert(newIndex, moved);
+        });
+        final idx = _findRemoteIndexInGlobalList();
+        if (idx >= 0) {
+          remotes[idx] = _remote;
+          await writeRemotelist(remotes);
+          notifyRemotesChanged();
+        }
+        if (mounted) Haptics.selectionClick();
+      },
       itemBuilder: (context, index) {
         final IRButton button = _remote.buttons[index];
         final bool isRaw = _isRawSignalButton(button);
@@ -854,6 +968,7 @@ class RemoteViewState extends State<RemoteView> {
         final String? displayHex = _displayHex(button);
         final String codeText = isRaw ? 'RAW' : (displayHex ?? 'NO CODE');
         return Card(
+          key: ValueKey(button.id),
           elevation: 0,
           shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(16),
@@ -863,7 +978,7 @@ class RemoteViewState extends State<RemoteView> {
           clipBehavior: Clip.antiAlias,
           child: InkWell(
             onTap: () => _handleButtonPress(button),
-            onLongPress: () => _openButtonActions(button),
+            onLongPress: _reorderMode ? null : () => _openButtonActions(button),
             child: Padding(
               padding: const EdgeInsets.all(14),
               child: Column(
@@ -914,6 +1029,44 @@ class RemoteViewState extends State<RemoteView> {
           ),
         );
       },
+    );
+  }
+}
+
+class _ReorderHintBanner extends StatelessWidget {
+  final VoidCallback onDone;
+
+  const _ReorderHintBanner({super.key, required this.onDone});
+
+  @override
+  Widget build(BuildContext context) {
+    final theme = Theme.of(context);
+    final cs = theme.colorScheme;
+    return Material(
+      color: cs.secondaryContainer.withValues(alpha: 0.55),
+      child: Padding(
+        padding: const EdgeInsets.fromLTRB(16, 10, 12, 10),
+        child: Row(
+          children: [
+            Icon(Icons.drag_indicator_rounded, color: cs.onSecondaryContainer.withValues(alpha: 0.9)),
+            const SizedBox(width: 10),
+            Expanded(
+              child: Text(
+                'Reorder mode: long-press and drag a button to move it.',
+                style: theme.textTheme.bodyMedium?.copyWith(
+                  fontWeight: FontWeight.w700,
+                  color: cs.onSecondaryContainer.withValues(alpha: 0.92),
+                ),
+              ),
+            ),
+            const SizedBox(width: 8),
+            FilledButton.tonal(
+              onPressed: onDone,
+              child: const Text('Done'),
+            ),
+          ],
+        ),
+      ),
     );
   }
 }

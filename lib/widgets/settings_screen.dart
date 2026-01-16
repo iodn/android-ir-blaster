@@ -1,12 +1,15 @@
 import 'dart:async';
 
 import 'package:flutter/material.dart';
+import 'package:irblaster_controller/state/orientation_pref.dart';
 import 'package:flutter/services.dart';
+import 'package:irblaster_controller/state/haptics.dart';
 import 'package:irblaster_controller/state/app_theme.dart';
 import 'package:irblaster_controller/state/dynamic_color.dart';
 import 'package:irblaster_controller/state/macros_state.dart';
 import 'package:irblaster_controller/state/remotes_state.dart';
 import 'package:irblaster_controller/utils/ir_transmitter_platform.dart';
+import 'package:irblaster_controller/state/transmitter_prefs.dart';
 import 'package:irblaster_controller/utils/macros_io.dart';
 import 'package:irblaster_controller/utils/remote.dart';
 import 'package:irblaster_controller/utils/remotes_io.dart';
@@ -63,7 +66,7 @@ class SettingsScreen extends StatelessWidget {
     await Clipboard.setData(ClipboardData(text: text));
     if (!context.mounted) return;
     ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text(message)));
-    HapticFeedback.selectionClick();
+    await Haptics.selectionClick();
   }
 
   Future<bool> _confirmAction(
@@ -207,7 +210,7 @@ class SettingsScreen extends StatelessWidget {
 
   Future<void> _changeTheme(BuildContext context, ThemeMode mode) async {
     await AppThemeController.instance.setMode(mode);
-    HapticFeedback.selectionClick();
+    await Haptics.selectionClick();
   }
 
   String _getThemeName(ThemeMode mode) {
@@ -265,6 +268,8 @@ class SettingsScreen extends StatelessWidget {
           _buildSupportSection(context),
           const SizedBox(height: 10),
           _buildAppearanceSection(context),
+          const SizedBox(height: 10),
+          _buildInteractionSection(context),
           const SizedBox(height: 10),
           _buildIrTransmitterSection(cs),
           const SizedBox(height: 10),
@@ -440,7 +445,7 @@ class SettingsScreen extends StatelessWidget {
                     value: DynamicColorController.instance.enabled,
                     onChanged: (v) async {
                       await DynamicColorController.instance.setEnabled(v);
-                      HapticFeedback.selectionClick();
+                      await Haptics.selectionClick();
                     },
                   ),
                   Row(
@@ -522,7 +527,85 @@ class SettingsScreen extends StatelessWidget {
     );
   }
 
+  Widget _buildInteractionSection(BuildContext context) {
+    final orientationCtrl = RemoteOrientationController.instance;
+    final theme = Theme.of(context);
+    final cs = theme.colorScheme;
+
+    return Padding(
+      padding: const EdgeInsets.symmetric(horizontal: 16),
+      child: SectionCard(
+        title: 'Interaction',
+        subtitle: 'Touch feedback and remote layout',
+        leading: Icon(Icons.vibration_rounded, color: cs.primary),
+        child: Column(
+          children: [
+            AnimatedBuilder(
+              animation: HapticsController.instance,
+              builder: (context, _) {
+                final enabled = HapticsController.instance.enabled;
+                final intensity = HapticsController.instance.intensity.clamp(1, 3);
+                return Column(
+                  crossAxisAlignment: CrossAxisAlignment.stretch,
+                  children: [
+                    SwitchListTile.adaptive(
+                      secondary: const Icon(Icons.vibration_rounded),
+                      title: const Text('Haptic feedback'),
+                      subtitle: const Text('Vibrate on taps and actions'),
+                      value: enabled,
+                      onChanged: (v) => HapticsController.instance.setEnabled(v),
+                    ),
+                    Padding(
+                      padding: const EdgeInsets.only(left: 56, right: 12, bottom: 8),
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Text('Intensity', style: Theme.of(context).textTheme.labelMedium),
+                          const SizedBox(height: 6),
+                          SegmentedButton<int>(
+                            segments: const [
+                              ButtonSegment(value: 1, label: Text('Light')),
+                              ButtonSegment(value: 2, label: Text('Medium')),
+                              ButtonSegment(value: 3, label: Text('Strong')),
+                            ],
+                            selected: <int>{intensity},
+                            onSelectionChanged: enabled
+                                ? (s) => HapticsController.instance.setIntensity(s.first)
+                                : null,
+                          ),
+                        ],
+                      ),
+                    ),
+                  ],
+                );
+              },
+            ),
+            const Divider(height: 1),
+            AnimatedBuilder(
+              animation: orientationCtrl,
+              builder: (context, _) {
+                return SwitchListTile.adaptive(
+                  secondary: const Icon(Icons.screen_rotation_rounded),
+                  title: const Text('Flip Remote View by default'),
+                  subtitle: const Text('Open Remote screens rotated 180° (for top-mounted USB dongles).'),
+                  value: orientationCtrl.flipped,
+                  onChanged: (v) async {
+                    await orientationCtrl.setFlipped(v);
+                    ScaffoldMessenger.of(context).showSnackBar(
+                      SnackBar(content: Text(v ? 'Remote View will open flipped.' : 'Remote View will open normally.')),
+                    );
+                  },
+                );
+              },
+            ),
+          ],
+        ),
+      ),
+    );
+  }
+
   Widget _buildRemotesSection(BuildContext context) {
+    final orientationCtrl = RemoteOrientationController.instance;
     final theme = Theme.of(context);
     final cs = theme.colorScheme;
 
@@ -752,6 +835,11 @@ class _IrTransmitterCardState extends State<_IrTransmitterCard> {
   bool _autoSwitchEnabled = false;
   bool _openOnUsbAttachEnabled = false;
 
+  // Auto-suggest Audio mode for USB Audio dongles
+  bool _autoSelectAudioForUsb = TransmitterPrefs.instance.autoSelectAudioForUsbAudio;
+  bool _showAudioSuggest = false;
+  bool _suggestedThisAttach = false;
+
   StreamSubscription<IrTransmitterCapabilities>? _capsSub;
 
   @override
@@ -759,6 +847,7 @@ class _IrTransmitterCardState extends State<_IrTransmitterCard> {
     super.initState();
     _capsSub = IrTransmitterPlatform.capabilitiesEvents().listen(
       (caps) {
+        final prevUsbReady = _caps?.usbReady ?? false;
         if (!mounted) return;
 
         final hasInternal = caps.hasInternal;
@@ -771,9 +860,19 @@ class _IrTransmitterCardState extends State<_IrTransmitterCard> {
           _active = caps.currentType;
           _autoSwitchEnabled = autoSwitch;
           _loading = false;
-        });
+         // Suggest Audio (1 LED) if a USB Audio device is ready and user prefers auto-suggest
+         final bool activeIsAudio = caps.currentType == IrTransmitterType.audio1Led || caps.currentType == IrTransmitterType.audio2Led;
+         if (_autoSelectAudioForUsb && caps.hasUsb && caps.usbReady && !activeIsAudio && !_suggestedThisAttach) {
+           _showAudioSuggest = true;
+         }
+       });
 
-        if (!hasInternal && _preferred == IrTransmitterType.internal) {
+       // Reset suggestion state on fresh USB permission grant
+       if (caps.usbReady && !prevUsbReady) {
+         _suggestedThisAttach = false;
+       }
+
+       if (!hasInternal && _preferred == IrTransmitterType.internal) {
           setState(() {
             _preferred = IrTransmitterType.usb;
           });
@@ -1130,6 +1229,49 @@ class _IrTransmitterCardState extends State<_IrTransmitterCard> {
       padding: const EdgeInsets.all(12),
       child: Column(
         children: [
+          if (_showAudioSuggest) ...[
+            MaterialBanner(
+              content: const Text('USB Audio dongle detected. Use Audio (1 LED) to transmit IR?'),
+              leading: const Icon(Icons.volume_up_rounded),
+              actions: [
+                TextButton(
+                  onPressed: _busy
+                      ? null
+                      : () async {
+                          setState(() {
+                            _busy = true;
+                          });
+                          try {
+                            await IrTransmitterPlatform.setPreferredType(IrTransmitterType.audio1Led);
+                            await IrTransmitterPlatform.setActiveType(IrTransmitterType.audio1Led);
+                            if (!mounted) return;
+                            ScaffoldMessenger.of(context).showSnackBar(
+                              const SnackBar(content: Text('Audio (1 LED) selected. Use high media volume.')),
+                            );
+                          } catch (_) {}
+                          if (!mounted) return;
+                          setState(() {
+                            _busy = false;
+                            _showAudioSuggest = false;
+                            _suggestedThisAttach = true;
+                          });
+                          await _refreshCaps();
+                        },
+                  child: const Text('Use Audio'),
+                ),
+                TextButton(
+                  onPressed: () {
+                    setState(() {
+                      _showAudioSuggest = false;
+                      _suggestedThisAttach = true;
+                    });
+                  },
+                  child: const Text('Not now'),
+                ),
+              ],
+            ),
+            const SizedBox(height: 8),
+          ],
           ListTile(
             contentPadding: EdgeInsets.zero,
             leading: Icon(_iconFor(effective), color: cs.primary),
@@ -1156,7 +1298,7 @@ class _IrTransmitterCardState extends State<_IrTransmitterCard> {
                   : (caps.hasInternal ? 'Uses USB when connected, otherwise Internal' : 'Unavailable on this device'),
             ),
           ),
-          const Divider(height: 18),
+         const Divider(height: 18),
           SwitchListTile(
             contentPadding: EdgeInsets.zero,
             value: _openOnUsbAttachEnabled,

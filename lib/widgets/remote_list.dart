@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:irblaster_controller/state/haptics.dart';
 import 'package:irblaster_controller/state/remotes_state.dart';
 import 'package:irblaster_controller/utils/remote.dart';
 import 'package:irblaster_controller/widgets/create_remote.dart';
@@ -25,7 +26,7 @@ class _RemoteListState extends State<RemoteList> {
   void _setReorderMode(bool v) {
     if (_reorderMode == v) return;
     setState(() => _reorderMode = v);
-    HapticFeedback.selectionClick();
+    Haptics.selectionClick();
     if (v && mounted) {
       ScaffoldMessenger.of(context).hideCurrentSnackBar();
       ScaffoldMessenger.of(context).showSnackBar(
@@ -128,7 +129,7 @@ class _RemoteListState extends State<RemoteList> {
       await writeRemotelist(remotes);
       notifyRemotesChanged();
       if (!mounted) return;
-      HapticFeedback.selectionClick();
+      Haptics.selectionClick();
       ScaffoldMessenger.of(context).showSnackBar(
         SnackBar(content: Text('Updated "${editedRemote.name}".')),
       );
@@ -147,7 +148,7 @@ class _RemoteListState extends State<RemoteList> {
     await writeRemotelist(remotes);
     notifyRemotesChanged();
     if (!mounted) return;
-    HapticFeedback.selectionClick();
+    Haptics.selectionClick();
     ScaffoldMessenger.of(context).showSnackBar(
       SnackBar(
         content: Text('Deleted "${remote.name}". This action can\'t be undone.'),
@@ -411,7 +412,7 @@ class _RemoteListState extends State<RemoteList> {
                                   await writeRemotelist(remotes);
                                   notifyRemotesChanged();
                                   if (!mounted) return;
-                                  HapticFeedback.selectionClick();
+                                  Haptics.selectionClick();
                                 },
                               );
                             },

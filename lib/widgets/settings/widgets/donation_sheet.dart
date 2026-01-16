@@ -1,6 +1,7 @@
 import 'dart:convert';
 import 'dart:typed_data';
 import 'package:flutter/material.dart';
+import 'package:irblaster_controller/state/haptics.dart';
 import 'package:flutter/services.dart';
 import 'package:url_launcher/url_launcher.dart';
 
@@ -208,7 +209,7 @@ class _DonationSheetState extends State<DonationSheet> {
 
     if (selected == null) return;
     setState(() => _focusId = selected.isEmpty ? null : selected);
-    HapticFeedback.selectionClick();
+    Haptics.selectionClick();
   }
 
   @override

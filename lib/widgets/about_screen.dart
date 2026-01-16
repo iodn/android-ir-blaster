@@ -1,4 +1,5 @@
 import 'package:flutter/foundation.dart';
+import 'package:irblaster_controller/state/haptics.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:package_info_plus/package_info_plus.dart';
@@ -67,7 +68,7 @@ class _AboutScreenState extends State<AboutScreen> {
         behavior: SnackBarBehavior.floating,
       ),
     );
-    HapticFeedback.selectionClick();
+    await Haptics.selectionClick();
   }
 
   Future<void> _launchExternal(BuildContext context, String url) async {

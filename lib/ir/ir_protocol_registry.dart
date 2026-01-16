@@ -19,6 +19,7 @@ import 'protocols/rec80.dart';
 import 'protocols/recs80.dart';
 import 'protocols/recs80_l.dart';
 import 'protocols/samsung36.dart';
+import 'protocols/kaseikyo.dart';
 import 'protocols/sharp.dart';
 import 'protocols/sony12.dart';
 import 'protocols/sony15.dart';
@@ -50,6 +51,7 @@ class IrProtocolIds {
   static const String sony15 = 'sony15';
   static const String sony20 = 'sony20';
   static const String thomson7 = 'thomson7';
+  static const String kaseikyo = 'kaseikyo';
 }
 
 class IrProtocolRegistry {
@@ -75,6 +77,7 @@ class IrProtocolRegistry {
     recs80LProtocolDefinition.id: recs80LProtocolDefinition,
     samsung36ProtocolDefinition.id: samsung36ProtocolDefinition,
     sharpProtocolDefinition.id: sharpProtocolDefinition,
+    kaseikyoProtocolDefinition.id: kaseikyoProtocolDefinition,
     sony12ProtocolDefinition.id: sony12ProtocolDefinition,
     sony15ProtocolDefinition.id: sony15ProtocolDefinition,
     sony20ProtocolDefinition.id: sony20ProtocolDefinition,
@@ -108,6 +111,8 @@ class IrProtocolRegistry {
 
     Samsung36ProtocolEncoder.protocolId: const Samsung36ProtocolEncoder(),
     SharpProtocolEncoder.protocolId: const SharpProtocolEncoder(),
+
+    KaseikyoProtocolEncoder.protocolId: const KaseikyoProtocolEncoder(),
 
     Sony12ProtocolEncoder.protocolId: const Sony12ProtocolEncoder(),
     Sony15ProtocolEncoder.protocolId: const Sony15ProtocolEncoder(),
