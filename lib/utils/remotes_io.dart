@@ -335,41 +335,37 @@ Remote? _parseFlipperIrFile(String content) {
       final protoMatch = RegExp(r'protocol:\s*(.+)').firstMatch(block);
       final protocolName = protoMatch?.group(1)?.trim();
       final mappedProtocol = _mapFlipperProtocol(protocolName);
+
       final nameMatch = RegExp(r'name:\s*(.+)').firstMatch(block);
-      final addressMatch = RegExp(r'address:\s*([0-9A-Fa-f]{2})\s+([0-9A-Fa-f]{2})')
-          .firstMatch(block);
-      final commandMatch = RegExp(r'command:\s*([0-9A-Fa-f]{2})\s+([0-9A-Fa-f]{2})')
-          .firstMatch(block);
+      if (nameMatch == null) continue;
+      final String name = nameMatch.group(1)!.trim();
 
-      if (nameMatch != null && addressMatch != null && commandMatch != null) {
-        final String name = nameMatch.group(1)!.trim();
+      // --- FLIPPER-ONLY KASEIKYO IMPORT ---
+      // Keep address(4 bytes) and command(4 bytes) EXACTLY as written in .ir
+      // Encoder will re-transmit Flipper-identical signal.
+      if (mappedProtocol == 'kaseikyo') {
+        final String? fullAddr = RegExp(
+                r'address:\s*(([0-9A-Fa-f]{2}\s+){3}[0-9A-Fa-f]{2})')
+            .firstMatch(block)
+            ?.group(1);
+        final String? fullCmd = RegExp(
+                r'command:\s*(([0-9A-Fa-f]{2}\s+){3}[0-9A-Fa-f]{2})')
+            .firstMatch(block)
+            ?.group(1);
 
-        // If Flipper protocol says Kaseikyo, map to our Kaseikyo encoder with params.
-        if (mappedProtocol == 'kaseikyo') {
-          // Flipper parsed format provides 4 bytes for address and command. We only need first 2 for each.
-          final fullAddr = RegExp(r'address:\s*(([0-9A-Fa-f]{2}\s+){3}[0-9A-Fa-f]{2})').firstMatch(block)?.group(1) ?? '';
-          final fullCmd = RegExp(r'command:\s*(([0-9A-Fa-f]{2}\s+){3}[0-9A-Fa-f]{2})').firstMatch(block)?.group(1) ?? '';
-          final List<String> addrBytes = fullAddr.trim().split(RegExp(r'\s+')).where((s) => s.isNotEmpty).toList();
-          final List<String> cmdBytes = fullCmd.trim().split(RegExp(r'\s+')).where((s) => s.isNotEmpty).toList();
+        if (fullAddr != null && fullCmd != null) {
+          final List<String> addrBytes = fullAddr
+              .trim()
+              .split(RegExp(r'\s+'))
+              .where((s) => s.isNotEmpty)
+              .toList();
+          final List<String> cmdBytes = fullCmd
+              .trim()
+              .split(RegExp(r'\s+'))
+              .where((s) => s.isNotEmpty)
+              .toList();
 
-          if (addrBytes.length >= 4 && cmdBytes.length >= 4) {
-            // Flipper Kaseikyo parsed fields observations:
-            // address: [B0, V_LSB, V_MSB, A_MSB]
-            // command: [CMD, CMD_HI, 00, 00]
-            final int vLsb = int.parse(addrBytes[1], radix: 16) & 0xFF;
-            final int vMsb = int.parse(addrBytes[2], radix: 16) & 0xFF;
-            final String vendorHex = ((vMsb << 8) | vLsb)
-                .toRadixString(16)
-                .padLeft(4, '0')
-                .toUpperCase();
-
-            final int aMsb = int.parse(addrBytes[3], radix: 16) & 0xFF;
-            final int aLsb = int.parse(addrBytes[0], radix: 16) & 0xFF;
-            final int addrVal12 = ((aMsb << 8) | aLsb) & 0x0FFF;
-            final String addressHex = addrVal12.toRadixString(16).padLeft(3, '0').toUpperCase();
-
-            final String commandHex = cmdBytes[0].toUpperCase();
-
+          if (addrBytes.length == 4 && cmdBytes.length == 4) {
             buttons.add(
               IRButton(
                 id: uuid.v4(),
@@ -380,180 +376,242 @@ Remote? _parseFlipperIrFile(String content) {
                 isImage: false,
                 protocol: 'kaseikyo',
                 protocolParams: <String, dynamic>{
-                  'vendor': vendorHex,
-                  'address': addressHex,
-                  'command': commandHex,
+                  'address': addrBytes.map((e) => e.toUpperCase()).join(' '),
+                  'command': cmdBytes.map((e) => e.toUpperCase()).join(' '),
                 },
               ),
             );
             continue;
           }
         }
-
-        // If protocol maps to one of our structured encoders with hex field, capture params accordingly.
-        // Protocol-specific structured mappings
-        if (mappedProtocol != null && mappedProtocol == 'rc5') {
-          // RC5: 5-bit address + 6-bit command => up to 11 bits -> up to 3 hex
-          final int addr = int.parse(addressMatch.group(1)!, radix: 16) & 0x1F;
-          final int cmd = int.parse(commandMatch.group(1)!, radix: 16) & 0x3F;
-          final int value = (addr << 6) | cmd;
-          final String hex = value.toRadixString(16).toUpperCase();
-          buttons.add(IRButton(
-            id: uuid.v4(),
-            code: null,
-            rawData: null,
-            frequency: 36000,
-            image: name,
-            isImage: false,
-            protocol: 'rc5',
-            protocolParams: <String, dynamic>{'hex': hex},
-          ));
-        } else if (mappedProtocol == 'rc6') {
-          // RC6: Use 16-bit payload = (address<<8)|command (last 4 hex used by encoder)
-          final int addr = int.parse(addressMatch.group(1)!, radix: 16) & 0xFF;
-          final int cmd = int.parse(commandMatch.group(1)!, radix: 16) & 0xFF;
-          final String hex = ((addr << 8) | cmd).toRadixString(16).padLeft(4, '0').toUpperCase();
-          buttons.add(IRButton(
-            id: uuid.v4(),
-            code: null,
-            rawData: null,
-            frequency: 36000,
-            image: name,
-            isImage: false,
-            protocol: 'rc6',
-            protocolParams: <String, dynamic>{'hex': hex},
-          ));
-        } else if (mappedProtocol == 'rca_38') {
-          // RCA_38: 12 bits = high nibble + low byte => 3 hex = (addr&0xF)<<8 | cmd
-          final int addr = int.parse(addressMatch.group(1)!, radix: 16) & 0x0F;
-          final int cmd = int.parse(commandMatch.group(1)!, radix: 16) & 0xFF;
-          final String hex = (((addr << 8) | cmd) & 0xFFF).toRadixString(16).padLeft(3, '0').toUpperCase();
-          buttons.add(IRButton(
-            id: uuid.v4(),
-            code: null,
-            rawData: null,
-            frequency: 38700,
-            image: name,
-            isImage: false,
-            protocol: 'rca_38',
-            protocolParams: <String, dynamic>{'hex': hex},
-          ));
-        } else if (mappedProtocol == 'pioneer') {
-          // Pioneer: build 32-bit as [addr,00,cmd,00]
-          final String addrHex = int.parse(addressMatch.group(1)!, radix: 16).toRadixString(16).padLeft(2, '0').toUpperCase();
-          final String cmdHex = int.parse(commandMatch.group(1)!, radix: 16).toRadixString(16).padLeft(2, '0').toUpperCase();
-          final String hex32 = addrHex + '00' + cmdHex + '00';
-          buttons.add(IRButton(
-            id: uuid.v4(),
-            code: null,
-            rawData: null,
-            frequency: 40000,
-            image: name,
-            isImage: false,
-            protocol: 'pioneer',
-            protocolParams: <String, dynamic>{'hex': hex32},
-          ));
-        } else if (mappedProtocol == 'sony12') {
-          // SIRC 12: 7-bit command + 5-bit address -> 12-bit value
-          final int addr = int.parse(addressMatch.group(1)!, radix: 16) & 0x1F;
-          final int cmd = int.parse(commandMatch.group(1)!, radix: 16) & 0x7F;
-          final String hex = (((addr << 7) | cmd) & 0xFFF).toRadixString(16).padLeft(3, '0').toUpperCase();
-          buttons.add(IRButton(
-            id: uuid.v4(),
-            code: null,
-            rawData: null,
-            frequency: 40000,
-            image: name,
-            isImage: false,
-            protocol: 'sony12',
-            protocolParams: <String, dynamic>{'hex': hex},
-          ));
-        } else if (mappedProtocol == 'sony15') {
-          // SIRC 15: 7-bit command + 8-bit address -> 15-bit
-          final int addr = int.parse(addressMatch.group(1)!, radix: 16) & 0xFF;
-          final int cmd = int.parse(commandMatch.group(1)!, radix: 16) & 0x7F;
-          final String hex = (((addr << 7) | cmd) & 0x7FFF).toRadixString(16).padLeft(4, '0').toUpperCase();
-          buttons.add(IRButton(
-            id: uuid.v4(),
-            code: null,
-            rawData: null,
-            frequency: 40000,
-            image: name,
-            isImage: false,
-            protocol: 'sony15',
-            protocolParams: <String, dynamic>{'hex': hex},
-          ));
-        } else if (mappedProtocol == 'sony20') {
-          // SIRC 20: 7-bit command + 5-bit extended(assume 0) + 8-bit address -> 20-bit
-          final int addr = int.parse(addressMatch.group(1)!, radix: 16) & 0xFF;
-          final int cmd = int.parse(commandMatch.group(1)!, radix: 16) & 0x7F;
-          final int extended = 0;
-          final int value = ((addr & 0xFF) << 12) | ((extended & 0x1F) << 7) | (cmd & 0x7F);
-          final String hex = value.toRadixString(16).padLeft(5, '0').toUpperCase();
-          buttons.add(IRButton(
-            id: uuid.v4(),
-            code: null,
-            rawData: null,
-            frequency: 40000,
-            image: name,
-            isImage: false,
-            protocol: 'sony20',
-            protocolParams: <String, dynamic>{'hex': hex},
-          ));
-        } else if (mappedProtocol == 'samsung36') {
-          // Samsung36 expects 7 hex [A(2),B(2),C(1),D(2)] and internally inverts D.
-          // Heuristic: A=addr, B=~addr, C=0, D=cmd.
-          final int addr = int.parse(addressMatch.group(1)!, radix: 16) & 0xFF;
-          final int invAddr = (~addr) & 0xFF;
-          final int cmd = int.parse(commandMatch.group(1)!, radix: 16) & 0xFF;
-          final String hex = addr.toRadixString(16).padLeft(2, '0').toUpperCase() +
-              invAddr.toRadixString(16).padLeft(2, '0').toUpperCase() +
-              '0' +
-              cmd.toRadixString(16).padLeft(2, '0').toUpperCase();
-          buttons.add(IRButton(
-            id: uuid.v4(),
-            code: null,
-            rawData: null,
-            frequency: 38000,
-            image: name,
-            isImage: false,
-            protocol: 'samsung36',
-            protocolParams: <String, dynamic>{'hex': hex},
-          ));
-        } else if (mappedProtocol != null && (mappedProtocol == 'nec' || mappedProtocol == 'nec2' || mappedProtocol == 'necx1')) {
-          // For these protocols, Flipper provides first two bytes for address/command; we can combine as hex if needed.
-          final String hexCode = _convertToLircHex(addressMatch, commandMatch);
-
-          buttons.add(
-            IRButton(
-              id: uuid.v4(),
-              code: int.parse(hexCode, radix: 16),
-              rawData: null,
-              frequency: null,
-              image: name,
-              isImage: false,
-              protocol: mappedProtocol,
-              protocolParams: <String, dynamic>{
-                'hex': hexCode,
-              },
-            ),
-          );
-        } else {
-          // Fallback legacy: interpret as NEC-like 32-bit code only
-          final String hexCode = _convertToLircHex(addressMatch, commandMatch);
-
-          buttons.add(
-            IRButton(
-              id: uuid.v4(),
-              code: int.parse(hexCode, radix: 16),
-              rawData: null,
-              frequency: null,
-              image: name,
-              isImage: false,
-            ),
-          );
-        }
+        // If we fail to parse a full 4-byte address/command, do NOT fallback.
+        // Just skip this button (Flipper-only requirement).
+        continue;
       }
+      // --- END KASEIKYO IMPORT ---
+
+      // For other parsed protocols, we use first 2 bytes from address/command lines
+      final addressMatch = RegExp(
+              r'address:\s*([0-9A-Fa-f]{2})\s+([0-9A-Fa-f]{2})')
+          .firstMatch(block);
+      final commandMatch = RegExp(
+              r'command:\s*([0-9A-Fa-f]{2})\s+([0-9A-Fa-f]{2})')
+          .firstMatch(block);
+
+      if (addressMatch == null || commandMatch == null) continue;
+
+      if (mappedProtocol != null && mappedProtocol == 'rc5') {
+        final int addr = int.parse(addressMatch.group(1)!, radix: 16) & 0x1F;
+        final int cmd = int.parse(commandMatch.group(1)!, radix: 16) & 0x3F;
+        final int value = (addr << 6) | cmd;
+        final String hex = value.toRadixString(16).toUpperCase();
+        buttons.add(IRButton(
+          id: uuid.v4(),
+          code: null,
+          rawData: null,
+          frequency: 36000,
+          image: name,
+          isImage: false,
+          protocol: 'rc5',
+          protocolParams: <String, dynamic>{'hex': hex},
+        ));
+      } else if (mappedProtocol == 'rc6') {
+        final int addr = int.parse(addressMatch.group(1)!, radix: 16) & 0xFF;
+        final int cmd = int.parse(commandMatch.group(1)!, radix: 16) & 0xFF;
+        final String hex = ((addr << 8) | cmd)
+            .toRadixString(16)
+            .padLeft(4, '0')
+            .toUpperCase();
+        buttons.add(IRButton(
+          id: uuid.v4(),
+          code: null,
+          rawData: null,
+          frequency: 36000,
+          image: name,
+          isImage: false,
+          protocol: 'rc6',
+          protocolParams: <String, dynamic>{'hex': hex},
+        ));
+      } else if (mappedProtocol == 'rca_38') {
+        final int addrNibble = int.parse(addressMatch.group(1)!, radix: 16) & 0x0F;
+        final String addrHex = addrNibble.toRadixString(16).toUpperCase();
+
+        final String cmdHex = int.parse(commandMatch.group(1)!, radix: 16)
+            .toRadixString(16)
+            .padLeft(2, '0')
+            .toUpperCase();
+
+        buttons.add(IRButton(
+          id: uuid.v4(),
+          code: null,
+          rawData: null,
+          frequency: 38000,
+          image: name,
+          isImage: false,
+          protocol: 'rca_38',
+          protocolParams: <String, dynamic>{
+            'address': addrHex,
+            'command': cmdHex,
+          },
+        ));
+      } else if (mappedProtocol == 'pioneer') {
+        final String addrHex = int.parse(addressMatch.group(1)!, radix: 16)
+            .toRadixString(16)
+            .padLeft(2, '0')
+            .toUpperCase();
+
+        final String cmdHex = int.parse(commandMatch.group(1)!, radix: 16)
+            .toRadixString(16)
+            .padLeft(2, '0')
+            .toUpperCase();
+
+        buttons.add(IRButton(
+          id: uuid.v4(),
+          code: null,
+          rawData: null,
+          frequency: 40000,
+          image: name,
+          isImage: false,
+          protocol: 'pioneer',
+          protocolParams: <String, dynamic>{
+            'address': addrHex,
+            'command': cmdHex,
+          },
+        ));
+      } else if (mappedProtocol == 'sony12') {
+        final int addr = int.parse(addressMatch.group(1)!, radix: 16) & 0x1F;
+        final int cmd = int.parse(commandMatch.group(1)!, radix: 16) & 0x7F;
+
+        buttons.add(IRButton(
+          id: uuid.v4(),
+          code: null,
+          rawData: null,
+          frequency: 40000,
+          image: name,
+          isImage: false,
+          protocol: 'sony12',
+          protocolParams: <String, dynamic>{
+            'address': addr.toRadixString(16).toUpperCase(),
+            'command': cmd.toRadixString(16).padLeft(2, '0').toUpperCase(),
+          },
+        ));
+      } else if (mappedProtocol == 'sony15') {
+        final int addr = int.parse(addressMatch.group(1)!, radix: 16) & 0xFF;
+        final int cmd = int.parse(commandMatch.group(1)!, radix: 16) & 0x7F;
+
+        buttons.add(IRButton(
+          id: uuid.v4(),
+          code: null,
+          rawData: null,
+          frequency: 40000,
+          image: name,
+          isImage: false,
+          protocol: 'sony15',
+          protocolParams: <String, dynamic>{
+            'address': addr.toRadixString(16).padLeft(2, '0').toUpperCase(),
+            'command': cmd.toRadixString(16).padLeft(2, '0').toUpperCase(),
+          },
+        ));
+      } else if (mappedProtocol == 'sony20') {
+        final int lo = int.parse(addressMatch.group(1)!, radix: 16) & 0xFF;
+        final int hi = int.parse(addressMatch.group(2)!, radix: 16) & 0xFF;
+        final int addr = ((hi << 8) | lo) & 0x1FFF;
+
+        final int cmd = int.parse(commandMatch.group(1)!, radix: 16) & 0x7F;
+
+        buttons.add(IRButton(
+          id: uuid.v4(),
+          code: null,
+          rawData: null,
+          frequency: 40000,
+          image: name,
+          isImage: false,
+          protocol: 'sony20',
+          protocolParams: <String, dynamic>{
+            'address': addr.toRadixString(16).toUpperCase(),
+            'command': cmd.toRadixString(16).padLeft(2, '0').toUpperCase(),
+          },
+        ));
+      } else if (mappedProtocol == 'samsung32') {
+        final String addrHex = int.parse(addressMatch.group(1)!, radix: 16)
+            .toRadixString(16)
+            .padLeft(2, '0')
+            .toUpperCase();
+
+        final String cmdHex = int.parse(commandMatch.group(1)!, radix: 16)
+            .toRadixString(16)
+            .padLeft(2, '0')
+            .toUpperCase();
+
+        buttons.add(IRButton(
+          id: uuid.v4(),
+          code: null,
+          rawData: null,
+          frequency: 38000,
+          image: name,
+          isImage: false,
+          protocol: 'samsung32',
+          protocolParams: <String, dynamic>{
+            'address': addrHex,
+            'command': cmdHex,
+          },
+        ));
+      } else if (mappedProtocol == 'samsung36') {
+        final int addr = int.parse(addressMatch.group(1)!, radix: 16) & 0xFF;
+        final int invAddr = (~addr) & 0xFF;
+        final int cmd = int.parse(commandMatch.group(1)!, radix: 16) & 0xFF;
+        final String hex = addr
+                .toRadixString(16)
+                .padLeft(2, '0')
+                .toUpperCase() +
+            invAddr.toRadixString(16).padLeft(2, '0').toUpperCase() +
+            '0' +
+            cmd.toRadixString(16).padLeft(2, '0').toUpperCase();
+        buttons.add(IRButton(
+          id: uuid.v4(),
+          code: null,
+          rawData: null,
+          frequency: 38000,
+          image: name,
+          isImage: false,
+          protocol: 'samsung36',
+          protocolParams: <String, dynamic>{'hex': hex},
+        ));
+      } else if (mappedProtocol != null &&
+          (mappedProtocol == 'nec' ||
+              mappedProtocol == 'nec2' ||
+              mappedProtocol == 'necx1')) {
+        final String hexCode = _convertToLircHex(addressMatch, commandMatch);
+
+        buttons.add(
+          IRButton(
+            id: uuid.v4(),
+            code: int.parse(hexCode, radix: 16),
+            rawData: null,
+            frequency: null,
+            image: name,
+            isImage: false,
+            protocol: mappedProtocol,
+            protocolParams: <String, dynamic>{
+              'hex': hexCode,
+            },
+          ),
+        );
+      } else {
+        final String hexCode = _convertToLircHex(addressMatch, commandMatch);
+
+        buttons.add(
+          IRButton(
+            id: uuid.v4(),
+            code: int.parse(hexCode, radix: 16),
+            rawData: null,
+            frequency: null,
+            image: name,
+            isImage: false,
+          ),
+        );
+      }
+
       continue;
     }
 
@@ -598,10 +656,12 @@ String _convertToLircHex(RegExpMatch addressMatch, RegExpMatch commandMatch) {
   final int cmdByte2 = int.parse(commandMatch.group(2)!, radix: 16);
 
   final int lircCmd = _bitReverse(addrByte1);
-  final int lircCmdInv = (addrByte2 == 0) ? (0xFF - lircCmd) : _bitReverse(addrByte2);
+  final int lircCmdInv =
+      (addrByte2 == 0) ? (0xFF - lircCmd) : _bitReverse(addrByte2);
 
   final int lircAddr = _bitReverse(cmdByte1);
-  final int lircAddrInv = (cmdByte2 == 0) ? (0xFF - lircAddr) : _bitReverse(cmdByte2);
+  final int lircAddrInv =
+      (cmdByte2 == 0) ? (0xFF - lircAddr) : _bitReverse(cmdByte2);
 
   return "${lircCmd.toRadixString(16).padLeft(2, '0')}"
           "${lircCmdInv.toRadixString(16).padLeft(2, '0')}"

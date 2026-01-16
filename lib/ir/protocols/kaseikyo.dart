@@ -4,41 +4,29 @@ const IrProtocolDefinition kaseikyoProtocolDefinition = IrProtocolDefinition(
   id: 'kaseikyo',
   displayName: 'Kaseikyo',
   description:
-      'Kaseikyo/Panasonic: LSB-first 48-bit frame: Vendor(16) + VendParity(4) + Address(12) + Command(8) + XOR(8).\n'
-      '37kHz carrier, header 3456/1728, bit mark 432, space 432 (0) or 1296 (1).\n'
-      'Fields: VendorID (4 hex), Address (3 hex, 12 bits), Command (2 hex).',
+      'Kaseikyo (48-bit), LSB-first per byte.\n'
+      'Vendor(16) + VendorParity(4) + Genre1(4) + Genre2(4) + Command(10) + ID(2) + XOR(8).',
   implemented: true,
   defaultFrequencyHz: 37000,
   fields: <IrFieldDef>[
     IrFieldDef(
-      id: 'vendor',
-      label: 'Vendor ID (4 hex)',
-      type: IrFieldType.string,
-      required: true,
-      maxLength: 4,
-      hint: 'e.g., 2002 for Panasonic',
-      defaultValue: '2002',
-      helperText: '16-bit hex vendor code (e.g., 2002 Panasonic, 3254 Denon).',
-      maxLines: 1,
-    ),
-    IrFieldDef(
       id: 'address',
-      label: 'Address (3 hex, 12 bits)',
+      label: 'Address (4 bytes)',
       type: IrFieldType.string,
       required: true,
-      maxLength: 3,
-      hint: 'e.g., 0F1',
-      helperText: '12-bit address: commonly subdevice<<4 | device.',
+      maxLength: 11, // "AA BB CC DD"
+      hint: 'e.g., 80 02 20 00',
+      helperText: 'Address (4 bytes, hex).',
       maxLines: 1,
     ),
     IrFieldDef(
       id: 'command',
-      label: 'Command (2 hex)',
+      label: 'Command (4 bytes)',
       type: IrFieldType.string,
       required: true,
-      maxLength: 2,
-      hint: 'e.g., 76',
-      helperText: '8-bit command byte.',
+      maxLength: 11, // "AA BB CC DD"
+      hint: 'e.g., D0 03 00 00',
+      helperText: 'Command (4 bytes, hex).',
       maxLines: 1,
     ),
   ],
@@ -55,46 +43,58 @@ class KaseikyoProtocolEncoder implements IrProtocolEncoder {
   IrProtocolDefinition get definition => kaseikyoProtocolDefinition;
 
   // Timings
-  static const int unit = 432; // base unit (37 kHz ~ 16 cycles)
+  static const int unit = 432;
   static const int headerMark = 8 * unit; // 3456
   static const int headerSpace = 4 * unit; // 1728
   static const int bitMark = unit; // 432
   static const int zeroSpace = unit; // 432
   static const int oneSpace = 3 * unit; // 1296
-  static const int repeatDistanceUs = 130000 - 56000; // ~74ms as a safe inter-frame gap
+  static const int repeatDistanceUs = 130000 - 56000; // 74000
 
   @override
   IrEncodeResult encode(Map<String, dynamic> params) {
-    final String vendorHex = _readHex(params, 'vendor', minLen: 1, maxLen: 4,
-        normalizeToLen: 4, protocolName: 'Kaseikyo');
-    final String addressHex = _readHex(params, 'address', minLen: 1, maxLen: 3,
-        normalizeToLen: 3, protocolName: 'Kaseikyo');
-    final String commandHex = _readHex(params, 'command', minLen: 1, maxLen: 2,
-        normalizeToLen: 2, protocolName: 'Kaseikyo');
+    final List<int> addr =
+        _read4Bytes(params, 'address', protocolName: 'Kaseikyo');
+    final List<int> cmd =
+        _read4Bytes(params, 'command', protocolName: 'Kaseikyo');
 
-    final int vendor = int.parse(vendorHex, radix: 16) & 0xFFFF;
-    final int address12 = int.parse(addressHex, radix: 16) & 0x0FFF;
-    final int command = int.parse(commandHex, radix: 16) & 0xFF;
+    final int b0 = addr[0] & 0xFF;
 
-    final int vendorParity = _vendorParityNibble(vendor);
+    final int genre1 = (b0 >> 4) & 0x0F;
+    final int genre2 = b0 & 0x0F;
 
-    final int word1 = vendor; // 16 bits
-    // Per Kaseikyo spec: Vendor(16) + VendParity(4) + Address(12) + Command(8) + XOR(8)
-    // The 16-bit word following Vendor places the 4-bit vendor parity in the high nibble,
-    // followed by the 12-bit address. With LSB-first bit order inside each byte, we still
-    // construct bytes in little-endian order here.
-    final int word2 = (((vendorParity & 0xF) << 12) | (address12 & 0x0FFF)) & 0xFFFF; // parity in high nibble
+    final int vendorLsb = addr[1] & 0xFF;
+    final int vendorMsb = addr[2] & 0xFF;
 
-    final int byte0 = word1 & 0xFF; // LSB first
-    final int byte1 = (word1 >> 8) & 0xFF;
-    final int byte2 = word2 & 0xFF;
-    final int byte3 = (word2 >> 8) & 0xFF;
-    final int byte4 = command;
-    final int byte5 = (byte2 ^ byte3 ^ byte4) & 0xFF; // 8-bit XOR parity
+    final int id2 = addr[3] & 0x03;
 
-    final List<int> bytesLsbFirst = <int>[byte0, byte1, byte2, byte3, byte4, byte5];
+    // Command is the 32-bit message.command in little-endian.
+    // Only low 10 bits are meaningful for Kaseikyo in
+    final int command16 = ((cmd[1] & 0xFF) << 8) | (cmd[0] & 0xFF);
+    final int command10 = command16 & 0x03FF;
+
+    // Vendor parity
+    int vendorParity = (vendorLsb ^ vendorMsb) & 0xFF;
+    vendorParity = ((vendorParity & 0x0F) ^ (vendorParity >> 4)) & 0x0F;
+
+    // Build the 6 protocol bytes
+    // data[0] = vendor_lsb
+    // data[1] = vendor_msb
+    // data[2] = (vendorParity & 0xf) | (genre1 << 4)
+    // data[3] = (genre2 & 0xf) | ((command & 0xf) << 4)
+    // data[4] = (id << 6) | (command >> 4)
+    // data[5] = data[2] ^ data[3] ^ data[4]
+    final int d0 = vendorLsb;
+    final int d1 = vendorMsb;
+    final int d2 = (vendorParity & 0x0F) | ((genre1 & 0x0F) << 4);
+    final int d3 = (genre2 & 0x0F) | ((command10 & 0x0F) << 4);
+    final int d4 = ((id2 & 0x03) << 6) | ((command10 >> 4) & 0x3F);
+    final int d5 = (d2 ^ d3 ^ d4) & 0xFF;
+
+    final List<int> bytesLsbFirst = <int>[d0, d1, d2, d3, d4, d5];
 
     final List<int> out = <int>[];
+
     // Header
     out.add(headerMark);
     out.add(headerSpace);
@@ -108,7 +108,7 @@ class KaseikyoProtocolEncoder implements IrProtocolEncoder {
       }
     }
 
-    // Trailing mark and inter-frame gap
+    // Trailing mark + pause
     out.add(bitMark);
     out.add(repeatDistanceUs);
 
@@ -118,27 +118,43 @@ class KaseikyoProtocolEncoder implements IrProtocolEncoder {
     );
   }
 
-  int _vendorParityNibble(int vendor) {
-    int p = vendor ^ (vendor >> 8);
-    p = (p ^ (p >> 4)) & 0xF;
-    return p;
-  }
-
-  String _readHex(Map<String, dynamic> params, String key,
-      {required int minLen, required int maxLen, required int normalizeToLen, required String protocolName}) {
+  List<int> _read4Bytes(
+    Map<String, dynamic> params,
+    String key, {
+    required String protocolName,
+  }) {
     final dynamic v = params[key];
     if (v is! String) {
-      throw ArgumentError('$protocolName: "$key" must be a hex string');
+      throw ArgumentError('$protocolName: "$key" must be a 4-byte hex string');
     }
     final String s = v.trim();
-    if (s.isEmpty || s.length < minLen || s.length > maxLen) {
-      throw ArgumentError('$protocolName: "$key" hex length must be $minLen..$maxLen');
+
+    // Accept:
+    // - "AA BB CC DD"
+    // - "AABBCCDD"
+    final List<String> parts;
+    final RegExp spaced = RegExp(r'^([0-9A-Fa-f]{2}\s+){3}[0-9A-Fa-f]{2}$');
+    final RegExp compact = RegExp(r'^[0-9A-Fa-f]{8}$');
+
+    if (spaced.hasMatch(s)) {
+      parts = s.split(RegExp(r'\s+')).where((p) => p.isNotEmpty).toList();
+    } else if (compact.hasMatch(s)) {
+      parts = <String>[
+        s.substring(0, 2),
+        s.substring(2, 4),
+        s.substring(4, 6),
+        s.substring(6, 8),
+      ];
+    } else {
+      throw ArgumentError(
+        '$protocolName: "$key" must be 4 bytes, e.g. "80 02 20 00" or "80022000"',
+      );
     }
-    for (int i = 0; i < s.length; i++) {
-      final int c = s.codeUnitAt(i);
-      final bool ok = (c >= 0x30 && c <= 0x39) || (c >= 0x41 && c <= 0x46) || (c >= 0x61 && c <= 0x66);
-      if (!ok) throw ArgumentError('$protocolName: "$key" is not hexadecimal');
+
+    if (parts.length != 4) {
+      throw ArgumentError('$protocolName: "$key" must contain exactly 4 bytes');
     }
-    return s.toUpperCase().padLeft(normalizeToLen, '0');
+
+    return parts.map((p) => int.parse(p, radix: 16) & 0xFF).toList();
   }
 }

@@ -18,6 +18,7 @@ import 'protocols/rcc2026.dart';
 import 'protocols/rec80.dart';
 import 'protocols/recs80.dart';
 import 'protocols/recs80_l.dart';
+import 'protocols/samsung32.dart';
 import 'protocols/samsung36.dart';
 import 'protocols/kaseikyo.dart';
 import 'protocols/sharp.dart';
@@ -45,6 +46,7 @@ class IrProtocolIds {
   static const String rec80 = 'rec80';
   static const String recs80 = 'recs80';
   static const String recs80L = 'recs80_l';
+    static const String samsung32 = 'samsung32';
   static const String samsung36 = 'samsung36';
   static const String sharp = 'sharp';
   static const String sony12 = 'sony12';
@@ -75,6 +77,7 @@ class IrProtocolRegistry {
     rec80ProtocolDefinition.id: rec80ProtocolDefinition,
     recs80ProtocolDefinition.id: recs80ProtocolDefinition,
     recs80LProtocolDefinition.id: recs80LProtocolDefinition,
+    samsung32ProtocolDefinition.id: samsung32ProtocolDefinition,
     samsung36ProtocolDefinition.id: samsung36ProtocolDefinition,
     sharpProtocolDefinition.id: sharpProtocolDefinition,
     kaseikyoProtocolDefinition.id: kaseikyoProtocolDefinition,

@@ -4,20 +4,31 @@ const IrProtocolDefinition pioneerProtocolDefinition = IrProtocolDefinition(
   id: 'pioneer',
   displayName: 'Pioneer',
   description:
-      'Pioneer: 8-hex-digit code -> 32 bits (4 bytes MSB-first). Carrier 40kHz. '
-      'Preamble 8350/4200, bit mark 538, bit space 538/1614, trailer 538 + gap 26236. '
-      'Whole frame duplicated back-to-back.',
+      'Pioneer SR.\n'
+      'Payload = address(8) + ~address(8) + command(8) + ~command(8)\n'
+      'Bit order: LSB-first per byte.\n'
+      'Carrier: 40kHz. Timings: 8500/4225, bit mark 500, space 500/1500, gap 26000.',
   implemented: true,
   defaultFrequencyHz: 40000,
   fields: <IrFieldDef>[
     IrFieldDef(
-      id: 'hex',
-      label: 'Code (8 hex digits)',
+      id: 'address',
+      label: 'Address (1 byte)',
       type: IrFieldType.string,
       required: true,
-      maxLength: 8,
-      hint: 'e.g., 12AB34CD',
-      helperText: '8 hex digits (0-9, A-F).',
+      maxLength: 2,
+      hint: 'e.g., 1A',
+      helperText: 'Address byte.',
+      maxLines: 1,
+    ),
+    IrFieldDef(
+      id: 'command',
+      label: 'Command (1 byte)',
+      type: IrFieldType.string,
+      required: true,
+      maxLength: 2,
+      hint: 'e.g., 2B',
+      helperText: 'Command byte.',
       maxLines: 1,
     ),
   ],
@@ -35,50 +46,51 @@ class PioneerProtocolEncoder implements IrProtocolEncoder {
 
   static const int defaultFrequencyHz = 40000;
 
-  // Timings per Kotlin notes
-  static const List<int> preamble = <int>[0x209E, 0x1068]; // 8350,4200
-  static const int mark = 0x21A; // 538
-  static const int space0 = 0x21A; // 538
-  static const int space1 = 0x64E; // 1614
-  static const int endGap = 0x66BC; // 26236
+  // Timings
+  static const int preMark = 8500;
+  static const int preSpace = 4225;
+  static const int bitMark = 500;
+  static const int space0 = 500;
+  static const int space1 = 1500;
+  static const int gap = 26000;
 
   @override
   IrEncodeResult encode(Map<String, dynamic> params) {
-    final dynamic h = params['hex'];
-    if (h is! String) throw ArgumentError('hex must be a string');
-    final String hex = h.trim();
+    // New format: address + command
+    final int address = _readHexByte(params['address'], name: 'Pioneer address');
+    final int command = _readHexByte(params['command'], name: 'Pioneer command');
 
-    _validateHexExact(hex, 8, protocolName: 'Pioneer');
+    final int invAddress = (~address) & 0xFF;
+    final int invCommand = (~command) & 0xFF;
 
-    String byteBits(String twoHex) {
-      final int v = int.parse(twoHex, radix: 16) & 0xFF;
-      return v.toRadixString(2).padLeft(8, '0');
-    }
+    final List<int> bytes = <int>[address, invAddress, command, invCommand];
 
-    final String b0 = byteBits(hex.substring(0, 2));
-    final String b1 = byteBits(hex.substring(2, 4));
-    final String b2 = byteBits(hex.substring(4, 6));
-    final String b3 = byteBits(hex.substring(6, 8));
-    final String bits32 = b0 + b1 + b2 + b3;
-
-    List<int> encodeOneFrame(String bits) {
+    List<int> frame() {
       final List<int> out = <int>[];
-      out.addAll(preamble);
-      for (int i = 0; i < bits.length; i++) {
-        out.add(mark);
-        out.add(bits[i] == '0' ? space0 : space1);
+
+      // Preamble
+      out.add(preMark);
+      out.add(preSpace);
+
+      // 32 bits, LSB-first per byte
+      for (final int b in bytes) {
+        for (int i = 0; i < 8; i++) {
+          final int bit = (b >> i) & 1;
+          out.add(bitMark);
+          out.add(bit == 0 ? space0 : space1);
+        }
       }
-      out.add(mark);
-      out.add(endGap);
+
+      // Stop mark + silence
+      out.add(bitMark);
+      out.add(gap);
+
       return out;
     }
 
-    final List<int> frame = encodeOneFrame(bits32);
-
-    // Duplicate frame back-to-back
     final List<int> total = <int>[];
-    total.addAll(frame);
-    total.addAll(frame);
+    total.addAll(frame());
+    total.addAll(frame());
 
     return IrEncodeResult(
       frequencyHz: defaultFrequencyHz,
@@ -87,19 +99,12 @@ class PioneerProtocolEncoder implements IrProtocolEncoder {
   }
 }
 
-bool _isHexChar(int codeUnit) {
-  return (codeUnit >= 48 && codeUnit <= 57) ||
-      (codeUnit >= 65 && codeUnit <= 70) ||
-      (codeUnit >= 97 && codeUnit <= 102);
-}
-
-void _validateHexExact(String hex, int len, {required String protocolName}) {
-  if (hex.length != len) {
-    throw ArgumentError('$protocolName hexcode length != $len');
+int _readHexByte(dynamic v, {required String name}) {
+  if (v is! String) throw ArgumentError('$name must be a hex string');
+  final String s = v.trim();
+  if (s.isEmpty || s.length > 2) {
+    throw ArgumentError('$name must be 1 byte hex (00..FF)');
   }
-  for (int i = 0; i < hex.length; i++) {
-    if (!_isHexChar(hex.codeUnitAt(i))) {
-      throw ArgumentError('$protocolName hexcode is not hexadecimal');
-    }
-  }
+  final int x = int.parse(s, radix: 16) & 0xFF;
+  return x;
 }

@@ -4,18 +4,31 @@ const IrProtocolDefinition sony12ProtocolDefinition = IrProtocolDefinition(
   id: 'sony12',
   displayName: 'SONY12',
   description:
-      'Sony SIRC 12-bit: 40kHz. Input: 3 hex chars. '
-      'Header 2400/600. Bit 0=600/600, Bit 1=1200/600. '
-      'Remove last duration, pad to 45000us, then duplicate frame.',
+      'Sony SIRC 12-bit.\n'
+      'Packed as cmd(7 LSB) + addr(5) << 7. Bit order: LSB-first.\n'
+      'Timings: 2400/600 header, 0=600/600, 1=1200/600.\n'
+      'Frame padded to 45000us.',
   implemented: true,
   defaultFrequencyHz: 40000,
   fields: <IrFieldDef>[
     IrFieldDef(
-      id: 'hex',
-      label: 'Hex (3 chars)',
+      id: 'address',
+      label: 'Address (5-bit)',
       type: IrFieldType.string,
       required: true,
-      helperText: 'Exactly 3 hex characters (0–9, A–F).',
+      maxLength: 2,
+      hint: 'e.g., 1A',
+      helperText: 'Address, only low 5 bits used.',
+      maxLines: 1,
+    ),
+    IrFieldDef(
+      id: 'command',
+      label: 'Command (7-bit)',
+      type: IrFieldType.string,
+      required: true,
+      maxLength: 2,
+      hint: 'e.g., 15',
+      helperText: 'Command, only low 7 bits used.',
       maxLines: 1,
     ),
   ],
@@ -31,87 +44,66 @@ class Sony12ProtocolEncoder implements IrProtocolEncoder {
   @override
   IrProtocolDefinition get definition => sony12ProtocolDefinition;
 
-  static const int carrierHz = 0x9C40; // 40000
+  static const int carrierHz = 40000;
 
   static const int hdrMark = 2400;
   static const int hdrSpace = 600;
-
   static const int oneMark = 1200;
-  static const int oneSpace = 600;
-
   static const int zeroMark = 600;
-  static const int zeroSpace = 600;
+  static const int space = 600;
 
-  static const int frameTotalUs = 0xAFC8; // 45000
+  static const int frameTotalUs = 45000;
 
   @override
   IrEncodeResult encode(Map<String, dynamic> params) {
-    final dynamic h = params['hex'];
-    if (h is! String) throw ArgumentError('hex must be a String');
+    final int addr = _readHexInt(params['address'], name: 'SONY12 address') & 0x1F;
+    final int cmd = _readHexInt(params['command'], name: 'SONY12 command') & 0x7F;
 
-    final String hex = h.trim();
-    _validateHex(hex, expectedLen: 3);
+    final int data = (cmd & 0x7F) | ((addr & 0x1F) << 7);
+    const int bits = 12;
 
-    final int value = int.parse(hex, radix: 16);
-    final String bits = value.toRadixString(2).padLeft(12, '0').substring(
-          // be defensive: keep last 12 even if value somehow exceeds 12 bits
-          (value.toRadixString(2).padLeft(12, '0').length - 12),
-        );
+    List<int> oneFrame() {
+      final List<int> seq = <int>[];
+      seq.add(hdrMark);
+      seq.add(hdrSpace);
 
-    final List<int> seq = <int>[];
-
-    // Header
-    seq.add(hdrMark);
-    seq.add(hdrSpace);
-
-    // Bits
-    for (int i = 0; i < bits.length; i++) {
-      final String b = bits[i];
-      if (b == '0') {
-        seq.add(zeroMark);
-        seq.add(zeroSpace);
-      } else {
-        seq.add(oneMark);
-        seq.add(oneSpace);
+      for (int i = 0; i < bits; i++) {
+        final int bit = (data >> i) & 1;
+        seq.add(bit == 1 ? oneMark : zeroMark);
+        seq.add(space);
       }
+
+      // remove last duration and pad to 45000 (matches your existing style)
+      if (seq.isNotEmpty) seq.removeLast();
+      final int used = _sum(seq);
+      int remaining = frameTotalUs - used;
+      if (remaining < 0) remaining = 0;
+      seq.add(remaining);
+
+      return seq;
     }
 
-    // Remove last element (smali behavior)
-    if (seq.isNotEmpty) {
-      seq.removeLast();
-    }
-
-    // Pad to frameTotalUs
-    final int used = _sum(seq);
-    int remaining = frameTotalUs - used;
-    if (remaining < 0) remaining = 0;
-    seq.add(remaining);
-
-    // Duplicate the sequence once (send twice)
+    final List<int> f = oneFrame();
     final List<int> out = <int>[];
-    out.addAll(seq);
-    out.addAll(seq);
+    out.addAll(f);
+    out.addAll(f);
+    out.addAll(f);
 
     return IrEncodeResult(frequencyHz: carrierHz, pattern: out);
   }
+}
 
-  void _validateHex(String hex, {required int expectedLen}) {
-    if (hex.length != expectedLen) {
-      throw FormatException('hexcode length != $expectedLen');
-    }
-    for (int i = 0; i < hex.length; i++) {
-      final int c = hex.codeUnitAt(i);
-      final bool ok =
-          (c >= 0x30 && c <= 0x39) || (c >= 0x41 && c <= 0x46) || (c >= 0x61 && c <= 0x66);
-      if (!ok) throw FormatException('hexcode is not hexadecimal');
-    }
-  }
+int _readHexInt(dynamic v, {required String name}) {
+  if (v is! String) throw ArgumentError('$name must be a hex string');
+  final String s = v.trim();
+  if (s.isEmpty || s.length > 8) throw ArgumentError('$name invalid hex');
+  return int.parse(s, radix: 16);
+}
 
-  int _sum(List<int> xs) {
-    int s = 0;
-    for (final int v in xs) {
-      s += v;
-    }
-    return s;
+int _sum(List<int> xs) {
+  int s = 0;
+  for (final int v in xs) {
+    s += v;
   }
+  return s;
 }

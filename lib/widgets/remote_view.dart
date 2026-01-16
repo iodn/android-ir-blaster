@@ -1,11 +1,12 @@
 import 'dart:async';
 import 'dart:io';
+
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:irblaster_controller/state/haptics.dart';
 import 'package:irblaster_controller/ir/ir_protocol_registry.dart';
-import 'package:irblaster_controller/state/remotes_state.dart';
+import 'package:irblaster_controller/state/haptics.dart';
 import 'package:irblaster_controller/state/orientation_pref.dart';
+import 'package:irblaster_controller/state/remotes_state.dart';
 import 'package:irblaster_controller/utils/ir.dart';
 import 'package:irblaster_controller/utils/remote.dart';
 import 'package:irblaster_controller/widgets/create_remote.dart';
@@ -29,9 +30,10 @@ class RemoteView extends StatefulWidget {
 
 class RemoteViewState extends State<RemoteView> {
   bool _reorderMode = false;
-  // If true, rotate the entire remote UI by 180° so labels are upright when the phone is inverted.
+
   bool _rotate180 = false;
   final RemoteOrientationController _orientation = RemoteOrientationController.instance;
+
   late Remote _remote;
 
   static const Duration _kLoopInterval = Duration(milliseconds: 250);
@@ -46,8 +48,9 @@ class RemoteViewState extends State<RemoteView> {
   void initState() {
     super.initState();
     _remote = widget.remote;
-    // initialize orientation from global preference
+
     _rotate180 = _orientation.flipped;
+
     hasIrEmitter().then((value) {
       if (!value && mounted) {
         showDialog<void>(
@@ -115,10 +118,12 @@ class RemoteViewState extends State<RemoteView> {
 
   void _startLoop(IRButton button) {
     _stopLoop(silent: true);
+
     setState(() {
       _loopButton = button;
       _loopSending = false;
     });
+
     _sendOnce(button, silent: true).catchError((e) {
       _stopLoop(silent: true);
       if (!mounted) return;
@@ -126,10 +131,12 @@ class RemoteViewState extends State<RemoteView> {
         SnackBar(content: Text('Failed to start loop: $e')),
       );
     });
+
     _loopTimer = Timer.periodic(_kLoopInterval, (_) async {
       if (_loopSending) return;
       final b = _loopButton;
       if (b == null) return;
+
       _loopSending = true;
       try {
         await sendIR(b);
@@ -143,6 +150,7 @@ class RemoteViewState extends State<RemoteView> {
         _loopSending = false;
       }
     });
+
     if (!mounted) return;
     final title = _buttonTitle(button);
     ScaffoldMessenger.of(context).hideCurrentSnackBar();
@@ -158,11 +166,13 @@ class RemoteViewState extends State<RemoteView> {
   void _stopLoop({bool silent = false}) {
     _loopTimer?.cancel();
     _loopTimer = null;
+
     final hadLoop = _loopButton != null;
     setState(() {
       _loopButton = null;
       _loopSending = false;
     });
+
     if (!silent && hadLoop && mounted) {
       ScaffoldMessenger.of(context).hideCurrentSnackBar();
       ScaffoldMessenger.of(context).showSnackBar(
@@ -178,11 +188,13 @@ class RemoteViewState extends State<RemoteView> {
   int _findRemoteIndexInGlobalList() {
     final int byIdentity = remotes.indexWhere((r) => identical(r, _remote));
     if (byIdentity >= 0) return byIdentity;
+
     final int id = _remote.id;
     if (id > 0) {
       final int byId = remotes.indexWhere((r) => r.id == id);
       if (byId >= 0) return byId;
     }
+
     return -1;
   }
 
@@ -194,18 +206,24 @@ class RemoteViewState extends State<RemoteView> {
 
   Future<void> _editRemote() async {
     if (_isLooping) _stopLoop(silent: false);
+
     if (widget.onEditRemote != null) {
       widget.onEditRemote!.call();
       return;
     }
+
     final int idx = _findRemoteIndexInGlobalList();
+
     try {
       final Remote edited = await Navigator.push(
         context,
         MaterialPageRoute(builder: (context) => CreateRemote(remote: _remote)),
       );
+
       if (!mounted) return;
+
       setState(() => _remote = edited);
+
       if (idx >= 0 && idx < remotes.length) {
         remotes[idx] = edited;
         await writeRemotelist(remotes);
@@ -219,6 +237,7 @@ class RemoteViewState extends State<RemoteView> {
           ),
         );
       }
+
       HapticFeedback.selectionClick();
       ScaffoldMessenger.of(context).showSnackBar(
         SnackBar(content: Text('Updated "${edited.name}".')),
@@ -228,9 +247,11 @@ class RemoteViewState extends State<RemoteView> {
 
   Future<void> _deleteRemote() async {
     if (_isLooping) _stopLoop(silent: false);
+
     if (widget.onDeleteRemote != null) {
       final ok = await _confirmDeleteRemote();
       if (!ok) return;
+
       try {
         await widget.onDeleteRemote!.call();
       } catch (e) {
@@ -240,12 +261,15 @@ class RemoteViewState extends State<RemoteView> {
         );
         return;
       }
+
       if (!mounted) return;
       Navigator.of(context).maybePop();
       return;
     }
+
     final bool ok = await _confirmDeleteRemote();
     if (!ok) return;
+
     final int idx = _findRemoteIndexInGlobalList();
     if (idx < 0 || idx >= remotes.length) {
       if (!mounted) return;
@@ -254,13 +278,17 @@ class RemoteViewState extends State<RemoteView> {
       );
       return;
     }
+
     final String name = _remote.name;
+
     setState(() {
       remotes.removeAt(idx);
       _reassignIds();
     });
+
     await writeRemotelist(remotes);
     notifyRemotesChanged();
+
     if (!mounted) return;
     HapticFeedback.selectionClick();
     ScaffoldMessenger.of(context).showSnackBar(
@@ -279,6 +307,7 @@ class RemoteViewState extends State<RemoteView> {
     final raw = b.image.trim();
     if (raw.isEmpty) return 'Button';
     if (!b.isImage) return raw;
+
     final s = raw.replaceAll('\\', '/');
     final parts = s.split('/');
     final last = parts.isNotEmpty ? parts.last : raw;
@@ -305,8 +334,10 @@ class RemoteViewState extends State<RemoteView> {
     if (!_hasProtocol(b)) return false;
     final String id = b.protocol!.trim();
     if (id != 'raw') return false;
+
     final params = _protocolParams(b);
     if (params == null) return true;
+
     final pattern = params['pattern'];
     return pattern is String && pattern.trim().isNotEmpty;
   }
@@ -316,6 +347,7 @@ class RemoteViewState extends State<RemoteView> {
     if (raw == null || raw.isEmpty) return false;
     if (_hasProtocol(b)) return false;
     if (isNecConfigString(raw)) return false;
+
     final int numbers = RegExp(r'-?\d+').allMatches(raw).length;
     final bool hasSeparators = RegExp(r'[,\s]').hasMatch(raw);
     return numbers >= 6 && hasSeparators;
@@ -332,54 +364,142 @@ class RemoteViewState extends State<RemoteView> {
     return s.padLeft(minWidth, '0');
   }
 
+  bool _isAllZeros(String token) {
+    if (token.isEmpty) return true;
+    for (int i = 0; i < token.length; i++) {
+      if (token.codeUnitAt(i) != 48) return false;
+    }
+    return true;
+  }
+
   String? _extractHexToken(String s) {
     final m0x = RegExp(r'0x([0-9a-fA-F]{1,16})').firstMatch(s);
     if (m0x != null) return m0x.group(1)!.toUpperCase();
-    final matches = RegExp(r'([0-9a-fA-F]{1,16})').allMatches(s).toList();
+
+    final matches = RegExp(r'(?<![0-9a-fA-F])([0-9a-fA-F]{1,16})(?![0-9a-fA-F])').allMatches(s).toList();
     if (matches.isEmpty) return null;
-    matches.sort((a, b) => b.group(1)!.length.compareTo(a.group(1)!.length));
-    return matches.first.group(1)!.toUpperCase();
+
+    String best = matches.first.group(1)!.toUpperCase();
+    int bestLen = best.length;
+    bool bestNonZero = !_isAllZeros(best);
+    int bestStart = matches.first.start;
+
+    for (final m in matches.skip(1)) {
+      final token = m.group(1)!.toUpperCase();
+      final len = token.length;
+      final nonZero = !_isAllZeros(token);
+      final start = m.start;
+
+      final bool better =
+          (len > bestLen) ||
+          (len == bestLen && nonZero && !bestNonZero) ||
+          (len == bestLen && nonZero == bestNonZero && start < bestStart);
+
+      if (better) {
+        best = token;
+        bestLen = len;
+        bestNonZero = nonZero;
+        bestStart = start;
+      }
+    }
+
+    return best;
+  }
+
+  String? _dynToHex(dynamic v, {int minWidth = 4}) {
+    if (v == null) return null;
+
+    if (v is int) {
+      return _formatHex(v, minWidth: minWidth);
+    }
+
+    if (v is num) {
+      return _formatHex(v.toInt(), minWidth: minWidth);
+    }
+
+    if (v is String) {
+      final t = v.trim();
+      if (t.isEmpty) return null;
+      final extracted = _extractHexToken(t);
+      if (extracted == null) return null;
+      return extracted.padLeft(minWidth, '0');
+    }
+
+    if (v is Iterable) {
+      for (final e in v) {
+        final hex = _dynToHex(e, minWidth: minWidth);
+        if (hex == null) continue;
+        if (_isAllZeros(hex)) continue;
+        return hex;
+      }
+      for (final e in v) {
+        final hex = _dynToHex(e, minWidth: minWidth);
+        if (hex != null) return hex;
+      }
+    }
+
+    return null;
+  }
+
+  String? _paramHex(Map<String, dynamic>? params, List<String> keys, {int minWidth = 4}) {
+    if (params == null) return null;
+    for (final k in keys) {
+      if (!params.containsKey(k)) continue;
+      final hex = _dynToHex(params[k], minWidth: minWidth);
+      if (hex != null) return hex;
+    }
+    return null;
   }
 
   String? _displayHex(IRButton b) {
-    // Prefer explicit hex in protocolParams if present; fallback to code/raw-derived extractions.
-
     if (_isRawSignalButton(b)) return null;
-    if (_hasProtocol(b)) {
-      final params = _protocolParams(b);
-      // 1) Generic hex field provided by imports
-      final dynamic hexDyn = params?['hex'];
-      if (hexDyn is String && hexDyn.trim().isNotEmpty) {
-        final extracted = _extractHexToken(hexDyn.trim());
-        if (extracted == null) return null;
-        final int minWidth = extracted.length >= 8 ? 8 : 4;
-        return extracted.padLeft(minWidth, '0');
-      }
-      // 2) Structured protocol display fallbacks
-      final String protoId = b.protocol!.trim().toLowerCase();
-      if (protoId == 'kaseikyo') {
-        final String? vendor = (params?['vendor'] as String?)?.toUpperCase();
-        final String? address = (params?['address'] as String?)?.toUpperCase();
-        final String? command = (params?['command'] as String?)?.toUpperCase();
-        if (vendor != null && address != null && command != null &&
-            vendor.isNotEmpty && address.isNotEmpty && command.isNotEmpty) {
-          // Concatenate for display: VVVV + AAA + CC (e.g., 2002 080 76 -> 200208076)
-          return (vendor + address + command).replaceAll(RegExp(r'\s+'), '');
-        }
-      }
+
+    final params = _protocolParams(b);
+    final String protoId = (b.protocol ?? '').trim().toLowerCase();
+
+    final String? cmd = _paramHex(
+      params,
+      const ['command', 'cmd', 'function', 'subcommand', 'scancode', 'keycode'],
+      minWidth: 4,
+    );
+
+    final String? addr = _paramHex(
+      params,
+      const ['address', 'addr', 'device', 'dev', 'subdevice'],
+      minWidth: 4,
+    );
+
+    final String? vendor = _paramHex(
+      params,
+      const ['vendor', 'vendorId', 'vendor_id', 'maker', 'manufacturer', 'manuf'],
+      minWidth: 4,
+    );
+
+    if (protoId == 'kaseikyo' || protoId.startsWith('kaseikyo')) {
+      if (vendor != null && addr != null && cmd != null) return '$vendor-$addr-$cmd';
+      if (addr != null && cmd != null) return '$addr-$cmd';
+      if (cmd != null) return cmd;
     }
+
+    if (addr != null && cmd != null) return '$addr-$cmd';
+    if (cmd != null) return cmd;
+
+    final String? directHex = _paramHex(
+      params,
+      const ['hex', 'code', 'value', 'data'],
+      minWidth: 4,
+    );
+    if (directHex != null) return directHex;
+
     final int? v = b.code;
-    if (v != null) {
-      if (_hasProtocol(b)) return _formatHex(v, minWidth: 4);
-      return _formatHex(v, minWidth: 8);
+    if (v != null) return _formatHex(v, minWidth: 4);
+
+    final String? raw = b.rawData?.trim();
+    if (raw != null && raw.isNotEmpty) {
+      final extracted = _extractHexToken(raw);
+      if (extracted != null) return extracted.padLeft(4, '0');
     }
-    if (_hasProtocol(b)) {
-      final String? raw = b.rawData?.trim();
-      if (raw != null && raw.isNotEmpty) {
-        final extracted = _extractHexToken(raw);
-        if (extracted != null) return extracted.padLeft(4, '0');
-      }
-    }
+
     return null;
   }
 
@@ -390,8 +510,10 @@ class RemoteViewState extends State<RemoteView> {
       if (f is int && f > 0) return f;
       if (f is num && f.toInt() > 0) return f.toInt();
     }
+
     final int? f = b.frequency;
     if (f != null && f > 0) return f;
+
     if (_hasProtocol(b)) return 38000;
     if (_isRawSignalButton(b)) return 38000;
     return kDefaultNecFrequencyHz;
@@ -414,6 +536,7 @@ class RemoteViewState extends State<RemoteView> {
     final colorScheme = Theme.of(context).colorScheme;
     final Color background = bg ?? colorScheme.secondaryContainer.withValues(alpha: 0.9);
     final Color foreground = fg ?? colorScheme.onSecondaryContainer;
+
     return Container(
       padding: padding,
       decoration: BoxDecoration(
@@ -440,6 +563,7 @@ class RemoteViewState extends State<RemoteView> {
   Future<void> _openRemoteActionsSheet() async {
     final theme = Theme.of(context);
     final cs = theme.colorScheme;
+
     await showModalBottomSheet<void>(
       context: context,
       showDragHandle: true,
@@ -467,8 +591,7 @@ class RemoteViewState extends State<RemoteView> {
                         children: [
                           Text(
                             _remote.name,
-                            style: theme.textTheme.titleLarge
-                                ?.copyWith(fontWeight: FontWeight.w900),
+                            style: theme.textTheme.titleLarge?.copyWith(fontWeight: FontWeight.w900),
                             maxLines: 1,
                             overflow: TextOverflow.ellipsis,
                           ),
@@ -524,6 +647,7 @@ class RemoteViewState extends State<RemoteView> {
   Future<bool> _confirmDeleteRemote() async {
     final theme = Theme.of(context);
     final cs = theme.colorScheme;
+
     return await showDialog<bool>(
       context: context,
       builder: (ctx) => AlertDialog(
@@ -554,15 +678,18 @@ class RemoteViewState extends State<RemoteView> {
   Future<void> _openButtonActions(IRButton b) async {
     final theme = Theme.of(context);
     final cs = theme.colorScheme;
+
     final String label = _buttonTitle(b);
     final String proto = _protocolLabel(b);
     final String freq = _freqLabelKhz(b);
     final bool isRaw = _isRawSignalButton(b);
     final String? displayHex = _displayHex(b);
     final bool loopingThis = _isLoopingThis(b);
+
     final String typeLine = 'Type: $proto';
     final String codeLine = isRaw ? 'Code: Raw signal' : 'Code: ${displayHex ?? 'NO CODE'}';
     final String freqLine = 'Frequency: $freq';
+
     await showModalBottomSheet<void>(
       context: context,
       showDragHandle: true,
@@ -590,8 +717,7 @@ class RemoteViewState extends State<RemoteView> {
                         children: [
                           Text(
                             label,
-                            style: theme.textTheme.titleLarge
-                                ?.copyWith(fontWeight: FontWeight.w900),
+                            style: theme.textTheme.titleLarge?.copyWith(fontWeight: FontWeight.w900),
                             maxLines: 1,
                             overflow: TextOverflow.ellipsis,
                           ),
@@ -616,7 +742,8 @@ class RemoteViewState extends State<RemoteView> {
                     color: cs.surfaceContainerHighest.withValues(alpha: 0.55),
                     borderRadius: BorderRadius.circular(12),
                     border: Border.all(
-                        color: cs.outlineVariant.withValues(alpha: 0.3)),
+                      color: cs.outlineVariant.withValues(alpha: 0.3),
+                    ),
                   ),
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
@@ -647,9 +774,7 @@ class RemoteViewState extends State<RemoteView> {
                           const SizedBox(width: 6),
                           Expanded(
                             child: Text(
-                              loopingThis
-                                  ? 'Loop is running for this button.'
-                                  : 'Tip: Use Loop to repeat until you stop it.',
+                              loopingThis ? 'Loop is running for this button.' : 'Tip: Use Loop to repeat until you stop it.',
                               style: theme.textTheme.bodySmall?.copyWith(
                                 color: cs.onSurface.withValues(alpha: 0.75),
                                 fontWeight: FontWeight.w600,
@@ -735,6 +860,7 @@ class RemoteViewState extends State<RemoteView> {
     final cs = theme.colorScheme;
     final bool useNewStyle = _remote.useNewStyle;
     final int count = _remote.buttons.length;
+
     return Scaffold(
       appBar: AppBar(
         centerTitle: true,
@@ -773,6 +899,7 @@ class RemoteViewState extends State<RemoteView> {
             onPressed: () {
               setState(() => _reorderMode = !_reorderMode);
               Haptics.selectionClick();
+
               if (_reorderMode && mounted) {
                 ScaffoldMessenger.of(context).hideCurrentSnackBar();
                 ScaffoldMessenger.of(context).showSnackBar(
@@ -834,6 +961,7 @@ class RemoteViewState extends State<RemoteView> {
     final theme = Theme.of(context);
     final cs = theme.colorScheme;
     final cardColor = cs.primary.withValues(alpha: 0.20);
+
     return ReorderableGridView.builder(
       padding: EdgeInsets.fromLTRB(
         12,
@@ -852,10 +980,9 @@ class RemoteViewState extends State<RemoteView> {
       itemBuilder: (context, index) {
         final IRButton button = _remote.buttons[index];
         final String proto = _protocolLabel(button);
+
         final Widget content = button.isImage
-            ? (button.image.startsWith("assets/")
-                ? Image.asset(button.image, fit: BoxFit.contain)
-                : Image.file(File(button.image), fit: BoxFit.contain))
+            ? (button.image.startsWith("assets/") ? Image.asset(button.image, fit: BoxFit.contain) : Image.file(File(button.image), fit: BoxFit.contain))
             : Center(
                 child: Padding(
                   padding: const EdgeInsets.all(6),
@@ -872,6 +999,7 @@ class RemoteViewState extends State<RemoteView> {
                   ),
                 ),
               );
+
         return Material(
           key: ValueKey(button.id),
           color: cardColor,
@@ -894,10 +1022,7 @@ class RemoteViewState extends State<RemoteView> {
                   child: _pill(
                     context,
                     proto,
-                    padding: const EdgeInsets.symmetric(
-                      horizontal: 6,
-                      vertical: 3,
-                    ),
+                    padding: const EdgeInsets.symmetric(horizontal: 6, vertical: 3),
                     fontSize: 9,
                   ),
                 ),
@@ -908,17 +1033,20 @@ class RemoteViewState extends State<RemoteView> {
       },
       onReorder: (oldIndex, newIndex) async {
         if (!_reorderMode) return;
+
         setState(() {
           if (newIndex > oldIndex) newIndex--;
           final moved = _remote.buttons.removeAt(oldIndex);
           _remote.buttons.insert(newIndex, moved);
         });
+
         final idx = _findRemoteIndexInGlobalList();
         if (idx >= 0) {
           remotes[idx] = _remote;
           await writeRemotelist(remotes);
           notifyRemotesChanged();
         }
+
         if (mounted) Haptics.selectionClick();
       },
     );
@@ -929,6 +1057,7 @@ class RemoteViewState extends State<RemoteView> {
     final theme = Theme.of(context);
     final cs = theme.colorScheme;
     final cardColor = cs.primary.withValues(alpha: 0.20);
+
     return ReorderableGridView.builder(
       padding: EdgeInsets.fromLTRB(
         12,
@@ -946,27 +1075,32 @@ class RemoteViewState extends State<RemoteView> {
       dragStartDelay: dragDelay,
       onReorder: (oldIndex, newIndex) async {
         if (!_reorderMode) return;
+
         setState(() {
           if (newIndex > oldIndex) newIndex--;
           final moved = _remote.buttons.removeAt(oldIndex);
           _remote.buttons.insert(newIndex, moved);
         });
+
         final idx = _findRemoteIndexInGlobalList();
         if (idx >= 0) {
           remotes[idx] = _remote;
           await writeRemotelist(remotes);
           notifyRemotesChanged();
         }
+
         if (mounted) Haptics.selectionClick();
       },
       itemBuilder: (context, index) {
         final IRButton button = _remote.buttons[index];
+
         final bool isRaw = _isRawSignalButton(button);
         final String title = _buttonTitle(button);
         final String proto = _protocolLabel(button);
         final String freq = _freqLabelKhz(button);
         final String? displayHex = _displayHex(button);
         final String codeText = isRaw ? 'RAW' : (displayHex ?? 'NO CODE');
+
         return Card(
           key: ValueKey(button.id),
           elevation: 0,
@@ -1042,6 +1176,7 @@ class _ReorderHintBanner extends StatelessWidget {
   Widget build(BuildContext context) {
     final theme = Theme.of(context);
     final cs = theme.colorScheme;
+
     return Material(
       color: cs.secondaryContainer.withValues(alpha: 0.55),
       child: Padding(
@@ -1080,6 +1215,7 @@ class _EmptyRemoteState extends StatelessWidget {
   Widget build(BuildContext context) {
     final theme = Theme.of(context);
     final cs = theme.colorScheme;
+
     return Center(
       child: Padding(
         padding: const EdgeInsets.all(24),
@@ -1090,8 +1226,7 @@ class _EmptyRemoteState extends StatelessWidget {
             const SizedBox(height: 12),
             Text(
               'No buttons in this remote',
-              style: theme.textTheme.titleMedium
-                  ?.copyWith(fontWeight: FontWeight.w900),
+              style: theme.textTheme.titleMedium?.copyWith(fontWeight: FontWeight.w900),
               textAlign: TextAlign.center,
             ),
             const SizedBox(height: 6),
@@ -1115,4 +1250,3 @@ class _EmptyRemoteState extends StatelessWidget {
     );
   }
 }
-

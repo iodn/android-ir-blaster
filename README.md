@@ -121,7 +121,9 @@ The Signal Tester is designed to help discover unknown working IR commands.
 
 ## Supported Infrared Protocols
 
-| Protocol   | Input format | Carrier (Hz) | Frame structure / timing summary | Notes |
+## Supported Infrared Protocols
+
+| Protocol | Input format | Carrier (Hz) | Frame structure / timing summary | Notes |
 |---|---|---:|---|---|
 | Raw Signal | pattern (µs), optional frequencyHz | 10,000–100,000 (default 38,000) | Alternating mark/space durations starting with mark; tokens can be decimal/hex; comments supported; auto-append 45ms trailing space if odd length | Max 4096 entries, positive durations only; strict parsing and bounds |
 | Denon | 4 hex | 38,000 | Build 13 bits = nib0(4)+nib1(4)+nib2(4)+nib3(1); duplicate to 26; encode bits with mark=280, space 860/1720; sequence = first13 + pre (c+b+[280, 43560]) + second13 + post (b+c+[280, 43560]) | Strict 4 hex digits |
@@ -131,16 +133,17 @@ The Signal Tester is designed to help discover unknown working IR commands.
 | NEC2 | up to 8 hex (left-padded) → 32 bits | 38,222 | Same construction as NEC in this implementation | Accepts 1–8 hex; normalized to 8 |
 | NECx1 | up to 8 hex (left-padded) → 32 bits | 38,400 | Preamble 4500/4500; bit mark=562 + space 562/1687; trailing 562; pad to 108,800µs | Optional helper for toggle frame |
 | NECx2 | up to 8 hex (left-padded) → 32 bits | 38,400 | Single NECx-like frame padded to 108,800µs; then duplicate the whole frame back-to-back | Output is two identical frames |
-| Pioneer | 8 hex (32 bits) | 40,000 | Preamble 8350/4200; bit mark=538 + space 538 (0) or 1614 (1); trailer 538 + 26236; whole frame duplicated | Strict 8 hex digits |
+| Pioneer | 8 hex → 32 bits (4 bytes MSB-first) | 40,000 | Preamble ~8500/4225; each bit mark≈500 + space≈500 (0) or ≈1500 (1); stop bit is implicit; trailing silence ≈26000; full frame sent twice | Typical 4-byte payload layout is Address + ~Address + Command + ~Command |
 | Proton | 4 hex (16 bits) | 38,500 | Header 8000/4000; send last 8 bits; separator 500/8000; then first 8 bits; final 500; pad to 63,000µs | Bit mark=500; 0=500; 1=1500; strict 4 hex |
-| RC5 | up to 3 hex | 36,000 | Manchester coding, unit 889µs; leader “10” or “11” based on head; toggle flips each encode; 11-bit payload; frame padded/replaced to 114,000µs | Toggle bit maintained internally |
-| RC6 | hex (last 4 hex used → 16 bits) | 36,000 | Manchester-like with helpers e/f; leader 2664/888; mid-field toggle flips each encode; bits encoded with T=444 pairs | Uses last 4 hex digits as payload |
+| RC5 | up to 3 hex | 36,000 | Manchester coding, unit ≈889µs; start bits + toggle bit (flips each encode); 11-bit payload MSB-first; frame padded/replaced to 114,000µs | Toggle bit maintained internally (repeat detection depends on toggle changes) |
+| RC6 | hex (last 4 hex used → 16-bit payload) | 36,000 | Leader 2664/888; Manchester-like with mode bits + toggle field (toggle is double-time); payload uses T=444 timing pairs; overall layout is start+mode+toggle+addr+cmd | Uses last 4 hex digits as payload; internal toggle flips each encode |
 | RCA_38 | 3 hex → 12 bits (high nibble + low byte) | 38,700 | Preamble 3840/3840; 0=[480,960], 1=[480,1920]; trailer [480,7680]; sequence duplicated | Strict 3 hex digits |
 | RCC0082 | 3 hex (nibbles) | 30,300 | Prefix 22 ints [BIT=528,GAP=2640,BIT×19,END=21120], then [BIT,GAP,BIT,BIT]; build 10-bit: “0” + n0(last3) + n1(all4) + n2(first2); transition-based emission; parity-based tail then suffix (same 22) | Tail even=111,408, odd=110,880 |
 | RCC2026 | 11 hex → 42 bits (from 44 padded) | 38,222 | Header 8800/4400; bit mark=550 + space 550 (0) or 1650 (1); final mark 550 + 23100; then tail [8800, 4400, 550, 90750] | Strict 11 hex; takes last 42 bits |
 | REC80 | 12 hex → 48 bits (32 + 16) | 37,000 | Header 3456/1728; bit1 432/1296; bit0 432/432; tail 432/74736 | Strict 12 hex |
 | RECS80 | 3 hex | 38,000 | Toggle flips each encode; bit string: “1” + toggle + n0(first3) + n0(last1) + n1(all4) + n2(first1); each bit mark=158 + space 7426 (1) or 4898 (0); end 158/45000 | Internal toggle maintained |
 | RECS80_L | 3 hex | 33,300 | Same bit string as RECS80; bit1 180/8460; bit0 180/5580; end is 180 then pad to 138,000µs | Low-frequency variant; fixed frame length |
+| Samsung32 | 4 hex (AA CC) → 32 bits | 38,000 | Preamble 4500/4500; each bit mark≈550 + space≈550 (0) or ≈1650 (1); standard 32-bit layout with checksum byte | Payload layout is Address + Address + Command + ~Command |
 | Samsung36 | 7 hex → 36 bits (A8+B8+C4+D8+~D8) | 38,000 | Start 4500/4500; first 16 bits (500/500|1500); 500/4500 separator; last 20 bits same; final 500/59000 | Strict 7 hex; includes ~D |
 | Sharp | 4 hex → 26 bits (13 doubled) | 38,000 | Build 13 bits = nib0(4)+nib1(4)+nib2(4)+nib3(first1); encode with b=[280,860]/c=[280,1720]; add d=c+b+[280,43560]; then second 13 + e=b+c+[280,43560] | Strict 4 hex; two-block structure |
 | SONY12 | 3 hex → 12 bits | 40,000 | Header 2400/600; 0=600/600; 1=1200/600; remove last duration; pad to 45,000µs; duplicate frame | Strict 3 hex |
@@ -148,6 +151,7 @@ The Signal Tester is designed to help discover unknown working IR commands.
 | SONY20 | 5 hex → 20 bits | 40,000 | Same timings as SONY12; remove last duration; pad to 45,000µs; duplicate frame | Strict 5 hex |
 | Thomson7 | 3 hex (int) | 33,000 | Mask 0xF7F; 12 bits = last4 + toggle + first7; 0=[460,2000]; 1=[460,4600]; append 460; pad to 80,000µs; duplicate frame | Toggle maintained; hex int input with min/max |
 | Kaseikyo (Panasonic) | 6 hex → 24 bits (Address12 + Command8 + VendorParity/ignored) | 37,000 | Header 3456/1728; bit mark 432, space 432 (0) or 1296 (1); this finder uses a 24-bit payload (address:12 + command:8 + low vendor nibble) to search; production encoder computes full 48-bit frame with vendor parity and 8-bit XOR parity | Use vendor defaults or provide vendor/address/command when creating a button in remotes |
+
 
 Notes:
 - Protocol identifiers and display names are maintained in `lib/ir/ir_protocol_registry.dart`.
