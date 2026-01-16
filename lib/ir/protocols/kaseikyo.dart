@@ -79,7 +79,11 @@ class KaseikyoProtocolEncoder implements IrProtocolEncoder {
     final int vendorParity = _vendorParityNibble(vendor);
 
     final int word1 = vendor; // 16 bits
-    final int word2 = ((address12 << 4) | vendorParity) & 0xFFFF; // parity in low nibble
+    // Per Kaseikyo spec: Vendor(16) + VendParity(4) + Address(12) + Command(8) + XOR(8)
+    // The 16-bit word following Vendor places the 4-bit vendor parity in the high nibble,
+    // followed by the 12-bit address. With LSB-first bit order inside each byte, we still
+    // construct bytes in little-endian order here.
+    final int word2 = (((vendorParity & 0xF) << 12) | (address12 & 0x0FFF)) & 0xFFFF; // parity in high nibble
 
     final int byte0 = word1 & 0xFF; // LSB first
     final int byte1 = (word1 >> 8) & 0xFF;
