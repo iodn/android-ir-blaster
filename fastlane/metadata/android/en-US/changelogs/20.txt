@@ -1,0 +1,87 @@
+## Changelog notes
+
+* **Fixed brute-force payload generation per-protocol**
+
+  * Stopped treating every protocol as `"hex"` input.
+  * Added protocol-aware parameter building so brute-force generates the **exact fields expected by each encoder**:
+
+    * `denon/jvc/proton` → `hex` (exact **4** digits)
+    * `rc5` → `hex` (**1–3** digits, not forced to 3)
+    * `rcc0082` → `hex` (exact **3** digits)
+    * `rcc2026` → `hex` (exact **11** digits)
+    * `rec80` → `hex` (exact **12** digits)
+    * `recs80 / recs80_l` → `hex` (exact **3** digits)
+    * `pioneer` → `address` (2) + `command` (2)
+    * `rca_38` → `address` (1) + `command` (2)
+    * `kaseikyo` → generates valid `address` + `command` blocks (4 bytes each)
+    * `thomson7` → generates an `int` (not hex-string)
+    * `sony12/15/20` → now uses the correct expected field type (not Pioneer parsing)
+
+* **Prefix is now truly optional**
+
+  * Brute-force runs correctly when prefix is **empty** (full search space).
+  * Prefix validation only applies when the user actually entered something.
+
+* **“Test all combinations” works correctly**
+
+  * When enabled, IR Finder now iterates until the protocol’s full brute space is exhausted.
+  * When disabled, IR Finder stops at the configured **Max attempts**, properly clamped to the search space.
+
+* **Corrected example payloads + digit rules**
+
+  * Updated `_protocolExampleHex` so defaults match real encoder expectations (no more invalid-length examples causing immediate send failures).
+
+* **Protocol availability enforcement**
+
+  * Removed/blocked protocols that are not implemented in the registry (example: `samsung32` error).
+  * Any protocol in the picker is guaranteed to exist in `IrProtocolRegistry` before enabling brute-force.
+
+* **More resilient DB candidate sending**
+
+  * DB mode normalizes protocol IDs reliably and maps DB hexcodes into proper encoder params using the same protocol-aware builder (so DB candidates don’t fail for multi-field protocols).
+
+* **Fixed brute-force payload generation per-protocol**
+
+  * Stopped treating every protocol as `"hex"` input.
+  * Added protocol-aware parameter building so brute-force generates the **exact fields expected by each encoder**:
+
+    * `denon/jvc/proton` → `hex` (exact **4** digits)
+    * `rc5` → `hex` (**1–3** digits, not forced to 3)
+    * `rcc0082` → `hex` (exact **3** digits)
+    * `rcc2026` → `hex` (exact **11** digits)
+    * `rec80` → `hex` (exact **12** digits)
+    * `recs80 / recs80_l` → `hex` (exact **3** digits)
+    * `pioneer` → `address` (2) + `command` (2)
+    * `rca_38` → `address` (1) + `command` (2)
+    * `kaseikyo` → generates valid `address` + `command` blocks (4 bytes each)
+    * `thomson7` → generates an `int` (not hex-string)
+    * `sony12/15/20` → now uses the correct expected field type (not Pioneer parsing)
+
+* **Prefix is now truly optional**
+
+  * Brute-force runs correctly when prefix is **empty** (full search space).
+  * Prefix validation only applies when the user actually entered something.
+
+* **“Test all combinations” works correctly**
+
+  * When enabled, IR Finder now iterates until the protocol’s full brute space is exhausted.
+  * When disabled, IR Finder stops at the configured **Max attempts**, properly clamped to the search space.
+
+* **Corrected example payloads + digit rules**
+
+  * Updated `_protocolExampleHex` so defaults match real encoder expectations (no more invalid-length examples causing immediate send failures).
+
+* **Protocol availability enforcement**
+
+  * Removed/blocked protocols that are not implemented in the registry (example: `samsung32` error).
+  * Any protocol in the picker is guaranteed to exist in `IrProtocolRegistry` before enabling brute-force.
+
+* **More resilient DB candidate sending**
+
+  * DB mode normalizes protocol IDs reliably and maps DB hexcodes into proper encoder params using the same protocol-aware builder (so DB candidates don’t fail for multi-field protocols).
+
+* **Improved USB IR stability after single send (ElkSmart)**
+
+  * Added automatic USB transmitter reset + reopen on failed transmit, and drained ElkSmart IN endpoint after sends to prevent the dongle from hanging on the next command.
+
+IR Blaster is open source, check out our GitHub repository at https://github.com/iodn/android-ir-blaster if you want to contribute.
