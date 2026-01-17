@@ -4,6 +4,7 @@ import 'package:irblaster_controller/ir/ir_protocol_registry.dart';
 import 'package:irblaster_controller/utils/ir.dart';
 import 'package:irblaster_controller/utils/remote.dart';
 import 'package:irblaster_controller/widgets/create_button.dart';
+import 'package:uuid/uuid.dart';
 
 enum _LayoutStyle { compact, wide }
 
@@ -114,6 +115,41 @@ class _CreateRemoteState extends State<CreateRemote> {
                 onTap: () {
                   Navigator.of(ctx).pop();
                   _editButtonAt(index);
+                },
+              ),
+              ListTile(
+                leading: const Icon(Icons.copy_all_outlined),
+                title: const Text('Duplicate'),
+                subtitle: const Text('Create a copy of this button'),
+                onTap: () {
+                  Navigator.of(ctx).pop();
+                  final dup = b.copyWith(id: const Uuid().v4());
+                  setState(() {
+                    remote.buttons.insert(index + 1, dup);
+                  });
+                  _showSnack('Button duplicated');
+                },
+              ),
+              ListTile(
+                leading: const Icon(Icons.copy_rounded),
+                title: const Text('Duplicate and edit'),
+                subtitle: const Text('Create a copy and edit it immediately'),
+                onTap: () async {
+                  Navigator.of(ctx).pop();
+                  final dup = b.copyWith(id: const Uuid().v4());
+                  final int newIdx = index + 1;
+                  setState(() {
+                    remote.buttons.insert(newIdx, dup);
+                  });
+                  final IRButton? updated = await Navigator.push<IRButton?>(
+                    context,
+                    MaterialPageRoute(builder: (context) => CreateButton(button: dup)),
+                  );
+                  if (updated != null && mounted) {
+                    setState(() {
+                      remote.buttons[newIdx] = updated;
+                    });
+                  }
                 },
               ),
               ListTile(

@@ -137,6 +137,29 @@ class SettingsScreen extends StatelessWidget {
     ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text(result.message)));
   }
 
+  Future<void> _doBulkImportFolder(BuildContext context) async {
+    final result = await importRemotesFromFolderPicker(context, current: remotes);
+    if (result == null) return;
+
+    final isFailure = result.message.toLowerCase().contains('failed') ||
+        result.message.toLowerCase().contains('unsupported') ||
+        result.message.toLowerCase().contains('invalid');
+
+    if (result.remotes.isEmpty && isFailure) {
+      if (!context.mounted) return;
+      ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text(result.message)));
+      return;
+    }
+
+    remotes = result.remotes;
+    await writeRemotelist(remotes);
+    remotes = await readRemotes();
+    notifyRemotesChanged();
+
+    if (!context.mounted) return;
+    ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text(result.message)));
+  }
+
   Future<void> _doExport(BuildContext context) async {
     await exportRemotesToDownloads(
       context,
@@ -620,8 +643,15 @@ class SettingsScreen extends StatelessWidget {
             ListTile(
               leading: const Icon(Icons.file_upload_outlined),
               title: const Text('Import backup'),
-              subtitle: const Text('Import remotes/macros backup or Flipper Zero .ir files'),
+              subtitle: const Text('Import remotes/macros backup or Flipper Zero, LIRC or IRPLUS files'),
               onTap: () => _doImport(context),
+            ),
+            const Divider(height: 1),
+            ListTile(
+              leading: const Icon(Icons.drive_folder_upload_outlined),
+              title: const Text('Bulk import folder'),
+              subtitle: const Text('Import multiple remotes from a folder'),
+              onTap: () => _doBulkImportFolder(context),
             ),
             const Divider(height: 1),
             ListTile(

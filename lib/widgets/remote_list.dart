@@ -164,16 +164,23 @@ class _RemoteListState extends State<RemoteList> {
       context: context,
       showDragHandle: true,
       useSafeArea: true,
+      isScrollControlled: true,
       shape: const RoundedRectangleBorder(
         borderRadius: BorderRadius.vertical(top: Radius.circular(18)),
       ),
       builder: (ctx) {
+        final mq = MediaQuery.of(ctx);
+        final maxH = mq.size.height * 0.9;
         return SafeArea(
-          child: Padding(
-            padding: const EdgeInsets.fromLTRB(16, 10, 16, 14),
-            child: Column(
-              mainAxisSize: MainAxisSize.min,
-              children: [
+          child: ConstrainedBox(
+            constraints: BoxConstraints(maxHeight: maxH),
+            child: SingleChildScrollView(
+              padding: EdgeInsets.only(bottom: mq.viewInsets.bottom),
+              child: Padding(
+                padding: const EdgeInsets.fromLTRB(16, 10, 16, 14),
+                child: Column(
+                  mainAxisSize: MainAxisSize.min,
+                  children: [
                 Row(
                   children: [
                     CircleAvatar(
@@ -252,7 +259,9 @@ class _RemoteListState extends State<RemoteList> {
                   },
                 ),
                 const SizedBox(height: 6),
-              ],
+                  ],
+                ),
+              ),
             ),
           ),
         );

@@ -9,8 +9,10 @@ import 'package:irblaster_controller/state/orientation_pref.dart';
 import 'package:irblaster_controller/state/remotes_state.dart';
 import 'package:irblaster_controller/utils/ir.dart';
 import 'package:irblaster_controller/utils/remote.dart';
+import 'package:irblaster_controller/widgets/create_button.dart';
 import 'package:irblaster_controller/widgets/create_remote.dart';
 import 'package:reorderable_grid_view/reorderable_grid_view.dart';
+import 'package:uuid/uuid.dart';
 
 class RemoteView extends StatefulWidget {
   final Remote remote;
@@ -30,8 +32,8 @@ class RemoteView extends StatefulWidget {
 
 class RemoteViewState extends State<RemoteView> {
   bool _reorderMode = false;
-
   bool _rotate180 = false;
+
   final RemoteOrientationController _orientation = RemoteOrientationController.instance;
 
   late Remote _remote;
@@ -48,7 +50,6 @@ class RemoteViewState extends State<RemoteView> {
   void initState() {
     super.initState();
     _remote = widget.remote;
-
     _rotate180 = _orientation.flipped;
 
     hasIrEmitter().then((value) {
@@ -152,6 +153,7 @@ class RemoteViewState extends State<RemoteView> {
     });
 
     if (!mounted) return;
+
     final title = _buttonTitle(button);
     ScaffoldMessenger.of(context).hideCurrentSnackBar();
     ScaffoldMessenger.of(context).showSnackBar(
@@ -213,7 +215,6 @@ class RemoteViewState extends State<RemoteView> {
     }
 
     final int idx = _findRemoteIndexInGlobalList();
-
     try {
       final Remote edited = await Navigator.push(
         context,
@@ -231,9 +232,7 @@ class RemoteViewState extends State<RemoteView> {
       } else {
         ScaffoldMessenger.of(context).showSnackBar(
           const SnackBar(
-            content: Text(
-              'Remote updated on screen. It was not found in the saved list.',
-            ),
+            content: Text('Remote updated on screen. It was not found in the saved list.'),
           ),
         );
       }
@@ -334,10 +333,8 @@ class RemoteViewState extends State<RemoteView> {
     if (!_hasProtocol(b)) return false;
     final String id = b.protocol!.trim();
     if (id != 'raw') return false;
-
     final params = _protocolParams(b);
     if (params == null) return true;
-
     final pattern = params['pattern'];
     return pattern is String && pattern.trim().isNotEmpty;
   }
@@ -376,7 +373,9 @@ class RemoteViewState extends State<RemoteView> {
     final m0x = RegExp(r'0x([0-9a-fA-F]{1,16})').firstMatch(s);
     if (m0x != null) return m0x.group(1)!.toUpperCase();
 
-    final matches = RegExp(r'(?<![0-9a-fA-F])([0-9a-fA-F]{1,16})(?![0-9a-fA-F])').allMatches(s).toList();
+    final matches = RegExp(r'(?<![0-9a-fA-F])([0-9a-fA-F]{1,16})(?![0-9a-fA-F])')
+        .allMatches(s)
+        .toList();
     if (matches.isEmpty) return null;
 
     String best = matches.first.group(1)!.toUpperCase();
@@ -390,8 +389,7 @@ class RemoteViewState extends State<RemoteView> {
       final nonZero = !_isAllZeros(token);
       final start = m.start;
 
-      final bool better =
-          (len > bestLen) ||
+      final bool better = (len > bestLen) ||
           (len == bestLen && nonZero && !bestNonZero) ||
           (len == bestLen && nonZero == bestNonZero && start < bestStart);
 
@@ -412,11 +410,9 @@ class RemoteViewState extends State<RemoteView> {
     if (v is int) {
       return _formatHex(v, minWidth: minWidth);
     }
-
     if (v is num) {
       return _formatHex(v.toInt(), minWidth: minWidth);
     }
-
     if (v is String) {
       final t = v.trim();
       if (t.isEmpty) return null;
@@ -424,7 +420,6 @@ class RemoteViewState extends State<RemoteView> {
       if (extracted == null) return null;
       return extracted.padLeft(minWidth, '0');
     }
-
     if (v is Iterable) {
       for (final e in v) {
         final hex = _dynToHex(e, minWidth: minWidth);
@@ -441,7 +436,11 @@ class RemoteViewState extends State<RemoteView> {
     return null;
   }
 
-  String? _paramHex(Map<String, dynamic>? params, List<String> keys, {int minWidth = 4}) {
+  String? _paramHex(
+    Map<String, dynamic>? params,
+    List<String> keys, {
+    int minWidth = 4,
+  }) {
     if (params == null) return null;
     for (final k in keys) {
       if (!params.containsKey(k)) continue;
@@ -462,13 +461,11 @@ class RemoteViewState extends State<RemoteView> {
       const ['command', 'cmd', 'function', 'subcommand', 'scancode', 'keycode'],
       minWidth: 4,
     );
-
     final String? addr = _paramHex(
       params,
       const ['address', 'addr', 'device', 'dev', 'subdevice'],
       minWidth: 4,
     );
-
     final String? vendor = _paramHex(
       params,
       const ['vendor', 'vendorId', 'vendor_id', 'maker', 'manufacturer', 'manuf'],
@@ -516,6 +513,7 @@ class RemoteViewState extends State<RemoteView> {
 
     if (_hasProtocol(b)) return 38000;
     if (_isRawSignalButton(b)) return 38000;
+
     return kDefaultNecFrequencyHz;
   }
 
@@ -568,75 +566,88 @@ class RemoteViewState extends State<RemoteView> {
       context: context,
       showDragHandle: true,
       useSafeArea: true,
+      isScrollControlled: true,
       shape: const RoundedRectangleBorder(
         borderRadius: BorderRadius.vertical(top: Radius.circular(18)),
       ),
       builder: (ctx) {
+        final mq = MediaQuery.of(ctx);
+        final maxH = mq.size.height * 0.9;
+
         return SafeArea(
-          child: Padding(
-            padding: const EdgeInsets.fromLTRB(16, 8, 16, 12),
-            child: Column(
-              mainAxisSize: MainAxisSize.min,
-              children: [
-                Row(
+          child: ConstrainedBox(
+            constraints: BoxConstraints(maxHeight: maxH),
+            child: SingleChildScrollView(
+              padding: EdgeInsets.only(bottom: mq.viewInsets.bottom),
+              child: Padding(
+                padding: const EdgeInsets.fromLTRB(16, 8, 16, 12),
+                child: Column(
+                  mainAxisSize: MainAxisSize.min,
                   children: [
-                    CircleAvatar(
-                      backgroundColor: cs.primaryContainer.withValues(alpha: 0.65),
-                      child: Icon(Icons.settings_remote_rounded, color: cs.onPrimaryContainer),
+                    Row(
+                      children: [
+                        CircleAvatar(
+                          backgroundColor: cs.primaryContainer.withValues(alpha: 0.65),
+                          child: Icon(
+                            Icons.settings_remote_rounded,
+                            color: cs.onPrimaryContainer,
+                          ),
+                        ),
+                        const SizedBox(width: 12),
+                        Expanded(
+                          child: Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              Text(
+                                _remote.name,
+                                style: theme.textTheme.titleLarge?.copyWith(fontWeight: FontWeight.w900),
+                                maxLines: 1,
+                                overflow: TextOverflow.ellipsis,
+                              ),
+                              const SizedBox(height: 2),
+                              Text(
+                                '${_remote.buttons.length} button(s) · ${_remote.useNewStyle ? 'Comfort' : 'Compact'}',
+                                style: theme.textTheme.bodySmall?.copyWith(
+                                  color: cs.onSurface.withValues(alpha: 0.7),
+                                  fontWeight: FontWeight.w600,
+                                ),
+                              ),
+                            ],
+                          ),
+                        ),
+                      ],
                     ),
-                    const SizedBox(width: 12),
-                    Expanded(
-                      child: Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          Text(
-                            _remote.name,
-                            style: theme.textTheme.titleLarge?.copyWith(fontWeight: FontWeight.w900),
-                            maxLines: 1,
-                            overflow: TextOverflow.ellipsis,
-                          ),
-                          const SizedBox(height: 2),
-                          Text(
-                            '${_remote.buttons.length} button(s) · ${_remote.useNewStyle ? 'Comfort' : 'Compact'}',
-                            style: theme.textTheme.bodySmall?.copyWith(
-                              color: cs.onSurface.withValues(alpha: 0.7),
-                              fontWeight: FontWeight.w600,
-                            ),
-                          ),
-                        ],
+                    const SizedBox(height: 12),
+                    const Divider(height: 0),
+                    ListTile(
+                      contentPadding: EdgeInsets.zero,
+                      leading: const Icon(Icons.edit_outlined),
+                      title: const Text('Edit remote'),
+                      subtitle: const Text('Rename, reorder, and edit buttons'),
+                      trailing: const Icon(Icons.chevron_right_rounded),
+                      onTap: () {
+                        Navigator.of(ctx).pop();
+                        _editRemote();
+                      },
+                    ),
+                    const Divider(height: 0),
+                    ListTile(
+                      contentPadding: EdgeInsets.zero,
+                      leading: Icon(Icons.delete_outline, color: cs.error),
+                      title: Text(
+                        'Delete remote',
+                        style: TextStyle(color: cs.error, fontWeight: FontWeight.w800),
                       ),
+                      subtitle: const Text('This cannot be undone'),
+                      onTap: () async {
+                        Navigator.of(ctx).pop();
+                        await _deleteRemote();
+                      },
                     ),
+                    const SizedBox(height: 6),
                   ],
                 ),
-                const SizedBox(height: 12),
-                const Divider(height: 0),
-                ListTile(
-                  contentPadding: EdgeInsets.zero,
-                  leading: const Icon(Icons.edit_outlined),
-                  title: const Text('Edit remote'),
-                  subtitle: const Text('Rename, reorder, and edit buttons'),
-                  trailing: const Icon(Icons.chevron_right_rounded),
-                  onTap: () {
-                    Navigator.of(ctx).pop();
-                    _editRemote();
-                  },
-                ),
-                const Divider(height: 0),
-                ListTile(
-                  contentPadding: EdgeInsets.zero,
-                  leading: Icon(Icons.delete_outline, color: cs.error),
-                  title: Text(
-                    'Delete remote',
-                    style: TextStyle(color: cs.error, fontWeight: FontWeight.w800),
-                  ),
-                  subtitle: const Text('This cannot be undone'),
-                  onTap: () async {
-                    Navigator.of(ctx).pop();
-                    await _deleteRemote();
-                  },
-                ),
-                const SizedBox(height: 6),
-              ],
+              ),
             ),
           ),
         );
@@ -694,159 +705,243 @@ class RemoteViewState extends State<RemoteView> {
       context: context,
       showDragHandle: true,
       useSafeArea: true,
+      isScrollControlled: true,
       shape: const RoundedRectangleBorder(
         borderRadius: BorderRadius.vertical(top: Radius.circular(18)),
       ),
       builder: (ctx) {
+        final mq = MediaQuery.of(ctx);
+        final maxH = mq.size.height * 0.9;
+
         return SafeArea(
-          child: Padding(
-            padding: const EdgeInsets.fromLTRB(16, 8, 16, 14),
-            child: Column(
-              mainAxisSize: MainAxisSize.min,
-              children: [
-                Row(
+          child: ConstrainedBox(
+            constraints: BoxConstraints(maxHeight: maxH),
+            child: SingleChildScrollView(
+              padding: EdgeInsets.only(bottom: mq.viewInsets.bottom),
+              child: Padding(
+                padding: const EdgeInsets.fromLTRB(16, 8, 16, 14),
+                child: Column(
+                  mainAxisSize: MainAxisSize.min,
                   children: [
-                    CircleAvatar(
-                      backgroundColor: cs.secondaryContainer.withValues(alpha: 0.75),
-                      child: Icon(Icons.touch_app_outlined, color: cs.onSecondaryContainer),
+                    Row(
+                      children: [
+                        CircleAvatar(
+                          backgroundColor: cs.secondaryContainer.withValues(alpha: 0.75),
+                          child: Icon(
+                            Icons.touch_app_outlined,
+                            color: cs.onSecondaryContainer,
+                          ),
+                        ),
+                        const SizedBox(width: 12),
+                        Expanded(
+                          child: Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              Text(
+                                label,
+                                style: theme.textTheme.titleLarge?.copyWith(fontWeight: FontWeight.w900),
+                                maxLines: 1,
+                                overflow: TextOverflow.ellipsis,
+                              ),
+                              const SizedBox(height: 2),
+                              Text(
+                                typeLine,
+                                style: theme.textTheme.bodySmall?.copyWith(
+                                  color: cs.onSurface.withValues(alpha: 0.7),
+                                  fontWeight: FontWeight.w600,
+                                ),
+                              ),
+                            ],
+                          ),
+                        ),
+                      ],
                     ),
-                    const SizedBox(width: 12),
-                    Expanded(
+                    const SizedBox(height: 10),
+                    Container(
+                      width: double.infinity,
+                      padding: const EdgeInsets.all(12),
+                      decoration: BoxDecoration(
+                        color: cs.surfaceContainerHighest.withValues(alpha: 0.55),
+                        borderRadius: BorderRadius.circular(12),
+                        border: Border.all(
+                          color: cs.outlineVariant.withValues(alpha: 0.3),
+                        ),
+                      ),
                       child: Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
                           Text(
-                            label,
-                            style: theme.textTheme.titleLarge?.copyWith(fontWeight: FontWeight.w900),
-                            maxLines: 1,
-                            overflow: TextOverflow.ellipsis,
+                            codeLine,
+                            style: theme.textTheme.bodyMedium?.copyWith(
+                              fontFamily: isRaw ? null : 'monospace',
+                              fontWeight: FontWeight.w800,
+                            ),
                           ),
-                          const SizedBox(height: 2),
+                          const SizedBox(height: 6),
                           Text(
-                            typeLine,
+                            freqLine,
                             style: theme.textTheme.bodySmall?.copyWith(
-                              color: cs.onSurface.withValues(alpha: 0.7),
+                              color: cs.onSurface.withValues(alpha: 0.75),
                               fontWeight: FontWeight.w600,
                             ),
                           ),
-                        ],
-                      ),
-                    ),
-                  ],
-                ),
-                const SizedBox(height: 10),
-                Container(
-                  width: double.infinity,
-                  padding: const EdgeInsets.all(12),
-                  decoration: BoxDecoration(
-                    color: cs.surfaceContainerHighest.withValues(alpha: 0.55),
-                    borderRadius: BorderRadius.circular(12),
-                    border: Border.all(
-                      color: cs.outlineVariant.withValues(alpha: 0.3),
-                    ),
-                  ),
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Text(
-                        codeLine,
-                        style: theme.textTheme.bodyMedium?.copyWith(
-                          fontFamily: isRaw ? null : 'monospace',
-                          fontWeight: FontWeight.w800,
-                        ),
-                      ),
-                      const SizedBox(height: 6),
-                      Text(
-                        freqLine,
-                        style: theme.textTheme.bodySmall?.copyWith(
-                          color: cs.onSurface.withValues(alpha: 0.75),
-                          fontWeight: FontWeight.w600,
-                        ),
-                      ),
-                      const SizedBox(height: 8),
-                      Row(
-                        children: [
-                          Icon(
-                            loopingThis ? Icons.sync_rounded : Icons.info_outline,
-                            size: 16,
-                            color: cs.onSurface.withValues(alpha: 0.75),
-                          ),
-                          const SizedBox(width: 6),
-                          Expanded(
-                            child: Text(
-                              loopingThis ? 'Loop is running for this button.' : 'Tip: Use Loop to repeat until you stop it.',
-                              style: theme.textTheme.bodySmall?.copyWith(
+                          const SizedBox(height: 8),
+                          Row(
+                            children: [
+                              Icon(
+                                loopingThis ? Icons.sync_rounded : Icons.info_outline,
+                                size: 16,
                                 color: cs.onSurface.withValues(alpha: 0.75),
-                                fontWeight: FontWeight.w600,
                               ),
-                            ),
+                              const SizedBox(width: 6),
+                              Expanded(
+                                child: Text(
+                                  loopingThis ? 'Loop is running for this button.' : 'Tip: Use Loop to repeat until you stop it.',
+                                  style: theme.textTheme.bodySmall?.copyWith(
+                                    color: cs.onSurface.withValues(alpha: 0.75),
+                                    fontWeight: FontWeight.w600,
+                                  ),
+                                ),
+                              ),
+                            ],
                           ),
                         ],
                       ),
-                    ],
-                  ),
-                ),
-                const SizedBox(height: 10),
-                Row(
-                  children: [
-                    Expanded(
-                      child: FilledButton.icon(
-                        onPressed: () {
-                          Navigator.of(ctx).pop();
-                          _handleButtonPress(b);
-                        },
-                        icon: const Icon(Icons.play_arrow_rounded),
-                        label: const Text('Send'),
-                      ),
                     ),
-                    const SizedBox(width: 12),
-                    Expanded(
-                      child: FilledButton.tonalIcon(
-                        onPressed: (isRaw || displayHex == null)
-                            ? null
-                            : () async {
-                                await Clipboard.setData(
-                                  ClipboardData(text: displayHex),
-                                );
-                                if (!mounted) return;
+                    const SizedBox(height: 10),
+                    Row(
+                      children: [
+                        Expanded(
+                          child: FilledButton.icon(
+                            onPressed: () {
+                              Navigator.of(ctx).pop();
+                              _handleButtonPress(b);
+                            },
+                            icon: const Icon(Icons.play_arrow_rounded),
+                            label: const Text('Send'),
+                          ),
+                        ),
+                        const SizedBox(width: 12),
+                        Expanded(
+                          child: FilledButton.tonalIcon(
+                            onPressed: (isRaw || displayHex == null)
+                                ? null
+                                : () async {
+                                    await Clipboard.setData(ClipboardData(text: displayHex));
+                                    if (!mounted) return;
+                                    Navigator.of(ctx).pop();
+                                    ScaffoldMessenger.of(context).showSnackBar(
+                                      const SnackBar(content: Text('Code copied.')),
+                                    );
+                                    HapticFeedback.selectionClick();
+                                  },
+                            icon: const Icon(Icons.copy_rounded),
+                            label: const Text('Copy code'),
+                          ),
+                        ),
+                      ],
+                    ),
+                    const SizedBox(height: 12),
+                    SizedBox(
+                      width: double.infinity,
+                      child: loopingThis
+                          ? FilledButton.icon(
+                              style: FilledButton.styleFrom(
+                                backgroundColor: cs.error,
+                                foregroundColor: cs.onError,
+                              ),
+                              onPressed: () {
                                 Navigator.of(ctx).pop();
-                                ScaffoldMessenger.of(context).showSnackBar(
-                                  const SnackBar(content: Text('Code copied.')),
-                                );
-                                HapticFeedback.selectionClick();
+                                _stopLoop(silent: false);
                               },
-                        icon: const Icon(Icons.copy_rounded),
-                        label: const Text('Copy code'),
-                      ),
+                              icon: const Icon(Icons.stop_rounded),
+                              label: const Text('Stop loop'),
+                            )
+                          : FilledButton.tonalIcon(
+                              onPressed: () {
+                                Navigator.of(ctx).pop();
+                                _startLoop(b);
+                              },
+                              icon: const Icon(Icons.loop_rounded),
+                              label: const Text('Start loop'),
+                            ),
+                    ),
+                    const SizedBox(height: 8),
+                    const Divider(height: 0),
+                    ListTile(
+                      contentPadding: EdgeInsets.zero,
+                      leading: const Icon(Icons.copy_all_outlined),
+                      title: const Text('Duplicate'),
+                      subtitle: const Text('Create a copy of this button'),
+                      onTap: () async {
+                        Navigator.of(ctx).pop();
+                        final dup = b.copyWith(id: const Uuid().v4());
+
+                        setState(() {
+                          final idx = _remote.buttons.indexOf(b);
+                          final insertAt = idx >= 0 ? idx + 1 : _remote.buttons.length;
+                          _remote.buttons.insert(insertAt, dup);
+                        });
+
+                        final gi = _findRemoteIndexInGlobalList();
+                        if (gi >= 0) {
+                          remotes[gi] = _remote;
+                          await writeRemotelist(remotes);
+                          notifyRemotesChanged();
+                        }
+
+                        if (mounted) {
+                          ScaffoldMessenger.of(context).showSnackBar(
+                            const SnackBar(content: Text('Button duplicated.')),
+                          );
+                        }
+                      },
+                    ),
+                    ListTile(
+                      contentPadding: EdgeInsets.zero,
+                      leading: const Icon(Icons.copy_rounded),
+                      title: const Text('Duplicate and edit'),
+                      subtitle: const Text('Create a copy and edit it immediately'),
+                      onTap: () async {
+                        Navigator.of(ctx).pop();
+                        final dup = b.copyWith(id: const Uuid().v4());
+
+                        final int idx = _remote.buttons.indexOf(b);
+                        final int newIdx = (idx >= 0 ? idx + 1 : _remote.buttons.length);
+
+                        setState(() {
+                          _remote.buttons.insert(newIdx, dup);
+                        });
+
+                        final gi = _findRemoteIndexInGlobalList();
+                        if (gi >= 0) {
+                          remotes[gi] = _remote;
+                          await writeRemotelist(remotes);
+                          notifyRemotesChanged();
+                        }
+
+                        final IRButton? updated = await Navigator.push<IRButton?>(
+                          context,
+                          MaterialPageRoute(builder: (context) => CreateButton(button: dup)),
+                        );
+
+                        if (updated != null && mounted) {
+                          setState(() {
+                            _remote.buttons[newIdx] = updated;
+                          });
+
+                          final gi2 = _findRemoteIndexInGlobalList();
+                          if (gi2 >= 0) {
+                            remotes[gi2] = _remote;
+                            await writeRemotelist(remotes);
+                            notifyRemotesChanged();
+                          }
+                        }
+                      },
                     ),
                   ],
                 ),
-                const SizedBox(height: 12),
-                SizedBox(
-                  width: double.infinity,
-                  child: loopingThis
-                      ? FilledButton.icon(
-                          style: FilledButton.styleFrom(
-                            backgroundColor: cs.error,
-                            foregroundColor: cs.onError,
-                          ),
-                          onPressed: () {
-                            Navigator.of(ctx).pop();
-                            _stopLoop(silent: false);
-                          },
-                          icon: const Icon(Icons.stop_rounded),
-                          label: const Text('Stop loop'),
-                        )
-                      : FilledButton.tonalIcon(
-                          onPressed: () {
-                            Navigator.of(ctx).pop();
-                            _startLoop(b);
-                          },
-                          icon: const Icon(Icons.loop_rounded),
-                          label: const Text('Start loop'),
-                        ),
-                ),
-              ],
+              ),
             ),
           ),
         );
@@ -858,6 +953,7 @@ class RemoteViewState extends State<RemoteView> {
   Widget build(BuildContext context) {
     final theme = Theme.of(context);
     final cs = theme.colorScheme;
+
     final bool useNewStyle = _remote.useNewStyle;
     final int count = _remote.buttons.length;
 
@@ -867,7 +963,11 @@ class RemoteViewState extends State<RemoteView> {
         title: Column(
           mainAxisSize: MainAxisSize.min,
           children: [
-            Text(_remote.name, maxLines: 1, overflow: TextOverflow.ellipsis),
+            Text(
+              _remote.name,
+              maxLines: 1,
+              overflow: TextOverflow.ellipsis,
+            ),
             const SizedBox(height: 2),
             Text(
               '$count button(s)',
@@ -982,7 +1082,9 @@ class RemoteViewState extends State<RemoteView> {
         final String proto = _protocolLabel(button);
 
         final Widget content = button.isImage
-            ? (button.image.startsWith("assets/") ? Image.asset(button.image, fit: BoxFit.contain) : Image.file(File(button.image), fit: BoxFit.contain))
+            ? (button.image.startsWith("assets/")
+                ? Image.asset(button.image, fit: BoxFit.contain)
+                : Image.file(File(button.image), fit: BoxFit.contain))
             : Center(
                 child: Padding(
                   padding: const EdgeInsets.all(6),
@@ -1099,6 +1201,7 @@ class RemoteViewState extends State<RemoteView> {
         final String proto = _protocolLabel(button);
         final String freq = _freqLabelKhz(button);
         final String? displayHex = _displayHex(button);
+
         final String codeText = isRaw ? 'RAW' : (displayHex ?? 'NO CODE');
 
         return Card(
@@ -1183,7 +1286,10 @@ class _ReorderHintBanner extends StatelessWidget {
         padding: const EdgeInsets.fromLTRB(16, 10, 12, 10),
         child: Row(
           children: [
-            Icon(Icons.drag_indicator_rounded, color: cs.onSecondaryContainer.withValues(alpha: 0.9)),
+            Icon(
+              Icons.drag_indicator_rounded,
+              color: cs.onSecondaryContainer.withValues(alpha: 0.9),
+            ),
             const SizedBox(width: 10),
             Expanded(
               child: Text(

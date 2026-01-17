@@ -43,7 +43,7 @@
         android:maxSdkVersion="28" />
 
     <application
-        android:label="IR Blaster"
+        android:label="IR Blaster Remote"
         android:name="${applicationName}"
         android:icon="@mipmap/ic_launcher">
 

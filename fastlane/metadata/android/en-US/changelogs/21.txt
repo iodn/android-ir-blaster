@@ -1,0 +1,15 @@
+## Changelog notes
+
+### Added
+- Bulk import support for remote files (import multiple remotes in one operation).
+- Import support for **IRPLUS XML** remote definitions *(beta)*.
+- Import support for **LIRC `.conf` / `.cfg` / `.lirc`** configurations *(beta)*.
+- "Duplicate button" action to quickly clone an existing remote button.
+
+### Improved
+- UI responsiveness and layout behavior across different screen sizes and orientations.
+
+### Fixed
+- Multiple issues causing non-responsive UI elements in some views and device configurations.
+
+IR Blaster is open source, check out our GitHub repository at https://github.com/iodn/android-ir-blaster if you want to contribute.

@@ -6,7 +6,7 @@
 
 **IR Blaster** is an Android application for creating, managing, and transmitting infrared (IR) signals through multiple output methods, including a device’s built-in IR emitter, supported USB IR dongles, and audio-to-IR LED adapters.
 
-The app enables users to build fully custom remotes, discover unknown IR codes through guided brute-force tools, and seamlessly manage IR configurations. It also supports importing IR signals from Flipper Zero `.ir` files, making it easy to reuse and adapt existing IR libraries across devices.
+The app enables users to build fully custom remotes, discover unknown IR codes through guided brute-force tools, and seamlessly manage IR configurations. It also supports importing IR signals from Flipper Zero `.ir` files, **IRPLUS `.irplus` / XML files**, and **LIRC `.conf` / `.cfg` / `.lirc` files**, making it easy to reuse and adapt existing IR libraries across devices.
 
 IR Blaster is designed to be flexible, hardware-agnostic, and user-friendly, while remaining powerful enough for advanced users who need precise control over IR protocols and signal timing.
 
@@ -17,7 +17,7 @@ IR Blaster is designed to be flexible, hardware-agnostic, and user-friendly, whi
   - USB IR dongle (with discovery, permission, and bulk transfers)
   - Audio IR (mono 1‑LED or stereo anti‑phase 2‑LED adapters)
 - Rich protocol support and a raw‑signal mode for precise mark/space patterns
-- Import/export of remotes, including Flipper Zero `.ir` files and JSON backups
+- Import/export of remotes, including Flipper Zero `.ir`, IRPLUS `.irplus` / XML, LIRC `.conf` / `.cfg` / `.lirc` files, and JSON backups
 - Material 3 UI with dynamic color, dark mode, and a tabbed layout (Remotes, Signal Tester, Settings)
 
 Tip: At least one transmit path must be available (Internal, USB, or Audio). A built‑in IR blaster is not required if you use a USB dongle or audio adapter.
@@ -30,7 +30,7 @@ Tip: At least one transmit path must be available (Internal, USB, or Audio). A b
   - Choose Internal, USB, Audio (1 LED), or Audio (2 LEDs) under Settings > IR Transmitter.
   - Optional Auto Switch uses USB when a supported dongle is attached, otherwise Internal (disabled if Audio is selected).
 - Import/Export & Maintenance (Settings > Remotes):
-  - Import JSON backups and Flipper Zero `.ir` files
+  - Import JSON backups, Flipper Zero `.ir`, IRPLUS `.irplus` / XML (beta), and LIRC `.conf` / `.cfg` / `.lirc` (beta) files
   - Export remotes to Downloads
   - Restore the built‑in demo remote
   - Delete all remotes
