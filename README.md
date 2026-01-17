@@ -1,14 +1,46 @@
 # Android IR Blaster
 
 <a href="https://play.google.com/store/apps/details?id=org.nslabs.ir_blaster">
-  <img src="https://github.com/user-attachments/assets/8531b640-4436-46da-a709-6a6014bdf3f6" alt="Android Infrared Blaster App">
+<img src="fastlane/metadata/android/en-US/images/icon.png" width="160" alt="Android Infrared Blaster icon" align="left" style="border: solid 1px #ddd;"/>
 </a>
-
-**IR Blaster** is an Android application for creating, managing, and transmitting infrared (IR) signals through multiple output methods, including a device’s built-in IR emitter, supported USB IR dongles, and audio-to-IR LED adapters.
+<div>
+<h3 style="font-size: 2.2rem; letter-spacing: 1px;">IR Blaster Remote</h3>
+<p style="font-size: 1.15rem; font-weight: 500;">
+    <strong>Universal IR Remote for Android</strong><br>
+    **IR Blaster** is an Android application for creating, managing, and transmitting infrared (IR) signals through multiple output methods, including a device’s built-in IR emitter, supported USB IR dongles, and audio-to-IR LED adapters.
 
 The app enables users to build fully custom remotes, discover unknown IR codes through guided brute-force tools, and seamlessly manage IR configurations. It also supports importing IR signals from Flipper Zero `.ir` files, **IRPLUS `.irplus` / XML files**, and **LIRC `.conf` / `.cfg` / `.lirc` files**, making it easy to reuse and adapt existing IR libraries across devices.
 
 IR Blaster is designed to be flexible, hardware-agnostic, and user-friendly, while remaining powerful enough for advanced users who need precise control over IR protocols and signal timing.
+
+  </p>
+
+<div align="center">
+
+   [![GitHub License](https://img.shields.io/github/license/iodn/android-ir-blaster)](LICENSE)
+  [![Issues](https://img.shields.io/github/issues/iodn/android-ir-blaster.svg)](https://github.com/iodn/android-ir-blaster/issues)
+  [![Pull Requests](https://img.shields.io/github/issues-pr/iodn/android-ir-blaster.svg)](https://github.com/iodn/android-ir-blaster/pulls)
+  [![Android Version](https://img.shields.io/badge/Android-11.0%2B-green.svg)](https://www.android.com)
+  
+<div style="display:flex; align-items:center; gap:12px; flex-wrap:wrap;">
+  <a href="https://f-droid.org/en/packages/org.nslabs.ir_blaster/" style="display:inline-flex; align-items:center;">
+    <img src="https://fdroid.gitlab.io/artwork/badge/get-it-on.png"
+         alt="Get it on F-Droid"
+         style="display:block; height:90px; width:auto;">
+  </a>
+
+  <a href="https://play.google.com/store/apps/details?id=org.nslabs.ir_blaster" style="display:inline-flex; align-items:center;">
+    <img src="https://raw.githubusercontent.com/pioug/google-play-badges/06ccd9252af1501613da2ca28eaffe31307a4e6d/svg/English.svg"
+         alt="Get it on Google Play"
+         style="display:block; height:70px; width:auto;">
+  </a>
+</div>
+
+
+
+
+</div>
+
 
 ## Overview
 
