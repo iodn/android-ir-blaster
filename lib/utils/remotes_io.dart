@@ -1,3 +1,4 @@
+import 'dart:async';
 import 'dart:convert';
 import 'dart:io';
 
@@ -26,6 +27,7 @@ class ImportResult {
 
 Future<bool> _requestLegacyStoragePermission(BuildContext context) async {
   if (!Platform.isAndroid) return true;
+
   final status = await Permission.storage.request();
   if (status.isGranted) return true;
 
@@ -50,7 +52,6 @@ Future<void> exportRemotesToDownloads(
   Future<void> doSave() async {
     final timestamp = DateTime.now().millisecondsSinceEpoch;
     final fileName = 'irblaster_backup_$timestamp.json';
-
     final payload = <String, dynamic>{
       'schema': 'irblaster.backup',
       'version': 1,
@@ -60,6 +61,7 @@ Future<void> exportRemotesToDownloads(
     };
 
     final jsonString = jsonEncode(payload);
+
     final tempDir = await getTemporaryDirectory();
     final tempPath = '${tempDir.path}/$fileName';
     final tempFile = File(tempPath);
@@ -116,36 +118,24 @@ Future<ImportResult?> importRemotesFromPicker(
       'lirc',
     ],
     withData: true,
+    withReadStream: true,
   );
 
   if (result == null || result.files.isEmpty) return null;
 
   final pf = result.files.single;
+  final List<int>? bytes = await _readPlatformFileBytes(pf);
 
-  List<int>? bytes = pf.bytes;
   if (bytes == null) {
-    final path = pf.path;
-    if (path == null) {
-      return const ImportResult(
-        remotes: <Remote>[],
-        macros: null,
-        message: 'Import failed: unable to read the selected file.',
-      );
-    }
-    try {
-      bytes = await File(path).readAsBytes();
-    } catch (_) {
-      return const ImportResult(
-        remotes: <Remote>[],
-        macros: null,
-        message: 'Import failed: invalid or unreadable file.',
-      );
-    }
+    return const ImportResult(
+      remotes: <Remote>[],
+      macros: null,
+      message: 'Import failed: invalid or unreadable file.',
+    );
   }
 
   final nameLower = pf.name.toLowerCase();
   final extLower = (pf.extension ?? '').toLowerCase();
-
   final isJson = extLower == 'json' || nameLower.endsWith('.json');
   final isIr = extLower == 'ir' || nameLower.endsWith('.ir');
   final isXmlLike = extLower == 'xml' ||
@@ -174,9 +164,7 @@ Future<ImportResult?> importRemotesFromPicker(
             .whereType<Map>()
             .map((data) => Remote.fromJson(data.cast<String, dynamic>()))
             .toList();
-
         _reassignIds(importedRemotes);
-
         return ImportResult(
           remotes: importedRemotes,
           macros: null,
@@ -260,8 +248,7 @@ Future<ImportResult?> importRemotesFromPicker(
       return const ImportResult(
         remotes: <Remote>[],
         macros: null,
-        message:
-            'Import failed: invalid backup format (expected legacy List or Map with remotes/macros).',
+        message: 'Import failed: invalid backup format (expected legacy List or Map with remotes/macros).',
       );
     }
 
@@ -281,7 +268,6 @@ Future<ImportResult?> importRemotesFromPicker(
 
       final next = <Remote>[...current, remoteFromIr];
       _reassignIds(next);
-
       return ImportResult(
         remotes: next,
         macros: null,
@@ -306,7 +292,6 @@ Future<ImportResult?> importRemotesFromPicker(
 
       final next = <Remote>[...current, remoteFromIrplus];
       _reassignIds(next);
-
       return ImportResult(
         remotes: next,
         macros: null,
@@ -335,7 +320,6 @@ Future<ImportResult?> importRemotesFromPicker(
 
       final next = <Remote>[...current, remoteFromLirc];
       _reassignIds(next);
-
       return ImportResult(
         remotes: next,
         macros: null,
@@ -376,6 +360,7 @@ Future<ImportResult?> importRemotesFromFolderPicker(
       ],
       allowMultiple: true,
       withData: true,
+      withReadStream: true,
     );
 
     if (res == null || res.files.isEmpty) return null;
@@ -412,8 +397,8 @@ Future<ImportResult?> importRemotesFromFolderPicker(
       followLinks: false,
     )) {
       if (entity is! File) continue;
-      scanned++;
 
+      scanned++;
       final String filePath = entity.path;
       final String fileName = filePath.split(RegExp(r'[\\/]+')).last;
       final String nameLower = fileName.toLowerCase();
@@ -436,14 +421,14 @@ Future<ImportResult?> importRemotesFromFolderPicker(
       }
 
       final String contents = utf8.decode(bytes, allowMalformed: true);
-      final String importedRemoteName = _sanitizeRemoteNameFromFilename(fileName);
+      final String remoteNameHint = _sanitizeRemoteNameFromFilename(fileName);
 
       try {
         final List<Remote> remotesFromFile = _parseSupportedFileToRemotes(
           contents,
           filename: fileName,
           extLower: extLower,
-          remoteNameHint: importedRemoteName,
+          remoteNameHint: remoteNameHint,
         );
 
         if (remotesFromFile.isEmpty) {
@@ -512,7 +497,6 @@ Future<ImportResult> _bulkImportFromPlatformFiles(
   required String sourceLabel,
 }) async {
   final List<Remote> imported = <Remote>[];
-
   int scanned = 0;
   int supported = 0;
   int skippedUnsupported = 0;
@@ -536,19 +520,10 @@ Future<ImportResult> _bulkImportFromPlatformFiles(
 
     supported++;
 
-    List<int>? bytes = pf.bytes;
+    final List<int>? bytes = await _readPlatformFileBytes(pf);
     if (bytes == null) {
-      final path = pf.path;
-      if (path == null) {
-        skippedBroken++;
-        continue;
-      }
-      try {
-        bytes = await File(path).readAsBytes();
-      } catch (_) {
-        skippedBroken++;
-        continue;
-      }
+      skippedBroken++;
+      continue;
     }
 
     final String contents = utf8.decode(bytes, allowMalformed: true);
@@ -597,6 +572,30 @@ Future<ImportResult> _bulkImportFromPlatformFiles(
   );
 }
 
+Future<List<int>?> _readPlatformFileBytes(PlatformFile pf) async {
+  if (pf.bytes != null && pf.bytes!.isNotEmpty) return pf.bytes!;
+
+  final Stream<List<int>>? s = pf.readStream;
+  if (s != null) {
+    final List<int> out = <int>[];
+    try {
+      await for (final chunk in s) {
+        out.addAll(chunk);
+      }
+      if (out.isNotEmpty) return out;
+    } catch (_) {}
+  }
+
+  final path = pf.path;
+  if (path != null && path.isNotEmpty) {
+    try {
+      return await File(path).readAsBytes();
+    } catch (_) {}
+  }
+
+  return null;
+}
+
 String _extensionLower(String filename) {
   final String f = filename.trim();
   final int i = f.lastIndexOf('.');
@@ -629,7 +628,6 @@ List<Remote> _parseSupportedFileToRemotes(
   required String remoteNameHint,
 }) {
   final String nameLower = filename.toLowerCase();
-
   final bool isJson = extLower == 'json' || nameLower.endsWith('.json');
   final bool isIr = extLower == 'ir' || nameLower.endsWith('.ir');
   final bool isXmlLike = extLower == 'xml' ||
@@ -720,6 +718,7 @@ String _sanitizeRemoteNameFromFilename(String filename) {
 
 String? _mapFlipperProtocol(String? name) {
   if (name == null) return null;
+
   final n = name.trim().toLowerCase();
   switch (n) {
     case 'kaseikyo':
@@ -774,7 +773,6 @@ Remote? _parseFlipperIrFile(
 
       final nameMatch = RegExp(r'name:\s*(.+)').firstMatch(block);
       if (nameMatch == null) continue;
-
       final String name = nameMatch.group(1)!.trim();
 
       if (mappedProtocol == 'kaseikyo') {
@@ -980,6 +978,7 @@ Remote? _parseFlipperIrFile(
       } else if (mappedProtocol != null &&
           (mappedProtocol == 'nec' || mappedProtocol == 'nec2' || mappedProtocol == 'necx1')) {
         final String hexCode = _convertToLircHex(addressMatch, commandMatch);
+
         buttons.add(
           IRButton(
             id: uuid.v4(),
@@ -994,6 +993,7 @@ Remote? _parseFlipperIrFile(
         );
       } else {
         final String hexCode = _convertToLircHex(addressMatch, commandMatch);
+
         buttons.add(
           IRButton(
             id: uuid.v4(),
@@ -1030,6 +1030,7 @@ Remote? _parseFlipperIrFile(
           ),
         );
       }
+
       continue;
     }
   }
@@ -1060,6 +1061,67 @@ String _convertToLircHex(RegExpMatch addressMatch, RegExpMatch commandMatch) {
           "${lircAddr.toRadixString(16).padLeft(2, '0')}"
           "${lircAddrInv.toRadixString(16).padLeft(2, '0')}"
       .toUpperCase();
+}
+
+class _ProntoParsed {
+  final int frequencyHz;
+  final String rawDurations;
+  const _ProntoParsed({required this.frequencyHz, required this.rawDurations});
+}
+
+_ProntoParsed? _tryParseProntoHexToRaw(String payload) {
+  final cleaned = payload.replaceAll('\r', ' ').replaceAll('\n', ' ').trim();
+  if (cleaned.isEmpty) return null;
+
+  final tokens = cleaned.split(RegExp(r'\s+')).where((e) => e.isNotEmpty).toList();
+  if (tokens.length < 6) return null;
+
+  bool looksHex = true;
+  for (final t in tokens.take(4)) {
+    if (!RegExp(r'^[0-9A-Fa-f]{4}$').hasMatch(t)) {
+      looksHex = false;
+      break;
+    }
+  }
+  if (!looksHex) return null;
+
+  final List<int> words = <int>[];
+  for (final t in tokens) {
+    final v = int.tryParse(t, radix: 16);
+    if (v == null) return null;
+    words.add(v);
+  }
+
+  final int type = words[0];
+  final int freqWord = words[1];
+  if (type != 0x0000 && type != 0x0100) return null;
+  if (freqWord <= 0) return null;
+
+  final int seq1 = words[2];
+  final int seq2 = words[3];
+  final int totalPairs = (seq1 + seq2) * 2;
+  final int requiredWords = 4 + totalPairs;
+  if (words.length < requiredWords) return null;
+
+  final double carrierPeriodUs = freqWord * 0.241246;
+  if (carrierPeriodUs <= 0) return null;
+
+  final int freqHz = (1000000.0 / carrierPeriodUs).round().clamp(10000, 200000);
+  final List<int> durations = <int>[];
+
+  for (int i = 4; i < requiredWords; i++) {
+    final int w = words[i];
+    if (w <= 0) return null;
+    final int us = (w * carrierPeriodUs).round();
+    if (us <= 0) return null;
+    durations.add(us);
+  }
+
+  if (durations.length < 6) return null;
+  return _ProntoParsed(
+    frequencyHz: freqHz,
+    rawDurations: durations.join(' '),
+  );
 }
 
 Remote? _parseIrplusXml(
@@ -1117,7 +1179,6 @@ Remote? _parseIrplusXml(
       if (pairMatch != null) {
         final int addr16 = int.parse(pairMatch.group(1)!, radix: 16) & 0xFFFF;
         final int cmd16 = int.parse(pairMatch.group(2)!, radix: 16) & 0xFFFF;
-
         final String lircHex = _lircHexFromAddrCmdExplicit(addr16, cmd16);
         final String protocol = protoFromFormat ?? 'nec';
 
@@ -1131,6 +1192,21 @@ Remote? _parseIrplusXml(
             isImage: false,
             protocol: protocol,
             protocolParams: <String, dynamic>{'hex': lircHex},
+          ),
+        );
+        continue;
+      }
+
+      final _ProntoParsed? pronto = _tryParseProntoHexToRaw(payload);
+      if (pronto != null) {
+        buttons.add(
+          IRButton(
+            id: uuid.v4(),
+            code: null,
+            rawData: pronto.rawDurations,
+            frequency: pronto.frequencyHz,
+            image: label,
+            isImage: false,
           ),
         );
         continue;
@@ -1248,8 +1324,8 @@ Remote? _parseLircConfig(
   required String remoteName,
 }) {
   final String normalized = content.replaceAll('\r\n', '\n').replaceAll('\r', '\n');
-
   final uuid = const Uuid();
+
   final remoteBlocks = RegExp(
     r'begin\s+remote(.*?)end\s+remote',
     caseSensitive: false,
@@ -1273,9 +1349,10 @@ Remote? _parseLircConfig(
       caseSensitive: false,
     ).firstMatch(block)?.group(1)?.trim();
 
-    final String prefix = (remoteBlocks.length > 1 && lircRemoteName != null && lircRemoteName.isNotEmpty)
-        ? '${lircRemoteName}_'
-        : '';
+    final String prefix =
+        (remoteBlocks.length > 1 && lircRemoteName != null && lircRemoteName.isNotEmpty)
+            ? '${lircRemoteName}_'
+            : '';
 
     final int frequency = _lircReadInt(block, 'frequency') ?? 38000;
     final String flags = _lircReadString(block, 'flags') ?? '';
@@ -1288,6 +1365,7 @@ Remote? _parseLircConfig(
 
     if (rawSection != null && rawSection.trim().isNotEmpty) {
       final rawButtons = _parseLircRawCodesSection(rawSection);
+
       for (final rb in rawButtons) {
         final String label = _sanitizeLircButtonLabel(prefix + rb.name);
         final String? rawData = _normalizeRawDurations(rb.durations.join(' '));
@@ -1400,7 +1478,6 @@ class _LircCodeEntry {
 
 List<_LircRawButton> _parseLircRawCodesSection(String section) {
   final String s = section.replaceAll('\r\n', '\n').replaceAll('\r', '\n');
-
   final nameRegex = RegExp(
     r'^\s*name\s+(.+?)\s*$',
     multiLine: true,
@@ -1422,7 +1499,6 @@ List<_LircRawButton> _parseLircRawCodesSection(String section) {
     if (end <= start) continue;
 
     final String chunk = s.substring(start, end);
-
     final nums = RegExp(r'\d+')
         .allMatches(chunk)
         .map((m) => int.tryParse(m.group(0) ?? '') ?? 0)
@@ -1430,7 +1506,6 @@ List<_LircRawButton> _parseLircRawCodesSection(String section) {
         .toList();
 
     if (nums.length < 6) continue;
-
     out.add(_LircRawButton(name: name, durations: nums));
   }
 
@@ -1569,6 +1644,7 @@ bool _lircShouldUseLsbFirst({
   required int codeBits,
 }) {
   if (flags.contains('REVERSE')) return true;
+
   if (header == null || one == null || zero == null) return false;
   if (header.length != 2 || one.length != 2 || zero.length != 2) return false;
 
@@ -1580,8 +1656,7 @@ bool _lircShouldUseLsbFirst({
   final int zs = zero[1];
 
   final bool headerLikeNec = hm >= 8000 && hm <= 10000 && hs >= 3500 && hs <= 5500;
-  final bool marksLikeNec =
-      (om >= 350 && om <= 800) && (zm >= 350 && zm <= 800) && (om - zm).abs() <= 250;
+  final bool marksLikeNec = (om >= 350 && om <= 800) && (zm >= 350 && zm <= 800) && (om - zm).abs() <= 250;
   final bool spacesDifferent = (os - zs).abs() >= 400;
 
   if (headerLikeNec && marksLikeNec && spacesDifferent && codeBits >= 8) {
@@ -1663,7 +1738,6 @@ List<int>? _lircReadPair(String block, String key) {
 
   final a = int.tryParse(m.group(1) ?? '');
   final b = int.tryParse(m.group(2) ?? '');
-
   if (a == null || b == null) return null;
   if (a <= 0 || b <= 0) return null;
 
@@ -1678,7 +1752,6 @@ BigInt? _lircReadBigInt(String block, String key) {
   ).firstMatch(block);
 
   if (m == null) return null;
-
   final s = (m.group(1) ?? '').trim();
   return _parseBigIntLoose(s);
 }
