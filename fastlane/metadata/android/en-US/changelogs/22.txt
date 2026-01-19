@@ -1,0 +1,28 @@
+## Changelog notes
+1. IR Finder / Database-Assisted Testing Controls
+
+* Added persistent test state so scans can be paused and resumed without losing progress.
+* Implemented manual execution controls: single-step mode and manual trigger for advancing one code at a time.
+* Improved workflow stability for large remotes by avoiding forced restart-from-beginning scans and long "wait until next code" delays.
+
+2. ZazaRemote Compatibility
+
+* Added support for importing and using ZazaRemote remote formats and data structures.
+* Improved remote parsing and normalization to match ZazaRemote button naming and layout conventions.
+
+3. Themed App Icon (Android 13+)
+
+* Added a monochrome icon layer to enable system-themed app icons on supported Android versions.
+* Updated adaptive icon assets to comply with modern Android icon design requirements.
+
+4. Button Creation: Database-Assisted Suggestions
+
+* Enhanced the "Create New Button" flow to optionally fetch candidate IR values from the app's local database.
+* Kept manual value entry fully supported while enabling faster setup using known/previously discovered codes.
+
+5. Remote View: Quick Actions
+
+* Added a "Quick Edit" action directly inside Remote View for faster button adjustments.
+* Added an in-context "Create New Button" shortcut in Remote View to reduce navigation and improve editing speed.
+
+IR Blaster is open source, check out our GitHub repository at https://github.com/iodn/android-ir-blaster if you want to contribute.

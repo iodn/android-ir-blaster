@@ -186,6 +186,26 @@ class IrBlasterDb {
 
   // ---- Public API ----
 
+  Future<List<String>> listProtocolsFor({required String brand, required String model}) async {
+    await ensureInitialized();
+    final db = _requireDb();
+    final String b = brand.trim();
+    final String m = model.trim();
+    if (b.isEmpty || m.isEmpty) return <String>[];
+
+    final rows = await db.rawQuery('''
+      SELECT DISTINCT k.protocol AS protocol
+      FROM models m
+      JOIN keys k ON k.id = m.id
+      WHERE m.brand = ? AND m.model = ? AND k.protocol IS NOT NULL
+      ORDER BY UPPER(k.protocol) ASC
+    ''', [b, m]);
+    return rows
+        .map((r) => (r['protocol'] as String?)?.trim())
+        .whereType<String>()
+        .toList(growable: false);
+  }
+
   Future<List<String>> listBrands({
     String? search,
     String? protocolId,
@@ -319,6 +339,7 @@ class IrBlasterDb {
     String? selectedProtocolId,
     required bool quickWinsFirst,
     String? hexPrefixUpper,
+    String? search,
     int limit = 100,
     int offset = 0,
   }) async {
@@ -353,6 +374,13 @@ class IrBlasterDb {
     if (prefix != null) {
       where.add('UPPER(k.hexcode) LIKE ?');
       args.add('$prefix%');
+    }
+
+    final String? q = (search == null || search.trim().isEmpty) ? null : _escapeLike(search.trim());
+    if (q != null) {
+      where.add('(UPPER(k.label) LIKE UPPER(?) ESCAPE \'\\\' OR UPPER(k.hexcode) LIKE UPPER(?))');
+      args.add('%$q%');
+      args.add('%${q.toUpperCase()}%');
     }
 
     final String orderBy = quickWinsFirst

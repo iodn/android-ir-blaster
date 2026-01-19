@@ -1,5 +1,4 @@
 import 'dart:async';
-
 import 'package:flutter/material.dart';
 import 'package:irblaster_controller/state/orientation_pref.dart';
 import 'package:flutter/services.dart';
@@ -283,6 +282,7 @@ class SettingsScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final cs = Theme.of(context).colorScheme;
+
     return Scaffold(
       appBar: AppBar(title: const Text('Settings')),
       body: ListView(
@@ -401,6 +401,7 @@ class SettingsScreen extends StatelessWidget {
         animation: AppThemeController.instance,
         builder: (context, _) {
           final mode = AppThemeController.instance.mode;
+
           return SectionCard(
             title: 'Appearance',
             subtitle: 'Customize your visual experience',
@@ -552,8 +553,7 @@ class SettingsScreen extends StatelessWidget {
 
   Widget _buildInteractionSection(BuildContext context) {
     final orientationCtrl = RemoteOrientationController.instance;
-    final theme = Theme.of(context);
-    final cs = theme.colorScheme;
+    final cs = Theme.of(context).colorScheme;
 
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 16),
@@ -568,6 +568,7 @@ class SettingsScreen extends StatelessWidget {
               builder: (context, _) {
                 final enabled = HapticsController.instance.enabled;
                 final intensity = HapticsController.instance.intensity.clamp(1, 3);
+
                 return Column(
                   crossAxisAlignment: CrossAxisAlignment.stretch,
                   children: [
@@ -604,20 +605,30 @@ class SettingsScreen extends StatelessWidget {
               },
             ),
             const Divider(height: 1),
+
+            // ✅ Requested change:
+            // When enabled, rotate this ENTIRE switch tile by 180° as a visual preview.
             AnimatedBuilder(
               animation: orientationCtrl,
               builder: (context, _) {
-                return SwitchListTile.adaptive(
-                  secondary: const Icon(Icons.screen_rotation_rounded),
-                  title: const Text('Flip Remote View by default'),
-                  subtitle: const Text('Open Remote screens rotated 180° (for top-mounted USB dongles).'),
-                  value: orientationCtrl.flipped,
-                  onChanged: (v) async {
-                    await orientationCtrl.setFlipped(v);
-                    ScaffoldMessenger.of(context).showSnackBar(
-                      SnackBar(content: Text(v ? 'Remote View will open flipped.' : 'Remote View will open normally.')),
-                    );
-                  },
+                return AnimatedRotation(
+                  turns: orientationCtrl.flipped ? 0.5 : 0.0,
+                  duration: const Duration(milliseconds: 260),
+                  curve: Curves.easeOutCubic,
+                  child: SwitchListTile.adaptive(
+                    secondary: const Icon(Icons.screen_rotation_rounded),
+                    title: const Text('Flip Remote View by default'),
+                    subtitle: const Text('Open Remote screens rotated 180° (for top-mounted USB dongles).'),
+                    value: orientationCtrl.flipped,
+                    onChanged: (v) async {
+                      await orientationCtrl.setFlipped(v);
+                      ScaffoldMessenger.of(context).showSnackBar(
+                        SnackBar(
+                          content: Text(v ? 'Remote View will open flipped.' : 'Remote View will open normally.'),
+                        ),
+                      );
+                    },
+                  ),
                 );
               },
             ),
@@ -628,7 +639,6 @@ class SettingsScreen extends StatelessWidget {
   }
 
   Widget _buildRemotesSection(BuildContext context) {
-    final orientationCtrl = RemoteOrientationController.instance;
     final theme = Theme.of(context);
     final cs = theme.colorScheme;
 
@@ -712,8 +722,11 @@ class SettingsScreen extends StatelessWidget {
                   onTap: () {
                     Navigator.of(context).push(
                       MaterialPageRoute(
-                        builder: (context) =>
-                            AboutScreen(repoUrl: _repoUrl, issuesUrl: _issuesUrl, liberapayUrl: _liberapayUrl),
+                        builder: (context) => AboutScreen(
+                          repoUrl: _repoUrl,
+                          issuesUrl: _issuesUrl,
+                          liberapayUrl: _liberapayUrl,
+                        ),
                       ),
                     );
                   },
@@ -799,6 +812,7 @@ class _ThemeOptionCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final cs = theme.colorScheme;
+
     return InkWell(
       onTap: onTap,
       borderRadius: BorderRadius.circular(14),
@@ -860,12 +874,12 @@ class _IrTransmitterCardState extends State<_IrTransmitterCard> {
 
   IrTransmitterType _preferred = IrTransmitterType.internal;
   IrTransmitterType _active = IrTransmitterType.internal;
-  IrTransmitterCapabilities? _caps;
 
+  IrTransmitterCapabilities? _caps;
   bool _autoSwitchEnabled = false;
   bool _openOnUsbAttachEnabled = false;
 
-  // Auto-suggest Audio mode for USB Audio dongles
+  /* Auto-suggest Audio mode for USB Audio dongles */
   bool _autoSelectAudioForUsb = TransmitterPrefs.instance.autoSelectAudioForUsbAudio;
   bool _showAudioSuggest = false;
   bool _suggestedThisAttach = false;
@@ -881,8 +895,7 @@ class _IrTransmitterCardState extends State<_IrTransmitterCard> {
         if (!mounted) return;
 
         final hasInternal = caps.hasInternal;
-        final bool activeIsAudio =
-            caps.currentType == IrTransmitterType.audio1Led || caps.currentType == IrTransmitterType.audio2Led;
+        final bool activeIsAudio = caps.currentType == IrTransmitterType.audio1Led || caps.currentType == IrTransmitterType.audio2Led;
         final autoSwitch = (hasInternal && !activeIsAudio) ? caps.autoSwitchEnabled : false;
 
         setState(() {
@@ -890,19 +903,18 @@ class _IrTransmitterCardState extends State<_IrTransmitterCard> {
           _active = caps.currentType;
           _autoSwitchEnabled = autoSwitch;
           _loading = false;
-         // Suggest Audio (1 LED) if a USB Audio device is ready and user prefers auto-suggest
-         final bool activeIsAudio = caps.currentType == IrTransmitterType.audio1Led || caps.currentType == IrTransmitterType.audio2Led;
-         if (_autoSelectAudioForUsb && caps.hasUsb && caps.usbReady && !activeIsAudio && !_suggestedThisAttach) {
-           _showAudioSuggest = true;
-         }
-       });
 
-       // Reset suggestion state on fresh USB permission grant
-       if (caps.usbReady && !prevUsbReady) {
-         _suggestedThisAttach = false;
-       }
+          final bool activeIsAudio2 = caps.currentType == IrTransmitterType.audio1Led || caps.currentType == IrTransmitterType.audio2Led;
+          if (_autoSelectAudioForUsb && caps.hasUsb && caps.usbReady && !activeIsAudio2 && !_suggestedThisAttach) {
+            _showAudioSuggest = true;
+          }
+        });
 
-       if (!hasInternal && _preferred == IrTransmitterType.internal) {
+        if (caps.usbReady && !prevUsbReady) {
+          _suggestedThisAttach = false;
+        }
+
+        if (!hasInternal && _preferred == IrTransmitterType.internal) {
           setState(() {
             _preferred = IrTransmitterType.usb;
           });
@@ -912,6 +924,7 @@ class _IrTransmitterCardState extends State<_IrTransmitterCard> {
       onError: (_) {},
       cancelOnError: false,
     );
+
     _load();
   }
 
@@ -951,9 +964,7 @@ class _IrTransmitterCardState extends State<_IrTransmitterCard> {
       if (!mounted) return;
 
       IrTransmitterType effectivePreferred = preferred;
-      final bool activeIsAudio =
-          caps.currentType == IrTransmitterType.audio1Led || caps.currentType == IrTransmitterType.audio2Led;
-
+      final bool activeIsAudio = caps.currentType == IrTransmitterType.audio1Led || caps.currentType == IrTransmitterType.audio2Led;
       bool effectiveAuto = (caps.hasInternal && !activeIsAudio) ? autoSwitch : false;
 
       if (!caps.hasInternal) {
@@ -1018,9 +1029,7 @@ class _IrTransmitterCardState extends State<_IrTransmitterCard> {
 
       if (!mounted) return;
 
-      final bool activeIsAudio =
-          caps.currentType == IrTransmitterType.audio1Led || caps.currentType == IrTransmitterType.audio2Led;
-
+      final bool activeIsAudio = caps.currentType == IrTransmitterType.audio1Led || caps.currentType == IrTransmitterType.audio2Led;
       setState(() {
         _caps = caps;
         _active = caps.currentType;
@@ -1076,8 +1085,7 @@ class _IrTransmitterCardState extends State<_IrTransmitterCard> {
     if (caps != null && !caps.hasInternal && t == IrTransmitterType.internal) return;
 
     final bool selectedIsAudio = t == IrTransmitterType.audio1Led || t == IrTransmitterType.audio2Led;
-    final bool turningOffAutoNow =
-        (_autoSwitchEnabled && (selectedIsAudio || t == IrTransmitterType.internal || t == IrTransmitterType.usb));
+    final bool turningOffAutoNow = (_autoSwitchEnabled && (selectedIsAudio || t == IrTransmitterType.internal || t == IrTransmitterType.usb));
 
     setState(() {
       _busy = true;
@@ -1112,8 +1120,8 @@ class _IrTransmitterCardState extends State<_IrTransmitterCard> {
     }
 
     if (!mounted) return;
-
     final freshCaps = _caps;
+
     if (t == IrTransmitterType.usb && freshCaps != null && !freshCaps.usbReady) {
       final msg = freshCaps.hasUsb
           ? 'USB dongle detected but not authorized. Tap “Request USB permission”.'
@@ -1223,8 +1231,7 @@ class _IrTransmitterCardState extends State<_IrTransmitterCard> {
 
   @override
   Widget build(BuildContext context) {
-    final theme = Theme.of(context);
-    final cs = theme.colorScheme;
+    final cs = Theme.of(context).colorScheme;
 
     if (_loading) {
       return const Padding(
@@ -1328,7 +1335,7 @@ class _IrTransmitterCardState extends State<_IrTransmitterCard> {
                   : (caps.hasInternal ? 'Uses USB when connected, otherwise Internal' : 'Unavailable on this device'),
             ),
           ),
-         const Divider(height: 18),
+          const Divider(height: 18),
           SwitchListTile(
             contentPadding: EdgeInsets.zero,
             value: _openOnUsbAttachEnabled,

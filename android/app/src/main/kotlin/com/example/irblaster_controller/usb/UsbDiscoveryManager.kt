@@ -46,7 +46,7 @@ class UsbDiscoveryManager(
 
     for (i in 0 until device.interfaceCount) {
       val intf = device.getInterface(i)
-      val pair = findBulkOutIn(intf)
+      val pair = findOutInEndpoints(intf)
       if (pair != null) {
         selectedInterface = intf
         outEp = pair.first
@@ -56,7 +56,7 @@ class UsbDiscoveryManager(
     }
 
     val intf: UsbInterface = selectedInterface ?: run {
-      Log.w(TAG, "Could not find required BULK OUT + BULK IN endpoints on any interface")
+      Log.w(TAG, "Could not find required OUT + IN endpoints on any interface")
       return null
     }
 
@@ -77,12 +77,17 @@ class UsbDiscoveryManager(
       return null
     }
 
-    val protocol: UsbWireProtocol =
-      if (UsbDeviceFilter.isElkSmart(device)) ElkSmartUsbProtocolFormatter else UsbProtocolFormatter
+    val protocol: UsbWireProtocol = when {
+      UsbDeviceFilter.isElkSmart(device) -> ElkSmartUsbProtocolFormatter
+      UsbDeviceFilter.isZaZaRemoteFamily(device) -> UsbProtocolFormatter
+      UsbDeviceFilter.isTiqiaaTviewFamily(device) -> UsbProtocolFormatter
+      else -> UsbProtocolFormatter
+    }
 
     Log.i(
       TAG,
-      "Selected IF=${intf.id} OUT(addr=${outEpNonNull.address},mps=${outEpNonNull.maxPacketSize}) IN(addr=${inEpNonNull.address},mps=${inEpNonNull.maxPacketSize}) protocol=${protocol.name}"
+      "Selected IF=${intf.id} OUT(addr=${outEpNonNull.address},type=${outEpNonNull.type},mps=${outEpNonNull.maxPacketSize}) " +
+        "IN(addr=${inEpNonNull.address},type=${inEpNonNull.type},mps=${inEpNonNull.maxPacketSize}) protocol=${protocol.name}"
     )
 
     val tx = UsbIrTransmitter.create(
@@ -97,10 +102,12 @@ class UsbDiscoveryManager(
     if (tx == null) {
       try {
         conn.releaseInterface(intf)
-      } catch (_: Throwable) {}
+      } catch (_: Throwable) {
+      }
       try {
         conn.close()
-      } catch (_: Throwable) {}
+      } catch (_: Throwable) {
+      }
       Log.w(TAG, "Failed to open USB transmitter (handshake/identify failed) protocol=${protocol.name}")
       return null
     }
@@ -108,19 +115,24 @@ class UsbDiscoveryManager(
     return tx
   }
 
-  private fun findBulkOutIn(intf: UsbInterface): Pair<UsbEndpoint, UsbEndpoint>? {
-    var outBulk: UsbEndpoint? = null
-    var inBulk: UsbEndpoint? = null
-    for (i in 0 until intf.endpointCount) {
-      val ep = intf.getEndpoint(i)
-      val isBulk = ep.type == UsbConstants.USB_ENDPOINT_XFER_BULK
-      if (!isBulk) continue
-      if (ep.direction == UsbConstants.USB_DIR_OUT && outBulk == null) outBulk = ep
-      if (ep.direction == UsbConstants.USB_DIR_IN && inBulk == null) inBulk = ep
+  private fun findOutInEndpoints(intf: UsbInterface): Pair<UsbEndpoint, UsbEndpoint>? {
+    fun pick(typeWanted: Int): Pair<UsbEndpoint, UsbEndpoint>? {
+      var outEp: UsbEndpoint? = null
+      var inEp: UsbEndpoint? = null
+
+      for (i in 0 until intf.endpointCount) {
+        val ep = intf.getEndpoint(i)
+        if (ep.type != typeWanted) continue
+        if (ep.direction == UsbConstants.USB_DIR_OUT && outEp == null) outEp = ep
+        if (ep.direction == UsbConstants.USB_DIR_IN && inEp == null) inEp = ep
+      }
+
+      val out = outEp ?: return null
+      val inn = inEp ?: return null
+      return Pair(out, inn)
     }
-    val out = outBulk ?: return null
-    val inn = inBulk ?: return null
-    return Pair(out, inn)
+
+    return pick(UsbConstants.USB_ENDPOINT_XFER_BULK) ?: pick(UsbConstants.USB_ENDPOINT_XFER_INT)
   }
 
   private fun permissionPiFlags(): Int {
