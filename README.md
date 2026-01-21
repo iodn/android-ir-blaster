@@ -7,7 +7,7 @@
 <h3 style="font-size: 2.2rem; letter-spacing: 1px;">IR Blaster Remote</h3>
 <p style="font-size: 1.15rem; font-weight: 500;">
     <strong>Universal IR Remote for Android</strong><br>
-    **IR Blaster** is an Android application for creating, managing, and transmitting infrared (IR) signals through multiple output methods, including a device’s built-in IR emitter, supported USB IR dongles, and audio-to-IR LED adapters.
+    <strong>IR Blaster</strong> is an Android application for creating, managing, and transmitting infrared (IR) signals through multiple output methods, including a device’s built-in IR emitter, supported USB IR dongles, and audio-to-IR LED adapters.
 
 The app enables users to build fully custom remotes, discover unknown IR codes through guided brute-force tools, and seamlessly manage IR configurations. It also supports importing IR signals from Flipper Zero `.ir` files, **IRPLUS `.irplus` / XML files**, and **LIRC `.conf` / `.cfg` / `.lirc` files**, making it easy to reuse and adapt existing IR libraries across devices.
 
@@ -17,7 +17,7 @@ IR Blaster is designed to be flexible, hardware-agnostic, and user-friendly, whi
 
 <div align="center">
 
-   [![GitHub License](https://img.shields.io/github/license/iodn/android-ir-blaster)](LICENSE)
+  [![GitHub License](https://img.shields.io/github/license/iodn/android-ir-blaster)](LICENSE)
   [![Issues](https://img.shields.io/github/issues/iodn/android-ir-blaster.svg)](https://github.com/iodn/android-ir-blaster/issues)
   [![Pull Requests](https://img.shields.io/github/issues-pr/iodn/android-ir-blaster.svg)](https://github.com/iodn/android-ir-blaster/pulls)
   [![Android Version](https://img.shields.io/badge/Android-11.0%2B-green.svg)](https://www.android.com)
@@ -35,7 +35,6 @@ IR Blaster is designed to be flexible, hardware-agnostic, and user-friendly, whi
          style="display:block; height:70px; width:auto;">
   </a>
 </div>
-
 
 
 
@@ -274,8 +273,6 @@ Or download the latest APK from the Releases Section.
 <img width="180" height="400" alt="6" src="https://github.com/user-attachments/assets/47f974cf-ed08-4392-aad8-0e9c7765b405" />
 
 
-
-
 ## Contributing
 
 Contributions are welcome! If you'd like to help improve IR Blaster:
@@ -294,3 +291,13 @@ If you encounter any issues or have questions, please open an issue on the GitHu
 ## Acknowledgments
 
 IR Blaster is originally a fork of [osram-remote](https://github.com/TalkingPanda0/osram-remote). Special thanks to [TalkingPanda0](https://github.com/TalkingPanda0) for his foundational work.
+
+## More Apps by KaijinLab!
+
+| App                                                               | What it does                                                                   |
+| ----------------------------------------------------------------- | ------------------------------------------------------------------------------ |
+| **[IR Blaster](https://github.com/iodn/android-ir-blaster)**      | Control and test infrared functionality for compatible devices.                |
+| **[USBDevInfo](https://github.com/iodn/android-usb-device-info)** | Inspect USB device details and behavior to understand what's really connected. |
+| **[GadgetFS](https://github.com/iodn/gadgetfs)**          | Experiment with USB gadget functionality (hardware-adjacent, low-level).       |
+| **[TapDucky](https://github.com/iodn/tap-ducky)**                  | A security/testing tool for controlled keystroke injection workflows.          |
+| **[HIDWiggle](https://github.com/iodn/hid-wiggle)**                | A mouse jiggler built with reliability and clean UX in mind.                   |
