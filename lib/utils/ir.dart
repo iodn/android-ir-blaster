@@ -216,6 +216,20 @@ Future<void> transmitRaw(int frequency, List<int> pattern) async {
   }
 }
 
+Future<void> transmitRawCycles(int frequency, List<int> pattern) async {
+  _validateFrequency(frequency);
+  _validatePattern(pattern, where: 'rawCycles');
+  try {
+    await platform.invokeMethod(
+      "transmitRawCycles",
+      {"frequency": frequency, "list": pattern},
+    );
+  } catch (e, st) {
+    _reportFlutterError('transmitRawCycles()', e, st);
+    rethrow;
+  }
+}
+
 Future<bool> hasIrEmitter() async {
   try {
     final result = await platform.invokeMethod("hasIrEmitter");

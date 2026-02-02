@@ -1,1 +1,1 @@
-Turn your Android into an IR remote: hex/raw/Flipper Zero .ir + Signal Tester
+Another Universal IR remote: Hex/Raw, Flipper Zero, LIRC, IRPlus + Signal Tester

@@ -1,0 +1,10 @@
+## Changelog notes
+- Added Universal Power (TVKill-style) with offline curated patterns, rate limits, and advanced filters.
+- New Universal Power screen with status, pause/stop, and recent results.
+- Device Controls integration: add remote buttons to Android Device Controls, with a management screen and test send.
+- Quick Settings tiles: 4 tiles (Power/Mute/Vol+/Vol−) with per-tile mapping and favorites.
+- Quick Settings chooser with favorites, reassign shortcut, and send test.
+- Quick Settings tiles now send via internal IR directly without opening the app once mapped.
+- Long-press remote buttons to pin/unpin Device Controls and Quick Settings favorites.
+- TVKill feature moved into Settings as its own section.
+- New bulk database import when creating/editing remotes: multi-select keys or import all by brand/model/protocol.

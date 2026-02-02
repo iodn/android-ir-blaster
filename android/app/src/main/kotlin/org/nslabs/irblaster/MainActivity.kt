@@ -19,6 +19,7 @@ import io.flutter.plugin.common.EventChannel
 import io.flutter.plugin.common.MethodCall
 import io.flutter.plugin.common.MethodChannel
 import org.nslabs.ir_blaster.audio.AudioIrTransmitter
+import org.nslabs.ir_blaster.BaseQuickTileService
 
 class MainActivity : FlutterActivity() {
     private enum class TxType { INTERNAL, USB, AUDIO_1_LED, AUDIO_2_LED }
@@ -47,6 +48,10 @@ class MainActivity : FlutterActivity() {
 
     private var txEventSink: EventChannel.EventSink? = null
     private var lastEmittedSnapshot: String? = null
+    private var controlChannel: MethodChannel? = null
+    private var pendingControlButtonId: String? = null
+    private var quickTileChannel: MethodChannel? = null
+    private var pendingQuickTileChooserKey: String? = null
 
     private fun loadTxTypeFromPrefs(): TxType {
         val v = prefs.getString("tx_type", TxType.INTERNAL.name) ?: TxType.INTERNAL.name
@@ -283,6 +288,8 @@ class MainActivity : FlutterActivity() {
     companion object {
         private const val CHANNEL = "org.nslabs/irtransmitter"
         private const val EVENT_CHANNEL = "org.nslabs/irtransmitter_events"
+        private const val CONTROL_CHANNEL = "org.nslabs/irtransmitter_controls"
+        private const val QUICK_TILE_CHANNEL = "org.nslabs/irtransmitter_quick_tile"
         private const val DEFAULT_HEX_FREQUENCY = 38000
         private const val MIN_IR_HZ = 15000
         private const val MAX_IR_HZ = 60000
@@ -339,6 +346,7 @@ class MainActivity : FlutterActivity() {
                 when (call.method) {
                     "transmit" -> handleTransmit(call, result)
                     "transmitRaw" -> handleTransmitRaw(call, result)
+                    "transmitRawCycles" -> handleTransmitRawCycles(call, result)
                     "hasIrEmitter" -> handleHasAnyEmitter(result)
                     "getTransmitterCapabilities" -> handleGetTxCaps(result)
                     "setTransmitterType" -> handleSetTxType(call, result)
@@ -356,8 +364,61 @@ class MainActivity : FlutterActivity() {
                 }
             }
 
+        controlChannel = MethodChannel(flutterEngine.dartExecutor.binaryMessenger, CONTROL_CHANNEL)
+        pendingControlButtonId?.let { id ->
+            pendingControlButtonId = null
+            dispatchControlButton(id)
+        }
+
+        quickTileChannel = MethodChannel(flutterEngine.dartExecutor.binaryMessenger, QUICK_TILE_CHANNEL)
+        pendingQuickTileChooserKey?.let { key ->
+            pendingQuickTileChooserKey = null
+            dispatchQuickTileChooser(key)
+        }
+
         emitTxStatus("startup_done")
         emitTxStatusDelayed("startup_done_delayed", 350L)
+    }
+
+    override fun onNewIntent(intent: Intent) {
+        super.onNewIntent(intent)
+        handleControlIntent(intent)
+        handleQuickTileIntent(intent)
+    }
+
+    override fun onCreate(savedInstanceState: android.os.Bundle?) {
+        super.onCreate(savedInstanceState)
+        handleControlIntent(intent)
+        handleQuickTileIntent(intent)
+    }
+
+    private fun handleControlIntent(intent: Intent?) {
+        val id = intent?.getStringExtra(DeviceControlsService.EXTRA_CONTROL_BUTTON_ID) ?: return
+        dispatchControlButton(id)
+    }
+
+    private fun dispatchControlButton(buttonId: String) {
+        val ch = controlChannel
+        if (ch == null) {
+            pendingControlButtonId = buttonId
+            return
+        }
+        ch.invokeMethod("sendButton", mapOf("buttonId" to buttonId))
+    }
+
+    private fun handleQuickTileIntent(intent: Intent?) {
+        val key = intent?.getStringExtra(BaseQuickTileService.EXTRA_TILE_KEY) ?: return
+        if (key.isBlank()) return
+        dispatchQuickTileChooser(key)
+    }
+
+    private fun dispatchQuickTileChooser(tileKey: String) {
+        val ch = quickTileChannel
+        if (ch == null) {
+            pendingQuickTileChooserKey = tileKey
+            return
+        }
+        ch.invokeMethod("openChooser", mapOf("tileKey" to tileKey))
     }
 
     override fun onDestroy() {
@@ -576,6 +637,103 @@ class MainActivity : FlutterActivity() {
                 if (ok) result.success(null) else result.error("AUDIO_TX_FAIL", "Audio transmit failed", null)
             }
         }
+    }
+
+    private fun handleTransmitRawCycles(call: MethodCall, result: MethodChannel.Result) {
+        val cycles = call.readIntArrayArg("list")
+        val freq = call.readIntArg("frequency") ?: DEFAULT_HEX_FREQUENCY
+        if (cycles == null || cycles.isEmpty()) {
+            result.error("NO_PATTERN", "No pattern provided", null)
+            return
+        }
+        if (!validatePattern(cycles)) {
+            result.error("BAD_PATTERN", "All durations must be > 0", null)
+            return
+        }
+
+        val safeFreq = freq.coerceIn(MIN_IR_HZ, MAX_IR_HZ)
+        val converted = convertCyclesToMicros(cycles, safeFreq)
+        if (!validatePattern(converted)) {
+            result.error("BAD_PATTERN", "Converted pattern contained invalid durations", null)
+            return
+        }
+
+        transmitRawWithCurrentTx(safeFreq, converted, result)
+    }
+
+    private fun transmitRawWithCurrentTx(freq: Int, pattern: IntArray, result: MethodChannel.Result) {
+        when (currentTxType) {
+            TxType.USB -> {
+                val usb = getOrOpenUsbTransmitterOrRequest()
+                if (usb == null) {
+                    val dev = usbDiscovery?.scanSupported()?.firstOrNull()
+                    if (dev == null) {
+                        result.error("NO_USB_DEVICE", "No supported USB IR device is attached", null)
+                    } else {
+                        result.error("USB_PERMISSION_REQUIRED", "USB permission required or device not ready", null)
+                    }
+                    return
+                }
+                val ok = transmitUsbWithRecovery(freq, pattern)
+                if (ok) result.success(null) else result.error("USB_TX_FAIL", "USB transmit failed (bulkTransfer returned <= 0)", null)
+            }
+
+            TxType.INTERNAL -> {
+                val okInternal = internalTx?.transmitRaw(freq, pattern) == true
+                if (okInternal) {
+                    result.success(null)
+                    return
+                }
+
+                val ok = transmitUsbWithRecovery(freq, pattern)
+                if (ok) {
+                    result.success(null)
+                    return
+                }
+                result.error("NO_IR", "Internal IR transmit failed or IR emitter not available", null)
+            }
+
+            TxType.AUDIO_1_LED -> {
+                val ok = audio1Tx.transmitRaw(freq, pattern)
+                if (ok) result.success(null) else result.error("AUDIO_TX_FAIL", "Audio transmit failed", null)
+            }
+
+            TxType.AUDIO_2_LED -> {
+                val ok = audio2Tx.transmitRaw(freq, pattern)
+                if (ok) result.success(null) else result.error("AUDIO_TX_FAIL", "Audio transmit failed", null)
+            }
+        }
+    }
+
+    private fun convertCyclesToMicros(input: IntArray, frequency: Int): IntArray {
+        val convertMode = when {
+            android.os.Build.VERSION.SDK_INT >= 21 -> 1
+            android.os.Build.MANUFACTURER.equals("HTC", ignoreCase = true) -> 1
+            android.os.Build.MANUFACTURER.equals("SAMSUNG", ignoreCase = true) -> {
+                val rel = android.os.Build.VERSION.RELEASE
+                val lastIdx = rel.lastIndexOf('.')
+                val mr = if (lastIdx >= 0 && lastIdx < rel.length - 1) {
+                    rel.substring(lastIdx + 1).toIntOrNull() ?: 0
+                } else 0
+                if (mr < 3) 0 else 2
+            }
+            else -> 0
+        }
+
+        if (convertMode == 0) return input
+
+        val out = IntArray(input.size)
+        if (convertMode == 1) {
+            val mult = 1_000_000 / frequency.toDouble()
+            for (i in input.indices) {
+                out[i] = (input[i] * mult).toInt()
+            }
+        } else {
+            for (i in input.indices) {
+                out[i] = kotlin.math.ceil(input[i] * 26.27272727272727).toInt()
+            }
+        }
+        return out
     }
 
     private fun handleGetSupportedFrequencies(result: MethodChannel.Result) {

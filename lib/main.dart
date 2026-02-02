@@ -10,13 +10,18 @@ import 'package:irblaster_controller/state/orientation_pref.dart';
 import 'package:irblaster_controller/state/transmitter_prefs.dart';
 import 'package:irblaster_controller/state/remotes_state.dart';
 import 'package:irblaster_controller/state/macros_state.dart';
+import 'package:irblaster_controller/utils/ir.dart';
+import 'package:flutter/services.dart';
 import 'package:irblaster_controller/utils/remote.dart';
 import 'package:irblaster_controller/utils/macros_io.dart';
 import 'package:irblaster_controller/widgets/home_shell.dart';
+import 'package:irblaster_controller/widgets/quick_tile_chooser.dart';
+import 'package:irblaster_controller/state/quick_settings_prefs.dart';
 import 'package:media_store_plus/media_store_plus.dart';
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
+  _initControlChannel();
   FlutterError.onError = (details) {
     FlutterError.presentError(details);
     debugPrint('FlutterError: ${details.exception}\n${details.stack}');
@@ -46,6 +51,108 @@ Future<void> main() async {
   });
 }
 
+final GlobalKey<NavigatorState> _navKey = GlobalKey<NavigatorState>();
+
+const MethodChannel _controlChannel = MethodChannel('org.nslabs/irtransmitter_controls');
+const MethodChannel _quickTileChannel = MethodChannel('org.nslabs/irtransmitter_quick_tile');
+String? _pendingQuickTileKey;
+
+void _initControlChannel() {
+  _controlChannel.setMethodCallHandler((call) async {
+    if (call.method != 'sendButton') return;
+    final args = call.arguments;
+    String? buttonId;
+    if (args is Map) {
+      final raw = args['buttonId'];
+      if (raw is String) buttonId = raw;
+    }
+    if (buttonId == null || buttonId.trim().isEmpty) return;
+    await _sendButtonById(buttonId.trim());
+  });
+
+  _quickTileChannel.setMethodCallHandler((call) async {
+    if (call.method != 'openChooser') return;
+    final args = call.arguments;
+    String? key;
+    if (args is Map) {
+      final raw = args['tileKey'];
+      if (raw is String) key = raw;
+    }
+    await _openQuickTileChooser(key);
+  });
+}
+
+Future<void> _sendButtonById(String buttonId) async {
+  IRButton? found;
+  Remote? remoteFound;
+
+  if (remotes.isEmpty) {
+    try {
+      remotes = await readRemotes();
+    } catch (_) {}
+  }
+
+  for (final r in remotes) {
+    for (final b in r.buttons) {
+      if (b.id == buttonId) {
+        found = b;
+        remoteFound = r;
+        break;
+      }
+    }
+    if (found != null) break;
+  }
+
+  if (found == null) return;
+
+  try {
+    await sendIR(found);
+    debugPrint('Device control sent: ${remoteFound?.name ?? 'Remote'} / ${found.id}');
+  } catch (e, st) {
+    debugPrint('Device control send failed: $e\n$st');
+  }
+}
+
+Future<void> _openQuickTileChooser(String? tileKey) async {
+  final ctx = _navKey.currentContext;
+  if (ctx == null) {
+    if (_pendingQuickTileKey != null) return;
+    _pendingQuickTileKey = tileKey;
+    WidgetsBinding.instance.addPostFrameCallback((_) async {
+      final key = _pendingQuickTileKey;
+      _pendingQuickTileKey = null;
+      final ctx2 = _navKey.currentContext;
+      if (ctx2 != null) await _openQuickTileChooser(key);
+    });
+    return;
+  }
+  final pick = await pickButtonForTile(ctx, tileKey: tileKey);
+  if (pick == null) return;
+  final type = _tileTypeFromKey(tileKey);
+  if (type != null) {
+    final mapping = await buildQuickTileMapping(pick);
+    if (mapping != null) {
+      await QuickSettingsPrefs.saveMapping(type, mapping);
+    }
+  }
+  await sendButtonPick(ctx, pick);
+}
+
+QuickTileType? _tileTypeFromKey(String? key) {
+  switch ((key ?? '').trim()) {
+    case 'power':
+      return QuickTileType.power;
+    case 'mute':
+      return QuickTileType.mute;
+    case 'volumeUp':
+      return QuickTileType.volumeUp;
+    case 'volumeDown':
+      return QuickTileType.volumeDown;
+    default:
+      return null;
+  }
+}
+
 class _App extends StatelessWidget {
   const _App();
 
@@ -66,6 +173,7 @@ class _App extends StatelessWidget {
             return MaterialApp(
               title: 'IR Blaster',
               debugShowCheckedModeBanner: false,
+              navigatorKey: _navKey,
               themeMode: AppThemeController.instance.mode,
               theme: ThemeData(useMaterial3: true, colorScheme: lightScheme, brightness: Brightness.light),
               darkTheme: ThemeData(useMaterial3: true, colorScheme: darkScheme, brightness: Brightness.dark),

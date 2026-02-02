@@ -445,6 +445,67 @@ class IrBlasterDb {
     }).toList(growable: false);
   }
 
+  Future<int> countCandidateKeys({
+    required String brand,
+    String? model,
+    String? selectedProtocolId,
+    String? hexPrefixUpper,
+    String? search,
+  }) async {
+    await ensureInitialized();
+    final db = _requireDb();
+
+    final String b = brand.trim();
+    if (b.isEmpty) return 0;
+
+    final String? m = (model == null || model.trim().isEmpty) ? null : model.trim();
+    final String? prefix = (hexPrefixUpper == null || hexPrefixUpper.trim().isEmpty)
+        ? null
+        : hexPrefixUpper.replaceAll(RegExp(r'\s+'), '').toUpperCase();
+
+    final _ProtocolFilter? pf = await _resolveProtocolFilter(selectedProtocolId);
+
+    final args = <Object?>[];
+    final where = <String>[];
+
+    where.add('m.brand = ?');
+    args.add(b);
+
+    if (m != null) {
+      where.add('m.model = ?');
+      args.add(m);
+    }
+
+    if (pf != null) {
+      _appendProtocolWhere(where: where, args: args, column: 'k.protocol', filter: pf);
+    }
+
+    if (prefix != null) {
+      where.add('UPPER(k.hexcode) LIKE ?');
+      args.add('$prefix%');
+    }
+
+    final String? q = (search == null || search.trim().isEmpty) ? null : _escapeLike(search.trim());
+    if (q != null) {
+      where.add('(UPPER(k.label) LIKE UPPER(?) ESCAPE \'\\\' OR UPPER(k.hexcode) LIKE UPPER(?))');
+      args.add('%$q%');
+      args.add('%${q.toUpperCase()}%');
+    }
+
+    final sql = '''
+ SELECT COUNT(1) AS cnt
+ FROM models m
+ JOIN keys k ON k.id = m.id
+ WHERE ${where.join(' AND ')}
+''';
+
+    final rows = await db.rawQuery(sql, args);
+    if (rows.isEmpty) return 0;
+    final dynamic v = rows.first['cnt'];
+    if (v is int) return v;
+    return int.tryParse('$v') ?? 0;
+  }
+
   static String _escapeLike(String input) {
     return input.replaceAll('\\', '\\\\').replaceAll('%', '\\%').replaceAll('_', '\\_');
   }

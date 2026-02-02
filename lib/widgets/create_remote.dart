@@ -4,6 +4,7 @@ import 'package:irblaster_controller/ir/ir_protocol_registry.dart';
 import 'package:irblaster_controller/utils/ir.dart';
 import 'package:irblaster_controller/utils/remote.dart';
 import 'package:irblaster_controller/widgets/create_button.dart';
+import 'package:irblaster_controller/widgets/db_bulk_import_sheet.dart';
 import 'package:uuid/uuid.dart';
 
 enum _LayoutStyle { compact, wide }
@@ -92,6 +93,27 @@ class _CreateRemoteState extends State<CreateRemote> {
       setState(() {
         remote.buttons.add(button);
       });
+    } catch (_) {}
+  }
+
+  Future<void> _openBulkImport() async {
+    try {
+      final imported = await showModalBottomSheet<List<IRButton>>(
+        context: context,
+        isScrollControlled: true,
+        useSafeArea: true,
+        showDragHandle: true,
+        builder: (ctx) => FractionallySizedBox(
+          heightFactor: 0.97,
+          child: DbBulkImportSheet(existingButtons: remote.buttons),
+        ),
+      );
+      if (imported == null || imported.isEmpty) return;
+      if (!mounted) return;
+      setState(() {
+        remote.buttons.addAll(imported);
+      });
+      _showSnack('Imported ${imported.length} button(s).');
     } catch (_) {}
   }
 
@@ -348,10 +370,24 @@ class _CreateRemoteState extends State<CreateRemote> {
                           style: theme.textTheme.titleMedium?.copyWith(fontWeight: FontWeight.w800),
                         ),
                       ),
-                      FilledButton.tonalIcon(
-                        onPressed: _addButton,
-                        icon: const Icon(Icons.add),
-                        label: const Text('Add button'),
+                      Flexible(
+                        child: Wrap(
+                          spacing: 8,
+                          runSpacing: 8,
+                          alignment: WrapAlignment.end,
+                          children: [
+                            FilledButton.tonalIcon(
+                              onPressed: _openBulkImport,
+                              icon: const Icon(Icons.playlist_add_rounded),
+                              label: const Text('Import from DB'),
+                            ),
+                            FilledButton.icon(
+                              onPressed: _addButton,
+                              icon: const Icon(Icons.add),
+                              label: const Text('Add button'),
+                            ),
+                          ],
+                        ),
                       ),
                     ],
                   ),
@@ -386,6 +422,12 @@ class _CreateRemoteState extends State<CreateRemote> {
                               onPressed: _addButton,
                               icon: const Icon(Icons.add),
                               label: const Text('Add button'),
+                            ),
+                            const SizedBox(height: 8),
+                            FilledButton.tonalIcon(
+                              onPressed: _openBulkImport,
+                              icon: const Icon(Icons.playlist_add_rounded),
+                              label: const Text('Import from DB'),
                             ),
                           ],
                         ),

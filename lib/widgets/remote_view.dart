@@ -6,6 +6,8 @@ import 'package:flutter/services.dart';
 import 'package:irblaster_controller/ir/ir_protocol_registry.dart';
 import 'package:irblaster_controller/state/haptics.dart';
 import 'package:irblaster_controller/state/orientation_pref.dart';
+import 'package:irblaster_controller/state/device_controls_prefs.dart';
+import 'package:irblaster_controller/state/quick_settings_prefs.dart';
 import 'package:irblaster_controller/state/remotes_state.dart';
 import 'package:irblaster_controller/utils/ir.dart';
 import 'package:irblaster_controller/utils/remote.dart';
@@ -850,6 +852,8 @@ class RemoteViewState extends State<RemoteView> {
     final bool isRaw = _isRawSignalButton(b);
     final String? displayHex = _displayHex(b);
     final bool loopingThis = _isLoopingThis(b);
+    final bool isControlFav = await DeviceControlsPrefs.isFavorite(b.id);
+    final bool isQuickFav = await QuickSettingsPrefs.isFavorite(b.id);
 
     final String typeLine = 'Type: $proto';
     final String codeLine = isRaw ? 'Code: Raw signal' : 'Code: ${displayHex ?? 'NO CODE'}';
@@ -1058,6 +1062,58 @@ class RemoteViewState extends State<RemoteView> {
                       onTap: () async {
                         Navigator.of(ctx).pop();
                         await _duplicateButton(b);
+                      },
+                    ),
+                    ListTile(
+                      contentPadding: EdgeInsets.zero,
+                      leading: Icon(isControlFav ? Icons.remove_circle_outline : Icons.add_circle_outline),
+                      title: Text(isControlFav ? 'Remove from Device Controls' : 'Add to Device Controls'),
+                      subtitle: const Text('Shows this button in the system device controls'),
+                      onTap: () async {
+                        Navigator.of(ctx).pop();
+                        if (isControlFav) {
+                          await DeviceControlsPrefs.remove(b.id);
+                        } else {
+                          await DeviceControlsPrefs.add(DeviceControlFavorite(
+                            buttonId: b.id,
+                            title: label,
+                            subtitle: _remote.name,
+                          ));
+                        }
+                        if (!mounted) return;
+                        ScaffoldMessenger.of(context).showSnackBar(
+                          SnackBar(
+                            content: Text(isControlFav
+                                ? 'Removed from Device Controls.'
+                                : 'Added to Device Controls.'),
+                          ),
+                        );
+                      },
+                    ),
+                    ListTile(
+                      contentPadding: EdgeInsets.zero,
+                      leading: Icon(isQuickFav ? Icons.star_rounded : Icons.star_border_rounded),
+                      title: Text(isQuickFav ? 'Unpin from Quick Tile favorites' : 'Pin to Quick Tile favorites'),
+                      subtitle: const Text('Shows this button at the top of the quick tile chooser'),
+                      onTap: () async {
+                        Navigator.of(ctx).pop();
+                        if (isQuickFav) {
+                          await QuickSettingsPrefs.removeFavorite(b.id);
+                        } else {
+                          await QuickSettingsPrefs.addFavorite(QuickTileFavorite(
+                            buttonId: b.id,
+                            title: label,
+                            subtitle: _remote.name,
+                          ));
+                        }
+                        if (!mounted) return;
+                        ScaffoldMessenger.of(context).showSnackBar(
+                          SnackBar(
+                            content: Text(isQuickFav
+                                ? 'Removed from Quick Tile favorites.'
+                                : 'Pinned to Quick Tile favorites.'),
+                          ),
+                        );
                       },
                     ),
                     ListTile(

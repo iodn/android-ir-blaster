@@ -16,6 +16,9 @@ import 'package:irblaster_controller/widgets/about_screen.dart';
 import 'package:irblaster_controller/widgets/settings/widgets/donation_sheet.dart';
 import 'package:irblaster_controller/widgets/settings/widgets/section_card.dart';
 import 'package:irblaster_controller/widgets/settings/widgets/support_pill.dart';
+import 'package:irblaster_controller/widgets/universal_power_screen.dart';
+import 'package:irblaster_controller/widgets/device_controls_screen.dart';
+import 'package:irblaster_controller/widgets/quick_settings_screen.dart';
 import 'package:package_info_plus/package_info_plus.dart';
 import 'package:url_launcher/url_launcher.dart';
 
@@ -297,6 +300,12 @@ class SettingsScreen extends StatelessWidget {
           _buildIrTransmitterSection(cs),
           const SizedBox(height: 10),
           _buildRemotesSection(context),
+          const SizedBox(height: 10),
+          _buildDeviceControlsSection(context),
+          const SizedBox(height: 10),
+          _buildQuickSettingsSection(context),
+          const SizedBox(height: 10),
+          _buildTvKillSection(context),
           const SizedBox(height: 10),
           _buildAboutSection(context),
           const SizedBox(height: 18),
@@ -605,9 +614,6 @@ class SettingsScreen extends StatelessWidget {
               },
             ),
             const Divider(height: 1),
-
-            // ✅ Requested change:
-            // When enabled, rotate this ENTIRE switch tile by 180° as a visual preview.
             AnimatedBuilder(
               animation: orientationCtrl,
               builder: (context, _) {
@@ -618,7 +624,7 @@ class SettingsScreen extends StatelessWidget {
                   child: SwitchListTile.adaptive(
                     secondary: const Icon(Icons.screen_rotation_rounded),
                     title: const Text('Flip Remote View by default'),
-                    subtitle: const Text('Open Remote screens rotated 180° (for top-mounted USB dongles).'),
+                    subtitle: const Text('Open Remote screens rotated 180° (for bottom-mounted USB dongles).'),
                     value: orientationCtrl.flipped,
                     onChanged: (v) async {
                       await orientationCtrl.setFlipped(v);
@@ -784,6 +790,93 @@ class SettingsScreen extends StatelessWidget {
                     padding: const EdgeInsets.all(16),
                     child: Icon(Icons.settings_remote_rounded, size: 48, color: cs.primary),
                   ),
+                );
+              },
+            ),
+          ],
+        ),
+      ),
+    );
+  }
+
+  Widget _buildDeviceControlsSection(BuildContext context) {
+    final theme = Theme.of(context);
+    final cs = theme.colorScheme;
+
+    return Padding(
+      padding: const EdgeInsets.symmetric(horizontal: 16),
+      child: SectionCard(
+        title: 'Device Controls',
+        subtitle: 'Show favorite buttons in the system controls page',
+        leading: Icon(Icons.tune_rounded, color: cs.primary),
+        child: Column(
+          children: [
+            ListTile(
+              leading: const Icon(Icons.power_outlined),
+              title: const Text('Manage favorites'),
+              subtitle: const Text('Choose which buttons appear in device controls'),
+              trailing: const Icon(Icons.chevron_right),
+              onTap: () {
+                Navigator.of(context).push(
+                  MaterialPageRoute(builder: (_) => const DeviceControlsScreen()),
+                );
+              },
+            ),
+          ],
+        ),
+      ),
+    );
+  }
+
+  Widget _buildQuickSettingsSection(BuildContext context) {
+    final theme = Theme.of(context);
+    final cs = theme.colorScheme;
+
+    return Padding(
+      padding: const EdgeInsets.symmetric(horizontal: 16),
+      child: SectionCard(
+        title: 'Quick Settings',
+        subtitle: 'Add tiles for power and volume shortcuts',
+        leading: Icon(Icons.view_quilt_rounded, color: cs.primary),
+        child: Column(
+          children: [
+            ListTile(
+              leading: const Icon(Icons.tune_rounded),
+              title: const Text('Configure tiles'),
+              subtitle: const Text('Map tiles to remote buttons'),
+              trailing: const Icon(Icons.chevron_right),
+              onTap: () {
+                Navigator.of(context).push(
+                  MaterialPageRoute(builder: (_) => const QuickSettingsScreen()),
+                );
+              },
+            ),
+          ],
+        ),
+      ),
+    );
+  }
+
+  Widget _buildTvKillSection(BuildContext context) {
+    final theme = Theme.of(context);
+    final cs = theme.colorScheme;
+
+    return Padding(
+      padding: const EdgeInsets.symmetric(horizontal: 16),
+      child: SectionCard(
+        title: 'TVKill',
+        subtitle: 'Universal power cycling for owned devices',
+        leading: Icon(Icons.power_settings_new_rounded, color: cs.primary),
+        child: Column(
+          children: [
+            ListTile(
+              leading: const Icon(Icons.flash_on_rounded),
+              title: const Text('Open TVKill'),
+              subtitle: const Text('Cycle power codes (use only on devices you own)'),
+              trailing: const Icon(Icons.chevron_right),
+              onTap: () {
+                Navigator.of(context).push(
+                  MaterialPageRoute(builder: (_) => const UniversalPowerScreen()),
                 );
               },
             ),
