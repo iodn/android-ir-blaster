@@ -8,7 +8,7 @@ object UsbDeviceFilter {
   private const val TIQIAA_PID = 0x8468
 
   private const val ELKSMART_VID = 0x045C
-  private val ELKSMART_PIDS = setOf(0x0195, 0x0184)
+  private val ELKSMART_PIDS = setOf(0x0132, 0x0184, 0x0195)
 
   private val OTHER_KNOWN_ELKSMART_PIDS = setOf(0x014A, 0x02AA)
 
