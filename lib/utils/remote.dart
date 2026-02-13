@@ -15,6 +15,9 @@ class IRButton {
   final String? necBitOrder;
   final String? protocol;
   final Map<String, dynamic>? protocolParams;
+  final int? iconCodePoint;
+  final String? iconFontFamily;
+  final int? buttonColor;
 
   const IRButton({
     required this.id,
@@ -26,6 +29,9 @@ class IRButton {
     this.necBitOrder,
     this.protocol,
     this.protocolParams,
+    this.iconCodePoint,
+    this.iconFontFamily,
+    this.buttonColor,
   });
 
   Map<String, dynamic> toJson() => {
@@ -38,6 +44,9 @@ class IRButton {
         'necBitOrder': necBitOrder,
         'protocol': protocol,
         'protocolParams': protocolParams,
+        'iconCodePoint': iconCodePoint,
+        'iconFontFamily': iconFontFamily,
+        'buttonColor': buttonColor,
       };
 
   factory IRButton.fromJson(Map<String, dynamic> json) {
@@ -53,6 +62,9 @@ class IRButton {
       necBitOrder: json['necBitOrder'] as String?,
       protocol: json['protocol'] as String?,
       protocolParams: (pp is Map) ? Map<String, dynamic>.from(pp) : null,
+      iconCodePoint: json['iconCodePoint'] is int ? json['iconCodePoint'] as int? : int.tryParse('${json['iconCodePoint'] ?? ''}'),
+      iconFontFamily: json['iconFontFamily'] as String?,
+      buttonColor: json['buttonColor'] is int ? json['buttonColor'] as int? : int.tryParse('${json['buttonColor'] ?? ''}'),
     );
   }
 
@@ -66,6 +78,9 @@ class IRButton {
     String? necBitOrder,
     String? protocol,
     Map<String, dynamic>? protocolParams,
+    int? iconCodePoint,
+    String? iconFontFamily,
+    int? buttonColor,
   }) {
     return IRButton(
       id: id ?? this.id,
@@ -77,6 +92,9 @@ class IRButton {
       necBitOrder: necBitOrder ?? this.necBitOrder,
       protocol: protocol ?? this.protocol,
       protocolParams: protocolParams ?? this.protocolParams,
+      iconCodePoint: iconCodePoint ?? this.iconCodePoint,
+      iconFontFamily: iconFontFamily ?? this.iconFontFamily,
+      buttonColor: buttonColor ?? this.buttonColor,
     );
   }
 }

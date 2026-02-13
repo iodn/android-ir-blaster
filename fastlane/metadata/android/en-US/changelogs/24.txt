@@ -1,0 +1,4 @@
+Added icon library with over 200 Material icons grouped into 10 functional categories, along with a searchable icon picker featuring category filters, grid preview and large preview during button creation.
+Introduced button background color customization with 21 preset colors, tap selection, labeled swatches and automatic text and icon contrast adjustment.
+Added support for ELKSMART Smart IR Blaster PID 0x0132.
+Fixed an issue with NECx2 protocol import.

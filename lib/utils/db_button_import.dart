@@ -113,7 +113,7 @@ String? _mapDbProtocolToAppProtocolId(String dbProtocol) {
 
 bool _dbProtocolIsNec(String dbProtocol) {
   final k = _normalizeProtoKey(dbProtocol);
-  return k == 'nec' || k.startsWith('nec');
+  return k == 'nec';
 }
 
 bool _coerceBool(String t) {

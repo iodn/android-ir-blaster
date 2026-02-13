@@ -461,7 +461,22 @@ class _CreateRemoteState extends State<CreateRemote> {
     final theme = Theme.of(context);
     final meta = _buildButtonMetaChips(b);
     final Widget labelWidget;
-    if (b.isImage) {
+    if (b.iconCodePoint != null) {
+      labelWidget = Center(
+        child: Icon(
+          IconData(
+            b.iconCodePoint!,
+            fontFamily: b.iconFontFamily,
+          ),
+          size: 32,
+          color: b.buttonColor != null
+              ? ThemeData.estimateBrightnessForColor(Color(b.buttonColor!)) == Brightness.dark
+                  ? Colors.white
+                  : Colors.black
+              : theme.colorScheme.onSurface,
+        ),
+      );
+    } else if (b.isImage) {
       labelWidget = b.image.startsWith("assets/")
           ? Image.asset(b.image, fit: BoxFit.contain)
           : Image.file(File(b.image), fit: BoxFit.contain);
@@ -472,14 +487,23 @@ class _CreateRemoteState extends State<CreateRemote> {
           textAlign: TextAlign.center,
           maxLines: 2,
           overflow: TextOverflow.ellipsis,
-          style: theme.textTheme.titleMedium?.copyWith(fontWeight: FontWeight.w700),
+          style: theme.textTheme.titleMedium?.copyWith(
+            fontWeight: FontWeight.w700,
+            color: b.buttonColor != null
+                ? ThemeData.estimateBrightnessForColor(Color(b.buttonColor!)) == Brightness.dark
+                    ? Colors.white
+                    : Colors.black
+                : null,
+          ),
         ),
       );
     }
 
     return Card(
       clipBehavior: Clip.antiAlias,
-      color: theme.colorScheme.primary.withValues(alpha: 0.15),
+      color: b.buttonColor != null
+          ? Color(b.buttonColor!)
+          : theme.colorScheme.primary.withValues(alpha: 0.15),
       shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(14)),
       child: InkWell(
         borderRadius: BorderRadius.circular(14),
@@ -498,10 +522,21 @@ class _CreateRemoteState extends State<CreateRemote> {
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
                           Text(
-                            b.isImage ? 'Image button' : b.image,
+                            b.iconCodePoint != null
+                                ? 'Icon button'
+                                : b.isImage
+                                    ? 'Image button'
+                                    : b.image,
                             maxLines: 1,
                             overflow: TextOverflow.ellipsis,
-                            style: theme.textTheme.titleSmall?.copyWith(fontWeight: FontWeight.w800),
+                            style: theme.textTheme.titleSmall?.copyWith(
+                              fontWeight: FontWeight.w800,
+                              color: b.buttonColor != null
+                                  ? ThemeData.estimateBrightnessForColor(Color(b.buttonColor!)) == Brightness.dark
+                                      ? Colors.white
+                                      : Colors.black
+                                  : null,
+                            ),
                           ),
                           const SizedBox(height: 6),
                           if (meta.isNotEmpty) Wrap(spacing: 6, runSpacing: 4, children: meta),

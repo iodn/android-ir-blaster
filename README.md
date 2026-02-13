@@ -36,8 +36,6 @@ IR Blaster is designed to be flexible, hardware-agnostic, and user-friendly, whi
   </a>
 </div>
 
-
-
 </div>
 
 
@@ -169,10 +167,10 @@ The Signal Tester is designed to help discover unknown working IR commands.
 | RC5 | up to 3 hex | 36,000 | Manchester coding, unit ≈889µs; start bits + toggle bit (flips each encode); 11-bit payload MSB-first; frame padded/replaced to 114,000µs | Toggle bit maintained internally (repeat detection depends on toggle changes) |
 | RC6 | hex (last 4 hex used → 16-bit payload) | 36,000 | Leader 2664/888; Manchester-like with mode bits + toggle field (toggle is double-time); payload uses T=444 timing pairs; overall layout is start+mode+toggle+addr+cmd | Uses last 4 hex digits as payload; internal toggle flips each encode |
 | RCA_38 | 3 hex → 12 bits (high nibble + low byte) | 38,700 | Preamble 3840/3840; 0=[480,960], 1=[480,1920]; trailer [480,7680]; sequence duplicated | Strict 3 hex digits |
-| RCC0082 | 3 hex (nibbles) | 30,300 | Prefix 22 ints [BIT=528,GAP=2640,BIT×19,END=21120], then [BIT,GAP,BIT,BIT]; build 10-bit: “0” + n0(last3) + n1(all4) + n2(first2); transition-based emission; parity-based tail then suffix (same 22) | Tail even=111,408, odd=110,880 |
+| RCC0082 | 3 hex (nibbles) | 30,300 | Prefix 22 ints [BIT=528,GAP=2640,BIT×19,END=21120], then [BIT,GAP,BIT,BIT]; build 10-bit: "0" + n0(last3) + n1(all4) + n2(first2); transition-based emission; parity-based tail then suffix (same 22) | Tail even=111,408, odd=110,880 |
 | RCC2026 | 11 hex → 42 bits (from 44 padded) | 38,222 | Header 8800/4400; bit mark=550 + space 550 (0) or 1650 (1); final mark 550 + 23100; then tail [8800, 4400, 550, 90750] | Strict 11 hex; takes last 42 bits |
 | REC80 | 12 hex → 48 bits (32 + 16) | 37,000 | Header 3456/1728; bit1 432/1296; bit0 432/432; tail 432/74736 | Strict 12 hex |
-| RECS80 | 3 hex | 38,000 | Toggle flips each encode; bit string: “1” + toggle + n0(first3) + n0(last1) + n1(all4) + n2(first1); each bit mark=158 + space 7426 (1) or 4898 (0); end 158/45000 | Internal toggle maintained |
+| RECS80 | 3 hex | 38,000 | Toggle flips each encode; bit string: "1" + toggle + n0(first3) + n0(last1) + n1(all4) + n2(first1); each bit mark=158 + space 7426 (1) or 4898 (0); end 158/45000 | Internal toggle maintained |
 | RECS80_L | 3 hex | 33,300 | Same bit string as RECS80; bit1 180/8460; bit0 180/5580; end is 180 then pad to 138,000µs | Low-frequency variant; fixed frame length |
 | Samsung32 | 4 hex (AA CC) → 32 bits | 38,000 | Preamble 4500/4500; each bit mark≈550 + space≈550 (0) or ≈1650 (1); standard 32-bit layout with checksum byte | Payload layout is Address + Address + Command + ~Command |
 | Samsung36 | 7 hex → 36 bits (A8+B8+C4+D8+~D8) | 38,000 | Start 4500/4500; first 16 bits (500/500|1500); 500/4500 separator; last 20 bits same; final 500/59000 | Strict 7 hex; includes ~D |
@@ -253,12 +251,12 @@ Or download the latest APK from the Releases Section.
 3. Save and test your buttons from the Remote view.
 
 ### Using the Signal Tester (IR Finder)
-1. Open the “Signal Tester” tab.
+1. Open the "Signal Tester" tab.
 2. Provide protocol parameters and optional hex prefix constraints.
 3. Start testing; the bruteforcer will try variations to identify working signals via your selected transmitter.
 
 ### USB Notes
-- When a supported USB dongle is attached, use “Request USB permission” if prompted.
+- When a supported USB dongle is attached, use "Request USB permission" if prompted.
 - Auto Switch prefers USB when available; disable it for manual selection or Audio use.
 
 ### Audio Notes
@@ -272,6 +270,8 @@ Or download the latest APK from the Releases Section.
 <img width="180" height="400" alt="5" src="https://github.com/user-attachments/assets/abdded4c-ed28-4ca9-8a0a-1e7466464aee" />
 <img width="180" height="400" alt="6" src="https://github.com/user-attachments/assets/47f974cf-ed08-4392-aad8-0e9c7765b405" />
 
+<br><br><br>
+  <img src="fastlane/metadata/android/en-US/images/featureGraphic.png" alt="TapDucky Banner App" style="display:block; height:260px; width:auto;">
 
 ## Contributing
 

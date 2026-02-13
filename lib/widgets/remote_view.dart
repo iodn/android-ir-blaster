@@ -329,6 +329,7 @@ class RemoteViewState extends State<RemoteView> {
   }
 
   String _buttonTitle(IRButton b) {
+    if (b.iconCodePoint != null) return 'Icon Button';
     final raw = b.image.trim();
     if (raw.isEmpty) return 'Button';
     if (!b.isImage) return raw;
@@ -1271,30 +1272,49 @@ class RemoteViewState extends State<RemoteView> {
         final IRButton button = _remote.buttons[index];
         final String proto = _protocolLabel(button);
 
-        final Widget content = button.isImage
-            ? (button.image.startsWith("assets/")
-                ? Image.asset(button.image, fit: BoxFit.contain)
-                : Image.file(File(button.image), fit: BoxFit.contain))
-            : Center(
-                child: Padding(
-                  padding: const EdgeInsets.all(6),
-                  child: Text(
-                    button.image,
-                    textAlign: TextAlign.center,
-                    maxLines: 3,
-                    overflow: TextOverflow.ellipsis,
-                    style: theme.textTheme.bodySmall?.copyWith(
-                      fontWeight: FontWeight.w900,
-                      color: cs.onSurface,
-                      height: 1.1,
-                    ),
+        final Widget content = button.iconCodePoint != null
+            ? Center(
+                child: Icon(
+                  IconData(
+                    button.iconCodePoint!,
+                    fontFamily: button.iconFontFamily,
                   ),
+                  size: 32,
+                  color: button.buttonColor != null
+                      ? ThemeData.estimateBrightnessForColor(Color(button.buttonColor!)) == Brightness.dark
+                          ? Colors.white
+                          : Colors.black
+                      : cs.onSurface,
                 ),
-              );
+              )
+            : button.isImage
+                ? (button.image.startsWith("assets/")
+                    ? Image.asset(button.image, fit: BoxFit.contain)
+                    : Image.file(File(button.image), fit: BoxFit.contain))
+                : Center(
+                    child: Padding(
+                      padding: const EdgeInsets.all(6),
+                      child: Text(
+                        button.image,
+                        textAlign: TextAlign.center,
+                        maxLines: 3,
+                        overflow: TextOverflow.ellipsis,
+                        style: theme.textTheme.bodySmall?.copyWith(
+                          fontWeight: FontWeight.w900,
+                          color: button.buttonColor != null
+                              ? ThemeData.estimateBrightnessForColor(Color(button.buttonColor!)) == Brightness.dark
+                                  ? Colors.white
+                                  : Colors.black
+                              : cs.onSurface,
+                          height: 1.1,
+                        ),
+                      ),
+                    ),
+                  );
 
         return Material(
           key: ValueKey(button.id),
-          color: cardColor,
+          color: button.buttonColor != null ? Color(button.buttonColor!) : cardColor,
           borderRadius: BorderRadius.circular(14),
           clipBehavior: Clip.antiAlias,
           child: InkWell(
@@ -1382,6 +1402,14 @@ class RemoteViewState extends State<RemoteView> {
         final String? displayHex = _displayHex(button);
         final String codeText = isRaw ? 'RAW' : (displayHex ?? 'NO CODE');
 
+        final bool hasCustomColor = button.buttonColor != null;
+        final Color bgColor = hasCustomColor ? Color(button.buttonColor!) : cardColor;
+        final Color textColor = hasCustomColor
+            ? (ThemeData.estimateBrightnessForColor(bgColor) == Brightness.dark
+                ? Colors.white
+                : Colors.black)
+            : cs.onSurface;
+
         return Card(
           key: ValueKey(button.id),
           elevation: 0,
@@ -1389,7 +1417,7 @@ class RemoteViewState extends State<RemoteView> {
             borderRadius: BorderRadius.circular(16),
             side: BorderSide(color: cs.outlineVariant.withValues(alpha: 0.35)),
           ),
-          color: cardColor,
+          color: bgColor,
           clipBehavior: Clip.antiAlias,
           child: InkWell(
             onTap: () => _handleButtonPress(button),
@@ -1408,7 +1436,7 @@ class RemoteViewState extends State<RemoteView> {
                         overflow: TextOverflow.ellipsis,
                         style: theme.textTheme.titleMedium?.copyWith(
                           fontWeight: FontWeight.w900,
-                          color: cs.onSurface,
+                          color: textColor,
                           height: 1.2,
                         ),
                       ),
@@ -1423,7 +1451,7 @@ class RemoteViewState extends State<RemoteView> {
                       style: theme.textTheme.bodySmall?.copyWith(
                         fontFamily: isRaw ? null : 'monospace',
                         fontWeight: FontWeight.w800,
-                        color: cs.onSurface.withValues(alpha: 0.82),
+                        color: hasCustomColor ? textColor.withValues(alpha: 0.82) : cs.onSurface.withValues(alpha: 0.82),
                         fontSize: 11,
                       ),
                     ),

@@ -10,9 +10,10 @@ import 'package:irblaster_controller/ir_finder/ir_finder_models.dart';
 import 'package:irblaster_controller/utils/ir.dart';
 import 'package:irblaster_controller/utils/remote.dart';
 import 'package:irblaster_controller/widgets/code_test.dart';
+import 'package:irblaster_controller/widgets/icon_picker.dart';
 import 'package:uuid/uuid.dart';
 
-enum _LabelType { image, text }
+enum _LabelType { image, text, icon }
 enum _SignalType { hex, raw, protocol }
 enum _NecBitOrder { msb, lsb }
 enum _DbPreset { power, volume, channel, navigation, all }
@@ -85,6 +86,9 @@ class _CreateButtonState extends State<CreateButton> {
   Widget? _imagePreview;
   String? _imagePath;
 
+  IconData? _selectedIcon;
+  Color? _selectedColor;
+
   bool _didAttachListeners = false;
 
   _DbPreset _dbPreset = _DbPreset.power;
@@ -102,7 +106,13 @@ class _CreateButtonState extends State<CreateButton> {
       final b = widget.button!;
       final hasRaw = b.rawData != null && b.rawData!.trim().isNotEmpty;
 
-      if (b.isImage) {
+      if (b.iconCodePoint != null) {
+        _labelType = _LabelType.icon;
+        _selectedIcon = IconData(
+          b.iconCodePoint!,
+          fontFamily: b.iconFontFamily,
+        );
+      } else if (b.isImage) {
         _labelType = _LabelType.image;
         _imagePath = b.image;
         if (_imagePath!.startsWith("assets")) {
@@ -113,6 +123,10 @@ class _CreateButtonState extends State<CreateButton> {
       } else {
         _labelType = _LabelType.text;
         nameController.text = b.image;
+      }
+
+      if (b.buttonColor != null) {
+        _selectedColor = Color(b.buttonColor!);
       }
 
       if (b.protocol != null && b.protocol!.trim().isNotEmpty) {
@@ -231,6 +245,7 @@ class _CreateButtonState extends State<CreateButton> {
 
   bool get _hasLabel {
     if (_labelType == _LabelType.image) return _imagePath != null;
+    if (_labelType == _LabelType.icon) return _selectedIcon != null;
     return nameController.text.trim().isNotEmpty;
   }
 
@@ -709,6 +724,26 @@ class _CreateButtonState extends State<CreateButton> {
     });
   }
 
+  Future<void> _pickIcon() async {
+    final picked = await showDialog<IconData>(
+      context: context,
+      builder: (context) => IconPicker(initialIcon: _selectedIcon),
+    );
+
+    if (!mounted) return;
+    if (picked == null) return;
+
+    setState(() {
+      _selectedIcon = picked;
+    });
+  }
+
+  void _clearIcon() {
+    setState(() {
+      _selectedIcon = null;
+    });
+  }
+
   Widget _sectionHeader(String title, {String? subtitle, IconData? icon}) {
     final theme = Theme.of(context);
     return Padding(
@@ -747,6 +782,60 @@ class _CreateButtonState extends State<CreateButton> {
       visualDensity: VisualDensity.compact,
       avatar: icon == null ? null : Icon(icon, size: 16),
       label: Text(text),
+    );
+  }
+
+  Widget _colorOption(Color? color, String label, ThemeData theme) {
+    final isSelected = _selectedColor == color;
+    final displayColor = color ?? theme.colorScheme.surfaceContainerHighest;
+
+    return InkWell(
+      onTap: () {
+        setState(() {
+          _selectedColor = color;
+        });
+      },
+      borderRadius: BorderRadius.circular(8),
+      child: Container(
+        width: 60,
+        padding: const EdgeInsets.symmetric(vertical: 8),
+        child: Column(
+          mainAxisSize: MainAxisSize.min,
+          children: [
+            Container(
+              width: 40,
+              height: 40,
+              decoration: BoxDecoration(
+                color: displayColor,
+                shape: BoxShape.circle,
+                border: Border.all(
+                  color: isSelected
+                      ? theme.colorScheme.primary
+                      : theme.colorScheme.outline,
+                  width: isSelected ? 3 : 1,
+                ),
+              ),
+              child: isSelected
+                  ? Icon(
+                      Icons.check,
+                      color: color == null
+                          ? theme.colorScheme.onSurface
+                          : Colors.white,
+                      size: 20,
+                    )
+                  : null,
+            ),
+            const SizedBox(height: 4),
+            Text(
+              label,
+              style: theme.textTheme.bodySmall?.copyWith(fontSize: 10),
+              textAlign: TextAlign.center,
+              maxLines: 1,
+              overflow: TextOverflow.ellipsis,
+            ),
+          ],
+        ),
+      ),
     );
   }
 
@@ -820,6 +909,9 @@ class _CreateButtonState extends State<CreateButton> {
         image: labelValue,
         isImage: _labelType == _LabelType.image,
         necBitOrder: bitOrder,
+        iconCodePoint: _labelType == _LabelType.icon ? _selectedIcon?.codePoint : null,
+        iconFontFamily: _labelType == _LabelType.icon ? _selectedIcon?.fontFamily : null,
+        buttonColor: _selectedColor?.value,
       );
     }
 
@@ -832,6 +924,9 @@ class _CreateButtonState extends State<CreateButton> {
         frequency: freq,
         image: labelValue,
         isImage: _labelType == _LabelType.image,
+        iconCodePoint: _labelType == _LabelType.icon ? _selectedIcon?.codePoint : null,
+        iconFontFamily: _labelType == _LabelType.icon ? _selectedIcon?.fontFamily : null,
+        buttonColor: _selectedColor?.value,
       );
     }
 
@@ -871,6 +966,9 @@ class _CreateButtonState extends State<CreateButton> {
       isImage: _labelType == _LabelType.image,
       protocol: _selectedProtocolId,
       protocolParams: params,
+      iconCodePoint: _labelType == _LabelType.icon ? _selectedIcon?.codePoint : null,
+      iconFontFamily: _labelType == _LabelType.icon ? _selectedIcon?.fontFamily : null,
+      buttonColor: _selectedColor?.value,
     );
   }
 
@@ -2412,13 +2510,23 @@ class _CreateButtonState extends State<CreateButton> {
     FocusScope.of(context).unfocus();
 
     if (!_hasLabel) {
-      _showSnack(_labelType == _LabelType.image
-          ? "Please select an image, or switch to Text and enter a label."
-          : "Please enter a label.");
+      String message;
+      if (_labelType == _LabelType.image) {
+        message = "Please select an image, or switch to Icon/Text.";
+      } else if (_labelType == _LabelType.icon) {
+        message = "Please select an icon, or switch to Image/Text.";
+      } else {
+        message = "Please enter a label.";
+      }
+      _showSnack(message);
       return;
     }
 
-    final String labelValue = (_labelType == _LabelType.image) ? (_imagePath ?? '') : nameController.text.trim();
+    final String labelValue = (_labelType == _LabelType.image)
+        ? (_imagePath ?? '')
+        : (_labelType == _LabelType.icon)
+            ? ''
+            : nameController.text.trim();
 
     if (_signalType == _SignalType.hex) {
       if (codeController.text.trim().isEmpty) {
@@ -2479,6 +2587,9 @@ class _CreateButtonState extends State<CreateButton> {
         image: labelValue,
         isImage: _labelType == _LabelType.image,
         necBitOrder: bitOrder,
+        iconCodePoint: _labelType == _LabelType.icon ? _selectedIcon?.codePoint : null,
+        iconFontFamily: _labelType == _LabelType.icon ? _selectedIcon?.fontFamily : null,
+        buttonColor: _selectedColor?.value,
       );
 
       Navigator.pop(context, button);
@@ -2500,6 +2611,9 @@ class _CreateButtonState extends State<CreateButton> {
         frequency: freq,
         image: labelValue,
         isImage: _labelType == _LabelType.image,
+        iconCodePoint: _labelType == _LabelType.icon ? _selectedIcon?.codePoint : null,
+        iconFontFamily: _labelType == _LabelType.icon ? _selectedIcon?.fontFamily : null,
+        buttonColor: _selectedColor?.value,
       );
 
       Navigator.pop(context, button);
@@ -2551,6 +2665,9 @@ class _CreateButtonState extends State<CreateButton> {
         isImage: _labelType == _LabelType.image,
         protocol: _selectedProtocolId,
         protocolParams: params,
+        iconCodePoint: _labelType == _LabelType.icon ? _selectedIcon?.codePoint : null,
+        iconFontFamily: _labelType == _LabelType.icon ? _selectedIcon?.fontFamily : null,
+        buttonColor: _selectedColor?.value,
       );
 
       Navigator.pop(context, button);
@@ -2572,6 +2689,11 @@ class _CreateButtonState extends State<CreateButton> {
         value: _LabelType.text,
         label: Text('Text'),
         icon: Icon(Icons.text_fields),
+      ),
+      const ButtonSegment(
+        value: _LabelType.icon,
+        label: Text('Icon'),
+        icon: Icon(Icons.emoji_symbols_outlined),
       ),
     ];
 
@@ -2646,7 +2768,7 @@ class _CreateButtonState extends State<CreateButton> {
           children: [
             _sectionHeader(
               '1) Button label',
-              subtitle: 'Choose an image icon or type a text label.',
+              subtitle: 'Choose an image, icon, or type a text label.',
               icon: Icons.label_outline,
             ),
             Card(
@@ -2666,6 +2788,11 @@ class _CreateButtonState extends State<CreateButton> {
                             _labelType = next;
                             if (_labelType == _LabelType.text) {
                               _clearImage();
+                              _clearIcon();
+                            } else if (_labelType == _LabelType.icon) {
+                              _clearImage();
+                            } else if (_labelType == _LabelType.image) {
+                              _clearIcon();
                             }
                           });
                         },
@@ -2738,7 +2865,88 @@ class _CreateButtonState extends State<CreateButton> {
                         Align(
                           alignment: Alignment.centerLeft,
                           child: Text(
-                            'Required: select an image or switch to Text and enter a label.',
+                            'Required: select an image, choose an icon, or switch to Text.',
+                            style: theme.textTheme.bodySmall?.copyWith(
+                              color: theme.colorScheme.error,
+                              fontWeight: FontWeight.w600,
+                            ),
+                          ),
+                        ),
+                      ],
+                    ] else if (_labelType == _LabelType.icon) ...[
+                      Container(
+                        height: 120,
+                        width: double.infinity,
+                        decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(12),
+                          color: theme.colorScheme.surfaceContainerHighest.withValues(alpha: 0.6),
+                          border: Border.all(color: theme.colorScheme.outlineVariant.withValues(alpha: 0.8)),
+                        ),
+                        child: Center(
+                          child: _selectedIcon != null
+                              ? Column(
+                                  mainAxisAlignment: MainAxisAlignment.center,
+                                  children: [
+                                    Icon(
+                                      IconData(
+                                        _selectedIcon!.codePoint,
+                                        fontFamily: _selectedIcon!.fontFamily,
+                                      ),
+                                      size: 64,
+                                      color: theme.colorScheme.primary,
+                                    ),
+                                    const SizedBox(height: 8),
+                                    Text(
+                                      'Icon selected',
+                                      style: theme.textTheme.bodySmall?.copyWith(
+                                        color: theme.colorScheme.primary,
+                                        fontWeight: FontWeight.w600,
+                                      ),
+                                    ),
+                                  ],
+                                )
+                              : Column(
+                                  mainAxisSize: MainAxisSize.min,
+                                  children: [
+                                    Icon(
+                                      Icons.emoji_symbols_outlined,
+                                      size: 40,
+                                      color: theme.colorScheme.onSurface.withValues(alpha: 0.7),
+                                    ),
+                                    const SizedBox(height: 6),
+                                    Text(
+                                      'No icon selected',
+                                      style: theme.textTheme.bodySmall?.copyWith(
+                                        color: theme.colorScheme.onSurface.withValues(alpha: 0.75),
+                                      ),
+                                    ),
+                                  ],
+                                ),
+                        ),
+                      ),
+                      const SizedBox(height: 12),
+                      FilledButton.icon(
+                        onPressed: _pickIcon,
+                        icon: const Icon(Icons.apps),
+                        label: const Text('Choose Icon'),
+                      ),
+                      if (_selectedIcon != null) ...[
+                        const SizedBox(height: 8),
+                        Align(
+                          alignment: Alignment.centerRight,
+                          child: TextButton.icon(
+                            onPressed: _clearIcon,
+                            icon: const Icon(Icons.delete_outline),
+                            label: const Text('Remove icon'),
+                          ),
+                        ),
+                      ],
+                      if (!_hasLabel) ...[
+                        const SizedBox(height: 6),
+                        Align(
+                          alignment: Alignment.centerLeft,
+                          child: Text(
+                            'Required: select an icon or switch to Image/Text.',
                             style: theme.textTheme.bodySmall?.copyWith(
                               color: theme.colorScheme.error,
                               fontWeight: FontWeight.w600,
@@ -2784,7 +2992,55 @@ class _CreateButtonState extends State<CreateButton> {
               ),
             ),
             _sectionHeader(
-              '2) IR signal',
+              '2) Button color (optional)',
+              subtitle: 'Choose a background color for this button.',
+              icon: Icons.palette_outlined,
+            ),
+            Card(
+              clipBehavior: Clip.antiAlias,
+              child: Padding(
+                padding: const EdgeInsets.all(12),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text(
+                      'Select color:',
+                      style: theme.textTheme.titleSmall,
+                    ),
+                    const SizedBox(height: 12),
+                    Wrap(
+                      spacing: 12,
+                      runSpacing: 12,
+                      children: [
+                        _colorOption(null, 'Default', theme),
+                        _colorOption(Colors.red, 'Red', theme),
+                        _colorOption(Colors.pink, 'Pink', theme),
+                        _colorOption(Colors.purple, 'Purple', theme),
+                        _colorOption(Colors.deepPurple, 'Deep Purple', theme),
+                        _colorOption(Colors.indigo, 'Indigo', theme),
+                        _colorOption(Colors.blue, 'Blue', theme),
+                        _colorOption(Colors.lightBlue, 'Light Blue', theme),
+                        _colorOption(Colors.cyan, 'Cyan', theme),
+                        _colorOption(Colors.teal, 'Teal', theme),
+                        _colorOption(Colors.green, 'Green', theme),
+                        _colorOption(Colors.lightGreen, 'Light Green', theme),
+                        _colorOption(Colors.lime, 'Lime', theme),
+                        _colorOption(Colors.yellow, 'Yellow', theme),
+                        _colorOption(Colors.amber, 'Amber', theme),
+                        _colorOption(Colors.orange, 'Orange', theme),
+                        _colorOption(Colors.deepOrange, 'Deep Orange', theme),
+                        _colorOption(Colors.brown, 'Brown', theme),
+                        _colorOption(Colors.grey, 'Grey', theme),
+                        _colorOption(Colors.blueGrey, 'Blue Grey', theme),
+                        _colorOption(Colors.black, 'Black', theme),
+                      ],
+                    ),
+                  ],
+                ),
+              ),
+            ),
+            _sectionHeader(
+              '3) IR signal',
               subtitle: 'Manual entry or database import.',
               icon: Icons.settings_remote_outlined,
             ),
