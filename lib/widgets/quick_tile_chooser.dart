@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:irblaster_controller/state/quick_settings_prefs.dart';
 import 'package:irblaster_controller/state/remotes_state.dart';
+import 'package:irblaster_controller/utils/button_label.dart';
 import 'package:irblaster_controller/utils/ir.dart';
 import 'package:irblaster_controller/utils/remote.dart';
 
@@ -46,9 +47,11 @@ Future<QuickTilePick?> pickButtonForTile(
   );
   if (pickedButton == null) return null;
 
-  final title = pickedButton.isImage
-      ? formatButtonDisplayName(pickedButton.image)
-      : pickedButton.image;
+  final title = displayButtonLabel(
+    pickedButton,
+    fallback: 'Unnamed Button',
+    iconFallback: 'Icon',
+  );
 
   return QuickTilePick(remote: pickedRemote, button: pickedButton, title: title);
 }
@@ -214,13 +217,34 @@ class _RemotePickerSheet extends StatelessWidget {
   }
 }
 
-class _ButtonPickerSheet extends StatelessWidget {
+class _ButtonPickerSheet extends StatefulWidget {
   final Remote remote;
   const _ButtonPickerSheet({required this.remote});
 
   @override
+  State<_ButtonPickerSheet> createState() => _ButtonPickerSheetState();
+}
+
+class _ButtonPickerSheetState extends State<_ButtonPickerSheet> {
+  String _query = '';
+
+  List<IRButton> get _filteredButtons {
+    final q = _query.trim().toLowerCase();
+    if (q.isEmpty) return widget.remote.buttons;
+    return widget.remote.buttons.where((b) {
+      final title = displayButtonLabel(
+        b,
+        fallback: 'Unnamed Button',
+        iconFallback: 'Icon',
+      ).toLowerCase();
+      return title.contains(q);
+    }).toList();
+  }
+
+  @override
   Widget build(BuildContext context) {
     final theme = Theme.of(context);
+    final buttons = _filteredButtons;
     return SafeArea(
       child: Padding(
         padding: const EdgeInsets.fromLTRB(16, 10, 16, 10),
@@ -238,23 +262,47 @@ class _ButtonPickerSheet extends StatelessWidget {
               ],
             ),
             const SizedBox(height: 10),
-            Flexible(
-              child: ListView.separated(
-                shrinkWrap: true,
-                itemCount: remote.buttons.length,
-                separatorBuilder: (_, __) => const Divider(height: 0),
-                itemBuilder: (context, i) {
-                  final b = remote.buttons[i];
-                  final title = b.isImage ? formatButtonDisplayName(b.image) : b.image;
-                  return ListTile(
-                    leading: const Icon(Icons.circle),
-                    title: Text(title),
-                    trailing: const Icon(Icons.chevron_right),
-                    onTap: () => Navigator.of(context).pop(b),
-                  );
-                },
+            TextField(
+              onChanged: (value) => setState(() => _query = value),
+              decoration: const InputDecoration(
+                hintText: 'Search commands',
+                prefixIcon: Icon(Icons.search_rounded),
+                border: OutlineInputBorder(),
               ),
             ),
+            const SizedBox(height: 10),
+            if (buttons.isEmpty)
+              Padding(
+                padding: const EdgeInsets.symmetric(vertical: 8),
+                child: Text(
+                  'No matching commands',
+                  style: theme.textTheme.bodyMedium?.copyWith(
+                    color: theme.colorScheme.onSurfaceVariant,
+                  ),
+                ),
+              )
+            else
+              Flexible(
+                child: ListView.separated(
+                  shrinkWrap: true,
+                  itemCount: buttons.length,
+                  separatorBuilder: (_, __) => const Divider(height: 0),
+                  itemBuilder: (context, i) {
+                    final b = buttons[i];
+                    final title = displayButtonLabel(
+                      b,
+                      fallback: 'Unnamed Button',
+                      iconFallback: 'Icon',
+                    );
+                    return ListTile(
+                      leading: const Icon(Icons.circle),
+                      title: Text(title),
+                      trailing: const Icon(Icons.chevron_right),
+                      onTap: () => Navigator.of(context).pop(b),
+                    );
+                  },
+                ),
+              ),
           ],
         ),
       ),

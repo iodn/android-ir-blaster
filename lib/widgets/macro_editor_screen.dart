@@ -1,9 +1,12 @@
+import 'dart:io';
+
 import 'package:flutter/material.dart';
 import 'package:irblaster_controller/state/haptics.dart';
 import 'package:irblaster_controller/state/haptics.dart';
 import 'package:flutter/services.dart';
 import 'package:irblaster_controller/models/macro_step.dart';
 import 'package:irblaster_controller/models/timed_macro.dart';
+import 'package:irblaster_controller/utils/button_label.dart';
 import 'package:irblaster_controller/utils/remote.dart';
 
 class MacroEditorScreen extends StatefulWidget {
@@ -156,15 +159,21 @@ class _MacroEditorScreenState extends State<MacroEditorScreen> {
 
   String _stepSendLabel(MacroStep step) {
     final byId = _findButtonById(step.buttonId);
-    if (byId != null) return formatButtonDisplayName(byId.image);
+    if (byId != null) return _buttonLabel(byId);
 
     final byRef = _findButtonByRef(step.buttonRef) ?? _findButtonByRef(step.buttonId);
-    if (byRef != null) return formatButtonDisplayName(byRef.image);
+    if (byRef != null) return _buttonLabel(byRef);
 
     final fallback = (step.buttonRef ?? step.buttonId ?? '').trim();
-    if (fallback.isEmpty) return 'Unknown Command';
-    final pretty = formatButtonDisplayName(fallback);
-    return pretty.isEmpty ? 'Unknown Command' : pretty;
+    return displayButtonRefLabel(fallback, fallback: 'Unknown Command');
+  }
+
+  String _buttonLabel(IRButton button) {
+    return displayButtonLabel(
+      button,
+      fallback: 'Unnamed Command',
+      iconFallback: 'Icon Command',
+    );
   }
 
   Future<IRButton?> _pickButton() async {
@@ -175,63 +184,97 @@ class _MacroEditorScreenState extends State<MacroEditorScreen> {
       return null;
     }
 
+    var query = '';
     return showModalBottomSheet<IRButton>(
       context: context,
       useSafeArea: true,
       showDragHandle: true,
       builder: (ctx) {
         final theme = Theme.of(ctx);
-        return Column(
-          mainAxisSize: MainAxisSize.min,
-          children: [
-            Padding(
-              padding: const EdgeInsets.fromLTRB(24, 8, 24, 16),
-              child: Row(
-                children: [
-                  Icon(Icons.send_rounded, color: theme.colorScheme.primary),
-                  const SizedBox(width: 12),
-                  Text(
-                    'Select Command',
-                    style: theme.textTheme.titleLarge?.copyWith(
-                      fontWeight: FontWeight.w900,
-                    ),
-                  ),
-                ],
-              ),
-            ),
-            Flexible(
-              child: ListView.builder(
-                padding: const EdgeInsets.symmetric(horizontal: 16),
-                shrinkWrap: true,
-                itemCount: widget.remote.buttons.length,
-                itemBuilder: (context, i) {
-                  final b = widget.remote.buttons[i];
-                  final label = formatButtonDisplayName(b.image).trim();
-                  return Card(
-                    margin: const EdgeInsets.only(bottom: 8),
-                    child: ListTile(
-                      leading: Container(
-                        padding: const EdgeInsets.all(8),
-                        decoration: BoxDecoration(
-                          color: theme.colorScheme.primaryContainer.withValues(alpha: 0.5),
-                          borderRadius: BorderRadius.circular(8),
-                        ),
-                        child: Icon(
-                          Icons.touch_app_rounded,
-                          size: 20,
-                          color: theme.colorScheme.onPrimaryContainer,
+        return StatefulBuilder(
+          builder: (ctx2, setSheetState) {
+            final normalizedQuery = query.trim().toLowerCase();
+            final filteredButtons = widget.remote.buttons.where((b) {
+              if (normalizedQuery.isEmpty) return true;
+              final label = _buttonLabel(b).toLowerCase();
+              return label.contains(normalizedQuery);
+            }).toList();
+
+            return Column(
+              mainAxisSize: MainAxisSize.min,
+              children: [
+                Padding(
+                  padding: const EdgeInsets.fromLTRB(24, 8, 24, 16),
+                  child: Row(
+                    children: [
+                      Icon(Icons.send_rounded, color: theme.colorScheme.primary),
+                      const SizedBox(width: 12),
+                      Text(
+                        'Select Command',
+                        style: theme.textTheme.titleLarge?.copyWith(
+                          fontWeight: FontWeight.w900,
                         ),
                       ),
-                      title: Text(label.isEmpty ? 'Unnamed Command' : label),
-                      trailing: const Icon(Icons.chevron_right_rounded),
-                      onTap: () => Navigator.of(ctx).pop(b),
+                    ],
+                  ),
+                ),
+                Padding(
+                  padding: const EdgeInsets.fromLTRB(16, 0, 16, 10),
+                  child: TextField(
+                    onChanged: (value) => setSheetState(() => query = value),
+                    decoration: const InputDecoration(
+                      hintText: 'Search commands',
+                      prefixIcon: Icon(Icons.search_rounded),
+                      border: OutlineInputBorder(),
                     ),
-                  );
-                },
-              ),
-            ),
-            const SizedBox(height: 16),
-          ],
+                  ),
+                ),
+                if (filteredButtons.isEmpty)
+                  Padding(
+                    padding: const EdgeInsets.fromLTRB(16, 8, 16, 16),
+                    child: Text(
+                      'No matching commands',
+                      style: theme.textTheme.bodyMedium?.copyWith(
+                        color: theme.colorScheme.onSurfaceVariant,
+                      ),
+                    ),
+                  )
+                else
+                  Flexible(
+                    child: ListView.builder(
+                      padding: const EdgeInsets.symmetric(horizontal: 16),
+                      shrinkWrap: true,
+                      itemCount: filteredButtons.length,
+                      itemBuilder: (context, i) {
+                        final b = filteredButtons[i];
+                        final label = _buttonLabel(b);
+                        return Card(
+                          margin: const EdgeInsets.only(bottom: 8),
+                          child: ListTile(
+                            leading: Container(
+                              padding: const EdgeInsets.all(8),
+                              decoration: BoxDecoration(
+                                color: theme.colorScheme.primaryContainer.withValues(alpha: 0.5),
+                                borderRadius: BorderRadius.circular(8),
+                              ),
+                              child: Icon(
+                                Icons.touch_app_rounded,
+                                size: 20,
+                                color: theme.colorScheme.onPrimaryContainer,
+                              ),
+                            ),
+                            title: Text(label),
+                            trailing: const Icon(Icons.chevron_right_rounded),
+                            onTap: () => Navigator.of(ctx).pop(b),
+                          ),
+                        );
+                      },
+                    ),
+                  ),
+                const SizedBox(height: 16),
+              ],
+            );
+          },
         );
       },
     );
@@ -777,27 +820,30 @@ class _MacroEditorScreenState extends State<MacroEditorScreen> {
             children: [
               ReorderableDragStartListener(
                 index: index,
-                child: Container(
-                  padding: const EdgeInsets.all(8),
-                  decoration: BoxDecoration(
-                    color: cs.surfaceContainerHighest.withValues(alpha: 0.5),
-                    borderRadius: BorderRadius.circular(8),
-                  ),
-                  child: Icon(
-                    Icons.drag_handle_rounded,
-                    size: 20,
-                    color: cs.onSurface.withValues(alpha: 0.7),
+                child: Semantics(
+                  button: true,
+                  label: 'Reorder step ${index + 1}',
+                  hint: 'Press and drag to change step order',
+                  child: Container(
+                    constraints: const BoxConstraints(minWidth: 48, minHeight: 48),
+                    decoration: BoxDecoration(
+                      color: cs.surfaceContainerHighest.withValues(alpha: 0.5),
+                      borderRadius: BorderRadius.circular(8),
+                    ),
+                    child: Icon(
+                      Icons.drag_handle_rounded,
+                      size: 20,
+                      color: cs.onSurface.withValues(alpha: 0.7),
+                    ),
                   ),
                 ),
               ),
               const SizedBox(width: 12),
-              Container(
-                padding: const EdgeInsets.all(10),
-                decoration: BoxDecoration(
-                  color: containerColor.withValues(alpha: 0.5),
-                  borderRadius: BorderRadius.circular(10),
-                ),
-                child: Icon(icon, size: 20, color: iconColor),
+              _stepLeadingVisual(
+                step,
+                icon: icon,
+                iconColor: iconColor,
+                containerColor: containerColor,
               ),
               const SizedBox(width: 12),
               Expanded(
@@ -818,15 +864,98 @@ class _MacroEditorScreenState extends State<MacroEditorScreen> {
                 ),
               ),
               const SizedBox(width: 8),
-              IconButton(
-                tooltip: 'Delete',
-                onPressed: () => _deleteStep(index),
-                icon: Icon(Icons.delete_outline_rounded, color: cs.error),
+              Semantics(
+                button: true,
+                label: 'Delete step ${index + 1}',
+                child: IconButton(
+                  tooltip: 'Delete',
+                  onPressed: () => _deleteStep(index),
+                  icon: Icon(Icons.delete_outline_rounded, color: cs.error),
+                ),
               ),
             ],
           ),
         ),
       ),
+    );
+  }
+
+  Widget _stepLeadingVisual(
+    MacroStep step, {
+    required IconData icon,
+    required Color iconColor,
+    required Color containerColor,
+  }) {
+    if (step.type != MacroStepType.send) {
+      return Container(
+        padding: const EdgeInsets.all(10),
+        decoration: BoxDecoration(
+          color: containerColor.withValues(alpha: 0.5),
+          borderRadius: BorderRadius.circular(10),
+        ),
+        child: Icon(icon, size: 20, color: iconColor),
+      );
+    }
+
+    final button = _findButtonById(step.buttonId) ??
+        _findButtonByRef(step.buttonRef) ??
+        _findButtonByRef(step.buttonId);
+    if (button == null) {
+      return Container(
+        padding: const EdgeInsets.all(10),
+        decoration: BoxDecoration(
+          color: containerColor.withValues(alpha: 0.5),
+          borderRadius: BorderRadius.circular(10),
+        ),
+        child: Icon(icon, size: 20, color: iconColor),
+      );
+    }
+
+    final label = _buttonLabel(button);
+    final Color fallbackFg = Theme.of(context).colorScheme.onSurface;
+    final Widget content = button.iconCodePoint != null
+        ? Icon(
+            IconData(
+              button.iconCodePoint!,
+              fontFamily: button.iconFontFamily,
+              fontPackage: button.iconFontPackage,
+            ),
+            size: 18,
+            color: fallbackFg,
+          )
+        : button.isImage
+            ? (button.image.startsWith('assets/')
+                ? Image.asset(
+                    button.image,
+                    fit: BoxFit.cover,
+                    errorBuilder: (_, __, ___) => Text(
+                      label.isEmpty ? '?' : label.substring(0, 1).toUpperCase(),
+                      style: const TextStyle(fontWeight: FontWeight.w900),
+                    ),
+                  )
+                : Image.file(
+                    File(button.image),
+                    fit: BoxFit.cover,
+                    errorBuilder: (_, __, ___) => Text(
+                      label.isEmpty ? '?' : label.substring(0, 1).toUpperCase(),
+                      style: const TextStyle(fontWeight: FontWeight.w900),
+                    ),
+                  ))
+            : Text(
+                label.isEmpty ? '?' : label.substring(0, 1).toUpperCase(),
+                style: const TextStyle(fontWeight: FontWeight.w900),
+              );
+
+    return Container(
+      width: 40,
+      height: 40,
+      decoration: BoxDecoration(
+        color: containerColor.withValues(alpha: 0.5),
+        borderRadius: BorderRadius.circular(10),
+      ),
+      clipBehavior: Clip.antiAlias,
+      alignment: Alignment.center,
+      child: content,
     );
   }
 

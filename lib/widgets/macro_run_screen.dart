@@ -7,6 +7,7 @@ import 'package:flutter/services.dart';
 import 'package:irblaster_controller/state/orientation_pref.dart';
 import 'package:irblaster_controller/models/macro_step.dart';
 import 'package:irblaster_controller/models/timed_macro.dart';
+import 'package:irblaster_controller/utils/button_label.dart';
 import 'package:irblaster_controller/utils/ir.dart';
 import 'package:irblaster_controller/utils/remote.dart';
 
@@ -168,14 +169,17 @@ class _MacroRunScreenState extends State<MacroRunScreen> with SingleTickerProvid
             } catch (_) {
               if (!mounted) return;
               setState(() {
-                _lastError = 'Failed to send: ${formatButtonDisplayName(button.image)}';
+                _lastError =
+                    'Failed to send: ${displayButtonLabel(button, fallback: 'Unnamed', iconFallback: 'Icon')}';
               });
             }
           } else {
             final fallback = (step.buttonRef ?? step.buttonId ?? '').trim();
             if (!mounted) return;
             setState(() {
-              _lastError = fallback.isEmpty ? 'Button not found' : 'Button not found: ${formatButtonDisplayName(fallback)}';
+              _lastError = fallback.isEmpty
+                  ? 'Button not found'
+                  : 'Button not found: ${displayButtonRefLabel(fallback, fallback: 'Unknown Button')}';
             });
           }
 
@@ -809,13 +813,14 @@ class _MacroRunScreenState extends State<MacroRunScreen> with SingleTickerProvid
       case MacroStepType.send:
         final button = _resolveButton(step);
         if (button != null) {
-          final pretty = formatButtonDisplayName(button.image);
-          return pretty.isEmpty ? 'Unnamed' : pretty;
+          return displayButtonLabel(
+            button,
+            fallback: 'Unnamed',
+            iconFallback: 'Icon',
+          );
         }
         final fallback = (step.buttonRef ?? step.buttonId ?? '').trim();
-        if (fallback.isEmpty) return 'Unknown Button';
-        final pretty = formatButtonDisplayName(fallback);
-        return pretty.isEmpty ? 'Unknown Button' : pretty;
+        return displayButtonRefLabel(fallback, fallback: 'Unknown Button');
       case MacroStepType.delay:
         return 'Wait ${step.delayMs ?? 0}ms';
       case MacroStepType.manualContinue:

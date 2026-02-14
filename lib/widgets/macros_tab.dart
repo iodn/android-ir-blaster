@@ -80,6 +80,26 @@ class _MacrosTabState extends State<MacrosTab> {
                 color: cs.onSurface.withValues(alpha: 0.7),
               ),
             ),
+            const SizedBox(height: 12),
+            Container(
+              width: double.infinity,
+              padding: const EdgeInsets.all(12),
+              decoration: BoxDecoration(
+                color: cs.surfaceContainerHighest.withValues(alpha: 0.4),
+                borderRadius: BorderRadius.circular(12),
+                border: Border.all(
+                  color: cs.outlineVariant.withValues(alpha: 0.4),
+                ),
+              ),
+              child: Text(
+                'What next: tap Create Your First Macro, pick a remote, then add commands and delays.',
+                textAlign: TextAlign.center,
+                style: theme.textTheme.bodyMedium?.copyWith(
+                  color: cs.onSurface.withValues(alpha: 0.8),
+                  fontWeight: FontWeight.w600,
+                ),
+              ),
+            ),
             const SizedBox(height: 32),
             _buildFeatureCard(
               icon: Icons.toys_outlined,
@@ -592,15 +612,43 @@ class _MacrosTabState extends State<MacrosTab> {
   Future<void> _deleteMacro(int index) async {
     final ok = await _confirmDelete();
     if (ok != true) return;
-    macros.removeAt(index);
+    final removedIndex = index;
+    final removedMacro = macros[index];
+    macros.removeAt(removedIndex);
     try {
       await _persistAndNotify();
     } catch (_) {
+      macros.insert(removedIndex.clamp(0, macros.length) as int, removedMacro);
       if (!mounted) return;
       ScaffoldMessenger.of(context).showSnackBar(
         const SnackBar(content: Text('Failed to save macros.')),
       );
+      return;
     }
+    if (!mounted) return;
+    ScaffoldMessenger.of(context).hideCurrentSnackBar();
+    ScaffoldMessenger.of(context).showSnackBar(
+      SnackBar(
+        content: Text('Deleted "${removedMacro.name}".'),
+        action: SnackBarAction(
+          label: 'Undo',
+          onPressed: () async {
+            macros.insert(
+              removedIndex.clamp(0, macros.length) as int,
+              removedMacro,
+            );
+            try {
+              await _persistAndNotify();
+            } catch (_) {
+              if (!mounted) return;
+              ScaffoldMessenger.of(context).showSnackBar(
+                const SnackBar(content: Text('Failed to restore macro.')),
+              );
+            }
+          },
+        ),
+      ),
+    );
   }
 
   Future<bool?> _confirmDelete() async {
@@ -609,7 +657,7 @@ class _MacrosTabState extends State<MacrosTab> {
       builder: (ctx) {
         return AlertDialog(
           title: const Text('Delete macro?'),
-          content: const Text('This cannot be undone.'),
+          content: const Text('You can undo this from the next snackbar.'),
           actions: [
             TextButton(
               onPressed: () => Navigator.of(ctx).pop(false),

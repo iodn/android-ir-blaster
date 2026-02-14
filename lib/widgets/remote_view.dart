@@ -9,6 +9,7 @@ import 'package:irblaster_controller/state/orientation_pref.dart';
 import 'package:irblaster_controller/state/device_controls_prefs.dart';
 import 'package:irblaster_controller/state/quick_settings_prefs.dart';
 import 'package:irblaster_controller/state/remotes_state.dart';
+import 'package:irblaster_controller/utils/button_color_accessibility.dart';
 import 'package:irblaster_controller/utils/ir.dart';
 import 'package:irblaster_controller/utils/remote.dart';
 import 'package:irblaster_controller/widgets/create_button.dart';
@@ -329,7 +330,6 @@ class RemoteViewState extends State<RemoteView> {
   }
 
   String _buttonTitle(IRButton b) {
-    if (b.iconCodePoint != null) return 'Icon Button';
     final raw = b.image.trim();
     if (raw.isEmpty) return 'Button';
     if (!b.isImage) return raw;
@@ -339,6 +339,99 @@ class RemoteViewState extends State<RemoteView> {
     final last = parts.isNotEmpty ? parts.last : raw;
     final clean = last.isEmpty ? 'Image' : _stripFileExtension(last);
     return clean.isEmpty ? 'Image' : clean;
+  }
+
+  bool _hasRenderableIcon(IRButton b) {
+    if (b.iconCodePoint == null) return false;
+    final family = b.iconFontFamily?.trim();
+    return family != null && family.isNotEmpty;
+  }
+
+  Color _buttonBgColor(IRButton b, Color fallback) {
+    return resolveButtonBackground(
+      b.buttonColor == null ? null : Color(b.buttonColor!),
+      fallback,
+    );
+  }
+
+  Color _buttonFgColor(IRButton b, Color fallback) {
+    return resolveButtonForeground(
+      b.buttonColor == null ? null : Color(b.buttonColor!),
+      fallback,
+    );
+  }
+
+  Widget _buildPrimaryButtonVisual(
+    IRButton button, {
+    required ThemeData theme,
+    required Color textColor,
+    int maxLines = 2,
+  }) {
+    final String fallbackLabel = _buttonTitle(button);
+
+    if (_hasRenderableIcon(button)) {
+      return Center(
+        child: Icon(
+          IconData(
+            button.iconCodePoint!,
+            fontFamily: button.iconFontFamily,
+            fontPackage: button.iconFontPackage,
+          ),
+          size: 34,
+          color: textColor,
+        ),
+      );
+    }
+
+    if (button.isImage && button.image.trim().isNotEmpty) {
+      if (button.image.startsWith('assets/')) {
+        return Image.asset(
+          button.image,
+          fit: BoxFit.contain,
+          errorBuilder: (_, __, ___) => Center(
+            child: Text(
+              fallbackLabel,
+              textAlign: TextAlign.center,
+              maxLines: maxLines,
+              overflow: TextOverflow.ellipsis,
+              style: theme.textTheme.titleSmall?.copyWith(
+                fontWeight: FontWeight.w800,
+                color: textColor,
+              ),
+            ),
+          ),
+        );
+      }
+      return Image.file(
+        File(button.image),
+        fit: BoxFit.contain,
+        errorBuilder: (_, __, ___) => Center(
+          child: Text(
+            fallbackLabel,
+            textAlign: TextAlign.center,
+            maxLines: maxLines,
+            overflow: TextOverflow.ellipsis,
+            style: theme.textTheme.titleSmall?.copyWith(
+              fontWeight: FontWeight.w800,
+              color: textColor,
+            ),
+          ),
+        ),
+      );
+    }
+
+    return Center(
+      child: Text(
+        fallbackLabel,
+        textAlign: TextAlign.center,
+        maxLines: maxLines,
+        overflow: TextOverflow.ellipsis,
+        style: theme.textTheme.titleSmall?.copyWith(
+          fontWeight: FontWeight.w800,
+          color: textColor,
+        ),
+      ),
+    );
   }
 
   bool _hasProtocol(IRButton b) => b.protocol != null && b.protocol!.trim().isNotEmpty;
@@ -1271,50 +1364,21 @@ class RemoteViewState extends State<RemoteView> {
       itemBuilder: (context, index) {
         final IRButton button = _remote.buttons[index];
         final String proto = _protocolLabel(button);
-
-        final Widget content = button.iconCodePoint != null
-            ? Center(
-                child: Icon(
-                  IconData(
-                    button.iconCodePoint!,
-                    fontFamily: button.iconFontFamily,
-                  ),
-                  size: 32,
-                  color: button.buttonColor != null
-                      ? ThemeData.estimateBrightnessForColor(Color(button.buttonColor!)) == Brightness.dark
-                          ? Colors.white
-                          : Colors.black
-                      : cs.onSurface,
-                ),
-              )
-            : button.isImage
-                ? (button.image.startsWith("assets/")
-                    ? Image.asset(button.image, fit: BoxFit.contain)
-                    : Image.file(File(button.image), fit: BoxFit.contain))
-                : Center(
-                    child: Padding(
-                      padding: const EdgeInsets.all(6),
-                      child: Text(
-                        button.image,
-                        textAlign: TextAlign.center,
-                        maxLines: 3,
-                        overflow: TextOverflow.ellipsis,
-                        style: theme.textTheme.bodySmall?.copyWith(
-                          fontWeight: FontWeight.w900,
-                          color: button.buttonColor != null
-                              ? ThemeData.estimateBrightnessForColor(Color(button.buttonColor!)) == Brightness.dark
-                                  ? Colors.white
-                                  : Colors.black
-                              : cs.onSurface,
-                          height: 1.1,
-                        ),
-                      ),
-                    ),
-                  );
+        final Color bgColor = _buttonBgColor(button, cardColor);
+        final Color fgColor = _buttonFgColor(button, cs.onSurface);
+        final Widget content = Padding(
+          padding: const EdgeInsets.all(6),
+          child: _buildPrimaryButtonVisual(
+            button,
+            theme: theme,
+            textColor: fgColor,
+            maxLines: 3,
+          ),
+        );
 
         return Material(
           key: ValueKey(button.id),
-          color: button.buttonColor != null ? Color(button.buttonColor!) : cardColor,
+          color: bgColor,
           borderRadius: BorderRadius.circular(14),
           clipBehavior: Clip.antiAlias,
           child: InkWell(
@@ -1323,10 +1387,7 @@ class RemoteViewState extends State<RemoteView> {
             child: Stack(
               children: [
                 Positioned.fill(
-                  child: Padding(
-                    padding: const EdgeInsets.all(6),
-                    child: content,
-                  ),
+                  child: content,
                 ),
                 Positioned(
                   top: 4,
@@ -1395,21 +1456,13 @@ class RemoteViewState extends State<RemoteView> {
         final IRButton button = _remote.buttons[index];
         final bool isRaw = _isRawSignalButton(button);
 
-        final String title = _buttonTitle(button);
         final String proto = _protocolLabel(button);
         final String freq = _freqLabelKhz(button);
+        final Color bgColor = _buttonBgColor(button, cardColor);
+        final Color fgColor = _buttonFgColor(button, cs.onSurface);
 
         final String? displayHex = _displayHex(button);
         final String codeText = isRaw ? 'RAW' : (displayHex ?? 'NO CODE');
-
-        final bool hasCustomColor = button.buttonColor != null;
-        final Color bgColor = hasCustomColor ? Color(button.buttonColor!) : cardColor;
-        final Color textColor = hasCustomColor
-            ? (ThemeData.estimateBrightnessForColor(bgColor) == Brightness.dark
-                ? Colors.white
-                : Colors.black)
-            : cs.onSurface;
-
         return Card(
           key: ValueKey(button.id),
           elevation: 0,
@@ -1429,15 +1482,14 @@ class RemoteViewState extends State<RemoteView> {
                 children: [
                   Expanded(
                     child: Center(
-                      child: Text(
-                        title,
-                        textAlign: TextAlign.center,
-                        maxLines: 2,
-                        overflow: TextOverflow.ellipsis,
-                        style: theme.textTheme.titleMedium?.copyWith(
-                          fontWeight: FontWeight.w900,
-                          color: textColor,
-                          height: 1.2,
+                      child: SizedBox(
+                        width: 72,
+                        height: 72,
+                        child: _buildPrimaryButtonVisual(
+                          button,
+                          theme: theme,
+                          textColor: fgColor,
+                          maxLines: 2,
                         ),
                       ),
                     ),
@@ -1451,7 +1503,7 @@ class RemoteViewState extends State<RemoteView> {
                       style: theme.textTheme.bodySmall?.copyWith(
                         fontFamily: isRaw ? null : 'monospace',
                         fontWeight: FontWeight.w800,
-                        color: hasCustomColor ? textColor.withValues(alpha: 0.82) : cs.onSurface.withValues(alpha: 0.82),
+                        color: fgColor.withValues(alpha: 0.82),
                         fontSize: 11,
                       ),
                     ),

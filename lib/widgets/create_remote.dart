@@ -1,6 +1,8 @@
 import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:irblaster_controller/ir/ir_protocol_registry.dart';
+import 'package:irblaster_controller/utils/button_color_accessibility.dart';
+import 'package:irblaster_controller/utils/button_label.dart';
 import 'package:irblaster_controller/utils/ir.dart';
 import 'package:irblaster_controller/utils/remote.dart';
 import 'package:irblaster_controller/widgets/create_button.dart';
@@ -177,15 +179,34 @@ class _CreateRemoteState extends State<CreateRemote> {
               ListTile(
                 leading: Icon(Icons.delete_outline, color: theme.colorScheme.error),
                 title: Text('Remove', style: TextStyle(color: theme.colorScheme.error)),
-                subtitle: const Text('This can\'t be undone'),
+                subtitle: const Text('You can undo from the next snackbar'),
                 onTap: () async {
                   Navigator.of(ctx).pop();
                   final confirmed = await _confirmDeleteButton(context, b);
                   if (!confirmed) return;
                   if (!mounted) return;
+                  final removedIndex = index;
+                  final removedButton = remote.buttons[index];
                   setState(() {
-                    remote.buttons.removeAt(index);
+                    remote.buttons.removeAt(removedIndex);
                   });
+                  ScaffoldMessenger.of(context).hideCurrentSnackBar();
+                  ScaffoldMessenger.of(context).showSnackBar(
+                    SnackBar(
+                      content: const Text('Button removed'),
+                      action: SnackBarAction(
+                        label: 'Undo',
+                        onPressed: () {
+                          if (!mounted) return;
+                          setState(() {
+                            final restoreAt =
+                                removedIndex.clamp(0, remote.buttons.length) as int;
+                            remote.buttons.insert(restoreAt, removedButton);
+                          });
+                        },
+                      ),
+                    ),
+                  );
                 },
               ),
             ],
@@ -460,40 +481,92 @@ class _CreateRemoteState extends State<CreateRemote> {
   Widget _buildButtonTile(IRButton b, int index) {
     final theme = Theme.of(context);
     final meta = _buildButtonMetaChips(b);
+    final Color cardColor = resolveButtonBackground(
+      b.buttonColor == null ? null : Color(b.buttonColor!),
+      theme.colorScheme.primary.withValues(alpha: 0.15),
+    );
+    final Color textColor = resolveButtonForeground(
+      b.buttonColor == null ? null : Color(b.buttonColor!),
+      theme.colorScheme.onSurface,
+    );
+    final String fallbackLabel = displayButtonLabel(
+      b,
+      fallback: 'Button',
+      iconFallback: 'Icon',
+    );
     final Widget labelWidget;
-    if (b.iconCodePoint != null) {
+    final bool canRenderIcon = b.iconCodePoint != null &&
+        ((b.iconFontFamily?.trim().isNotEmpty ?? false) ||
+            (b.iconFontPackage?.trim().isNotEmpty ?? false));
+    if (canRenderIcon) {
       labelWidget = Center(
         child: Icon(
           IconData(
             b.iconCodePoint!,
             fontFamily: b.iconFontFamily,
+            fontPackage: b.iconFontPackage,
           ),
           size: 32,
-          color: b.buttonColor != null
-              ? ThemeData.estimateBrightnessForColor(Color(b.buttonColor!)) == Brightness.dark
-                  ? Colors.white
-                  : Colors.black
-              : theme.colorScheme.onSurface,
+          color: textColor,
         ),
       );
     } else if (b.isImage) {
-      labelWidget = b.image.startsWith("assets/")
-          ? Image.asset(b.image, fit: BoxFit.contain)
-          : Image.file(File(b.image), fit: BoxFit.contain);
+      labelWidget = b.image.trim().isEmpty
+          ? Center(
+              child: Text(
+                fallbackLabel,
+                textAlign: TextAlign.center,
+                maxLines: 2,
+                overflow: TextOverflow.ellipsis,
+                style: theme.textTheme.titleMedium?.copyWith(
+                  fontWeight: FontWeight.w700,
+                  color: textColor,
+                ),
+              ),
+            )
+          : (b.image.startsWith('assets/')
+              ? Image.asset(
+                  b.image,
+                  fit: BoxFit.contain,
+                  errorBuilder: (_, __, ___) => Center(
+                    child: Text(
+                      fallbackLabel,
+                      textAlign: TextAlign.center,
+                      maxLines: 2,
+                      overflow: TextOverflow.ellipsis,
+                      style: theme.textTheme.titleMedium?.copyWith(
+                        fontWeight: FontWeight.w700,
+                        color: textColor,
+                      ),
+                    ),
+                  ),
+                )
+              : Image.file(
+                  File(b.image),
+                  fit: BoxFit.contain,
+                  errorBuilder: (_, __, ___) => Center(
+                    child: Text(
+                      fallbackLabel,
+                      textAlign: TextAlign.center,
+                      maxLines: 2,
+                      overflow: TextOverflow.ellipsis,
+                      style: theme.textTheme.titleMedium?.copyWith(
+                        fontWeight: FontWeight.w700,
+                        color: textColor,
+                      ),
+                    ),
+                  ),
+                ));
     } else {
       labelWidget = Center(
         child: Text(
-          b.image,
+          fallbackLabel,
           textAlign: TextAlign.center,
           maxLines: 2,
           overflow: TextOverflow.ellipsis,
           style: theme.textTheme.titleMedium?.copyWith(
             fontWeight: FontWeight.w700,
-            color: b.buttonColor != null
-                ? ThemeData.estimateBrightnessForColor(Color(b.buttonColor!)) == Brightness.dark
-                    ? Colors.white
-                    : Colors.black
-                : null,
+            color: textColor,
           ),
         ),
       );
@@ -501,9 +574,7 @@ class _CreateRemoteState extends State<CreateRemote> {
 
     return Card(
       clipBehavior: Clip.antiAlias,
-      color: b.buttonColor != null
-          ? Color(b.buttonColor!)
-          : theme.colorScheme.primary.withValues(alpha: 0.15),
+      color: cardColor,
       shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(14)),
       child: InkWell(
         borderRadius: BorderRadius.circular(14),
@@ -531,11 +602,7 @@ class _CreateRemoteState extends State<CreateRemote> {
                             overflow: TextOverflow.ellipsis,
                             style: theme.textTheme.titleSmall?.copyWith(
                               fontWeight: FontWeight.w800,
-                              color: b.buttonColor != null
-                                  ? ThemeData.estimateBrightnessForColor(Color(b.buttonColor!)) == Brightness.dark
-                                      ? Colors.white
-                                      : Colors.black
-                                  : null,
+                              color: textColor,
                             ),
                           ),
                           const SizedBox(height: 6),
@@ -544,14 +611,16 @@ class _CreateRemoteState extends State<CreateRemote> {
                             Text(
                               'No signal info',
                               style: theme.textTheme.bodySmall?.copyWith(
-                                color: theme.colorScheme.onSurface.withValues(alpha: 0.7),
+                                color: b.buttonColor != null
+                                    ? textColor
+                                    : theme.colorScheme.onSurface.withValues(alpha: 0.7),
                               ),
                             ),
                         ],
                       ),
                     ),
                     const SizedBox(width: 6),
-                    const Icon(Icons.chevron_right),
+                    Icon(Icons.chevron_right, color: textColor),
                   ],
                 )
               : Stack(

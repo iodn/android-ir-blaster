@@ -1301,15 +1301,10 @@ String _lircHexFromAddrCmdExplicit(int addr16, int cmd16) {
   final int c1 = (cmd16 >> 8) & 0xFF;
   final int c2 = cmd16 & 0xFF;
 
-  final int l1 = _bitReverse(a1);
-  final int l2 = _bitReverse(a2);
-  final int l3 = _bitReverse(c1);
-  final int l4 = _bitReverse(c2);
-
-  return l1.toRadixString(16).padLeft(2, '0').toUpperCase() +
-      l2.toRadixString(16).padLeft(2, '0').toUpperCase() +
-      l3.toRadixString(16).padLeft(2, '0').toUpperCase() +
-      l4.toRadixString(16).padLeft(2, '0').toUpperCase();
+  return a1.toRadixString(16).padLeft(2, '0').toUpperCase() +
+      a2.toRadixString(16).padLeft(2, '0').toUpperCase() +
+      c1.toRadixString(16).padLeft(2, '0').toUpperCase() +
+      c2.toRadixString(16).padLeft(2, '0').toUpperCase();
 }
 
 int _bitReverse(int x) {

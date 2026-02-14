@@ -14,6 +14,8 @@ class _QuickSettingsScreenState extends State<QuickSettingsScreen> {
   Map<QuickTileType, QuickTileMapping?> _mappings = {};
   bool _loading = true;
 
+  bool get _hasAnyMapping => _mappings.values.any((m) => m != null);
+
   @override
   void initState() {
     super.initState();
@@ -94,6 +96,45 @@ class _QuickSettingsScreenState extends State<QuickSettingsScreen> {
           : ListView(
               padding: const EdgeInsets.all(12),
               children: [
+                if (!_hasAnyMapping) ...[
+                  Card(
+                    clipBehavior: Clip.antiAlias,
+                    child: Padding(
+                      padding: const EdgeInsets.all(16),
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Row(
+                            children: [
+                              Icon(Icons.tune_rounded, color: cs.primary),
+                              const SizedBox(width: 8),
+                              Text(
+                                'No tiles configured',
+                                style: theme.textTheme.titleMedium?.copyWith(
+                                  fontWeight: FontWeight.w900,
+                                ),
+                              ),
+                            ],
+                          ),
+                          const SizedBox(height: 8),
+                          Text(
+                            'What next: pick a command for at least one tile, then add the tile from Android Quick Settings edit menu.',
+                            style: theme.textTheme.bodyMedium?.copyWith(
+                              color: cs.onSurfaceVariant,
+                            ),
+                          ),
+                          const SizedBox(height: 12),
+                          FilledButton.icon(
+                            onPressed: () => _pickMapping(QuickTileType.power),
+                            icon: const Icon(Icons.add_rounded),
+                            label: const Text('Set Power tile'),
+                          ),
+                        ],
+                      ),
+                    ),
+                  ),
+                  const SizedBox(height: 8),
+                ],
                 Text(
                   'Choose which button each tile sends. Add tiles from Android Quick Settings edit menu.',
                   style: theme.textTheme.bodyMedium?.copyWith(color: cs.onSurfaceVariant),

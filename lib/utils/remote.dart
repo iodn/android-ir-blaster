@@ -17,6 +17,7 @@ class IRButton {
   final Map<String, dynamic>? protocolParams;
   final int? iconCodePoint;
   final String? iconFontFamily;
+  final String? iconFontPackage;
   final int? buttonColor;
 
   const IRButton({
@@ -31,6 +32,7 @@ class IRButton {
     this.protocolParams,
     this.iconCodePoint,
     this.iconFontFamily,
+    this.iconFontPackage,
     this.buttonColor,
   });
 
@@ -46,6 +48,7 @@ class IRButton {
         'protocolParams': protocolParams,
         'iconCodePoint': iconCodePoint,
         'iconFontFamily': iconFontFamily,
+        'iconFontPackage': iconFontPackage,
         'buttonColor': buttonColor,
       };
 
@@ -64,6 +67,10 @@ class IRButton {
       protocolParams: (pp is Map) ? Map<String, dynamic>.from(pp) : null,
       iconCodePoint: json['iconCodePoint'] is int ? json['iconCodePoint'] as int? : int.tryParse('${json['iconCodePoint'] ?? ''}'),
       iconFontFamily: json['iconFontFamily'] as String?,
+      iconFontPackage: _resolveIconFontPackage(
+        json['iconFontPackage'] as String?,
+        json['iconFontFamily'] as String?,
+      ),
       buttonColor: json['buttonColor'] is int ? json['buttonColor'] as int? : int.tryParse('${json['buttonColor'] ?? ''}'),
     );
   }
@@ -80,6 +87,7 @@ class IRButton {
     Map<String, dynamic>? protocolParams,
     int? iconCodePoint,
     String? iconFontFamily,
+    String? iconFontPackage,
     int? buttonColor,
   }) {
     return IRButton(
@@ -94,9 +102,22 @@ class IRButton {
       protocolParams: protocolParams ?? this.protocolParams,
       iconCodePoint: iconCodePoint ?? this.iconCodePoint,
       iconFontFamily: iconFontFamily ?? this.iconFontFamily,
+      iconFontPackage: iconFontPackage ?? this.iconFontPackage,
       buttonColor: buttonColor ?? this.buttonColor,
     );
   }
+}
+
+String? _resolveIconFontPackage(String? explicitPackage, String? fontFamily) {
+  final pkg = explicitPackage?.trim();
+  if (pkg != null && pkg.isNotEmpty) return pkg;
+
+  final family = fontFamily?.trim();
+  if (family == null || family.isEmpty) return null;
+  if (family.toLowerCase().contains('fontawesome')) {
+    return 'font_awesome_flutter';
+  }
+  return null;
 }
 
 class Remote {
@@ -175,6 +196,14 @@ Future<List<Remote>> readRemotes() async {
             final rawId = (bm['id'] as String?)?.trim();
             if (rawId == null || rawId.isEmpty) {
               bm['id'] = uuid.v4();
+              mutated = true;
+            }
+            final ff = (bm['iconFontFamily'] as String?)?.trim();
+            final fp = (bm['iconFontPackage'] as String?)?.trim();
+            if ((fp == null || fp.isEmpty) &&
+                ff != null &&
+                ff.toLowerCase().contains('fontawesome')) {
+              bm['iconFontPackage'] = 'font_awesome_flutter';
               mutated = true;
             }
           }

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:irblaster_controller/state/device_controls_prefs.dart';
 import 'package:irblaster_controller/state/remotes_state.dart';
+import 'package:irblaster_controller/utils/button_label.dart';
 import 'package:irblaster_controller/utils/ir.dart';
 import 'package:irblaster_controller/utils/remote.dart';
 
@@ -23,6 +24,11 @@ class _DeviceControlsScreenState extends State<DeviceControlsScreen> {
 
   Future<void> _load() async {
     final items = await DeviceControlsPrefs.load();
+    if (remotes.isEmpty) {
+      try {
+        remotes = await readRemotes();
+      } catch (_) {}
+    }
     if (!mounted) return;
     setState(() {
       _items = items;
@@ -30,12 +36,49 @@ class _DeviceControlsScreenState extends State<DeviceControlsScreen> {
     });
   }
 
+  String _displayTitle(DeviceControlFavorite fav) {
+    for (final r in remotes) {
+      for (final b in r.buttons) {
+        if (b.id == fav.buttonId) {
+          return displayButtonLabel(
+            b,
+            fallback: 'Unnamed button',
+            iconFallback: 'Icon',
+          );
+        }
+      }
+    }
+    if (fav.title.trim().isNotEmpty) return fav.title.trim();
+    return 'Unnamed button';
+  }
+
   Future<void> _remove(DeviceControlFavorite fav) async {
+    final removedIndex = _items.indexWhere((e) => e.buttonId == fav.buttonId);
     await DeviceControlsPrefs.remove(fav.buttonId);
     if (!mounted) return;
     setState(() {
       _items.removeWhere((e) => e.buttonId == fav.buttonId);
     });
+    ScaffoldMessenger.of(context).hideCurrentSnackBar();
+    ScaffoldMessenger.of(context).showSnackBar(
+      SnackBar(
+        content: Text('Removed "${_displayTitle(fav)}".'),
+        action: SnackBarAction(
+          label: 'Undo',
+          onPressed: () async {
+            if (!mounted) return;
+            await DeviceControlsPrefs.add(fav);
+            if (!mounted) return;
+            setState(() {
+              final restoreAt = removedIndex < 0
+                  ? _items.length
+                  : removedIndex.clamp(0, _items.length) as int;
+              _items.insert(restoreAt, fav);
+            });
+          },
+        ),
+      ),
+    );
   }
 
   Future<void> _sendTest(DeviceControlFavorite fav) async {
@@ -109,7 +152,7 @@ class _DeviceControlsScreenState extends State<DeviceControlsScreen> {
                     final fav = _items[i];
                     return ListTile(
                       leading: const Icon(Icons.power_rounded),
-                      title: Text(fav.title.isEmpty ? 'Unnamed button' : fav.title),
+                      title: Text(_displayTitle(fav)),
                       subtitle: Text(fav.subtitle),
                       trailing: Wrap(
                         spacing: 4,

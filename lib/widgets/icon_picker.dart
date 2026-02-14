@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 class IconPickerData {
   final IconData iconData;
@@ -10,6 +11,18 @@ class IconPickerData {
     required this.name,
     required this.category,
   });
+}
+
+String? iconPickerNameFor({
+  required int codePoint,
+  String? fontFamily,
+}) {
+  for (final icon in _IconPickerState._allIcons) {
+    if (icon.iconData.codePoint != codePoint) continue;
+    if (fontFamily != null && icon.iconData.fontFamily != fontFamily) continue;
+    return icon.name;
+  }
+  return null;
 }
 
 class IconPicker extends StatefulWidget {
@@ -256,6 +269,324 @@ class _IconPickerState extends State<IconPicker> {
     IconPickerData(iconData: Icons.camera, name: 'Camera', category: 'Media'),
     IconPickerData(iconData: Icons.videocam, name: 'Video Camera', category: 'Media'),
     IconPickerData(iconData: Icons.photo_camera, name: 'Photo Camera', category: 'Media'),
+
+    // Additional media and control icons
+    IconPickerData(iconData: Icons.slow_motion_video, name: 'Slow Motion', category: 'Media'),
+    IconPickerData(iconData: Icons.speed, name: 'Speed', category: 'Media'),
+    IconPickerData(iconData: Icons.video_settings, name: 'Video Settings', category: 'Settings'),
+    IconPickerData(iconData: Icons.audiotrack, name: 'Audio Track', category: 'Volume'),
+    IconPickerData(iconData: Icons.graphic_eq, name: 'Graphic EQ', category: 'Volume'),
+    IconPickerData(iconData: Icons.music_video, name: 'Music Video', category: 'Media'),
+    IconPickerData(iconData: Icons.playlist_play, name: 'Playlist', category: 'Media'),
+    IconPickerData(iconData: Icons.queue, name: 'Queue', category: 'Media'),
+
+    // Font Awesome Numbers (0-9) - Basic
+    IconPickerData(iconData: FontAwesomeIcons.zero, name: '0 FA', category: 'Numbers'),
+    IconPickerData(iconData: FontAwesomeIcons.one, name: '1 FA', category: 'Numbers'),
+    IconPickerData(iconData: FontAwesomeIcons.two, name: '2 FA', category: 'Numbers'),
+    IconPickerData(iconData: FontAwesomeIcons.three, name: '3 FA', category: 'Numbers'),
+    IconPickerData(iconData: FontAwesomeIcons.four, name: '4 FA', category: 'Numbers'),
+    IconPickerData(iconData: FontAwesomeIcons.five, name: '5 FA', category: 'Numbers'),
+    IconPickerData(iconData: FontAwesomeIcons.six, name: '6 FA', category: 'Numbers'),
+    IconPickerData(iconData: FontAwesomeIcons.seven, name: '7 FA', category: 'Numbers'),
+    IconPickerData(iconData: FontAwesomeIcons.eight, name: '8 FA', category: 'Numbers'),
+    IconPickerData(iconData: FontAwesomeIcons.nine, name: '9 FA', category: 'Numbers'),
+
+    // Font Awesome Additional Number Symbols
+    IconPickerData(iconData: FontAwesomeIcons.hashtag, name: 'Hash # FA', category: 'Numbers'),
+    IconPickerData(iconData: FontAwesomeIcons.percent, name: 'Percent % FA', category: 'Numbers'),
+    IconPickerData(iconData: FontAwesomeIcons.divide, name: 'Divide ÷ FA', category: 'Numbers'),
+    IconPickerData(iconData: FontAwesomeIcons.xmark, name: 'Multiply × FA', category: 'Numbers'),
+    IconPickerData(iconData: FontAwesomeIcons.equals, name: 'Equals = FA', category: 'Numbers'),
+    IconPickerData(iconData: FontAwesomeIcons.notEqual, name: 'Not Equal ≠ FA', category: 'Numbers'),
+    IconPickerData(iconData: FontAwesomeIcons.greaterThan, name: 'Greater Than > FA', category: 'Numbers'),
+    IconPickerData(iconData: FontAwesomeIcons.lessThan, name: 'Less Than < FA', category: 'Numbers'),
+    IconPickerData(iconData: FontAwesomeIcons.asterisk, name: 'Asterisk * FA', category: 'Numbers'),
+
+    // Font Awesome Letters A-Z
+    IconPickerData(iconData: FontAwesomeIcons.a, name: 'A FA', category: 'Numbers'),
+    IconPickerData(iconData: FontAwesomeIcons.b, name: 'B FA', category: 'Numbers'),
+    IconPickerData(iconData: FontAwesomeIcons.c, name: 'C FA', category: 'Numbers'),
+    IconPickerData(iconData: FontAwesomeIcons.d, name: 'D FA', category: 'Numbers'),
+    IconPickerData(iconData: FontAwesomeIcons.e, name: 'E FA', category: 'Numbers'),
+    IconPickerData(iconData: FontAwesomeIcons.f, name: 'F FA', category: 'Numbers'),
+    IconPickerData(iconData: FontAwesomeIcons.g, name: 'G FA', category: 'Numbers'),
+    IconPickerData(iconData: FontAwesomeIcons.h, name: 'H FA', category: 'Numbers'),
+    IconPickerData(iconData: FontAwesomeIcons.i, name: 'I FA', category: 'Numbers'),
+    IconPickerData(iconData: FontAwesomeIcons.j, name: 'J FA', category: 'Numbers'),
+    IconPickerData(iconData: FontAwesomeIcons.k, name: 'K FA', category: 'Numbers'),
+    IconPickerData(iconData: FontAwesomeIcons.l, name: 'L FA', category: 'Numbers'),
+    IconPickerData(iconData: FontAwesomeIcons.m, name: 'M FA', category: 'Numbers'),
+    IconPickerData(iconData: FontAwesomeIcons.n, name: 'N FA', category: 'Numbers'),
+    IconPickerData(iconData: FontAwesomeIcons.o, name: 'O FA', category: 'Numbers'),
+    IconPickerData(iconData: FontAwesomeIcons.p, name: 'P FA', category: 'Numbers'),
+    IconPickerData(iconData: FontAwesomeIcons.q, name: 'Q FA', category: 'Numbers'),
+    IconPickerData(iconData: FontAwesomeIcons.r, name: 'R FA', category: 'Numbers'),
+    IconPickerData(iconData: FontAwesomeIcons.s, name: 'S FA', category: 'Numbers'),
+    IconPickerData(iconData: FontAwesomeIcons.t, name: 'T FA', category: 'Numbers'),
+    IconPickerData(iconData: FontAwesomeIcons.u, name: 'U FA', category: 'Numbers'),
+    IconPickerData(iconData: FontAwesomeIcons.v, name: 'V FA', category: 'Numbers'),
+    IconPickerData(iconData: FontAwesomeIcons.w, name: 'W FA', category: 'Numbers'),
+    IconPickerData(iconData: FontAwesomeIcons.x, name: 'X FA', category: 'Numbers'),
+    IconPickerData(iconData: FontAwesomeIcons.y, name: 'Y FA', category: 'Numbers'),
+    IconPickerData(iconData: FontAwesomeIcons.z, name: 'Z FA', category: 'Numbers'),
+
+    // Font Awesome Media Controls
+    IconPickerData(iconData: FontAwesomeIcons.solidCirclePlay, name: 'Play FA', category: 'Media'),
+    IconPickerData(iconData: FontAwesomeIcons.solidCirclePause, name: 'Pause FA', category: 'Media'),
+    IconPickerData(iconData: FontAwesomeIcons.solidCircleStop, name: 'Stop FA', category: 'Media'),
+    IconPickerData(iconData: FontAwesomeIcons.circlePlay, name: 'Play FA Outline', category: 'Media'),
+    IconPickerData(iconData: FontAwesomeIcons.circlePause, name: 'Pause FA Outline', category: 'Media'),
+    IconPickerData(iconData: FontAwesomeIcons.circleStop, name: 'Stop FA Outline', category: 'Media'),
+    IconPickerData(iconData: FontAwesomeIcons.backward, name: 'Backward FA', category: 'Media'),
+    IconPickerData(iconData: FontAwesomeIcons.forward, name: 'Forward FA', category: 'Media'),
+    IconPickerData(iconData: FontAwesomeIcons.backwardStep, name: 'Previous FA', category: 'Media'),
+    IconPickerData(iconData: FontAwesomeIcons.forwardStep, name: 'Next FA', category: 'Media'),
+    IconPickerData(iconData: FontAwesomeIcons.backwardFast, name: 'Rewind FA', category: 'Media'),
+    IconPickerData(iconData: FontAwesomeIcons.forwardFast, name: 'Fast Forward FA', category: 'Media'),
+    IconPickerData(iconData: FontAwesomeIcons.repeat, name: 'Repeat FA', category: 'Media'),
+    IconPickerData(iconData: FontAwesomeIcons.shuffle, name: 'Shuffle FA', category: 'Media'),
+    IconPickerData(iconData: FontAwesomeIcons.eject, name: 'Eject FA', category: 'Media'),
+    IconPickerData(iconData: FontAwesomeIcons.film, name: 'Film FA', category: 'Media'),
+    IconPickerData(iconData: FontAwesomeIcons.video, name: 'Video FA', category: 'Media'),
+    IconPickerData(iconData: FontAwesomeIcons.music, name: 'Music FA', category: 'Media'),
+    IconPickerData(iconData: FontAwesomeIcons.microphone, name: 'Microphone FA', category: 'Media'),
+    IconPickerData(iconData: FontAwesomeIcons.camera, name: 'Camera FA', category: 'Media'),
+    IconPickerData(iconData: FontAwesomeIcons.cameraRetro, name: 'Camera Retro FA', category: 'Media'),
+
+    // Font Awesome Volume Controls
+    IconPickerData(iconData: FontAwesomeIcons.volumeHigh, name: 'Volume High FA', category: 'Volume'),
+    IconPickerData(iconData: FontAwesomeIcons.volumeLow, name: 'Volume Low FA', category: 'Volume'),
+    IconPickerData(iconData: FontAwesomeIcons.volumeOff, name: 'Volume Off FA', category: 'Volume'),
+    IconPickerData(iconData: FontAwesomeIcons.volumeXmark, name: 'Mute FA', category: 'Volume'),
+    IconPickerData(iconData: FontAwesomeIcons.microphoneSlash, name: 'Mic Mute FA', category: 'Volume'),
+    IconPickerData(iconData: FontAwesomeIcons.headphones, name: 'Headphones FA', category: 'Volume'),
+    IconPickerData(iconData: FontAwesomeIcons.speakerDeck, name: 'Speaker FA', category: 'Volume'),
+
+    // Font Awesome Navigation
+    IconPickerData(iconData: FontAwesomeIcons.solidCircleUp, name: 'Up FA', category: 'Navigation'),
+    IconPickerData(iconData: FontAwesomeIcons.solidCircleDown, name: 'Down FA', category: 'Navigation'),
+    IconPickerData(iconData: FontAwesomeIcons.solidCircleLeft, name: 'Left FA', category: 'Navigation'),
+    IconPickerData(iconData: FontAwesomeIcons.solidCircleRight, name: 'Right FA', category: 'Navigation'),
+    IconPickerData(iconData: FontAwesomeIcons.circleUp, name: 'Up FA Outline', category: 'Navigation'),
+    IconPickerData(iconData: FontAwesomeIcons.circleDown, name: 'Down FA Outline', category: 'Navigation'),
+    IconPickerData(iconData: FontAwesomeIcons.circleLeft, name: 'Left FA Outline', category: 'Navigation'),
+    IconPickerData(iconData: FontAwesomeIcons.circleRight, name: 'Right FA Outline', category: 'Navigation'),
+    IconPickerData(iconData: FontAwesomeIcons.arrowUp, name: 'Arrow Up FA', category: 'Navigation'),
+    IconPickerData(iconData: FontAwesomeIcons.arrowDown, name: 'Arrow Down FA', category: 'Navigation'),
+    IconPickerData(iconData: FontAwesomeIcons.arrowLeft, name: 'Arrow Left FA', category: 'Navigation'),
+    IconPickerData(iconData: FontAwesomeIcons.arrowRight, name: 'Arrow Right FA', category: 'Navigation'),
+    IconPickerData(iconData: FontAwesomeIcons.chevronUp, name: 'Chevron Up FA', category: 'Navigation'),
+    IconPickerData(iconData: FontAwesomeIcons.chevronDown, name: 'Chevron Down FA', category: 'Navigation'),
+    IconPickerData(iconData: FontAwesomeIcons.chevronLeft, name: 'Chevron Left FA', category: 'Navigation'),
+    IconPickerData(iconData: FontAwesomeIcons.chevronRight, name: 'Chevron Right FA', category: 'Navigation'),
+    IconPickerData(iconData: FontAwesomeIcons.solidCircleCheck, name: 'OK FA', category: 'Navigation'),
+    IconPickerData(iconData: FontAwesomeIcons.circleCheck, name: 'OK FA Outline', category: 'Navigation'),
+    IconPickerData(iconData: FontAwesomeIcons.check, name: 'Check FA', category: 'Navigation'),
+    IconPickerData(iconData: FontAwesomeIcons.xmark, name: 'Close FA', category: 'Navigation'),
+    IconPickerData(iconData: FontAwesomeIcons.circleXmark, name: 'Close Circle FA', category: 'Navigation'),
+    IconPickerData(iconData: FontAwesomeIcons.house, name: 'Home FA', category: 'Navigation'),
+    IconPickerData(iconData: FontAwesomeIcons.arrowRotateLeft, name: 'Undo FA', category: 'Navigation'),
+    IconPickerData(iconData: FontAwesomeIcons.arrowRotateRight, name: 'Redo FA', category: 'Navigation'),
+    IconPickerData(iconData: FontAwesomeIcons.rotateRight, name: 'Rotate FA', category: 'Navigation'),
+    IconPickerData(iconData: FontAwesomeIcons.magnifyingGlass, name: 'Search FA', category: 'Navigation'),
+    IconPickerData(iconData: FontAwesomeIcons.arrowsRotate, name: 'Refresh FA', category: 'Navigation'),
+
+    // Font Awesome Power
+    IconPickerData(iconData: FontAwesomeIcons.powerOff, name: 'Power Off FA', category: 'Power'),
+    IconPickerData(iconData: FontAwesomeIcons.plug, name: 'Plug FA', category: 'Power'),
+    IconPickerData(iconData: FontAwesomeIcons.toggleOn, name: 'Toggle On FA', category: 'Power'),
+    IconPickerData(iconData: FontAwesomeIcons.toggleOff, name: 'Toggle Off FA', category: 'Power'),
+
+    // Font Awesome Settings & Menu
+    IconPickerData(iconData: FontAwesomeIcons.gear, name: 'Settings FA', category: 'Settings'),
+    IconPickerData(iconData: FontAwesomeIcons.gears, name: 'Settings Alt FA', category: 'Settings'),
+    IconPickerData(iconData: FontAwesomeIcons.bars, name: 'Menu FA', category: 'Settings'),
+    IconPickerData(iconData: FontAwesomeIcons.ellipsis, name: 'More FA', category: 'Settings'),
+    IconPickerData(iconData: FontAwesomeIcons.ellipsisVertical, name: 'More Vertical FA', category: 'Settings'),
+    IconPickerData(iconData: FontAwesomeIcons.infoCircle, name: 'Info FA', category: 'Settings'),
+    IconPickerData(iconData: FontAwesomeIcons.circleInfo, name: 'Info FA Outline', category: 'Settings'),
+    IconPickerData(iconData: FontAwesomeIcons.solidCircleQuestion, name: 'Help FA', category: 'Settings'),
+    IconPickerData(iconData: FontAwesomeIcons.circleQuestion, name: 'Help FA Outline', category: 'Settings'),
+    IconPickerData(iconData: FontAwesomeIcons.list, name: 'List FA', category: 'Settings'),
+    IconPickerData(iconData: FontAwesomeIcons.tableCells, name: 'Grid FA', category: 'Settings'),
+    IconPickerData(iconData: FontAwesomeIcons.sliders, name: 'Sliders FA', category: 'Settings'),
+
+    // Font Awesome Display & Brightness
+    IconPickerData(iconData: FontAwesomeIcons.tv, name: 'TV FA', category: 'Display'),
+    IconPickerData(iconData: FontAwesomeIcons.display, name: 'Monitor FA', category: 'Display'),
+    IconPickerData(iconData: FontAwesomeIcons.desktop, name: 'Desktop FA', category: 'Display'),
+    IconPickerData(iconData: FontAwesomeIcons.sun, name: 'Brightness FA', category: 'Display'),
+    IconPickerData(iconData: FontAwesomeIcons.moon, name: 'Night Mode FA', category: 'Display'),
+    IconPickerData(iconData: FontAwesomeIcons.solidLightbulb, name: 'Light FA', category: 'Display'),
+    IconPickerData(iconData: FontAwesomeIcons.lightbulb, name: 'Light FA Outline', category: 'Display'),
+    IconPickerData(iconData: FontAwesomeIcons.bolt, name: 'Flash FA', category: 'Display'),
+    IconPickerData(iconData: FontAwesomeIcons.expand, name: 'Fullscreen FA', category: 'Display'),
+    IconPickerData(iconData: FontAwesomeIcons.compress, name: 'Exit Fullscreen FA', category: 'Display'),
+    IconPickerData(iconData: FontAwesomeIcons.upRightAndDownLeftFromCenter, name: 'Zoom In FA', category: 'Display'),
+    IconPickerData(iconData: FontAwesomeIcons.downLeftAndUpRightToCenter, name: 'Zoom Out FA', category: 'Display'),
+    IconPickerData(iconData: FontAwesomeIcons.closedCaptioning, name: 'Subtitles FA', category: 'Display'),
+    IconPickerData(iconData: FontAwesomeIcons.photoFilm, name: 'Picture in Picture FA', category: 'Display'),
+    IconPickerData(iconData: FontAwesomeIcons.palette, name: 'Color FA', category: 'Display'),
+    IconPickerData(iconData: FontAwesomeIcons.paintbrush, name: 'Paint FA', category: 'Display'),
+
+    // Font Awesome Input Sources
+    IconPickerData(iconData: FontAwesomeIcons.rightToBracket, name: 'Input FA', category: 'Input'),
+    IconPickerData(iconData: FontAwesomeIcons.wifi, name: 'WiFi FA', category: 'Input'),
+    IconPickerData(iconData: FontAwesomeIcons.bluetooth, name: 'Bluetooth FA', category: 'Input'),
+    IconPickerData(iconData: FontAwesomeIcons.usb, name: 'USB FA', category: 'Input'),
+    IconPickerData(iconData: FontAwesomeIcons.ethernet, name: 'Ethernet FA', category: 'Input'),
+    IconPickerData(iconData: FontAwesomeIcons.gamepad, name: 'Gamepad FA', category: 'Input'),
+    IconPickerData(iconData: FontAwesomeIcons.podcast, name: 'Broadcast FA', category: 'Input'),
+    IconPickerData(iconData: FontAwesomeIcons.satellite, name: 'Satellite FA', category: 'Input'),
+    IconPickerData(iconData: FontAwesomeIcons.satelliteDish, name: 'Antenna FA', category: 'Input'),
+    IconPickerData(iconData: FontAwesomeIcons.networkWired, name: 'Network FA', category: 'Input'),
+    IconPickerData(iconData: FontAwesomeIcons.cloud, name: 'Cloud FA', category: 'Input'),
+
+    // Font Awesome Favorites
+    IconPickerData(iconData: FontAwesomeIcons.solidStar, name: 'Star FA', category: 'Favorite'),
+    IconPickerData(iconData: FontAwesomeIcons.star, name: 'Star FA Outline', category: 'Favorite'),
+    IconPickerData(iconData: FontAwesomeIcons.solidHeart, name: 'Heart FA', category: 'Favorite'),
+    IconPickerData(iconData: FontAwesomeIcons.heart, name: 'Heart FA Outline', category: 'Favorite'),
+    IconPickerData(iconData: FontAwesomeIcons.solidBookmark, name: 'Bookmark FA', category: 'Favorite'),
+    IconPickerData(iconData: FontAwesomeIcons.bookmark, name: 'Bookmark FA Outline', category: 'Favorite'),
+    IconPickerData(iconData: FontAwesomeIcons.flag, name: 'Flag FA', category: 'Favorite'),
+    IconPickerData(iconData: FontAwesomeIcons.solidClock, name: 'Clock FA', category: 'Favorite'),
+    IconPickerData(iconData: FontAwesomeIcons.clock, name: 'Clock FA Outline', category: 'Favorite'),
+    IconPickerData(iconData: FontAwesomeIcons.solidBell, name: 'Bell FA', category: 'Favorite'),
+    IconPickerData(iconData: FontAwesomeIcons.bell, name: 'Bell FA Outline', category: 'Favorite'),
+    IconPickerData(iconData: FontAwesomeIcons.hourglass, name: 'Timer FA', category: 'Favorite'),
+    IconPickerData(iconData: FontAwesomeIcons.lock, name: 'Lock FA', category: 'Favorite'),
+    IconPickerData(iconData: FontAwesomeIcons.lockOpen, name: 'Unlock FA', category: 'Favorite'),
+
+    // Additional Font Awesome Media & Recording
+    IconPickerData(iconData: FontAwesomeIcons.photoFilm, name: 'Gallery FA', category: 'Media'),
+    IconPickerData(iconData: FontAwesomeIcons.images, name: 'Images FA', category: 'Media'),
+    IconPickerData(iconData: FontAwesomeIcons.image, name: 'Image FA', category: 'Media'),
+    IconPickerData(iconData: FontAwesomeIcons.fileVideo, name: 'Video File FA', category: 'Media'),
+    IconPickerData(iconData: FontAwesomeIcons.fileAudio, name: 'Audio File FA', category: 'Media'),
+    IconPickerData(iconData: FontAwesomeIcons.circlePlay, name: 'Play Outline FA', category: 'Media'),
+    IconPickerData(iconData: FontAwesomeIcons.play, name: 'Play Simple FA', category: 'Media'),
+    IconPickerData(iconData: FontAwesomeIcons.pause, name: 'Pause Simple FA', category: 'Media'),
+    IconPickerData(iconData: FontAwesomeIcons.stop, name: 'Stop Simple FA', category: 'Media'),
+    IconPickerData(iconData: FontAwesomeIcons.recordVinyl, name: 'Record FA', category: 'Media'),
+    IconPickerData(iconData: FontAwesomeIcons.circleStop, name: 'Stop Circle FA', category: 'Media'),
+    IconPickerData(iconData: FontAwesomeIcons.circleNotch, name: 'Loading FA', category: 'Media'),
+
+    // Font Awesome Text & Language
+    IconPickerData(iconData: FontAwesomeIcons.font, name: 'Text FA', category: 'Display'),
+    IconPickerData(iconData: FontAwesomeIcons.textHeight, name: 'Text Size FA', category: 'Display'),
+    IconPickerData(iconData: FontAwesomeIcons.language, name: 'Language FA', category: 'Display'),
+    IconPickerData(iconData: FontAwesomeIcons.globe, name: 'Globe FA', category: 'Display'),
+    IconPickerData(iconData: FontAwesomeIcons.solidCommentDots, name: 'Subtitles Alt FA', category: 'Display'),
+    IconPickerData(iconData: FontAwesomeIcons.commentDots, name: 'Subtitles Alt Outline FA', category: 'Display'),
+
+    // Font Awesome Channels & Guide
+    IconPickerData(iconData: FontAwesomeIcons.angleUp, name: 'Channel Up FA', category: 'Navigation'),
+    IconPickerData(iconData: FontAwesomeIcons.angleDown, name: 'Channel Down FA', category: 'Navigation'),
+    IconPickerData(iconData: FontAwesomeIcons.angleDoubleUp, name: 'Page Up FA', category: 'Navigation'),
+    IconPickerData(iconData: FontAwesomeIcons.angleDoubleDown, name: 'Page Down FA', category: 'Navigation'),
+    IconPickerData(iconData: FontAwesomeIcons.listUl, name: 'Guide FA', category: 'Settings'),
+    IconPickerData(iconData: FontAwesomeIcons.thLarge, name: 'Grid View FA', category: 'Settings'),
+    IconPickerData(iconData: FontAwesomeIcons.th, name: 'Grid Alt FA', category: 'Settings'),
+    IconPickerData(iconData: FontAwesomeIcons.calendarAlt, name: 'Schedule FA', category: 'Favorite'),
+    IconPickerData(iconData: FontAwesomeIcons.calendar, name: 'Calendar FA', category: 'Favorite'),
+
+    // Font Awesome Color Buttons (for universal remotes)
+    IconPickerData(iconData: FontAwesomeIcons.solidCircle, name: 'Red Button FA', category: 'Favorite'),
+    IconPickerData(iconData: FontAwesomeIcons.circle, name: 'Button Outline FA', category: 'Favorite'),
+    IconPickerData(iconData: FontAwesomeIcons.solidSquare, name: 'Square Button FA', category: 'Favorite'),
+    IconPickerData(iconData: FontAwesomeIcons.square, name: 'Square Outline FA', category: 'Favorite'),
+    IconPickerData(iconData: FontAwesomeIcons.dotCircle, name: 'Dot Circle FA', category: 'Favorite'),
+
+    // Font Awesome Tools & Functions
+    IconPickerData(iconData: FontAwesomeIcons.wrench, name: 'Tools FA', category: 'Settings'),
+    IconPickerData(iconData: FontAwesomeIcons.screwdriver, name: 'Screwdriver FA', category: 'Settings'),
+    IconPickerData(iconData: FontAwesomeIcons.hammer, name: 'Hammer FA', category: 'Settings'),
+    IconPickerData(iconData: FontAwesomeIcons.toolbox, name: 'Toolbox FA', category: 'Settings'),
+    IconPickerData(iconData: FontAwesomeIcons.cog, name: 'Cog FA', category: 'Settings'),
+    IconPickerData(iconData: FontAwesomeIcons.slidersH, name: 'Adjust FA', category: 'Settings'),
+    IconPickerData(iconData: FontAwesomeIcons.filter, name: 'Filter FA', category: 'Settings'),
+    IconPickerData(iconData: FontAwesomeIcons.sortAmountDown, name: 'Sort Down FA', category: 'Settings'),
+    IconPickerData(iconData: FontAwesomeIcons.sortAmountUp, name: 'Sort Up FA', category: 'Settings'),
+
+    // Font Awesome Sleep & Timer
+    IconPickerData(iconData: FontAwesomeIcons.bed, name: 'Sleep FA', category: 'Power'),
+    IconPickerData(iconData: FontAwesomeIcons.hourglassStart, name: 'Timer Start FA', category: 'Favorite'),
+    IconPickerData(iconData: FontAwesomeIcons.hourglassHalf, name: 'Timer Half FA', category: 'Favorite'),
+    IconPickerData(iconData: FontAwesomeIcons.hourglassEnd, name: 'Timer End FA', category: 'Favorite'),
+    IconPickerData(iconData: FontAwesomeIcons.stopwatch, name: 'Stopwatch FA', category: 'Favorite'),
+    IconPickerData(iconData: FontAwesomeIcons.alarmClock, name: 'Alarm FA', category: 'Favorite'),
+
+    // Font Awesome Aspect Ratio & Picture
+    IconPickerData(iconData: FontAwesomeIcons.cropAlt, name: 'Crop Alt FA', category: 'Display'),
+    IconPickerData(iconData: FontAwesomeIcons.crop, name: 'Crop FA', category: 'Display'),
+    IconPickerData(iconData: FontAwesomeIcons.squareFull, name: 'Square Full FA', category: 'Display'),
+    IconPickerData(iconData: FontAwesomeIcons.arrowsAlt, name: 'Fullscreen Alt FA', category: 'Display'),
+    IconPickerData(iconData: FontAwesomeIcons.searchPlus, name: 'Zoom Plus FA', category: 'Display'),
+    IconPickerData(iconData: FontAwesomeIcons.searchMinus, name: 'Zoom Minus FA', category: 'Display'),
+
+    // Font Awesome Audio & Sound
+    IconPickerData(iconData: FontAwesomeIcons.music, name: 'Music Note FA', category: 'Volume'),
+    IconPickerData(iconData: FontAwesomeIcons.compactDisc, name: 'CD FA', category: 'Media'),
+    IconPickerData(iconData: FontAwesomeIcons.recordVinyl, name: 'Vinyl FA', category: 'Media'),
+    IconPickerData(iconData: FontAwesomeIcons.rss, name: 'RSS FA', category: 'Media'),
+
+    // Font Awesome Special Functions
+    IconPickerData(iconData: FontAwesomeIcons.wandMagicSparkles, name: 'Magic FA', category: 'Settings'),
+    IconPickerData(iconData: FontAwesomeIcons.fingerprint, name: 'Fingerprint FA', category: 'Settings'),
+    IconPickerData(iconData: FontAwesomeIcons.userCircle, name: 'User FA', category: 'Settings'),
+    IconPickerData(iconData: FontAwesomeIcons.users, name: 'Users FA', category: 'Settings'),
+    IconPickerData(iconData: FontAwesomeIcons.child, name: 'Child Mode FA', category: 'Settings'),
+
+    // Font Awesome Streaming & Network
+    IconPickerData(iconData: FontAwesomeIcons.chromecast, name: 'Cast FA', category: 'Input'),
+    IconPickerData(iconData: FontAwesomeIcons.stream, name: 'Stream FA', category: 'Input'),
+    IconPickerData(iconData: FontAwesomeIcons.signal, name: 'Signal FA', category: 'Input'),
+    IconPickerData(iconData: FontAwesomeIcons.rssSquare, name: 'Feed FA', category: 'Input'),
+
+    // Font Awesome Arrows & Directions
+    IconPickerData(iconData: FontAwesomeIcons.arrowAltCircleUp, name: 'Circle Arrow Up FA', category: 'Navigation'),
+    IconPickerData(iconData: FontAwesomeIcons.arrowAltCircleDown, name: 'Circle Arrow Down FA', category: 'Navigation'),
+    IconPickerData(iconData: FontAwesomeIcons.arrowAltCircleLeft, name: 'Circle Arrow Left FA', category: 'Navigation'),
+    IconPickerData(iconData: FontAwesomeIcons.arrowAltCircleRight, name: 'Circle Arrow Right FA', category: 'Navigation'),
+    IconPickerData(iconData: FontAwesomeIcons.longArrowAltUp, name: 'Long Arrow Up FA', category: 'Navigation'),
+    IconPickerData(iconData: FontAwesomeIcons.longArrowAltDown, name: 'Long Arrow Down FA', category: 'Navigation'),
+    IconPickerData(iconData: FontAwesomeIcons.longArrowAltLeft, name: 'Long Arrow Left FA', category: 'Navigation'),
+    IconPickerData(iconData: FontAwesomeIcons.longArrowAltRight, name: 'Long Arrow Right FA', category: 'Navigation'),
+
+    // Font Awesome Plus/Minus
+    IconPickerData(iconData: FontAwesomeIcons.plus, name: 'Plus FA', category: 'Numbers'),
+    IconPickerData(iconData: FontAwesomeIcons.minus, name: 'Minus FA', category: 'Numbers'),
+    IconPickerData(iconData: FontAwesomeIcons.plusCircle, name: 'Plus Circle FA', category: 'Numbers'),
+    IconPickerData(iconData: FontAwesomeIcons.minusCircle, name: 'Minus Circle FA', category: 'Numbers'),
+    IconPickerData(iconData: FontAwesomeIcons.plusSquare, name: 'Plus Square FA', category: 'Numbers'),
+    IconPickerData(iconData: FontAwesomeIcons.minusSquare, name: 'Minus Square FA', category: 'Numbers'),
+    IconPickerData(iconData: FontAwesomeIcons.times, name: 'Times FA', category: 'Navigation'),
+    IconPickerData(iconData: FontAwesomeIcons.timesCircle, name: 'Times Circle FA', category: 'Navigation'),
+
+    // Font Awesome Battery & Power
+    IconPickerData(iconData: FontAwesomeIcons.batteryFull, name: 'Battery Full FA', category: 'Power'),
+    IconPickerData(iconData: FontAwesomeIcons.batteryThreeQuarters, name: 'Battery 3/4 FA', category: 'Power'),
+    IconPickerData(iconData: FontAwesomeIcons.batteryHalf, name: 'Battery Half FA', category: 'Power'),
+    IconPickerData(iconData: FontAwesomeIcons.batteryQuarter, name: 'Battery 1/4 FA', category: 'Power'),
+    IconPickerData(iconData: FontAwesomeIcons.batteryEmpty, name: 'Battery Empty FA', category: 'Power'),
+    IconPickerData(iconData: FontAwesomeIcons.chargingStation, name: 'Charging FA', category: 'Power'),
+
+    // Font Awesome Weather & Environment
+    IconPickerData(iconData: FontAwesomeIcons.cloudSun, name: 'Cloud Sun FA', category: 'Display'),
+    IconPickerData(iconData: FontAwesomeIcons.cloudMoon, name: 'Cloud Moon FA', category: 'Display'),
+    IconPickerData(iconData: FontAwesomeIcons.cloudRain, name: 'Rain FA', category: 'Display'),
+    IconPickerData(iconData: FontAwesomeIcons.snowflake, name: 'Snowflake FA', category: 'Display'),
+    IconPickerData(iconData: FontAwesomeIcons.fire, name: 'Fire FA', category: 'Display'),
+    IconPickerData(iconData: FontAwesomeIcons.thermometerHalf, name: 'Temperature FA', category: 'Display'),
+
+    // Font Awesome Misc Useful
+    IconPickerData(iconData: FontAwesomeIcons.boxOpen, name: 'Box FA', category: 'Settings'),
+    IconPickerData(iconData: FontAwesomeIcons.gift, name: 'Gift FA', category: 'Favorite'),
+    IconPickerData(iconData: FontAwesomeIcons.trophy, name: 'Trophy FA', category: 'Favorite'),
+    IconPickerData(iconData: FontAwesomeIcons.crown, name: 'Crown FA', category: 'Favorite'),
+    IconPickerData(iconData: FontAwesomeIcons.gem, name: 'Gem FA', category: 'Favorite'),
   ];
 
   List<IconPickerData> get _filteredIcons {

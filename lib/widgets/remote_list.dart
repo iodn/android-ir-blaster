@@ -3,6 +3,7 @@ import 'package:flutter/services.dart';
 import 'package:irblaster_controller/state/haptics.dart';
 import 'package:irblaster_controller/state/device_controls_prefs.dart';
 import 'package:irblaster_controller/state/remotes_state.dart';
+import 'package:irblaster_controller/utils/button_label.dart';
 import 'package:irblaster_controller/utils/remote.dart';
 import 'package:irblaster_controller/widgets/create_remote.dart';
 import 'package:irblaster_controller/widgets/remote_view.dart';
@@ -222,8 +223,11 @@ class _RemoteListState extends State<RemoteList> {
   }
 
   String _buttonDisplayLabel(IRButton b) {
-    if (!b.isImage) return b.image;
-    return formatButtonDisplayName(b.image);
+    return displayButtonLabel(
+      b,
+      fallback: 'Unnamed button',
+      iconFallback: 'Icon',
+    );
   }
 
   String _normalizeButtonLabel(String raw) {
@@ -766,6 +770,15 @@ class _EmptyState extends StatelessWidget {
               textAlign: TextAlign.center,
               style: theme.textTheme.bodyMedium?.copyWith(
                 color: theme.colorScheme.onSurface.withValues(alpha: 0.75),
+                fontWeight: FontWeight.w600,
+              ),
+            ),
+            const SizedBox(height: 6),
+            Text(
+              'What next: tap Add remote, then add your first buttons.',
+              textAlign: TextAlign.center,
+              style: theme.textTheme.bodySmall?.copyWith(
+                color: theme.colorScheme.onSurface.withValues(alpha: 0.7),
                 fontWeight: FontWeight.w600,
               ),
             ),

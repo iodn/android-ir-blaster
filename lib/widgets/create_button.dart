@@ -7,6 +7,7 @@ import 'package:irblaster_controller/ir/ir_protocol_registry.dart';
 import 'package:irblaster_controller/ir/ir_protocol_types.dart';
 import 'package:irblaster_controller/ir_finder/irblaster_db.dart';
 import 'package:irblaster_controller/ir_finder/ir_finder_models.dart';
+import 'package:irblaster_controller/utils/button_color_accessibility.dart';
 import 'package:irblaster_controller/utils/ir.dart';
 import 'package:irblaster_controller/utils/remote.dart';
 import 'package:irblaster_controller/widgets/code_test.dart';
@@ -111,6 +112,7 @@ class _CreateButtonState extends State<CreateButton> {
         _selectedIcon = IconData(
           b.iconCodePoint!,
           fontFamily: b.iconFontFamily,
+          fontPackage: b.iconFontPackage,
         );
       } else if (b.isImage) {
         _labelType = _LabelType.image;
@@ -126,7 +128,7 @@ class _CreateButtonState extends State<CreateButton> {
       }
 
       if (b.buttonColor != null) {
-        _selectedColor = Color(b.buttonColor!);
+        _selectedColor = normalizeAccessibleButtonColor(Color(b.buttonColor!));
       }
 
       if (b.protocol != null && b.protocol!.trim().isNotEmpty) {
@@ -786,18 +788,31 @@ class _CreateButtonState extends State<CreateButton> {
   }
 
   Widget _colorOption(Color? color, String label, ThemeData theme) {
-    final isSelected = _selectedColor == color;
-    final displayColor = color ?? theme.colorScheme.surfaceContainerHighest;
+    final normalizedOption =
+        color == null ? null : normalizeAccessibleButtonColor(color);
+    final isSelected = normalizedOption == null
+        ? _selectedColor == null
+        : _selectedColor?.value == normalizedOption.value;
+    final displayColor =
+        normalizedOption ?? theme.colorScheme.surfaceContainerHighest;
+    final checkColor = normalizedOption == null
+        ? theme.colorScheme.onSurface
+        : resolveButtonForeground(normalizedOption, Colors.white);
 
-    return InkWell(
+    return Semantics(
+      button: true,
+      label: isSelected
+          ? 'Button color $label, selected'
+          : 'Button color $label',
+      child: InkWell(
       onTap: () {
         setState(() {
-          _selectedColor = color;
+          _selectedColor = normalizedOption;
         });
       },
       borderRadius: BorderRadius.circular(8),
       child: Container(
-        width: 60,
+        constraints: const BoxConstraints(minWidth: 60, minHeight: 60),
         padding: const EdgeInsets.symmetric(vertical: 8),
         child: Column(
           mainAxisSize: MainAxisSize.min,
@@ -818,9 +833,7 @@ class _CreateButtonState extends State<CreateButton> {
               child: isSelected
                   ? Icon(
                       Icons.check,
-                      color: color == null
-                          ? theme.colorScheme.onSurface
-                          : Colors.white,
+                      color: checkColor,
                       size: 20,
                     )
                   : null,
@@ -830,14 +843,19 @@ class _CreateButtonState extends State<CreateButton> {
               label,
               style: theme.textTheme.bodySmall?.copyWith(fontSize: 10),
               textAlign: TextAlign.center,
-              maxLines: 1,
+              maxLines: 2,
               overflow: TextOverflow.ellipsis,
             ),
           ],
         ),
       ),
+      ),
     );
   }
+
+  int? get _selectedButtonColorValue => _selectedColor == null
+      ? null
+      : normalizeAccessibleButtonColor(_selectedColor!).value;
 
   List<Widget> _buildSignalSummaryChips() {
     final List<Widget> chips = [];
@@ -911,7 +929,8 @@ class _CreateButtonState extends State<CreateButton> {
         necBitOrder: bitOrder,
         iconCodePoint: _labelType == _LabelType.icon ? _selectedIcon?.codePoint : null,
         iconFontFamily: _labelType == _LabelType.icon ? _selectedIcon?.fontFamily : null,
-        buttonColor: _selectedColor?.value,
+        iconFontPackage: _labelType == _LabelType.icon ? _selectedIcon?.fontPackage : null,
+        buttonColor: _selectedButtonColorValue,
       );
     }
 
@@ -926,7 +945,8 @@ class _CreateButtonState extends State<CreateButton> {
         isImage: _labelType == _LabelType.image,
         iconCodePoint: _labelType == _LabelType.icon ? _selectedIcon?.codePoint : null,
         iconFontFamily: _labelType == _LabelType.icon ? _selectedIcon?.fontFamily : null,
-        buttonColor: _selectedColor?.value,
+        iconFontPackage: _labelType == _LabelType.icon ? _selectedIcon?.fontPackage : null,
+        buttonColor: _selectedButtonColorValue,
       );
     }
 
@@ -968,7 +988,8 @@ class _CreateButtonState extends State<CreateButton> {
       protocolParams: params,
       iconCodePoint: _labelType == _LabelType.icon ? _selectedIcon?.codePoint : null,
       iconFontFamily: _labelType == _LabelType.icon ? _selectedIcon?.fontFamily : null,
-      buttonColor: _selectedColor?.value,
+      iconFontPackage: _labelType == _LabelType.icon ? _selectedIcon?.fontPackage : null,
+      buttonColor: _selectedButtonColorValue,
     );
   }
 
@@ -2589,7 +2610,8 @@ class _CreateButtonState extends State<CreateButton> {
         necBitOrder: bitOrder,
         iconCodePoint: _labelType == _LabelType.icon ? _selectedIcon?.codePoint : null,
         iconFontFamily: _labelType == _LabelType.icon ? _selectedIcon?.fontFamily : null,
-        buttonColor: _selectedColor?.value,
+        iconFontPackage: _labelType == _LabelType.icon ? _selectedIcon?.fontPackage : null,
+        buttonColor: _selectedButtonColorValue,
       );
 
       Navigator.pop(context, button);
@@ -2613,7 +2635,8 @@ class _CreateButtonState extends State<CreateButton> {
         isImage: _labelType == _LabelType.image,
         iconCodePoint: _labelType == _LabelType.icon ? _selectedIcon?.codePoint : null,
         iconFontFamily: _labelType == _LabelType.icon ? _selectedIcon?.fontFamily : null,
-        buttonColor: _selectedColor?.value,
+        iconFontPackage: _labelType == _LabelType.icon ? _selectedIcon?.fontPackage : null,
+        buttonColor: _selectedButtonColorValue,
       );
 
       Navigator.pop(context, button);
@@ -2667,7 +2690,8 @@ class _CreateButtonState extends State<CreateButton> {
         protocolParams: params,
         iconCodePoint: _labelType == _LabelType.icon ? _selectedIcon?.codePoint : null,
         iconFontFamily: _labelType == _LabelType.icon ? _selectedIcon?.fontFamily : null,
-        buttonColor: _selectedColor?.value,
+        iconFontPackage: _labelType == _LabelType.icon ? _selectedIcon?.fontPackage : null,
+        buttonColor: _selectedButtonColorValue,
       );
 
       Navigator.pop(context, button);

@@ -1,0 +1,13 @@
+[NEW]
+Add more icons (459 icons)
+Unified button naming across app (text/image/icon + icon names). 
+Fixed 2-grid icon rendering. Added command search in macro and quick-tile pickers. 
+Added macro step visual previews. 
+Added Undo snackbars for button/macro/device-control removals. 
+Improved empty states with "What next" + CTA (incl. Quick Settings "Set Power tile"). 
+Added color contrast normalization/accessibility for custom button colors. 
+Added Semantics/touch-target and large-text tweaks.
+
+[BUG]
+Fix icons not displayed in 2 grid
+Fix Import of IRPLUS xml file using NEC protocol
