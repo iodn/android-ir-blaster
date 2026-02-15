@@ -377,17 +377,30 @@ class _CreateButtonState extends State<CreateButton> {
     }
 
     if (f.type == IrFieldType.string) {
-      final hint = (f.hint ?? '').trim();
-      final hintDigits = _cleanHex(hint).length;
-      if (hintDigits > 0) return hintDigits;
-
       final ml = f.maxLength;
       if (ml != null && ml > 0) {
         // Some fields include spaces in maxLength (e.g., "AA BB CC DD" = 11 chars).
-        // If hint is missing, best-effort:
+        // Keep common direct hex lengths exact.
         if (ml <= 2) return ml; // 1 byte / nibble
         if (ml == 4 || ml == 6 || ml == 8) return ml;
         if (ml == 11) return 8; // Kaseikyo style
+      }
+
+      final hint = (f.hint ?? '').trim();
+      if (hint.isNotEmpty) {
+        if (_wantsSpacedBytes(f)) {
+          final int pairCount = RegExp(r'[0-9A-Fa-f]{2}').allMatches(hint).length;
+          if (pairCount > 0) return pairCount * 2;
+        }
+
+        // Use the longest standalone hex token; avoids counting "e" from "e.g.".
+        final tokens = RegExp(r'\b[0-9A-Fa-f]+\b').allMatches(hint);
+        int best = 0;
+        for (final m in tokens) {
+          final len = m.group(0)?.length ?? 0;
+          if (len > best) best = len;
+        }
+        if (best > 0) return best;
       }
     }
 
@@ -450,6 +463,47 @@ class _CreateButtonState extends State<CreateButton> {
       };
     }
 
+    if ((protocolId == IrProtocolIds.sony12 ||
+            protocolId == IrProtocolIds.sony15 ||
+            protocolId == IrProtocolIds.sony20) &&
+        addrId != null &&
+        cmdId != null) {
+      final int bits;
+      final int addrBits;
+      if (protocolId == IrProtocolIds.sony12) {
+        bits = 12;
+        addrBits = 5;
+      } else if (protocolId == IrProtocolIds.sony15) {
+        bits = 15;
+        addrBits = 8;
+      } else {
+        bits = 20;
+        addrBits = 13;
+      }
+      const int cmdBits = 7;
+
+      final int data = int.parse(hex, radix: 16) & ((1 << bits) - 1);
+      final int cmd = data & ((1 << cmdBits) - 1);
+      final int addr = (data >> cmdBits) & ((1 << addrBits) - 1);
+
+      final addrField = _findFieldById(def, addrId);
+      final cmdField = _findFieldById(def, cmdId);
+      final int addrDigits =
+          (addrField == null) ? ((addrBits + 3) ~/ 4) : (_expectedHexDigits(addrField) ?? ((addrBits + 3) ~/ 4));
+      final int cmdDigits =
+          (cmdField == null) ? ((cmdBits + 3) ~/ 4) : (_expectedHexDigits(cmdField) ?? ((cmdBits + 3) ~/ 4));
+
+      String addrVal = addr.toRadixString(16).toUpperCase().padLeft(addrDigits, '0');
+      String cmdVal = cmd.toRadixString(16).toUpperCase().padLeft(cmdDigits, '0');
+      if (addrField != null && _wantsSpacedBytes(addrField)) addrVal = _formatBytesSpaced(addrVal);
+      if (cmdField != null && _wantsSpacedBytes(cmdField)) cmdVal = _formatBytesSpaced(cmdVal);
+
+      return <String, String>{
+        addrId: addrVal,
+        cmdId: cmdVal,
+      };
+    }
+
     // Address + Command protocols (most common mapping)
     if (addrId != null && cmdId != null) {
       final addrField = _findFieldById(def, addrId);
@@ -457,28 +511,30 @@ class _CreateButtonState extends State<CreateButton> {
 
       final int aDigits = addrField == null ? 2 : (_expectedHexDigits(addrField) ?? 2);
       final int cDigits = cmdField == null ? 2 : (_expectedHexDigits(cmdField) ?? 2);
+      final int totalDigits = aDigits + cDigits;
+      final String splitHex = (hex.length < totalDigits) ? hex.padLeft(totalDigits, '0') : hex;
 
       String addrVal = '';
       String cmdVal = '';
 
-      if (hex.length >= aDigits + cDigits) {
+      if (splitHex.length >= totalDigits) {
         // If payload is address + inv + cmd + inv (like Pioneer/Samsung family)
         // and both fields are same width, prefer extracting [addr][cmd] from positions 0 and 2*aDigits.
-        final int totalDigits = aDigits + cDigits;
-        final bool looksLikeInvertedLayout = (aDigits == cDigits) && (hex.length == totalDigits * 2);
+        final bool looksLikeInvertedLayout =
+            (aDigits == cDigits) && (splitHex.length == totalDigits * 2);
 
         if (looksLikeInvertedLayout) {
-          addrVal = hex.substring(0, aDigits);
+          addrVal = splitHex.substring(0, aDigits);
           final int cmdOff = 2 * aDigits;
-          if (hex.length >= cmdOff + cDigits) {
-            cmdVal = hex.substring(cmdOff, cmdOff + cDigits);
+          if (splitHex.length >= cmdOff + cDigits) {
+            cmdVal = splitHex.substring(cmdOff, cmdOff + cDigits);
           } else {
-            cmdVal = hex.substring(aDigits, aDigits + cDigits);
+            cmdVal = splitHex.substring(aDigits, aDigits + cDigits);
           }
         } else {
           // Default sequential split
-          addrVal = hex.substring(0, aDigits);
-          cmdVal = hex.substring(aDigits, aDigits + cDigits);
+          addrVal = splitHex.substring(0, aDigits);
+          cmdVal = splitHex.substring(aDigits, aDigits + cDigits);
         }
       }
 
@@ -1546,23 +1602,26 @@ class _CreateButtonState extends State<CreateButton> {
       if (addrCtl != null && cmdCtl != null) {
         final int aDigits = _expectedHexDigits(addr) ?? 2;
         final int cDigits = _expectedHexDigits(cmd) ?? 2;
+        final int totalDigits = aDigits + cDigits;
+        final String splitHex = (hex.length < totalDigits) ? hex.padLeft(totalDigits, '0') : hex;
 
-        if (hex.length >= aDigits + cDigits) {
+        if (splitHex.length >= totalDigits) {
           String aVal = '';
           String cVal = '';
 
-          final bool invertedLayout = (aDigits == cDigits) && (hex.length == (aDigits + cDigits) * 2);
+          final bool invertedLayout =
+              (aDigits == cDigits) && (splitHex.length == totalDigits * 2);
           if (invertedLayout) {
-            aVal = hex.substring(0, aDigits);
+            aVal = splitHex.substring(0, aDigits);
             final int cmdOff = 2 * aDigits;
-            if (hex.length >= cmdOff + cDigits) {
-              cVal = hex.substring(cmdOff, cmdOff + cDigits);
+            if (splitHex.length >= cmdOff + cDigits) {
+              cVal = splitHex.substring(cmdOff, cmdOff + cDigits);
             } else {
-              cVal = hex.substring(aDigits, aDigits + cDigits);
+              cVal = splitHex.substring(aDigits, aDigits + cDigits);
             }
           } else {
-            aVal = hex.substring(0, aDigits);
-            cVal = hex.substring(aDigits, aDigits + cDigits);
+            aVal = splitHex.substring(0, aDigits);
+            cVal = splitHex.substring(aDigits, aDigits + cDigits);
           }
 
           addrCtl.text = _wantsSpacedBytes(addr) ? _formatBytesSpaced(aVal) : aVal;
@@ -1658,6 +1717,9 @@ class _CreateButtonState extends State<CreateButton> {
 
     final def = IrProtocolRegistry.definitionFor(_selectedProtocolId);
     if (def != null) {
+      if (protoFreqController.text.trim().isEmpty && def.defaultFrequencyHz > 0) {
+        protoFreqController.text = def.defaultFrequencyHz.toString();
+      }
       _fillProtocolFieldsFromDbHex(hexClean);
       _showSnack('Imported from database.');
     } else {

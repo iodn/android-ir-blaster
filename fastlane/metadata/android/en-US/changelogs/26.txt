@@ -1,0 +1,4 @@
+Fixed DB import/edit parsing for sony12, sony15, and sony20 so address/command are decoded correctly from packed Sony payloads.
+Fixed protocol field length inference to avoid miscounting hint text, which caused incorrect 3/2 or 5/4 limits.
+Improved short-hex handling by padding before split so address/command fields don't get dropped.
+Auto-fills protocol default frequency on DB protocol imports when frequency is empty.
