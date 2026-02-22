@@ -312,7 +312,7 @@ class _IrFinderScreenState extends State<IrFinderScreen> with WidgetsBindingObse
     'rec80': '28C600212100',
     'recs80': '000',
     'recs80_l': '000',
-    'samsung32': '00000000',
+    'samsung32': '0000',
     'samsung36': '00C0001',
     'sharp': '2024',
     'sony12': '000',
