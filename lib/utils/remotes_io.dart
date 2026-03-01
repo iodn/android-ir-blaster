@@ -1288,6 +1288,8 @@ String? _normalizeRawDurations(String payload) {
 
 String? _mapIrplusFormatToProtocol(String formatUpper) {
   final f = formatUpper.trim().toUpperCase();
+  if (f.contains('RC5')) return 'rc5';
+  if (f.contains('RC6')) return 'rc6';
   if (f.contains('NEC2')) return 'nec2';
   if (f.contains('NECX') || f.contains('NECEXT')) return 'necx1';
   if (f.contains('NEC')) return 'nec';
@@ -1436,6 +1438,26 @@ Remote? _parseLircConfig(
           ),
         );
       } else {
+        final String? inferredProto = _inferLircProtocolId(
+          flags: flags,
+          remoteName: lircRemoteName,
+          header: header,
+          one: one,
+          zero: zero,
+          codeBits: bits,
+        );
+        final IRButton? mapped = _buildProtocolButtonFromLircCode(
+          id: uuid.v4(),
+          label: label,
+          frequency: frequency,
+          protocolId: inferredProto,
+          value: c.value,
+          codeBits: bits,
+        );
+        if (mapped != null) {
+          buttons.add(mapped);
+          continue;
+        }
         buttons.add(
           IRButton(
             id: uuid.v4(),
@@ -1457,6 +1479,263 @@ Remote? _parseLircConfig(
     useNewStyle: true,
     buttons: buttons,
   );
+}
+
+String? _inferLircProtocolId({
+  required String flags,
+  required String? remoteName,
+  required List<int>? header,
+  required List<int>? one,
+  required List<int>? zero,
+  required int? codeBits,
+}) {
+  final String f = flags.toUpperCase();
+  if (f.contains('RC5')) return 'rc5';
+  if (f.contains('RC6')) return 'rc6';
+
+  final String n = (remoteName ?? '').trim().toUpperCase();
+  final bool nameSony = n.contains('SONY') || n.contains('SIRC');
+  final bool nameJvc = n.contains('JVC');
+  final bool nameSamsung = n.contains('SAMSUNG');
+  final bool nameNec2 = n.contains('NEC2');
+  final bool nameNecx = n.contains('NECX') || n.contains('NECEXT');
+
+  final int bits = codeBits ?? 0;
+  if (nameSony || _looksSony(header)) {
+    if (bits == 12) return 'sony12';
+    if (bits == 15) return 'sony15';
+    if (bits == 20) return 'sony20';
+  }
+  if (nameJvc || _looksJvc(header)) return 'jvc';
+  if (nameSamsung || _looksSamsung(header)) {
+    if (bits == 36) return 'samsung36';
+    if (bits == 32) return 'samsung32';
+  }
+  if (_looksNecLike(header, one, zero, bits)) {
+    if (nameNec2) return 'nec2';
+    if (nameNecx) return 'necx1';
+    return 'nec';
+  }
+
+  return null;
+}
+
+bool _within(int v, int target, int tol) => (v - target).abs() <= tol;
+
+bool _looksSony(List<int>? header) {
+  if (header == null || header.length != 2) return false;
+  return _within(header[0], 2400, 700) && _within(header[1], 600, 300);
+}
+
+bool _looksJvc(List<int>? header) {
+  if (header == null || header.length != 2) return false;
+  return _within(header[0], 8400, 1800) && _within(header[1], 4200, 1200);
+}
+
+bool _looksSamsung(List<int>? header) {
+  if (header == null || header.length != 2) return false;
+  return _within(header[0], 4500, 1300) && _within(header[1], 4500, 1300);
+}
+
+bool _looksNecLike(List<int>? header, List<int>? one, List<int>? zero, int bits) {
+  if (bits < 24) return false;
+  if (header == null || one == null || zero == null) return false;
+  if (header.length != 2 || one.length != 2 || zero.length != 2) return false;
+
+  final bool headerLike = _within(header[0], 9000, 1800) && _within(header[1], 4500, 1200);
+  final bool marksLike = _within(one[0], 560, 220) && _within(zero[0], 560, 220);
+  final bool spacesLike = (one[1] - zero[1]).abs() >= 500;
+  return headerLike && marksLike && spacesLike;
+}
+
+IRButton? _buildProtocolButtonFromLircCode({
+  required String id,
+  required String label,
+  required int frequency,
+  required String? protocolId,
+  required BigInt value,
+  required int? codeBits,
+}) {
+  if (protocolId == null) return null;
+
+  if (protocolId == 'rc5') {
+    final String hex = _lircRc5PayloadHex(value: value, codeBits: codeBits);
+    return IRButton(
+      id: id,
+      code: null,
+      rawData: null,
+      frequency: frequency,
+      image: label,
+      isImage: false,
+      protocol: 'rc5',
+      protocolParams: <String, dynamic>{'hex': hex},
+    );
+  }
+
+  if (protocolId == 'rc6') {
+    final String hex = _lircRc6PayloadHex(value: value, codeBits: codeBits);
+    return IRButton(
+      id: id,
+      code: null,
+      rawData: null,
+      frequency: frequency,
+      image: label,
+      isImage: false,
+      protocol: 'rc6',
+      protocolParams: <String, dynamic>{'hex': hex},
+    );
+  }
+
+  final int n = value.toInt();
+  final int bitCount = (codeBits ?? 0).clamp(1, 63).toInt();
+  final int masked = (codeBits != null && codeBits > 0) ? (n & ((1 << bitCount) - 1)) : n;
+
+  if (protocolId == 'sony12') {
+    final int data = masked & 0x0FFF;
+    final int cmd = data & 0x7F;
+    final int addr = (data >> 7) & 0x1F;
+    return IRButton(
+      id: id,
+      code: null,
+      rawData: null,
+      frequency: frequency,
+      image: label,
+      isImage: false,
+      protocol: 'sony12',
+      protocolParams: <String, dynamic>{
+        'address': addr.toRadixString(16).toUpperCase(),
+        'command': cmd.toRadixString(16).toUpperCase(),
+      },
+    );
+  }
+
+  if (protocolId == 'sony15') {
+    final int data = masked & 0x7FFF;
+    final int cmd = data & 0x7F;
+    final int addr = (data >> 7) & 0xFF;
+    return IRButton(
+      id: id,
+      code: null,
+      rawData: null,
+      frequency: frequency,
+      image: label,
+      isImage: false,
+      protocol: 'sony15',
+      protocolParams: <String, dynamic>{
+        'address': addr.toRadixString(16).padLeft(2, '0').toUpperCase(),
+        'command': cmd.toRadixString(16).toUpperCase(),
+      },
+    );
+  }
+
+  if (protocolId == 'sony20') {
+    final int data = masked & 0xFFFFF;
+    final int cmd = data & 0x7F;
+    final int addr = (data >> 7) & 0x1FFF;
+    return IRButton(
+      id: id,
+      code: null,
+      rawData: null,
+      frequency: frequency,
+      image: label,
+      isImage: false,
+      protocol: 'sony20',
+      protocolParams: <String, dynamic>{
+        'address': addr.toRadixString(16).toUpperCase(),
+        'command': cmd.toRadixString(16).toUpperCase(),
+      },
+    );
+  }
+
+  if (protocolId == 'jvc') {
+    final String hex = (masked & 0xFFFF).toRadixString(16).padLeft(4, '0').toUpperCase();
+    return IRButton(
+      id: id,
+      code: null,
+      rawData: null,
+      frequency: frequency,
+      image: label,
+      isImage: false,
+      protocol: 'jvc',
+      protocolParams: <String, dynamic>{'hex': hex},
+    );
+  }
+
+  if (protocolId == 'samsung32') {
+    final int data = masked & 0xFFFFFFFF;
+    final int addr = data & 0xFF;
+    final int cmd = (data >> 16) & 0xFF;
+    return IRButton(
+      id: id,
+      code: null,
+      rawData: null,
+      frequency: frequency,
+      image: label,
+      isImage: false,
+      protocol: 'samsung32',
+      protocolParams: <String, dynamic>{
+        'address': addr.toRadixString(16).padLeft(2, '0').toUpperCase(),
+        'command': cmd.toRadixString(16).padLeft(2, '0').toUpperCase(),
+      },
+    );
+  }
+
+  if (protocolId == 'samsung36') {
+    final int core28 = masked & 0x0FFFFFFF;
+    final String hex = core28.toRadixString(16).padLeft(7, '0').toUpperCase();
+    return IRButton(
+      id: id,
+      code: null,
+      rawData: null,
+      frequency: frequency,
+      image: label,
+      isImage: false,
+      protocol: 'samsung36',
+      protocolParams: <String, dynamic>{'hex': hex},
+    );
+  }
+
+  if (protocolId == 'nec' || protocolId == 'nec2' || protocolId == 'necx1') {
+    final String hex = (masked & 0xFFFFFFFF).toRadixString(16).padLeft(8, '0').toUpperCase();
+    return IRButton(
+      id: id,
+      code: null,
+      rawData: null,
+      frequency: frequency,
+      image: label,
+      isImage: false,
+      protocol: protocolId,
+      protocolParams: <String, dynamic>{'hex': hex},
+    );
+  }
+
+  return null;
+}
+
+String _lircRc5PayloadHex({
+  required BigInt value,
+  required int? codeBits,
+}) {
+  final int n = value.toInt();
+  final int bitCount = (codeBits ?? 0).clamp(1, 63).toInt();
+  final int masked = (codeBits != null && codeBits > 0)
+      ? (n & ((1 << bitCount) - 1))
+      : n;
+  final int payload11 = masked & 0x7FF;
+  return payload11.toRadixString(16).toUpperCase();
+}
+
+String _lircRc6PayloadHex({
+  required BigInt value,
+  required int? codeBits,
+}) {
+  final int n = value.toInt();
+  final int bitCount = (codeBits ?? 0).clamp(1, 63).toInt();
+  final int masked = (codeBits != null && codeBits > 0)
+      ? (n & ((1 << bitCount) - 1))
+      : n;
+  final int payload16 = masked & 0xFFFF;
+  return payload16.toRadixString(16).padLeft(4, '0').toUpperCase();
 }
 
 class _LircRawButton {

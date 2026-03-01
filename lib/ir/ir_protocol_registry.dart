@@ -112,6 +112,7 @@ class IrProtocolRegistry {
     Recs80ProtocolEncoder.protocolId: const Recs80ProtocolEncoder(),
     Recs80LProtocolEncoder.protocolId: const Recs80LProtocolEncoder(),
 
+    Samsung32ProtocolEncoder.protocolId: const Samsung32ProtocolEncoder(),
     Samsung36ProtocolEncoder.protocolId: const Samsung36ProtocolEncoder(),
     SharpProtocolEncoder.protocolId: const SharpProtocolEncoder(),
 

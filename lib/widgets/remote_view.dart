@@ -644,7 +644,16 @@ class RemoteViewState extends State<RemoteView> {
     final int? f = b.frequency;
     if (f != null && f > 0) return f;
 
-    if (_hasProtocol(b)) return 38000;
+    if (_hasProtocol(b)) {
+      final String? pid = b.protocol?.trim();
+      if (pid != null && pid.isNotEmpty) {
+        final def = IrProtocolRegistry.definitionFor(pid);
+        if (def != null && def.defaultFrequencyHz > 0) {
+          return def.defaultFrequencyHz;
+        }
+      }
+      return 38000;
+    }
     if (_isRawSignalButton(b)) return 38000;
 
     return kDefaultNecFrequencyHz;

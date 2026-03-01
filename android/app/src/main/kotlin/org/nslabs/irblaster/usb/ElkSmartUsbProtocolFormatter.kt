@@ -122,6 +122,7 @@ object ElkSmartUsbProtocolFormatter : UsbWireProtocol {
     }
 
     private data class Pulse(val onUs: Int, val offUs: Int)
+    private const val ODD_PATTERN_TRAILING_GAP_US = 10_000
 
     private fun toPulses(patternUs: IntArray): List<Pulse> {
         if (patternUs.isEmpty()) return emptyList()
@@ -129,7 +130,14 @@ object ElkSmartUsbProtocolFormatter : UsbWireProtocol {
         var i = 0
         while (i < patternUs.size) {
             val on = patternUs[i].coerceAtLeast(0)
-            val off = if (i + 1 < patternUs.size) patternUs[i + 1].coerceAtLeast(0) else 0
+            // Some protocol encoders (e.g. RC6) can end with a trailing mark (odd-length pattern).
+            // A zero off-time can make certain ElkSmart firmware variants truncate the tail.
+            // Provide a short safety gap so the final mark is preserved.
+            val off = if (i + 1 < patternUs.size) {
+                patternUs[i + 1].coerceAtLeast(0)
+            } else {
+                ODD_PATTERN_TRAILING_GAP_US
+            }
             out.add(Pulse(on, off))
             i += 2
         }
