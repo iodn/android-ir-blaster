@@ -16,6 +16,7 @@ class UsbDiscoveryManager(
   private val usb: UsbManager
 ) {
   private val TAG = "UsbDiscovery"
+  private data class EndpointPair(val outEp: UsbEndpoint, val inEp: UsbEndpoint, val endpointNumber: Int)
 
   companion object {
     const val ACTION_USB_PERMISSION = "org.nslabs.irblaster.USB_PERMISSION"
@@ -40,43 +41,6 @@ class UsbDiscoveryManager(
       return null
     }
 
-    var selectedInterface: UsbInterface? = null
-    var outEp: UsbEndpoint? = null
-    var inEp: UsbEndpoint? = null
-
-    for (i in 0 until device.interfaceCount) {
-      val intf = device.getInterface(i)
-      val pair = findOutInEndpoints(intf)
-      if (pair != null) {
-        selectedInterface = intf
-        outEp = pair.first
-        inEp = pair.second
-        break
-      }
-    }
-
-    val intf: UsbInterface = selectedInterface ?: run {
-      Log.w(TAG, "Could not find required OUT + IN endpoints on any interface")
-      return null
-    }
-
-    val outEpNonNull = outEp!!
-    val inEpNonNull = inEp!!
-
-    val conn: UsbDeviceConnection = usb.openDevice(device) ?: run {
-      Log.w(TAG, "openDevice() returned null")
-      return null
-    }
-
-    if (!conn.claimInterface(intf, true)) {
-      Log.w(
-        TAG,
-        "claimInterface failed if=${intf.id} class=${intf.interfaceClass} sub=${intf.interfaceSubclass} proto=${intf.interfaceProtocol}"
-      )
-      conn.close()
-      return null
-    }
-
     val protocol: UsbWireProtocol = when {
       UsbDeviceFilter.isElkSmart(device) -> ElkSmartUsbProtocolFormatter
       UsbDeviceFilter.isZaZaRemoteFamily(device) -> UsbProtocolFormatter
@@ -84,55 +48,89 @@ class UsbDiscoveryManager(
       else -> UsbProtocolFormatter
     }
 
-    Log.i(
-      TAG,
-      "Selected IF=${intf.id} OUT(addr=${outEpNonNull.address},type=${outEpNonNull.type},mps=${outEpNonNull.maxPacketSize}) " +
-        "IN(addr=${inEpNonNull.address},type=${inEpNonNull.type},mps=${inEpNonNull.maxPacketSize}) protocol=${protocol.name}"
-    )
+    for (i in 0 until device.interfaceCount) {
+      val intf = device.getInterface(i)
+      val pairs = findEndpointPairs(intf)
+      if (pairs.isEmpty()) continue
 
-    val tx = UsbIrTransmitter.create(
-      device = device,
-      connection = conn,
-      claimedInterface = intf,
-      outEndpoint = outEpNonNull,
-      inEndpoint = inEpNonNull,
-      protocol = protocol
-    )
+      for (pair in pairs) {
+        val conn: UsbDeviceConnection = usb.openDevice(device) ?: run {
+          Log.w(TAG, "openDevice() returned null")
+          return null
+        }
 
-    if (tx == null) {
-      try {
-        conn.releaseInterface(intf)
-      } catch (_: Throwable) {
+        if (!conn.claimInterface(intf, true)) {
+          Log.w(
+            TAG,
+            "claimInterface failed if=${intf.id} class=${intf.interfaceClass} sub=${intf.interfaceSubclass} proto=${intf.interfaceProtocol}"
+          )
+          conn.close()
+          continue
+        }
+
+        Log.i(
+          TAG,
+          "Trying IF=${intf.id} EP#${pair.endpointNumber} OUT(addr=${pair.outEp.address},type=${pair.outEp.type},mps=${pair.outEp.maxPacketSize}) " +
+            "IN(addr=${pair.inEp.address},type=${pair.inEp.type},mps=${pair.inEp.maxPacketSize}) protocol=${protocol.name}"
+        )
+
+        val tx = UsbIrTransmitter.create(
+          device = device,
+          connection = conn,
+          claimedInterface = intf,
+          outEndpoint = pair.outEp,
+          inEndpoint = pair.inEp,
+          protocol = protocol
+        )
+
+        if (tx != null) {
+          Log.i(TAG, "Opened USB transmitter on IF=${intf.id} EP#${pair.endpointNumber} protocol=${protocol.name}")
+          return tx
+        }
+
+        try {
+          conn.releaseInterface(intf)
+        } catch (_: Throwable) {
+        }
+        try {
+          conn.close()
+        } catch (_: Throwable) {
+        }
       }
-      try {
-        conn.close()
-      } catch (_: Throwable) {
-      }
-      Log.w(TAG, "Failed to open USB transmitter (handshake/identify failed) protocol=${protocol.name}")
-      return null
     }
 
-    return tx
+    Log.w(TAG, "Failed to open USB transmitter on all endpoint pairs protocol=${protocol.name}")
+    return null
   }
 
-  private fun findOutInEndpoints(intf: UsbInterface): Pair<UsbEndpoint, UsbEndpoint>? {
-    fun pick(typeWanted: Int): Pair<UsbEndpoint, UsbEndpoint>? {
-      var outEp: UsbEndpoint? = null
-      var inEp: UsbEndpoint? = null
+  private fun endpointNumber(ep: UsbEndpoint): Int {
+    return ep.address and UsbConstants.USB_ENDPOINT_NUMBER_MASK
+  }
+
+  private fun findEndpointPairs(intf: UsbInterface): List<EndpointPair> {
+    fun collectForType(typeWanted: Int): List<EndpointPair> {
+      val outByNum = HashMap<Int, UsbEndpoint>()
+      val inByNum = HashMap<Int, UsbEndpoint>()
 
       for (i in 0 until intf.endpointCount) {
         val ep = intf.getEndpoint(i)
         if (ep.type != typeWanted) continue
-        if (ep.direction == UsbConstants.USB_DIR_OUT && outEp == null) outEp = ep
-        if (ep.direction == UsbConstants.USB_DIR_IN && inEp == null) inEp = ep
+        val num = endpointNumber(ep)
+        if (ep.direction == UsbConstants.USB_DIR_OUT) outByNum[num] = ep
+        if (ep.direction == UsbConstants.USB_DIR_IN) inByNum[num] = ep
       }
 
-      val out = outEp ?: return null
-      val inn = inEp ?: return null
-      return Pair(out, inn)
+      val nums = (outByNum.keys intersect inByNum.keys).toList().sorted()
+      return nums.mapNotNull { n ->
+        val out = outByNum[n]
+        val inn = inByNum[n]
+        if (out != null && inn != null) EndpointPair(out, inn, n) else null
+      }
     }
 
-    return pick(UsbConstants.USB_ENDPOINT_XFER_BULK) ?: pick(UsbConstants.USB_ENDPOINT_XFER_INT)
+    val bulkPairs = collectForType(UsbConstants.USB_ENDPOINT_XFER_BULK)
+    if (bulkPairs.isNotEmpty()) return bulkPairs
+    return collectForType(UsbConstants.USB_ENDPOINT_XFER_INT)
   }
 
   private fun permissionPiFlags(): Int {

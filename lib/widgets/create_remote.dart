@@ -7,6 +7,7 @@ import 'package:irblaster_controller/utils/ir.dart';
 import 'package:irblaster_controller/utils/remote.dart';
 import 'package:irblaster_controller/widgets/create_button.dart';
 import 'package:irblaster_controller/widgets/db_bulk_import_sheet.dart';
+import 'package:irblaster_controller/widgets/existing_remote_button_import_sheet.dart';
 import 'package:uuid/uuid.dart';
 
 enum _LayoutStyle { compact, wide }
@@ -116,6 +117,33 @@ class _CreateRemoteState extends State<CreateRemote> {
         remote.buttons.addAll(imported);
       });
       _showSnack('Imported ${imported.length} button(s).');
+    } catch (_) {}
+  }
+
+  Future<void> _openImportFromExistingRemotes() async {
+    try {
+      final imported = await showModalBottomSheet<List<IRButton>>(
+        context: context,
+        isScrollControlled: true,
+        useSafeArea: true,
+        showDragHandle: true,
+        builder: (ctx) => FractionallySizedBox(
+          heightFactor: 0.97,
+          child: ExistingRemoteButtonImportSheet(
+            existingButtons: remote.buttons,
+            currentRemoteId: remote.id,
+          ),
+        ),
+      );
+      if (imported == null || imported.isEmpty) return;
+      if (!mounted) return;
+
+      final int before = remote.buttons.length;
+      setState(() {
+        remote.buttons.addAll(imported);
+      });
+      final int added = remote.buttons.length - before;
+      _showSnack('Imported $added button(s) from existing remotes.');
     } catch (_) {}
   }
 
@@ -391,26 +419,36 @@ class _CreateRemoteState extends State<CreateRemote> {
                           style: theme.textTheme.titleMedium?.copyWith(fontWeight: FontWeight.w800),
                         ),
                       ),
-                      Flexible(
-                        child: Wrap(
-                          spacing: 8,
-                          runSpacing: 8,
-                          alignment: WrapAlignment.end,
-                          children: [
-                            FilledButton.tonalIcon(
-                              onPressed: _openBulkImport,
-                              icon: const Icon(Icons.playlist_add_rounded),
-                              label: const Text('Import from DB'),
-                            ),
-                            FilledButton.icon(
-                              onPressed: _addButton,
-                              icon: const Icon(Icons.add),
-                              label: const Text('Add button'),
-                            ),
-                          ],
+                    ],
+                  ),
+                  const SizedBox(height: 8),
+                  Row(
+                    children: [
+                      Expanded(
+                        child: FilledButton.tonalIcon(
+                          onPressed: _openImportFromExistingRemotes,
+                          icon: const Icon(Icons.merge_type_rounded),
+                          label: const Text('Import from remotes'),
+                        ),
+                      ),
+                      const SizedBox(width: 8),
+                      Expanded(
+                        child: FilledButton.tonalIcon(
+                          onPressed: _openBulkImport,
+                          icon: const Icon(Icons.playlist_add_rounded),
+                          label: const Text('Import from DB'),
                         ),
                       ),
                     ],
+                  ),
+                  const SizedBox(height: 8),
+                  SizedBox(
+                    width: double.infinity,
+                    child: FilledButton.icon(
+                      onPressed: _addButton,
+                      icon: const Icon(Icons.add),
+                      label: const Text('Add button'),
+                    ),
                   ),
                 ],
               ),
@@ -445,10 +483,24 @@ class _CreateRemoteState extends State<CreateRemote> {
                               label: const Text('Add button'),
                             ),
                             const SizedBox(height: 8),
-                            FilledButton.tonalIcon(
-                              onPressed: _openBulkImport,
-                              icon: const Icon(Icons.playlist_add_rounded),
-                              label: const Text('Import from DB'),
+                            Row(
+                              children: [
+                                Expanded(
+                                  child: FilledButton.tonalIcon(
+                                    onPressed: _openImportFromExistingRemotes,
+                                    icon: const Icon(Icons.merge_type_rounded),
+                                    label: const Text('Import from remotes'),
+                                  ),
+                                ),
+                                const SizedBox(width: 8),
+                                Expanded(
+                                  child: FilledButton.tonalIcon(
+                                    onPressed: _openBulkImport,
+                                    icon: const Icon(Icons.playlist_add_rounded),
+                                    label: const Text('Import from DB'),
+                                  ),
+                                ),
+                              ],
                             ),
                           ],
                         ),

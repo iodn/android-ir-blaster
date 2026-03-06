@@ -27,7 +27,7 @@ class SettingsScreen extends StatelessWidget {
 
   static const String _repoUrl = 'https://github.com/iodn/android-ir-blaster';
   static const String _issuesUrl = 'https://github.com/iodn/android-ir-blaster/issues';
-  static const String _licenseUrl = 'https://github.com/iodn/android-ir-blaster/blob/main/LICENSE';
+  static const String _licenseUrl = 'https://github.com/iodn/android-ir-blaster/blob/master/LICENSE';
   static const String _companyUrl = 'https://neroswarm.com';
   static const String _creatorName = 'KaijinLab Inc.';
   static const String _liberapayUrl = 'https://liberapay.com/KaijinLab/donate';

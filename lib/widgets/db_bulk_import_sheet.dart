@@ -36,6 +36,18 @@ class _DbBulkImportSheetState extends State<DbBulkImportSheet> {
 
   _DbPreset _dbPreset = _DbPreset.all;
   bool _filtersExpanded = true;
+  final ExpansionTileController _filtersTileController =
+      ExpansionTileController();
+
+  void _setFiltersExpanded(bool expanded) {
+    if (expanded == _filtersExpanded) return;
+    setState(() => _filtersExpanded = expanded);
+    if (expanded) {
+      _filtersTileController.expand();
+    } else {
+      _filtersTileController.collapse();
+    }
+  }
 
   @override
   void initState() {
@@ -206,8 +218,8 @@ class _DbBulkImportSheetState extends State<DbBulkImportSheet> {
       _selectedKeys.clear();
 
       _dbPreset = _DbPreset.all;
-      _filtersExpanded = true;
     });
+    _setFiltersExpanded(true);
   }
 
   Future<void> _dbSelectModel() async {
@@ -229,8 +241,8 @@ class _DbBulkImportSheetState extends State<DbBulkImportSheet> {
       _selectedKeys.clear();
 
       _dbPreset = _DbPreset.all;
-      _filtersExpanded = false;
     });
+    _setFiltersExpanded(false);
 
     await _dbLoadProtocolsForSelection();
     await _dbReloadKeys(reset: true);
@@ -244,8 +256,8 @@ class _DbBulkImportSheetState extends State<DbBulkImportSheet> {
       _dbOffset = 0;
       _dbExhausted = false;
       _selectedKeys.clear();
-      _filtersExpanded = false;
     });
+    _setFiltersExpanded(false);
     await _dbReloadKeys(reset: true);
   }
 
@@ -716,6 +728,10 @@ class _DbBulkImportSheetState extends State<DbBulkImportSheet> {
     ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text(message)));
   }
 
+  void _toggleFiltersExpanded() {
+    _setFiltersExpanded(!_filtersExpanded);
+  }
+
   Widget _dbField({
     required String label,
     required IconData icon,
@@ -882,6 +898,7 @@ class _DbBulkImportSheetState extends State<DbBulkImportSheet> {
               const SizedBox(height: 10),
             ],
             ExpansionTile(
+              controller: _filtersTileController,
               initiallyExpanded: _filtersExpanded || !canBrowseKeys,
               onExpansionChanged: (v) => setState(() => _filtersExpanded = v),
               tilePadding: EdgeInsets.zero,
@@ -904,6 +921,23 @@ class _DbBulkImportSheetState extends State<DbBulkImportSheet> {
                     ),
                 ],
               ),
+              trailing: canBrowseKeys
+                  ? FilledButton.tonalIcon(
+                      onPressed: _toggleFiltersExpanded,
+                      icon: Icon(
+                        _filtersExpanded
+                            ? Icons.keyboard_arrow_up_rounded
+                            : Icons.keyboard_arrow_down_rounded,
+                      ),
+                      label: Text(
+                        _filtersExpanded ? 'Hide filters' : 'Show filters',
+                      ),
+                      style: FilledButton.styleFrom(
+                        visualDensity: VisualDensity.compact,
+                        tapTargetSize: MaterialTapTargetSize.shrinkWrap,
+                      ),
+                    )
+                  : null,
               childrenPadding: const EdgeInsets.only(bottom: 8),
               children: [
                 Row(

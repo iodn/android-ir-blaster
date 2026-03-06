@@ -1,0 +1,6 @@
+New Feature
+Added a new custom remote feature that lets users combine selected buttons from multiple existing remotes into one remote.
+
+Bug Fixed
+Fixed RC5 import remotes so the original carrier frequency is kept after import instead of being changed to 38 kHz for every button.
+Fixed some IR transmission compatibility by correcting incomplete or malformed signals sent by the app.
