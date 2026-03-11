@@ -128,6 +128,63 @@ class _HomeShellState extends State<HomeShell> {
     return !audioSelected && !caps.hasInternal && !caps.usbReady;
   }
 
+  String _usbUnavailableMessage(IrTransmitterCapabilities caps) {
+    switch (caps.usbStatus) {
+      case UsbConnectionStatus.permissionRequired:
+        return 'This phone does not include a built-in IR emitter. A USB IR dongle is detected, but permission is not granted yet.\n\nApprove the USB permission prompt to enable sending IR.';
+      case UsbConnectionStatus.permissionDenied:
+        return 'This phone does not include a built-in IR emitter. A USB IR dongle is detected, but USB permission was denied.\n\nRequest permission again and approve the prompt to enable sending IR.';
+      case UsbConnectionStatus.permissionGranted:
+        return 'This phone does not include a built-in IR emitter. A USB IR dongle is authorized, but it is not initialized yet.';
+      case UsbConnectionStatus.openFailed:
+        return 'This phone does not include a built-in IR emitter. A USB IR dongle is detected and authorized, but it could not be initialized.\n\nReconnect the dongle and try again.';
+      case UsbConnectionStatus.ready:
+        return 'This phone does not include a built-in IR emitter.';
+      case UsbConnectionStatus.noDevice:
+        return 'This phone does not include a built-in IR emitter, and no supported USB IR dongle is currently connected.\n\nYou can still create, import, and manage remotes — but to transmit IR signals you need one of the options below.';
+    }
+  }
+
+  String _usbOptionSubtitle(IrTransmitterCapabilities caps) {
+    if (!caps.hasUsb) {
+      return 'Plug in a supported USB IR dongle, then approve permission.';
+    }
+    switch (caps.usbStatus) {
+      case UsbConnectionStatus.ready:
+        return 'Ready to use.';
+      case UsbConnectionStatus.permissionRequired:
+        return 'Plugged in. Permission required.';
+      case UsbConnectionStatus.permissionDenied:
+        return 'Permission denied. Request it again.';
+      case UsbConnectionStatus.permissionGranted:
+        return 'Authorized. Initializing dongle.';
+      case UsbConnectionStatus.openFailed:
+        return 'Authorized, but initialization failed.';
+      case UsbConnectionStatus.noDevice:
+        return 'Plug in a supported USB IR dongle, then approve permission.';
+    }
+  }
+
+  String _hardwareBannerSubtitle(IrTransmitterCapabilities caps) {
+    if (!caps.hasUsb) {
+      return 'This phone has no built-in IR. Connect a USB IR dongle or enable Audio mode in Settings.';
+    }
+    switch (caps.usbStatus) {
+      case UsbConnectionStatus.permissionRequired:
+        return 'USB dongle detected. Permission required to send IR.';
+      case UsbConnectionStatus.permissionDenied:
+        return 'USB permission was denied. Request it again to send IR.';
+      case UsbConnectionStatus.permissionGranted:
+        return 'USB dongle authorized. Waiting for initialization.';
+      case UsbConnectionStatus.openFailed:
+        return 'USB dongle authorized, but initialization failed.';
+      case UsbConnectionStatus.ready:
+        return 'USB is ready.';
+      case UsbConnectionStatus.noDevice:
+        return 'This phone has no built-in IR. Connect a USB IR dongle or enable Audio mode in Settings.';
+    }
+  }
+
   /// Missing handler you referenced in initState().
   Future<void> _onCaps(IrTransmitterCapabilities caps) async {
     final prev = _caps;
@@ -237,28 +294,14 @@ class _HomeShellState extends State<HomeShell> {
           final theme = Theme.of(ctx);
           final cs = theme.colorScheme;
 
-          final bool hasUsb = caps.hasUsb;
-          final bool usbReady = caps.usbReady;
-
           const String headline = 'IR hardware required to send commands';
-
-          final String message = (!hasUsb)
-              ? 'This phone does not include a built-in IR emitter, and no supported USB IR dongle is currently connected.\n\n'
-                  'You can still create, import, and manage remotes — but to transmit IR signals you need one of the options below.'
-              : (!usbReady)
-                  ? 'This phone does not include a built-in IR emitter. A USB IR dongle is detected, but permission is not granted yet.\n\n'
-                      'Approve the USB permission prompt to enable sending IR.'
-                  : 'This phone does not include a built-in IR emitter.';
+          final String message = _usbUnavailableMessage(caps);
 
           final List<_HardwareOption> options = <_HardwareOption>[
             _HardwareOption(
               icon: Icons.usb_rounded,
               title: 'USB IR dongle (recommended)',
-              subtitle: hasUsb
-                  ? (usbReady
-                      ? 'Ready to use.'
-                      : 'Plugged in — permission required.')
-                  : 'Plug in a supported USB IR dongle, then approve permission.',
+              subtitle: _usbOptionSubtitle(caps),
             ),
             const _HardwareOption(
               icon: Icons.graphic_eq_rounded,
@@ -427,15 +470,8 @@ class _HomeShellState extends State<HomeShell> {
     final theme = Theme.of(context);
     final cs = theme.colorScheme;
 
-    final bool hasUsb = caps.hasUsb;
-    final bool usbReady = caps.usbReady;
-
     const String title = 'No IR transmitter available';
-    final String subtitle = hasUsb
-        ? (usbReady
-            ? 'USB is ready.'
-            : 'USB dongle detected — permission required to send IR.')
-        : 'This phone has no built-in IR. Connect a USB IR dongle or enable Audio mode in Settings.';
+    final String subtitle = _hardwareBannerSubtitle(caps);
 
     return Padding(
       padding: const EdgeInsets.fromLTRB(12, 12, 12, 6),

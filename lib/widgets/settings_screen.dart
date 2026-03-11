@@ -1131,6 +1131,42 @@ class _IrTransmitterCardState extends State<_IrTransmitterCard> {
     } catch (_) {}
   }
 
+  String _usbStatusBannerText(IrTransmitterCapabilities caps) {
+    switch (caps.usbStatus) {
+      case UsbConnectionStatus.ready:
+        return 'USB dongle is connected and ready to send IR.';
+      case UsbConnectionStatus.permissionRequired:
+        return 'USB dongle detected. Request USB permission and approve the system prompt.';
+      case UsbConnectionStatus.permissionDenied:
+        return 'USB permission was denied for the attached dongle. Request it again and approve the prompt.';
+      case UsbConnectionStatus.permissionGranted:
+        return 'USB permission is granted. The dongle still needs to be initialized before it can send IR.';
+      case UsbConnectionStatus.openFailed:
+        return caps.usbStatusMessage ??
+            'USB permission is granted, but the dongle could not be initialized. Reconnect it and try again.';
+      case UsbConnectionStatus.noDevice:
+        return 'No supported USB IR dongle detected.';
+    }
+  }
+
+  String _usbSelectionMessage(IrTransmitterCapabilities caps) {
+    switch (caps.usbStatus) {
+      case UsbConnectionStatus.permissionRequired:
+        return 'USB dongle detected but not authorized. Tap "Request USB permission".';
+      case UsbConnectionStatus.permissionDenied:
+        return 'USB permission was denied. Tap "Request USB permission" and approve the prompt.';
+      case UsbConnectionStatus.permissionGranted:
+        return 'USB permission is granted, but the dongle is not initialized yet. Try reconnecting it.';
+      case UsbConnectionStatus.openFailed:
+        return caps.usbStatusMessage ??
+            'USB permission is granted, but the dongle could not be initialized. Reconnect it and try again.';
+      case UsbConnectionStatus.noDevice:
+        return 'No supported USB IR dongle detected. Plug it in, then tap "Request USB permission".';
+      case UsbConnectionStatus.ready:
+        return 'USB dongle is ready.';
+    }
+  }
+
   Future<void> _setAutoSwitch(bool enabled) async {
     final caps = _caps;
     if (caps == null) return;
@@ -1216,10 +1252,9 @@ class _IrTransmitterCardState extends State<_IrTransmitterCard> {
     final freshCaps = _caps;
 
     if (t == IrTransmitterType.usb && freshCaps != null && !freshCaps.usbReady) {
-      final msg = freshCaps.hasUsb
-          ? 'USB dongle detected but not authorized. Tap “Request USB permission”.'
-          : 'No supported USB IR dongle detected. Plug it in, then tap “Request USB permission”.';
-      ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text(msg)));
+      ScaffoldMessenger.of(context).showSnackBar(
+        SnackBar(content: Text(_usbSelectionMessage(freshCaps))),
+      );
     }
 
     if (t == IrTransmitterType.internal && freshCaps != null && !freshCaps.hasInternal) {
@@ -1246,15 +1281,31 @@ class _IrTransmitterCardState extends State<_IrTransmitterCard> {
 
     try {
       final ok = await IrTransmitterPlatform.usbScanAndRequest();
+      await _refreshCaps();
       if (!mounted) return;
+
+      final freshCaps = _caps;
 
       if (!ok) {
         ScaffoldMessenger.of(context).showSnackBar(
           const SnackBar(content: Text('No supported USB IR dongle detected.')),
         );
-      } else {
+      } else if (freshCaps == null) {
+        ScaffoldMessenger.of(context).showSnackBar(
+          const SnackBar(content: Text('USB permission request sent.')),
+        );
+      } else if (freshCaps.usbStatus == UsbConnectionStatus.permissionRequired ||
+          freshCaps.usbStatus == UsbConnectionStatus.permissionDenied) {
         ScaffoldMessenger.of(context).showSnackBar(
           const SnackBar(content: Text('USB permission request sent. Approve the prompt to enable USB.')),
+        );
+      } else if (freshCaps.usbStatus == UsbConnectionStatus.ready) {
+        ScaffoldMessenger.of(context).showSnackBar(
+          const SnackBar(content: Text('USB dongle is already initialized and ready.')),
+        );
+      } else {
+        ScaffoldMessenger.of(context).showSnackBar(
+          SnackBar(content: Text(_usbStatusBannerText(freshCaps))),
         );
       }
     } catch (_) {
@@ -1263,7 +1314,6 @@ class _IrTransmitterCardState extends State<_IrTransmitterCard> {
         const SnackBar(content: Text('Failed to request USB permission.')),
       );
     } finally {
-      await _refreshCaps();
       if (!mounted) return;
       setState(() {
         _busy = false;
@@ -1497,9 +1547,7 @@ class _IrTransmitterCardState extends State<_IrTransmitterCard> {
                   const SizedBox(width: 10),
                   Expanded(
                     child: Text(
-                      caps.usbReady
-                          ? 'USB dongle is authorized and ready.'
-                          : 'If your dongle is connected but not working, request USB permission and approve the prompt.',
+                      _usbStatusBannerText(caps),
                       style: TextStyle(color: cs.onSurfaceVariant, height: 1.3),
                     ),
                   ),

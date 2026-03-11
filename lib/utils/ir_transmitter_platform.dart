@@ -9,6 +9,35 @@ enum IrTransmitterType {
   audio2Led,
 }
 
+enum UsbConnectionStatus {
+  noDevice,
+  permissionRequired,
+  permissionDenied,
+  permissionGranted,
+  openFailed,
+  ready,
+}
+
+extension UsbConnectionStatusX on UsbConnectionStatus {
+  static UsbConnectionStatus fromWire(String? value) {
+    switch ((value ?? '').toUpperCase()) {
+      case 'PERMISSION_REQUIRED':
+        return UsbConnectionStatus.permissionRequired;
+      case 'PERMISSION_DENIED':
+        return UsbConnectionStatus.permissionDenied;
+      case 'PERMISSION_GRANTED':
+        return UsbConnectionStatus.permissionGranted;
+      case 'OPEN_FAILED':
+        return UsbConnectionStatus.openFailed;
+      case 'READY':
+        return UsbConnectionStatus.ready;
+      case 'NO_DEVICE':
+      default:
+        return UsbConnectionStatus.noDevice;
+    }
+  }
+}
+
 extension IrTransmitterTypeX on IrTransmitterType {
   String get wireValue {
     switch (this) {
@@ -84,6 +113,8 @@ class IrTransmitterCapabilities {
   final bool hasInternal;
   final bool hasUsb;
   final bool usbOpened;
+  final UsbConnectionStatus usbStatus;
+  final String? usbStatusMessage;
   final bool hasAudio;
   final IrTransmitterType currentType;
   final List<UsbDeviceInfo> usbDevices;
@@ -93,6 +124,8 @@ class IrTransmitterCapabilities {
     required this.hasInternal,
     required this.hasUsb,
     required this.usbOpened,
+    required this.usbStatus,
+    required this.usbStatusMessage,
     required this.hasAudio,
     required this.currentType,
     required this.usbDevices,
@@ -100,7 +133,7 @@ class IrTransmitterCapabilities {
   });
 
   bool get usbPermissionGranted => usbDevices.any((d) => d.hasPermission);
-  bool get usbReady => hasUsb && usbPermissionGranted;
+  bool get usbReady => hasUsb && usbOpened;
 
   factory IrTransmitterCapabilities.fromMap(Map<String, dynamic> m) {
     final devicesRaw = (m['usbDevices'] as List?) ?? const [];
@@ -114,6 +147,8 @@ class IrTransmitterCapabilities {
       hasInternal: (m['hasInternal'] as bool?) ?? false,
       hasUsb: (m['hasUsb'] as bool?) ?? false,
       usbOpened: (m['usbOpened'] as bool?) ?? false,
+      usbStatus: UsbConnectionStatusX.fromWire(m['usbStatus'] as String?),
+      usbStatusMessage: m['usbStatusMessage'] as String?,
       hasAudio: (m['hasAudio'] as bool?) ?? true,
       currentType: IrTransmitterTypeX.fromWire(m['currentType'] as String?),
       usbDevices: devices,
@@ -142,6 +177,8 @@ class IrTransmitterPlatform {
             hasInternal: false,
             hasUsb: false,
             usbOpened: false,
+            usbStatus: UsbConnectionStatus.noDevice,
+            usbStatusMessage: null,
             hasAudio: true,
             currentType: IrTransmitterType.internal,
             usbDevices: <UsbDeviceInfo>[],
@@ -189,6 +226,8 @@ class IrTransmitterPlatform {
       hasInternal: false,
       hasUsb: false,
       usbOpened: false,
+      usbStatus: UsbConnectionStatus.noDevice,
+      usbStatusMessage: null,
       hasAudio: true,
       currentType: IrTransmitterType.internal,
       usbDevices: <UsbDeviceInfo>[],

@@ -23,6 +23,8 @@ import org.nslabs.ir_blaster.BaseQuickTileService
 
 class MainActivity : FlutterActivity() {
     private enum class TxType { INTERNAL, USB, AUDIO_1_LED, AUDIO_2_LED }
+    private enum class UsbAvailabilityState { NO_DEVICE, PERMISSION_REQUIRED, PERMISSION_DENIED, PERMISSION_GRANTED, OPEN_FAILED, READY }
+    private data class UsbAcquireResult(val transmitter: UsbIrTransmitter?, val state: UsbAvailabilityState)
 
     private val TAG = "IRBlaster"
 
@@ -36,6 +38,8 @@ class MainActivity : FlutterActivity() {
     private var usbManager: UsbManager? = null
     private var usbDiscovery: UsbDiscoveryManager? = null
     private var usbTransmitter: UsbIrTransmitter? = null
+    private var usbState: UsbAvailabilityState = UsbAvailabilityState.NO_DEVICE
+    private var usbStateMessage: String? = null
 
     private val audio1Tx = AudioIrTransmitter(mode = 1)
     private val audio2Tx = AudioIrTransmitter(mode = 2)
@@ -123,28 +127,96 @@ class MainActivity : FlutterActivity() {
     private fun internalAvailable(): Boolean = (irManager?.hasIrEmitter() == true)
 
     private fun openUsbIfPermitted(): UsbIrTransmitter? {
-        val disc = usbDiscovery ?: return null
-        val mgr = usbManager ?: return null
-        val dev = disc.scanSupported().firstOrNull() ?: return null
-        return if (mgr.hasPermission(dev)) openUsbDevice(dev) else null
+        return acquireUsbTransmitter(requestPermissionIfNeeded = false).transmitter
     }
 
     private fun ensureUsbOpenedIfPermitted(): Boolean {
-        if (usbTransmitter != null) return true
-        val disc = usbDiscovery ?: return false
-        val mgr = usbManager ?: return false
+        return acquireUsbTransmitter(requestPermissionIfNeeded = false).transmitter != null
+    }
+
+    private fun setUsbState(state: UsbAvailabilityState, detail: String? = null) {
+        usbState = state
+        usbStateMessage = detail
+    }
+
+    private fun usbStateWireValue(state: UsbAvailabilityState): String {
+        return when (state) {
+            UsbAvailabilityState.NO_DEVICE -> "NO_DEVICE"
+            UsbAvailabilityState.PERMISSION_REQUIRED -> "PERMISSION_REQUIRED"
+            UsbAvailabilityState.PERMISSION_DENIED -> "PERMISSION_DENIED"
+            UsbAvailabilityState.PERMISSION_GRANTED -> "PERMISSION_GRANTED"
+            UsbAvailabilityState.OPEN_FAILED -> "OPEN_FAILED"
+            UsbAvailabilityState.READY -> "READY"
+        }
+    }
+
+    private fun refreshUsbStateSnapshot() {
+        val disc = usbDiscovery
+        val mgr = usbManager
+        val dev = try {
+            disc?.scanSupported()?.firstOrNull()
+        } catch (_: Throwable) {
+            null
+        }
+
+        when {
+            dev == null -> setUsbState(UsbAvailabilityState.NO_DEVICE, "No supported USB IR dongle is attached.")
+            usbTransmitter != null -> setUsbState(UsbAvailabilityState.READY, "USB dongle is connected and initialized.")
+            mgr == null -> setUsbState(UsbAvailabilityState.NO_DEVICE, "UsbManager is not available.")
+            !mgr.hasPermission(dev) -> {
+                if (usbState != UsbAvailabilityState.PERMISSION_DENIED) {
+                    setUsbState(UsbAvailabilityState.PERMISSION_REQUIRED, "USB permission is required for the attached dongle.")
+                }
+            }
+            usbState != UsbAvailabilityState.OPEN_FAILED -> {
+                setUsbState(UsbAvailabilityState.PERMISSION_GRANTED, "USB permission is granted, but the dongle is not initialized yet.")
+            }
+        }
+    }
+
+    private fun acquireUsbTransmitter(requestPermissionIfNeeded: Boolean): UsbAcquireResult {
+        usbTransmitter?.let {
+            setUsbState(UsbAvailabilityState.READY, "USB dongle is connected and initialized.")
+            return UsbAcquireResult(it, UsbAvailabilityState.READY)
+        }
+
+        val disc = usbDiscovery
+        val mgr = usbManager
+        if (disc == null || mgr == null) {
+            setUsbState(UsbAvailabilityState.NO_DEVICE, "UsbManager is not available.")
+            return UsbAcquireResult(null, UsbAvailabilityState.NO_DEVICE)
+        }
+
         val dev = try {
             disc.scanSupported().firstOrNull()
         } catch (_: Throwable) {
             null
-        } ?: return false
-        if (!mgr.hasPermission(dev)) return false
+        }
+        if (dev == null) {
+            setUsbState(UsbAvailabilityState.NO_DEVICE, "No supported USB IR dongle is attached.")
+            return UsbAcquireResult(null, UsbAvailabilityState.NO_DEVICE)
+        }
+
+        if (!mgr.hasPermission(dev)) {
+            setUsbState(UsbAvailabilityState.PERMISSION_REQUIRED, "USB permission is required for the attached dongle.")
+            if (requestPermissionIfNeeded) {
+                disc.requestPermission(dev)
+            }
+            return UsbAcquireResult(null, UsbAvailabilityState.PERMISSION_REQUIRED)
+        }
+
         val opened = openUsbDevice(dev)
         if (opened != null) {
             usbTransmitter = opened
-            return true
+            setUsbState(UsbAvailabilityState.READY, "USB dongle is connected and initialized.")
+            return UsbAcquireResult(opened, UsbAvailabilityState.READY)
         }
-        return false
+
+        setUsbState(
+            UsbAvailabilityState.OPEN_FAILED,
+            "USB permission is granted, but the dongle could not be initialized."
+        )
+        return UsbAcquireResult(null, UsbAvailabilityState.OPEN_FAILED)
     }
 
     private fun applyAutoSwitchIfEnabled(reason: String) {
@@ -162,6 +234,7 @@ class MainActivity : FlutterActivity() {
     }
 
     private fun buildTxCapsMap(): Map<String, Any?> {
+        refreshUsbStateSnapshot()
         val hasInternal = internalAvailable()
         val usbDevs = try {
             val mgr = usbManager
@@ -183,6 +256,8 @@ class MainActivity : FlutterActivity() {
             "hasInternal" to hasInternal,
             "hasUsb" to usbDevs.isNotEmpty(),
             "usbOpened" to (usbTransmitter != null),
+            "usbStatus" to usbStateWireValue(usbState),
+            "usbStatusMessage" to usbStateMessage,
             "hasAudio" to true,
             "currentType" to currentTxType.name,
             "usbDevices" to usbDevs,
@@ -228,10 +303,20 @@ class MainActivity : FlutterActivity() {
                         val disc = usbDiscovery
                         if (mgr != null && disc != null) {
                             if (!mgr.hasPermission(dev)) {
+                                setUsbState(UsbAvailabilityState.PERMISSION_REQUIRED, "USB permission is required for the attached dongle.")
                                 Log.i(TAG, "Requesting USB permission on attach...")
                                 disc.requestPermission(dev)
                             } else {
-                                openUsbDevice(dev)?.let { usbTransmitter = it }
+                                val opened = openUsbDevice(dev)
+                                if (opened != null) {
+                                    usbTransmitter = opened
+                                    setUsbState(UsbAvailabilityState.READY, "USB dongle is connected and initialized.")
+                                } else {
+                                    setUsbState(
+                                        UsbAvailabilityState.OPEN_FAILED,
+                                        "USB permission is granted, but the dongle could not be initialized."
+                                    )
+                                }
                                 applyAutoSwitchIfEnabled("usb_attached_permitted")
                             }
                         }
@@ -250,6 +335,7 @@ class MainActivity : FlutterActivity() {
                         usbTransmitter?.closeSafely()
                         usbTransmitter = null
                     }
+                    refreshUsbStateSnapshot()
                     applyAutoSwitchIfEnabled("usb_detached")
                     emitTxStatus("usb_detached")
                     emitTxStatusDelayed("usb_detached_delayed", 450L)
@@ -265,6 +351,7 @@ class MainActivity : FlutterActivity() {
                     if (!granted || dev == null || !UsbDeviceFilter.isSupported(dev)) {
                         usbTransmitter?.closeSafely()
                         usbTransmitter = null
+                        setUsbState(UsbAvailabilityState.PERMISSION_DENIED, "USB permission was denied for the attached dongle.")
                         applyAutoSwitchIfEnabled("usb_permission_denied")
                         emitTxStatus("usb_permission_denied")
                         emitTxStatusDelayed("usb_permission_denied_delayed", 350L)
@@ -273,9 +360,14 @@ class MainActivity : FlutterActivity() {
                     val opened = openUsbDevice(dev)
                     if (opened != null) {
                         usbTransmitter = opened
+                        setUsbState(UsbAvailabilityState.READY, "USB dongle is connected and initialized.")
                         applyAutoSwitchIfEnabled("usb_permission_granted")
                     } else {
                         Log.w(TAG, "openTransmitter() returned null (could not claim interface / endpoints)")
+                        setUsbState(
+                            UsbAvailabilityState.OPEN_FAILED,
+                            "USB permission is granted, but the dongle could not be initialized."
+                        )
                         applyAutoSwitchIfEnabled("usb_open_failed")
                     }
                     emitTxStatus("usb_permission_result")
@@ -457,9 +549,11 @@ class MainActivity : FlutterActivity() {
         val disc = usbDiscovery ?: return
         val dev = disc.scanSupported().firstOrNull() ?: return
         if (!mgr.hasPermission(dev)) {
+            setUsbState(UsbAvailabilityState.PERMISSION_REQUIRED, "USB permission is required for the attached dongle.")
             Log.i(TAG, "Supported USB dongle already attached; requesting permission now...")
             disc.requestPermission(dev)
         } else {
+            setUsbState(UsbAvailabilityState.PERMISSION_GRANTED, "USB permission is granted for the attached dongle.")
             Log.i(TAG, "Supported USB dongle already attached and already permitted.")
         }
     }
@@ -477,20 +571,13 @@ class MainActivity : FlutterActivity() {
     }
 
     private fun getOrOpenUsbTransmitterOrRequest(): UsbIrTransmitter? {
-        usbTransmitter?.let { return it }
-        val disc = usbDiscovery ?: return null
-        val mgr = usbManager ?: return null
-        val dev = disc.scanSupported().firstOrNull() ?: return null
-        if (!mgr.hasPermission(dev)) {
-            disc.requestPermission(dev)
-            return null
-        }
-        return disc.openTransmitter(dev)?.also { usbTransmitter = it }
+        return acquireUsbTransmitter(requestPermissionIfNeeded = true).transmitter
     }
 
     private fun resetUsbTransmitter() {
         usbTransmitter?.closeSafely()
         usbTransmitter = null
+        refreshUsbStateSnapshot()
         emitTxStatus("usb_reset")
         emitTxStatusDelayed("usb_reset_delayed", 250L)
     }
@@ -540,13 +627,23 @@ class MainActivity : FlutterActivity() {
 
         when (currentTxType) {
             TxType.USB -> {
-                val usb = getOrOpenUsbTransmitterOrRequest()
-                if (usb == null) {
-                    val dev = usbDiscovery?.scanSupported()?.firstOrNull()
-                    if (dev == null) {
-                        result.error("NO_USB_DEVICE", "No supported USB IR device is attached", null)
-                    } else {
-                        result.error("USB_PERMISSION_REQUIRED", "USB permission required or device not ready", null)
+                val usbResult = acquireUsbTransmitter(requestPermissionIfNeeded = true)
+                if (usbResult.transmitter == null) {
+                    when (usbResult.state) {
+                        UsbAvailabilityState.NO_DEVICE -> {
+                            result.error("NO_USB_DEVICE", "No supported USB IR device is attached", null)
+                        }
+                        UsbAvailabilityState.PERMISSION_REQUIRED,
+                        UsbAvailabilityState.PERMISSION_DENIED -> {
+                            result.error("USB_PERMISSION_REQUIRED", "USB permission is required for the attached dongle.", null)
+                        }
+                        UsbAvailabilityState.OPEN_FAILED,
+                        UsbAvailabilityState.PERMISSION_GRANTED -> {
+                            result.error("USB_OPEN_FAILED", "USB permission granted, but the dongle could not be initialized.", null)
+                        }
+                        UsbAvailabilityState.READY -> {
+                            result.error("USB_OPEN_FAILED", "USB dongle state is inconsistent. Try reconnecting the dongle.", null)
+                        }
                     }
                     return
                 }
@@ -598,13 +695,23 @@ class MainActivity : FlutterActivity() {
 
         when (currentTxType) {
             TxType.USB -> {
-                val usb = getOrOpenUsbTransmitterOrRequest()
-                if (usb == null) {
-                    val dev = usbDiscovery?.scanSupported()?.firstOrNull()
-                    if (dev == null) {
-                        result.error("NO_USB_DEVICE", "No supported USB IR device is attached", null)
-                    } else {
-                        result.error("USB_PERMISSION_REQUIRED", "USB permission required or device not ready", null)
+                val usbResult = acquireUsbTransmitter(requestPermissionIfNeeded = true)
+                if (usbResult.transmitter == null) {
+                    when (usbResult.state) {
+                        UsbAvailabilityState.NO_DEVICE -> {
+                            result.error("NO_USB_DEVICE", "No supported USB IR device is attached", null)
+                        }
+                        UsbAvailabilityState.PERMISSION_REQUIRED,
+                        UsbAvailabilityState.PERMISSION_DENIED -> {
+                            result.error("USB_PERMISSION_REQUIRED", "USB permission is required for the attached dongle.", null)
+                        }
+                        UsbAvailabilityState.OPEN_FAILED,
+                        UsbAvailabilityState.PERMISSION_GRANTED -> {
+                            result.error("USB_OPEN_FAILED", "USB permission granted, but the dongle could not be initialized.", null)
+                        }
+                        UsbAvailabilityState.READY -> {
+                            result.error("USB_OPEN_FAILED", "USB dongle state is inconsistent. Try reconnecting the dongle.", null)
+                        }
                     }
                     return
                 }
@@ -664,13 +771,23 @@ class MainActivity : FlutterActivity() {
     private fun transmitRawWithCurrentTx(freq: Int, pattern: IntArray, result: MethodChannel.Result) {
         when (currentTxType) {
             TxType.USB -> {
-                val usb = getOrOpenUsbTransmitterOrRequest()
-                if (usb == null) {
-                    val dev = usbDiscovery?.scanSupported()?.firstOrNull()
-                    if (dev == null) {
-                        result.error("NO_USB_DEVICE", "No supported USB IR device is attached", null)
-                    } else {
-                        result.error("USB_PERMISSION_REQUIRED", "USB permission required or device not ready", null)
+                val usbResult = acquireUsbTransmitter(requestPermissionIfNeeded = true)
+                if (usbResult.transmitter == null) {
+                    when (usbResult.state) {
+                        UsbAvailabilityState.NO_DEVICE -> {
+                            result.error("NO_USB_DEVICE", "No supported USB IR device is attached", null)
+                        }
+                        UsbAvailabilityState.PERMISSION_REQUIRED,
+                        UsbAvailabilityState.PERMISSION_DENIED -> {
+                            result.error("USB_PERMISSION_REQUIRED", "USB permission is required for the attached dongle.", null)
+                        }
+                        UsbAvailabilityState.OPEN_FAILED,
+                        UsbAvailabilityState.PERMISSION_GRANTED -> {
+                            result.error("USB_OPEN_FAILED", "USB permission granted, but the dongle could not be initialized.", null)
+                        }
+                        UsbAvailabilityState.READY -> {
+                            result.error("USB_OPEN_FAILED", "USB dongle state is inconsistent. Try reconnecting the dongle.", null)
+                        }
                     }
                     return
                 }
@@ -758,6 +875,7 @@ class MainActivity : FlutterActivity() {
         }
         val devices = disc.scanSupported()
         if (devices.isEmpty()) {
+            setUsbState(UsbAvailabilityState.NO_DEVICE, "No supported USB IR dongle is attached.")
             result.success(false)
             return
         }
@@ -766,12 +884,22 @@ class MainActivity : FlutterActivity() {
             val opened = openUsbDevice(dev)
             if (opened != null) {
                 usbTransmitter = opened
+                setUsbState(UsbAvailabilityState.READY, "USB dongle is connected and initialized.")
                 emitTxStatus("usb_already_permitted_opened")
                 emitTxStatusDelayed("usb_already_permitted_opened_delayed", 250L)
                 result.success(true)
                 return
             }
+            setUsbState(
+                UsbAvailabilityState.OPEN_FAILED,
+                "USB permission is granted, but the dongle could not be initialized."
+            )
+            emitTxStatus("usb_already_permitted_open_failed")
+            emitTxStatusDelayed("usb_already_permitted_open_failed_delayed", 250L)
+            result.success(true)
+            return
         }
+        setUsbState(UsbAvailabilityState.PERMISSION_REQUIRED, "USB permission is required for the attached dongle.")
         disc.requestPermission(dev)
         emitTxStatus("usb_scan_request")
         emitTxStatusDelayed("usb_scan_request_delayed", 350L)
@@ -796,15 +924,24 @@ class MainActivity : FlutterActivity() {
                 saveAutoSwitchToPrefs(false)
                 currentTxType = TxType.USB
                 saveTxTypeToPrefs(currentTxType)
-                val usb = getOrOpenUsbTransmitterOrRequest()
+                val usbResult = acquireUsbTransmitter(requestPermissionIfNeeded = true)
                 emitTxStatus("set_tx_usb")
                 emitTxStatusDelayed("set_tx_usb_delayed", 350L)
-                if (usb == null) {
-                    val dev = usbDiscovery?.scanSupported()?.firstOrNull()
-                    if (dev == null) {
+                if (usbResult.transmitter == null) {
+                    when (usbResult.state) {
+                        UsbAvailabilityState.NO_DEVICE -> {
                         result.error("NO_USB_DEVICE", "No supported USB IR device is attached", null)
-                    } else {
-                        result.success(currentTxType.name)
+                        }
+                        UsbAvailabilityState.OPEN_FAILED -> {
+                            result.error(
+                                "USB_OPEN_FAILED",
+                                "USB permission granted, but the dongle could not be initialized.",
+                                null
+                            )
+                        }
+                        else -> {
+                            result.success(currentTxType.name)
+                        }
                     }
                 } else {
                     result.success(currentTxType.name)
