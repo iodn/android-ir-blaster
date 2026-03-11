@@ -4,12 +4,10 @@ const IrProtocolDefinition sharpProtocolDefinition = IrProtocolDefinition(
   id: 'sharp',
   displayName: 'Sharp',
   description:
-      'Sharp: 38 kHz. Input hex length=4. '
-      'Build 13-bit string = nib0(4)+nib1(4)+nib2(4)+nib3.take(1). '
-      'Then duplicates it to 26 bits (bits13 + bits13). '
-      'Encode first 13 bits with (0=>280/860, 1=>280/1720), append block d, '
-      'encode second 13 bits, append block e. Blocks: '
-      'b=[280,860], c=[280,1720], d=c+b+[280,0xAA28], e=b+c+[280,0xAA28].',
+      'Sharp: 38 kHz. Input hex length=4 packed as address(5 bits) + command(8 bits). '
+      'Address and command are sent LSB-first. The second 13-bit message repeats the '
+      'same address and inverts the command bits. Tail blocks encode the documented '
+      'expansion/check bits and frame gap.',
   implemented: true,
   defaultFrequencyHz: 38000,
   fields: <IrFieldDef>[
@@ -65,17 +63,12 @@ class SharpProtocolEncoder implements IrProtocolEncoder {
     final String hex = h.trim();
     _validateHexN(hex, 4);
 
-    // Convert 4 nibbles to bits; last nibble only takes the first bit.
-    final String n0 = _nibbleBits(hex[0]);
-    final String n1 = _nibbleBits(hex[1]);
-    final String n2 = _nibbleBits(hex[2]);
-    final String n3 = _nibbleBits(hex[3]).substring(0, 1); // take(1)
+    final int packed = int.parse(hex, radix: 16) & 0x1FFF;
+    final int address = (packed >> 8) & 0x1F;
+    final int command = packed & 0xFF;
 
-    final String bits13 = n0 + n1 + n2 + n3; // length 13
-    final String bits26 = bits13 + bits13; // smali effectively doubles it
-
-    final String first13 = bits26.substring(0, 13);
-    final String second13 = bits26.substring(13, 26);
+    final String first13 = _bitsLsbFirst(address, 5) + _bitsLsbFirst(command, 8);
+    final String second13 = _bitsLsbFirst(address, 5) + _bitsLsbFirst((~command) & 0xFF, 8);
 
     final List<int> out = <int>[];
 
@@ -93,9 +86,12 @@ class SharpProtocolEncoder implements IrProtocolEncoder {
     }
   }
 
-  String _nibbleBits(String hexChar) {
-    final int v = int.parse(hexChar, radix: 16) & 0xF;
-    return v.toRadixString(2).padLeft(4, '0');
+  String _bitsLsbFirst(int value, int width) {
+    final StringBuffer out = StringBuffer();
+    for (int i = 0; i < width; i++) {
+      out.write(((value >> i) & 1) == 0 ? '0' : '1');
+    }
+    return out.toString();
   }
 
   void _validateHexN(String hex, int n) {

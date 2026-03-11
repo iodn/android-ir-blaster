@@ -8,7 +8,6 @@ import 'package:irblaster_controller/state/dynamic_color.dart';
 import 'package:irblaster_controller/state/macros_state.dart';
 import 'package:irblaster_controller/state/remotes_state.dart';
 import 'package:irblaster_controller/utils/ir_transmitter_platform.dart';
-import 'package:irblaster_controller/state/transmitter_prefs.dart';
 import 'package:irblaster_controller/utils/macros_io.dart';
 import 'package:irblaster_controller/utils/remote.dart';
 import 'package:irblaster_controller/utils/remotes_io.dart';
@@ -972,11 +971,6 @@ class _IrTransmitterCardState extends State<_IrTransmitterCard> {
   bool _autoSwitchEnabled = false;
   bool _openOnUsbAttachEnabled = false;
 
-  /* Auto-suggest Audio mode for USB Audio dongles */
-  bool _autoSelectAudioForUsb = TransmitterPrefs.instance.autoSelectAudioForUsbAudio;
-  bool _showAudioSuggest = false;
-  bool _suggestedThisAttach = false;
-
   StreamSubscription<IrTransmitterCapabilities>? _capsSub;
 
   @override
@@ -984,7 +978,6 @@ class _IrTransmitterCardState extends State<_IrTransmitterCard> {
     super.initState();
     _capsSub = IrTransmitterPlatform.capabilitiesEvents().listen(
       (caps) {
-        final prevUsbReady = _caps?.usbReady ?? false;
         if (!mounted) return;
 
         final hasInternal = caps.hasInternal;
@@ -996,16 +989,7 @@ class _IrTransmitterCardState extends State<_IrTransmitterCard> {
           _active = caps.currentType;
           _autoSwitchEnabled = autoSwitch;
           _loading = false;
-
-          final bool activeIsAudio2 = caps.currentType == IrTransmitterType.audio1Led || caps.currentType == IrTransmitterType.audio2Led;
-          if (_autoSelectAudioForUsb && caps.hasUsb && caps.usbReady && !activeIsAudio2 && !_suggestedThisAttach) {
-            _showAudioSuggest = true;
-          }
         });
-
-        if (caps.usbReady && !prevUsbReady) {
-          _suggestedThisAttach = false;
-        }
 
         if (!hasInternal && _preferred == IrTransmitterType.internal) {
           setState(() {
@@ -1409,49 +1393,6 @@ class _IrTransmitterCardState extends State<_IrTransmitterCard> {
       padding: const EdgeInsets.all(12),
       child: Column(
         children: [
-          if (_showAudioSuggest) ...[
-            MaterialBanner(
-              content: const Text('USB Audio dongle detected. Use Audio (1 LED) to transmit IR?'),
-              leading: const Icon(Icons.volume_up_rounded),
-              actions: [
-                TextButton(
-                  onPressed: _busy
-                      ? null
-                      : () async {
-                          setState(() {
-                            _busy = true;
-                          });
-                          try {
-                            await IrTransmitterPlatform.setPreferredType(IrTransmitterType.audio1Led);
-                            await IrTransmitterPlatform.setActiveType(IrTransmitterType.audio1Led);
-                            if (!mounted) return;
-                            ScaffoldMessenger.of(context).showSnackBar(
-                              const SnackBar(content: Text('Audio (1 LED) selected. Use high media volume.')),
-                            );
-                          } catch (_) {}
-                          if (!mounted) return;
-                          setState(() {
-                            _busy = false;
-                            _showAudioSuggest = false;
-                            _suggestedThisAttach = true;
-                          });
-                          await _refreshCaps();
-                        },
-                  child: const Text('Use Audio'),
-                ),
-                TextButton(
-                  onPressed: () {
-                    setState(() {
-                      _showAudioSuggest = false;
-                      _suggestedThisAttach = true;
-                    });
-                  },
-                  child: const Text('Not now'),
-                ),
-              ],
-            ),
-            const SizedBox(height: 8),
-          ],
           ListTile(
             contentPadding: EdgeInsets.zero,
             leading: Icon(_iconFor(effective), color: cs.primary),

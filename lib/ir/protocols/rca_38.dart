@@ -5,10 +5,10 @@ const IrProtocolDefinition rca38ProtocolDefinition = IrProtocolDefinition(
   displayName: 'RCA',
   description:
       'Payload = addr(4) + cmd(8) + ~addr(4) + ~cmd(8) = 24 bits.\n'
-      'Bit order: LSB-first.\n'
-      'Timings: 4000/4000, mark 500, space0 1000, space1 2000, gap 8000.',
+      'Bit order: MSB-first.\n'
+      'Timings: 4000/4000, mark 500, space0 1000, space1 2000, gap 8000. Carrier 56kHz.',
   implemented: true,
-  defaultFrequencyHz: 38000,
+  defaultFrequencyHz: 56000,
   fields: <IrFieldDef>[
     IrFieldDef(
       id: 'address',
@@ -43,6 +43,7 @@ class Rca38ProtocolEncoder implements IrProtocolEncoder {
   @override
   IrProtocolDefinition get definition => rca38ProtocolDefinition;
 
+  static const int defaultFrequencyHz = 56000;
   static const int preMark = 4000;
   static const int preSpace = 4000;
   static const int mark = 500;
@@ -69,8 +70,8 @@ class Rca38ProtocolEncoder implements IrProtocolEncoder {
     out.add(preMark);
     out.add(preSpace);
 
-    // 24 bits LSB-first
-    for (int i = 0; i < 24; i++) {
+    // 24 bits MSB-first
+    for (int i = 23; i >= 0; i--) {
       final int bit = (data >> i) & 1;
       out.add(mark);
       out.add(bit == 0 ? space0 : space1);
@@ -81,7 +82,7 @@ class Rca38ProtocolEncoder implements IrProtocolEncoder {
     out.add(gap);
 
     return IrEncodeResult(
-      frequencyHz: 38000,
+      frequencyHz: defaultFrequencyHz,
       pattern: out,
     );
   }

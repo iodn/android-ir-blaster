@@ -5,8 +5,8 @@ const IrProtocolDefinition jvcProtocolDefinition = IrProtocolDefinition(
   displayName: 'JVC',
   description:
       'JVC: 4-hex-digit code. Carrier 38kHz. '
-      'Preamble 8400/4200, then 16 bits MSB-first encoded with mark=525 and space=525/1575. '
-      'Appends trailing 525 + gap 21000. Whole a() sequence repeated twice after preamble.',
+      'Preamble 8400/4200, then 16 bits LSB-first encoded with mark=525 and space=525/1575. '
+      'Appends trailing 525 + gap 21000.',
   implemented: true,
   defaultFrequencyHz: 38000,
   fields: <IrFieldDef>[
@@ -50,34 +50,28 @@ class JvcProtocolEncoder implements IrProtocolEncoder {
 
     _validateHexExact(hex, 4, protocolName: 'JVC');
 
-    String byteBits(String twoHex) {
+    String byteBitsLsbFirst(String twoHex) {
       final int v = int.parse(twoHex, radix: 16) & 0xFF;
-      return v.toRadixString(2).padLeft(8, '0');
+      return v
+          .toRadixString(2)
+          .padLeft(8, '0')
+          .split('')
+          .reversed
+          .join();
     }
-
-    List<int> buildA() {
-      final String hi = hex.substring(0, 2);
-      final String lo = hex.substring(2, 4);
-      final String bits = byteBits(hi) + byteBits(lo); // 16 bits MSB-first
-
-      final List<int> out = <int>[];
-      for (int i = 0; i < bits.length; i++) {
-        out.add(mark);
-        out.add(bits[i] == '0' ? zeroSpace : oneSpace);
-      }
-      // final mark and gap
-      out.add(mark);
-      out.add(finalGap);
-      return out;
-    }
-
-    final List<int> seq1 = buildA();
-    final List<int> seq2 = buildA();
 
     final List<int> total = <int>[];
+    final String hi = hex.substring(0, 2);
+    final String lo = hex.substring(2, 4);
+    final String bits = byteBitsLsbFirst(hi) + byteBitsLsbFirst(lo); // 16 bits LSB-first
+
     total.addAll(preamble);
-    total.addAll(seq1);
-    total.addAll(seq2);
+    for (int i = 0; i < bits.length; i++) {
+      total.add(mark);
+      total.add(bits[i] == '0' ? zeroSpace : oneSpace);
+    }
+    total.add(mark);
+    total.add(finalGap);
 
     return IrEncodeResult(
       frequencyHz: defaultFrequencyHz,

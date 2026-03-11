@@ -885,6 +885,7 @@ class MainActivity : FlutterActivity() {
             if (opened != null) {
                 usbTransmitter = opened
                 setUsbState(UsbAvailabilityState.READY, "USB dongle is connected and initialized.")
+                applyAutoSwitchIfEnabled("usb_scan_request_already_permitted")
                 emitTxStatus("usb_already_permitted_opened")
                 emitTxStatusDelayed("usb_already_permitted_opened_delayed", 250L)
                 result.success(true)
@@ -894,6 +895,7 @@ class MainActivity : FlutterActivity() {
                 UsbAvailabilityState.OPEN_FAILED,
                 "USB permission is granted, but the dongle could not be initialized."
             )
+            applyAutoSwitchIfEnabled("usb_scan_request_open_failed")
             emitTxStatus("usb_already_permitted_open_failed")
             emitTxStatusDelayed("usb_already_permitted_open_failed_delayed", 250L)
             result.success(true)
