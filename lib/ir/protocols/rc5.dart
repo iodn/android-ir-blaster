@@ -64,35 +64,34 @@ class Rc5ProtocolEncoder implements IrProtocolEncoder {
     final String toggleBit = _toggleFlag ? '1' : '0';
 
     final int value = hex.isEmpty ? 0 : int.parse(hex, radix: 16);
-    final String bin = value.toRadixString(2);
-    final String padded = bin.padLeft(11, '0');
-    final String payload11 = padded.substring(0, 11); // take(11) MSB-first
+    final String payload11 = (value & 0x7FF).toRadixString(2).padLeft(11, '0');
 
     final String bits = leader + toggleBit + payload11; // 14 bits total
 
-    final List<int> seq = <int>[];
-    // initial half-period
-    seq.add(unit);
-
-    String? prev;
+    final List<bool> halfLevels = <bool>[];
     for (int i = 0; i < bits.length; i++) {
-      final String b = bits[i];
-      if (prev != null) {
-        if (b != prev) {
-          // transition: add two half periods
-          seq.add(unit);
-          seq.add(unit);
+      final bool one = bits.codeUnitAt(i) == 0x31; // '1'
+      // RC5: 1 => space then mark, 0 => mark then space.
+      halfLevels.add(!one);
+      halfLevels.add(one);
+    }
+
+    // The first RC5 start bit is always 1, so the message starts halfway
+    // through an idle period. Skip that implicit leading space half-bit.
+    final List<int> seq = <int>[];
+    if (halfLevels.length > 1) {
+      bool currentLevel = halfLevels[1];
+      int currentDuration = unit;
+      for (int i = 2; i < halfLevels.length; i++) {
+        if (halfLevels[i] == currentLevel) {
+          currentDuration += unit;
         } else {
-          // same bit: double the last segment length then add half
-          final int lastIdx = seq.length - 1;
-          seq[lastIdx] = seq[lastIdx] * 2;
-          seq.add(unit);
+          seq.add(currentDuration);
+          currentLevel = halfLevels[i];
+          currentDuration = unit;
         }
-      } else {
-        // first bit behaves like transition from undefined
-        seq.add(unit);
       }
-      prev = b;
+      seq.add(currentDuration);
     }
 
     // Frame completion to 114000us:

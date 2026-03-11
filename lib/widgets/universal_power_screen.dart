@@ -3,6 +3,7 @@ import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:irblaster_controller/ir_finder/irblaster_db.dart';
 import 'package:irblaster_controller/state/haptics.dart';
+import 'package:irblaster_controller/state/orientation_pref.dart';
 import 'package:irblaster_controller/universal_power/power_code_repository.dart';
 import 'package:irblaster_controller/universal_power/universal_power_controller.dart';
 import 'package:irblaster_controller/universal_power/universal_power_prefs.dart';
@@ -236,15 +237,51 @@ class _UniversalPowerScreenState extends State<UniversalPowerScreen>
 
     if (!_consentLoaded) {
       return Scaffold(
-        appBar: AppBar(title: const Text('Universal Power')),
-        body: const Center(child: CircularProgressIndicator()),
+        appBar: AppBar(
+          title: const Text('Universal Power'),
+          actions: [
+            IconButton(
+              tooltip: RemoteOrientationController.instance.flipped
+                  ? 'Orientation: flipped (tap to normal)'
+                  : 'Orientation: normal (tap to flip)',
+              onPressed: () async {
+                final next = !RemoteOrientationController.instance.flipped;
+                await RemoteOrientationController.instance.setFlipped(next);
+                setState(() {});
+              },
+              icon: const Icon(Icons.screen_rotation_rounded),
+            ),
+          ],
+        ),
+        body: Transform.rotate(
+          angle: RemoteOrientationController.instance.flipped ? 3.1415926535897932 : 0.0,
+          child: const Center(child: CircularProgressIndicator()),
+        ),
       );
     }
 
     if (!_consented) {
       return Scaffold(
-        appBar: AppBar(title: const Text('Universal Power')),
-        body: _buildConsent(theme),
+        appBar: AppBar(
+          title: const Text('Universal Power'),
+          actions: [
+            IconButton(
+              tooltip: RemoteOrientationController.instance.flipped
+                  ? 'Orientation: flipped (tap to normal)'
+                  : 'Orientation: normal (tap to flip)',
+              onPressed: () async {
+                final next = !RemoteOrientationController.instance.flipped;
+                await RemoteOrientationController.instance.setFlipped(next);
+                setState(() {});
+              },
+              icon: const Icon(Icons.screen_rotation_rounded),
+            ),
+          ],
+        ),
+        body: Transform.rotate(
+          angle: RemoteOrientationController.instance.flipped ? 3.1415926535897932 : 0.0,
+          child: _buildConsent(theme),
+        ),
       );
     }
 
@@ -253,18 +290,32 @@ class _UniversalPowerScreenState extends State<UniversalPowerScreen>
         title: const Text('Universal Power'),
         actions: [
           IconButton(
+            tooltip: RemoteOrientationController.instance.flipped
+                ? 'Orientation: flipped (tap to normal)'
+                : 'Orientation: normal (tap to flip)',
+            onPressed: () async {
+              final next = !RemoteOrientationController.instance.flipped;
+              await RemoteOrientationController.instance.setFlipped(next);
+              setState(() {});
+            },
+            icon: const Icon(Icons.screen_rotation_rounded),
+          ),
+          IconButton(
             tooltip: 'Stop',
             onPressed: _controller.running ? _stopRun : null,
             icon: const Icon(Icons.stop_circle_outlined),
           ),
         ],
       ),
-      body: IndexedStack(
-        index: _pageIndex,
-        children: [
-          _buildSetup(theme),
-          _buildRun(theme),
-        ],
+      body: Transform.rotate(
+        angle: RemoteOrientationController.instance.flipped ? 3.1415926535897932 : 0.0,
+        child: IndexedStack(
+          index: _pageIndex,
+          children: [
+            _buildSetup(theme),
+            _buildRun(theme),
+          ],
+        ),
       ),
       bottomNavigationBar: NavigationBar(
         selectedIndex: _pageIndex,
