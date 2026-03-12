@@ -8,6 +8,7 @@ import 'protocols/jvc.dart';
 import 'protocols/nec2.dart';
 import 'protocols/necx1.dart';
 import 'protocols/necx2.dart';
+import 'protocols/nrc17.dart';
 import 'protocols/pioneer.dart';
 import 'protocols/proton.dart';
 import 'protocols/rc5.dart';
@@ -26,6 +27,7 @@ import 'protocols/sony12.dart';
 import 'protocols/sony15.dart';
 import 'protocols/sony20.dart';
 import 'protocols/thomson7.dart';
+import 'protocols/xsat.dart';
 
 class IrProtocolIds {
   static const String raw = 'raw';
@@ -36,6 +38,7 @@ class IrProtocolIds {
   static const String nec2 = 'nec2';
   static const String necx1 = 'necx1';
   static const String necx2 = 'necx2';
+  static const String nrc17 = 'nrc17';
   static const String pioneer = 'pioneer';
   static const String proton = 'proton';
   static const String rc5 = 'rc5';
@@ -53,6 +56,7 @@ class IrProtocolIds {
   static const String sony15 = 'sony15';
   static const String sony20 = 'sony20';
   static const String thomson7 = 'thomson7';
+  static const String xsat = 'xsat';
   static const String kaseikyo = 'kaseikyo';
 }
 
@@ -67,6 +71,7 @@ class IrProtocolRegistry {
     nec2ProtocolDefinition.id: nec2ProtocolDefinition,
     necx1ProtocolDefinition.id: necx1ProtocolDefinition,
     necx2ProtocolDefinition.id: necx2ProtocolDefinition,
+    nrc17ProtocolDefinition.id: nrc17ProtocolDefinition,
     pioneerProtocolDefinition.id: pioneerProtocolDefinition,
     protonProtocolDefinition.id: protonProtocolDefinition,
     rc5ProtocolDefinition.id: rc5ProtocolDefinition,
@@ -85,6 +90,7 @@ class IrProtocolRegistry {
     sony15ProtocolDefinition.id: sony15ProtocolDefinition,
     sony20ProtocolDefinition.id: sony20ProtocolDefinition,
     thomson7ProtocolDefinition.id: thomson7ProtocolDefinition,
+    xsatProtocolDefinition.id: xsatProtocolDefinition,
   };
 
   static final Map<String, IrProtocolEncoder> _encoders = {
@@ -98,6 +104,7 @@ class IrProtocolRegistry {
     Nec2ProtocolEncoder.protocolId: const Nec2ProtocolEncoder(),
     Necx1ProtocolEncoder.protocolId: const Necx1ProtocolEncoder(),
     Necx2ProtocolEncoder.protocolId: const Necx2ProtocolEncoder(),
+    Nrc17ProtocolEncoder.protocolId: const Nrc17ProtocolEncoder(),
 
     PioneerProtocolEncoder.protocolId: const PioneerProtocolEncoder(),
     ProtonProtocolEncoder.protocolId: const ProtonProtocolEncoder(),
@@ -123,6 +130,7 @@ class IrProtocolRegistry {
     Sony20ProtocolEncoder.protocolId: const Sony20ProtocolEncoder(),
 
     Thomson7ProtocolEncoder.protocolId: const Thomson7ProtocolEncoder(),
+    XsatProtocolEncoder.protocolId: const XsatProtocolEncoder(),
   };
 
 

@@ -10,6 +10,7 @@ const Map<String, String> _protocolExampleHex = <String, String>{
   'nec2': '000800FF',
   'necx1': '000008F7',
   'necx2': '000C08F7',
+  'nrc17': '5C61',
   'pioneer': '1A2B',
   'proton': '0000',
   'rc5': '000',
@@ -27,6 +28,7 @@ const Map<String, String> _protocolExampleHex = <String, String>{
   'sony15': '0014',
   'sony20': '0002F',
   'thomson7': '080',
+  'xsat': '5935',
 };
 
 String normalizeHexDigitsOnlyUpper(String s) {
@@ -118,6 +120,16 @@ Map<String, dynamic> buildParamsForProtocol({
     } catch (_) {}
     return <String, dynamic>{
       'code': int.parse(fitted.isEmpty ? '0' : fitted, radix: 16),
+    };
+  }
+
+  if (pid == 'xsat') {
+    if (fitted.length != 4) {
+      throw ArgumentError('XSAT code must be 4 hex digits');
+    }
+    return <String, dynamic>{
+      'address': fitted.substring(0, 2),
+      'command': fitted.substring(2, 4),
     };
   }
 

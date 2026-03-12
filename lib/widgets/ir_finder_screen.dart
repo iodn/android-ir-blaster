@@ -302,6 +302,7 @@ class _IrFinderScreenState extends State<IrFinderScreen> with WidgetsBindingObse
     'nec2': '000800FF',
     'necx1': '000008F7',
     'necx2': '000C08F7',
+    'nrc17': '5C61',
     'pioneer': '1A2B',
     'proton': '0000',
     'rc5': '000',
@@ -319,6 +320,7 @@ class _IrFinderScreenState extends State<IrFinderScreen> with WidgetsBindingObse
     'sony15': '0014',
     'sony20': '0002F',
     'thomson7': '300',
+    'xsat': '5935',
   };
 
   String _kaseikyoVendor = '2002';
@@ -742,6 +744,16 @@ class _IrFinderScreenState extends State<IrFinderScreen> with WidgetsBindingObse
       } catch (_) {}
       return <String, dynamic>{
         'code': int.parse(fitted.isEmpty ? '0' : fitted, radix: 16),
+      };
+    }
+
+    if (pid == 'xsat') {
+      if (fitted.length != 4) {
+        throw ArgumentError('XSAT brute code must be 4 hex digits');
+      }
+      return <String, dynamic>{
+        'address': fitted.substring(0, 2),
+        'command': fitted.substring(2, 4),
       };
     }
 
@@ -1845,6 +1857,7 @@ class _ProtocolPicker extends StatelessWidget {
     'nec2',
     'necx1',
     'necx2',
+    'nrc17',
     'denon',
     'f12_relaxed',
     'jvc',
@@ -1866,6 +1879,7 @@ class _ProtocolPicker extends StatelessWidget {
     'sony15',
     'sony20',
     'thomson7',
+    'xsat',
   ];
 
   @override

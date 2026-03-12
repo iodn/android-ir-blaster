@@ -1,0 +1,6 @@
+New Features
+
+Add NRC17 (Nokia) IR protocol support
+Add XSAT (Mitsubishi) IR protocol support
+Fix RC5 encoder issue
+Add rotation toggle button for tvkill

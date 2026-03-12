@@ -729,6 +729,8 @@ String? _mapFlipperProtocol(String? name) {
       return 'nec2';
     case 'necext':
       return 'necx1';
+    case 'nrc17':
+      return 'nrc17';
     case 'pioneer':
       return 'pioneer';
     case 'rc5':
@@ -749,6 +751,10 @@ String? _mapFlipperProtocol(String? name) {
       return 'sony15';
     case 'sirc20':
       return 'sony20';
+    case 'xsat':
+    case 'x_sat':
+    case 'mitsubishi':
+      return 'xsat';
     default:
       return null;
   }
@@ -1290,6 +1296,8 @@ String? _mapIrplusFormatToProtocol(String formatUpper) {
   final f = formatUpper.trim().toUpperCase();
   if (f.contains('RC5')) return 'rc5';
   if (f.contains('RC6')) return 'rc6';
+  if (f.contains('NRC17')) return 'nrc17';
+  if (f.contains('XSAT') || f.contains('MITSUBISHI')) return 'xsat';
   if (f.contains('NEC2')) return 'nec2';
   if (f.contains('NECX') || f.contains('NECEXT')) return 'necx1';
   if (f.contains('NEC')) return 'nec';
@@ -1492,10 +1500,13 @@ String? _inferLircProtocolId({
   final String f = flags.toUpperCase();
   if (f.contains('RC5')) return 'rc5';
   if (f.contains('RC6')) return 'rc6';
+  if (f.contains('NRC17')) return 'nrc17';
+  if (f.contains('XSAT') || f.contains('MITSUBISHI')) return 'xsat';
 
   final String n = (remoteName ?? '').trim().toUpperCase();
   final bool nameSony = n.contains('SONY') || n.contains('SIRC');
   final bool nameJvc = n.contains('JVC');
+  final bool nameXsat = n.contains('XSAT') || n.contains('MITSUBISHI');
   final bool nameSamsung = n.contains('SAMSUNG');
   final bool nameNec2 = n.contains('NEC2');
   final bool nameNecx = n.contains('NECX') || n.contains('NECEXT');
@@ -1507,6 +1518,7 @@ String? _inferLircProtocolId({
     if (bits == 20) return 'sony20';
   }
   if (nameJvc || _looksJvc(header)) return 'jvc';
+  if (nameXsat || _looksXsat(header, one, zero, bits)) return 'xsat';
   if (nameSamsung || _looksSamsung(header)) {
     if (bits == 36) return 'samsung36';
     if (bits == 32) return 'samsung32';
@@ -1535,6 +1547,17 @@ bool _looksJvc(List<int>? header) {
 bool _looksSamsung(List<int>? header) {
   if (header == null || header.length != 2) return false;
   return _within(header[0], 4500, 1300) && _within(header[1], 4500, 1300);
+}
+
+bool _looksXsat(List<int>? header, List<int>? one, List<int>? zero, int bits) {
+  if (bits != 16) return false;
+  if (header == null || one == null || zero == null) return false;
+  if (header.length != 2 || one.length != 2 || zero.length != 2) return false;
+  final bool headerLike = _within(header[0], 8000, 1800) && _within(header[1], 4000, 1200);
+  final bool marksLike = _within(one[0], 526, 200) && _within(zero[0], 526, 200);
+  final bool total0Like = _within(zero[0] + zero[1], 1000, 300);
+  final bool total1Like = _within(one[0] + one[1], 2000, 400);
+  return headerLike && marksLike && total0Like && total1Like;
 }
 
 bool _looksNecLike(List<int>? header, List<int>? one, List<int>? zero, int bits) {
@@ -1586,9 +1609,48 @@ IRButton? _buildProtocolButtonFromLircCode({
     );
   }
 
+  if (protocolId == 'nrc17') {
+    final int n = value.toInt() & 0xFFFF;
+    final int command = n & 0xFF;
+    final int address = (n >> 8) & 0x0F;
+    final int subcode = (n >> 12) & 0x0F;
+    final String hex = command.toRadixString(16).padLeft(2, '0').toUpperCase() +
+        address.toRadixString(16).toUpperCase() +
+        subcode.toRadixString(16).toUpperCase();
+    return IRButton(
+      id: id,
+      code: null,
+      rawData: null,
+      frequency: frequency,
+      image: label,
+      isImage: false,
+      protocol: 'nrc17',
+      protocolParams: <String, dynamic>{'hex': hex},
+    );
+  }
+
   final int n = value.toInt();
   final int bitCount = (codeBits ?? 0).clamp(1, 63).toInt();
   final int masked = (codeBits != null && codeBits > 0) ? (n & ((1 << bitCount) - 1)) : n;
+
+  if (protocolId == 'xsat') {
+    final int data = masked & 0xFFFF;
+    final int address = data & 0xFF;
+    final int command = (data >> 8) & 0xFF;
+    return IRButton(
+      id: id,
+      code: null,
+      rawData: null,
+      frequency: frequency,
+      image: label,
+      isImage: false,
+      protocol: 'xsat',
+      protocolParams: <String, dynamic>{
+        'address': address.toRadixString(16).padLeft(2, '0').toUpperCase(),
+        'command': command.toRadixString(16).padLeft(2, '0').toUpperCase(),
+      },
+    );
+  }
 
   if (protocolId == 'sony12') {
     final int data = masked & 0x0FFF;

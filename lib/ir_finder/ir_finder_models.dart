@@ -184,11 +184,23 @@ class IrFinderBruteSpec {
           totalHexDigits: 8,
           displayName: 'RC6',
         );
+      case 'nrc17':
+        return const IrFinderBruteSpec(
+          protocolId: 'nrc17',
+          totalHexDigits: 4,
+          displayName: 'Nokia NRC17',
+        );
       case 'kaseikyo':
         return const IrFinderBruteSpec(
           protocolId: 'kaseikyo',
           totalHexDigits: 6, // use command+address as 3 bytes
           displayName: 'Kaseikyo (Panasonic)',
+        );
+      case 'xsat':
+        return const IrFinderBruteSpec(
+          protocolId: 'xsat',
+          totalHexDigits: 4,
+          displayName: 'XSAT (Mitsubishi)',
         );
       default:
         return IrFinderBruteSpec(
