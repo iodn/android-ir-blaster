@@ -7,11 +7,28 @@ import android.util.Log
 import kotlin.math.min
 import kotlin.math.roundToLong
 
-object ElkSmartUsbProtocolFormatter : UsbWireProtocol {
+class ElkSmartUsbProtocolFormatter : UsbWireProtocol {
     override val name: String = "elksmart_bulk"
     override val strictHandshake: Boolean = true
     override val wantsBackgroundReader: Boolean = false
     override val interFrameDelayMs: Long = 2L
+
+    private enum class Subtype {
+        D552,
+        D226,
+    }
+
+    private var subtype: Subtype? = null
+
+    companion object {
+        private const val TAG = "ElkSmartUsbProtocol"
+        private const val IDENT_PREFIX = 0xFC
+        private const val TYPE_D552_HI = 0x70
+        private const val TYPE_D552_LO = 0x01
+        private const val TYPE_D226_HI = 0x02
+        private const val TYPE_D226_LO = 0xAA
+        private const val ODD_PATTERN_TRAILING_GAP_US = 10_000
+    }
 
     override fun openHandshake(
         connection: UsbDeviceConnection,
@@ -26,10 +43,10 @@ object ElkSmartUsbProtocolFormatter : UsbWireProtocol {
             }
 
             val identify = byteArrayOf(
-                0xFC.toByte(),
-                0xFC.toByte(),
-                0xFC.toByte(),
-                0xFC.toByte()
+                IDENT_PREFIX.toByte(),
+                IDENT_PREFIX.toByte(),
+                IDENT_PREFIX.toByte(),
+                IDENT_PREFIX.toByte()
             )
 
             val w = connection.bulkTransfer(outEndpoint, identify, identify.size, 200)
@@ -48,21 +65,51 @@ object ElkSmartUsbProtocolFormatter : UsbWireProtocol {
 
             if (got < 6) return false
 
-            resp[0] == 0xFC.toByte() &&
-                resp[1] == 0xFC.toByte() &&
-                resp[2] == 0xFC.toByte() &&
-                resp[3] == 0xFC.toByte() &&
-                (resp[4].toInt() and 0xFF) == 0x70 &&
-                (resp[5].toInt() and 0xFF) == 0x01
+            val identified = identifySubtype(resp, got)
+            if (identified == null) {
+                Log.w(TAG, "Unexpected identify response: ${resp.copyOf(got).toHexString()}")
+                return false
+            }
+            subtype = identified
+            true
         } catch (t: Throwable) {
-            Log.w("ElkSmartUsbProtocol", "openHandshake failed: ${t.message}")
+            Log.w(TAG, "openHandshake failed: ${t.message}")
             false
+        }
+    }
+
+    private fun identifySubtype(resp: ByteArray, size: Int): Subtype? {
+        if (size < 6) return null
+        if (resp[0] != IDENT_PREFIX.toByte() ||
+            resp[1] != IDENT_PREFIX.toByte() ||
+            resp[2] != IDENT_PREFIX.toByte() ||
+            resp[3] != IDENT_PREFIX.toByte()
+        ) {
+            return null
+        }
+
+        val typeHi = resp[4].toInt() and 0xFF
+        val typeLo = resp[5].toInt() and 0xFF
+        return when {
+            typeHi == TYPE_D552_HI && typeLo == TYPE_D552_LO -> {
+                Log.i(TAG, "Identified ElkSmart subtype 70 01")
+                Subtype.D552
+            }
+            typeHi == TYPE_D226_HI && typeLo == TYPE_D226_LO -> {
+                Log.i(TAG, "Identified ElkSmart subtype 02 AA")
+                Subtype.D226
+            }
+            else -> null
         }
     }
 
     override fun encode(frequencyHz: Int, patternUs: IntArray): List<ByteArray> {
         val pulses = toPulses(patternUs)
-        val payload = compressPulses(pulses)
+        val rawCompressed = compressPulses(pulses)
+        val payload = when (subtype ?: Subtype.D552) {
+            Subtype.D552 -> rawCompressed
+            Subtype.D226 -> encodeD226Payload(rawCompressed)
+        }
 
         val f = (frequencyHz + 0x7FFFF)
         val len = payload.size
@@ -122,7 +169,6 @@ object ElkSmartUsbProtocolFormatter : UsbWireProtocol {
     }
 
     private data class Pulse(val onUs: Int, val offUs: Int)
-    private const val ODD_PATTERN_TRAILING_GAP_US = 10_000
 
     private fun toPulses(patternUs: IntArray): List<Pulse> {
         if (patternUs.isEmpty()) return emptyList()
@@ -176,9 +222,90 @@ object ElkSmartUsbProtocolFormatter : UsbWireProtocol {
         return out.toByteArray()
     }
 
+    private fun encodeD226Payload(rawCompressed: ByteArray): ByteArray {
+        if (rawCompressed.isEmpty()) return rawCompressed
+
+        val freq = IntArray(256)
+        for (b in rawCompressed) {
+            freq[b.toInt() and 0xFF]++
+        }
+
+        val pq = java.util.PriorityQueue<Node>(compareBy<Node> { it.weight })
+        for (symbol in 0..0xFF) {
+            val weight = freq[symbol]
+            if (weight > 0) {
+                pq.offer(Leaf(weight, symbol))
+            }
+        }
+        if (pq.isEmpty()) return rawCompressed
+
+        while (pq.size > 1) {
+            val left = pq.poll()
+            val right = pq.poll()
+            pq.offer(Branch(left, right))
+        }
+
+        val codes = ArrayList<CodeEntry>()
+        buildCodes(pq.poll(), StringBuilder(), codes)
+        codes.sortBy { it.symbol }
+
+        val codeBySymbol = HashMap<Int, String>(codes.size)
+        val out = ByteArrayOutput()
+        out.write((codes.size ushr 8) and 0xFF)
+        out.write(codes.size and 0xFF)
+
+        for (entry in codes) {
+            codeBySymbol[entry.symbol] = entry.bits
+            out.write(entry.symbol and 0xFF)
+            out.write((entry.weight ushr 8) and 0xFF)
+            out.write(entry.weight and 0xFF)
+        }
+
+        val bitString = StringBuilder()
+        for (b in rawCompressed) {
+            bitString.append(codeBySymbol[b.toInt() and 0xFF] ?: "")
+        }
+
+        var tailBits = bitString.length % 8
+        if (tailBits > 0) {
+            repeat(8 - tailBits) { bitString.append('0') }
+        }
+        out.write(tailBits and 0xFF)
+
+        var i = 0
+        while (i < bitString.length) {
+            val chunk = bitString.substring(i, i + 8)
+            out.write(chunk.toInt(2) and 0xFF)
+            i += 8
+        }
+        return out.toByteArray()
+    }
+
+    private sealed class Node(val weight: Int)
+    private class Leaf(weight: Int, val symbol: Int) : Node(weight)
+    private class Branch(val left: Node, val right: Node) : Node(left.weight + right.weight)
+    private data class CodeEntry(val symbol: Int, val weight: Int, val bits: String)
+
+    private fun buildCodes(node: Node, prefix: StringBuilder, out: MutableList<CodeEntry>) {
+        when (node) {
+            is Leaf -> {
+                val bits = if (prefix.isEmpty()) "0" else prefix.toString()
+                out.add(CodeEntry(node.symbol, node.weight, bits))
+            }
+            is Branch -> {
+                prefix.append('0')
+                buildCodes(node.left, prefix, out)
+                prefix.deleteCharAt(prefix.lastIndex)
+                prefix.append('1')
+                buildCodes(node.right, prefix, out)
+                prefix.deleteCharAt(prefix.lastIndex)
+            }
+        }
+    }
+
     private fun compressValueUs(valueUs: Int, out: ByteArrayOutput) {
         if (valueUs <= 2032) {
-            val q = ((valueUs + 8) / 16).coerceAtLeast(2)
+            val q = if (valueUs == 0 || valueUs == 1) valueUs else ((valueUs / 16.0) + 0.5).toInt()
             out.write(q and 0xFF)
             return
         }
@@ -187,6 +314,7 @@ object ElkSmartUsbProtocolFormatter : UsbWireProtocol {
             var b = v and 0x7F
             v = v ushr 7
             if (v != 0) b = b or 0x80
+            if ((b and 0xFF) == 0xFF) b = 0xFE
             out.write(b and 0xFF)
             if (v == 0) break
         }
@@ -226,5 +354,9 @@ object ElkSmartUsbProtocolFormatter : UsbWireProtocol {
             while (newCap < need) newCap *= 2
             buf = buf.copyOf(newCap)
         }
+    }
+
+    private fun ByteArray.toHexString(): String = joinToString(" ") { b ->
+        (b.toInt() and 0xFF).toString(16).padStart(2, '0').uppercase()
     }
 }

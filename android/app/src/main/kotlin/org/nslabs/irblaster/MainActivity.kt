@@ -9,9 +9,14 @@ import android.content.pm.PackageManager
 import android.hardware.ConsumerIrManager
 import android.hardware.usb.UsbDevice
 import android.hardware.usb.UsbManager
+import android.os.Build
 import android.os.Handler
 import android.os.Looper
+import android.os.VibrationEffect
+import android.os.Vibrator
+import android.os.VibratorManager
 import android.util.Log
+import android.view.HapticFeedbackConstants
 import androidx.annotation.NonNull
 import io.flutter.embedding.android.FlutterActivity
 import io.flutter.embedding.engine.FlutterEngine
@@ -439,6 +444,7 @@ class MainActivity : FlutterActivity() {
                     "transmit" -> handleTransmit(call, result)
                     "transmitRaw" -> handleTransmitRaw(call, result)
                     "transmitRawCycles" -> handleTransmitRawCycles(call, result)
+                    "performHaptic" -> handlePerformHaptic(call, result)
                     "hasIrEmitter" -> handleHasAnyEmitter(result)
                     "getTransmitterCapabilities" -> handleGetTxCaps(result)
                     "setTransmitterType" -> handleSetTxType(call, result)
@@ -470,6 +476,105 @@ class MainActivity : FlutterActivity() {
 
         emitTxStatus("startup_done")
         emitTxStatusDelayed("startup_done_delayed", 350L)
+    }
+
+    private fun handlePerformHaptic(call: MethodCall, result: MethodChannel.Result) {
+        val type = call.argument<String>("type") ?: "selection"
+        val intensity = (call.argument<Int>("intensity") ?: 2).coerceIn(1, 3)
+        runOnUiThread {
+            try {
+                result.success(performNativeHaptic(type, intensity))
+            } catch (t: Throwable) {
+                Log.w(TAG, "performNativeHaptic failed: ${t.message}")
+                result.error("HAPTIC_FAILED", t.message, null)
+            }
+        }
+    }
+
+    private fun performNativeHaptic(type: String, intensity: Int): Boolean {
+        val decorView = window?.decorView
+        val constant = when (type) {
+            "selection" -> {
+                if (Build.VERSION.SDK_INT >= 34) {
+                    HapticFeedbackConstants.SEGMENT_TICK
+                } else {
+                    HapticFeedbackConstants.CLOCK_TICK
+                }
+            }
+            "light" -> HapticFeedbackConstants.VIRTUAL_KEY
+            "medium" -> HapticFeedbackConstants.KEYBOARD_TAP
+            "heavy" -> {
+                if (Build.VERSION.SDK_INT >= 23) {
+                    HapticFeedbackConstants.CONTEXT_CLICK
+                } else {
+                    HapticFeedbackConstants.LONG_PRESS
+                }
+            }
+            else -> HapticFeedbackConstants.CLOCK_TICK
+        }
+
+        val viewOk = try {
+            if (decorView != null) {
+                decorView.isHapticFeedbackEnabled = true
+                decorView.performHapticFeedback(constant)
+            } else {
+                false
+            }
+        } catch (_: Throwable) {
+            false
+        }
+        if (viewOk) return true
+
+        return performVibratorFallback(type, intensity)
+    }
+
+    private fun performVibratorFallback(type: String, intensity: Int): Boolean {
+        val vibrator = getAppVibrator() ?: return false
+        if (!vibrator.hasVibrator()) return false
+        return try {
+            when {
+                Build.VERSION.SDK_INT >= 29 -> {
+                    val effectId = when (type) {
+                        "selection" -> VibrationEffect.EFFECT_TICK
+                        "light" -> VibrationEffect.EFFECT_CLICK
+                        "medium" -> VibrationEffect.EFFECT_CLICK
+                        "heavy" -> VibrationEffect.EFFECT_HEAVY_CLICK
+                        else -> VibrationEffect.EFFECT_CLICK
+                    }
+                    vibrator.vibrate(VibrationEffect.createPredefined(effectId))
+                }
+                Build.VERSION.SDK_INT >= 26 -> {
+                    val (duration, amplitude) = fallbackOneShotFor(intensity)
+                    vibrator.vibrate(VibrationEffect.createOneShot(duration, amplitude))
+                }
+                else -> {
+                    val (duration, _) = fallbackOneShotFor(intensity)
+                    @Suppress("DEPRECATION")
+                    vibrator.vibrate(duration)
+                }
+            }
+            true
+        } catch (_: Throwable) {
+            false
+        }
+    }
+
+    private fun getAppVibrator(): Vibrator? {
+        return if (Build.VERSION.SDK_INT >= 31) {
+            val mgr = getSystemService(Context.VIBRATOR_MANAGER_SERVICE) as? VibratorManager
+            mgr?.defaultVibrator
+        } else {
+            @Suppress("DEPRECATION")
+            getSystemService(Context.VIBRATOR_SERVICE) as? Vibrator
+        }
+    }
+
+    private fun fallbackOneShotFor(intensity: Int): Pair<Long, Int> {
+        return when (intensity.coerceIn(1, 3)) {
+            1 -> 12L to 60
+            2 -> 18L to 140
+            else -> 24L to 255
+        }
     }
 
     override fun onNewIntent(intent: Intent) {

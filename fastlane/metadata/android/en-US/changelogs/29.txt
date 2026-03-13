@@ -1,0 +1,7 @@
+Added full ElkSmart USB subtype handling based on reverse engineering of the official Ocrustar app
+Improved ElkSmart device classification and identify handling for supported 0x045C dongles
+Added distinct ElkSmart transmit handling for subtype 02 AA and 70 01
+Fixed RC5 waveform generation to preserve the final mark and pad only the inter-frame gap
+Improved RC5 toggle behavior so rapid repeats keep the same toggle and new presses flip it
+Fixed RC6 toggle handling with repeat-friendly behavior
+Added the required RC6 trailing 6t silent gap

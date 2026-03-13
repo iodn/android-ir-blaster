@@ -42,7 +42,7 @@ class UsbDiscoveryManager(
     }
 
     val protocol: UsbWireProtocol = when {
-      UsbDeviceFilter.isElkSmart(device) -> ElkSmartUsbProtocolFormatter
+      UsbDeviceFilter.isElkSmart(device) -> ElkSmartUsbProtocolFormatter()
       UsbDeviceFilter.isZaZaRemoteFamily(device) -> UsbProtocolFormatter
       UsbDeviceFilter.isTiqiaaTviewFamily(device) -> UsbProtocolFormatter
       else -> UsbProtocolFormatter

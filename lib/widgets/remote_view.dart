@@ -264,7 +264,7 @@ class RemoteViewState extends State<RemoteView> {
         );
       }
 
-      HapticFeedback.selectionClick();
+      Haptics.selectionClick();
       ScaffoldMessenger.of(context).showSnackBar(
         SnackBar(content: Text('Updated "${edited.name}".')),
       );
@@ -316,7 +316,7 @@ class RemoteViewState extends State<RemoteView> {
 
     if (!mounted) return;
 
-    HapticFeedback.selectionClick();
+    Haptics.selectionClick();
     ScaffoldMessenger.of(context).showSnackBar(
       SnackBar(content: Text('Deleted "$name".')),
     );
@@ -852,7 +852,7 @@ class RemoteViewState extends State<RemoteView> {
     await _persistRemote(showNotFoundSnack: false);
 
     if (!mounted) return;
-    HapticFeedback.selectionClick();
+    Haptics.selectionClick();
     ScaffoldMessenger.of(context).showSnackBar(
       SnackBar(content: Text('Updated "${_buttonTitle(updated)}".')),
     );
@@ -893,7 +893,7 @@ class RemoteViewState extends State<RemoteView> {
     await _persistRemote(showNotFoundSnack: false);
 
     if (!mounted) return;
-    HapticFeedback.selectionClick();
+    Haptics.selectionClick();
     ScaffoldMessenger.of(context).showSnackBar(
       SnackBar(content: Text('Added "${_buttonTitle(created)}".')),
     );
@@ -1099,7 +1099,7 @@ class RemoteViewState extends State<RemoteView> {
                                     ScaffoldMessenger.of(context).showSnackBar(
                                       const SnackBar(content: Text('Code copied.')),
                                     );
-                                    HapticFeedback.selectionClick();
+                                    Haptics.selectionClick();
                                   },
                             icon: const Icon(Icons.copy_rounded),
                             label: const Text('Copy code'),

@@ -48,66 +48,64 @@ class HapticsController extends ChangeNotifier {
 
 /// Convenience wrapper that respects the global haptics setting and intensity.
 class Haptics {
+  static const MethodChannel _channel = MethodChannel('org.nslabs/irtransmitter');
   static bool get _on => HapticsController.instance.enabled;
   static int get _level => HapticsController.instance.intensity; // 0..3
 
   static Future<void> selectionClick() async {
     if (!_on) return;
-    switch (_level) {
-      case 0: // off
-        return;
-      case 1: // light
-        await HapticFeedback.selectionClick();
-        return;
-      case 2: // medium
-        await HapticFeedback.mediumImpact();
-        return;
-      case 3: // strong
-      default:
-        await HapticFeedback.heavyImpact();
-        return;
-    }
+    await _perform('selection');
   }
 
   static Future<void> lightImpact() async {
     if (!_on) return;
-    switch (_level) {
-      case 0: // off
-        return;
-      case 1: // light
-        await HapticFeedback.selectionClick();
-        return;
-      case 2: // medium
-        await HapticFeedback.mediumImpact();
-        return;
-      case 3: // strong
-      default:
-        await HapticFeedback.heavyImpact();
-        return;
-    }
+    await _perform('light');
   }
 
   static Future<void> mediumImpact() async {
     if (!_on) return;
-    switch (_level) {
-      case 0: // off
-        return;
-      case 1: // light
-        await HapticFeedback.selectionClick();
-        return;
-      case 2: // medium
-        await HapticFeedback.mediumImpact();
-        return;
-      case 3: // strong
-      default:
-        await HapticFeedback.heavyImpact();
-        return;
-    }
+    await _perform('medium');
   }
 
   static Future<void> heavyImpact() async {
     if (!_on) return;
-    // Strongest available
-    await HapticFeedback.heavyImpact();
+    await _perform('heavy');
+  }
+
+  static Future<void> _perform(String type) async {
+    if (_level <= 0) return;
+    if (defaultTargetPlatform == TargetPlatform.android) {
+      try {
+        await _channel.invokeMethod<void>('performHaptic', <String, dynamic>{
+          'type': type,
+          'intensity': _level,
+        });
+        return;
+      } catch (_) {
+        // Fall back to Flutter's built-in mapping if the native path fails.
+      }
+    }
+    await _flutterFallback(type);
+  }
+
+  static Future<void> _flutterFallback(String type) async {
+    switch (_level) {
+      case 0:
+        return;
+      case 1:
+        await HapticFeedback.selectionClick();
+        return;
+      case 2:
+        if (type == 'selection') {
+          await HapticFeedback.selectionClick();
+        } else {
+          await HapticFeedback.mediumImpact();
+        }
+        return;
+      case 3:
+      default:
+        await HapticFeedback.heavyImpact();
+        return;
+    }
   }
 }

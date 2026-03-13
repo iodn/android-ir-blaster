@@ -5,7 +5,7 @@ const IrProtocolDefinition rc6ProtocolDefinition = IrProtocolDefinition(
   displayName: 'RC6',
   description:
       'RC6 mode-0: leader 2664/888, start+mode bits, double-width toggle bit, '
-      'then 16-bit payload (address+command). Carrier 36kHz.',
+      'then 16-bit payload (address+command), followed by a 6t silent gap. Carrier 36kHz.',
   implemented: true,
   defaultFrequencyHz: 36000,
   fields: <IrFieldDef>[
@@ -34,9 +34,14 @@ class Rc6ProtocolEncoder implements IrProtocolEncoder {
   IrProtocolDefinition get definition => rc6ProtocolDefinition;
 
   static const int defaultFrequencyHz = 36000;
+  static const int repeatWindowMs = 180;
 
-  // flips per encode.
+  // RC6 toggle changes on a new press, but stays constant while the same key
+  // is repeating. The encoder is otherwise stateless, so we approximate that
+  // behavior by preserving the toggle for rapid repeats of the same payload.
   static bool _toggleFlag = false;
+  static int? _lastPayload;
+  static DateTime? _lastEncodeAt;
 
   @override
   IrEncodeResult encode(Map<String, dynamic> params) {
@@ -54,22 +59,21 @@ class Rc6ProtocolEncoder implements IrProtocolEncoder {
       }
     }
 
-    // Flip toggle per “press”
-    _toggleFlag = !_toggleFlag;
-
     // Timings
     const int t = 0x01BC; // 444
     const int leaderMark = 0x0A68; // 2664
     const int leaderSpace = 0x0378; // 888
+    const int signalFree = 0x0A68; // 6t = 2664
 
     // Payload: last 4 hex chars -> 16-bit binary
     final String last4 = (hex.length >= 4) ? hex.substring(hex.length - 4) : hex;
     final int value = int.parse(last4, radix: 16) & 0xFFFF;
     final String payloadBits = value.toRadixString(2).padLeft(16, '0');
+    final bool toggle = _resolveToggle(params, value);
 
     // RC6 mode-0 bit layout:
     // start(1), mode(000), toggle(double-width), payload(16 bits)
-    final String bits = '1000${_toggleFlag ? '1' : '0'}$payloadBits';
+    final String bits = '1000${toggle ? '1' : '0'}$payloadBits';
 
     // Build mark/space durations by merging adjacent half-bits with same level.
     // For each bit: 1 => mark then space, 0 => space then mark.
@@ -96,10 +100,50 @@ class Rc6ProtocolEncoder implements IrProtocolEncoder {
       addSegment(!one, half);
     }
 
+    // Mandatory signal-free time at end of frame.
+    addSegment(false, signalFree);
+
     return IrEncodeResult(
       frequencyHz: defaultFrequencyHz,
       pattern: pattern,
     );
+  }
+
+  bool _resolveToggle(Map<String, dynamic> params, int payload) {
+    final dynamic rawToggle = params['toggle'];
+    if (rawToggle is bool) {
+      _rememberToggleState(rawToggle, payload);
+      return rawToggle;
+    }
+    if (rawToggle is String) {
+      final String s = rawToggle.trim().toLowerCase();
+      if (s == '0' || s == 'false') {
+        _rememberToggleState(false, payload);
+        return false;
+      }
+      if (s == '1' || s == 'true') {
+        _rememberToggleState(true, payload);
+        return true;
+      }
+      throw ArgumentError('RC6 toggle must be 0/1 or true/false');
+    }
+
+    final DateTime now = DateTime.now();
+    final bool isRepeat = Rc6ProtocolEncoder._lastPayload == payload &&
+        Rc6ProtocolEncoder._lastEncodeAt != null &&
+        now.difference(Rc6ProtocolEncoder._lastEncodeAt!).inMilliseconds <=
+            Rc6ProtocolEncoder.repeatWindowMs;
+    if (!isRepeat) {
+      Rc6ProtocolEncoder._toggleFlag = !Rc6ProtocolEncoder._toggleFlag;
+    }
+    _rememberToggleState(Rc6ProtocolEncoder._toggleFlag, payload, now: now);
+    return Rc6ProtocolEncoder._toggleFlag;
+  }
+
+  void _rememberToggleState(bool toggle, int payload, {DateTime? now}) {
+    Rc6ProtocolEncoder._toggleFlag = toggle;
+    Rc6ProtocolEncoder._lastPayload = payload;
+    Rc6ProtocolEncoder._lastEncodeAt = now ?? DateTime.now();
   }
 }
 

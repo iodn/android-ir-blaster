@@ -462,6 +462,16 @@ class _CreateButtonState extends State<CreateButton> {
       };
     }
 
+    if (protocolId == IrProtocolIds.rc5 && addrId != null && cmdId != null) {
+      final int packed = int.parse(hex, radix: 16) & 0x7FF;
+      final int addr = (packed >> 6) & 0x1F;
+      final int cmd = packed & 0x3F;
+      return <String, String>{
+        addrId: addr.toRadixString(16).toUpperCase().padLeft(2, '0'),
+        cmdId: cmd.toRadixString(16).toUpperCase().padLeft(2, '0'),
+      };
+    }
+
     if ((protocolId == IrProtocolIds.sony12 ||
             protocolId == IrProtocolIds.sony15 ||
             protocolId == IrProtocolIds.sony20) &&
