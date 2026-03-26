@@ -48,7 +48,7 @@ android {
         targetSdkVersion flutter.targetSdkVersion
         versionCode flutterVersionCode.toInteger()
         versionName flutterVersionName
-        resConfigs "en"
+        resourceConfigurations += ['en']
     }
 
     signingConfigs {
@@ -82,10 +82,10 @@ android {
             }
         }
     }
-
-    lintOptions {
+    lint {
         checkReleaseBuilds false
     }
+
 }
 
 flutter {

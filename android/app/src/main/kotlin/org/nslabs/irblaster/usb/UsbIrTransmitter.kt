@@ -1,5 +1,6 @@
 package org.nslabs.ir_blaster
 
+import android.annotation.SuppressLint
 import android.hardware.usb.UsbDevice
 import android.hardware.usb.UsbDeviceConnection
 import android.hardware.usb.UsbEndpoint
@@ -14,6 +15,7 @@ import kotlinx.coroutines.isActive
 import kotlinx.coroutines.launch
 import java.util.concurrent.atomic.AtomicLong
 
+@SuppressLint("NewApi")
 class UsbIrTransmitter private constructor(
     val device: UsbDevice,
     private val connection: UsbDeviceConnection,
@@ -142,12 +144,22 @@ class UsbIrTransmitter private constructor(
                 val until = readUntilMs.get()
                 val now = System.currentTimeMillis()
                 if (until <= now) break
+                
                 try {
-                    connection.bulkTransfer(inEndpoint, buf, buf.size, 300)
-                    delay(1)
+                    val remainingMs = (until - now).toInt()
+                    val timeout = remainingMs.coerceIn(50, 200)
+                    val rc = connection.bulkTransfer(inEndpoint, buf, buf.size, timeout)
+                    
+                    if (rc > 0) {
+                        delay(10)
+                    } else {
+                        delay(100)
+                    }
                 } catch (t: Throwable) {
-                    Log.e(TAG, "Background reader error", t)
-                    delay(5)
+                    if (isActive && !closed) {
+                        Log.e(TAG, "Background reader error", t)
+                        delay(1000)
+                    }
                 }
             }
         }

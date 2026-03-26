@@ -478,6 +478,26 @@ class MainActivity : FlutterActivity() {
         emitTxStatusDelayed("startup_done_delayed", 350L)
     }
 
+    override fun onPause() {
+        super.onPause()
+        // Aggressively save power: close the USB connection when the app goes to background.
+        // It will be re-opened automatically via acquireUsbTransmitter() when needed for transmission.
+        usbTransmitter?.closeSafely()
+        usbTransmitter = null
+        refreshUsbStateSnapshot()
+        emitTxStatus("app_paused")
+    }
+
+    override fun onResume() {
+        super.onResume()
+        // Re-open if it was previously active or if auto-switch is enabled.
+        if (currentTxType == TxType.USB) {
+            openUsbIfPermitted()?.let { usbTransmitter = it }
+        }
+        applyAutoSwitchIfEnabled("app_resume")
+        emitTxStatus("app_resume")
+    }
+
     private fun handlePerformHaptic(call: MethodCall, result: MethodChannel.Result) {
         val type = call.argument<String>("type") ?: "selection"
         val intensity = (call.argument<Int>("intensity") ?: 2).coerceIn(1, 3)
