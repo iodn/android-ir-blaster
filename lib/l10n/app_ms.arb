@@ -1842,5 +1842,10 @@
   "importedRemoteDefaultName": "RemoteImport",
   "demoRemoteName": "Remote Demo",
   "protocolFieldsInvalid": "Isi bidang protokol wajib dan pastikan frekuensi 15k–60k bila diatur.",
-  "unknownProtocolSelected": "Tidak dikenal protokol terpilih."
+  "unknownProtocolSelected": "Tidak dikenal protokol terpilih.",
+  "forceInAppVibrationTitle": "Paksa getaran dalam aplikasi",
+  "forceInAppVibrationSubtitle": "Gunakan penggetar secara langsung walaupun maklum balas sentuhan sistem dimatikan",
+  "forceInAppVibrationWarning": "Pilihan lanjutan. Aplikasi boleh bergetar walaupun maklum balas sentuhan Android dimatikan secara global.",
+  "forceInAppVibrationBlockedMasterWarning": "Android system vibration is disabled. Force in-app vibration cannot override it on this device.",
+  "forceInAppVibrationNoVibratorWarning": "This device reports no vibrator hardware, so in-app vibration cannot work."
 }

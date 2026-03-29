@@ -910,6 +910,36 @@ abstract class AppLocalizations {
   /// **'Vibrate on taps and actions'**
   String get hapticFeedbackSubtitle;
 
+  /// No description provided for @forceInAppVibrationTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Force in-app vibration'**
+  String get forceInAppVibrationTitle;
+
+  /// No description provided for @forceInAppVibrationSubtitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Use the vibrator directly even if system touch feedback is off'**
+  String get forceInAppVibrationSubtitle;
+
+  /// No description provided for @forceInAppVibrationWarning.
+  ///
+  /// In en, this message translates to:
+  /// **'Advanced option. This can make the app vibrate even when Android touch feedback is disabled globally.'**
+  String get forceInAppVibrationWarning;
+
+  /// No description provided for @forceInAppVibrationBlockedMasterWarning.
+  ///
+  /// In en, this message translates to:
+  /// **'Android system vibration is disabled. Force in-app vibration cannot override it on this device.'**
+  String get forceInAppVibrationBlockedMasterWarning;
+
+  /// No description provided for @forceInAppVibrationNoVibratorWarning.
+  ///
+  /// In en, this message translates to:
+  /// **'This device reports no vibrator hardware, so in-app vibration cannot work.'**
+  String get forceInAppVibrationNoVibratorWarning;
+
   /// No description provided for @intensity.
   ///
   /// In en, this message translates to:

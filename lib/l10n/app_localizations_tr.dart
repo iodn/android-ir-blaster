@@ -454,6 +454,25 @@ class AppLocalizationsTr extends AppLocalizations {
   String get hapticFeedbackSubtitle => 'Dokunuşlarda ve eylemlerde titreşim';
 
   @override
+  String get forceInAppVibrationTitle => 'Uygulama içi titreşimi zorla';
+
+  @override
+  String get forceInAppVibrationSubtitle =>
+      'Sistem dokunma geri bildirimi kapalı olsa bile titreşimi doğrudan kullan';
+
+  @override
+  String get forceInAppVibrationWarning =>
+      'Gelişmiş seçenek. Android dokunma geri bildirimi genel olarak kapalı olsa bile uygulama titreşebilir.';
+
+  @override
+  String get forceInAppVibrationBlockedMasterWarning =>
+      'Android system vibration is disabled. Force in-app vibration cannot override it on this device.';
+
+  @override
+  String get forceInAppVibrationNoVibratorWarning =>
+      'This device reports no vibrator hardware, so in-app vibration cannot work.';
+
+  @override
   String get intensity => 'Intensity';
 
   @override

@@ -9,12 +9,15 @@ import android.content.pm.PackageManager
 import android.hardware.ConsumerIrManager
 import android.hardware.usb.UsbDevice
 import android.hardware.usb.UsbManager
+import android.media.AudioAttributes
 import android.os.Build
 import android.os.Handler
 import android.os.Looper
 import android.os.VibrationEffect
+import android.os.VibrationAttributes
 import android.os.Vibrator
 import android.os.VibratorManager
+import android.provider.Settings
 import android.util.Log
 import android.view.HapticFeedbackConstants
 import androidx.annotation.NonNull
@@ -445,6 +448,7 @@ class MainActivity : FlutterActivity() {
                     "transmitRaw" -> handleTransmitRaw(call, result)
                     "transmitRawCycles" -> handleTransmitRawCycles(call, result)
                     "performHaptic" -> handlePerformHaptic(call, result)
+                    "getHapticDiagnostics" -> result.success(buildHapticDiagnostics())
                     "hasIrEmitter" -> handleHasAnyEmitter(result)
                     "getTransmitterCapabilities" -> handleGetTxCaps(result)
                     "setTransmitterType" -> handleSetTxType(call, result)
@@ -481,9 +485,11 @@ class MainActivity : FlutterActivity() {
     private fun handlePerformHaptic(call: MethodCall, result: MethodChannel.Result) {
         val type = call.argument<String>("type") ?: "selection"
         val intensity = (call.argument<Int>("intensity") ?: 2).coerceIn(1, 3)
+        val forceVibrationOverride = call.argument<Boolean>("forceVibrationOverride") ?: false
+        Log.i(TAG, "performHaptic request type=$type intensity=$intensity force=$forceVibrationOverride")
         runOnUiThread {
             try {
-                result.success(performNativeHaptic(type, intensity))
+                result.success(performNativeHaptic(type, intensity, forceVibrationOverride))
             } catch (t: Throwable) {
                 Log.w(TAG, "performNativeHaptic failed: ${t.message}")
                 result.error("HAPTIC_FAILED", t.message, null)
@@ -491,7 +497,33 @@ class MainActivity : FlutterActivity() {
         }
     }
 
-    private fun performNativeHaptic(type: String, intensity: Int): Boolean {
+    private fun performNativeHaptic(type: String, intensity: Int, forceVibrationOverride: Boolean): Boolean {
+        val diagnostics = buildHapticDiagnostics()
+        val hasVibrator = diagnostics["hasVibrator"] == true
+        val systemTouchFeedbackEnabled = diagnostics["systemTouchFeedbackEnabled"] == true
+        val masterVibrationEnabled = diagnostics["masterVibrationEnabled"] == true
+        val forceOverrideLikelyBlocked = diagnostics["forceOverrideLikelyBlocked"] == true
+
+        if (!hasVibrator) {
+            Log.w(TAG, "performNativeHaptic: no vibrator available")
+            return false
+        }
+        if (forceVibrationOverride) {
+            if (forceOverrideLikelyBlocked) {
+                Log.w(TAG, "performNativeHaptic: force override blocked by system settings")
+                return false
+            }
+            Log.i(TAG, "performNativeHaptic: forcing direct vibration path")
+            return performVibratorFallback(type, intensity)
+        }
+        if (!systemTouchFeedbackEnabled || !masterVibrationEnabled) {
+            Log.w(
+                TAG,
+                "performNativeHaptic: system settings suppress touch feedback (touch=$systemTouchFeedbackEnabled, master=$masterVibrationEnabled)"
+            )
+            return false
+        }
+
         val decorView = window?.decorView
         val constant = when (type) {
             "selection" -> {
@@ -523,57 +555,130 @@ class MainActivity : FlutterActivity() {
         } catch (_: Throwable) {
             false
         }
-        if (viewOk) return true
-
-        return performVibratorFallback(type, intensity)
+        Log.i(TAG, "performNativeHaptic: view feedback constant=$constant success=$viewOk")
+        return viewOk
     }
 
     private fun performVibratorFallback(type: String, intensity: Int): Boolean {
         val vibrator = getAppVibrator() ?: return false
-        if (!vibrator.hasVibrator()) return false
+        if (!vibrator.hasVibrator()) {
+            Log.w(TAG, "performVibratorFallback: device reports no vibrator")
+            return false
+        }
         return try {
+            val (duration, rawAmplitude) = fallbackOneShotFor(type, intensity)
+            val amplitude = if (Build.VERSION.SDK_INT >= 26 && vibrator.hasAmplitudeControl()) {
+                rawAmplitude
+            } else {
+                VibrationEffect.DEFAULT_AMPLITUDE
+            }
+            val effect = VibrationEffect.createOneShot(duration, amplitude)
             when {
-                Build.VERSION.SDK_INT >= 29 -> {
-                    val effectId = when (type) {
-                        "selection" -> VibrationEffect.EFFECT_TICK
-                        "light" -> VibrationEffect.EFFECT_CLICK
-                        "medium" -> VibrationEffect.EFFECT_CLICK
-                        "heavy" -> VibrationEffect.EFFECT_HEAVY_CLICK
-                        else -> VibrationEffect.EFFECT_CLICK
-                    }
-                    vibrator.vibrate(VibrationEffect.createPredefined(effectId))
+                Build.VERSION.SDK_INT >= 33 -> {
+                    vibrator.vibrate(
+                        effect,
+                        VibrationAttributes.createForUsage(VibrationAttributes.USAGE_COMMUNICATION_REQUEST)
+                    )
                 }
                 Build.VERSION.SDK_INT >= 26 -> {
-                    val (duration, amplitude) = fallbackOneShotFor(intensity)
-                    vibrator.vibrate(VibrationEffect.createOneShot(duration, amplitude))
+                    @Suppress("DEPRECATION")
+                    vibrator.vibrate(
+                        effect,
+                        AudioAttributes.Builder()
+                            .setContentType(AudioAttributes.CONTENT_TYPE_SONIFICATION)
+                            .setUsage(AudioAttributes.USAGE_NOTIFICATION_COMMUNICATION_REQUEST)
+                            .build()
+                    )
                 }
                 else -> {
-                    val (duration, _) = fallbackOneShotFor(intensity)
                     @Suppress("DEPRECATION")
                     vibrator.vibrate(duration)
                 }
             }
+            Log.i(
+                TAG,
+                "performVibratorFallback: success type=$type intensity=$intensity duration=${duration}ms amplitude=$amplitude hasAmplitude=${if (Build.VERSION.SDK_INT >= 26) vibrator.hasAmplitudeControl() else false}"
+            )
             true
+        } catch (t: Throwable) {
+            Log.w(TAG, "performVibratorFallback failed: ${t.message}")
+            false
+        }
+    }
+
+    private fun buildHapticDiagnostics(): Map<String, Any?> {
+        val vibrator = getAppVibrator()
+        val hasVibrator = try {
+            vibrator?.hasVibrator() == true
         } catch (_: Throwable) {
             false
         }
+        val systemTouchFeedbackEnabled = try {
+            Settings.System.getInt(contentResolver, Settings.System.HAPTIC_FEEDBACK_ENABLED, 1) == 1
+        } catch (_: Throwable) {
+            true
+        }
+        val masterVibrationEnabled = try {
+            Settings.System.getInt(contentResolver, "vibrate_on", 1) == 1
+        } catch (_: Throwable) {
+            true
+        }
+        val reasonCode = when {
+            !hasVibrator -> "no_vibrator"
+            !masterVibrationEnabled -> "master_vibration_disabled"
+            !systemTouchFeedbackEnabled -> "touch_feedback_disabled"
+            else -> null
+        }
+        return mapOf(
+            "hasVibrator" to hasVibrator,
+            "systemTouchFeedbackEnabled" to systemTouchFeedbackEnabled,
+            "masterVibrationEnabled" to masterVibrationEnabled,
+            "forceOverrideLikelyBlocked" to (!hasVibrator || !masterVibrationEnabled),
+            "reasonCode" to reasonCode,
+        )
     }
 
     private fun getAppVibrator(): Vibrator? {
         return if (Build.VERSION.SDK_INT >= 31) {
             val mgr = getSystemService(Context.VIBRATOR_MANAGER_SERVICE) as? VibratorManager
             mgr?.defaultVibrator
+                ?: run {
+                    @Suppress("DEPRECATION")
+                    getSystemService(Context.VIBRATOR_SERVICE) as? Vibrator
+                }
         } else {
             @Suppress("DEPRECATION")
             getSystemService(Context.VIBRATOR_SERVICE) as? Vibrator
         }
     }
 
-    private fun fallbackOneShotFor(intensity: Int): Pair<Long, Int> {
-        return when (intensity.coerceIn(1, 3)) {
-            1 -> 12L to 60
-            2 -> 18L to 140
-            else -> 24L to 255
+    private fun fallbackOneShotFor(type: String, intensity: Int): Pair<Long, Int> {
+        return when (type) {
+            "selection" -> when (intensity.coerceIn(1, 3)) {
+                1 -> 16L to 90
+                2 -> 22L to 160
+                else -> 30L to 220
+            }
+            "light" -> when (intensity.coerceIn(1, 3)) {
+                1 -> 18L to 100
+                2 -> 24L to 170
+                else -> 32L to 230
+            }
+            "medium" -> when (intensity.coerceIn(1, 3)) {
+                1 -> 22L to 120
+                2 -> 30L to 190
+                else -> 40L to 255
+            }
+            "heavy" -> when (intensity.coerceIn(1, 3)) {
+                1 -> 28L to 150
+                2 -> 38L to 220
+                else -> 52L to 255
+            }
+            else -> when (intensity.coerceIn(1, 3)) {
+                1 -> 18L to 100
+                2 -> 24L to 170
+                else -> 32L to 230
+            }
         }
     }
 

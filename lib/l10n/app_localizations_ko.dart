@@ -439,6 +439,24 @@ class AppLocalizationsKo extends AppLocalizations {
   String get hapticFeedbackSubtitle => '탭과 동작 시 진동';
 
   @override
+  String get forceInAppVibrationTitle => '앱 내 진동 강제 사용';
+
+  @override
+  String get forceInAppVibrationSubtitle => '시스템 터치 피드백이 꺼져 있어도 진동기를 직접 사용합니다';
+
+  @override
+  String get forceInAppVibrationWarning =>
+      '고급 옵션입니다. Android 터치 피드백이 전역으로 꺼져 있어도 앱이 진동할 수 있습니다.';
+
+  @override
+  String get forceInAppVibrationBlockedMasterWarning =>
+      'Android system vibration is disabled. Force in-app vibration cannot override it on this device.';
+
+  @override
+  String get forceInAppVibrationNoVibratorWarning =>
+      'This device reports no vibrator hardware, so in-app vibration cannot work.';
+
+  @override
   String get intensity => '강도';
 
   @override

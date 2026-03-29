@@ -1842,5 +1842,10 @@
   "importedRemoteDefaultName": "取り込みリモコン",
   "demoRemoteName": "デモリモコン",
   "protocolFieldsInvalid": "必須のプロトコル項目を埋め 周波数を設定する場合は15kから60kにしてください",
-  "unknownProtocolSelected": "不明なプロトコルが選択されました"
+  "unknownProtocolSelected": "不明なプロトコルが選択されました",
+  "forceInAppVibrationTitle": "アプリ内の振動を強制する",
+  "forceInAppVibrationSubtitle": "システムのタッチフィードバックがオフでもバイブレータを直接使用する",
+  "forceInAppVibrationWarning": "高度なオプションです。Android のタッチフィードバックが全体で無効でも、アプリが振動する場合があります。",
+  "forceInAppVibrationBlockedMasterWarning": "Android system vibration is disabled. Force in-app vibration cannot override it on this device.",
+  "forceInAppVibrationNoVibratorWarning": "This device reports no vibrator hardware, so in-app vibration cannot work."
 }

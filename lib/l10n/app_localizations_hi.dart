@@ -455,6 +455,25 @@ class AppLocalizationsHi extends AppLocalizations {
   String get hapticFeedbackSubtitle => 'टैप और क्रियाओं पर कंपन करें';
 
   @override
+  String get forceInAppVibrationTitle => 'ऐप के भीतर कंपन को बाध्य करें';
+
+  @override
+  String get forceInAppVibrationSubtitle =>
+      'सिस्टम टच फ़ीडबैक बंद होने पर भी सीधे वाइब्रेटर का उपयोग करें';
+
+  @override
+  String get forceInAppVibrationWarning =>
+      'उन्नत विकल्प। इससे ऐप तब भी कंपन कर सकता है जब Android का टच फ़ीडबैक वैश्विक रूप से बंद हो।';
+
+  @override
+  String get forceInAppVibrationBlockedMasterWarning =>
+      'Android system vibration is disabled. Force in-app vibration cannot override it on this device.';
+
+  @override
+  String get forceInAppVibrationNoVibratorWarning =>
+      'This device reports no vibrator hardware, so in-app vibration cannot work.';
+
+  @override
   String get intensity => 'तीव्रता';
 
   @override

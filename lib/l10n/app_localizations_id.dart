@@ -453,6 +453,25 @@ class AppLocalizationsId extends AppLocalizations {
   String get hapticFeedbackSubtitle => 'Getar saat sentuh dan aksi';
 
   @override
+  String get forceInAppVibrationTitle => 'Paksa getaran di aplikasi';
+
+  @override
+  String get forceInAppVibrationSubtitle =>
+      'Gunakan vibrator secara langsung meskipun umpan balik sentuhan sistem dimatikan';
+
+  @override
+  String get forceInAppVibrationWarning =>
+      'Opsi lanjutan. Aplikasi dapat bergetar meskipun umpan balik sentuhan Android dinonaktifkan secara global.';
+
+  @override
+  String get forceInAppVibrationBlockedMasterWarning =>
+      'Android system vibration is disabled. Force in-app vibration cannot override it on this device.';
+
+  @override
+  String get forceInAppVibrationNoVibratorWarning =>
+      'This device reports no vibrator hardware, so in-app vibration cannot work.';
+
+  @override
   String get intensity => 'Intensitas';
 
   @override

@@ -1842,5 +1842,10 @@
   "importedRemoteDefaultName": "Импортированный пульт",
   "demoRemoteName": "Демо-пульт",
   "protocolFieldsInvalid": "Заполните обязательные поля протокола и убедитесь, что частота, если задана, находится в диапазоне 15–60 кГц.",
-  "unknownProtocolSelected": "Выбран неизвестный протокол."
+  "unknownProtocolSelected": "Выбран неизвестный протокол.",
+  "forceInAppVibrationTitle": "Принудительная вибрация в приложении",
+  "forceInAppVibrationSubtitle": "Использовать вибромотор напрямую, даже если системный тактильный отклик отключён",
+  "forceInAppVibrationWarning": "Расширенная опция. Приложение может вибрировать, даже если тактильный отклик Android глобально отключён.",
+  "forceInAppVibrationBlockedMasterWarning": "Android system vibration is disabled. Force in-app vibration cannot override it on this device.",
+  "forceInAppVibrationNoVibratorWarning": "This device reports no vibrator hardware, so in-app vibration cannot work."
 }

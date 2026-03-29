@@ -1842,5 +1842,10 @@
   "importedRemoteDefaultName": "ImportedRemote",
   "demoRemoteName": "데모 리모컨",
   "protocolFieldsInvalid": "Fill 필수 프로토콜 fields 및 ensure frequency 15k–60k if set.",
-  "unknownProtocolSelected": "알 수 없는 프로토콜이 선택되었습니다."
+  "unknownProtocolSelected": "알 수 없는 프로토콜이 선택되었습니다.",
+  "forceInAppVibrationTitle": "앱 내 진동 강제 사용",
+  "forceInAppVibrationSubtitle": "시스템 터치 피드백이 꺼져 있어도 진동기를 직접 사용합니다",
+  "forceInAppVibrationWarning": "고급 옵션입니다. Android 터치 피드백이 전역으로 꺼져 있어도 앱이 진동할 수 있습니다.",
+  "forceInAppVibrationBlockedMasterWarning": "Android system vibration is disabled. Force in-app vibration cannot override it on this device.",
+  "forceInAppVibrationNoVibratorWarning": "This device reports no vibrator hardware, so in-app vibration cannot work."
 }

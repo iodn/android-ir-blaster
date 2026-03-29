@@ -858,6 +858,7 @@ class SettingsScreen extends StatelessWidget {
   Widget _buildInteractionSection(BuildContext context) {
     final orientationCtrl = RemoteOrientationController.instance;
     final cs = Theme.of(context).colorScheme;
+    unawaited(HapticsController.instance.refreshDiagnostics(notify: false));
 
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 16),
@@ -872,6 +873,14 @@ class SettingsScreen extends StatelessWidget {
               builder: (context, _) {
                 final enabled = HapticsController.instance.enabled;
                 final intensity = HapticsController.instance.intensity.clamp(1, 3);
+                final forceOverride = HapticsController.instance.forceVibrationOverride;
+                final diagnostics = HapticsController.instance.diagnostics;
+                final forceBlocked = forceOverride && diagnostics.forceOverrideLikelyBlocked;
+                final forceBlockedMessage = switch (diagnostics.reasonCode) {
+                  'no_vibrator' => context.l10n.forceInAppVibrationNoVibratorWarning,
+                  'master_vibration_disabled' => context.l10n.forceInAppVibrationBlockedMasterWarning,
+                  _ => context.l10n.forceInAppVibrationBlockedMasterWarning,
+                };
 
                 return Column(
                   crossAxisAlignment: CrossAxisAlignment.stretch,
@@ -898,12 +907,73 @@ class SettingsScreen extends StatelessWidget {
                             ],
                             selected: <int>{intensity},
                             onSelectionChanged: enabled
-                                ? (s) => HapticsController.instance.setIntensity(s.first)
+                                ? (s) async {
+                                    await HapticsController.instance.setIntensity(s.first);
+                                    if (context.mounted) {
+                                      await Haptics.mediumImpact();
+                                    }
+                                  }
                                 : null,
                           ),
                         ],
                       ),
                     ),
+                    SwitchListTile.adaptive(
+                      secondary: const Icon(Icons.vibration_rounded),
+                      title: Text(context.l10n.forceInAppVibrationTitle),
+                      value: forceOverride,
+                      onChanged: enabled
+                          ? (v) async {
+                              await HapticsController.instance.setForceVibrationOverride(v);
+                              await HapticsController.instance.refreshDiagnostics();
+                              if (!context.mounted) return;
+                              final currentDiagnostics = HapticsController.instance.diagnostics;
+                              if (v && currentDiagnostics.forceOverrideLikelyBlocked) {
+                                ScaffoldMessenger.of(context).showSnackBar(
+                                  SnackBar(
+                                    content: Text(
+                                      switch (currentDiagnostics.reasonCode) {
+                                        'no_vibrator' => context.l10n.forceInAppVibrationNoVibratorWarning,
+                                        'master_vibration_disabled' => context.l10n.forceInAppVibrationBlockedMasterWarning,
+                                        _ => context.l10n.forceInAppVibrationBlockedMasterWarning,
+                                      },
+                                    ),
+                                    behavior: SnackBarBehavior.floating,
+                                  ),
+                                );
+                              } else if (v) {
+                                await Haptics.heavyImpact();
+                              }
+                            }
+                          : null,
+                    ),
+                    if (forceBlocked)
+                      Padding(
+                        padding: const EdgeInsets.fromLTRB(56, 0, 12, 8),
+                        child: Container(
+                          padding: const EdgeInsets.all(10),
+                          decoration: BoxDecoration(
+                            color: cs.errorContainer.withValues(alpha: 0.65),
+                            borderRadius: BorderRadius.circular(10),
+                          ),
+                          child: Row(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              Icon(Icons.warning_amber_rounded, size: 18, color: cs.onErrorContainer),
+                              const SizedBox(width: 8),
+                              Expanded(
+                                child: Text(
+                                  forceBlockedMessage,
+                                  style: Theme.of(context).textTheme.bodySmall?.copyWith(
+                                    color: cs.onErrorContainer,
+                                    height: 1.3,
+                                  ),
+                                ),
+                              ),
+                            ],
+                          ),
+                        ),
+                      ),
                   ],
                 );
               },

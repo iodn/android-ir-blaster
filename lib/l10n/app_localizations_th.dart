@@ -447,6 +447,25 @@ class AppLocalizationsTh extends AppLocalizations {
   String get hapticFeedbackSubtitle => 'สั่นเมื่อแตะและเมื่อทำงาน';
 
   @override
+  String get forceInAppVibrationTitle => 'บังคับการสั่นในแอป';
+
+  @override
+  String get forceInAppVibrationSubtitle =>
+      'ใช้ตัวสั่นโดยตรงแม้ว่าการตอบสนองการสัมผัสของระบบจะปิดอยู่';
+
+  @override
+  String get forceInAppVibrationWarning =>
+      'ตัวเลือกขั้นสูง แอปอาจสั่นได้แม้ว่าการตอบสนองการสัมผัสของ Android จะถูกปิดไว้ทั้งระบบ';
+
+  @override
+  String get forceInAppVibrationBlockedMasterWarning =>
+      'Android system vibration is disabled. Force in-app vibration cannot override it on this device.';
+
+  @override
+  String get forceInAppVibrationNoVibratorWarning =>
+      'This device reports no vibrator hardware, so in-app vibration cannot work.';
+
+  @override
   String get intensity => 'ความเข้ม';
 
   @override

@@ -1842,5 +1842,10 @@
   "importedRemoteDefaultName": "ImportedRemote",
   "demoRemoteName": "Demo रिमोट",
   "protocolFieldsInvalid": "Fill आवश्यक प्रोटोकॉल fields और ensure फ़्रीक्वेंसी है 15k–60k यदि set.",
-  "unknownProtocolSelected": "अज्ञात प्रोटोकॉल चयनित."
+  "unknownProtocolSelected": "अज्ञात प्रोटोकॉल चयनित.",
+  "forceInAppVibrationTitle": "ऐप के भीतर कंपन को बाध्य करें",
+  "forceInAppVibrationSubtitle": "सिस्टम टच फ़ीडबैक बंद होने पर भी सीधे वाइब्रेटर का उपयोग करें",
+  "forceInAppVibrationWarning": "उन्नत विकल्प। इससे ऐप तब भी कंपन कर सकता है जब Android का टच फ़ीडबैक वैश्विक रूप से बंद हो।",
+  "forceInAppVibrationBlockedMasterWarning": "Android system vibration is disabled. Force in-app vibration cannot override it on this device.",
+  "forceInAppVibrationNoVibratorWarning": "This device reports no vibrator hardware, so in-app vibration cannot work."
 }

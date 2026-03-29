@@ -429,6 +429,23 @@ class AppLocalizationsZh extends AppLocalizations {
   String get hapticFeedbackSubtitle => '点击和操作时振动';
 
   @override
+  String get forceInAppVibrationTitle => '强制应用内振动';
+
+  @override
+  String get forceInAppVibrationSubtitle => '即使系统触觉反馈已关闭，也直接使用振动器';
+
+  @override
+  String get forceInAppVibrationWarning => '高级选项。即使 Android 全局触觉反馈已关闭，应用也可能振动。';
+
+  @override
+  String get forceInAppVibrationBlockedMasterWarning =>
+      'Android system vibration is disabled. Force in-app vibration cannot override it on this device.';
+
+  @override
+  String get forceInAppVibrationNoVibratorWarning =>
+      'This device reports no vibrator hardware, so in-app vibration cannot work.';
+
+  @override
   String get intensity => '强度';
 
   @override

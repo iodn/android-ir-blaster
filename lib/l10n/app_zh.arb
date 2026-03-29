@@ -1842,5 +1842,10 @@
   "importedRemoteDefaultName": "已导入遥控器",
   "demoRemoteName": "演示遥控器",
   "protocolFieldsInvalid": "请填写必填协议字段，若设置频率，请确保在 15k 到 60k 之间。",
-  "unknownProtocolSelected": "所选协议未知。"
+  "unknownProtocolSelected": "所选协议未知。",
+  "forceInAppVibrationTitle": "强制应用内振动",
+  "forceInAppVibrationSubtitle": "即使系统触觉反馈已关闭，也直接使用振动器",
+  "forceInAppVibrationWarning": "高级选项。即使 Android 全局触觉反馈已关闭，应用也可能振动。",
+  "forceInAppVibrationBlockedMasterWarning": "Android system vibration is disabled. Force in-app vibration cannot override it on this device.",
+  "forceInAppVibrationNoVibratorWarning": "This device reports no vibrator hardware, so in-app vibration cannot work."
 }

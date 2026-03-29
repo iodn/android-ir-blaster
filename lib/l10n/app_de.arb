@@ -1842,5 +1842,10 @@
   "importedRemoteDefaultName": "ImportierteFernbedienung",
   "demoRemoteName": "Demo-Fernbedienung",
   "protocolFieldsInvalid": "Fülle die Pflichtfelder des Protokolls aus und stelle sicher, dass die Frequenz falls gesetzt 15k bis 60k ist.",
-  "unknownProtocolSelected": "Unbekanntes Protokoll gewählt."
+  "unknownProtocolSelected": "Unbekanntes Protokoll gewählt.",
+  "forceInAppVibrationTitle": "Vibration in der App erzwingen",
+  "forceInAppVibrationSubtitle": "Den Vibrator direkt verwenden, auch wenn das System-Tastfeedback deaktiviert ist",
+  "forceInAppVibrationWarning": "Erweiterte Option. Die App kann dadurch vibrieren, auch wenn das Android-Tastfeedback global deaktiviert ist.",
+  "forceInAppVibrationBlockedMasterWarning": "Android system vibration is disabled. Force in-app vibration cannot override it on this device.",
+  "forceInAppVibrationNoVibratorWarning": "This device reports no vibrator hardware, so in-app vibration cannot work."
 }

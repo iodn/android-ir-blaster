@@ -1842,5 +1842,10 @@
   "importedRemoteDefaultName": "ImportedRemote",
   "demoRemoteName": "Demo جهاز التحكم",
   "protocolFieldsInvalid": "املأ حقول البروتوكول المطلوبة وتأكد أن التردد بين 15k و 60k إذا تم ضبطه.",
-  "unknownProtocolSelected": "تم تحديد بروتوكول غير معروف."
+  "unknownProtocolSelected": "تم تحديد بروتوكول غير معروف.",
+  "forceInAppVibrationTitle": "فرض الاهتزاز داخل التطبيق",
+  "forceInAppVibrationSubtitle": "استخدام الهزاز مباشرة حتى إذا كان اللمس الارتدادي للنظام معطلاً",
+  "forceInAppVibrationWarning": "خيار متقدم. قد يجعل التطبيق يهتز حتى عندما يكون اللمس الارتدادي في أندرويد معطلاً على مستوى النظام.",
+  "forceInAppVibrationBlockedMasterWarning": "Android system vibration is disabled. Force in-app vibration cannot override it on this device.",
+  "forceInAppVibrationNoVibratorWarning": "This device reports no vibrator hardware, so in-app vibration cannot work."
 }

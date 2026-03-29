@@ -460,6 +460,25 @@ class AppLocalizationsIt extends AppLocalizations {
   String get hapticFeedbackSubtitle => 'Vibra su tocchi e azioni';
 
   @override
+  String get forceInAppVibrationTitle => 'Forza la vibrazione nell\'app';
+
+  @override
+  String get forceInAppVibrationSubtitle =>
+      'Usa direttamente il vibratore anche se il feedback tattile di sistema è disattivato';
+
+  @override
+  String get forceInAppVibrationWarning =>
+      'Opzione avanzata. L\'app può vibrare anche quando il feedback tattile di Android è disattivato globalmente.';
+
+  @override
+  String get forceInAppVibrationBlockedMasterWarning =>
+      'Android system vibration is disabled. Force in-app vibration cannot override it on this device.';
+
+  @override
+  String get forceInAppVibrationNoVibratorWarning =>
+      'This device reports no vibrator hardware, so in-app vibration cannot work.';
+
+  @override
   String get intensity => 'Intensità';
 
   @override

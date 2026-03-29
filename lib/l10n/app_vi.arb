@@ -1842,5 +1842,10 @@
   "importedRemoteDefaultName": "ĐiềuKhiểnĐãNhập",
   "demoRemoteName": "Điều khiển mẫu",
   "protocolFieldsInvalid": "Điền các trường giao thức bắt buộc và bảo đảm tần số là 15k–60k nếu có đặt.",
-  "unknownProtocolSelected": "Đã chọn giao thức không rõ."
+  "unknownProtocolSelected": "Đã chọn giao thức không rõ.",
+  "forceInAppVibrationTitle": "Buộc rung trong ứng dụng",
+  "forceInAppVibrationSubtitle": "Dùng trực tiếp bộ rung ngay cả khi phản hồi chạm của hệ thống đã tắt",
+  "forceInAppVibrationWarning": "Tùy chọn nâng cao. Ứng dụng có thể rung ngay cả khi phản hồi chạm của Android bị tắt trên toàn hệ thống.",
+  "forceInAppVibrationBlockedMasterWarning": "Android system vibration is disabled. Force in-app vibration cannot override it on this device.",
+  "forceInAppVibrationNoVibratorWarning": "This device reports no vibrator hardware, so in-app vibration cannot work."
 }

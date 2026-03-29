@@ -459,6 +459,25 @@ class AppLocalizationsPt extends AppLocalizations {
   String get hapticFeedbackSubtitle => 'Vibrar ao tocar e ao executar ações';
 
   @override
+  String get forceInAppVibrationTitle => 'Forçar vibração na aplicação';
+
+  @override
+  String get forceInAppVibrationSubtitle =>
+      'Usar o vibrador diretamente mesmo que o feedback tátil do sistema esteja desligado';
+
+  @override
+  String get forceInAppVibrationWarning =>
+      'Opção avançada. A aplicação pode vibrar mesmo quando o feedback tátil do Android está desativado globalmente.';
+
+  @override
+  String get forceInAppVibrationBlockedMasterWarning =>
+      'Android system vibration is disabled. Force in-app vibration cannot override it on this device.';
+
+  @override
+  String get forceInAppVibrationNoVibratorWarning =>
+      'This device reports no vibrator hardware, so in-app vibration cannot work.';
+
+  @override
   String get intensity => 'Intensidad';
 
   @override
@@ -4457,6 +4476,25 @@ class AppLocalizationsPtBr extends AppLocalizationsPt {
 
   @override
   String get hapticFeedbackSubtitle => 'Vibrar ao tocar e ao executar ações';
+
+  @override
+  String get forceInAppVibrationTitle => 'Forçar vibração no app';
+
+  @override
+  String get forceInAppVibrationSubtitle =>
+      'Usar o vibrador diretamente mesmo que o feedback tátil do sistema esteja desligado';
+
+  @override
+  String get forceInAppVibrationWarning =>
+      'Opção avançada. O app pode vibrar mesmo quando o feedback tátil do Android estiver desativado globalmente.';
+
+  @override
+  String get forceInAppVibrationBlockedMasterWarning =>
+      'Android system vibration is disabled. Force in-app vibration cannot override it on this device.';
+
+  @override
+  String get forceInAppVibrationNoVibratorWarning =>
+      'This device reports no vibrator hardware, so in-app vibration cannot work.';
 
   @override
   String get intensity => 'Intensidad';

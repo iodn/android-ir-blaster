@@ -453,6 +453,25 @@ class AppLocalizationsVi extends AppLocalizations {
   String get hapticFeedbackSubtitle => 'Rung khi chạm và thao tác';
 
   @override
+  String get forceInAppVibrationTitle => 'Buộc rung trong ứng dụng';
+
+  @override
+  String get forceInAppVibrationSubtitle =>
+      'Dùng trực tiếp bộ rung ngay cả khi phản hồi chạm của hệ thống đã tắt';
+
+  @override
+  String get forceInAppVibrationWarning =>
+      'Tùy chọn nâng cao. Ứng dụng có thể rung ngay cả khi phản hồi chạm của Android bị tắt trên toàn hệ thống.';
+
+  @override
+  String get forceInAppVibrationBlockedMasterWarning =>
+      'Android system vibration is disabled. Force in-app vibration cannot override it on this device.';
+
+  @override
+  String get forceInAppVibrationNoVibratorWarning =>
+      'This device reports no vibrator hardware, so in-app vibration cannot work.';
+
+  @override
   String get intensity => 'Cường độ';
 
   @override

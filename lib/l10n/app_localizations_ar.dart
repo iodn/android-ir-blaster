@@ -447,6 +447,25 @@ class AppLocalizationsAr extends AppLocalizations {
   String get hapticFeedbackSubtitle => 'اهتزاز عند اللمس والإجراءات';
 
   @override
+  String get forceInAppVibrationTitle => 'فرض الاهتزاز داخل التطبيق';
+
+  @override
+  String get forceInAppVibrationSubtitle =>
+      'استخدام الهزاز مباشرة حتى إذا كان اللمس الارتدادي للنظام معطلاً';
+
+  @override
+  String get forceInAppVibrationWarning =>
+      'خيار متقدم. قد يجعل التطبيق يهتز حتى عندما يكون اللمس الارتدادي في أندرويد معطلاً على مستوى النظام.';
+
+  @override
+  String get forceInAppVibrationBlockedMasterWarning =>
+      'Android system vibration is disabled. Force in-app vibration cannot override it on this device.';
+
+  @override
+  String get forceInAppVibrationNoVibratorWarning =>
+      'This device reports no vibrator hardware, so in-app vibration cannot work.';
+
+  @override
   String get intensity => 'Intensity';
 
   @override
@@ -4390,6 +4409,25 @@ class AppLocalizationsArEg extends AppLocalizationsAr {
 
   @override
   String get hapticFeedbackSubtitle => 'اهتزاز عند اللمس والإجراءات';
+
+  @override
+  String get forceInAppVibrationTitle => 'فرض الاهتزاز داخل التطبيق';
+
+  @override
+  String get forceInAppVibrationSubtitle =>
+      'استخدام الهزاز مباشرة حتى إذا كان اللمس الارتدادي للنظام معطلاً';
+
+  @override
+  String get forceInAppVibrationWarning =>
+      'خيار متقدم. قد يجعل التطبيق يهتز حتى عندما يكون اللمس الارتدادي في أندرويد معطلاً على مستوى النظام.';
+
+  @override
+  String get forceInAppVibrationBlockedMasterWarning =>
+      'Android system vibration is disabled. Force in-app vibration cannot override it on this device.';
+
+  @override
+  String get forceInAppVibrationNoVibratorWarning =>
+      'This device reports no vibrator hardware, so in-app vibration cannot work.';
 
   @override
   String get intensity => 'Intensity';
