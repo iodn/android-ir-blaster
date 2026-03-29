@@ -219,8 +219,18 @@ class _BootstrapScreenState extends State<_BootstrapScreen> {
   late Future<void> _future = _bootstrap();
 
   Future<void> _bootstrap() async {
-    final locale = WidgetsBinding.instance.platformDispatcher.locale;
-    final bootstrapL10n = await AppLocalizations.delegate.load(locale);
+    final supportedLocales = AppLocalizations.supportedLocales.toList();
+    final systemLocale = WidgetsBinding.instance.platformDispatcher.locale;
+    final bootstrapLocale = AppLocaleController.instance.resolveActiveLocale(
+      supportedLocales,
+      systemLocale,
+    );
+    AppLocalizations bootstrapL10n;
+    try {
+      bootstrapL10n = await AppLocalizations.delegate.load(bootstrapLocale);
+    } catch (_) {
+      bootstrapL10n = await AppLocalizations.delegate.load(supportedLocales.first);
+    }
     await MediaStore.ensureInitialized().timeout(
       const Duration(seconds: 8),
       onTimeout: () {
