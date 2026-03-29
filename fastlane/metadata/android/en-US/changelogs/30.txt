@@ -1,0 +1,5 @@
+Added app localization support and in-app language selection
+Added translations for Arabic, German, English, Spanish, French, Hindi, Indonesian, Italian, Japanese, Korean, Malay, Portuguese, Brazilian Portuguese, Russian, Thai, Turkish, Vietnamese, and Chinese
+The app now follows your system language by default, with a manual override available in Settings > Localization
+Localized major screens, import/export flows, remote management, macros, IR Finder, settings, and icon labels
+Added support for the ElkSmart USB IR dongle with VID 0x045C and PID 0x0131

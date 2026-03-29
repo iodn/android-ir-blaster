@@ -278,6 +278,7 @@ Or download the latest APK from the Releases Section.
 ## Contributing
 
 Contributions are welcome! If you'd like to help improve IR Blaster:
+Please do not submit pull requests that only modify translation or localization files in `lib/l10n/*.arb`. Translation contributions are not being accepted through PRs.
 1. Fork the repository.
 2. Create a new branch for your feature or bug fix.
 3. Submit a pull request with your proposed changes.
