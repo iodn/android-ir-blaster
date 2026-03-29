@@ -1,6 +1,8 @@
 import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:irblaster_controller/ir/ir_protocol_registry.dart';
+import 'package:irblaster_controller/l10n/icon_picker_names.dart';
+import 'package:irblaster_controller/l10n/l10n.dart';
 import 'package:irblaster_controller/utils/button_color_accessibility.dart';
 import 'package:irblaster_controller/utils/button_label.dart';
 import 'package:irblaster_controller/utils/ir.dart';
@@ -27,7 +29,7 @@ class _CreateRemoteState extends State<CreateRemote> {
 
   @override
   void initState() {
-    remote = widget.remote ?? Remote(buttons: [], name: "Untitled Remote");
+    remote = widget.remote ?? Remote(buttons: [], name: context.l10n.untitledRemote);
     textEditingController.value = TextEditingValue(text: remote.name);
     useNewStyle = remote.useNewStyle;
     super.initState();
@@ -40,7 +42,7 @@ class _CreateRemoteState extends State<CreateRemote> {
   }
 
   String get _screenTitle =>
-      widget.remote == null ? 'Create remote' : 'Edit remote';
+      widget.remote == null ? context.l10n.createRemoteTitle : context.l10n.editRemoteTitle;
 
   _LayoutStyle get _layoutStyle =>
       useNewStyle ? _LayoutStyle.wide : _LayoutStyle.compact;
@@ -54,16 +56,21 @@ class _CreateRemoteState extends State<CreateRemote> {
       context: ctx,
       builder: (dctx) => AlertDialog(
         icon: const Icon(Icons.warning_amber_rounded),
-        title: const Text('Remove button?'),
+        title: Text(context.l10n.removeButtonTitle),
         content: Text(
-          b.isImage ? 'This image button will be removed.' : '"${b.image}" will be removed.',
+          b.isImage
+              ? context.l10n.imageButtonRemovedMessage
+              : context.l10n.namedButtonRemovedMessage(b.image),
         ),
         actions: [
-          TextButton(onPressed: () => Navigator.of(dctx).pop(false), child: const Text('Cancel')),
+          TextButton(
+            onPressed: () => Navigator.of(dctx).pop(false),
+            child: Text(context.l10n.cancel),
+          ),
           FilledButton.tonalIcon(
             onPressed: () => Navigator.of(dctx).pop(true),
             icon: const Icon(Icons.delete_outline),
-            label: const Text('Remove'),
+            label: Text(context.l10n.remove),
           ),
         ],
       ),
@@ -116,7 +123,7 @@ class _CreateRemoteState extends State<CreateRemote> {
       setState(() {
         remote.buttons.addAll(imported);
       });
-      _showSnack('Imported ${imported.length} button(s).');
+      _showSnack(context.l10n.importedButtonCount(imported.length));
     } catch (_) {}
   }
 
@@ -143,7 +150,7 @@ class _CreateRemoteState extends State<CreateRemote> {
         remote.buttons.addAll(imported);
       });
       final int added = remote.buttons.length - before;
-      _showSnack('Imported $added button(s) from existing remotes.');
+      _showSnack(context.l10n.importedButtonsFromExistingRemotes(added));
     } catch (_) {}
   }
 
@@ -162,8 +169,8 @@ class _CreateRemoteState extends State<CreateRemote> {
             children: [
               ListTile(
                 leading: const Icon(Icons.edit_outlined),
-                title: const Text('Edit'),
-                subtitle: const Text('Change label, signal, and advanced settings'),
+                title: Text(context.l10n.edit),
+                subtitle: Text(context.l10n.editButtonSettingsSubtitle),
                 onTap: () {
                   Navigator.of(ctx).pop();
                   _editButtonAt(index);
@@ -171,21 +178,21 @@ class _CreateRemoteState extends State<CreateRemote> {
               ),
               ListTile(
                 leading: const Icon(Icons.copy_all_outlined),
-                title: const Text('Duplicate'),
-                subtitle: const Text('Create a copy of this button'),
+                title: Text(context.l10n.duplicate),
+                subtitle: Text(context.l10n.createButtonCopySubtitle),
                 onTap: () {
                   Navigator.of(ctx).pop();
                   final dup = b.copyWith(id: const Uuid().v4());
                   setState(() {
                     remote.buttons.insert(index + 1, dup);
                   });
-                  _showSnack('Button duplicated');
+                  _showSnack(context.l10n.buttonDuplicated);
                 },
               ),
               ListTile(
                 leading: const Icon(Icons.copy_rounded),
-                title: const Text('Duplicate and edit'),
-                subtitle: const Text('Create a copy and edit it immediately'),
+                title: Text(context.l10n.duplicateAndEdit),
+                subtitle: Text(context.l10n.duplicateAndEditButtonSubtitle),
                 onTap: () async {
                   Navigator.of(ctx).pop();
                   final dup = b.copyWith(id: const Uuid().v4());
@@ -206,8 +213,8 @@ class _CreateRemoteState extends State<CreateRemote> {
               ),
               ListTile(
                 leading: Icon(Icons.delete_outline, color: theme.colorScheme.error),
-                title: Text('Remove', style: TextStyle(color: theme.colorScheme.error)),
-                subtitle: const Text('You can undo from the next snackbar'),
+                title: Text(context.l10n.remove, style: TextStyle(color: theme.colorScheme.error)),
+                subtitle: Text(context.l10n.undoAvailableInNextSnackbar),
                 onTap: () async {
                   Navigator.of(ctx).pop();
                   final confirmed = await _confirmDeleteButton(context, b);
@@ -221,14 +228,13 @@ class _CreateRemoteState extends State<CreateRemote> {
                   ScaffoldMessenger.of(context).hideCurrentSnackBar();
                   ScaffoldMessenger.of(context).showSnackBar(
                     SnackBar(
-                      content: const Text('Button removed'),
+                      content: Text(context.l10n.buttonRemoved),
                       action: SnackBarAction(
-                        label: 'Undo',
+                        label: context.l10n.undo,
                         onPressed: () {
                           if (!mounted) return;
                           setState(() {
-                            final restoreAt =
-                                removedIndex.clamp(0, remote.buttons.length) as int;
+                            final restoreAt = removedIndex.clamp(0, remote.buttons.length);
                             remote.buttons.insert(restoreAt, removedButton);
                           });
                         },
@@ -263,28 +269,28 @@ class _CreateRemoteState extends State<CreateRemote> {
       final id = b.protocol!.trim();
       chips.add(_pill(context, IrProtocolRegistry.displayName(id), icon: Icons.tune));
       if (!IrProtocolRegistry.isImplemented(id)) {
-        chips.add(_pill(context, 'Not implemented', icon: Icons.hourglass_empty));
+        chips.add(_pill(context, context.l10n.notImplemented, icon: Icons.hourglass_empty));
       }
       if (b.frequency != null && b.frequency! > 0) {
-        chips.add(_pill(context, '${(b.frequency! / 1000).round()} kHz', icon: Icons.waves));
+        chips.add(_pill(context, context.l10n.frequencyKhz((b.frequency! / 1000).round()), icon: Icons.waves));
       }
       return chips;
     }
 
     if (isNecCustom) {
-      chips.add(_pill(context, 'NEC', icon: Icons.numbers));
+      chips.add(_pill(context, context.l10n.necProtocolShort, icon: Icons.numbers));
       chips.add(_pill(context, (b.necBitOrder ?? 'msb').toUpperCase(), icon: Icons.swap_horiz));
       if (b.frequency != null && b.frequency! > 0) {
-        chips.add(_pill(context, '${(b.frequency! / 1000).round()} kHz', icon: Icons.waves));
+        chips.add(_pill(context, context.l10n.frequencyKhz((b.frequency! / 1000).round()), icon: Icons.waves));
       }
     } else if (isPlainNec) {
-      chips.add(_pill(context, 'NEC', icon: Icons.numbers));
-      chips.add(_pill(context, 'MSB', icon: Icons.swap_horiz));
-      chips.add(_pill(context, '${(kDefaultNecFrequencyHz / 1000).round()} kHz', icon: Icons.waves));
+      chips.add(_pill(context, context.l10n.necProtocolShort, icon: Icons.numbers));
+      chips.add(_pill(context, context.l10n.msbShort, icon: Icons.swap_horiz));
+      chips.add(_pill(context, context.l10n.frequencyKhz((kDefaultNecFrequencyHz / 1000).round()), icon: Icons.waves));
     } else if (hasRaw) {
-      chips.add(_pill(context, 'RAW', icon: Icons.graphic_eq));
+      chips.add(_pill(context, context.l10n.rawSignal, icon: Icons.graphic_eq));
       if (b.frequency != null && b.frequency! > 0) {
-        chips.add(_pill(context, '${(b.frequency! / 1000).round()} kHz', icon: Icons.waves));
+        chips.add(_pill(context, context.l10n.frequencyKhz((b.frequency! / 1000).round()), icon: Icons.waves));
       }
     }
     return chips;
@@ -294,14 +300,14 @@ class _CreateRemoteState extends State<CreateRemote> {
   Widget build(BuildContext context) {
     final theme = Theme.of(context);
     final segments = <ButtonSegment<_LayoutStyle>>[
-      const ButtonSegment(
+      ButtonSegment(
         value: _LayoutStyle.compact,
-        label: Text('Compact'),
+        label: Text(context.l10n.layoutCompact),
         icon: Icon(Icons.grid_view_outlined),
       ),
-      const ButtonSegment(
+      ButtonSegment(
         value: _LayoutStyle.wide,
-        label: Text('Wide'),
+        label: Text(context.l10n.layoutWide),
         icon: Icon(Icons.view_agenda_outlined),
       ),
     ];
@@ -317,7 +323,7 @@ class _CreateRemoteState extends State<CreateRemote> {
               child: OutlinedButton.icon(
                 onPressed: () => Navigator.pop(context),
                 icon: const Icon(Icons.close),
-                label: const Text('Cancel'),
+                label: Text(context.l10n.cancel),
               ),
             ),
             const SizedBox(width: 12),
@@ -326,14 +332,14 @@ class _CreateRemoteState extends State<CreateRemote> {
                 onPressed: () {
                   FocusScope.of(context).unfocus();
                   if (remote.name.trim().isEmpty) {
-                    _showSnack("Remote name can't be empty.");
+                    _showSnack(context.l10n.remoteNameCannotBeEmpty);
                     return;
                   }
                   remote.useNewStyle = useNewStyle;
                   Navigator.pop(context, remote);
                 },
                 icon: const Icon(Icons.save),
-                label: const Text('Save remote'),
+                label: Text(context.l10n.saveRemote),
               ),
             ),
           ],
@@ -355,13 +361,13 @@ class _CreateRemoteState extends State<CreateRemote> {
                         textInputAction: TextInputAction.done,
                         onChanged: (value) => remote.name = value,
                         decoration: InputDecoration(
-                          labelText: 'Remote name',
-                          hintText: 'e.g., TV, Air Conditioner, LED Strip',
-                          helperText: 'This name appears in your Remotes list.',
+                          labelText: context.l10n.remoteName,
+                          hintText: context.l10n.remoteNameHint,
+                          helperText: context.l10n.remoteNameHelper,
                           suffixIcon: textEditingController.text.trim().isEmpty
                               ? null
                               : IconButton(
-                                  tooltip: 'Clear',
+                                  tooltip: context.l10n.clearAction,
                                   onPressed: () {
                                     setState(() {
                                       textEditingController.clear();
@@ -383,7 +389,7 @@ class _CreateRemoteState extends State<CreateRemote> {
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
                           Text(
-                            'Layout style',
+                            context.l10n.layoutStyle,
                             style: theme.textTheme.titleSmall?.copyWith(fontWeight: FontWeight.w700),
                           ),
                           const SizedBox(height: 6),
@@ -400,8 +406,8 @@ class _CreateRemoteState extends State<CreateRemote> {
                           const SizedBox(height: 8),
                           Text(
                             useNewStyle
-                                ? 'Wide: 2-column buttons with extra details (recommended).'
-                                : 'Compact: classic 4× grid (icons/text only).',
+                                ? context.l10n.layoutWideDescription
+                                : context.l10n.layoutCompactDescription,
                             style: theme.textTheme.bodySmall?.copyWith(
                               color: theme.colorScheme.onSurface.withValues(alpha: 0.75),
                             ),
@@ -415,7 +421,7 @@ class _CreateRemoteState extends State<CreateRemote> {
                     children: [
                       Expanded(
                         child: Text(
-                          'Buttons (${remote.buttons.length})',
+                          context.l10n.buttonsTitleCount(remote.buttons.length),
                           style: theme.textTheme.titleMedium?.copyWith(fontWeight: FontWeight.w800),
                         ),
                       ),
@@ -428,7 +434,7 @@ class _CreateRemoteState extends State<CreateRemote> {
                         child: FilledButton.tonalIcon(
                           onPressed: _openImportFromExistingRemotes,
                           icon: const Icon(Icons.merge_type_rounded),
-                          label: const Text('Import from remotes'),
+                          label: Text(context.l10n.importFromRemotes),
                         ),
                       ),
                       const SizedBox(width: 8),
@@ -436,7 +442,7 @@ class _CreateRemoteState extends State<CreateRemote> {
                         child: FilledButton.tonalIcon(
                           onPressed: _openBulkImport,
                           icon: const Icon(Icons.playlist_add_rounded),
-                          label: const Text('Import from DB'),
+                          label: Text(context.l10n.importFromDatabase),
                         ),
                       ),
                     ],
@@ -447,7 +453,7 @@ class _CreateRemoteState extends State<CreateRemote> {
                     child: FilledButton.icon(
                       onPressed: _addButton,
                       icon: const Icon(Icons.add),
-                      label: const Text('Add button'),
+                      label: Text(context.l10n.addButton),
                     ),
                   ),
                 ],
@@ -465,12 +471,12 @@ class _CreateRemoteState extends State<CreateRemote> {
                                 size: 48, color: theme.colorScheme.primary),
                             const SizedBox(height: 12),
                             Text(
-                              'No buttons yet',
+                              context.l10n.noButtonsYet,
                               style: theme.textTheme.titleLarge?.copyWith(fontWeight: FontWeight.w800),
                             ),
                             const SizedBox(height: 8),
                             Text(
-                              'Add your first button, then long-press it for edit/remove options.',
+                              context.l10n.createRemoteEmptyStateDescription,
                               textAlign: TextAlign.center,
                               style: theme.textTheme.bodyMedium?.copyWith(
                                 color: theme.colorScheme.onSurface.withValues(alpha: 0.75),
@@ -480,7 +486,7 @@ class _CreateRemoteState extends State<CreateRemote> {
                             FilledButton.icon(
                               onPressed: _addButton,
                               icon: const Icon(Icons.add),
-                              label: const Text('Add button'),
+                              label: Text(context.l10n.addButton),
                             ),
                             const SizedBox(height: 8),
                             Row(
@@ -489,7 +495,7 @@ class _CreateRemoteState extends State<CreateRemote> {
                                   child: FilledButton.tonalIcon(
                                     onPressed: _openImportFromExistingRemotes,
                                     icon: const Icon(Icons.merge_type_rounded),
-                                    label: const Text('Import from remotes'),
+                                    label: Text(context.l10n.importFromRemotes),
                                   ),
                                 ),
                                 const SizedBox(width: 8),
@@ -497,7 +503,7 @@ class _CreateRemoteState extends State<CreateRemote> {
                                   child: FilledButton.tonalIcon(
                                     onPressed: _openBulkImport,
                                     icon: const Icon(Icons.playlist_add_rounded),
-                                    label: const Text('Import from DB'),
+                                    label: Text(context.l10n.importFromDatabase),
                                   ),
                                 ),
                               ],
@@ -543,8 +549,9 @@ class _CreateRemoteState extends State<CreateRemote> {
     );
     final String fallbackLabel = displayButtonLabel(
       b,
-      fallback: 'Button',
-      iconFallback: 'Icon',
+      fallback: context.l10n.buttonFallbackTitle,
+      iconFallback: context.l10n.iconFallback,
+      iconNameLocalizer: (name) => localizedIconPickerName(context.l10n, name),
     );
     final Widget labelWidget;
     final bool canRenderIcon = b.iconCodePoint != null &&
@@ -646,9 +653,9 @@ class _CreateRemoteState extends State<CreateRemote> {
                         children: [
                           Text(
                             b.iconCodePoint != null
-                                ? 'Icon button'
+                                ? context.l10n.iconButton
                                 : b.isImage
-                                    ? 'Image button'
+                                    ? context.l10n.imageButton
                                     : b.image,
                             maxLines: 1,
                             overflow: TextOverflow.ellipsis,
@@ -661,7 +668,7 @@ class _CreateRemoteState extends State<CreateRemote> {
                           if (meta.isNotEmpty) Wrap(spacing: 6, runSpacing: 4, children: meta),
                           if (meta.isEmpty)
                             Text(
-                              'No signal info',
+                              context.l10n.noSignalInfo,
                               style: theme.textTheme.bodySmall?.copyWith(
                                 color: b.buttonColor != null
                                     ? textColor
@@ -717,7 +724,7 @@ class _CreateRemoteState extends State<CreateRemote> {
                     size: 34, color: theme.colorScheme.primary),
                 const SizedBox(height: 8),
                 Text(
-                  'Add',
+                  context.l10n.add,
                   style: theme.textTheme.titleSmall?.copyWith(fontWeight: FontWeight.w800),
                 ),
               ],

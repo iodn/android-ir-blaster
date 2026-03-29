@@ -1,0 +1,1846 @@
+{
+  "@@locale": "tr",
+  "appTitle": "IR Blaster",
+  "loading": "Yükleniyor…",
+  "unknownError": "Bilinmeyen hata",
+  "failedToStart": "Başlatılamadı",
+  "retry": "Yeniden dene",
+  "quickTilePower": "Güç",
+  "quickTileMute": "Sessiz",
+  "quickTileVolumeUp": "Ses +",
+  "quickTileVolumeDown": "Ses -",
+  "homeUsbPermissionRequiredMessage": "Bu telefonda dahili IR verici yok. Bir USB IR dongle algılandı, ancak izin henüz verilmedi.\n\nIR göndermeyi etkinleştirmek için USB izin istemini onaylayın.",
+  "homeUsbPermissionDeniedMessage": "Bu telefonda dahili IR verici yok. Bir USB IR dongle algılandı, ancak USB izni reddedildi.\n\nİzni yeniden isteyin ve IR göndermeyi etkinleştirmek için istemi onaylayın.",
+  "homeUsbPermissionGrantedMessage": "Bu telefonda dahili IR verici yok. USB IR dongle yetkilendirildi, ancak henüz başlatılmadı.",
+  "homeUsbOpenFailedMessage": "Bu telefonda dahili IR verici yok. USB IR dongle algılandı ve yetkilendirildi, ancak başlatılamadı.\n\nDongle'ı yeniden takıp tekrar deneyin.",
+  "homeUsbReadyMessage": "Bu telefonda dahili IR verici yok.",
+  "homeUsbNoDeviceMessage": "Bu telefonda dahili IR verici yok ve şu anda desteklenen bir USB IR dongle bağlı değil.\n\nYine de kumandalar oluşturabilir, içe aktarabilir ve yönetebilirsiniz — ancak IR sinyali göndermek için aşağıdaki seçeneklerden birine ihtiyacınız var.",
+  "homeUsbOptionPlugIn": "Desteklenen bir USB IR dongle takın, sonra izni onaylayın.",
+  "homeUsbOptionReady": "Kullanıma hazır.",
+  "homeUsbOptionPermissionRequired": "Takılı. İzin gerekli.",
+  "homeUsbOptionPermissionDenied": "İzin reddedildi. Yeniden isteyin.",
+  "homeUsbOptionPermissionGranted": "Yetkili. Dongle başlatılıyor.",
+  "homeUsbOptionOpenFailed": "Yetkili, ancak başlatma başarısız oldu.",
+  "homeHardwareBannerNoInternal": "Bu telefonda dahili IR yok. Bir USB IR dongle bağlayın veya Ayarlar'da Ses modunu etkinleştirin.",
+  "homeHardwareBannerPermissionRequired": "USB dongle algılandı. IR göndermek için izin gerekli.",
+  "homeHardwareBannerPermissionDenied": "USB izni reddedildi. IR göndermek için yeniden isteyin.",
+  "homeHardwareBannerPermissionGranted": "USB dongle yetkilendirildi. Başlatma bekleniyor.",
+  "homeHardwareBannerOpenFailed": "USB dongle yetkilendirildi, ancak başlatma başarısız oldu.",
+  "homeHardwareBannerReady": "USB hazır.",
+  "homeHardwareRequiredTitle": "Komut göndermek için IR donanımı gerekli",
+  "homeUsbDongleRecommended": "USB IR dongle (önerilen)",
+  "homeAudioAdapterAlternative": "Ses IR adaptörü (alternatif)",
+  "homeAudioAdapterDescription": "Ayarlar → IR Verici → Ses (1 LED / 2 LED). Ses-IR adaptörü gerekir.",
+  "close": "Kapat",
+  "homeChooseTransmitter": "Bir verici seçin",
+  "openSettings": "Ayarları Aç",
+  "homeUsbPermissionSentApprove": "USB izin isteği gönderildi. USB'yi etkinleştirmek için istemi onaylayın.",
+  "homeUsbDongleNotDetected": "Desteklenen USB IR dongle algılanmadı. Takıp yeniden deneyin.",
+  "homeUsbPermissionRequestFailed": "USB izni istenemedi.",
+  "working": "Çalışıyor…",
+  "requestUsbPermission": "USB izni iste",
+  "homeHardwareTip": "İpucu: Kumandaları şimdi de oluşturup düzenleyebilirsiniz. Donanım yalnızca gönderimde gerekir.",
+  "homeNoIrTransmitterTitle": "IR verici yok",
+  "settingsNavLabel": "Ayarlar",
+  "dismiss": "Kapat",
+  "remotesNavLabel": "Kumandalar",
+  "macrosNavLabel": "Makrolar",
+  "signalTesterNavLabel": "Sinyal Testi",
+  "settingsTitle": "Ayarlar",
+  "remoteNoIrEmitterTitle": "No IR emitter",
+  "remoteNoIrEmitterMessage": "Bu cihazda IR verici yok",
+  "remoteNoIrEmitterNeedsEmitter": "Bu uygulamanın çalışması için IR verici gerekir",
+  "remoteDismiss": "Kapat",
+  "remoteClose": "Kapat",
+  "remoteFailedToSend": "Başarısız to gönder IR: {error}",
+  "@remoteFailedToSend": {
+    "placeholders": {
+      "error": {}
+    }
+  },
+  "remoteFailedToStartLoop": "Başarısız to başlat döngü: {error}",
+  "@remoteFailedToStartLoop": {
+    "placeholders": {
+      "error": {}
+    }
+  },
+  "remoteLoopStoppedFailed": "Döngü stopped (gönder başarısız): {error}",
+  "@remoteLoopStoppedFailed": {
+    "placeholders": {
+      "error": {}
+    }
+  },
+  "remoteLoopingHint": "\"{title}\" döngüde. Durdurmak için üst çubuktaki Durdur'a dokunun.",
+  "@remoteLoopingHint": {
+    "placeholders": {
+      "title": {}
+    }
+  },
+  "remoteLoopStopped": "Döngü stopped.",
+  "remoteUpdatedNotFound": "Kumanda ekranda güncellendi. Kayıtlı listede bulunamadı.",
+  "remoteUpdatedNamed": "Güncellendi \"{name}\".",
+  "@remoteUpdatedNamed": {
+    "placeholders": {
+      "name": {}
+    }
+  },
+  "remoteDeleteFailed": "Sil başarısız: {error}",
+  "@remoteDeleteFailed": {
+    "placeholders": {
+      "error": {}
+    }
+  },
+  "remoteNotFoundSavedList": "Kumanda kayıtlı listede bulunamadı.",
+  "remoteDeletedNamed": "\"{name}\" silindi.",
+  "@remoteDeletedNamed": {
+    "placeholders": {
+      "name": {}
+    }
+  },
+  "buttonFallbackTitle": "Düğme",
+  "imageFallbackTitle": "Resim",
+  "noBrowserAvailable": "Tarayıcı yok",
+  "failedToOpen": "Başarısız to open: {error}",
+  "@failedToOpen": {
+    "placeholders": {
+      "error": {}
+    }
+  },
+  "cancel": "İptal",
+  "settingsRestoreDemoTitle": "Demo kumandalar geri yüklensin mi?",
+  "settingsRestoreDemoMessage": "Bu işlem mevcut kumandalarınızı yerleşik demo kumandalarla değiştirir. Mevcut listenizi korumak istiyorsanız yedek önerilir.",
+  "settingsRestoreDemoConfirm": "Demoyu geri yükle",
+  "settingsDemoRemotesRestored": "Demo kumandalar geri yüklendi.",
+  "settingsDeleteAllRemotesTitle": "Tüm kumandalar silinsin mi?",
+  "settingsDeleteAllRemotesMessage": "Bu işlem bu cihazdaki tüm kumandaları kaldırır. Bu işlem geri alınamaz.",
+  "settingsDeleteAllConfirm": "Tümünü sil",
+  "settingsAllRemotesDeleted": "Tüm kumandalar silindi.",
+  "themeAuto": "Otomatik Tema",
+  "themeLight": "Açık Tema",
+  "themeDark": "Koyu Tema",
+  "themeDescAuto": "Cihaz ayarlarınızı izler",
+  "themeDescLight": "Her zaman parlak ve net",
+  "themeDescDark": "Göz yormaz",
+  "themeHintAuto": "Tema, cihaz ayarlarınız açık ve koyu mod arasında değiştiğinde otomatik olarak geçer.",
+  "themeHintLight": "Gündüz kullanımı ve iyi aydınlatılmış ortamlar için ideal",
+  "themeHintDark": "Düşük ışıkta göz yorgunluğunu azaltır ve OLED ekranlarda pil tasarrufu sağlar",
+  "supportDevelopmentTitle": "Gelişimi Destekle",
+  "supportDevelopmentSubtitle": "IR Blaster'ın bakımını ve donanım uyumluluğunu destekleyin",
+  "supportDevelopmentBody": "Reklam yok, takip yok, kilitli özellik yok. Desteğiniz protokol geliştirmesini, USB dongle desteğini ve cihazlar arası daha iyi uyumluluğu finanse eder.",
+  "donate": "Donate",
+  "starRepo": "Star Repo",
+  "repositoryLinkCopied": "Repository link kopyalandı",
+  "supportPillLocalOnly": "Local-yalnızca",
+  "supportPillNoTracking": "No tracking",
+  "supportPillHardwareAware": "Donanım-aware",
+  "supportPillOpenSource": "Aç-source",
+  "appearanceTitle": "Appearance",
+  "appearanceSubtitle": "Görsel deneyiminizi özelleştirin",
+  "localizationTitle": "Localization",
+  "localizationSubtitle": "Uygulama dili ve çeviri davranışı",
+  "localizationAutoUsing": "Otomatik: using {language}",
+  "@localizationAutoUsing": {
+    "placeholders": {
+      "language": {}
+    }
+  },
+  "localizationAutoDescription": "Uygulama mümkün olduğunda cihaz dilinizi izler.",
+  "localizationManualDescription": "Uygulama dili elle geçersiz kılındı.",
+  "useSystemLanguageTitle": "Sistem dilini kullan",
+  "useSystemLanguageEnabled": "Cihaz dili izleniyor: {language}",
+  "@useSystemLanguageEnabled": {
+    "placeholders": {
+      "language": {}
+    }
+  },
+  "useSystemLanguageDisabled": "Cihaz varsayılanı yerine aşağıda seçilen dili kullan.",
+  "chooseAppLanguage": "Uygulama dilini seç",
+  "languagePickerDisabledHint": "Bir dili elle seçmek için sistem dilini kapatın.",
+  "searchLanguages": "Dillerde ara",
+  "noLanguagesFound": "Eşleşen dil yok",
+  "localizationHint": "Sistem dili açıksa uygulama cihaz yerel ayarınızı izler ve çeviri yoksa İngilizceye döner. Uygulamayı belirli bir dile sabitlemek için bunu kapatın.",
+  "appLanguageTitle": "Uygulama dili",
+  "appLanguageHint": "Otomatik olarak cihaz dilinizi izler. Yalnızca uygulama için geçersiz kılmak üzere burada İngilizce veya Fransızca seçin.",
+  "languageAuto": "Otomatik (sistem)",
+  "languageAutoDescription": "Cihaz dilinizi otomatik izle",
+  "languageEnglish": "İngilizce",
+  "languageEnglishDescription": "Uygulamayı her zaman İngilizce kullanmaya zorla",
+  "languageFrench": "Fransızca",
+  "languageFrenchDescription": "Uygulamayı her zaman Fransızca kullanmaya zorla",
+  "languageAutoShort": "Otomatik",
+  "languageEnglishShort": "İngilizce",
+  "languageFrenchShort": "Français",
+  "useDynamicColors": "Dinamik renkleri kullan",
+  "themeChoiceAuto": "Otomatik",
+  "themeChoiceLight": "Açık",
+  "themeChoiceDark": "Dark",
+  "irTransmitterTitle": "IR Verici",
+  "irTransmitterSubtitle": "Choose which donanım sends IR commands",
+  "interactionTitle": "Interaction",
+  "interactionSubtitle": "Dokunma geri bildirimi ve kumanda düzeni",
+  "hapticFeedbackTitle": "Haptic feedback",
+  "hapticFeedbackSubtitle": "Dokunuşlarda ve eylemlerde titreşim",
+  "intensity": "Intensity",
+  "intensityLight": "Açık",
+  "intensityMedium": "Medium",
+  "intensityStrong": "Strong",
+  "flipRemoteDefaultTitle": "Flip Kumanda Görünüm by default",
+  "flipRemoteDefaultSubtitle": "Kumanda ekranlarını 180° döndürerek açar (alta takılan USB dongle'lar için).",
+  "remoteViewFlipped": "Kumanda görünümü ters açılacak.",
+  "remoteViewNormal": "Kumanda görünümü normal açılacak.",
+  "backupTitle": "Yedek",
+  "backupSubtitle": "Kumandaları ve makroları içe/dışa aktar",
+  "importBackup": "İçe aktar yedek",
+  "importBackupSubtitle": "İçe aktar remotes/macros yedek or Flipper Sıfır, LIRC or IRPLUS files",
+  "bulkImportFolder": "Bulk içe aktar klasör",
+  "bulkImportFolderSubtitle": "Bir klasörden birden çok kumanda içe aktar",
+  "exportBackup": "Dışa aktar yedek",
+  "exportBackupSubtitle": "Kumandaları ve makroları tek bir JSON dosyası olarak İndirilenler'e kaydet",
+  "restoreDemoRemotes": "Demoyu geri yükle remotes",
+  "restoreDemoRemotesSubtitle": "Mevcut kumandaları yerleşik demo ile değiştir",
+  "deleteAllRemotes": "Tümünü sil remotes",
+  "deleteAllRemotesSubtitle": "Bu cihazdaki tüm kumandaları kaldır",
+  "backupTip": "İpucu: Büyük düzenlemelerden önce bir yedek dışa aktarın. İçe aktarma; tam yedekleri, eski yalnızca-kumanda JSON yedeklerini ve Flipper Zero .ir dosyalarını destekler.",
+  "aboutTitle": "About",
+  "aboutSubtitle": "Uygulama bilgileri ve açık kaynak ayrıntıları",
+  "aboutAppNameWithCreator": "IR Blaster - {creator}",
+  "@aboutAppNameWithCreator": {
+    "placeholders": {
+      "creator": {}
+    }
+  },
+  "versionLabel": "Version {version}",
+  "@versionLabel": {
+    "placeholders": {
+      "version": {}
+    }
+  },
+  "sourceCode": "Source Kod",
+  "viewOnGitHub": "Görünüm on GitHub",
+  "repositoryUrlCopied": "Repository URL kopyalandı",
+  "reportIssue": "Report Issue",
+  "reportIssueSubtitle": "Bug reports & feature requests",
+  "issuesUrlCopied": "Issues URL kopyalandı",
+  "license": "License",
+  "openSourceLicense": "Aç-source license",
+  "licenseUrlCopied": "License URL kopyalandı",
+  "companyName": "KaijinLab Inc.",
+  "visitWebsite": "Visit our website",
+  "companyUrlCopied": "Company URL kopyalandı",
+  "licenses": "Licenses",
+  "openSourceLicenses": "Aç source licenses",
+  "byCreator": "by {creator}",
+  "@byCreator": {
+    "placeholders": {
+      "creator": {}
+    }
+  },
+  "deviceControlsTitle": "Cihaz Kontrolleri",
+  "deviceControlsSubtitle": "Favori düğmeleri sistem kontrolleri sayfasında göster",
+  "manageFavorites": "Manage favorites",
+  "manageFavoritesSubtitle": "Cihaz kontrollerinde hangi düğmelerin görüneceğini seçin",
+  "quickSettingsTitle": "Hızlı Ayarlar",
+  "quickSettingsSubtitle": "Güç ve ses kısayolları için döşemeler ekleyin",
+  "configureTiles": "Configure tiles",
+  "configureTilesSubtitle": "Döşemeleri kumanda düğmelerine eşleyin",
+  "tvKillTitle": "TVKill",
+  "tvKillSubtitle": "Sahip olduğunuz cihazlar için evrensel güç döngüsü",
+  "openTvKill": "Aç TVKill",
+  "openTvKillSubtitle": "Güç kodlarını döngüye alın (yalnızca size ait cihazlarda kullanın)",
+  "failedToLoadTransmitterSettings": "Başarısız to load verici settings.",
+  "usbStatusReady": "USB dongle bağlı ve IR göndermeye hazır.",
+  "usbStatusPermissionRequired": "USB dongle algılandı. USB izni isteyin ve sistem istemini onaylayın.",
+  "usbStatusPermissionDenied": "Takılı dongle için USB izni reddedildi. Yeniden isteyin ve istemi onaylayın.",
+  "usbStatusPermissionGranted": "USB izni verildi. IR göndermeden önce dongle'ın yine de başlatılması gerekir.",
+  "usbStatusOpenFailed": "USB izni verildi, ancak dongle başlatılamadı. Yeniden takıp tekrar deneyin.",
+  "usbStatusNoDevice": "No supported USB IR dongle detected.",
+  "usbSelectPermissionRequired": "USB dongle algılandı ama henüz yetkili değil. \"USB izni iste\"ye dokunun.",
+  "usbSelectPermissionDenied": "USB izni reddedildi. \"USB izni iste\"ye dokunun ve istemi onaylayın.",
+  "usbSelectPermissionGranted": "USB izni verildi, ancak dongle henüz başlatılmadı. Yeniden takmayı deneyin.",
+  "usbSelectOpenFailed": "USB izni verildi, ancak dongle başlatılamadı. Yeniden takıp tekrar deneyin.",
+  "usbSelectNoDevice": "No supported USB IR dongle detected. Plug it in, then dokun \"İste USB izin\".",
+  "usbSelectReady": "USB dongle hazır.",
+  "autoSwitchEnabledMessage": "Otomatik geçiş etkin: bağlı olduğunda USB'yi, aksi halde Dahili'yi kullanır.",
+  "autoSwitchDisabledMessage": "Otomatik geçiş kapalı: verici seçimi artık elle yapılıyor.",
+  "failedToUpdateAutoSwitch": "Başarısız to update auto-switch setting.",
+  "failedToSwitchTransmitter": "Başarısız to switch verici.",
+  "deviceHasNoInternalIr": "Bu cihazda dahili IR verici yok.",
+  "audioModeEnabledMessage": "Ses modu etkin. Azami medya sesini kullanın ve bir ses-IR LED adaptörü bağlayın.",
+  "usbPermissionRequestSent": "USB izin request sent.",
+  "usbPermissionRequestSentApprove": "USB izin isteği gönderildi. USB'yi etkinleştirmek için istemi onaylayın.",
+  "usbAlreadyReady": "USB dongle zaten başlatılmış ve hazır.",
+  "failedToRequestUsbPermission": "USB izni istenemedi.",
+  "transmitterHelpInternal": "Komut göndermek için telefonun dahili IR vericisini kullanın.",
+  "transmitterHelpUsb": "Komut göndermek için bir USB IR dongle kullanın (izin gerekir).",
+  "transmitterHelpAudio1": "Ses çıkışını kullanır (mono). Ses-IR LED adaptörü ve yüksek medya sesi gerekir.",
+  "transmitterHelpAudio2": "Ses çıkışını kullanır (stereo). Uyumlu adaptörlerle daha iyi LED sürüşü için iki kanal kullanır.",
+  "transmitterInternal": "Dahili IR",
+  "transmitterUsb": "USB IR Dongle",
+  "transmitterAudio1": "Ses (1 LED)",
+  "transmitterAudio2": "Ses (2 LED)",
+  "failedToLoadTransmitterCapabilities": "Başarısız to load verici capabilities.",
+  "selectedTransmitter": "Seçili verici",
+  "selectedTransmitterValue": "{effective} • Active: {active}",
+  "@selectedTransmitterValue": {
+    "placeholders": {
+      "effective": {},
+      "active": {}
+    }
+  },
+  "refresh": "Yenile",
+  "autoSwitchTitle": "Otomatik geçiş",
+  "autoSwitchDisabledWhileAudio": "Disabled while using Ses mod",
+  "autoSwitchUsesUsbOtherwiseInternal": "Bağlı olduğunda USB'yi, aksi halde Dahili'yi kullanır",
+  "unavailableOnThisDevice": "Bu cihazda kullanılamaz",
+  "openOnUsbAttachTitle": "Aç on USB attach",
+  "openOnUsbAttachSubtitle": "Desteklenen bir USB IR dongle bağlandığında Android uygulamayı açmayı önerebilir.",
+  "openOnUsbAttachEnabledMessage": "Desteklenen bir USB dongle takıldığında IR Blaster'ı açmayı önerecek.",
+  "openOnUsbAttachDisabledMessage": "USB bağlanınca açmayı önermeyecek.",
+  "failedToUpdateSetting": "Başarısız to update setting.",
+  "unnamedButton": "Unnamed düğme",
+  "iconFallback": "Icon",
+  "remoteListReorderHint": "Yeniden sıralama modu: taşımak için bir karta uzun basıp sürükleyin.",
+  "deleteRemoteTitle": "Sil kumanda?",
+  "deleteRemoteMessage": "\"{name}\" kalıcı olarak kaldırılacak. Bu işlem geri alınamaz.",
+  "@deleteRemoteMessage": {
+    "placeholders": {
+      "name": {}
+    }
+  },
+  "delete": "Sil",
+  "addToDeviceControlsTitle": "Ekle to Cihaz Kontrolleri?",
+  "addToDeviceControlsDescription": "Sistem cihaz kontrollerinde hızlı erişim.",
+  "skip": "Skip",
+  "add": "Ekle",
+  "addedToDeviceControls": "Eklendi to Cihaz Kontrolleri.",
+  "deletedRemoteUndoUnavailable": "\"{name}\" silindi. Bu işlem geri alınamaz.",
+  "@deletedRemoteUndoUnavailable": {
+    "placeholders": {
+      "name": {}
+    }
+  },
+  "remoteLayoutSummary": "{count} düğme(s) · {layout}",
+  "@remoteLayoutSummary": {
+    "placeholders": {
+      "count": {},
+      "layout": {}
+    }
+  },
+  "layoutComfort": "Comfort",
+  "layoutCompact": "Compact",
+  "open": "Aç",
+  "useThisRemote": "Bu kumandayı kullan",
+  "edit": "Düzenle",
+  "editRemoteSubtitle": "Yeniden adlandırın ve düğmeleri düzenleyin",
+  "thisCannotBeUndone": "Bu işlem geri alınamaz",
+  "searchRemotes": "Ara Kumandalar",
+  "reorderRemotes": "Reorder remotes",
+  "addRemote": "Ekle kumanda",
+  "more": "Daha",
+  "reorderMode": "Reorder mod",
+  "remoteButtonCount": "{count} düğme{plural}",
+  "@remoteButtonCount": {
+    "placeholders": {
+      "count": {},
+      "plural": {}
+    }
+  },
+  "noRemotesYet": "No remotes yet",
+  "noRemotesDescription": "Create a kumanda to başlat sending IR codes.",
+  "noRemotesNextStep": "Sonraki adım: Kumanda Ekle'ye dokunun, sonra ilk düğmelerinizi ekleyin.",
+  "actions": "Actions",
+  "macrosTitle": "Makrolar",
+  "help": "Help",
+  "createMacro": "Create Macro",
+  "timedMacrosTitle": "Timed Makrolar",
+  "timedMacrosSubtitle": "Automate sequences of IR commands with precise timing",
+  "timedMacrosNextStep": "Sonraki adım: İlk Makronu Oluştur'a dokun, bir kumanda seç, sonra komutlar ve gecikmeler ekle.",
+  "macroFeatureToysTitle": "Etkileşimli oyuncaklar için ideal",
+  "macroFeatureToysDescription": "Komutlar arasında işlem süresi gereken i-cybie robot köpekler, i-sobot robotlar ve benzeri oyuncakları kontrol edin.",
+  "macroFeatureTimingTitle": "Hassas Zamanlama Kontrolü",
+  "macroFeatureTimingDescription": "Cihazınızın sonraki eylemden önce yanıt verebilmesi için komutlar arasına gecikmeler ekleyin (250 ms'den özel sürelere kadar).",
+  "macroFeatureManualTitle": "Elle Devam Et adımları",
+  "macroFeatureManualDescription": "Animasyon süresi değiştiğinde veya görsel geri bildirim gerektiğinde yürütmeyi duraklatır ve onayınızı bekler.",
+  "exampleUseCase": "Örnek Kullanım Senaryosu",
+  "macroExampleText": "i-cybie Gelişmiş Mod\n1. \"Mode\" komutunu gönder\n2. 1000 ms bekle (oyuncak işler)\n3. \"Action 1\" gönder\n4. 1000 ms bekle\n5. \"Action 2\" gönder\n… ve bu şekilde otomatik devam eder!",
+  "createFirstMacro": "İlk Makronu Oluştur",
+  "noRemote": "No kumanda",
+  "macroStepCount": "{count} adım{plural}",
+  "@macroStepCount": {
+    "placeholders": {
+      "count": {},
+      "plural": {}
+    }
+  },
+  "aboutTimedMacros": "About Timed Makrolar",
+  "aboutTimedMacrosDescription": "Zamanlı Makrolar, her adım arasında hassas gecikmelerle IR komut dizilerini otomatikleştirmenizi sağlar.",
+  "sendCommand": "Komut Gönder",
+  "sendCommandDescription": "Kumandanızdan bir IR komutu gönderir.",
+  "delay": "Delay",
+  "delayDescription": "Bir sonraki adımdan önce belirtilen süre kadar bekler (örn. 1000 ms).",
+  "manualContinue": "Elle Devam Et",
+  "manualContinueDescription": "Devam Et'e dokunana kadar yürütmeyi duraklatır (değişken uzunluklu animasyonlar için kullanışlıdır).",
+  "gotIt": "Got it",
+  "failedToSaveMacros": "Başarısız to kaydet macros.",
+  "deletedMacroNamed": "\"{name}\" silindi.",
+  "@deletedMacroNamed": {
+    "placeholders": {
+      "name": {}
+    }
+  },
+  "undo": "Undo",
+  "failedToRestoreMacro": "Başarısız to geri yükle macro.",
+  "deleteMacroTitle": "Sil macro?",
+  "deleteMacroMessage": "Bunu bir sonraki alt bildirimden geri alabilirsiniz.",
+  "noRemotesAvailable": "No remotes mevcut.",
+  "remoteButtonCountSummary": "{count} düğme(s)",
+  "@remoteButtonCountSummary": {
+    "placeholders": {
+      "count": {}
+    }
+  },
+  "remoteOrientationFlippedTooltip": "Yön: ters (dokun to normal)",
+  "remoteOrientationNormalTooltip": "Yön: normal (dokun to flip)",
+  "stopLoop": "Durdur döngü",
+  "reorderButtons": "Düğmeleri yeniden sırala",
+  "remoteReorderHint": "Yeniden sıralama modu: taşımak için bir düğmeye uzun basıp sürükleyin.",
+  "manageRemote": "Manage kumanda",
+  "remoteNoButtons": "Bu kumandada düğme yok",
+  "remoteNoButtonsDescription": "Düğme eklemek veya yapılandırmak için \"Kumandayı Düzenle\"yi kullanın.",
+  "editRemote": "Düzenle kumanda",
+  "editRemoteActionsSubtitle": "Yeniden adlandırın, sıralayın ve düğmeleri düzenleyin",
+  "remoteUpdatedNamedButton": "Güncellendi \"{name}\".",
+  "@remoteUpdatedNamedButton": {
+    "placeholders": {
+      "name": {}
+    }
+  },
+  "buttonAddedNamed": "Eklendi \"{name}\".",
+  "@buttonAddedNamed": {
+    "placeholders": {
+      "name": {}
+    }
+  },
+  "buttonDuplicated": "Düğme duplicated.",
+  "loopRunningForButton": "Bu düğme için döngü çalışıyor.",
+  "loopTip": "İpucu: Siz durdurana kadar tekrarlamak için Döngü'yü kullanın.",
+  "codeCopied": "Kod kopyalandı.",
+  "copyCode": "Kopyala kod",
+  "startLoop": "Başlat döngü",
+  "editButtonSubtitle": "Etiketi, kodu, protokolü ve frekansı değiştirin",
+  "newButton": "New düğme",
+  "newButtonSubtitle": "Bundan sonra yeni bir düğme oluştur",
+  "duplicate": "Çoğalt",
+  "duplicateButtonSubtitle": "Bu düğmenin bir kopyasını oluştur",
+  "removeFromDeviceControls": "Cihaz Kontrollerinden Kaldır",
+  "addToDeviceControls": "Ekle to Cihaz Kontrolleri",
+  "deviceControlsButtonSubtitle": "Bu düğmeyi sistem cihaz kontrollerinde gösterir",
+  "removedFromDeviceControls": "Cihaz Kontrollerinden kaldırıldı.",
+  "pinQuickTile": "Pin to Hızlı Döşeme favorites",
+  "unpinQuickTile": "Hızlı Döşeme favorilerinden kaldır",
+  "quickTileButtonSubtitle": "Bu düğmeyi hızlı döşeme seçicisinde üstte gösterir",
+  "removedFromQuickTileFavorites": "Hızlı Döşeme favorilerinden kaldırıldı.",
+  "pinnedToQuickTileFavorites": "Pinned to Hızlı Döşeme favorites.",
+  "duplicateAndEdit": "Çoğalt ve düzenle",
+  "duplicateAndEditSubtitle": "Bir kopya oluştur ve hemen düzenle",
+  "done": "Done",
+  "run": "Çalıştır",
+  "untitledRemote": "Untitled Kumanda",
+  "createRemoteTitle": "Create kumanda",
+  "editRemoteTitle": "Düzenle kumanda",
+  "removeButtonTitle": "Kaldır düğme?",
+  "imageButtonRemovedMessage": "Bu resim düğmesi kaldırılacak.",
+  "namedButtonRemovedMessage": "\"{name}\" kaldırılacak.",
+  "@namedButtonRemovedMessage": {
+    "placeholders": {
+      "name": {}
+    }
+  },
+  "remove": "Kaldır",
+  "importedButtonCount": "{count} düğme içe aktarıldı.",
+  "@importedButtonCount": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "importedButtonsFromExistingRemotes": "Mevcut kumandalardan {count} düğme içe aktarıldı.",
+  "@importedButtonsFromExistingRemotes": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "editButtonSettingsSubtitle": "Etiketi, sinyali ve gelişmiş ayarları değiştirin",
+  "createButtonCopySubtitle": "Bu düğmenin bir kopyasını oluştur",
+  "duplicateAndEditButtonSubtitle": "Bir kopya oluştur ve hemen düzenle",
+  "undoAvailableInNextSnackbar": "Bir sonraki alt bildirimden geri alabilirsiniz",
+  "buttonRemoved": "Düğme removed.",
+  "remoteNameCannotBeEmpty": "Kumanda name can't be empty.",
+  "saveRemote": "Kaydet kumanda",
+  "remoteName": "Kumanda name",
+  "remoteNameHint": "e.g., TV, Air Conditioner, LED Strip",
+  "remoteNameHelper": "Bu ad Kumandalar listenizde görünür.",
+  "layoutStyle": "Düzen stili",
+  "layoutWideDescription": "Geniş: Ek ayrıntılarla 2 sütunlu düğmeler (önerilen).",
+  "layoutCompactDescription": "Compact: classic 4× grid (icons/text yalnızca).",
+  "importFromRemotes": "Kumandalardan içe aktar",
+  "importFromDatabase": "Veritabanından içe aktar",
+  "addButton": "Ekle düğme",
+  "noButtonsYet": "Henüz düğme yok",
+  "createRemoteEmptyStateDescription": "İlk düğmenizi ekleyin, sonra düzenleme/kaldırma seçenekleri için ona uzun basın.",
+  "createButtonTitle": "Create Düğme",
+  "editButtonTitle": "Düzenle Düğme",
+  "failedToLoadProtocols": "Başarısız to load protocols: {error}",
+  "@failedToLoadProtocols": {
+    "placeholders": {
+      "error": {}
+    }
+  },
+  "failedToLoadDatabaseKeys": "Veritabanı tuşları yüklenemedi: {error}",
+  "@failedToLoadDatabaseKeys": {
+    "placeholders": {
+      "error": {}
+    }
+  },
+  "presetPower": "Güç",
+  "presetVolume": "Ses",
+  "presetChannel": "Kanal",
+  "presetNavigation": "Navigation",
+  "all": "Tümü",
+  "completeRequiredFieldsToSave": "Complete gerekli fields to kaydet",
+  "buttonLabelStepTitle": "1) Düğme label",
+  "buttonLabelStepSubtitle": "Choose an image, icon, or type a text label.",
+  "buttonColorStepTitle": "2) Düğme rengi (isteğe bağlı)",
+  "buttonColorStepSubtitle": "Bu düğme için bir arka plan rengi seçin.",
+  "selectColor": "Seç color:",
+  "noImageSelected": "No image seçili",
+  "gallery": "Gallery",
+  "builtIn": "Built-in",
+  "removeImage": "Kaldır image",
+  "requiredSelectImageOrSwitch": "Required: select an image, choose an icon, or switch to Metin.",
+  "iconSelected": "Icon seçili",
+  "noIconSelected": "No icon seçili",
+  "chooseIcon": "Choose Icon",
+  "removeIcon": "Kaldır icon",
+  "requiredSelectIconOrSwitch": "Required: select an icon or switch to Resim/Metin.",
+  "buttonText": "Düğme text",
+  "buttonTextHint": "e.g., Güç, Ses +, HDMI 1",
+  "buttonTextHelper": "Bu metin düğmede görünecek.",
+  "requiredEnterButtonLabel": "Required: enter a düğme label.",
+  "defaultColorName": "Default",
+  "newRemoteCreatedFromLastHit": "Son eşleşmeden bir düğmeyle yeni kumanda oluşturuldu.",
+  "selectRemote": "Seç kumanda",
+  "remoteNumber": "Kumanda #{id}",
+  "@remoteNumber": {
+    "placeholders": {
+      "id": {}
+    }
+  },
+  "newRemoteCreated": "New kumanda created.",
+  "failedToCreateRemote": "Başarısız to create kumanda.",
+  "newRemoteEllipsis": "New kumanda…",
+  "addedToRemoteNamed": "Eklendi to {name}.",
+  "@addedToRemoteNamed": {
+    "placeholders": {
+      "name": {}
+    }
+  },
+  "failedToAddToRemote": "Başarısız to ekle to kumanda.",
+  "newRemoteDefaultName": "New Kumanda",
+  "jumpedToOffsetPaused": "Ofset {offset} konumuna atlandı. Duraklatıldı — devam etmek için Sürdür'e basın.",
+  "@jumpedToOffsetPaused": {
+    "placeholders": {
+      "offset": {
+        "type": "int"
+      }
+    }
+  },
+  "sent": "Sent.",
+  "failedToSend": "Başarısız to gönder: {error}",
+  "@failedToSend": {
+    "placeholders": {
+      "error": {}
+    }
+  },
+  "copiedProtocolCode": "Kopyalandı (protokol:kod).",
+  "savedToResults": "Kaydetd to Sonuçlar.",
+  "invalidCodeForProtocol": "Protokol için geçersiz kod: {error}",
+  "@invalidCodeForProtocol": {
+    "placeholders": {
+      "error": {}
+    }
+  },
+  "copiedCurrentCandidate": "Copied current candidate.",
+  "jumpToOffset": "Atla to ofset",
+  "jumpToBruteCursor": "Atla to brute imleç",
+  "jump": "Atla",
+  "jumpedToCursorPaused": "İmleç 0x{cursor} konumuna atlandı. Duraklatıldı — devam etmek için Sürdür'e basın.",
+  "@jumpedToCursorPaused": {
+    "placeholders": {
+      "cursor": {}
+    }
+  },
+  "irSignalTester": "IR Sinyal Testi",
+  "stop": "Durdur",
+  "selectButton": "Seç düğme",
+  "buttonNotFoundInRemotes": "Düğme kumandalarda bulunamadı.",
+  "sentNamed": "Sent \"{name}\".",
+  "@sentNamed": {
+    "placeholders": {
+      "name": {}
+    }
+  },
+  "sendFailed": "Gönder başarısız: {error}",
+  "@sendFailed": {
+    "placeholders": {
+      "error": {}
+    }
+  },
+  "noFavoritesYet": "Henüz favori yok",
+  "deviceControlsEmptyHint": "Bir kumanda düğmesine uzun basın ve “Cihaz Kontrollerine Ekle”yi seçin.",
+  "sendTest": "Gönder test",
+  "testSendCompleted": "Test gönderimi tamamlandı.",
+  "testSendFailed": "Test gönderimi başarısız: {error}",
+  "@testSendFailed": {
+    "placeholders": {
+      "error": {}
+    }
+  },
+  "removedNamed": "Removed \"{name}\".",
+  "@removedNamed": {
+    "placeholders": {
+      "name": {}
+    }
+  },
+  "brand": "Marka",
+  "model": "Model",
+  "selectBrand": "Seç marka",
+  "searchBrand": "Ara marka…",
+  "selectModel": "Model seç",
+  "searchModel": "Model ara…",
+  "unnamedKey": "Unnamed key",
+  "unknown": "Bilinmeyen",
+  "emDash": "—",
+  "searchCommands": "Ara commands",
+  "noMatchingCommands": "Eşleşen yok commands",
+  "quickTileFavoritesTitle": "Hızlı döşeme favorileri",
+  "changeMappingForTile": "{tileLabel} döşemesi için eşlemeyi değiştir",
+  "@changeMappingForTile": {
+    "placeholders": {
+      "tileLabel": {}
+    }
+  },
+  "pickDifferentButton": "Pick a different düğme",
+  "browseAllRemotesEllipsis": "Tüm kumandalara göz at…",
+  "invalidMacroFileFormat": "Geçersiz makro dosya biçimi.",
+  "failedToParseMacroFile": "Makro dosyası ayrıştırılamadı.",
+  "deviceCodeLabel": "Cihaz Kodu",
+  "commandLabel": "Komut",
+  "editButtonCodeTitle": "Düzenle Kod of the düğme",
+  "thisRemoteHasNoButtons": "Bu kumandada düğme yok.",
+  "selectCommand": "Komut seç",
+  "databaseModeAutofillHint": "Veritabanı modu 2. adımı sizin için otomatik doldurur (marka + model + protokol). Bir tuş içe aktardıktan sonra Manuel bölümünde her şeyi iyileştirebilirsiniz.",
+  "test": "Test",
+  "allSelectedButtonsWereDuplicates": "Tüm seçili düğmeler yinelemeydi.",
+  "noButtonsImported": "Hiç düğme içe aktarılmadı.",
+  "importedButtonsSkippedDuplicates": "{addedCount} düğme içe aktarıldı. {skippedCount} yineleme atlandı.",
+  "@importedButtonsSkippedDuplicates": {
+    "placeholders": {
+      "addedCount": {
+        "type": "int"
+      },
+      "skippedCount": {
+        "type": "int"
+      }
+    }
+  },
+  "importAllMatchingTitle": "Eşleşen tüm düğmeler içe aktarılsın mı?",
+  "noMatchingKeysFound": "Eşleşen tuş bulunamadı.",
+  "importAllMatchingMessage": "Bu işlem mevcut veritabanı seçiminden en fazla {count} eşleşen tuşu içe aktarır.",
+  "@importAllMatchingMessage": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "importAll": "Tümünü içe aktar",
+  "importingButtons": "Düğmeler içe aktarılıyor…",
+  "allMatchingButtonsWereDuplicates": "Eşleşen tüm düğmeler yinelemeydi.",
+  "quickPresets": "Hızlı ön ayarlar",
+  "selectDeviceFirst": "Seç cihaz first",
+  "searchByLabelOrHex": "Ara by label or hex",
+  "optionalRefinePresetKeys": "İsteğe bağlı: {preset} ön ayar tuşlarını iyileştirin",
+  "@optionalRefinePresetKeys": {
+    "placeholders": {
+      "preset": {}
+    }
+  },
+  "selectBrandModelProtocolFirst": "Önce marka, model ve protokol seçin.",
+  "importFromDatabaseTitle": "Veritabanından içe aktar",
+  "importFromDatabaseSubtitle": "Bir cihaz seçin, eşleşen tuşları yükleyin, sonra seçili düğmeleri içe aktarın.",
+  "deviceAndFilters": "Cihaz ve filtreler",
+  "loadedCount": "{count} loaded",
+  "@loadedCount": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "hideFilters": "Hide filtres",
+  "showFilters": "Filtreleri göster",
+  "noProtocolFoundForBrandModel": "Bu marka ve model için protokol bulunamadı.",
+  "protocolAutoDetected": "Protokol",
+  "protocolAutoDetectedHelper": "Veritabanından otomatik algılandı. İçe aktarmadan önce değiştirebilirsiniz.",
+  "selectBrandModelToLoadKeys": "Tuşları yüklemek için bir marka, model ve protokol seçin.",
+  "noKeysFound": "Tuş bulunamadı.",
+  "noKeysFoundForSearch": "“{query}” için tuş bulunamadı.",
+  "@noKeysFoundForSearch": {
+    "placeholders": {
+      "query": {}
+    }
+  },
+  "skipDuplicates": "Skip duplicates",
+  "skipDuplicatesSubtitle": "Bu kumandada zaten bulunan düğmeleri içe aktarmayın.",
+  "importSelected": "İçe aktar seçili",
+  "noMacrosToExport": "No macros to dışa aktar.",
+  "macrosExportedToDownloads": "Makrolar İndirilenler'e aktarıldı.",
+  "failedToExportMacros": "Başarısız to dışa aktar macros.",
+  "failedToReadFile": "Dosya okunamadı.",
+  "importFromExistingRemotesTitle": "Mevcut Kumandalardan İçe Aktar",
+  "selectedCount": "{count} seçili",
+  "@selectedCount": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "noOtherRemotesWithButtons": "Düğmeli başka kumanda bulunamadı.",
+  "sourceRemote": "Source kumanda",
+  "searchButtons": "Düğmelerde ara",
+  "searchButtonsHint": "Güç, Ses, Sessiz...",
+  "selectVisible": "Seç visible",
+  "clearVisible": "Temizle visible",
+  "protocolNamed": "Protokol: {name}",
+  "@protocolNamed": {
+    "placeholders": {
+      "name": {}
+    }
+  },
+  "rawSignal": "Raw",
+  "legacyCode": "Eski kod",
+  "importCount": "İçe aktar {count}",
+  "@importCount": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "storagePermissionDeniedLegacy": "Storage izin denied (needed on some older Android cihazlar).",
+  "backupExportedToDownloads": "Yedek İndirilenler'e aktarıldı.",
+  "failedToExport": "Başarısız to dışa aktar: {error}",
+  "@failedToExport": {
+    "placeholders": {
+      "error": {}
+    }
+  },
+  "importedLegacyJsonBackup": "Eski JSON yedeğinden {count} kumanda içe aktarıldı. Makrolar değiştirilmedi.",
+  "@importedLegacyJsonBackup": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "importFailedRemotesMustBeList": "İçe aktarma başarısız: varsa yedekteki \"remotes\" bir JSON listesi olmalıdır.",
+  "importFailedMacrosMustBeList": "İçe aktarma başarısız: varsa yedekteki \"macros\" bir JSON listesi olmalıdır.",
+  "importFailedInvalidBackupFormat": "İçe aktarma başarısız: geçersiz yedek biçimi (beklenen eski Liste veya kumandalar/makrolar içeren Harita).",
+  "importedBackupRemotesOnly": "Yedekten {remoteCount} kumanda içe aktarıldı. Makrolar değiştirilmedi.",
+  "@importedBackupRemotesOnly": {
+    "placeholders": {
+      "remoteCount": {
+        "type": "int"
+      }
+    }
+  },
+  "importedBackupRemotesAndMacros": "Yedekten {remoteCount} kumanda ve {macroCount} makro içe aktarıldı.",
+  "@importedBackupRemotesAndMacros": {
+    "placeholders": {
+      "remoteCount": {
+        "type": "int"
+      },
+      "macroCount": {
+        "type": "int"
+      }
+    }
+  },
+  "importFailedNoValidButtonsInIr": "İçe aktarma başarısız: .ir dosyasında geçerli düğme bulunamadı.",
+  "importedOneRemoteFromFlipper": "Flipper .ir'den 1 kumanda içe aktarıldı. Makrolar değiştirilmedi.",
+  "importFailedInvalidIrplus": "İçe aktarma başarısız: geçersiz irplus dosyası (geçerli düğme bulunamadı).",
+  "importedOneRemoteFromIrplus": "IRPLUS'tan 1 kumanda içe aktarıldı. Makrolar değiştirilmedi.",
+  "importFailedInvalidLirc": "İçe aktarma başarısız: geçersiz LIRC dosyası (geçerli kod veya ham kod bulunamadı).",
+  "importedOneRemoteFromLirc": "LIRC yapılandırmasından 1 kumanda içe aktarıldı. Makrolar değiştirilmedi.",
+  "unsupportedFileTypeSelected": "Desteklenmeyen dosya türü seçildi.",
+  "importFailedInvalidUnreadableFile": "İçe aktarma başarısız: geçersiz veya okunamayan dosya.",
+  "bulkImportNoSupportedFilesInFolder": "Toplu içe aktarma tamamlandı: klasörde desteklenen dosya bulunamadı.",
+  "bulkImportNoRemotesImported": "Toplu içe aktarma tamamlandı: hiç kumanda içe aktarılmadı. {skippedCount} dosya atlandı.",
+  "@bulkImportNoRemotesImported": {
+    "placeholders": {
+      "skippedCount": {
+        "type": "int"
+      }
+    }
+  },
+  "bulkImportComplete": "Toplu içe aktarma tamamlandı: {supportedCount} desteklenen dosyadan {importedCount} kumanda içe aktarıldı. {skippedCount} dosya atlandı.",
+  "@bulkImportComplete": {
+    "placeholders": {
+      "importedCount": {
+        "type": "int"
+      },
+      "supportedCount": {
+        "type": "int"
+      },
+      "skippedCount": {
+        "type": "int"
+      }
+    }
+  },
+  "storagePermissionDenied": "Depolama izni reddedildi.",
+  "bulkImportFailedReadFolder": "Toplu içe aktarma başarısız: unable to read klasör contents.",
+  "bulkImportNoSupportedFilesSource": "Toplu içe aktarma tamamlandı: desteklenen dosya bulunamadı ({sourceLabel}).",
+  "@bulkImportNoSupportedFilesSource": {
+    "placeholders": {
+      "sourceLabel": {}
+    }
+  },
+  "clearAction": "Temizle",
+  "saveAction": "Kaydet",
+  "buttonsTitleCount": "Düğmeler ({count})",
+  "@buttonsTitleCount": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "invalidStepEncountered": "Geçersiz adımla karşılaşıldı",
+  "failedToSendNamed": "Başarısız to gönder: {name}",
+  "@failedToSendNamed": {
+    "placeholders": {
+      "name": {}
+    }
+  },
+  "buttonNotFound": "Düğme bulunamadı",
+  "buttonNotFoundNamed": "Düğme bulunamadı: {name}",
+  "@buttonNotFoundNamed": {
+    "placeholders": {
+      "name": {}
+    }
+  },
+  "unknownButton": "Bilinmeyen Düğme",
+  "durationSecondsShort": "{seconds}s",
+  "@durationSecondsShort": {
+    "placeholders": {
+      "seconds": {
+        "type": "int"
+      }
+    }
+  },
+  "durationMinutesSecondsShort": "{minutes}m {seconds}s",
+  "@durationMinutesSecondsShort": {
+    "placeholders": {
+      "minutes": {
+        "type": "int"
+      },
+      "seconds": {
+        "type": "int"
+      }
+    }
+  },
+  "durationHoursMinutesShort": "{hours}h {minutes}m",
+  "@durationHoursMinutesShort": {
+    "placeholders": {
+      "hours": {
+        "type": "int"
+      },
+      "minutes": {
+        "type": "int"
+      }
+    }
+  },
+  "orientationFlippedTooltip": "Yön: ters (dokun to normal)",
+  "orientationNormalTooltip": "Yön: normal (dokun to flip)",
+  "noSteps": "No steps",
+  "stepProgress": "Adım {current} / {total}",
+  "@stepProgress": {
+    "placeholders": {
+      "current": {
+        "type": "int"
+      },
+      "total": {
+        "type": "int"
+      }
+    }
+  },
+  "completed": "Completed",
+  "paused": "Duraklatıldı",
+  "running": "Çalıştırning",
+  "ready": "Hazır",
+  "stepsProgress": "{current} / {total} steps",
+  "@stepsProgress": {
+    "placeholders": {
+      "current": {
+        "type": "int"
+      },
+      "total": {
+        "type": "int"
+      }
+    }
+  },
+  "waiting": "Waiting",
+  "secondsRemaining": "{seconds}s remaining",
+  "@secondsRemaining": {
+    "placeholders": {
+      "seconds": {}
+    }
+  },
+  "millisecondsShort": "{ms}ms",
+  "@millisecondsShort": {
+    "placeholders": {
+      "ms": {
+        "type": "int"
+      }
+    }
+  },
+  "tapContinueWhenReady": "Sonraki adım için hazır olduğunuzda Devam Et'e dokunun",
+  "error": "Hata",
+  "macroCompleted": "Macro Completed",
+  "finishedIn": "Finished in {duration}",
+  "@finishedIn": {
+    "placeholders": {
+      "duration": {}
+    }
+  },
+  "sequence": "Sequence",
+  "waitMilliseconds": "{ms} ms bekle",
+  "@waitMilliseconds": {
+    "placeholders": {
+      "ms": {
+        "type": "int"
+      }
+    }
+  },
+  "runAgain": "Tekrar çalıştır",
+  "startMacro": "Başlat Macro",
+  "continueAction": "Devam et",
+  "unnamedRemote": "Unnamed Kumanda",
+  "enterMacroName": "Girin a macro name",
+  "addAtLeastOneStep": "En az bir adım ekleyin",
+  "fixInvalidSteps": "Fix geçersiz steps",
+  "unknownCommand": "Bilinmeyen Komut",
+  "unnamedCommand": "Adsız Komut",
+  "iconCommand": "Simge Komutu",
+  "selectDelay": "Seç Delay",
+  "keepMilliseconds": "Koru: {ms} ms",
+  "@keepMilliseconds": {
+    "placeholders": {
+      "ms": {
+        "type": "int"
+      }
+    }
+  },
+  "custom": "Özel",
+  "enterCustomDelayDuration": "Özel gecikme süresi girin",
+  "millisecondsLong": "{ms} milliseconds",
+  "@millisecondsLong": {
+    "placeholders": {
+      "ms": {
+        "type": "int"
+      }
+    }
+  },
+  "secondsLong": "{seconds} second{plural}",
+  "@secondsLong": {
+    "placeholders": {
+      "seconds": {},
+      "plural": {}
+    }
+  },
+  "customDelay": "Özel Delay",
+  "delayMillisecondsLabel": "Delay (milliseconds)",
+  "delayMillisecondsHint": "e.g., 3000",
+  "recommendedDelayRange": "Önerilen: çoğu cihaz için 250-5000 ms",
+  "enterValidPositiveNumber": "Please enter a valid positive number",
+  "ok": "OK",
+  "remote": "Kumanda",
+  "macroName": "Macro Ad",
+  "macroNameHint": "ör. i-cybie Gelişmiş Mod",
+  "stepsTitleCount": "Steps ({count})",
+  "@stepsTitleCount": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "noStepsYet": "No steps yet",
+  "addCommandsAndDelaysHint": "Dizinizi oluşturmak için aşağıya komutlar ve gecikmeler ekleyin",
+  "addStep": "Adım ekle",
+  "reorderStepsHint": "İpucu: Adımları yeniden sıralamak için tutamacı sürükleyin. Düzenlemek için bir adıma dokunun.",
+  "reorderStep": "{index}. adımı yeniden sırala",
+  "@reorderStep": {
+    "placeholders": {
+      "index": {
+        "type": "int"
+      }
+    }
+  },
+  "pressAndDragToChangeStepOrder": "Adım sırasını değiştirmek için basılı tutup sürükleyin",
+  "deleteStep": "{index}. adımı sil",
+  "@deleteStep": {
+    "placeholders": {
+      "index": {
+        "type": "int"
+      }
+    }
+  },
+  "invalidStepTapToFix": "Geçersiz adım — düzeltmek için dokunun",
+  "sendIrCommand": "IR komutu gönder",
+  "waitForUserConfirmation": "Kullanıcı onayı bekle",
+  "notImplemented": "Henüz uygulanmadı",
+  "frequencyKhz": "{value} kHz",
+  "@frequencyKhz": {
+    "placeholders": {
+      "value": {
+        "type": "int"
+      }
+    }
+  },
+  "necProtocolShort": "NEC",
+  "msbShort": "MSB",
+  "layoutWide": "Wide",
+  "iconButton": "Icon düğme",
+  "imageButton": "Resim düğme",
+  "noSignalInfo": "No signal info",
+  "proceed": "Proceed",
+  "discard": "Discard",
+  "idle": "Idle",
+  "start": "Başlat",
+  "resume": "Sürdür",
+  "pause": "Duraklat",
+  "stopped": "Durduruldu",
+  "copy": "Kopyala",
+  "send": "Gönder",
+  "step": "Adım",
+  "addToRemote": "Ekle to kumanda",
+  "noDescriptionAvailable": "No description mevcut.",
+  "notAvailableSymbol": "—",
+  "irFinderKaseikyoVendorInvalid": "Kaseikyo üretici must be exactly 4 hex digits.",
+  "irFinderDatabaseNotReady": "Veritabanı henüz hazır değil.",
+  "irFinderSelectBrandFirst": "Seç a marka first in Kurulum.",
+  "irFinderBruteforceUnavailable": "Bu protokol için kaba kuvvet henüz kullanılamıyor.",
+  "irFinderInvalidPrefix": "Invalid prefix.",
+  "irFinderBrandValue": "Marka: {value}",
+  "@irFinderBrandValue": {
+    "placeholders": {
+      "value": {}
+    }
+  },
+  "irFinderModelValue": "Model: {value}",
+  "@irFinderModelValue": {
+    "placeholders": {
+      "value": {}
+    }
+  },
+  "irFinderKeyValue": "Tuş: {value}",
+  "@irFinderKeyValue": {
+    "placeholders": {
+      "value": {}
+    }
+  },
+  "irFinderRemoteNumber": "Kumanda #{value}",
+  "@irFinderRemoteNumber": {
+    "placeholders": {
+      "value": {}
+    }
+  },
+  "irFinderJumpOffsetHelper": "Filtrelenmiş ve sıralı veritabanı sonuçları içinde 0 tabanlı bir dizin girin.",
+  "irFinderJumpCursorHelper": "Kaba kuvvet alanında 0 tabanlı bir hex imleci girin.",
+  "irFinderSetupTab": "Kurulum",
+  "irFinderTestTab": "Test",
+  "irFinderResultsTab": "Sonuçlar",
+  "irFinderContinueToTest": "Teste devam et",
+  "irFinderKaseikyoVendorTitle": "Kaseikyo Üretici",
+  "irFinderCustomVendorLabel": "Özel üretici (4 hex)",
+  "irFinderBrowseDbCandidates": "DB adaylarına göz at…",
+  "irFinderEditSetup": "Kurulumu düzenle",
+  "irFinderNoSavedHits": "Henüz kayıtlı eşleşme yok. Cihaz yanıt verdiğinde Test sayfasında \"Eşleşmeyi kaydet\"e basın.",
+  "irFinderBackToTest": "Teste dön",
+  "irFinderLargeSearchSpaceTitle": "Geniş arama alanı",
+  "irFinderLargeSearchSpaceBody": "Bu kaba kuvvet alanı çok büyük ({human} olasılık). IR Finder yine de azami deneme ve bekleme sürenize uyar, ancak IR cihazlarını spamlememeye dikkat edin.\n\nÖneri: önce Veritabanı modunu kullanın ve/veya alanı azaltmak için bilinen önek baytlarını girin.",
+  "@irFinderLargeSearchSpaceBody": {
+    "placeholders": {
+      "human": {}
+    }
+  },
+  "irFinderDatabaseSession": "Veritabanı oturumu",
+  "irFinderBruteforceSession": "Kaba kuvvet oturumu",
+  "irFinderResumeLastSession": "Son oturumu sürdür",
+  "irFinderResumeBrandModel": "Marka: {brand} · Model: {model}",
+  "@irFinderResumeBrandModel": {
+    "placeholders": {
+      "brand": {},
+      "model": {}
+    }
+  },
+  "irFinderResumePrefix": "Prefix: {value}",
+  "@irFinderResumePrefix": {
+    "placeholders": {
+      "value": {}
+    }
+  },
+  "irFinderResumeProgress": "Progress: {progress} · Started: {when}",
+  "@irFinderResumeProgress": {
+    "placeholders": {
+      "progress": {},
+      "when": {}
+    }
+  },
+  "irFinderApplyResume": "Apply & Sürdür",
+  "irFinderBruteforceMode": "Kaba kuvvet",
+  "irFinderDatabaseAssistedMode": "Veritabanı-assisted",
+  "irFinderProtocolTitle": "Protokol: {name}",
+  "@irFinderProtocolTitle": {
+    "placeholders": {
+      "name": {}
+    }
+  },
+  "irFinderProtocolLabel": "IR protokolü",
+  "irFinderProtocolHelper": "Kodlamayı ve dolayısıyla arama alanını kontrol eder.",
+  "irFinderKnownPrefixLabel": "Bilinen önek (hex bayt, isteğe bağlı)",
+  "irFinderKnownPrefixHint": "A1B2, A1 B2, A1:B2, 0xA1 0xB2",
+  "irFinderKnownPrefixHelperPayload": "Payload: {digits} hex digit(s)",
+  "@irFinderKnownPrefixHelperPayload": {
+    "placeholders": {
+      "digits": {
+        "type": "int"
+      }
+    }
+  },
+  "irFinderKnownPrefixHelperPayloadExample": "Payload: {digits} hex digit(s) · Example: {example}",
+  "@irFinderKnownPrefixHelperPayloadExample": {
+    "placeholders": {
+      "digits": {
+        "type": "int"
+      },
+      "example": {}
+    }
+  },
+  "irFinderKnownPrefixHelperPayloadMax": "Payload: {digits} hex digit(s) · Max prefix: {bytes} byte(s)",
+  "@irFinderKnownPrefixHelperPayloadMax": {
+    "placeholders": {
+      "digits": {
+        "type": "int"
+      },
+      "bytes": {
+        "type": "int"
+      }
+    }
+  },
+  "irFinderKnownPrefixHelperPayloadExampleMax": "Payload: {digits} hex digit(s) · Example: {example} · Max prefix: {bytes} byte(s)",
+  "@irFinderKnownPrefixHelperPayloadExampleMax": {
+    "placeholders": {
+      "digits": {
+        "type": "int"
+      },
+      "example": {},
+      "bytes": {
+        "type": "int"
+      }
+    }
+  },
+  "irFinderKnownPrefixHelperExample": "Example: {example}",
+  "@irFinderKnownPrefixHelperExample": {
+    "placeholders": {
+      "example": {}
+    }
+  },
+  "irFinderKnownPrefixHelperFallback": "Arama alanını daraltmak için bilinen ilk baytları girin.",
+  "irFinderDatabaseMode": "Veritabanı",
+  "irFinderNormalizedPrefixValue": "Normalized prefix: {value}",
+  "@irFinderNormalizedPrefixValue": {
+    "placeholders": {
+      "value": {}
+    }
+  },
+  "irFinderNormalizedPrefix": "Normalized prefix",
+  "irFinderBruteforceNotConfigured": "Bu protokol için kaba kuvvet henüz yapılandırılmadı.",
+  "irFinderAllLimit": "Tümü ({value})",
+  "@irFinderAllLimit": {
+    "placeholders": {
+      "value": {}
+    }
+  },
+  "irFinderTestControls": "Test kontrolleri",
+  "irFinderPayloadLength": "Yük uzunluğu: {digits} hex hane.",
+  "@irFinderPayloadLength": {
+    "placeholders": {
+      "digits": {
+        "type": "int"
+      }
+    }
+  },
+  "irFinderSearchSpace": "Arama alanı: {value} olasılık (önek kısıtlarından sonra).",
+  "@irFinderSearchSpace": {
+    "placeholders": {
+      "value": {}
+    }
+  },
+  "irFinderCooldownMs": "Cooldown (ms)",
+  "irFinderMaxAttemptsPerRun": "Max attempts (per run)",
+  "irFinderTestAllCombinations": "Tüm kombinasyonları test et",
+  "irFinderTestAllCombinationsHint": "Arama alanı tükenene kadar çalışır. Etkin sınır: {value}",
+  "@irFinderTestAllCombinationsHint": {
+    "placeholders": {
+      "value": {}
+    }
+  },
+  "irFinderAttempts": "Attempts",
+  "irFinderAttemptsSliderRange": "Kaydırıcı aralığı: 1–{max} (daha büyük değerler için istediğiniz sayıyı yazın)",
+  "@irFinderAttemptsSliderRange": {
+    "placeholders": {
+      "max": {
+        "type": "int"
+      }
+    }
+  },
+  "irFinderMaxButton": "Max\n{value}",
+  "@irFinderMaxButton": {
+    "placeholders": {
+      "value": {
+        "type": "int"
+      }
+    }
+  },
+  "irFinderEffectiveLimitThisRun": "Bu çalıştırmada etkin sınır: {value}",
+  "@irFinderEffectiveLimitThisRun": {
+    "placeholders": {
+      "value": {}
+    }
+  },
+  "irFinderBruteforceTip": "İpucu: Önce Veritabanı modunu kullanın; kaba kuvvet en iyi bilinen bir önekle çalışır (örneğin ilk 1–4 bayt).",
+  "irFinderDatabaseInitFailed": "Veritabanı başlatma başarısız.",
+  "irFinderPreparingDatabase": "Yerel IR kod veritabanı hazırlanıyor…",
+  "irFinderDatabaseAssistedSearch": "Veritabanı-assisted arama",
+  "irFinderBrand": "Marka",
+  "irFinderSelectBrand": "Seç marka",
+  "irFinderModelOptional": "Model (isteğe bağlı)",
+  "irFinderSelectBrandFirstShort": "Seç a marka first",
+  "irFinderSelectModelRecommended": "Bir model seçin (önerilen)",
+  "irFinderOnlySelectedProtocol": "Yalnızca seçili protokol",
+  "irFinderOnlySelectedProtocolHint": "Tuşları seçili protokole göre filtreler. Tüm protokollere göz atmak için bunu kapatın.",
+  "irFinderQuickWinsFirst": "Önce hızlı kazanımlar",
+  "irFinderQuickWinsFirstHint": "Daha derin tuşlardan önce POWER, MUTE, VOL ve CH tarzı tuşlara öncelik verir.",
+  "irFinderMaxKeysPerRun": "Çalıştırma başına azami tuş testi",
+  "irFinderTesting": "Test ediliyor…",
+  "irFinderCooldown": "Cooldown",
+  "irFinderEta": "ETA",
+  "irFinderMode": "Mod",
+  "irFinderRetryLast": "Yeniden dene last",
+  "irFinderTrigger": "Trigger",
+  "irFinderJump": "Atla…",
+  "irFinderSaveHit": "Kaydet eşleşme",
+  "irFinderEtaSeconds": "{seconds}s",
+  "@irFinderEtaSeconds": {
+    "placeholders": {
+      "seconds": {
+        "type": "int"
+      }
+    }
+  },
+  "irFinderEtaMinutesSeconds": "{minutes}m {seconds}s",
+  "@irFinderEtaMinutesSeconds": {
+    "placeholders": {
+      "minutes": {
+        "type": "int"
+      },
+      "seconds": {
+        "type": "int"
+      }
+    }
+  },
+  "irFinderEtaHoursMinutes": "{hours}h {minutes}m",
+  "@irFinderEtaHoursMinutes": {
+    "placeholders": {
+      "hours": {
+        "type": "int"
+      },
+      "minutes": {
+        "type": "int"
+      }
+    }
+  },
+  "irFinderLastAttemptedCode": "Last attempted kod: {value}",
+  "@irFinderLastAttemptedCode": {
+    "placeholders": {
+      "value": {}
+    }
+  },
+  "irFinderStartTestingToSeeLastCode": "Son denenen kodu görmek için testi başlatın.",
+  "irFinderFromDb": "Veritabanından: {value}",
+  "@irFinderFromDb": {
+    "placeholders": {
+      "value": {}
+    }
+  },
+  "irFinderFromBruteforce": "Kaba kuvvetten (protokol kodlayıcı tarafından üretildi).",
+  "irFinderSendError": "Gönder hata: {error}",
+  "@irFinderSendError": {
+    "placeholders": {
+      "error": {}
+    }
+  },
+  "irFinderSourceValue": "Source: {value}",
+  "@irFinderSourceValue": {
+    "placeholders": {
+      "value": {}
+    }
+  },
+  "irFinderResultsNote": "Sonuçlar hemen Test ve Kopyala işlemlerini destekler. Düzenleyici akışında doğrudan kumandaya ekleme daha da genişletilebilir.",
+  "irFinderBrowseDbCandidatesTitle": "Göz at DB candidates",
+  "irFinderFilterByLabelOrHex": "Filter by label or hex…",
+  "irFinderJumpHere": "Atla here",
+  "irFinderSelectModel": "Model seç",
+  "irFinderSearchBrands": "Ara brands…",
+  "irFinderSearchModels": "Ara models…",
+  "iconPickerTitle": "Seç Icon",
+  "iconPickerSearchHint": "Ara icons...",
+  "iconPickerNoIconsFound": "Simge bulunamadı",
+  "iconPickerIconsAvailable": "{count} icons mevcut",
+  "@iconPickerIconsAvailable": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "iconPickerCategoryAll": "Tümü",
+  "iconPickerCategoryMedia": "Medya",
+  "iconPickerCategoryVolume": "Ses",
+  "iconPickerCategoryNavigation": "Navigation",
+  "iconPickerCategoryPower": "Güç",
+  "iconPickerCategoryNumbers": "Sayılar",
+  "iconPickerCategorySettings": "Ayarlar",
+  "iconPickerCategoryDisplay": "Ekran",
+  "iconPickerCategoryInput": "Giriş",
+  "iconPickerCategoryFavorite": "Favori",
+  "universalPowerTitle": "Universal Güç",
+  "universalPowerRunTab": "Çalıştır",
+  "universalPowerUseResponsibly": "Sorumlu kullanın",
+  "universalPowerConsentBody": "Evrensel Güç, IR güç kodlarını döngüye alır. Bunu yalnızca sahip olduğunuz veya kontrol ettiğiniz cihazlarda kullanın. Cihaz yanıt verir vermez durdurun.",
+  "universalPowerConsentCheckbox": "Cihazın sahibiyim veya kontrol ediyorum",
+  "universalPowerSetupBody": "Seçili markanız için güç kodlarını döngüye alır. Cihaz yanıt verir vermez durdurun.",
+  "universalPowerLastSent": "Son gönderilen: {value}",
+  "@universalPowerLastSent": {
+    "placeholders": {
+      "value": {}
+    }
+  },
+  "universalPowerNoCodesFound": "Güç kodu bulunamadı. Aramayı genişletmeyi deneyin.",
+  "universalPowerUnableToStart": "Başlatılamıyor.",
+  "universalPowerAllBrands": "Tüm markalar (filtresiz)",
+  "universalPowerClearBrandFilter": "Marka filtresini temizle",
+  "universalPowerBroadenSearch": "Gerekirse aramayı genişletin",
+  "universalPowerBroadenSearchHint": "Güç etiketleri bulunamazsa diğer tuşları da dahil edin.",
+  "universalPowerAdditionalPatternsDepth": "Ek desen derinliği",
+  "universalPowerDepth1": "Yalnızca öncelik: POWER/OFF",
+  "universalPowerDepth2": "POWER takma adlarını dahil et",
+  "universalPowerDepth3": "İkincil güç etiketlerini dahil et",
+  "universalPowerDepth4": "Tüm etiketleri dahil et (en düşük öncelik)",
+  "universalPowerLoopUntilStopped": "Durdurulana kadar döngü",
+  "universalPowerLoopUntilStoppedHint": "Kuyruğu siz durdurana kadar döngüde tutar.",
+  "universalPowerDelayBetweenCodes": "Delay between codes",
+  "universalPowerStart": "Başlat Universal Güç",
+  "universalPowerRunStatus": "Çalıştır status",
+  "universalPowerProgress": "Progress: {value}",
+  "@universalPowerProgress": {
+    "placeholders": {
+      "value": {}
+    }
+  },
+  "universalPowerPausedInBackground": "Uygulama arka plana alındığı için duraklatıldı.",
+  "universalPowerSendOneCode": "Gönder one kod",
+  "universalPowerStopWhenDeviceResponds": "Cihaz yanıt verir vermez durdurun.",
+  "iconNamePlay": "Oynat",
+  "iconNamePause": "Duraklat",
+  "iconNameStop": "Durdur",
+  "iconNameFastForward": "Fast Forward",
+  "iconNameRewind": "Rewind",
+  "iconNameSkipNext": "Skip Sonraki",
+  "iconNameSkipPrevious": "Skip Önceki",
+  "iconNameReplay": "Replay",
+  "iconNameForward10S": "Forward 10s",
+  "iconNameForward30S": "Forward 30s",
+  "iconNameReplay10S": "Replay 10s",
+  "iconNameReplay30S": "Replay 30s",
+  "iconNameRecord": "Kayıt",
+  "iconNameRecordAlt": "Kayıt Alt",
+  "iconNameEject": "Eject",
+  "iconNameShuffle": "Shuffle",
+  "iconNameRepeat": "Repeat",
+  "iconNameRepeatOne": "Repeat Bir",
+  "iconNameVolumeUp": "Ses Yukarı",
+  "iconNameVolumeDown": "Ses Aşağı",
+  "iconNameVolumeOff": "Ses Kapalı",
+  "iconNameMute": "Sessiz",
+  "iconNameSpeaker": "Hoparlör",
+  "iconNameSurroundSound": "Surround Sound",
+  "iconNameEqualizer": "Equalizer",
+  "iconNameAudio": "Ses",
+  "iconNameMicrophone": "Microphone",
+  "iconNameMicOff": "Mic Kapalı",
+  "iconNameUp": "Yukarı",
+  "iconNameDown": "Aşağı",
+  "iconNameLeft": "Sol",
+  "iconNameRight": "Sağ",
+  "iconNameArrowUp": "Ok Yukarı",
+  "iconNameArrowDown": "Ok Aşağı",
+  "iconNameArrowLeft": "Ok Sol",
+  "iconNameArrowRight": "Ok Sağ",
+  "iconNameNavigation": "Navigation",
+  "iconNameChevronLeft": "Chevron Sol",
+  "iconNameChevronRight": "Chevron Sağ",
+  "iconNameExpandLess": "Expand Less",
+  "iconNameExpandMore": "Expand Daha",
+  "iconNameCollapse": "Collapse",
+  "iconNameExpand": "Expand",
+  "iconNameCircleUp": "Circle Yukarı",
+  "iconNameCircleDown": "Circle Aşağı",
+  "iconNameCircleLeft": "Circle Sol",
+  "iconNameCircleRight": "Circle Sağ",
+  "iconNameOkSelect": "OK/Seç",
+  "iconNameConfirm": "Confirm",
+  "iconNameCancel": "İptal",
+  "iconNameClose": "Kapat",
+  "iconNameHome": "Ana Sayfa",
+  "iconNameReturn": "Return",
+  "iconNameExit": "Exit",
+  "iconNameUndo": "Undo",
+  "iconNameRedo": "Redo",
+  "iconNamePower": "Güç",
+  "iconNamePowerAlt": "Güç Alt",
+  "iconNamePowerOff": "Güç Kapalı",
+  "iconNameOn": "On",
+  "iconNameOff": "Kapalı",
+  "iconNameToggleOn": "Toggle On",
+  "iconNameToggleOff": "Toggle Kapalı",
+  "iconNameRestart": "Restart",
+  "iconNameNum1": "1",
+  "iconNameNum2": "2",
+  "iconNameNum3": "3",
+  "iconNameNum4": "4",
+  "iconNameNum5": "5",
+  "iconNameNum6": "6",
+  "iconNameNum7": "7",
+  "iconNameNum8": "8",
+  "iconNameNum9": "9",
+  "iconNameNum92": "9+",
+  "iconNameNum0": "0",
+  "iconNameOne": "Bir",
+  "iconNameTwo": "İki",
+  "iconNameThree": "Üç",
+  "iconNameFour": "Dört",
+  "iconNameFive": "Beş",
+  "iconNameSix": "Altı",
+  "iconNamePlus": "Artı",
+  "iconNameMinus": "Eksi",
+  "iconNameAddCircle": "Ekle Circle",
+  "iconNameRemoveCircle": "Kaldır Circle",
+  "iconNameSettings": "Ayarlar",
+  "iconNameMenu": "Menü",
+  "iconNameMoreVertical": "Daha Dikey",
+  "iconNameMoreHorizontal": "Daha Horizontal",
+  "iconNameTune": "Tune",
+  "iconNameRemoteSettings": "Kumanda Ayarlar",
+  "iconNameInfo": "Bilgi",
+  "iconNameInfoOutline": "Bilgi Çizgi",
+  "iconNameHelp": "Help",
+  "iconNameHelpOutline": "Help Çizgi",
+  "iconNameList": "Liste",
+  "iconNameViewList": "Liste Görünümü",
+  "iconNameViewGrid": "Görünüm Izgara",
+  "iconNameApps": "Apps",
+  "iconNameWidgets": "Widgets",
+  "iconNameTv": "TV",
+  "iconNameMonitor": "Monitor",
+  "iconNameDesktop": "Desktop",
+  "iconNameBrightnessHigh": "Brightness Yüksek",
+  "iconNameBrightnessMedium": "Brightness Medium",
+  "iconNameBrightnessLow": "Brightness Düşük",
+  "iconNameAutoBrightness": "Otomatik Brightness",
+  "iconNameLightMode": "Açık Mod",
+  "iconNameDarkMode": "Koyu Mod",
+  "iconNameContrast": "Contrast",
+  "iconNameHdrOn": "HDR On",
+  "iconNameHdrOff": "HDR Kapalı",
+  "iconNameAspectRatio": "Aspect Ratio",
+  "iconNameCrop": "Crop",
+  "iconNameZoomIn": "Zoom In",
+  "iconNameZoomOut": "Zoom Out",
+  "iconNameFullscreen": "Fullscreen",
+  "iconNameExitFullscreen": "Exit Fullscreen",
+  "iconNameFitScreen": "Ekrana Sığdır",
+  "iconNamePip": "PiP",
+  "iconNameCropFree": "Crop Free",
+  "iconNameInput": "Giriş",
+  "iconNameCable": "Cable",
+  "iconNameCast": "Cast",
+  "iconNameCastConnected": "Yayın Bağlı",
+  "iconNameScreenShare": "Ekran Paylaş",
+  "iconNameBluetooth": "Bluetooth",
+  "iconNameWifi": "WiFi",
+  "iconNameRouter": "Router",
+  "iconNameMemory": "Memory",
+  "iconNameGameConsole": "Game Console",
+  "iconNameGaming": "Gaming",
+  "iconNameMedia": "Medya",
+  "iconNameMusicQueue": "Müzik Queue",
+  "iconNameVideoLibrary": "Video Library",
+  "iconNamePhotoLibrary": "Photo Library",
+  "iconNameComponent": "Component",
+  "iconNameHdmi": "HDMI",
+  "iconNameComposite": "Composite",
+  "iconNameAntenna": "Antenna",
+  "iconNameFavorite": "Favori",
+  "iconNameFavoriteOutline": "Favori Çizgi",
+  "iconNameStar": "Star",
+  "iconNameStarOutline": "Star Çizgi",
+  "iconNameBookmark": "Bookmark",
+  "iconNameBookmarkOutline": "Bookmark Çizgi",
+  "iconNameFlag": "Flag",
+  "iconNameCheck": "Check",
+  "iconNameDone": "Done",
+  "iconNameDoneAll": "Tümü Bitti",
+  "iconNameSchedule": "Zamanla",
+  "iconNameTimer": "Timer",
+  "iconNameTime": "Time",
+  "iconNameAlarm": "Alarm",
+  "iconNameNotifications": "Notifications",
+  "iconNameLock": "Lock",
+  "iconNameUnlock": "Unlock",
+  "iconNameLight": "Işık",
+  "iconNameLightOutline": "Işık Çizgi",
+  "iconNameWarmLight": "Sıcak Işık",
+  "iconNameSunny": "Sunny",
+  "iconNameCloudy": "Bulutlu",
+  "iconNameNight": "Night",
+  "iconNameFlare": "Flare",
+  "iconNameGradient": "Gradient",
+  "iconNameInvertColors": "Invert Colors",
+  "iconNamePalette": "Palette",
+  "iconNameColor": "Color",
+  "iconNameTonality": "Tonality",
+  "iconNameSearch": "Ara",
+  "iconNameRefresh": "Yenile",
+  "iconNameSync": "Eşitle",
+  "iconNameUpdate": "Güncelle",
+  "iconNameDownload": "İndir",
+  "iconNameUpload": "Yükle",
+  "iconNameCloud": "Bulut",
+  "iconNameFolder": "Klasör",
+  "iconNameDelete": "Sil",
+  "iconNameEdit": "Düzenle",
+  "iconNameSave": "Kaydet",
+  "iconNameShare": "Paylaş",
+  "iconNamePrint": "Yazdır",
+  "iconNameLanguage": "Dil",
+  "iconNameTranslate": "Çevir",
+  "iconNameMicNone": "Mic None",
+  "iconNameSubtitles": "Altyazılar",
+  "iconNameClosedCaption": "Closed Caption",
+  "iconNameMusic": "Müzik",
+  "iconNameMovie": "Movie",
+  "iconNameTheater": "Theater",
+  "iconNameLiveTv": "Live TV",
+  "iconNameRadio": "Radio",
+  "iconNameCamera": "Kamera",
+  "iconNameVideoCamera": "Video Kamera",
+  "iconNamePhotoCamera": "Photo Kamera",
+  "iconNameSlowMotion": "Slow Motion",
+  "iconNameSpeed": "Speed",
+  "iconNameVideoSettings": "Video Ayarlar",
+  "iconNameAudioTrack": "Ses Track",
+  "iconNameGraphicEq": "Graphic EQ",
+  "iconNameMusicVideo": "Müzik Video",
+  "iconNamePlaylist": "Çalma Listesi",
+  "iconNameQueue": "Queue",
+  "iconNameNum0Fa": "0 FA",
+  "iconNameNum1Fa": "1 FA",
+  "iconNameNum2Fa": "2 FA",
+  "iconNameNum3Fa": "3 FA",
+  "iconNameNum4Fa": "4 FA",
+  "iconNameNum5Fa": "5 FA",
+  "iconNameNum6Fa": "6 FA",
+  "iconNameNum7Fa": "7 FA",
+  "iconNameNum8Fa": "8 FA",
+  "iconNameNum9Fa": "9 FA",
+  "iconNameHashFa": "Hash # FA",
+  "iconNamePercentFa": "Percent % FA",
+  "iconNameDivideFa": "Divide ÷ FA",
+  "iconNameMultiplyFa": "Multiply × FA",
+  "iconNameEqualsFa": "Equals = FA",
+  "iconNameNotEqualFa": "Eşit Değil ≠ FA",
+  "iconNameGreaterThanFa": "Greater Than > FA",
+  "iconNameLessThanFa": "Less Than < FA",
+  "iconNameAsteriskFa": "Asterisk * FA",
+  "iconNameAFa": "A FA",
+  "iconNameBFa": "B FA",
+  "iconNameCFa": "C FA",
+  "iconNameDFa": "D FA",
+  "iconNameEFa": "E FA",
+  "iconNameFFa": "F FA",
+  "iconNameGFa": "G FA",
+  "iconNameHFa": "H FA",
+  "iconNameIFa": "I FA",
+  "iconNameJFa": "J FA",
+  "iconNameKFa": "K FA",
+  "iconNameLFa": "L FA",
+  "iconNameMFa": "M FA",
+  "iconNameNFa": "N FA",
+  "iconNameOFa": "O FA",
+  "iconNamePFa": "P FA",
+  "iconNameQFa": "Q FA",
+  "iconNameRFa": "R FA",
+  "iconNameSFa": "S FA",
+  "iconNameTFa": "T FA",
+  "iconNameUFa": "U FA",
+  "iconNameVFa": "V FA",
+  "iconNameWFa": "W FA",
+  "iconNameXFa": "X FA",
+  "iconNameYFa": "Y FA",
+  "iconNameZFa": "Z FA",
+  "iconNamePlayFa": "Oynat FA",
+  "iconNamePauseFa": "Duraklat FA",
+  "iconNameStopFa": "Durdur FA",
+  "iconNamePlayFaOutline": "Oynat FA Çizgi",
+  "iconNamePauseFaOutline": "Duraklat FA Çizgi",
+  "iconNameStopFaOutline": "Durdur FA Çizgi",
+  "iconNameBackwardFa": "Backward FA",
+  "iconNameForwardFa": "İleri FA",
+  "iconNamePreviousFa": "Önceki FA",
+  "iconNameNextFa": "Sonraki FA",
+  "iconNameRewindFa": "Geri Sar FA",
+  "iconNameFastForwardFa": "Hızlı İleri FA",
+  "iconNameRepeatFa": "Repeat FA",
+  "iconNameShuffleFa": "Shuffle FA",
+  "iconNameEjectFa": "Eject FA",
+  "iconNameFilmFa": "Film FA",
+  "iconNameVideoFa": "Video FA",
+  "iconNameMusicFa": "Müzik FA",
+  "iconNameMicrophoneFa": "Microphone FA",
+  "iconNameCameraFa": "Kamera FA",
+  "iconNameCameraRetroFa": "Kamera Retro FA",
+  "iconNameVolumeHighFa": "Ses Yüksek FA",
+  "iconNameVolumeLowFa": "Ses Düşük FA",
+  "iconNameVolumeOffFa": "Ses Kapalı FA",
+  "iconNameMuteFa": "Sessiz FA",
+  "iconNameMicMuteFa": "Mikrofon Sessiz FA",
+  "iconNameHeadphonesFa": "Kulaklık FA",
+  "iconNameSpeakerFa": "Hoparlör FA",
+  "iconNameUpFa": "Yukarı FA",
+  "iconNameDownFa": "Aşağı FA",
+  "iconNameLeftFa": "Sol FA",
+  "iconNameRightFa": "Sağ FA",
+  "iconNameUpFaOutline": "Yukarı FA Çizgi",
+  "iconNameDownFaOutline": "Aşağı FA Çizgi",
+  "iconNameLeftFaOutline": "Sol FA Çizgi",
+  "iconNameRightFaOutline": "Sağ FA Çizgi",
+  "iconNameArrowUpFa": "Ok Yukarı FA",
+  "iconNameArrowDownFa": "Ok Aşağı FA",
+  "iconNameArrowLeftFa": "Ok Sol FA",
+  "iconNameArrowRightFa": "Ok Sağ FA",
+  "iconNameChevronUpFa": "Chevron Yukarı FA",
+  "iconNameChevronDownFa": "Chevron Aşağı FA",
+  "iconNameChevronLeftFa": "Chevron Sol FA",
+  "iconNameChevronRightFa": "Chevron Sağ FA",
+  "iconNameOkFa": "OK FA",
+  "iconNameOkFaOutline": "OK FA Çizgi",
+  "iconNameCheckFa": "Check FA",
+  "iconNameCloseFa": "Close FA",
+  "iconNameCloseCircleFa": "Close Daire FA",
+  "iconNameHomeFa": "Ana Sayfa FA",
+  "iconNameUndoFa": "Undo FA",
+  "iconNameRedoFa": "Redo FA",
+  "iconNameRotateFa": "Rotate FA",
+  "iconNameSearchFa": "Ara FA",
+  "iconNameRefreshFa": "Yenile FA",
+  "iconNamePowerOffFa": "Güç Kapalı FA",
+  "iconNamePlugFa": "Plug FA",
+  "iconNameToggleOnFa": "Toggle On FA",
+  "iconNameToggleOffFa": "Toggle Kapalı FA",
+  "iconNameSettingsFa": "Ayarlar FA",
+  "iconNameSettingsAltFa": "Ayarlar Alt FA",
+  "iconNameMenuFa": "Menü FA",
+  "iconNameMoreFa": "Daha FA",
+  "iconNameMoreVerticalFa": "Daha Dikey FA",
+  "iconNameInfoFa": "Info FA",
+  "iconNameInfoFaOutline": "Info FA Çizgi",
+  "iconNameHelpFa": "Help FA",
+  "iconNameHelpFaOutline": "Help FA Çizgi",
+  "iconNameListFa": "Liste FA",
+  "iconNameGridFa": "Izgara FA",
+  "iconNameSlidersFa": "Sliders FA",
+  "iconNameTvFa": "TV FA",
+  "iconNameMonitorFa": "Monitor FA",
+  "iconNameDesktopFa": "Desktop FA",
+  "iconNameBrightnessFa": "Brightness FA",
+  "iconNameNightModeFa": "Gece Modu FA",
+  "iconNameLightFa": "Işık FA",
+  "iconNameLightFaOutline": "Işık FA Çizgi",
+  "iconNameFlashFa": "Flash FA",
+  "iconNameFullscreenFa": "Fullscreen FA",
+  "iconNameExitFullscreenFa": "Exit Fullscreen FA",
+  "iconNameZoomInFa": "Zoom In FA",
+  "iconNameZoomOutFa": "Zoom Out FA",
+  "iconNameSubtitlesFa": "Altyazılar FA",
+  "iconNamePictureInPictureFa": "Picture in Picture FA",
+  "iconNameColorFa": "Color FA",
+  "iconNamePaintFa": "Paint FA",
+  "iconNameInputFa": "Giriş FA",
+  "iconNameWifiFa": "WiFi FA",
+  "iconNameBluetoothFa": "Bluetooth FA",
+  "iconNameUsbFa": "USB FA",
+  "iconNameEthernetFa": "Ethernet FA",
+  "iconNameGamepadFa": "Gamepad FA",
+  "iconNameBroadcastFa": "Broadcast FA",
+  "iconNameSatelliteFa": "Satellite FA",
+  "iconNameAntennaFa": "Antenna FA",
+  "iconNameNetworkFa": "Network FA",
+  "iconNameCloudFa": "Bulut FA",
+  "iconNameStarFa": "Star FA",
+  "iconNameStarFaOutline": "Star FA Çizgi",
+  "iconNameHeartFa": "Heart FA",
+  "iconNameHeartFaOutline": "Heart FA Çizgi",
+  "iconNameBookmarkFa": "Bookmark FA",
+  "iconNameBookmarkFaOutline": "Bookmark FA Çizgi",
+  "iconNameFlagFa": "Flag FA",
+  "iconNameClockFa": "Clock FA",
+  "iconNameClockFaOutline": "Clock FA Çizgi",
+  "iconNameBellFa": "Bell FA",
+  "iconNameBellFaOutline": "Bell FA Çizgi",
+  "iconNameTimerFa": "Timer FA",
+  "iconNameLockFa": "Lock FA",
+  "iconNameUnlockFa": "Unlock FA",
+  "iconNameGalleryFa": "Gallery FA",
+  "iconNameImagesFa": "Images FA",
+  "iconNameImageFa": "Image FA",
+  "iconNameVideoFileFa": "Video Dosyası FA",
+  "iconNameAudioFileFa": "Ses Dosyası FA",
+  "iconNamePlayOutlineFa": "Oynat Çizgi FA",
+  "iconNamePlaySimpleFa": "Oynat Basit FA",
+  "iconNamePauseSimpleFa": "Duraklat Basit FA",
+  "iconNameStopSimpleFa": "Durdur Basit FA",
+  "iconNameRecordFa": "Kayıt FA",
+  "iconNameStopCircleFa": "Durdur Daire FA",
+  "iconNameLoadingFa": "Yükleniyor FA",
+  "iconNameTextFa": "Metin FA",
+  "iconNameTextSizeFa": "Metin Boyut FA",
+  "iconNameLanguageFa": "Dil FA",
+  "iconNameGlobeFa": "Küre FA",
+  "iconNameSubtitlesAltFa": "Altyazılar Alt FA",
+  "iconNameSubtitlesAltOutlineFa": "Altyazılar Alt Çizgi FA",
+  "iconNameChannelUpFa": "Kanal Yukarı FA",
+  "iconNameChannelDownFa": "Kanal Aşağı FA",
+  "iconNamePageUpFa": "Sayfa Yukarı FA",
+  "iconNamePageDownFa": "Sayfa Aşağı FA",
+  "iconNameGuideFa": "Kılavuz FA",
+  "iconNameGridViewFa": "Izgara Görünüm FA",
+  "iconNameGridAltFa": "Izgara Alt FA",
+  "iconNameScheduleFa": "Zamanla FA",
+  "iconNameCalendarFa": "Takvim FA",
+  "iconNameRedButtonFa": "Kırmızı Düğme FA",
+  "iconNameButtonOutlineFa": "Düğme Çizgi FA",
+  "iconNameSquareButtonFa": "Kare Düğme FA",
+  "iconNameSquareOutlineFa": "Kare Çizgi FA",
+  "iconNameDotCircleFa": "Dot Daire FA",
+  "iconNameToolsFa": "Tools FA",
+  "iconNameScrewdriverFa": "Screwdriver FA",
+  "iconNameHammerFa": "Hammer FA",
+  "iconNameToolboxFa": "Toolbox FA",
+  "iconNameCogFa": "Cog FA",
+  "iconNameAdjustFa": "Adjust FA",
+  "iconNameFilterFa": "Filter FA",
+  "iconNameSortDownFa": "Sort Aşağı FA",
+  "iconNameSortUpFa": "Sort Yukarı FA",
+  "iconNameSleepFa": "Sleep FA",
+  "iconNameTimerStartFa": "Timer Start FA",
+  "iconNameTimerHalfFa": "Timer Half FA",
+  "iconNameTimerEndFa": "Timer End FA",
+  "iconNameStopwatchFa": "Kronometre FA",
+  "iconNameAlarmFa": "Alarm FA",
+  "iconNameCropAltFa": "Crop Alt FA",
+  "iconNameCropFa": "Crop FA",
+  "iconNameSquareFullFa": "Kare Full FA",
+  "iconNameFullscreenAltFa": "Fullscreen Alt FA",
+  "iconNameZoomPlusFa": "Zoom Artı FA",
+  "iconNameZoomMinusFa": "Zoom Eksi FA",
+  "iconNameMusicNoteFa": "Müzik Note FA",
+  "iconNameCdFa": "CD FA",
+  "iconNameVinylFa": "Vinyl FA",
+  "iconNameRssFa": "RSS FA",
+  "iconNameMagicFa": "Magic FA",
+  "iconNameFingerprintFa": "Fingerprint FA",
+  "iconNameUserFa": "User FA",
+  "iconNameUsersFa": "Users FA",
+  "iconNameChildModeFa": "Çocuk Modu FA",
+  "iconNameCastFa": "Cast FA",
+  "iconNameStreamFa": "Stream FA",
+  "iconNameSignalFa": "Signal FA",
+  "iconNameFeedFa": "Feed FA",
+  "iconNameCircleArrowUpFa": "Daire Ok Yukarı FA",
+  "iconNameCircleArrowDownFa": "Daire Ok Aşağı FA",
+  "iconNameCircleArrowLeftFa": "Daire Ok Sol FA",
+  "iconNameCircleArrowRightFa": "Daire Ok Sağ FA",
+  "iconNameLongArrowUpFa": "Long Ok Yukarı FA",
+  "iconNameLongArrowDownFa": "Long Ok Aşağı FA",
+  "iconNameLongArrowLeftFa": "Long Ok Sol FA",
+  "iconNameLongArrowRightFa": "Long Ok Sağ FA",
+  "iconNamePlusFa": "Artı FA",
+  "iconNameMinusFa": "Eksi FA",
+  "iconNamePlusCircleFa": "Artı Daire FA",
+  "iconNameMinusCircleFa": "Eksi Daire FA",
+  "iconNamePlusSquareFa": "Artı Kare FA",
+  "iconNameMinusSquareFa": "Eksi Kare FA",
+  "iconNameTimesFa": "Times FA",
+  "iconNameTimesCircleFa": "Times Daire FA",
+  "iconNameBatteryFullFa": "Pil Dolu FA",
+  "iconNameBattery34Fa": "Pil 3/4 FA",
+  "iconNameBatteryHalfFa": "Pil Yarım FA",
+  "iconNameBattery14Fa": "Pil 1/4 FA",
+  "iconNameBatteryEmptyFa": "Pil Boş FA",
+  "iconNameChargingFa": "Charging FA",
+  "iconNameCloudSunFa": "Bulut Sun FA",
+  "iconNameCloudMoonFa": "Bulut Moon FA",
+  "iconNameRainFa": "Rain FA",
+  "iconNameSnowflakeFa": "Snowflake FA",
+  "iconNameFireFa": "Fire FA",
+  "iconNameTemperatureFa": "Temperature FA",
+  "iconNameBoxFa": "Box FA",
+  "iconNameGiftFa": "Gift FA",
+  "iconNameTrophyFa": "Trophy FA",
+  "iconNameCrownFa": "Crown FA",
+  "iconNameGemFa": "Gem FA",
+  "unknownLabel": "Bilinmeyen",
+  "selectedFilesLabel": "seçili dosya(lar)",
+  "folderNotFoundOrInaccessible": "Klasör bulunamadı veya erişilemiyor.",
+  "importedRemoteDefaultName": "İçeAktarılanKumanda",
+  "demoRemoteName": "Demo Kumanda",
+  "protocolFieldsInvalid": "Gerekli protokol alanlarını doldurun ve ayarlıysa frekansın 15k–60k olduğundan emin olun.",
+  "unknownProtocolSelected": "Bilinmeyen protokol seçildi."
+}

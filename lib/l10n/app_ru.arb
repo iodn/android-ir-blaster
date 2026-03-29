@@ -1,0 +1,1846 @@
+{
+  "@@locale": "ru",
+  "appTitle": "IR Blaster",
+  "loading": "Загрузка…",
+  "unknownError": "Неизвестная ошибка",
+  "failedToStart": "Не удалось запустить",
+  "retry": "Повтор",
+  "quickTilePower": "Питание",
+  "quickTileMute": "Без звука",
+  "quickTileVolumeUp": "Громк. +",
+  "quickTileVolumeDown": "Громк. -",
+  "homeUsbPermissionRequiredMessage": "В этом телефоне нет встроенного ИК-передатчика. USB ИК-адаптер найден, но доступ ещё не выдан.\n\nРазрешите USB-доступ, чтобы отправлять ИК.",
+  "homeUsbPermissionDeniedMessage": "В этом телефоне нет встроенного ИК-передатчика. USB ИК-адаптер найден, но доступ к USB отклонён.\n\nЗапросите доступ снова и подтвердите его, чтобы отправлять ИК.",
+  "homeUsbPermissionGrantedMessage": "В этом телефоне нет встроенного ИК-передатчика. USB ИК-адаптер авторизован, но ещё не инициализирован.",
+  "homeUsbOpenFailedMessage": "В этом телефоне нет встроенного ИК-передатчика. USB ИК-адаптер найден и авторизован, но не удалось его инициализировать.\n\nПереподключите адаптер и попробуйте снова.",
+  "homeUsbReadyMessage": "В этом телефоне нет встроенного ИК-передатчика.",
+  "homeUsbNoDeviceMessage": "В этом телефоне нет встроенного ИК-передатчика, и сейчас не подключён поддерживаемый USB ИК-адаптер.\n\nВы всё ещё можете создавать, импортировать и управлять пультами, но для отправки ИК-сигналов нужен один из вариантов ниже.",
+  "homeUsbOptionPlugIn": "Подключите поддерживаемый USB ИК-адаптер и разрешите доступ.",
+  "homeUsbOptionReady": "Готов к работе.",
+  "homeUsbOptionPermissionRequired": "Подключено. Нужен доступ.",
+  "homeUsbOptionPermissionDenied": "Доступ отклонён. Запросите снова.",
+  "homeUsbOptionPermissionGranted": "Авторизовано. Идёт инициализация.",
+  "homeUsbOptionOpenFailed": "Авторизовано, но инициализация не удалась.",
+  "homeHardwareBannerNoInternal": "В телефоне нет встроенного ИК. Подключите USB ИК-адаптер или включите режим Аудио в настройках.",
+  "homeHardwareBannerPermissionRequired": "USB-адаптер найден. Для отправки ИК нужен доступ.",
+  "homeHardwareBannerPermissionDenied": "Доступ USB отклонён. Запросите его снова для отправки ИК.",
+  "homeHardwareBannerPermissionGranted": "USB-адаптер авторизован. Ожидание инициализации.",
+  "homeHardwareBannerOpenFailed": "USB-адаптер авторизован, но инициализация не удалась.",
+  "homeHardwareBannerReady": "USB готов.",
+  "homeHardwareRequiredTitle": "Для отправки команд нужно ИК-оборудование",
+  "homeUsbDongleRecommended": "USB ИК-адаптер, рекомендуется",
+  "homeAudioAdapterAlternative": "Аудио ИК-адаптер, альтернатива",
+  "homeAudioAdapterDescription": "Настройки → ИК-передатчик → Аудио (1 LED / 2 LED). Требуется аудио-ИК адаптер.",
+  "close": "Закрыть",
+  "homeChooseTransmitter": "Выберите передатчик",
+  "openSettings": "Открыть настройки",
+  "homeUsbPermissionSentApprove": "Запрос доступа USB отправлен. Подтвердите его, чтобы включить USB.",
+  "homeUsbDongleNotDetected": "Поддерживаемый USB ИК-адаптер не найден. Подключите его и попробуйте снова.",
+  "homeUsbPermissionRequestFailed": "Не удалось запросить доступ USB.",
+  "working": "Выполняется…",
+  "requestUsbPermission": "Запросить доступ USB",
+  "homeHardwareTip": "Подсказка: вы уже можете создавать и упорядочивать пульты. Оборудование нужно только для передачи.",
+  "homeNoIrTransmitterTitle": "Нет ИК-передатчика",
+  "settingsNavLabel": "Настройки",
+  "dismiss": "Закрыть",
+  "remotesNavLabel": "Пульты",
+  "macrosNavLabel": "Макросы",
+  "signalTesterNavLabel": "Тестер сигнала",
+  "settingsTitle": "Настройки",
+  "remoteNoIrEmitterTitle": "Нет ИК-передатчика",
+  "remoteNoIrEmitterMessage": "На этом устройстве нет ИК-передатчика",
+  "remoteNoIrEmitterNeedsEmitter": "Для работы приложению нужен ИК-передатчик",
+  "remoteDismiss": "Закрыть",
+  "remoteClose": "Закрыть",
+  "remoteFailedToSend": "Не удалось отправить ИК: {error}",
+  "@remoteFailedToSend": {
+    "placeholders": {
+      "error": {}
+    }
+  },
+  "remoteFailedToStartLoop": "Не удалось запустить цикл: {error}",
+  "@remoteFailedToStartLoop": {
+    "placeholders": {
+      "error": {}
+    }
+  },
+  "remoteLoopStoppedFailed": "Цикл остановлен, ошибка отправки: {error}",
+  "@remoteLoopStoppedFailed": {
+    "placeholders": {
+      "error": {}
+    }
+  },
+  "remoteLoopingHint": "Цикл \"{title}\". Нажмите Стоп сверху, чтобы остановить.",
+  "@remoteLoopingHint": {
+    "placeholders": {
+      "title": {}
+    }
+  },
+  "remoteLoopStopped": "Цикл остановлен.",
+  "remoteUpdatedNotFound": "Пульт обновлён на экране. В сохранённом списке он не найден.",
+  "remoteUpdatedNamed": "Обновлено \"{name}\".",
+  "@remoteUpdatedNamed": {
+    "placeholders": {
+      "name": {}
+    }
+  },
+  "remoteDeleteFailed": "Не удалось удалить: {error}",
+  "@remoteDeleteFailed": {
+    "placeholders": {
+      "error": {}
+    }
+  },
+  "remoteNotFoundSavedList": "Пульт не найден в сохранённом списке.",
+  "remoteDeletedNamed": "Удалено \"{name}\".",
+  "@remoteDeletedNamed": {
+    "placeholders": {
+      "name": {}
+    }
+  },
+  "buttonFallbackTitle": "Кнопка",
+  "imageFallbackTitle": "Изобр.",
+  "noBrowserAvailable": "Браузер недоступен",
+  "failedToOpen": "Не удалось открыть: {error}",
+  "@failedToOpen": {
+    "placeholders": {
+      "error": {}
+    }
+  },
+  "cancel": "Отмена",
+  "settingsRestoreDemoTitle": "Восстановить демо-пульты?",
+  "settingsRestoreDemoMessage": "Это заменит текущие пульты встроенными демо-пультами. Если хотите сохранить текущий список, лучше сначала сделать копию.",
+  "settingsRestoreDemoConfirm": "Восстановить демо",
+  "settingsDemoRemotesRestored": "Демо-пульты восстановлены.",
+  "settingsDeleteAllRemotesTitle": "Удалить все пульты?",
+  "settingsDeleteAllRemotesMessage": "Это удалит все пульты с устройства. Действие нельзя отменить.",
+  "settingsDeleteAllConfirm": "Удалить всё",
+  "settingsAllRemotesDeleted": "Все пульты удалены.",
+  "themeAuto": "Автотема",
+  "themeLight": "Светлая тема",
+  "themeDark": "Тёмная тема",
+  "themeDescAuto": "Следует настройкам устройства",
+  "themeDescLight": "Всегда светло и ясно",
+  "themeDescDark": "Комфортно для глаз",
+  "themeHintAuto": "Тема автоматически меняется при переключении устройства между светлым и тёмным режимом",
+  "themeHintLight": "Идеально для дневного света и хорошо освещённых мест",
+  "themeHintDark": "Снижает нагрузку на глаза при слабом свете и экономит батарею на OLED",
+  "supportDevelopmentTitle": "Поддержать разработку",
+  "supportDevelopmentSubtitle": "Помогите поддерживать IR Blaster и совместимость с оборудованием",
+  "supportDevelopmentBody": "Без рекламы, без трекинга, без закрытых функций. Ваша поддержка идёт на работу с протоколами, поддержку USB-адаптеров и лучшую совместимость устройств.",
+  "donate": "Поддержать",
+  "starRepo": "Поставить звезду",
+  "repositoryLinkCopied": "Ссылка на репозиторий скопирована",
+  "supportPillLocalOnly": "Только локально",
+  "supportPillNoTracking": "Без трекинга",
+  "supportPillHardwareAware": "С учётом железа",
+  "supportPillOpenSource": "Open source",
+  "appearanceTitle": "Внешний вид",
+  "appearanceSubtitle": "Настройте внешний вид приложения",
+  "localizationTitle": "Локализация",
+  "localizationSubtitle": "Язык приложения и поведение перевода",
+  "localizationAutoUsing": "Авто: {language}",
+  "@localizationAutoUsing": {
+    "placeholders": {
+      "language": {}
+    }
+  },
+  "localizationAutoDescription": "Приложение использует язык устройства, если возможно.",
+  "localizationManualDescription": "Язык приложения задан вручную.",
+  "useSystemLanguageTitle": "Язык системы",
+  "useSystemLanguageEnabled": "Используется язык устройства: {language}",
+  "@useSystemLanguageEnabled": {
+    "placeholders": {
+      "language": {}
+    }
+  },
+  "useSystemLanguageDisabled": "Использовать язык, выбранный ниже, вместо языка устройства.",
+  "chooseAppLanguage": "Выберите язык",
+  "languagePickerDisabledHint": "Отключите системный язык, чтобы выбрать язык вручную.",
+  "searchLanguages": "Поиск языков",
+  "noLanguagesFound": "Нет совпадений",
+  "localizationHint": "Когда включён системный язык, приложение следует локали устройства и откатывается к английскому, если перевода нет. Выключите это, чтобы зафиксировать конкретный язык.",
+  "appLanguageTitle": "Язык приложения",
+  "appLanguageHint": "По умолчанию используется язык устройства. Здесь можно принудительно выбрать только English или Français для приложения.",
+  "languageAuto": "Авто (система)",
+  "languageAutoDescription": "Автоматически использовать язык устройства",
+  "languageEnglish": "English",
+  "languageEnglishDescription": "Всегда использовать English",
+  "languageFrench": "Français",
+  "languageFrenchDescription": "Всегда использовать Français",
+  "languageAutoShort": "Авто",
+  "languageEnglishShort": "English",
+  "languageFrenchShort": "Français",
+  "useDynamicColors": "Динамические цвета",
+  "themeChoiceAuto": "Авто",
+  "themeChoiceLight": "Светлая",
+  "themeChoiceDark": "Тёмная",
+  "irTransmitterTitle": "ИК-передатчик",
+  "irTransmitterSubtitle": "Выберите, какое оборудование отправляет ИК-команды",
+  "interactionTitle": "Взаимодействие",
+  "interactionSubtitle": "Отклик на касания и раскладка пульта",
+  "hapticFeedbackTitle": "Тактильный отклик",
+  "hapticFeedbackSubtitle": "Вибрация при нажатиях и действиях",
+  "intensity": "Интенсивность",
+  "intensityLight": "Светлая",
+  "intensityMedium": "Средняя",
+  "intensityStrong": "Сильная",
+  "flipRemoteDefaultTitle": "По умолчанию переворачивать пульт",
+  "flipRemoteDefaultSubtitle": "Открывать экран пульта, повернув его на 180°, для USB-адаптеров снизу.",
+  "remoteViewFlipped": "Экран пульта будет открыт перевёрнутым.",
+  "remoteViewNormal": "Экран пульта будет открыт обычно.",
+  "backupTitle": "Резервная копия",
+  "backupSubtitle": "Импорт и экспорт пультов и макросов",
+  "importBackup": "Импорт копии",
+  "importBackupSubtitle": "Импортируйте копию пультов и макросов или файлы Flipper Zero, LIRC или IRPLUS",
+  "bulkImportFolder": "Массовый импорт папки",
+  "bulkImportFolderSubtitle": "Импортировать несколько пультов из папки",
+  "exportBackup": "Экспорт копии",
+  "exportBackupSubtitle": "Сохранить пульты и макросы как один JSON-файл в Downloads",
+  "restoreDemoRemotes": "Восст. демо-пульты",
+  "restoreDemoRemotesSubtitle": "Заменить текущие пульты встроенными демо",
+  "deleteAllRemotes": "Удалить все пульты",
+  "deleteAllRemotesSubtitle": "Удалить все пульты с устройства",
+  "backupTip": "Подсказка: экспортируйте копию перед большими изменениями. Импорт поддерживает полные копии, старые JSON-копии только с пультами и файлы Flipper Zero .ir.",
+  "aboutTitle": "О приложении",
+  "aboutSubtitle": "Информация о приложении и деталях open source",
+  "aboutAppNameWithCreator": "IR Blaster - {creator}",
+  "@aboutAppNameWithCreator": {
+    "placeholders": {
+      "creator": {}
+    }
+  },
+  "versionLabel": "Версия {version}",
+  "@versionLabel": {
+    "placeholders": {
+      "version": {}
+    }
+  },
+  "sourceCode": "Исходный код",
+  "viewOnGitHub": "Открыть на GitHub",
+  "repositoryUrlCopied": "URL репозитория скопирован",
+  "reportIssue": "Сообщить о проблеме",
+  "reportIssueSubtitle": "Баг-репорты и запросы функций",
+  "issuesUrlCopied": "URL задач скопирован",
+  "license": "Лицензия",
+  "openSourceLicense": "Лицензия open source",
+  "licenseUrlCopied": "URL лицензии скопирован",
+  "companyName": "KaijinLab Inc.",
+  "visitWebsite": "Открыть сайт",
+  "companyUrlCopied": "URL компании скопирован",
+  "licenses": "Лицензии",
+  "openSourceLicenses": "Лицензии open source",
+  "byCreator": "от {creator}",
+  "@byCreator": {
+    "placeholders": {
+      "creator": {}
+    }
+  },
+  "deviceControlsTitle": "Упр. устройством",
+  "deviceControlsSubtitle": "Показывать избранные кнопки на странице системного управления устройством",
+  "manageFavorites": "Избранное",
+  "manageFavoritesSubtitle": "Выберите кнопки, которые будут показаны в управлении устройством",
+  "quickSettingsTitle": "Быстрые настройки",
+  "quickSettingsSubtitle": "Добавить плитки для питания и громкости",
+  "configureTiles": "Настроить плитки",
+  "configureTilesSubtitle": "Привязать плитки к кнопкам пульта",
+  "tvKillTitle": "TVKill",
+  "tvKillSubtitle": "Перебор универсальных кодов питания для своих устройств",
+  "openTvKill": "Открыть TVKill",
+  "openTvKillSubtitle": "Перебор кодов питания, только для своих устройств",
+  "failedToLoadTransmitterSettings": "Не удалось загрузить настройки передатчика.",
+  "usbStatusReady": "USB-адаптер подключён и готов отправлять ИК.",
+  "usbStatusPermissionRequired": "USB-адаптер найден. Запросите доступ USB и подтвердите системное окно.",
+  "usbStatusPermissionDenied": "Доступ USB для подключённого адаптера отклонён. Запросите снова и подтвердите окно.",
+  "usbStatusPermissionGranted": "Доступ USB выдан. Перед отправкой ИК адаптер ещё нужно инициализировать.",
+  "usbStatusOpenFailed": "Доступ USB выдан, но адаптер не удалось инициализировать. Переподключите его и попробуйте снова.",
+  "usbStatusNoDevice": "Поддерживаемый USB ИК-адаптер не найден.",
+  "usbSelectPermissionRequired": "USB-адаптер найден, но не авторизован. Нажмите \"Запросить доступ USB\".",
+  "usbSelectPermissionDenied": "Доступ USB отклонён. Нажмите \"Запросить доступ USB\" и подтвердите окно.",
+  "usbSelectPermissionGranted": "Доступ USB выдан, но адаптер ещё не инициализирован. Попробуйте переподключить его.",
+  "usbSelectOpenFailed": "Доступ USB выдан, но адаптер не удалось инициализировать. Переподключите его и попробуйте снова.",
+  "usbSelectNoDevice": "Поддерживаемый USB ИК-адаптер не найден. Подключите его, затем нажмите \"Запросить доступ USB\".",
+  "usbSelectReady": "USB-адаптер готов.",
+  "autoSwitchEnabledMessage": "Автопереключение включено: использует USB при подключении, иначе встроенный.",
+  "autoSwitchDisabledMessage": "Автопереключение выключено: выбор передатчика теперь ручной.",
+  "failedToUpdateAutoSwitch": "Не удалось обновить автопереключение.",
+  "failedToSwitchTransmitter": "Не удалось переключить передатчик.",
+  "deviceHasNoInternalIr": "На этом устройстве нет встроенного ИК-передатчика.",
+  "audioModeEnabledMessage": "Режим Аудио включён. Используйте максимальную громкость медиа и аудио-ИК LED адаптер.",
+  "usbPermissionRequestSent": "Запрос доступа USB отправлен.",
+  "usbPermissionRequestSentApprove": "Запрос доступа USB отправлен. Подтвердите его, чтобы включить USB.",
+  "usbAlreadyReady": "USB-адаптер уже инициализирован и готов.",
+  "failedToRequestUsbPermission": "Не удалось запросить доступ USB.",
+  "transmitterHelpInternal": "Используйте встроенный ИК-передатчик телефона для отправки команд.",
+  "transmitterHelpUsb": "Используйте USB ИК-адаптер, чтобы отправлять команды. Требуется разрешение.",
+  "transmitterHelpAudio1": "Используйте аудиовыход, mono. Нужен аудио-ИК LED адаптер и высокая громкость медиа.",
+  "transmitterHelpAudio2": "Используйте аудиовыход, stereo. Два канала дают лучшее управление LED на совместимых адаптерах.",
+  "transmitterInternal": "Встроенный ИК",
+  "transmitterUsb": "USB ИК-адаптер",
+  "transmitterAudio1": "Аудио (1 LED)",
+  "transmitterAudio2": "Аудио (2 LED)",
+  "failedToLoadTransmitterCapabilities": "Не удалось загрузить возможности передатчика.",
+  "selectedTransmitter": "Выбранный передатчик",
+  "selectedTransmitterValue": "{effective} • Активен: {active}",
+  "@selectedTransmitterValue": {
+    "placeholders": {
+      "effective": {},
+      "active": {}
+    }
+  },
+  "refresh": "Обновить",
+  "autoSwitchTitle": "Автопереключение",
+  "autoSwitchDisabledWhileAudio": "Отключено при использовании режима Аудио",
+  "autoSwitchUsesUsbOtherwiseInternal": "Использует USB при подключении, иначе встроенный",
+  "unavailableOnThisDevice": "Недоступно на этом устройстве",
+  "openOnUsbAttachTitle": "Открывать при подключении USB",
+  "openOnUsbAttachSubtitle": "Android может предложить открыть приложение при подключении поддерживаемого USB ИК-адаптера.",
+  "openOnUsbAttachEnabledMessage": "При подключении поддерживаемого USB-адаптера будет предлагаться открыть IR Blaster.",
+  "openOnUsbAttachDisabledMessage": "Предложение открыть приложение при подключении USB отключено.",
+  "failedToUpdateSetting": "Не удалось обновить настройку.",
+  "unnamedButton": "Безымянная кнопка",
+  "iconFallback": "Иконка",
+  "remoteListReorderHint": "Режим сортировки: зажмите и перетащите карточку.",
+  "deleteRemoteTitle": "Удалить пульт?",
+  "deleteRemoteMessage": "\"{name}\" будет удалён навсегда. Действие нельзя отменить.",
+  "@deleteRemoteMessage": {
+    "placeholders": {
+      "name": {}
+    }
+  },
+  "delete": "Удалить",
+  "addToDeviceControlsTitle": "Добавить в управление устройством?",
+  "addToDeviceControlsDescription": "Быстрый доступ в системном управлении устройством.",
+  "skip": "Пропустить",
+  "add": "Добавить",
+  "addedToDeviceControls": "Добавлено в управление устройством.",
+  "deletedRemoteUndoUnavailable": "Удалено \"{name}\". Это действие нельзя отменить.",
+  "@deletedRemoteUndoUnavailable": {
+    "placeholders": {
+      "name": {}
+    }
+  },
+  "remoteLayoutSummary": "{count} кноп. · {layout}",
+  "@remoteLayoutSummary": {
+    "placeholders": {
+      "count": {},
+      "layout": {}
+    }
+  },
+  "layoutComfort": "Комфорт",
+  "layoutCompact": "Компактный",
+  "open": "Открыть",
+  "useThisRemote": "Использовать пульт",
+  "edit": "Изменить",
+  "editRemoteSubtitle": "Переименовать и изменить кнопки",
+  "thisCannotBeUndone": "Это нельзя отменить",
+  "searchRemotes": "Поиск пультов",
+  "reorderRemotes": "Изменить порядок пультов",
+  "addRemote": "Добавить пульт",
+  "more": "Ещё",
+  "reorderMode": "Режим сортировки",
+  "remoteButtonCount": "{count} кнопк{plural}",
+  "@remoteButtonCount": {
+    "placeholders": {
+      "count": {},
+      "plural": {}
+    }
+  },
+  "noRemotesYet": "Пультов пока нет",
+  "noRemotesDescription": "Создайте пульт, чтобы начать отправлять ИК-коды.",
+  "noRemotesNextStep": "Что дальше: нажмите Добавить пульт, затем добавьте первые кнопки.",
+  "actions": "Actions",
+  "macrosTitle": "Макросы",
+  "help": "Помощь",
+  "createMacro": "Создать макрос",
+  "timedMacrosTitle": "Макросы с таймингом",
+  "timedMacrosSubtitle": "Автоматизируйте последовательности ИК-команд с точным таймингом",
+  "timedMacrosNextStep": "Что дальше: нажмите \"Создать первый макрос\", выберите пульт, затем добавьте команды и задержки.",
+  "macroFeatureToysTitle": "Идеально для интерактивных игрушек",
+  "macroFeatureToysDescription": "Управляйте устройствами вроде робособак i-cybie, роботов i-sobot и других игрушек, которым нужно время между командами для обработки действий.",
+  "macroFeatureTimingTitle": "Точный контроль тайминга",
+  "macroFeatureTimingDescription": "Добавляйте задержки между командами, от 250 мс до произвольной длины, чтобы устройство успевало ответить перед следующим шагом.",
+  "macroFeatureManualTitle": "Шаги с ручным продолжением",
+  "macroFeatureManualDescription": "Приостанавливает выполнение и ждёт подтверждения, когда длина анимации меняется или нужен визуальный контроль.",
+  "exampleUseCase": "Пример использования",
+  "macroExampleText": "Режим i-cybie Advanced:\n1. Отправить команду \"Mode\"\n2. Ждать 1000 мс, игрушка обрабатывает\n3. Отправить \"Action 1\"\n4. Ждать 1000 мс\n5. Отправить \"Action 2\"\n…и так далее автоматически!",
+  "createFirstMacro": "Создать первый макрос",
+  "noRemote": "Нет пульта",
+  "macroStepCount": "{count} шаг{plural}",
+  "@macroStepCount": {
+    "placeholders": {
+      "count": {},
+      "plural": {}
+    }
+  },
+  "aboutTimedMacros": "О макросах с таймингом",
+  "aboutTimedMacrosDescription": "Макросы с таймингом позволяют автоматизировать последовательности ИК-команд с точными задержками между шагами.",
+  "sendCommand": "Отправить команду",
+  "sendCommandDescription": "Отправляет ИК-команду с вашего пульта.",
+  "delay": "Задержка",
+  "delayDescription": "Ждёт указанное время, например 1000 мс, перед следующим шагом.",
+  "manualContinue": "Ручное продолжение",
+  "manualContinueDescription": "Приостанавливает выполнение до нажатия Продолжить. Полезно для анимаций переменной длины.",
+  "gotIt": "Понятно",
+  "failedToSaveMacros": "Не удалось сохранить макросы.",
+  "deletedMacroNamed": "Удалено \"{name}\".",
+  "@deletedMacroNamed": {
+    "placeholders": {
+      "name": {}
+    }
+  },
+  "undo": "Отменить",
+  "failedToRestoreMacro": "Не удалось восстановить макрос.",
+  "deleteMacroTitle": "Удалить макрос?",
+  "deleteMacroMessage": "Это можно отменить из следующего уведомления.",
+  "noRemotesAvailable": "Нет доступных пультов.",
+  "remoteButtonCountSummary": "{count} кноп.",
+  "@remoteButtonCountSummary": {
+    "placeholders": {
+      "count": {}
+    }
+  },
+  "remoteOrientationFlippedTooltip": "Ориентация: перевёрнута, нажмите для норм.",
+  "remoteOrientationNormalTooltip": "Ориентация: обычная, нажмите для переворота",
+  "stopLoop": "Остановить цикл",
+  "reorderButtons": "Изменить порядок кнопок",
+  "remoteReorderHint": "Режим сортировки: зажмите и перетащите кнопку.",
+  "manageRemote": "Управление пультом",
+  "remoteNoButtons": "В этом пульте нет кнопок",
+  "remoteNoButtonsDescription": "Используйте \"Изм. пульт\", чтобы добавить или настроить кнопки.",
+  "editRemote": "Изм. пульт",
+  "editRemoteActionsSubtitle": "Переименовать, сортировать и изменить кнопки",
+  "remoteUpdatedNamedButton": "Обновлено \"{name}\".",
+  "@remoteUpdatedNamedButton": {
+    "placeholders": {
+      "name": {}
+    }
+  },
+  "buttonAddedNamed": "Добавлено \"{name}\".",
+  "@buttonAddedNamed": {
+    "placeholders": {
+      "name": {}
+    }
+  },
+  "buttonDuplicated": "Кнопка продублирована.",
+  "loopRunningForButton": "Для этой кнопки запущен цикл.",
+  "loopTip": "Подсказка: используйте Цикл для повторения до остановки.",
+  "codeCopied": "Код скопирован.",
+  "copyCode": "Копировать код",
+  "startLoop": "Запустить цикл",
+  "editButtonSubtitle": "Изменить метку, код, протокол, частоту",
+  "newButton": "Новая кнопка",
+  "newButtonSubtitle": "Создать новую кнопку после этой",
+  "duplicate": "Дублировать",
+  "duplicateButtonSubtitle": "Создать копию этой кнопки",
+  "removeFromDeviceControls": "Убрать из управления",
+  "addToDeviceControls": "Добавить в управление",
+  "deviceControlsButtonSubtitle": "Показывает эту кнопку в системном управлении устройством",
+  "removedFromDeviceControls": "Удалено из управления устройством.",
+  "pinQuickTile": "Закрепить в быстрых плитках",
+  "unpinQuickTile": "Открепить из быстрых плиток",
+  "quickTileButtonSubtitle": "Показывает эту кнопку вверху выбора быстрых плиток",
+  "removedFromQuickTileFavorites": "Удалено из избранных быстрых плиток.",
+  "pinnedToQuickTileFavorites": "Закреплено в избранных быстрых плитках.",
+  "duplicateAndEdit": "Дублировать и изм.",
+  "duplicateAndEditSubtitle": "Создать копию и сразу изменить",
+  "done": "Готово",
+  "run": "Запуск",
+  "untitledRemote": "Пульт без названия",
+  "createRemoteTitle": "Создать пульт",
+  "editRemoteTitle": "Изменить пульт",
+  "removeButtonTitle": "Удалить кнопку?",
+  "imageButtonRemovedMessage": "Эта кнопка с изображением будет удалена.",
+  "namedButtonRemovedMessage": "\"{name}\" будет удалено.",
+  "@namedButtonRemovedMessage": {
+    "placeholders": {
+      "name": {}
+    }
+  },
+  "remove": "Удалить",
+  "importedButtonCount": "Импортировано кнопок: {count}.",
+  "@importedButtonCount": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "importedButtonsFromExistingRemotes": "Импортировано кнопок из существующих пультов: {count}.",
+  "@importedButtonsFromExistingRemotes": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "editButtonSettingsSubtitle": "Изменить метку, сигнал и доп. настройки",
+  "createButtonCopySubtitle": "Создать копию этой кнопки",
+  "duplicateAndEditButtonSubtitle": "Создать копию и сразу изменить",
+  "undoAvailableInNextSnackbar": "Можно отменить из следующего уведомления",
+  "buttonRemoved": "Кнопка удалена.",
+  "remoteNameCannotBeEmpty": "Имя пульта не может быть пустым.",
+  "saveRemote": "Сохранить пульт",
+  "remoteName": "Имя пульта",
+  "remoteNameHint": "напр., TV, кондиционер, LED лента",
+  "remoteNameHelper": "Это имя отображается в списке пультов.",
+  "layoutStyle": "Стиль раскладки",
+  "layoutWideDescription": "Широкий: кнопки в 2 колонки с доп. деталями, рекомендуется.",
+  "layoutCompactDescription": "Компактный: классическая сетка 4×, только иконки или текст.",
+  "importFromRemotes": "Импорт из пультов",
+  "importFromDatabase": "Импорт из БД",
+  "addButton": "Добавить кнопку",
+  "noButtonsYet": "Кнопок пока нет",
+  "createRemoteEmptyStateDescription": "Добавьте первую кнопку, затем зажмите её для изменения или удаления.",
+  "createButtonTitle": "Создать кнопку",
+  "editButtonTitle": "Изменить кнопку",
+  "failedToLoadProtocols": "Не удалось загрузить протоколы: {error}",
+  "@failedToLoadProtocols": {
+    "placeholders": {
+      "error": {}
+    }
+  },
+  "failedToLoadDatabaseKeys": "Не удалось загрузить ключи базы: {error}",
+  "@failedToLoadDatabaseKeys": {
+    "placeholders": {
+      "error": {}
+    }
+  },
+  "presetPower": "Питание",
+  "presetVolume": "Громкость",
+  "presetChannel": "Канал",
+  "presetNavigation": "Навигация",
+  "all": "Все",
+  "completeRequiredFieldsToSave": "Заполните обязательные поля для сохранения",
+  "buttonLabelStepTitle": "1) Метка кнопки",
+  "buttonLabelStepSubtitle": "Выберите изображение, иконку или введите текстовую метку.",
+  "buttonColorStepTitle": "2) Цвет кнопки, необяз.",
+  "buttonColorStepSubtitle": "Выберите цвет фона для этой кнопки.",
+  "selectColor": "Выберите цвет:",
+  "noImageSelected": "Изображение не выбрано",
+  "gallery": "Галерея",
+  "builtIn": "Встроенный",
+  "removeImage": "Удалить изображение",
+  "requiredSelectImageOrSwitch": "Обязательно: выберите изображение, иконку или переключитесь на Текст.",
+  "iconSelected": "Иконка выбрана",
+  "noIconSelected": "Иконка не выбрана",
+  "chooseIcon": "Выбрать иконку",
+  "removeIcon": "Удалить иконку",
+  "requiredSelectIconOrSwitch": "Обязательно: выберите иконку или переключитесь на Изображение или Текст.",
+  "buttonText": "Текст кнопки",
+  "buttonTextHint": "напр., Питание, Громкость +, HDMI 1",
+  "buttonTextHelper": "Этот текст будет показан на кнопке.",
+  "requiredEnterButtonLabel": "Обязательно: введите метку кнопки.",
+  "defaultColorName": "По умолчанию",
+  "newRemoteCreatedFromLastHit": "Создан новый пульт с одной кнопкой из последнего попадания.",
+  "selectRemote": "Выберите пульт",
+  "remoteNumber": "Пульт #{id}",
+  "@remoteNumber": {
+    "placeholders": {
+      "id": {}
+    }
+  },
+  "newRemoteCreated": "Новый пульт создан.",
+  "failedToCreateRemote": "Не удалось создать пульт.",
+  "newRemoteEllipsis": "Новый пульт…",
+  "addedToRemoteNamed": "Добавлено в {name}.",
+  "@addedToRemoteNamed": {
+    "placeholders": {
+      "name": {}
+    }
+  },
+  "failedToAddToRemote": "Не удалось добавить в пульт.",
+  "newRemoteDefaultName": "Новый пульт",
+  "jumpedToOffsetPaused": "Переход к смещению {offset}. Пауза, нажмите Продолжить.",
+  "@jumpedToOffsetPaused": {
+    "placeholders": {
+      "offset": {
+        "type": "int"
+      }
+    }
+  },
+  "sent": "Отправлено.",
+  "failedToSend": "Не удалось отправить: {error}",
+  "@failedToSend": {
+    "placeholders": {
+      "error": {}
+    }
+  },
+  "copiedProtocolCode": "Скопировано, протокол:код.",
+  "savedToResults": "Сохранено в результаты.",
+  "invalidCodeForProtocol": "Неверный код для протокола: {error}",
+  "@invalidCodeForProtocol": {
+    "placeholders": {
+      "error": {}
+    }
+  },
+  "copiedCurrentCandidate": "Текущий кандидат скопирован.",
+  "jumpToOffset": "Перейти к смещению",
+  "jumpToBruteCursor": "Перейти к brute курсору",
+  "jump": "Переход",
+  "jumpedToCursorPaused": "Переход к курсору 0x{cursor}. Пауза, нажмите Продолжить.",
+  "@jumpedToCursorPaused": {
+    "placeholders": {
+      "cursor": {}
+    }
+  },
+  "irSignalTester": "Тестер ИК-сигнала",
+  "stop": "Стоп",
+  "selectButton": "Выберите кнопку",
+  "buttonNotFoundInRemotes": "Кнопка не найдена в пультах.",
+  "sentNamed": "Отправлено \"{name}\".",
+  "@sentNamed": {
+    "placeholders": {
+      "name": {}
+    }
+  },
+  "sendFailed": "Ошибка отправки: {error}",
+  "@sendFailed": {
+    "placeholders": {
+      "error": {}
+    }
+  },
+  "noFavoritesYet": "Избранного пока нет",
+  "deviceControlsEmptyHint": "Зажмите кнопку пульта и выберите \"Добавить в управление устройством\".",
+  "sendTest": "Отправить тест",
+  "testSendCompleted": "Тестовая отправка завершена.",
+  "testSendFailed": "Тестовая отправка не удалась: {error}",
+  "@testSendFailed": {
+    "placeholders": {
+      "error": {}
+    }
+  },
+  "removedNamed": "Удалено \"{name}\".",
+  "@removedNamed": {
+    "placeholders": {
+      "name": {}
+    }
+  },
+  "brand": "Бренд",
+  "model": "Модель",
+  "selectBrand": "Выберите бренд",
+  "searchBrand": "Поиск бренда…",
+  "selectModel": "Выберите модель",
+  "searchModel": "Поиск модели…",
+  "unnamedKey": "Безымянный ключ",
+  "unknown": "Неизвестно",
+  "emDash": "—",
+  "searchCommands": "Поиск команд",
+  "noMatchingCommands": "Совпадающих команд нет",
+  "quickTileFavoritesTitle": "Избр. быстрых плиток",
+  "changeMappingForTile": "Изменить назначение для плитки {tileLabel}",
+  "@changeMappingForTile": {
+    "placeholders": {
+      "tileLabel": {}
+    }
+  },
+  "pickDifferentButton": "Выберите другую кнопку",
+  "browseAllRemotesEllipsis": "Просмотреть все пульты…",
+  "invalidMacroFileFormat": "Неверный формат файла макроса.",
+  "failedToParseMacroFile": "Не удалось разобрать файл макроса.",
+  "deviceCodeLabel": "Код устройства",
+  "commandLabel": "Команда",
+  "editButtonCodeTitle": "Изменить код кнопки",
+  "thisRemoteHasNoButtons": "В этом пульте нет кнопок.",
+  "selectCommand": "Выберите команду",
+  "databaseModeAutofillHint": "Режим База автоматически заполняет шаг 2, бренд, модель и протокол. После импорта ключа можно донастроить всё вручную.",
+  "test": "Тест",
+  "allSelectedButtonsWereDuplicates": "Все выбранные кнопки были дубликатами.",
+  "noButtonsImported": "Кнопки не импортированы.",
+  "importedButtonsSkippedDuplicates": "Импортировано кнопок: {addedCount}. Пропущено дубликатов: {skippedCount}.",
+  "@importedButtonsSkippedDuplicates": {
+    "placeholders": {
+      "addedCount": {
+        "type": "int"
+      },
+      "skippedCount": {
+        "type": "int"
+      }
+    }
+  },
+  "importAllMatchingTitle": "Импортировать все подходящие кнопки?",
+  "noMatchingKeysFound": "Подходящие ключи не найдены.",
+  "importAllMatchingMessage": "Будет импортировано до {count} подходящих ключей из текущего выбора базы.",
+  "@importAllMatchingMessage": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "importAll": "Импортировать всё",
+  "importingButtons": "Импорт кнопок…",
+  "allMatchingButtonsWereDuplicates": "Все подходящие кнопки были дубликатами.",
+  "quickPresets": "Быстрые пресеты",
+  "selectDeviceFirst": "Сначала выберите устройство",
+  "searchByLabelOrHex": "Поиск по метке или hex",
+  "optionalRefinePresetKeys": "Необяз.: уточните ключи пресета {preset}",
+  "@optionalRefinePresetKeys": {
+    "placeholders": {
+      "preset": {}
+    }
+  },
+  "selectBrandModelProtocolFirst": "Сначала выберите бренд, модель и протокол.",
+  "importFromDatabaseTitle": "Импорт из базы",
+  "importFromDatabaseSubtitle": "Выберите устройство, загрузите подходящие ключи и импортируйте выбранные кнопки.",
+  "deviceAndFilters": "Устройство и фильтры",
+  "loadedCount": "Загружено: {count}",
+  "@loadedCount": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "hideFilters": "Скрыть фильтры",
+  "showFilters": "Показать фильтры",
+  "noProtocolFoundForBrandModel": "Для этого бренда и модели протокол не найден.",
+  "protocolAutoDetected": "Протокол",
+  "protocolAutoDetectedHelper": "Автоматически определён из базы. Его можно изменить перед импортом.",
+  "selectBrandModelToLoadKeys": "Выберите бренд, модель и протокол, чтобы загрузить ключи.",
+  "noKeysFound": "Ключи не найдены.",
+  "noKeysFoundForSearch": "Ключи для “{query}” не найдены.",
+  "@noKeysFoundForSearch": {
+    "placeholders": {
+      "query": {}
+    }
+  },
+  "skipDuplicates": "Пропускать дубликаты",
+  "skipDuplicatesSubtitle": "Не импортировать кнопки, которые уже есть в этом пульте.",
+  "importSelected": "Импортировать выбранное",
+  "noMacrosToExport": "Нет макросов для экспорта.",
+  "macrosExportedToDownloads": "Макросы экспортированы в Downloads.",
+  "failedToExportMacros": "Не удалось экспортировать макросы.",
+  "failedToReadFile": "Не удалось прочитать файл.",
+  "importFromExistingRemotesTitle": "Импорт из существующих пультов",
+  "selectedCount": "Выбрано: {count}",
+  "@selectedCount": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "noOtherRemotesWithButtons": "Другие пульты с кнопками не найдены.",
+  "sourceRemote": "Исходный пульт",
+  "searchButtons": "Поиск кнопок",
+  "searchButtonsHint": "Питание, Громкость, Без звука...",
+  "selectVisible": "Выбрать видимое",
+  "clearVisible": "Очистить видимое",
+  "protocolNamed": "Протокол: {name}",
+  "@protocolNamed": {
+    "placeholders": {
+      "name": {}
+    }
+  },
+  "rawSignal": "Сырой",
+  "legacyCode": "Старый код",
+  "importCount": "Импорт {count}",
+  "@importCount": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "storagePermissionDeniedLegacy": "Доступ к хранилищу отклонён, нужен на некоторых старых Android-устройствах.",
+  "backupExportedToDownloads": "Копия экспортирована в Downloads.",
+  "failedToExport": "Не удалось экспортировать: {error}",
+  "@failedToExport": {
+    "placeholders": {
+      "error": {}
+    }
+  },
+  "importedLegacyJsonBackup": "Импортировано пультов из старой JSON-копии: {count}. Макросы не менялись.",
+  "@importedLegacyJsonBackup": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "importFailedRemotesMustBeList": "Импорт не удался: backup \"remotes\" должен быть JSON-списком, если он присутствует.",
+  "importFailedMacrosMustBeList": "Импорт не удался: backup \"macros\" должен быть JSON-списком, если он присутствует.",
+  "importFailedInvalidBackupFormat": "Импорт не удался: неверный формат backup, ожидался старый List или Map с remotes/macros.",
+  "importedBackupRemotesOnly": "Импортировано пультов из копии: {remoteCount}. Макросы не менялись.",
+  "@importedBackupRemotesOnly": {
+    "placeholders": {
+      "remoteCount": {
+        "type": "int"
+      }
+    }
+  },
+  "importedBackupRemotesAndMacros": "Импортировано пультов: {remoteCount} и макросов: {macroCount}.",
+  "@importedBackupRemotesAndMacros": {
+    "placeholders": {
+      "remoteCount": {
+        "type": "int"
+      },
+      "macroCount": {
+        "type": "int"
+      }
+    }
+  },
+  "importFailedNoValidButtonsInIr": "Импорт не удался: в файле .ir не найдено корректных кнопок.",
+  "importedOneRemoteFromFlipper": "Импортирован 1 пульт из Flipper .ir. Макросы не менялись.",
+  "importFailedInvalidIrplus": "Импорт не удался: неверный файл irplus, корректные кнопки не найдены.",
+  "importedOneRemoteFromIrplus": "Импортирован 1 пульт из irplus. Макросы не менялись.",
+  "importFailedInvalidLirc": "Импорт не удался: неверный файл LIRC, корректные коды или raw-коды не найдены.",
+  "importedOneRemoteFromLirc": "Импортирован 1 пульт из конфигурации LIRC. Макросы не менялись.",
+  "unsupportedFileTypeSelected": "Выбран неподдерживаемый тип файла.",
+  "importFailedInvalidUnreadableFile": "Импорт не удался: файл повреждён или нечитаем.",
+  "bulkImportNoSupportedFilesInFolder": "Массовый импорт завершён: поддерживаемых файлов в папке не найдено.",
+  "bulkImportNoRemotesImported": "Массовый импорт завершён: пульты не импортированы. Пропущено файлов: {skippedCount}.",
+  "@bulkImportNoRemotesImported": {
+    "placeholders": {
+      "skippedCount": {
+        "type": "int"
+      }
+    }
+  },
+  "bulkImportComplete": "Массовый импорт завершён: импортировано пультов: {importedCount} из поддерживаемых файлов: {supportedCount}. Пропущено файлов: {skippedCount}.",
+  "@bulkImportComplete": {
+    "placeholders": {
+      "importedCount": {
+        "type": "int"
+      },
+      "supportedCount": {
+        "type": "int"
+      },
+      "skippedCount": {
+        "type": "int"
+      }
+    }
+  },
+  "storagePermissionDenied": "Доступ к хранилищу отклонён.",
+  "bulkImportFailedReadFolder": "Массовый импорт не удался: не удалось прочитать содержимое папки.",
+  "bulkImportNoSupportedFilesSource": "Массовый импорт завершён: поддерживаемых файлов не найдено, {sourceLabel}.",
+  "@bulkImportNoSupportedFilesSource": {
+    "placeholders": {
+      "sourceLabel": {}
+    }
+  },
+  "clearAction": "Очистить",
+  "saveAction": "Сохранить",
+  "buttonsTitleCount": "Кнопки, {count}",
+  "@buttonsTitleCount": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "invalidStepEncountered": "Найден неверный шаг",
+  "failedToSendNamed": "Не удалось отправить: {name}",
+  "@failedToSendNamed": {
+    "placeholders": {
+      "name": {}
+    }
+  },
+  "buttonNotFound": "Кнопка не найдена",
+  "buttonNotFoundNamed": "Кнопка не найдена: {name}",
+  "@buttonNotFoundNamed": {
+    "placeholders": {
+      "name": {}
+    }
+  },
+  "unknownButton": "Неизвестная кнопка",
+  "durationSecondsShort": "{seconds}с",
+  "@durationSecondsShort": {
+    "placeholders": {
+      "seconds": {
+        "type": "int"
+      }
+    }
+  },
+  "durationMinutesSecondsShort": "{minutes}м {seconds}с",
+  "@durationMinutesSecondsShort": {
+    "placeholders": {
+      "minutes": {
+        "type": "int"
+      },
+      "seconds": {
+        "type": "int"
+      }
+    }
+  },
+  "durationHoursMinutesShort": "{hours}ч {minutes}м",
+  "@durationHoursMinutesShort": {
+    "placeholders": {
+      "hours": {
+        "type": "int"
+      },
+      "minutes": {
+        "type": "int"
+      }
+    }
+  },
+  "orientationFlippedTooltip": "Ориентация: перевёрнута, нажмите для норм.",
+  "orientationNormalTooltip": "Ориентация: обычная, нажмите для переворота",
+  "noSteps": "Нет шагов",
+  "stepProgress": "Шаг {current} / {total}",
+  "@stepProgress": {
+    "placeholders": {
+      "current": {
+        "type": "int"
+      },
+      "total": {
+        "type": "int"
+      }
+    }
+  },
+  "completed": "Готово",
+  "paused": "Пауза",
+  "running": "Выполняется",
+  "ready": "Готово",
+  "stepsProgress": "{current} / {total} шагов",
+  "@stepsProgress": {
+    "placeholders": {
+      "current": {
+        "type": "int"
+      },
+      "total": {
+        "type": "int"
+      }
+    }
+  },
+  "waiting": "Ожидание",
+  "secondsRemaining": "Осталось {seconds}с",
+  "@secondsRemaining": {
+    "placeholders": {
+      "seconds": {}
+    }
+  },
+  "millisecondsShort": "{ms}мс",
+  "@millisecondsShort": {
+    "placeholders": {
+      "ms": {
+        "type": "int"
+      }
+    }
+  },
+  "tapContinueWhenReady": "Нажмите Продолжить, когда будете готовы к следующему шагу",
+  "error": "Ошибка",
+  "macroCompleted": "Макрос завершён",
+  "finishedIn": "Завершено за {duration}",
+  "@finishedIn": {
+    "placeholders": {
+      "duration": {}
+    }
+  },
+  "sequence": "Последовательность",
+  "waitMilliseconds": "Ждать {ms}мс",
+  "@waitMilliseconds": {
+    "placeholders": {
+      "ms": {
+        "type": "int"
+      }
+    }
+  },
+  "runAgain": "Запустить снова",
+  "startMacro": "Запустить макрос",
+  "continueAction": "Продолжить",
+  "unnamedRemote": "Безымянный пульт",
+  "enterMacroName": "Введите имя макроса",
+  "addAtLeastOneStep": "Добавьте хотя бы один шаг",
+  "fixInvalidSteps": "Исправьте неверные шаги",
+  "unknownCommand": "Неизвестная команда",
+  "unnamedCommand": "Безымянная команда",
+  "iconCommand": "Иконка Команда",
+  "selectDelay": "Выбрать задержку",
+  "keepMilliseconds": "Оставить: {ms}мс",
+  "@keepMilliseconds": {
+    "placeholders": {
+      "ms": {
+        "type": "int"
+      }
+    }
+  },
+  "custom": "Свое",
+  "enterCustomDelayDuration": "Введите свою длительность задержки",
+  "millisecondsLong": "{ms} миллисек.",
+  "@millisecondsLong": {
+    "placeholders": {
+      "ms": {
+        "type": "int"
+      }
+    }
+  },
+  "secondsLong": "{seconds} сек{plural}",
+  "@secondsLong": {
+    "placeholders": {
+      "seconds": {},
+      "plural": {}
+    }
+  },
+  "customDelay": "Своя задержка",
+  "delayMillisecondsLabel": "Задержка, мс",
+  "delayMillisecondsHint": "напр., 3000",
+  "recommendedDelayRange": "Рекомендуется: 250-5000 мс для большинства устройств",
+  "enterValidPositiveNumber": "Введите корректное положительное число",
+  "ok": "OK",
+  "remote": "Пульт",
+  "macroName": "Имя макроса",
+  "macroNameHint": "напр., i-cybie Advanced Mode",
+  "stepsTitleCount": "Шаги, {count}",
+  "@stepsTitleCount": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "noStepsYet": "Шагов пока нет",
+  "addCommandsAndDelaysHint": "Ниже добавьте команды и задержки, чтобы собрать последовательность",
+  "addStep": "Добавить шаг",
+  "reorderStepsHint": "Подсказка: перетаскивайте ручку, чтобы менять порядок шагов. Нажмите на шаг, чтобы изменить его.",
+  "reorderStep": "Переставить шаг {index}",
+  "@reorderStep": {
+    "placeholders": {
+      "index": {
+        "type": "int"
+      }
+    }
+  },
+  "pressAndDragToChangeStepOrder": "Зажмите и перетащите, чтобы изменить порядок шагов",
+  "deleteStep": "Удалить шаг {index}",
+  "@deleteStep": {
+    "placeholders": {
+      "index": {
+        "type": "int"
+      }
+    }
+  },
+  "invalidStepTapToFix": "Неверный шаг, нажмите для исправления",
+  "sendIrCommand": "Отправить ИК-команду",
+  "waitForUserConfirmation": "Ждать подтверждения пользователя",
+  "notImplemented": "Не реализовано",
+  "frequencyKhz": "{value} кГц",
+  "@frequencyKhz": {
+    "placeholders": {
+      "value": {
+        "type": "int"
+      }
+    }
+  },
+  "necProtocolShort": "NEC",
+  "msbShort": "MSB",
+  "layoutWide": "Широкий",
+  "iconButton": "Иконка кнопка",
+  "imageButton": "Кнопка с изображением",
+  "noSignalInfo": "Нет данных сигнала",
+  "proceed": "Продолжить",
+  "discard": "Отменить",
+  "idle": "Ожидание",
+  "start": "Старт",
+  "resume": "Продолжить",
+  "pause": "Пауза",
+  "stopped": "Остановлено",
+  "copy": "Копировать",
+  "send": "Отправить",
+  "step": "Шаг",
+  "addToRemote": "Добавить в пульт",
+  "noDescriptionAvailable": "Описание недоступно.",
+  "notAvailableSymbol": "—",
+  "irFinderKaseikyoVendorInvalid": "Vendor Kaseikyo должен состоять ровно из 4 hex-цифр.",
+  "irFinderDatabaseNotReady": "База данных ещё не готова.",
+  "irFinderSelectBrandFirst": "Сначала выберите бренд в настройке.",
+  "irFinderBruteforceUnavailable": "Brute-force для этого протокола пока недоступен.",
+  "irFinderInvalidPrefix": "Неверный префикс.",
+  "irFinderBrandValue": "Бренд: {value}",
+  "@irFinderBrandValue": {
+    "placeholders": {
+      "value": {}
+    }
+  },
+  "irFinderModelValue": "Модель: {value}",
+  "@irFinderModelValue": {
+    "placeholders": {
+      "value": {}
+    }
+  },
+  "irFinderKeyValue": "Клавиша: {value}",
+  "@irFinderKeyValue": {
+    "placeholders": {
+      "value": {}
+    }
+  },
+  "irFinderRemoteNumber": "Пульт #{value}",
+  "@irFinderRemoteNumber": {
+    "placeholders": {
+      "value": {}
+    }
+  },
+  "irFinderJumpOffsetHelper": "Введите индекс с 0 в отфильтрованных и отсортированных результатах базы.",
+  "irFinderJumpCursorHelper": "Введите hex-курсор с 0 в пространстве brute-force.",
+  "irFinderSetupTab": "Настройка",
+  "irFinderTestTab": "Тест",
+  "irFinderResultsTab": "Результаты",
+  "irFinderContinueToTest": "Перейти к тесту",
+  "irFinderKaseikyoVendorTitle": "Vendor Kaseikyo",
+  "irFinderCustomVendorLabel": "Свой vendor, 4 hex",
+  "irFinderBrowseDbCandidates": "Просмотреть кандидатов БД…",
+  "irFinderEditSetup": "Изм. настройку",
+  "irFinderNoSavedHits": "Сохранённых попаданий пока нет. На странице Тест нажмите \"Сохранить\", когда устройство ответит.",
+  "irFinderBackToTest": "Назад к тесту",
+  "irFinderLargeSearchSpaceTitle": "Большое пространство поиска",
+  "irFinderLargeSearchSpaceBody": "Это пространство brute-force очень велико, {human} вариантов. IR Finder всё равно будет соблюдать лимит попыток и паузу, но не спамьте ИК-устройства.\n\nРекомендуется: сначала использовать режим База и, или, ввести известные байты префикса, чтобы сузить поиск.",
+  "@irFinderLargeSearchSpaceBody": {
+    "placeholders": {
+      "human": {}
+    }
+  },
+  "irFinderDatabaseSession": "Сессия БД",
+  "irFinderBruteforceSession": "Brute-force сессия",
+  "irFinderResumeLastSession": "Продолжить последнюю сессию",
+  "irFinderResumeBrandModel": "Бренд: {brand} · Модель: {model}",
+  "@irFinderResumeBrandModel": {
+    "placeholders": {
+      "brand": {},
+      "model": {}
+    }
+  },
+  "irFinderResumePrefix": "Префикс: {value}",
+  "@irFinderResumePrefix": {
+    "placeholders": {
+      "value": {}
+    }
+  },
+  "irFinderResumeProgress": "Прогресс: {progress} · Начато: {when}",
+  "@irFinderResumeProgress": {
+    "placeholders": {
+      "progress": {},
+      "when": {}
+    }
+  },
+  "irFinderApplyResume": "Применить и продолжить",
+  "irFinderBruteforceMode": "Brute-force",
+  "irFinderDatabaseAssistedMode": "С помощью БД",
+  "irFinderProtocolTitle": "Протокол: {name}",
+  "@irFinderProtocolTitle": {
+    "placeholders": {
+      "name": {}
+    }
+  },
+  "irFinderProtocolLabel": "ИК-протокол",
+  "irFinderProtocolHelper": "Управляет кодированием и, соответственно, пространством поиска.",
+  "irFinderKnownPrefixLabel": "Известный префикс, hex-байты, необяз.",
+  "irFinderKnownPrefixHint": "A1B2, A1 B2, A1:B2, 0xA1 0xB2",
+  "irFinderKnownPrefixHelperPayload": "Payload: {digits} hex-цифр",
+  "@irFinderKnownPrefixHelperPayload": {
+    "placeholders": {
+      "digits": {
+        "type": "int"
+      }
+    }
+  },
+  "irFinderKnownPrefixHelperPayloadExample": "Payload: {digits} hex-цифр · Пример: {example}",
+  "@irFinderKnownPrefixHelperPayloadExample": {
+    "placeholders": {
+      "digits": {
+        "type": "int"
+      },
+      "example": {}
+    }
+  },
+  "irFinderKnownPrefixHelperPayloadMax": "Payload: {digits} hex-цифр · Макс. префикс: {bytes} байт",
+  "@irFinderKnownPrefixHelperPayloadMax": {
+    "placeholders": {
+      "digits": {
+        "type": "int"
+      },
+      "bytes": {
+        "type": "int"
+      }
+    }
+  },
+  "irFinderKnownPrefixHelperPayloadExampleMax": "Payload: {digits} hex-цифр · Пример: {example} · Макс. префикс: {bytes} байт",
+  "@irFinderKnownPrefixHelperPayloadExampleMax": {
+    "placeholders": {
+      "digits": {
+        "type": "int"
+      },
+      "example": {},
+      "bytes": {
+        "type": "int"
+      }
+    }
+  },
+  "irFinderKnownPrefixHelperExample": "Пример: {example}",
+  "@irFinderKnownPrefixHelperExample": {
+    "placeholders": {
+      "example": {}
+    }
+  },
+  "irFinderKnownPrefixHelperFallback": "Введите известные первые байты, чтобы сузить поиск.",
+  "irFinderDatabaseMode": "База",
+  "irFinderNormalizedPrefixValue": "Нормализ. префикс: {value}",
+  "@irFinderNormalizedPrefixValue": {
+    "placeholders": {
+      "value": {}
+    }
+  },
+  "irFinderNormalizedPrefix": "Нормализ. префикс",
+  "irFinderBruteforceNotConfigured": "Brute-force для этого протокола пока не настроен.",
+  "irFinderAllLimit": "Все, {value}",
+  "@irFinderAllLimit": {
+    "placeholders": {
+      "value": {}
+    }
+  },
+  "irFinderTestControls": "Управление тестом",
+  "irFinderPayloadLength": "Длина payload: {digits} hex-цифр.",
+  "@irFinderPayloadLength": {
+    "placeholders": {
+      "digits": {
+        "type": "int"
+      }
+    }
+  },
+  "irFinderSearchSpace": "Пространство поиска: {value} вариантов, после ограничений префикса.",
+  "@irFinderSearchSpace": {
+    "placeholders": {
+      "value": {}
+    }
+  },
+  "irFinderCooldownMs": "Пауза, мс",
+  "irFinderMaxAttemptsPerRun": "Макс. попыток за запуск",
+  "irFinderTestAllCombinations": "Тестировать все комбинации",
+  "irFinderTestAllCombinationsHint": "Работает, пока пространство поиска не исчерпается. Эффективный лимит: {value}",
+  "@irFinderTestAllCombinationsHint": {
+    "placeholders": {
+      "value": {}
+    }
+  },
+  "irFinderAttempts": "Попытки",
+  "irFinderAttemptsSliderRange": "Диапазон ползунка: 1–{max}, для больших значений введите число",
+  "@irFinderAttemptsSliderRange": {
+    "placeholders": {
+      "max": {
+        "type": "int"
+      }
+    }
+  },
+  "irFinderMaxButton": "Макс\n{value}",
+  "@irFinderMaxButton": {
+    "placeholders": {
+      "value": {
+        "type": "int"
+      }
+    }
+  },
+  "irFinderEffectiveLimitThisRun": "Эффективный лимит этого запуска: {value}",
+  "@irFinderEffectiveLimitThisRun": {
+    "placeholders": {
+      "value": {}
+    }
+  },
+  "irFinderBruteforceTip": "Подсказка: сначала используйте режим База; brute-force лучше работает с известным префиксом, например первыми 1–4 байтами.",
+  "irFinderDatabaseInitFailed": "Не удалось инициализировать БД.",
+  "irFinderPreparingDatabase": "Подготовка локальной базы ИК-кодов…",
+  "irFinderDatabaseAssistedSearch": "Поиск с помощью БД",
+  "irFinderBrand": "Бренд",
+  "irFinderSelectBrand": "Выберите бренд",
+  "irFinderModelOptional": "Модель, необяз.",
+  "irFinderSelectBrandFirstShort": "Сначала выберите бренд",
+  "irFinderSelectModelRecommended": "Выберите модель, рекомендуется",
+  "irFinderOnlySelectedProtocol": "Только выбранный протокол",
+  "irFinderOnlySelectedProtocolHint": "Фильтрует ключи по выбранному протоколу. Выключите, чтобы просматривать все протоколы.",
+  "irFinderQuickWinsFirst": "Сначала быстрые попадания",
+  "irFinderQuickWinsFirstHint": "Сначала даёт приоритет ключам типа POWER, MUTE, VOL и CH, а уже потом более глубоким.",
+  "irFinderMaxKeysPerRun": "Макс. ключей за запуск",
+  "irFinderTesting": "Тестирование…",
+  "irFinderCooldown": "Пауза",
+  "irFinderEta": "Осталось",
+  "irFinderMode": "Режим",
+  "irFinderRetryLast": "Повторить последний",
+  "irFinderTrigger": "Запуск",
+  "irFinderJump": "Переход…",
+  "irFinderSaveHit": "Сохранить",
+  "irFinderEtaSeconds": "{seconds}с",
+  "@irFinderEtaSeconds": {
+    "placeholders": {
+      "seconds": {
+        "type": "int"
+      }
+    }
+  },
+  "irFinderEtaMinutesSeconds": "{minutes}м {seconds}с",
+  "@irFinderEtaMinutesSeconds": {
+    "placeholders": {
+      "minutes": {
+        "type": "int"
+      },
+      "seconds": {
+        "type": "int"
+      }
+    }
+  },
+  "irFinderEtaHoursMinutes": "{hours}ч {minutes}м",
+  "@irFinderEtaHoursMinutes": {
+    "placeholders": {
+      "hours": {
+        "type": "int"
+      },
+      "minutes": {
+        "type": "int"
+      }
+    }
+  },
+  "irFinderLastAttemptedCode": "Последний код: {value}",
+  "@irFinderLastAttemptedCode": {
+    "placeholders": {
+      "value": {}
+    }
+  },
+  "irFinderStartTestingToSeeLastCode": "Начните тест, чтобы увидеть последний отправленный код.",
+  "irFinderFromDb": "Из БД: {value}",
+  "@irFinderFromDb": {
+    "placeholders": {
+      "value": {}
+    }
+  },
+  "irFinderFromBruteforce": "Из brute-force, сгенерировано кодировщиком протокола.",
+  "irFinderSendError": "Ошибка отправки: {error}",
+  "@irFinderSendError": {
+    "placeholders": {
+      "error": {}
+    }
+  },
+  "irFinderSourceValue": "Источник: {value}",
+  "@irFinderSourceValue": {
+    "placeholders": {
+      "value": {}
+    }
+  },
+  "irFinderResultsNote": "Результаты можно сразу тестировать и копировать. Прямое добавление в пульт можно расширить позже в редакторе.",
+  "irFinderBrowseDbCandidatesTitle": "Просмотр кандидатов БД",
+  "irFinderFilterByLabelOrHex": "Фильтр по метке или hex…",
+  "irFinderJumpHere": "Перейти сюда",
+  "irFinderSelectModel": "Выберите модель",
+  "irFinderSearchBrands": "Поиск брендов…",
+  "irFinderSearchModels": "Поиск моделей…",
+  "iconPickerTitle": "Выбрать Иконка",
+  "iconPickerSearchHint": "Поиск иконок...",
+  "iconPickerNoIconsFound": "Иконки не найдены",
+  "iconPickerIconsAvailable": "{count} иконок доступно",
+  "@iconPickerIconsAvailable": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "iconPickerCategoryAll": "Все",
+  "iconPickerCategoryMedia": "Медиа",
+  "iconPickerCategoryVolume": "Громкость",
+  "iconPickerCategoryNavigation": "Навигация",
+  "iconPickerCategoryPower": "Питание",
+  "iconPickerCategoryNumbers": "Цифры",
+  "iconPickerCategorySettings": "Настройки",
+  "iconPickerCategoryDisplay": "Экран",
+  "iconPickerCategoryInput": "Ввод",
+  "iconPickerCategoryFavorite": "Избранное",
+  "universalPowerTitle": "Универсальное питание",
+  "universalPowerRunTab": "Запуск",
+  "universalPowerUseResponsibly": "Используйте ответственно",
+  "universalPowerConsentBody": "Универсальное питание перебирает ИК-коды питания. Используйте его только на устройствах, которыми владеете или управляете. Остановите сразу, как только устройство ответит.",
+  "universalPowerConsentCheckbox": "Я владею устройством или управляю им",
+  "universalPowerSetupBody": "Перебирает коды питания для выбранного бренда. Остановите, как только устройство ответит.",
+  "universalPowerLastSent": "Последнее отправленное: {value}",
+  "@universalPowerLastSent": {
+    "placeholders": {
+      "value": {}
+    }
+  },
+  "universalPowerNoCodesFound": "Коды питания не найдены. Попробуйте расширить поиск.",
+  "universalPowerUnableToStart": "Не удалось запустить.",
+  "universalPowerAllBrands": "Все бренды, без фильтра",
+  "universalPowerClearBrandFilter": "Очистить фильтр бренда",
+  "universalPowerBroadenSearch": "При необходимости расширьте поиск",
+  "universalPowerBroadenSearchHint": "Если метки питания не найдены, включите другие ключи.",
+  "universalPowerAdditionalPatternsDepth": "Глубина доп. паттернов",
+  "universalPowerDepth1": "Только приоритет: POWER/OFF",
+  "universalPowerDepth2": "Включить алиасы POWER",
+  "universalPowerDepth3": "Включить вторичные метки питания",
+  "universalPowerDepth4": "Включить все метки, низший приоритет",
+  "universalPowerLoopUntilStopped": "Цикл до остановки",
+  "universalPowerLoopUntilStoppedHint": "Продолжает крутить очередь, пока вы не остановите.",
+  "universalPowerDelayBetweenCodes": "Задержка между кодами",
+  "universalPowerStart": "Запустить универсальное питание",
+  "universalPowerRunStatus": "Статус запуска",
+  "universalPowerProgress": "Прогресс: {value}",
+  "@universalPowerProgress": {
+    "placeholders": {
+      "value": {}
+    }
+  },
+  "universalPowerPausedInBackground": "Приостановлено, так как приложение ушло в фон.",
+  "universalPowerSendOneCode": "Отправить один код",
+  "universalPowerStopWhenDeviceResponds": "Остановить, как только устройство ответит.",
+  "iconNamePlay": "Пуск",
+  "iconNamePause": "Пауза",
+  "iconNameStop": "Стоп",
+  "iconNameFastForward": "Быстро вперёд",
+  "iconNameRewind": "назад",
+  "iconNameSkipNext": "След.",
+  "iconNameSkipPrevious": "Пред.",
+  "iconNameReplay": "Повтор",
+  "iconNameForward10S": "Вперёд 10с",
+  "iconNameForward30S": "Вперёд 30с",
+  "iconNameReplay10S": "Повтор 10с",
+  "iconNameReplay30S": "Повтор 30с",
+  "iconNameRecord": "Запись",
+  "iconNameRecordAlt": "Запись альт.",
+  "iconNameEject": "Извлечь",
+  "iconNameShuffle": "Случайно",
+  "iconNameRepeat": "Повтор",
+  "iconNameRepeatOne": "Повтор один",
+  "iconNameVolumeUp": "Громкость +",
+  "iconNameVolumeDown": "Громкость -",
+  "iconNameVolumeOff": "Громкость выкл",
+  "iconNameMute": "Без звука",
+  "iconNameSpeaker": "Динамик",
+  "iconNameSurroundSound": "Объёмный звук",
+  "iconNameEqualizer": "Эквалайзер",
+  "iconNameAudio": "Аудио",
+  "iconNameMicrophone": "Микрофон",
+  "iconNameMicOff": "Микр. выкл",
+  "iconNameUp": "вверх",
+  "iconNameDown": "вниз",
+  "iconNameLeft": "влево",
+  "iconNameRight": "вправо",
+  "iconNameArrowUp": "Стрелка вверх",
+  "iconNameArrowDown": "Стрелка вниз",
+  "iconNameArrowLeft": "Стрелка влево",
+  "iconNameArrowRight": "Стрелка вправо",
+  "iconNameNavigation": "Навигация",
+  "iconNameChevronLeft": "Шеврон влево",
+  "iconNameChevronRight": "Шеврон вправо",
+  "iconNameExpandLess": "Свернуть",
+  "iconNameExpandMore": "Развернуть",
+  "iconNameCollapse": "Свернуть",
+  "iconNameExpand": "Развернуть",
+  "iconNameCircleUp": "Круг вверх",
+  "iconNameCircleDown": "Круг вниз",
+  "iconNameCircleLeft": "Круг влево",
+  "iconNameCircleRight": "Круг вправо",
+  "iconNameOkSelect": "OK/Выбор",
+  "iconNameConfirm": "Подтв.",
+  "iconNameCancel": "Отмена",
+  "iconNameClose": "Закрыть",
+  "iconNameHome": "Домой",
+  "iconNameReturn": "Назад",
+  "iconNameExit": "Выход",
+  "iconNameUndo": "Отменить",
+  "iconNameRedo": "Повторить",
+  "iconNamePower": "Питание",
+  "iconNamePowerAlt": "Питание альт.",
+  "iconNamePowerOff": "Питание выкл",
+  "iconNameOn": "вкл",
+  "iconNameOff": "выкл",
+  "iconNameToggleOn": "Перекл. вкл",
+  "iconNameToggleOff": "Перекл. выкл",
+  "iconNameRestart": "Перезапуск",
+  "iconNameNum1": "1",
+  "iconNameNum2": "2",
+  "iconNameNum3": "3",
+  "iconNameNum4": "4",
+  "iconNameNum5": "5",
+  "iconNameNum6": "6",
+  "iconNameNum7": "7",
+  "iconNameNum8": "8",
+  "iconNameNum9": "9",
+  "iconNameNum92": "9+",
+  "iconNameNum0": "0",
+  "iconNameOne": "один",
+  "iconNameTwo": "Два",
+  "iconNameThree": "Три",
+  "iconNameFour": "Четыре",
+  "iconNameFive": "Пять",
+  "iconNameSix": "Шесть",
+  "iconNamePlus": "плюс",
+  "iconNameMinus": "минус",
+  "iconNameAddCircle": "Добавить Круг",
+  "iconNameRemoveCircle": "Убрать Круг",
+  "iconNameSettings": "Настройки",
+  "iconNameMenu": "Меню",
+  "iconNameMoreVertical": "больше верт.",
+  "iconNameMoreHorizontal": "больше гориз.",
+  "iconNameTune": "Настройка",
+  "iconNameRemoteSettings": "Пульт Настройки",
+  "iconNameInfo": "Инфо",
+  "iconNameInfoOutline": "Инфо контур",
+  "iconNameHelp": "Помощь",
+  "iconNameHelpOutline": "Помощь контур",
+  "iconNameList": "Список",
+  "iconNameViewList": "Вид Список",
+  "iconNameViewGrid": "Вид Сетка",
+  "iconNameApps": "Приложения",
+  "iconNameWidgets": "Виджеты",
+  "iconNameTv": "TV",
+  "iconNameMonitor": "Монитор",
+  "iconNameDesktop": "Раб. стол",
+  "iconNameBrightnessHigh": "Высокая яркость",
+  "iconNameBrightnessMedium": "Средняя яркость",
+  "iconNameBrightnessLow": "Низкая яркость",
+  "iconNameAutoBrightness": "Автояркость",
+  "iconNameLightMode": "Светлый режим",
+  "iconNameDarkMode": "Тёмный Режим",
+  "iconNameContrast": "Контраст",
+  "iconNameHdrOn": "HDR вкл",
+  "iconNameHdrOff": "HDR выкл",
+  "iconNameAspectRatio": "Соотношение сторон",
+  "iconNameCrop": "Обрезка",
+  "iconNameZoomIn": "Увеличить",
+  "iconNameZoomOut": "Уменьшить",
+  "iconNameFullscreen": "Полный экран",
+  "iconNameExitFullscreen": "Выход Полный экран",
+  "iconNameFitScreen": "Вписать Экран",
+  "iconNamePip": "PiP",
+  "iconNameCropFree": "Обрезка Своб.",
+  "iconNameInput": "Ввод",
+  "iconNameCable": "Кабель",
+  "iconNameCast": "Трансляция",
+  "iconNameCastConnected": "Трансляция подкл.",
+  "iconNameScreenShare": "Экран Поделиться",
+  "iconNameBluetooth": "Bluetooth",
+  "iconNameWifi": "WiFi",
+  "iconNameRouter": "Роутер",
+  "iconNameMemory": "Память",
+  "iconNameGameConsole": "Игра Консоль",
+  "iconNameGaming": "Игровой",
+  "iconNameMedia": "Медиа",
+  "iconNameMusicQueue": "Музыка Очередь",
+  "iconNameVideoLibrary": "Видео Библиотека",
+  "iconNamePhotoLibrary": "Фото Библиотека",
+  "iconNameComponent": "Компонент",
+  "iconNameHdmi": "HDMI",
+  "iconNameComposite": "Composite",
+  "iconNameAntenna": "Антенна",
+  "iconNameFavorite": "Избранное",
+  "iconNameFavoriteOutline": "Избранное контур",
+  "iconNameStar": "Звезда",
+  "iconNameStarOutline": "Звезда контур",
+  "iconNameBookmark": "Закладка",
+  "iconNameBookmarkOutline": "Закладка контур",
+  "iconNameFlag": "Флаг",
+  "iconNameCheck": "Галочка",
+  "iconNameDone": "Готово",
+  "iconNameDoneAll": "Готово Все",
+  "iconNameSchedule": "Расписание",
+  "iconNameTimer": "Таймер",
+  "iconNameTime": "Время",
+  "iconNameAlarm": "Будильник",
+  "iconNameNotifications": "Уведомления",
+  "iconNameLock": "Замок",
+  "iconNameUnlock": "Разблок.",
+  "iconNameLight": "Свет",
+  "iconNameLightOutline": "Свет контур",
+  "iconNameWarmLight": "Тёплый свет",
+  "iconNameSunny": "Солнце",
+  "iconNameCloudy": "Облачно",
+  "iconNameNight": "Ночь",
+  "iconNameFlare": "Блик",
+  "iconNameGradient": "Градиент",
+  "iconNameInvertColors": "Инверсия цветов",
+  "iconNamePalette": "Палитра",
+  "iconNameColor": "Цвет",
+  "iconNameTonality": "Тональность",
+  "iconNameSearch": "Поиск",
+  "iconNameRefresh": "Обновить",
+  "iconNameSync": "Синхр.",
+  "iconNameUpdate": "Обновить",
+  "iconNameDownload": "Скачать",
+  "iconNameUpload": "Загрузить",
+  "iconNameCloud": "Облако",
+  "iconNameFolder": "Папка",
+  "iconNameDelete": "Удалить",
+  "iconNameEdit": "Изменить",
+  "iconNameSave": "Сохранить",
+  "iconNameShare": "Поделиться",
+  "iconNamePrint": "Печать",
+  "iconNameLanguage": "Язык",
+  "iconNameTranslate": "Перевод",
+  "iconNameMicNone": "Микр. нет",
+  "iconNameSubtitles": "Субтитры",
+  "iconNameClosedCaption": "Субтитры",
+  "iconNameMusic": "Музыка",
+  "iconNameMovie": "Фильм",
+  "iconNameTheater": "Кинотеатр",
+  "iconNameLiveTv": "Live TV",
+  "iconNameRadio": "Радио",
+  "iconNameCamera": "Камера",
+  "iconNameVideoCamera": "Видео Камера",
+  "iconNamePhotoCamera": "Фото Камера",
+  "iconNameSlowMotion": "Замедление",
+  "iconNameSpeed": "Скорость",
+  "iconNameVideoSettings": "Видео Настройки",
+  "iconNameAudioTrack": "Аудиотрек",
+  "iconNameGraphicEq": "Графический EQ",
+  "iconNameMusicVideo": "Музыка Видео",
+  "iconNamePlaylist": "Плейлист",
+  "iconNameQueue": "Очередь",
+  "iconNameNum0Fa": "0 FA",
+  "iconNameNum1Fa": "1 FA",
+  "iconNameNum2Fa": "2 FA",
+  "iconNameNum3Fa": "3 FA",
+  "iconNameNum4Fa": "4 FA",
+  "iconNameNum5Fa": "5 FA",
+  "iconNameNum6Fa": "6 FA",
+  "iconNameNum7Fa": "7 FA",
+  "iconNameNum8Fa": "8 FA",
+  "iconNameNum9Fa": "9 FA",
+  "iconNameHashFa": "Решётка # FA",
+  "iconNamePercentFa": "Процент % FA",
+  "iconNameDivideFa": "Деление ÷ FA",
+  "iconNameMultiplyFa": "Умножение × FA",
+  "iconNameEqualsFa": "Равно = FA",
+  "iconNameNotEqualFa": "Не равно ≠ FA",
+  "iconNameGreaterThanFa": "Больше чем > FA",
+  "iconNameLessThanFa": "меньше чем < FA",
+  "iconNameAsteriskFa": "Звёздочка * FA",
+  "iconNameAFa": "A FA",
+  "iconNameBFa": "B FA",
+  "iconNameCFa": "C FA",
+  "iconNameDFa": "D FA",
+  "iconNameEFa": "E FA",
+  "iconNameFFa": "F FA",
+  "iconNameGFa": "G FA",
+  "iconNameHFa": "H FA",
+  "iconNameIFa": "I FA",
+  "iconNameJFa": "J FA",
+  "iconNameKFa": "K FA",
+  "iconNameLFa": "L FA",
+  "iconNameMFa": "M FA",
+  "iconNameNFa": "N FA",
+  "iconNameOFa": "O FA",
+  "iconNamePFa": "P FA",
+  "iconNameQFa": "Q FA",
+  "iconNameRFa": "R FA",
+  "iconNameSFa": "S FA",
+  "iconNameTFa": "T FA",
+  "iconNameUFa": "U FA",
+  "iconNameVFa": "V FA",
+  "iconNameWFa": "W FA",
+  "iconNameXFa": "X FA",
+  "iconNameYFa": "Y FA",
+  "iconNameZFa": "Z FA",
+  "iconNamePlayFa": "Пуск FA",
+  "iconNamePauseFa": "Пауза FA",
+  "iconNameStopFa": "Стоп FA",
+  "iconNamePlayFaOutline": "Пуск FA контур",
+  "iconNamePauseFaOutline": "Пауза FA контур",
+  "iconNameStopFaOutline": "Стоп FA контур",
+  "iconNameBackwardFa": "Назад FA",
+  "iconNameForwardFa": "вперёд FA",
+  "iconNamePreviousFa": "Пред. FA",
+  "iconNameNextFa": "След. FA",
+  "iconNameRewindFa": "назад FA",
+  "iconNameFastForwardFa": "Быстро вперёд FA",
+  "iconNameRepeatFa": "Повтор FA",
+  "iconNameShuffleFa": "Случайно FA",
+  "iconNameEjectFa": "Извлечь FA",
+  "iconNameFilmFa": "Фильм FA",
+  "iconNameVideoFa": "Видео FA",
+  "iconNameMusicFa": "Музыка FA",
+  "iconNameMicrophoneFa": "Микрофон FA",
+  "iconNameCameraFa": "Камера FA",
+  "iconNameCameraRetroFa": "Камера ретро FA",
+  "iconNameVolumeHighFa": "Громкость Высокая FA",
+  "iconNameVolumeLowFa": "Громкость Низкая FA",
+  "iconNameVolumeOffFa": "Громкость выкл FA",
+  "iconNameMuteFa": "Без звука FA",
+  "iconNameMicMuteFa": "Микр. Без звука FA",
+  "iconNameHeadphonesFa": "Наушники FA",
+  "iconNameSpeakerFa": "Динамик FA",
+  "iconNameUpFa": "вверх FA",
+  "iconNameDownFa": "вниз FA",
+  "iconNameLeftFa": "влево FA",
+  "iconNameRightFa": "вправо FA",
+  "iconNameUpFaOutline": "вверх FA контур",
+  "iconNameDownFaOutline": "вниз FA контур",
+  "iconNameLeftFaOutline": "влево FA контур",
+  "iconNameRightFaOutline": "вправо FA контур",
+  "iconNameArrowUpFa": "Стрелка вверх FA",
+  "iconNameArrowDownFa": "Стрелка вниз FA",
+  "iconNameArrowLeftFa": "Стрелка влево FA",
+  "iconNameArrowRightFa": "Стрелка вправо FA",
+  "iconNameChevronUpFa": "Шеврон вверх FA",
+  "iconNameChevronDownFa": "Шеврон вниз FA",
+  "iconNameChevronLeftFa": "Шеврон влево FA",
+  "iconNameChevronRightFa": "Шеврон вправо FA",
+  "iconNameOkFa": "OK FA",
+  "iconNameOkFaOutline": "OK FA контур",
+  "iconNameCheckFa": "Галочка FA",
+  "iconNameCloseFa": "Закрыть FA",
+  "iconNameCloseCircleFa": "Закрыть Круг FA",
+  "iconNameHomeFa": "Домой FA",
+  "iconNameUndoFa": "Отменить FA",
+  "iconNameRedoFa": "Повторить FA",
+  "iconNameRotateFa": "Повернуть FA",
+  "iconNameSearchFa": "Поиск FA",
+  "iconNameRefreshFa": "Обновить FA",
+  "iconNamePowerOffFa": "Питание выкл FA",
+  "iconNamePlugFa": "Штекер FA",
+  "iconNameToggleOnFa": "Перекл. вкл FA",
+  "iconNameToggleOffFa": "Перекл. выкл FA",
+  "iconNameSettingsFa": "Настройки FA",
+  "iconNameSettingsAltFa": "Настройки альт. FA",
+  "iconNameMenuFa": "Меню FA",
+  "iconNameMoreFa": "больше FA",
+  "iconNameMoreVerticalFa": "больше верт. FA",
+  "iconNameInfoFa": "Инфо FA",
+  "iconNameInfoFaOutline": "Инфо FA контур",
+  "iconNameHelpFa": "Помощь FA",
+  "iconNameHelpFaOutline": "Помощь FA контур",
+  "iconNameListFa": "Список FA",
+  "iconNameGridFa": "Сетка FA",
+  "iconNameSlidersFa": "Ползунки FA",
+  "iconNameTvFa": "TV FA",
+  "iconNameMonitorFa": "Монитор FA",
+  "iconNameDesktopFa": "Раб. стол FA",
+  "iconNameBrightnessFa": "Яркость FA",
+  "iconNameNightModeFa": "Ночь Режим FA",
+  "iconNameLightFa": "Свет FA",
+  "iconNameLightFaOutline": "Свет FA контур",
+  "iconNameFlashFa": "Вспышка FA",
+  "iconNameFullscreenFa": "Полный экран FA",
+  "iconNameExitFullscreenFa": "Выход Полный экран FA",
+  "iconNameZoomInFa": "Увеличить FA",
+  "iconNameZoomOutFa": "Уменьшить FA",
+  "iconNameSubtitlesFa": "Субтитры FA",
+  "iconNamePictureInPictureFa": "Картинка в картинке FA",
+  "iconNameColorFa": "Цвет FA",
+  "iconNamePaintFa": "Краска FA",
+  "iconNameInputFa": "Ввод FA",
+  "iconNameWifiFa": "WiFi FA",
+  "iconNameBluetoothFa": "Bluetooth FA",
+  "iconNameUsbFa": "USB FA",
+  "iconNameEthernetFa": "Ethernet FA",
+  "iconNameGamepadFa": "Геймпад FA",
+  "iconNameBroadcastFa": "Эфир FA",
+  "iconNameSatelliteFa": "Спутник FA",
+  "iconNameAntennaFa": "Антенна FA",
+  "iconNameNetworkFa": "Сеть FA",
+  "iconNameCloudFa": "Облако FA",
+  "iconNameStarFa": "Звезда FA",
+  "iconNameStarFaOutline": "Звезда FA контур",
+  "iconNameHeartFa": "Сердце FA",
+  "iconNameHeartFaOutline": "Сердце FA контур",
+  "iconNameBookmarkFa": "Закладка FA",
+  "iconNameBookmarkFaOutline": "Закладка FA контур",
+  "iconNameFlagFa": "Флаг FA",
+  "iconNameClockFa": "Часы FA",
+  "iconNameClockFaOutline": "Часы FA контур",
+  "iconNameBellFa": "Колокол FA",
+  "iconNameBellFaOutline": "Колокол FA контур",
+  "iconNameTimerFa": "Таймер FA",
+  "iconNameLockFa": "Замок FA",
+  "iconNameUnlockFa": "Разблок. FA",
+  "iconNameGalleryFa": "Галерея FA",
+  "iconNameImagesFa": "Изображения FA",
+  "iconNameImageFa": "Изображение FA",
+  "iconNameVideoFileFa": "Видео Файл FA",
+  "iconNameAudioFileFa": "Аудио Файл FA",
+  "iconNamePlayOutlineFa": "Пуск контур FA",
+  "iconNamePlaySimpleFa": "Пуск Простой FA",
+  "iconNamePauseSimpleFa": "Пауза Простой FA",
+  "iconNameStopSimpleFa": "Стоп Простой FA",
+  "iconNameRecordFa": "Запись FA",
+  "iconNameStopCircleFa": "Стоп Круг FA",
+  "iconNameLoadingFa": "Загрузка FA",
+  "iconNameTextFa": "Текст FA",
+  "iconNameTextSizeFa": "Размер текста FA",
+  "iconNameLanguageFa": "Язык FA",
+  "iconNameGlobeFa": "Глобус FA",
+  "iconNameSubtitlesAltFa": "Субтитры альт. FA",
+  "iconNameSubtitlesAltOutlineFa": "Субтитры альт. контур FA",
+  "iconNameChannelUpFa": "Канал вверх FA",
+  "iconNameChannelDownFa": "Канал вниз FA",
+  "iconNamePageUpFa": "Страница вверх FA",
+  "iconNamePageDownFa": "Страница вниз FA",
+  "iconNameGuideFa": "Гид FA",
+  "iconNameGridViewFa": "Сетка Вид FA",
+  "iconNameGridAltFa": "Сетка альт. FA",
+  "iconNameScheduleFa": "Расписание FA",
+  "iconNameCalendarFa": "Календарь FA",
+  "iconNameRedButtonFa": "Красная Кнопка FA",
+  "iconNameButtonOutlineFa": "Кнопка контур FA",
+  "iconNameSquareButtonFa": "Квадрат Кнопка FA",
+  "iconNameSquareOutlineFa": "Квадрат контур FA",
+  "iconNameDotCircleFa": "Точка круг FA",
+  "iconNameToolsFa": "Инструменты FA",
+  "iconNameScrewdriverFa": "Отвёртка FA",
+  "iconNameHammerFa": "Молоток FA",
+  "iconNameToolboxFa": "Ящик FA",
+  "iconNameCogFa": "Шестерня FA",
+  "iconNameAdjustFa": "Настройка FA",
+  "iconNameFilterFa": "Фильтр FA",
+  "iconNameSortDownFa": "Сортировка вниз FA",
+  "iconNameSortUpFa": "Сортировка вверх FA",
+  "iconNameSleepFa": "Сон FA",
+  "iconNameTimerStartFa": "Таймер старт FA",
+  "iconNameTimerHalfFa": "Таймер половина FA",
+  "iconNameTimerEndFa": "Таймер конец FA",
+  "iconNameStopwatchFa": "Секундомер FA",
+  "iconNameAlarmFa": "Будильник FA",
+  "iconNameCropAltFa": "Обрезка альт. FA",
+  "iconNameCropFa": "Обрезка FA",
+  "iconNameSquareFullFa": "Квадрат Полная FA",
+  "iconNameFullscreenAltFa": "Полный экран альт. FA",
+  "iconNameZoomPlusFa": "Масштаб плюс FA",
+  "iconNameZoomMinusFa": "Масштаб минус FA",
+  "iconNameMusicNoteFa": "Музыка Нота FA",
+  "iconNameCdFa": "CD FA",
+  "iconNameVinylFa": "Винил FA",
+  "iconNameRssFa": "RSS FA",
+  "iconNameMagicFa": "Магия FA",
+  "iconNameFingerprintFa": "Отпечаток FA",
+  "iconNameUserFa": "Пользователь FA",
+  "iconNameUsersFa": "Пользователи FA",
+  "iconNameChildModeFa": "Детский Режим FA",
+  "iconNameCastFa": "Трансляция FA",
+  "iconNameStreamFa": "Поток FA",
+  "iconNameSignalFa": "Сигнал FA",
+  "iconNameFeedFa": "Лента FA",
+  "iconNameCircleArrowUpFa": "Круг Стрелка вверх FA",
+  "iconNameCircleArrowDownFa": "Круг Стрелка вниз FA",
+  "iconNameCircleArrowLeftFa": "Круг Стрелка влево FA",
+  "iconNameCircleArrowRightFa": "Круг Стрелка вправо FA",
+  "iconNameLongArrowUpFa": "Длинная Стрелка вверх FA",
+  "iconNameLongArrowDownFa": "Длинная Стрелка вниз FA",
+  "iconNameLongArrowLeftFa": "Длинная Стрелка влево FA",
+  "iconNameLongArrowRightFa": "Длинная Стрелка вправо FA",
+  "iconNamePlusFa": "плюс FA",
+  "iconNameMinusFa": "минус FA",
+  "iconNamePlusCircleFa": "плюс Круг FA",
+  "iconNameMinusCircleFa": "минус Круг FA",
+  "iconNamePlusSquareFa": "плюс Квадрат FA",
+  "iconNameMinusSquareFa": "минус Квадрат FA",
+  "iconNameTimesFa": "× FA",
+  "iconNameTimesCircleFa": "× Круг FA",
+  "iconNameBatteryFullFa": "Батарея Полная FA",
+  "iconNameBattery34Fa": "Батарея 3/4 FA",
+  "iconNameBatteryHalfFa": "Батарея Половина FA",
+  "iconNameBattery14Fa": "Батарея 1/4 FA",
+  "iconNameBatteryEmptyFa": "Батарея Пустая FA",
+  "iconNameChargingFa": "Зарядка FA",
+  "iconNameCloudSunFa": "Облако Солнце FA",
+  "iconNameCloudMoonFa": "Облако Луна FA",
+  "iconNameRainFa": "Дождь FA",
+  "iconNameSnowflakeFa": "Снежинка FA",
+  "iconNameFireFa": "Огонь FA",
+  "iconNameTemperatureFa": "Температура FA",
+  "iconNameBoxFa": "Блок FA",
+  "iconNameGiftFa": "Подарок FA",
+  "iconNameTrophyFa": "Трофей FA",
+  "iconNameCrownFa": "Корона FA",
+  "iconNameGemFa": "Самоцвет FA",
+  "unknownLabel": "Неизвестно",
+  "selectedFilesLabel": "выбранных файлов",
+  "folderNotFoundOrInaccessible": "Папка не найдена или недоступна.",
+  "importedRemoteDefaultName": "Импортированный пульт",
+  "demoRemoteName": "Демо-пульт",
+  "protocolFieldsInvalid": "Заполните обязательные поля протокола и убедитесь, что частота, если задана, находится в диапазоне 15–60 кГц.",
+  "unknownProtocolSelected": "Выбран неизвестный протокол."
+}

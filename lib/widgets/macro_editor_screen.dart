@@ -1,9 +1,10 @@
 import 'dart:io';
 
 import 'package:flutter/material.dart';
-import 'package:irblaster_controller/state/haptics.dart';
+import 'package:irblaster_controller/l10n/icon_picker_names.dart';
 import 'package:irblaster_controller/state/haptics.dart';
 import 'package:flutter/services.dart';
+import 'package:irblaster_controller/l10n/l10n.dart';
 import 'package:irblaster_controller/models/macro_step.dart';
 import 'package:irblaster_controller/models/timed_macro.dart';
 import 'package:irblaster_controller/utils/button_label.dart';
@@ -52,11 +53,11 @@ class _MacroEditorScreenState extends State<MacroEditorScreen> {
     if (mounted) setState(() {});
   }
 
-  String get _screenTitle => widget.macro == null ? 'Create Macro' : 'Edit Macro';
+  String get _screenTitle => widget.macro == null ? context.l10n.createMacro : context.l10n.edit;
 
   String get _remoteDisplayName {
     final n = widget.remote.name.trim();
-    return n.isEmpty ? 'Unnamed Remote' : n;
+    return n.isEmpty ? context.l10n.unnamedRemote : n;
   }
 
   bool get _canSave {
@@ -66,9 +67,9 @@ class _MacroEditorScreenState extends State<MacroEditorScreen> {
   }
 
   String? get _saveBlockerMessage {
-    if (_nameCtl.text.trim().isEmpty) return 'Enter a macro name';
-    if (_steps.isEmpty) return 'Add at least one step';
-    if (_steps.any((s) => !s.isValid)) return 'Fix invalid steps';
+    if (_nameCtl.text.trim().isEmpty) return context.l10n.enterMacroName;
+    if (_steps.isEmpty) return context.l10n.addAtLeastOneStep;
+    if (_steps.any((s) => !s.isValid)) return context.l10n.fixInvalidSteps;
     return null;
   }
 
@@ -165,21 +166,22 @@ class _MacroEditorScreenState extends State<MacroEditorScreen> {
     if (byRef != null) return _buttonLabel(byRef);
 
     final fallback = (step.buttonRef ?? step.buttonId ?? '').trim();
-    return displayButtonRefLabel(fallback, fallback: 'Unknown Command');
+    return displayButtonRefLabel(fallback, fallback: context.l10n.unknownCommand);
   }
 
   String _buttonLabel(IRButton button) {
     return displayButtonLabel(
       button,
-      fallback: 'Unnamed Command',
-      iconFallback: 'Icon Command',
+      fallback: context.l10n.unnamedCommand,
+      iconFallback: context.l10n.iconCommand,
+      iconNameLocalizer: (name) => localizedIconPickerName(context.l10n, name),
     );
   }
 
   Future<IRButton?> _pickButton() async {
     if (widget.remote.buttons.isEmpty) {
       ScaffoldMessenger.of(context).showSnackBar(
-        const SnackBar(content: Text('This remote has no buttons.')),
+        SnackBar(content: Text(context.l10n.thisRemoteHasNoButtons)),
       );
       return null;
     }
@@ -210,7 +212,7 @@ class _MacroEditorScreenState extends State<MacroEditorScreen> {
                       Icon(Icons.send_rounded, color: theme.colorScheme.primary),
                       const SizedBox(width: 12),
                       Text(
-                        'Select Command',
+                        context.l10n.selectCommand,
                         style: theme.textTheme.titleLarge?.copyWith(
                           fontWeight: FontWeight.w900,
                         ),
@@ -222,10 +224,10 @@ class _MacroEditorScreenState extends State<MacroEditorScreen> {
                   padding: const EdgeInsets.fromLTRB(16, 0, 16, 10),
                   child: TextField(
                     onChanged: (value) => setSheetState(() => query = value),
-                    decoration: const InputDecoration(
-                      hintText: 'Search commands',
-                      prefixIcon: Icon(Icons.search_rounded),
-                      border: OutlineInputBorder(),
+                    decoration: InputDecoration(
+                      hintText: context.l10n.searchCommands,
+                      prefixIcon: const Icon(Icons.search_rounded),
+                      border: const OutlineInputBorder(),
                     ),
                   ),
                 ),
@@ -233,7 +235,7 @@ class _MacroEditorScreenState extends State<MacroEditorScreen> {
                   Padding(
                     padding: const EdgeInsets.fromLTRB(16, 8, 16, 16),
                     child: Text(
-                      'No matching commands',
+                      context.l10n.noMatchingCommands,
                       style: theme.textTheme.bodyMedium?.copyWith(
                         color: theme.colorScheme.onSurfaceVariant,
                       ),
@@ -298,7 +300,7 @@ class _MacroEditorScreenState extends State<MacroEditorScreen> {
                   Icon(Icons.timer_rounded, color: theme.colorScheme.primary),
                   const SizedBox(width: 12),
                   Text(
-                    'Select Delay',
+                    context.l10n.selectDelay,
                     style: theme.textTheme.titleLarge?.copyWith(
                       fontWeight: FontWeight.w900,
                     ),
@@ -328,7 +330,7 @@ class _MacroEditorScreenState extends State<MacroEditorScreen> {
                             color: theme.colorScheme.onSecondaryContainer,
                           ),
                         ),
-                        title: Text('Keep: ${initial}ms'),
+                        title: Text(context.l10n.keepMilliseconds(initial)),
                         subtitle: Text(_formatDelay(initial)),
                         trailing: const Icon(Icons.chevron_right_rounded),
                         onTap: () => Navigator.of(ctx).pop(initial),
@@ -350,7 +352,7 @@ class _MacroEditorScreenState extends State<MacroEditorScreen> {
                             color: theme.colorScheme.onPrimaryContainer,
                           ),
                         ),
-                        title: Text('${ms}ms'),
+                        title: Text(context.l10n.millisecondsShort(ms)),
                         subtitle: Text(_formatDelay(ms)),
                         trailing: const Icon(Icons.chevron_right_rounded),
                         onTap: () => Navigator.of(ctx).pop(ms),
@@ -371,8 +373,8 @@ class _MacroEditorScreenState extends State<MacroEditorScreen> {
                           color: theme.colorScheme.onTertiaryContainer,
                         ),
                       ),
-                      title: const Text('Custom'),
-                      subtitle: const Text('Enter a custom delay duration'),
+                      title: Text(context.l10n.custom),
+                      subtitle: Text(context.l10n.enterCustomDelayDuration),
                       trailing: const Icon(Icons.chevron_right_rounded),
                       onTap: () async {
                         final custom = await _promptCustomDelay(ctx, initial: initial);
@@ -393,9 +395,9 @@ class _MacroEditorScreenState extends State<MacroEditorScreen> {
   }
 
   String _formatDelay(int ms) {
-    if (ms < 1000) return '$ms milliseconds';
+    if (ms < 1000) return context.l10n.millisecondsLong(ms);
     final sec = ms / 1000;
-    return '${sec.toStringAsFixed(sec.truncateToDouble() == sec ? 0 : 1)} second${sec != 1 ? 's' : ''}';
+    return context.l10n.secondsLong(sec.toStringAsFixed(sec.truncateToDouble() == sec ? 0 : 1), sec != 1);
   }
 
   Future<int?> _promptCustomDelay(BuildContext context, {int? initial}) async {
@@ -405,7 +407,7 @@ class _MacroEditorScreenState extends State<MacroEditorScreen> {
       context: context,
       builder: (ctx) {
         return AlertDialog(
-          title: const Text('Custom Delay'),
+          title: Text(context.l10n.customDelay),
           content: Column(
             mainAxisSize: MainAxisSize.min,
             crossAxisAlignment: CrossAxisAlignment.start,
@@ -414,11 +416,11 @@ class _MacroEditorScreenState extends State<MacroEditorScreen> {
                 controller: ctl,
                 keyboardType: TextInputType.number,
                 inputFormatters: [FilteringTextInputFormatter.digitsOnly],
-                decoration: const InputDecoration(
-                  labelText: 'Delay (milliseconds)',
-                  hintText: 'e.g., 3000',
-                  border: OutlineInputBorder(),
-                  prefixIcon: Icon(Icons.timer_rounded),
+                decoration: InputDecoration(
+                  labelText: context.l10n.delayMillisecondsLabel,
+                  hintText: context.l10n.delayMillisecondsHint,
+                  border: const OutlineInputBorder(),
+                  prefixIcon: const Icon(Icons.timer_rounded),
                 ),
                 autofocus: true,
               ),
@@ -440,7 +442,7 @@ class _MacroEditorScreenState extends State<MacroEditorScreen> {
                     const SizedBox(width: 8),
                     Expanded(
                       child: Text(
-                        'Recommended: 250-5000ms for most devices',
+                        context.l10n.recommendedDelayRange,
                         style: theme.textTheme.bodySmall?.copyWith(
                           color: theme.colorScheme.onSurface.withValues(alpha: 0.7),
                         ),
@@ -454,20 +456,20 @@ class _MacroEditorScreenState extends State<MacroEditorScreen> {
           actions: [
             TextButton(
               onPressed: () => Navigator.of(ctx).pop(),
-              child: const Text('Cancel'),
+              child: Text(context.l10n.cancel),
             ),
             FilledButton(
               onPressed: () {
                 final v = int.tryParse(ctl.text.trim());
                 if (v == null || v <= 0) {
                   ScaffoldMessenger.of(ctx).showSnackBar(
-                    const SnackBar(content: Text('Please enter a valid positive number')),
+                    SnackBar(content: Text(context.l10n.enterValidPositiveNumber)),
                   );
                   return;
                 }
                 Navigator.of(ctx).pop(v);
               },
-              child: const Text('OK'),
+              child: Text(context.l10n.ok),
             ),
           ],
         );
@@ -515,7 +517,7 @@ class _MacroEditorScreenState extends State<MacroEditorScreen> {
         actions: [
           if (_canSave)
             IconButton(
-              tooltip: 'Save',
+              tooltip: context.l10n.saveAction,
               onPressed: _save,
               icon: const Icon(Icons.check_rounded),
             ),
@@ -560,7 +562,7 @@ class _MacroEditorScreenState extends State<MacroEditorScreen> {
                   child: OutlinedButton.icon(
                     onPressed: () => Navigator.of(context).pop(),
                     icon: const Icon(Icons.close_rounded),
-                    label: const Text('Cancel'),
+                    label: Text(context.l10n.cancel),
                   ),
                 ),
                 const SizedBox(width: 12),
@@ -568,7 +570,7 @@ class _MacroEditorScreenState extends State<MacroEditorScreen> {
                   child: FilledButton.icon(
                     onPressed: _canSave ? _save : null,
                     icon: const Icon(Icons.save_rounded),
-                    label: const Text('Save'),
+                    label: Text(context.l10n.saveAction),
                   ),
                 ),
               ],
@@ -609,7 +611,7 @@ class _MacroEditorScreenState extends State<MacroEditorScreen> {
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         Text(
-                          'Remote',
+                          context.l10n.remote,
                           style: theme.textTheme.labelMedium?.copyWith(
                             color: cs.onPrimaryContainer.withValues(alpha: 0.7),
                             fontWeight: FontWeight.w600,
@@ -634,13 +636,13 @@ class _MacroEditorScreenState extends State<MacroEditorScreen> {
           TextField(
             controller: _nameCtl,
             decoration: InputDecoration(
-              labelText: 'Macro Name',
-              hintText: 'e.g., i-cybie Advanced Mode',
+              labelText: context.l10n.macroName,
+              hintText: context.l10n.macroNameHint,
               border: const OutlineInputBorder(),
               prefixIcon: const Icon(Icons.label_outline_rounded),
               suffixIcon: _nameCtl.text.trim().isNotEmpty
                   ? IconButton(
-                      tooltip: 'Clear',
+                      tooltip: context.l10n.clearAction,
                       onPressed: () => _nameCtl.clear(),
                       icon: const Icon(Icons.clear_rounded),
                     )
@@ -654,7 +656,7 @@ class _MacroEditorScreenState extends State<MacroEditorScreen> {
               const SizedBox(width: 10),
               Expanded(
                 child: Text(
-                  'Steps (${_steps.length})',
+                  context.l10n.stepsTitleCount(_steps.length),
                   style: theme.textTheme.titleMedium?.copyWith(
                     fontWeight: FontWeight.w900,
                   ),
@@ -684,14 +686,14 @@ class _MacroEditorScreenState extends State<MacroEditorScreen> {
                   ),
                   const SizedBox(height: 12),
                   Text(
-                    'No steps yet',
+                    context.l10n.noStepsYet,
                     style: theme.textTheme.titleMedium?.copyWith(
                       fontWeight: FontWeight.w900,
                     ),
                   ),
                   const SizedBox(height: 6),
                   Text(
-                    'Add commands and delays below to build your sequence',
+                    context.l10n.addCommandsAndDelaysHint,
                     textAlign: TextAlign.center,
                     style: theme.textTheme.bodySmall?.copyWith(
                       color: cs.onSurface.withValues(alpha: 0.7),
@@ -713,7 +715,7 @@ class _MacroEditorScreenState extends State<MacroEditorScreen> {
             ),
           const SizedBox(height: 16),
           Text(
-            'Add Step',
+            context.l10n.addStep,
             style: theme.textTheme.titleSmall?.copyWith(
               fontWeight: FontWeight.w900,
             ),
@@ -726,17 +728,17 @@ class _MacroEditorScreenState extends State<MacroEditorScreen> {
               FilledButton.tonalIcon(
                 onPressed: _addSendStep,
                 icon: const Icon(Icons.send_rounded),
-                label: const Text('Command'),
+                label: Text(context.l10n.commandLabel),
               ),
               FilledButton.tonalIcon(
                 onPressed: _addDelayStep,
                 icon: const Icon(Icons.timer_rounded),
-                label: const Text('Delay'),
+                label: Text(context.l10n.delay),
               ),
               FilledButton.tonalIcon(
                 onPressed: _addManualContinueStep,
                 icon: const Icon(Icons.pause_circle_outline_rounded),
-                label: const Text('Manual Continue'),
+                label: Text(context.l10n.manualContinue),
               ),
             ],
           ),
@@ -757,7 +759,7 @@ class _MacroEditorScreenState extends State<MacroEditorScreen> {
                 const SizedBox(width: 10),
                 Expanded(
                   child: Text(
-                    'Tip: Drag the handle to reorder steps. Tap a step to edit it.',
+                    context.l10n.reorderStepsHint,
                     style: theme.textTheme.bodySmall?.copyWith(
                       color: cs.onSurface.withValues(alpha: 0.8),
                       height: 1.3,
@@ -822,8 +824,8 @@ class _MacroEditorScreenState extends State<MacroEditorScreen> {
                 index: index,
                 child: Semantics(
                   button: true,
-                  label: 'Reorder step ${index + 1}',
-                  hint: 'Press and drag to change step order',
+                  label: context.l10n.reorderStep(index + 1),
+                  hint: context.l10n.pressAndDragToChangeStepOrder,
                   child: Container(
                     constraints: const BoxConstraints(minWidth: 48, minHeight: 48),
                     decoration: BoxDecoration(
@@ -866,9 +868,9 @@ class _MacroEditorScreenState extends State<MacroEditorScreen> {
               const SizedBox(width: 8),
               Semantics(
                 button: true,
-                label: 'Delete step ${index + 1}',
+                label: context.l10n.deleteStep(index + 1),
                 child: IconButton(
-                  tooltip: 'Delete',
+                  tooltip: context.l10n.delete,
                   onPressed: () => _deleteStep(index),
                   icon: Icon(Icons.delete_outline_rounded, color: cs.error),
                 ),
@@ -964,9 +966,9 @@ class _MacroEditorScreenState extends State<MacroEditorScreen> {
       case MacroStepType.send:
         return _stepSendLabel(step);
       case MacroStepType.delay:
-        return '${step.delayMs ?? 0}ms';
+        return context.l10n.millisecondsShort(step.delayMs ?? 0);
       case MacroStepType.manualContinue:
-        return 'Manual Continue';
+        return context.l10n.manualContinue;
     }
   }
 
@@ -976,7 +978,7 @@ class _MacroEditorScreenState extends State<MacroEditorScreen> {
 
     if (!step.isValid) {
       return Text(
-        'Invalid step — tap to fix',
+        context.l10n.invalidStepTapToFix,
         style: theme.textTheme.bodySmall?.copyWith(
           color: cs.error,
           fontWeight: FontWeight.w700,
@@ -986,7 +988,7 @@ class _MacroEditorScreenState extends State<MacroEditorScreen> {
 
     if (step.type == MacroStepType.send) {
       return Text(
-        'Send IR command',
+        context.l10n.sendIrCommand,
         style: theme.textTheme.bodySmall?.copyWith(
           color: cs.onSurface.withValues(alpha: 0.7),
         ),
@@ -1004,7 +1006,7 @@ class _MacroEditorScreenState extends State<MacroEditorScreen> {
 
     if (step.type == MacroStepType.manualContinue) {
       return Text(
-        'Wait for user confirmation',
+        context.l10n.waitForUserConfirmation,
         style: theme.textTheme.bodySmall?.copyWith(
           color: cs.onSurface.withValues(alpha: 0.7),
         ),

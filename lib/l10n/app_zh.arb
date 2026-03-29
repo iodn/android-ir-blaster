@@ -1,0 +1,1846 @@
+{
+  "@@locale": "zh",
+  "appTitle": "IR Blaster",
+  "loading": "加载中…",
+  "unknownError": "未知错误",
+  "failedToStart": "启动失败",
+  "retry": "重试",
+  "quickTilePower": "电源",
+  "quickTileMute": "静音",
+  "quickTileVolumeUp": "音量 +",
+  "quickTileVolumeDown": "音量 -",
+  "homeUsbPermissionRequiredMessage": "此手机没有内置红外发射器。检测到 USB 红外 dongle，但尚未获得权限。\n\n请在 USB 权限提示中点击允许以启用红外发送。",
+  "homeUsbPermissionDeniedMessage": "此手机没有内置红外发射器。检测到 USB 红外 dongle，但 USB 权限被拒绝。\n\n请再次申请权限并在提示中允许，以启用红外发送。",
+  "homeUsbPermissionGrantedMessage": "此手机没有内置红外发射器。USB 红外 dongle 已授权，但尚未初始化。",
+  "homeUsbOpenFailedMessage": "此手机没有内置红外发射器。检测到并已授权 USB 红外 dongle，但初始化失败。\n\n请重新连接 dongle 后重试。",
+  "homeUsbReadyMessage": "此手机没有内置红外发射器。",
+  "homeUsbNoDeviceMessage": "此手机没有内置红外发射器，且当前未连接受支持的 USB 红外 dongle。\n\n你仍可创建、导入和管理遥控器，但要发射红外信号，需要使用下方其中一种方式。",
+  "homeUsbOptionPlugIn": "插入受支持的 USB 红外 dongle，然后授予权限。",
+  "homeUsbOptionReady": "可立即使用。",
+  "homeUsbOptionPermissionRequired": "已连接。需要权限。",
+  "homeUsbOptionPermissionDenied": "权限被拒。请重新申请。",
+  "homeUsbOptionPermissionGranted": "已授权。正在初始化 dongle。",
+  "homeUsbOptionOpenFailed": "已授权，但初始化失败。",
+  "homeHardwareBannerNoInternal": "此手机没有内置红外。请连接 USB 红外 dongle，或在设置中启用音频模式。",
+  "homeHardwareBannerPermissionRequired": "检测到 USB dongle。发送红外前需要权限。",
+  "homeHardwareBannerPermissionDenied": "USB 权限被拒。请重新申请后再发送红外。",
+  "homeHardwareBannerPermissionGranted": "USB dongle 已授权。正在等待初始化。",
+  "homeHardwareBannerOpenFailed": "USB dongle 已授权，但初始化失败。",
+  "homeHardwareBannerReady": "USB 已就绪。",
+  "homeHardwareRequiredTitle": "发送命令需要红外硬件",
+  "homeUsbDongleRecommended": "USB 红外 dongle 推荐",
+  "homeAudioAdapterAlternative": "音频红外适配器 备选",
+  "homeAudioAdapterDescription": "设置 → 红外发射器 → 音频 1 LED / 2 LED。需要音频转红外适配器。",
+  "close": "关闭",
+  "homeChooseTransmitter": "选择发射器",
+  "openSettings": "打开设置",
+  "homeUsbPermissionSentApprove": "已发送 USB 权限请求。请在提示中允许以启用 USB。",
+  "homeUsbDongleNotDetected": "未检测到受支持的 USB 红外 dongle。请插入后重试。",
+  "homeUsbPermissionRequestFailed": "申请 USB 权限失败。",
+  "working": "处理中…",
+  "requestUsbPermission": "申请 USB 权限",
+  "homeHardwareTip": "提示 你现在仍可创建和整理遥控器。只有发送时才需要硬件。",
+  "homeNoIrTransmitterTitle": "没有可用的红外发射器",
+  "settingsNavLabel": "设置",
+  "dismiss": "关闭",
+  "remotesNavLabel": "遥控器",
+  "macrosNavLabel": "宏",
+  "signalTesterNavLabel": "信号测试器",
+  "settingsTitle": "设置",
+  "remoteNoIrEmitterTitle": "没有红外发射器",
+  "remoteNoIrEmitterMessage": "此设备没有红外发射器",
+  "remoteNoIrEmitterNeedsEmitter": "此应用需要红外发射器才能工作",
+  "remoteDismiss": "关闭",
+  "remoteClose": "关闭",
+  "remoteFailedToSend": "发送红外失败 {error}",
+  "@remoteFailedToSend": {
+    "placeholders": {
+      "error": {}
+    }
+  },
+  "remoteFailedToStartLoop": "启动循环失败 {error}",
+  "@remoteFailedToStartLoop": {
+    "placeholders": {
+      "error": {}
+    }
+  },
+  "remoteLoopStoppedFailed": "循环已停止 发送失败 {error}",
+  "@remoteLoopStoppedFailed": {
+    "placeholders": {
+      "error": {}
+    }
+  },
+  "remoteLoopingHint": "正在循环 \"{title}\"。点击顶部栏的停止即可结束。",
+  "@remoteLoopingHint": {
+    "placeholders": {
+      "title": {}
+    }
+  },
+  "remoteLoopStopped": "循环已停止。",
+  "remoteUpdatedNotFound": "屏幕中的遥控器已更新，但在已保存列表中未找到。",
+  "remoteUpdatedNamed": "已更新 \"{name}\"。",
+  "@remoteUpdatedNamed": {
+    "placeholders": {
+      "name": {}
+    }
+  },
+  "remoteDeleteFailed": "删除 失败: {error}",
+  "@remoteDeleteFailed": {
+    "placeholders": {
+      "error": {}
+    }
+  },
+  "remoteNotFoundSavedList": "在已保存列表中未找到遥控器。",
+  "remoteDeletedNamed": "已删除 \"{name}\"。",
+  "@remoteDeletedNamed": {
+    "placeholders": {
+      "name": {}
+    }
+  },
+  "buttonFallbackTitle": "按钮",
+  "imageFallbackTitle": "图片",
+  "noBrowserAvailable": "没有可用浏览器",
+  "failedToOpen": "打开失败 {error}",
+  "@failedToOpen": {
+    "placeholders": {
+      "error": {}
+    }
+  },
+  "cancel": "取消",
+  "settingsRestoreDemoTitle": "恢复演示遥控器",
+  "settingsRestoreDemoMessage": "这将用内置演示遥控器替换当前遥控器。如果想保留现有列表，建议先备份。",
+  "settingsRestoreDemoConfirm": "恢复演示",
+  "settingsDemoRemotesRestored": "已恢复演示遥控器。",
+  "settingsDeleteAllRemotesTitle": "删除所有遥控器",
+  "settingsDeleteAllRemotesMessage": "这会从此设备移除所有遥控器。此操作无法撤销。",
+  "settingsDeleteAllConfirm": "全部删除",
+  "settingsAllRemotesDeleted": "已删除所有遥控器。",
+  "themeAuto": "自动主题",
+  "themeLight": "浅色主题",
+  "themeDark": "深色主题",
+  "themeDescAuto": "跟随设备设置",
+  "themeDescLight": "始终明亮清晰",
+  "themeDescDark": "更护眼",
+  "themeHintAuto": "当设备在浅色与深色模式间切换时，主题会自动切换",
+  "themeHintLight": "适合白天和明亮环境",
+  "themeHintDark": "降低弱光下的眼疲劳，并在 OLED 屏幕上节省电量",
+  "supportDevelopmentTitle": "支持开发",
+  "supportDevelopmentSubtitle": "帮助 IR Blaster 持续维护并兼容更多硬件",
+  "supportDevelopmentBody": "无广告，无跟踪，无功能锁定。你的支持将用于协议适配、USB dongle 支持以及提升设备兼容性。",
+  "donate": "捐赠",
+  "starRepo": "给仓库点星",
+  "repositoryLinkCopied": "仓库链接已复制",
+  "supportPillLocalOnly": "仅本地",
+  "supportPillNoTracking": "无跟踪",
+  "supportPillHardwareAware": "适配硬件",
+  "supportPillOpenSource": "开源",
+  "appearanceTitle": "外观",
+  "appearanceSubtitle": "自定义视觉体验",
+  "localizationTitle": "本地化",
+  "localizationSubtitle": "应用语言与翻译行为",
+  "localizationAutoUsing": "自动 使用 {language}",
+  "@localizationAutoUsing": {
+    "placeholders": {
+      "language": {}
+    }
+  },
+  "localizationAutoDescription": "应用会在可能时跟随设备语言。",
+  "localizationManualDescription": "应用语言已被手动覆盖。",
+  "useSystemLanguageTitle": "使用系统语言",
+  "useSystemLanguageEnabled": "正在跟随设备语言 {language}",
+  "@useSystemLanguageEnabled": {
+    "placeholders": {
+      "language": {}
+    }
+  },
+  "useSystemLanguageDisabled": "使用下方所选语言，而不是设备默认语言。",
+  "chooseAppLanguage": "选择应用语言",
+  "languagePickerDisabledHint": "关闭系统语言后可手动选择语言。",
+  "searchLanguages": "搜索语言",
+  "noLanguagesFound": "没有匹配的语言",
+  "localizationHint": "启用系统语言时，应用会跟随设备地区语言，若无翻译则回退到英语。关闭后可将应用锁定为指定语言。",
+  "appLanguageTitle": "应用语言",
+  "appLanguageHint": "自动跟随设备语言。你也可以在此选择英语或法语，仅覆盖本应用。",
+  "languageAuto": "自动 系统",
+  "languageAutoDescription": "自动跟随设备语言",
+  "languageEnglish": "英语",
+  "languageEnglishDescription": "强制应用始终使用英语",
+  "languageFrench": "法语",
+  "languageFrenchDescription": "强制应用始终使用法语",
+  "languageAutoShort": "自动",
+  "languageEnglishShort": "英语",
+  "languageFrenchShort": "法语",
+  "useDynamicColors": "使用动态配色",
+  "themeChoiceAuto": "自动",
+  "themeChoiceLight": "浅色",
+  "themeChoiceDark": "深色",
+  "irTransmitterTitle": "红外发射器",
+  "irTransmitterSubtitle": "选择用于发送红外命令的硬件",
+  "interactionTitle": "交互",
+  "interactionSubtitle": "触控反馈与遥控器布局",
+  "hapticFeedbackTitle": "触觉反馈",
+  "hapticFeedbackSubtitle": "点击和操作时振动",
+  "intensity": "强度",
+  "intensityLight": "轻",
+  "intensityMedium": "中",
+  "intensityStrong": "强",
+  "flipRemoteDefaultTitle": "默认翻转遥控器视图",
+  "flipRemoteDefaultSubtitle": "打开遥控器页面时旋转 180° 适用于底部 USB dongle。",
+  "remoteViewFlipped": "遥控器视图将以翻转方式打开。",
+  "remoteViewNormal": "遥控器视图将正常打开。",
+  "backupTitle": "备份",
+  "backupSubtitle": "导入导出遥控器和宏",
+  "importBackup": "导入备份",
+  "importBackupSubtitle": "导入遥控器 宏备份或 Flipper Zero LIRC IRPLUS 文件",
+  "bulkImportFolder": "批量导入文件夹",
+  "bulkImportFolderSubtitle": "从文件夹导入多个遥控器",
+  "exportBackup": "导出备份",
+  "exportBackupSubtitle": "将遥控器与宏保存为一个 JSON 文件到下载目录",
+  "restoreDemoRemotes": "恢复演示遥控器",
+  "restoreDemoRemotesSubtitle": "用内置演示替换当前遥控器",
+  "deleteAllRemotes": "删除所有遥控器",
+  "deleteAllRemotesSubtitle": "从此设备移除所有遥控器",
+  "backupTip": "提示 大改前请先导出备份。导入支持完整备份、旧版仅遥控器 JSON 备份和 Flipper Zero .ir 文件。",
+  "aboutTitle": "关于",
+  "aboutSubtitle": "应用信息与开源详情",
+  "aboutAppNameWithCreator": "IR Blaster - {creator}",
+  "@aboutAppNameWithCreator": {
+    "placeholders": {
+      "creator": {}
+    }
+  },
+  "versionLabel": "版本 {version}",
+  "@versionLabel": {
+    "placeholders": {
+      "version": {}
+    }
+  },
+  "sourceCode": "源代码",
+  "viewOnGitHub": "在 GitHub 查看",
+  "repositoryUrlCopied": "仓库 URL 已复制",
+  "reportIssue": "报告问题",
+  "reportIssueSubtitle": "错误报告与功能请求",
+  "issuesUrlCopied": "问题页 URL 已复制",
+  "license": "许可证",
+  "openSourceLicense": "开源许可证",
+  "licenseUrlCopied": "许可证 URL 已复制",
+  "companyName": "KaijinLab Inc.",
+  "visitWebsite": "访问我们的网站",
+  "companyUrlCopied": "公司 URL 已复制",
+  "licenses": "许可证",
+  "openSourceLicenses": "开源许可证",
+  "byCreator": "作者 {creator}",
+  "@byCreator": {
+    "placeholders": {
+      "creator": {}
+    }
+  },
+  "deviceControlsTitle": "设备控制",
+  "deviceControlsSubtitle": "在系统控制页面显示收藏按钮",
+  "manageFavorites": "管理收藏",
+  "manageFavoritesSubtitle": "选择显示在设备控制中的按钮",
+  "quickSettingsTitle": "快捷设置",
+  "quickSettingsSubtitle": "为电源和音量快捷操作添加磁贴",
+  "configureTiles": "配置磁贴",
+  "configureTilesSubtitle": "将磁贴映射到遥控器按钮",
+  "tvKillTitle": "TVKill",
+  "tvKillSubtitle": "对自有设备进行通用电源循环",
+  "openTvKill": "打开 TVKill",
+  "openTvKillSubtitle": "循环发送电源码 仅用于你拥有的设备",
+  "failedToLoadTransmitterSettings": "加载发射器设置失败。",
+  "usbStatusReady": "USB dongle 已连接并可发送红外。",
+  "usbStatusPermissionRequired": "检测到 USB dongle。请申请 USB 权限并在系统提示中允许。",
+  "usbStatusPermissionDenied": "已连接 dongle 的 USB 权限被拒绝。请再次申请并在提示中允许。",
+  "usbStatusPermissionGranted": "USB 权限已授予，但 dongle 仍需初始化后才能发送红外。",
+  "usbStatusOpenFailed": "USB 权限已授予，但 dongle 初始化失败。请重新连接后重试。",
+  "usbStatusNoDevice": "未检测到受支持的 USB 红外 dongle。",
+  "usbSelectPermissionRequired": "检测到 USB dongle，但尚未授权。点击 \"申请 USB 权限\"。",
+  "usbSelectPermissionDenied": "USB 权限被拒。点击 \"申请 USB 权限\" 并在提示中允许。",
+  "usbSelectPermissionGranted": "USB 权限已授予，但 dongle 尚未初始化。请尝试重新连接。",
+  "usbSelectOpenFailed": "USB 权限已授予，但 dongle 初始化失败。请重新连接后重试。",
+  "usbSelectNoDevice": "未检测到受支持的 USB 红外 dongle。请先插入，再点击 \"申请 USB 权限\"。",
+  "usbSelectReady": "USB dongle 已就绪。",
+  "autoSwitchEnabledMessage": "已启用自动切换 已连接时使用 USB，否则使用内置。",
+  "autoSwitchDisabledMessage": "已禁用自动切换 现在需要手动选择发射器。",
+  "failedToUpdateAutoSwitch": "更新自动切换设置失败。",
+  "failedToSwitchTransmitter": "切换发射器失败。",
+  "deviceHasNoInternalIr": "此设备没有内置红外发射器。",
+  "audioModeEnabledMessage": "已启用音频模式。请使用最大媒体音量和音频转红外 LED 适配器。",
+  "usbPermissionRequestSent": "已发送 USB 权限请求。",
+  "usbPermissionRequestSentApprove": "已发送 USB 权限请求。请在提示中允许以启用 USB。",
+  "usbAlreadyReady": "USB dongle 已初始化并就绪。",
+  "failedToRequestUsbPermission": "申请 USB 权限失败。",
+  "transmitterHelpInternal": "使用手机内置红外发射器发送命令。",
+  "transmitterHelpUsb": "使用 USB 红外 dongle 发送命令 需要权限。",
+  "transmitterHelpAudio1": "使用音频输出 单声道。需要音频转红外 LED 适配器和较高媒体音量。",
+  "transmitterHelpAudio2": "使用音频输出 立体声。配合兼容适配器时使用双声道以获得更好的 LED 驱动效果。",
+  "transmitterInternal": "内置 红外",
+  "transmitterUsb": "USB 红外 dongle",
+  "transmitterAudio1": "音频 (1 LED)",
+  "transmitterAudio2": "音频 (2 LEDs)",
+  "failedToLoadTransmitterCapabilities": "加载发射器能力失败。",
+  "selectedTransmitter": "已选发射器",
+  "selectedTransmitterValue": "{effective} • 当前 {active}",
+  "@selectedTransmitterValue": {
+    "placeholders": {
+      "effective": {},
+      "active": {}
+    }
+  },
+  "refresh": "刷新",
+  "autoSwitchTitle": "自动切换",
+  "autoSwitchDisabledWhileAudio": "使用音频模式时禁用",
+  "autoSwitchUsesUsbOtherwiseInternal": "已连接时使用 USB，否则使用内置",
+  "unavailableOnThisDevice": "此设备不可用",
+  "openOnUsbAttachTitle": "连接 USB 时打开",
+  "openOnUsbAttachSubtitle": "连接受支持的 USB 红外 dongle 时，Android 可能会建议打开此应用。",
+  "openOnUsbAttachEnabledMessage": "连接受支持的 USB dongle 时，将建议打开 IR Blaster。",
+  "openOnUsbAttachDisabledMessage": "连接 USB 时不会建议打开。",
+  "failedToUpdateSetting": "更新设置失败。",
+  "unnamedButton": "未命名按钮",
+  "iconFallback": "图标",
+  "remoteListReorderHint": "排序模式 长按并拖动卡片以移动。",
+  "deleteRemoteTitle": "删除遥控器",
+  "deleteRemoteMessage": "\"{name}\" 将被永久移除。此操作无法撤销。",
+  "@deleteRemoteMessage": {
+    "placeholders": {
+      "name": {}
+    }
+  },
+  "delete": "删除",
+  "addToDeviceControlsTitle": "添加到设备控制",
+  "addToDeviceControlsDescription": "可在系统设备控制中快速访问。",
+  "skip": "跳过",
+  "add": "添加",
+  "addedToDeviceControls": "已添加到设备控制。",
+  "deletedRemoteUndoUnavailable": "已删除 \"{name}\"。此操作无法撤销。",
+  "@deletedRemoteUndoUnavailable": {
+    "placeholders": {
+      "name": {}
+    }
+  },
+  "remoteLayoutSummary": "{count} 按钮(s) · {layout}",
+  "@remoteLayoutSummary": {
+    "placeholders": {
+      "count": {},
+      "layout": {}
+    }
+  },
+  "layoutComfort": "舒适",
+  "layoutCompact": "紧凑",
+  "open": "打开",
+  "useThisRemote": "使用此遥控器",
+  "edit": "编辑",
+  "editRemoteSubtitle": "重命名并编辑按钮",
+  "thisCannotBeUndone": "此操作无法撤销",
+  "searchRemotes": "搜索遥控器",
+  "reorderRemotes": "重排 遥控器",
+  "addRemote": "添加 遥控器",
+  "more": "更多",
+  "reorderMode": "排序模式",
+  "remoteButtonCount": "{count} 个按钮{plural}",
+  "@remoteButtonCount": {
+    "placeholders": {
+      "count": {},
+      "plural": {}
+    }
+  },
+  "noRemotesYet": "还没有遥控器",
+  "noRemotesDescription": "创建遥控器即可开始发送红外代码。",
+  "noRemotesNextStep": "下一步 点击添加遥控器，然后添加第一个按钮。",
+  "actions": "操作",
+  "macrosTitle": "宏",
+  "help": "帮助",
+  "createMacro": "创建宏",
+  "timedMacrosTitle": "定时宏",
+  "timedMacrosSubtitle": "以精确定时自动执行一系列红外命令",
+  "timedMacrosNextStep": "下一步 点击创建你的第一个宏，选择一个遥控器，然后添加命令和延迟。",
+  "macroFeatureToysTitle": "非常适合互动玩具",
+  "macroFeatureToysDescription": "控制 i-cybie 机器狗、i-sobot 机器人等需要在命令间留出处理时间的设备。",
+  "macroFeatureTimingTitle": "精确定时控制",
+  "macroFeatureTimingDescription": "在命令之间添加延迟 250ms 到自定义时长，让设备有时间在下一步前作出响应。",
+  "macroFeatureManualTitle": "手动继续步骤",
+  "macroFeatureManualDescription": "当动画时长不固定或你需要视觉反馈时，暂停执行并等待你的确认。",
+  "exampleUseCase": "示例用例",
+  "macroExampleText": "i-cybie 高级模式\n1. 发送 “Mode” 命令\n2. 等待 1000ms 玩具处理\n3. 发送 “Action 1”\n4. 等待 1000ms\n5. 发送 “Action 2”\n…随后自动继续。",
+  "createFirstMacro": "创建你的第一个宏",
+  "noRemote": "没有遥控器",
+  "macroStepCount": "{count} 个步骤{plural}",
+  "@macroStepCount": {
+    "placeholders": {
+      "count": {},
+      "plural": {}
+    }
+  },
+  "aboutTimedMacros": "关于定时宏",
+  "aboutTimedMacrosDescription": "定时宏可让你以精确延迟自动执行一系列红外命令。",
+  "sendCommand": "发送命令",
+  "sendCommandDescription": "发送来自遥控器的红外命令。",
+  "delay": "延迟",
+  "delayDescription": "在下一步前等待指定时长 例如 1000ms。",
+  "manualContinue": "手动继续",
+  "manualContinueDescription": "暂停执行，直到你点击继续 适合时长不固定的动画。",
+  "gotIt": "知道了",
+  "failedToSaveMacros": "保存宏失败。",
+  "deletedMacroNamed": "已删除 \"{name}\"。",
+  "@deletedMacroNamed": {
+    "placeholders": {
+      "name": {}
+    }
+  },
+  "undo": "撤销",
+  "failedToRestoreMacro": "恢复宏失败。",
+  "deleteMacroTitle": "删除宏",
+  "deleteMacroMessage": "你可以在接下来的提示条中撤销此操作。",
+  "noRemotesAvailable": "没有可用遥控器。",
+  "remoteButtonCountSummary": "{count} 个按钮",
+  "@remoteButtonCountSummary": {
+    "placeholders": {
+      "count": {}
+    }
+  },
+  "remoteOrientationFlippedTooltip": "方向 已翻转 点击恢复正常",
+  "remoteOrientationNormalTooltip": "方向 正常 点击翻转",
+  "stopLoop": "停止循环",
+  "reorderButtons": "重排按钮",
+  "remoteReorderHint": "排序模式 长按并拖动按钮以移动。",
+  "manageRemote": "管理遥控器",
+  "remoteNoButtons": "此遥控器中没有按钮",
+  "remoteNoButtonsDescription": "使用 \"编辑遥控器\" 添加或配置按钮。",
+  "editRemote": "编辑遥控器",
+  "editRemoteActionsSubtitle": "重命名、重排并编辑按钮",
+  "remoteUpdatedNamedButton": "已更新 \"{name}\"。",
+  "@remoteUpdatedNamedButton": {
+    "placeholders": {
+      "name": {}
+    }
+  },
+  "buttonAddedNamed": "已添加 \"{name}\".",
+  "@buttonAddedNamed": {
+    "placeholders": {
+      "name": {}
+    }
+  },
+  "buttonDuplicated": "按钮已复制。",
+  "loopRunningForButton": "此按钮正在循环运行。",
+  "loopTip": "提示 使用循环可持续重复，直到你停止为止。",
+  "codeCopied": "代码已复制。",
+  "copyCode": "复制代码",
+  "startLoop": "开始循环",
+  "editButtonSubtitle": "修改标签、代码、协议和频率",
+  "newButton": "新建按钮",
+  "newButtonSubtitle": "在此按钮后创建新按钮",
+  "duplicate": "复制",
+  "duplicateButtonSubtitle": "创建此按钮的副本",
+  "removeFromDeviceControls": "从设备控制中移除",
+  "addToDeviceControls": "添加到设备控制",
+  "deviceControlsButtonSubtitle": "在系统设备控制中显示此按钮",
+  "removedFromDeviceControls": "已从 设备 控制 移除。",
+  "pinQuickTile": "固定到快捷磁贴收藏",
+  "unpinQuickTile": "取消固定快捷磁贴收藏",
+  "quickTileButtonSubtitle": "在快捷磁贴选择器顶部显示此按钮",
+  "removedFromQuickTileFavorites": "已从 快捷 磁贴 收藏 移除。",
+  "pinnedToQuickTileFavorites": "已固定到快捷磁贴收藏。",
+  "duplicateAndEdit": "复制并编辑",
+  "duplicateAndEditSubtitle": "创建副本并立即编辑",
+  "done": "完成",
+  "run": "运行",
+  "untitledRemote": "未命名遥控器",
+  "createRemoteTitle": "创建遥控器",
+  "editRemoteTitle": "编辑遥控器",
+  "removeButtonTitle": "移除按钮",
+  "imageButtonRemovedMessage": "此图片按钮将被移除。",
+  "namedButtonRemovedMessage": "\"{name}\" 将被移除。",
+  "@namedButtonRemovedMessage": {
+    "placeholders": {
+      "name": {}
+    }
+  },
+  "remove": "移除",
+  "importedButtonCount": "已导入 {count} 个按钮。",
+  "@importedButtonCount": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "importedButtonsFromExistingRemotes": "已从现有遥控器导入 {count} 个按钮。",
+  "@importedButtonsFromExistingRemotes": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "editButtonSettingsSubtitle": "更改标签、信号和高级设置",
+  "createButtonCopySubtitle": "创建此按钮的副本",
+  "duplicateAndEditButtonSubtitle": "创建副本并立即编辑",
+  "undoAvailableInNextSnackbar": "你可以在接下来的提示条中撤销",
+  "buttonRemoved": "按钮已移除。",
+  "remoteNameCannotBeEmpty": "遥控器名称不能为空。",
+  "saveRemote": "保存遥控器",
+  "remoteName": "遥控器名称",
+  "remoteNameHint": "例如 电视 空调 LED 灯带",
+  "remoteNameHelper": "此名称会显示在遥控器列表中。",
+  "layoutStyle": "布局样式",
+  "layoutWideDescription": "宽布局 2 列按钮并显示更多详情 推荐。",
+  "layoutCompactDescription": "紧凑布局 经典 4× 网格 仅图标 文本。",
+  "importFromRemotes": "从遥控器导入",
+  "importFromDatabase": "从数据库导入",
+  "addButton": "添加按钮",
+  "noButtonsYet": "还没有按钮",
+  "createRemoteEmptyStateDescription": "添加第一个按钮后，长按它可进行编辑或移除。",
+  "createButtonTitle": "创建按钮",
+  "editButtonTitle": "编辑按钮",
+  "failedToLoadProtocols": "加载协议失败 {error}",
+  "@failedToLoadProtocols": {
+    "placeholders": {
+      "error": {}
+    }
+  },
+  "failedToLoadDatabaseKeys": "加载数据库按键失败 {error}",
+  "@failedToLoadDatabaseKeys": {
+    "placeholders": {
+      "error": {}
+    }
+  },
+  "presetPower": "电源",
+  "presetVolume": "音量",
+  "presetChannel": "频道",
+  "presetNavigation": "导航",
+  "all": "全部",
+  "completeRequiredFieldsToSave": "请填写必填项后再保存",
+  "buttonLabelStepTitle": "1 按钮标签",
+  "buttonLabelStepSubtitle": "选择图片、图标或输入文本标签。",
+  "buttonColorStepTitle": "2 按钮颜色 可选",
+  "buttonColorStepSubtitle": "为此按钮选择背景颜色。",
+  "selectColor": "选择颜色",
+  "noImageSelected": "未选择图片",
+  "gallery": "图库",
+  "builtIn": "内置",
+  "removeImage": "移除 图片",
+  "requiredSelectImageOrSwitch": "必填 请选择图片、图标，或切换到文本模式。",
+  "iconSelected": "已选择图标",
+  "noIconSelected": "未选择图标",
+  "chooseIcon": "选择图标",
+  "removeIcon": "移除图标",
+  "requiredSelectIconOrSwitch": "必填 请选择图标，或切换到图片 文本模式。",
+  "buttonText": "按钮文本",
+  "buttonTextHint": "例如 电源、音量 +、HDMI 1",
+  "buttonTextHelper": "此文本将显示在按钮上。",
+  "requiredEnterButtonLabel": "必填 请输入按钮标签。",
+  "defaultColorName": "默认",
+  "newRemoteCreatedFromLastHit": "已根据上次命中创建一个包含单个按钮的新遥控器。",
+  "selectRemote": "选择遥控器",
+  "remoteNumber": "遥控器 #{id}",
+  "@remoteNumber": {
+    "placeholders": {
+      "id": {}
+    }
+  },
+  "newRemoteCreated": "已创建新遥控器。",
+  "failedToCreateRemote": "创建遥控器失败。",
+  "newRemoteEllipsis": "新遥控器…",
+  "addedToRemoteNamed": "已添加到 {name}。",
+  "@addedToRemoteNamed": {
+    "placeholders": {
+      "name": {}
+    }
+  },
+  "failedToAddToRemote": "添加到遥控器失败。",
+  "newRemoteDefaultName": "新遥控器",
+  "jumpedToOffsetPaused": "已跳转到偏移 {offset}。已暂停 按恢复继续。",
+  "@jumpedToOffsetPaused": {
+    "placeholders": {
+      "offset": {
+        "type": "int"
+      }
+    }
+  },
+  "sent": "已发送。",
+  "failedToSend": "发送失败 {error}",
+  "@failedToSend": {
+    "placeholders": {
+      "error": {}
+    }
+  },
+  "copiedProtocolCode": "已复制 协议 代码。",
+  "savedToResults": "已保存到结果。",
+  "invalidCodeForProtocol": "协议代码无效 {error}",
+  "@invalidCodeForProtocol": {
+    "placeholders": {
+      "error": {}
+    }
+  },
+  "copiedCurrentCandidate": "已复制当前候选项。",
+  "jumpToOffset": "跳转到偏移",
+  "jumpToBruteCursor": "跳转到暴力游标",
+  "jump": "跳转",
+  "jumpedToCursorPaused": "已跳转到游标 0x{cursor}。已暂停 按恢复继续。",
+  "@jumpedToCursorPaused": {
+    "placeholders": {
+      "cursor": {}
+    }
+  },
+  "irSignalTester": "红外信号测试器",
+  "stop": "停止",
+  "selectButton": "选择按钮",
+  "buttonNotFoundInRemotes": "在遥控器中未找到按钮。",
+  "sentNamed": "已发送 \"{name}\"。",
+  "@sentNamed": {
+    "placeholders": {
+      "name": {}
+    }
+  },
+  "sendFailed": "发送失败 {error}",
+  "@sendFailed": {
+    "placeholders": {
+      "error": {}
+    }
+  },
+  "noFavoritesYet": "还没有收藏",
+  "deviceControlsEmptyHint": "长按遥控器按钮并选择 “添加到设备控制”。",
+  "sendTest": "发送测试",
+  "testSendCompleted": "测试发送完成。",
+  "testSendFailed": "测试发送失败 {error}",
+  "@testSendFailed": {
+    "placeholders": {
+      "error": {}
+    }
+  },
+  "removedNamed": "已移除 \"{name}\"。",
+  "@removedNamed": {
+    "placeholders": {
+      "name": {}
+    }
+  },
+  "brand": "品牌",
+  "model": "型号",
+  "selectBrand": "选择品牌",
+  "searchBrand": "搜索品牌…",
+  "selectModel": "选择型号",
+  "searchModel": "搜索型号…",
+  "unnamedKey": "未命名按键",
+  "unknown": "未知",
+  "emDash": "-",
+  "searchCommands": "搜索命令",
+  "noMatchingCommands": "没有匹配命令",
+  "quickTileFavoritesTitle": "快捷磁贴收藏",
+  "changeMappingForTile": "更改 {tileLabel} 磁贴映射",
+  "@changeMappingForTile": {
+    "placeholders": {
+      "tileLabel": {}
+    }
+  },
+  "pickDifferentButton": "选择其他按钮",
+  "browseAllRemotesEllipsis": "浏览所有遥控器…",
+  "invalidMacroFileFormat": "宏文件格式无效。",
+  "failedToParseMacroFile": "解析宏文件失败。",
+  "deviceCodeLabel": "设备代码",
+  "commandLabel": "命令",
+  "editButtonCodeTitle": "编辑按钮代码",
+  "thisRemoteHasNoButtons": "此遥控器没有按钮。",
+  "selectCommand": "选择命令",
+  "databaseModeAutofillHint": "数据库模式会自动为你填充第 2 步 品牌 型号 协议。导入按键后，你仍可在手动模式中进一步调整。",
+  "test": "测试",
+  "allSelectedButtonsWereDuplicates": "所选按钮全部为重复项。",
+  "noButtonsImported": "未导入任何按钮。",
+  "importedButtonsSkippedDuplicates": "已导入 {addedCount} 个按钮。跳过 {skippedCount} 个重复项。",
+  "@importedButtonsSkippedDuplicates": {
+    "placeholders": {
+      "addedCount": {
+        "type": "int"
+      },
+      "skippedCount": {
+        "type": "int"
+      }
+    }
+  },
+  "importAllMatchingTitle": "导入所有匹配按钮",
+  "noMatchingKeysFound": "未找到匹配按键。",
+  "importAllMatchingMessage": "这将从当前数据库选择中导入最多 {count} 个匹配按键。",
+  "@importAllMatchingMessage": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "importAll": "全部导入",
+  "importingButtons": "正在导入按钮…",
+  "allMatchingButtonsWereDuplicates": "所有匹配按钮都是重复项。",
+  "quickPresets": "快捷预设",
+  "selectDeviceFirst": "请先选择设备",
+  "searchByLabelOrHex": "按标签或十六进制搜索",
+  "optionalRefinePresetKeys": "可选 进一步细化 {preset} 预设按键",
+  "@optionalRefinePresetKeys": {
+    "placeholders": {
+      "preset": {}
+    }
+  },
+  "selectBrandModelProtocolFirst": "请先选择品牌、型号和协议。",
+  "importFromDatabaseTitle": "从数据库导入",
+  "importFromDatabaseSubtitle": "选择设备，加载匹配按键，然后导入所选按钮。",
+  "deviceAndFilters": "设备与筛选",
+  "loadedCount": "已加载 {count}",
+  "@loadedCount": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "hideFilters": "隐藏筛选",
+  "showFilters": "显示筛选",
+  "noProtocolFoundForBrandModel": "未找到此品牌和型号对应的协议。",
+  "protocolAutoDetected": "协议",
+  "protocolAutoDetectedHelper": "已从数据库自动检测。导入前你仍可修改。",
+  "selectBrandModelToLoadKeys": "请选择品牌、型号和协议以加载按键。",
+  "noKeysFound": "未找到按键。",
+  "noKeysFoundForSearch": "未找到 “{query}” 的按键。",
+  "@noKeysFoundForSearch": {
+    "placeholders": {
+      "query": {}
+    }
+  },
+  "skipDuplicates": "跳过重复项",
+  "skipDuplicatesSubtitle": "不要导入此遥控器中已存在的按钮。",
+  "importSelected": "导入所选",
+  "noMacrosToExport": "没有可导出的宏。",
+  "macrosExportedToDownloads": "宏已导出到下载目录。",
+  "failedToExportMacros": "导出宏失败。",
+  "failedToReadFile": "读取文件失败。",
+  "importFromExistingRemotesTitle": "从现有遥控器导入",
+  "selectedCount": "已选择 {count}",
+  "@selectedCount": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "noOtherRemotesWithButtons": "未找到其他带按钮的遥控器。",
+  "sourceRemote": "来源遥控器",
+  "searchButtons": "搜索按钮",
+  "searchButtonsHint": "电源、音量、静音…",
+  "selectVisible": "选择可见项",
+  "clearVisible": "清除可见项",
+  "protocolNamed": "协议 {name}",
+  "@protocolNamed": {
+    "placeholders": {
+      "name": {}
+    }
+  },
+  "rawSignal": "原始",
+  "legacyCode": "旧代码",
+  "importCount": "导入 {count}",
+  "@importCount": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "storagePermissionDeniedLegacy": "存储权限被拒 某些旧版 Android 设备需要此权限。",
+  "backupExportedToDownloads": "备份已导出到下载目录。",
+  "failedToExport": "导出失败 {error}",
+  "@failedToExport": {
+    "placeholders": {
+      "error": {}
+    }
+  },
+  "importedLegacyJsonBackup": "已从旧版 JSON 备份导入 {count} 个遥控器。宏未更改。",
+  "@importedLegacyJsonBackup": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "importFailedRemotesMustBeList": "导入失败 备份中的 \"遥控器\" 存在时必须是 JSON 列表。",
+  "importFailedMacrosMustBeList": "导入失败 备份中的 \"宏\" 存在时必须是 JSON 列表。",
+  "importFailedInvalidBackupFormat": "导入失败 备份格式无效 预期为旧版列表或包含 遥控器 宏 的映射。",
+  "importedBackupRemotesOnly": "已从备份导入 {remoteCount} 个遥控器。宏未更改。",
+  "@importedBackupRemotesOnly": {
+    "placeholders": {
+      "remoteCount": {
+        "type": "int"
+      }
+    }
+  },
+  "importedBackupRemotesAndMacros": "已从备份导入 {remoteCount} 个遥控器和 {macroCount} 个宏。",
+  "@importedBackupRemotesAndMacros": {
+    "placeholders": {
+      "remoteCount": {
+        "type": "int"
+      },
+      "macroCount": {
+        "type": "int"
+      }
+    }
+  },
+  "importFailedNoValidButtonsInIr": "导入失败 在.ir 文件中未找到有效按钮。",
+  "importedOneRemoteFromFlipper": "已从 Flipper.ir 导入 1 个遥控器。宏未更改。",
+  "importFailedInvalidIrplus": "导入失败 IRPlus 文件无效 未找到有效按钮。",
+  "importedOneRemoteFromIrplus": "已从 IRPlus 导入 1 个遥控器。宏未更改。",
+  "importFailedInvalidLirc": "导入失败 LIRC 文件无效 未找到有效代码 原始代码。",
+  "importedOneRemoteFromLirc": "已从 LIRC 配置导入 1 个遥控器。宏未更改。",
+  "unsupportedFileTypeSelected": "所选文件类型不受支持。",
+  "importFailedInvalidUnreadableFile": "导入失败 文件无效或无法读取。",
+  "bulkImportNoSupportedFilesInFolder": "批量导入完成 文件夹中未找到受支持文件。",
+  "bulkImportNoRemotesImported": "批量导入完成 未导入任何遥控器。已跳过 {skippedCount} 个文件。",
+  "@bulkImportNoRemotesImported": {
+    "placeholders": {
+      "skippedCount": {
+        "type": "int"
+      }
+    }
+  },
+  "bulkImportComplete": "批量导入完成 已从 {supportedCount} 个受支持文件导入 {importedCount} 个遥控器。已跳过 {skippedCount} 个文件。",
+  "@bulkImportComplete": {
+    "placeholders": {
+      "importedCount": {
+        "type": "int"
+      },
+      "supportedCount": {
+        "type": "int"
+      },
+      "skippedCount": {
+        "type": "int"
+      }
+    }
+  },
+  "storagePermissionDenied": "存储权限被拒。",
+  "bulkImportFailedReadFolder": "批量导入失败 无法读取文件夹内容。",
+  "bulkImportNoSupportedFilesSource": "批量导入完成 未找到受支持文件 {sourceLabel}。",
+  "@bulkImportNoSupportedFilesSource": {
+    "placeholders": {
+      "sourceLabel": {}
+    }
+  },
+  "clearAction": "清除",
+  "saveAction": "保存",
+  "buttonsTitleCount": "按钮 ({count})",
+  "@buttonsTitleCount": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "invalidStepEncountered": "遇到无效步骤",
+  "failedToSendNamed": "发送失败 {name}",
+  "@failedToSendNamed": {
+    "placeholders": {
+      "name": {}
+    }
+  },
+  "buttonNotFound": "未找到按钮",
+  "buttonNotFoundNamed": "未找到按钮 {name}",
+  "@buttonNotFoundNamed": {
+    "placeholders": {
+      "name": {}
+    }
+  },
+  "unknownButton": "未知 按钮",
+  "durationSecondsShort": "{seconds}s",
+  "@durationSecondsShort": {
+    "placeholders": {
+      "seconds": {
+        "type": "int"
+      }
+    }
+  },
+  "durationMinutesSecondsShort": "{minutes}m {seconds}s",
+  "@durationMinutesSecondsShort": {
+    "placeholders": {
+      "minutes": {
+        "type": "int"
+      },
+      "seconds": {
+        "type": "int"
+      }
+    }
+  },
+  "durationHoursMinutesShort": "{hours}h {minutes}m",
+  "@durationHoursMinutesShort": {
+    "placeholders": {
+      "hours": {
+        "type": "int"
+      },
+      "minutes": {
+        "type": "int"
+      }
+    }
+  },
+  "orientationFlippedTooltip": "方向 已翻转 点击恢复正常",
+  "orientationNormalTooltip": "方向 正常 点击翻转",
+  "noSteps": "没有步骤",
+  "stepProgress": "步骤 {current} / {total}",
+  "@stepProgress": {
+    "placeholders": {
+      "current": {
+        "type": "int"
+      },
+      "total": {
+        "type": "int"
+      }
+    }
+  },
+  "completed": "已完成",
+  "paused": "已暂停",
+  "running": "运行中",
+  "ready": "就绪",
+  "stepsProgress": "{current} / {total} 步骤",
+  "@stepsProgress": {
+    "placeholders": {
+      "current": {
+        "type": "int"
+      },
+      "total": {
+        "type": "int"
+      }
+    }
+  },
+  "waiting": "等待中",
+  "secondsRemaining": "剩余 {seconds}s",
+  "@secondsRemaining": {
+    "placeholders": {
+      "seconds": {}
+    }
+  },
+  "millisecondsShort": "{ms}ms",
+  "@millisecondsShort": {
+    "placeholders": {
+      "ms": {
+        "type": "int"
+      }
+    }
+  },
+  "tapContinueWhenReady": "准备好下一步后点击继续",
+  "error": "错误",
+  "macroCompleted": "宏已完成",
+  "finishedIn": "完成用时 {duration}",
+  "@finishedIn": {
+    "placeholders": {
+      "duration": {}
+    }
+  },
+  "sequence": "序列",
+  "waitMilliseconds": "等待 {ms}ms",
+  "@waitMilliseconds": {
+    "placeholders": {
+      "ms": {
+        "type": "int"
+      }
+    }
+  },
+  "runAgain": "再次运行",
+  "startMacro": "开始宏",
+  "continueAction": "继续",
+  "unnamedRemote": "未命名遥控器",
+  "enterMacroName": "输入宏名称",
+  "addAtLeastOneStep": "至少添加一个步骤",
+  "fixInvalidSteps": "修正无效步骤",
+  "unknownCommand": "未知命令",
+  "unnamedCommand": "未命名命令",
+  "iconCommand": "图标命令",
+  "selectDelay": "选择延迟",
+  "keepMilliseconds": "保留 {ms}ms",
+  "@keepMilliseconds": {
+    "placeholders": {
+      "ms": {
+        "type": "int"
+      }
+    }
+  },
+  "custom": "自定义",
+  "enterCustomDelayDuration": "输入自定义延迟时长",
+  "millisecondsLong": "{ms} 毫秒",
+  "@millisecondsLong": {
+    "placeholders": {
+      "ms": {
+        "type": "int"
+      }
+    }
+  },
+  "secondsLong": "{seconds} 秒{plural}",
+  "@secondsLong": {
+    "placeholders": {
+      "seconds": {},
+      "plural": {}
+    }
+  },
+  "customDelay": "自定义延迟",
+  "delayMillisecondsLabel": "延迟 毫秒",
+  "delayMillisecondsHint": "例如 3000",
+  "recommendedDelayRange": "建议 大多数设备为 250 到 5000ms",
+  "enterValidPositiveNumber": "请输入有效的正数",
+  "ok": "确定",
+  "remote": "遥控器",
+  "macroName": "宏名称",
+  "macroNameHint": "例如 i-cybie 高级模式",
+  "stepsTitleCount": "步骤 {count}",
+  "@stepsTitleCount": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "noStepsYet": "还没有步骤",
+  "addCommandsAndDelaysHint": "在下方添加命令和延迟以构建你的序列",
+  "addStep": "添加步骤",
+  "reorderStepsHint": "提示 拖动把手可重排步骤。点击步骤可编辑。",
+  "reorderStep": "重排步骤 {index}",
+  "@reorderStep": {
+    "placeholders": {
+      "index": {
+        "type": "int"
+      }
+    }
+  },
+  "pressAndDragToChangeStepOrder": "按住并拖动以更改步骤顺序",
+  "deleteStep": "删除步骤 {index}",
+  "@deleteStep": {
+    "placeholders": {
+      "index": {
+        "type": "int"
+      }
+    }
+  },
+  "invalidStepTapToFix": "步骤无效 点击修复",
+  "sendIrCommand": "发送红外命令",
+  "waitForUserConfirmation": "等待用户确认",
+  "notImplemented": "尚未实现",
+  "frequencyKhz": "{value} kHz",
+  "@frequencyKhz": {
+    "placeholders": {
+      "value": {
+        "type": "int"
+      }
+    }
+  },
+  "necProtocolShort": "NEC",
+  "msbShort": "MSB",
+  "layoutWide": "宽布局",
+  "iconButton": "图标按钮",
+  "imageButton": "图片按钮",
+  "noSignalInfo": "没有信号信息",
+  "proceed": "继续",
+  "discard": "丢弃",
+  "idle": "空闲",
+  "start": "开始",
+  "resume": "恢复",
+  "pause": "暂停",
+  "stopped": "已停止",
+  "copy": "复制",
+  "send": "发送",
+  "step": "步骤",
+  "addToRemote": "添加到遥控器",
+  "noDescriptionAvailable": "没有可用说明。",
+  "notAvailableSymbol": "-",
+  "irFinderKaseikyoVendorInvalid": "Kaseikyo 厂商值必须正好为 4 个十六进制数字。",
+  "irFinderDatabaseNotReady": "数据库尚未就绪。",
+  "irFinderSelectBrandFirst": "请先在设置中选择品牌。",
+  "irFinderBruteforceUnavailable": "此协议暂不支持暴力枚举。",
+  "irFinderInvalidPrefix": "前缀无效。",
+  "irFinderBrandValue": "品牌: {value}",
+  "@irFinderBrandValue": {
+    "placeholders": {
+      "value": {}
+    }
+  },
+  "irFinderModelValue": "型号: {value}",
+  "@irFinderModelValue": {
+    "placeholders": {
+      "value": {}
+    }
+  },
+  "irFinderKeyValue": "按键 {value}",
+  "@irFinderKeyValue": {
+    "placeholders": {
+      "value": {}
+    }
+  },
+  "irFinderRemoteNumber": "遥控器 #{value}",
+  "@irFinderRemoteNumber": {
+    "placeholders": {
+      "value": {}
+    }
+  },
+  "irFinderJumpOffsetHelper": "请输入筛选并排序后的数据库结果中的从 0 开始索引。",
+  "irFinderJumpCursorHelper": "请输入暴力枚举空间中的从 0 开始十六进制游标。",
+  "irFinderSetupTab": "设置",
+  "irFinderTestTab": "测试",
+  "irFinderResultsTab": "结果",
+  "irFinderContinueToTest": "继续测试",
+  "irFinderKaseikyoVendorTitle": "Kaseikyo 厂商",
+  "irFinderCustomVendorLabel": "自定义厂商 4 位十六进制",
+  "irFinderBrowseDbCandidates": "浏览数据库候选项…",
+  "irFinderEditSetup": "编辑设置",
+  "irFinderNoSavedHits": "还没有已保存命中。在测试页面中，当设备有反应时点击 “保存命中”。",
+  "irFinderBackToTest": "返回测试",
+  "irFinderLargeSearchSpaceTitle": "搜索空间很大",
+  "irFinderLargeSearchSpaceBody": "该暴力枚举空间非常大 共 {human} 种可能。IR Finder 仍会遵守你的最大尝试次数和冷却时间，但请注意不要对红外设备过度发送。\n\n建议 先使用数据库模式，或输入已知前缀字节以缩小空间。",
+  "@irFinderLargeSearchSpaceBody": {
+    "placeholders": {
+      "human": {}
+    }
+  },
+  "irFinderDatabaseSession": "数据库会话",
+  "irFinderBruteforceSession": "暴力会话",
+  "irFinderResumeLastSession": "恢复上次会话",
+  "irFinderResumeBrandModel": "品牌: {brand} · 型号: {model}",
+  "@irFinderResumeBrandModel": {
+    "placeholders": {
+      "brand": {},
+      "model": {}
+    }
+  },
+  "irFinderResumePrefix": "前缀 {value}",
+  "@irFinderResumePrefix": {
+    "placeholders": {
+      "value": {}
+    }
+  },
+  "irFinderResumeProgress": "进度 {progress} · 开始时间 {when}",
+  "@irFinderResumeProgress": {
+    "placeholders": {
+      "progress": {},
+      "when": {}
+    }
+  },
+  "irFinderApplyResume": "应用并恢复",
+  "irFinderBruteforceMode": "暴力枚举",
+  "irFinderDatabaseAssistedMode": "数据库辅助",
+  "irFinderProtocolTitle": "协议 {name}",
+  "@irFinderProtocolTitle": {
+    "placeholders": {
+      "name": {}
+    }
+  },
+  "irFinderProtocolLabel": "红外 协议",
+  "irFinderProtocolHelper": "它决定编码方式，因此也会影响搜索空间。",
+  "irFinderKnownPrefixLabel": "已知前缀 十六进制字节 可选",
+  "irFinderKnownPrefixHint": "A1B2, A1 B2, A1:B2, 0xA1 0xB2",
+  "irFinderKnownPrefixHelperPayload": "负载 {digits} 个十六进制数字",
+  "@irFinderKnownPrefixHelperPayload": {
+    "placeholders": {
+      "digits": {
+        "type": "int"
+      }
+    }
+  },
+  "irFinderKnownPrefixHelperPayloadExample": "负载 {digits} 个十六进制数字 · 示例 {example}",
+  "@irFinderKnownPrefixHelperPayloadExample": {
+    "placeholders": {
+      "digits": {
+        "type": "int"
+      },
+      "example": {}
+    }
+  },
+  "irFinderKnownPrefixHelperPayloadMax": "负载 {digits} 个十六进制数字 · 最大前缀 {bytes} 字节",
+  "@irFinderKnownPrefixHelperPayloadMax": {
+    "placeholders": {
+      "digits": {
+        "type": "int"
+      },
+      "bytes": {
+        "type": "int"
+      }
+    }
+  },
+  "irFinderKnownPrefixHelperPayloadExampleMax": "负载 {digits} 个十六进制数字 · 示例 {example} · 最大前缀 {bytes} 字节",
+  "@irFinderKnownPrefixHelperPayloadExampleMax": {
+    "placeholders": {
+      "digits": {
+        "type": "int"
+      },
+      "example": {},
+      "bytes": {
+        "type": "int"
+      }
+    }
+  },
+  "irFinderKnownPrefixHelperExample": "示例 {example}",
+  "@irFinderKnownPrefixHelperExample": {
+    "placeholders": {
+      "example": {}
+    }
+  },
+  "irFinderKnownPrefixHelperFallback": "输入任意已知起始字节以缩小搜索空间。",
+  "irFinderDatabaseMode": "数据库",
+  "irFinderNormalizedPrefixValue": "规范化前缀 {value}",
+  "@irFinderNormalizedPrefixValue": {
+    "placeholders": {
+      "value": {}
+    }
+  },
+  "irFinderNormalizedPrefix": "规范化前缀",
+  "irFinderBruteforceNotConfigured": "此协议尚未配置暴力枚举。",
+  "irFinderAllLimit": "全部 ({value})",
+  "@irFinderAllLimit": {
+    "placeholders": {
+      "value": {}
+    }
+  },
+  "irFinderTestControls": "测试控制",
+  "irFinderPayloadLength": "负载长度 {digits} 个十六进制数字。",
+  "@irFinderPayloadLength": {
+    "placeholders": {
+      "digits": {
+        "type": "int"
+      }
+    }
+  },
+  "irFinderSearchSpace": "搜索空间 {value} 种可能 受前缀约束后。",
+  "@irFinderSearchSpace": {
+    "placeholders": {
+      "value": {}
+    }
+  },
+  "irFinderCooldownMs": "冷却时间 毫秒",
+  "irFinderMaxAttemptsPerRun": "最大尝试次数 每次运行",
+  "irFinderTestAllCombinations": "测试所有组合",
+  "irFinderTestAllCombinationsHint": "将持续运行直到搜索空间耗尽。本次有效上限 {value}",
+  "@irFinderTestAllCombinationsHint": {
+    "placeholders": {
+      "value": {}
+    }
+  },
+  "irFinderAttempts": "尝试次数",
+  "irFinderAttemptsSliderRange": "滑块范围 1 到 {max} 若需更大值可直接输入数字",
+  "@irFinderAttemptsSliderRange": {
+    "placeholders": {
+      "max": {
+        "type": "int"
+      }
+    }
+  },
+  "irFinderMaxButton": "最大\n{value}",
+  "@irFinderMaxButton": {
+    "placeholders": {
+      "value": {
+        "type": "int"
+      }
+    }
+  },
+  "irFinderEffectiveLimitThisRun": "本次运行有效上限 {value}",
+  "@irFinderEffectiveLimitThisRun": {
+    "placeholders": {
+      "value": {}
+    }
+  },
+  "irFinderBruteforceTip": "提示 先使用数据库模式。若已知前缀 例如前 1 到 4 个字节 时，暴力枚举效果最好。",
+  "irFinderDatabaseInitFailed": "数据库初始化失败。",
+  "irFinderPreparingDatabase": "正在准备本地红外代码数据库…",
+  "irFinderDatabaseAssistedSearch": "数据库辅助搜索",
+  "irFinderBrand": "品牌",
+  "irFinderSelectBrand": "选择品牌",
+  "irFinderModelOptional": "型号 (可选)",
+  "irFinderSelectBrandFirstShort": "请先选择品牌",
+  "irFinderSelectModelRecommended": "选择a 型号 (推荐)",
+  "irFinderOnlySelectedProtocol": "仅所选协议",
+  "irFinderOnlySelectedProtocolHint": "仅筛选为所选协议的按键。关闭后可浏览全部协议。",
+  "irFinderQuickWinsFirst": "优先快速命中",
+  "irFinderQuickWinsFirstHint": "会优先尝试 POWER、MUTE、VOL、CH 等样式的按键，然后再尝试更深层的按键。",
+  "irFinderMaxKeysPerRun": "每次运行最多测试按键数",
+  "irFinderTesting": "测试中…",
+  "irFinderCooldown": "冷却时间",
+  "irFinderEta": "预计时间",
+  "irFinderMode": "模式",
+  "irFinderRetryLast": "重试上次",
+  "irFinderTrigger": "触发",
+  "irFinderJump": "跳转…",
+  "irFinderSaveHit": "保存命中",
+  "irFinderEtaSeconds": "{seconds}s",
+  "@irFinderEtaSeconds": {
+    "placeholders": {
+      "seconds": {
+        "type": "int"
+      }
+    }
+  },
+  "irFinderEtaMinutesSeconds": "{minutes}m {seconds}s",
+  "@irFinderEtaMinutesSeconds": {
+    "placeholders": {
+      "minutes": {
+        "type": "int"
+      },
+      "seconds": {
+        "type": "int"
+      }
+    }
+  },
+  "irFinderEtaHoursMinutes": "{hours}h {minutes}m",
+  "@irFinderEtaHoursMinutes": {
+    "placeholders": {
+      "hours": {
+        "type": "int"
+      },
+      "minutes": {
+        "type": "int"
+      }
+    }
+  },
+  "irFinderLastAttemptedCode": "上次尝试的代码 {value}",
+  "@irFinderLastAttemptedCode": {
+    "placeholders": {
+      "value": {}
+    }
+  },
+  "irFinderStartTestingToSeeLastCode": "开始测试后即可查看上次尝试的代码。",
+  "irFinderFromDb": "来自数据库 {value}",
+  "@irFinderFromDb": {
+    "placeholders": {
+      "value": {}
+    }
+  },
+  "irFinderFromBruteforce": "来自暴力枚举 由协议编码器生成。",
+  "irFinderSendError": "发送错误 {error}",
+  "@irFinderSendError": {
+    "placeholders": {
+      "error": {}
+    }
+  },
+  "irFinderSourceValue": "来源: {value}",
+  "@irFinderSourceValue": {
+    "placeholders": {
+      "value": {}
+    }
+  },
+  "irFinderResultsNote": "结果支持立即测试和复制。直接添加到遥控器的集成还可在编辑器流程中继续扩展。",
+  "irFinderBrowseDbCandidatesTitle": "浏览数据库候选项",
+  "irFinderFilterByLabelOrHex": "按标签或十六进制筛选…",
+  "irFinderJumpHere": "跳到这里",
+  "irFinderSelectModel": "选择型号",
+  "irFinderSearchBrands": "搜索品牌…",
+  "irFinderSearchModels": "搜索型号…",
+  "iconPickerTitle": "选择图标",
+  "iconPickerSearchHint": "搜索图标…",
+  "iconPickerNoIconsFound": "未找到图标",
+  "iconPickerIconsAvailable": "可用图标 {count}",
+  "@iconPickerIconsAvailable": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "iconPickerCategoryAll": "全部",
+  "iconPickerCategoryMedia": "媒体",
+  "iconPickerCategoryVolume": "音量",
+  "iconPickerCategoryNavigation": "导航",
+  "iconPickerCategoryPower": "电源",
+  "iconPickerCategoryNumbers": "数字",
+  "iconPickerCategorySettings": "设置",
+  "iconPickerCategoryDisplay": "显示",
+  "iconPickerCategoryInput": "输入",
+  "iconPickerCategoryFavorite": "收藏",
+  "universalPowerTitle": "通用电源",
+  "universalPowerRunTab": "运行",
+  "universalPowerUseResponsibly": "请谨慎使用",
+  "universalPowerConsentBody": "通用电源会循环发送红外电源码。仅可用于你拥有或控制的设备。设备有反应后请立即停止。",
+  "universalPowerConsentCheckbox": "我拥有或控制该设备",
+  "universalPowerSetupBody": "为所选品牌循环发送电源码。设备有反应后请立即停止。",
+  "universalPowerLastSent": "上次发送 {value}",
+  "@universalPowerLastSent": {
+    "placeholders": {
+      "value": {}
+    }
+  },
+  "universalPowerNoCodesFound": "未找到电源码。请尝试扩大搜索范围。",
+  "universalPowerUnableToStart": "无法启动。",
+  "universalPowerAllBrands": "所有品牌 不筛选",
+  "universalPowerClearBrandFilter": "清除品牌筛选",
+  "universalPowerBroadenSearch": "必要时扩大搜索范围",
+  "universalPowerBroadenSearchHint": "如果未找到电源标签，请包含其他按键。",
+  "universalPowerAdditionalPatternsDepth": "附加模式深度",
+  "universalPowerDepth1": "仅优先级 POWER OFF",
+  "universalPowerDepth2": "包含 POWER 别名",
+  "universalPowerDepth3": "包含次级电源标签",
+  "universalPowerDepth4": "包含所有标签 最低优先级",
+  "universalPowerLoopUntilStopped": "循环直到停止",
+  "universalPowerLoopUntilStoppedHint": "会持续循环队列，直到你停止。",
+  "universalPowerDelayBetweenCodes": "代码之间的延迟",
+  "universalPowerStart": "开始通用电源",
+  "universalPowerRunStatus": "运行状态",
+  "universalPowerProgress": "进度 {value}",
+  "@universalPowerProgress": {
+    "placeholders": {
+      "value": {}
+    }
+  },
+  "universalPowerPausedInBackground": "因应用切到后台而暂停。",
+  "universalPowerSendOneCode": "发送一个代码",
+  "universalPowerStopWhenDeviceResponds": "设备有反应后请立即停止。",
+  "iconNamePlay": "播放",
+  "iconNamePause": "暂停",
+  "iconNameStop": "停止",
+  "iconNameFastForward": "快进",
+  "iconNameRewind": "快退",
+  "iconNameSkipNext": "下一项",
+  "iconNameSkipPrevious": "上一项",
+  "iconNameReplay": "重播",
+  "iconNameForward10S": "快进 10 秒",
+  "iconNameForward30S": "快进 30 秒",
+  "iconNameReplay10S": "重播 10s",
+  "iconNameReplay30S": "重播 30s",
+  "iconNameRecord": "录制",
+  "iconNameRecordAlt": "录制 替代",
+  "iconNameEject": "弹出",
+  "iconNameShuffle": "随机",
+  "iconNameRepeat": "重复",
+  "iconNameRepeatOne": "重复 一",
+  "iconNameVolumeUp": "音量加",
+  "iconNameVolumeDown": "音量减",
+  "iconNameVolumeOff": "关闭音量",
+  "iconNameMute": "静音",
+  "iconNameSpeaker": "扬声器",
+  "iconNameSurroundSound": "环绕 声音",
+  "iconNameEqualizer": "均衡器",
+  "iconNameAudio": "音频",
+  "iconNameMicrophone": "麦克风",
+  "iconNameMicOff": "麦克风 关",
+  "iconNameUp": "上",
+  "iconNameDown": "下",
+  "iconNameLeft": "左",
+  "iconNameRight": "右",
+  "iconNameArrowUp": "箭头 上",
+  "iconNameArrowDown": "箭头 下",
+  "iconNameArrowLeft": "箭头 左",
+  "iconNameArrowRight": "箭头 右",
+  "iconNameNavigation": "导航",
+  "iconNameChevronLeft": "尖角 左",
+  "iconNameChevronRight": "尖角 右",
+  "iconNameExpandLess": "收起",
+  "iconNameExpandMore": "展开 更多",
+  "iconNameCollapse": "折叠",
+  "iconNameExpand": "展开",
+  "iconNameCircleUp": "圆形 上",
+  "iconNameCircleDown": "圆形 下",
+  "iconNameCircleLeft": "圆形 左",
+  "iconNameCircleRight": "圆形 右",
+  "iconNameOkSelect": "确定 选择",
+  "iconNameConfirm": "确认",
+  "iconNameCancel": "取消",
+  "iconNameClose": "关闭",
+  "iconNameHome": "主页",
+  "iconNameReturn": "返回",
+  "iconNameExit": "退出",
+  "iconNameUndo": "撤销",
+  "iconNameRedo": "重做",
+  "iconNamePower": "电源",
+  "iconNamePowerAlt": "电源 替代",
+  "iconNamePowerOff": "关机",
+  "iconNameOn": "开",
+  "iconNameOff": "关",
+  "iconNameToggleOn": "切换开",
+  "iconNameToggleOff": "切换关",
+  "iconNameRestart": "重启",
+  "iconNameNum1": "1",
+  "iconNameNum2": "2",
+  "iconNameNum3": "3",
+  "iconNameNum4": "4",
+  "iconNameNum5": "5",
+  "iconNameNum6": "6",
+  "iconNameNum7": "7",
+  "iconNameNum8": "8",
+  "iconNameNum9": "9",
+  "iconNameNum92": "9+",
+  "iconNameNum0": "0",
+  "iconNameOne": "一",
+  "iconNameTwo": "二",
+  "iconNameThree": "三",
+  "iconNameFour": "四",
+  "iconNameFive": "五",
+  "iconNameSix": "六",
+  "iconNamePlus": "加号",
+  "iconNameMinus": "减号",
+  "iconNameAddCircle": "添加 圆形",
+  "iconNameRemoveCircle": "移除 圆形",
+  "iconNameSettings": "设置",
+  "iconNameMenu": "菜单",
+  "iconNameMoreVertical": "更多 竖向",
+  "iconNameMoreHorizontal": "更多 横向",
+  "iconNameTune": "调节",
+  "iconNameRemoteSettings": "遥控器设置",
+  "iconNameInfo": "信息",
+  "iconNameInfoOutline": "信息 轮廓",
+  "iconNameHelp": "帮助",
+  "iconNameHelpOutline": "帮助 轮廓",
+  "iconNameList": "列表",
+  "iconNameViewList": "列表视图",
+  "iconNameViewGrid": "网格视图",
+  "iconNameApps": "应用",
+  "iconNameWidgets": "小部件",
+  "iconNameTv": "电视",
+  "iconNameMonitor": "显示器",
+  "iconNameDesktop": "桌面",
+  "iconNameBrightnessHigh": "亮度高",
+  "iconNameBrightnessMedium": "亮度中",
+  "iconNameBrightnessLow": "亮度低",
+  "iconNameAutoBrightness": "自动亮度",
+  "iconNameLightMode": "浅色模式",
+  "iconNameDarkMode": "深色模式",
+  "iconNameContrast": "对比度",
+  "iconNameHdrOn": "HDR 开",
+  "iconNameHdrOff": "HDR 关",
+  "iconNameAspectRatio": "宽高比",
+  "iconNameCrop": "裁剪",
+  "iconNameZoomIn": "放大",
+  "iconNameZoomOut": "缩小",
+  "iconNameFullscreen": "全屏",
+  "iconNameExitFullscreen": "退出全屏",
+  "iconNameFitScreen": "适应屏幕",
+  "iconNamePip": "画中画",
+  "iconNameCropFree": "自由裁剪",
+  "iconNameInput": "输入",
+  "iconNameCable": "线缆",
+  "iconNameCast": "投屏",
+  "iconNameCastConnected": "投屏已连接",
+  "iconNameScreenShare": "屏幕共享",
+  "iconNameBluetooth": "蓝牙",
+  "iconNameWifi": "WiFi",
+  "iconNameRouter": "路由器",
+  "iconNameMemory": "内存",
+  "iconNameGameConsole": "游戏主机",
+  "iconNameGaming": "游戏",
+  "iconNameMedia": "媒体",
+  "iconNameMusicQueue": "音乐队列",
+  "iconNameVideoLibrary": "视频库",
+  "iconNamePhotoLibrary": "图片库",
+  "iconNameComponent": "分量",
+  "iconNameHdmi": "HDMI",
+  "iconNameComposite": "复合输入",
+  "iconNameAntenna": "天线",
+  "iconNameFavorite": "收藏",
+  "iconNameFavoriteOutline": "收藏 轮廓",
+  "iconNameStar": "星标",
+  "iconNameStarOutline": "星标 轮廓",
+  "iconNameBookmark": "书签",
+  "iconNameBookmarkOutline": "书签 轮廓",
+  "iconNameFlag": "旗标",
+  "iconNameCheck": "勾选",
+  "iconNameDone": "完成",
+  "iconNameDoneAll": "全部完成",
+  "iconNameSchedule": "日程",
+  "iconNameTimer": "计时器",
+  "iconNameTime": "时间",
+  "iconNameAlarm": "闹钟",
+  "iconNameNotifications": "通知",
+  "iconNameLock": "锁定",
+  "iconNameUnlock": "解锁",
+  "iconNameLight": "灯光",
+  "iconNameLightOutline": "灯光 轮廓",
+  "iconNameWarmLight": "暖光",
+  "iconNameSunny": "晴天",
+  "iconNameCloudy": "多云",
+  "iconNameNight": "夜间",
+  "iconNameFlare": "闪光",
+  "iconNameGradient": "渐变",
+  "iconNameInvertColors": "反转颜色",
+  "iconNamePalette": "调色板",
+  "iconNameColor": "颜色",
+  "iconNameTonality": "色调",
+  "iconNameSearch": "搜索",
+  "iconNameRefresh": "刷新",
+  "iconNameSync": "同步",
+  "iconNameUpdate": "更新",
+  "iconNameDownload": "下载",
+  "iconNameUpload": "上传",
+  "iconNameCloud": "云",
+  "iconNameFolder": "文件夹",
+  "iconNameDelete": "删除",
+  "iconNameEdit": "编辑",
+  "iconNameSave": "保存",
+  "iconNameShare": "分享",
+  "iconNamePrint": "打印",
+  "iconNameLanguage": "语言",
+  "iconNameTranslate": "翻译",
+  "iconNameMicNone": "麦克风 无",
+  "iconNameSubtitles": "字幕",
+  "iconNameClosedCaption": "隐藏字幕",
+  "iconNameMusic": "音乐",
+  "iconNameMovie": "电影",
+  "iconNameTheater": "影院",
+  "iconNameLiveTv": "直播电视",
+  "iconNameRadio": "收音机",
+  "iconNameCamera": "相机",
+  "iconNameVideoCamera": "摄像机",
+  "iconNamePhotoCamera": "照相机",
+  "iconNameSlowMotion": "慢动作",
+  "iconNameSpeed": "速度",
+  "iconNameVideoSettings": "视频设置",
+  "iconNameAudioTrack": "音轨",
+  "iconNameGraphicEq": "图形均衡器",
+  "iconNameMusicVideo": "音乐视频",
+  "iconNamePlaylist": "播放列表",
+  "iconNameQueue": "队列",
+  "iconNameNum0Fa": "0 FA",
+  "iconNameNum1Fa": "1 FA",
+  "iconNameNum2Fa": "2 FA",
+  "iconNameNum3Fa": "3 FA",
+  "iconNameNum4Fa": "4 FA",
+  "iconNameNum5Fa": "5 FA",
+  "iconNameNum6Fa": "6 FA",
+  "iconNameNum7Fa": "7 FA",
+  "iconNameNum8Fa": "8 FA",
+  "iconNameNum9Fa": "9 FA",
+  "iconNameHashFa": "井号 # FA",
+  "iconNamePercentFa": "百分号 % FA",
+  "iconNameDivideFa": "除号 ÷ FA",
+  "iconNameMultiplyFa": "乘号 × FA",
+  "iconNameEqualsFa": "等号 = FA",
+  "iconNameNotEqualFa": "不等于 ≠ FA",
+  "iconNameGreaterThanFa": "大于 > FA",
+  "iconNameLessThanFa": "小于 < FA",
+  "iconNameAsteriskFa": "星号 * FA",
+  "iconNameAFa": "A FA",
+  "iconNameBFa": "B FA",
+  "iconNameCFa": "C FA",
+  "iconNameDFa": "D FA",
+  "iconNameEFa": "E FA",
+  "iconNameFFa": "F FA",
+  "iconNameGFa": "G FA",
+  "iconNameHFa": "H FA",
+  "iconNameIFa": "I FA",
+  "iconNameJFa": "J FA",
+  "iconNameKFa": "K FA",
+  "iconNameLFa": "L FA",
+  "iconNameMFa": "M FA",
+  "iconNameNFa": "N FA",
+  "iconNameOFa": "O FA",
+  "iconNamePFa": "P FA",
+  "iconNameQFa": "Q FA",
+  "iconNameRFa": "R FA",
+  "iconNameSFa": "S FA",
+  "iconNameTFa": "T FA",
+  "iconNameUFa": "U FA",
+  "iconNameVFa": "V FA",
+  "iconNameWFa": "W FA",
+  "iconNameXFa": "X FA",
+  "iconNameYFa": "Y FA",
+  "iconNameZFa": "Z FA",
+  "iconNamePlayFa": "播放 FA",
+  "iconNamePauseFa": "暂停 FA",
+  "iconNameStopFa": "停止 FA",
+  "iconNamePlayFaOutline": "播放 FA 轮廓",
+  "iconNamePauseFaOutline": "暂停 FA 轮廓",
+  "iconNameStopFaOutline": "停止 FA 轮廓",
+  "iconNameBackwardFa": "后退 FA",
+  "iconNameForwardFa": "前进 FA",
+  "iconNamePreviousFa": "上一个 FA",
+  "iconNameNextFa": "下一个 FA",
+  "iconNameRewindFa": "快退 FA",
+  "iconNameFastForwardFa": "快进 FA",
+  "iconNameRepeatFa": "重复 FA",
+  "iconNameShuffleFa": "随机 FA",
+  "iconNameEjectFa": "弹出 FA",
+  "iconNameFilmFa": "胶片 FA",
+  "iconNameVideoFa": "视频 FA",
+  "iconNameMusicFa": "音乐 FA",
+  "iconNameMicrophoneFa": "麦克风 FA",
+  "iconNameCameraFa": "相机 FA",
+  "iconNameCameraRetroFa": "复古相机 FA",
+  "iconNameVolumeHighFa": "高音量 FA",
+  "iconNameVolumeLowFa": "低音量 FA",
+  "iconNameVolumeOffFa": "关闭音量 FA",
+  "iconNameMuteFa": "静音 FA",
+  "iconNameMicMuteFa": "麦克风静音 FA",
+  "iconNameHeadphonesFa": "耳机 FA",
+  "iconNameSpeakerFa": "扬声器 FA",
+  "iconNameUpFa": "上 FA",
+  "iconNameDownFa": "下 FA",
+  "iconNameLeftFa": "左 FA",
+  "iconNameRightFa": "右 FA",
+  "iconNameUpFaOutline": "上 FA 轮廓",
+  "iconNameDownFaOutline": "下 FA 轮廓",
+  "iconNameLeftFaOutline": "左 FA 轮廓",
+  "iconNameRightFaOutline": "右 FA 轮廓",
+  "iconNameArrowUpFa": "箭头 上 FA",
+  "iconNameArrowDownFa": "箭头 下 FA",
+  "iconNameArrowLeftFa": "箭头 左 FA",
+  "iconNameArrowRightFa": "箭头 右 FA",
+  "iconNameChevronUpFa": "尖角 上 FA",
+  "iconNameChevronDownFa": "尖角 下 FA",
+  "iconNameChevronLeftFa": "尖角 左 FA",
+  "iconNameChevronRightFa": "尖角 右 FA",
+  "iconNameOkFa": "确定 FA",
+  "iconNameOkFaOutline": "确定 FA 轮廓",
+  "iconNameCheckFa": "勾选 FA",
+  "iconNameCloseFa": "关闭 FA",
+  "iconNameCloseCircleFa": "关闭 圆形 FA",
+  "iconNameHomeFa": "主页 FA",
+  "iconNameUndoFa": "撤销 FA",
+  "iconNameRedoFa": "重做 FA",
+  "iconNameRotateFa": "旋转 FA",
+  "iconNameSearchFa": "搜索 FA",
+  "iconNameRefreshFa": "刷新 FA",
+  "iconNamePowerOffFa": "关机 FA",
+  "iconNamePlugFa": "插头 FA",
+  "iconNameToggleOnFa": "切换开 FA",
+  "iconNameToggleOffFa": "切换关 FA",
+  "iconNameSettingsFa": "设置 FA",
+  "iconNameSettingsAltFa": "设置 替代 FA",
+  "iconNameMenuFa": "菜单 FA",
+  "iconNameMoreFa": "更多 FA",
+  "iconNameMoreVerticalFa": "更多 竖向 FA",
+  "iconNameInfoFa": "信息 FA",
+  "iconNameInfoFaOutline": "信息 FA 轮廓",
+  "iconNameHelpFa": "帮助 FA",
+  "iconNameHelpFaOutline": "帮助 FA 轮廓",
+  "iconNameListFa": "列表 FA",
+  "iconNameGridFa": "网格 FA",
+  "iconNameSlidersFa": "滑块 FA",
+  "iconNameTvFa": "电视 FA",
+  "iconNameMonitorFa": "显示器 FA",
+  "iconNameDesktopFa": "桌面 FA",
+  "iconNameBrightnessFa": "亮度 FA",
+  "iconNameNightModeFa": "夜间模式 FA",
+  "iconNameLightFa": "灯光 FA",
+  "iconNameLightFaOutline": "灯光 FA 轮廓",
+  "iconNameFlashFa": "闪光 FA",
+  "iconNameFullscreenFa": "全屏 FA",
+  "iconNameExitFullscreenFa": "退出全屏 FA",
+  "iconNameZoomInFa": "放大 FA",
+  "iconNameZoomOutFa": "缩小 FA",
+  "iconNameSubtitlesFa": "字幕 FA",
+  "iconNamePictureInPictureFa": "画中画 FA",
+  "iconNameColorFa": "颜色 FA",
+  "iconNamePaintFa": "绘制 FA",
+  "iconNameInputFa": "输入 FA",
+  "iconNameWifiFa": "WiFi FA",
+  "iconNameBluetoothFa": "蓝牙 FA",
+  "iconNameUsbFa": "USB FA",
+  "iconNameEthernetFa": "以太网 FA",
+  "iconNameGamepadFa": "手柄 FA",
+  "iconNameBroadcastFa": "广播 FA",
+  "iconNameSatelliteFa": "卫星 FA",
+  "iconNameAntennaFa": "天线 FA",
+  "iconNameNetworkFa": "网络 FA",
+  "iconNameCloudFa": "云 FA",
+  "iconNameStarFa": "星标 FA",
+  "iconNameStarFaOutline": "星标 FA 轮廓",
+  "iconNameHeartFa": "爱心 FA",
+  "iconNameHeartFaOutline": "爱心 FA 轮廓",
+  "iconNameBookmarkFa": "书签 FA",
+  "iconNameBookmarkFaOutline": "书签 FA 轮廓",
+  "iconNameFlagFa": "旗标 FA",
+  "iconNameClockFa": "时钟 FA",
+  "iconNameClockFaOutline": "时钟 FA 轮廓",
+  "iconNameBellFa": "铃铛 FA",
+  "iconNameBellFaOutline": "铃铛 FA 轮廓",
+  "iconNameTimerFa": "计时器 FA",
+  "iconNameLockFa": "锁定 FA",
+  "iconNameUnlockFa": "解锁 FA",
+  "iconNameGalleryFa": "图库 FA",
+  "iconNameImagesFa": "图片 FA",
+  "iconNameImageFa": "图片 FA",
+  "iconNameVideoFileFa": "视频文件 FA",
+  "iconNameAudioFileFa": "音频文件 FA",
+  "iconNamePlayOutlineFa": "播放 轮廓 FA",
+  "iconNamePlaySimpleFa": "播放 简洁 FA",
+  "iconNamePauseSimpleFa": "暂停 简洁 FA",
+  "iconNameStopSimpleFa": "停止 简洁 FA",
+  "iconNameRecordFa": "录制 FA",
+  "iconNameStopCircleFa": "停止 圆形 FA",
+  "iconNameLoadingFa": "加载中 FA",
+  "iconNameTextFa": "文本 FA",
+  "iconNameTextSizeFa": "文本 大小 FA",
+  "iconNameLanguageFa": "语言 FA",
+  "iconNameGlobeFa": "地球 FA",
+  "iconNameSubtitlesAltFa": "字幕 替代 FA",
+  "iconNameSubtitlesAltOutlineFa": "字幕 替代 轮廓 FA",
+  "iconNameChannelUpFa": "频道加 FA",
+  "iconNameChannelDownFa": "频道减 FA",
+  "iconNamePageUpFa": "向上翻页 FA",
+  "iconNamePageDownFa": "向下翻页 FA",
+  "iconNameGuideFa": "指南 FA",
+  "iconNameGridViewFa": "网格视图 FA",
+  "iconNameGridAltFa": "网格 替代 FA",
+  "iconNameScheduleFa": "日程 FA",
+  "iconNameCalendarFa": "日历 FA",
+  "iconNameRedButtonFa": "红色按钮 FA",
+  "iconNameButtonOutlineFa": "按钮轮廓 FA",
+  "iconNameSquareButtonFa": "方形按钮 FA",
+  "iconNameSquareOutlineFa": "方形轮廓 FA",
+  "iconNameDotCircleFa": "点圆 FA",
+  "iconNameToolsFa": "工具 FA",
+  "iconNameScrewdriverFa": "螺丝刀 FA",
+  "iconNameHammerFa": "锤子 FA",
+  "iconNameToolboxFa": "工具箱 FA",
+  "iconNameCogFa": "齿轮 FA",
+  "iconNameAdjustFa": "调整 FA",
+  "iconNameFilterFa": "筛选 FA",
+  "iconNameSortDownFa": "排序 下 FA",
+  "iconNameSortUpFa": "排序 上 FA",
+  "iconNameSleepFa": "睡眠 FA",
+  "iconNameTimerStartFa": "计时开始 FA",
+  "iconNameTimerHalfFa": "计时一半 FA",
+  "iconNameTimerEndFa": "计时结束 FA",
+  "iconNameStopwatchFa": "秒表 FA",
+  "iconNameAlarmFa": "闹钟 FA",
+  "iconNameCropAltFa": "裁剪 替代 FA",
+  "iconNameCropFa": "裁剪 FA",
+  "iconNameSquareFullFa": "实心方块 FA",
+  "iconNameFullscreenAltFa": "全屏 替代 FA",
+  "iconNameZoomPlusFa": "放大加 FA",
+  "iconNameZoomMinusFa": "缩小减 FA",
+  "iconNameMusicNoteFa": "音符 FA",
+  "iconNameCdFa": "CD FA",
+  "iconNameVinylFa": "黑胶 FA",
+  "iconNameRssFa": "RSS FA",
+  "iconNameMagicFa": "魔法 FA",
+  "iconNameFingerprintFa": "指纹 FA",
+  "iconNameUserFa": "用户 FA",
+  "iconNameUsersFa": "用户 FA",
+  "iconNameChildModeFa": "儿童模式 FA",
+  "iconNameCastFa": "投屏 FA",
+  "iconNameStreamFa": "流 FA",
+  "iconNameSignalFa": "信号 FA",
+  "iconNameFeedFa": "动态 FA",
+  "iconNameCircleArrowUpFa": "圆形上箭头 FA",
+  "iconNameCircleArrowDownFa": "圆形下箭头 FA",
+  "iconNameCircleArrowLeftFa": "圆形左箭头 FA",
+  "iconNameCircleArrowRightFa": "圆形右箭头 FA",
+  "iconNameLongArrowUpFa": "长上箭头 FA",
+  "iconNameLongArrowDownFa": "长下箭头 FA",
+  "iconNameLongArrowLeftFa": "长左箭头 FA",
+  "iconNameLongArrowRightFa": "长右箭头 FA",
+  "iconNamePlusFa": "加号 FA",
+  "iconNameMinusFa": "减号 FA",
+  "iconNamePlusCircleFa": "加号圆 FA",
+  "iconNameMinusCircleFa": "减号圆 FA",
+  "iconNamePlusSquareFa": "加号方 FA",
+  "iconNameMinusSquareFa": "减号方 FA",
+  "iconNameTimesFa": "乘号 FA",
+  "iconNameTimesCircleFa": "乘号圆 FA",
+  "iconNameBatteryFullFa": "电池满 FA",
+  "iconNameBattery34Fa": "电池 3/4 FA",
+  "iconNameBatteryHalfFa": "半电量 FA",
+  "iconNameBattery14Fa": "电池 1/4 FA",
+  "iconNameBatteryEmptyFa": "电量空 FA",
+  "iconNameChargingFa": "充电 FA",
+  "iconNameCloudSunFa": "晴云 FA",
+  "iconNameCloudMoonFa": "月云 FA",
+  "iconNameRainFa": "雨 FA",
+  "iconNameSnowflakeFa": "雪花 FA",
+  "iconNameFireFa": "火 FA",
+  "iconNameTemperatureFa": "温度 FA",
+  "iconNameBoxFa": "盒子 FA",
+  "iconNameGiftFa": "礼物 FA",
+  "iconNameTrophyFa": "奖杯 FA",
+  "iconNameCrownFa": "王冠 FA",
+  "iconNameGemFa": "宝石 FA",
+  "unknownLabel": "未知",
+  "selectedFilesLabel": "已选择文件",
+  "folderNotFoundOrInaccessible": "文件夹不存在或无法访问。",
+  "importedRemoteDefaultName": "已导入遥控器",
+  "demoRemoteName": "演示遥控器",
+  "protocolFieldsInvalid": "请填写必填协议字段，若设置频率，请确保在 15k 到 60k 之间。",
+  "unknownProtocolSelected": "所选协议未知。"
+}

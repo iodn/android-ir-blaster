@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:irblaster_controller/l10n/icon_picker_names.dart';
+import 'package:irblaster_controller/l10n/l10n.dart';
 
 class IconPickerData {
   final IconData iconData;
@@ -589,18 +591,19 @@ class _IconPickerState extends State<IconPicker> {
     IconPickerData(iconData: FontAwesomeIcons.gem, name: 'Gem FA', category: 'Favorite'),
   ];
 
-  List<IconPickerData> get _filteredIcons {
+  List<IconPickerData> _filteredIconsFor(BuildContext context) {
     var icons = _allIcons;
 
-    // Filter by category
     if (_selectedCategory != 'All') {
       icons = icons.where((icon) => icon.category == _selectedCategory).toList();
     }
 
-    // Filter by search query
     if (_searchQuery.isNotEmpty) {
       final query = _searchQuery.toLowerCase();
-      icons = icons.where((icon) => icon.name.toLowerCase().contains(query)).toList();
+      icons = icons.where((icon) {
+        final localized = localizedIconPickerName(context.l10n, icon.name).toLowerCase();
+        return localized.contains(query) || icon.name.toLowerCase().contains(query);
+      }).toList();
     }
 
     return icons;
@@ -614,7 +617,32 @@ class _IconPickerState extends State<IconPicker> {
 
   @override
   Widget build(BuildContext context) {
-    final filteredIcons = _filteredIcons;
+    final filteredIcons = _filteredIconsFor(context);
+    String categoryLabel(String category) {
+      switch (category) {
+        case 'All':
+          return context.l10n.iconPickerCategoryAll;
+        case 'Media':
+          return context.l10n.iconPickerCategoryMedia;
+        case 'Volume':
+          return context.l10n.iconPickerCategoryVolume;
+        case 'Navigation':
+          return context.l10n.iconPickerCategoryNavigation;
+        case 'Power':
+          return context.l10n.iconPickerCategoryPower;
+        case 'Numbers':
+          return context.l10n.iconPickerCategoryNumbers;
+        case 'Settings':
+          return context.l10n.iconPickerCategorySettings;
+        case 'Display':
+          return context.l10n.iconPickerCategoryDisplay;
+        case 'Input':
+          return context.l10n.iconPickerCategoryInput;
+        case 'Favorite':
+          return context.l10n.iconPickerCategoryFavorite;
+      }
+      return category;
+    }
 
     return Dialog(
       child: SizedBox(
@@ -624,7 +652,7 @@ class _IconPickerState extends State<IconPicker> {
           children: [
             // Header
             AppBar(
-              title: const Text('Select Icon'),
+              title: Text(context.l10n.iconPickerTitle),
               automaticallyImplyLeading: false,
               actions: [
                 IconButton(
@@ -640,7 +668,7 @@ class _IconPickerState extends State<IconPicker> {
               child: TextField(
                 controller: _searchController,
                 decoration: InputDecoration(
-                  hintText: 'Search icons...',
+                  hintText: context.l10n.iconPickerSearchHint,
                   prefixIcon: const Icon(Icons.search),
                   suffixIcon: _searchQuery.isNotEmpty
                       ? IconButton(
@@ -678,7 +706,7 @@ class _IconPickerState extends State<IconPicker> {
                   return Padding(
                     padding: const EdgeInsets.symmetric(horizontal: 4),
                     child: FilterChip(
-                      label: Text(category),
+                      label: Text(categoryLabel(category)),
                       selected: isSelected,
                       onSelected: (selected) {
                         setState(() {
@@ -703,7 +731,7 @@ class _IconPickerState extends State<IconPicker> {
                           Icon(Icons.search_off, size: 64, color: Colors.grey[400]),
                           const SizedBox(height: 16),
                           Text(
-                            'No icons found',
+                            context.l10n.iconPickerNoIconsFound,
                             style: TextStyle(color: Colors.grey[600], fontSize: 16),
                           ),
                         ],
@@ -744,7 +772,7 @@ class _IconPickerState extends State<IconPicker> {
                                 ),
                                 const SizedBox(height: 4),
                                 Text(
-                                  iconData.name,
+                                  localizedIconPickerName(context.l10n, iconData.name),
                                   textAlign: TextAlign.center,
                                   style: TextStyle(
                                     fontSize: 10,
@@ -772,8 +800,8 @@ class _IconPickerState extends State<IconPicker> {
                   top: BorderSide(color: Theme.of(context).dividerColor),
                 ),
               ),
-              child: Text(
-                '${filteredIcons.length} icons available',
+                child: Text(
+                context.l10n.iconPickerIconsAvailable(filteredIcons.length),
                 style: Theme.of(context).textTheme.bodySmall,
                 textAlign: TextAlign.center,
               ),

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:irblaster_controller/models/timed_macro.dart';
+import 'package:irblaster_controller/l10n/l10n.dart';
 import 'package:irblaster_controller/state/macros_state.dart';
 import 'package:irblaster_controller/state/remotes_state.dart';
 import 'package:irblaster_controller/utils/macros_io.dart';
@@ -22,11 +23,11 @@ class _MacrosTabState extends State<MacrosTab> {
       builder: (context, _, __) {
         return Scaffold(
           appBar: AppBar(
-            title: const Text('Macros'),
+            title: Text(context.l10n.macrosTitle),
             actions: [
               if (macros.isNotEmpty)
                 IconButton(
-                  tooltip: 'Help',
+                  tooltip: context.l10n.help,
                   onPressed: _showHelp,
                   icon: const Icon(Icons.help_outline_rounded),
                 ),
@@ -35,7 +36,7 @@ class _MacrosTabState extends State<MacrosTab> {
           floatingActionButton: FloatingActionButton.extended(
             onPressed: _addMacro,
             icon: const Icon(Icons.add_rounded),
-            label: const Text('Create Macro'),
+            label: Text(context.l10n.createMacro),
           ),
           body: macros.isEmpty ? _buildEmptyState() : _buildMacroList(),
         );
@@ -67,14 +68,14 @@ class _MacrosTabState extends State<MacrosTab> {
             ),
             const SizedBox(height: 24),
             Text(
-              'Timed Macros',
+              context.l10n.timedMacrosTitle,
               style: theme.textTheme.headlineSmall?.copyWith(
                 fontWeight: FontWeight.w900,
               ),
             ),
             const SizedBox(height: 12),
             Text(
-              'Automate sequences of IR commands with precise timing',
+              context.l10n.timedMacrosSubtitle,
               textAlign: TextAlign.center,
               style: theme.textTheme.bodyLarge?.copyWith(
                 color: cs.onSurface.withValues(alpha: 0.7),
@@ -92,7 +93,7 @@ class _MacrosTabState extends State<MacrosTab> {
                 ),
               ),
               child: Text(
-                'What next: tap Create Your First Macro, pick a remote, then add commands and delays.',
+                context.l10n.timedMacrosNextStep,
                 textAlign: TextAlign.center,
                 style: theme.textTheme.bodyMedium?.copyWith(
                   color: cs.onSurface.withValues(alpha: 0.8),
@@ -103,27 +104,24 @@ class _MacrosTabState extends State<MacrosTab> {
             const SizedBox(height: 32),
             _buildFeatureCard(
               icon: Icons.toys_outlined,
-              title: 'Perfect for Interactive Toys',
-              description:
-                  'Control devices like i-cybie robot dogs, i-sobot robots, and other toys that need time between commands to process actions.',
+              title: context.l10n.macroFeatureToysTitle,
+              description: context.l10n.macroFeatureToysDescription,
               color: cs.primaryContainer,
               onColor: cs.onPrimaryContainer,
             ),
             const SizedBox(height: 16),
             _buildFeatureCard(
               icon: Icons.timer_outlined,
-              title: 'Precise Timing Control',
-              description:
-                  'Add delays between commands (250ms to custom durations) so your device has time to respond before the next action.',
+              title: context.l10n.macroFeatureTimingTitle,
+              description: context.l10n.macroFeatureTimingDescription,
               color: cs.secondaryContainer,
               onColor: cs.onSecondaryContainer,
             ),
             const SizedBox(height: 16),
             _buildFeatureCard(
               icon: Icons.pause_circle_outline_rounded,
-              title: 'Manual Continue Steps',
-              description:
-                  'Pause execution and wait for your confirmation when animation length varies or you need visual feedback.',
+              title: context.l10n.macroFeatureManualTitle,
+              description: context.l10n.macroFeatureManualDescription,
               color: cs.tertiaryContainer,
               onColor: cs.onTertiaryContainer,
             ),
@@ -149,7 +147,7 @@ class _MacrosTabState extends State<MacrosTab> {
                       ),
                       const SizedBox(width: 8),
                       Text(
-                        'Example Use Case',
+                        context.l10n.exampleUseCase,
                         style: theme.textTheme.titleSmall?.copyWith(
                           fontWeight: FontWeight.w900,
                         ),
@@ -158,13 +156,7 @@ class _MacrosTabState extends State<MacrosTab> {
                   ),
                   const SizedBox(height: 12),
                   Text(
-                    'i-cybie Advanced Mode:\n'
-                    '1. Send "Mode" command\n'
-                    '2. Wait 1000ms (toy processes)\n'
-                    '3. Send "Action 1"\n'
-                    '4. Wait 1000ms\n'
-                    '5. Send "Action 2"\n'
-                    '…and so on automatically!',
+                    context.l10n.macroExampleText,
                     style: theme.textTheme.bodyMedium?.copyWith(
                       color: cs.onSurface.withValues(alpha: 0.8),
                       height: 1.5,
@@ -179,7 +171,7 @@ class _MacrosTabState extends State<MacrosTab> {
               child: FilledButton.icon(
                 onPressed: _addMacro,
                 icon: const Icon(Icons.add_rounded),
-                label: const Text('Create Your First Macro'),
+                label: Text(context.l10n.createFirstMacro),
                 style: FilledButton.styleFrom(
                   padding: const EdgeInsets.symmetric(vertical: 16),
                 ),
@@ -257,7 +249,7 @@ class _MacrosTabState extends State<MacrosTab> {
       itemBuilder: (context, i) {
         final macro = macros[i];
         final remoteLabel = macro.remoteName.trim().isEmpty
-            ? 'No remote'
+            ? context.l10n.noRemote
             : macro.remoteName;
         final stepCount = macro.steps.length;
         return Card(
@@ -347,7 +339,10 @@ class _MacrosTabState extends State<MacrosTab> {
                                   ),
                                   const SizedBox(width: 4),
                                   Text(
-                                    '$stepCount step${stepCount != 1 ? 's' : ''}',
+                                    context.l10n.macroStepCount(
+                                      stepCount.toString(),
+                                      stepCount != 1 ? 's' : '',
+                                    ),
                                     style: TextStyle(
                                       fontSize: 11,
                                       fontWeight: FontWeight.w800,
@@ -364,20 +359,20 @@ class _MacrosTabState extends State<MacrosTab> {
                   ),
                   const SizedBox(width: 8),
                   PopupMenuButton<String>(
-                    tooltip: 'Actions',
+                    tooltip: context.l10n.actions,
                     onSelected: (v) {
                       if (v == 'run') _runMacro(macro);
                       if (v == 'edit') _editMacro(i);
                       if (v == 'duplicate') _duplicateMacro(i);
                       if (v == 'delete') _deleteMacro(i);
                     },
-                    itemBuilder: (ctx) => const [
+                    itemBuilder: (ctx) => [
                       PopupMenuItem(
                         value: 'run',
                         child: ListTile(
                           contentPadding: EdgeInsets.zero,
                           leading: Icon(Icons.play_arrow_rounded),
-                          title: Text('Run'),
+                          title: Text(context.l10n.run),
                         ),
                       ),
                       PopupMenuItem(
@@ -385,7 +380,7 @@ class _MacrosTabState extends State<MacrosTab> {
                         child: ListTile(
                           contentPadding: EdgeInsets.zero,
                           leading: Icon(Icons.edit_outlined),
-                          title: Text('Edit'),
+                          title: Text(context.l10n.edit),
                         ),
                       ),
                       PopupMenuItem(
@@ -393,7 +388,7 @@ class _MacrosTabState extends State<MacrosTab> {
                         child: ListTile(
                           contentPadding: EdgeInsets.zero,
                           leading: Icon(Icons.content_copy_rounded),
-                          title: Text('Duplicate'),
+                          title: Text(context.l10n.duplicate),
                         ),
                       ),
                       PopupMenuDivider(),
@@ -402,7 +397,7 @@ class _MacrosTabState extends State<MacrosTab> {
                         child: ListTile(
                           contentPadding: EdgeInsets.zero,
                           leading: Icon(Icons.delete_outline),
-                          title: Text('Delete'),
+                          title: Text(context.l10n.delete),
                         ),
                       ),
                     ],
@@ -436,7 +431,7 @@ class _MacrosTabState extends State<MacrosTab> {
                   Icon(Icons.help_outline_rounded, color: cs.primary),
                   const SizedBox(width: 12),
                   Text(
-                    'About Timed Macros',
+                    context.l10n.aboutTimedMacros,
                     style: theme.textTheme.titleLarge?.copyWith(
                       fontWeight: FontWeight.w900,
                     ),
@@ -445,7 +440,7 @@ class _MacrosTabState extends State<MacrosTab> {
               ),
               const SizedBox(height: 16),
               Text(
-                'Timed Macros let you automate sequences of IR commands with precise delays between each step.',
+                context.l10n.aboutTimedMacrosDescription,
                 style: theme.textTheme.bodyMedium?.copyWith(
                   color: cs.onSurface.withValues(alpha: 0.8),
                   height: 1.5,
@@ -454,29 +449,27 @@ class _MacrosTabState extends State<MacrosTab> {
               const SizedBox(height: 16),
               _buildHelpItem(
                 icon: Icons.send_rounded,
-                title: 'Send Command',
-                description: 'Transmits an IR command from your remote.',
+                title: context.l10n.sendCommand,
+                description: context.l10n.sendCommandDescription,
               ),
               const SizedBox(height: 12),
               _buildHelpItem(
                 icon: Icons.timer_rounded,
-                title: 'Delay',
-                description:
-                    'Waits for a specified duration (e.g., 1000ms) before the next step.',
+                title: context.l10n.delay,
+                description: context.l10n.delayDescription,
               ),
               const SizedBox(height: 12),
               _buildHelpItem(
                 icon: Icons.pause_circle_outline_rounded,
-                title: 'Manual Continue',
-                description:
-                    'Pauses execution until you tap Continue (useful for variable-length animations).',
+                title: context.l10n.manualContinue,
+                description: context.l10n.manualContinueDescription,
               ),
               const SizedBox(height: 20),
               SizedBox(
                 width: double.infinity,
                 child: FilledButton(
                   onPressed: () => Navigator.of(ctx).pop(),
-                  child: const Text('Got it'),
+                  child: Text(context.l10n.gotIt),
                 ),
               ),
             ],
@@ -562,7 +555,7 @@ class _MacrosTabState extends State<MacrosTab> {
     } catch (_) {
       if (!mounted) return;
       ScaffoldMessenger.of(context).showSnackBar(
-        const SnackBar(content: Text('Failed to save macros.')),
+        SnackBar(content: Text(context.l10n.failedToSaveMacros)),
       );
     }
   }
@@ -586,7 +579,7 @@ class _MacrosTabState extends State<MacrosTab> {
     } catch (_) {
       if (!mounted) return;
       ScaffoldMessenger.of(context).showSnackBar(
-        const SnackBar(content: Text('Failed to save macros.')),
+        SnackBar(content: Text(context.l10n.failedToSaveMacros)),
       );
     }
   }
@@ -604,7 +597,7 @@ class _MacrosTabState extends State<MacrosTab> {
     } catch (_) {
       if (!mounted) return;
       ScaffoldMessenger.of(context).showSnackBar(
-        const SnackBar(content: Text('Failed to save macros.')),
+        SnackBar(content: Text(context.l10n.failedToSaveMacros)),
       );
     }
   }
@@ -618,10 +611,10 @@ class _MacrosTabState extends State<MacrosTab> {
     try {
       await _persistAndNotify();
     } catch (_) {
-      macros.insert(removedIndex.clamp(0, macros.length) as int, removedMacro);
+      macros.insert(removedIndex.clamp(0, macros.length), removedMacro);
       if (!mounted) return;
       ScaffoldMessenger.of(context).showSnackBar(
-        const SnackBar(content: Text('Failed to save macros.')),
+        SnackBar(content: Text(context.l10n.failedToSaveMacros)),
       );
       return;
     }
@@ -629,12 +622,12 @@ class _MacrosTabState extends State<MacrosTab> {
     ScaffoldMessenger.of(context).hideCurrentSnackBar();
     ScaffoldMessenger.of(context).showSnackBar(
       SnackBar(
-        content: Text('Deleted "${removedMacro.name}".'),
+        content: Text(context.l10n.deletedMacroNamed(removedMacro.name)),
         action: SnackBarAction(
-          label: 'Undo',
+          label: context.l10n.undo,
           onPressed: () async {
             macros.insert(
-              removedIndex.clamp(0, macros.length) as int,
+              removedIndex.clamp(0, macros.length),
               removedMacro,
             );
             try {
@@ -642,7 +635,7 @@ class _MacrosTabState extends State<MacrosTab> {
             } catch (_) {
               if (!mounted) return;
               ScaffoldMessenger.of(context).showSnackBar(
-                const SnackBar(content: Text('Failed to restore macro.')),
+                SnackBar(content: Text(context.l10n.failedToRestoreMacro)),
               );
             }
           },
@@ -656,16 +649,16 @@ class _MacrosTabState extends State<MacrosTab> {
       context: context,
       builder: (ctx) {
         return AlertDialog(
-          title: const Text('Delete macro?'),
-          content: const Text('You can undo this from the next snackbar.'),
+          title: Text(context.l10n.deleteMacroTitle),
+          content: Text(context.l10n.deleteMacroMessage),
           actions: [
             TextButton(
               onPressed: () => Navigator.of(ctx).pop(false),
-              child: const Text('Cancel'),
+              child: Text(context.l10n.cancel),
             ),
             FilledButton(
               onPressed: () => Navigator.of(ctx).pop(true),
-              child: const Text('Delete'),
+              child: Text(context.l10n.delete),
             ),
           ],
         );
@@ -690,7 +683,7 @@ class _MacrosTabState extends State<MacrosTab> {
     if (remotes.isEmpty) {
       if (!mounted) return null;
       ScaffoldMessenger.of(context).showSnackBar(
-        const SnackBar(content: Text('No remotes available.')),
+        SnackBar(content: Text(context.l10n.noRemotesAvailable)),
       );
       return null;
     }

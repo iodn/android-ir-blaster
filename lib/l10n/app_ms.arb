@@ -1,0 +1,1846 @@
+{
+  "@@locale": "ms",
+  "appTitle": "IR Blaster",
+  "loading": "Memuat…",
+  "unknownError": "Ralat tidak diketahui",
+  "failedToStart": "Gagal bermula",
+  "retry": "Cuba lagi",
+  "quickTilePower": "Daya",
+  "quickTileMute": "Senyap",
+  "quickTileVolumeUp": "Vol +",
+  "quickTileVolumeDown": "Vol -",
+  "homeUsbPermissionRequiredMessage": "Telefon ini tidak mempunyai pemancar IR terbina dalam. Dongel IR USB dikesan, tetapi izin belum diberi.\n\nBenarkan dialog izin USB untuk mengaktifkan penghantaran IR.",
+  "homeUsbPermissionDeniedMessage": "Telefon ini tidak mempunyai pemancar IR terbina dalam. Dongel IR USB dikesan, tetapi izin USB ditolak.\n\nMinta izin lagi kemudian benarkan dialog untuk mengaktifkan penghantaran IR.",
+  "homeUsbPermissionGrantedMessage": "Telefon ini tidak mempunyai pemancar IR terbina dalam. Dongel IR USB dibenarkan, tetapi belum dimulakan.",
+  "homeUsbOpenFailedMessage": "Telefon ini tidak mempunyai pemancar IR terbina dalam. Dongel IR USB dikesan dan dibenarkan, tetapi gagal dimulakan.\n\nSambung semula dongel kemudian cuba lagi.",
+  "homeUsbReadyMessage": "Telefon ini tidak mempunyai pemancar IR terbina dalam.",
+  "homeUsbNoDeviceMessage": "Telefon ini tidak mempunyai pemancar IR terbina dalam, dan tiada dongel IR USB yang disokong sedang tersambung.\n\nAnda masih boleh membuat, mengimport, dan mengurus remote, tetapi untuk menghantar isyarat IR anda memerlukan salah satu pilihan di bawah.",
+  "homeUsbOptionPlugIn": "Sambung dongel IR USB yang disokong, kemudian benarkan izin.",
+  "homeUsbOptionReady": "Sedia digunakan.",
+  "homeUsbOptionPermissionRequired": "Terpasang. Perlu izin.",
+  "homeUsbOptionPermissionDenied": "Izin ditolak. Minta lagi.",
+  "homeUsbOptionPermissionGranted": "Dibenarkan. Memula dongel.",
+  "homeUsbOptionOpenFailed": "Dibenarkan, tapi gagal memula.",
+  "homeHardwareBannerNoInternal": "Telefon ini tiada IR terbina dalam. Sambung dongel IR USB atau aktifkan mod Audio di Tetapan.",
+  "homeHardwareBannerPermissionRequired": "Dongel USB dikesan. Izin diperlukan untuk menghantar IR.",
+  "homeHardwareBannerPermissionDenied": "Izin USB ditolak. Minta lagi untuk menghantar IR.",
+  "homeHardwareBannerPermissionGranted": "Dongel USB dibenarkan. Menunggu permulaan.",
+  "homeHardwareBannerOpenFailed": "Dongel USB dibenarkan, tetapi permulaan gagal.",
+  "homeHardwareBannerReady": "USB sedia.",
+  "homeHardwareRequiredTitle": "Peranti IR diperlukan untuk hantar arahan",
+  "homeUsbDongleRecommended": "Dongel IR USB (disyorkan)",
+  "homeAudioAdapterAlternative": "Adaptor IR audio (alternatif)",
+  "homeAudioAdapterDescription": "Tetapan → Pemancar IR → Audio (1 LED / 2 LED). Memerlukan penyesuai audio-ke-IR.",
+  "close": "Tutup",
+  "homeChooseTransmitter": "Pilih pemancar",
+  "openSettings": "Buka Tetapan",
+  "homeUsbPermissionSentApprove": "Permintaan izin USB dihantar. Benarkan dialog untuk mengaktifkan USB.",
+  "homeUsbDongleNotDetected": "Tiada dongel IR USB yang disokong dikesan. Sambung kemudian cuba lagi.",
+  "homeUsbPermissionRequestFailed": "Gagal meminta izin USB.",
+  "working": "Sedang bekerja…",
+  "requestUsbPermission": "Minta izin USB",
+  "homeHardwareTip": "Tip: Anda masih boleh membuat dan mengatur remote sekarang. Peranti keras hanya diperlukan saat menghantar.",
+  "homeNoIrTransmitterTitle": "Tiada pemancar IR",
+  "settingsNavLabel": "Tetapan",
+  "dismiss": "Tutup",
+  "remotesNavLabel": "Remote",
+  "macrosNavLabel": "Makro",
+  "signalTesterNavLabel": "Penguji Isyarat",
+  "settingsTitle": "Tetapan",
+  "remoteNoIrEmitterTitle": "Tiada pemancar IR",
+  "remoteNoIrEmitterMessage": "Peranti ini tiada pemancar IR",
+  "remoteNoIrEmitterNeedsEmitter": "Aplikasi ini perlu pemancar IR",
+  "remoteDismiss": "Tutup",
+  "remoteClose": "Tutup",
+  "remoteFailedToSend": "Gagal menghantar IR: {error}",
+  "@remoteFailedToSend": {
+    "placeholders": {
+      "error": {}
+    }
+  },
+  "remoteFailedToStartLoop": "Gagal memula loop: {error}",
+  "@remoteFailedToStartLoop": {
+    "placeholders": {
+      "error": {}
+    }
+  },
+  "remoteLoopStoppedFailed": "Loop berhenti (gagal kirim): {error}",
+  "@remoteLoopStoppedFailed": {
+    "placeholders": {
+      "error": {}
+    }
+  },
+  "remoteLoopingHint": "Mengulang \"{title}\". Tekan Hentikan di bilah atas untuk berhenti.",
+  "@remoteLoopingHint": {
+    "placeholders": {
+      "title": {}
+    }
+  },
+  "remoteLoopStopped": "Loop berhenti.",
+  "remoteUpdatedNotFound": "Remote diperbarui di layar. Remote tidak ditemui di daftar tersimpan.",
+  "remoteUpdatedNamed": "Diperbarui \"{name}\".",
+  "@remoteUpdatedNamed": {
+    "placeholders": {
+      "name": {}
+    }
+  },
+  "remoteDeleteFailed": "Gagal menghapus: {error}",
+  "@remoteDeleteFailed": {
+    "placeholders": {
+      "error": {}
+    }
+  },
+  "remoteNotFoundSavedList": "Remote tidak ditemui di daftar tersimpan.",
+  "remoteDeletedNamed": "Dihapus \"{name}\".",
+  "@remoteDeletedNamed": {
+    "placeholders": {
+      "name": {}
+    }
+  },
+  "buttonFallbackTitle": "Butang",
+  "imageFallbackTitle": "Gambar",
+  "noBrowserAvailable": "Tiada browser",
+  "failedToOpen": "Gagal membuka: {error}",
+  "@failedToOpen": {
+    "placeholders": {
+      "error": {}
+    }
+  },
+  "cancel": "Batal",
+  "settingsRestoreDemoTitle": "Pulihkan remote demo?",
+  "settingsRestoreDemoMessage": "Ini akan mengganti remote semasa dengan remote demo terbina dalam. Sandaran disyorkan jika anda mahu menyimpan senarai semasa.",
+  "settingsRestoreDemoConfirm": "Pulihkan demo",
+  "settingsDemoRemotesRestored": "Remote demo dipulihkan.",
+  "settingsDeleteAllRemotesTitle": "Hapus semua remote?",
+  "settingsDeleteAllRemotesMessage": "Ini menghapus semua remote dari peranti ini. Tindakan ini tidak boleh dibatalkan.",
+  "settingsDeleteAllConfirm": "Hapus semua",
+  "settingsAllRemotesDeleted": "Semua remote dihapus.",
+  "themeAuto": "Tema Automatik",
+  "themeLight": "Tema Cerah",
+  "themeDark": "Tema Gelap",
+  "themeDescAuto": "Mengikuti tetapan peranti",
+  "themeDescLight": "Sekemudian terang dan jelas",
+  "themeDescDark": "Nyaman di mata",
+  "themeHintAuto": "Tema berubah automatik apabila tetapan peranti bertukar antara mod cerah dan gelap",
+  "themeHintLight": "Cocok untuk siang hari dan tempat terang",
+  "themeHintDark": "Mengurangi lelah mata pada kondisi minim cahaya dan menghemat baterai di layar OLED",
+  "supportDevelopmentTitle": "Dukung Pengembangan",
+  "supportDevelopmentSubtitle": "Bantu IR Blaster kekal terjaga dan serasi perkakasan",
+  "supportDevelopmentBody": "Tiada iklan, tiada penjejakan, tiada ciri terkunci. Sokongan anda membantu pembangunan protokol, sokongan dongel USB, dan keserasian yang lebih baik merentas peranti.",
+  "donate": "Donasi",
+  "starRepo": "Bintang repositori",
+  "repositoryLinkCopied": "Pautan repositori disalin",
+  "supportPillLocalOnly": "Hanya lokal",
+  "supportPillNoTracking": "Tanpa pelacakan",
+  "supportPillHardwareAware": "Sadar peranti",
+  "supportPillOpenSource": "Sumber terbuka",
+  "appearanceTitle": "Tampilan",
+  "appearanceSubtitle": "Sesuaikan tampilan visual",
+  "localizationTitle": "Pelokalan",
+  "localizationSubtitle": "Bahasa aplikasi dan perilaku terjemahan",
+  "localizationAutoUsing": "Automatik: memakai {language}",
+  "@localizationAutoUsing": {
+    "placeholders": {
+      "language": {}
+    }
+  },
+  "localizationAutoDescription": "Aplikasi mengikuti bahasa peranti bila memungkinkan.",
+  "localizationManualDescription": "Bahasa aplikasi ditetapkan manual.",
+  "useSystemLanguageTitle": "Gunakan bahasa sistem",
+  "useSystemLanguageEnabled": "Mengikuti bahasa peranti: {language}",
+  "@useSystemLanguageEnabled": {
+    "placeholders": {
+      "language": {}
+    }
+  },
+  "useSystemLanguageDisabled": "Gunakan bahasa yang dipilih di bawah, bukan default peranti.",
+  "chooseAppLanguage": "Pilih bahasa aplikasi",
+  "languagePickerDisabledHint": "Matikan bahasa sistem untuk pilih bahasa secara manual.",
+  "searchLanguages": "Cari bahasa",
+  "noLanguagesFound": "Tiada bahasa cocok",
+  "localizationHint": "Saat bahasa sistem aktif, aplikasi mengikuti lokal peranti dan kembali ke Inggeris jika terjemahan tidak tersedia. Matikan agar aplikasi terkunci ke bahasa tertentu.",
+  "appLanguageTitle": "Bahasa aplikasi",
+  "appLanguageHint": "Automatik mengikuti bahasa peranti. Pilih Inggeris atau Perancis di sini untuk menimpa hanya di aplikasi.",
+  "languageAuto": "Automatik (sistem)",
+  "languageAutoDescription": "Ikut bahasa peranti secara automatik",
+  "languageEnglish": "Inggeris",
+  "languageEnglishDescription": "Paksa aplikasi sentiasa guna Inggeris",
+  "languageFrench": "Perancis",
+  "languageFrenchDescription": "Paksa aplikasi sentiasa guna Perancis",
+  "languageAutoShort": "Auto",
+  "languageEnglishShort": "Inggeris",
+  "languageFrenchShort": "Perancis",
+  "useDynamicColors": "Gunakan warna dinamis",
+  "themeChoiceAuto": "Automatik",
+  "themeChoiceLight": "Cerah",
+  "themeChoiceDark": "Gelap",
+  "irTransmitterTitle": "Pemancar IR",
+  "irTransmitterSubtitle": "Pilih peranti yang menghantar arahan IR",
+  "interactionTitle": "Interaksi",
+  "interactionSubtitle": "Umpan balik sentuh dan tata letak remote",
+  "hapticFeedbackTitle": "Umpan balik haptik",
+  "hapticFeedbackSubtitle": "Getar saat sentuh dan aksi",
+  "intensity": "Intensitas",
+  "intensityLight": "Cerah",
+  "intensityMedium": "Sedang",
+  "intensityStrong": "Kuat",
+  "flipRemoteDefaultTitle": "Balik Tampilan Remote default",
+  "flipRemoteDefaultSubtitle": "Buka layar Remote diputar 180° (untuk dongel USB yang terpasang di bawah).",
+  "remoteViewFlipped": "Tampilan Remote akan terbuka terbalik.",
+  "remoteViewNormal": "Tampilan Remote akan terbuka normal.",
+  "backupTitle": "Sandaran",
+  "backupSubtitle": "Import/ekspor remote dan makro",
+  "importBackup": "Import sandaran",
+  "importBackupSubtitle": "Import sandaran remote/makro atau file Flipper Zero, LIRC, atau IRPLUS",
+  "bulkImportFolder": "Import massal folder",
+  "bulkImportFolderSubtitle": "Import banyak remote dari folder",
+  "exportBackup": "Ekspor sandaran",
+  "exportBackupSubtitle": "Simpan remote + makro sebagai satu fail JSON ke Muat Turun",
+  "restoreDemoRemotes": "Pulihkan remote demo",
+  "restoreDemoRemotesSubtitle": "Ganti remote semasa dengan demo terbina dalam",
+  "deleteAllRemotes": "Hapus semua remote",
+  "deleteAllRemotesSubtitle": "Hapus semua remote dari peranti ini",
+  "backupTip": "Petua: eksport sandaran sebelum perubahan besar. Import menyokong sandaran penuh, sandaran JSON remote versi lama, dan fail Flipper Zero .ir.",
+  "aboutTitle": "Tentang",
+  "aboutSubtitle": "Info aplikasi dan detail sumber terbuka",
+  "aboutAppNameWithCreator": "IR Blaster - {creator}",
+  "@aboutAppNameWithCreator": {
+    "placeholders": {
+      "creator": {}
+    }
+  },
+  "versionLabel": "Versi {version}",
+  "@versionLabel": {
+    "placeholders": {
+      "version": {}
+    }
+  },
+  "sourceCode": "Kod Sumber",
+  "viewOnGitHub": "Lihat di GitHub",
+  "repositoryUrlCopied": "URL repositori disalin",
+  "reportIssue": "Laporkan Masalah",
+  "reportIssueSubtitle": "Laporan bug dan permintaan fitur",
+  "issuesUrlCopied": "URL isu disalin",
+  "license": "Lisensi",
+  "openSourceLicense": "Lisensi sumber terbuka",
+  "licenseUrlCopied": "URL lesen disalin",
+  "companyName": "KaijinLab Inc.",
+  "visitWebsite": "Kunjungi situs kami",
+  "companyUrlCopied": "URL perusahaan disalin",
+  "licenses": "Lisensi",
+  "openSourceLicenses": "Lisensi sumber terbuka",
+  "byCreator": "oleh {creator}",
+  "@byCreator": {
+    "placeholders": {
+      "creator": {}
+    }
+  },
+  "deviceControlsTitle": "Kawalan Peranti",
+  "deviceControlsSubtitle": "Tampilkan butang kegemaran di halaman kawalan sistem",
+  "manageFavorites": "Urus kegemaran",
+  "manageFavoritesSubtitle": "Pilih which butang appear in peranti kawalan",
+  "quickSettingsTitle": "Tetapan Cepat",
+  "quickSettingsSubtitle": "Tambah jubin untuk pintasan daya dan volume",
+  "configureTiles": "Atur jubin",
+  "configureTilesSubtitle": "Petakan jubin ke butang remote",
+  "tvKillTitle": "TVKill",
+  "tvKillSubtitle": "Perputaran daya universal untuk peranti milik Anda",
+  "openTvKill": "Buka TVKill",
+  "openTvKillSubtitle": "Putar kod daya (gunakan hanya pada peranti milik Anda)",
+  "failedToLoadTransmitterSettings": "Gagal memuat tetapan pemancar.",
+  "usbStatusReady": "Dongel USB tersambung dan sedia menghantar IR.",
+  "usbStatusPermissionRequired": "Dongel USB dikesan. Minta izin USB kemudian benarkan dialog sistem.",
+  "usbStatusPermissionDenied": "Izin USB ditolak untuk dongel yang dipasang. Minta lagi kemudian benarkan dialog.",
+  "usbStatusPermissionGranted": "Izin USB diberi. Dongel masih perlu dimulakan sebelum boleh menghantar IR.",
+  "usbStatusOpenFailed": "Izin USB diberi, tetapi dongel gagal dimulakan. Sambung semula kemudian cuba lagi.",
+  "usbStatusNoDevice": "Dongel IR USB yang disokong tidak dikesan.",
+  "usbSelectPermissionRequired": "Dongel USB dikesan tetapi belum dibenarkan. Tekan \"Minta izin USB\".",
+  "usbSelectPermissionDenied": "Izin USB ditolak. Tekan \"Minta izin USB\" kemudian benarkan dialog.",
+  "usbSelectPermissionGranted": "Izin USB diberi, tetapi dongel belum dimulakan. Cuba sambung semula.",
+  "usbSelectOpenFailed": "Izin USB diberi, tetapi dongel gagal dimulakan. Sambung semula kemudian cuba lagi.",
+  "usbSelectNoDevice": "Tiada dongel IR USB yang disokong dikesan. Sambung kemudian tekan \"Minta izin USB\".",
+  "usbSelectReady": "Dongel IR USB sedia.",
+  "autoSwitchEnabledMessage": "Alih automatik aktif: guna USB apabila tersambung, jika tidak Dalaman.",
+  "autoSwitchDisabledMessage": "Alih automatik nonaktif: pemilihan pemancar sekarang manual.",
+  "failedToUpdateAutoSwitch": "Gagal memperbarui tetapan alih automatik.",
+  "failedToSwitchTransmitter": "Gagal mengganti pemancar.",
+  "deviceHasNoInternalIr": "Peranti ini tiada pemancar IR terbina dalam.",
+  "audioModeEnabledMessage": "Mod Audio aktif. Gunakan volum media maksimum dan penyesuai LED audio-ke-IR.",
+  "usbPermissionRequestSent": "Permintaan izin USB dihantar.",
+  "usbPermissionRequestSentApprove": "Permintaan izin USB dihantar. Benarkan dialog untuk mengaktifkan USB.",
+  "usbAlreadyReady": "Dongel USB sudah dimulakan dan sedia.",
+  "failedToRequestUsbPermission": "Gagal meminta izin USB.",
+  "transmitterHelpInternal": "Gunakan pemancar IR terbina dalam telefon untuk menghantar perintah.",
+  "transmitterHelpUsb": "Gunakan dongel IR USB (izin diperlukan) untuk menghantar arahan.",
+  "transmitterHelpAudio1": "Gunakan keluaran audio (mono). Memerlukan adaptor LED audio-ke-IR dan volume media tinggi.",
+  "transmitterHelpAudio2": "Gunakan output audio (stereo). Guna dua saluran untuk pemacu LED yang lebih baik dengan penyesuai yang serasi.",
+  "transmitterInternal": "IR Dalaman",
+  "transmitterUsb": "Dongel IR USB",
+  "transmitterAudio1": "Audio (1 LED)",
+  "transmitterAudio2": "Audio (2 LED)",
+  "failedToLoadTransmitterCapabilities": "Gagal memuat kemampuan pemancar.",
+  "selectedTransmitter": "Pemancar terpilih",
+  "selectedTransmitterValue": "{effective} • Aktif: {active}",
+  "@selectedTransmitterValue": {
+    "placeholders": {
+      "effective": {},
+      "active": {}
+    }
+  },
+  "refresh": "Segarkan",
+  "autoSwitchTitle": "Alih automatik",
+  "autoSwitchDisabledWhileAudio": "Nonaktif saat mode Audio",
+  "autoSwitchUsesUsbOtherwiseInternal": "Guna USB apabila tersambung, jika tidak Dalaman",
+  "unavailableOnThisDevice": "Tidak tersedia di peranti ini",
+  "openOnUsbAttachTitle": "Buka saat USB terpasang",
+  "openOnUsbAttachSubtitle": "Android boleh mencadangkan membuka aplikasi apabila dongel IR USB yang disokong tersambung.",
+  "openOnUsbAttachEnabledMessage": "Akan mencadangkan membuka IR Blaster apabila dongel USB yang disokong dipasang.",
+  "openOnUsbAttachDisabledMessage": "Tidak akan mencadangkan buka apabila USB dipasang.",
+  "failedToUpdateSetting": "Gagal memperbarui tetapan.",
+  "unnamedButton": "Butang tanpa nama",
+  "iconFallback": "Ikon",
+  "remoteListReorderHint": "Mode urut ulang: tekan lama dan seret kartu untuk memindahkannya.",
+  "deleteRemoteTitle": "Hapus remote?",
+  "deleteRemoteMessage": "\"{name}\" akan dihapus permanen. Tindakan ini tidak boleh dibatalkan.",
+  "@deleteRemoteMessage": {
+    "placeholders": {
+      "name": {}
+    }
+  },
+  "delete": "Hapus",
+  "addToDeviceControlsTitle": "Tambah ke Kawalan Peranti?",
+  "addToDeviceControlsDescription": "Akses cepat di kawalan peranti sistem.",
+  "skip": "Lewati",
+  "add": "Tambah",
+  "addedToDeviceControls": "Ditambahkan ke Kawalan Peranti.",
+  "deletedRemoteUndoUnavailable": "Dihapus \"{name}\". Tindakan ini tidak boleh dibatalkan.",
+  "@deletedRemoteUndoUnavailable": {
+    "placeholders": {
+      "name": {}
+    }
+  },
+  "remoteLayoutSummary": "{count} butang · {layout}",
+  "@remoteLayoutSummary": {
+    "placeholders": {
+      "count": {},
+      "layout": {}
+    }
+  },
+  "layoutComfort": "Nyaman",
+  "layoutCompact": "Padat",
+  "open": "Buka",
+  "useThisRemote": "Gunakan remote ini",
+  "edit": "Ubah",
+  "editRemoteSubtitle": "Ganti nama dan ubah butang",
+  "thisCannotBeUndone": "Ini tidak boleh dibatalkan",
+  "searchRemotes": "Cari Remote",
+  "reorderRemotes": "Urutkan ulang remote",
+  "addRemote": "Tambah remote",
+  "more": "Lainnya",
+  "reorderMode": "Mode urut ulang",
+  "remoteButtonCount": "{count} butang{plural}",
+  "@remoteButtonCount": {
+    "placeholders": {
+      "count": {},
+      "plural": {}
+    }
+  },
+  "noRemotesYet": "Belum ada remote",
+  "noRemotesDescription": "Buat remote untuk mula menghantar kod IR.",
+  "noRemotesNextStep": "Berikutnya: tekan Tambah remote, kemudian tambahkan butang pertama.",
+  "actions": "Aksi",
+  "macrosTitle": "Makro",
+  "help": "Bantuan",
+  "createMacro": "Buat Makro",
+  "timedMacrosTitle": "Makro Terjadwal",
+  "timedMacrosSubtitle": "Automasikan urutan arahan IR dengan masa yang tepat",
+  "timedMacrosNextStep": "Berikutnya: tekan Buat Makro Pertama, pilih remote, kemudian tambahkan perintah dan jeda.",
+  "macroFeatureToysTitle": "Cocok untuk Mainan Interaktif",
+  "macroFeatureToysDescription": "Kendalikan peranti seperti anjing robot i-cybie, robot i-sobot, dan mainan lain yang memerlukan jeda antarperintah untuk memproses aksi.",
+  "macroFeatureTimingTitle": "Kawalan Waktu Presisi",
+  "macroFeatureTimingDescription": "Tambahkan jeda antarperintah (250ms hingga durasi kustom) agar peranti punya waktu merespons sebelum aksi berikutnya.",
+  "macroFeatureManualTitle": "Langkah Lanjut Manual",
+  "macroFeatureManualDescription": "Jeda eksekusi dan tunggu konfirmasi Anda saat durasi animasi berubah atau Anda perlu umpan balik visual.",
+  "exampleUseCase": "Contoh Penggunaan",
+  "macroExampleText": "Mode Lanjut i-cybie:\n1. Kirim perintah \"Mode\"\n2. Tunggu 1000ms (mainan memproses)\n3. Kirim \"Aksi 1\"\n4. Tunggu 1000ms\n5. Kirim \"Aksi 2\"\n…dan seterusnya automatik!",
+  "createFirstMacro": "Buat Makro Pertama",
+  "noRemote": "Tiada remote",
+  "macroStepCount": "{count} langkah{plural}",
+  "@macroStepCount": {
+    "placeholders": {
+      "count": {},
+      "plural": {}
+    }
+  },
+  "aboutTimedMacros": "Tentang Makro Terjadwal",
+  "aboutTimedMacrosDescription": "Makro Berjadual membolehkan anda mengautomasikan urutan arahan IR dengan jeda tepat pada setiap langkah.",
+  "sendCommand": "Kirim Perintah",
+  "sendCommandDescription": "Menghantar arahan IR dari remote anda.",
+  "delay": "Jeda",
+  "delayDescription": "Menunggu durasi tertentu (cth. 1000ms) sebelum langkah berikutnya.",
+  "manualContinue": "Manual Lanjut",
+  "manualContinueDescription": "Menjeda eksekusi sampai Anda mengetuk Lanjut (berguna untuk animasi dengan durasi bervariasi).",
+  "gotIt": "Mengerti",
+  "failedToSaveMacros": "Gagal simpan makro.",
+  "deletedMacroNamed": "Dihapus \"{name}\".",
+  "@deletedMacroNamed": {
+    "placeholders": {
+      "name": {}
+    }
+  },
+  "undo": "Urungkan",
+  "failedToRestoreMacro": "Gagal restore makro.",
+  "deleteMacroTitle": "Hapus makro?",
+  "deleteMacroMessage": "Anda boleh membatalkannya dari snackbar berikutnya.",
+  "noRemotesAvailable": "Tiada remote tersedia.",
+  "remoteButtonCountSummary": "{count} butang(s)",
+  "@remoteButtonCountSummary": {
+    "placeholders": {
+      "count": {}
+    }
+  },
+  "remoteOrientationFlippedTooltip": "Orientasi: terbalik (tekan untuk normal)",
+  "remoteOrientationNormalTooltip": "Orientasi: normal (tekan untuk balik)",
+  "stopLoop": "Hentikan loop",
+  "reorderButtons": "Reorder butang",
+  "remoteReorderHint": "Mode urut ulang: tekan lama dan seret butang untuk memindahkannya.",
+  "manageRemote": "Urus remote",
+  "remoteNoButtons": "Tiada butang di remote ini",
+  "remoteNoButtonsDescription": "Gunakan \"Ubah remote\" untuk menambah atau mengatur butang.",
+  "editRemote": "Ubah remote",
+  "editRemoteActionsSubtitle": "Ganti nama, urutkan ulang, dan ubah butang",
+  "remoteUpdatedNamedButton": "Diperbarui \"{name}\".",
+  "@remoteUpdatedNamedButton": {
+    "placeholders": {
+      "name": {}
+    }
+  },
+  "buttonAddedNamed": "Ditambahkan \"{name}\".",
+  "@buttonAddedNamed": {
+    "placeholders": {
+      "name": {}
+    }
+  },
+  "buttonDuplicated": "Butang duplicated.",
+  "loopRunningForButton": "Loop sedang berjalan untuk butang ini.",
+  "loopTip": "Tip: gunakan Loop untuk mengulang sampai Anda menghentikannya.",
+  "codeCopied": "Kod disalin.",
+  "copyCode": "Copy kod",
+  "startLoop": "Mula loop",
+  "editButtonSubtitle": "Modify label, kod, protokol, frequency",
+  "newButton": "New butang",
+  "newButtonSubtitle": "Buat butang baru setelah butang ini",
+  "duplicate": "Duplikat",
+  "duplicateButtonSubtitle": "Buat salinan butang ini",
+  "removeFromDeviceControls": "Hapus dari Kawalan Peranti",
+  "addToDeviceControls": "Tambah ke Kawalan Peranti",
+  "deviceControlsButtonSubtitle": "Menampilkan butang ini di kawalan peranti sistem",
+  "removedFromDeviceControls": "Dihapus dari Kawalan Peranti.",
+  "pinQuickTile": "Sematkan ke kegemaran Jubin Pantas",
+  "unpinQuickTile": "Buang dari kegemaran Jubin Pantas",
+  "quickTileButtonSubtitle": "Menampilkan butang ini di bagian atas pemilih jubin pantas",
+  "removedFromQuickTileFavorites": "Dihapus dari kegemaran Jubin Pantas.",
+  "pinnedToQuickTileFavorites": "Disematkan ke kegemaran Jubin Pantas.",
+  "duplicateAndEdit": "Duplikat dan ubah",
+  "duplicateAndEditSubtitle": "Buat salinan kemudian langsung ubah",
+  "done": "Selesai",
+  "run": "Jalankan",
+  "untitledRemote": "Remote tanpa judul",
+  "createRemoteTitle": "Buat remote",
+  "editRemoteTitle": "Ubah remote",
+  "removeButtonTitle": "Remove butang?",
+  "imageButtonRemovedMessage": "Butang gambar ini akan dihapus.",
+  "namedButtonRemovedMessage": "\"{name}\" akan dihapus.",
+  "@namedButtonRemovedMessage": {
+    "placeholders": {
+      "name": {}
+    }
+  },
+  "remove": "Hapus",
+  "importedButtonCount": "Mengimport {count} butang.",
+  "@importedButtonCount": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "importedButtonsFromExistingRemotes": "Mengimport {count} butang dari remote sedia ada.",
+  "@importedButtonsFromExistingRemotes": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "editButtonSettingsSubtitle": "Ubah label, isyarat, dan tetapan lanjutan",
+  "createButtonCopySubtitle": "Buat salinan butang ini",
+  "duplicateAndEditButtonSubtitle": "Buat salinan kemudian langsung ubah",
+  "undoAvailableInNextSnackbar": "Anda boleh membatalkan dari snackbar berikutnya",
+  "buttonRemoved": "Butang removed.",
+  "remoteNameCannotBeEmpty": "Nama remote tidak boleh kosong.",
+  "saveRemote": "Simpan remote",
+  "remoteName": "Nama remote",
+  "remoteNameHint": "cth. TV, Penghawa Dingin, Jalur LED",
+  "remoteNameHelper": "Nama ini muncul di daftar Remote Anda.",
+  "layoutStyle": "Gaya tata letak",
+  "layoutWideDescription": "Luas: butang 2 kolom dengan detail tambahan (disyorkan).",
+  "layoutCompactDescription": "Ringkas: kisi 4× klasik (ikon/teks saja).",
+  "importFromRemotes": "Import dari remote",
+  "importFromDatabase": "Import dari DB",
+  "addButton": "Tambah butang",
+  "noButtonsYet": "Tiada butang yet",
+  "createRemoteEmptyStateDescription": "Tambahkan butang pertama, kemudian tekan lama untuk opsi ubah/hapus.",
+  "createButtonTitle": "Buat Butang",
+  "editButtonTitle": "Ubah Butang",
+  "failedToLoadProtocols": "Gagal muat protocols: {error}",
+  "@failedToLoadProtocols": {
+    "placeholders": {
+      "error": {}
+    }
+  },
+  "failedToLoadDatabaseKeys": "Gagal muat pangkalan data butang: {error}",
+  "@failedToLoadDatabaseKeys": {
+    "placeholders": {
+      "error": {}
+    }
+  },
+  "presetPower": "Daya",
+  "presetVolume": "Volum",
+  "presetChannel": "Kanal",
+  "presetNavigation": "Navigasi",
+  "all": "Semua",
+  "completeRequiredFieldsToSave": "Lengkapi bidang wajib untuk menyimpan",
+  "buttonLabelStepTitle": "1) Butang label",
+  "buttonLabelStepSubtitle": "Pilih gambar, ikon, atau ketik label teks.",
+  "buttonColorStepTitle": "2) Butang color (optional)",
+  "buttonColorStepSubtitle": "Pilih warna latar untuk butang ini.",
+  "selectColor": "Pilih color:",
+  "noImageSelected": "Tiada gambar terpilih",
+  "gallery": "Galeri",
+  "builtIn": "Bawaan",
+  "removeImage": "Remove gambar",
+  "requiredSelectImageOrSwitch": "Wajib: pilih gambar, ikon, atau beralih ke Teks.",
+  "iconSelected": "Ikon terpilih",
+  "noIconSelected": "Tiada ikon terpilih",
+  "chooseIcon": "Pilih Ikon",
+  "removeIcon": "Remove ikon",
+  "requiredSelectIconOrSwitch": "Wajib: pilih ikon atau beralih ke Gambar/Teks.",
+  "buttonText": "Butang text",
+  "buttonTextHint": "cth. Daya, Volum +, HDMI 1",
+  "buttonTextHelper": "Teks ini akan muncul pada butang.",
+  "requiredEnterButtonLabel": "Wajib: masukkan label butang.",
+  "defaultColorName": "Default",
+  "newRemoteCreatedFromLastHit": "Remote baru dibuat dengan satu butang dari hasil terakhir.",
+  "selectRemote": "Pilih remote",
+  "remoteNumber": "Remote #{id}",
+  "@remoteNumber": {
+    "placeholders": {
+      "id": {}
+    }
+  },
+  "newRemoteCreated": "Remote baru dibuat.",
+  "failedToCreateRemote": "Gagal create remote.",
+  "newRemoteEllipsis": "Remote baru…",
+  "addedToRemoteNamed": "Ditambahkan ke {name}.",
+  "@addedToRemoteNamed": {
+    "placeholders": {
+      "name": {}
+    }
+  },
+  "failedToAddToRemote": "Gagal menambah ke remote.",
+  "newRemoteDefaultName": "Remote Baru",
+  "jumpedToOffsetPaused": "Melompat ke offset {offset}. Dijeda, tekan Lanjutkan untuk melanjutkan.",
+  "@jumpedToOffsetPaused": {
+    "placeholders": {
+      "offset": {
+        "type": "int"
+      }
+    }
+  },
+  "sent": "Terkirim.",
+  "failedToSend": "Gagal send: {error}",
+  "@failedToSend": {
+    "placeholders": {
+      "error": {}
+    }
+  },
+  "copiedProtocolCode": "Disalin (protokol:kod).",
+  "savedToResults": "Disimpan ke Hasil.",
+  "invalidCodeForProtocol": "Kod tidak sah untuk protokol: {error}",
+  "@invalidCodeForProtocol": {
+    "placeholders": {
+      "error": {}
+    }
+  },
+  "copiedCurrentCandidate": "Calon semasa disalin.",
+  "jumpToOffset": "Lompat ke offset",
+  "jumpToBruteCursor": "Lompat ke kursor brute",
+  "jump": "Lompat",
+  "jumpedToCursorPaused": "Melompat ke kursor 0x{cursor}. Dijeda, tekan Lanjutkan untuk melanjutkan.",
+  "@jumpedToCursorPaused": {
+    "placeholders": {
+      "cursor": {}
+    }
+  },
+  "irSignalTester": "Penguji Isyarat IR",
+  "stop": "Hentikan",
+  "selectButton": "Pilih butang",
+  "buttonNotFoundInRemotes": "Butang tidak ditemui di remote.",
+  "sentNamed": "Menghantar \"{name}\".",
+  "@sentNamed": {
+    "placeholders": {
+      "name": {}
+    }
+  },
+  "sendFailed": "Kirim gagal: {error}",
+  "@sendFailed": {
+    "placeholders": {
+      "error": {}
+    }
+  },
+  "noFavoritesYet": "Tiada kegemaran yet",
+  "deviceControlsEmptyHint": "Tekan lama butang remote kemudian pilih \"Tambah ke Kawalan Peranti\".",
+  "sendTest": "Kirim test",
+  "testSendCompleted": "Uji kirim selesai.",
+  "testSendFailed": "Test send gagal: {error}",
+  "@testSendFailed": {
+    "placeholders": {
+      "error": {}
+    }
+  },
+  "removedNamed": "Menghapus \"{name}\".",
+  "@removedNamed": {
+    "placeholders": {
+      "name": {}
+    }
+  },
+  "brand": "Jenama",
+  "model": "Model",
+  "selectBrand": "Pilih jenama",
+  "searchBrand": "Cari jenama…",
+  "selectModel": "Pilih model",
+  "searchModel": "Cari model…",
+  "unnamedKey": "Unnamed butang",
+  "unknown": "Tidak dikenal",
+  "emDash": "—",
+  "searchCommands": "Cari arahans",
+  "noMatchingCommands": "Tiada matching arahans",
+  "quickTileFavoritesTitle": "Cepat jubin kegemaran",
+  "changeMappingForTile": "Ubah pemetaan untuk jubin {tileLabel}",
+  "@changeMappingForTile": {
+    "placeholders": {
+      "tileLabel": {}
+    }
+  },
+  "pickDifferentButton": "Pilih butang lain",
+  "browseAllRemotesEllipsis": "Browse semua remote…",
+  "invalidMacroFileFormat": "Insah makro file format.",
+  "failedToParseMacroFile": "Gagal parse makro file.",
+  "deviceCodeLabel": "Peranti Kod",
+  "commandLabel": "Perintah",
+  "editButtonCodeTitle": "Ubah Kod butang",
+  "thisRemoteHasNoButtons": "Remote ini tidak mempunyai butang.",
+  "selectCommand": "Pilih Arahan",
+  "databaseModeAutofillHint": "Mode Pangkalan data mengisi automatik Langkah 2 untuk Anda (jenama + model + protokol). Setelah mengimport butang, Anda boleh menyempurnakan apa pun di Manual.",
+  "test": "Uji",
+  "allSelectedButtonsWereDuplicates": "Semua butang terpilih adalah duplikat.",
+  "noButtonsImported": "Tiada butang importted.",
+  "importedButtonsSkippedDuplicates": "Mengimport {addedCount} butang. Melangkau {skippedCount} pendua.",
+  "@importedButtonsSkippedDuplicates": {
+    "placeholders": {
+      "addedCount": {
+        "type": "int"
+      },
+      "skippedCount": {
+        "type": "int"
+      }
+    }
+  },
+  "importAllMatchingTitle": "Import semua matching butang?",
+  "noMatchingKeysFound": "Tiada matching butang found.",
+  "importAllMatchingMessage": "Ini akan mengimport hingga {count} butang yang sepadan dari pilihan pangkalan data semasa.",
+  "@importAllMatchingMessage": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "importAll": "Import semua",
+  "importingButtons": "Importting butang…",
+  "allMatchingButtonsWereDuplicates": "Semua butang yang cocok adalah duplikat.",
+  "quickPresets": "Cepat presets",
+  "selectDeviceFirst": "Pilih peranti terlebih dahulu",
+  "searchByLabelOrHex": "Cari menurut label atau hex",
+  "optionalRefinePresetKeys": "Opsional: perhalus butang preset {preset}",
+  "@optionalRefinePresetKeys": {
+    "placeholders": {
+      "preset": {}
+    }
+  },
+  "selectBrandModelProtocolFirst": "Pilih jenama, model, dan protokol terlebih dahulu.",
+  "importFromDatabaseTitle": "Import dari pangkalan data",
+  "importFromDatabaseSubtitle": "Pilih peranti, muat butang yang cocok, kemudian import butang terpilih.",
+  "deviceAndFilters": "Peranti & filters",
+  "loadedCount": "{count} dimuat",
+  "@loadedCount": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "hideFilters": "Sembunyikan filter",
+  "showFilters": "Tampilkan filter",
+  "noProtocolFoundForBrandModel": "Tiada protokol untuk jenama dan model ini.",
+  "protocolAutoDetected": "Protokol",
+  "protocolAutoDetectedHelper": "Dikesan automatik dari pangkalan data. Anda boleh mengubahnya sebelum import.",
+  "selectBrandModelToLoadKeys": "Pilih jenama, model, dan protokol untuk memuat butang.",
+  "noKeysFound": "Tiada butang found.",
+  "noKeysFoundForSearch": "Tiada butang ditemui untuk “{query}”.",
+  "@noKeysFoundForSearch": {
+    "placeholders": {
+      "query": {}
+    }
+  },
+  "skipDuplicates": "Lewati duplikat",
+  "skipDuplicatesSubtitle": "Jangan import butang yang sudah ada di remote ini.",
+  "importSelected": "Import terpilih",
+  "noMacrosToExport": "Tiada makro untuk diekspor.",
+  "macrosExportedToDownloads": "Makro diekspor ke Unduhan.",
+  "failedToExportMacros": "Gagal export makro.",
+  "failedToReadFile": "Gagal read file.",
+  "importFromExistingRemotesTitle": "Import dari Remote yang Ada",
+  "selectedCount": "{count} terpilih",
+  "@selectedCount": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "noOtherRemotesWithButtons": "Tiada remote lain dengan butang.",
+  "sourceRemote": "Sumber remote",
+  "searchButtons": "Cari butang",
+  "searchButtonsHint": "Kuasa, Volum, Senyap...",
+  "selectVisible": "Pilih visible",
+  "clearVisible": "Bersihkan yang terlihat",
+  "protocolNamed": "Protokol: {name}",
+  "@protocolNamed": {
+    "placeholders": {
+      "name": {}
+    }
+  },
+  "rawSignal": "Mentah",
+  "legacyCode": "Lama kod",
+  "importCount": "Import {count}",
+  "@importCount": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "storagePermissionDeniedLegacy": "Izin penyimpanan ditolak (diperlukan di beberapa peranti Android lama).",
+  "backupExportedToDownloads": "Sandaran diekspor ke Unduhan.",
+  "failedToExport": "Gagal export: {error}",
+  "@failedToExport": {
+    "placeholders": {
+      "error": {}
+    }
+  },
+  "importedLegacyJsonBackup": "Mengimport {count} remote dari sandaran JSON lama. Makro tidak diubah.",
+  "@importedLegacyJsonBackup": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "importFailedRemotesMustBeList": "Import gagal: \"remotes\" dalam sandaran mesti berupa senarai JSON jika ada.",
+  "importFailedMacrosMustBeList": "Import gagal: \"macros\" dalam sandaran mesti berupa senarai JSON jika ada.",
+  "importFailedInvalidBackupFormat": "Import gagal: format sandaran tidak sah (diharapkan List atau Map lama dengan remote/makro).",
+  "importedBackupRemotesOnly": "Mengimport {remoteCount} remote dari sandaran. Makro tidak diubah.",
+  "@importedBackupRemotesOnly": {
+    "placeholders": {
+      "remoteCount": {
+        "type": "int"
+      }
+    }
+  },
+  "importedBackupRemotesAndMacros": "Mengimport {remoteCount} remote dan {macroCount} makro dari sandaran.",
+  "@importedBackupRemotesAndMacros": {
+    "placeholders": {
+      "remoteCount": {
+        "type": "int"
+      },
+      "macroCount": {
+        "type": "int"
+      }
+    }
+  },
+  "importFailedNoValidButtonsInIr": "Import gagal: tiada butang sah di file .ir.",
+  "importedOneRemoteFromFlipper": "Mengimport 1 remote dari Flipper .ir. Makro tidak diubah.",
+  "importFailedInvalidIrplus": "Import gagal: file irplus tidak sah (tiada butang sah).",
+  "importedOneRemoteFromIrplus": "Mengimport 1 remote dari irplus. Makro tidak diubah.",
+  "importFailedInvalidLirc": "Import gagal: file LIRC tidak sah (tiada kod/kod mentah sah).",
+  "importedOneRemoteFromLirc": "Mengimport 1 remote dari konfigurasi LIRC. Makro tidak diubah.",
+  "unsupportedFileTypeSelected": "Unsupported file type terpilih.",
+  "importFailedInvalidUnreadableFile": "Import gagal: file tidak sah atau tidak boleh dibaca.",
+  "bulkImportNoSupportedFilesInFolder": "Import massal selesai: tiada file yang disokong di folder.",
+  "bulkImportNoRemotesImported": "Import pukal selesai: tiada remote diimport. Melangkau {skippedCount} fail.",
+  "@bulkImportNoRemotesImported": {
+    "placeholders": {
+      "skippedCount": {
+        "type": "int"
+      }
+    }
+  },
+  "bulkImportComplete": "Import massal selesai: mengimport {importedCount} remote dari {supportedCount} file yang disokong. Melewati {skippedCount} file.",
+  "@bulkImportComplete": {
+    "placeholders": {
+      "importedCount": {
+        "type": "int"
+      },
+      "supportedCount": {
+        "type": "int"
+      },
+      "skippedCount": {
+        "type": "int"
+      }
+    }
+  },
+  "storagePermissionDenied": "Storage izin ditolak.",
+  "bulkImportFailedReadFolder": "Import massal gagal: tidak dapat membaca isi folder.",
+  "bulkImportNoSupportedFilesSource": "Import massal complete: tiada disokong file found ({sourceLabel}).",
+  "@bulkImportNoSupportedFilesSource": {
+    "placeholders": {
+      "sourceLabel": {}
+    }
+  },
+  "clearAction": "Bersihkan",
+  "saveAction": "Simpan",
+  "buttonsTitleCount": "Butang ({count})",
+  "@buttonsTitleCount": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "invalidStepEncountered": "Insah langkah encountered",
+  "failedToSendNamed": "Gagal send: {name}",
+  "@failedToSendNamed": {
+    "placeholders": {
+      "name": {}
+    }
+  },
+  "buttonNotFound": "Butang tidak ditemui",
+  "buttonNotFoundNamed": "Butang tidak ditemui: {name}",
+  "@buttonNotFoundNamed": {
+    "placeholders": {
+      "name": {}
+    }
+  },
+  "unknownButton": "Tidak dikenal Butang",
+  "durationSecondsShort": "{seconds}s",
+  "@durationSecondsShort": {
+    "placeholders": {
+      "seconds": {
+        "type": "int"
+      }
+    }
+  },
+  "durationMinutesSecondsShort": "{minutes}m {seconds}s",
+  "@durationMinutesSecondsShort": {
+    "placeholders": {
+      "minutes": {
+        "type": "int"
+      },
+      "seconds": {
+        "type": "int"
+      }
+    }
+  },
+  "durationHoursMinutesShort": "{hours}h {minutes}m",
+  "@durationHoursMinutesShort": {
+    "placeholders": {
+      "hours": {
+        "type": "int"
+      },
+      "minutes": {
+        "type": "int"
+      }
+    }
+  },
+  "orientationFlippedTooltip": "Orientasi: terbalik (tekan untuk normal)",
+  "orientationNormalTooltip": "Orientasi: normal (tekan untuk balik)",
+  "noSteps": "Tiada langkah",
+  "stepProgress": "Langkah {current} / {total}",
+  "@stepProgress": {
+    "placeholders": {
+      "current": {
+        "type": "int"
+      },
+      "total": {
+        "type": "int"
+      }
+    }
+  },
+  "completed": "Selesai",
+  "paused": "Dijeda",
+  "running": "Berjalan",
+  "ready": "Sedia",
+  "stepsProgress": "{current} / {total} langkah",
+  "@stepsProgress": {
+    "placeholders": {
+      "current": {
+        "type": "int"
+      },
+      "total": {
+        "type": "int"
+      }
+    }
+  },
+  "waiting": "Menunggu",
+  "secondsRemaining": "Baki {seconds}s",
+  "@secondsRemaining": {
+    "placeholders": {
+      "seconds": {}
+    }
+  },
+  "millisecondsShort": "{ms}ms",
+  "@millisecondsShort": {
+    "placeholders": {
+      "ms": {
+        "type": "int"
+      }
+    }
+  },
+  "tapContinueWhenReady": "Tekan Lanjut saat sedia untuk langkah berikutnya",
+  "error": "Galat",
+  "macroCompleted": "Makro selesai",
+  "finishedIn": "Selesai dalam {duration}",
+  "@finishedIn": {
+    "placeholders": {
+      "duration": {}
+    }
+  },
+  "sequence": "Urutan",
+  "waitMilliseconds": "Tunggu {ms}ms",
+  "@waitMilliseconds": {
+    "placeholders": {
+      "ms": {
+        "type": "int"
+      }
+    }
+  },
+  "runAgain": "Jalankan Lagi",
+  "startMacro": "Mula Makro",
+  "continueAction": "Lanjut",
+  "unnamedRemote": "Remote tanpa nama",
+  "enterMacroName": "Masukkan nama makro",
+  "addAtLeastOneStep": "Tambah at least one langkah",
+  "fixInvalidSteps": "Fix tidak sah langkah",
+  "unknownCommand": "Tidak dikenal Arahan",
+  "unnamedCommand": "Perintah tanpa nama",
+  "iconCommand": "Ikon Arahan",
+  "selectDelay": "Pilih Jeda",
+  "keepMilliseconds": "Pertahankan: {ms}ms",
+  "@keepMilliseconds": {
+    "placeholders": {
+      "ms": {
+        "type": "int"
+      }
+    }
+  },
+  "custom": "Kustom",
+  "enterCustomDelayDuration": "Masukkan durasi jeda kustom",
+  "millisecondsLong": "{ms} milidetik",
+  "@millisecondsLong": {
+    "placeholders": {
+      "ms": {
+        "type": "int"
+      }
+    }
+  },
+  "secondsLong": "{seconds} detik{plural}",
+  "@secondsLong": {
+    "placeholders": {
+      "seconds": {},
+      "plural": {}
+    }
+  },
+  "customDelay": "Custom Jeda",
+  "delayMillisecondsLabel": "Jeda (milliseconds)",
+  "delayMillisecondsHint": "cth. 3000",
+  "recommendedDelayRange": "Disyorkan: 250-5000ms untuk sebagian besar peranti",
+  "enterValidPositiveNumber": "Masukkan angka positif yang sah",
+  "ok": "OK",
+  "remote": "Remote",
+  "macroName": "Nama makro",
+  "macroNameHint": "cth. i-cybie Mode Lanjut",
+  "stepsTitleCount": "Langkah ({count})",
+  "@stepsTitleCount": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "noStepsYet": "Tiada langkah yet",
+  "addCommandsAndDelaysHint": "Tambahkan perintah dan jeda di bawah untuk menyusun urutan",
+  "addStep": "Tambah Langkah",
+  "reorderStepsHint": "Tip: seret pegangan untuk mengurut ulang langkah. Tekan langkah untuk mengubahnya.",
+  "reorderStep": "Reorder langkah {index}",
+  "@reorderStep": {
+    "placeholders": {
+      "index": {
+        "type": "int"
+      }
+    }
+  },
+  "pressAndDragToChangeStepOrder": "Tekan dan seret untuk mengubah urutan langkah",
+  "deleteStep": "Hapus langkah {index}",
+  "@deleteStep": {
+    "placeholders": {
+      "index": {
+        "type": "int"
+      }
+    }
+  },
+  "invalidStepTapToFix": "Langkah tidak sah, tekan untuk baiki",
+  "sendIrCommand": "Hantar arahan IR",
+  "waitForUserConfirmation": "Tunggu konfirmasi pengguna",
+  "notImplemented": "Belum diimplementasikan",
+  "frequencyKhz": "{value} kHz",
+  "@frequencyKhz": {
+    "placeholders": {
+      "value": {
+        "type": "int"
+      }
+    }
+  },
+  "necProtocolShort": "NEC",
+  "msbShort": "MSB",
+  "layoutWide": "Luas",
+  "iconButton": "Ikon butang",
+  "imageButton": "Gambar butang",
+  "noSignalInfo": "Tiada info isyarat",
+  "proceed": "Lanjut",
+  "discard": "Buang",
+  "idle": "Siaga",
+  "start": "Mula",
+  "resume": "Lanjutkan",
+  "pause": "Jeda",
+  "stopped": "Berhenti",
+  "copy": "Salin",
+  "send": "Kirim",
+  "step": "Langkah",
+  "addToRemote": "Tambah ke remote",
+  "noDescriptionAvailable": "Tiada description tersedia.",
+  "notAvailableSymbol": "—",
+  "irFinderKaseikyoVendorInvalid": "Vendor Kaseikyo harus tepat 4 digit heksadesimal.",
+  "irFinderDatabaseNotReady": "Pangkalan data belum sedia.",
+  "irFinderSelectBrandFirst": "Pilih jenama terlebih dahulu di Sediakan.",
+  "irFinderBruteforceUnavailable": "Brute-force belum tersedia untuk protokol ini.",
+  "irFinderInvalidPrefix": "Insah awalan.",
+  "irFinderBrandValue": "Jenama: {value}",
+  "@irFinderBrandValue": {
+    "placeholders": {
+      "value": {}
+    }
+  },
+  "irFinderModelValue": "Model: {value}",
+  "@irFinderModelValue": {
+    "placeholders": {
+      "value": {}
+    }
+  },
+  "irFinderKeyValue": "Butang: {value}",
+  "@irFinderKeyValue": {
+    "placeholders": {
+      "value": {}
+    }
+  },
+  "irFinderRemoteNumber": "Remote #{value}",
+  "@irFinderRemoteNumber": {
+    "placeholders": {
+      "value": {}
+    }
+  },
+  "irFinderJumpOffsetHelper": "Masukkan indeks berbasis 0 dalam hasil pangkalan data yang difilter dan diurutkan.",
+  "irFinderJumpCursorHelper": "Masukkan kursor heksadesimal berbasis 0 dalam ruang brute-force.",
+  "irFinderSetupTab": "Sediakan",
+  "irFinderTestTab": "Uji",
+  "irFinderResultsTab": "Hasil",
+  "irFinderContinueToTest": "Lanjut ke Uji",
+  "irFinderKaseikyoVendorTitle": "Vendor Kaseikyo",
+  "irFinderCustomVendorLabel": "Vendor kustom (4 hex)",
+  "irFinderBrowseDbCandidates": "Jelajahi kandidat DB…",
+  "irFinderEditSetup": "Ubah Setup",
+  "irFinderNoSavedHits": "Belum ada hasil tersimpan. Di halaman Uji, tekan \"Simpan hasil\" saat peranti merespons.",
+  "irFinderBackToTest": "Kembali ke Uji",
+  "irFinderLargeSearchSpaceTitle": "Ruang pencarian besar",
+  "irFinderLargeSearchSpaceBody": "Ruang brute-force ini sangat besar ({human} kemungkinan). IR Finder tetap akan menghormati had cubaan maksimum dan cooldown anda, tetapi berhati-hati agar tidak membanjiri peranti IR.\n\nSyor: guna mod Pangkalan data dahulu, dan/atau masukkan bait awalan yang diketahui untuk mengurangkan ruang.",
+  "@irFinderLargeSearchSpaceBody": {
+    "placeholders": {
+      "human": {}
+    }
+  },
+  "irFinderDatabaseSession": "Pangkalan data session",
+  "irFinderBruteforceSession": "Sesi brute-force",
+  "irFinderResumeLastSession": "Lanjutkan last session",
+  "irFinderResumeBrandModel": "Jenama: {brand} · Model: {model}",
+  "@irFinderResumeBrandModel": {
+    "placeholders": {
+      "brand": {},
+      "model": {}
+    }
+  },
+  "irFinderResumePrefix": "Awalan: {value}",
+  "@irFinderResumePrefix": {
+    "placeholders": {
+      "value": {}
+    }
+  },
+  "irFinderResumeProgress": "Progres: {progress} · Mula: {when}",
+  "@irFinderResumeProgress": {
+    "placeholders": {
+      "progress": {},
+      "when": {}
+    }
+  },
+  "irFinderApplyResume": "Apply & Lanjutkan",
+  "irFinderBruteforceMode": "Brute-force",
+  "irFinderDatabaseAssistedMode": "Pangkalan data-assisted",
+  "irFinderProtocolTitle": "Protokol: {name}",
+  "@irFinderProtocolTitle": {
+    "placeholders": {
+      "name": {}
+    }
+  },
+  "irFinderProtocolLabel": "Protokol IR",
+  "irFinderProtocolHelper": "Mengontrol enkod dan karena itu ruang pencarian.",
+  "irFinderKnownPrefixLabel": "Awalan yang diketahui (byte hex, opsional)",
+  "irFinderKnownPrefixHint": "A1B2, A1 B2, A1:B2, 0xA1 0xB2",
+  "irFinderKnownPrefixHelperPayload": "Payload: {digits} digit heksadesimal",
+  "@irFinderKnownPrefixHelperPayload": {
+    "placeholders": {
+      "digits": {
+        "type": "int"
+      }
+    }
+  },
+  "irFinderKnownPrefixHelperPayloadExample": "Payload: {digits} hex digit(s) · Contoh: {example}",
+  "@irFinderKnownPrefixHelperPayloadExample": {
+    "placeholders": {
+      "digits": {
+        "type": "int"
+      },
+      "example": {}
+    }
+  },
+  "irFinderKnownPrefixHelperPayloadMax": "Payload: {digits} digit heksadesimal · Awalan maks: {bytes} byte",
+  "@irFinderKnownPrefixHelperPayloadMax": {
+    "placeholders": {
+      "digits": {
+        "type": "int"
+      },
+      "bytes": {
+        "type": "int"
+      }
+    }
+  },
+  "irFinderKnownPrefixHelperPayloadExampleMax": "Payload: {digits} hex digit(s) · Contoh: {example} · Max awalan: {bytes} byte(s)",
+  "@irFinderKnownPrefixHelperPayloadExampleMax": {
+    "placeholders": {
+      "digits": {
+        "type": "int"
+      },
+      "example": {},
+      "bytes": {
+        "type": "int"
+      }
+    }
+  },
+  "irFinderKnownPrefixHelperExample": "Contoh: {example}",
+  "@irFinderKnownPrefixHelperExample": {
+    "placeholders": {
+      "example": {}
+    }
+  },
+  "irFinderKnownPrefixHelperFallback": "Masukkan bait awalan yang diketahui untuk mengurangkan ruang carian.",
+  "irFinderDatabaseMode": "Pangkalan data",
+  "irFinderNormalizedPrefixValue": "Normalized awalan: {value}",
+  "@irFinderNormalizedPrefixValue": {
+    "placeholders": {
+      "value": {}
+    }
+  },
+  "irFinderNormalizedPrefix": "Normalized awalan",
+  "irFinderBruteforceNotConfigured": "Brute-force belum dikonfigurasi untuk protokol ini.",
+  "irFinderAllLimit": "Semua ({value})",
+  "@irFinderAllLimit": {
+    "placeholders": {
+      "value": {}
+    }
+  },
+  "irFinderTestControls": "Test kawalan",
+  "irFinderPayloadLength": "Panjang payload: {digits} digit heksadesimal.",
+  "@irFinderPayloadLength": {
+    "placeholders": {
+      "digits": {
+        "type": "int"
+      }
+    }
+  },
+  "irFinderSearchSpace": "Cari ruang: {value} possibilities (after awalan constraints).",
+  "@irFinderSearchSpace": {
+    "placeholders": {
+      "value": {}
+    }
+  },
+  "irFinderCooldownMs": "Jeda (ms)",
+  "irFinderMaxAttemptsPerRun": "Maks percubaan (per jalan)",
+  "irFinderTestAllCombinations": "Test semua combinations",
+  "irFinderTestAllCombinationsHint": "Berjalan sampai ruang pencarian habis. Batas efektif: {value}",
+  "@irFinderTestAllCombinationsHint": {
+    "placeholders": {
+      "value": {}
+    }
+  },
+  "irFinderAttempts": "Percubaan",
+  "irFinderAttemptsSliderRange": "Rentang slider: 1–{max} (ketik angka apa saja untuk nilai lebih besar)",
+  "@irFinderAttemptsSliderRange": {
+    "placeholders": {
+      "max": {
+        "type": "int"
+      }
+    }
+  },
+  "irFinderMaxButton": "Maks\n{value}",
+  "@irFinderMaxButton": {
+    "placeholders": {
+      "value": {
+        "type": "int"
+      }
+    }
+  },
+  "irFinderEffectiveLimitThisRun": "Batas efektif jalan ini: {value}",
+  "@irFinderEffectiveLimitThisRun": {
+    "placeholders": {
+      "value": {}
+    }
+  },
+  "irFinderBruteforceTip": "Petua: guna mod Pangkalan data dahulu; brute-force paling baik dengan awalan yang diketahui, contohnya 1 hingga 4 bait pertama.",
+  "irFinderDatabaseInitFailed": "Pangkalan data inisialisasi gagal.",
+  "irFinderPreparingDatabase": "Menyedia pangkalan data kod IR setempat…",
+  "irFinderDatabaseAssistedSearch": "Pangkalan data-assisted pencarian",
+  "irFinderBrand": "Jenama",
+  "irFinderSelectBrand": "Pilih jenama",
+  "irFinderModelOptional": "Model (opsional)",
+  "irFinderSelectBrandFirstShort": "Pilih jenama terlebih dahulu",
+  "irFinderSelectModelRecommended": "Pilih a model (disyorkan)",
+  "irFinderOnlySelectedProtocol": "Only terpilih protokol",
+  "irFinderOnlySelectedProtocolHint": "Menyaring butang ke protokol yang dipilih. Nonaktifkan untuk melihat semua protokol.",
+  "irFinderQuickWinsFirst": "Kemenangan cepat dulu",
+  "irFinderQuickWinsFirstHint": "Utamakan butang gaya POWER, MUTE, VOL, dan CH sebelum butang lain.",
+  "irFinderMaxKeysPerRun": "Maks butang untuk diuji (per jalan)",
+  "irFinderTesting": "Menguji…",
+  "irFinderCooldown": "Jeda",
+  "irFinderEta": "ETA",
+  "irFinderMode": "Mode",
+  "irFinderRetryLast": "Cuba lagi last",
+  "irFinderTrigger": "Pemicu",
+  "irFinderJump": "Lompat…",
+  "irFinderSaveHit": "Simpan hit",
+  "irFinderEtaSeconds": "{seconds}s",
+  "@irFinderEtaSeconds": {
+    "placeholders": {
+      "seconds": {
+        "type": "int"
+      }
+    }
+  },
+  "irFinderEtaMinutesSeconds": "{minutes}m {seconds}s",
+  "@irFinderEtaMinutesSeconds": {
+    "placeholders": {
+      "minutes": {
+        "type": "int"
+      },
+      "seconds": {
+        "type": "int"
+      }
+    }
+  },
+  "irFinderEtaHoursMinutes": "{hours}h {minutes}m",
+  "@irFinderEtaHoursMinutes": {
+    "placeholders": {
+      "hours": {
+        "type": "int"
+      },
+      "minutes": {
+        "type": "int"
+      }
+    }
+  },
+  "irFinderLastAttemptedCode": "Last attempted kod: {value}",
+  "@irFinderLastAttemptedCode": {
+    "placeholders": {
+      "value": {}
+    }
+  },
+  "irFinderStartTestingToSeeLastCode": "Mula uji untuk melihat kod terakhir yang dicuba.",
+  "irFinderFromDb": "Dari DB: {value}",
+  "@irFinderFromDb": {
+    "placeholders": {
+      "value": {}
+    }
+  },
+  "irFinderFromBruteforce": "Dari brute-force (dijana oleh pengekod protokol).",
+  "irFinderSendError": "Kirim galat: {error}",
+  "@irFinderSendError": {
+    "placeholders": {
+      "error": {}
+    }
+  },
+  "irFinderSourceValue": "Sumber: {value}",
+  "@irFinderSourceValue": {
+    "placeholders": {
+      "value": {}
+    }
+  },
+  "irFinderResultsNote": "Hasil mendukung Uji dan Salin langsung. Integrasi tambah-ke-remote langsung dapat diperluas di alur editor.",
+  "irFinderBrowseDbCandidatesTitle": "Jelajahi kandidat DB",
+  "irFinderFilterByLabelOrHex": "Saring menurut label atau hex…",
+  "irFinderJumpHere": "Lompat ke sini",
+  "irFinderSelectModel": "Pilih model",
+  "irFinderSearchBrands": "Cari brands…",
+  "irFinderSearchModels": "Cari models…",
+  "iconPickerTitle": "Pilih Ikon",
+  "iconPickerSearchHint": "Cari icons...",
+  "iconPickerNoIconsFound": "Tiada icons found",
+  "iconPickerIconsAvailable": "{count} icons tersedia",
+  "@iconPickerIconsAvailable": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "iconPickerCategoryAll": "Semua",
+  "iconPickerCategoryMedia": "Media",
+  "iconPickerCategoryVolume": "Volum",
+  "iconPickerCategoryNavigation": "Navigasi",
+  "iconPickerCategoryPower": "Daya",
+  "iconPickerCategoryNumbers": "Angka",
+  "iconPickerCategorySettings": "Tetapan",
+  "iconPickerCategoryDisplay": "Tampilan",
+  "iconPickerCategoryInput": "Masukan",
+  "iconPickerCategoryFavorite": "Favorit",
+  "universalPowerTitle": "Universal Daya",
+  "universalPowerRunTab": "Jalankan",
+  "universalPowerUseResponsibly": "Gunakan responsibly",
+  "universalPowerConsentBody": "Kuasa Sejagat mengitar kod kuasa IR. Guna hanya pada peranti yang anda miliki atau kawal. Hentikan sebaik sahaja peranti memberi respons.",
+  "universalPowerConsentCheckbox": "Saya memiliki atau mengendalikan peranti",
+  "universalPowerSetupBody": "Memutar kod daya untuk jenama terpilih. Hentikan segera saat peranti merespons.",
+  "universalPowerLastSent": "Terakhir dihantar: {value}",
+  "@universalPowerLastSent": {
+    "placeholders": {
+      "value": {}
+    }
+  },
+  "universalPowerNoCodesFound": "Tiada kod daya ditemui. Cuba perluas pencarian.",
+  "universalPowerUnableToStart": "Tidak dapat memula.",
+  "universalPowerAllBrands": "Semua brands (tiada filter)",
+  "universalPowerClearBrandFilter": "Clear jenama filter",
+  "universalPowerBroadenSearch": "Perluas pencarian bila perlu",
+  "universalPowerBroadenSearchHint": "Jika tiada label kuasa ditemui, sertakan butang lain.",
+  "universalPowerAdditionalPatternsDepth": "Kedalaman pola tambahan",
+  "universalPowerDepth1": "Hanya prioritas: POWER/OFF",
+  "universalPowerDepth2": "Sertakan alias POWER",
+  "universalPowerDepth3": "Include secondary daya labels",
+  "universalPowerDepth4": "Include semua labels (lowest priority)",
+  "universalPowerLoopUntilStopped": "Loop sampai dihentikan",
+  "universalPowerLoopUntilStoppedHint": "Terus memutar antrean sampai Anda menghentikannya.",
+  "universalPowerDelayBetweenCodes": "Jeda between codes",
+  "universalPowerStart": "Mula Universal Daya",
+  "universalPowerRunStatus": "Status jalan",
+  "universalPowerProgress": "Progres: {value}",
+  "@universalPowerProgress": {
+    "placeholders": {
+      "value": {}
+    }
+  },
+  "universalPowerPausedInBackground": "Dijeda karena aplikasi dipindah ke latar belakang.",
+  "universalPowerSendOneCode": "Kirim one kod",
+  "universalPowerStopWhenDeviceResponds": "Hentikan segera saat peranti merespons.",
+  "iconNamePlay": "Play",
+  "iconNamePause": "Jeda",
+  "iconNameStop": "Hentikan",
+  "iconNameFastForward": "Maju Cepat",
+  "iconNameRewind": "Rewind",
+  "iconNameSkipNext": "Skip Berikutnya",
+  "iconNameSkipPrevious": "Lewati Sebelumnya",
+  "iconNameReplay": "Replay",
+  "iconNameForward10S": "Forward 10s",
+  "iconNameForward30S": "Forward 30s",
+  "iconNameReplay10S": "Replay 10s",
+  "iconNameReplay30S": "Replay 30s",
+  "iconNameRecord": "Record",
+  "iconNameRecordAlt": "Rekam Alt",
+  "iconNameEject": "Eject",
+  "iconNameShuffle": "Shuffle",
+  "iconNameRepeat": "Repeat",
+  "iconNameRepeatOne": "Ulang Satu",
+  "iconNameVolumeUp": "Volum Atas",
+  "iconNameVolumeDown": "Volum Bawah",
+  "iconNameVolumeOff": "Volum Nonaktif",
+  "iconNameMute": "Senyap",
+  "iconNameSpeaker": "Speaker",
+  "iconNameSurroundSound": "Suara Surround",
+  "iconNameEqualizer": "Equalizer",
+  "iconNameAudio": "Audio",
+  "iconNameMicrophone": "Microphone",
+  "iconNameMicOff": "Mic Nonaktif",
+  "iconNameUp": "Atas",
+  "iconNameDown": "Bawah",
+  "iconNameLeft": "Kiri",
+  "iconNameRight": "Kanan",
+  "iconNameArrowUp": "Panah Atas",
+  "iconNameArrowDown": "Panah Bawah",
+  "iconNameArrowLeft": "Panah Kiri",
+  "iconNameArrowRight": "Panah Kanan",
+  "iconNameNavigation": "Navigasi",
+  "iconNameChevronLeft": "Chevron Kiri",
+  "iconNameChevronRight": "Chevron Kanan",
+  "iconNameExpandLess": "Ciutkan",
+  "iconNameExpandMore": "Expand Lainnya",
+  "iconNameCollapse": "Collapse",
+  "iconNameExpand": "Expand",
+  "iconNameCircleUp": "Lingkaran Atas",
+  "iconNameCircleDown": "Lingkaran Bawah",
+  "iconNameCircleLeft": "Lingkaran Kiri",
+  "iconNameCircleRight": "Lingkaran Kanan",
+  "iconNameOkSelect": "OK/Pilih",
+  "iconNameConfirm": "Konfirmasi",
+  "iconNameCancel": "Batal",
+  "iconNameClose": "Tutup",
+  "iconNameHome": "Home",
+  "iconNameReturn": "Return",
+  "iconNameExit": "Exit",
+  "iconNameUndo": "Urungkan",
+  "iconNameRedo": "Redo",
+  "iconNamePower": "Daya",
+  "iconNamePowerAlt": "Daya Alt",
+  "iconNamePowerOff": "Daya Nonaktif",
+  "iconNameOn": "Aktif",
+  "iconNameOff": "Nonaktif",
+  "iconNameToggleOn": "Toggle Aktif",
+  "iconNameToggleOff": "Toggle Nonaktif",
+  "iconNameRestart": "Mula Ulang",
+  "iconNameNum1": "1",
+  "iconNameNum2": "2",
+  "iconNameNum3": "3",
+  "iconNameNum4": "4",
+  "iconNameNum5": "5",
+  "iconNameNum6": "6",
+  "iconNameNum7": "7",
+  "iconNameNum8": "8",
+  "iconNameNum9": "9",
+  "iconNameNum92": "9+",
+  "iconNameNum0": "0",
+  "iconNameOne": "Satu",
+  "iconNameTwo": "Dua",
+  "iconNameThree": "Tiga",
+  "iconNameFour": "Empat",
+  "iconNameFive": "Lima",
+  "iconNameSix": "Enam",
+  "iconNamePlus": "Plus",
+  "iconNameMinus": "Minus",
+  "iconNameAddCircle": "Tambah Lingkaran",
+  "iconNameRemoveCircle": "Remove Lingkaran",
+  "iconNameSettings": "Tetapan",
+  "iconNameMenu": "Menu",
+  "iconNameMoreVertical": "Lainnya Vertical",
+  "iconNameMoreHorizontal": "Lainnya Horizontal",
+  "iconNameTune": "Tuning",
+  "iconNameRemoteSettings": "Remote Tetapan",
+  "iconNameInfo": "Info",
+  "iconNameInfoOutline": "Info Outline",
+  "iconNameHelp": "Bantuan",
+  "iconNameHelpOutline": "Bantuan Outline",
+  "iconNameList": "Daftar",
+  "iconNameViewList": "Lihat List",
+  "iconNameViewGrid": "Lihat Kisi",
+  "iconNameApps": "Aplikasi",
+  "iconNameWidgets": "Widget",
+  "iconNameTv": "TV",
+  "iconNameMonitor": "Monitor",
+  "iconNameDesktop": "Desktop",
+  "iconNameBrightnessHigh": "Kecerahan High",
+  "iconNameBrightnessMedium": "Kecerahan Medium",
+  "iconNameBrightnessLow": "Kecerahan Low",
+  "iconNameAutoBrightness": "Automatik Kecerahan",
+  "iconNameLightMode": "Cerah Mode",
+  "iconNameDarkMode": "Gelap Mode",
+  "iconNameContrast": "Contrast",
+  "iconNameHdrOn": "HDR Aktif",
+  "iconNameHdrOff": "HDR Nonaktif",
+  "iconNameAspectRatio": "Aspect Ratio",
+  "iconNameCrop": "Crop",
+  "iconNameZoomIn": "Perbesar",
+  "iconNameZoomOut": "Zoom Out",
+  "iconNameFullscreen": "Layar penuh",
+  "iconNameExitFullscreen": "Exit Layar penuh",
+  "iconNameFitScreen": "Fit Screen",
+  "iconNamePip": "PiP",
+  "iconNameCropFree": "Crop Free",
+  "iconNameInput": "Masukan",
+  "iconNameCable": "Cable",
+  "iconNameCast": "Cast",
+  "iconNameCastConnected": "Cast Connected",
+  "iconNameScreenShare": "Screen Share",
+  "iconNameBluetooth": "Bluetooth",
+  "iconNameWifi": "WiFi",
+  "iconNameRouter": "Router",
+  "iconNameMemory": "Memory",
+  "iconNameGameConsole": "Game Console",
+  "iconNameGaming": "Gaming",
+  "iconNameMedia": "Media",
+  "iconNameMusicQueue": "Musik Queue",
+  "iconNameVideoLibrary": "Video Library",
+  "iconNamePhotoLibrary": "Photo Library",
+  "iconNameComponent": "Component",
+  "iconNameHdmi": "HDMI",
+  "iconNameComposite": "Composite",
+  "iconNameAntenna": "Antena",
+  "iconNameFavorite": "Favorit",
+  "iconNameFavoriteOutline": "Favorite Outline",
+  "iconNameStar": "Bintang",
+  "iconNameStarOutline": "Star Outline",
+  "iconNameBookmark": "Bookmark",
+  "iconNameBookmarkOutline": "Bookmark Outline",
+  "iconNameFlag": "Bendera",
+  "iconNameCheck": "Check",
+  "iconNameDone": "Selesai",
+  "iconNameDoneAll": "Done Semua",
+  "iconNameSchedule": "Schedule",
+  "iconNameTimer": "Timer",
+  "iconNameTime": "Waktu",
+  "iconNameAlarm": "Alarm",
+  "iconNameNotifications": "Notifications",
+  "iconNameLock": "Kunci",
+  "iconNameUnlock": "Unlock",
+  "iconNameLight": "Cerah",
+  "iconNameLightOutline": "Cerah Outline",
+  "iconNameWarmLight": "Warm Cerah",
+  "iconNameSunny": "Sunny",
+  "iconNameCloudy": "Cloudy",
+  "iconNameNight": "Night",
+  "iconNameFlare": "Flare",
+  "iconNameGradient": "Gradient",
+  "iconNameInvertColors": "Invert Colors",
+  "iconNamePalette": "Palet",
+  "iconNameColor": "Color",
+  "iconNameTonality": "Tonality",
+  "iconNameSearch": "Cari",
+  "iconNameRefresh": "Segarkan",
+  "iconNameSync": "Sinkron",
+  "iconNameUpdate": "Update",
+  "iconNameDownload": "Download",
+  "iconNameUpload": "Upload",
+  "iconNameCloud": "Awan",
+  "iconNameFolder": "Folder",
+  "iconNameDelete": "Hapus",
+  "iconNameEdit": "Ubah",
+  "iconNameSave": "Simpan",
+  "iconNameShare": "Share",
+  "iconNamePrint": "Print",
+  "iconNameLanguage": "Bahasa",
+  "iconNameTranslate": "Translate",
+  "iconNameMicNone": "Tanpa Mikrofon",
+  "iconNameSubtitles": "Subtitles",
+  "iconNameClosedCaption": "Closed Caption",
+  "iconNameMusic": "Musik",
+  "iconNameMovie": "Movie",
+  "iconNameTheater": "Teater",
+  "iconNameLiveTv": "TV Langsung",
+  "iconNameRadio": "Radio",
+  "iconNameCamera": "Kamera",
+  "iconNameVideoCamera": "Video Kamera",
+  "iconNamePhotoCamera": "Photo Kamera",
+  "iconNameSlowMotion": "Slow Motion",
+  "iconNameSpeed": "Speed",
+  "iconNameVideoSettings": "Video Tetapan",
+  "iconNameAudioTrack": "Audio Track",
+  "iconNameGraphicEq": "Graphic EQ",
+  "iconNameMusicVideo": "Musik Video",
+  "iconNamePlaylist": "Playlist",
+  "iconNameQueue": "Queue",
+  "iconNameNum0Fa": "0 FA",
+  "iconNameNum1Fa": "1 FA",
+  "iconNameNum2Fa": "2 FA",
+  "iconNameNum3Fa": "3 FA",
+  "iconNameNum4Fa": "4 FA",
+  "iconNameNum5Fa": "5 FA",
+  "iconNameNum6Fa": "6 FA",
+  "iconNameNum7Fa": "7 FA",
+  "iconNameNum8Fa": "8 FA",
+  "iconNameNum9Fa": "9 FA",
+  "iconNameHashFa": "Hash # FA",
+  "iconNamePercentFa": "Percent % FA",
+  "iconNameDivideFa": "Divide ÷ FA",
+  "iconNameMultiplyFa": "Multiply × FA",
+  "iconNameEqualsFa": "Equals = FA",
+  "iconNameNotEqualFa": "Not Equal ≠ FA",
+  "iconNameGreaterThanFa": "Greater Than > FA",
+  "iconNameLessThanFa": "Less Than < FA",
+  "iconNameAsteriskFa": "Asterisk * FA",
+  "iconNameAFa": "A FA",
+  "iconNameBFa": "B FA",
+  "iconNameCFa": "C FA",
+  "iconNameDFa": "D FA",
+  "iconNameEFa": "E FA",
+  "iconNameFFa": "F FA",
+  "iconNameGFa": "G FA",
+  "iconNameHFa": "H FA",
+  "iconNameIFa": "I FA",
+  "iconNameJFa": "J FA",
+  "iconNameKFa": "K FA",
+  "iconNameLFa": "L FA",
+  "iconNameMFa": "M FA",
+  "iconNameNFa": "N FA",
+  "iconNameOFa": "O FA",
+  "iconNamePFa": "P FA",
+  "iconNameQFa": "Q FA",
+  "iconNameRFa": "R FA",
+  "iconNameSFa": "S FA",
+  "iconNameTFa": "T FA",
+  "iconNameUFa": "U FA",
+  "iconNameVFa": "V FA",
+  "iconNameWFa": "W FA",
+  "iconNameXFa": "X FA",
+  "iconNameYFa": "Y FA",
+  "iconNameZFa": "Z FA",
+  "iconNamePlayFa": "Play FA",
+  "iconNamePauseFa": "Jeda FA",
+  "iconNameStopFa": "Hentikan FA",
+  "iconNamePlayFaOutline": "Play FA Outline",
+  "iconNamePauseFaOutline": "Jeda FA Outline",
+  "iconNameStopFaOutline": "Hentikan FA Outline",
+  "iconNameBackwardFa": "Backward FA",
+  "iconNameForwardFa": "Forward FA",
+  "iconNamePreviousFa": "Previous FA",
+  "iconNameNextFa": "Berikutnya FA",
+  "iconNameRewindFa": "Rewind FA",
+  "iconNameFastForwardFa": "Fast Forward FA",
+  "iconNameRepeatFa": "Repeat FA",
+  "iconNameShuffleFa": "Shuffle FA",
+  "iconNameEjectFa": "Eject FA",
+  "iconNameFilmFa": "Film FA",
+  "iconNameVideoFa": "Video FA",
+  "iconNameMusicFa": "Musik FA",
+  "iconNameMicrophoneFa": "Microphone FA",
+  "iconNameCameraFa": "Kamera FA",
+  "iconNameCameraRetroFa": "Kamera Retro FA",
+  "iconNameVolumeHighFa": "Volum High FA",
+  "iconNameVolumeLowFa": "Volum Low FA",
+  "iconNameVolumeOffFa": "Volum Nonaktif FA",
+  "iconNameMuteFa": "Senyap FA",
+  "iconNameMicMuteFa": "Mic Senyap FA",
+  "iconNameHeadphonesFa": "Headphones FA",
+  "iconNameSpeakerFa": "Speaker FA",
+  "iconNameUpFa": "Atas FA",
+  "iconNameDownFa": "Bawah FA",
+  "iconNameLeftFa": "Kiri FA",
+  "iconNameRightFa": "Kanan FA",
+  "iconNameUpFaOutline": "Atas FA Outline",
+  "iconNameDownFaOutline": "Bawah FA Outline",
+  "iconNameLeftFaOutline": "Kiri FA Outline",
+  "iconNameRightFaOutline": "Kanan FA Outline",
+  "iconNameArrowUpFa": "Panah Atas FA",
+  "iconNameArrowDownFa": "Panah Bawah FA",
+  "iconNameArrowLeftFa": "Panah Kiri FA",
+  "iconNameArrowRightFa": "Panah Kanan FA",
+  "iconNameChevronUpFa": "Chevron Atas FA",
+  "iconNameChevronDownFa": "Chevron Bawah FA",
+  "iconNameChevronLeftFa": "Chevron Kiri FA",
+  "iconNameChevronRightFa": "Chevron Kanan FA",
+  "iconNameOkFa": "OK FA",
+  "iconNameOkFaOutline": "OK FA Outline",
+  "iconNameCheckFa": "Check FA",
+  "iconNameCloseFa": "Tutup FA",
+  "iconNameCloseCircleFa": "Tutup Lingkaran FA",
+  "iconNameHomeFa": "Home FA",
+  "iconNameUndoFa": "Undo FA",
+  "iconNameRedoFa": "Redo FA",
+  "iconNameRotateFa": "Rotate FA",
+  "iconNameSearchFa": "Cari FA",
+  "iconNameRefreshFa": "Refresh FA",
+  "iconNamePowerOffFa": "Daya Nonaktif FA",
+  "iconNamePlugFa": "Plug FA",
+  "iconNameToggleOnFa": "Toggle Aktif FA",
+  "iconNameToggleOffFa": "Toggle Nonaktif FA",
+  "iconNameSettingsFa": "Tetapan FA",
+  "iconNameSettingsAltFa": "Tetapan Alt FA",
+  "iconNameMenuFa": "Menu FA",
+  "iconNameMoreFa": "Lainnya FA",
+  "iconNameMoreVerticalFa": "Lainnya Vertical FA",
+  "iconNameInfoFa": "Info FA",
+  "iconNameInfoFaOutline": "Info FA Outline",
+  "iconNameHelpFa": "Bantuan FA",
+  "iconNameHelpFaOutline": "Bantuan FA Outline",
+  "iconNameListFa": "List FA",
+  "iconNameGridFa": "Kisi FA",
+  "iconNameSlidersFa": "Sliders FA",
+  "iconNameTvFa": "TV FA",
+  "iconNameMonitorFa": "Monitor FA",
+  "iconNameDesktopFa": "Desktop FA",
+  "iconNameBrightnessFa": "Kecerahan FA",
+  "iconNameNightModeFa": "Night Mode FA",
+  "iconNameLightFa": "Cerah FA",
+  "iconNameLightFaOutline": "Cerah FA Outline",
+  "iconNameFlashFa": "Flash FA",
+  "iconNameFullscreenFa": "Layar penuh FA",
+  "iconNameExitFullscreenFa": "Exit Layar penuh FA",
+  "iconNameZoomInFa": "Zoom In FA",
+  "iconNameZoomOutFa": "Zoom Out FA",
+  "iconNameSubtitlesFa": "Subtitles FA",
+  "iconNamePictureInPictureFa": "Gambar dalam Gambar FA",
+  "iconNameColorFa": "Color FA",
+  "iconNamePaintFa": "Paint FA",
+  "iconNameInputFa": "Input FA",
+  "iconNameWifiFa": "WiFi FA",
+  "iconNameBluetoothFa": "Bluetooth FA",
+  "iconNameUsbFa": "USB FA",
+  "iconNameEthernetFa": "Ethernet FA",
+  "iconNameGamepadFa": "Gamepad FA",
+  "iconNameBroadcastFa": "Broadcast FA",
+  "iconNameSatelliteFa": "Satellite FA",
+  "iconNameAntennaFa": "Antenna FA",
+  "iconNameNetworkFa": "Network FA",
+  "iconNameCloudFa": "Awan FA",
+  "iconNameStarFa": "Star FA",
+  "iconNameStarFaOutline": "Star FA Outline",
+  "iconNameHeartFa": "Heart FA",
+  "iconNameHeartFaOutline": "Heart FA Outline",
+  "iconNameBookmarkFa": "Bookmark FA",
+  "iconNameBookmarkFaOutline": "Bookmark FA Outline",
+  "iconNameFlagFa": "Flag FA",
+  "iconNameClockFa": "Clock FA",
+  "iconNameClockFaOutline": "Clock FA Outline",
+  "iconNameBellFa": "Bell FA",
+  "iconNameBellFaOutline": "Bell FA Outline",
+  "iconNameTimerFa": "Timer FA",
+  "iconNameLockFa": "Lock FA",
+  "iconNameUnlockFa": "Unlock FA",
+  "iconNameGalleryFa": "Gallery FA",
+  "iconNameImagesFa": "Images FA",
+  "iconNameImageFa": "Gambar FA",
+  "iconNameVideoFileFa": "Video File FA",
+  "iconNameAudioFileFa": "Audio File FA",
+  "iconNamePlayOutlineFa": "Play Outline FA",
+  "iconNamePlaySimpleFa": "Play Simple FA",
+  "iconNamePauseSimpleFa": "Jeda Simple FA",
+  "iconNameStopSimpleFa": "Hentikan Simple FA",
+  "iconNameRecordFa": "Record FA",
+  "iconNameStopCircleFa": "Hentikan Lingkaran FA",
+  "iconNameLoadingFa": "Loading FA",
+  "iconNameTextFa": "Text FA",
+  "iconNameTextSizeFa": "Text Size FA",
+  "iconNameLanguageFa": "Bahasa FA",
+  "iconNameGlobeFa": "Globe FA",
+  "iconNameSubtitlesAltFa": "Subtitles Alt FA",
+  "iconNameSubtitlesAltOutlineFa": "Subjudul Alt Outline FA",
+  "iconNameChannelUpFa": "Channel Atas FA",
+  "iconNameChannelDownFa": "Channel Bawah FA",
+  "iconNamePageUpFa": "Page Atas FA",
+  "iconNamePageDownFa": "Page Bawah FA",
+  "iconNameGuideFa": "Guide FA",
+  "iconNameGridViewFa": "Kisi Lihat FA",
+  "iconNameGridAltFa": "Kisi Alt FA",
+  "iconNameScheduleFa": "Schedule FA",
+  "iconNameCalendarFa": "Calendar FA",
+  "iconNameRedButtonFa": "Red Butang FA",
+  "iconNameButtonOutlineFa": "Butang Outline FA",
+  "iconNameSquareButtonFa": "Persegi Butang FA",
+  "iconNameSquareOutlineFa": "Persegi Outline FA",
+  "iconNameDotCircleFa": "Dot Lingkaran FA",
+  "iconNameToolsFa": "Tools FA",
+  "iconNameScrewdriverFa": "Screwdriver FA",
+  "iconNameHammerFa": "Hammer FA",
+  "iconNameToolboxFa": "Toolbox FA",
+  "iconNameCogFa": "Cog FA",
+  "iconNameAdjustFa": "Adjust FA",
+  "iconNameFilterFa": "Filter FA",
+  "iconNameSortDownFa": "Sort Bawah FA",
+  "iconNameSortUpFa": "Sort Atas FA",
+  "iconNameSleepFa": "Sleep FA",
+  "iconNameTimerStartFa": "Timer Mula FA",
+  "iconNameTimerHalfFa": "Timer Half FA",
+  "iconNameTimerEndFa": "Timer End FA",
+  "iconNameStopwatchFa": "Stopwatch FA",
+  "iconNameAlarmFa": "Alarm FA",
+  "iconNameCropAltFa": "Crop Alt FA",
+  "iconNameCropFa": "Crop FA",
+  "iconNameSquareFullFa": "Persegi Full FA",
+  "iconNameFullscreenAltFa": "Layar penuh Alt FA",
+  "iconNameZoomPlusFa": "Zoom Plus FA",
+  "iconNameZoomMinusFa": "Zoom Minus FA",
+  "iconNameMusicNoteFa": "Musik Note FA",
+  "iconNameCdFa": "CD FA",
+  "iconNameVinylFa": "Vinyl FA",
+  "iconNameRssFa": "RSS FA",
+  "iconNameMagicFa": "Magic FA",
+  "iconNameFingerprintFa": "Fingerprint FA",
+  "iconNameUserFa": "User FA",
+  "iconNameUsersFa": "Users FA",
+  "iconNameChildModeFa": "Child Mode FA",
+  "iconNameCastFa": "Cast FA",
+  "iconNameStreamFa": "Stream FA",
+  "iconNameSignalFa": "Signal FA",
+  "iconNameFeedFa": "Feed FA",
+  "iconNameCircleArrowUpFa": "Lingkaran Panah Atas FA",
+  "iconNameCircleArrowDownFa": "Lingkaran Panah Bawah FA",
+  "iconNameCircleArrowLeftFa": "Lingkaran Panah Kiri FA",
+  "iconNameCircleArrowRightFa": "Lingkaran Panah Kanan FA",
+  "iconNameLongArrowUpFa": "Long Panah Atas FA",
+  "iconNameLongArrowDownFa": "Long Panah Bawah FA",
+  "iconNameLongArrowLeftFa": "Long Panah Kiri FA",
+  "iconNameLongArrowRightFa": "Long Panah Kanan FA",
+  "iconNamePlusFa": "Plus FA",
+  "iconNameMinusFa": "Minus FA",
+  "iconNamePlusCircleFa": "Plus Lingkaran FA",
+  "iconNameMinusCircleFa": "Minus Lingkaran FA",
+  "iconNamePlusSquareFa": "Plus Persegi FA",
+  "iconNameMinusSquareFa": "Minus Persegi FA",
+  "iconNameTimesFa": "Times FA",
+  "iconNameTimesCircleFa": "Times Lingkaran FA",
+  "iconNameBatteryFullFa": "Baterai Full FA",
+  "iconNameBattery34Fa": "Baterai 3/4 FA",
+  "iconNameBatteryHalfFa": "Baterai Half FA",
+  "iconNameBattery14Fa": "Baterai 1/4 FA",
+  "iconNameBatteryEmptyFa": "Baterai Empty FA",
+  "iconNameChargingFa": "Charging FA",
+  "iconNameCloudSunFa": "Awan Sun FA",
+  "iconNameCloudMoonFa": "Awan Moon FA",
+  "iconNameRainFa": "Rain FA",
+  "iconNameSnowflakeFa": "Snowflake FA",
+  "iconNameFireFa": "Fire FA",
+  "iconNameTemperatureFa": "Temperature FA",
+  "iconNameBoxFa": "Box FA",
+  "iconNameGiftFa": "Gift FA",
+  "iconNameTrophyFa": "Trophy FA",
+  "iconNameCrownFa": "Crown FA",
+  "iconNameGemFa": "Gem FA",
+  "unknownLabel": "Tidak dikenal",
+  "selectedFilesLabel": "terpilih file(s)",
+  "folderNotFoundOrInaccessible": "Folder tidak ditemui atau tidak boleh diakses.",
+  "importedRemoteDefaultName": "RemoteImport",
+  "demoRemoteName": "Remote Demo",
+  "protocolFieldsInvalid": "Isi bidang protokol wajib dan pastikan frekuensi 15k–60k bila diatur.",
+  "unknownProtocolSelected": "Tidak dikenal protokol terpilih."
+}

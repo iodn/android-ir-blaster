@@ -1,0 +1,1846 @@
+{
+  "@@locale": "hi",
+  "appTitle": "IR Blaster",
+  "loading": "लोड हो रहा है…",
+  "unknownError": "अज्ञात त्रुटि",
+  "failedToStart": "प्रारंभ नहीं हुआ",
+  "retry": "Retry",
+  "quickTilePower": "पावर",
+  "quickTileMute": "म्यूट",
+  "quickTileVolumeUp": "Vol +",
+  "quickTileVolumeDown": "Vol -",
+  "homeUsbPermissionRequiredMessage": "इस फ़ोन में अंतर्निर्मित IR emitter नहीं है। USB IR डोंगल मिला है, लेकिन अभी अनुमति नहीं मिली है।\n\nIR भेजना सक्षम करने के लिए USB अनुमति प्रॉम्प्ट स्वीकार करें।",
+  "homeUsbPermissionDeniedMessage": "इस फ़ोन में अंतर्निर्मित IR emitter नहीं है। USB IR डोंगल मिला, लेकिन USB अनुमति अस्वीकृत हुई।\n\nफिर से अनुमति मांगें और IR भेजना सक्षम करने के लिए प्रॉम्प्ट स्वीकार करें।",
+  "homeUsbPermissionGrantedMessage": "इस फ़ोन में अंतर्निर्मित IR emitter नहीं है। USB IR डोंगल अधिकृत है, लेकिन अभी शुरू नहीं हुआ है।",
+  "homeUsbOpenFailedMessage": "इस फ़ोन में अंतर्निर्मित IR emitter नहीं है। USB IR डोंगल मिला और अधिकृत है, लेकिन इसे शुरू नहीं किया जा सका।\n\nडोंगल फिर से जोड़ें और दोबारा प्रयास करें।",
+  "homeUsbReadyMessage": "इस फ़ोन में अंतर्निर्मित IR emitter नहीं है।",
+  "homeUsbNoDeviceMessage": "इस फ़ोन में अंतर्निर्मित IR emitter नहीं है, और अभी कोई समर्थित USB IR डोंगल जुड़ा नहीं है।\n\nYou सकता है अभी भी बनाएं, आयात, और प्रबंधित करें रिमोट — लेकिन तक transmit IR सिग्नल you ज़रूरत एक का the options नीचे.",
+  "homeUsbOptionPlugIn": "Plug में a समर्थित USB IR डोंगल, फिर स्वीकार करें अनुमति.",
+  "homeUsbOptionReady": "उपयोग के लिए तैयार।",
+  "homeUsbOptionPermissionRequired": "Plugged में. अनुमति आवश्यक.",
+  "homeUsbOptionPermissionDenied": "अनुमति अस्वीकृत. अनुरोध it फिर.",
+  "homeUsbOptionPermissionGranted": "अधिकृत. आरंभ किया जा रहा है डोंगल.",
+  "homeUsbOptionOpenFailed": "अधिकृत है, लेकिन आरंभ नहीं हो सका।",
+  "homeHardwareBannerNoInternal": "यह फ़ोन has नहीं अंतर्निर्मित IR. Connect a USB IR डोंगल या सक्षम करें ऑडियो मोड में सेटिंग्स.",
+  "homeHardwareBannerPermissionRequired": "USB डोंगल मिला. अनुमति आवश्यक तक भेजें IR.",
+  "homeHardwareBannerPermissionDenied": "USB अनुमति अस्वीकृत हुई. अनुरोध it फिर तक भेजें IR.",
+  "homeHardwareBannerPermissionGranted": "USB डोंगल अधिकृत है। आरंभ की प्रतीक्षा में।",
+  "homeHardwareBannerOpenFailed": "USB डोंगल अधिकृत, लेकिन आरंभ विफल.",
+  "homeHardwareBannerReady": "USB तैयार है।",
+  "homeHardwareRequiredTitle": "कमांड भेजने के लिए IR हार्डवेयर आवश्यक",
+  "homeUsbDongleRecommended": "USB IR डोंगल (अनुशंसित)",
+  "homeAudioAdapterAlternative": "ऑडियो IR एडेप्टर (विकल्प)",
+  "homeAudioAdapterDescription": "सेटिंग्स → IR प्रेषक → ऑडियो (1 LED / 2 LED). आवश्यक है an audio-to-IR adapter.",
+  "close": "बंद करें",
+  "homeChooseTransmitter": "चुनें a प्रेषक",
+  "openSettings": "खोलें सेटिंग्स",
+  "homeUsbPermissionSentApprove": "USB अनुमति अनुरोध भेजा गया। USB सक्षम करने के लिए प्रॉम्प्ट स्वीकार करें।",
+  "homeUsbDongleNotDetected": "नहीं समर्थित USB IR डोंगल मिला. Plug it में और दोबारा प्रयास करें.",
+  "homeUsbPermissionRequestFailed": "USB अनुमति का अनुरोध विफल रहा।",
+  "working": "Working…",
+  "requestUsbPermission": "अनुरोध USB अनुमति",
+  "homeHardwareTip": "सुझाव: आप अभी भी रिमोट बना और व्यवस्थित कर सकते हैं। हार्डवेयर केवल IR भेजते समय आवश्यक है।",
+  "homeNoIrTransmitterTitle": "नहीं IR प्रेषक उपलब्ध",
+  "settingsNavLabel": "सेटिंग्स",
+  "dismiss": "हटाएं",
+  "remotesNavLabel": "रिमोट",
+  "macrosNavLabel": "मैक्रो",
+  "signalTesterNavLabel": "सिग्नल टेस्टर",
+  "settingsTitle": "सेटिंग्स",
+  "remoteNoIrEmitterTitle": "कोई IR emitter नहीं",
+  "remoteNoIrEmitterMessage": "इस डिवाइस में IR emitter नहीं है",
+  "remoteNoIrEmitterNeedsEmitter": "इस ऐप को काम करने के लिए IR emitter चाहिए",
+  "remoteDismiss": "हटाएं",
+  "remoteClose": "बंद करें",
+  "remoteFailedToSend": "भेजें IR: {error} विफल",
+  "@remoteFailedToSend": {
+    "placeholders": {
+      "error": {}
+    }
+  },
+  "remoteFailedToStartLoop": "प्रारंभ लूप: {error} विफल",
+  "@remoteFailedToStartLoop": {
+    "placeholders": {
+      "error": {}
+    }
+  },
+  "remoteLoopStoppedFailed": "लूप रुका हुआ (भेजें विफल): {error}",
+  "@remoteLoopStoppedFailed": {
+    "placeholders": {
+      "error": {}
+    }
+  },
+  "remoteLoopingHint": "Looping \"{title}\". टैप करें रोकें में the शीर्ष bar तक रोकें.",
+  "@remoteLoopingHint": {
+    "placeholders": {
+      "title": {}
+    }
+  },
+  "remoteLoopStopped": "लूप रुक गया।",
+  "remoteUpdatedNotFound": "रिमोट अपडेट किया गया पर स्क्रीन. It था नहीं मिला में the सहेजा गया सूची.",
+  "remoteUpdatedNamed": "\"{name}\" अपडेट किया गया।",
+  "@remoteUpdatedNamed": {
+    "placeholders": {
+      "name": {}
+    }
+  },
+  "remoteDeleteFailed": "हटाएं विफल: {error}",
+  "@remoteDeleteFailed": {
+    "placeholders": {
+      "error": {}
+    }
+  },
+  "remoteNotFoundSavedList": "रिमोट नहीं मिला में सहेजा गया सूची.",
+  "remoteDeletedNamed": "\"{name}\" हटाया गया।",
+  "@remoteDeletedNamed": {
+    "placeholders": {
+      "name": {}
+    }
+  },
+  "buttonFallbackTitle": "बटन",
+  "imageFallbackTitle": "छवि",
+  "noBrowserAvailable": "कोई ब्राउज़र उपलब्ध नहीं",
+  "failedToOpen": "खोलें: {error} विफल",
+  "@failedToOpen": {
+    "placeholders": {
+      "error": {}
+    }
+  },
+  "cancel": "रद्द करें",
+  "settingsRestoreDemoTitle": "पुनर्स्थापित करें demo रिमोट?",
+  "settingsRestoreDemoMessage": "यह आपके वर्तमान रिमोट को अंतर्निर्मित डेमो रिमोट से बदल देगा। यदि आप अपनी मौजूदा सूची रखना चाहते हैं तो बैकअप लेना बेहतर है।",
+  "settingsRestoreDemoConfirm": "पुनर्स्थापित करें demo",
+  "settingsDemoRemotesRestored": "डेमो रिमोट पुनर्स्थापित किए गए।",
+  "settingsDeleteAllRemotesTitle": "हटाएं सभी रिमोट?",
+  "settingsDeleteAllRemotesMessage": "यह इस डिवाइस से हर रिमोट हटा देगा। इस क्रिया को पूर्ववत नहीं किया जा सकता।",
+  "settingsDeleteAllConfirm": "हटाएं सभी",
+  "settingsAllRemotesDeleted": "सभी रिमोट हटाया गया.",
+  "themeAuto": "स्वतः थीम",
+  "themeLight": "हल्का थीम",
+  "themeDark": "गहरा थीम",
+  "themeDescAuto": "पालन करता है आपकी डिवाइस सेटिंग्स",
+  "themeDescLight": "हमेशा उज्ज्वल और स्पष्ट",
+  "themeDescDark": "आंखों के लिए आरामदायक",
+  "themeHintAuto": "जब आप अपने डिवाइस सेटिंग्स में हल्का और गहरा मोड बदलते हैं, थीम अपने आप बदल जाती है",
+  "themeHintLight": "के लिए उपयुक्त दिन उपयोग करें और अच्छी रोशनी वाले परिवेश",
+  "themeHintDark": "कम करता है आंख तनाव में low-light स्थितियां और बचाता है बैटरी पर OLED स्क्रीन",
+  "supportDevelopmentTitle": "विकास का समर्थन करें",
+  "supportDevelopmentSubtitle": "IR Blaster को बनाए रखें और हार्डवेयर-संगत बनाए रखें",
+  "supportDevelopmentBody": "कोई विज्ञापन नहीं, कोई ट्रैकिंग नहीं, कोई बंद फीचर नहीं। आपका समर्थन प्रोटोकॉल कार्य, USB डोंगल समर्थन और उपकरणों में बेहतर संगतता को वित्त देता है।",
+  "donate": "Donate",
+  "starRepo": "रिपॉजिटरी को स्टार करें",
+  "repositoryLinkCopied": "रिपॉजिटरी लिंक कॉपी किया गया",
+  "supportPillLocalOnly": "केवल स्थानीय",
+  "supportPillNoTracking": "कोई ट्रैकिंग नहीं",
+  "supportPillHardwareAware": "हार्डवेयर-सचेत",
+  "supportPillOpenSource": "ओपन-सोर्स",
+  "appearanceTitle": "दिखावट",
+  "appearanceSubtitle": "अपने दृश्य अनुभव को अनुकूलित करें",
+  "localizationTitle": "स्थानीयकरण",
+  "localizationSubtitle": "ऐप भाषा और अनुवाद व्यवहार",
+  "localizationAutoUsing": "स्वतः: उपयोग कर रहा है {language}",
+  "@localizationAutoUsing": {
+    "placeholders": {
+      "language": {}
+    }
+  },
+  "localizationAutoDescription": "The ऐप पालन करता है आपकी डिवाइस भाषा जब संभव.",
+  "localizationManualDescription": "The ऐप भाषा है मैन्युअल रूप से बदली गई.",
+  "useSystemLanguageTitle": "उपयोग करें सिस्टम भाषा",
+  "useSystemLanguageEnabled": "आपकी डिवाइस भाषा का पालन कर रहा है: {language}",
+  "@useSystemLanguageEnabled": {
+    "placeholders": {
+      "language": {}
+    }
+  },
+  "useSystemLanguageDisabled": "उपयोग करें the भाषा चयनित नीचे instead का the डिवाइस डिफ़ॉल्ट.",
+  "chooseAppLanguage": "चुनें ऐप भाषा",
+  "languagePickerDisabledHint": "Turn off सिस्टम भाषा तक चुनें a भाषा मैन्युअल रूप से.",
+  "searchLanguages": "भाषाएं खोजें",
+  "noLanguagesFound": "कोई मेल खाती भाषा नहीं",
+  "localizationHint": "जब सिस्टम भाषा सक्षम होती है, ऐप आपके डिवाइस की locale का पालन करता है और अनुवाद उपलब्ध न होने पर अंग्रेज़ी पर लौटता है। किसी विशेष भाषा पर ऐप को स्थिर करने के लिए इसे बंद करें।",
+  "appLanguageTitle": "ऐप भाषा",
+  "appLanguageHint": "स्वतः आपके डिवाइस की भाषा का पालन करता है। केवल इस ऐप के लिए इसे बदलने हेतु यहां अंग्रेज़ी या फ़्रेंच चुनें।",
+  "languageAuto": "स्वतः (सिस्टम)",
+  "languageAutoDescription": "पालन करें आपकी डिवाइस भाषा स्वतः",
+  "languageEnglish": "अंग्रेज़ी",
+  "languageEnglishDescription": "ऐप को हमेशा अंग्रेज़ी उपयोग करने पर मजबूर करें",
+  "languageFrench": "फ़्रेंच",
+  "languageFrenchDescription": "ऐप को हमेशा फ़्रेंच उपयोग करने पर मजबूर करें",
+  "languageAutoShort": "स्वतः",
+  "languageEnglishShort": "English",
+  "languageFrenchShort": "Français",
+  "useDynamicColors": "डायनेमिक रंग उपयोग करें",
+  "themeChoiceAuto": "स्वतः",
+  "themeChoiceLight": "हल्का",
+  "themeChoiceDark": "गहरा",
+  "irTransmitterTitle": "IR प्रेषक",
+  "irTransmitterSubtitle": "चुनें कौन सा हार्डवेयर भेजता है IR कमांड",
+  "interactionTitle": "इंटरैक्शन",
+  "interactionSubtitle": "स्पर्श प्रतिक्रिया और रिमोट लेआउट",
+  "hapticFeedbackTitle": "हैप्टिक फीडबैक",
+  "hapticFeedbackSubtitle": "टैप और क्रियाओं पर कंपन करें",
+  "intensity": "तीव्रता",
+  "intensityLight": "हल्का",
+  "intensityMedium": "Medium",
+  "intensityStrong": "Strong",
+  "flipRemoteDefaultTitle": "Flip रिमोट दृश्य द्वारा डिफ़ॉल्ट",
+  "flipRemoteDefaultSubtitle": "रिमोट स्क्रीन 180° घुमाकर खोलें (नीचे लगे USB डोंगल के लिए)।",
+  "remoteViewFlipped": "रिमोट दृश्य होगा खोलें उल्टा.",
+  "remoteViewNormal": "रिमोट दृश्य सामान्य रूप से खुलेगा।",
+  "backupTitle": "बैकअप",
+  "backupSubtitle": "आयात/निर्यात रिमोट और मैक्रो",
+  "importBackup": "आयात करें बैकअप",
+  "importBackupSubtitle": "आयात करें रिमोट/मैक्रो बैकअप या Flipper Zero, LIRC या IRPLUS फ़ाइलें",
+  "bulkImportFolder": "Bulk आयात फ़ोल्डर",
+  "bulkImportFolderSubtitle": "आयात करें multiple रिमोट से a फ़ोल्डर",
+  "exportBackup": "निर्यात करें बैकअप",
+  "exportBackupSubtitle": "सहेजें रिमोट + मैक्रो as एक JSON फ़ाइल तक Downloads",
+  "restoreDemoRemotes": "पुनर्स्थापित करें demo रिमोट",
+  "restoreDemoRemotesSubtitle": "Replace वर्तमान रिमोट के साथ the अंतर्निर्मित demo",
+  "deleteAllRemotes": "हटाएं सभी रिमोट",
+  "deleteAllRemotesSubtitle": "every रिमोट से यह डिवाइस हटाएं",
+  "backupTip": "सुझाव: निर्यात a बैकअप पहले बड़े संपादन. आयात करें समर्थन करता है पूर्ण बैकअप, legacy remotes-only JSON बैकअप, और Flipper Zero.IR फ़ाइलें.",
+  "aboutTitle": "परिचय",
+  "aboutSubtitle": "ऐप जानकारी और ओपन-सोर्स विवरण",
+  "aboutAppNameWithCreator": "IR Blaster - {creator}",
+  "@aboutAppNameWithCreator": {
+    "placeholders": {
+      "creator": {}
+    }
+  },
+  "versionLabel": "संस्करण {version}",
+  "@versionLabel": {
+    "placeholders": {
+      "version": {}
+    }
+  },
+  "sourceCode": "स्रोत कोड",
+  "viewOnGitHub": "GitHub पर देखें",
+  "repositoryUrlCopied": "रिपॉजिटरी URL कॉपी किया गया",
+  "reportIssue": "समस्या रिपोर्ट करें",
+  "reportIssueSubtitle": "बग रिपोर्ट और फीचर अनुरोध",
+  "issuesUrlCopied": "Issues URL कॉपी किया गया",
+  "license": "लाइसेंस",
+  "openSourceLicense": "ओपन-सोर्स लाइसेंस",
+  "licenseUrlCopied": "लाइसेंस URL कॉपी किया गया",
+  "companyName": "KaijinLab Inc.",
+  "visitWebsite": "हमारी वेबसाइट देखें",
+  "companyUrlCopied": "Company URL कॉपी किया गया",
+  "licenses": "Licenses",
+  "openSourceLicenses": "ओपन-सोर्स लाइसेंस",
+  "byCreator": "द्वारा {creator}",
+  "@byCreator": {
+    "placeholders": {
+      "creator": {}
+    }
+  },
+  "deviceControlsTitle": "डिवाइस नियंत्रण",
+  "deviceControlsSubtitle": "सिस्टम नियंत्रण पेज में पसंदीदा बटन दिखाएं",
+  "manageFavorites": "प्रबंधित करें पसंदीदा",
+  "manageFavoritesSubtitle": "चुनें कि डिवाइस नियंत्रण में कौन से बटन दिखें",
+  "quickSettingsTitle": "त्वरित सेटिंग्स",
+  "quickSettingsSubtitle": "जोड़ें टाइलें के लिए पावर और आवाज़ shortcuts",
+  "configureTiles": "कॉन्फ़िगर करें टाइलें",
+  "configureTilesSubtitle": "Map टाइलें तक रिमोट बटन",
+  "tvKillTitle": "TVKill",
+  "tvKillSubtitle": "स्वामित्व वाले उपकरणों के लिए यूनिवर्सल पावर चक्रण",
+  "openTvKill": "TVKill खोलें",
+  "openTvKillSubtitle": "Cycle पावर कोड (उपयोग करें केवल पर डिवाइस you own)",
+  "failedToLoadTransmitterSettings": "लोड करें प्रेषक सेटिंग्स. विफल",
+  "usbStatusReady": "USB डोंगल है जुड़ा और तैयार तक भेजें IR.",
+  "usbStatusPermissionRequired": "USB डोंगल मिला. अनुरोध USB अनुमति और स्वीकार करें the सिस्टम प्रॉम्प्ट.",
+  "usbStatusPermissionDenied": "जुड़े हुए डोंगल के लिए USB अनुमति अस्वीकृत हुई। इसे फिर से मांगें और प्रॉम्प्ट स्वीकार करें।",
+  "usbStatusPermissionGranted": "USB अनुमति मिल गई है। IR भेजने से पहले डोंगल को अभी शुरू करना बाकी है।",
+  "usbStatusOpenFailed": "USB अनुमति मिल गई है, लेकिन डोंगल शुरू नहीं हो सका। इसे फिर से जोड़ें और दोबारा कोशिश करें।",
+  "usbStatusNoDevice": "नहीं समर्थित USB IR डोंगल मिला.",
+  "usbSelectPermissionRequired": "USB डोंगल मिला लेकिन नहीं अधिकृत. टैप करें \"अनुरोध USB अनुमति\".",
+  "usbSelectPermissionDenied": "USB अनुमति अस्वीकृत हुई. टैप करें \"अनुरोध USB अनुमति\" और स्वीकार करें the प्रॉम्प्ट.",
+  "usbSelectPermissionGranted": "USB अनुमति मिल गई है, लेकिन the डोंगल है नहीं आरंभित yet. कोशिश reconnecting it.",
+  "usbSelectOpenFailed": "USB अनुमति मिल गई है, लेकिन डोंगल शुरू नहीं हो सका। इसे फिर से जोड़ें और दोबारा कोशिश करें।",
+  "usbSelectNoDevice": "नहीं समर्थित USB IR डोंगल मिला. Plug it में, फिर टैप \"अनुरोध USB अनुमति\".",
+  "usbSelectReady": "USB डोंगल तैयार है।",
+  "autoSwitchEnabledMessage": "स्वतः-स्विच सक्षम: uses USB जब जुड़ा, अन्यथा आंतरिक.",
+  "autoSwitchDisabledMessage": "स्वतः-स्विच अक्षम: प्रेषक चयन अब मैनुअल है।",
+  "failedToUpdateAutoSwitch": "स्वतः-स्विच सेटिंग अपडेट विफल।",
+  "failedToSwitchTransmitter": "switch प्रेषक. विफल",
+  "deviceHasNoInternalIr": "यह डिवाइस has नहीं अंतर्निर्मित IR emitter.",
+  "audioModeEnabledMessage": "ऑडियो मोड सक्षम है। अधिकतम मीडिया आवाज़ और एक audio-to-IR LED adapter उपयोग करें।",
+  "usbPermissionRequestSent": "USB अनुमति अनुरोध भेजा गया.",
+  "usbPermissionRequestSentApprove": "USB अनुमति अनुरोध भेजा गया। USB सक्षम करने के लिए प्रॉम्प्ट स्वीकार करें।",
+  "usbAlreadyReady": "USB डोंगल है already आरंभित और तैयार.",
+  "failedToRequestUsbPermission": "USB अनुमति का अनुरोध विफल रहा।",
+  "transmitterHelpInternal": "उपयोग करें the फ़ोन’s अंतर्निर्मित IR emitter तक भेजें कमांड.",
+  "transmitterHelpUsb": "उपयोग करें a USB IR डोंगल (अनुमति आवश्यक) तक भेजें कमांड.",
+  "transmitterHelpAudio1": "उपयोग करें ऑडियो आउटपुट (मोनो). आवश्यक है an audio-to-IR LED adapter और high media आवाज़.",
+  "transmitterHelpAudio2": "ऑडियो आउटपुट (स्टीरियो) उपयोग करें। संगत एडेप्टर के साथ बेहतर LED ड्राइविंग हेतु दो चैनल उपयोग करता है।",
+  "transmitterInternal": "आंतरिक IR",
+  "transmitterUsb": "USB IR डोंगल",
+  "transmitterAudio1": "ऑडियो (1 LED)",
+  "transmitterAudio2": "ऑडियो (2 LEDs)",
+  "failedToLoadTransmitterCapabilities": "लोड करें प्रेषक क्षमताएं. विफल",
+  "selectedTransmitter": "चयनित प्रेषक",
+  "selectedTransmitterValue": "{effective} • सक्रिय: {active}",
+  "@selectedTransmitterValue": {
+    "placeholders": {
+      "effective": {},
+      "active": {}
+    }
+  },
+  "refresh": "रीफ्रेश",
+  "autoSwitchTitle": "स्वतः-स्विच",
+  "autoSwitchDisabledWhileAudio": "अक्षम while उपयोग कर रहा है ऑडियो मोड",
+  "autoSwitchUsesUsbOtherwiseInternal": "जुड़ा होने पर USB, अन्यथा Internal उपयोग करता है",
+  "unavailableOnThisDevice": "अनुपलब्ध पर यह डिवाइस",
+  "openOnUsbAttachTitle": "USB जुड़ने पर खोलें",
+  "openOnUsbAttachSubtitle": "जब समर्थित USB IR डोंगल जुड़ता है, Android ऐप खोलने का सुझाव दे सकता है।",
+  "openOnUsbAttachEnabledMessage": "खोलने का सुझाव देगा IR Blaster जब a समर्थित USB डोंगल है जुड़ा हुआ.",
+  "openOnUsbAttachDisabledMessage": "खोलने का सुझाव नहीं देगा पर USB जोड़ना.",
+  "failedToUpdateSetting": "सेटिंग अपडेट विफल।",
+  "unnamedButton": "बिना नाम का बटन",
+  "iconFallback": "आइकन",
+  "remoteListReorderHint": "पुन:क्रमित करें मोड: लंबा दबाएं और खींचें a कार्ड तक स्थानांतरित करें it.",
+  "deleteRemoteTitle": "हटाएं रिमोट?",
+  "deleteRemoteMessage": "\"{name}\" होगा हो स्थायी रूप से हटाया गया. यह action सकता है't हो undone.",
+  "@deleteRemoteMessage": {
+    "placeholders": {
+      "name": {}
+    }
+  },
+  "delete": "हटाएं",
+  "addToDeviceControlsTitle": "जोड़ें तक डिवाइस नियंत्रण?",
+  "addToDeviceControlsDescription": "त्वरित access में the सिस्टम डिवाइस नियंत्रण.",
+  "skip": "छोड़ें",
+  "add": "जोड़ें",
+  "addedToDeviceControls": "जोड़ा गया तक डिवाइस नियंत्रण.",
+  "deletedRemoteUndoUnavailable": "हटाया गया \"{name}\". यह action सकता है't हो undone.",
+  "@deletedRemoteUndoUnavailable": {
+    "placeholders": {
+      "name": {}
+    }
+  },
+  "remoteLayoutSummary": "{count} बटन · {layout}",
+  "@remoteLayoutSummary": {
+    "placeholders": {
+      "count": {},
+      "layout": {}
+    }
+  },
+  "layoutComfort": "Comfort",
+  "layoutCompact": "कॉम्पैक्ट",
+  "open": "खोलें",
+  "useThisRemote": "उपयोग करें यह रिमोट",
+  "edit": "संपादित करें",
+  "editRemoteSubtitle": "Rename, और संपादित करें बटन",
+  "thisCannotBeUndone": "इसे पूर्ववत नहीं किया जा सकता",
+  "searchRemotes": "खोजें रिमोट",
+  "reorderRemotes": "पुन:क्रमित करें रिमोट",
+  "addRemote": "जोड़ें रिमोट",
+  "more": "More",
+  "reorderMode": "पुन:क्रमित करें मोड",
+  "remoteButtonCount": "{count} बटन{plural}",
+  "@remoteButtonCount": {
+    "placeholders": {
+      "count": {},
+      "plural": {}
+    }
+  },
+  "noRemotesYet": "नहीं रिमोट yet",
+  "noRemotesDescription": "बनाएं a रिमोट तक प्रारंभ sending IR कोड.",
+  "noRemotesNextStep": "What अगला: टैप जोड़ें रिमोट, फिर जोड़ें आपकी पहले बटन.",
+  "actions": "क्रियाएं",
+  "macrosTitle": "मैक्रो",
+  "help": "मदद",
+  "createMacro": "बनाएं मैक्रो",
+  "timedMacrosTitle": "समयबद्ध मैक्रो",
+  "timedMacrosSubtitle": "स्वचालित करें क्रम का IR कमांड के साथ सटीक समय-नियंत्रण",
+  "timedMacrosNextStep": "What अगला: टैप बनाएं आपकी पहले मैक्रो, pick a रिमोट, फिर जोड़ें कमांड और विलंब.",
+  "macroFeatureToysTitle": "के लिए उपयुक्त Interactive खिलौने",
+  "macroFeatureToysDescription": "i-cybie robot dogs, i-sobot robots और अन्य खिलौना उपकरण नियंत्रित करें जिन्हें कमांडों के बीच क्रिया संसाधित करने के लिए समय चाहिए।",
+  "macroFeatureTimingTitle": "सटीक समय-नियंत्रण नियंत्रित करें",
+  "macroFeatureTimingDescription": "कमांडों के बीच विलंब जोड़ें (250ms से कस्टम durations तक) ताकि अगली क्रिया से पहले आपका उपकरण प्रतिक्रिया दे सके।",
+  "macroFeatureManualTitle": "मैनुअल जारी रखें चरण",
+  "macroFeatureManualDescription": "जब animation की लंबाई बदलती हो या आपको दृश्य प्रतिक्रिया चाहिए, निष्पादन रोकें और आपकी पुष्टि की प्रतीक्षा करें।",
+  "exampleUseCase": "उदाहरण उपयोग करें Case",
+  "macroExampleText": "i-cybie उन्नत मोड:\n1. \"मोड\" कमांड भेजें\n2. 1000ms प्रतीक्षा करें (खिलौना प्रक्रिया करता है)\n3. \"Action 1\" भेजें\n4. 1000ms प्रतीक्षा करें\n5. \"Action 2\" भेजें\n…और इसी तरह स्वतः!",
+  "createFirstMacro": "बनाएं आपकी पहले मैक्रो",
+  "noRemote": "नहीं रिमोट",
+  "macroStepCount": "{count} चरण{plural}",
+  "@macroStepCount": {
+    "placeholders": {
+      "count": {},
+      "plural": {}
+    }
+  },
+  "aboutTimedMacros": "परिचय समयबद्ध मैक्रो",
+  "aboutTimedMacrosDescription": "समयबद्ध मैक्रो आपको हर चरण के बीच सटीक विलंब के साथ IR कमांड क्रम स्वचालित करने देते हैं।",
+  "sendCommand": "भेजें कमांड",
+  "sendCommandDescription": "भेजता है an IR कमांड से आपकी रिमोट.",
+  "delay": "विलंब",
+  "delayDescription": "Waits के लिए a निर्दिष्ट अवधि (e.g., 1000ms) पहले the अगला चरण.",
+  "manualContinue": "मैनुअल जारी रखें",
+  "manualContinueDescription": "Pauses execution जब तक you टैप जारी रखें (उपयोगी के लिए परिवर्तनीय-लंबाई एनिमेशन).",
+  "gotIt": "Got it",
+  "failedToSaveMacros": "सहेजें मैक्रो. विफल",
+  "deletedMacroNamed": "\"{name}\" हटाया गया।",
+  "@deletedMacroNamed": {
+    "placeholders": {
+      "name": {}
+    }
+  },
+  "undo": "पूर्ववत करें",
+  "failedToRestoreMacro": "पुनर्स्थापित करें मैक्रो. विफल",
+  "deleteMacroTitle": "हटाएं मैक्रो?",
+  "deleteMacroMessage": "You सकता है पूर्ववत करें यह से the अगला snackbar.",
+  "noRemotesAvailable": "नहीं रिमोट उपलब्ध.",
+  "remoteButtonCountSummary": "{count} बटन",
+  "@remoteButtonCountSummary": {
+    "placeholders": {
+      "count": {}
+    }
+  },
+  "remoteOrientationFlippedTooltip": "ओरिएंटेशन: उल्टा (सामान्य हेतु टैप करें)",
+  "remoteOrientationNormalTooltip": "ओरिएंटेशन: सामान्य (उलटने हेतु टैप करें)",
+  "stopLoop": "रोकें लूप",
+  "reorderButtons": "पुन:क्रमित करें बटन",
+  "remoteReorderHint": "पुन:क्रमित करें मोड: लंबा दबाएं और खींचें a बटन तक स्थानांतरित करें it.",
+  "manageRemote": "प्रबंधित करें रिमोट",
+  "remoteNoButtons": "नहीं बटन में यह रिमोट",
+  "remoteNoButtonsDescription": "उपयोग करें \"संपादित करें रिमोट\" तक जोड़ें या कॉन्फ़िगर करें बटन.",
+  "editRemote": "रिमोट संपादित करें",
+  "editRemoteActionsSubtitle": "Rename, पुन:क्रमित करें, और संपादित करें बटन",
+  "remoteUpdatedNamedButton": "\"{name}\" अपडेट किया गया।",
+  "@remoteUpdatedNamedButton": {
+    "placeholders": {
+      "name": {}
+    }
+  },
+  "buttonAddedNamed": "जोड़ा गया \"{name}\".",
+  "@buttonAddedNamed": {
+    "placeholders": {
+      "name": {}
+    }
+  },
+  "buttonDuplicated": "बटन डुप्लिकेट किया गया।",
+  "loopRunningForButton": "लूप है running के लिए यह बटन.",
+  "loopTip": "सुझाव: उपयोग करें लूप तक repeat जब तक you रोकें it.",
+  "codeCopied": "कोड कॉपी किया गया.",
+  "copyCode": "कोड कॉपी करें",
+  "startLoop": "प्रारंभ लूप",
+  "editButtonSubtitle": "बदलें लेबल, कोड, प्रोटोकॉल, फ़्रीक्वेंसी",
+  "newButton": "नया बटन",
+  "newButtonSubtitle": "बनाएं a नया बटन बाद यह एक",
+  "duplicate": "डुप्लिकेट",
+  "duplicateButtonSubtitle": "इस बटन की कॉपी बनाएं",
+  "removeFromDeviceControls": "से डिवाइस नियंत्रण हटाएं",
+  "addToDeviceControls": "जोड़ें तक डिवाइस नियंत्रण",
+  "deviceControlsButtonSubtitle": "दिखाता है यह बटन में the सिस्टम डिवाइस नियंत्रण",
+  "removedFromDeviceControls": "हटाया गया से डिवाइस नियंत्रण.",
+  "pinQuickTile": "Pin तक त्वरित Tile पसंदीदा",
+  "unpinQuickTile": "Unpin से त्वरित Tile पसंदीदा",
+  "quickTileButtonSubtitle": "दिखाता है यह बटन at the शीर्ष का the त्वरित tile चयनकर्ता",
+  "removedFromQuickTileFavorites": "हटाया गया से त्वरित Tile पसंदीदा.",
+  "pinnedToQuickTileFavorites": "Pinned तक त्वरित Tile पसंदीदा.",
+  "duplicateAndEdit": "डुप्लिकेट और संपादित करें",
+  "duplicateAndEditSubtitle": "कॉपी बनाएं और तुरंत संपादित करें",
+  "done": "पूर्ण",
+  "run": "चलाएं",
+  "untitledRemote": "बिना शीर्षक का रिमोट",
+  "createRemoteTitle": "बनाएं रिमोट",
+  "editRemoteTitle": "रिमोट संपादित करें",
+  "removeButtonTitle": "बटन? हटाएं",
+  "imageButtonRemovedMessage": "यह छवि बटन होगा हो हटाया गया.",
+  "namedButtonRemovedMessage": "\"{name}\" होगा हो हटाया गया.",
+  "@namedButtonRemovedMessage": {
+    "placeholders": {
+      "name": {}
+    }
+  },
+  "remove": "हटाएं",
+  "importedButtonCount": "{count} बटन आयात किए गए।",
+  "@importedButtonCount": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "importedButtonsFromExistingRemotes": "Imported {count} बटन(s) से मौजूदा रिमोट.",
+  "@importedButtonsFromExistingRemotes": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "editButtonSettingsSubtitle": "बदलें लेबल, सिग्नल, और advanced सेटिंग्स",
+  "createButtonCopySubtitle": "इस बटन की कॉपी बनाएं",
+  "duplicateAndEditButtonSubtitle": "कॉपी बनाएं और तुरंत संपादित करें",
+  "undoAvailableInNextSnackbar": "You सकता है पूर्ववत करें से the अगला snackbar",
+  "buttonRemoved": "बटन हटाया गया.",
+  "remoteNameCannotBeEmpty": "रिमोट नाम सकता है't हो empty.",
+  "saveRemote": "सहेजें रिमोट",
+  "remoteName": "रिमोट नाम",
+  "remoteNameHint": "उदा. TV, Air Conditioner, LED Strip",
+  "remoteNameHelper": "यह नाम appears में आपकी रिमोट सूची.",
+  "layoutStyle": "लेआउट शैली",
+  "layoutWideDescription": "चौड़ी: 2-स्तंभ बटन के साथ अतिरिक्त विवरण (अनुशंसित).",
+  "layoutCompactDescription": "कॉम्पैक्ट: क्लासिक 4× ग्रिड (icons/पाठ केवल).",
+  "importFromRemotes": "आयात करें से रिमोट",
+  "importFromDatabase": "आयात करें से DB",
+  "addButton": "जोड़ें बटन",
+  "noButtonsYet": "नहीं बटन yet",
+  "createRemoteEmptyStateDescription": "जोड़ें आपकी पहले बटन, फिर लंबा दबाएं it के लिए संपादित करें/हटाएं options.",
+  "createButtonTitle": "बनाएं बटन",
+  "editButtonTitle": "संपादित करें बटन",
+  "failedToLoadProtocols": "प्रोटोकॉल लोड विफल: {error}",
+  "@failedToLoadProtocols": {
+    "placeholders": {
+      "error": {}
+    }
+  },
+  "failedToLoadDatabaseKeys": "लोड करें डेटाबेस keys: {error} विफल",
+  "@failedToLoadDatabaseKeys": {
+    "placeholders": {
+      "error": {}
+    }
+  },
+  "presetPower": "पावर",
+  "presetVolume": "आवाज़",
+  "presetChannel": "Channel",
+  "presetNavigation": "नेविगेशन",
+  "all": "सभी",
+  "completeRequiredFieldsToSave": "पूर्ण आवश्यक fields तक सहेजें",
+  "buttonLabelStepTitle": "1) बटन लेबल",
+  "buttonLabelStepSubtitle": "चुनें an छवि, आइकन, या type a पाठ लेबल.",
+  "buttonColorStepTitle": "2) बटन color (वैकल्पिक)",
+  "buttonColorStepSubtitle": "इस बटन के लिए पृष्ठभूमि रंग चुनें।",
+  "selectColor": "रंग चुनें:",
+  "noImageSelected": "नहीं छवि चयनित",
+  "gallery": "Gallery",
+  "builtIn": "अंतर्निर्मित",
+  "removeImage": "छवि हटाएं",
+  "requiredSelectImageOrSwitch": "आवश्यक: चुनें an छवि, चुनें an आइकन, या switch तक पाठ.",
+  "iconSelected": "आइकन चयनित",
+  "noIconSelected": "नहीं आइकन चयनित",
+  "chooseIcon": "चुनें आइकन",
+  "removeIcon": "आइकन हटाएं",
+  "requiredSelectIconOrSwitch": "आवश्यक: चुनें an आइकन या switch तक छवि/पाठ.",
+  "buttonText": "बटन पाठ",
+  "buttonTextHint": "e.g., पावर, आवाज़ +, HDMI 1",
+  "buttonTextHelper": "यह पाठ होगा दिखें पर the बटन.",
+  "requiredEnterButtonLabel": "आवश्यक: दर्ज करें a बटन लेबल.",
+  "defaultColorName": "डिफ़ॉल्ट",
+  "newRemoteCreatedFromLastHit": "नया रिमोट बनाया गया के साथ एक बटन से अंतिम hit.",
+  "selectRemote": "चुनें रिमोट",
+  "remoteNumber": "रिमोट #{id}",
+  "@remoteNumber": {
+    "placeholders": {
+      "id": {}
+    }
+  },
+  "newRemoteCreated": "नया रिमोट बनाया गया।",
+  "failedToCreateRemote": "बनाएं रिमोट. विफल",
+  "newRemoteEllipsis": "नया रिमोट…",
+  "addedToRemoteNamed": "जोड़ा गया तक {name}.",
+  "@addedToRemoteNamed": {
+    "placeholders": {
+      "name": {}
+    }
+  },
+  "failedToAddToRemote": "जोड़ें तक रिमोट. विफल",
+  "newRemoteDefaultName": "नया रिमोट",
+  "jumpedToOffsetPaused": "Jumped तक ऑफसेट {offset}. Paused — दबाएं फिर शुरू करें तक जारी रखें.",
+  "@jumpedToOffsetPaused": {
+    "placeholders": {
+      "offset": {
+        "type": "int"
+      }
+    }
+  },
+  "sent": "भेजा गया.",
+  "failedToSend": "भेजें: {error} विफल",
+  "@failedToSend": {
+    "placeholders": {
+      "error": {}
+    }
+  },
+  "copiedProtocolCode": "कॉपी किया गया (प्रोटोकॉल:कोड).",
+  "savedToResults": "सहेजा गया तक परिणाम.",
+  "invalidCodeForProtocol": "अमान्य कोड के लिए प्रोटोकॉल: {error}",
+  "@invalidCodeForProtocol": {
+    "placeholders": {
+      "error": {}
+    }
+  },
+  "copiedCurrentCandidate": "कॉपी किया गया वर्तमान candidate.",
+  "jumpToOffset": "पर जाएं ऑफसेट",
+  "jumpToBruteCursor": "brute cursor पर जाएं",
+  "jump": "जाएं",
+  "jumpedToCursorPaused": "cursor 0x{cursor} पर गए। रोका गया — जारी रखने के लिए फिर शुरू करें दबाएं।",
+  "@jumpedToCursorPaused": {
+    "placeholders": {
+      "cursor": {}
+    }
+  },
+  "irSignalTester": "IR सिग्नल टेस्टर",
+  "stop": "रोकें",
+  "selectButton": "चुनें बटन",
+  "buttonNotFoundInRemotes": "बटन नहीं मिला में रिमोट.",
+  "sentNamed": "भेजा गया \"{name}\".",
+  "@sentNamed": {
+    "placeholders": {
+      "name": {}
+    }
+  },
+  "sendFailed": "भेजें विफल: {error}",
+  "@sendFailed": {
+    "placeholders": {
+      "error": {}
+    }
+  },
+  "noFavoritesYet": "नहीं पसंदीदा yet",
+  "deviceControlsEmptyHint": "लंबा दबाएं a रिमोट बटन और चुनें “जोड़ें तक डिवाइस नियंत्रण”.",
+  "sendTest": "भेजें जांचें",
+  "testSendCompleted": "जांचें भेजें पूर्ण.",
+  "testSendFailed": "जांचें भेजें विफल: {error}",
+  "@testSendFailed": {
+    "placeholders": {
+      "error": {}
+    }
+  },
+  "removedNamed": "हटाया गया \"{name}\".",
+  "@removedNamed": {
+    "placeholders": {
+      "name": {}
+    }
+  },
+  "brand": "ब्रांड",
+  "model": "मॉडल",
+  "selectBrand": "ब्रांड चुनें",
+  "searchBrand": "खोजें ब्रांड…",
+  "selectModel": "मॉडल चुनें",
+  "searchModel": "खोजें मॉडल…",
+  "unnamedKey": "बिना नाम की कुंजी",
+  "unknown": "अज्ञात",
+  "emDash": "—",
+  "searchCommands": "खोजें कमांड",
+  "noMatchingCommands": "नहीं मेल खाती कमांड",
+  "quickTileFavoritesTitle": "त्वरित tile पसंदीदा",
+  "changeMappingForTile": "{tileLabel} टाइल के लिए मैपिंग बदलें",
+  "@changeMappingForTile": {
+    "placeholders": {
+      "tileLabel": {}
+    }
+  },
+  "pickDifferentButton": "कोई दूसरा बटन चुनें",
+  "browseAllRemotesEllipsis": "ब्राउज़ करें सभी रिमोट…",
+  "invalidMacroFileFormat": "अमान्य मैक्रो फ़ाइल format.",
+  "failedToParseMacroFile": "parse मैक्रो फ़ाइल. विफल",
+  "deviceCodeLabel": "डिवाइस कोड",
+  "commandLabel": "कमांड",
+  "editButtonCodeTitle": "संपादित करें कोड का the बटन",
+  "thisRemoteHasNoButtons": "यह रिमोट has नहीं बटन.",
+  "selectCommand": "चुनें कमांड",
+  "databaseModeAutofillHint": "डेटाबेस मोड auto-fills चरण 2 के लिए you (ब्रांड + मॉडल + प्रोटोकॉल). बाद आयात करते समय a key, you सकता है परिष्कृत करें anything में मैनुअल.",
+  "test": "जांचें",
+  "allSelectedButtonsWereDuplicates": "सभी चयनित बटन थे डुप्लिकेट.",
+  "noButtonsImported": "कोई बटन आयात नहीं हुआ।",
+  "importedButtonsSkippedDuplicates": "{addedCount} बटन आयात किए गए। {skippedCount} डुप्लिकेट छोड़े गए।",
+  "@importedButtonsSkippedDuplicates": {
+    "placeholders": {
+      "addedCount": {
+        "type": "int"
+      },
+      "skippedCount": {
+        "type": "int"
+      }
+    }
+  },
+  "importAllMatchingTitle": "आयात करें सभी मेल खाती बटन?",
+  "noMatchingKeysFound": "नहीं मेल खाती keys मिला.",
+  "importAllMatchingMessage": "यह होगा आयात ऊपर तक {count} मेल खाती keys से the वर्तमान डेटाबेस selection.",
+  "@importAllMatchingMessage": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "importAll": "आयात करें सभी",
+  "importingButtons": "बटन आयात हो रहे हैं…",
+  "allMatchingButtonsWereDuplicates": "सभी मेल खाती बटन थे डुप्लिकेट.",
+  "quickPresets": "त्वरित प्रीसेट",
+  "selectDeviceFirst": "चुनें डिवाइस पहले",
+  "searchByLabelOrHex": "खोजें द्वारा लेबल या हेक्स",
+  "optionalRefinePresetKeys": "वैकल्पिक: {preset} प्रीसेट कुंजियों को परिष्कृत करें",
+  "@optionalRefinePresetKeys": {
+    "placeholders": {
+      "preset": {}
+    }
+  },
+  "selectBrandModelProtocolFirst": "चुनें ब्रांड, मॉडल, और प्रोटोकॉल पहले.",
+  "importFromDatabaseTitle": "आयात करें से डेटाबेस",
+  "importFromDatabaseSubtitle": "चुनें a डिवाइस, लोड करें मेल खाती keys, फिर आयात चयनित बटन.",
+  "deviceAndFilters": "डिवाइस & फ़िल्टर",
+  "loadedCount": "{count} लोड किया गया",
+  "@loadedCount": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "hideFilters": "छिपाएं फ़िल्टर",
+  "showFilters": "दिखाएं फ़िल्टर",
+  "noProtocolFoundForBrandModel": "नहीं प्रोटोकॉल मिला के लिए यह ब्रांड और मॉडल.",
+  "protocolAutoDetected": "प्रोटोकॉल",
+  "protocolAutoDetectedHelper": "डेटाबेस से स्वतः पहचाना गया। आयात करने से पहले आप इसे बदल सकते हैं।",
+  "selectBrandModelToLoadKeys": "चुनें a ब्रांड, मॉडल, और प्रोटोकॉल तक लोड करें keys.",
+  "noKeysFound": "नहीं keys मिला.",
+  "noKeysFoundForSearch": "नहीं keys मिला के लिए “{query}”.",
+  "@noKeysFoundForSearch": {
+    "placeholders": {
+      "query": {}
+    }
+  },
+  "skipDuplicates": "छोड़ें डुप्लिकेट",
+  "skipDuplicatesSubtitle": "Do नहीं आयात बटन वह already exist में यह रिमोट.",
+  "importSelected": "आयात करें चयनित",
+  "noMacrosToExport": "नहीं मैक्रो तक निर्यात.",
+  "macrosExportedToDownloads": "मैक्रो Downloads में निर्यात किए गए।",
+  "failedToExportMacros": "निर्यात मैक्रो. विफल",
+  "failedToReadFile": "read फ़ाइल. विफल",
+  "importFromExistingRemotesTitle": "आयात करें से मौजूदा रिमोट",
+  "selectedCount": "{count} चयनित",
+  "@selectedCount": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "noOtherRemotesWithButtons": "नहीं अन्य रिमोट के साथ बटन मिला.",
+  "sourceRemote": "स्रोत रिमोट",
+  "searchButtons": "खोजें बटन",
+  "searchButtonsHint": "पावर, आवाज़, म्यूट...",
+  "selectVisible": "दृश्यमान चुनें",
+  "clearVisible": "दृश्यमान साफ करें",
+  "protocolNamed": "प्रोटोकॉल: {name}",
+  "@protocolNamed": {
+    "placeholders": {
+      "name": {}
+    }
+  },
+  "rawSignal": "रॉ",
+  "legacyCode": "पुराना कोड",
+  "importCount": "आयात करें {count}",
+  "@importCount": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "storagePermissionDeniedLegacy": "Storage अनुमति अस्वीकृत (कुछ पुराने Android डिवाइस पर आवश्यक)।",
+  "backupExportedToDownloads": "बैकअप Downloads में निर्यात किया गया।",
+  "failedToExport": "निर्यात: {error} विफल",
+  "@failedToExport": {
+    "placeholders": {
+      "error": {}
+    }
+  },
+  "importedLegacyJsonBackup": "Imported {count} रिमोट से legacy JSON बैकअप. मैक्रो थे नहीं बदला गया.",
+  "@importedLegacyJsonBackup": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "importFailedRemotesMustBeList": "आयात करें विफल: बैकअप \"रिमोट\" must हो a JSON सूची जब present.",
+  "importFailedMacrosMustBeList": "आयात करें विफल: बैकअप \"मैक्रो\" must हो a JSON सूची जब present.",
+  "importFailedInvalidBackupFormat": "आयात करें विफल: अमान्य बैकअप format (expected legacy सूची या Map के साथ रिमोट/मैक्रो).",
+  "importedBackupRemotesOnly": "Imported {remoteCount} रिमोट से बैकअप. मैक्रो थे नहीं बदला गया.",
+  "@importedBackupRemotesOnly": {
+    "placeholders": {
+      "remoteCount": {
+        "type": "int"
+      }
+    }
+  },
+  "importedBackupRemotesAndMacros": "{remoteCount} रिमोट और {macroCount} मैक्रो बैकअप से आयात किए गए।",
+  "@importedBackupRemotesAndMacros": {
+    "placeholders": {
+      "remoteCount": {
+        "type": "int"
+      },
+      "macroCount": {
+        "type": "int"
+      }
+    }
+  },
+  "importFailedNoValidButtonsInIr": "आयात करें विफल: नहीं valid बटन मिला में.IR फ़ाइल.",
+  "importedOneRemoteFromFlipper": "Imported 1 रिमोट से Flipper.IR. मैक्रो थे नहीं बदला गया.",
+  "importFailedInvalidIrplus": "आयात करें विफल: अमान्य irplus फ़ाइल (नहीं valid बटन मिला).",
+  "importedOneRemoteFromIrplus": "Imported 1 रिमोट से irplus. मैक्रो थे नहीं बदला गया.",
+  "importFailedInvalidLirc": "आयात करें विफल: अमान्य LIRC फ़ाइल (नहीं valid कोड/रॉ कोड मिला).",
+  "importedOneRemoteFromLirc": "Imported 1 रिमोट से LIRC config. मैक्रो थे नहीं बदला गया.",
+  "unsupportedFileTypeSelected": "असमर्थित फ़ाइल प्रकार चुना गया।",
+  "importFailedInvalidUnreadableFile": "आयात करें विफल: अमान्य या unreadable फ़ाइल.",
+  "bulkImportNoSupportedFilesInFolder": "Bulk आयात पूर्ण: नहीं समर्थित फ़ाइलें मिला में फ़ोल्डर.",
+  "bulkImportNoRemotesImported": "Bulk आयात पूर्ण: नहीं रिमोट आयात किए गए. छोड़ा गया {skippedCount} फ़ाइल(s).",
+  "@bulkImportNoRemotesImported": {
+    "placeholders": {
+      "skippedCount": {
+        "type": "int"
+      }
+    }
+  },
+  "bulkImportComplete": "Bulk आयात पूर्ण: {supportedCount} समर्थित फ़ाइलों से {importedCount} रिमोट आयात किए गए। {skippedCount} फ़ाइलें छोड़ी गईं।",
+  "@bulkImportComplete": {
+    "placeholders": {
+      "importedCount": {
+        "type": "int"
+      },
+      "supportedCount": {
+        "type": "int"
+      },
+      "skippedCount": {
+        "type": "int"
+      }
+    }
+  },
+  "storagePermissionDenied": "Storage अनुमति अस्वीकृत.",
+  "bulkImportFailedReadFolder": "Bulk आयात विफल: फ़ोल्डर सामग्री पढ़ी नहीं जा सकी।",
+  "bulkImportNoSupportedFilesSource": "Bulk आयात पूर्ण: नहीं समर्थित फ़ाइलें मिला ({sourceLabel}).",
+  "@bulkImportNoSupportedFilesSource": {
+    "placeholders": {
+      "sourceLabel": {}
+    }
+  },
+  "clearAction": "स्पष्ट",
+  "saveAction": "सहेजें",
+  "buttonsTitleCount": "बटन ({count})",
+  "@buttonsTitleCount": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "invalidStepEncountered": "अमान्य चरण मिला",
+  "failedToSendNamed": "भेजें: {name} विफल",
+  "@failedToSendNamed": {
+    "placeholders": {
+      "name": {}
+    }
+  },
+  "buttonNotFound": "बटन नहीं मिला",
+  "buttonNotFoundNamed": "बटन नहीं मिला: {name}",
+  "@buttonNotFoundNamed": {
+    "placeholders": {
+      "name": {}
+    }
+  },
+  "unknownButton": "अज्ञात बटन",
+  "durationSecondsShort": "{seconds}s",
+  "@durationSecondsShort": {
+    "placeholders": {
+      "seconds": {
+        "type": "int"
+      }
+    }
+  },
+  "durationMinutesSecondsShort": "{minutes}m {seconds}s",
+  "@durationMinutesSecondsShort": {
+    "placeholders": {
+      "minutes": {
+        "type": "int"
+      },
+      "seconds": {
+        "type": "int"
+      }
+    }
+  },
+  "durationHoursMinutesShort": "{hours}h {minutes}m",
+  "@durationHoursMinutesShort": {
+    "placeholders": {
+      "hours": {
+        "type": "int"
+      },
+      "minutes": {
+        "type": "int"
+      }
+    }
+  },
+  "orientationFlippedTooltip": "ओरिएंटेशन: उल्टा (सामान्य हेतु टैप करें)",
+  "orientationNormalTooltip": "ओरिएंटेशन: सामान्य (उलटने हेतु टैप करें)",
+  "noSteps": "कोई चरण नहीं",
+  "stepProgress": "चरण {current} / {total}",
+  "@stepProgress": {
+    "placeholders": {
+      "current": {
+        "type": "int"
+      },
+      "total": {
+        "type": "int"
+      }
+    }
+  },
+  "completed": "पूर्ण",
+  "paused": "Paused",
+  "running": "Running",
+  "ready": "तैयार",
+  "stepsProgress": "{current} / {total} चरण",
+  "@stepsProgress": {
+    "placeholders": {
+      "current": {
+        "type": "int"
+      },
+      "total": {
+        "type": "int"
+      }
+    }
+  },
+  "waiting": "Waiting",
+  "secondsRemaining": "{seconds}s शेष",
+  "@secondsRemaining": {
+    "placeholders": {
+      "seconds": {}
+    }
+  },
+  "millisecondsShort": "{ms}ms",
+  "@millisecondsShort": {
+    "placeholders": {
+      "ms": {
+        "type": "int"
+      }
+    }
+  },
+  "tapContinueWhenReady": "टैप करें जारी रखें जब तैयार के लिए the अगला चरण",
+  "error": "त्रुटि",
+  "macroCompleted": "मैक्रो पूर्ण",
+  "finishedIn": "में समाप्त {duration}",
+  "@finishedIn": {
+    "placeholders": {
+      "duration": {}
+    }
+  },
+  "sequence": "Sequence",
+  "waitMilliseconds": "प्रतीक्षा करें {ms}ms",
+  "@waitMilliseconds": {
+    "placeholders": {
+      "ms": {
+        "type": "int"
+      }
+    }
+  },
+  "runAgain": "चलाएं फिर",
+  "startMacro": "प्रारंभ मैक्रो",
+  "continueAction": "जारी रखें",
+  "unnamedRemote": "बिना नाम का रिमोट",
+  "enterMacroName": "दर्ज करें a मैक्रो नाम",
+  "addAtLeastOneStep": "जोड़ें at least एक चरण",
+  "fixInvalidSteps": "Fix अमान्य चरण",
+  "unknownCommand": "अज्ञात कमांड",
+  "unnamedCommand": "बिना नाम की कमांड",
+  "iconCommand": "आइकन कमांड",
+  "selectDelay": "चुनें विलंब",
+  "keepMilliseconds": "रखें: {ms}ms",
+  "@keepMilliseconds": {
+    "placeholders": {
+      "ms": {
+        "type": "int"
+      }
+    }
+  },
+  "custom": "कस्टम",
+  "enterCustomDelayDuration": "दर्ज करें a कस्टम विलंब अवधि",
+  "millisecondsLong": "{ms} मिलीसेकंड",
+  "@millisecondsLong": {
+    "placeholders": {
+      "ms": {
+        "type": "int"
+      }
+    }
+  },
+  "secondsLong": "{seconds} सेकंड{plural}",
+  "@secondsLong": {
+    "placeholders": {
+      "seconds": {},
+      "plural": {}
+    }
+  },
+  "customDelay": "कस्टम विलंब",
+  "delayMillisecondsLabel": "विलंब (मिलीसेकंड)",
+  "delayMillisecondsHint": "e.g., 3000",
+  "recommendedDelayRange": "अनुशंसित: 250-5000ms के लिए most डिवाइस",
+  "enterValidPositiveNumber": "Please दर्ज करें a valid धनात्मक संख्या",
+  "ok": "ठीक है",
+  "remote": "रिमोट",
+  "macroName": "मैक्रो नाम",
+  "macroNameHint": "e.g., i-cybie Advanced मोड",
+  "stepsTitleCount": "चरण ({count})",
+  "@stepsTitleCount": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "noStepsYet": "अभी कोई चरण नहीं",
+  "addCommandsAndDelaysHint": "जोड़ें कमांड और विलंब नीचे तक build आपकी sequence",
+  "addStep": "जोड़ें चरण",
+  "reorderStepsHint": "सुझाव: खींचें the handle तक पुन:क्रमित करें चरण. टैप करें a चरण तक संपादित करें it.",
+  "reorderStep": "पुन:क्रमित करें चरण {index}",
+  "@reorderStep": {
+    "placeholders": {
+      "index": {
+        "type": "int"
+      }
+    }
+  },
+  "pressAndDragToChangeStepOrder": "दबाएं और खींचें तक बदलें चरण क्रम",
+  "deleteStep": "हटाएं चरण {index}",
+  "@deleteStep": {
+    "placeholders": {
+      "index": {
+        "type": "int"
+      }
+    }
+  },
+  "invalidStepTapToFix": "अमान्य चरण — टैप करें fix",
+  "sendIrCommand": "IR कमांड भेजें",
+  "waitForUserConfirmation": "उपयोगकर्ता पुष्टि की प्रतीक्षा करें",
+  "notImplemented": "अभी लागू नहीं",
+  "frequencyKhz": "{value} kHz",
+  "@frequencyKhz": {
+    "placeholders": {
+      "value": {
+        "type": "int"
+      }
+    }
+  },
+  "necProtocolShort": "NEC",
+  "msbShort": "MSB",
+  "layoutWide": "चौड़ी",
+  "iconButton": "आइकन बटन",
+  "imageButton": "छवि बटन",
+  "noSignalInfo": "नहीं सिग्नल info",
+  "proceed": "Proceed",
+  "discard": "Discard",
+  "idle": "Idle",
+  "start": "प्रारंभ",
+  "resume": "फिर शुरू करें",
+  "pause": "रोकें",
+  "stopped": "Stopped",
+  "copy": "कॉपी करें",
+  "send": "भेजें",
+  "step": "चरण",
+  "addToRemote": "जोड़ें तक रिमोट",
+  "noDescriptionAvailable": "कोई विवरण उपलब्ध नहीं।",
+  "notAvailableSymbol": "—",
+  "irFinderKaseikyoVendorInvalid": "Kaseikyo vendor ठीक-ठीक 4 हेक्स digits का होना चाहिए।",
+  "irFinderDatabaseNotReady": "डेटाबेस है नहीं तैयार yet.",
+  "irFinderSelectBrandFirst": "चुनें a ब्रांड पहले में Setup.",
+  "irFinderBruteforceUnavailable": "Brute-force है उपलब्ध नहीं है के लिए यह प्रोटोकॉल yet.",
+  "irFinderInvalidPrefix": "अमान्य प्रीफ़िक्स।",
+  "irFinderBrandValue": "ब्रांड: {value}",
+  "@irFinderBrandValue": {
+    "placeholders": {
+      "value": {}
+    }
+  },
+  "irFinderModelValue": "मॉडल: {value}",
+  "@irFinderModelValue": {
+    "placeholders": {
+      "value": {}
+    }
+  },
+  "irFinderKeyValue": "Key: {value}",
+  "@irFinderKeyValue": {
+    "placeholders": {
+      "value": {}
+    }
+  },
+  "irFinderRemoteNumber": "रिमोट #{value}",
+  "@irFinderRemoteNumber": {
+    "placeholders": {
+      "value": {}
+    }
+  },
+  "irFinderJumpOffsetHelper": "फ़िल्टर किए गए, क्रमित डेटाबेस परिणामों के भीतर 0-आधारित index दर्ज करें।",
+  "irFinderJumpCursorHelper": "brute-force क्षेत्र के भीतर 0-आधारित हेक्स cursor दर्ज करें।",
+  "irFinderSetupTab": "Setup",
+  "irFinderTestTab": "जांचें",
+  "irFinderResultsTab": "परिणाम",
+  "irFinderContinueToTest": "जारी रखें तक जांचें",
+  "irFinderKaseikyoVendorTitle": "Kaseikyo Vendor",
+  "irFinderCustomVendorLabel": "कस्टम vendor (4 हेक्स)",
+  "irFinderBrowseDbCandidates": "DB candidates ब्राउज़ करें…",
+  "irFinderEditSetup": "संपादित करें Setup",
+  "irFinderNoSavedHits": "नहीं सहेजा गया hits yet. में the जांचें page, दबाएं \"सहेजें hit\" जब the डिवाइस प्रतिक्रिया देता है.",
+  "irFinderBackToTest": "वापस तक जांचें",
+  "irFinderLargeSearchSpaceTitle": "बड़ा खोज क्षेत्र",
+  "irFinderLargeSearchSpaceBody": "यह brute-force क्षेत्र बहुत बड़ा है ({human} संभावनाएं)। IR Finder फिर भी आपकी max attempts और cooldown का मान रखेगा, लेकिन IR डिवाइस पर बार-बार भेजने से सावधान रहें。\n\nसिफारिश: पहले डेटाबेस मोड उपयोग करें, और/या ज्ञात prefix bytes दर्ज करें ताकि क्षेत्र कम हो।",
+  "@irFinderLargeSearchSpaceBody": {
+    "placeholders": {
+      "human": {}
+    }
+  },
+  "irFinderDatabaseSession": "डेटाबेस सत्र",
+  "irFinderBruteforceSession": "Brute-force सत्र",
+  "irFinderResumeLastSession": "फिर शुरू करें अंतिम सत्र",
+  "irFinderResumeBrandModel": "ब्रांड: {brand} · मॉडल: {model}",
+  "@irFinderResumeBrandModel": {
+    "placeholders": {
+      "brand": {},
+      "model": {}
+    }
+  },
+  "irFinderResumePrefix": "Prefix: {value}",
+  "@irFinderResumePrefix": {
+    "placeholders": {
+      "value": {}
+    }
+  },
+  "irFinderResumeProgress": "प्रगति: {progress} · शुरू: {when}",
+  "@irFinderResumeProgress": {
+    "placeholders": {
+      "progress": {},
+      "when": {}
+    }
+  },
+  "irFinderApplyResume": "लागू करें & फिर शुरू करें",
+  "irFinderBruteforceMode": "Brute-force",
+  "irFinderDatabaseAssistedMode": "Database-assisted",
+  "irFinderProtocolTitle": "प्रोटोकॉल: {name}",
+  "@irFinderProtocolTitle": {
+    "placeholders": {
+      "name": {}
+    }
+  },
+  "irFinderProtocolLabel": "IR प्रोटोकॉल",
+  "irFinderProtocolHelper": "यह encoding को नियंत्रित करता है और इसलिए खोज क्षेत्र को भी।",
+  "irFinderKnownPrefixLabel": "Kअबn प्रीफ़िक्स (हेक्स bytes, वैकल्पिक)",
+  "irFinderKnownPrefixHint": "A1B2, A1 B2, A1:B2, 0xA1 0xB2",
+  "irFinderKnownPrefixHelperPayload": "Payload: {digits} हेक्स digit(s)",
+  "@irFinderKnownPrefixHelperPayload": {
+    "placeholders": {
+      "digits": {
+        "type": "int"
+      }
+    }
+  },
+  "irFinderKnownPrefixHelperPayloadExample": "Payload: {digits} हेक्स digit(s) · उदाहरण: {example}",
+  "@irFinderKnownPrefixHelperPayloadExample": {
+    "placeholders": {
+      "digits": {
+        "type": "int"
+      },
+      "example": {}
+    }
+  },
+  "irFinderKnownPrefixHelperPayloadMax": "Payload: {digits} हेक्स digit(s) · Max प्रीफ़िक्स: {bytes} byte(s)",
+  "@irFinderKnownPrefixHelperPayloadMax": {
+    "placeholders": {
+      "digits": {
+        "type": "int"
+      },
+      "bytes": {
+        "type": "int"
+      }
+    }
+  },
+  "irFinderKnownPrefixHelperPayloadExampleMax": "Payload: {digits} हेक्स digit(s) · उदाहरण: {example} · Max प्रीफ़िक्स: {bytes} byte(s)",
+  "@irFinderKnownPrefixHelperPayloadExampleMax": {
+    "placeholders": {
+      "digits": {
+        "type": "int"
+      },
+      "example": {},
+      "bytes": {
+        "type": "int"
+      }
+    }
+  },
+  "irFinderKnownPrefixHelperExample": "उदाहरण: {example}",
+  "@irFinderKnownPrefixHelperExample": {
+    "placeholders": {
+      "example": {}
+    }
+  },
+  "irFinderKnownPrefixHelperFallback": "खोज क्षेत्र कम करने के लिए कोई भी ज्ञात शुरुआती bytes दर्ज करें।",
+  "irFinderDatabaseMode": "डेटाबेस",
+  "irFinderNormalizedPrefixValue": "Normalized प्रीफ़िक्स: {value}",
+  "@irFinderNormalizedPrefixValue": {
+    "placeholders": {
+      "value": {}
+    }
+  },
+  "irFinderNormalizedPrefix": "Normalized प्रीफ़िक्स",
+  "irFinderBruteforceNotConfigured": "यह प्रोटोकॉल के लिए brute-force अभी कॉन्फ़िगर नहीं है।",
+  "irFinderAllLimit": "सभी ({value})",
+  "@irFinderAllLimit": {
+    "placeholders": {
+      "value": {}
+    }
+  },
+  "irFinderTestControls": "जांचें नियंत्रण",
+  "irFinderPayloadLength": "Payload लंबाई: {digits} हेक्स digit(s).",
+  "@irFinderPayloadLength": {
+    "placeholders": {
+      "digits": {
+        "type": "int"
+      }
+    }
+  },
+  "irFinderSearchSpace": "खोज क्षेत्र: {value} संभावनाएं (prefix सीमाओं के बाद)।",
+  "@irFinderSearchSpace": {
+    "placeholders": {
+      "value": {}
+    }
+  },
+  "irFinderCooldownMs": "Cooldown (ms)",
+  "irFinderMaxAttemptsPerRun": "Max प्रयास (per चलाएं)",
+  "irFinderTestAllCombinations": "जांचें सभी combinations",
+  "irFinderTestAllCombinationsHint": "जब तक खोज क्षेत्र समाप्त न हो जाए तब तक चलता है। प्रभावी सीमा: {value}",
+  "@irFinderTestAllCombinationsHint": {
+    "placeholders": {
+      "value": {}
+    }
+  },
+  "irFinderAttempts": "Attempts",
+  "irFinderAttemptsSliderRange": "Slider सीमा: 1–{max} (बड़े मानों के लिए कोई भी संख्या दर्ज करें)",
+  "@irFinderAttemptsSliderRange": {
+    "placeholders": {
+      "max": {
+        "type": "int"
+      }
+    }
+  },
+  "irFinderMaxButton": "Max\n{value}",
+  "@irFinderMaxButton": {
+    "placeholders": {
+      "value": {
+        "type": "int"
+      }
+    }
+  },
+  "irFinderEffectiveLimitThisRun": "इस रन की प्रभावी सीमा: {value}",
+  "@irFinderEffectiveLimitThisRun": {
+    "placeholders": {
+      "value": {}
+    }
+  },
+  "irFinderBruteforceTip": "सुझाव: उपयोग करें डेटाबेस मोड पहले; brute-force है best के साथ a ज्ञात प्रीफ़िक्स (के लिए उदाहरण, the पहले 1–4 bytes).",
+  "irFinderDatabaseInitFailed": "डेटाबेस आरंभ विफल.",
+  "irFinderPreparingDatabase": "Preparing स्थानीय IR कोड डेटाबेस…",
+  "irFinderDatabaseAssistedSearch": "Database-assisted खोजें",
+  "irFinderBrand": "ब्रांड",
+  "irFinderSelectBrand": "ब्रांड चुनें",
+  "irFinderModelOptional": "मॉडल (वैकल्पिक)",
+  "irFinderSelectBrandFirstShort": "चुनें a ब्रांड पहले",
+  "irFinderSelectModelRecommended": "चुनें a मॉडल (अनुशंसित)",
+  "irFinderOnlySelectedProtocol": "केवल चयनित प्रोटोकॉल",
+  "irFinderOnlySelectedProtocolHint": "फ़िल्टर keys तक the चयनित प्रोटोकॉल. अक्षम करें it तक browse सभी protocols.",
+  "irFinderQuickWinsFirst": "त्वरित wins पहले",
+  "irFinderQuickWinsFirstHint": "गहरी कुंजियों से पहले power, mute, VOL और CH शैली कुंजियों को प्राथमिकता देता है।",
+  "irFinderMaxKeysPerRun": "Max keys तक जांचें (per चलाएं)",
+  "irFinderTesting": "Testing…",
+  "irFinderCooldown": "Cooldown",
+  "irFinderEta": "ETA",
+  "irFinderMode": "मोड",
+  "irFinderRetryLast": "Retry अंतिम",
+  "irFinderTrigger": "Trigger",
+  "irFinderJump": "जाएं…",
+  "irFinderSaveHit": "सहेजें hit",
+  "irFinderEtaSeconds": "{seconds}s",
+  "@irFinderEtaSeconds": {
+    "placeholders": {
+      "seconds": {
+        "type": "int"
+      }
+    }
+  },
+  "irFinderEtaMinutesSeconds": "{minutes}m {seconds}s",
+  "@irFinderEtaMinutesSeconds": {
+    "placeholders": {
+      "minutes": {
+        "type": "int"
+      },
+      "seconds": {
+        "type": "int"
+      }
+    }
+  },
+  "irFinderEtaHoursMinutes": "{hours}h {minutes}m",
+  "@irFinderEtaHoursMinutes": {
+    "placeholders": {
+      "hours": {
+        "type": "int"
+      },
+      "minutes": {
+        "type": "int"
+      }
+    }
+  },
+  "irFinderLastAttemptedCode": "अंतिम प्रयास किया गया कोड: {value}",
+  "@irFinderLastAttemptedCode": {
+    "placeholders": {
+      "value": {}
+    }
+  },
+  "irFinderStartTestingToSeeLastCode": "अंतिम प्रयास किया गया कोड देखने के लिए जांच शुरू करें।",
+  "irFinderFromDb": "से DB: {value}",
+  "@irFinderFromDb": {
+    "placeholders": {
+      "value": {}
+    }
+  },
+  "irFinderFromBruteforce": "से brute-force (generated द्वारा प्रोटोकॉल encoder).",
+  "irFinderSendError": "भेजें त्रुटि: {error}",
+  "@irFinderSendError": {
+    "placeholders": {
+      "error": {}
+    }
+  },
+  "irFinderSourceValue": "स्रोत: {value}",
+  "@irFinderSourceValue": {
+    "placeholders": {
+      "value": {}
+    }
+  },
+  "irFinderResultsNote": "परिणाम तुरंत जांच और कॉपी का समर्थन करते हैं। Direct add-to-remote integration को editor flow में आगे बढ़ाया जा सकता है।",
+  "irFinderBrowseDbCandidatesTitle": "DB candidates ब्राउज़ करें",
+  "irFinderFilterByLabelOrHex": "Filter द्वारा लेबल या हेक्स…",
+  "irFinderJumpHere": "जाएं यहां",
+  "irFinderSelectModel": "मॉडल चुनें",
+  "irFinderSearchBrands": "खोजें brands…",
+  "irFinderSearchModels": "खोजें models…",
+  "iconPickerTitle": "चुनें आइकन",
+  "iconPickerSearchHint": "खोजें icons...",
+  "iconPickerNoIconsFound": "नहीं icons मिला",
+  "iconPickerIconsAvailable": "{count} icons उपलब्ध",
+  "@iconPickerIconsAvailable": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "iconPickerCategoryAll": "सभी",
+  "iconPickerCategoryMedia": "Media",
+  "iconPickerCategoryVolume": "आवाज़",
+  "iconPickerCategoryNavigation": "नेविगेशन",
+  "iconPickerCategoryPower": "पावर",
+  "iconPickerCategoryNumbers": "Numbers",
+  "iconPickerCategorySettings": "सेटिंग्स",
+  "iconPickerCategoryDisplay": "Display",
+  "iconPickerCategoryInput": "इनपुट",
+  "iconPickerCategoryFavorite": "पसंदीदा",
+  "universalPowerTitle": "यूनिवर्सल पावर",
+  "universalPowerRunTab": "चलाएं",
+  "universalPowerUseResponsibly": "जिम्मेदारी से उपयोग करें",
+  "universalPowerConsentBody": "यूनिवर्सल पावर IR पावर कोड को चक्रित करता है। इसे केवल उन्हीं उपकरणों पर उपयोग करें जिनके आप मालिक हैं या जिन्हें नियंत्रित करते हैं। जैसे ही उपकरण प्रतिक्रिया दे, रोक दें।",
+  "universalPowerConsentCheckbox": "मैं इस डिवाइस का मालिक हूँ या इसे नियंत्रित करता हूँ",
+  "universalPowerSetupBody": "Cycles पावर कोड के लिए आपकी चयनित ब्रांड. रोकें जैसे ही the डिवाइस प्रतिक्रिया देता है.",
+  "universalPowerLastSent": "अंतिम भेजा गया: {value}",
+  "@universalPowerLastSent": {
+    "placeholders": {
+      "value": {}
+    }
+  },
+  "universalPowerNoCodesFound": "नहीं पावर कोड मिला. कोशिश broadening the खोजें.",
+  "universalPowerUnableToStart": "Unable तक प्रारंभ.",
+  "universalPowerAllBrands": "सभी ब्रांड (कोई फ़िल्टर नहीं)",
+  "universalPowerClearBrandFilter": "स्पष्ट ब्रांड filter",
+  "universalPowerBroadenSearch": "ज़रूरत हो तो खोज बढ़ाएं",
+  "universalPowerBroadenSearchHint": "यदि कोई power label नहीं मिले, तो अन्य keys शामिल करें।",
+  "universalPowerAdditionalPatternsDepth": "Additional patterns depth",
+  "universalPowerDepth1": "केवल प्राथमिकता: पावर/OFF",
+  "universalPowerDepth2": "पावर उपनाम शामिल करें",
+  "universalPowerDepth3": "द्वितीयक पावर labels शामिल करें",
+  "universalPowerDepth4": "सभी labels शामिल करें (सबसे कम प्राथमिकता)",
+  "universalPowerLoopUntilStopped": "रोकने तक लूप करें",
+  "universalPowerLoopUntilStoppedHint": "जब तक आप इसे रोकें नहीं, queue को चक्रित करता रहता है।",
+  "universalPowerDelayBetweenCodes": "कोडों के बीच विलंब",
+  "universalPowerStart": "प्रारंभ यूनिवर्सल पावर",
+  "universalPowerRunStatus": "चलाएं status",
+  "universalPowerProgress": "Progress: {value}",
+  "@universalPowerProgress": {
+    "placeholders": {
+      "value": {}
+    }
+  },
+  "universalPowerPausedInBackground": "ऐप पृष्ठभूमि में जाने के कारण रोका गया।",
+  "universalPowerSendOneCode": "भेजें एक कोड",
+  "universalPowerStopWhenDeviceResponds": "जैसे ही डिवाइस प्रतिक्रिया दे, रोक दें।",
+  "iconNamePlay": "Play",
+  "iconNamePause": "रोकें",
+  "iconNameStop": "रोकें",
+  "iconNameFastForward": "तेज़ आगे",
+  "iconNameRewind": "Rewind",
+  "iconNameSkipNext": "छोड़ें अगला",
+  "iconNameSkipPrevious": "छोड़ें पिछला",
+  "iconNameReplay": "Replay",
+  "iconNameForward10S": "Forward 10s",
+  "iconNameForward30S": "Forward 30s",
+  "iconNameReplay10S": "Replay 10s",
+  "iconNameReplay30S": "Replay 30s",
+  "iconNameRecord": "Record",
+  "iconNameRecordAlt": "Record Alt",
+  "iconNameEject": "Eject",
+  "iconNameShuffle": "Shuffle",
+  "iconNameRepeat": "Repeat",
+  "iconNameRepeatOne": "Repeat एक",
+  "iconNameVolumeUp": "आवाज़ ऊपर",
+  "iconNameVolumeDown": "आवाज़ नीचे",
+  "iconNameVolumeOff": "आवाज़ Off",
+  "iconNameMute": "म्यूट",
+  "iconNameSpeaker": "Speaker",
+  "iconNameSurroundSound": "सराउंड साउंड",
+  "iconNameEqualizer": "Equalizer",
+  "iconNameAudio": "ऑडियो",
+  "iconNameMicrophone": "Microphone",
+  "iconNameMicOff": "Mic Off",
+  "iconNameUp": "ऊपर",
+  "iconNameDown": "नीचे",
+  "iconNameLeft": "बायां",
+  "iconNameRight": "दायां",
+  "iconNameArrowUp": "तीर ऊपर",
+  "iconNameArrowDown": "तीर नीचे",
+  "iconNameArrowLeft": "तीर बायां",
+  "iconNameArrowRight": "तीर दायां",
+  "iconNameNavigation": "नेविगेशन",
+  "iconNameChevronLeft": "शेवरॉन बायां",
+  "iconNameChevronRight": "शेवरॉन दायां",
+  "iconNameExpandLess": "कम फैलाएं",
+  "iconNameExpandMore": "अधिक फैलाएं",
+  "iconNameCollapse": "Collapse",
+  "iconNameExpand": "Expand",
+  "iconNameCircleUp": "वृत्त ऊपर",
+  "iconNameCircleDown": "वृत्त नीचे",
+  "iconNameCircleLeft": "वृत्त बायां",
+  "iconNameCircleRight": "वृत्त दायां",
+  "iconNameOkSelect": "OK/चुनें",
+  "iconNameConfirm": "Confirm",
+  "iconNameCancel": "रद्द करें",
+  "iconNameClose": "बंद करें",
+  "iconNameHome": "मुखपृष्ठ",
+  "iconNameReturn": "Return",
+  "iconNameExit": "Exit",
+  "iconNameUndo": "पूर्ववत करें",
+  "iconNameRedo": "Redo",
+  "iconNamePower": "पावर",
+  "iconNamePowerAlt": "पावर Alt",
+  "iconNamePowerOff": "पावर Off",
+  "iconNameOn": "पर",
+  "iconNameOff": "Off",
+  "iconNameToggleOn": "Toggle पर",
+  "iconNameToggleOff": "Toggle Off",
+  "iconNameRestart": "Restart",
+  "iconNameNum1": "1",
+  "iconNameNum2": "2",
+  "iconNameNum3": "3",
+  "iconNameNum4": "4",
+  "iconNameNum5": "5",
+  "iconNameNum6": "6",
+  "iconNameNum7": "7",
+  "iconNameNum8": "8",
+  "iconNameNum9": "9",
+  "iconNameNum92": "9+",
+  "iconNameNum0": "0",
+  "iconNameOne": "एक",
+  "iconNameTwo": "दो",
+  "iconNameThree": "तीन",
+  "iconNameFour": "चार",
+  "iconNameFive": "Five",
+  "iconNameSix": "Six",
+  "iconNamePlus": "Plus",
+  "iconNameMinus": "Minus",
+  "iconNameAddCircle": "जोड़ें वृत्त",
+  "iconNameRemoveCircle": "वृत्त हटाएं",
+  "iconNameSettings": "सेटिंग्स",
+  "iconNameMenu": "Menu",
+  "iconNameMoreVertical": "और लंबवत",
+  "iconNameMoreHorizontal": "और क्षैतिज",
+  "iconNameTune": "Tune",
+  "iconNameRemoteSettings": "रिमोट सेटिंग्स",
+  "iconNameInfo": "Info",
+  "iconNameInfoOutline": "जानकारी आउटलाइन",
+  "iconNameHelp": "मदद",
+  "iconNameHelpOutline": "मदद Outline",
+  "iconNameList": "सूची",
+  "iconNameViewList": "दृश्य सूची",
+  "iconNameViewGrid": "दृश्य ग्रिड",
+  "iconNameApps": "Apps",
+  "iconNameWidgets": "Widgets",
+  "iconNameTv": "TV",
+  "iconNameMonitor": "Monitor",
+  "iconNameDesktop": "Desktop",
+  "iconNameBrightnessHigh": "चमक High",
+  "iconNameBrightnessMedium": "चमक Medium",
+  "iconNameBrightnessLow": "चमक Low",
+  "iconNameAutoBrightness": "स्वतः चमक",
+  "iconNameLightMode": "हल्का मोड",
+  "iconNameDarkMode": "गहरा मोड",
+  "iconNameContrast": "Contrast",
+  "iconNameHdrOn": "HDR पर",
+  "iconNameHdrOff": "HDR Off",
+  "iconNameAspectRatio": "आस्पेक्ट अनुपात",
+  "iconNameCrop": "Crop",
+  "iconNameZoomIn": "Zoom में",
+  "iconNameZoomOut": "Zoom Out",
+  "iconNameFullscreen": "पूर्ण स्क्रीन",
+  "iconNameExitFullscreen": "Exit पूर्ण स्क्रीन",
+  "iconNameFitScreen": "Fit स्क्रीन",
+  "iconNamePip": "PiP",
+  "iconNameCropFree": "Crop Free",
+  "iconNameInput": "इनपुट",
+  "iconNameCable": "Cable",
+  "iconNameCast": "Cast",
+  "iconNameCastConnected": "Cast जुड़ा",
+  "iconNameScreenShare": "स्क्रीन Share",
+  "iconNameBluetooth": "Bluetooth",
+  "iconNameWifi": "WiFi",
+  "iconNameRouter": "Router",
+  "iconNameMemory": "Memory",
+  "iconNameGameConsole": "Game Console",
+  "iconNameGaming": "Gaming",
+  "iconNameMedia": "Media",
+  "iconNameMusicQueue": "Music Queue",
+  "iconNameVideoLibrary": "वीडियो Library",
+  "iconNamePhotoLibrary": "Photo Library",
+  "iconNameComponent": "Component",
+  "iconNameHdmi": "HDMI",
+  "iconNameComposite": "Composite",
+  "iconNameAntenna": "Antenna",
+  "iconNameFavorite": "पसंदीदा",
+  "iconNameFavoriteOutline": "पसंदीदा Outline",
+  "iconNameStar": "Star",
+  "iconNameStarOutline": "Star Outline",
+  "iconNameBookmark": "Bookmark",
+  "iconNameBookmarkOutline": "Bookmark Outline",
+  "iconNameFlag": "Flag",
+  "iconNameCheck": "Check",
+  "iconNameDone": "पूर्ण",
+  "iconNameDoneAll": "पूर्ण सभी",
+  "iconNameSchedule": "Schedule",
+  "iconNameTimer": "Timer",
+  "iconNameTime": "Time",
+  "iconNameAlarm": "Alarm",
+  "iconNameNotifications": "Notifications",
+  "iconNameLock": "Lock",
+  "iconNameUnlock": "Unlock",
+  "iconNameLight": "हल्का",
+  "iconNameLightOutline": "हल्का Outline",
+  "iconNameWarmLight": "Warm हल्का",
+  "iconNameSunny": "Sunny",
+  "iconNameCloudy": "Cloudy",
+  "iconNameNight": "Night",
+  "iconNameFlare": "Flare",
+  "iconNameGradient": "Gradient",
+  "iconNameInvertColors": "Invert रंग",
+  "iconNamePalette": "Palette",
+  "iconNameColor": "Color",
+  "iconNameTonality": "Tonality",
+  "iconNameSearch": "खोजें",
+  "iconNameRefresh": "रीफ्रेश",
+  "iconNameSync": "Sync",
+  "iconNameUpdate": "Update",
+  "iconNameDownload": "Download",
+  "iconNameUpload": "Upload",
+  "iconNameCloud": "Cloud",
+  "iconNameFolder": "फ़ोल्डर",
+  "iconNameDelete": "हटाएं",
+  "iconNameEdit": "संपादित करें",
+  "iconNameSave": "सहेजें",
+  "iconNameShare": "Share",
+  "iconNamePrint": "Print",
+  "iconNameLanguage": "भाषा",
+  "iconNameTranslate": "Translate",
+  "iconNameMicNone": "Mic None",
+  "iconNameSubtitles": "Subtitles",
+  "iconNameClosedCaption": "Closed Caption",
+  "iconNameMusic": "Music",
+  "iconNameMovie": "Movie",
+  "iconNameTheater": "Theater",
+  "iconNameLiveTv": "Live TV",
+  "iconNameRadio": "Radio",
+  "iconNameCamera": "Camera",
+  "iconNameVideoCamera": "वीडियो Camera",
+  "iconNamePhotoCamera": "Photo Camera",
+  "iconNameSlowMotion": "Slow Motion",
+  "iconNameSpeed": "Speed",
+  "iconNameVideoSettings": "वीडियो सेटिंग्स",
+  "iconNameAudioTrack": "ऑडियो Track",
+  "iconNameGraphicEq": "Graphic EQ",
+  "iconNameMusicVideo": "Music वीडियो",
+  "iconNamePlaylist": "Playlist",
+  "iconNameQueue": "Queue",
+  "iconNameNum0Fa": "0 FA",
+  "iconNameNum1Fa": "1 FA",
+  "iconNameNum2Fa": "2 FA",
+  "iconNameNum3Fa": "3 FA",
+  "iconNameNum4Fa": "4 FA",
+  "iconNameNum5Fa": "5 FA",
+  "iconNameNum6Fa": "6 FA",
+  "iconNameNum7Fa": "7 FA",
+  "iconNameNum8Fa": "8 FA",
+  "iconNameNum9Fa": "9 FA",
+  "iconNameHashFa": "Hash # FA",
+  "iconNamePercentFa": "Percent % FA",
+  "iconNameDivideFa": "Divide ÷ FA",
+  "iconNameMultiplyFa": "Multiply × FA",
+  "iconNameEqualsFa": "Equals = FA",
+  "iconNameNotEqualFa": "नहीं Equal ≠ FA",
+  "iconNameGreaterThanFa": "Greater Than > FA",
+  "iconNameLessThanFa": "Less Than < FA",
+  "iconNameAsteriskFa": "Asterisk * FA",
+  "iconNameAFa": "A FA",
+  "iconNameBFa": "B FA",
+  "iconNameCFa": "C FA",
+  "iconNameDFa": "D FA",
+  "iconNameEFa": "E FA",
+  "iconNameFFa": "F FA",
+  "iconNameGFa": "G FA",
+  "iconNameHFa": "H FA",
+  "iconNameIFa": "I FA",
+  "iconNameJFa": "J FA",
+  "iconNameKFa": "K FA",
+  "iconNameLFa": "L FA",
+  "iconNameMFa": "M FA",
+  "iconNameNFa": "N FA",
+  "iconNameOFa": "O FA",
+  "iconNamePFa": "P FA",
+  "iconNameQFa": "Q FA",
+  "iconNameRFa": "R FA",
+  "iconNameSFa": "S FA",
+  "iconNameTFa": "T FA",
+  "iconNameUFa": "U FA",
+  "iconNameVFa": "V FA",
+  "iconNameWFa": "W FA",
+  "iconNameXFa": "X FA",
+  "iconNameYFa": "Y FA",
+  "iconNameZFa": "Z FA",
+  "iconNamePlayFa": "Play FA",
+  "iconNamePauseFa": "रोकें FA",
+  "iconNameStopFa": "रोकें FA",
+  "iconNamePlayFaOutline": "Play FA Outline",
+  "iconNamePauseFaOutline": "रोकें FA Outline",
+  "iconNameStopFaOutline": "रोकें FA Outline",
+  "iconNameBackwardFa": "Backward FA",
+  "iconNameForwardFa": "Forward FA",
+  "iconNamePreviousFa": "पिछला FA",
+  "iconNameNextFa": "अगला FA",
+  "iconNameRewindFa": "Rewind FA",
+  "iconNameFastForwardFa": "तेज़ आगे FA",
+  "iconNameRepeatFa": "Repeat FA",
+  "iconNameShuffleFa": "Shuffle FA",
+  "iconNameEjectFa": "Eject FA",
+  "iconNameFilmFa": "Film FA",
+  "iconNameVideoFa": "वीडियो FA",
+  "iconNameMusicFa": "Music FA",
+  "iconNameMicrophoneFa": "Microphone FA",
+  "iconNameCameraFa": "Camera FA",
+  "iconNameCameraRetroFa": "Camera Retro FA",
+  "iconNameVolumeHighFa": "आवाज़ High FA",
+  "iconNameVolumeLowFa": "आवाज़ Low FA",
+  "iconNameVolumeOffFa": "आवाज़ Off FA",
+  "iconNameMuteFa": "म्यूट FA",
+  "iconNameMicMuteFa": "Mic म्यूट FA",
+  "iconNameHeadphonesFa": "Headphones FA",
+  "iconNameSpeakerFa": "Speaker FA",
+  "iconNameUpFa": "ऊपर FA",
+  "iconNameDownFa": "नीचे FA",
+  "iconNameLeftFa": "बायां FA",
+  "iconNameRightFa": "दायां FA",
+  "iconNameUpFaOutline": "ऊपर FA Outline",
+  "iconNameDownFaOutline": "नीचे FA Outline",
+  "iconNameLeftFaOutline": "बायां FA Outline",
+  "iconNameRightFaOutline": "दायां FA Outline",
+  "iconNameArrowUpFa": "तीर ऊपर FA",
+  "iconNameArrowDownFa": "तीर नीचे FA",
+  "iconNameArrowLeftFa": "तीर बायां FA",
+  "iconNameArrowRightFa": "तीर दायां FA",
+  "iconNameChevronUpFa": "शेवरॉन ऊपर FA",
+  "iconNameChevronDownFa": "शेवरॉन नीचे FA",
+  "iconNameChevronLeftFa": "शेवरॉन बायां FA",
+  "iconNameChevronRightFa": "शेवरॉन दायां FA",
+  "iconNameOkFa": "OK FA",
+  "iconNameOkFaOutline": "OK FA Outline",
+  "iconNameCheckFa": "Check FA",
+  "iconNameCloseFa": "बंद करें FA",
+  "iconNameCloseCircleFa": "बंद करें वृत्त FA",
+  "iconNameHomeFa": "मुखपृष्ठ FA",
+  "iconNameUndoFa": "पूर्ववत करें FA",
+  "iconNameRedoFa": "Redo FA",
+  "iconNameRotateFa": "Rotate FA",
+  "iconNameSearchFa": "खोजें FA",
+  "iconNameRefreshFa": "रीफ्रेश FA",
+  "iconNamePowerOffFa": "पावर Off FA",
+  "iconNamePlugFa": "Plug FA",
+  "iconNameToggleOnFa": "Toggle पर FA",
+  "iconNameToggleOffFa": "Toggle Off FA",
+  "iconNameSettingsFa": "सेटिंग्स FA",
+  "iconNameSettingsAltFa": "सेटिंग्स Alt FA",
+  "iconNameMenuFa": "Menu FA",
+  "iconNameMoreFa": "More FA",
+  "iconNameMoreVerticalFa": "और लंबवत FA",
+  "iconNameInfoFa": "Info FA",
+  "iconNameInfoFaOutline": "Info FA Outline",
+  "iconNameHelpFa": "मदद FA",
+  "iconNameHelpFaOutline": "मदद FA Outline",
+  "iconNameListFa": "सूची FA",
+  "iconNameGridFa": "ग्रिड FA",
+  "iconNameSlidersFa": "Sliders FA",
+  "iconNameTvFa": "TV FA",
+  "iconNameMonitorFa": "Monitor FA",
+  "iconNameDesktopFa": "Desktop FA",
+  "iconNameBrightnessFa": "चमक FA",
+  "iconNameNightModeFa": "Night मोड FA",
+  "iconNameLightFa": "हल्का FA",
+  "iconNameLightFaOutline": "हल्का FA Outline",
+  "iconNameFlashFa": "Flash FA",
+  "iconNameFullscreenFa": "पूर्ण स्क्रीन FA",
+  "iconNameExitFullscreenFa": "Exit पूर्ण स्क्रीन FA",
+  "iconNameZoomInFa": "Zoom में FA",
+  "iconNameZoomOutFa": "Zoom Out FA",
+  "iconNameSubtitlesFa": "Subtitles FA",
+  "iconNamePictureInPictureFa": "Picture में Picture FA",
+  "iconNameColorFa": "Color FA",
+  "iconNamePaintFa": "Paint FA",
+  "iconNameInputFa": "इनपुट FA",
+  "iconNameWifiFa": "WiFi FA",
+  "iconNameBluetoothFa": "Bluetooth FA",
+  "iconNameUsbFa": "USB FA",
+  "iconNameEthernetFa": "Ethernet FA",
+  "iconNameGamepadFa": "Gamepad FA",
+  "iconNameBroadcastFa": "Broadcast FA",
+  "iconNameSatelliteFa": "Satellite FA",
+  "iconNameAntennaFa": "Antenna FA",
+  "iconNameNetworkFa": "Network FA",
+  "iconNameCloudFa": "Cloud FA",
+  "iconNameStarFa": "Star FA",
+  "iconNameStarFaOutline": "Star FA Outline",
+  "iconNameHeartFa": "Heart FA",
+  "iconNameHeartFaOutline": "Heart FA Outline",
+  "iconNameBookmarkFa": "Bookmark FA",
+  "iconNameBookmarkFaOutline": "Bookmark FA Outline",
+  "iconNameFlagFa": "Flag FA",
+  "iconNameClockFa": "Clock FA",
+  "iconNameClockFaOutline": "Clock FA Outline",
+  "iconNameBellFa": "Bell FA",
+  "iconNameBellFaOutline": "Bell FA Outline",
+  "iconNameTimerFa": "Timer FA",
+  "iconNameLockFa": "Lock FA",
+  "iconNameUnlockFa": "Unlock FA",
+  "iconNameGalleryFa": "Gallery FA",
+  "iconNameImagesFa": "Images FA",
+  "iconNameImageFa": "छवि FA",
+  "iconNameVideoFileFa": "वीडियो फ़ाइल FA",
+  "iconNameAudioFileFa": "ऑडियो फ़ाइल FA",
+  "iconNamePlayOutlineFa": "Play Outline FA",
+  "iconNamePlaySimpleFa": "Play Simple FA",
+  "iconNamePauseSimpleFa": "रोकें Simple FA",
+  "iconNameStopSimpleFa": "रोकें Simple FA",
+  "iconNameRecordFa": "Record FA",
+  "iconNameStopCircleFa": "रोकें वृत्त FA",
+  "iconNameLoadingFa": "लोड हो रहा है FA",
+  "iconNameTextFa": "पाठ FA",
+  "iconNameTextSizeFa": "पाठ Size FA",
+  "iconNameLanguageFa": "भाषा FA",
+  "iconNameGlobeFa": "Globe FA",
+  "iconNameSubtitlesAltFa": "Subtitles Alt FA",
+  "iconNameSubtitlesAltOutlineFa": "Subtitles Alt Outline FA",
+  "iconNameChannelUpFa": "Channel ऊपर FA",
+  "iconNameChannelDownFa": "Channel नीचे FA",
+  "iconNamePageUpFa": "Page ऊपर FA",
+  "iconNamePageDownFa": "Page नीचे FA",
+  "iconNameGuideFa": "Guide FA",
+  "iconNameGridViewFa": "ग्रिड दृश्य FA",
+  "iconNameGridAltFa": "ग्रिड Alt FA",
+  "iconNameScheduleFa": "Schedule FA",
+  "iconNameCalendarFa": "Calendar FA",
+  "iconNameRedButtonFa": "Red बटन FA",
+  "iconNameButtonOutlineFa": "बटन Outline FA",
+  "iconNameSquareButtonFa": "Square बटन FA",
+  "iconNameSquareOutlineFa": "Square Outline FA",
+  "iconNameDotCircleFa": "Dot वृत्त FA",
+  "iconNameToolsFa": "Tools FA",
+  "iconNameScrewdriverFa": "Screwdriver FA",
+  "iconNameHammerFa": "Hammer FA",
+  "iconNameToolboxFa": "Toolbox FA",
+  "iconNameCogFa": "Cog FA",
+  "iconNameAdjustFa": "Adjust FA",
+  "iconNameFilterFa": "Filter FA",
+  "iconNameSortDownFa": "Sort नीचे FA",
+  "iconNameSortUpFa": "Sort ऊपर FA",
+  "iconNameSleepFa": "Sleep FA",
+  "iconNameTimerStartFa": "Timer प्रारंभ FA",
+  "iconNameTimerHalfFa": "Timer Half FA",
+  "iconNameTimerEndFa": "Timer End FA",
+  "iconNameStopwatchFa": "Stopwatch FA",
+  "iconNameAlarmFa": "Alarm FA",
+  "iconNameCropAltFa": "Crop Alt FA",
+  "iconNameCropFa": "Crop FA",
+  "iconNameSquareFullFa": "Square पूर्ण FA",
+  "iconNameFullscreenAltFa": "पूर्ण स्क्रीन Alt FA",
+  "iconNameZoomPlusFa": "Zoom Plus FA",
+  "iconNameZoomMinusFa": "Zoom Minus FA",
+  "iconNameMusicNoteFa": "Music Note FA",
+  "iconNameCdFa": "CD FA",
+  "iconNameVinylFa": "Vinyl FA",
+  "iconNameRssFa": "RSS FA",
+  "iconNameMagicFa": "Magic FA",
+  "iconNameFingerprintFa": "Fingerprint FA",
+  "iconNameUserFa": "उपयोगकर्ता FA",
+  "iconNameUsersFa": "Users FA",
+  "iconNameChildModeFa": "Child मोड FA",
+  "iconNameCastFa": "Cast FA",
+  "iconNameStreamFa": "Stream FA",
+  "iconNameSignalFa": "सिग्नल FA",
+  "iconNameFeedFa": "Feed FA",
+  "iconNameCircleArrowUpFa": "वृत्त तीर ऊपर FA",
+  "iconNameCircleArrowDownFa": "वृत्त तीर नीचे FA",
+  "iconNameCircleArrowLeftFa": "वृत्त तीर बायां FA",
+  "iconNameCircleArrowRightFa": "वृत्त तीर दायां FA",
+  "iconNameLongArrowUpFa": "Long तीर ऊपर FA",
+  "iconNameLongArrowDownFa": "Long तीर नीचे FA",
+  "iconNameLongArrowLeftFa": "Long तीर बायां FA",
+  "iconNameLongArrowRightFa": "Long तीर दायां FA",
+  "iconNamePlusFa": "Plus FA",
+  "iconNameMinusFa": "Minus FA",
+  "iconNamePlusCircleFa": "Plus वृत्त FA",
+  "iconNameMinusCircleFa": "Minus वृत्त FA",
+  "iconNamePlusSquareFa": "Plus Square FA",
+  "iconNameMinusSquareFa": "Minus Square FA",
+  "iconNameTimesFa": "Times FA",
+  "iconNameTimesCircleFa": "Times वृत्त FA",
+  "iconNameBatteryFullFa": "बैटरी पूर्ण FA",
+  "iconNameBattery34Fa": "बैटरी 3/4 FA",
+  "iconNameBatteryHalfFa": "बैटरी Half FA",
+  "iconNameBattery14Fa": "बैटरी 1/4 FA",
+  "iconNameBatteryEmptyFa": "बैटरी Empty FA",
+  "iconNameChargingFa": "Charging FA",
+  "iconNameCloudSunFa": "Cloud Sun FA",
+  "iconNameCloudMoonFa": "Cloud Moon FA",
+  "iconNameRainFa": "Rain FA",
+  "iconNameSnowflakeFa": "Sअबflake FA",
+  "iconNameFireFa": "Fire FA",
+  "iconNameTemperatureFa": "Temperature FA",
+  "iconNameBoxFa": "Box FA",
+  "iconNameGiftFa": "Gift FA",
+  "iconNameTrophyFa": "Trophy FA",
+  "iconNameCrownFa": "Crown FA",
+  "iconNameGemFa": "Gem FA",
+  "unknownLabel": "अज्ञात",
+  "selectedFilesLabel": "चयनित फ़ाइल(s)",
+  "folderNotFoundOrInaccessible": "फ़ोल्डर नहीं मिला या inaccessible.",
+  "importedRemoteDefaultName": "ImportedRemote",
+  "demoRemoteName": "Demo रिमोट",
+  "protocolFieldsInvalid": "Fill आवश्यक प्रोटोकॉल fields और ensure फ़्रीक्वेंसी है 15k–60k यदि set.",
+  "unknownProtocolSelected": "अज्ञात प्रोटोकॉल चयनित."
+}

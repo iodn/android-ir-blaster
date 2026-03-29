@@ -295,7 +295,7 @@ List<String> defaultImages = [
 const int kDefaultCarrierHz = 38000;
 const String kDefaultNecConfig = "NEC:9000,4500,560,560,1690,560";
 
-List<Remote> writeDefaultRemotes() {
+List<Remote> writeDefaultRemotes({String demoRemoteName = ''}) {
   final uuid = const Uuid();
 
   final List<IRButton> demoButtons = [
@@ -367,7 +367,7 @@ List<Remote> writeDefaultRemotes() {
 
   final Remote demo = Remote(
     buttons: demoButtons,
-    name: "Demo Remote",
+    name: demoRemoteName,
     useNewStyle: true,
   );
 

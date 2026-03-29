@@ -1,0 +1,1846 @@
+{
+  "@@locale": "de",
+  "appTitle": "IR Blaster",
+  "loading": "Wird geladen…",
+  "unknownError": "Unbekannter Fehler",
+  "failedToStart": "Start fehlgeschlagen",
+  "retry": "Erneut",
+  "quickTilePower": "Ein/Aus",
+  "quickTileMute": "Stumm",
+  "quickTileVolumeUp": "Laut +",
+  "quickTileVolumeDown": "Laut -",
+  "homeUsbPermissionRequiredMessage": "Dieses Telefon hat keinen integrierten IR-Sender. Ein USB-IR-Dongle wurde erkannt, aber die Berechtigung fehlt noch.\n\nBestätige die USB-Abfrage, um IR senden zu können.",
+  "homeUsbPermissionDeniedMessage": "Dieses Telefon hat keinen integrierten IR-Sender. Ein USB-IR-Dongle wurde erkannt, aber die USB-Berechtigung wurde verweigert.\n\nFordere die Berechtigung erneut an und bestätige die Abfrage, um IR senden zu können.",
+  "homeUsbPermissionGrantedMessage": "Dieses Telefon hat keinen integrierten IR-Sender. Ein USB-IR-Dongle ist autorisiert, aber noch nicht initialisiert.",
+  "homeUsbOpenFailedMessage": "Dieses Telefon hat keinen integrierten IR-Sender. Ein USB-IR-Dongle wurde erkannt und autorisiert, konnte aber nicht initialisiert werden.\n\nStecke den Dongle neu an und versuche es erneut.",
+  "homeUsbReadyMessage": "Dieses Telefon hat keinen integrierten IR-Sender.",
+  "homeUsbNoDeviceMessage": "Dieses Telefon hat keinen integrierten IR-Sender, und aktuell ist kein unterstützter USB-IR-Dongle verbunden.\n\nDu kannst trotzdem Fernbedienungen erstellen, importieren und verwalten, aber zum Senden von IR-Signalen brauchst du eine der Optionen unten.",
+  "homeUsbOptionPlugIn": "Unterstützten USB-IR-Dongle anstecken und Berechtigung bestätigen.",
+  "homeUsbOptionReady": "Einsatzbereit.",
+  "homeUsbOptionPermissionRequired": "Angesteckt. Berechtigung nötig.",
+  "homeUsbOptionPermissionDenied": "Berechtigung verweigert. Erneut anfordern.",
+  "homeUsbOptionPermissionGranted": "Autorisiert. Dongle wird initialisiert.",
+  "homeUsbOptionOpenFailed": "Autorisiert, aber Initialisierung fehlgeschlagen.",
+  "homeHardwareBannerNoInternal": "Dieses Telefon hat kein integriertes IR. Verbinde einen USB-IR-Dongle oder aktiviere Audio in den Einstellungen.",
+  "homeHardwareBannerPermissionRequired": "USB-Dongle erkannt. Zum Senden von IR ist eine Berechtigung nötig.",
+  "homeHardwareBannerPermissionDenied": "USB-Berechtigung wurde verweigert. Fordere sie erneut an, um IR zu senden.",
+  "homeHardwareBannerPermissionGranted": "USB-Dongle autorisiert. Warte auf Initialisierung.",
+  "homeHardwareBannerOpenFailed": "USB-Dongle autorisiert, aber Initialisierung fehlgeschlagen.",
+  "homeHardwareBannerReady": "USB ist bereit.",
+  "homeHardwareRequiredTitle": "IR-Hardware zum Senden nötig",
+  "homeUsbDongleRecommended": "USB-IR-Dongle empfohlen",
+  "homeAudioAdapterAlternative": "Audio-IR-Adapter alternativ",
+  "homeAudioAdapterDescription": "Einstellungen → IR-Sender → Audio 1 LED oder 2 LEDs. Benötigt einen Audio-zu-IR-Adapter.",
+  "close": "Schließen",
+  "homeChooseTransmitter": "Sender wählen",
+  "openSettings": "Einstellungen öffnen",
+  "homeUsbPermissionSentApprove": "USB-Berechtigungsanfrage gesendet. Bestätige die Abfrage, um USB zu aktivieren.",
+  "homeUsbDongleNotDetected": "Kein unterstützter USB-IR-Dongle erkannt. Stecke ihn an und versuche es erneut.",
+  "homeUsbPermissionRequestFailed": "USB-Berechtigung konnte nicht angefordert werden.",
+  "working": "Wird ausgeführt…",
+  "requestUsbPermission": "USB-Berechtigung anfordern",
+  "homeHardwareTip": "Tipp: Du kannst Fernbedienungen schon jetzt erstellen und sortieren. Hardware ist nur zum Senden nötig.",
+  "homeNoIrTransmitterTitle": "Kein IR-Sender verfügbar",
+  "settingsNavLabel": "Einstellungen",
+  "dismiss": "Schließen",
+  "remotesNavLabel": "Fernbedienungen",
+  "macrosNavLabel": "Makros",
+  "signalTesterNavLabel": "Signaltester",
+  "settingsTitle": "Einstellungen",
+  "remoteNoIrEmitterTitle": "Kein IR-Sender",
+  "remoteNoIrEmitterMessage": "Dieses Gerät hat keinen IR-Sender",
+  "remoteNoIrEmitterNeedsEmitter": "Diese App benötigt einen IR-Sender",
+  "remoteDismiss": "Schließen",
+  "remoteClose": "Schließen",
+  "remoteFailedToSend": "IR senden fehlgeschlagen: {error}",
+  "@remoteFailedToSend": {
+    "placeholders": {
+      "error": {}
+    }
+  },
+  "remoteFailedToStartLoop": "Schleife konnte nicht gestartet werden: {error}",
+  "@remoteFailedToStartLoop": {
+    "placeholders": {
+      "error": {}
+    }
+  },
+  "remoteLoopStoppedFailed": "Schleife gestoppt Senden fehlgeschlagen: {error}",
+  "@remoteLoopStoppedFailed": {
+    "placeholders": {
+      "error": {}
+    }
+  },
+  "remoteLoopingHint": "{title} läuft in Schleife. Tippe oben auf Stopp zum Beenden.",
+  "@remoteLoopingHint": {
+    "placeholders": {
+      "title": {}
+    }
+  },
+  "remoteLoopStopped": "Schleife gestoppt.",
+  "remoteUpdatedNotFound": "Fernbedienung auf dem Bildschirm aktualisiert. In der gespeicherten Liste nicht gefunden.",
+  "remoteUpdatedNamed": "{name} aktualisiert.",
+  "@remoteUpdatedNamed": {
+    "placeholders": {
+      "name": {}
+    }
+  },
+  "remoteDeleteFailed": "Löschen fehlgeschlagen: {error}",
+  "@remoteDeleteFailed": {
+    "placeholders": {
+      "error": {}
+    }
+  },
+  "remoteNotFoundSavedList": "Fernbedienung in der gespeicherten Liste nicht gefunden.",
+  "remoteDeletedNamed": "{name} gelöscht.",
+  "@remoteDeletedNamed": {
+    "placeholders": {
+      "name": {}
+    }
+  },
+  "buttonFallbackTitle": "Taste",
+  "imageFallbackTitle": "Bild",
+  "noBrowserAvailable": "Kein Browser verfügbar",
+  "failedToOpen": "Öffnen fehlgeschlagen: {error}",
+  "@failedToOpen": {
+    "placeholders": {
+      "error": {}
+    }
+  },
+  "cancel": "Abbrechen",
+  "settingsRestoreDemoTitle": "Demo-Fernbedienungen wiederherstellen",
+  "settingsRestoreDemoMessage": "Dadurch werden deine aktuellen Fernbedienungen durch die integrierten Demo-Fernbedienungen ersetzt. Eine Sicherung wird empfohlen, wenn du deine aktuelle Liste behalten willst.",
+  "settingsRestoreDemoConfirm": "Demo wiederherstellen",
+  "settingsDemoRemotesRestored": "Demo-Fernbedienungen wiederhergestellt.",
+  "settingsDeleteAllRemotesTitle": "Alle Fernbedienungen löschen",
+  "settingsDeleteAllRemotesMessage": "Dadurch werden alle Fernbedienungen von diesem Gerät entfernt. Diese Aktion kann nicht rückgängig gemacht werden.",
+  "settingsDeleteAllConfirm": "Alle löschen",
+  "settingsAllRemotesDeleted": "Alle Fernbedienungen gelöscht.",
+  "themeAuto": "Automatisches Design",
+  "themeLight": "Helles Design",
+  "themeDark": "Dunkles Design",
+  "themeDescAuto": "Folgt den Geräteeinstellungen",
+  "themeDescLight": "Immer hell und klar",
+  "themeDescDark": "Angenehm für die Augen",
+  "themeHintAuto": "Das Design wechselt automatisch, wenn du auf dem Gerät zwischen Hell und Dunkel wechselst",
+  "themeHintLight": "Perfekt für den Tag und helle Umgebungen",
+  "themeHintDark": "Verringert Augenbelastung bei wenig Licht und spart Akku auf OLED-Bildschirmen",
+  "supportDevelopmentTitle": "Entwicklung unterstützen",
+  "supportDevelopmentSubtitle": "Hilf dabei, IR Blaster gepflegt und hardwarekompatibel zu halten",
+  "supportDevelopmentBody": "Keine Werbung, kein Tracking, keine gesperrten Funktionen. Deine Unterstützung finanziert Protokollarbeit, USB-Dongle-Support und bessere Kompatibilität auf Geräten.",
+  "donate": "Spenden",
+  "starRepo": "Repo markieren",
+  "repositoryLinkCopied": "Repository-Link kopiert",
+  "supportPillLocalOnly": "Nur lokal",
+  "supportPillNoTracking": "Kein Tracking",
+  "supportPillHardwareAware": "Hardwarebewusst",
+  "supportPillOpenSource": "Open Source",
+  "appearanceTitle": "Darstellung",
+  "appearanceSubtitle": "Passe das Aussehen an",
+  "localizationTitle": "Lokalisierung",
+  "localizationSubtitle": "App-Sprache und Übersetzungsverhalten",
+  "localizationAutoUsing": "Auto: verwendet {language}",
+  "@localizationAutoUsing": {
+    "placeholders": {
+      "language": {}
+    }
+  },
+  "localizationAutoDescription": "Die App folgt nach Möglichkeit der Gerätesprache.",
+  "localizationManualDescription": "Die App-Sprache ist manuell festgelegt.",
+  "useSystemLanguageTitle": "Systemsprache verwenden",
+  "useSystemLanguageEnabled": "Folgt deiner Gerätesprache: {language}",
+  "@useSystemLanguageEnabled": {
+    "placeholders": {
+      "language": {}
+    }
+  },
+  "useSystemLanguageDisabled": "Verwende statt der Gerätevorgabe die unten gewählte Sprache.",
+  "chooseAppLanguage": "App-Sprache wählen",
+  "languagePickerDisabledHint": "Deaktiviere die Systemsprache, um manuell eine Sprache zu wählen.",
+  "searchLanguages": "Sprachen suchen",
+  "noLanguagesFound": "Keine passenden Sprachen",
+  "localizationHint": "Wenn die Systemsprache aktiviert ist, folgt die App deinem Gerätegebietsschema und fällt auf Englisch zurück, wenn keine Übersetzung verfügbar ist. Deaktiviere dies, um die App auf eine feste Sprache zu setzen.",
+  "appLanguageTitle": "App-Sprache",
+  "appLanguageHint": "Automatisch folgt deiner Gerätesprache. Wähle hier Englisch oder Französisch, um nur die App zu überschreiben.",
+  "languageAuto": "Auto System",
+  "languageAutoDescription": "Automatisch der Gerätesprache folgen",
+  "languageEnglish": "Englisch",
+  "languageEnglishDescription": "App immer auf Englisch verwenden",
+  "languageFrench": "Französisch",
+  "languageFrenchDescription": "App immer auf Französisch verwenden",
+  "languageAutoShort": "Auto",
+  "languageEnglishShort": "Englisch",
+  "languageFrenchShort": "Français",
+  "useDynamicColors": "Dynamische Farben verwenden",
+  "themeChoiceAuto": "Auto",
+  "themeChoiceLight": "Hell",
+  "themeChoiceDark": "Dunkel",
+  "irTransmitterTitle": "IR-Sender",
+  "irTransmitterSubtitle": "Wähle, welche Hardware IR-Befehle sendet",
+  "interactionTitle": "Interaktion",
+  "interactionSubtitle": "Berührungsfeedback und Fernbedienungslayout",
+  "hapticFeedbackTitle": "Haptisches Feedback",
+  "hapticFeedbackSubtitle": "Bei Tippen und Aktionen vibrieren",
+  "intensity": "Intensität",
+  "intensityLight": "Leicht",
+  "intensityMedium": "Mittel",
+  "intensityStrong": "Stark",
+  "flipRemoteDefaultTitle": "Fernbedienungsansicht standardmäßig drehen",
+  "flipRemoteDefaultSubtitle": "Fernbedienungsbildschirme um 180° gedreht öffnen für unten montierte USB-Dongles.",
+  "remoteViewFlipped": "Fernbedienungsansicht wird gedreht geöffnet.",
+  "remoteViewNormal": "Fernbedienungsansicht wird normal geöffnet.",
+  "backupTitle": "Sicherung",
+  "backupSubtitle": "Fernbedienungen und Makros importieren oder exportieren",
+  "importBackup": "Sicherung importieren",
+  "importBackupSubtitle": "Sicherung von Fernbedienungen oder Makros sowie Flipper Zero, LIRC oder IRPLUS importieren",
+  "bulkImportFolder": "Ordner gesammelt importieren",
+  "bulkImportFolderSubtitle": "Mehrere Fernbedienungen aus einem Ordner importieren",
+  "exportBackup": "Sicherung exportieren",
+  "exportBackupSubtitle": "Fernbedienungen und Makros als eine JSON-Datei in Downloads speichern",
+  "restoreDemoRemotes": "Demo-Fernbedienungen wiederherstellen",
+  "restoreDemoRemotesSubtitle": "Aktuelle Fernbedienungen durch die integrierte Demo ersetzen",
+  "deleteAllRemotes": "Alle Fernbedienungen löschen",
+  "deleteAllRemotesSubtitle": "Alle Fernbedienungen von diesem Gerät entfernen",
+  "backupTip": "Tipp: Exportiere vor größeren Änderungen eine Sicherung. Der Import unterstützt vollständige Backups, ältere JSON-Backups nur für Fernbedienungen und Flipper Zero .ir-Dateien.",
+  "aboutTitle": "Über",
+  "aboutSubtitle": "App-Informationen und Open-Source-Details",
+  "aboutAppNameWithCreator": "IR Blaster - {creator}",
+  "@aboutAppNameWithCreator": {
+    "placeholders": {
+      "creator": {}
+    }
+  },
+  "versionLabel": "Version {version}",
+  "@versionLabel": {
+    "placeholders": {
+      "version": {}
+    }
+  },
+  "sourceCode": "Quellcode",
+  "viewOnGitHub": "Auf GitHub ansehen",
+  "repositoryUrlCopied": "Repository-URL kopiert",
+  "reportIssue": "Problem melden",
+  "reportIssueSubtitle": "Fehlerberichte und Funktionswünsche",
+  "issuesUrlCopied": "Issues-URL kopiert",
+  "license": "Lizenz",
+  "openSourceLicense": "Open-Source-Lizenz",
+  "licenseUrlCopied": "Lizenz-URL kopiert",
+  "companyName": "KaijinLab Inc.",
+  "visitWebsite": "Website besuchen",
+  "companyUrlCopied": "Firmen-URL kopiert",
+  "licenses": "Lizenzen",
+  "openSourceLicenses": "Open-Source-Lizenzen",
+  "byCreator": "von {creator}",
+  "@byCreator": {
+    "placeholders": {
+      "creator": {}
+    }
+  },
+  "deviceControlsTitle": "Gerätesteuerung",
+  "deviceControlsSubtitle": "Favorisierte Tasten auf der Systemseite Gerätesteuerung anzeigen",
+  "manageFavorites": "Favoriten verwalten",
+  "manageFavoritesSubtitle": "Wähle, welche Tasten in der Gerätesteuerung erscheinen",
+  "quickSettingsTitle": "Schnelleinstellungen",
+  "quickSettingsSubtitle": "Kacheln für Power- und Lautstärke-Kurzbefehle hinzufügen",
+  "configureTiles": "Kacheln konfigurieren",
+  "configureTilesSubtitle": "Kacheln Fernbedienungstasten zuordnen",
+  "tvKillTitle": "TVKill",
+  "tvKillSubtitle": "Universelles Power-Zyklus für eigene Geräte",
+  "openTvKill": "TVKill öffnen",
+  "openTvKillSubtitle": "Power-Codes durchlaufen nur für Geräte, die dir gehören",
+  "failedToLoadTransmitterSettings": "Sendereinstellungen konnten nicht geladen werden.",
+  "usbStatusReady": "USB-Dongle ist verbunden und bereit, IR zu senden.",
+  "usbStatusPermissionRequired": "USB-Dongle erkannt. Fordere USB-Berechtigung an und bestätige die Systemabfrage.",
+  "usbStatusPermissionDenied": "USB-Berechtigung wurde für den verbundenen Dongle verweigert. Fordere sie erneut an und bestätige die Abfrage.",
+  "usbStatusPermissionGranted": "USB-Berechtigung ist erteilt. Der Dongle muss noch initialisiert werden, bevor er IR senden kann.",
+  "usbStatusOpenFailed": "USB-Berechtigung ist erteilt, aber der Dongle konnte nicht initialisiert werden. Stecke ihn neu an und versuche es erneut.",
+  "usbStatusNoDevice": "Kein unterstützter USB-IR-Dongle erkannt.",
+  "usbSelectPermissionRequired": "USB-Dongle erkannt, aber nicht autorisiert. Tippe auf USB-Berechtigung anfordern.",
+  "usbSelectPermissionDenied": "USB-Berechtigung wurde verweigert. Tippe auf USB-Berechtigung anfordern und bestätige die Abfrage.",
+  "usbSelectPermissionGranted": "USB-Berechtigung ist erteilt, aber der Dongle ist noch nicht initialisiert. Versuche, ihn neu anzustecken.",
+  "usbSelectOpenFailed": "USB-Berechtigung ist erteilt, aber der Dongle konnte nicht initialisiert werden. Stecke ihn neu an und versuche es erneut.",
+  "usbSelectNoDevice": "Kein unterstützter USB-IR-Dongle erkannt. Stecke ihn an und tippe dann auf USB-Berechtigung anfordern.",
+  "usbSelectReady": "USB-Dongle ist bereit.",
+  "autoSwitchEnabledMessage": "Automatischer Wechsel aktiviert: verwendet USB wenn verbunden, sonst Intern.",
+  "autoSwitchDisabledMessage": "Automatischer Wechsel deaktiviert: Die Senderwahl ist jetzt manuell.",
+  "failedToUpdateAutoSwitch": "Einstellung für automatischen Wechsel konnte nicht aktualisiert werden.",
+  "failedToSwitchTransmitter": "Senderwechsel fehlgeschlagen.",
+  "deviceHasNoInternalIr": "Dieses Gerät hat keinen integrierten IR-Sender.",
+  "audioModeEnabledMessage": "Audiomodus aktiviert. Verwende maximale Medienlautstärke und einen Audio-zu-IR-LED-Adapter.",
+  "usbPermissionRequestSent": "USB-Berechtigungsanfrage gesendet.",
+  "usbPermissionRequestSentApprove": "USB-Berechtigungsanfrage gesendet. Bestätige die Abfrage, um USB zu aktivieren.",
+  "usbAlreadyReady": "USB-Dongle ist bereits initialisiert und einsatzbereit.",
+  "failedToRequestUsbPermission": "USB-Berechtigung konnte nicht angefordert werden.",
+  "transmitterHelpInternal": "Verwendet den integrierten IR-Sender des Telefons zum Senden von Befehlen.",
+  "transmitterHelpUsb": "Verwendet einen USB-IR-Dongle zum Senden von Befehlen. Berechtigung erforderlich.",
+  "transmitterHelpAudio1": "Verwendet Audioausgabe mono. Benötigt einen Audio-zu-IR-LED-Adapter und hohe Medienlautstärke.",
+  "transmitterHelpAudio2": "Verwendet Audioausgabe stereo. Nutzt zwei Kanäle für bessere LED-Ansteuerung mit kompatiblen Adaptern.",
+  "transmitterInternal": "Internes IR",
+  "transmitterUsb": "USB-IR-Dongle",
+  "transmitterAudio1": "Audio 1 LED",
+  "transmitterAudio2": "Audio 2 LEDs",
+  "failedToLoadTransmitterCapabilities": "Senderfähigkeiten konnten nicht geladen werden.",
+  "selectedTransmitter": "Gewählter Sender",
+  "selectedTransmitterValue": "{effective} • Aktiv: {active}",
+  "@selectedTransmitterValue": {
+    "placeholders": {
+      "effective": {},
+      "active": {}
+    }
+  },
+  "refresh": "Aktualisieren",
+  "autoSwitchTitle": "Automatischer Wechsel",
+  "autoSwitchDisabledWhileAudio": "Im Audiomodus deaktiviert",
+  "autoSwitchUsesUsbOtherwiseInternal": "Verwendet USB wenn verbunden, sonst Intern",
+  "unavailableOnThisDevice": "Auf diesem Gerät nicht verfügbar",
+  "openOnUsbAttachTitle": "Beim USB-Anschluss öffnen",
+  "openOnUsbAttachSubtitle": "Android kann vorschlagen, die App zu öffnen, wenn ein unterstützter USB-IR-Dongle verbunden wird.",
+  "openOnUsbAttachEnabledMessage": "IR Blaster wird beim Anschluss eines unterstützten USB-Dongles zum Öffnen vorgeschlagen.",
+  "openOnUsbAttachDisabledMessage": "Beim USB-Anschluss nicht zum Öffnen vorschlagen.",
+  "failedToUpdateSetting": "Einstellung konnte nicht aktualisiert werden.",
+  "unnamedButton": "Unbenannte Taste",
+  "iconFallback": "Symbol",
+  "remoteListReorderHint": "Sortiermodus: Karte lange drücken und ziehen, um sie zu verschieben.",
+  "deleteRemoteTitle": "Fernbedienung löschen",
+  "deleteRemoteMessage": "{name} wird dauerhaft entfernt. Diese Aktion kann nicht rückgängig gemacht werden.",
+  "@deleteRemoteMessage": {
+    "placeholders": {
+      "name": {}
+    }
+  },
+  "delete": "Löschen",
+  "addToDeviceControlsTitle": "Zur Gerätesteuerung hinzufügen",
+  "addToDeviceControlsDescription": "Schneller Zugriff in der System-Gerätesteuerung.",
+  "skip": "Überspringen",
+  "add": "Hinzufügen",
+  "addedToDeviceControls": "Zur Gerätesteuerung hinzugefügt.",
+  "deletedRemoteUndoUnavailable": "{name} gelöscht. Diese Aktion kann nicht rückgängig gemacht werden.",
+  "@deletedRemoteUndoUnavailable": {
+    "placeholders": {
+      "name": {}
+    }
+  },
+  "remoteLayoutSummary": "{count} Taste(n) · {layout}",
+  "@remoteLayoutSummary": {
+    "placeholders": {
+      "count": {},
+      "layout": {}
+    }
+  },
+  "layoutComfort": "Komfort",
+  "layoutCompact": "Kompakt",
+  "open": "Öffnen",
+  "useThisRemote": "Diese Fernbedienung verwenden",
+  "edit": "Bearbeiten",
+  "editRemoteSubtitle": "Umbenennen und Tasten bearbeiten",
+  "thisCannotBeUndone": "Dies kann nicht rückgängig gemacht werden",
+  "searchRemotes": "Fernbedienungen suchen",
+  "reorderRemotes": "Fernbedienungen sortieren",
+  "addRemote": "Fernbedienung hinzufügen",
+  "more": "Mehr",
+  "reorderMode": "Sortiermodus",
+  "remoteButtonCount": "{count} Taste{plural}",
+  "@remoteButtonCount": {
+    "placeholders": {
+      "count": {},
+      "plural": {}
+    }
+  },
+  "noRemotesYet": "Noch keine Fernbedienungen",
+  "noRemotesDescription": "Erstelle eine Fernbedienung, um IR-Codes zu senden.",
+  "noRemotesNextStep": "Als Nächstes: Tippe auf Fernbedienung hinzufügen und lege deine ersten Tasten an.",
+  "actions": "Aktionen",
+  "macrosTitle": "Makros",
+  "help": "Hilfe",
+  "createMacro": "Makro erstellen",
+  "timedMacrosTitle": "Zeitgesteuerte Makros",
+  "timedMacrosSubtitle": "Automatisiere IR-Befehlsfolgen mit präzisem Timing",
+  "timedMacrosNextStep": "Als Nächstes: Tippe auf Dein erstes Makro erstellen, wähle eine Fernbedienung und füge dann Befehle und Pausen hinzu.",
+  "macroFeatureToysTitle": "Perfekt für interaktive Spielzeuge",
+  "macroFeatureToysDescription": "Steuere Geräte wie i-cybie Roboterhunde, i-sobot Roboter und andere Spielzeuge, die zwischen Befehlen Zeit zur Verarbeitung brauchen.",
+  "macroFeatureTimingTitle": "Präzise Zeitsteuerung",
+  "macroFeatureTimingDescription": "Füge zwischen Befehlen Pausen hinzu von 250 ms bis zu eigenen Werten, damit dein Gerät vor der nächsten Aktion reagieren kann.",
+  "macroFeatureManualTitle": "Manuelle Fortsetzungsschritte",
+  "macroFeatureManualDescription": "Pausiert die Ausführung und wartet auf deine Bestätigung, wenn die Animationslänge variiert oder du visuelles Feedback brauchst.",
+  "exampleUseCase": "Beispiel",
+  "macroExampleText": "i-cybie erweiterter Modus\n1. Befehl Modus senden\n2. 1000 ms warten Gerät verarbeitet\n3. Aktion 1 senden\n4. 1000 ms warten\n5. Aktion 2 senden\n… und so weiter automatisch",
+  "createFirstMacro": "Dein erstes Makro erstellen",
+  "noRemote": "Keine Fernbedienung",
+  "macroStepCount": "{count} Schritt{plural}",
+  "@macroStepCount": {
+    "placeholders": {
+      "count": {},
+      "plural": {}
+    }
+  },
+  "aboutTimedMacros": "Über zeitgesteuerte Makros",
+  "aboutTimedMacrosDescription": "Zeitgesteuerte Makros automatisieren Folgen von IR-Befehlen mit genauen Verzögerungen zwischen den Schritten.",
+  "sendCommand": "Befehl senden",
+  "sendCommandDescription": "Sendet einen IR-Befehl von deiner Fernbedienung.",
+  "delay": "Verzögerung",
+  "delayDescription": "Wartet eine festgelegte Dauer etwa 1000 ms vor dem nächsten Schritt.",
+  "manualContinue": "Manuell fortsetzen",
+  "manualContinueDescription": "Pausiert bis du auf Weiter tippst nützlich bei variabler Animationslänge.",
+  "gotIt": "Verstanden",
+  "failedToSaveMacros": "Makros konnten nicht gespeichert werden.",
+  "deletedMacroNamed": "{name} gelöscht.",
+  "@deletedMacroNamed": {
+    "placeholders": {
+      "name": {}
+    }
+  },
+  "undo": "Rückgängig",
+  "failedToRestoreMacro": "Makro konnte nicht wiederhergestellt werden.",
+  "deleteMacroTitle": "Makro löschen",
+  "deleteMacroMessage": "Du kannst dies über die nächste Snackbar rückgängig machen.",
+  "noRemotesAvailable": "Keine Fernbedienungen verfügbar.",
+  "remoteButtonCountSummary": "{count} Taste(n)",
+  "@remoteButtonCountSummary": {
+    "placeholders": {
+      "count": {}
+    }
+  },
+  "remoteOrientationFlippedTooltip": "Ausrichtung: gedreht tippen für normal",
+  "remoteOrientationNormalTooltip": "Ausrichtung: normal tippen für drehen",
+  "stopLoop": "Schleife stoppen",
+  "reorderButtons": "Tasten sortieren",
+  "remoteReorderHint": "Sortiermodus: Taste lange drücken und ziehen, um sie zu verschieben.",
+  "manageRemote": "Fernbedienung verwalten",
+  "remoteNoButtons": "Keine Tasten in dieser Fernbedienung",
+  "remoteNoButtonsDescription": "Verwende Fernbedienung bearbeiten, um Tasten hinzuzufügen oder zu konfigurieren.",
+  "editRemote": "Fernbedienung bearbeiten",
+  "editRemoteActionsSubtitle": "Umbenennen, sortieren und Tasten bearbeiten",
+  "remoteUpdatedNamedButton": "{name} aktualisiert.",
+  "@remoteUpdatedNamedButton": {
+    "placeholders": {
+      "name": {}
+    }
+  },
+  "buttonAddedNamed": "{name} hinzugefügt.",
+  "@buttonAddedNamed": {
+    "placeholders": {
+      "name": {}
+    }
+  },
+  "buttonDuplicated": "Taste dupliziert.",
+  "loopRunningForButton": "Für diese Taste läuft eine Schleife.",
+  "loopTip": "Tipp: Verwende Schleife, um zu wiederholen bis du stoppst.",
+  "codeCopied": "Code kopiert.",
+  "copyCode": "Code kopieren",
+  "startLoop": "Schleife starten",
+  "editButtonSubtitle": "Beschriftung, Code, Protokoll und Frequenz ändern",
+  "newButton": "Neue Taste",
+  "newButtonSubtitle": "Eine neue Taste nach dieser erstellen",
+  "duplicate": "Duplizieren",
+  "duplicateButtonSubtitle": "Eine Kopie dieser Taste erstellen",
+  "removeFromDeviceControls": "Aus Gerätesteuerung entfernen",
+  "addToDeviceControls": "Zur Gerätesteuerung hinzufügen",
+  "deviceControlsButtonSubtitle": "Zeigt diese Taste in der System-Gerätesteuerung",
+  "removedFromDeviceControls": "Aus Gerätesteuerung entfernt.",
+  "pinQuickTile": "An Schnellkachel-Favoriten anheften",
+  "unpinQuickTile": "Von Schnellkachel-Favoriten lösen",
+  "quickTileButtonSubtitle": "Zeigt diese Taste oben in der Schnellkachel-Auswahl",
+  "removedFromQuickTileFavorites": "Aus Schnellkachel-Favoriten entfernt.",
+  "pinnedToQuickTileFavorites": "An Schnellkachel-Favoriten angeheftet.",
+  "duplicateAndEdit": "Duplizieren und bearbeiten",
+  "duplicateAndEditSubtitle": "Eine Kopie erstellen und sofort bearbeiten",
+  "done": "Fertig",
+  "run": "Starten",
+  "untitledRemote": "Unbenannte Fernbedienung",
+  "createRemoteTitle": "Fernbedienung erstellen",
+  "editRemoteTitle": "Fernbedienung bearbeiten",
+  "removeButtonTitle": "Taste entfernen",
+  "imageButtonRemovedMessage": "Diese Bildtaste wird entfernt.",
+  "namedButtonRemovedMessage": "{name} wird entfernt.",
+  "@namedButtonRemovedMessage": {
+    "placeholders": {
+      "name": {}
+    }
+  },
+  "remove": "Entfernen",
+  "importedButtonCount": "{count} Taste(n) importiert.",
+  "@importedButtonCount": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "importedButtonsFromExistingRemotes": "{count} Taste(n) aus vorhandenen Fernbedienungen importiert.",
+  "@importedButtonsFromExistingRemotes": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "editButtonSettingsSubtitle": "Beschriftung, Signal und erweiterte Einstellungen ändern",
+  "createButtonCopySubtitle": "Eine Kopie dieser Taste erstellen",
+  "duplicateAndEditButtonSubtitle": "Eine Kopie erstellen und sofort bearbeiten",
+  "undoAvailableInNextSnackbar": "Du kannst dies über die nächste Snackbar rückgängig machen",
+  "buttonRemoved": "Taste entfernt.",
+  "remoteNameCannotBeEmpty": "Name der Fernbedienung darf nicht leer sein.",
+  "saveRemote": "Fernbedienung speichern",
+  "remoteName": "Name der Fernbedienung",
+  "remoteNameHint": "z. B. TV, Klimaanlage, LED-Streifen",
+  "remoteNameHelper": "Dieser Name erscheint in deiner Fernbedienungsliste.",
+  "layoutStyle": "Layoutstil",
+  "layoutWideDescription": "Breit: 2-Spalten-Tasten mit mehr Details empfohlen.",
+  "layoutCompactDescription": "Kompakt: klassisches 4× Raster nur Symbole oder Text.",
+  "importFromRemotes": "Aus Fernbedienungen importieren",
+  "importFromDatabase": "Aus Datenbank importieren",
+  "addButton": "Taste hinzufügen",
+  "noButtonsYet": "Noch keine Tasten",
+  "createRemoteEmptyStateDescription": "Füge deine erste Taste hinzu und halte sie dann für Bearbeiten oder Entfernen gedrückt.",
+  "createButtonTitle": "Taste erstellen",
+  "editButtonTitle": "Taste bearbeiten",
+  "failedToLoadProtocols": "Protokolle konnten nicht geladen werden: {error}",
+  "@failedToLoadProtocols": {
+    "placeholders": {
+      "error": {}
+    }
+  },
+  "failedToLoadDatabaseKeys": "Datenbankschlüssel konnten nicht geladen werden: {error}",
+  "@failedToLoadDatabaseKeys": {
+    "placeholders": {
+      "error": {}
+    }
+  },
+  "presetPower": "Ein/Aus",
+  "presetVolume": "Lautstärke",
+  "presetChannel": "Kanal",
+  "presetNavigation": "Navigation",
+  "all": "Alle",
+  "completeRequiredFieldsToSave": "Pflichtfelder zum Speichern ausfüllen",
+  "buttonLabelStepTitle": "1 Taste beschriften",
+  "buttonLabelStepSubtitle": "Wähle ein Bild, Symbol oder gib einen Text ein.",
+  "buttonColorStepTitle": "2 Tastenfarbe optional",
+  "buttonColorStepSubtitle": "Wähle eine Hintergrundfarbe für diese Taste.",
+  "selectColor": "Farbe wählen",
+  "noImageSelected": "Kein Bild gewählt",
+  "gallery": "Galerie",
+  "builtIn": "Integriert",
+  "removeImage": "Bild entfernen",
+  "requiredSelectImageOrSwitch": "Pflicht: Bild wählen, Symbol wählen oder zu Text wechseln.",
+  "iconSelected": "Symbol ausgewählt",
+  "noIconSelected": "Kein Symbol gewählt",
+  "chooseIcon": "Symbol wählen",
+  "removeIcon": "Symbol entfernen",
+  "requiredSelectIconOrSwitch": "Pflicht: Symbol wählen oder zu Bild oder Text wechseln.",
+  "buttonText": "Tastentext",
+  "buttonTextHint": "z. B. Ein/Aus, Lautstärke +, HDMI 1",
+  "buttonTextHelper": "Dieser Text erscheint auf der Taste.",
+  "requiredEnterButtonLabel": "Pflicht: Beschriftung der Taste eingeben.",
+  "defaultColorName": "Standard",
+  "newRemoteCreatedFromLastHit": "Neue Fernbedienung mit einer Taste aus dem letzten Treffer erstellt.",
+  "selectRemote": "Fernbedienung wählen",
+  "remoteNumber": "Fernbedienung #{id}",
+  "@remoteNumber": {
+    "placeholders": {
+      "id": {}
+    }
+  },
+  "newRemoteCreated": "Neue Fernbedienung erstellt.",
+  "failedToCreateRemote": "Fernbedienung konnte nicht erstellt werden.",
+  "newRemoteEllipsis": "Neue Fernbedienung…",
+  "addedToRemoteNamed": "Zu {name} hinzugefügt.",
+  "@addedToRemoteNamed": {
+    "placeholders": {
+      "name": {}
+    }
+  },
+  "failedToAddToRemote": "Hinzufügen zur Fernbedienung fehlgeschlagen.",
+  "newRemoteDefaultName": "Neue Fernbedienung",
+  "jumpedToOffsetPaused": "Zu Offset {offset} gesprungen. Pausiert tippe auf Fortsetzen.",
+  "@jumpedToOffsetPaused": {
+    "placeholders": {
+      "offset": {
+        "type": "int"
+      }
+    }
+  },
+  "sent": "Gesendet.",
+  "failedToSend": "Senden fehlgeschlagen: {error}",
+  "@failedToSend": {
+    "placeholders": {
+      "error": {}
+    }
+  },
+  "copiedProtocolCode": "Kopiert Protokoll:Code.",
+  "savedToResults": "Zu Ergebnissen gespeichert.",
+  "invalidCodeForProtocol": "Ungültiger Code für Protokoll: {error}",
+  "@invalidCodeForProtocol": {
+    "placeholders": {
+      "error": {}
+    }
+  },
+  "copiedCurrentCandidate": "Aktuellen Kandidaten kopiert.",
+  "jumpToOffset": "Zu Offset springen",
+  "jumpToBruteCursor": "Zum Brute-Cursor springen",
+  "jump": "Springen",
+  "jumpedToCursorPaused": "Zu Cursor 0x{cursor} gesprungen. Pausiert tippe auf Fortsetzen.",
+  "@jumpedToCursorPaused": {
+    "placeholders": {
+      "cursor": {}
+    }
+  },
+  "irSignalTester": "IR-Signaltester",
+  "stop": "Stopp",
+  "selectButton": "Taste wählen",
+  "buttonNotFoundInRemotes": "Taste in den Fernbedienungen nicht gefunden.",
+  "sentNamed": "{name} gesendet.",
+  "@sentNamed": {
+    "placeholders": {
+      "name": {}
+    }
+  },
+  "sendFailed": "Senden fehlgeschlagen: {error}",
+  "@sendFailed": {
+    "placeholders": {
+      "error": {}
+    }
+  },
+  "noFavoritesYet": "Noch keine Favoriten",
+  "deviceControlsEmptyHint": "Halte eine Fernbedienungstaste gedrückt und wähle Zu Gerätesteuerung hinzufügen.",
+  "sendTest": "Test senden",
+  "testSendCompleted": "Testsendung abgeschlossen.",
+  "testSendFailed": "Testsendung fehlgeschlagen: {error}",
+  "@testSendFailed": {
+    "placeholders": {
+      "error": {}
+    }
+  },
+  "removedNamed": "{name} entfernt.",
+  "@removedNamed": {
+    "placeholders": {
+      "name": {}
+    }
+  },
+  "brand": "Marke",
+  "model": "Modell",
+  "selectBrand": "Marke wählen",
+  "searchBrand": "Marke suchen…",
+  "selectModel": "Modell wählen",
+  "searchModel": "Modell suchen…",
+  "unnamedKey": "Unbenannter Schlüssel",
+  "unknown": "Unbekannt",
+  "emDash": "—",
+  "searchCommands": "Befehle suchen",
+  "noMatchingCommands": "Keine passenden Befehle",
+  "quickTileFavoritesTitle": "Schnellkachel-Favoriten",
+  "changeMappingForTile": "Zuordnung für Kachel {tileLabel} ändern",
+  "@changeMappingForTile": {
+    "placeholders": {
+      "tileLabel": {}
+    }
+  },
+  "pickDifferentButton": "Andere Taste wählen",
+  "browseAllRemotesEllipsis": "Alle Fernbedienungen durchsuchen…",
+  "invalidMacroFileFormat": "Ungültiges Makro-Dateiformat.",
+  "failedToParseMacroFile": "Makro-Datei konnte nicht gelesen werden.",
+  "deviceCodeLabel": "Gerätecode",
+  "commandLabel": "Befehl",
+  "editButtonCodeTitle": "Code der Taste bearbeiten",
+  "thisRemoteHasNoButtons": "Diese Fernbedienung hat keine Tasten.",
+  "selectCommand": "Befehl wählen",
+  "databaseModeAutofillHint": "Der Datenbankmodus füllt Schritt 2 automatisch für dich aus Marke, Modell und Protokoll. Nach dem Import einer Taste kannst du alles in Manuell verfeinern.",
+  "test": "Test",
+  "allSelectedButtonsWereDuplicates": "Alle gewählten Tasten waren Duplikate.",
+  "noButtonsImported": "Keine Tasten importiert.",
+  "importedButtonsSkippedDuplicates": "{addedCount} Taste(n) importiert. {skippedCount} Duplikat(e) übersprungen.",
+  "@importedButtonsSkippedDuplicates": {
+    "placeholders": {
+      "addedCount": {
+        "type": "int"
+      },
+      "skippedCount": {
+        "type": "int"
+      }
+    }
+  },
+  "importAllMatchingTitle": "Alle passenden Tasten importieren",
+  "noMatchingKeysFound": "Keine passenden Schlüssel gefunden.",
+  "importAllMatchingMessage": "Dadurch werden bis zu {count} passende Schlüssel aus der aktuellen Datenbankauswahl importiert.",
+  "@importAllMatchingMessage": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "importAll": "Alle importieren",
+  "importingButtons": "Tasten werden importiert…",
+  "allMatchingButtonsWereDuplicates": "Alle passenden Tasten waren Duplikate.",
+  "quickPresets": "Schnellvorgaben",
+  "selectDeviceFirst": "Zuerst Gerät wählen",
+  "searchByLabelOrHex": "Nach Bezeichnung oder Hex suchen",
+  "optionalRefinePresetKeys": "Optional: die Vorgabetasten für {preset} verfeinern",
+  "@optionalRefinePresetKeys": {
+    "placeholders": {
+      "preset": {}
+    }
+  },
+  "selectBrandModelProtocolFirst": "Wähle zuerst Marke, Modell und Protokoll.",
+  "importFromDatabaseTitle": "Aus Datenbank importieren",
+  "importFromDatabaseSubtitle": "Wähle ein Gerät, lade passende Schlüssel und importiere dann die ausgewählten Tasten.",
+  "deviceAndFilters": "Gerät und Filter",
+  "loadedCount": "{count} geladen",
+  "@loadedCount": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "hideFilters": "Filter ausblenden",
+  "showFilters": "Filter anzeigen",
+  "noProtocolFoundForBrandModel": "Kein Protokoll für diese Marke und dieses Modell gefunden.",
+  "protocolAutoDetected": "Protokoll",
+  "protocolAutoDetectedHelper": "Automatisch aus der Datenbank erkannt. Du kannst es vor dem Import ändern.",
+  "selectBrandModelToLoadKeys": "Wähle Marke, Modell und Protokoll, um Schlüssel zu laden.",
+  "noKeysFound": "Keine Schlüssel gefunden.",
+  "noKeysFoundForSearch": "Keine Schlüssel für {query} gefunden.",
+  "@noKeysFoundForSearch": {
+    "placeholders": {
+      "query": {}
+    }
+  },
+  "skipDuplicates": "Duplikate überspringen",
+  "skipDuplicatesSubtitle": "Tasten nicht importieren, die bereits in dieser Fernbedienung existieren.",
+  "importSelected": "Auswahl importieren",
+  "noMacrosToExport": "Keine Makros zum Exportieren.",
+  "macrosExportedToDownloads": "Makros in Downloads exportiert.",
+  "failedToExportMacros": "Makros konnten nicht exportiert werden.",
+  "failedToReadFile": "Datei konnte nicht gelesen werden.",
+  "importFromExistingRemotesTitle": "Aus vorhandenen Fernbedienungen importieren",
+  "selectedCount": "{count} gewählt",
+  "@selectedCount": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "noOtherRemotesWithButtons": "Keine anderen Fernbedienungen mit Tasten gefunden.",
+  "sourceRemote": "Quell-Fernbedienung",
+  "searchButtons": "Tasten suchen",
+  "searchButtonsHint": "Ein/Aus, Lautstärke, Stumm…",
+  "selectVisible": "Sichtbare wählen",
+  "clearVisible": "Sichtbare leeren",
+  "protocolNamed": "Protokoll: {name}",
+  "@protocolNamed": {
+    "placeholders": {
+      "name": {}
+    }
+  },
+  "rawSignal": "Rohsignal",
+  "legacyCode": "Alter Code",
+  "importCount": "{count} importieren",
+  "@importCount": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "storagePermissionDeniedLegacy": "Speicherberechtigung verweigert benötigt auf einigen älteren Android-Geräten.",
+  "backupExportedToDownloads": "Sicherung in Downloads exportiert.",
+  "failedToExport": "Export fehlgeschlagen: {error}",
+  "@failedToExport": {
+    "placeholders": {
+      "error": {}
+    }
+  },
+  "importedLegacyJsonBackup": "{count} Fernbedienungen aus altem JSON-Backup importiert. Makros wurden nicht geändert.",
+  "@importedLegacyJsonBackup": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "importFailedRemotesMustBeList": "Import fehlgeschlagen: remotes im Backup muss eine JSON-Liste sein, wenn vorhanden.",
+  "importFailedMacrosMustBeList": "Import fehlgeschlagen: macros im Backup muss eine JSON-Liste sein, wenn vorhanden.",
+  "importFailedInvalidBackupFormat": "Import fehlgeschlagen: ungültiges Backup-Format erwartet alte Liste oder Map mit remotes oder macros.",
+  "importedBackupRemotesOnly": "{remoteCount} Fernbedienungen aus Sicherung importiert. Makros wurden nicht geändert.",
+  "@importedBackupRemotesOnly": {
+    "placeholders": {
+      "remoteCount": {
+        "type": "int"
+      }
+    }
+  },
+  "importedBackupRemotesAndMacros": "{remoteCount} Fernbedienungen und {macroCount} Makros aus Sicherung importiert.",
+  "@importedBackupRemotesAndMacros": {
+    "placeholders": {
+      "remoteCount": {
+        "type": "int"
+      },
+      "macroCount": {
+        "type": "int"
+      }
+    }
+  },
+  "importFailedNoValidButtonsInIr": "Import fehlgeschlagen: keine gültigen Tasten in .ir-Datei gefunden.",
+  "importedOneRemoteFromFlipper": "1 Fernbedienung aus Flipper .ir importiert. Makros wurden nicht geändert.",
+  "importFailedInvalidIrplus": "Import fehlgeschlagen: ungültige irplus-Datei keine gültigen Tasten gefunden.",
+  "importedOneRemoteFromIrplus": "1 Fernbedienung aus irplus importiert. Makros wurden nicht geändert.",
+  "importFailedInvalidLirc": "Import fehlgeschlagen: ungültige LIRC-Datei keine gültigen Codes oder Rohcodes gefunden.",
+  "importedOneRemoteFromLirc": "1 Fernbedienung aus LIRC-Konfiguration importiert. Makros wurden nicht geändert.",
+  "unsupportedFileTypeSelected": "Nicht unterstützter Dateityp gewählt.",
+  "importFailedInvalidUnreadableFile": "Import fehlgeschlagen: ungültige oder unlesbare Datei.",
+  "bulkImportNoSupportedFilesInFolder": "Sammelimport abgeschlossen: keine unterstützten Dateien im Ordner gefunden.",
+  "bulkImportNoRemotesImported": "Sammelimport abgeschlossen: keine Fernbedienungen importiert. {skippedCount} Datei(en) übersprungen.",
+  "@bulkImportNoRemotesImported": {
+    "placeholders": {
+      "skippedCount": {
+        "type": "int"
+      }
+    }
+  },
+  "bulkImportComplete": "Sammelimport abgeschlossen: {importedCount} Fernbedienung(en) aus {supportedCount} unterstützten Datei(en) importiert. {skippedCount} Datei(en) übersprungen.",
+  "@bulkImportComplete": {
+    "placeholders": {
+      "importedCount": {
+        "type": "int"
+      },
+      "supportedCount": {
+        "type": "int"
+      },
+      "skippedCount": {
+        "type": "int"
+      }
+    }
+  },
+  "storagePermissionDenied": "Speicherberechtigung verweigert.",
+  "bulkImportFailedReadFolder": "Sammelimport fehlgeschlagen: Ordnerinhalt konnte nicht gelesen werden.",
+  "bulkImportNoSupportedFilesSource": "Sammelimport abgeschlossen: keine unterstützten Dateien gefunden {sourceLabel}.",
+  "@bulkImportNoSupportedFilesSource": {
+    "placeholders": {
+      "sourceLabel": {}
+    }
+  },
+  "clearAction": "Leeren",
+  "saveAction": "Speichern",
+  "buttonsTitleCount": "Tasten {count}",
+  "@buttonsTitleCount": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "invalidStepEncountered": "Ungültiger Schritt gefunden",
+  "failedToSendNamed": "Senden fehlgeschlagen: {name}",
+  "@failedToSendNamed": {
+    "placeholders": {
+      "name": {}
+    }
+  },
+  "buttonNotFound": "Taste nicht gefunden",
+  "buttonNotFoundNamed": "Taste nicht gefunden: {name}",
+  "@buttonNotFoundNamed": {
+    "placeholders": {
+      "name": {}
+    }
+  },
+  "unknownButton": "Unbekannte Taste",
+  "durationSecondsShort": "{seconds}s",
+  "@durationSecondsShort": {
+    "placeholders": {
+      "seconds": {
+        "type": "int"
+      }
+    }
+  },
+  "durationMinutesSecondsShort": "{minutes}m {seconds}s",
+  "@durationMinutesSecondsShort": {
+    "placeholders": {
+      "minutes": {
+        "type": "int"
+      },
+      "seconds": {
+        "type": "int"
+      }
+    }
+  },
+  "durationHoursMinutesShort": "{hours}h {minutes}m",
+  "@durationHoursMinutesShort": {
+    "placeholders": {
+      "hours": {
+        "type": "int"
+      },
+      "minutes": {
+        "type": "int"
+      }
+    }
+  },
+  "orientationFlippedTooltip": "Ausrichtung: gedreht tippen für normal",
+  "orientationNormalTooltip": "Ausrichtung: normal tippen für drehen",
+  "noSteps": "Keine Schritte",
+  "stepProgress": "Schritt {current} / {total}",
+  "@stepProgress": {
+    "placeholders": {
+      "current": {
+        "type": "int"
+      },
+      "total": {
+        "type": "int"
+      }
+    }
+  },
+  "completed": "Abgeschlossen",
+  "paused": "Pausiert",
+  "running": "Läuft",
+  "ready": "Bereit",
+  "stepsProgress": "{current} / {total} Schritte",
+  "@stepsProgress": {
+    "placeholders": {
+      "current": {
+        "type": "int"
+      },
+      "total": {
+        "type": "int"
+      }
+    }
+  },
+  "waiting": "Warten",
+  "secondsRemaining": "{seconds}s verbleibend",
+  "@secondsRemaining": {
+    "placeholders": {
+      "seconds": {}
+    }
+  },
+  "millisecondsShort": "{ms}ms",
+  "@millisecondsShort": {
+    "placeholders": {
+      "ms": {
+        "type": "int"
+      }
+    }
+  },
+  "tapContinueWhenReady": "Tippe auf Weiter, wenn du für den nächsten Schritt bereit bist",
+  "error": "Fehler",
+  "macroCompleted": "Makro abgeschlossen",
+  "finishedIn": "Fertig in {duration}",
+  "@finishedIn": {
+    "placeholders": {
+      "duration": {}
+    }
+  },
+  "sequence": "Sequenz",
+  "waitMilliseconds": "Warte {ms}ms",
+  "@waitMilliseconds": {
+    "placeholders": {
+      "ms": {
+        "type": "int"
+      }
+    }
+  },
+  "runAgain": "Erneut starten",
+  "startMacro": "Makro starten",
+  "continueAction": "Weiter",
+  "unnamedRemote": "Unbenannte Fernbedienung",
+  "enterMacroName": "Makronamen eingeben",
+  "addAtLeastOneStep": "Mindestens einen Schritt hinzufügen",
+  "fixInvalidSteps": "Ungültige Schritte korrigieren",
+  "unknownCommand": "Unbekannter Befehl",
+  "unnamedCommand": "Unbenannter Befehl",
+  "iconCommand": "Symbolbefehl",
+  "selectDelay": "Verzögerung wählen",
+  "keepMilliseconds": "Beibehalten: {ms}ms",
+  "@keepMilliseconds": {
+    "placeholders": {
+      "ms": {
+        "type": "int"
+      }
+    }
+  },
+  "custom": "Benutzerdefiniert",
+  "enterCustomDelayDuration": "Eigene Verzögerung eingeben",
+  "millisecondsLong": "{ms} Millisekunden",
+  "@millisecondsLong": {
+    "placeholders": {
+      "ms": {
+        "type": "int"
+      }
+    }
+  },
+  "secondsLong": "{seconds} Sekunde{plural}",
+  "@secondsLong": {
+    "placeholders": {
+      "seconds": {},
+      "plural": {}
+    }
+  },
+  "customDelay": "Eigene Verzögerung",
+  "delayMillisecondsLabel": "Verzögerung Millisekunden",
+  "delayMillisecondsHint": "z. B. 3000",
+  "recommendedDelayRange": "Empfohlen: 250 bis 5000 ms für die meisten Geräte",
+  "enterValidPositiveNumber": "Bitte eine gültige positive Zahl eingeben",
+  "ok": "OK",
+  "remote": "Fernbedienung",
+  "macroName": "Makroname",
+  "macroNameHint": "z. B. i-cybie erweiterter Modus",
+  "stepsTitleCount": "Schritte {count}",
+  "@stepsTitleCount": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "noStepsYet": "Noch keine Schritte",
+  "addCommandsAndDelaysHint": "Füge unten Befehle und Verzögerungen hinzu, um deine Sequenz zu bauen",
+  "addStep": "Schritt hinzufügen",
+  "reorderStepsHint": "Tipp: Ziehe den Griff, um Schritte neu anzuordnen. Tippe auf einen Schritt, um ihn zu bearbeiten.",
+  "reorderStep": "Schritt {index} neu anordnen",
+  "@reorderStep": {
+    "placeholders": {
+      "index": {
+        "type": "int"
+      }
+    }
+  },
+  "pressAndDragToChangeStepOrder": "Drücken und ziehen, um die Reihenfolge zu ändern",
+  "deleteStep": "Schritt {index} löschen",
+  "@deleteStep": {
+    "placeholders": {
+      "index": {
+        "type": "int"
+      }
+    }
+  },
+  "invalidStepTapToFix": "Ungültiger Schritt tippe zum Korrigieren",
+  "sendIrCommand": "IR-Befehl senden",
+  "waitForUserConfirmation": "Auf Bestätigung des Nutzers warten",
+  "notImplemented": "Nicht implementiert",
+  "frequencyKhz": "{value} kHz",
+  "@frequencyKhz": {
+    "placeholders": {
+      "value": {
+        "type": "int"
+      }
+    }
+  },
+  "necProtocolShort": "NEC",
+  "msbShort": "MSB",
+  "layoutWide": "Breit",
+  "iconButton": "Symboltaste",
+  "imageButton": "Bildtaste",
+  "noSignalInfo": "Keine Signalinformation",
+  "proceed": "Fortfahren",
+  "discard": "Verwerfen",
+  "idle": "Leerlauf",
+  "start": "Start",
+  "resume": "Fortsetzen",
+  "pause": "Pause",
+  "stopped": "Gestoppt",
+  "copy": "Kopieren",
+  "send": "Senden",
+  "step": "Schritt",
+  "addToRemote": "Zur Fernbedienung hinzufügen",
+  "noDescriptionAvailable": "Keine Beschreibung verfügbar.",
+  "notAvailableSymbol": "—",
+  "irFinderKaseikyoVendorInvalid": "Kaseikyo-Anbieter muss genau 4 Hex-Ziffern haben.",
+  "irFinderDatabaseNotReady": "Datenbank ist noch nicht bereit.",
+  "irFinderSelectBrandFirst": "Wähle zuerst eine Marke in Setup.",
+  "irFinderBruteforceUnavailable": "Brute Force ist für dieses Protokoll noch nicht verfügbar.",
+  "irFinderInvalidPrefix": "Ungültiges Präfix.",
+  "irFinderBrandValue": "Marke: {value}",
+  "@irFinderBrandValue": {
+    "placeholders": {
+      "value": {}
+    }
+  },
+  "irFinderModelValue": "Modell: {value}",
+  "@irFinderModelValue": {
+    "placeholders": {
+      "value": {}
+    }
+  },
+  "irFinderKeyValue": "Taste: {value}",
+  "@irFinderKeyValue": {
+    "placeholders": {
+      "value": {}
+    }
+  },
+  "irFinderRemoteNumber": "Fernbedienung #{value}",
+  "@irFinderRemoteNumber": {
+    "placeholders": {
+      "value": {}
+    }
+  },
+  "irFinderJumpOffsetHelper": "Gib einen nullbasierten Index innerhalb der gefilterten sortierten Datenbankergebnisse ein.",
+  "irFinderJumpCursorHelper": "Gib einen nullbasierten Hex-Cursor im Brute-Force-Raum ein.",
+  "irFinderSetupTab": "Setup",
+  "irFinderTestTab": "Test",
+  "irFinderResultsTab": "Ergebnisse",
+  "irFinderContinueToTest": "Weiter zum Test",
+  "irFinderKaseikyoVendorTitle": "Kaseikyo-Anbieter",
+  "irFinderCustomVendorLabel": "Benutzerdefinierter Anbieter 4 Hex",
+  "irFinderBrowseDbCandidates": "DB-Kandidaten durchsuchen…",
+  "irFinderEditSetup": "Setup bearbeiten",
+  "irFinderNoSavedHits": "Noch keine gespeicherten Treffer. Drücke auf der Test-Seite Treffer speichern, wenn das Gerät reagiert.",
+  "irFinderBackToTest": "Zurück zum Test",
+  "irFinderLargeSearchSpaceTitle": "Großer Suchraum",
+  "irFinderLargeSearchSpaceBody": "Dieser Brute-Force-Raum ist sehr groß {human} Möglichkeiten. IR Finder beachtet weiterhin deine maximale Versuche und die Abkühlzeit, aber vermeide es, IR-Geräte zu spammen.\n\nEmpfehlung: Nutze zuerst den Datenbankmodus und gib wenn möglich bekannte Präfix-Bytes ein, um den Raum zu verkleinern.",
+  "@irFinderLargeSearchSpaceBody": {
+    "placeholders": {
+      "human": {}
+    }
+  },
+  "irFinderDatabaseSession": "Datenbanksitzung",
+  "irFinderBruteforceSession": "Brute-Force-Sitzung",
+  "irFinderResumeLastSession": "Letzte Sitzung fortsetzen",
+  "irFinderResumeBrandModel": "Marke: {brand} · Modell: {model}",
+  "@irFinderResumeBrandModel": {
+    "placeholders": {
+      "brand": {},
+      "model": {}
+    }
+  },
+  "irFinderResumePrefix": "Präfix: {value}",
+  "@irFinderResumePrefix": {
+    "placeholders": {
+      "value": {}
+    }
+  },
+  "irFinderResumeProgress": "Fortschritt: {progress} · Gestartet: {when}",
+  "@irFinderResumeProgress": {
+    "placeholders": {
+      "progress": {},
+      "when": {}
+    }
+  },
+  "irFinderApplyResume": "Anwenden und fortsetzen",
+  "irFinderBruteforceMode": "Brute Force",
+  "irFinderDatabaseAssistedMode": "Datenbankgestützt",
+  "irFinderProtocolTitle": "Protokoll: {name}",
+  "@irFinderProtocolTitle": {
+    "placeholders": {
+      "name": {}
+    }
+  },
+  "irFinderProtocolLabel": "IR-Protokoll",
+  "irFinderProtocolHelper": "Steuert die Kodierung und damit den Suchraum.",
+  "irFinderKnownPrefixLabel": "Bekanntes Präfix Hex-Bytes optional",
+  "irFinderKnownPrefixHint": "A1B2, A1 B2, A1:B2, 0xA1 0xB2",
+  "irFinderKnownPrefixHelperPayload": "Nutzlast: {digits} Hex-Ziffer(n)",
+  "@irFinderKnownPrefixHelperPayload": {
+    "placeholders": {
+      "digits": {
+        "type": "int"
+      }
+    }
+  },
+  "irFinderKnownPrefixHelperPayloadExample": "Nutzlast: {digits} Hex-Ziffer(n) · Beispiel: {example}",
+  "@irFinderKnownPrefixHelperPayloadExample": {
+    "placeholders": {
+      "digits": {
+        "type": "int"
+      },
+      "example": {}
+    }
+  },
+  "irFinderKnownPrefixHelperPayloadMax": "Nutzlast: {digits} Hex-Ziffer(n) · Max. Präfix: {bytes} Byte(s)",
+  "@irFinderKnownPrefixHelperPayloadMax": {
+    "placeholders": {
+      "digits": {
+        "type": "int"
+      },
+      "bytes": {
+        "type": "int"
+      }
+    }
+  },
+  "irFinderKnownPrefixHelperPayloadExampleMax": "Nutzlast: {digits} Hex-Ziffer(n) · Beispiel: {example} · Max. Präfix: {bytes} Byte(s)",
+  "@irFinderKnownPrefixHelperPayloadExampleMax": {
+    "placeholders": {
+      "digits": {
+        "type": "int"
+      },
+      "example": {},
+      "bytes": {
+        "type": "int"
+      }
+    }
+  },
+  "irFinderKnownPrefixHelperExample": "Beispiel: {example}",
+  "@irFinderKnownPrefixHelperExample": {
+    "placeholders": {
+      "example": {}
+    }
+  },
+  "irFinderKnownPrefixHelperFallback": "Gib bekannte erste Bytes ein, um den Suchraum zu verkleinern.",
+  "irFinderDatabaseMode": "Datenbank",
+  "irFinderNormalizedPrefixValue": "Normalisiertes Präfix: {value}",
+  "@irFinderNormalizedPrefixValue": {
+    "placeholders": {
+      "value": {}
+    }
+  },
+  "irFinderNormalizedPrefix": "Normalisiertes Präfix",
+  "irFinderBruteforceNotConfigured": "Brute Force ist für dieses Protokoll noch nicht konfiguriert.",
+  "irFinderAllLimit": "Alle {value}",
+  "@irFinderAllLimit": {
+    "placeholders": {
+      "value": {}
+    }
+  },
+  "irFinderTestControls": "Teststeuerung",
+  "irFinderPayloadLength": "Nutzlastlänge: {digits} Hex-Ziffer(n).",
+  "@irFinderPayloadLength": {
+    "placeholders": {
+      "digits": {
+        "type": "int"
+      }
+    }
+  },
+  "irFinderSearchSpace": "Suchraum: {value} Möglichkeiten nach Präfix-Einschränkungen.",
+  "@irFinderSearchSpace": {
+    "placeholders": {
+      "value": {}
+    }
+  },
+  "irFinderCooldownMs": "Abkühlzeit ms",
+  "irFinderMaxAttemptsPerRun": "Max. Versuche pro Lauf",
+  "irFinderTestAllCombinations": "Alle Kombinationen testen",
+  "irFinderTestAllCombinationsHint": "Läuft bis der Suchraum erschöpft ist. Effektives Limit: {value}",
+  "@irFinderTestAllCombinationsHint": {
+    "placeholders": {
+      "value": {}
+    }
+  },
+  "irFinderAttempts": "Versuche",
+  "irFinderAttemptsSliderRange": "Schiebebereich: 1 bis {max} für größere Werte Zahl eingeben",
+  "@irFinderAttemptsSliderRange": {
+    "placeholders": {
+      "max": {
+        "type": "int"
+      }
+    }
+  },
+  "irFinderMaxButton": "Max\n{value}",
+  "@irFinderMaxButton": {
+    "placeholders": {
+      "value": {
+        "type": "int"
+      }
+    }
+  },
+  "irFinderEffectiveLimitThisRun": "Effektives Limit in diesem Lauf: {value}",
+  "@irFinderEffectiveLimitThisRun": {
+    "placeholders": {
+      "value": {}
+    }
+  },
+  "irFinderBruteforceTip": "Tipp: Nutze zuerst den Datenbankmodus. Brute Force ist am besten mit bekanntem Präfix etwa den ersten 1 bis 4 Bytes.",
+  "irFinderDatabaseInitFailed": "Datenbankinitialisierung fehlgeschlagen.",
+  "irFinderPreparingDatabase": "Lokale IR-Code-Datenbank wird vorbereitet…",
+  "irFinderDatabaseAssistedSearch": "Datenbankgestützte Suche",
+  "irFinderBrand": "Marke",
+  "irFinderSelectBrand": "Marke wählen",
+  "irFinderModelOptional": "Modell optional",
+  "irFinderSelectBrandFirstShort": "Zuerst Marke wählen",
+  "irFinderSelectModelRecommended": "Modell wählen empfohlen",
+  "irFinderOnlySelectedProtocol": "Nur gewähltes Protokoll",
+  "irFinderOnlySelectedProtocolHint": "Filtert Schlüssel auf das gewählte Protokoll. Deaktiviere dies, um alle Protokolle zu durchsuchen.",
+  "irFinderQuickWinsFirst": "Schnelle Treffer zuerst",
+  "irFinderQuickWinsFirstHint": "Priorisiert POWER, MUTE, VOL und CH ähnliche Tasten vor tieferen Schlüsseln.",
+  "irFinderMaxKeysPerRun": "Max. Tasten pro Lauf",
+  "irFinderTesting": "Wird getestet…",
+  "irFinderCooldown": "Abkühlzeit",
+  "irFinderEta": "ETA",
+  "irFinderMode": "Modus",
+  "irFinderRetryLast": "Letzten erneut testen",
+  "irFinderTrigger": "Auslösen",
+  "irFinderJump": "Springen…",
+  "irFinderSaveHit": "Treffer speichern",
+  "irFinderEtaSeconds": "{seconds}s",
+  "@irFinderEtaSeconds": {
+    "placeholders": {
+      "seconds": {
+        "type": "int"
+      }
+    }
+  },
+  "irFinderEtaMinutesSeconds": "{minutes}m {seconds}s",
+  "@irFinderEtaMinutesSeconds": {
+    "placeholders": {
+      "minutes": {
+        "type": "int"
+      },
+      "seconds": {
+        "type": "int"
+      }
+    }
+  },
+  "irFinderEtaHoursMinutes": "{hours}h {minutes}m",
+  "@irFinderEtaHoursMinutes": {
+    "placeholders": {
+      "hours": {
+        "type": "int"
+      },
+      "minutes": {
+        "type": "int"
+      }
+    }
+  },
+  "irFinderLastAttemptedCode": "Zuletzt getesteter Code: {value}",
+  "@irFinderLastAttemptedCode": {
+    "placeholders": {
+      "value": {}
+    }
+  },
+  "irFinderStartTestingToSeeLastCode": "Starte den Test, um den zuletzt getesteten Code zu sehen.",
+  "irFinderFromDb": "Aus DB: {value}",
+  "@irFinderFromDb": {
+    "placeholders": {
+      "value": {}
+    }
+  },
+  "irFinderFromBruteforce": "Aus Brute Force vom Protokollencoder erzeugt.",
+  "irFinderSendError": "Sendefehler: {error}",
+  "@irFinderSendError": {
+    "placeholders": {
+      "error": {}
+    }
+  },
+  "irFinderSourceValue": "Quelle: {value}",
+  "@irFinderSourceValue": {
+    "placeholders": {
+      "value": {}
+    }
+  },
+  "irFinderResultsNote": "Ergebnisse unterstützen sofort Testen und Kopieren. Direktes Hinzufügen zur Fernbedienung kann im Editor-Flow weiter ausgebaut werden.",
+  "irFinderBrowseDbCandidatesTitle": "DB-Kandidaten durchsuchen",
+  "irFinderFilterByLabelOrHex": "Nach Bezeichnung oder Hex filtern…",
+  "irFinderJumpHere": "Hierher springen",
+  "irFinderSelectModel": "Modell wählen",
+  "irFinderSearchBrands": "Marken suchen…",
+  "irFinderSearchModels": "Modelle suchen…",
+  "iconPickerTitle": "Symbol wählen",
+  "iconPickerSearchHint": "Suchen icons...",
+  "iconPickerNoIconsFound": "Keine Symbole gefunden",
+  "iconPickerIconsAvailable": "{count} Symbole verfügbar",
+  "@iconPickerIconsAvailable": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "iconPickerCategoryAll": "Alle",
+  "iconPickerCategoryMedia": "Medien",
+  "iconPickerCategoryVolume": "Lautstärke",
+  "iconPickerCategoryNavigation": "Navigation",
+  "iconPickerCategoryPower": "Ein/Aus",
+  "iconPickerCategoryNumbers": "Zahlen",
+  "iconPickerCategorySettings": "Einstellungen",
+  "iconPickerCategoryDisplay": "Anzeige",
+  "iconPickerCategoryInput": "Eingang",
+  "iconPickerCategoryFavorite": "Favorit",
+  "universalPowerTitle": "Universal Power",
+  "universalPowerRunTab": "Lauf",
+  "universalPowerUseResponsibly": "Verantwortungsvoll verwenden",
+  "universalPowerConsentBody": "Universal Power durchläuft IR-Power-Codes. Verwende es nur bei Geräten, die du besitzt oder kontrollierst. Stoppe sofort, sobald das Gerät reagiert.",
+  "universalPowerConsentCheckbox": "Ich besitze oder kontrolliere das Gerät",
+  "universalPowerSetupBody": "Durchläuft Power-Codes für deine gewählte Marke. Stoppe sofort, sobald das Gerät reagiert.",
+  "universalPowerLastSent": "Zuletzt gesendet: {value}",
+  "@universalPowerLastSent": {
+    "placeholders": {
+      "value": {}
+    }
+  },
+  "universalPowerNoCodesFound": "Keine Power-Codes gefunden. Erweitere die Suche.",
+  "universalPowerUnableToStart": "Start nicht möglich.",
+  "universalPowerAllBrands": "Alle Marken kein Filter",
+  "universalPowerClearBrandFilter": "Markenfilter löschen",
+  "universalPowerBroadenSearch": "Suche bei Bedarf erweitern",
+  "universalPowerBroadenSearchHint": "Wenn keine Power-Bezeichnungen gefunden werden, auch andere Tasten einbeziehen.",
+  "universalPowerAdditionalPatternsDepth": "Tiefe zusätzlicher Muster",
+  "universalPowerDepth1": "Nur Priorität POWER oder OFF",
+  "universalPowerDepth2": "POWER-Aliase einbeziehen",
+  "universalPowerDepth3": "Sekundäre Power-Bezeichnungen einbeziehen",
+  "universalPowerDepth4": "Alle Bezeichnungen einbeziehen niedrigste Priorität",
+  "universalPowerLoopUntilStopped": "Bis zum Stopp wiederholen",
+  "universalPowerLoopUntilStoppedHint": "Durchläuft die Warteschlange weiter, bis du stoppst.",
+  "universalPowerDelayBetweenCodes": "Verzögerung zwischen Codes",
+  "universalPowerStart": "Universal Power starten",
+  "universalPowerRunStatus": "Laufstatus",
+  "universalPowerProgress": "Fortschritt: {value}",
+  "@universalPowerProgress": {
+    "placeholders": {
+      "value": {}
+    }
+  },
+  "universalPowerPausedInBackground": "Pausiert, weil die App im Hintergrund war.",
+  "universalPowerSendOneCode": "Einen Code senden",
+  "universalPowerStopWhenDeviceResponds": "Stoppen, sobald das Gerät reagiert.",
+  "iconNamePlay": "Wiedergabe",
+  "iconNamePause": "Pause",
+  "iconNameStop": "Stopp",
+  "iconNameFastForward": "Vorspulen",
+  "iconNameRewind": "Zurückspulen",
+  "iconNameSkipNext": "Nächster Titel",
+  "iconNameSkipPrevious": "Vorheriger Titel",
+  "iconNameReplay": "Wiederholen",
+  "iconNameForward10S": "Vorwärts 10s",
+  "iconNameForward30S": "Vorwärts 30s",
+  "iconNameReplay10S": "Wiederholen 10s",
+  "iconNameReplay30S": "Wiederholen 30s",
+  "iconNameRecord": "Aufnehmen",
+  "iconNameRecordAlt": "Aufnehmen Alt",
+  "iconNameEject": "Auswerfen",
+  "iconNameShuffle": "Zufall",
+  "iconNameRepeat": "Wiederholen",
+  "iconNameRepeatOne": "Einmal wiederholen",
+  "iconNameVolumeUp": "Lauter",
+  "iconNameVolumeDown": "Leiser",
+  "iconNameVolumeOff": "Ton aus",
+  "iconNameMute": "Stumm",
+  "iconNameSpeaker": "Lautsprecher",
+  "iconNameSurroundSound": "Surround",
+  "iconNameEqualizer": "Equalizer",
+  "iconNameAudio": "Audio",
+  "iconNameMicrophone": "Mikrofon",
+  "iconNameMicOff": "Mikro aus",
+  "iconNameUp": "Hoch",
+  "iconNameDown": "Runter",
+  "iconNameLeft": "Links",
+  "iconNameRight": "Rechts",
+  "iconNameArrowUp": "Pfeil hoch",
+  "iconNameArrowDown": "Pfeil runter",
+  "iconNameArrowLeft": "Pfeil links",
+  "iconNameArrowRight": "Pfeil rechts",
+  "iconNameNavigation": "Navigation",
+  "iconNameChevronLeft": "Chevron links",
+  "iconNameChevronRight": "Chevron rechts",
+  "iconNameExpandLess": "Weniger ausklappen",
+  "iconNameExpandMore": "Mehr ausklappen",
+  "iconNameCollapse": "Einklappen",
+  "iconNameExpand": "Ausklappen",
+  "iconNameCircleUp": "Kreis hoch",
+  "iconNameCircleDown": "Kreis runter",
+  "iconNameCircleLeft": "Kreis links",
+  "iconNameCircleRight": "Kreis rechts",
+  "iconNameOkSelect": "OK/Auswahl",
+  "iconNameConfirm": "Bestätigen",
+  "iconNameCancel": "Abbrechen",
+  "iconNameClose": "Schließen",
+  "iconNameHome": "Start",
+  "iconNameReturn": "Zurück",
+  "iconNameExit": "Beenden",
+  "iconNameUndo": "Rückgängig",
+  "iconNameRedo": "Wiederholen",
+  "iconNamePower": "Ein/Aus",
+  "iconNamePowerAlt": "Ein/Aus alt",
+  "iconNamePowerOff": "Ausschalten",
+  "iconNameOn": "Ein",
+  "iconNameOff": "Aus",
+  "iconNameToggleOn": "Schalter ein",
+  "iconNameToggleOff": "Schalter aus",
+  "iconNameRestart": "Neustart",
+  "iconNameNum1": "1",
+  "iconNameNum2": "2",
+  "iconNameNum3": "3",
+  "iconNameNum4": "4",
+  "iconNameNum5": "5",
+  "iconNameNum6": "6",
+  "iconNameNum7": "7",
+  "iconNameNum8": "8",
+  "iconNameNum9": "9",
+  "iconNameNum92": "9+",
+  "iconNameNum0": "0",
+  "iconNameOne": "Eins",
+  "iconNameTwo": "Zwei",
+  "iconNameThree": "Drei",
+  "iconNameFour": "Vier",
+  "iconNameFive": "Fünf",
+  "iconNameSix": "Sechs",
+  "iconNamePlus": "Plus",
+  "iconNameMinus": "Minus",
+  "iconNameAddCircle": "Kreis hinzufügen",
+  "iconNameRemoveCircle": "Kreis entfernen",
+  "iconNameSettings": "Einstellungen",
+  "iconNameMenu": "Menü",
+  "iconNameMoreVertical": "Mehr vertikal",
+  "iconNameMoreHorizontal": "Mehr horizontal",
+  "iconNameTune": "Anpassen",
+  "iconNameRemoteSettings": "Fernbed.-Einstellungen",
+  "iconNameInfo": "Info",
+  "iconNameInfoOutline": "Info Kontur",
+  "iconNameHelp": "Hilfe",
+  "iconNameHelpOutline": "Hilfe Kontur",
+  "iconNameList": "Liste",
+  "iconNameViewList": "Listenansicht",
+  "iconNameViewGrid": "Rasteransicht",
+  "iconNameApps": "Apps",
+  "iconNameWidgets": "Widgets",
+  "iconNameTv": "TV",
+  "iconNameMonitor": "Monitor",
+  "iconNameDesktop": "Desktop",
+  "iconNameBrightnessHigh": "Helligkeit hoch",
+  "iconNameBrightnessMedium": "Helligkeit mittel",
+  "iconNameBrightnessLow": "Helligkeit niedrig",
+  "iconNameAutoBrightness": "Auto-Helligkeit",
+  "iconNameLightMode": "Heller Modus",
+  "iconNameDarkMode": "Dunkler Modus",
+  "iconNameContrast": "Kontrast",
+  "iconNameHdrOn": "HDR ein",
+  "iconNameHdrOff": "HDR aus",
+  "iconNameAspectRatio": "Seitenverhältnis",
+  "iconNameCrop": "Zuschneiden",
+  "iconNameZoomIn": "Vergrößern",
+  "iconNameZoomOut": "Verkleinern",
+  "iconNameFullscreen": "Vollbild",
+  "iconNameExitFullscreen": "Vollbild beenden",
+  "iconNameFitScreen": "An Bildschirm",
+  "iconNamePip": "PiP",
+  "iconNameCropFree": "Frei zuschneiden",
+  "iconNameInput": "Eingang",
+  "iconNameCable": "Kabel",
+  "iconNameCast": "Cast",
+  "iconNameCastConnected": "Cast verbunden",
+  "iconNameScreenShare": "Bildschirm teilen",
+  "iconNameBluetooth": "Bluetooth",
+  "iconNameWifi": "WLAN",
+  "iconNameRouter": "Router",
+  "iconNameMemory": "Speicher",
+  "iconNameGameConsole": "Spielkonsole",
+  "iconNameGaming": "Gaming",
+  "iconNameMedia": "Medien",
+  "iconNameMusicQueue": "Musikwarteschlange",
+  "iconNameVideoLibrary": "Videobibliothek",
+  "iconNamePhotoLibrary": "Fotobibliothek",
+  "iconNameComponent": "Komponente",
+  "iconNameHdmi": "HDMI",
+  "iconNameComposite": "Composite",
+  "iconNameAntenna": "Antenne",
+  "iconNameFavorite": "Favorit",
+  "iconNameFavoriteOutline": "Favorit Kontur",
+  "iconNameStar": "Stern",
+  "iconNameStarOutline": "Stern Kontur",
+  "iconNameBookmark": "Lesezeichen",
+  "iconNameBookmarkOutline": "Lesezeichen Kontur",
+  "iconNameFlag": "Flagge",
+  "iconNameCheck": "Häkchen",
+  "iconNameDone": "Fertig",
+  "iconNameDoneAll": "Alle fertig",
+  "iconNameSchedule": "Zeitplan",
+  "iconNameTimer": "Timer",
+  "iconNameTime": "Zeit",
+  "iconNameAlarm": "Alarm",
+  "iconNameNotifications": "Benachrichtigungen",
+  "iconNameLock": "Sperren",
+  "iconNameUnlock": "Entsperren",
+  "iconNameLight": "Licht",
+  "iconNameLightOutline": "Licht Outline",
+  "iconNameWarmLight": "Warmlicht",
+  "iconNameSunny": "Sonnig",
+  "iconNameCloudy": "Bewölkt",
+  "iconNameNight": "Nacht",
+  "iconNameFlare": "Leuchten",
+  "iconNameGradient": "Verlauf",
+  "iconNameInvertColors": "Farben invertieren",
+  "iconNamePalette": "Palette",
+  "iconNameColor": "Farbe",
+  "iconNameTonality": "Tonwert",
+  "iconNameSearch": "Suchen",
+  "iconNameRefresh": "Aktualisieren",
+  "iconNameSync": "Sync",
+  "iconNameUpdate": "Aktualisieren",
+  "iconNameDownload": "Download",
+  "iconNameUpload": "Upload",
+  "iconNameCloud": "Cloud",
+  "iconNameFolder": "Ordner",
+  "iconNameDelete": "Löschen",
+  "iconNameEdit": "Bearbeiten",
+  "iconNameSave": "Speichern",
+  "iconNameShare": "Teilen",
+  "iconNamePrint": "Drucken",
+  "iconNameLanguage": "Sprache",
+  "iconNameTranslate": "Übersetzen",
+  "iconNameMicNone": "Kein Mikro",
+  "iconNameSubtitles": "Untertitel",
+  "iconNameClosedCaption": "Untertitel CC",
+  "iconNameMusic": "Musik",
+  "iconNameMovie": "Film",
+  "iconNameTheater": "Theater",
+  "iconNameLiveTv": "Live-TV",
+  "iconNameRadio": "Radio",
+  "iconNameCamera": "Kamera",
+  "iconNameVideoCamera": "Videokamera",
+  "iconNamePhotoCamera": "Fotokamera",
+  "iconNameSlowMotion": "Zeitlupe",
+  "iconNameSpeed": "Geschwindigkeit",
+  "iconNameVideoSettings": "Videoeinstellungen",
+  "iconNameAudioTrack": "Audiospur",
+  "iconNameGraphicEq": "Grafik-EQ",
+  "iconNameMusicVideo": "Musikvideo",
+  "iconNamePlaylist": "Playlist",
+  "iconNameQueue": "Warteschlange",
+  "iconNameNum0Fa": "0 FA",
+  "iconNameNum1Fa": "1 FA",
+  "iconNameNum2Fa": "2 FA",
+  "iconNameNum3Fa": "3 FA",
+  "iconNameNum4Fa": "4 FA",
+  "iconNameNum5Fa": "5 FA",
+  "iconNameNum6Fa": "6 FA",
+  "iconNameNum7Fa": "7 FA",
+  "iconNameNum8Fa": "8 FA",
+  "iconNameNum9Fa": "9 FA",
+  "iconNameHashFa": "Raute # FA",
+  "iconNamePercentFa": "Prozent % FA",
+  "iconNameDivideFa": "Teilen ÷ FA",
+  "iconNameMultiplyFa": "Multiplizieren × FA",
+  "iconNameEqualsFa": "Gleich = FA",
+  "iconNameNotEqualFa": "Ungleich ≠ FA",
+  "iconNameGreaterThanFa": "Größer als > FA",
+  "iconNameLessThanFa": "Kleiner als < FA",
+  "iconNameAsteriskFa": "Sternchen * FA",
+  "iconNameAFa": "A FA",
+  "iconNameBFa": "B FA",
+  "iconNameCFa": "C FA",
+  "iconNameDFa": "D FA",
+  "iconNameEFa": "E FA",
+  "iconNameFFa": "F FA",
+  "iconNameGFa": "G FA",
+  "iconNameHFa": "H FA",
+  "iconNameIFa": "I FA",
+  "iconNameJFa": "J FA",
+  "iconNameKFa": "K FA",
+  "iconNameLFa": "L FA",
+  "iconNameMFa": "M FA",
+  "iconNameNFa": "N FA",
+  "iconNameOFa": "O FA",
+  "iconNamePFa": "P FA",
+  "iconNameQFa": "Q FA",
+  "iconNameRFa": "R FA",
+  "iconNameSFa": "S FA",
+  "iconNameTFa": "T FA",
+  "iconNameUFa": "U FA",
+  "iconNameVFa": "V FA",
+  "iconNameWFa": "W FA",
+  "iconNameXFa": "X FA",
+  "iconNameYFa": "Y FA",
+  "iconNameZFa": "Z FA",
+  "iconNamePlayFa": "Wiedergabe FA",
+  "iconNamePauseFa": "Pause FA",
+  "iconNameStopFa": "Stopp FA",
+  "iconNamePlayFaOutline": "Wiedergabe FA Kontur",
+  "iconNamePauseFaOutline": "Pause FA Kontur",
+  "iconNameStopFaOutline": "Stopp FA Kontur",
+  "iconNameBackwardFa": "Rückwärts FA",
+  "iconNameForwardFa": "Vorwärts FA",
+  "iconNamePreviousFa": "Vorherig FA",
+  "iconNameNextFa": "Nächste FA",
+  "iconNameRewindFa": "Zurückspulen FA",
+  "iconNameFastForwardFa": "Vorspulen FA",
+  "iconNameRepeatFa": "Wiederholen FA",
+  "iconNameShuffleFa": "Zufall FA",
+  "iconNameEjectFa": "Auswerfen FA",
+  "iconNameFilmFa": "Film FA",
+  "iconNameVideoFa": "Video FA",
+  "iconNameMusicFa": "Musik FA",
+  "iconNameMicrophoneFa": "Mikrofon FA",
+  "iconNameCameraFa": "Kamera FA",
+  "iconNameCameraRetroFa": "Retro-Kamera FA",
+  "iconNameVolumeHighFa": "Lautstärke hoch FA",
+  "iconNameVolumeLowFa": "Lautstärke niedrig FA",
+  "iconNameVolumeOffFa": "Ton aus FA",
+  "iconNameMuteFa": "Stumm FA",
+  "iconNameMicMuteFa": "Mikro stumm FA",
+  "iconNameHeadphonesFa": "Kopfhörer FA",
+  "iconNameSpeakerFa": "Lautsprecher FA",
+  "iconNameUpFa": "Hoch FA",
+  "iconNameDownFa": "Runter FA",
+  "iconNameLeftFa": "Links FA",
+  "iconNameRightFa": "Rechts FA",
+  "iconNameUpFaOutline": "Hoch FA Kontur",
+  "iconNameDownFaOutline": "Runter FA Kontur",
+  "iconNameLeftFaOutline": "Links FA Kontur",
+  "iconNameRightFaOutline": "Rechts FA Kontur",
+  "iconNameArrowUpFa": "Pfeil hoch FA",
+  "iconNameArrowDownFa": "Pfeil runter FA",
+  "iconNameArrowLeftFa": "Pfeil links FA",
+  "iconNameArrowRightFa": "Pfeil rechts FA",
+  "iconNameChevronUpFa": "Chevron hoch FA",
+  "iconNameChevronDownFa": "Chevron runter FA",
+  "iconNameChevronLeftFa": "Chevron links FA",
+  "iconNameChevronRightFa": "Chevron rechts FA",
+  "iconNameOkFa": "OK FA",
+  "iconNameOkFaOutline": "OK FA Kontur",
+  "iconNameCheckFa": "Häkchen FA",
+  "iconNameCloseFa": "Schließen FA",
+  "iconNameCloseCircleFa": "Schließen Circle FA",
+  "iconNameHomeFa": "Start FA",
+  "iconNameUndoFa": "Rückgängig FA",
+  "iconNameRedoFa": "Wiederholen FA",
+  "iconNameRotateFa": "Drehen FA",
+  "iconNameSearchFa": "Suchen FA",
+  "iconNameRefreshFa": "Aktualisieren FA",
+  "iconNamePowerOffFa": "Ausschalten FA",
+  "iconNamePlugFa": "Stecker FA",
+  "iconNameToggleOnFa": "Schalter ein FA",
+  "iconNameToggleOffFa": "Schalter aus FA",
+  "iconNameSettingsFa": "Einstellungen FA",
+  "iconNameSettingsAltFa": "Einstellungen alt FA",
+  "iconNameMenuFa": "Menü FA",
+  "iconNameMoreFa": "More FA",
+  "iconNameMoreVerticalFa": "Mehr vertikal FA",
+  "iconNameInfoFa": "Info FA",
+  "iconNameInfoFaOutline": "Info FA Kontur",
+  "iconNameHelpFa": "Hilfe FA",
+  "iconNameHelpFaOutline": "Hilfe FA Kontur",
+  "iconNameListFa": "Liste FA",
+  "iconNameGridFa": "Raster FA",
+  "iconNameSlidersFa": "Regler FA",
+  "iconNameTvFa": "TV FA",
+  "iconNameMonitorFa": "Monitor FA",
+  "iconNameDesktopFa": "Desktop FA",
+  "iconNameBrightnessFa": "Helligkeit FA",
+  "iconNameNightModeFa": "Nachtmodus FA",
+  "iconNameLightFa": "Licht FA",
+  "iconNameLightFaOutline": "Licht FA Kontur",
+  "iconNameFlashFa": "Blitz FA",
+  "iconNameFullscreenFa": "Vollbild FA",
+  "iconNameExitFullscreenFa": "Vollbild beenden FA",
+  "iconNameZoomInFa": "Vergrößern FA",
+  "iconNameZoomOutFa": "Verkleinern FA",
+  "iconNameSubtitlesFa": "Untertitel FA",
+  "iconNamePictureInPictureFa": "Bild in Bild FA",
+  "iconNameColorFa": "Farbe FA",
+  "iconNamePaintFa": "Paint FA",
+  "iconNameInputFa": "Eingang FA",
+  "iconNameWifiFa": "WLAN FA",
+  "iconNameBluetoothFa": "Bluetooth FA",
+  "iconNameUsbFa": "USB FA",
+  "iconNameEthernetFa": "Ethernet FA",
+  "iconNameGamepadFa": "Gamepad FA",
+  "iconNameBroadcastFa": "Broadcast FA",
+  "iconNameSatelliteFa": "Satellit FA",
+  "iconNameAntennaFa": "Antenne FA",
+  "iconNameNetworkFa": "Netzwerk FA",
+  "iconNameCloudFa": "Cloud FA",
+  "iconNameStarFa": "Stern FA",
+  "iconNameStarFaOutline": "Stern FA Kontur",
+  "iconNameHeartFa": "Herz FA",
+  "iconNameHeartFaOutline": "Herz FA Kontur",
+  "iconNameBookmarkFa": "Lesezeichen FA",
+  "iconNameBookmarkFaOutline": "Lesezeichen FA Kontur",
+  "iconNameFlagFa": "Flagge FA",
+  "iconNameClockFa": "Uhr FA",
+  "iconNameClockFaOutline": "Uhr FA Kontur",
+  "iconNameBellFa": "Glocke FA",
+  "iconNameBellFaOutline": "Glocke FA Kontur",
+  "iconNameTimerFa": "Timer FA",
+  "iconNameLockFa": "Sperren FA",
+  "iconNameUnlockFa": "Entsperren FA",
+  "iconNameGalleryFa": "Galerie FA",
+  "iconNameImagesFa": "Bilder FA",
+  "iconNameImageFa": "Bild FA",
+  "iconNameVideoFileFa": "Videodatei FA",
+  "iconNameAudioFileFa": "Audiodatei FA",
+  "iconNamePlayOutlineFa": "Wiedergabe Kontur FA",
+  "iconNamePlaySimpleFa": "Wiedergabe Simple FA",
+  "iconNamePauseSimpleFa": "Pause Simple FA",
+  "iconNameStopSimpleFa": "Stopp Simple FA",
+  "iconNameRecordFa": "Aufnehmen FA",
+  "iconNameStopCircleFa": "Stopp Circle FA",
+  "iconNameLoadingFa": "Lädt FA",
+  "iconNameTextFa": "Text FA",
+  "iconNameTextSizeFa": "Textgröße FA",
+  "iconNameLanguageFa": "Sprache FA",
+  "iconNameGlobeFa": "Globus FA",
+  "iconNameSubtitlesAltFa": "Untertitel alt FA",
+  "iconNameSubtitlesAltOutlineFa": "Untertitel alt Kontur FA",
+  "iconNameChannelUpFa": "Kanal hoch FA",
+  "iconNameChannelDownFa": "Kanal runter FA",
+  "iconNamePageUpFa": "Seite hoch FA",
+  "iconNamePageDownFa": "Seite runter FA",
+  "iconNameGuideFa": "Guide FA",
+  "iconNameGridViewFa": "Rasteransicht FA",
+  "iconNameGridAltFa": "Raster Alt FA",
+  "iconNameScheduleFa": "Zeitplan FA",
+  "iconNameCalendarFa": "Kalender FA",
+  "iconNameRedButtonFa": "Rote Taste FA",
+  "iconNameButtonOutlineFa": "Tastenkontur FA",
+  "iconNameSquareButtonFa": "Quadrattaste FA",
+  "iconNameSquareOutlineFa": "Square Kontur FA",
+  "iconNameDotCircleFa": "Punktkreis FA",
+  "iconNameToolsFa": "Werkzeuge FA",
+  "iconNameScrewdriverFa": "Schraubendreher FA",
+  "iconNameHammerFa": "Hammer FA",
+  "iconNameToolboxFa": "Werkzeugkasten FA",
+  "iconNameCogFa": "Zahnrad FA",
+  "iconNameAdjustFa": "Anpassen FA",
+  "iconNameFilterFa": "Filter FA",
+  "iconNameSortDownFa": "Absteigend FA",
+  "iconNameSortUpFa": "Aufsteigend FA",
+  "iconNameSleepFa": "Schlaf FA",
+  "iconNameTimerStartFa": "Timer Start FA",
+  "iconNameTimerHalfFa": "Timer Halb FA",
+  "iconNameTimerEndFa": "Timer Ende FA",
+  "iconNameStopwatchFa": "Stoppuhr FA",
+  "iconNameAlarmFa": "Alarm FA",
+  "iconNameCropAltFa": "Zuschneiden Alt FA",
+  "iconNameCropFa": "Zuschneiden FA",
+  "iconNameSquareFullFa": "Square Full FA",
+  "iconNameFullscreenAltFa": "Vollbild alt FA",
+  "iconNameZoomPlusFa": "Plus-Zoom FA",
+  "iconNameZoomMinusFa": "Minus-Zoom FA",
+  "iconNameMusicNoteFa": "Musiknote FA",
+  "iconNameCdFa": "CD FA",
+  "iconNameVinylFa": "Vinyl FA",
+  "iconNameRssFa": "RSS FA",
+  "iconNameMagicFa": "Magie FA",
+  "iconNameFingerprintFa": "Fingerabdruck FA",
+  "iconNameUserFa": "Nutzer FA",
+  "iconNameUsersFa": "Nutzer FA",
+  "iconNameChildModeFa": "Kindermodus FA",
+  "iconNameCastFa": "Cast FA",
+  "iconNameStreamFa": "Stream FA",
+  "iconNameSignalFa": "Signal FA",
+  "iconNameFeedFa": "Feed FA",
+  "iconNameCircleArrowUpFa": "Kreispfeil hoch FA",
+  "iconNameCircleArrowDownFa": "Kreispfeil runter FA",
+  "iconNameCircleArrowLeftFa": "Kreispfeil links FA",
+  "iconNameCircleArrowRightFa": "Kreispfeil rechts FA",
+  "iconNameLongArrowUpFa": "Langer Pfeil hoch FA",
+  "iconNameLongArrowDownFa": "Langer Pfeil runter FA",
+  "iconNameLongArrowLeftFa": "Langer Pfeil links FA",
+  "iconNameLongArrowRightFa": "Langer Pfeil rechts FA",
+  "iconNamePlusFa": "Plus FA",
+  "iconNameMinusFa": "Minus FA",
+  "iconNamePlusCircleFa": "Plus-Kreis FA",
+  "iconNameMinusCircleFa": "Minus-Kreis FA",
+  "iconNamePlusSquareFa": "Plus-Quadrat FA",
+  "iconNameMinusSquareFa": "Minus-Quadrat FA",
+  "iconNameTimesFa": "Mal FA",
+  "iconNameTimesCircleFa": "Mal-Kreis FA",
+  "iconNameBatteryFullFa": "Akku voll FA",
+  "iconNameBattery34Fa": "Akku 3/4 FA",
+  "iconNameBatteryHalfFa": "Akku halb FA",
+  "iconNameBattery14Fa": "Akku 1/4 FA",
+  "iconNameBatteryEmptyFa": "Akku leer FA",
+  "iconNameChargingFa": "Laden FA",
+  "iconNameCloudSunFa": "Wolke Sonne FA",
+  "iconNameCloudMoonFa": "Wolke Mond FA",
+  "iconNameRainFa": "Regen FA",
+  "iconNameSnowflakeFa": "Schneeflocke FA",
+  "iconNameFireFa": "Feuer FA",
+  "iconNameTemperatureFa": "Temperatur FA",
+  "iconNameBoxFa": "Box FA",
+  "iconNameGiftFa": "Geschenk FA",
+  "iconNameTrophyFa": "Pokal FA",
+  "iconNameCrownFa": "Krone FA",
+  "iconNameGemFa": "Edelstein FA",
+  "unknownLabel": "Unbekannt",
+  "selectedFilesLabel": "gewählte Datei(en)",
+  "folderNotFoundOrInaccessible": "Ordner nicht gefunden oder nicht zugänglich.",
+  "importedRemoteDefaultName": "ImportierteFernbedienung",
+  "demoRemoteName": "Demo-Fernbedienung",
+  "protocolFieldsInvalid": "Fülle die Pflichtfelder des Protokolls aus und stelle sicher, dass die Frequenz falls gesetzt 15k bis 60k ist.",
+  "unknownProtocolSelected": "Unbekanntes Protokoll gewählt."
+}

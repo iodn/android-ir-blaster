@@ -9,6 +9,7 @@ import 'package:irblaster_controller/ir_finder/ir_finder_prefs.dart';
 import 'package:irblaster_controller/ir_finder/ir_finder_run_controller.dart';
 import 'package:irblaster_controller/ir_finder/ir_prefix.dart';
 import 'package:irblaster_controller/ir_finder/irblaster_db.dart';
+import 'package:irblaster_controller/l10n/l10n.dart';
 import 'package:irblaster_controller/state/haptics.dart';
 import 'package:irblaster_controller/state/orientation_pref.dart';
 import 'package:irblaster_controller/utils/ir.dart';
@@ -73,7 +74,9 @@ class _IrFinderScreenState extends State<IrFinderScreen> with WidgetsBindingObse
             return IrFinderHit(
               savedAt: DateTime.tryParse((m['savedAt'] as String?) ?? '') ?? DateTime.now(),
               protocolId: (m['protocolId'] as String?) ?? 'nec',
-              protocolName: (m['protocolName'] as String?) ?? 'Unknown',
+              protocolName: ((m['protocolName'] as String?)?.trim().isNotEmpty ?? false)
+                  ? (m['protocolName'] as String).trim()
+                  : (((m['protocolId'] as String?) ?? 'nec').toUpperCase()),
               code: (m['code'] as String?) ?? '',
               source: src,
               dbBrand: (m['dbBrand'] as String?),
@@ -92,11 +95,6 @@ class _IrFinderScreenState extends State<IrFinderScreen> with WidgetsBindingObse
     } catch (_) {}
   }
 
-  Future<void> _addHitToRemote(BuildContext context) async {
-    if (_hits.isEmpty) return;
-    await _addHitToRemoteWith(context, _hits.first);
-  }
-
   Future<void> _addHitToRemoteWith(BuildContext context, IrFinderHit hit) async {
     final last = hit;
 
@@ -104,9 +102,9 @@ class _IrFinderScreenState extends State<IrFinderScreen> with WidgetsBindingObse
     if (list.isEmpty) {
       final created = await _createRemoteFromHit(context, last);
       if (created) {
-        if (!mounted) return;
+        if (!context.mounted) return;
         ScaffoldMessenger.of(context).showSnackBar(
-          const SnackBar(content: Text('New remote created with one button from last hit.')),
+          SnackBar(content: Text(context.l10n.newRemoteCreatedFromLastHit)),
         );
       }
       return;
@@ -116,7 +114,7 @@ class _IrFinderScreenState extends State<IrFinderScreen> with WidgetsBindingObse
       context: context,
       builder: (ctx) {
         return AlertDialog(
-          title: const Text('Select remote'),
+          title: Text(context.l10n.selectRemote),
           content: SizedBox(
             width: double.maxFinite,
             child: ListView.builder(
@@ -125,8 +123,8 @@ class _IrFinderScreenState extends State<IrFinderScreen> with WidgetsBindingObse
               itemBuilder: (_, i) {
                 final r = list[i];
                 return ListTile(
-                  title: Text(r.name.isEmpty ? 'Remote #${r.id}' : r.name),
-                  subtitle: Text('Buttons: ${r.buttons.length}'),
+                  title: Text(r.name.isEmpty ? context.l10n.remoteNumber(r.id.toString()) : r.name),
+                  subtitle: Text(context.l10n.remoteButtonCount(r.buttons.length, r.buttons.length == 1 ? '' : 's')),
                   onTap: () => Navigator.of(ctx).pop(r),
                 );
               },
@@ -135,18 +133,22 @@ class _IrFinderScreenState extends State<IrFinderScreen> with WidgetsBindingObse
           actions: [
             TextButton(
               onPressed: () => Navigator.of(ctx).pop(),
-              child: const Text('Cancel'),
+              child: Text(context.l10n.cancel),
             ),
             FilledButton.tonal(
               onPressed: () async {
                 Navigator.of(ctx).pop();
                 final ok = await _createRemoteFromHit(context, last);
-                if (!mounted) return;
+                if (!context.mounted) return;
                 ScaffoldMessenger.of(context).showSnackBar(
-                  SnackBar(content: Text(ok ? 'New remote created.' : 'Failed to create remote.')),
+                  SnackBar(
+                    content: Text(
+                      ok ? context.l10n.newRemoteCreated : context.l10n.failedToCreateRemote,
+                    ),
+                  ),
                 );
               },
-              child: const Text('New remote…'),
+              child: Text(context.l10n.newRemoteEllipsis),
             ),
           ],
         );
@@ -155,9 +157,17 @@ class _IrFinderScreenState extends State<IrFinderScreen> with WidgetsBindingObse
 
     if (picked == null) return;
     final ok = await _appendHitToRemote(picked, last);
-    if (!mounted) return;
+    if (!context.mounted) return;
     ScaffoldMessenger.of(context).showSnackBar(
-      SnackBar(content: Text(ok ? 'Added to ${picked.name.isEmpty ? 'Remote #${picked.id}' : picked.name}.' : 'Failed to add to remote.')),
+      SnackBar(
+        content: Text(
+          ok
+              ? context.l10n.addedToRemoteNamed(
+                  picked.name.isEmpty ? context.l10n.remoteNumber(picked.id.toString()) : picked.name,
+                )
+              : context.l10n.failedToAddToRemote,
+        ),
+      ),
     );
   }
 
@@ -187,7 +197,7 @@ class _IrFinderScreenState extends State<IrFinderScreen> with WidgetsBindingObse
     try {
       final uuid = const Uuid();
       final Remote r = Remote(
-        name: hit.dbBrand ?? 'New Remote',
+        name: hit.dbBrand ?? context.l10n.newRemoteDefaultName,
         buttons: <IRButton>[
           IRButton(
             id: uuid.v4(),
@@ -228,10 +238,11 @@ class _IrFinderScreenState extends State<IrFinderScreen> with WidgetsBindingObse
             ? IrPrefix.formatBytesAsHex(_prefixParsed!.bytes).replaceAll(' ', '').toUpperCase()
             : null,
         onJumpToOffset: (offset) {
+          if (!context.mounted) return;
           _run.jumpToOffset(offset);
           Navigator.of(context).pop();
           ScaffoldMessenger.of(context).showSnackBar(
-            SnackBar(content: Text('Jumped to offset $offset. Paused — press Resume to continue.')),
+            SnackBar(content: Text(context.l10n.jumpedToOffsetPaused(offset))),
           );
         },
         onSend: (protocolId, codeHex) async {
@@ -247,14 +258,23 @@ class _IrFinderScreenState extends State<IrFinderScreen> with WidgetsBindingObse
               dbModel: _model,
             );
             await _sendCandidateForRun(c);
-            ScaffoldMessenger.of(context).showSnackBar(const SnackBar(content: Text('Sent.')));
+            if (!context.mounted) return;
+            ScaffoldMessenger.of(context).showSnackBar(
+              SnackBar(content: Text(context.l10n.sent)),
+            );
           } catch (e) {
-            ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text('Failed to send: $e')));
+            if (!context.mounted) return;
+            ScaffoldMessenger.of(context).showSnackBar(
+              SnackBar(content: Text(context.l10n.failedToSend(e.toString()))),
+            );
           }
         },
         onCopy: (protocolId, codeHex) async {
           await Clipboard.setData(ClipboardData(text: '$protocolId:${_fitHexDigitsForProtocol(protocolId, codeHex)}'));
-          ScaffoldMessenger.of(context).showSnackBar(const SnackBar(content: Text('Copied (protocol:code).')));
+          if (!context.mounted) return;
+          ScaffoldMessenger.of(context).showSnackBar(
+            SnackBar(content: Text(context.l10n.copiedProtocolCode)),
+          );
         },
       ),
     );
@@ -550,7 +570,7 @@ class _IrFinderScreenState extends State<IrFinderScreen> with WidgetsBindingObse
     final int wanted = parsed.bytes.length;
     if (wanted > maxBytesAllowed) {
       return IrPrefixConstraint.invalid(
-        'Prefix is too long for $displayName: max ${maxBytesAllowed} byte(s) (${totalHexDigits} hex digit payload).',
+        'Prefix is too long for $displayName: max $maxBytesAllowed byte(s) ($totalHexDigits hex digit payload).',
         parsed.bytes,
       );
     }
@@ -959,7 +979,7 @@ class _IrFinderScreenState extends State<IrFinderScreen> with WidgetsBindingObse
     final bool isKaseikyo = _protocolId.trim().toLowerCase() == 'kaseikyo';
     if (isKaseikyo && !_isValidKaseikyoVendor()) {
       ScaffoldMessenger.of(context).showSnackBar(
-        const SnackBar(content: Text('Kaseikyo vendor must be exactly 4 hex digits.')),
+        SnackBar(content: Text(context.l10n.irFinderKaseikyoVendorInvalid)),
       );
       return;
     }
@@ -967,13 +987,13 @@ class _IrFinderScreenState extends State<IrFinderScreen> with WidgetsBindingObse
     if (_mode == IrFinderMode.database) {
       if (!_dbReady) {
         ScaffoldMessenger.of(context).showSnackBar(
-          const SnackBar(content: Text('Database is not ready yet.')),
+          SnackBar(content: Text(context.l10n.irFinderDatabaseNotReady)),
         );
         return;
       }
       if (_brand == null || _brand!.trim().isEmpty) {
         ScaffoldMessenger.of(context).showSnackBar(
-          const SnackBar(content: Text('Select a Brand first (Setup).')),
+          SnackBar(content: Text(context.l10n.irFinderSelectBrandFirst)),
         );
         return;
       }
@@ -981,7 +1001,7 @@ class _IrFinderScreenState extends State<IrFinderScreen> with WidgetsBindingObse
       final int totalHexDigits = _totalHexDigitsForProtocol(_protocolId);
       if (totalHexDigits <= 0) {
         ScaffoldMessenger.of(context).showSnackBar(
-          const SnackBar(content: Text('Brute-force is not available for this protocol yet.')),
+          SnackBar(content: Text(context.l10n.irFinderBruteforceUnavailable)),
         );
         return;
       }
@@ -994,7 +1014,7 @@ class _IrFinderScreenState extends State<IrFinderScreen> with WidgetsBindingObse
 
       if (prefix != null && !prefix.valid) {
         ScaffoldMessenger.of(context).showSnackBar(
-          SnackBar(content: Text(prefix.errorMessage ?? 'Invalid prefix.')),
+          SnackBar(content: Text(prefix.errorMessage ?? context.l10n.irFinderInvalidPrefix)),
         );
         return;
       }
@@ -1093,7 +1113,7 @@ class _IrFinderScreenState extends State<IrFinderScreen> with WidgetsBindingObse
     await _persistHitsToDisk();
     if (!mounted) return;
     ScaffoldMessenger.of(context).showSnackBar(
-      const SnackBar(content: Text('Saved to Results.')),
+      SnackBar(content: Text(context.l10n.savedToResults)),
     );
     await Haptics.selectionClick();
   }
@@ -1105,7 +1125,7 @@ class _IrFinderScreenState extends State<IrFinderScreen> with WidgetsBindingObse
     } catch (e) {
       if (!mounted) return;
       ScaffoldMessenger.of(context).showSnackBar(
-        SnackBar(content: Text('Invalid code for protocol: $e')),
+        SnackBar(content: Text(context.l10n.invalidCodeForProtocol(e.toString()))),
       );
       return;
     }
@@ -1126,12 +1146,12 @@ class _IrFinderScreenState extends State<IrFinderScreen> with WidgetsBindingObse
       await _sendCandidateForRun(c);
       if (!mounted) return;
       ScaffoldMessenger.of(context).showSnackBar(
-        const SnackBar(content: Text('Sent.')),
+        SnackBar(content: Text(context.l10n.sent)),
       );
     } catch (e) {
       if (!mounted) return;
       ScaffoldMessenger.of(context).showSnackBar(
-        SnackBar(content: Text('Failed to send: $e')),
+        SnackBar(content: Text(context.l10n.failedToSend(e.toString()))),
       );
     }
   }
@@ -1140,7 +1160,7 @@ class _IrFinderScreenState extends State<IrFinderScreen> with WidgetsBindingObse
     await Clipboard.setData(ClipboardData(text: '${h.protocolId}:${h.code}'));
     if (!mounted) return;
     ScaffoldMessenger.of(context).showSnackBar(
-      const SnackBar(content: Text('Copied (protocol:code).')),
+      SnackBar(content: Text(context.l10n.copiedProtocolCode)),
     );
     await Haptics.selectionClick();
   }
@@ -1149,18 +1169,18 @@ class _IrFinderScreenState extends State<IrFinderScreen> with WidgetsBindingObse
     final c = _run.lastCandidate;
     if (c == null) return;
     final meta = <String>[
-      if (c.dbBrand != null && c.dbBrand!.trim().isNotEmpty) 'Brand: ${c.dbBrand}',
-      if (c.dbModel != null && c.dbModel!.trim().isNotEmpty) 'Model: ${c.dbModel}',
-      if (c.dbLabel != null && c.dbLabel!.trim().isNotEmpty) 'Key: ${c.dbLabel}',
-      if (c.dbRemoteId != null) 'Remote #${c.dbRemoteId}',
+      if (c.dbBrand != null && c.dbBrand!.trim().isNotEmpty) context.l10n.irFinderBrandValue(c.dbBrand!),
+      if (c.dbModel != null && c.dbModel!.trim().isNotEmpty) context.l10n.irFinderModelValue(c.dbModel!),
+      if (c.dbLabel != null && c.dbLabel!.trim().isNotEmpty) context.l10n.irFinderKeyValue(c.dbLabel!),
+      if (c.dbRemoteId != null) context.l10n.irFinderRemoteNumber(c.dbRemoteId!.toString()),
     ].join(' · ');
     final text = meta.isEmpty
         ? '${c.protocolId}:${c.displayCode}'
         : '${c.protocolId}:${c.displayCode}  ($meta)';
     await Clipboard.setData(ClipboardData(text: text));
-    if (!mounted) return;
+    if (!context.mounted) return;
     ScaffoldMessenger.of(context).showSnackBar(
-      const SnackBar(content: Text('Copied current candidate.')),
+      SnackBar(content: Text(context.l10n.copiedCurrentCandidate)),
     );
     await Haptics.selectionClick();
   }
@@ -1175,7 +1195,7 @@ class _IrFinderScreenState extends State<IrFinderScreen> with WidgetsBindingObse
       context: context,
       builder: (ctx) {
         return AlertDialog(
-          title: Text(isDb ? 'Jump to offset' : 'Jump to brute cursor'),
+          title: Text(isDb ? context.l10n.jumpToOffset : context.l10n.jumpToBruteCursor),
           content: TextField(
             controller: ctl,
             keyboardType: isDb ? TextInputType.number : TextInputType.text,
@@ -1184,8 +1204,8 @@ class _IrFinderScreenState extends State<IrFinderScreen> with WidgetsBindingObse
                 : <TextInputFormatter>[FilteringTextInputFormatter.allow(RegExp(r'[0-9A-Fa-f]'))],
             decoration: InputDecoration(
               helperText: isDb
-                  ? 'Enter a 0-based index (OFFSET) within filtered, ordered DB results.'
-                  : 'Enter a hex cursor (0-based) within the brute-force space.',
+                  ? context.l10n.irFinderJumpOffsetHelper
+                  : context.l10n.irFinderJumpCursorHelper,
               prefixIcon: Icon(isDb ? Icons.numbers_rounded : Icons.hexagon_outlined, color: cs.primary),
               border: const OutlineInputBorder(),
             ),
@@ -1193,26 +1213,26 @@ class _IrFinderScreenState extends State<IrFinderScreen> with WidgetsBindingObse
           actions: [
             TextButton(
               onPressed: () => Navigator.of(ctx).pop(false),
-              child: const Text('Cancel'),
+              child: Text(context.l10n.cancel),
             ),
             FilledButton.tonal(
               onPressed: () => Navigator.of(ctx).pop(true),
-              child: const Text('Jump'),
+              child: Text(context.l10n.jump),
             ),
           ],
         );
       },
     );
 
+    if (!context.mounted) return;
     if (ok != true) return;
 
     if (isDb) {
       final v = int.tryParse(ctl.text.trim());
       if (v == null) return;
       _run.jumpToOffset(v);
-      if (!mounted) return;
       ScaffoldMessenger.of(context).showSnackBar(
-        SnackBar(content: Text('Jumped to offset $v. Paused — press Resume to continue.')),
+        SnackBar(content: Text(context.l10n.jumpedToOffsetPaused(v))),
       );
     } else {
       final raw = ctl.text.trim();
@@ -1223,9 +1243,12 @@ class _IrFinderScreenState extends State<IrFinderScreen> with WidgetsBindingObse
         cursor = BigInt.zero;
       }
       _run.jumpToBrute(cursor);
-      if (!mounted) return;
       ScaffoldMessenger.of(context).showSnackBar(
-        SnackBar(content: Text('Jumped to cursor 0x${cursor.toRadixString(16).toUpperCase()}. Paused — press Resume to continue.')),
+        SnackBar(
+          content: Text(
+            context.l10n.jumpedToCursorPaused(cursor.toRadixString(16).toUpperCase()),
+          ),
+        ),
       );
     }
   }
@@ -1304,10 +1327,12 @@ class _IrFinderScreenState extends State<IrFinderScreen> with WidgetsBindingObse
 
     return Scaffold(
       appBar: AppBar(
-        title: const Text('IR Signal Tester'),
+        title: Text(context.l10n.irSignalTester),
         actions: [
           IconButton(
-            tooltip: RemoteOrientationController.instance.flipped ? 'Orientation: flipped (tap to normal)' : 'Orientation: normal (tap to flip)',
+            tooltip: RemoteOrientationController.instance.flipped
+                ? context.l10n.remoteOrientationFlippedTooltip
+                : context.l10n.remoteOrientationNormalTooltip,
             onPressed: () async {
               final next = !RemoteOrientationController.instance.flipped;
               await RemoteOrientationController.instance.setFlipped(next);
@@ -1316,7 +1341,7 @@ class _IrFinderScreenState extends State<IrFinderScreen> with WidgetsBindingObse
             icon: const Icon(Icons.screen_rotation_rounded),
           ),
           IconButton(
-            tooltip: 'Stop',
+            tooltip: context.l10n.stop,
             onPressed: _run.running ? () => unawaited(_run.stop(clearPersistedSession: false)) : null,
             icon: const Icon(Icons.stop_circle_outlined),
           ),
@@ -1347,18 +1372,18 @@ class _IrFinderScreenState extends State<IrFinderScreen> with WidgetsBindingObse
         onDestinationSelected: (i) {
           setState(() => _pageIndex = i);
         },
-        destinations: const <NavigationDestination>[
+        destinations: <NavigationDestination>[
           NavigationDestination(
-            icon: Icon(Icons.tune_rounded),
-            label: 'Setup',
+            icon: const Icon(Icons.tune_rounded),
+            label: context.l10n.irFinderSetupTab,
           ),
           NavigationDestination(
-            icon: Icon(Icons.play_circle_outline),
-            label: 'Test',
+            icon: const Icon(Icons.play_circle_outline),
+            label: context.l10n.irFinderTestTab,
           ),
           NavigationDestination(
-            icon: Icon(Icons.bookmarks_outlined),
-            label: 'Results',
+            icon: const Icon(Icons.bookmarks_outlined),
+            label: context.l10n.irFinderResultsTab,
           ),
         ],
       ),
@@ -1429,13 +1454,19 @@ class _IrFinderScreenState extends State<IrFinderScreen> with WidgetsBindingObse
             if (maxPrefixDigitsEven > 0) _HexDigitLengthLimitingFormatter(maxDigits: maxPrefixDigitsEven),
           ],
           decoration: InputDecoration(
-            labelText: 'Known prefix (hex bytes, optional)',
-            hintText: 'A1B2, A1 B2, A1:B2, 0xA1 0xB2',
+            labelText: context.l10n.irFinderKnownPrefixLabel,
+            hintText: context.l10n.irFinderKnownPrefixHint,
             helperText: (totalHexDigits > 0)
-                ? 'Payload: $totalHexDigits hex digit(s)'
-                    '${example != null ? ' · Example: $example' : ''}'
-                    '${maxPrefixDigitsEven > 0 ? ' · Max prefix: $maxBytes byte(s)' : ''}'
-                : (example != null ? 'Example: $example' : 'Enter any known first bytes to reduce the search space.'),
+                ? (example != null && maxPrefixDigitsEven > 0
+                    ? context.l10n.irFinderKnownPrefixHelperPayloadExampleMax(totalHexDigits, example, maxBytes)
+                    : example != null
+                        ? context.l10n.irFinderKnownPrefixHelperPayloadExample(totalHexDigits, example)
+                        : maxPrefixDigitsEven > 0
+                            ? context.l10n.irFinderKnownPrefixHelperPayloadMax(totalHexDigits, maxBytes)
+                            : context.l10n.irFinderKnownPrefixHelperPayload(totalHexDigits))
+                : (example != null
+                    ? context.l10n.irFinderKnownPrefixHelperExample(example)
+                    : context.l10n.irFinderKnownPrefixHelperFallback),
             suffixText: (maxPrefixDigitsEven > 0) ? '$usedPrefixDigits/$maxPrefixDigitsEven' : null,
             prefixIcon: const Icon(Icons.key_outlined),
             errorText: (parsed != null && !parsed.ok && _prefixCtl.text.trim().isNotEmpty)
@@ -1500,7 +1531,7 @@ class _IrFinderScreenState extends State<IrFinderScreen> with WidgetsBindingObse
         FilledButton.icon(
           onPressed: _run.running ? null : () => setState(() => _pageIndex = 1),
           icon: const Icon(Icons.arrow_forward_rounded),
-          label: const Text('Continue to Test'),
+          label: Text(context.l10n.irFinderContinueToTest),
         ),
       ],
     );
@@ -1532,7 +1563,7 @@ class _IrFinderScreenState extends State<IrFinderScreen> with WidgetsBindingObse
                       const Icon(Icons.factory_outlined, size: 18),
                       const SizedBox(width: 8),
                       Text(
-                        'Kaseikyo Vendor',
+                        context.l10n.irFinderKaseikyoVendorTitle,
                         style: theme.textTheme.titleSmall?.copyWith(fontWeight: FontWeight.w800),
                       ),
                     ],
@@ -1570,10 +1601,10 @@ class _IrFinderScreenState extends State<IrFinderScreen> with WidgetsBindingObse
                       FilteringTextInputFormatter.allow(RegExp(r'[0-9A-Fa-f]')),
                       LengthLimitingTextInputFormatter(4),
                     ],
-                    decoration: const InputDecoration(
-                      labelText: 'Custom vendor (4 hex)',
-                      prefixIcon: Icon(Icons.edit_outlined),
-                      border: OutlineInputBorder(),
+                    decoration: InputDecoration(
+                      labelText: context.l10n.irFinderCustomVendorLabel,
+                      prefixIcon: const Icon(Icons.edit_outlined),
+                      border: const OutlineInputBorder(),
                     ),
                   ),
                 ],
@@ -1606,7 +1637,7 @@ class _IrFinderScreenState extends State<IrFinderScreen> with WidgetsBindingObse
           FilledButton.tonalIcon(
             onPressed: !_dbReady || _brand == null ? null : () => _browseDbCandidates(context),
             icon: const Icon(Icons.list_alt_rounded),
-            label: const Text('Browse DB candidates…'),
+            label: Text(context.l10n.irFinderBrowseDbCandidates),
           ),
         if (_mode == IrFinderMode.database) const SizedBox(height: 14),
         Row(
@@ -1615,7 +1646,7 @@ class _IrFinderScreenState extends State<IrFinderScreen> with WidgetsBindingObse
               child: FilledButton.tonalIcon(
                 onPressed: _run.running ? null : () => setState(() => _pageIndex = 0),
                 icon: const Icon(Icons.tune_rounded),
-                label: const Text('Edit Setup'),
+                label: Text(context.l10n.irFinderEditSetup),
               ),
             ),
             const SizedBox(width: 12),
@@ -1623,7 +1654,7 @@ class _IrFinderScreenState extends State<IrFinderScreen> with WidgetsBindingObse
               child: FilledButton.tonalIcon(
                 onPressed: () => setState(() => _pageIndex = 2),
                 icon: const Icon(Icons.bookmarks_outlined),
-                label: const Text('Results'),
+                label: Text(context.l10n.irFinderResultsTab),
               ),
             ),
           ],
@@ -1638,7 +1669,7 @@ class _IrFinderScreenState extends State<IrFinderScreen> with WidgetsBindingObse
       children: [
         if (_hits.isEmpty)
           Text(
-            'No saved hits yet. In the Test page, press “Save hit” when the device responds.',
+            context.l10n.irFinderNoSavedHits,
             style: theme.textTheme.bodyMedium?.copyWith(
               color: theme.colorScheme.onSurface.withValues(alpha: 0.75),
             ),
@@ -1667,7 +1698,7 @@ class _IrFinderScreenState extends State<IrFinderScreen> with WidgetsBindingObse
         FilledButton.tonalIcon(
           onPressed: () => setState(() => _pageIndex = 1),
           icon: const Icon(Icons.play_arrow_rounded),
-          label: const Text('Back to Test'),
+          label: Text(context.l10n.irFinderBackToTest),
         ),
       ],
     );
@@ -1681,11 +1712,9 @@ Future<bool> _confirmBigSearchSpace(BuildContext context, BigInt space) async {
     context: context,
     builder: (ctx) => AlertDialog(
       icon: Icon(Icons.warning_amber_rounded, color: theme.colorScheme.error),
-      title: const Text('Large search space'),
+      title: Text(context.l10n.irFinderLargeSearchSpaceTitle),
       content: Text(
-        'This brute-force space is very large ($human possibilities). '
-        'IR Finder will still respect your “Max attempts” and cooldown, but be mindful of spamming IR devices.\n\n'
-        'Recommendation: use Database mode first, and/or enter known prefix bytes to reduce the space.',
+        context.l10n.irFinderLargeSearchSpaceBody(human),
       ),
       actions: [
         TextButton(
@@ -1694,7 +1723,7 @@ Future<bool> _confirmBigSearchSpace(BuildContext context, BigInt space) async {
         ),
         FilledButton.tonal(
           onPressed: () => Navigator.of(ctx).pop(true),
-          child: const Text('Proceed'),
+          child: Text(context.l10n.proceed),
         ),
       ],
     ),
@@ -1717,13 +1746,17 @@ class _ResumeBannerCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final cs = theme.colorScheme;
-    final String titleMode = snapshot.mode == IrFinderMode.database ? 'Database session' : 'Brute-force session';
+    final String titleMode = snapshot.mode == IrFinderMode.database
+        ? context.l10n.irFinderDatabaseSession
+        : context.l10n.irFinderBruteforceSession;
     final String titleProto = snapshot.protocolId.toUpperCase();
-    final String brand = snapshot.brand ?? '—';
-    final String model = (snapshot.model != null && snapshot.model!.trim().isNotEmpty) ? snapshot.model! : '—';
+    final String brand = snapshot.brand ?? context.l10n.notAvailableSymbol;
+    final String model = (snapshot.model != null && snapshot.model!.trim().isNotEmpty)
+        ? snapshot.model!
+        : context.l10n.notAvailableSymbol;
 
     final String progress = '${snapshot.attempted}/${snapshot.mode == IrFinderMode.database ? snapshot.maxKeysToTest : snapshot.bruteMaxAttempts}';
-    final String when = snapshot.startedAt == null ? '—' : snapshot.startedAt!.toLocal().toString();
+    final String when = snapshot.startedAt == null ? context.l10n.notAvailableSymbol : snapshot.startedAt!.toLocal().toString();
 
     return Card(
       clipBehavior: Clip.antiAlias,
@@ -1738,13 +1771,13 @@ class _ResumeBannerCard extends StatelessWidget {
                 const SizedBox(width: 10),
                 Expanded(
                   child: Text(
-                    'Resume last session',
+                    context.l10n.irFinderResumeLastSession,
                     style: theme.textTheme.titleMedium,
                   ),
                 ),
                 TextButton(
                   onPressed: onDiscard,
-                  child: const Text('Discard'),
+                  child: Text(context.l10n.discard),
                 ),
               ],
             ),
@@ -1758,15 +1791,17 @@ class _ResumeBannerCard extends StatelessWidget {
             const SizedBox(height: 6),
             Text(
               snapshot.mode == IrFinderMode.database
-                  ? 'Brand: $brand · Model: $model'
-                  : 'Prefix: ${snapshot.prefixRaw.trim().isEmpty ? '—' : snapshot.prefixRaw.trim()}',
+                  ? context.l10n.irFinderResumeBrandModel(brand, model)
+                  : context.l10n.irFinderResumePrefix(
+                      snapshot.prefixRaw.trim().isEmpty ? context.l10n.notAvailableSymbol : snapshot.prefixRaw.trim(),
+                    ),
               style: theme.textTheme.bodySmall?.copyWith(
                 color: cs.onSurface.withValues(alpha: 0.72),
               ),
             ),
             const SizedBox(height: 6),
             Text(
-              'Progress: $progress · Started: $when',
+              context.l10n.irFinderResumeProgress(progress, when),
               style: theme.textTheme.bodySmall?.copyWith(
                 color: cs.onSurface.withValues(alpha: 0.72),
               ),
@@ -1775,7 +1810,7 @@ class _ResumeBannerCard extends StatelessWidget {
             FilledButton.icon(
               onPressed: onResume,
               icon: const Icon(Icons.play_arrow_rounded),
-              label: const Text('Apply & Resume'),
+              label: Text(context.l10n.irFinderApplyResume),
             ),
           ],
         ),
@@ -1798,7 +1833,9 @@ class _TopInfoCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final theme = Theme.of(context);
-    final String modeLabel = mode == IrFinderMode.bruteforce ? 'Brute-force' : 'Database-assisted';
+    final String modeLabel = mode == IrFinderMode.bruteforce
+        ? context.l10n.irFinderBruteforceMode
+        : context.l10n.irFinderDatabaseAssistedMode;
     return Card(
       clipBehavior: Clip.antiAlias,
       child: Padding(
@@ -1813,7 +1850,7 @@ class _TopInfoCard extends StatelessWidget {
                 children: [
                   Expanded(
                     child: Text(
-                      'Protocol: $protocolName',
+                      context.l10n.irFinderProtocolTitle(protocolName),
                       style: theme.textTheme.titleMedium,
                     ),
                   ),
@@ -1838,7 +1875,7 @@ class _TopInfoCard extends StatelessWidget {
                 Align(
                   alignment: Alignment.centerLeft,
                   child: Text(
-                    protocolDescription.isEmpty ? 'No description available.' : protocolDescription,
+                    protocolDescription.isEmpty ? context.l10n.noDescriptionAvailable : protocolDescription,
                     style: theme.textTheme.bodyMedium?.copyWith(
                       color: theme.colorScheme.onSurface.withValues(alpha: 0.78),
                     ),
@@ -1912,11 +1949,11 @@ class _ProtocolPicker extends StatelessWidget {
     final String effectiveValue = items.any((e) => e.value == protocolId) ? protocolId : (items.isNotEmpty ? items.first.value! : protocolId);
 
     return InputDecorator(
-      decoration: const InputDecoration(
-        labelText: 'IR protocol',
-        helperText: 'Controls encoding and therefore the search space.',
-        border: OutlineInputBorder(),
-        prefixIcon: Icon(Icons.waves_outlined),
+      decoration: InputDecoration(
+        labelText: context.l10n.irFinderProtocolLabel,
+        helperText: context.l10n.irFinderProtocolHelper,
+        border: const OutlineInputBorder(),
+        prefixIcon: const Icon(Icons.waves_outlined),
       ),
       child: DropdownButtonHideUnderline(
         child: DropdownButton<String>(
@@ -1946,16 +1983,16 @@ class _ModePicker extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SegmentedButton<IrFinderMode>(
-      segments: const <ButtonSegment<IrFinderMode>>[
+      segments: <ButtonSegment<IrFinderMode>>[
         ButtonSegment(
           value: IrFinderMode.bruteforce,
-          label: Text('Brute-force'),
-          icon: Icon(Icons.shuffle_rounded),
+          label: Text(context.l10n.irFinderBruteforceMode),
+          icon: const Icon(Icons.shuffle_rounded),
         ),
         ButtonSegment(
           value: IrFinderMode.database,
-          label: Text('Database'),
-          icon: Icon(Icons.storage_rounded),
+          label: Text(context.l10n.irFinderDatabaseMode),
+          icon: const Icon(Icons.storage_rounded),
         ),
       ],
       selected: <IrFinderMode>{mode},
@@ -1981,7 +2018,7 @@ class _PrefixParsedRow extends StatelessWidget {
 
     if (p == null || p.raw.trim().isEmpty) {
       return Text(
-        'Normalized prefix: —',
+        context.l10n.irFinderNormalizedPrefixValue(context.l10n.notAvailableSymbol),
         style: theme.textTheme.bodySmall?.copyWith(
           color: theme.colorScheme.onSurface.withValues(alpha: 0.65),
         ),
@@ -1990,7 +2027,7 @@ class _PrefixParsedRow extends StatelessWidget {
 
     if (!p.ok) {
       return Text(
-        'Normalized prefix: —',
+        context.l10n.irFinderNormalizedPrefixValue(context.l10n.notAvailableSymbol),
         style: theme.textTheme.bodySmall?.copyWith(
           color: theme.colorScheme.onSurface.withValues(alpha: 0.65),
         ),
@@ -2001,7 +2038,7 @@ class _PrefixParsedRow extends StatelessWidget {
     return Row(
       children: [
         Text(
-          'Normalized prefix:',
+          context.l10n.irFinderNormalizedPrefix,
           style: theme.textTheme.bodySmall?.copyWith(
             color: theme.colorScheme.onSurface.withValues(alpha: 0.65),
           ),
@@ -2066,7 +2103,7 @@ class _BruteForceSetupCard extends StatelessWidget {
               const SizedBox(width: 10),
               Expanded(
                 child: Text(
-                  'Brute-force is not configured for this protocol yet.',
+                  context.l10n.irFinderBruteforceNotConfigured,
                   style: theme.textTheme.bodyMedium,
                 ),
               ),
@@ -2085,7 +2122,7 @@ class _BruteForceSetupCard extends StatelessWidget {
     final int? divisions = (sliderMax <= 1) ? null : (sliderMax <= 400 ? (sliderMax - 1) : 200);
 
     final BigInt eff = effectiveMaxAttempts ?? BigInt.from(maxAttempts);
-    final String effText = maxAttemptsAll ? 'All ($spaceText)' : IrBigInt.formatHuman(eff);
+    final String effText = maxAttemptsAll ? context.l10n.irFinderAllLimit(spaceText) : IrBigInt.formatHuman(eff);
 
     return Card(
       clipBehavior: Clip.antiAlias,
@@ -2099,27 +2136,27 @@ class _BruteForceSetupCard extends StatelessWidget {
                 Icon(Icons.shield_outlined, color: theme.colorScheme.primary),
                 const SizedBox(width: 10),
                 Expanded(
-                  child: Text('Test controls', style: theme.textTheme.titleMedium),
+                  child: Text(context.l10n.irFinderTestControls, style: theme.textTheme.titleMedium),
                 ),
               ],
             ),
             const SizedBox(height: 10),
             Text(
-              'Payload length: $totalHexDigits hex digit(s).',
+              context.l10n.irFinderPayloadLength(totalHexDigits),
               style: theme.textTheme.bodyMedium?.copyWith(
                 color: theme.colorScheme.onSurface.withValues(alpha: 0.78),
               ),
             ),
             const SizedBox(height: 6),
             Text(
-              'Search space: $spaceText possibilities (after prefix constraints).',
+              context.l10n.irFinderSearchSpace(spaceText),
               style: theme.textTheme.bodyMedium?.copyWith(
                 color: theme.colorScheme.onSurface.withValues(alpha: 0.78),
               ),
             ),
             const SizedBox(height: 12),
             Text(
-              'Cooldown (ms)',
+              context.l10n.irFinderCooldownMs,
               style: theme.textTheme.labelLarge?.copyWith(fontWeight: FontWeight.w700),
             ),
             const SizedBox(height: 6),
@@ -2133,7 +2170,7 @@ class _BruteForceSetupCard extends StatelessWidget {
             ),
             const SizedBox(height: 10),
             Text(
-              'Max attempts (per run)',
+              context.l10n.irFinderMaxAttemptsPerRun,
               style: theme.textTheme.labelLarge?.copyWith(fontWeight: FontWeight.w700),
             ),
             const SizedBox(height: 6),
@@ -2141,9 +2178,9 @@ class _BruteForceSetupCard extends StatelessWidget {
               contentPadding: EdgeInsets.zero,
               value: maxAttemptsAll,
               onChanged: onMaxAttemptsAllChanged,
-              title: const Text('Test all combinations'),
+              title: Text(context.l10n.irFinderTestAllCombinations),
               subtitle: Text(
-                'Runs until the search space is exhausted. Effective limit: $effText',
+                context.l10n.irFinderTestAllCombinationsHint(effText),
                 style: theme.textTheme.bodySmall?.copyWith(
                   color: theme.colorScheme.onSurface.withValues(alpha: 0.75),
                 ),
@@ -2159,8 +2196,8 @@ class _BruteForceSetupCard extends StatelessWidget {
                       keyboardType: TextInputType.number,
                       inputFormatters: <TextInputFormatter>[FilteringTextInputFormatter.digitsOnly],
                       decoration: InputDecoration(
-                        labelText: 'Attempts',
-                        helperText: 'Slider range: 1–$sliderMax (type any number for larger values)',
+                        labelText: context.l10n.irFinderAttempts,
+                        helperText: context.l10n.irFinderAttemptsSliderRange(sliderMax),
                         border: const OutlineInputBorder(),
                         prefixIcon: const Icon(Icons.numbers_rounded),
                       ),
@@ -2173,7 +2210,7 @@ class _BruteForceSetupCard extends StatelessWidget {
                   const SizedBox(width: 12),
                   FilledButton.tonal(
                     onPressed: onMaxAttemptsChanged == null ? null : () => onMaxAttemptsChanged!(sliderMax),
-                    child: Text('Max\n$sliderMax', textAlign: TextAlign.center),
+                    child: Text(context.l10n.irFinderMaxButton(sliderMax), textAlign: TextAlign.center),
                   ),
                 ],
               ),
@@ -2188,7 +2225,7 @@ class _BruteForceSetupCard extends StatelessWidget {
               ),
               const SizedBox(height: 6),
               Text(
-                'Effective limit this run: $effText',
+                context.l10n.irFinderEffectiveLimitThisRun(effText),
                 style: theme.textTheme.bodySmall?.copyWith(
                   color: theme.colorScheme.onSurface.withValues(alpha: 0.7),
                 ),
@@ -2196,7 +2233,7 @@ class _BruteForceSetupCard extends StatelessWidget {
             ] else ...[
               const SizedBox(height: 6),
               Text(
-                'Effective limit this run: $effText',
+                context.l10n.irFinderEffectiveLimitThisRun(effText),
                 style: theme.textTheme.bodySmall?.copyWith(
                   color: theme.colorScheme.onSurface.withValues(alpha: 0.7),
                 ),
@@ -2204,7 +2241,7 @@ class _BruteForceSetupCard extends StatelessWidget {
             ],
             const SizedBox(height: 6),
             Text(
-              'Tip: Use Database mode first; brute-force is best with a known prefix (e.g., first 1–4 bytes).',
+              context.l10n.irFinderBruteforceTip,
               style: theme.textTheme.bodySmall?.copyWith(
                 color: theme.colorScheme.onSurface.withValues(alpha: 0.7),
               ),
@@ -2270,14 +2307,14 @@ class _DbSetupCard extends StatelessWidget {
               const SizedBox(width: 12),
               Expanded(
                 child: Text(
-                  dbInitFailed ? 'Database initialization failed.' : 'Preparing local IR code database…',
+                  dbInitFailed ? context.l10n.irFinderDatabaseInitFailed : context.l10n.irFinderPreparingDatabase,
                   style: theme.textTheme.bodyMedium,
                 ),
               ),
               if (dbInitFailed)
                 FilledButton.tonal(
                   onPressed: running ? null : onRetryDbInit,
-                  child: const Text('Retry'),
+                  child: Text(context.l10n.retry),
                 ),
             ],
           ),
@@ -2297,7 +2334,7 @@ class _DbSetupCard extends StatelessWidget {
                 Icon(Icons.storage_rounded, color: cs.primary),
                 const SizedBox(width: 10),
                 Expanded(
-                  child: Text('Database-assisted search', style: theme.textTheme.titleMedium),
+                  child: Text(context.l10n.irFinderDatabaseAssistedSearch, style: theme.textTheme.titleMedium),
                 ),
               ],
             ),
@@ -2305,8 +2342,8 @@ class _DbSetupCard extends StatelessWidget {
             ListTile(
               contentPadding: EdgeInsets.zero,
               leading: const Icon(Icons.business_outlined),
-              title: const Text('Brand'),
-              subtitle: Text(brand ?? 'Select a brand'),
+              title: Text(context.l10n.irFinderBrand),
+              subtitle: Text(brand ?? context.l10n.irFinderSelectBrand),
               trailing: const Icon(Icons.chevron_right),
               onTap: running ? null : onPickBrand,
             ),
@@ -2314,8 +2351,8 @@ class _DbSetupCard extends StatelessWidget {
             ListTile(
               contentPadding: EdgeInsets.zero,
               leading: const Icon(Icons.memory_outlined),
-              title: const Text('Model (optional)'),
-              subtitle: Text(model ?? (brand == null ? 'Select a brand first' : 'Select a model (recommended)')),
+              title: Text(context.l10n.irFinderModelOptional),
+              subtitle: Text(model ?? (brand == null ? context.l10n.irFinderSelectBrandFirstShort : context.l10n.irFinderSelectModelRecommended)),
               trailing: const Icon(Icons.chevron_right),
               onTap: (running || brand == null) ? null : onPickModel,
             ),
@@ -2324,19 +2361,19 @@ class _DbSetupCard extends StatelessWidget {
               contentPadding: EdgeInsets.zero,
               value: onlySelectedProtocol,
               onChanged: running ? null : onToggleOnlySelectedProtocol,
-              title: const Text('Only selected protocol'),
-              subtitle: const Text('Filters keys to the selected protocol. Disable to browse all protocols.'),
+              title: Text(context.l10n.irFinderOnlySelectedProtocol),
+              subtitle: Text(context.l10n.irFinderOnlySelectedProtocolHint),
             ),
             SwitchListTile.adaptive(
               contentPadding: EdgeInsets.zero,
               value: quickWinsFirst,
               onChanged: running ? null : onToggleQuickWinsFirst,
-              title: const Text('Quick wins first'),
-              subtitle: const Text('Prioritizes POWER/MUTE/VOL/CH style keys before deeper keys.'),
+              title: Text(context.l10n.irFinderQuickWinsFirst),
+              subtitle: Text(context.l10n.irFinderQuickWinsFirstHint),
             ),
             const SizedBox(height: 10),
             Text(
-              'Max keys to test (per run)',
+              context.l10n.irFinderMaxKeysPerRun,
               style: theme.textTheme.labelLarge?.copyWith(fontWeight: FontWeight.w700),
             ),
             const SizedBox(height: 6),
@@ -2403,14 +2440,16 @@ class _RunStatusCard extends StatelessWidget {
     final progress = maxAttempts <= 0 ? 0.0 : (attempted / maxAttempts).clamp(0.0, 1.0);
 
     final elapsed = (startedAt == null) ? null : DateTime.now().difference(startedAt!);
-    String etaText = '—';
+    String etaText = context.l10n.notAvailableSymbol;
     if (elapsed != null && attempted > 0 && maxAttempts > attempted) {
       final per = elapsed.inMilliseconds / attempted;
       final remaining = (maxAttempts - attempted) * per;
-      etaText = _formatEta(Duration(milliseconds: remaining.round()));
+      etaText = _formatEta(context, Duration(milliseconds: remaining.round()));
     }
 
-    final String statusLabel = !running ? 'Idle' : (paused ? 'Paused' : 'Testing…');
+    final String statusLabel = !running
+        ? context.l10n.idle
+        : (paused ? context.l10n.paused : context.l10n.irFinderTesting);
     final IconData statusIcon = !running
         ? Icons.pause_circle_outline
         : paused
@@ -2420,8 +2459,8 @@ class _RunStatusCard extends StatelessWidget {
     final bool hasError = lastError != null;
 
     final String playLabel = !running
-        ? 'Start'
-        : (paused ? 'Resume' : 'Pause');
+        ? context.l10n.start
+        : (paused ? context.l10n.resume : context.l10n.pause);
 
     final IconData playIcon = !running
         ? Icons.play_arrow_rounded
@@ -2464,9 +2503,14 @@ class _RunStatusCard extends StatelessWidget {
               spacing: 10,
               runSpacing: 8,
               children: [
-                _MiniChip(label: 'Cooldown', value: '${delayMs}ms'),
-                _MiniChip(label: 'ETA', value: etaText),
-                _MiniChip(label: 'Mode', value: mode == IrFinderMode.bruteforce ? 'Brute-force' : 'Database'),
+                _MiniChip(label: context.l10n.irFinderCooldown, value: '${delayMs}ms'),
+                _MiniChip(label: context.l10n.irFinderEta, value: etaText),
+                _MiniChip(
+                  label: context.l10n.irFinderMode,
+                  value: mode == IrFinderMode.bruteforce
+                      ? context.l10n.irFinderBruteforceMode
+                      : context.l10n.irFinderDatabaseMode,
+                ),
               ],
             ),
             const SizedBox(height: 12),
@@ -2486,7 +2530,7 @@ class _RunStatusCard extends StatelessWidget {
                   child: FilledButton.tonalIcon(
                     onPressed: onStop,
                     icon: const Icon(Icons.stop_rounded),
-                    label: const Text('Stop'),
+                    label: Text(context.l10n.stop),
                   ),
                 ),
               ],
@@ -2498,7 +2542,7 @@ class _RunStatusCard extends StatelessWidget {
                   child: FilledButton.tonalIcon(
                     onPressed: onStep == null ? null : () => onStep!.call(),
                     icon: const Icon(Icons.skip_previous_rounded),
-                    label: const Text('Step'),
+                    label: Text(context.l10n.step),
                   ),
                 ),
                 const SizedBox(width: 12),
@@ -2506,7 +2550,7 @@ class _RunStatusCard extends StatelessWidget {
                   child: FilledButton.tonalIcon(
                     onPressed: onTrigger == null ? null : () => onTrigger!.call(),
                     icon: Icon(hasError ? Icons.replay_rounded : Icons.repeat_rounded),
-                    label: Text(hasError ? 'Retry last' : 'Trigger'),
+                    label: Text(hasError ? context.l10n.irFinderRetryLast : context.l10n.irFinderTrigger),
                   ),
                 ),
               ],
@@ -2518,7 +2562,7 @@ class _RunStatusCard extends StatelessWidget {
                  child: FilledButton.tonalIcon(
                    onPressed: onSkip,
                    icon: const Icon(Icons.skip_next_rounded),
-                   label: const Text('Skip'),
+                   label: Text(context.l10n.skip),
                  ),
                ),
                const SizedBox(width: 12),
@@ -2526,7 +2570,7 @@ class _RunStatusCard extends StatelessWidget {
                  child: FilledButton.tonalIcon(
                    onPressed: onJump,
                    icon: const Icon(Icons.my_location_rounded),
-                   label: const Text('Jump…'),
+                   label: Text(context.l10n.irFinderJump),
                  ),
                ),
              ],
@@ -2535,7 +2579,7 @@ class _RunStatusCard extends StatelessWidget {
             FilledButton.icon(
               onPressed: onSaveHit,
               icon: const Icon(Icons.bookmark_add_outlined),
-              label: const Text('Save hit'),
+              label: Text(context.l10n.irFinderSaveHit),
             ),
           ],
         ),
@@ -2543,15 +2587,15 @@ class _RunStatusCard extends StatelessWidget {
     );
   }
 
-  static String _formatEta(Duration d) {
+  static String _formatEta(BuildContext context, Duration d) {
     final int s = d.inSeconds;
-    if (s < 60) return '${s}s';
+    if (s < 60) return context.l10n.irFinderEtaSeconds(s);
     final int m = s ~/ 60;
     final int rs = s % 60;
-    if (m < 60) return '${m}m ${rs}s';
+    if (m < 60) return context.l10n.irFinderEtaMinutesSeconds(m, rs);
     final int h = m ~/ 60;
     final int rm = m % 60;
-    return '${h}h ${rm}m';
+    return context.l10n.irFinderEtaHoursMinutes(h, rm);
   }
 }
 
@@ -2573,16 +2617,20 @@ class _LastAttemptBox extends StatelessWidget {
     final cs = theme.colorScheme;
     final c = candidate;
 
-    final String title = (c == null) ? 'Last attempted code: —' : 'Last attempted code: ${c.displayProtocol} ${c.displayCode}';
+    final String title = (c == null)
+        ? context.l10n.irFinderLastAttemptedCode(context.l10n.notAvailableSymbol)
+        : context.l10n.irFinderLastAttemptedCode('${c.displayProtocol} ${c.displayCode}');
 
     final String subtitle = (c == null)
-        ? 'Start testing to see the last attempted code.'
+        ? context.l10n.irFinderStartTestingToSeeLastCode
         : (c.source == IrFinderSource.database)
-            ? 'From DB: ${c.dbBrand ?? '—'}'
-                '${(c.dbModel != null && c.dbModel!.trim().isNotEmpty) ? ' · ${c.dbModel}' : ''}'
-                '${(c.dbLabel != null && c.dbLabel!.trim().isNotEmpty) ? ' · Key: ${c.dbLabel}' : ''}'
-                '${(c.dbRemoteId != null) ? ' · Remote #${c.dbRemoteId}' : ''}'
-            : 'From brute-force (generated by protocol encoder).';
+            ? [
+                context.l10n.irFinderFromDb(c.dbBrand ?? context.l10n.notAvailableSymbol),
+                if (c.dbModel != null && c.dbModel!.trim().isNotEmpty) c.dbModel!,
+                if (c.dbLabel != null && c.dbLabel!.trim().isNotEmpty) context.l10n.irFinderKeyValue(c.dbLabel!),
+                if (c.dbRemoteId != null) context.l10n.irFinderRemoteNumber(c.dbRemoteId!.toString()),
+              ].join(' · ')
+            : context.l10n.irFinderFromBruteforce;
 
     final bool hasError = error != null;
 
@@ -2610,7 +2658,7 @@ class _LastAttemptBox extends StatelessWidget {
              ),
              if (onCopy != null)
                IconButton(
-                 tooltip: 'Copy current',
+                 tooltip: context.l10n.copiedCurrentCandidate,
                  icon: Icon(Icons.copy_rounded, color: hasError ? cs.onErrorContainer : cs.onSurface),
                  onPressed: onCopy,
                ),
@@ -2626,7 +2674,7 @@ class _LastAttemptBox extends StatelessWidget {
           if (hasError) ...[
             const SizedBox(height: 8),
             Text(
-              'Send error: $error',
+              context.l10n.irFinderSendError(error.toString()),
               style: theme.textTheme.bodySmall?.copyWith(
                 color: cs.onErrorContainer.withValues(alpha: 0.9),
                 fontWeight: FontWeight.w600,
@@ -2659,11 +2707,13 @@ class _HitTile extends StatelessWidget {
     final theme = Theme.of(context);
 
     final subtitle = <String>[
-      'Source: ${hit.source == IrFinderSource.database ? 'Database' : 'Brute-force'}',
-      if (hit.dbBrand != null && hit.dbBrand!.trim().isNotEmpty) 'Brand: ${hit.dbBrand}',
-      if (hit.dbModel != null && hit.dbModel!.trim().isNotEmpty) 'Model: ${hit.dbModel}',
-      if (hit.dbLabel != null && hit.dbLabel!.trim().isNotEmpty) 'Key: ${hit.dbLabel}',
-      if (hit.dbRemoteId != null) 'Remote #${hit.dbRemoteId}',
+      context.l10n.irFinderSourceValue(
+        hit.source == IrFinderSource.database ? context.l10n.irFinderDatabaseMode : context.l10n.irFinderBruteforceMode,
+      ),
+      if (hit.dbBrand != null && hit.dbBrand!.trim().isNotEmpty) context.l10n.irFinderBrandValue(hit.dbBrand!),
+      if (hit.dbModel != null && hit.dbModel!.trim().isNotEmpty) context.l10n.irFinderModelValue(hit.dbModel!),
+      if (hit.dbLabel != null && hit.dbLabel!.trim().isNotEmpty) context.l10n.irFinderKeyValue(hit.dbLabel!),
+      if (hit.dbRemoteId != null) context.l10n.irFinderRemoteNumber(hit.dbRemoteId!.toString()),
     ].join(' · ');
 
     return ListTile(
@@ -2678,22 +2728,22 @@ class _HitTile extends StatelessWidget {
         spacing: 8,
         children: [
           IconButton(
-            tooltip: 'Add to remote',
+            tooltip: context.l10n.addToRemote,
             onPressed: onAddToRemote,
             icon: const Icon(Icons.add_circle_outline_rounded),
           ),
           IconButton(
-            tooltip: 'Test',
+            tooltip: context.l10n.irFinderTestTab,
             onPressed: onTest,
             icon: const Icon(Icons.play_arrow_rounded),
           ),
           IconButton(
-            tooltip: 'Copy',
+            tooltip: context.l10n.copy,
             onPressed: onCopy,
             icon: const Icon(Icons.copy_rounded),
           ),
           IconButton(
-            tooltip: 'Delete',
+            tooltip: context.l10n.delete,
             onPressed: onDelete,
             icon: Icon(Icons.delete_outline, color: theme.colorScheme.error),
           ),
@@ -2711,9 +2761,7 @@ class _ResultsNote extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Text(
-      'Note: Direct “Add to Remote/Button” integration depends on your Remote/IRButton editing flow. '
-      'For now, Results support “Test” and “Copy” so you can paste into your existing Remote editor. '
-      'When you share your Remote editor files, this screen can be extended to insert hits directly.',
+      context.l10n.irFinderResultsNote,
       style: theme.textTheme.bodySmall?.copyWith(
         color: theme.colorScheme.onSurface.withValues(alpha: 0.65),
       ),
@@ -2879,8 +2927,9 @@ class _DbCandidatesSheetState extends State<_DbCandidatesSheet> {
       if (!mounted) return;
       setState(() => _exhausted = true);
     } finally {
-      if (!mounted) return;
-      setState(() => _loading = false);
+      if (mounted) {
+        setState(() => _loading = false);
+      }
     }
   }
 
@@ -2895,9 +2944,9 @@ class _DbCandidatesSheetState extends State<_DbCandidatesSheet> {
           children: [
             Row(
               children: [
-                Expanded(child: Text('Browse DB candidates', style: theme.textTheme.titleLarge)),
+                Expanded(child: Text(context.l10n.irFinderBrowseDbCandidatesTitle, style: theme.textTheme.titleLarge)),
                 IconButton(
-                  tooltip: 'Close',
+                  tooltip: context.l10n.close,
                   onPressed: () => Navigator.of(context).pop(),
                   icon: const Icon(Icons.close_rounded),
                 ),
@@ -2906,10 +2955,10 @@ class _DbCandidatesSheetState extends State<_DbCandidatesSheet> {
             const SizedBox(height: 8),
             TextField(
               controller: _searchCtl,
-              decoration: const InputDecoration(
-                hintText: 'Filter by label or hex…',
-                prefixIcon: Icon(Icons.search_rounded),
-                border: OutlineInputBorder(),
+              decoration: InputDecoration(
+                hintText: context.l10n.irFinderFilterByLabelOrHex,
+                prefixIcon: const Icon(Icons.search_rounded),
+                border: const OutlineInputBorder(),
               ),
             ),
             const SizedBox(height: 8),
@@ -2931,22 +2980,29 @@ class _DbCandidatesSheetState extends State<_DbCandidatesSheet> {
                         final protoNorm = r.protocol.trim().toLowerCase().replaceAll('-', '_');
                         return ListTile(
                           title: Text('${r.label} · ${r.hexcode}'),
-                          subtitle: Text('Remote #${r.remoteId} · ${r.protocol} · ${r.brand}${(r.model ?? '').trim().isNotEmpty ? ' · ${r.model}' : ''}'),
+                          subtitle: Text(
+                            [
+                              context.l10n.irFinderRemoteNumber(r.remoteId.toString()),
+                              r.protocol,
+                              r.brand,
+                              if ((r.model ?? '').trim().isNotEmpty) r.model!,
+                            ].join(' · '),
+                          ),
                           trailing: Wrap(
                             spacing: 8,
                             children: [
                               IconButton(
-                                tooltip: 'Jump here',
+                                tooltip: context.l10n.irFinderJumpHere,
                                 onPressed: () => widget.onJumpToOffset(i),
                                 icon: const Icon(Icons.my_location_rounded),
                               ),
                               IconButton(
-                                tooltip: 'Send',
+                                tooltip: context.l10n.send,
                                 onPressed: () => widget.onSend(protoNorm, r.hexcode),
                                 icon: const Icon(Icons.play_arrow_rounded),
                               ),
                               IconButton(
-                                tooltip: 'Copy',
+                                tooltip: context.l10n.copy,
                                 onPressed: () => widget.onCopy(protoNorm, r.hexcode),
                                 icon: const Icon(Icons.copy_rounded),
                               ),
@@ -3046,16 +3102,17 @@ class _DbPickerSheetState extends State<_DbPickerSheet> {
       if (!mounted) return;
       setState(() => _exhausted = true);
     } finally {
-      if (!mounted) return;
-      setState(() => _loading = false);
+      if (mounted) {
+        setState(() => _loading = false);
+      }
     }
   }
 
   @override
   Widget build(BuildContext context) {
     final theme = Theme.of(context);
-    final title = widget.kind == _DbPickerKind.brand ? 'Select brand' : 'Select model';
-    final hint = widget.kind == _DbPickerKind.brand ? 'Search brands…' : 'Search models…';
+    final title = widget.kind == _DbPickerKind.brand ? context.l10n.irFinderSelectBrand : context.l10n.irFinderSelectModel;
+    final hint = widget.kind == _DbPickerKind.brand ? context.l10n.irFinderSearchBrands : context.l10n.irFinderSearchModels;
 
     return SafeArea(
       child: Padding(
@@ -3072,7 +3129,7 @@ class _DbPickerSheetState extends State<_DbPickerSheet> {
               children: [
                 Expanded(child: Text(title, style: theme.textTheme.titleLarge)),
                 IconButton(
-                  tooltip: 'Close',
+                  tooltip: context.l10n.close,
                   onPressed: () => Navigator.of(context).pop(),
                   icon: const Icon(Icons.close_rounded),
                 ),

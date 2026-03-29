@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
+import 'package:irblaster_controller/l10n/icon_picker_names.dart';
+import 'package:irblaster_controller/l10n/l10n.dart';
 import 'package:irblaster_controller/state/haptics.dart';
 import 'package:irblaster_controller/state/device_controls_prefs.dart';
 import 'package:irblaster_controller/state/remotes_state.dart';
@@ -32,8 +33,8 @@ class _RemoteListState extends State<RemoteList> {
     if (v && mounted) {
       ScaffoldMessenger.of(context).hideCurrentSnackBar();
       ScaffoldMessenger.of(context).showSnackBar(
-        const SnackBar(
-          content: Text('Reorder mode: long-press and drag a card to move it.'),
+        SnackBar(
+          content: Text(context.l10n.remoteListReorderHint),
           duration: Duration(seconds: 2),
         ),
       );
@@ -58,13 +59,13 @@ class _RemoteListState extends State<RemoteList> {
               Icon(Icons.warning_amber_rounded, size: 44, color: theme.colorScheme.error),
               const SizedBox(height: 12),
               Text(
-                "Delete remote?",
+                context.l10n.deleteRemoteTitle,
                 style: theme.textTheme.titleLarge
                     ?.copyWith(fontWeight: FontWeight.w800),
               ),
               const SizedBox(height: 8),
               Text(
-                '"${remote.name}" will be permanently removed. This action can\'t be undone.',
+                context.l10n.deleteRemoteMessage(remote.name),
                 textAlign: TextAlign.center,
                 style: theme.textTheme.bodyMedium?.copyWith(
                   color: theme.colorScheme.onSurface.withValues(alpha: 0.75),
@@ -77,7 +78,7 @@ class _RemoteListState extends State<RemoteList> {
                   Expanded(
                     child: OutlinedButton(
                       onPressed: () => Navigator.of(ctx).pop(false),
-                      child: const Text("Cancel"),
+                      child: Text(context.l10n.cancel),
                     ),
                   ),
                   const SizedBox(width: 12),
@@ -89,7 +90,7 @@ class _RemoteListState extends State<RemoteList> {
                       ),
                       onPressed: () => Navigator.of(ctx).pop(true),
                       icon: const Icon(Icons.delete_forever),
-                      label: const Text("Delete"),
+                      label: Text(context.l10n.delete),
                     ),
                   ),
                 ],
@@ -135,7 +136,7 @@ class _RemoteListState extends State<RemoteList> {
       if (!mounted) return;
       Haptics.selectionClick();
       ScaffoldMessenger.of(context).showSnackBar(
-        SnackBar(content: Text('Updated "${editedRemote.name}".')),
+        SnackBar(content: Text(context.l10n.remoteUpdatedNamed(editedRemote.name))),
       );
     } catch (_) {}
   }
@@ -150,7 +151,7 @@ class _RemoteListState extends State<RemoteList> {
       context: context,
       builder: (ctx) {
         return AlertDialog(
-          title: const Text('Add to Device Controls?'),
+          title: Text(context.l10n.addToDeviceControlsTitle),
           content: StatefulBuilder(
             builder: (ctx, setState) {
               return SizedBox(
@@ -158,7 +159,7 @@ class _RemoteListState extends State<RemoteList> {
                 child: ListView(
                   shrinkWrap: true,
                   children: [
-                    const Text('Quick access in the system device controls.'),
+                    Text(context.l10n.addToDeviceControlsDescription),
                     const SizedBox(height: 10),
                     ...candidates.map((b) {
                       final title = _buttonDisplayLabel(b);
@@ -184,10 +185,10 @@ class _RemoteListState extends State<RemoteList> {
             },
           ),
           actions: [
-            TextButton(onPressed: () => Navigator.of(ctx).pop(false), child: const Text('Skip')),
+            TextButton(onPressed: () => Navigator.of(ctx).pop(false), child: Text(context.l10n.skip)),
             FilledButton(
               onPressed: () => Navigator.of(ctx).pop(true),
-              child: const Text('Add'),
+              child: Text(context.l10n.add),
             ),
           ],
         );
@@ -206,7 +207,7 @@ class _RemoteListState extends State<RemoteList> {
 
     if (!mounted) return;
     ScaffoldMessenger.of(context).showSnackBar(
-      const SnackBar(content: Text('Added to Device Controls.')),
+      SnackBar(content: Text(context.l10n.addedToDeviceControls)),
     );
   }
 
@@ -225,8 +226,9 @@ class _RemoteListState extends State<RemoteList> {
   String _buttonDisplayLabel(IRButton b) {
     return displayButtonLabel(
       b,
-      fallback: 'Unnamed button',
-      iconFallback: 'Icon',
+      fallback: context.l10n.unnamedButton,
+      iconFallback: context.l10n.iconFallback,
+      iconNameLocalizer: (name) => localizedIconPickerName(context.l10n, name),
     );
   }
 
@@ -271,7 +273,7 @@ class _RemoteListState extends State<RemoteList> {
     Haptics.selectionClick();
     ScaffoldMessenger.of(context).showSnackBar(
       SnackBar(
-        content: Text('Deleted "${remote.name}". This action can\'t be undone.'),
+        content: Text(context.l10n.deletedRemoteUndoUnavailable(remote.name)),
       ),
     );
   }
@@ -321,7 +323,12 @@ class _RemoteListState extends State<RemoteList> {
                           ),
                           const SizedBox(height: 2),
                           Text(
-                            '${remote.buttons.length} button(s) · ${remote.useNewStyle ? 'Comfort' : 'Compact'}',
+                            context.l10n.remoteLayoutSummary(
+                              remote.buttons.length.toString(),
+                              remote.useNewStyle
+                                  ? context.l10n.layoutComfort
+                                  : context.l10n.layoutCompact,
+                            ),
                             style: theme.textTheme.bodySmall?.copyWith(
                                 color: cs.onSurface.withValues(alpha: 0.7),
                                 fontWeight: FontWeight.w600),
@@ -336,8 +343,8 @@ class _RemoteListState extends State<RemoteList> {
                 ListTile(
                   contentPadding: EdgeInsets.zero,
                   leading: const Icon(Icons.play_arrow_rounded),
-                  title: const Text('Open'),
-                  subtitle: const Text('Use this remote'),
+                  title: Text(context.l10n.open),
+                  subtitle: Text(context.l10n.useThisRemote),
                   trailing: const Icon(Icons.chevron_right_rounded),
                   onTap: () {
                     Navigator.of(ctx).pop();
@@ -353,8 +360,8 @@ class _RemoteListState extends State<RemoteList> {
                 ListTile(
                   contentPadding: EdgeInsets.zero,
                   leading: const Icon(Icons.edit_outlined),
-                  title: const Text('Edit'),
-                  subtitle: const Text('Rename, and edit buttons'),
+                  title: Text(context.l10n.edit),
+                  subtitle: Text(context.l10n.editRemoteSubtitle),
                   trailing: const Icon(Icons.chevron_right_rounded),
                   onTap: () {
                     Navigator.of(ctx).pop();
@@ -366,13 +373,13 @@ class _RemoteListState extends State<RemoteList> {
                   contentPadding: EdgeInsets.zero,
                   leading: Icon(Icons.delete_outline, color: cs.error),
                   title: Text(
-                    'Delete',
+                    context.l10n.delete,
                     style: TextStyle(
                       color: cs.error,
                       fontWeight: FontWeight.w800,
                     ),
                   ),
-                  subtitle: const Text('This cannot be undone'),
+                  subtitle: Text(context.l10n.thisCannotBeUndone),
                   onTap: () async {
                     Navigator.of(ctx).pop();
                     await _deleteRemoteAt(index);
@@ -430,15 +437,19 @@ class _RemoteListState extends State<RemoteList> {
     return ValueListenableBuilder<int>(
       valueListenable: remotesRevision,
       builder: (context, _, __) {
-        return WillPopScope(
-          onWillPop: _onWillPop,
+        return PopScope(
+          canPop: !_reorderMode,
+          onPopInvokedWithResult: (didPop, _) async {
+            if (didPop) return;
+            await _onWillPop();
+          },
           child: Scaffold(
             appBar: AppBar(
-              title: const Text("Remotes"),
+              title: Text(context.l10n.remotesNavLabel),
               actions: [
                 if (!_reorderMode)
                   IconButton(
-                    tooltip: 'Search Remotes',
+                    tooltip: context.l10n.searchRemotes,
                     icon: const Icon(Icons.search),
                     onPressed: () {
                       showSearch(
@@ -468,7 +479,7 @@ class _RemoteListState extends State<RemoteList> {
                     },
                   ),
                 IconButton(
-                  tooltip: _reorderMode ? 'Done' : 'Reorder remotes',
+                  tooltip: _reorderMode ? context.l10n.done : context.l10n.reorderRemotes,
                   icon: Icon(_reorderMode ? Icons.check_rounded : Icons.drag_indicator_rounded),
                   onPressed: () => _setReorderMode(!_reorderMode),
                 ),
@@ -477,7 +488,7 @@ class _RemoteListState extends State<RemoteList> {
             floatingActionButton: FloatingActionButton.extended(
               onPressed: _reorderMode ? null : _addRemote,
               icon: const Icon(Icons.add),
-              label: const Text('Add remote'),
+              label: Text(context.l10n.addRemote),
             ),
             body: SafeArea(
               child: remotes.isEmpty
@@ -576,7 +587,7 @@ class _ReorderHintBanner extends StatelessWidget {
             const SizedBox(width: 10),
             Expanded(
               child: Text(
-                'Reorder mode: long-press and drag a card to move it.',
+                context.l10n.remoteListReorderHint,
                 style: theme.textTheme.bodyMedium?.copyWith(
                   fontWeight: FontWeight.w700,
                   color: cs.onSecondaryContainer.withValues(alpha: 0.92),
@@ -586,7 +597,7 @@ class _ReorderHintBanner extends StatelessWidget {
             const SizedBox(width: 8),
             FilledButton.tonal(
               onPressed: onDone,
-              child: const Text('Done'),
+              child: Text(context.l10n.done),
             ),
           ],
         ),
@@ -662,7 +673,7 @@ class _RemoteCard extends StatelessWidget {
                       width: 36,
                       height: 36,
                       child: IconButton(
-                        tooltip: 'More',
+                        tooltip: context.l10n.more,
                         onPressed: onOverflow,
                         icon: const Icon(Icons.more_vert_rounded, size: 20),
                         padding: EdgeInsets.zero,
@@ -723,7 +734,10 @@ class _RemoteCard extends StatelessWidget {
                     const SizedBox(width: 6),
                     Flexible(
                       child: Text(
-                        '$count button${count != 1 ? 's' : ''}',
+                        context.l10n.remoteButtonCount(
+                          count.toString(),
+                          count != 1 ? 's' : '',
+                        ),
                         style: theme.textTheme.labelSmall?.copyWith(
                           fontWeight: FontWeight.w800,
                           color: cs.onSurface.withValues(alpha: 0.85),
@@ -760,13 +774,13 @@ class _EmptyState extends StatelessWidget {
             Icon(Icons.grid_view_outlined, size: 52, color: theme.colorScheme.primary),
             const SizedBox(height: 12),
             Text(
-              'No remotes yet',
+              context.l10n.noRemotesYet,
               style: theme.textTheme.titleLarge
                   ?.copyWith(fontWeight: FontWeight.w800),
             ),
             const SizedBox(height: 8),
             Text(
-              'Create a remote to start sending IR codes.',
+              context.l10n.noRemotesDescription,
               textAlign: TextAlign.center,
               style: theme.textTheme.bodyMedium?.copyWith(
                 color: theme.colorScheme.onSurface.withValues(alpha: 0.75),
@@ -775,7 +789,7 @@ class _EmptyState extends StatelessWidget {
             ),
             const SizedBox(height: 6),
             Text(
-              'What next: tap Add remote, then add your first buttons.',
+              context.l10n.noRemotesNextStep,
               textAlign: TextAlign.center,
               style: theme.textTheme.bodySmall?.copyWith(
                 color: theme.colorScheme.onSurface.withValues(alpha: 0.7),
@@ -786,7 +800,7 @@ class _EmptyState extends StatelessWidget {
             FilledButton.icon(
               onPressed: onAdd,
               icon: const Icon(Icons.add),
-              label: const Text('Add remote'),
+              label: Text(context.l10n.addRemote),
             ),
           ],
         ),
@@ -814,20 +828,20 @@ class RemoteSearchDelegate extends SearchDelegate {
       context: context,
       builder: (ctx) => AlertDialog(
         icon: Icon(Icons.warning_amber_rounded, color: theme.colorScheme.error, size: 32),
-        title: const Text('Delete remote?'),
+        title: Text(context.l10n.deleteRemoteTitle),
         content: Text(
-          '"$remoteName" will be permanently removed. This action can\'t be undone.',
+          context.l10n.deleteRemoteMessage(remoteName),
           style: theme.textTheme.bodyMedium,
         ),
         actions: [
           TextButton(
             onPressed: () => Navigator.of(ctx).pop(false),
-            child: const Text('Cancel'),
+            child: Text(context.l10n.cancel),
           ),
           FilledButton.tonalIcon(
             onPressed: () => Navigator.of(ctx).pop(true),
             icon: const Icon(Icons.delete_forever),
-            label: const Text('Delete'),
+            label: Text(context.l10n.delete),
             style: FilledButton.styleFrom(
               foregroundColor: theme.colorScheme.onErrorContainer,
               backgroundColor: theme.colorScheme.errorContainer,
@@ -915,7 +929,7 @@ class RemoteSearchDelegate extends SearchDelegate {
               ),
             ),
             trailing: PopupMenuButton<_RemoteMenuAction>(
-              tooltip: 'Actions',
+              tooltip: context.l10n.actions,
               onSelected: (_RemoteMenuAction a) async {
                 if (a == _RemoteMenuAction.open) {
                   close(context, null);
@@ -924,6 +938,7 @@ class RemoteSearchDelegate extends SearchDelegate {
                 }
                 if (a == _RemoteMenuAction.edit) {
                   await onEdit?.call(remote);
+                  if (!context.mounted) return;
                   showSuggestions(context);
                   return;
                 }
@@ -931,29 +946,30 @@ class RemoteSearchDelegate extends SearchDelegate {
                   final confirm = await _confirmDelete(context, remote.name);
                   if (!confirm) return;
                   await onDelete?.call(remote);
+                  if (!context.mounted) return;
                   showSuggestions(context);
                   if (!context.mounted) return;
                   ScaffoldMessenger.of(context).showSnackBar(
                     SnackBar(
                       content: Text(
-                          'Deleted "${remote.name}". This action can\'t be undone.'),
+                          context.l10n.deletedRemoteUndoUnavailable(remote.name)),
                     ),
                   );
                 }
               },
-              itemBuilder: (ctx) => const [
+              itemBuilder: (ctx) => [
                 PopupMenuItem(
                   value: _RemoteMenuAction.open,
                   child: ListTile(
                     leading: Icon(Icons.play_arrow_rounded),
-                    title: Text('Open'),
+                    title: Text(context.l10n.open),
                   ),
                 ),
                 PopupMenuItem(
                   value: _RemoteMenuAction.edit,
                   child: ListTile(
                     leading: Icon(Icons.edit_outlined),
-                    title: Text('Edit'),
+                    title: Text(context.l10n.edit),
                   ),
                 ),
                 PopupMenuDivider(),
@@ -961,7 +977,7 @@ class RemoteSearchDelegate extends SearchDelegate {
                   value: _RemoteMenuAction.delete,
                   child: ListTile(
                     leading: Icon(Icons.delete_outline),
-                    title: Text('Delete'),
+                    title: Text(context.l10n.delete),
                   ),
                 ),
               ],

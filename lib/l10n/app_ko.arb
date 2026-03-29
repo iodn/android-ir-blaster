@@ -1,0 +1,1846 @@
+{
+  "@@locale": "ko",
+  "appTitle": "IR Blaster",
+  "loading": "로드 중…",
+  "unknownError": "알 수 없는 오류",
+  "failedToStart": "시작하지 못했습니다",
+  "retry": "다시 시도",
+  "quickTilePower": "전원",
+  "quickTileMute": "음소거",
+  "quickTileVolumeUp": "볼륨 +",
+  "quickTileVolumeDown": "볼륨 -",
+  "homeUsbPermissionRequiredMessage": "이 휴대폰에는 내장 IR 송신기가 없습니다. USB IR 동글이 감지되었지만 아직 권한이 없습니다.\n\nIR 송신을 사용하려면 USB 권한 프롬프트를 승인하세요.",
+  "homeUsbPermissionDeniedMessage": "이 휴대폰에는 내장 IR 송신기가 없습니다. USB IR 동글이 감지되었지만 USB 권한이 거부되었습니다.\n\nIR 송신을 사용하려면 권한을 다시 요청하고 프롬프트를 승인하세요.",
+  "homeUsbPermissionGrantedMessage": "이 휴대폰에는 내장 IR 송신기가 없습니다. USB IR 동글은 승인되었지만 아직 초기화되지 않았습니다.",
+  "homeUsbOpenFailedMessage": "이 휴대폰에는 내장 IR 송신기가 없습니다. USB IR 동글이 감지되고 승인되었지만 초기화하지 못했습니다.\n\n동글을 다시 연결한 뒤 다시 시도하세요.",
+  "homeUsbReadyMessage": "이 휴대폰에는 내장 IR 송신기가 없습니다. USB IR 동글이 연결되어 준비되었습니다.",
+  "homeUsbNoDeviceMessage": "이 휴대폰에는 내장 IR 송신기가 없고 현재 지원되는 USB IR 동글도 연결되어 있지 않습니다.\n\n리모컨을 만들고 가져오고 관리할 수는 있지만 IR 신호를 보내려면 아래 옵션 중 하나가 필요합니다.",
+  "homeUsbOptionPlugIn": "USB IR 동글 연결",
+  "homeUsbOptionReady": "USB IR 동글 준비됨",
+  "homeUsbOptionPermissionRequired": "USB 권한 필요",
+  "homeUsbOptionPermissionDenied": "USB 권한 거부됨",
+  "homeUsbOptionPermissionGranted": "USB 권한 승인됨",
+  "homeUsbOptionOpenFailed": "USB 초기화 실패",
+  "homeHardwareBannerNoInternal": "이 휴대폰에는 내장 IR이 없습니다. USB IR 동글을 연결하거나 설정에서 오디오 모드를 켜세요.",
+  "homeHardwareBannerPermissionRequired": "USB 동글이 감지되었습니다. IR 전송을 위해 권한이 필요합니다.",
+  "homeHardwareBannerPermissionDenied": "USB 권한이 거부되었습니다. 다시 요청해 IR 전송을 활성화하세요.",
+  "homeHardwareBannerPermissionGranted": "USB 동글이 승인되었습니다. 초기화를 기다리는 중입니다.",
+  "homeHardwareBannerOpenFailed": "USB 동글이 승인되었지만 초기화에 실패했습니다.",
+  "homeHardwareBannerReady": "USB 준비됨.",
+  "homeHardwareRequiredTitle": "IR 명령 전송에는 하드웨어가 필요합니다",
+  "homeUsbDongleRecommended": "USB IR 동글(권장)",
+  "homeAudioAdapterAlternative": "오디오 IR 어댑터(대안)",
+  "homeAudioAdapterDescription": "설정 → IR 송신기 → 오디오(LED 1개 / 2개). 오디오-IR 어댑터가 필요합니다.",
+  "close": "닫기",
+  "homeChooseTransmitter": "송신기 선택",
+  "openSettings": "설정 열기",
+  "homeUsbPermissionSentApprove": "USB 권한 요청을 보냈습니다. USB를 사용하려면 프롬프트를 승인하세요.",
+  "homeUsbDongleNotDetected": "지원되는 USB IR 동글이 감지되지 않았습니다. 연결한 뒤 다시 시도하세요.",
+  "homeUsbPermissionRequestFailed": "USB 권한을 요청하지 못했습니다.",
+  "working": "작업 중…",
+  "requestUsbPermission": "요청 USB 권한",
+  "homeHardwareTip": "팁: 지금도 리모컨을 만들고 정리할 수 있습니다. 하드웨어는 IR 송신 시에만 필요합니다.",
+  "homeNoIrTransmitterTitle": "사용 가능한 IR 송신기가 없습니다",
+  "settingsNavLabel": "설정",
+  "dismiss": "닫기",
+  "remotesNavLabel": "리모컨",
+  "macrosNavLabel": "매크로",
+  "signalTesterNavLabel": "신호 테스터",
+  "settingsTitle": "설정",
+  "remoteNoIrEmitterTitle": "없음 IR 송신기",
+  "remoteNoIrEmitterMessage": "이 기기에는 IR 송신기가 없습니다",
+  "remoteNoIrEmitterNeedsEmitter": "이 앱은 IR 송신 기능이 필요합니다",
+  "remoteDismiss": "닫기",
+  "remoteClose": "닫기",
+  "remoteFailedToSend": "IR 전송 실패: {error}",
+  "@remoteFailedToSend": {
+    "placeholders": {
+      "error": {}
+    }
+  },
+  "remoteFailedToStartLoop": "반복 시작 실패: {error}",
+  "@remoteFailedToStartLoop": {
+    "placeholders": {
+      "error": {}
+    }
+  },
+  "remoteLoopStoppedFailed": "반복이 중지되었습니다(전송 실패): {error}",
+  "@remoteLoopStoppedFailed": {
+    "placeholders": {
+      "error": {}
+    }
+  },
+  "remoteLoopingHint": "\"{title}\" 반복 중입니다. 상단 바에서 중지를 탭하세요.",
+  "@remoteLoopingHint": {
+    "placeholders": {
+      "title": {}
+    }
+  },
+  "remoteLoopStopped": "반복이 중지되었습니다.",
+  "remoteUpdatedNotFound": "리모컨이 저장 목록에서 업데이트되었지만 찾을 수 없습니다.",
+  "remoteUpdatedNamed": "\"{name}\" 업데이트됨.",
+  "@remoteUpdatedNamed": {
+    "placeholders": {
+      "name": {}
+    }
+  },
+  "remoteDeleteFailed": "삭제 실패: {error}",
+  "@remoteDeleteFailed": {
+    "placeholders": {
+      "error": {}
+    }
+  },
+  "remoteNotFoundSavedList": "리모컨을 저장 목록에서 찾을 수 없습니다.",
+  "remoteDeletedNamed": "\"{name}\" 삭제됨.",
+  "@remoteDeletedNamed": {
+    "placeholders": {
+      "name": {}
+    }
+  },
+  "buttonFallbackTitle": "버튼",
+  "imageFallbackTitle": "이미지",
+  "noBrowserAvailable": "사용 가능한 브라우저가 없습니다",
+  "failedToOpen": "열지 못했습니다: {error}",
+  "@failedToOpen": {
+    "placeholders": {
+      "error": {}
+    }
+  },
+  "cancel": "취소",
+  "settingsRestoreDemoTitle": "데모 리모컨을 복원할까요?",
+  "settingsRestoreDemoMessage": "현재 리모컨이 내장 데모 리모컨으로 바뀝니다. 현재 목록을 유지하려면 백업을 권장합니다.",
+  "settingsRestoreDemoConfirm": "데모 복원",
+  "settingsDemoRemotesRestored": "데모 리모컨을 복원했습니다.",
+  "settingsDeleteAllRemotesTitle": "모든 리모컨을 삭제할까요?",
+  "settingsDeleteAllRemotesMessage": "이 기기의 모든 리모컨을 삭제합니다. 이 작업은 되돌릴 수 없습니다.",
+  "settingsDeleteAllConfirm": "모두 삭제",
+  "settingsAllRemotesDeleted": "모든 리모컨을 삭제했습니다.",
+  "themeAuto": "자동 테마",
+  "themeLight": "라이트 테마",
+  "themeDark": "다크 테마",
+  "themeDescAuto": "기기 설정을 따름",
+  "themeDescLight": "항상 밝고 선명함",
+  "themeDescDark": "눈이 편안함",
+  "themeHintAuto": "기기 설정이 라이트 모드와 다크 모드 사이에서 바뀌면 테마도 자동으로 전환됩니다",
+  "themeHintLight": "주간 사용과 밝은 환경에 적합합니다",
+  "themeHintDark": "어두운 환경에서 눈의 피로를 줄이고 OLED 화면의 배터리를 절약합니다",
+  "supportDevelopmentTitle": "개발 지원",
+  "supportDevelopmentSubtitle": "IR Blaster를 계속 유지하고 하드웨어 호환성을 개선합니다",
+  "supportDevelopmentBody": "광고 없음, 추적 없음, 잠긴 기능 없음. 여러분의 지원은 프로토콜 작업, USB 동글 지원, 기기 간 호환성 개선에 사용됩니다.",
+  "donate": "후원",
+  "starRepo": "저장소에 별표",
+  "repositoryLinkCopied": "저장소 링크를 복사했습니다",
+  "supportPillLocalOnly": "로컬 전용",
+  "supportPillNoTracking": "추적 없음",
+  "supportPillHardwareAware": "하드웨어 인식",
+  "supportPillOpenSource": "오픈 소스",
+  "appearanceTitle": "화면 표시",
+  "appearanceSubtitle": "시각적 경험 맞춤 설정",
+  "localizationTitle": "현지화",
+  "localizationSubtitle": "앱 언어와 번역 동작",
+  "localizationAutoUsing": "자동: {language} 사용 중",
+  "@localizationAutoUsing": {
+    "placeholders": {
+      "language": {}
+    }
+  },
+  "localizationAutoDescription": "가능한 경우 앱이 기기 언어를 따릅니다.",
+  "localizationManualDescription": "앱 언어가 수동으로 재정의되었습니다.",
+  "useSystemLanguageTitle": "시스템 언어 사용",
+  "useSystemLanguageEnabled": "기기 언어 사용 중: {language}",
+  "@useSystemLanguageEnabled": {
+    "placeholders": {
+      "language": {}
+    }
+  },
+  "useSystemLanguageDisabled": "기기 기본값 대신 아래에서 선택한 언어를 사용합니다.",
+  "chooseAppLanguage": "앱 언어 선택",
+  "languagePickerDisabledHint": "수동으로 언어를 선택하려면 시스템 언어 사용을 끄세요.",
+  "searchLanguages": "언어 검색",
+  "noLanguagesFound": "일치하는 언어가 없습니다",
+  "localizationHint": "시스템 언어를 사용하면 앱은 기기 로캘을 따르고 번역이 없을 때는 영어로 대체됩니다. 앱 언어를 고정하려면 이를 끄세요.",
+  "appLanguageTitle": "앱 언어",
+  "appLanguageHint": "자동은 기기 언어를 따릅니다. 앱에만 적용할 언어로 영어 또는 프랑스어를 선택할 수 있습니다.",
+  "languageAuto": "자동(시스템)",
+  "languageAutoDescription": "기기 언어를 자동으로 따르기",
+  "languageEnglish": "영어",
+  "languageEnglishDescription": "앱이 항상 영어를 사용하도록 강제",
+  "languageFrench": "프랑스어",
+  "languageFrenchDescription": "앱이 항상 프랑스어를 사용하도록 강제",
+  "languageAutoShort": "자동",
+  "languageEnglishShort": "영어",
+  "languageFrenchShort": "Français",
+  "useDynamicColors": "동적 색상 사용",
+  "themeChoiceAuto": "자동",
+  "themeChoiceLight": "라이트",
+  "themeChoiceDark": "다크",
+  "irTransmitterTitle": "IR 송신기",
+  "irTransmitterSubtitle": "IR 명령을 보낼 하드웨어를 선택하세요",
+  "interactionTitle": "상호작용",
+  "interactionSubtitle": "터치 피드백과 리모컨 레이아웃",
+  "hapticFeedbackTitle": "햅틱 피드백",
+  "hapticFeedbackSubtitle": "탭과 동작 시 진동",
+  "intensity": "강도",
+  "intensityLight": "라이트",
+  "intensityMedium": "중간",
+  "intensityStrong": "강함",
+  "flipRemoteDefaultTitle": "기본으로 리모컨 보기 뒤집기",
+  "flipRemoteDefaultSubtitle": "리모컨 화면을 180° 회전된 상태로 엽니다(하단 장착 USB 동글용).",
+  "remoteViewFlipped": "리모컨 보기가 뒤집힌 상태로 열립니다.",
+  "remoteViewNormal": "리모컨 보기가 정상으로 열립니다.",
+  "backupTitle": "백업",
+  "backupSubtitle": "리모컨과 매크로 가져오기/내보내기",
+  "importBackup": "백업 가져오기",
+  "importBackupSubtitle": "리모컨/매크로 백업 또는 Flipper Zero, LIRC, IRPLUS 파일 가져오기",
+  "bulkImportFolder": "폴더 대량 가져오기",
+  "bulkImportFolderSubtitle": "폴더에서 여러 리모컨 가져오기",
+  "exportBackup": "백업 내보내기",
+  "exportBackupSubtitle": "리모컨과 매크로를 하나의 JSON 파일로 Downloads에 저장",
+  "restoreDemoRemotes": "데모 리모컨 복원",
+  "restoreDemoRemotesSubtitle": "현재 리모컨을 내장 데모로 교체",
+  "deleteAllRemotes": "모든 리모컨 삭제",
+  "deleteAllRemotesSubtitle": "이 기기의 모든 리모컨 제거",
+  "backupTip": "팁: 큰 편집 전에 백업을 내보내세요. 가져오기는 전체 백업, 리모컨만 있는 레거시 JSON 백업, Flipper Zero .ir 파일을 지원합니다.",
+  "aboutTitle": "정보",
+  "aboutSubtitle": "앱 정보와 오픈 소스 세부정보",
+  "aboutAppNameWithCreator": "IR Blaster - {creator}",
+  "@aboutAppNameWithCreator": {
+    "placeholders": {
+      "creator": {}
+    }
+  },
+  "versionLabel": "버전 {version}",
+  "@versionLabel": {
+    "placeholders": {
+      "version": {}
+    }
+  },
+  "sourceCode": "소스 코드",
+  "viewOnGitHub": "GitHub에서 보기",
+  "repositoryUrlCopied": "저장소 URL을 복사했습니다",
+  "reportIssue": "문제 신고",
+  "reportIssueSubtitle": "버그 신고와 기능 요청",
+  "issuesUrlCopied": "Issues URL을 복사했습니다",
+  "license": "라이선스",
+  "openSourceLicense": "오픈 소스 라이선스",
+  "licenseUrlCopied": "라이선스 URL을 복사했습니다",
+  "companyName": "KaijinLab Inc.",
+  "visitWebsite": "웹사이트 방문",
+  "companyUrlCopied": "회사 URL을 복사했습니다",
+  "licenses": "라이선스",
+  "openSourceLicenses": "오픈 소스 라이선스",
+  "byCreator": "에 의해 {creator}",
+  "@byCreator": {
+    "placeholders": {
+      "creator": {}
+    }
+  },
+  "deviceControlsTitle": "기기 제어",
+  "deviceControlsSubtitle": "시스템 제어 페이지에 즐겨찾기 버튼 표시",
+  "manageFavorites": "즐겨찾기 관리",
+  "manageFavoritesSubtitle": "기기 제어에 표시할 버튼 선택",
+  "quickSettingsTitle": "빠른 설정",
+  "quickSettingsSubtitle": "전원과 볼륨 바로가기를 위한 타일 추가",
+  "configureTiles": "타일 구성",
+  "configureTilesSubtitle": "타일을 리모컨 버튼에 매핑",
+  "tvKillTitle": "TVKill",
+  "tvKillSubtitle": "소유한 기기의 전원 코드를 순환",
+  "openTvKill": "TVKill 열기",
+  "openTvKillSubtitle": "전원 코드를 순환합니다(소유한 기기에서만 사용)",
+  "failedToLoadTransmitterSettings": "송신기 설정을 불러오지 못했습니다.",
+  "usbStatusReady": "USB 동글이 연결되어 IR 송신 준비가 되었습니다.",
+  "usbStatusPermissionRequired": "USB 동글이 감지되었습니다. USB 권한을 요청하고 시스템 프롬프트를 승인하세요.",
+  "usbStatusPermissionDenied": "연결된 동글의 USB 권한이 거부되었습니다. 다시 요청하고 프롬프트를 승인하세요.",
+  "usbStatusPermissionGranted": "USB 권한이 승인되었습니다. IR을 보내려면 동글을 먼저 초기화해야 합니다.",
+  "usbStatusOpenFailed": "USB 권한은 승인되었지만 동글을 초기화하지 못했습니다. 다시 연결한 뒤 다시 시도하세요.",
+  "usbStatusNoDevice": "지원되는 USB IR 동글이 감지되지 않았습니다.",
+  "usbSelectPermissionRequired": "USB 동글이 감지되었지만 승인되지 않았습니다. \"USB 권한 요청\"을 탭하세요.",
+  "usbSelectPermissionDenied": "USB 권한이 거부되었습니다. \"USB 권한 요청\"을 탭하고 프롬프트를 승인하세요.",
+  "usbSelectPermissionGranted": "USB 권한은 승인되었지만 동글이 아직 초기화되지 않았습니다. 다시 연결해 보세요.",
+  "usbSelectOpenFailed": "USB 권한은 승인되었지만 동글을 초기화하지 못했습니다. 다시 연결한 뒤 다시 시도하세요.",
+  "usbSelectNoDevice": "지원되는 USB IR 동글이 감지되지 않았습니다. 연결한 다음 \"USB 권한 요청\"을 탭하세요.",
+  "usbSelectReady": "USB 동글이 준비되었습니다.",
+  "autoSwitchEnabledMessage": "자동 전환 활성화됨: 연결 시 USB를 사용하고, 아니면 내장을 사용합니다.",
+  "autoSwitchDisabledMessage": "자동 전환 비활성화됨: 송신기 선택이 이제 수동입니다.",
+  "failedToUpdateAutoSwitch": "자동 전환 설정을 업데이트하지 못했습니다.",
+  "failedToSwitchTransmitter": "송신기를 전환하지 못했습니다.",
+  "deviceHasNoInternalIr": "이 기기에는 내장 IR 송신기가 없습니다.",
+  "audioModeEnabledMessage": "오디오 모드가 활성화되었습니다. 최대 미디어 볼륨과 오디오-IR LED 어댑터를 사용하세요.",
+  "usbPermissionRequestSent": "USB 권한 요청을 보냈습니다.",
+  "usbPermissionRequestSentApprove": "USB 권한 요청을 보냈습니다. USB를 사용하려면 프롬프트를 승인하세요.",
+  "usbAlreadyReady": "USB 동글은 이미 초기화되었고 준비되었습니다.",
+  "failedToRequestUsbPermission": "USB 권한을 요청하지 못했습니다.",
+  "transmitterHelpInternal": "휴대폰의 내장 IR 송신기를 사용해 명령을 보냅니다.",
+  "transmitterHelpUsb": "USB IR 동글을 사용해 명령을 보냅니다(권한 필요).",
+  "transmitterHelpAudio1": "오디오 출력(모노)을 사용합니다. 오디오-IR LED 어댑터와 높은 미디어 볼륨이 필요합니다.",
+  "transmitterHelpAudio2": "오디오 출력(스테레오)을 사용합니다. 호환 어댑터에서 LED 구동을 개선하기 위해 두 채널을 사용합니다.",
+  "transmitterInternal": "내장 IR",
+  "transmitterUsb": "USB IR 동글",
+  "transmitterAudio1": "오디오 (1 LED)",
+  "transmitterAudio2": "오디오 (LED 2개)",
+  "failedToLoadTransmitterCapabilities": "송신기 기능을 불러오지 못했습니다.",
+  "selectedTransmitter": "선택된 송신기",
+  "selectedTransmitterValue": "{effective} • 활성: {active}",
+  "@selectedTransmitterValue": {
+    "placeholders": {
+      "effective": {},
+      "active": {}
+    }
+  },
+  "refresh": "새로고침",
+  "autoSwitchTitle": "자동 전환",
+  "autoSwitchDisabledWhileAudio": "오디오 모드 사용 중에는 비활성화됩니다",
+  "autoSwitchUsesUsbOtherwiseInternal": "연결되면 USB, 아니면 내장을 사용",
+  "unavailableOnThisDevice": "이 기기에서는 사용할 수 없음",
+  "openOnUsbAttachTitle": "USB 연결 시 열기",
+  "openOnUsbAttachSubtitle": "지원되는 USB IR 동글이 연결되면 Android가 앱 열기를 제안할 수 있습니다.",
+  "openOnUsbAttachEnabledMessage": "지원되는 USB 동글이 연결되면 IR Blaster 열기를 제안합니다.",
+  "openOnUsbAttachDisabledMessage": "USB 연결 시 열기를 제안하지 않습니다.",
+  "failedToUpdateSetting": "설정을 업데이트하지 못했습니다.",
+  "unnamedButton": "이름 없는 버튼",
+  "iconFallback": "아이콘",
+  "remoteListReorderHint": "순서 변경 모드: 카드를 길게 누르고 드래그해 이동하세요.",
+  "deleteRemoteTitle": "삭제 리모컨?",
+  "deleteRemoteMessage": "\"{name}\"이(가) 영구적으로 삭제됩니다. 이 작업은 되돌릴 수 없습니다.",
+  "@deleteRemoteMessage": {
+    "placeholders": {
+      "name": {}
+    }
+  },
+  "delete": "삭제",
+  "addToDeviceControlsTitle": "기기 제어에 추가?",
+  "addToDeviceControlsDescription": "시스템 기기 제어에서 빠르게 접근합니다.",
+  "skip": "건너뛰기",
+  "add": "추가",
+  "addedToDeviceControls": "기기 제어에 추가됨.",
+  "deletedRemoteUndoUnavailable": "\"{name}\"을(를) 삭제했습니다. 이 작업은 되돌릴 수 없습니다.",
+  "@deletedRemoteUndoUnavailable": {
+    "placeholders": {
+      "name": {}
+    }
+  },
+  "remoteLayoutSummary": "{count} 버튼(의) · {layout}",
+  "@remoteLayoutSummary": {
+    "placeholders": {
+      "count": {},
+      "layout": {}
+    }
+  },
+  "layoutComfort": "편안함",
+  "layoutCompact": "컴팩트",
+  "open": "열기",
+  "useThisRemote": "사용 리모컨",
+  "edit": "편집",
+  "editRemoteSubtitle": "이름 변경 및 버튼 편집",
+  "thisCannotBeUndone": "이 작업은 되돌릴 수 없습니다",
+  "searchRemotes": "검색 리모컨",
+  "reorderRemotes": "리모컨 순서 변경",
+  "addRemote": "추가 리모컨",
+  "more": "더보기",
+  "reorderMode": "순서 변경 모드",
+  "remoteButtonCount": "버튼 {count}개{plural}",
+  "@remoteButtonCount": {
+    "placeholders": {
+      "count": {},
+      "plural": {}
+    }
+  },
+  "noRemotesYet": "아직 리모컨이 없습니다",
+  "noRemotesDescription": "생성 리모컨 시작 IR 송신 코드.",
+  "noRemotesNextStep": "다음 단계: 리모컨 추가를 탭한 뒤 첫 버튼을 추가하세요.",
+  "actions": "동작",
+  "macrosTitle": "매크로",
+  "help": "도움말",
+  "createMacro": "생성 매크로",
+  "timedMacrosTitle": "시간 지정 매크로",
+  "timedMacrosSubtitle": "정확한 타이밍으로 IR 명령 시퀀스를 자동화",
+  "timedMacrosNextStep": "다음 단계: 첫 매크로 만들기를 탭하고 리모컨을 고른 뒤 명령과 지연을 추가하세요.",
+  "macroFeatureToysTitle": "인터랙티브 장난감에 적합",
+  "macroFeatureToysDescription": "i-cybie 로봇 강아지, i-sobot 로봇처럼 명령 사이에 동작 처리 시간이 필요한 장치를 제어합니다.",
+  "macroFeatureTimingTitle": "정밀 타이밍 제어",
+  "macroFeatureTimingDescription": "명령 사이에 지연을 추가해(250ms부터 사용자 지정 시간까지) 기기가 다음 동작 전에 반응할 시간을 줍니다.",
+  "macroFeatureManualTitle": "수동 계속 단계",
+  "macroFeatureManualDescription": "애니메이션 길이가 일정하지 않거나 시각적 확인이 필요할 때 실행을 일시정지하고 확인을 기다립니다.",
+  "exampleUseCase": "사용 예",
+  "macroExampleText": "i-cybie 고급 모드:\n1. \"Mode\" 명령 보내기\n2. 1000ms 대기(장난감 처리)\n3. \"Action 1\" 보내기\n4. 1000ms 대기\n5. \"Action 2\" 보내기\n…이후 자동 계속!",
+  "createFirstMacro": "첫 매크로 만들기",
+  "noRemote": "없음 리모컨",
+  "macroStepCount": "{count}단계{plural}",
+  "@macroStepCount": {
+    "placeholders": {
+      "count": {},
+      "plural": {}
+    }
+  },
+  "aboutTimedMacros": "시간 지정 매크로 정보",
+  "aboutTimedMacrosDescription": "시간 지정 매크로를 사용하면 각 단계 사이에 정확한 지연을 두고 IR 명령 시퀀스를 자동화할 수 있습니다.",
+  "sendCommand": "명령 전송",
+  "sendCommandDescription": "리모컨의 IR 명령을 전송합니다.",
+  "delay": "지연",
+  "delayDescription": "다음 단계 전 지정한 시간(예: 1000ms)만큼 기다립니다.",
+  "manualContinue": "수동 계속",
+  "manualContinueDescription": "계속을 탭할 때까지 실행을 멈춥니다(길이가 일정하지 않은 애니메이션에 유용).",
+  "gotIt": "확인",
+  "failedToSaveMacros": "매크로를 저장하지 못했습니다.",
+  "deletedMacroNamed": "\"{name}\" 삭제됨.",
+  "@deletedMacroNamed": {
+    "placeholders": {
+      "name": {}
+    }
+  },
+  "undo": "실행 취소",
+  "failedToRestoreMacro": "매크로를 복원하지 못했습니다.",
+  "deleteMacroTitle": "매크로를 삭제할까요?",
+  "deleteMacroMessage": "다음 스낵바에서 실행 취소할 수 있습니다.",
+  "noRemotesAvailable": "사용 가능한 리모컨이 없습니다.",
+  "remoteButtonCountSummary": "버튼 {count}개",
+  "@remoteButtonCountSummary": {
+    "placeholders": {
+      "count": {}
+    }
+  },
+  "remoteOrientationFlippedTooltip": "방향: 뒤집힘(탭하여 정상)",
+  "remoteOrientationNormalTooltip": "방향: 정상(탭하여 뒤집기)",
+  "stopLoop": "반복 중지",
+  "reorderButtons": "버튼 순서 변경",
+  "remoteReorderHint": "순서 변경 모드: 버튼을 길게 누르고 드래그해 이동하세요.",
+  "manageRemote": "리모컨 관리",
+  "remoteNoButtons": "리모컨에 버튼이 없습니다",
+  "remoteNoButtonsDescription": "\"리모컨 편집\"을 사용해 버튼을 추가하거나 설정하세요.",
+  "editRemote": "리모컨 편집",
+  "editRemoteActionsSubtitle": "이름 변경, 순서 변경 및 버튼 편집",
+  "remoteUpdatedNamedButton": "\"{name}\" 업데이트됨.",
+  "@remoteUpdatedNamedButton": {
+    "placeholders": {
+      "name": {}
+    }
+  },
+  "buttonAddedNamed": "\"{name}\" 추가됨.",
+  "@buttonAddedNamed": {
+    "placeholders": {
+      "name": {}
+    }
+  },
+  "buttonDuplicated": "버튼이 복제되었습니다.",
+  "loopRunningForButton": "이 버튼은 반복 실행 중입니다.",
+  "loopTip": "팁: 반복을 사용하면 중지할 때까지 계속 실행됩니다.",
+  "codeCopied": "코드를 복사했습니다.",
+  "copyCode": "코드 복사",
+  "startLoop": "반복 시작",
+  "editButtonSubtitle": "레이블, 코드, 프로토콜, 주파수 수정",
+  "newButton": "새 버튼",
+  "newButtonSubtitle": "새 버튼을 만든 뒤 하나를 추가하세요",
+  "duplicate": "복제",
+  "duplicateButtonSubtitle": "이 버튼의 복사본 만들기",
+  "removeFromDeviceControls": "기기 제어에서 제거",
+  "addToDeviceControls": "기기 제어에 추가",
+  "deviceControlsButtonSubtitle": "시스템 기기 제어에 이 버튼 표시",
+  "removedFromDeviceControls": "기기 제어에서 제거됨.",
+  "pinQuickTile": "빠른 타일 즐겨찾기에 고정",
+  "unpinQuickTile": "빠른 타일 즐겨찾기에서 해제",
+  "quickTileButtonSubtitle": "빠른 타일 선택기의 상단에 이 버튼 표시",
+  "removedFromQuickTileFavorites": "빠른 타일 즐겨찾기에서 제거됨.",
+  "pinnedToQuickTileFavorites": "빠른 타일 즐겨찾기에 고정됨.",
+  "duplicateAndEdit": "복제 후 편집",
+  "duplicateAndEditSubtitle": "복사본을 만들고 바로 편집",
+  "done": "완료",
+  "run": "실행",
+  "untitledRemote": "제목 없는 리모컨",
+  "createRemoteTitle": "생성 리모컨",
+  "editRemoteTitle": "리모컨 편집",
+  "removeButtonTitle": "제거 버튼?",
+  "imageButtonRemovedMessage": "이 이미지 버튼이 제거됩니다.",
+  "namedButtonRemovedMessage": "\"{name}\"이(가) 제거됩니다.",
+  "@namedButtonRemovedMessage": {
+    "placeholders": {
+      "name": {}
+    }
+  },
+  "remove": "제거",
+  "importedButtonCount": "버튼 {count}개를 가져왔습니다.",
+  "@importedButtonCount": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "importedButtonsFromExistingRemotes": "기존 리모컨에서 버튼 {count}개를 가져왔습니다.",
+  "@importedButtonsFromExistingRemotes": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "editButtonSettingsSubtitle": "레이블, 신호 및 고급 설정 변경",
+  "createButtonCopySubtitle": "이 버튼의 복사본 만들기",
+  "duplicateAndEditButtonSubtitle": "복사본을 만들고 바로 편집",
+  "undoAvailableInNextSnackbar": "다음 스낵바에서 실행 취소할 수 있습니다",
+  "buttonRemoved": "버튼이 제거되었습니다.",
+  "remoteNameCannotBeEmpty": "리모컨 이름은 비워 둘 수 없습니다.",
+  "saveRemote": "저장 리모컨",
+  "remoteName": "리모컨 이름",
+  "remoteNameHint": "예: TV, Air Conditioner, LED Strip",
+  "remoteNameHelper": "이 이름이 리모컨 목록에 표시됩니다.",
+  "layoutStyle": "레이아웃 스타일",
+  "layoutWideDescription": "와이드: 추가 정보가 있는 2열 버튼(권장).",
+  "layoutCompactDescription": "컴팩트: 아이콘/텍스트만 있는 클래식 4× 격자.",
+  "importFromRemotes": "가져오기 에서 리모컨",
+  "importFromDatabase": "가져오기 에서 DB",
+  "addButton": "추가 버튼",
+  "noButtonsYet": "없음 버튼 아직",
+  "createRemoteEmptyStateDescription": "첫 버튼을 추가한 뒤 길게 눌러 편집/제거 옵션을 여세요.",
+  "createButtonTitle": "생성 버튼",
+  "editButtonTitle": "편집 버튼",
+  "failedToLoadProtocols": "프로토콜을 불러오지 못했습니다: {error}",
+  "@failedToLoadProtocols": {
+    "placeholders": {
+      "error": {}
+    }
+  },
+  "failedToLoadDatabaseKeys": "데이터베이스 키를 불러오지 못했습니다: {error}",
+  "@failedToLoadDatabaseKeys": {
+    "placeholders": {
+      "error": {}
+    }
+  },
+  "presetPower": "전원",
+  "presetVolume": "볼륨",
+  "presetChannel": "채널",
+  "presetNavigation": "탐색",
+  "all": "전체",
+  "completeRequiredFieldsToSave": "저장하려면 필수 항목을 모두 완료하세요",
+  "buttonLabelStepTitle": "1) 버튼 레이블",
+  "buttonLabelStepSubtitle": "이미지나 아이콘을 선택하거나 텍스트 레이블을 입력하세요.",
+  "buttonColorStepTitle": "2) 버튼 색상(선택)",
+  "buttonColorStepSubtitle": "이 버튼의 배경색을 선택하세요.",
+  "selectColor": "색상 선택:",
+  "noImageSelected": "이미지를 선택하지 않음",
+  "gallery": "갤러리",
+  "builtIn": "내장",
+  "removeImage": "이미지 제거",
+  "requiredSelectImageOrSwitch": "필수: 이미지를 선택하거나 아이콘을 고르거나 텍스트로 전환하세요.",
+  "iconSelected": "아이콘 선택됨",
+  "noIconSelected": "아이콘을 선택하지 않음",
+  "chooseIcon": "선택 아이콘",
+  "removeIcon": "아이콘 제거",
+  "requiredSelectIconOrSwitch": "필수: 아이콘을 선택하거나 이미지/텍스트로 전환하세요.",
+  "buttonText": "버튼 텍스트",
+  "buttonTextHint": "예:, 전원, 볼륨 +, HDMI 1",
+  "buttonTextHelper": "이 텍스트가 버튼에 표시됩니다.",
+  "requiredEnterButtonLabel": "필수: 버튼 레이블을 입력하세요.",
+  "defaultColorName": "기본",
+  "newRemoteCreatedFromLastHit": "마지막 적중 결과로 새 리모컨을 버튼 1개와 함께 만들었습니다.",
+  "selectRemote": "선택 리모컨",
+  "remoteNumber": "리모컨 #{id}",
+  "@remoteNumber": {
+    "placeholders": {
+      "id": {}
+    }
+  },
+  "newRemoteCreated": "새 리모컨을 만들었습니다.",
+  "failedToCreateRemote": "리모컨을 만들지 못했습니다.",
+  "newRemoteEllipsis": "새 리모컨…",
+  "addedToRemoteNamed": "{name}에 추가됨.",
+  "@addedToRemoteNamed": {
+    "placeholders": {
+      "name": {}
+    }
+  },
+  "failedToAddToRemote": "추가 리모컨하지 못했습니다.",
+  "newRemoteDefaultName": "새 리모컨",
+  "jumpedToOffsetPaused": "오프셋 {offset}(으)로 이동했습니다. 일시정지됨 — 재개하려면 누르세요.",
+  "@jumpedToOffsetPaused": {
+    "placeholders": {
+      "offset": {
+        "type": "int"
+      }
+    }
+  },
+  "sent": "전송됨.",
+  "failedToSend": "전송하지 못했습니다: {error}",
+  "@failedToSend": {
+    "placeholders": {
+      "error": {}
+    }
+  },
+  "copiedProtocolCode": "복사됨(프로토콜:코드).",
+  "savedToResults": "결과에 저장했습니다.",
+  "invalidCodeForProtocol": "잘못된 코드 프로토콜: {error}",
+  "@invalidCodeForProtocol": {
+    "placeholders": {
+      "error": {}
+    }
+  },
+  "copiedCurrentCandidate": "현재 후보를 복사했습니다.",
+  "jumpToOffset": "오프셋으로 이동",
+  "jumpToBruteCursor": "브루트 커서로 이동",
+  "jump": "이동",
+  "jumpedToCursorPaused": "커서 0x{cursor}(으)로 이동했습니다. 일시정지됨 — 재개하려면 누르세요.",
+  "@jumpedToCursorPaused": {
+    "placeholders": {
+      "cursor": {}
+    }
+  },
+  "irSignalTester": "IR 신호 테스터",
+  "stop": "중지",
+  "selectButton": "선택 버튼",
+  "buttonNotFoundInRemotes": "버튼 않음 찾을 수 없음 리모컨.",
+  "sentNamed": "\"{name}\" 전송됨.",
+  "@sentNamed": {
+    "placeholders": {
+      "name": {}
+    }
+  },
+  "sendFailed": "전송 실패: {error}",
+  "@sendFailed": {
+    "placeholders": {
+      "error": {}
+    }
+  },
+  "noFavoritesYet": "없음 즐겨찾기 아직",
+  "deviceControlsEmptyHint": "리모컨 버튼을 길게 누른 뒤 “기기 제어에 추가”를 선택하세요.",
+  "sendTest": "테스트 전송",
+  "testSendCompleted": "테스트 전송 완료.",
+  "testSendFailed": "테스트 전송 실패: {error}",
+  "@testSendFailed": {
+    "placeholders": {
+      "error": {}
+    }
+  },
+  "removedNamed": "제거됨 \"{name}\".",
+  "@removedNamed": {
+    "placeholders": {
+      "name": {}
+    }
+  },
+  "brand": "브랜드",
+  "model": "모델",
+  "selectBrand": "브랜드 선택",
+  "searchBrand": "검색 브랜드…",
+  "selectModel": "모델 선택",
+  "searchModel": "검색 모델…",
+  "unnamedKey": "이름 없음 키",
+  "unknown": "알 수 없음",
+  "emDash": "—",
+  "searchCommands": "검색 명령",
+  "noMatchingCommands": "없음 일치하는 명령",
+  "quickTileFavoritesTitle": "빠른 타일 즐겨찾기",
+  "changeMappingForTile": "{tileLabel} 타일의 매핑 변경",
+  "@changeMappingForTile": {
+    "placeholders": {
+      "tileLabel": {}
+    }
+  },
+  "pickDifferentButton": "다른 버튼 선택",
+  "browseAllRemotesEllipsis": "찾아보기 모든 리모컨…",
+  "invalidMacroFileFormat": "잘못된 매크로 파일 형식입니다.",
+  "failedToParseMacroFile": "매크로 파일을 구문 분석하지 못했습니다.",
+  "deviceCodeLabel": "기기 코드",
+  "commandLabel": "명령",
+  "editButtonCodeTitle": "편집 코드 버튼",
+  "thisRemoteHasNoButtons": "이 리모컨 있음 없음 버튼.",
+  "selectCommand": "선택 명령",
+  "databaseModeAutofillHint": "데이터베이스 모드는 2단계(브랜드 + 모델 + 프로토콜)를 자동으로 채웁니다. 키를 가져온 뒤에는 수동에서 세부 조정할 수 있습니다.",
+  "test": "테스트",
+  "allSelectedButtonsWereDuplicates": "선택한 버튼이 모두 중복이었습니다.",
+  "noButtonsImported": "가져온 버튼이 없습니다.",
+  "importedButtonsSkippedDuplicates": "버튼 {addedCount}개를 가져왔습니다. 중복 {skippedCount}개는 건너뛰었습니다.",
+  "@importedButtonsSkippedDuplicates": {
+    "placeholders": {
+      "addedCount": {
+        "type": "int"
+      },
+      "skippedCount": {
+        "type": "int"
+      }
+    }
+  },
+  "importAllMatchingTitle": "가져오기 모든 일치하는 버튼?",
+  "noMatchingKeysFound": "없음 일치하는 키 찾을 수 없음.",
+  "importAllMatchingMessage": "현재 데이터베이스 선택에서 일치하는 키를 최대 {count}개까지 가져옵니다.",
+  "@importAllMatchingMessage": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "importAll": "가져오기 모든",
+  "importingButtons": "버튼 가져오는 중…",
+  "allMatchingButtonsWereDuplicates": "일치하는 버튼이 모두 중복이었습니다.",
+  "quickPresets": "빠른 프리셋",
+  "selectDeviceFirst": "선택 기기 첫",
+  "searchByLabelOrHex": "검색 에 의해 레이블 또는 16진수",
+  "optionalRefinePresetKeys": "선택: {preset} 프리셋 키 세부 조정",
+  "@optionalRefinePresetKeys": {
+    "placeholders": {
+      "preset": {}
+    }
+  },
+  "selectBrandModelProtocolFirst": "선택 브랜드, 모델, 및 프로토콜 첫.",
+  "importFromDatabaseTitle": "가져오기 에서 데이터베이스",
+  "importFromDatabaseSubtitle": "기기를 선택하고 일치하는 키를 불러온 뒤 선택한 버튼을 가져오세요.",
+  "deviceAndFilters": "기기 & 필터",
+  "loadedCount": "{count}개 불러옴",
+  "@loadedCount": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "hideFilters": "필터 숨기기",
+  "showFilters": "표시 필터",
+  "noProtocolFoundForBrandModel": "없음 프로토콜 찾을 수 없음 브랜드 및 모델.",
+  "protocolAutoDetected": "프로토콜",
+  "protocolAutoDetectedHelper": "데이터베이스에서 자동 감지되었습니다. 가져오기 전에 변경할 수 있습니다.",
+  "selectBrandModelToLoadKeys": "선택 브랜드, 모델, 및 프로토콜 불러오기 키.",
+  "noKeysFound": "없음 키 찾을 수 없음.",
+  "noKeysFoundForSearch": "없음 키 찾을 수 없음 \"{query}\".",
+  "@noKeysFoundForSearch": {
+    "placeholders": {
+      "query": {}
+    }
+  },
+  "skipDuplicates": "중복 건너뛰기",
+  "skipDuplicatesSubtitle": "리모컨에 이미 있는 버튼은 가져오지 않습니다.",
+  "importSelected": "가져오기 선택됨",
+  "noMacrosToExport": "없음 매크로 내보내기.",
+  "macrosExportedToDownloads": "매크로를 Downloads로 내보냈습니다.",
+  "failedToExportMacros": "내보내기 매크로하지 못했습니다.",
+  "failedToReadFile": "파일을 읽지 못했습니다.",
+  "importFromExistingRemotesTitle": "기존 리모컨에서 가져오기",
+  "selectedCount": "{count}개 선택됨",
+  "@selectedCount": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "noOtherRemotesWithButtons": "버튼이 있는 다른 리모컨을 찾지 못했습니다.",
+  "sourceRemote": "소스 리모컨",
+  "searchButtons": "검색 버튼",
+  "searchButtonsHint": "전원, 볼륨, 음소거...",
+  "selectVisible": "선택 보이는",
+  "clearVisible": "지우기 보이는",
+  "protocolNamed": "프로토콜: {name}",
+  "@protocolNamed": {
+    "placeholders": {
+      "name": {}
+    }
+  },
+  "rawSignal": "원시 신호",
+  "legacyCode": "레거시 코드",
+  "importCount": "{count}개 가져오기",
+  "@importCount": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "storagePermissionDeniedLegacy": "저장소 권한이 거부되었습니다(일부 구형 Android 기기에서 필요).",
+  "backupExportedToDownloads": "백업을 Downloads로 내보냈습니다.",
+  "failedToExport": "내보내지 못했습니다: {error}",
+  "@failedToExport": {
+    "placeholders": {
+      "error": {}
+    }
+  },
+  "importedLegacyJsonBackup": "레거시 JSON 백업에서 리모컨 {count}개를 가져왔습니다. 매크로는 변경되지 않았습니다.",
+  "@importedLegacyJsonBackup": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "importFailedRemotesMustBeList": "가져오기 실패: 백업의 \"remotes\"는 존재할 경우 JSON 목록이어야 합니다.",
+  "importFailedMacrosMustBeList": "가져오기 실패: 백업의 \"macros\"는 존재할 경우 JSON 목록이어야 합니다.",
+  "importFailedInvalidBackupFormat": "가져오기 실패: 잘못된 백업 형식입니다(레거시 List 또는 remotes/macros가 있는 Map 필요).",
+  "importedBackupRemotesOnly": "백업에서 리모컨 {remoteCount}개를 가져왔습니다. 매크로는 변경되지 않았습니다.",
+  "@importedBackupRemotesOnly": {
+    "placeholders": {
+      "remoteCount": {
+        "type": "int"
+      }
+    }
+  },
+  "importedBackupRemotesAndMacros": "백업에서 리모컨 {remoteCount}개와 매크로 {macroCount}개를 가져왔습니다.",
+  "@importedBackupRemotesAndMacros": {
+    "placeholders": {
+      "remoteCount": {
+        "type": "int"
+      },
+      "macroCount": {
+        "type": "int"
+      }
+    }
+  },
+  "importFailedNoValidButtonsInIr": "가져오기 실패: 없음 유효한 버튼 찾을 수 없음 .IR 파일.",
+  "importedOneRemoteFromFlipper": "Flipper .ir에서 리모컨 1개를 가져왔습니다. 매크로는 변경되지 않았습니다.",
+  "importFailedInvalidIrplus": "가져오기 실패: 잘못된 irplus 파일입니다(유효한 버튼 없음).",
+  "importedOneRemoteFromIrplus": "irplus에서 리모컨 1개를 가져왔습니다. 매크로는 변경되지 않았습니다.",
+  "importFailedInvalidLirc": "가져오기 실패: 잘못된 LIRC 파일입니다(유효한 코드/원시 코드 없음).",
+  "importedOneRemoteFromLirc": "LIRC config에서 리모컨 1개를 가져왔습니다. 매크로는 변경되지 않았습니다.",
+  "unsupportedFileTypeSelected": "지원되지 않는 파일 형식을 선택했습니다.",
+  "importFailedInvalidUnreadableFile": "가져오기 실패: 잘못되었거나 읽을 수 없는 파일입니다.",
+  "bulkImportNoSupportedFilesInFolder": "대량 가져오기 완료: 없음 지원되는 파일 찾을 수 없음 폴더.",
+  "bulkImportNoRemotesImported": "대량 가져오기 완료: 가져온 리모컨이 없습니다. 파일 {skippedCount}개를 건너뛰었습니다.",
+  "@bulkImportNoRemotesImported": {
+    "placeholders": {
+      "skippedCount": {
+        "type": "int"
+      }
+    }
+  },
+  "bulkImportComplete": "대량 가져오기 완료: 지원되는 파일 {supportedCount}개에서 리모컨 {importedCount}개를 가져왔습니다. 파일 {skippedCount}개는 건너뛰었습니다.",
+  "@bulkImportComplete": {
+    "placeholders": {
+      "importedCount": {
+        "type": "int"
+      },
+      "supportedCount": {
+        "type": "int"
+      },
+      "skippedCount": {
+        "type": "int"
+      }
+    }
+  },
+  "storagePermissionDenied": "저장소 권한이 거부되었습니다.",
+  "bulkImportFailedReadFolder": "대량 가져오기 실패: 폴더 내용을 읽을 수 없습니다.",
+  "bulkImportNoSupportedFilesSource": "대량 가져오기 완료: 없음 지원되는 파일 찾을 수 없음 ({sourceLabel}).",
+  "@bulkImportNoSupportedFilesSource": {
+    "placeholders": {
+      "sourceLabel": {}
+    }
+  },
+  "clearAction": "지우기",
+  "saveAction": "저장",
+  "buttonsTitleCount": "버튼 ({count})",
+  "@buttonsTitleCount": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "invalidStepEncountered": "잘못된 단계를 발견했습니다",
+  "failedToSendNamed": "전송하지 못했습니다: {name}",
+  "@failedToSendNamed": {
+    "placeholders": {
+      "name": {}
+    }
+  },
+  "buttonNotFound": "버튼을 찾을 수 없음",
+  "buttonNotFoundNamed": "버튼을 찾을 수 없음: {name}",
+  "@buttonNotFoundNamed": {
+    "placeholders": {
+      "name": {}
+    }
+  },
+  "unknownButton": "알 수 없음 버튼",
+  "durationSecondsShort": "{seconds}초",
+  "@durationSecondsShort": {
+    "placeholders": {
+      "seconds": {
+        "type": "int"
+      }
+    }
+  },
+  "durationMinutesSecondsShort": "{minutes}분 {seconds}초",
+  "@durationMinutesSecondsShort": {
+    "placeholders": {
+      "minutes": {
+        "type": "int"
+      },
+      "seconds": {
+        "type": "int"
+      }
+    }
+  },
+  "durationHoursMinutesShort": "{hours}시간 {minutes}분",
+  "@durationHoursMinutesShort": {
+    "placeholders": {
+      "hours": {
+        "type": "int"
+      },
+      "minutes": {
+        "type": "int"
+      }
+    }
+  },
+  "orientationFlippedTooltip": "방향: 뒤집힘(탭하여 정상)",
+  "orientationNormalTooltip": "방향: 정상(탭하여 뒤집기)",
+  "noSteps": "없음 단계",
+  "stepProgress": "단계 {current}/{total}",
+  "@stepProgress": {
+    "placeholders": {
+      "current": {
+        "type": "int"
+      },
+      "total": {
+        "type": "int"
+      }
+    }
+  },
+  "completed": "완료됨",
+  "paused": "일시정지됨",
+  "running": "실행 중",
+  "ready": "준비됨",
+  "stepsProgress": "{current}/{total} 단계",
+  "@stepsProgress": {
+    "placeholders": {
+      "current": {
+        "type": "int"
+      },
+      "total": {
+        "type": "int"
+      }
+    }
+  },
+  "waiting": "대기 중",
+  "secondsRemaining": "{seconds}초 남음",
+  "@secondsRemaining": {
+    "placeholders": {
+      "seconds": {}
+    }
+  },
+  "millisecondsShort": "{ms}ms",
+  "@millisecondsShort": {
+    "placeholders": {
+      "ms": {
+        "type": "int"
+      }
+    }
+  },
+  "tapContinueWhenReady": "탭 계속 때 준비됨 다음 단계",
+  "error": "오류",
+  "macroCompleted": "매크로 완료됨",
+  "finishedIn": "{duration}만에 완료",
+  "@finishedIn": {
+    "placeholders": {
+      "duration": {}
+    }
+  },
+  "sequence": "시퀀스",
+  "waitMilliseconds": "대기 {ms}ms",
+  "@waitMilliseconds": {
+    "placeholders": {
+      "ms": {
+        "type": "int"
+      }
+    }
+  },
+  "runAgain": "다시 실행",
+  "startMacro": "시작 매크로",
+  "continueAction": "계속",
+  "unnamedRemote": "이름 없음 리모컨",
+  "enterMacroName": "입력 매크로 이름",
+  "addAtLeastOneStep": "최소 한 단계를 추가하세요",
+  "fixInvalidSteps": "잘못된 단계 수정",
+  "unknownCommand": "알 수 없음 명령",
+  "unnamedCommand": "이름 없음 명령",
+  "iconCommand": "아이콘 명령",
+  "selectDelay": "선택 지연",
+  "keepMilliseconds": "유지: {ms}ms",
+  "@keepMilliseconds": {
+    "placeholders": {
+      "ms": {
+        "type": "int"
+      }
+    }
+  },
+  "custom": "사용자 지정",
+  "enterCustomDelayDuration": "사용자 지정 지연 시간을 입력하세요",
+  "millisecondsLong": "{ms}밀리초",
+  "@millisecondsLong": {
+    "placeholders": {
+      "ms": {
+        "type": "int"
+      }
+    }
+  },
+  "secondsLong": "{seconds}초{plural}",
+  "@secondsLong": {
+    "placeholders": {
+      "seconds": {},
+      "plural": {}
+    }
+  },
+  "customDelay": "사용자 지정 지연",
+  "delayMillisecondsLabel": "지연(밀리초)",
+  "delayMillisecondsHint": "예:, 3000",
+  "recommendedDelayRange": "권장: 대부분 기기에서 250-5000ms",
+  "enterValidPositiveNumber": "유효한 양수를 입력하세요",
+  "ok": "OK",
+  "remote": "리모컨",
+  "macroName": "매크로 이름",
+  "macroNameHint": "예: i-cybie Advanced Mode",
+  "stepsTitleCount": "단계 ({count})",
+  "@stepsTitleCount": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "noStepsYet": "없음 단계 아직",
+  "addCommandsAndDelaysHint": "시퀀스를 만들려면 아래에 명령과 지연을 추가하세요",
+  "addStep": "추가 단계",
+  "reorderStepsHint": "팁: 드래그 핸들로 단계 순서를 바꾸세요. 단계를 탭해 편집할 수도 있습니다",
+  "reorderStep": "단계 {index} 순서 변경",
+  "@reorderStep": {
+    "placeholders": {
+      "index": {
+        "type": "int"
+      }
+    }
+  },
+  "pressAndDragToChangeStepOrder": "단계 순서를 바꾸려면 길게 누르고 드래그하세요",
+  "deleteStep": "삭제 단계 {index}",
+  "@deleteStep": {
+    "placeholders": {
+      "index": {
+        "type": "int"
+      }
+    }
+  },
+  "invalidStepTapToFix": "잘못된 단계 — 탭하여 수정",
+  "sendIrCommand": "IR 명령 전송",
+  "waitForUserConfirmation": "사용자 확인 대기",
+  "notImplemented": "아직 구현되지 않음",
+  "frequencyKhz": "{value} kHz",
+  "@frequencyKhz": {
+    "placeholders": {
+      "value": {
+        "type": "int"
+      }
+    }
+  },
+  "necProtocolShort": "NEC",
+  "msbShort": "MSB",
+  "layoutWide": "와이드",
+  "iconButton": "아이콘 버튼",
+  "imageButton": "이미지 버튼",
+  "noSignalInfo": "신호 정보 없음",
+  "proceed": "계속",
+  "discard": "버리기",
+  "idle": "대기 중",
+  "start": "시작",
+  "resume": "재개",
+  "pause": "일시정지",
+  "stopped": "중지됨",
+  "copy": "복사",
+  "send": "전송",
+  "step": "단계",
+  "addToRemote": "추가 리모컨",
+  "noDescriptionAvailable": "설명이 없습니다.",
+  "notAvailableSymbol": "—",
+  "irFinderKaseikyoVendorInvalid": "Kaseikyo 공급업체 값은 정확히 4자리 16진수여야 합니다.",
+  "irFinderDatabaseNotReady": "데이터베이스 않음 준비됨 아직.",
+  "irFinderSelectBrandFirst": "먼저 브랜드를 선택해 설정하세요.",
+  "irFinderBruteforceUnavailable": "브루트포스 않음 사용 가능 프로토콜 아직.",
+  "irFinderInvalidPrefix": "잘못된 접두사.",
+  "irFinderBrandValue": "브랜드: {value}",
+  "@irFinderBrandValue": {
+    "placeholders": {
+      "value": {}
+    }
+  },
+  "irFinderModelValue": "모델: {value}",
+  "@irFinderModelValue": {
+    "placeholders": {
+      "value": {}
+    }
+  },
+  "irFinderKeyValue": "키: {value}",
+  "@irFinderKeyValue": {
+    "placeholders": {
+      "value": {}
+    }
+  },
+  "irFinderRemoteNumber": "리모컨 #{value}",
+  "@irFinderRemoteNumber": {
+    "placeholders": {
+      "value": {}
+    }
+  },
+  "irFinderJumpOffsetHelper": "필터되고 정렬된 데이터베이스 결과 내 0부터 시작하는 인덱스를 입력하세요.",
+  "irFinderJumpCursorHelper": "브루트포스 공간 내 0부터 시작하는 16진수 커서를 입력하세요.",
+  "irFinderSetupTab": "설정",
+  "irFinderTestTab": "테스트",
+  "irFinderResultsTab": "결과",
+  "irFinderContinueToTest": "계속 테스트",
+  "irFinderKaseikyoVendorTitle": "Kaseikyo 공급업체",
+  "irFinderCustomVendorLabel": "사용자 지정 공급업체(4자리 16진수)",
+  "irFinderBrowseDbCandidates": "DB 후보 찾아보기…",
+  "irFinderEditSetup": "설정 편집",
+  "irFinderNoSavedHits": "아직 저장된 적중이 없습니다. 테스트 페이지에서 기기가 반응할 때 \"적중 저장\"을 누르세요.",
+  "irFinderBackToTest": "테스트로 돌아가기",
+  "irFinderLargeSearchSpaceTitle": "큰 검색 공간",
+  "irFinderLargeSearchSpaceBody": "이 브루트포스 공간은 매우 큽니다({human}개 가능성). IR Finder는 최대 시도 횟수와 쿨다운을 지키지만 IR 기기를 과도하게 스팸하지 않도록 주의하세요.\n\n권장: 먼저 데이터베이스 모드를 사용하고, 가능하면 알려진 접두 바이트를 입력해 범위를 줄이세요.",
+  "@irFinderLargeSearchSpaceBody": {
+    "placeholders": {
+      "human": {}
+    }
+  },
+  "irFinderDatabaseSession": "데이터베이스 세션",
+  "irFinderBruteforceSession": "브루트포스 세션",
+  "irFinderResumeLastSession": "재개 마지막 세션",
+  "irFinderResumeBrandModel": "브랜드: {brand} · 모델: {model}",
+  "@irFinderResumeBrandModel": {
+    "placeholders": {
+      "brand": {},
+      "model": {}
+    }
+  },
+  "irFinderResumePrefix": "접두사: {value}",
+  "@irFinderResumePrefix": {
+    "placeholders": {
+      "value": {}
+    }
+  },
+  "irFinderResumeProgress": "진행률: {progress} · 시작: {when}",
+  "@irFinderResumeProgress": {
+    "placeholders": {
+      "progress": {},
+      "when": {}
+    }
+  },
+  "irFinderApplyResume": "적용 및 재개",
+  "irFinderBruteforceMode": "브루트포스",
+  "irFinderDatabaseAssistedMode": "데이터베이스 보조",
+  "irFinderProtocolTitle": "프로토콜: {name}",
+  "@irFinderProtocolTitle": {
+    "placeholders": {
+      "name": {}
+    }
+  },
+  "irFinderProtocolLabel": "IR 프로토콜",
+  "irFinderProtocolHelper": "인코딩을 제어하므로 검색 공간에도 영향을 줍니다.",
+  "irFinderKnownPrefixLabel": "알려진 접두사(16진수 바이트, 선택)",
+  "irFinderKnownPrefixHint": "A1B2, A1 B2, A1:B2, 0xA1 0xB2",
+  "irFinderKnownPrefixHelperPayload": "페이로드: {digits} 16진수 자리(의)",
+  "@irFinderKnownPrefixHelperPayload": {
+    "placeholders": {
+      "digits": {
+        "type": "int"
+      }
+    }
+  },
+  "irFinderKnownPrefixHelperPayloadExample": "페이로드: {digits} 16진수 자리(의) · 예: {example}",
+  "@irFinderKnownPrefixHelperPayloadExample": {
+    "placeholders": {
+      "digits": {
+        "type": "int"
+      },
+      "example": {}
+    }
+  },
+  "irFinderKnownPrefixHelperPayloadMax": "페이로드: {digits} 16진수 자리(의) · 최대 접두사: {bytes} 바이트(의)",
+  "@irFinderKnownPrefixHelperPayloadMax": {
+    "placeholders": {
+      "digits": {
+        "type": "int"
+      },
+      "bytes": {
+        "type": "int"
+      }
+    }
+  },
+  "irFinderKnownPrefixHelperPayloadExampleMax": "페이로드: 16진수 {digits}자리 · 예: {example} · 최대 접두사: {bytes}바이트",
+  "@irFinderKnownPrefixHelperPayloadExampleMax": {
+    "placeholders": {
+      "digits": {
+        "type": "int"
+      },
+      "example": {},
+      "bytes": {
+        "type": "int"
+      }
+    }
+  },
+  "irFinderKnownPrefixHelperExample": "예: {example}",
+  "@irFinderKnownPrefixHelperExample": {
+    "placeholders": {
+      "example": {}
+    }
+  },
+  "irFinderKnownPrefixHelperFallback": "검색 공간을 줄이기 위해 알고 있는 첫 바이트를 입력하세요.",
+  "irFinderDatabaseMode": "데이터베이스",
+  "irFinderNormalizedPrefixValue": "정규화된 접두사: {value}",
+  "@irFinderNormalizedPrefixValue": {
+    "placeholders": {
+      "value": {}
+    }
+  },
+  "irFinderNormalizedPrefix": "정규화된 접두사",
+  "irFinderBruteforceNotConfigured": "이 프로토콜에는 브루트포스가 아직 구성되지 않았습니다.",
+  "irFinderAllLimit": "전체 ({value})",
+  "@irFinderAllLimit": {
+    "placeholders": {
+      "value": {}
+    }
+  },
+  "irFinderTestControls": "테스트 제어",
+  "irFinderPayloadLength": "페이로드 길이: 16진수 {digits}자리.",
+  "@irFinderPayloadLength": {
+    "placeholders": {
+      "digits": {
+        "type": "int"
+      }
+    }
+  },
+  "irFinderSearchSpace": "검색 공간: {value}개 가능성(접두사 제약 반영 후).",
+  "@irFinderSearchSpace": {
+    "placeholders": {
+      "value": {}
+    }
+  },
+  "irFinderCooldownMs": "쿨다운(ms)",
+  "irFinderMaxAttemptsPerRun": "최대 시도 횟수(한 번 실행당)",
+  "irFinderTestAllCombinations": "모든 조합 테스트",
+  "irFinderTestAllCombinationsHint": "검색 공간이 소진될 때까지 실행합니다. 유효 제한: {value}",
+  "@irFinderTestAllCombinationsHint": {
+    "placeholders": {
+      "value": {}
+    }
+  },
+  "irFinderAttempts": "시도 횟수",
+  "irFinderAttemptsSliderRange": "슬라이더 범위: 1–{max}(더 큰 값은 직접 입력)",
+  "@irFinderAttemptsSliderRange": {
+    "placeholders": {
+      "max": {
+        "type": "int"
+      }
+    }
+  },
+  "irFinderMaxButton": "최대 {value}",
+  "@irFinderMaxButton": {
+    "placeholders": {
+      "value": {
+        "type": "int"
+      }
+    }
+  },
+  "irFinderEffectiveLimitThisRun": "이번 실행의 유효 제한: {value}",
+  "@irFinderEffectiveLimitThisRun": {
+    "placeholders": {
+      "value": {}
+    }
+  },
+  "irFinderBruteforceTip": "팁: 먼저 데이터베이스 모드를 사용하세요. 브루트포스는 알려진 접두사(예: 처음 1~4바이트)가 있을 때 가장 좋습니다.",
+  "irFinderDatabaseInitFailed": "데이터베이스 초기화 실패.",
+  "irFinderPreparingDatabase": "로컬 IR 코드 데이터베이스 준비 중…",
+  "irFinderDatabaseAssistedSearch": "데이터베이스 보조 검색",
+  "irFinderBrand": "브랜드",
+  "irFinderSelectBrand": "브랜드 선택",
+  "irFinderModelOptional": "모델 (선택)",
+  "irFinderSelectBrandFirstShort": "선택 브랜드 첫",
+  "irFinderSelectModelRecommended": "선택 모델 (권장)",
+  "irFinderOnlySelectedProtocol": "선택한 프로토콜만",
+  "irFinderOnlySelectedProtocolHint": "키를 선택한 프로토콜로만 필터링합니다. 모든 프로토콜을 보려면 끄세요.",
+  "irFinderQuickWinsFirst": "빠른 후보 우선",
+  "irFinderQuickWinsFirstHint": "깊은 키보다 먼저 POWER, MUTE, VOL, CH 스타일 키를 우선합니다.",
+  "irFinderMaxKeysPerRun": "최대 테스트 키 수(한 번 실행당)",
+  "irFinderTesting": "테스트 중…",
+  "irFinderCooldown": "쿨다운",
+  "irFinderEta": "예상 시간",
+  "irFinderMode": "Mode",
+  "irFinderRetryLast": "마지막 다시 시도",
+  "irFinderTrigger": "트리거",
+  "irFinderJump": "이동…",
+  "irFinderSaveHit": "적중 저장",
+  "irFinderEtaSeconds": "{seconds}초",
+  "@irFinderEtaSeconds": {
+    "placeholders": {
+      "seconds": {
+        "type": "int"
+      }
+    }
+  },
+  "irFinderEtaMinutesSeconds": "{minutes}분 {seconds}초",
+  "@irFinderEtaMinutesSeconds": {
+    "placeholders": {
+      "minutes": {
+        "type": "int"
+      },
+      "seconds": {
+        "type": "int"
+      }
+    }
+  },
+  "irFinderEtaHoursMinutes": "{hours}시간 {minutes}분",
+  "@irFinderEtaHoursMinutes": {
+    "placeholders": {
+      "hours": {
+        "type": "int"
+      },
+      "minutes": {
+        "type": "int"
+      }
+    }
+  },
+  "irFinderLastAttemptedCode": "마지막 시도 코드: {value}",
+  "@irFinderLastAttemptedCode": {
+    "placeholders": {
+      "value": {}
+    }
+  },
+  "irFinderStartTestingToSeeLastCode": "마지막 시도 코드를 보려면 테스트를 시작하세요.",
+  "irFinderFromDb": "DB 출처: {value}",
+  "@irFinderFromDb": {
+    "placeholders": {
+      "value": {}
+    }
+  },
+  "irFinderFromBruteforce": "브루트포스 출처(프로토콜 인코더로 생성).",
+  "irFinderSendError": "전송 오류: {error}",
+  "@irFinderSendError": {
+    "placeholders": {
+      "error": {}
+    }
+  },
+  "irFinderSourceValue": "소스: {value}",
+  "@irFinderSourceValue": {
+    "placeholders": {
+      "value": {}
+    }
+  },
+  "irFinderResultsNote": "결과는 바로 테스트와 복사를 지원합니다. 리모컨에 직접 추가하는 통합은 편집기 흐름에서 더 확장할 수 있습니다.",
+  "irFinderBrowseDbCandidatesTitle": "DB 후보 찾아보기",
+  "irFinderFilterByLabelOrHex": "레이블 또는 16진수로 필터…",
+  "irFinderJumpHere": "여기로 이동",
+  "irFinderSelectModel": "모델 선택",
+  "irFinderSearchBrands": "브랜드 검색…",
+  "irFinderSearchModels": "모델 검색…",
+  "iconPickerTitle": "선택 아이콘",
+  "iconPickerSearchHint": "검색 아이콘...",
+  "iconPickerNoIconsFound": "없음 아이콘 찾을 수 없음",
+  "iconPickerIconsAvailable": "{count} 아이콘 사용 가능",
+  "@iconPickerIconsAvailable": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "iconPickerCategoryAll": "전체",
+  "iconPickerCategoryMedia": "미디어",
+  "iconPickerCategoryVolume": "볼륨",
+  "iconPickerCategoryNavigation": "탐색",
+  "iconPickerCategoryPower": "전원",
+  "iconPickerCategoryNumbers": "숫자",
+  "iconPickerCategorySettings": "설정",
+  "iconPickerCategoryDisplay": "디스플레이",
+  "iconPickerCategoryInput": "입력",
+  "iconPickerCategoryFavorite": "즐겨찾기",
+  "universalPowerTitle": "범용 전원",
+  "universalPowerRunTab": "실행",
+  "universalPowerUseResponsibly": "책임 있게 사용",
+  "universalPowerConsentBody": "범용 전원은 IR 전원 코드를 순환합니다. 소유하거나 제어하는 기기에서만 사용하세요. 기기가 반응하면 즉시 중지하세요.",
+  "universalPowerConsentCheckbox": "나는 이 기기를 소유하거나 제어합니다",
+  "universalPowerSetupBody": "선택한 브랜드의 전원 코드를 순환합니다. 기기가 반응하면 즉시 중지하세요.",
+  "universalPowerLastSent": "마지막 전송: {value}",
+  "@universalPowerLastSent": {
+    "placeholders": {
+      "value": {}
+    }
+  },
+  "universalPowerNoCodesFound": "전원 코드를 찾지 못했습니다. 검색 범위를 넓혀 보세요.",
+  "universalPowerUnableToStart": "시작할 수 없습니다.",
+  "universalPowerAllBrands": "모든 브랜드(필터 없음)",
+  "universalPowerClearBrandFilter": "브랜드 필터 지우기",
+  "universalPowerBroadenSearch": "필요하면 검색 범위 넓히기",
+  "universalPowerBroadenSearchHint": "전원 레이블이 없으면 다른 키도 포함하세요.",
+  "universalPowerAdditionalPatternsDepth": "추가 패턴 깊이",
+  "universalPowerDepth1": "우선순위만: POWER/OFF",
+  "universalPowerDepth2": "POWER 별칭 포함",
+  "universalPowerDepth3": "보조 전원 레이블 포함",
+  "universalPowerDepth4": "모든 레이블 포함(가장 낮은 우선순위)",
+  "universalPowerLoopUntilStopped": "반복 까지 중지됨",
+  "universalPowerLoopUntilStoppedHint": "중지할 때까지 대기열을 계속 순환합니다",
+  "universalPowerDelayBetweenCodes": "코드 사이 지연",
+  "universalPowerStart": "시작 범용 전원",
+  "universalPowerRunStatus": "실행 상태",
+  "universalPowerProgress": "진행률: {value}",
+  "@universalPowerProgress": {
+    "placeholders": {
+      "value": {}
+    }
+  },
+  "universalPowerPausedInBackground": "앱이 백그라운드로 가서 일시정지되었습니다.",
+  "universalPowerSendOneCode": "전송 하나 코드",
+  "universalPowerStopWhenDeviceResponds": "기기가 반응하면 즉시 중지하세요.",
+  "iconNamePlay": "재생",
+  "iconNamePause": "일시정지",
+  "iconNameStop": "중지",
+  "iconNameFastForward": "빨리감기",
+  "iconNameRewind": "되감기",
+  "iconNameSkipNext": "다음으로 건너뛰기",
+  "iconNameSkipPrevious": "이전으로 건너뛰기",
+  "iconNameReplay": "다시 재생",
+  "iconNameForward10S": "10초 앞으로",
+  "iconNameForward30S": "30초 앞으로",
+  "iconNameReplay10S": "10초 되감기",
+  "iconNameReplay30S": "30초 되감기",
+  "iconNameRecord": "녹화",
+  "iconNameRecordAlt": "녹화 대체",
+  "iconNameEject": "꺼내기",
+  "iconNameShuffle": "셔플",
+  "iconNameRepeat": "반복",
+  "iconNameRepeatOne": "한 곡 반복",
+  "iconNameVolumeUp": "볼륨 올리기",
+  "iconNameVolumeDown": "볼륨 내리기",
+  "iconNameVolumeOff": "볼륨 끔",
+  "iconNameMute": "음소거",
+  "iconNameSpeaker": "스피커",
+  "iconNameSurroundSound": "서라운드 사운드",
+  "iconNameEqualizer": "이퀄라이저",
+  "iconNameAudio": "오디오",
+  "iconNameMicrophone": "마이크",
+  "iconNameMicOff": "마이크 끔",
+  "iconNameUp": "위",
+  "iconNameDown": "아래",
+  "iconNameLeft": "왼쪽",
+  "iconNameRight": "오른쪽",
+  "iconNameArrowUp": "위 화살표",
+  "iconNameArrowDown": "아래 화살표",
+  "iconNameArrowLeft": "왼쪽 화살표",
+  "iconNameArrowRight": "오른쪽 화살표",
+  "iconNameNavigation": "탐색",
+  "iconNameChevronLeft": "왼쪽 셰브런",
+  "iconNameChevronRight": "오른쪽 셰브런",
+  "iconNameExpandLess": "접기",
+  "iconNameExpandMore": "더 펼치기",
+  "iconNameCollapse": "접기",
+  "iconNameExpand": "펼치기",
+  "iconNameCircleUp": "원형 위",
+  "iconNameCircleDown": "원형 아래",
+  "iconNameCircleLeft": "원형 왼쪽",
+  "iconNameCircleRight": "원형 오른쪽",
+  "iconNameOkSelect": "확인/선택",
+  "iconNameConfirm": "확인",
+  "iconNameCancel": "취소",
+  "iconNameClose": "닫기",
+  "iconNameHome": "홈",
+  "iconNameReturn": "돌아가기",
+  "iconNameExit": "종료",
+  "iconNameUndo": "실행 취소",
+  "iconNameRedo": "다시 실행",
+  "iconNamePower": "전원",
+  "iconNamePowerAlt": "전원 대체",
+  "iconNamePowerOff": "전원 끄기",
+  "iconNameOn": "켜짐",
+  "iconNameOff": "꺼짐",
+  "iconNameToggleOn": "켜기 토글",
+  "iconNameToggleOff": "끄기 토글",
+  "iconNameRestart": "재시작",
+  "iconNameNum1": "1",
+  "iconNameNum2": "2",
+  "iconNameNum3": "3",
+  "iconNameNum4": "4",
+  "iconNameNum5": "5",
+  "iconNameNum6": "6",
+  "iconNameNum7": "7",
+  "iconNameNum8": "8",
+  "iconNameNum9": "9",
+  "iconNameNum92": "9+",
+  "iconNameNum0": "0",
+  "iconNameOne": "하나",
+  "iconNameTwo": "둘",
+  "iconNameThree": "셋",
+  "iconNameFour": "넷",
+  "iconNameFive": "다섯",
+  "iconNameSix": "여섯",
+  "iconNamePlus": "플러스",
+  "iconNameMinus": "마이너스",
+  "iconNameAddCircle": "추가 원형",
+  "iconNameRemoveCircle": "제거 원형",
+  "iconNameSettings": "설정",
+  "iconNameMenu": "메뉴",
+  "iconNameMoreVertical": "더보기 세로",
+  "iconNameMoreHorizontal": "더보기 가로",
+  "iconNameTune": "조정",
+  "iconNameRemoteSettings": "리모컨 설정",
+  "iconNameInfo": "정보",
+  "iconNameInfoOutline": "정보 윤곽선",
+  "iconNameHelp": "도움말",
+  "iconNameHelpOutline": "도움말 윤곽선",
+  "iconNameList": "목록",
+  "iconNameViewList": "목록 보기",
+  "iconNameViewGrid": "격자 보기",
+  "iconNameApps": "앱",
+  "iconNameWidgets": "위젯",
+  "iconNameTv": "TV",
+  "iconNameMonitor": "모니터",
+  "iconNameDesktop": "데스크톱",
+  "iconNameBrightnessHigh": "밝기 높음",
+  "iconNameBrightnessMedium": "밝기 중간",
+  "iconNameBrightnessLow": "밝기 낮음",
+  "iconNameAutoBrightness": "자동 밝기",
+  "iconNameLightMode": "라이트 모드",
+  "iconNameDarkMode": "다크 모드",
+  "iconNameContrast": "대비",
+  "iconNameHdrOn": "HDR 켜기",
+  "iconNameHdrOff": "HDR 끄기",
+  "iconNameAspectRatio": "화면 비율",
+  "iconNameCrop": "자르기",
+  "iconNameZoomIn": "확대",
+  "iconNameZoomOut": "축소",
+  "iconNameFullscreen": "전체 화면",
+  "iconNameExitFullscreen": "전체 화면 종료",
+  "iconNameFitScreen": "화면 맞춤",
+  "iconNamePip": "PIP",
+  "iconNameCropFree": "자유 자르기",
+  "iconNameInput": "입력",
+  "iconNameCable": "케이블",
+  "iconNameCast": "캐스트",
+  "iconNameCastConnected": "캐스트 연결됨",
+  "iconNameScreenShare": "화면 공유",
+  "iconNameBluetooth": "블루투스",
+  "iconNameWifi": "WiFi",
+  "iconNameRouter": "라우터",
+  "iconNameMemory": "메모리",
+  "iconNameGameConsole": "게임 콘솔",
+  "iconNameGaming": "게이밍",
+  "iconNameMedia": "미디어",
+  "iconNameMusicQueue": "음악 대기열",
+  "iconNameVideoLibrary": "비디오 라이브러리",
+  "iconNamePhotoLibrary": "사진 라이브러리",
+  "iconNameComponent": "컴포넌트",
+  "iconNameHdmi": "HDMI",
+  "iconNameComposite": "컴포지트",
+  "iconNameAntenna": "안테나",
+  "iconNameFavorite": "즐겨찾기",
+  "iconNameFavoriteOutline": "즐겨찾기 윤곽선",
+  "iconNameStar": "별",
+  "iconNameStarOutline": "별 윤곽선",
+  "iconNameBookmark": "북마크",
+  "iconNameBookmarkOutline": "북마크 윤곽선",
+  "iconNameFlag": "플래그",
+  "iconNameCheck": "확인",
+  "iconNameDone": "완료",
+  "iconNameDoneAll": "모두 완료",
+  "iconNameSchedule": "일정",
+  "iconNameTimer": "타이머",
+  "iconNameTime": "시간",
+  "iconNameAlarm": "알람",
+  "iconNameNotifications": "알림",
+  "iconNameLock": "잠금",
+  "iconNameUnlock": "잠금 해제",
+  "iconNameLight": "라이트",
+  "iconNameLightOutline": "라이트 윤곽선",
+  "iconNameWarmLight": "따뜻한 조명",
+  "iconNameSunny": "맑음",
+  "iconNameCloudy": "흐림",
+  "iconNameNight": "밤",
+  "iconNameFlare": "플레어",
+  "iconNameGradient": "그라데이션",
+  "iconNameInvertColors": "색 반전",
+  "iconNamePalette": "팔레트",
+  "iconNameColor": "색상",
+  "iconNameTonality": "톤",
+  "iconNameSearch": "검색",
+  "iconNameRefresh": "새로고침",
+  "iconNameSync": "동기화",
+  "iconNameUpdate": "업데이트",
+  "iconNameDownload": "다운로드",
+  "iconNameUpload": "업로드",
+  "iconNameCloud": "클라우드",
+  "iconNameFolder": "폴더",
+  "iconNameDelete": "삭제",
+  "iconNameEdit": "편집",
+  "iconNameSave": "저장",
+  "iconNameShare": "공유",
+  "iconNamePrint": "인쇄",
+  "iconNameLanguage": "언어",
+  "iconNameTranslate": "번역",
+  "iconNameMicNone": "마이크 없음",
+  "iconNameSubtitles": "자막",
+  "iconNameClosedCaption": "폐쇄 자막",
+  "iconNameMusic": "음악",
+  "iconNameMovie": "영화",
+  "iconNameTheater": "극장",
+  "iconNameLiveTv": "라이브 TV",
+  "iconNameRadio": "라디오",
+  "iconNameCamera": "카메라",
+  "iconNameVideoCamera": "비디오 카메라",
+  "iconNamePhotoCamera": "사진 카메라",
+  "iconNameSlowMotion": "슬로 모션",
+  "iconNameSpeed": "속도",
+  "iconNameVideoSettings": "비디오 설정",
+  "iconNameAudioTrack": "오디오 트랙",
+  "iconNameGraphicEq": "그래픽 EQ",
+  "iconNameMusicVideo": "뮤직 비디오",
+  "iconNamePlaylist": "재생목록",
+  "iconNameQueue": "대기열",
+  "iconNameNum0Fa": "0 FA",
+  "iconNameNum1Fa": "1 FA",
+  "iconNameNum2Fa": "2 FA",
+  "iconNameNum3Fa": "3 FA",
+  "iconNameNum4Fa": "4 FA",
+  "iconNameNum5Fa": "5 FA",
+  "iconNameNum6Fa": "6 FA",
+  "iconNameNum7Fa": "7 FA",
+  "iconNameNum8Fa": "8 FA",
+  "iconNameNum9Fa": "9 FA",
+  "iconNameHashFa": "해시 # FA",
+  "iconNamePercentFa": "퍼센트 % FA",
+  "iconNameDivideFa": "나누기 ÷ FA",
+  "iconNameMultiplyFa": "곱하기 × FA",
+  "iconNameEqualsFa": "같음 = FA",
+  "iconNameNotEqualFa": "같지 않음 ≠ FA",
+  "iconNameGreaterThanFa": "보다 큼 > FA",
+  "iconNameLessThanFa": "보다 작음 < FA",
+  "iconNameAsteriskFa": "별표 * FA",
+  "iconNameAFa": "A FA",
+  "iconNameBFa": "B FA",
+  "iconNameCFa": "C FA",
+  "iconNameDFa": "D FA",
+  "iconNameEFa": "E FA",
+  "iconNameFFa": "F FA",
+  "iconNameGFa": "G FA",
+  "iconNameHFa": "H FA",
+  "iconNameIFa": "I FA",
+  "iconNameJFa": "J FA",
+  "iconNameKFa": "K FA",
+  "iconNameLFa": "L FA",
+  "iconNameMFa": "M FA",
+  "iconNameNFa": "N FA",
+  "iconNameOFa": "O FA",
+  "iconNamePFa": "P FA",
+  "iconNameQFa": "Q FA",
+  "iconNameRFa": "R FA",
+  "iconNameSFa": "S FA",
+  "iconNameTFa": "T FA",
+  "iconNameUFa": "U FA",
+  "iconNameVFa": "V FA",
+  "iconNameWFa": "W FA",
+  "iconNameXFa": "X FA",
+  "iconNameYFa": "Y FA",
+  "iconNameZFa": "Z FA",
+  "iconNamePlayFa": "재생 FA",
+  "iconNamePauseFa": "일시정지 FA",
+  "iconNameStopFa": "중지 FA",
+  "iconNamePlayFaOutline": "재생 FA 윤곽선",
+  "iconNamePauseFaOutline": "일시정지 FA 윤곽선",
+  "iconNameStopFaOutline": "중지 FA 윤곽선",
+  "iconNameBackwardFa": "뒤로 FA",
+  "iconNameForwardFa": "앞으로 FA",
+  "iconNamePreviousFa": "이전 FA",
+  "iconNameNextFa": "다음 FA",
+  "iconNameRewindFa": "되감기 FA",
+  "iconNameFastForwardFa": "빨리감기 FA",
+  "iconNameRepeatFa": "반복 FA",
+  "iconNameShuffleFa": "셔플 FA",
+  "iconNameEjectFa": "꺼내기 FA",
+  "iconNameFilmFa": "필름 FA",
+  "iconNameVideoFa": "비디오 FA",
+  "iconNameMusicFa": "음악 FA",
+  "iconNameMicrophoneFa": "마이크 FA",
+  "iconNameCameraFa": "카메라 FA",
+  "iconNameCameraRetroFa": "카메라 레트로 FA",
+  "iconNameVolumeHighFa": "볼륨 높음 FA",
+  "iconNameVolumeLowFa": "볼륨 낮음 FA",
+  "iconNameVolumeOffFa": "볼륨 끔 FA",
+  "iconNameMuteFa": "음소거 FA",
+  "iconNameMicMuteFa": "마이크 음소거 FA",
+  "iconNameHeadphonesFa": "헤드폰 FA",
+  "iconNameSpeakerFa": "스피커 FA",
+  "iconNameUpFa": "위 FA",
+  "iconNameDownFa": "아래 FA",
+  "iconNameLeftFa": "왼쪽 FA",
+  "iconNameRightFa": "오른쪽 FA",
+  "iconNameUpFaOutline": "위 FA 윤곽선",
+  "iconNameDownFaOutline": "아래 FA 윤곽선",
+  "iconNameLeftFaOutline": "왼쪽 FA 윤곽선",
+  "iconNameRightFaOutline": "오른쪽 FA 윤곽선",
+  "iconNameArrowUpFa": "위 화살표 FA",
+  "iconNameArrowDownFa": "아래 화살표 FA",
+  "iconNameArrowLeftFa": "왼쪽 화살표 FA",
+  "iconNameArrowRightFa": "오른쪽 화살표 FA",
+  "iconNameChevronUpFa": "위 셰브런 FA",
+  "iconNameChevronDownFa": "아래 셰브런 FA",
+  "iconNameChevronLeftFa": "왼쪽 셰브런 FA",
+  "iconNameChevronRightFa": "오른쪽 셰브런 FA",
+  "iconNameOkFa": "OK FA",
+  "iconNameOkFaOutline": "OK FA 윤곽선",
+  "iconNameCheckFa": "확인 FA",
+  "iconNameCloseFa": "닫기 FA",
+  "iconNameCloseCircleFa": "닫기 원형 FA",
+  "iconNameHomeFa": "홈 FA",
+  "iconNameUndoFa": "실행 취소 FA",
+  "iconNameRedoFa": "다시 실행 FA",
+  "iconNameRotateFa": "회전 FA",
+  "iconNameSearchFa": "검색 FA",
+  "iconNameRefreshFa": "새로고침 FA",
+  "iconNamePowerOffFa": "전원 끄기 FA",
+  "iconNamePlugFa": "플러그 FA",
+  "iconNameToggleOnFa": "켜기 토글 FA",
+  "iconNameToggleOffFa": "끄기 토글 FA",
+  "iconNameSettingsFa": "설정 FA",
+  "iconNameSettingsAltFa": "설정 대체 FA",
+  "iconNameMenuFa": "메뉴 FA",
+  "iconNameMoreFa": "더보기 FA",
+  "iconNameMoreVerticalFa": "더보기 세로 FA",
+  "iconNameInfoFa": "정보 FA",
+  "iconNameInfoFaOutline": "정보 FA 윤곽선",
+  "iconNameHelpFa": "도움말 FA",
+  "iconNameHelpFaOutline": "도움말 FA 윤곽선",
+  "iconNameListFa": "목록 FA",
+  "iconNameGridFa": "격자 FA",
+  "iconNameSlidersFa": "슬라이더 FA",
+  "iconNameTvFa": "TV FA",
+  "iconNameMonitorFa": "모니터 FA",
+  "iconNameDesktopFa": "데스크톱 FA",
+  "iconNameBrightnessFa": "밝기 FA",
+  "iconNameNightModeFa": "밤 Mode FA",
+  "iconNameLightFa": "라이트 FA",
+  "iconNameLightFaOutline": "라이트 FA 윤곽선",
+  "iconNameFlashFa": "플래시 FA",
+  "iconNameFullscreenFa": "전체 화면 FA",
+  "iconNameExitFullscreenFa": "전체 화면 종료 FA",
+  "iconNameZoomInFa": "확대 FA",
+  "iconNameZoomOutFa": "축소 FA",
+  "iconNameSubtitlesFa": "자막 FA",
+  "iconNamePictureInPictureFa": "그림 그림 FA",
+  "iconNameColorFa": "색상 FA",
+  "iconNamePaintFa": "그리기 FA",
+  "iconNameInputFa": "입력 FA",
+  "iconNameWifiFa": "WiFi FA",
+  "iconNameBluetoothFa": "블루투스 FA",
+  "iconNameUsbFa": "USB FA",
+  "iconNameEthernetFa": "이더넷 FA",
+  "iconNameGamepadFa": "게임패드 FA",
+  "iconNameBroadcastFa": "방송 FA",
+  "iconNameSatelliteFa": "위성 FA",
+  "iconNameAntennaFa": "안테나 FA",
+  "iconNameNetworkFa": "네트워크 FA",
+  "iconNameCloudFa": "클라우드 FA",
+  "iconNameStarFa": "별 FA",
+  "iconNameStarFaOutline": "별 FA 윤곽선",
+  "iconNameHeartFa": "하트 FA",
+  "iconNameHeartFaOutline": "하트 FA 윤곽선",
+  "iconNameBookmarkFa": "북마크 FA",
+  "iconNameBookmarkFaOutline": "북마크 FA 윤곽선",
+  "iconNameFlagFa": "플래그 FA",
+  "iconNameClockFa": "시계 FA",
+  "iconNameClockFaOutline": "시계 FA 윤곽선",
+  "iconNameBellFa": "벨 FA",
+  "iconNameBellFaOutline": "벨 FA 윤곽선",
+  "iconNameTimerFa": "타이머 FA",
+  "iconNameLockFa": "잠금 FA",
+  "iconNameUnlockFa": "잠금 해제 FA",
+  "iconNameGalleryFa": "갤러리 FA",
+  "iconNameImagesFa": "이미지 FA",
+  "iconNameImageFa": "이미지 FA",
+  "iconNameVideoFileFa": "비디오 파일 FA",
+  "iconNameAudioFileFa": "오디오 파일 FA",
+  "iconNamePlayOutlineFa": "재생 윤곽선 FA",
+  "iconNamePlaySimpleFa": "재생 단순 FA",
+  "iconNamePauseSimpleFa": "일시정지 단순 FA",
+  "iconNameStopSimpleFa": "중지 단순 FA",
+  "iconNameRecordFa": "녹화 FA",
+  "iconNameStopCircleFa": "중지 원형 FA",
+  "iconNameLoadingFa": "로딩 FA",
+  "iconNameTextFa": "텍스트 FA",
+  "iconNameTextSizeFa": "텍스트 크기 FA",
+  "iconNameLanguageFa": "언어 FA",
+  "iconNameGlobeFa": "지구 FA",
+  "iconNameSubtitlesAltFa": "자막 대체 FA",
+  "iconNameSubtitlesAltOutlineFa": "자막 대체 윤곽선 FA",
+  "iconNameChannelUpFa": "채널 위 FA",
+  "iconNameChannelDownFa": "채널 아래 FA",
+  "iconNamePageUpFa": "페이지 위 FA",
+  "iconNamePageDownFa": "페이지 아래 FA",
+  "iconNameGuideFa": "가이드 FA",
+  "iconNameGridViewFa": "격자 보기 FA",
+  "iconNameGridAltFa": "격자 대체 FA",
+  "iconNameScheduleFa": "일정 FA",
+  "iconNameCalendarFa": "캘린더 FA",
+  "iconNameRedButtonFa": "빨강 버튼 FA",
+  "iconNameButtonOutlineFa": "버튼 윤곽선 FA",
+  "iconNameSquareButtonFa": "사각형 버튼 FA",
+  "iconNameSquareOutlineFa": "사각형 윤곽선 FA",
+  "iconNameDotCircleFa": "점 원형 FA",
+  "iconNameToolsFa": "도구 FA",
+  "iconNameScrewdriverFa": "드라이버 FA",
+  "iconNameHammerFa": "망치 FA",
+  "iconNameToolboxFa": "도구상자 FA",
+  "iconNameCogFa": "톱니 FA",
+  "iconNameAdjustFa": "조정 FA",
+  "iconNameFilterFa": "필터 FA",
+  "iconNameSortDownFa": "정렬 아래 FA",
+  "iconNameSortUpFa": "정렬 위 FA",
+  "iconNameSleepFa": "절전 FA",
+  "iconNameTimerStartFa": "타이머 시작 FA",
+  "iconNameTimerHalfFa": "타이머 절반 FA",
+  "iconNameTimerEndFa": "타이머 끝 FA",
+  "iconNameStopwatchFa": "스톱워치 FA",
+  "iconNameAlarmFa": "알람 FA",
+  "iconNameCropAltFa": "자르기 대체 FA",
+  "iconNameCropFa": "자르기 FA",
+  "iconNameSquareFullFa": "사각형 가득 찬 FA",
+  "iconNameFullscreenAltFa": "전체 화면 대체 FA",
+  "iconNameZoomPlusFa": "줌 플러스 FA",
+  "iconNameZoomMinusFa": "줌 마이너스 FA",
+  "iconNameMusicNoteFa": "음악 노트 FA",
+  "iconNameCdFa": "CD FA",
+  "iconNameVinylFa": "바이닐 FA",
+  "iconNameRssFa": "RSS FA",
+  "iconNameMagicFa": "Magic FA",
+  "iconNameFingerprintFa": "Fingerprint FA",
+  "iconNameUserFa": "User FA",
+  "iconNameUsersFa": "Users FA",
+  "iconNameChildModeFa": "Child Mode FA",
+  "iconNameCastFa": "캐스트 FA",
+  "iconNameStreamFa": "Stream FA",
+  "iconNameSignalFa": "신호 FA",
+  "iconNameFeedFa": "Feed FA",
+  "iconNameCircleArrowUpFa": "원형 위 화살표 FA",
+  "iconNameCircleArrowDownFa": "원형 아래 화살표 FA",
+  "iconNameCircleArrowLeftFa": "원형 왼쪽 화살표 FA",
+  "iconNameCircleArrowRightFa": "원형 오른쪽 화살표 FA",
+  "iconNameLongArrowUpFa": "Long 위 화살표 FA",
+  "iconNameLongArrowDownFa": "Long 아래 화살표 FA",
+  "iconNameLongArrowLeftFa": "Long 왼쪽 화살표 FA",
+  "iconNameLongArrowRightFa": "Long 오른쪽 화살표 FA",
+  "iconNamePlusFa": "플러스 FA",
+  "iconNameMinusFa": "마이너스 FA",
+  "iconNamePlusCircleFa": "플러스 원형 FA",
+  "iconNameMinusCircleFa": "마이너스 원형 FA",
+  "iconNamePlusSquareFa": "플러스 사각형 FA",
+  "iconNameMinusSquareFa": "마이너스 사각형 FA",
+  "iconNameTimesFa": "Times FA",
+  "iconNameTimesCircleFa": "Times 원형 FA",
+  "iconNameBatteryFullFa": "배터리 가득 찬 FA",
+  "iconNameBattery34Fa": "배터리 3/4 FA",
+  "iconNameBatteryHalfFa": "배터리 절반 FA",
+  "iconNameBattery14Fa": "배터리 1/4 FA",
+  "iconNameBatteryEmptyFa": "배터리 Empty FA",
+  "iconNameChargingFa": "Charging FA",
+  "iconNameCloudSunFa": "클라우드 Sun FA",
+  "iconNameCloudMoonFa": "클라우드 Moon FA",
+  "iconNameRainFa": "Rain FA",
+  "iconNameSnowflakeFa": "Snowflake FA",
+  "iconNameFireFa": "Fire FA",
+  "iconNameTemperatureFa": "Temperature FA",
+  "iconNameBoxFa": "Box FA",
+  "iconNameGiftFa": "Gift FA",
+  "iconNameTrophyFa": "Trophy FA",
+  "iconNameCrownFa": "Crown FA",
+  "iconNameGemFa": "Gem FA",
+  "unknownLabel": "알 수 없음",
+  "selectedFilesLabel": "선택한 파일",
+  "folderNotFoundOrInaccessible": "폴더 않음 찾을 수 없음 또는 inaccessible.",
+  "importedRemoteDefaultName": "ImportedRemote",
+  "demoRemoteName": "데모 리모컨",
+  "protocolFieldsInvalid": "Fill 필수 프로토콜 fields 및 ensure frequency 15k–60k if set.",
+  "unknownProtocolSelected": "알 수 없는 프로토콜이 선택되었습니다."
+}

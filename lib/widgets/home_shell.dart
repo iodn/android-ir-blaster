@@ -1,8 +1,8 @@
 import 'dart:async';
 
 import 'package:flutter/material.dart';
+import 'package:irblaster_controller/l10n/l10n.dart';
 import 'package:irblaster_controller/state/haptics.dart';
-import 'package:irblaster_controller/state/transmitter_prefs.dart';
 import 'package:irblaster_controller/utils/ir_transmitter_platform.dart';
 import 'package:irblaster_controller/widgets/ir_finder_screen.dart';
 import 'package:irblaster_controller/widgets/macros_tab.dart';
@@ -128,60 +128,60 @@ class _HomeShellState extends State<HomeShell> {
     return !audioSelected && !caps.hasInternal && !caps.usbReady;
   }
 
-  String _usbUnavailableMessage(IrTransmitterCapabilities caps) {
+  String _usbUnavailableMessage(BuildContext context, IrTransmitterCapabilities caps) {
     switch (caps.usbStatus) {
       case UsbConnectionStatus.permissionRequired:
-        return 'This phone does not include a built-in IR emitter. A USB IR dongle is detected, but permission is not granted yet.\n\nApprove the USB permission prompt to enable sending IR.';
+        return context.l10n.homeUsbPermissionRequiredMessage;
       case UsbConnectionStatus.permissionDenied:
-        return 'This phone does not include a built-in IR emitter. A USB IR dongle is detected, but USB permission was denied.\n\nRequest permission again and approve the prompt to enable sending IR.';
+        return context.l10n.homeUsbPermissionDeniedMessage;
       case UsbConnectionStatus.permissionGranted:
-        return 'This phone does not include a built-in IR emitter. A USB IR dongle is authorized, but it is not initialized yet.';
+        return context.l10n.homeUsbPermissionGrantedMessage;
       case UsbConnectionStatus.openFailed:
-        return 'This phone does not include a built-in IR emitter. A USB IR dongle is detected and authorized, but it could not be initialized.\n\nReconnect the dongle and try again.';
+        return context.l10n.homeUsbOpenFailedMessage;
       case UsbConnectionStatus.ready:
-        return 'This phone does not include a built-in IR emitter.';
+        return context.l10n.homeUsbReadyMessage;
       case UsbConnectionStatus.noDevice:
-        return 'This phone does not include a built-in IR emitter, and no supported USB IR dongle is currently connected.\n\nYou can still create, import, and manage remotes — but to transmit IR signals you need one of the options below.';
+        return context.l10n.homeUsbNoDeviceMessage;
     }
   }
 
-  String _usbOptionSubtitle(IrTransmitterCapabilities caps) {
+  String _usbOptionSubtitle(BuildContext context, IrTransmitterCapabilities caps) {
     if (!caps.hasUsb) {
-      return 'Plug in a supported USB IR dongle, then approve permission.';
+      return context.l10n.homeUsbOptionPlugIn;
     }
     switch (caps.usbStatus) {
       case UsbConnectionStatus.ready:
-        return 'Ready to use.';
+        return context.l10n.homeUsbOptionReady;
       case UsbConnectionStatus.permissionRequired:
-        return 'Plugged in. Permission required.';
+        return context.l10n.homeUsbOptionPermissionRequired;
       case UsbConnectionStatus.permissionDenied:
-        return 'Permission denied. Request it again.';
+        return context.l10n.homeUsbOptionPermissionDenied;
       case UsbConnectionStatus.permissionGranted:
-        return 'Authorized. Initializing dongle.';
+        return context.l10n.homeUsbOptionPermissionGranted;
       case UsbConnectionStatus.openFailed:
-        return 'Authorized, but initialization failed.';
+        return context.l10n.homeUsbOptionOpenFailed;
       case UsbConnectionStatus.noDevice:
-        return 'Plug in a supported USB IR dongle, then approve permission.';
+        return context.l10n.homeUsbOptionPlugIn;
     }
   }
 
-  String _hardwareBannerSubtitle(IrTransmitterCapabilities caps) {
+  String _hardwareBannerSubtitle(BuildContext context, IrTransmitterCapabilities caps) {
     if (!caps.hasUsb) {
-      return 'This phone has no built-in IR. Connect a USB IR dongle or enable Audio mode in Settings.';
+      return context.l10n.homeHardwareBannerNoInternal;
     }
     switch (caps.usbStatus) {
       case UsbConnectionStatus.permissionRequired:
-        return 'USB dongle detected. Permission required to send IR.';
+        return context.l10n.homeHardwareBannerPermissionRequired;
       case UsbConnectionStatus.permissionDenied:
-        return 'USB permission was denied. Request it again to send IR.';
+        return context.l10n.homeHardwareBannerPermissionDenied;
       case UsbConnectionStatus.permissionGranted:
-        return 'USB dongle authorized. Waiting for initialization.';
+        return context.l10n.homeHardwareBannerPermissionGranted;
       case UsbConnectionStatus.openFailed:
-        return 'USB dongle authorized, but initialization failed.';
+        return context.l10n.homeHardwareBannerOpenFailed;
       case UsbConnectionStatus.ready:
-        return 'USB is ready.';
+        return context.l10n.homeHardwareBannerReady;
       case UsbConnectionStatus.noDevice:
-        return 'This phone has no built-in IR. Connect a USB IR dongle or enable Audio mode in Settings.';
+        return context.l10n.homeHardwareBannerNoInternal;
     }
   }
 
@@ -221,20 +221,19 @@ class _HomeShellState extends State<HomeShell> {
           final theme = Theme.of(ctx);
           final cs = theme.colorScheme;
 
-          const String headline = 'IR hardware required to send commands';
-          final String message = _usbUnavailableMessage(caps);
+          final String headline = ctx.l10n.homeHardwareRequiredTitle;
+          final String message = _usbUnavailableMessage(ctx, caps);
 
           final List<_HardwareOption> options = <_HardwareOption>[
             _HardwareOption(
               icon: Icons.usb_rounded,
-              title: 'USB IR dongle (recommended)',
-              subtitle: _usbOptionSubtitle(caps),
+              title: ctx.l10n.homeUsbDongleRecommended,
+              subtitle: _usbOptionSubtitle(ctx, caps),
             ),
-            const _HardwareOption(
+            _HardwareOption(
               icon: Icons.graphic_eq_rounded,
-              title: 'Audio IR adapter (alternative)',
-              subtitle:
-                  'Settings → IR Transmitter → Audio (1 LED / 2 LED). Requires an audio-to-IR adapter.',
+              title: ctx.l10n.homeAudioAdapterAlternative,
+              subtitle: ctx.l10n.homeAudioAdapterDescription,
             ),
           ];
 
@@ -274,7 +273,7 @@ class _HomeShellState extends State<HomeShell> {
                       ),
                     ),
                     IconButton(
-                      tooltip: 'Close',
+                      tooltip: ctx.l10n.close,
                       onPressed: () => Navigator.of(ctx).pop(),
                       icon: const Icon(Icons.close_rounded),
                     ),
@@ -303,7 +302,7 @@ class _HomeShellState extends State<HomeShell> {
                 Align(
                   alignment: Alignment.centerLeft,
                   child: Text(
-                    'Choose a transmitter',
+                    ctx.l10n.homeChooseTransmitter,
                     style: theme.textTheme.titleSmall
                         ?.copyWith(fontWeight: FontWeight.w900),
                   ),
@@ -323,7 +322,7 @@ class _HomeShellState extends State<HomeShell> {
                           Haptics.selectionClick();
                         },
                         icon: const Icon(Icons.settings_rounded),
-                        label: const Text('Open Settings'),
+                        label: Text(ctx.l10n.openSettings),
                       ),
                     ),
                     const SizedBox(width: 10),
@@ -342,17 +341,17 @@ class _HomeShellState extends State<HomeShell> {
                                     SnackBar(
                                       content: Text(
                                         ok
-                                            ? 'USB permission request sent. Approve the prompt to enable USB.'
-                                            : 'No supported USB IR dongle detected. Plug it in and try again.',
+                                            ? context.l10n.homeUsbPermissionSentApprove
+                                            : context.l10n.homeUsbDongleNotDetected,
                                       ),
                                     ),
                                   );
                                 } catch (_) {
                                   if (!mounted) return;
                                   ScaffoldMessenger.of(context).showSnackBar(
-                                    const SnackBar(
+                                    SnackBar(
                                       content: Text(
-                                        'Failed to request USB permission.',
+                                        context.l10n.homeUsbPermissionRequestFailed,
                                       ),
                                     ),
                                   );
@@ -364,14 +363,14 @@ class _HomeShellState extends State<HomeShell> {
                               },
                         icon: const Icon(Icons.usb_rounded),
                         label:
-                            Text(_busy ? 'Working…' : 'Request USB permission'),
+                            Text(_busy ? ctx.l10n.working : ctx.l10n.requestUsbPermission),
                       ),
                     ),
                   ],
                 ),
                 const SizedBox(height: 10),
                 Text(
-                  'Tip: You can still build and organize remotes now. Hardware is only required when transmitting.',
+                  ctx.l10n.homeHardwareTip,
                   style: theme.textTheme.bodySmall?.copyWith(
                     color: cs.onSurface.withOpacity(0.65),
                     fontWeight: FontWeight.w600,
@@ -397,8 +396,8 @@ class _HomeShellState extends State<HomeShell> {
     final theme = Theme.of(context);
     final cs = theme.colorScheme;
 
-    const String title = 'No IR transmitter available';
-    final String subtitle = _hardwareBannerSubtitle(caps);
+    final String title = context.l10n.homeNoIrTransmitterTitle;
+    final String subtitle = _hardwareBannerSubtitle(context, caps);
 
     return Padding(
       padding: const EdgeInsets.fromLTRB(12, 12, 12, 6),
@@ -446,13 +445,13 @@ class _HomeShellState extends State<HomeShell> {
                             Haptics.selectionClick();
                           },
                           icon: const Icon(Icons.settings_rounded),
-                          label: const Text('Settings'),
+                          label: Text(context.l10n.settingsNavLabel),
                         ),
                         OutlinedButton.icon(
                           onPressed: () =>
                               setState(() => _bannerDismissed = true),
                           icon: const Icon(Icons.close_rounded),
-                          label: const Text('Dismiss'),
+                          label: Text(context.l10n.dismiss),
                         ),
                       ],
                     ),
@@ -480,26 +479,26 @@ class _HomeShellState extends State<HomeShell> {
       bottomNavigationBar: NavigationBar(
         selectedIndex: _index,
         onDestinationSelected: (i) => setState(() => _index = i),
-        destinations: const <NavigationDestination>[
+        destinations: <NavigationDestination>[
           NavigationDestination(
             icon: Icon(Icons.settings_remote_outlined),
             selectedIcon: Icon(Icons.settings_remote),
-            label: 'Remotes',
+            label: context.l10n.remotesNavLabel,
           ),
           NavigationDestination(
             icon: Icon(Icons.playlist_play_rounded),
             selectedIcon: Icon(Icons.playlist_play),
-            label: 'Macros',
+            label: context.l10n.macrosNavLabel,
           ),
           NavigationDestination(
             icon: Icon(Icons.radar_outlined),
             selectedIcon: Icon(Icons.radar),
-            label: 'Signal Tester',
+            label: context.l10n.signalTesterNavLabel,
           ),
           NavigationDestination(
             icon: Icon(Icons.settings_outlined),
             selectedIcon: Icon(Icons.settings),
-            label: 'Settings',
+            label: context.l10n.settingsNavLabel,
           ),
         ],
       ),

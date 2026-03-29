@@ -4,6 +4,7 @@ import 'dart:io';
 
 import 'package:file_picker/file_picker.dart';
 import 'package:flutter/material.dart';
+import 'package:irblaster_controller/l10n/l10n.dart';
 import 'package:irblaster_controller/models/timed_macro.dart';
 import 'package:irblaster_controller/utils/macros_io.dart';
 import 'package:irblaster_controller/utils/remote.dart';
@@ -33,11 +34,7 @@ Future<bool> _requestLegacyStoragePermission(BuildContext context) async {
 
   if (!context.mounted) return false;
   ScaffoldMessenger.of(context).showSnackBar(
-    const SnackBar(
-      content: Text(
-        'Storage permission denied (needed on some older Android devices).',
-      ),
-    ),
+    SnackBar(content: Text(context.l10n.storagePermissionDeniedLegacy)),
   );
   return false;
 }
@@ -79,7 +76,7 @@ Future<void> exportRemotesToDownloads(
 
     if (!context.mounted) return;
     ScaffoldMessenger.of(context).showSnackBar(
-      const SnackBar(content: Text('Backup exported to Downloads.')),
+      SnackBar(content: Text(context.l10n.backupExportedToDownloads)),
     );
   }
 
@@ -87,6 +84,7 @@ Future<void> exportRemotesToDownloads(
     await doSave();
     return;
   } catch (_) {
+    if (!context.mounted) return;
     final ok = await _requestLegacyStoragePermission(context);
     if (!ok) return;
 
@@ -96,7 +94,7 @@ Future<void> exportRemotesToDownloads(
     } catch (e2) {
       if (!context.mounted) return;
       ScaffoldMessenger.of(context).showSnackBar(
-        SnackBar(content: Text('Failed to export: $e2')),
+        SnackBar(content: Text(context.l10n.failedToExport(e2.toString()))),
       );
     }
   }
@@ -106,6 +104,7 @@ Future<ImportResult?> importRemotesFromPicker(
   BuildContext context, {
   required List<Remote> current,
 }) async {
+  final l10n = context.l10n;
   final FilePickerResult? result = await FilePicker.platform.pickFiles(
     type: FileType.custom,
     allowedExtensions: const <String>[
@@ -127,10 +126,10 @@ Future<ImportResult?> importRemotesFromPicker(
   final List<int>? bytes = await _readPlatformFileBytes(pf);
 
   if (bytes == null) {
-    return const ImportResult(
+    return ImportResult(
       remotes: <Remote>[],
       macros: null,
-      message: 'Import failed: invalid or unreadable file.',
+      message: l10n.importFailedInvalidUnreadableFile,
     );
   }
 
@@ -145,15 +144,18 @@ Future<ImportResult?> importRemotesFromPicker(
   final isConfLike = extLower == 'conf' || extLower == 'cfg' || extLower == 'lirc';
 
   if (!isJson && !isIr && !isXmlLike && !isConfLike) {
-    return const ImportResult(
+    return ImportResult(
       remotes: <Remote>[],
       macros: null,
-      message: 'Unsupported file type selected.',
+      message: l10n.unsupportedFileTypeSelected,
     );
   }
 
   final contents = utf8.decode(bytes, allowMalformed: true);
-  final importedRemoteName = _sanitizeRemoteNameFromFilename(pf.name);
+  final importedRemoteName = _sanitizeRemoteNameFromFilename(
+    pf.name,
+    fallbackName: l10n.importedRemoteDefaultName,
+  );
 
   try {
     if (isJson) {
@@ -168,8 +170,7 @@ Future<ImportResult?> importRemotesFromPicker(
         return ImportResult(
           remotes: importedRemotes,
           macros: null,
-          message:
-              'Imported ${importedRemotes.length} remotes from legacy JSON backup. Macros were not changed.',
+          message: l10n.importedLegacyJsonBackup(importedRemotes.length),
         );
       }
 
@@ -181,17 +182,17 @@ Future<ImportResult?> importRemotesFromPicker(
         final dynamic macrosRaw = decoded['macros'];
 
         if (hasRemotesKey && remotesRaw is! List) {
-          return const ImportResult(
+          return ImportResult(
             remotes: <Remote>[],
             macros: null,
-            message: 'Import failed: backup "remotes" must be a JSON list when present.',
+            message: l10n.importFailedRemotesMustBeList,
           );
         }
         if (hasMacrosKey && macrosRaw is! List) {
-          return const ImportResult(
+          return ImportResult(
             remotes: <Remote>[],
             macros: null,
-            message: 'Import failed: backup "macros" must be a JSON list when present.',
+            message: l10n.importFailedMacrosMustBeList,
           );
         }
 
@@ -225,11 +226,10 @@ Future<ImportResult?> importRemotesFromPicker(
         }
 
         if (importedRemotes.isEmpty && importedMacros == null) {
-          return const ImportResult(
+          return ImportResult(
             remotes: <Remote>[],
             macros: null,
-            message:
-                'Import failed: invalid backup format (expected legacy List or Map with remotes/macros).',
+            message: l10n.importFailedInvalidBackupFormat,
           );
         }
 
@@ -240,15 +240,15 @@ Future<ImportResult?> importRemotesFromPicker(
           remotes: importedRemotes,
           macros: importedMacros,
           message: importedMacros == null
-              ? 'Imported $rCount remotes from backup. Macros were not changed.'
-              : 'Imported $rCount remotes and $mCount macros from backup.',
+              ? l10n.importedBackupRemotesOnly(rCount)
+              : l10n.importedBackupRemotesAndMacros(rCount, mCount),
         );
       }
 
-      return const ImportResult(
+      return ImportResult(
         remotes: <Remote>[],
         macros: null,
-        message: 'Import failed: invalid backup format (expected legacy List or Map with remotes/macros).',
+        message: l10n.importFailedInvalidBackupFormat,
       );
     }
 
@@ -259,10 +259,10 @@ Future<ImportResult?> importRemotesFromPicker(
       );
 
       if (remoteFromIr == null) {
-        return const ImportResult(
+        return ImportResult(
           remotes: <Remote>[],
           macros: null,
-          message: 'Import failed: no valid buttons found in .ir file.',
+          message: l10n.importFailedNoValidButtonsInIr,
         );
       }
 
@@ -271,7 +271,7 @@ Future<ImportResult?> importRemotesFromPicker(
       return ImportResult(
         remotes: next,
         macros: null,
-        message: 'Imported 1 remote from Flipper .ir. Macros were not changed.',
+        message: l10n.importedOneRemoteFromFlipper,
       );
     }
 
@@ -280,13 +280,14 @@ Future<ImportResult?> importRemotesFromPicker(
         contents,
         filename: pf.name,
         remoteName: importedRemoteName,
+        fallbackLabel: l10n.buttonFallbackTitle,
       );
 
       if (remoteFromIrplus == null) {
-        return const ImportResult(
+        return ImportResult(
           remotes: <Remote>[],
           macros: null,
-          message: 'Import failed: invalid irplus file (no valid buttons found).',
+          message: l10n.importFailedInvalidIrplus,
         );
       }
 
@@ -295,7 +296,7 @@ Future<ImportResult?> importRemotesFromPicker(
       return ImportResult(
         remotes: next,
         macros: null,
-        message: 'Imported 1 remote from irplus. Macros were not changed.',
+        message: l10n.importedOneRemoteFromIrplus,
       );
     }
 
@@ -308,13 +309,14 @@ Future<ImportResult?> importRemotesFromPicker(
       final Remote? remoteFromLirc = _parseLircConfig(
         contents,
         remoteName: importedRemoteName,
+        fallbackLabel: l10n.buttonFallbackTitle,
       );
 
       if (remoteFromLirc == null) {
-        return const ImportResult(
+        return ImportResult(
           remotes: <Remote>[],
           macros: null,
-          message: 'Import failed: invalid LIRC file (no valid codes/raw codes found).',
+          message: l10n.importFailedInvalidLirc,
         );
       }
 
@@ -323,20 +325,20 @@ Future<ImportResult?> importRemotesFromPicker(
       return ImportResult(
         remotes: next,
         macros: null,
-        message: 'Imported 1 remote from LIRC config. Macros were not changed.',
+        message: l10n.importedOneRemoteFromLirc,
       );
     }
 
-    return const ImportResult(
+    return ImportResult(
       remotes: <Remote>[],
       macros: null,
-      message: 'Unsupported file type selected.',
+      message: l10n.unsupportedFileTypeSelected,
     );
   } catch (_) {
-    return const ImportResult(
+    return ImportResult(
       remotes: <Remote>[],
       macros: null,
-      message: 'Import failed: invalid or unreadable file.',
+      message: l10n.importFailedInvalidUnreadableFile,
     );
   }
 }
@@ -346,6 +348,7 @@ Future<ImportResult?> importRemotesFromFolderPicker(
   required List<Remote> current,
   bool recursive = true,
 }) async {
+  final l10n = context.l10n;
   if (Platform.isAndroid) {
     final FilePickerResult? res = await FilePicker.platform.pickFiles(
       type: FileType.custom,
@@ -364,12 +367,13 @@ Future<ImportResult?> importRemotesFromFolderPicker(
     );
 
     if (res == null || res.files.isEmpty) return null;
+    if (!context.mounted) return null;
 
     return _bulkImportFromPlatformFiles(
       context,
       current: current,
       files: res.files,
-      sourceLabel: 'selected file(s)',
+      sourceLabel: l10n.selectedFilesLabel,
     );
   }
 
@@ -381,13 +385,12 @@ Future<ImportResult?> importRemotesFromFolderPicker(
     return ImportResult(
       remotes: current,
       macros: null,
-      message: 'Folder not found or inaccessible.',
+      message: l10n.folderNotFoundOrInaccessible,
     );
   }
 
   Future<ImportResult> doImport() async {
     final List<Remote> imported = <Remote>[];
-    int scanned = 0;
     int supported = 0;
     int skippedUnsupported = 0;
     int skippedBroken = 0;
@@ -398,7 +401,6 @@ Future<ImportResult?> importRemotesFromFolderPicker(
     )) {
       if (entity is! File) continue;
 
-      scanned++;
       final String filePath = entity.path;
       final String fileName = filePath.split(RegExp(r'[\\/]+')).last;
       final String nameLower = fileName.toLowerCase();
@@ -421,7 +423,10 @@ Future<ImportResult?> importRemotesFromFolderPicker(
       }
 
       final String contents = utf8.decode(bytes, allowMalformed: true);
-      final String remoteNameHint = _sanitizeRemoteNameFromFilename(fileName);
+      final String remoteNameHint = _sanitizeRemoteNameFromFilename(
+        fileName,
+        fallbackName: l10n.importedRemoteDefaultName,
+      );
 
       try {
         final List<Remote> remotesFromFile = _parseSupportedFileToRemotes(
@@ -429,6 +434,7 @@ Future<ImportResult?> importRemotesFromFolderPicker(
           filename: fileName,
           extLower: extLower,
           remoteNameHint: remoteNameHint,
+          fallbackButtonLabel: l10n.buttonFallbackTitle,
         );
 
         if (remotesFromFile.isEmpty) {
@@ -449,8 +455,8 @@ Future<ImportResult?> importRemotesFromFolderPicker(
         remotes: current,
         macros: null,
         message: supported == 0
-            ? 'Bulk import complete: no supported files found in folder.'
-            : 'Bulk import complete: no remotes imported. Skipped $skipped file(s).',
+            ? l10n.bulkImportNoSupportedFilesInFolder
+            : l10n.bulkImportNoRemotesImported(skipped),
       );
     }
 
@@ -461,20 +467,26 @@ Future<ImportResult?> importRemotesFromFolderPicker(
     return ImportResult(
       remotes: next,
       macros: null,
-      message:
-          'Bulk import complete: imported ${imported.length} remote(s) from $supported supported file(s). Skipped $skipped file(s).',
+      message: l10n.bulkImportComplete(imported.length, supported, skipped),
     );
   }
 
   try {
     return await doImport();
   } catch (_) {
+    if (!context.mounted) {
+      return ImportResult(
+        remotes: current,
+        macros: null,
+        message: l10n.storagePermissionDenied,
+      );
+    }
     final ok = await _requestLegacyStoragePermission(context);
     if (!ok) {
       return ImportResult(
         remotes: current,
         macros: null,
-        message: 'Storage permission denied.',
+        message: l10n.storagePermissionDenied,
       );
     }
 
@@ -484,7 +496,7 @@ Future<ImportResult?> importRemotesFromFolderPicker(
       return ImportResult(
         remotes: current,
         macros: null,
-        message: 'Bulk import failed: unable to read folder contents.',
+        message: l10n.bulkImportFailedReadFolder,
       );
     }
   }
@@ -496,15 +508,13 @@ Future<ImportResult> _bulkImportFromPlatformFiles(
   required List<PlatformFile> files,
   required String sourceLabel,
 }) async {
+  final l10n = context.l10n;
   final List<Remote> imported = <Remote>[];
-  int scanned = 0;
   int supported = 0;
   int skippedUnsupported = 0;
   int skippedBroken = 0;
 
   for (final pf in files) {
-    scanned++;
-
     final String fileName = pf.name;
     final String nameLower = fileName.toLowerCase();
     String extLower = (pf.extension ?? '').toLowerCase();
@@ -527,7 +537,10 @@ Future<ImportResult> _bulkImportFromPlatformFiles(
     }
 
     final String contents = utf8.decode(bytes, allowMalformed: true);
-    final String remoteNameHint = _sanitizeRemoteNameFromFilename(fileName);
+    final String remoteNameHint = _sanitizeRemoteNameFromFilename(
+      fileName,
+      fallbackName: l10n.importedRemoteDefaultName,
+    );
 
     try {
       final List<Remote> remotesFromFile = _parseSupportedFileToRemotes(
@@ -535,6 +548,7 @@ Future<ImportResult> _bulkImportFromPlatformFiles(
         filename: fileName,
         extLower: extLower,
         remoteNameHint: remoteNameHint,
+        fallbackButtonLabel: l10n.buttonFallbackTitle,
       );
 
       if (remotesFromFile.isEmpty) {
@@ -555,8 +569,8 @@ Future<ImportResult> _bulkImportFromPlatformFiles(
       remotes: current,
       macros: null,
       message: supported == 0
-          ? 'Bulk import complete: no supported files found ($sourceLabel).'
-          : 'Bulk import complete: no remotes imported. Skipped $skipped file(s).',
+          ? l10n.bulkImportNoSupportedFilesSource(sourceLabel)
+          : l10n.bulkImportNoRemotesImported(skipped),
     );
   }
 
@@ -567,8 +581,7 @@ Future<ImportResult> _bulkImportFromPlatformFiles(
   return ImportResult(
     remotes: next,
     macros: null,
-    message:
-        'Bulk import complete: imported ${imported.length} remote(s) from $supported supported file(s). Skipped $skipped file(s).',
+    message: l10n.bulkImportComplete(imported.length, supported, skipped),
   );
 }
 
@@ -626,6 +639,7 @@ List<Remote> _parseSupportedFileToRemotes(
   required String filename,
   required String extLower,
   required String remoteNameHint,
+  required String fallbackButtonLabel,
 }) {
   final String nameLower = filename.toLowerCase();
   final bool isJson = extLower == 'json' || nameLower.endsWith('.json');
@@ -672,6 +686,7 @@ List<Remote> _parseSupportedFileToRemotes(
       contents,
       filename: filename,
       remoteName: remoteNameHint,
+      fallbackLabel: fallbackButtonLabel,
     );
     if (r == null) return const <Remote>[];
     return <Remote>[r];
@@ -683,7 +698,11 @@ List<Remote> _parseSupportedFileToRemotes(
   ).hasMatch(contents);
 
   if (isConfLike && isLirc) {
-    final Remote? r = _parseLircConfig(contents, remoteName: remoteNameHint);
+    final Remote? r = _parseLircConfig(
+      contents,
+      remoteName: remoteNameHint,
+      fallbackLabel: fallbackButtonLabel,
+    );
     if (r == null) return const <Remote>[];
     return <Remote>[r];
   }
@@ -691,9 +710,9 @@ List<Remote> _parseSupportedFileToRemotes(
   return const <Remote>[];
 }
 
-String _sanitizeRemoteNameFromFilename(String filename) {
+String _sanitizeRemoteNameFromFilename(String filename, {required String fallbackName}) {
   String base = filename.trim();
-  if (base.isEmpty) return 'ImportedRemote';
+  if (base.isEmpty) return fallbackName;
 
   base = base.split(RegExp(r'[\\/]+')).last;
 
@@ -712,7 +731,7 @@ String _sanitizeRemoteNameFromFilename(String filename) {
   }
 
   final sanitized = base.replaceAll(RegExp(r'[^A-Za-z0-9]'), '');
-  if (sanitized.isEmpty) return 'ImportedRemote';
+  if (sanitized.isEmpty) return fallbackName;
   return sanitized;
 }
 
@@ -1134,6 +1153,7 @@ Remote? _parseIrplusXml(
   String content, {
   String? filename,
   required String remoteName,
+  required String fallbackLabel,
 }) {
   try {
     final doc = xml.XmlDocument.parse(content);
@@ -1158,6 +1178,7 @@ Remote? _parseIrplusXml(
       final String label = _sanitizeIrplusLabel(
         rawLabel: b.getAttribute('label'),
         altLabel: b.getAttribute('alt'),
+        fallbackLabel: fallbackLabel,
       );
 
       final String payload = b.innerText.trim();
@@ -1245,7 +1266,11 @@ Remote? _parseIrplusXml(
   }
 }
 
-String _sanitizeIrplusLabel({String? rawLabel, String? altLabel}) {
+String _sanitizeIrplusLabel({
+  String? rawLabel,
+  String? altLabel,
+  required String fallbackLabel,
+}) {
   String s = (rawLabel ?? '').replaceAll('\r', '\n');
   s = s
       .split('\n')
@@ -1263,7 +1288,7 @@ String _sanitizeIrplusLabel({String? rawLabel, String? altLabel}) {
         .join(' ');
     a = a.trim();
     if (a.isNotEmpty) return a;
-    return 'BTN';
+    return fallbackLabel;
   }
 
   return s;
@@ -1327,6 +1352,7 @@ int _bitReverse(int x) {
 Remote? _parseLircConfig(
   String content, {
   required String remoteName,
+  required String fallbackLabel,
 }) {
   final String normalized = content.replaceAll('\r\n', '\n').replaceAll('\r', '\n');
   final uuid = const Uuid();
@@ -1372,7 +1398,10 @@ Remote? _parseLircConfig(
       final rawButtons = _parseLircRawCodesSection(rawSection);
 
       for (final rb in rawButtons) {
-        final String label = _sanitizeLircButtonLabel(prefix + rb.name);
+        final String label = _sanitizeLircButtonLabel(
+          prefix + rb.name,
+          fallbackLabel: fallbackLabel,
+        );
         final String? rawData = _normalizeRawDurations(rb.durations.join(' '));
         if (rawData == null) continue;
 
@@ -1417,7 +1446,10 @@ Remote? _parseLircConfig(
     final parsedCodes = _parseLircCodesSection(codesSection);
 
     for (final c in parsedCodes) {
-      final String label = _sanitizeLircButtonLabel(prefix + c.name);
+      final String label = _sanitizeLircButtonLabel(
+        prefix + c.name,
+        fallbackLabel: fallbackLabel,
+      );
 
       final String? raw = _encodeLircSpaceEncToRaw(
         flags: flags,
@@ -1874,9 +1906,9 @@ List<_LircCodeEntry> _parseLircCodesSection(String section) {
   return out;
 }
 
-String _sanitizeLircButtonLabel(String label) {
+String _sanitizeLircButtonLabel(String label, {required String fallbackLabel}) {
   String s = label.replaceAll('\r', ' ').replaceAll('\n', ' ').trim();
-  if (s.isEmpty) return 'BTN';
+  if (s.isEmpty) return fallbackLabel;
   s = s.replaceAll(RegExp(r'\s+'), ' ');
   return s;
 }

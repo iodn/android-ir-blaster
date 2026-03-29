@@ -52,19 +52,6 @@ extension IrTransmitterTypeX on IrTransmitterType {
     }
   }
 
-  String get displayName {
-    switch (this) {
-      case IrTransmitterType.internal:
-        return 'Internal';
-      case IrTransmitterType.usb:
-        return 'USB';
-      case IrTransmitterType.audio1Led:
-        return 'Audio 1 LED';
-      case IrTransmitterType.audio2Led:
-        return 'Audio 2 LED';
-    }
-  }
-
   static IrTransmitterType fromWire(String? v) {
     switch ((v ?? '').toUpperCase()) {
       case 'USB':

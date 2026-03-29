@@ -3,6 +3,8 @@ import 'dart:ui';
 import 'package:dynamic_color/dynamic_color.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_localizations/flutter_localizations.dart';
+import 'package:irblaster_controller/state/app_locale.dart';
 import 'package:irblaster_controller/state/app_theme.dart';
 import 'package:irblaster_controller/state/dynamic_color.dart';
 import 'package:irblaster_controller/state/haptics.dart';
@@ -12,6 +14,8 @@ import 'package:irblaster_controller/state/remotes_state.dart';
 import 'package:irblaster_controller/state/macros_state.dart';
 import 'package:irblaster_controller/utils/ir.dart';
 import 'package:flutter/services.dart';
+import 'package:irblaster_controller/l10n/app_localizations.dart';
+import 'package:irblaster_controller/l10n/l10n.dart';
 import 'package:irblaster_controller/utils/remote.dart';
 import 'package:irblaster_controller/utils/macros_io.dart';
 import 'package:irblaster_controller/widgets/home_shell.dart';
@@ -32,6 +36,7 @@ Future<void> main() async {
   };
   try {
     await AppThemeController.instance.load();
+    await AppLocaleController.instance.load();
     await DynamicColorController.instance.load();
     // Load global interaction preferences
     await Future.wait([
@@ -40,7 +45,6 @@ Future<void> main() async {
       TransmitterPrefs.instance.load(),
       // lazy import to avoid circulars; we refer by string to keep tool happy
     ]);
- } catch (e, st) {
   } catch (e, st) {
     debugPrint('Failed to load theme preference: $e\n$st');
   }
@@ -127,14 +131,17 @@ Future<void> _openQuickTileChooser(String? tileKey) async {
     return;
   }
   final pick = await pickButtonForTile(ctx, tileKey: tileKey);
+  if (!ctx.mounted) return;
   if (pick == null) return;
   final type = _tileTypeFromKey(tileKey);
   if (type != null) {
     final mapping = await buildQuickTileMapping(pick);
+    if (!ctx.mounted) return;
     if (mapping != null) {
       await QuickSettingsPrefs.saveMapping(type, mapping);
     }
   }
+  if (!ctx.mounted) return;
   await sendButtonPick(ctx, pick);
 }
 
@@ -159,7 +166,11 @@ class _App extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return AnimatedBuilder(
-      animation: Listenable.merge([AppThemeController.instance, DynamicColorController.instance]),
+      animation: Listenable.merge([
+        AppThemeController.instance,
+        AppLocaleController.instance,
+        DynamicColorController.instance,
+      ]),
       builder: (context, _) {
         return DynamicColorBuilder(
           builder: (lightDynamic, darkDynamic) {
@@ -171,9 +182,20 @@ class _App extends StatelessWidget {
                 ? (darkDynamic ?? ColorScheme.fromSeed(seedColor: Colors.blue, brightness: Brightness.dark))
                 : ColorScheme.fromSeed(seedColor: Colors.blue, brightness: Brightness.dark);
             return MaterialApp(
-              title: 'IR Blaster',
+              onGenerateTitle: (context) => context.l10n.appTitle,
               debugShowCheckedModeBanner: false,
               navigatorKey: _navKey,
+              locale: AppLocaleController.instance.overrideLocale,
+              localizationsDelegates: const [
+                AppLocalizations.delegate,
+                GlobalMaterialLocalizations.delegate,
+                GlobalWidgetsLocalizations.delegate,
+                GlobalCupertinoLocalizations.delegate,
+              ],
+              supportedLocales: AppLocalizations.supportedLocales,
+              localeResolutionCallback: (locale, supportedLocales) {
+                return AppLocaleController.instance.resolveActiveLocale(supportedLocales.toList(), locale);
+              },
               themeMode: AppThemeController.instance.mode,
               theme: ThemeData(useMaterial3: true, colorScheme: lightScheme, brightness: Brightness.light),
               darkTheme: ThemeData(useMaterial3: true, colorScheme: darkScheme, brightness: Brightness.dark),
@@ -197,6 +219,8 @@ class _BootstrapScreenState extends State<_BootstrapScreen> {
   late Future<void> _future = _bootstrap();
 
   Future<void> _bootstrap() async {
+    final locale = WidgetsBinding.instance.platformDispatcher.locale;
+    final bootstrapL10n = await AppLocalizations.delegate.load(locale);
     await MediaStore.ensureInitialized().timeout(
       const Duration(seconds: 8),
       onTimeout: () {
@@ -211,7 +235,7 @@ class _BootstrapScreenState extends State<_BootstrapScreen> {
       },
     );
     if (remotes.isEmpty) {
-      remotes = writeDefaultRemotes();
+      remotes = writeDefaultRemotes(demoRemoteName: bootstrapL10n.demoRemoteName);
     }
     notifyRemotesChanged();
     macros = await readMacros().timeout(
@@ -260,7 +284,7 @@ class _Splash extends StatelessWidget {
               child: CircularProgressIndicator(strokeWidth: 2),
             ),
             const SizedBox(height: 14),
-            Text('Loading…', style: theme.textTheme.bodyMedium),
+            Text(context.l10n.loading, style: theme.textTheme.bodyMedium),
           ],
         ),
       ),
@@ -281,7 +305,7 @@ class _BootstrapError extends StatelessWidget {
   Widget build(BuildContext context) {
     final theme = Theme.of(context);
     final cs = theme.colorScheme;
-    final msg = (error == null) ? 'Unknown error' : error.toString();
+    final msg = (error == null) ? context.l10n.unknownError : error.toString();
     return Scaffold(
       body: SafeArea(
         child: Padding(
@@ -293,7 +317,7 @@ class _BootstrapError extends StatelessWidget {
                 Icon(Icons.error_outline_rounded, size: 44, color: cs.error),
                 const SizedBox(height: 12),
                 Text(
-                  'Failed to start',
+                  context.l10n.failedToStart,
                   style: theme.textTheme.titleLarge
                       ?.copyWith(fontWeight: FontWeight.w900),
                 ),
@@ -322,7 +346,7 @@ class _BootstrapError extends StatelessWidget {
                   child: FilledButton.icon(
                     onPressed: onRetry,
                     icon: const Icon(Icons.refresh_rounded),
-                    label: const Text('Retry'),
+                    label: Text(context.l10n.retry),
                   ),
                 ),
               ],

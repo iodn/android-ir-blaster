@@ -1,5 +1,8 @@
 import 'dart:async';
 import 'package:flutter/material.dart';
+import 'package:irblaster_controller/l10n/app_localizations.dart';
+import 'package:irblaster_controller/l10n/l10n.dart';
+import 'package:irblaster_controller/state/app_locale.dart';
 import 'package:irblaster_controller/state/orientation_pref.dart';
 import 'package:flutter/services.dart';
 import 'package:irblaster_controller/state/haptics.dart';
@@ -32,6 +35,27 @@ class SettingsScreen extends StatelessWidget {
   static const String _liberapayUrl = 'https://liberapay.com/KaijinLab/donate';
   static const String _btcAddress = 'bc1qtf79uecssueu4u4u86zct46vcs0vcd2cnmvw6f';
   static const String _ethAddress = '0xCaCc52Cd2D534D869a5C61dD3cAac57455f3c2fD';
+  static const Map<String, String> _languageNativeNames = <String, String>{
+    'en': 'English',
+    'fr': 'Français',
+    'es': 'Español',
+    'de': 'Deutsch',
+    'it': 'Italiano',
+    'pt': 'Português',
+    'pt_BR': 'Português (Brasil)',
+    'ja': '日本語',
+    'ko': '한국어',
+    'zh': '中文',
+    'ru': 'Русский',
+    'ar': 'العربية',
+    'ar_EG': 'العربية (مصر)',
+    'hi': 'हिन्दी',
+    'id': 'Bahasa Indonesia',
+    'ms': 'Bahasa Melayu',
+    'th': 'ไทย',
+    'tr': 'Türkçe',
+    'vi': 'Tiếng Việt',
+  };
 
   Future<void> _launchUrl(BuildContext context, String url) async {
     try {
@@ -41,7 +65,7 @@ class SettingsScreen extends StatelessWidget {
         if (!context.mounted) return;
         ScaffoldMessenger.of(context).showSnackBar(
           SnackBar(
-            content: const Text('No browser available'),
+            content: Text(context.l10n.noBrowserAvailable),
             backgroundColor: Theme.of(context).colorScheme.error,
             behavior: SnackBarBehavior.floating,
           ),
@@ -51,7 +75,7 @@ class SettingsScreen extends StatelessWidget {
       if (!context.mounted) return;
       ScaffoldMessenger.of(context).showSnackBar(
         SnackBar(
-          content: Text('Failed to open: $e'),
+          content: Text(context.l10n.failedToOpen(e.toString())),
           backgroundColor: Theme.of(context).colorScheme.error,
           behavior: SnackBarBehavior.floating,
         ),
@@ -92,7 +116,7 @@ class SettingsScreen extends StatelessWidget {
         actions: [
           TextButton(
             onPressed: () => Navigator.of(ctx).pop(false),
-            child: const Text('Cancel'),
+            child: Text(context.l10n.cancel),
           ),
           FilledButton.tonal(
             onPressed: () => Navigator.of(ctx).pop(true),
@@ -170,31 +194,31 @@ class SettingsScreen extends StatelessWidget {
   }
 
   Future<void> _restoreDemoRemote(BuildContext context) async {
+    final l10n = context.l10n;
     final confirmed = await _confirmAction(
       context,
-      title: 'Restore demo remotes?',
-      message:
-          'This will replace your current remotes with the built-in demo remotes. A backup is recommended if you want to keep your current list.',
-      confirmLabel: 'Restore demo',
+      title: l10n.settingsRestoreDemoTitle,
+      message: l10n.settingsRestoreDemoMessage,
+      confirmLabel: l10n.settingsRestoreDemoConfirm,
       icon: Icons.restore_rounded,
       destructive: true,
     );
     if (!confirmed) return;
 
-    remotes = writeDefaultRemotes();
+    remotes = writeDefaultRemotes(demoRemoteName: l10n.demoRemoteName);
     await writeRemotelist(remotes);
     notifyRemotesChanged();
 
     if (!context.mounted) return;
-    ScaffoldMessenger.of(context).showSnackBar(const SnackBar(content: Text('Demo remotes restored.')));
+    ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text(l10n.settingsDemoRemotesRestored)));
   }
 
   Future<void> _deleteAllRemotes(BuildContext context) async {
     final confirmed = await _confirmAction(
       context,
-      title: 'Delete all remotes?',
-      message: 'This removes every remote from this device. This action can’t be undone.',
-      confirmLabel: 'Delete all',
+      title: context.l10n.settingsDeleteAllRemotesTitle,
+      message: context.l10n.settingsDeleteAllRemotesMessage,
+      confirmLabel: context.l10n.settingsDeleteAllConfirm,
       icon: Icons.delete_forever,
       destructive: true,
     );
@@ -205,7 +229,7 @@ class SettingsScreen extends StatelessWidget {
     notifyRemotesChanged();
 
     if (!context.mounted) return;
-    ScaffoldMessenger.of(context).showSnackBar(const SnackBar(content: Text('All remotes deleted.')));
+    ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text(context.l10n.settingsAllRemotesDeleted)));
   }
 
   void _openDonationSheet(BuildContext context) {
@@ -237,14 +261,134 @@ class SettingsScreen extends StatelessWidget {
     await Haptics.selectionClick();
   }
 
-  String _getThemeName(ThemeMode mode) {
+  Future<void> _changeAppLanguage(BuildContext context, Locale? locale) async {
+    await AppLocaleController.instance.setOverride(locale);
+    await Haptics.selectionClick();
+  }
+
+  Future<void> _setFollowSystemLanguage(BuildContext context, bool value) async {
+    if (value) {
+      await _changeAppLanguage(context, null);
+      return;
+    }
+    final activeLocale = AppLocaleController.instance.resolveActiveLocale(
+      AppLocalizations.supportedLocales.toList(),
+      Localizations.localeOf(context),
+    );
+    await _changeAppLanguage(context, activeLocale);
+  }
+
+  Future<void> _openLanguagePicker(BuildContext context) async {
+    final locales = AppLocalizations.supportedLocales.toList()
+      ..sort((a, b) => _getLanguageName(context, a).compareTo(_getLanguageName(context, b)));
+    Locale? selected = AppLocaleController.instance.overrideLocale ??
+        AppLocaleController.instance.resolveActiveLocale(locales, Localizations.localeOf(context));
+    String query = '';
+
+    final picked = await showModalBottomSheet<Locale>(
+      context: context,
+      isScrollControlled: true,
+      useSafeArea: true,
+      showDragHandle: true,
+      builder: (ctx) {
+        final theme = Theme.of(ctx);
+        return StatefulBuilder(
+          builder: (ctx2, setModal) {
+            final filtered = locales.where((locale) {
+              final q = query.trim().toLowerCase();
+              if (q.isEmpty) return true;
+              final label = _getLanguageName(ctx2, locale).toLowerCase();
+              final code = locale.toLanguageTag().toLowerCase();
+              return label.contains(q) || code.contains(q);
+            }).toList(growable: false);
+
+            return Padding(
+              padding: EdgeInsets.only(
+                left: 16,
+                right: 16,
+                top: 8,
+                bottom: 16 + MediaQuery.of(ctx2).viewInsets.bottom,
+              ),
+              child: Column(
+                mainAxisSize: MainAxisSize.min,
+                children: [
+                  Row(
+                    children: [
+                      Expanded(
+                        child: Text(
+                          context.l10n.chooseAppLanguage,
+                          style: theme.textTheme.titleLarge,
+                        ),
+                      ),
+                      IconButton(
+                        tooltip: context.l10n.close,
+                        onPressed: () => Navigator.of(ctx2).pop(),
+                        icon: const Icon(Icons.close_rounded),
+                      ),
+                    ],
+                  ),
+                  const SizedBox(height: 8),
+                  TextField(
+                    onChanged: (value) => setModal(() => query = value),
+                    decoration: InputDecoration(
+                      hintText: context.l10n.searchLanguages,
+                      prefixIcon: const Icon(Icons.search_rounded),
+                      border: const OutlineInputBorder(),
+                    ),
+                  ),
+                  const SizedBox(height: 10),
+                  if (filtered.isEmpty)
+                    Padding(
+                      padding: const EdgeInsets.symmetric(vertical: 14),
+                      child: Text(
+                        context.l10n.noLanguagesFound,
+                        style: theme.textTheme.bodyMedium?.copyWith(
+                          color: theme.colorScheme.onSurfaceVariant,
+                        ),
+                      ),
+                    )
+                  else
+                    Flexible(
+                      child: ListView.separated(
+                        shrinkWrap: true,
+                        itemCount: filtered.length,
+                        separatorBuilder: (_, __) => const Divider(height: 0),
+                        itemBuilder: (ctx3, index) {
+                          final locale = filtered[index];
+                          final isSelected = selected == locale;
+                          return ListTile(
+                            leading: Icon(
+                              Icons.translate_rounded,
+                              color: isSelected ? theme.colorScheme.primary : null,
+                            ),
+                            title: Text(_getLanguageName(ctx3, locale)),
+                            subtitle: Text(locale.toLanguageTag()),
+                            trailing: isSelected ? const Icon(Icons.check_rounded) : null,
+                            onTap: () => Navigator.of(ctx3).pop(locale),
+                          );
+                        },
+                      ),
+                    ),
+                ],
+              ),
+            );
+          },
+        );
+      },
+    );
+
+    if (picked == null || !context.mounted) return;
+    await _changeAppLanguage(context, picked);
+  }
+
+  String _getThemeName(BuildContext context, ThemeMode mode) {
     switch (mode) {
       case ThemeMode.system:
-        return 'Auto Theme';
+        return context.l10n.themeAuto;
       case ThemeMode.light:
-        return 'Light Theme';
+        return context.l10n.themeLight;
       case ThemeMode.dark:
-        return 'Dark Theme';
+        return context.l10n.themeDark;
     }
   }
 
@@ -259,26 +403,38 @@ class SettingsScreen extends StatelessWidget {
     }
   }
 
-  String _getThemeDescription(ThemeMode mode) {
+  String _getThemeDescription(BuildContext context, ThemeMode mode) {
     switch (mode) {
       case ThemeMode.system:
-        return 'Follows your device settings';
+        return context.l10n.themeDescAuto;
       case ThemeMode.light:
-        return 'Always bright and clear';
+        return context.l10n.themeDescLight;
       case ThemeMode.dark:
-        return 'Easy on the eyes';
+        return context.l10n.themeDescDark;
     }
   }
 
-  String _getThemeHint(ThemeMode mode) {
+  String _getThemeHint(BuildContext context, ThemeMode mode) {
     switch (mode) {
       case ThemeMode.system:
-        return 'Theme automatically switches when you change your device settings between light and dark mode';
+        return context.l10n.themeHintAuto;
       case ThemeMode.light:
-        return 'Perfect for daytime use and well-lit environments';
+        return context.l10n.themeHintLight;
       case ThemeMode.dark:
-        return 'Reduces eye strain in low-light conditions and saves battery on OLED screens';
+        return context.l10n.themeHintDark;
     }
+  }
+
+  String _getLanguageName(BuildContext context, Locale? locale) {
+    if (locale == null) return context.l10n.languageAuto;
+    final tag = locale.toLanguageTag().replaceAll('-', '_');
+    final exactName = _languageNativeNames[tag];
+    if (exactName != null) return exactName;
+    final languageName =
+        _languageNativeNames[locale.languageCode] ?? locale.languageCode.toUpperCase();
+    final countryCode = locale.countryCode;
+    if (countryCode == null || countryCode.isEmpty) return languageName;
+    return '$languageName (${countryCode.toUpperCase()})';
   }
 
   @override
@@ -286,7 +442,7 @@ class SettingsScreen extends StatelessWidget {
     final cs = Theme.of(context).colorScheme;
 
     return Scaffold(
-      appBar: AppBar(title: const Text('Settings')),
+      appBar: AppBar(title: Text(context.l10n.settingsTitle)),
       body: ListView(
         children: [
           const SizedBox(height: 10),
@@ -294,9 +450,11 @@ class SettingsScreen extends StatelessWidget {
           const SizedBox(height: 10),
           _buildAppearanceSection(context),
           const SizedBox(height: 10),
+          _buildLocalizationSection(context),
+          const SizedBox(height: 10),
           _buildInteractionSection(context),
           const SizedBox(height: 10),
-          _buildIrTransmitterSection(cs),
+          _buildIrTransmitterSection(context, cs),
           const SizedBox(height: 10),
           _buildRemotesSection(context),
           const SizedBox(height: 10),
@@ -320,8 +478,8 @@ class SettingsScreen extends StatelessWidget {
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 16),
       child: SectionCard(
-        title: 'Support Development',
-        subtitle: 'Keep IR Blaster maintained and hardware-compatible',
+        title: context.l10n.supportDevelopmentTitle,
+        subtitle: context.l10n.supportDevelopmentSubtitle,
         leading: Icon(Icons.volunteer_activism_rounded, color: cs.primary),
         child: Padding(
           padding: const EdgeInsets.all(14),
@@ -334,15 +492,15 @@ class SettingsScreen extends StatelessWidget {
                 decoration: BoxDecoration(
                   gradient: LinearGradient(
                     colors: [
-                      cs.secondaryContainer.withOpacity(0.7),
-                      cs.secondaryContainer.withOpacity(0.4),
+                      cs.secondaryContainer.withValues(alpha: 0.7),
+                      cs.secondaryContainer.withValues(alpha: 0.4),
                     ],
                   ),
                   borderRadius: BorderRadius.circular(14),
-                  border: Border.all(color: cs.outlineVariant.withOpacity(0.3)),
+                  border: Border.all(color: cs.outlineVariant.withValues(alpha: 0.3)),
                 ),
                 child: Text(
-                  'No ads, no tracking, no locked features. Your support funds protocol work, USB dongle support, and better compatibility across devices.',
+                  context.l10n.supportDevelopmentBody,
                   style: theme.textTheme.bodyMedium?.copyWith(
                     color: cs.onSecondaryContainer,
                     fontWeight: FontWeight.w600,
@@ -357,7 +515,7 @@ class SettingsScreen extends StatelessWidget {
                     child: FilledButton.icon(
                       onPressed: () => _openDonationSheet(context),
                       icon: const Icon(Icons.favorite_rounded),
-                      label: const Text('Donate'),
+                      label: Text(context.l10n.donate),
                       style: FilledButton.styleFrom(
                         padding: const EdgeInsets.symmetric(vertical: 14),
                       ),
@@ -370,10 +528,10 @@ class SettingsScreen extends StatelessWidget {
                       onLongPress: () => _copyToClipboard(
                         context,
                         text: _repoUrl,
-                        message: 'Repository link copied',
+                        message: context.l10n.repositoryLinkCopied,
                       ),
                       icon: const Icon(Icons.star_border_rounded),
-                      label: const Text('Star Repo'),
+                      label: Text(context.l10n.starRepo),
                       style: OutlinedButton.styleFrom(
                         padding: const EdgeInsets.symmetric(vertical: 14),
                       ),
@@ -382,14 +540,14 @@ class SettingsScreen extends StatelessWidget {
                 ],
               ),
               const SizedBox(height: 12),
-              const Wrap(
+              Wrap(
                 spacing: 8,
                 runSpacing: 8,
                 children: [
-                  SupportPill(icon: Icons.lock_outline_rounded, label: 'Local-only'),
-                  SupportPill(icon: Icons.shield_outlined, label: 'No tracking'),
-                  SupportPill(icon: Icons.memory_rounded, label: 'Hardware-aware'),
-                  SupportPill(icon: Icons.code_rounded, label: 'Open-source'),
+                  SupportPill(icon: Icons.lock_outline_rounded, label: context.l10n.supportPillLocalOnly),
+                  SupportPill(icon: Icons.shield_outlined, label: context.l10n.supportPillNoTracking),
+                  SupportPill(icon: Icons.memory_rounded, label: context.l10n.supportPillHardwareAware),
+                  SupportPill(icon: Icons.code_rounded, label: context.l10n.supportPillOpenSource),
                 ],
               ),
             ],
@@ -411,8 +569,8 @@ class SettingsScreen extends StatelessWidget {
           final mode = AppThemeController.instance.mode;
 
           return SectionCard(
-            title: 'Appearance',
-            subtitle: 'Customize your visual experience',
+            title: context.l10n.appearanceTitle,
+            subtitle: context.l10n.appearanceSubtitle,
             leading: Icon(Icons.palette_outlined, color: cs.primary),
             child: Padding(
               padding: const EdgeInsets.all(12),
@@ -424,12 +582,12 @@ class SettingsScreen extends StatelessWidget {
                     decoration: BoxDecoration(
                       gradient: LinearGradient(
                         colors: [
-                          cs.primaryContainer.withOpacity(0.6),
-                          cs.primaryContainer.withOpacity(0.3),
+                          cs.primaryContainer.withValues(alpha: 0.6),
+                          cs.primaryContainer.withValues(alpha: 0.3),
                         ],
                       ),
                       borderRadius: BorderRadius.circular(14),
-                      border: Border.all(color: cs.primary.withOpacity(0.3)),
+                      border: Border.all(color: cs.primary.withValues(alpha: 0.3)),
                     ),
                     child: Row(
                       children: [
@@ -451,7 +609,7 @@ class SettingsScreen extends StatelessWidget {
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
                               Text(
-                                _getThemeName(mode),
+                                _getThemeName(context, mode),
                                 style: theme.textTheme.titleMedium?.copyWith(
                                   fontWeight: FontWeight.w800,
                                   color: cs.onPrimaryContainer,
@@ -459,9 +617,9 @@ class SettingsScreen extends StatelessWidget {
                               ),
                               const SizedBox(height: 2),
                               Text(
-                                _getThemeDescription(mode),
+                                _getThemeDescription(context, mode),
                                 style: theme.textTheme.bodySmall?.copyWith(
-                                  color: cs.onPrimaryContainer.withOpacity(0.8),
+                                  color: cs.onPrimaryContainer.withValues(alpha: 0.8),
                                 ),
                               ),
                             ],
@@ -473,7 +631,7 @@ class SettingsScreen extends StatelessWidget {
                   const SizedBox(height: 16),
                   SwitchListTile.adaptive(
                     secondary: const Icon(Icons.wallpaper_rounded),
-                    title: const Text('Use dynamic colors'),
+                    title: Text(context.l10n.useDynamicColors),
                     value: DynamicColorController.instance.enabled,
                     onChanged: (v) async {
                       await DynamicColorController.instance.setEnabled(v);
@@ -485,7 +643,7 @@ class SettingsScreen extends StatelessWidget {
                       Expanded(
                         child: _ThemeOptionCard(
                           icon: Icons.auto_awesome_rounded,
-                          label: 'Auto',
+                          label: context.l10n.themeChoiceAuto,
                           isSelected: mode == ThemeMode.system,
                           onTap: () => _changeTheme(context, ThemeMode.system),
                           theme: theme,
@@ -495,7 +653,7 @@ class SettingsScreen extends StatelessWidget {
                       Expanded(
                         child: _ThemeOptionCard(
                           icon: Icons.light_mode_rounded,
-                          label: 'Light',
+                          label: context.l10n.themeChoiceLight,
                           isSelected: mode == ThemeMode.light,
                           onTap: () => _changeTheme(context, ThemeMode.light),
                           theme: theme,
@@ -505,7 +663,7 @@ class SettingsScreen extends StatelessWidget {
                       Expanded(
                         child: _ThemeOptionCard(
                           icon: Icons.dark_mode_rounded,
-                          label: 'Dark',
+                          label: context.l10n.themeChoiceDark,
                           isSelected: mode == ThemeMode.dark,
                           onTap: () => _changeTheme(context, ThemeMode.dark),
                           theme: theme,
@@ -517,9 +675,9 @@ class SettingsScreen extends StatelessWidget {
                   Container(
                     padding: const EdgeInsets.all(10),
                     decoration: BoxDecoration(
-                      color: cs.surfaceContainerHighest.withOpacity(0.4),
+                      color: cs.surfaceContainerHighest.withValues(alpha: 0.4),
                       borderRadius: BorderRadius.circular(10),
-                      border: Border.all(color: cs.outlineVariant.withOpacity(0.3)),
+                      border: Border.all(color: cs.outlineVariant.withValues(alpha: 0.3)),
                     ),
                     child: Row(
                       crossAxisAlignment: CrossAxisAlignment.start,
@@ -528,7 +686,7 @@ class SettingsScreen extends StatelessWidget {
                         const SizedBox(width: 8),
                         Expanded(
                           child: Text(
-                            _getThemeHint(mode),
+                            _getThemeHint(context, mode),
                             style: theme.textTheme.bodySmall?.copyWith(
                               color: cs.onSurfaceVariant,
                               height: 1.3,
@@ -547,14 +705,152 @@ class SettingsScreen extends StatelessWidget {
     );
   }
 
-  Widget _buildIrTransmitterSection(ColorScheme cs) {
+  Widget _buildIrTransmitterSection(BuildContext context, ColorScheme cs) {
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 16),
       child: SectionCard(
-        title: 'IR Transmitter',
-        subtitle: 'Choose which hardware sends IR commands',
+        title: context.l10n.irTransmitterTitle,
+        subtitle: context.l10n.irTransmitterSubtitle,
         leading: Icon(Icons.settings_input_antenna_rounded, color: cs.primary),
         child: const _IrTransmitterCard(),
+      ),
+    );
+  }
+
+  Widget _buildLocalizationSection(BuildContext context) {
+    final theme = Theme.of(context);
+    final cs = theme.colorScheme;
+
+    return Padding(
+      padding: const EdgeInsets.symmetric(horizontal: 16),
+      child: AnimatedBuilder(
+        animation: AppLocaleController.instance,
+        builder: (context, _) {
+          final localeOverride = AppLocaleController.instance.overrideLocale;
+          final usingSystemLanguage = localeOverride == null;
+          final activeLocale = AppLocaleController.instance.resolveActiveLocale(
+            AppLocalizations.supportedLocales.toList(),
+            Localizations.localeOf(context),
+          );
+          final effectiveLocale = localeOverride ?? activeLocale;
+
+          return SectionCard(
+            title: context.l10n.localizationTitle,
+            subtitle: context.l10n.localizationSubtitle,
+            leading: Icon(Icons.language_rounded, color: cs.primary),
+            child: Padding(
+              padding: const EdgeInsets.all(12),
+              child: Column(
+                children: [
+                  Container(
+                    padding: const EdgeInsets.all(14),
+                    decoration: BoxDecoration(
+                      gradient: LinearGradient(
+                        colors: [
+                          cs.tertiaryContainer.withValues(alpha: 0.55),
+                          cs.tertiaryContainer.withValues(alpha: 0.25),
+                        ],
+                      ),
+                      borderRadius: BorderRadius.circular(14),
+                      border: Border.all(color: cs.tertiary.withValues(alpha: 0.28)),
+                    ),
+                    child: Row(
+                      children: [
+                        Container(
+                          padding: const EdgeInsets.all(10),
+                          decoration: BoxDecoration(
+                            color: cs.tertiary,
+                            shape: BoxShape.circle,
+                          ),
+                          child: Icon(
+                            Icons.translate_rounded,
+                            size: 20,
+                            color: cs.onTertiary,
+                          ),
+                        ),
+                        const SizedBox(width: 14),
+                        Expanded(
+                          child: Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              Text(
+                                usingSystemLanguage
+                                    ? context.l10n.localizationAutoUsing(_getLanguageName(context, effectiveLocale))
+                                    : _getLanguageName(context, effectiveLocale),
+                                style: theme.textTheme.titleMedium?.copyWith(
+                                  fontWeight: FontWeight.w800,
+                                  color: cs.onTertiaryContainer,
+                                ),
+                              ),
+                              const SizedBox(height: 2),
+                              Text(
+                                usingSystemLanguage
+                                    ? context.l10n.localizationAutoDescription
+                                    : context.l10n.localizationManualDescription,
+                                style: theme.textTheme.bodySmall?.copyWith(
+                                  color: cs.onTertiaryContainer.withValues(alpha: 0.82),
+                                ),
+                              ),
+                            ],
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
+                  const SizedBox(height: 12),
+                  SwitchListTile.adaptive(
+                    secondary: const Icon(Icons.settings_suggest_rounded),
+                    title: Text(context.l10n.useSystemLanguageTitle),
+                    subtitle: Text(
+                      usingSystemLanguage
+                          ? context.l10n.useSystemLanguageEnabled(_getLanguageName(context, activeLocale))
+                          : context.l10n.useSystemLanguageDisabled,
+                    ),
+                    value: usingSystemLanguage,
+                    onChanged: (value) => _setFollowSystemLanguage(context, value),
+                  ),
+                  ListTile(
+                    leading: const Icon(Icons.manage_search_rounded),
+                    enabled: !usingSystemLanguage,
+                    title: Text(context.l10n.chooseAppLanguage),
+                    subtitle: Text(
+                      usingSystemLanguage
+                          ? context.l10n.languagePickerDisabledHint
+                          : _getLanguageName(context, effectiveLocale),
+                    ),
+                    trailing: const Icon(Icons.chevron_right_rounded),
+                    onTap: usingSystemLanguage ? null : () => _openLanguagePicker(context),
+                  ),
+                  Container(
+                    width: double.infinity,
+                    padding: const EdgeInsets.all(10),
+                    decoration: BoxDecoration(
+                      color: cs.surfaceContainerHighest.withValues(alpha: 0.4),
+                      borderRadius: BorderRadius.circular(10),
+                      border: Border.all(color: cs.outlineVariant.withValues(alpha: 0.3)),
+                    ),
+                    child: Row(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Icon(Icons.info_outline_rounded, size: 16, color: cs.primary),
+                        const SizedBox(width: 8),
+                        Expanded(
+                          child: Text(
+                            context.l10n.localizationHint,
+                            style: theme.textTheme.bodySmall?.copyWith(
+                              color: cs.onSurfaceVariant,
+                              height: 1.3,
+                            ),
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
+                ],
+              ),
+            ),
+          );
+        },
       ),
     );
   }
@@ -566,8 +862,8 @@ class SettingsScreen extends StatelessWidget {
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 16),
       child: SectionCard(
-        title: 'Interaction',
-        subtitle: 'Touch feedback and remote layout',
+        title: context.l10n.interactionTitle,
+        subtitle: context.l10n.interactionSubtitle,
         leading: Icon(Icons.vibration_rounded, color: cs.primary),
         child: Column(
           children: [
@@ -582,8 +878,8 @@ class SettingsScreen extends StatelessWidget {
                   children: [
                     SwitchListTile.adaptive(
                       secondary: const Icon(Icons.vibration_rounded),
-                      title: const Text('Haptic feedback'),
-                      subtitle: const Text('Vibrate on taps and actions'),
+                      title: Text(context.l10n.hapticFeedbackTitle),
+                      subtitle: Text(context.l10n.hapticFeedbackSubtitle),
                       value: enabled,
                       onChanged: (v) => HapticsController.instance.setEnabled(v),
                     ),
@@ -592,13 +888,13 @@ class SettingsScreen extends StatelessWidget {
                       child: Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
-                          Text('Intensity', style: Theme.of(context).textTheme.labelMedium),
+                          Text(context.l10n.intensity, style: Theme.of(context).textTheme.labelMedium),
                           const SizedBox(height: 6),
                           SegmentedButton<int>(
-                            segments: const [
-                              ButtonSegment(value: 1, label: Text('Light')),
-                              ButtonSegment(value: 2, label: Text('Medium')),
-                              ButtonSegment(value: 3, label: Text('Strong')),
+                            segments: [
+                              ButtonSegment(value: 1, label: Text(context.l10n.intensityLight)),
+                              ButtonSegment(value: 2, label: Text(context.l10n.intensityMedium)),
+                              ButtonSegment(value: 3, label: Text(context.l10n.intensityStrong)),
                             ],
                             selected: <int>{intensity},
                             onSelectionChanged: enabled
@@ -622,14 +918,16 @@ class SettingsScreen extends StatelessWidget {
                   curve: Curves.easeOutCubic,
                   child: SwitchListTile.adaptive(
                     secondary: const Icon(Icons.screen_rotation_rounded),
-                    title: const Text('Flip Remote View by default'),
-                    subtitle: const Text('Open Remote screens rotated 180° (for bottom-mounted USB dongles).'),
+                    title: Text(context.l10n.flipRemoteDefaultTitle),
+                    subtitle: Text(context.l10n.flipRemoteDefaultSubtitle),
                     value: orientationCtrl.flipped,
                     onChanged: (v) async {
+                      final messenger = ScaffoldMessenger.of(context);
+                      final l10n = context.l10n;
                       await orientationCtrl.setFlipped(v);
-                      ScaffoldMessenger.of(context).showSnackBar(
+                      messenger.showSnackBar(
                         SnackBar(
-                          content: Text(v ? 'Remote View will open flipped.' : 'Remote View will open normally.'),
+                          content: Text(v ? l10n.remoteViewFlipped : l10n.remoteViewNormal),
                         ),
                       );
                     },
@@ -650,49 +948,49 @@ class SettingsScreen extends StatelessWidget {
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 16),
       child: SectionCard(
-        title: 'Backup',
-        subtitle: 'Import/export remotes and macros',
+        title: context.l10n.backupTitle,
+        subtitle: context.l10n.backupSubtitle,
         leading: Icon(Icons.storage_rounded, color: cs.primary),
         child: Column(
           children: [
             ListTile(
               leading: const Icon(Icons.file_upload_outlined),
-              title: const Text('Import backup'),
-              subtitle: const Text('Import remotes/macros backup or Flipper Zero, LIRC or IRPLUS files'),
+              title: Text(context.l10n.importBackup),
+              subtitle: Text(context.l10n.importBackupSubtitle),
               onTap: () => _doImport(context),
             ),
             const Divider(height: 1),
             ListTile(
               leading: const Icon(Icons.drive_folder_upload_outlined),
-              title: const Text('Bulk import folder'),
-              subtitle: const Text('Import multiple remotes from a folder'),
+              title: Text(context.l10n.bulkImportFolder),
+              subtitle: Text(context.l10n.bulkImportFolderSubtitle),
               onTap: () => _doBulkImportFolder(context),
             ),
             const Divider(height: 1),
             ListTile(
               leading: const Icon(Icons.file_download_outlined),
-              title: const Text('Export backup'),
-              subtitle: const Text('Save remotes + macros as one JSON file to Downloads'),
+              title: Text(context.l10n.exportBackup),
+              subtitle: Text(context.l10n.exportBackupSubtitle),
               onTap: () => _doExport(context),
             ),
             const Divider(height: 1),
             ListTile(
               leading: const Icon(Icons.restore_rounded),
-              title: const Text('Restore demo remotes'),
-              subtitle: const Text('Replace current remotes with the built-in demo'),
+              title: Text(context.l10n.restoreDemoRemotes),
+              subtitle: Text(context.l10n.restoreDemoRemotesSubtitle),
               onTap: () => _restoreDemoRemote(context),
             ),
             const Divider(height: 1),
             ListTile(
               leading: Icon(Icons.delete_forever, color: theme.colorScheme.error),
-              title: Text('Delete all remotes', style: TextStyle(color: theme.colorScheme.error)),
-              subtitle: const Text('Remove every remote from this device'),
+              title: Text(context.l10n.deleteAllRemotes, style: TextStyle(color: theme.colorScheme.error)),
+              subtitle: Text(context.l10n.deleteAllRemotesSubtitle),
               onTap: () => _deleteAllRemotes(context),
             ),
             Padding(
               padding: const EdgeInsets.fromLTRB(16, 0, 16, 16),
               child: Text(
-                'Tip: export a backup before large edits. Import supports full backups, legacy remotes-only JSON backups, and Flipper Zero .ir files.',
+                context.l10n.backupTip,
                 style: TextStyle(color: cs.onSurfaceVariant),
               ),
             ),
@@ -709,8 +1007,8 @@ class SettingsScreen extends StatelessWidget {
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 16),
       child: SectionCard(
-        title: 'About',
-        subtitle: 'App information and open-source details',
+        title: context.l10n.aboutTitle,
+        subtitle: context.l10n.aboutSubtitle,
         leading: Icon(Icons.info_outline, color: cs.primary),
         child: Column(
           children: [
@@ -721,8 +1019,8 @@ class SettingsScreen extends StatelessWidget {
                 final version = info == null ? '—' : '${info.version}+${info.buildNumber}';
                 return ListTile(
                   leading: const Icon(Icons.apps),
-                  title: Text('IR Blaster - $_creatorName'),
-                  subtitle: Text('Version $version'),
+                  title: Text(context.l10n.aboutAppNameWithCreator(_creatorName)),
+                  subtitle: Text(context.l10n.versionLabel(version)),
                   trailing: const Icon(Icons.chevron_right),
                   onTap: () {
                     Navigator.of(context).push(
@@ -741,50 +1039,50 @@ class SettingsScreen extends StatelessWidget {
             const Divider(height: 1),
             ListTile(
               leading: const Icon(Icons.code),
-              title: const Text('Source Code'),
-              subtitle: const Text('View on GitHub'),
+              title: Text(context.l10n.sourceCode),
+              subtitle: Text(context.l10n.viewOnGitHub),
               trailing: const Icon(Icons.open_in_new),
               onTap: () => _launchUrl(context, _repoUrl),
-              onLongPress: () => _copyToClipboard(context, text: _repoUrl, message: 'Repository URL copied'),
+              onLongPress: () => _copyToClipboard(context, text: _repoUrl, message: context.l10n.repositoryUrlCopied),
             ),
             const Divider(height: 1),
             ListTile(
               leading: const Icon(Icons.bug_report),
-              title: const Text('Report Issue'),
-              subtitle: const Text('Bug reports & feature requests'),
+              title: Text(context.l10n.reportIssue),
+              subtitle: Text(context.l10n.reportIssueSubtitle),
               trailing: const Icon(Icons.open_in_new),
               onTap: () => _launchUrl(context, _issuesUrl),
-              onLongPress: () => _copyToClipboard(context, text: _issuesUrl, message: 'Issues URL copied'),
+              onLongPress: () => _copyToClipboard(context, text: _issuesUrl, message: context.l10n.issuesUrlCopied),
             ),
             const Divider(height: 1),
             ListTile(
               leading: const Icon(Icons.gavel),
-              title: const Text('License'),
-              subtitle: const Text('Open-source license'),
+              title: Text(context.l10n.license),
+              subtitle: Text(context.l10n.openSourceLicense),
               trailing: const Icon(Icons.open_in_new),
               onTap: () => _launchUrl(context, _licenseUrl),
-              onLongPress: () => _copyToClipboard(context, text: _licenseUrl, message: 'License URL copied'),
+              onLongPress: () => _copyToClipboard(context, text: _licenseUrl, message: context.l10n.licenseUrlCopied),
             ),
             const Divider(height: 1),
             ListTile(
               leading: const Icon(Icons.business),
-              title: const Text('KaijinLab Inc.'),
-              subtitle: const Text('Visit our website'),
+              title: Text(context.l10n.companyName),
+              subtitle: Text(context.l10n.visitWebsite),
               trailing: const Icon(Icons.open_in_new),
               onTap: () => _launchUrl(context, _companyUrl),
-              onLongPress: () => _copyToClipboard(context, text: _companyUrl, message: 'Company URL copied'),
+              onLongPress: () => _copyToClipboard(context, text: _companyUrl, message: context.l10n.companyUrlCopied),
             ),
             const Divider(height: 1),
             ListTile(
               leading: const Icon(Icons.receipt_long),
-              title: const Text('Licenses'),
-              subtitle: const Text('Open source licenses'),
+              title: Text(context.l10n.licenses),
+              subtitle: Text(context.l10n.openSourceLicenses),
               trailing: const Icon(Icons.chevron_right),
               onTap: () {
                 showLicensePage(
                   context: context,
-                  applicationName: 'IR Blaster',
-                  applicationVersion: 'by $_creatorName',
+                  applicationName: context.l10n.appTitle,
+                  applicationVersion: context.l10n.byCreator(_creatorName),
                   applicationIcon: Padding(
                     padding: const EdgeInsets.all(16),
                     child: Icon(Icons.settings_remote_rounded, size: 48, color: cs.primary),
@@ -805,15 +1103,15 @@ class SettingsScreen extends StatelessWidget {
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 16),
       child: SectionCard(
-        title: 'Device Controls',
-        subtitle: 'Show favorite buttons in the system controls page',
+        title: context.l10n.deviceControlsTitle,
+        subtitle: context.l10n.deviceControlsSubtitle,
         leading: Icon(Icons.tune_rounded, color: cs.primary),
         child: Column(
           children: [
             ListTile(
               leading: const Icon(Icons.power_outlined),
-              title: const Text('Manage favorites'),
-              subtitle: const Text('Choose which buttons appear in device controls'),
+              title: Text(context.l10n.manageFavorites),
+              subtitle: Text(context.l10n.manageFavoritesSubtitle),
               trailing: const Icon(Icons.chevron_right),
               onTap: () {
                 Navigator.of(context).push(
@@ -834,15 +1132,15 @@ class SettingsScreen extends StatelessWidget {
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 16),
       child: SectionCard(
-        title: 'Quick Settings',
-        subtitle: 'Add tiles for power and volume shortcuts',
+        title: context.l10n.quickSettingsTitle,
+        subtitle: context.l10n.quickSettingsSubtitle,
         leading: Icon(Icons.view_quilt_rounded, color: cs.primary),
         child: Column(
           children: [
             ListTile(
               leading: const Icon(Icons.tune_rounded),
-              title: const Text('Configure tiles'),
-              subtitle: const Text('Map tiles to remote buttons'),
+              title: Text(context.l10n.configureTiles),
+              subtitle: Text(context.l10n.configureTilesSubtitle),
               trailing: const Icon(Icons.chevron_right),
               onTap: () {
                 Navigator.of(context).push(
@@ -863,15 +1161,15 @@ class SettingsScreen extends StatelessWidget {
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 16),
       child: SectionCard(
-        title: 'TVKill',
-        subtitle: 'Universal power cycling for owned devices',
+        title: context.l10n.tvKillTitle,
+        subtitle: context.l10n.tvKillSubtitle,
         leading: Icon(Icons.power_settings_new_rounded, color: cs.primary),
         child: Column(
           children: [
             ListTile(
               leading: const Icon(Icons.flash_on_rounded),
-              title: const Text('Open TVKill'),
-              subtitle: const Text('Cycle power codes (use only on devices you own)'),
+              title: Text(context.l10n.openTvKill),
+              subtitle: Text(context.l10n.openTvKillSubtitle),
               trailing: const Icon(Icons.chevron_right),
               onTap: () {
                 Navigator.of(context).push(
@@ -912,10 +1210,14 @@ class _ThemeOptionCard extends StatelessWidget {
         duration: const Duration(milliseconds: 200),
         padding: const EdgeInsets.symmetric(vertical: 16, horizontal: 12),
         decoration: BoxDecoration(
-          color: isSelected ? cs.primaryContainer.withOpacity(0.7) : cs.surfaceContainerHighest.withOpacity(0.4),
+          color: isSelected
+              ? cs.primaryContainer.withValues(alpha: 0.7)
+              : cs.surfaceContainerHighest.withValues(alpha: 0.4),
           borderRadius: BorderRadius.circular(14),
           border: Border.all(
-            color: isSelected ? cs.primary.withOpacity(0.5) : cs.outlineVariant.withOpacity(0.3),
+            color: isSelected
+                ? cs.primary.withValues(alpha: 0.5)
+                : cs.outlineVariant.withValues(alpha: 0.3),
             width: isSelected ? 2 : 1,
           ),
         ),
@@ -1076,7 +1378,7 @@ class _IrTransmitterCardState extends State<_IrTransmitterCard> {
       });
       if (showErrors) {
         ScaffoldMessenger.of(context).showSnackBar(
-          SnackBar(content: Text(e.message ?? 'Failed to load transmitter settings.')),
+          SnackBar(content: Text(e.message ?? context.l10n.failedToLoadTransmitterSettings)),
         );
       }
     } catch (_) {
@@ -1087,7 +1389,7 @@ class _IrTransmitterCardState extends State<_IrTransmitterCard> {
       });
       if (showErrors) {
         ScaffoldMessenger.of(context).showSnackBar(
-          const SnackBar(content: Text('Failed to load transmitter settings.')),
+          SnackBar(content: Text(context.l10n.failedToLoadTransmitterSettings)),
         );
       }
     }
@@ -1115,43 +1417,43 @@ class _IrTransmitterCardState extends State<_IrTransmitterCard> {
     } catch (_) {}
   }
 
-  String _usbStatusBannerText(IrTransmitterCapabilities caps) {
+  String _usbStatusBannerText(BuildContext context, IrTransmitterCapabilities caps) {
     switch (caps.usbStatus) {
       case UsbConnectionStatus.ready:
-        return 'USB dongle is connected and ready to send IR.';
+        return context.l10n.usbStatusReady;
       case UsbConnectionStatus.permissionRequired:
-        return 'USB dongle detected. Request USB permission and approve the system prompt.';
+        return context.l10n.usbStatusPermissionRequired;
       case UsbConnectionStatus.permissionDenied:
-        return 'USB permission was denied for the attached dongle. Request it again and approve the prompt.';
+        return context.l10n.usbStatusPermissionDenied;
       case UsbConnectionStatus.permissionGranted:
-        return 'USB permission is granted. The dongle still needs to be initialized before it can send IR.';
+        return context.l10n.usbStatusPermissionGranted;
       case UsbConnectionStatus.openFailed:
-        return caps.usbStatusMessage ??
-            'USB permission is granted, but the dongle could not be initialized. Reconnect it and try again.';
+        return caps.usbStatusMessage ?? context.l10n.usbStatusOpenFailed;
       case UsbConnectionStatus.noDevice:
-        return 'No supported USB IR dongle detected.';
+        return context.l10n.usbStatusNoDevice;
     }
   }
 
-  String _usbSelectionMessage(IrTransmitterCapabilities caps) {
+  String _usbSelectionMessage(BuildContext context, IrTransmitterCapabilities caps) {
     switch (caps.usbStatus) {
       case UsbConnectionStatus.permissionRequired:
-        return 'USB dongle detected but not authorized. Tap "Request USB permission".';
+        return context.l10n.usbSelectPermissionRequired;
       case UsbConnectionStatus.permissionDenied:
-        return 'USB permission was denied. Tap "Request USB permission" and approve the prompt.';
+        return context.l10n.usbSelectPermissionDenied;
       case UsbConnectionStatus.permissionGranted:
-        return 'USB permission is granted, but the dongle is not initialized yet. Try reconnecting it.';
+        return context.l10n.usbSelectPermissionGranted;
       case UsbConnectionStatus.openFailed:
-        return caps.usbStatusMessage ??
-            'USB permission is granted, but the dongle could not be initialized. Reconnect it and try again.';
+        return caps.usbStatusMessage ?? context.l10n.usbSelectOpenFailed;
       case UsbConnectionStatus.noDevice:
-        return 'No supported USB IR dongle detected. Plug it in, then tap "Request USB permission".';
+        return context.l10n.usbSelectNoDevice;
       case UsbConnectionStatus.ready:
-        return 'USB dongle is ready.';
+        return context.l10n.usbSelectReady;
     }
   }
 
   Future<void> _setAutoSwitch(bool enabled) async {
+    final messenger = ScaffoldMessenger.of(context);
+    final l10n = context.l10n;
     final caps = _caps;
     if (caps == null) return;
 
@@ -1171,25 +1473,61 @@ class _IrTransmitterCardState extends State<_IrTransmitterCard> {
       if (!mounted) return;
 
       if (enabled) {
-        ScaffoldMessenger.of(context).showSnackBar(
-          const SnackBar(content: Text('Auto-switch enabled: uses USB when connected, otherwise Internal.')),
+        messenger.showSnackBar(
+          SnackBar(content: Text(l10n.autoSwitchEnabledMessage)),
         );
       } else {
-        ScaffoldMessenger.of(context).showSnackBar(
-          const SnackBar(content: Text('Auto-switch disabled: transmitter selection is now manual.')),
+        messenger.showSnackBar(
+          SnackBar(content: Text(l10n.autoSwitchDisabledMessage)),
         );
       }
     } catch (_) {
-      if (!mounted) return;
-      ScaffoldMessenger.of(context).showSnackBar(
-        const SnackBar(content: Text('Failed to update auto-switch setting.')),
-      );
-    } finally {
+      if (mounted) {
+        messenger.showSnackBar(
+          SnackBar(content: Text(l10n.failedToUpdateAutoSwitch)),
+        );
+      }
+    }
+
+    await _refreshCaps();
+    if (!mounted) return;
+    setState(() {
+      _busy = false;
+    });
+  }
+
+  Future<void> _setOpenOnUsbAttach(bool value) async {
+    final messenger = ScaffoldMessenger.of(context);
+    final l10n = context.l10n;
+
+    setState(() {
+      _busy = true;
+      _openOnUsbAttachEnabled = value;
+    });
+
+    try {
+      final ok = await IrTransmitterPlatform.setOpenOnUsbAttachEnabled(value);
       if (!mounted) return;
       setState(() {
-        _busy = false;
+        _openOnUsbAttachEnabled = ok;
       });
-      await _refreshCaps();
+      messenger.showSnackBar(
+        SnackBar(
+          content: Text(ok ? l10n.openOnUsbAttachEnabledMessage : l10n.openOnUsbAttachDisabledMessage),
+        ),
+      );
+    } catch (_) {
+      if (mounted) {
+        messenger.showSnackBar(
+          SnackBar(content: Text(l10n.failedToUpdateSetting)),
+        );
+      }
+    } finally {
+      if (mounted) {
+        setState(() {
+          _busy = false;
+        });
+      }
     }
   }
 
@@ -1221,12 +1559,12 @@ class _IrTransmitterCardState extends State<_IrTransmitterCard> {
     } on PlatformException catch (e) {
       if (!mounted) return;
       ScaffoldMessenger.of(context).showSnackBar(
-        SnackBar(content: Text(e.message ?? 'Failed to switch transmitter.')),
+        SnackBar(content: Text(e.message ?? context.l10n.failedToSwitchTransmitter)),
       );
     } catch (_) {
       if (!mounted) return;
       ScaffoldMessenger.of(context).showSnackBar(
-        const SnackBar(content: Text('Failed to switch transmitter.')),
+        SnackBar(content: Text(context.l10n.failedToSwitchTransmitter)),
       );
     } finally {
       await _refreshCaps();
@@ -1237,19 +1575,19 @@ class _IrTransmitterCardState extends State<_IrTransmitterCard> {
 
     if (t == IrTransmitterType.usb && freshCaps != null && !freshCaps.usbReady) {
       ScaffoldMessenger.of(context).showSnackBar(
-        SnackBar(content: Text(_usbSelectionMessage(freshCaps))),
+        SnackBar(content: Text(_usbSelectionMessage(context, freshCaps))),
       );
     }
 
     if (t == IrTransmitterType.internal && freshCaps != null && !freshCaps.hasInternal) {
       ScaffoldMessenger.of(context).showSnackBar(
-        const SnackBar(content: Text('This device has no built-in IR emitter.')),
+        SnackBar(content: Text(context.l10n.deviceHasNoInternalIr)),
       );
     }
 
     if (selectedIsAudio) {
       ScaffoldMessenger.of(context).showSnackBar(
-        const SnackBar(content: Text('Audio mode enabled. Use max media volume and an audio-to-IR LED adapter.')),
+        SnackBar(content: Text(context.l10n.audioModeEnabledMessage)),
       );
     }
 
@@ -1259,6 +1597,8 @@ class _IrTransmitterCardState extends State<_IrTransmitterCard> {
   }
 
   Future<void> _requestUsbPermission() async {
+    final messenger = ScaffoldMessenger.of(context);
+    final l10n = context.l10n;
     setState(() {
       _busy = true;
     });
@@ -1271,63 +1611,65 @@ class _IrTransmitterCardState extends State<_IrTransmitterCard> {
       final freshCaps = _caps;
 
       if (!ok) {
-        ScaffoldMessenger.of(context).showSnackBar(
-          const SnackBar(content: Text('No supported USB IR dongle detected.')),
+        messenger.showSnackBar(
+          SnackBar(content: Text(l10n.homeUsbDongleNotDetected)),
         );
       } else if (freshCaps == null) {
-        ScaffoldMessenger.of(context).showSnackBar(
-          const SnackBar(content: Text('USB permission request sent.')),
+        messenger.showSnackBar(
+          SnackBar(content: Text(l10n.usbPermissionRequestSent)),
         );
       } else if (freshCaps.usbStatus == UsbConnectionStatus.permissionRequired ||
           freshCaps.usbStatus == UsbConnectionStatus.permissionDenied) {
-        ScaffoldMessenger.of(context).showSnackBar(
-          const SnackBar(content: Text('USB permission request sent. Approve the prompt to enable USB.')),
+        messenger.showSnackBar(
+          SnackBar(content: Text(l10n.usbPermissionRequestSentApprove)),
         );
       } else if (freshCaps.usbStatus == UsbConnectionStatus.ready) {
-        ScaffoldMessenger.of(context).showSnackBar(
-          const SnackBar(content: Text('USB dongle is already initialized and ready.')),
+        messenger.showSnackBar(
+          SnackBar(content: Text(l10n.usbAlreadyReady)),
         );
       } else {
-        ScaffoldMessenger.of(context).showSnackBar(
-          SnackBar(content: Text(_usbStatusBannerText(freshCaps))),
+        messenger.showSnackBar(
+          SnackBar(content: Text(_usbStatusBannerText(context, freshCaps))),
         );
       }
     } catch (_) {
-      if (!mounted) return;
-      ScaffoldMessenger.of(context).showSnackBar(
-        const SnackBar(content: Text('Failed to request USB permission.')),
-      );
+      if (mounted) {
+        messenger.showSnackBar(
+          SnackBar(content: Text(l10n.failedToRequestUsbPermission)),
+        );
+      }
     } finally {
-      if (!mounted) return;
-      setState(() {
-        _busy = false;
-      });
+      if (mounted) {
+        setState(() {
+          _busy = false;
+        });
+      }
     }
   }
 
-  String _helpTextFor(IrTransmitterType t) {
+  String _helpTextFor(BuildContext context, IrTransmitterType t) {
     switch (t) {
       case IrTransmitterType.internal:
-        return 'Use the phone’s built-in IR emitter to send commands.';
+        return context.l10n.transmitterHelpInternal;
       case IrTransmitterType.usb:
-        return 'Use a USB IR dongle (permission required) to send commands.';
+        return context.l10n.transmitterHelpUsb;
       case IrTransmitterType.audio1Led:
-        return 'Use audio output (mono). Requires an audio-to-IR LED adapter and high media volume.';
+        return context.l10n.transmitterHelpAudio1;
       case IrTransmitterType.audio2Led:
-        return 'Use audio output (stereo). Uses two channels for improved LED driving with compatible adapters.';
+        return context.l10n.transmitterHelpAudio2;
     }
   }
 
-  String _titleFor(IrTransmitterType t) {
+  String _titleFor(BuildContext context, IrTransmitterType t) {
     switch (t) {
       case IrTransmitterType.internal:
-        return 'Internal IR';
+        return context.l10n.transmitterInternal;
       case IrTransmitterType.usb:
-        return 'USB IR Dongle';
+        return context.l10n.transmitterUsb;
       case IrTransmitterType.audio1Led:
-        return 'Audio (1 LED)';
+        return context.l10n.transmitterAudio1;
       case IrTransmitterType.audio2Led:
-        return 'Audio (2 LEDs)';
+        return context.l10n.transmitterAudio2;
     }
   }
 
@@ -1373,12 +1715,12 @@ class _IrTransmitterCardState extends State<_IrTransmitterCard> {
         padding: const EdgeInsets.all(16),
         child: Column(
           children: [
-            Text('Failed to load transmitter capabilities.', style: TextStyle(color: cs.onSurfaceVariant)),
+            Text(context.l10n.failedToLoadTransmitterCapabilities, style: TextStyle(color: cs.onSurfaceVariant)),
             const SizedBox(height: 10),
             FilledButton.tonalIcon(
               onPressed: _busy ? null : () => _load(showErrors: true),
               icon: const Icon(Icons.refresh_rounded),
-              label: const Text('Retry'),
+              label: Text(context.l10n.retry),
             ),
           ],
         ),
@@ -1396,13 +1738,16 @@ class _IrTransmitterCardState extends State<_IrTransmitterCard> {
           ListTile(
             contentPadding: EdgeInsets.zero,
             leading: Icon(_iconFor(effective), color: cs.primary),
-            title: const Text('Selected transmitter'),
+            title: Text(context.l10n.selectedTransmitter),
             subtitle: Text(
-              '${_titleFor(effective)} • Active: ${_titleFor(active)}',
+              context.l10n.selectedTransmitterValue(
+                _titleFor(context, effective),
+                _titleFor(context, active),
+              ),
               style: TextStyle(color: cs.onSurfaceVariant),
             ),
             trailing: IconButton(
-              tooltip: 'Refresh',
+              tooltip: context.l10n.refresh,
               onPressed: _busy ? null : _refreshCaps,
               icon: const Icon(Icons.refresh_rounded),
             ),
@@ -1412,11 +1757,13 @@ class _IrTransmitterCardState extends State<_IrTransmitterCard> {
             contentPadding: EdgeInsets.zero,
             value: _autoSwitchEnabled,
             onChanged: (_busy || !caps.hasInternal || activeIsAudio) ? null : (v) => _setAutoSwitch(v),
-            title: const Text('Auto-switch'),
+            title: Text(context.l10n.autoSwitchTitle),
             subtitle: Text(
               activeIsAudio
-                  ? 'Disabled while using Audio mode'
-                  : (caps.hasInternal ? 'Uses USB when connected, otherwise Internal' : 'Unavailable on this device'),
+                  ? context.l10n.autoSwitchDisabledWhileAudio
+                  : (caps.hasInternal
+                      ? context.l10n.autoSwitchUsesUsbOtherwiseInternal
+                      : context.l10n.unavailableOnThisDevice),
             ),
           ),
           const Divider(height: 18),
@@ -1425,45 +1772,16 @@ class _IrTransmitterCardState extends State<_IrTransmitterCard> {
             value: _openOnUsbAttachEnabled,
             onChanged: _busy
                 ? null
-                : (v) async {
-                    setState(() {
-                      _busy = true;
-                      _openOnUsbAttachEnabled = v;
-                    });
-                    try {
-                      final ok = await IrTransmitterPlatform.setOpenOnUsbAttachEnabled(v);
-                      if (!mounted) return;
-                      setState(() {
-                        _openOnUsbAttachEnabled = ok;
-                      });
-                      ScaffoldMessenger.of(context).showSnackBar(
-                        SnackBar(
-                          content: Text(ok
-                              ? 'Will suggest opening IR Blaster when a supported USB dongle is attached.'
-                              : 'Won\'t suggest opening on USB attach.'),
-                        ),
-                      );
-                    } catch (_) {
-                      if (!mounted) return;
-                      ScaffoldMessenger.of(context).showSnackBar(
-                        const SnackBar(content: Text('Failed to update setting.')),
-                      );
-                    } finally {
-                      if (!mounted) return;
-                      setState(() {
-                        _busy = false;
-                      });
-                    }
-                  },
-            title: const Text('Open on USB attach'),
-            subtitle: const Text('Android may suggest opening the app when a supported USB IR dongle is connected.'),
+                : _setOpenOnUsbAttach,
+            title: Text(context.l10n.openOnUsbAttachTitle),
+            subtitle: Text(context.l10n.openOnUsbAttachSubtitle),
           ),
           const Divider(height: 18),
           for (final t in IrTransmitterType.values) ...[
             _TransmitterOptionTile(
               type: t,
-              title: _titleFor(t),
-              subtitle: _helpTextFor(t),
+              title: _titleFor(context, t),
+              subtitle: _helpTextFor(context, t),
               icon: _iconFor(t),
               selected: effective == t,
               enabled: !_busy && _availableFor(t, caps),
@@ -1477,9 +1795,9 @@ class _IrTransmitterCardState extends State<_IrTransmitterCard> {
               width: double.infinity,
               padding: const EdgeInsets.all(12),
               decoration: BoxDecoration(
-                color: cs.surfaceContainerHighest.withOpacity(0.4),
+                color: cs.surfaceContainerHighest.withValues(alpha: 0.4),
                 borderRadius: BorderRadius.circular(12),
-                border: Border.all(color: cs.outlineVariant.withOpacity(0.3)),
+                border: Border.all(color: cs.outlineVariant.withValues(alpha: 0.3)),
               ),
               child: Row(
                 crossAxisAlignment: CrossAxisAlignment.start,
@@ -1488,7 +1806,7 @@ class _IrTransmitterCardState extends State<_IrTransmitterCard> {
                   const SizedBox(width: 10),
                   Expanded(
                     child: Text(
-                      _usbStatusBannerText(caps),
+                      _usbStatusBannerText(context, caps),
                       style: TextStyle(color: cs.onSurfaceVariant, height: 1.3),
                     ),
                   ),
@@ -1501,7 +1819,7 @@ class _IrTransmitterCardState extends State<_IrTransmitterCard> {
               child: FilledButton.icon(
                 onPressed: _busy ? null : _requestUsbPermission,
                 icon: const Icon(Icons.usb_rounded),
-                label: const Text('Request USB permission'),
+                label: Text(context.l10n.requestUsbPermission),
               ),
             ),
           ],
@@ -1537,10 +1855,8 @@ class _TransmitterOptionTile extends StatelessWidget {
       leading: Icon(icon),
       title: Text(title),
       subtitle: Text(subtitle),
-      trailing: Radio<IrTransmitterType>(
-        value: type,
-        groupValue: selected ? type : null,
-        onChanged: enabled ? (_) => onTap() : null,
+      trailing: Icon(
+        selected ? Icons.radio_button_checked_rounded : Icons.radio_button_off_rounded,
       ),
       onTap: enabled ? onTap : null,
     );

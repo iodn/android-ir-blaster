@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:irblaster_controller/l10n/icon_picker_names.dart';
+import 'package:irblaster_controller/l10n/l10n.dart';
 import 'package:irblaster_controller/state/device_controls_prefs.dart';
 import 'package:irblaster_controller/state/remotes_state.dart';
 import 'package:irblaster_controller/utils/button_label.dart';
@@ -42,14 +44,15 @@ class _DeviceControlsScreenState extends State<DeviceControlsScreen> {
         if (b.id == fav.buttonId) {
           return displayButtonLabel(
             b,
-            fallback: 'Unnamed button',
-            iconFallback: 'Icon',
+            fallback: context.l10n.unnamedButton,
+            iconFallback: context.l10n.iconFallback,
+            iconNameLocalizer: (name) => localizedIconPickerName(context.l10n, name),
           );
         }
       }
     }
     if (fav.title.trim().isNotEmpty) return fav.title.trim();
-    return 'Unnamed button';
+    return context.l10n.unnamedButton;
   }
 
   Future<void> _remove(DeviceControlFavorite fav) async {
@@ -62,9 +65,9 @@ class _DeviceControlsScreenState extends State<DeviceControlsScreen> {
     ScaffoldMessenger.of(context).hideCurrentSnackBar();
     ScaffoldMessenger.of(context).showSnackBar(
       SnackBar(
-        content: Text('Removed "${_displayTitle(fav)}".'),
+        content: Text(context.l10n.removedNamed(_displayTitle(fav))),
         action: SnackBarAction(
-          label: 'Undo',
+          label: context.l10n.undo,
           onPressed: () async {
             if (!mounted) return;
             await DeviceControlsPrefs.add(fav);
@@ -72,7 +75,7 @@ class _DeviceControlsScreenState extends State<DeviceControlsScreen> {
             setState(() {
               final restoreAt = removedIndex < 0
                   ? _items.length
-                  : removedIndex.clamp(0, _items.length) as int;
+                  : removedIndex.clamp(0, _items.length);
               _items.insert(restoreAt, fav);
             });
           },
@@ -101,7 +104,7 @@ class _DeviceControlsScreenState extends State<DeviceControlsScreen> {
     if (found == null) {
       if (!mounted) return;
       ScaffoldMessenger.of(context).showSnackBar(
-        const SnackBar(content: Text('Button not found in remotes.')),
+        SnackBar(content: Text(context.l10n.buttonNotFoundInRemotes)),
       );
       return;
     }
@@ -110,12 +113,12 @@ class _DeviceControlsScreenState extends State<DeviceControlsScreen> {
       await sendIR(found);
       if (!mounted) return;
       ScaffoldMessenger.of(context).showSnackBar(
-        const SnackBar(content: Text('Test send completed.')),
+        SnackBar(content: Text(context.l10n.testSendCompleted)),
       );
     } catch (e) {
       if (!mounted) return;
       ScaffoldMessenger.of(context).showSnackBar(
-        SnackBar(content: Text('Test send failed: $e')),
+        SnackBar(content: Text(context.l10n.testSendFailed(e.toString()))),
       );
     }
   }
@@ -126,7 +129,7 @@ class _DeviceControlsScreenState extends State<DeviceControlsScreen> {
     final cs = theme.colorScheme;
 
     return Scaffold(
-      appBar: AppBar(title: const Text('Device Controls')),
+      appBar: AppBar(title: Text(context.l10n.deviceControlsTitle)),
       body: _loading
           ? const Center(child: CircularProgressIndicator())
           : _items.isEmpty
@@ -135,10 +138,10 @@ class _DeviceControlsScreenState extends State<DeviceControlsScreen> {
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      Text('No favorites yet', style: theme.textTheme.titleLarge),
+                      Text(context.l10n.noFavoritesYet, style: theme.textTheme.titleLarge),
                       const SizedBox(height: 6),
                       Text(
-                        'Long-press a remote button and select “Add to Device Controls”.',
+                        context.l10n.deviceControlsEmptyHint,
                         style: theme.textTheme.bodyMedium?.copyWith(color: cs.onSurfaceVariant),
                       ),
                     ],
@@ -158,12 +161,12 @@ class _DeviceControlsScreenState extends State<DeviceControlsScreen> {
                         spacing: 4,
                         children: [
                           IconButton(
-                            tooltip: 'Send test',
+                            tooltip: context.l10n.sendTest,
                             onPressed: () => _sendTest(fav),
                             icon: const Icon(Icons.play_arrow_rounded),
                           ),
                           IconButton(
-                            tooltip: 'Remove',
+                            tooltip: context.l10n.remove,
                             onPressed: () => _remove(fav),
                             icon: Icon(Icons.delete_outline, color: cs.error),
                           ),

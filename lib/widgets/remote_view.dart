@@ -4,6 +4,7 @@ import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:irblaster_controller/ir/ir_protocol_registry.dart';
+import 'package:irblaster_controller/l10n/l10n.dart';
 import 'package:irblaster_controller/state/haptics.dart';
 import 'package:irblaster_controller/state/orientation_pref.dart';
 import 'package:irblaster_controller/state/device_controls_prefs.dart';
@@ -63,22 +64,22 @@ class RemoteViewState extends State<RemoteView> {
           barrierDismissible: false,
           builder: (BuildContext context) {
             return AlertDialog(
-              title: const Text('No IR emitter'),
-              content: const SingleChildScrollView(
+              title: Text(context.l10n.remoteNoIrEmitterTitle),
+              content: SingleChildScrollView(
                 child: ListBody(
                   children: <Widget>[
-                    Text('This device does not have an IR emitter'),
-                    Text('This app needs an IR emitter to function'),
+                    Text(context.l10n.remoteNoIrEmitterMessage),
+                    Text(context.l10n.remoteNoIrEmitterNeedsEmitter),
                   ],
                 ),
               ),
               actions: <Widget>[
                 TextButton(
-                  child: const Text('Dismiss'),
+                  child: Text(context.l10n.remoteDismiss),
                   onPressed: () => Navigator.of(context).pop(),
                 ),
                 TextButton(
-                  child: const Text('Close'),
+                  child: Text(context.l10n.remoteClose),
                   onPressed: () => SystemChannels.platform
                       .invokeMethod('SystemNavigator.pop'),
                 ),
@@ -111,7 +112,7 @@ class RemoteViewState extends State<RemoteView> {
     } catch (e) {
       if (!silent && mounted) {
         ScaffoldMessenger.of(context).showSnackBar(
-          SnackBar(content: Text('Failed to send IR: $e')),
+          SnackBar(content: Text(context.l10n.remoteFailedToSend(e.toString()))),
         );
       }
       rethrow;
@@ -134,7 +135,7 @@ class RemoteViewState extends State<RemoteView> {
       _stopLoop(silent: true);
       if (!mounted) return;
       ScaffoldMessenger.of(context).showSnackBar(
-        SnackBar(content: Text('Failed to start loop: $e')),
+        SnackBar(content: Text(context.l10n.remoteFailedToStartLoop(e.toString()))),
       );
     });
 
@@ -150,7 +151,7 @@ class RemoteViewState extends State<RemoteView> {
         _stopLoop(silent: true);
         if (!mounted) return;
         ScaffoldMessenger.of(context).showSnackBar(
-          SnackBar(content: Text('Loop stopped (send failed): $e')),
+          SnackBar(content: Text(context.l10n.remoteLoopStoppedFailed(e.toString()))),
         );
       } finally {
         _loopSending = false;
@@ -162,7 +163,7 @@ class RemoteViewState extends State<RemoteView> {
     ScaffoldMessenger.of(context).hideCurrentSnackBar();
     ScaffoldMessenger.of(context).showSnackBar(
       SnackBar(
-        content: Text('Looping "$title". Tap Stop in the top bar to stop.'),
+        content: Text(context.l10n.remoteLoopingHint(title)),
         duration: const Duration(seconds: 3),
       ),
     );
@@ -182,8 +183,8 @@ class RemoteViewState extends State<RemoteView> {
     if (!silent && hadLoop && mounted) {
       ScaffoldMessenger.of(context).hideCurrentSnackBar();
       ScaffoldMessenger.of(context).showSnackBar(
-        const SnackBar(
-          content: Text('Loop stopped.'),
+        SnackBar(
+          content: Text(context.l10n.remoteLoopStopped),
           duration: Duration(seconds: 2),
         ),
       );
@@ -215,9 +216,9 @@ class RemoteViewState extends State<RemoteView> {
 
     if (showNotFoundSnack && mounted) {
       ScaffoldMessenger.of(context).showSnackBar(
-        const SnackBar(
+        SnackBar(
           content: Text(
-            'Remote updated on screen. It was not found in the saved list.',
+            context.l10n.remoteUpdatedNotFound,
           ),
         ),
       );
@@ -255,18 +256,20 @@ class RemoteViewState extends State<RemoteView> {
         await writeRemotelist(remotes);
         notifyRemotesChanged();
       } else {
+        if (!mounted) return;
         ScaffoldMessenger.of(context).showSnackBar(
-          const SnackBar(
+          SnackBar(
             content: Text(
-              'Remote updated on screen. It was not found in the saved list.',
+              context.l10n.remoteUpdatedNotFound,
             ),
           ),
         );
       }
 
       Haptics.selectionClick();
+      if (!mounted) return;
       ScaffoldMessenger.of(context).showSnackBar(
-        SnackBar(content: Text('Updated "${edited.name}".')),
+        SnackBar(content: Text(context.l10n.remoteUpdatedNamed(edited.name))),
       );
     } catch (_) {}
   }
@@ -283,7 +286,7 @@ class RemoteViewState extends State<RemoteView> {
       } catch (e) {
         if (!mounted) return;
         ScaffoldMessenger.of(context).showSnackBar(
-          SnackBar(content: Text('Delete failed: $e')),
+          SnackBar(content: Text(context.l10n.remoteDeleteFailed(e.toString()))),
         );
         return;
       }
@@ -300,7 +303,7 @@ class RemoteViewState extends State<RemoteView> {
     if (idx < 0 || idx >= remotes.length) {
       if (!mounted) return;
       ScaffoldMessenger.of(context).showSnackBar(
-        const SnackBar(content: Text('Remote not found in saved list.')),
+        SnackBar(content: Text(context.l10n.remoteNotFoundSavedList)),
       );
       return;
     }
@@ -318,7 +321,7 @@ class RemoteViewState extends State<RemoteView> {
 
     Haptics.selectionClick();
     ScaffoldMessenger.of(context).showSnackBar(
-      SnackBar(content: Text('Deleted "$name".')),
+      SnackBar(content: Text(context.l10n.remoteDeletedNamed(name))),
     );
     Navigator.of(context).maybePop();
   }
@@ -331,14 +334,14 @@ class RemoteViewState extends State<RemoteView> {
 
   String _buttonTitle(IRButton b) {
     final raw = b.image.trim();
-    if (raw.isEmpty) return 'Button';
+    if (raw.isEmpty) return context.l10n.buttonFallbackTitle;
     if (!b.isImage) return raw;
 
     final s = raw.replaceAll('\\', '/');
     final parts = s.split('/');
     final last = parts.isNotEmpty ? parts.last : raw;
-    final clean = last.isEmpty ? 'Image' : _stripFileExtension(last);
-    return clean.isEmpty ? 'Image' : clean;
+    final clean = last.isEmpty ? context.l10n.imageFallbackTitle : _stripFileExtension(last);
+    return clean.isEmpty ? context.l10n.imageFallbackTitle : clean;
   }
 
   bool _hasRenderableIcon(IRButton b) {
@@ -749,7 +752,12 @@ class RemoteViewState extends State<RemoteView> {
                               ),
                               const SizedBox(height: 2),
                               Text(
-                                '${_remote.buttons.length} button(s) · ${_remote.useNewStyle ? 'Comfort' : 'Compact'}',
+                                context.l10n.remoteLayoutSummary(
+                                  _remote.buttons.length.toString(),
+                                  _remote.useNewStyle
+                                      ? context.l10n.layoutComfort
+                                      : context.l10n.layoutCompact,
+                                ),
                                 style: theme.textTheme.bodySmall?.copyWith(
                                   color: cs.onSurface.withValues(alpha: 0.7),
                                   fontWeight: FontWeight.w600,
@@ -765,8 +773,8 @@ class RemoteViewState extends State<RemoteView> {
                     ListTile(
                       contentPadding: EdgeInsets.zero,
                       leading: const Icon(Icons.edit_outlined),
-                      title: const Text('Edit remote'),
-                      subtitle: const Text('Rename, reorder, and edit buttons'),
+                      title: Text(context.l10n.editRemote),
+                      subtitle: Text(context.l10n.editRemoteActionsSubtitle),
                       trailing: const Icon(Icons.chevron_right_rounded),
                       onTap: () {
                         Navigator.of(ctx).pop();
@@ -778,13 +786,13 @@ class RemoteViewState extends State<RemoteView> {
                       contentPadding: EdgeInsets.zero,
                       leading: Icon(Icons.delete_outline, color: cs.error),
                       title: Text(
-                        'Delete remote',
+                        context.l10n.deleteRemoteTitle,
                         style: TextStyle(
                           color: cs.error,
                           fontWeight: FontWeight.w800,
                         ),
                       ),
-                      subtitle: const Text('This cannot be undone'),
+                      subtitle: Text(context.l10n.thisCannotBeUndone),
                       onTap: () async {
                         Navigator.of(ctx).pop();
                         await _deleteRemote();
@@ -809,15 +817,15 @@ class RemoteViewState extends State<RemoteView> {
       context: context,
       builder: (ctx) => AlertDialog(
         icon: Icon(Icons.warning_amber_rounded, color: cs.error),
-        title: const Text('Delete remote?'),
+        title: Text(context.l10n.deleteRemoteTitle),
         content: Text(
-          '"${_remote.name}" will be deleted permanently.',
+          context.l10n.deleteRemoteMessage(_remote.name),
           style: theme.textTheme.bodyMedium,
         ),
         actions: [
           TextButton(
             onPressed: () => Navigator.of(ctx).pop(false),
-            child: const Text('Cancel'),
+            child: Text(context.l10n.cancel),
           ),
           FilledButton.tonal(
             style: FilledButton.styleFrom(
@@ -825,7 +833,7 @@ class RemoteViewState extends State<RemoteView> {
               backgroundColor: cs.errorContainer,
             ),
             onPressed: () => Navigator.of(ctx).pop(true),
-            child: const Text('Delete'),
+            child: Text(context.l10n.delete),
           ),
         ],
       ),
@@ -854,7 +862,7 @@ class RemoteViewState extends State<RemoteView> {
     if (!mounted) return;
     Haptics.selectionClick();
     ScaffoldMessenger.of(context).showSnackBar(
-      SnackBar(content: Text('Updated "${_buttonTitle(updated)}".')),
+      SnackBar(content: Text(context.l10n.remoteUpdatedNamedButton(_buttonTitle(updated)))),
     );
   }
 
@@ -895,7 +903,7 @@ class RemoteViewState extends State<RemoteView> {
     if (!mounted) return;
     Haptics.selectionClick();
     ScaffoldMessenger.of(context).showSnackBar(
-      SnackBar(content: Text('Added "${_buttonTitle(created)}".')),
+      SnackBar(content: Text(context.l10n.buttonAddedNamed(_buttonTitle(created)))),
     );
   }
 
@@ -912,7 +920,7 @@ class RemoteViewState extends State<RemoteView> {
 
     if (mounted) {
       ScaffoldMessenger.of(context).showSnackBar(
-        const SnackBar(content: Text('Button duplicated.')),
+        SnackBar(content: Text(context.l10n.buttonDuplicated)),
       );
     }
   }
@@ -928,6 +936,7 @@ class RemoteViewState extends State<RemoteView> {
 
     await _persistRemote(showNotFoundSnack: false);
 
+    if (!mounted) return;
     final IRButton? updated = await Navigator.push<IRButton?>(
       context,
       MaterialPageRoute(builder: (context) => CreateButton(button: dup)),
@@ -957,6 +966,7 @@ class RemoteViewState extends State<RemoteView> {
     final bool loopingThis = _isLoopingThis(b);
     final bool isControlFav = await DeviceControlsPrefs.isFavorite(b.id);
     final bool isQuickFav = await QuickSettingsPrefs.isFavorite(b.id);
+    if (!mounted) return;
 
     final String typeLine = 'Type: $proto';
     final String codeLine = isRaw ? 'Code: Raw signal' : 'Code: ${displayHex ?? 'NO CODE'}';
@@ -1059,8 +1069,8 @@ class RemoteViewState extends State<RemoteView> {
                               Expanded(
                                 child: Text(
                                   loopingThis
-                                      ? 'Loop is running for this button.'
-                                      : 'Tip: Use Loop to repeat until you stop it.',
+                                      ? context.l10n.loopRunningForButton
+                                      : context.l10n.loopTip,
                                   style: theme.textTheme.bodySmall?.copyWith(
                                     color: cs.onSurface.withValues(alpha: 0.75),
                                     fontWeight: FontWeight.w600,
@@ -1082,7 +1092,7 @@ class RemoteViewState extends State<RemoteView> {
                               _handleButtonPress(b);
                             },
                             icon: const Icon(Icons.play_arrow_rounded),
-                            label: const Text('Send'),
+                            label: Text(context.l10n.sendCommand),
                           ),
                         ),
                         const SizedBox(width: 12),
@@ -1094,15 +1104,15 @@ class RemoteViewState extends State<RemoteView> {
                                     await Clipboard.setData(
                                       ClipboardData(text: displayHex),
                                     );
-                                    if (!mounted) return;
+                                    if (!mounted || !ctx.mounted) return;
                                     Navigator.of(ctx).pop();
                                     ScaffoldMessenger.of(context).showSnackBar(
-                                      const SnackBar(content: Text('Code copied.')),
+                                      SnackBar(content: Text(context.l10n.codeCopied)),
                                     );
                                     Haptics.selectionClick();
                                   },
                             icon: const Icon(Icons.copy_rounded),
-                            label: const Text('Copy code'),
+                            label: Text(context.l10n.copyCode),
                           ),
                         ),
                       ],
@@ -1121,7 +1131,7 @@ class RemoteViewState extends State<RemoteView> {
                                 _stopLoop(silent: false);
                               },
                               icon: const Icon(Icons.stop_rounded),
-                              label: const Text('Stop loop'),
+                              label: Text(context.l10n.stopLoop),
                             )
                           : FilledButton.tonalIcon(
                               onPressed: () {
@@ -1129,7 +1139,7 @@ class RemoteViewState extends State<RemoteView> {
                                 _startLoop(b);
                               },
                               icon: const Icon(Icons.loop_rounded),
-                              label: const Text('Start loop'),
+                              label: Text(context.l10n.startLoop),
                             ),
                     ),
                     const SizedBox(height: 10),
@@ -1137,8 +1147,8 @@ class RemoteViewState extends State<RemoteView> {
                     ListTile(
                       contentPadding: EdgeInsets.zero,
                       leading: const Icon(Icons.edit_rounded),
-                      title: const Text('Edit'),
-                      subtitle: const Text('Modify label, code, protocol, frequency'),
+                      title: Text(context.l10n.edit),
+                      subtitle: Text(context.l10n.editButtonSubtitle),
                       trailing: const Icon(Icons.chevron_right_rounded),
                       onTap: () {
                         Navigator.of(ctx).pop();
@@ -1148,8 +1158,8 @@ class RemoteViewState extends State<RemoteView> {
                     ListTile(
                       contentPadding: EdgeInsets.zero,
                       leading: const Icon(Icons.add_circle_outline_rounded),
-                      title: const Text('New button'),
-                      subtitle: const Text('Create a new button after this one'),
+                      title: Text(context.l10n.newButton),
+                      subtitle: Text(context.l10n.newButtonSubtitle),
                       trailing: const Icon(Icons.chevron_right_rounded),
                       onTap: () {
                         Navigator.of(ctx).pop();
@@ -1160,8 +1170,8 @@ class RemoteViewState extends State<RemoteView> {
                     ListTile(
                       contentPadding: EdgeInsets.zero,
                       leading: const Icon(Icons.copy_all_outlined),
-                      title: const Text('Duplicate'),
-                      subtitle: const Text('Create a copy of this button'),
+                      title: Text(context.l10n.duplicate),
+                      subtitle: Text(context.l10n.duplicateButtonSubtitle),
                       onTap: () async {
                         Navigator.of(ctx).pop();
                         await _duplicateButton(b);
@@ -1170,8 +1180,8 @@ class RemoteViewState extends State<RemoteView> {
                     ListTile(
                       contentPadding: EdgeInsets.zero,
                       leading: Icon(isControlFav ? Icons.remove_circle_outline : Icons.add_circle_outline),
-                      title: Text(isControlFav ? 'Remove from Device Controls' : 'Add to Device Controls'),
-                      subtitle: const Text('Shows this button in the system device controls'),
+                      title: Text(isControlFav ? context.l10n.removeFromDeviceControls : context.l10n.addToDeviceControls),
+                      subtitle: Text(context.l10n.deviceControlsButtonSubtitle),
                       onTap: () async {
                         Navigator.of(ctx).pop();
                         if (isControlFav) {
@@ -1187,8 +1197,8 @@ class RemoteViewState extends State<RemoteView> {
                         ScaffoldMessenger.of(context).showSnackBar(
                           SnackBar(
                             content: Text(isControlFav
-                                ? 'Removed from Device Controls.'
-                                : 'Added to Device Controls.'),
+                                ? context.l10n.removedFromDeviceControls
+                                : context.l10n.addedToDeviceControls),
                           ),
                         );
                       },
@@ -1196,8 +1206,8 @@ class RemoteViewState extends State<RemoteView> {
                     ListTile(
                       contentPadding: EdgeInsets.zero,
                       leading: Icon(isQuickFav ? Icons.star_rounded : Icons.star_border_rounded),
-                      title: Text(isQuickFav ? 'Unpin from Quick Tile favorites' : 'Pin to Quick Tile favorites'),
-                      subtitle: const Text('Shows this button at the top of the quick tile chooser'),
+                      title: Text(isQuickFav ? context.l10n.unpinQuickTile : context.l10n.pinQuickTile),
+                      subtitle: Text(context.l10n.quickTileButtonSubtitle),
                       onTap: () async {
                         Navigator.of(ctx).pop();
                         if (isQuickFav) {
@@ -1213,8 +1223,8 @@ class RemoteViewState extends State<RemoteView> {
                         ScaffoldMessenger.of(context).showSnackBar(
                           SnackBar(
                             content: Text(isQuickFav
-                                ? 'Removed from Quick Tile favorites.'
-                                : 'Pinned to Quick Tile favorites.'),
+                                ? context.l10n.removedFromQuickTileFavorites
+                                : context.l10n.pinnedToQuickTileFavorites),
                           ),
                         );
                       },
@@ -1222,8 +1232,8 @@ class RemoteViewState extends State<RemoteView> {
                     ListTile(
                       contentPadding: EdgeInsets.zero,
                       leading: const Icon(Icons.copy_rounded),
-                      title: const Text('Duplicate and edit'),
-                      subtitle: const Text('Create a copy and edit it immediately'),
+                      title: Text(context.l10n.duplicateAndEdit),
+                      subtitle: Text(context.l10n.duplicateAndEditSubtitle),
                       onTap: () async {
                         Navigator.of(ctx).pop();
                         await _duplicateAndEditButton(b);
@@ -1260,7 +1270,7 @@ class RemoteViewState extends State<RemoteView> {
             ),
             const SizedBox(height: 2),
             Text(
-              '$count button(s)',
+              context.l10n.remoteButtonCountSummary(count.toString()),
               style: theme.textTheme.labelSmall?.copyWith(
                 color: cs.onSurface.withValues(alpha: 0.65),
                 fontWeight: FontWeight.w600,
@@ -1271,8 +1281,8 @@ class RemoteViewState extends State<RemoteView> {
         actions: [
           IconButton(
             tooltip: _rotate180
-                ? 'Orientation: flipped (tap to normal)'
-                : 'Orientation: normal (tap to flip)',
+                ? context.l10n.remoteOrientationFlippedTooltip
+                : context.l10n.remoteOrientationNormalTooltip,
             onPressed: () async {
               final next = !_rotate180;
               setState(() => _rotate180 = next);
@@ -1282,21 +1292,21 @@ class RemoteViewState extends State<RemoteView> {
           ),
           if (_isLooping)
             IconButton(
-              tooltip: 'Stop loop',
+              tooltip: context.l10n.stopLoop,
               onPressed: () => _stopLoop(silent: false),
               icon: Icon(Icons.stop_circle_rounded, color: cs.error),
             ),
           IconButton(
-            tooltip: _reorderMode ? 'Done' : 'Reorder buttons',
+            tooltip: _reorderMode ? context.l10n.done : context.l10n.reorderButtons,
             onPressed: () {
               setState(() => _reorderMode = !_reorderMode);
               Haptics.selectionClick();
               if (_reorderMode && mounted) {
                 ScaffoldMessenger.of(context).hideCurrentSnackBar();
                 ScaffoldMessenger.of(context).showSnackBar(
-                  const SnackBar(
+                  SnackBar(
                     content: Text(
-                      'Reorder mode: long-press and drag a button to move it.',
+                      context.l10n.remoteReorderHint,
                     ),
                     duration: Duration(seconds: 2),
                   ),
@@ -1306,15 +1316,19 @@ class RemoteViewState extends State<RemoteView> {
             icon: Icon(_reorderMode ? Icons.check_rounded : Icons.drag_indicator_rounded),
           ),
           IconButton(
-            tooltip: 'Manage remote',
+            tooltip: context.l10n.manageRemote,
             onPressed: _openRemoteActionsSheet,
             icon: const Icon(Icons.more_vert_rounded),
           ),
         ],
       ),
       body: SafeArea(
-        child: WillPopScope(
-          onWillPop: _onWillPop,
+        child: PopScope(
+          canPop: !_reorderMode,
+          onPopInvokedWithResult: (didPop, _) async {
+            if (didPop) return;
+            await _onWillPop();
+          },
           child: Column(
             children: [
               AnimatedSwitcher(
@@ -1560,7 +1574,7 @@ class _ReorderHintBanner extends StatelessWidget {
             const SizedBox(width: 10),
             Expanded(
               child: Text(
-                'Reorder mode: long-press and drag a button to move it.',
+                context.l10n.remoteReorderHint,
                 style: theme.textTheme.bodyMedium?.copyWith(
                   fontWeight: FontWeight.w700,
                   color: cs.onSecondaryContainer.withValues(alpha: 0.92),
@@ -1570,7 +1584,7 @@ class _ReorderHintBanner extends StatelessWidget {
             const SizedBox(width: 8),
             FilledButton.tonal(
               onPressed: onDone,
-              child: const Text('Done'),
+              child: Text(context.l10n.done),
             ),
           ],
         ),
@@ -1602,13 +1616,13 @@ class _EmptyRemoteState extends StatelessWidget {
             ),
             const SizedBox(height: 12),
             Text(
-              'No buttons in this remote',
+              context.l10n.remoteNoButtons,
               style: theme.textTheme.titleMedium?.copyWith(fontWeight: FontWeight.w900),
               textAlign: TextAlign.center,
             ),
             const SizedBox(height: 6),
             Text(
-              'Use "Edit remote" to add or configure buttons.',
+              context.l10n.remoteNoButtonsDescription,
               style: theme.textTheme.bodyMedium?.copyWith(
                 color: cs.onSurface.withValues(alpha: 0.7),
                 fontWeight: FontWeight.w600,
@@ -1619,7 +1633,7 @@ class _EmptyRemoteState extends StatelessWidget {
             FilledButton.tonalIcon(
               onPressed: onManage,
               icon: const Icon(Icons.more_horiz_rounded),
-              label: const Text('Manage remote'),
+              label: Text(context.l10n.manageRemote),
             ),
           ],
         ),

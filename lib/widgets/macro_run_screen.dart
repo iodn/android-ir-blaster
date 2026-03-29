@@ -1,9 +1,8 @@
 import 'dart:async';
-import 'dart:ui';
-
 import 'package:flutter/material.dart';
+import 'package:irblaster_controller/l10n/icon_picker_names.dart';
 import 'package:irblaster_controller/state/haptics.dart';
-import 'package:flutter/services.dart';
+import 'package:irblaster_controller/l10n/l10n.dart';
 import 'package:irblaster_controller/state/orientation_pref.dart';
 import 'package:irblaster_controller/models/macro_step.dart';
 import 'package:irblaster_controller/models/timed_macro.dart';
@@ -149,7 +148,7 @@ class _MacroRunScreenState extends State<MacroRunScreen> with SingleTickerProvid
             _running = false;
             _waitingForManual = false;
             _remainingMs = 0;
-            _lastError = 'Invalid step encountered';
+            _lastError = context.l10n.invalidStepEncountered;
           });
           _pulseController.stop();
           _pulseController.reset();
@@ -169,8 +168,14 @@ class _MacroRunScreenState extends State<MacroRunScreen> with SingleTickerProvid
             } catch (_) {
               if (!mounted) return;
               setState(() {
-                _lastError =
-                    'Failed to send: ${displayButtonLabel(button, fallback: 'Unnamed', iconFallback: 'Icon')}';
+                _lastError = context.l10n.failedToSendNamed(
+                  displayButtonLabel(
+                    button,
+                    fallback: context.l10n.unnamedButton,
+                    iconFallback: context.l10n.iconFallback,
+                    iconNameLocalizer: (name) => localizedIconPickerName(context.l10n, name),
+                  ),
+                );
               });
             }
           } else {
@@ -178,8 +183,10 @@ class _MacroRunScreenState extends State<MacroRunScreen> with SingleTickerProvid
             if (!mounted) return;
             setState(() {
               _lastError = fallback.isEmpty
-                  ? 'Button not found'
-                  : 'Button not found: ${displayButtonRefLabel(fallback, fallback: 'Unknown Button')}';
+                  ? context.l10n.buttonNotFound
+                  : context.l10n.buttonNotFoundNamed(
+                      displayButtonRefLabel(fallback, fallback: context.l10n.unknownButton),
+                    );
             });
           }
 
@@ -264,13 +271,13 @@ class _MacroRunScreenState extends State<MacroRunScreen> with SingleTickerProvid
 
   String _formatDuration(Duration d) {
     final int s = d.inSeconds;
-    if (s < 60) return '${s}s';
+    if (s < 60) return context.l10n.durationSecondsShort(s);
     final int m = s ~/ 60;
     final int rs = s % 60;
-    if (m < 60) return '${m}m ${rs}s';
+    if (m < 60) return context.l10n.durationMinutesSecondsShort(m, rs);
     final int h = m ~/ 60;
     final int rm = m % 60;
-    return '${h}h ${rm}m';
+    return context.l10n.durationHoursMinutesShort(h, rm);
   }
 
   @override
@@ -292,7 +299,9 @@ class _MacroRunScreenState extends State<MacroRunScreen> with SingleTickerProvid
         title: Text(widget.macro.name),
         actions: [
           IconButton(
-            tooltip: RemoteOrientationController.instance.flipped ? 'Orientation: flipped (tap to normal)' : 'Orientation: normal (tap to flip)',
+            tooltip: RemoteOrientationController.instance.flipped
+                ? context.l10n.orientationFlippedTooltip
+                : context.l10n.orientationNormalTooltip,
             onPressed: () async {
               final next = !RemoteOrientationController.instance.flipped;
               await RemoteOrientationController.instance.setFlipped(next);
@@ -302,7 +311,7 @@ class _MacroRunScreenState extends State<MacroRunScreen> with SingleTickerProvid
           ),
           if (canCancel && !canContinue)
             IconButton(
-              tooltip: 'Cancel',
+              tooltip: context.l10n.cancel,
               onPressed: _cancel,
               icon: const Icon(Icons.stop_circle_rounded),
             ),
@@ -345,7 +354,9 @@ class _MacroRunScreenState extends State<MacroRunScreen> with SingleTickerProvid
     double progress,
     Duration? elapsed,
   ) {
-    final stepLabel = total == 0 ? 'No steps' : 'Step ${(_currentStep + 1).clamp(1, total)} / $total';
+    final stepLabel = total == 0
+        ? context.l10n.noSteps
+        : context.l10n.stepProgress(((_currentStep + 1).clamp(1, total)), total);
 
     IconData statusIcon;
     Color statusColor;
@@ -354,19 +365,19 @@ class _MacroRunScreenState extends State<MacroRunScreen> with SingleTickerProvid
     if (_completed) {
       statusIcon = Icons.check_circle_rounded;
       statusColor = Colors.green;
-      statusLabel = 'Completed';
+      statusLabel = context.l10n.completed;
     } else if (_waitingForManual) {
       statusIcon = Icons.pause_circle_rounded;
       statusColor = cs.tertiary;
-      statusLabel = 'Paused';
+      statusLabel = context.l10n.paused;
     } else if (_running) {
       statusIcon = Icons.play_circle_rounded;
       statusColor = cs.primary;
-      statusLabel = 'Running';
+      statusLabel = context.l10n.running;
     } else {
       statusIcon = Icons.radio_button_unchecked_rounded;
       statusColor = cs.onSurface.withValues(alpha: 0.5);
-      statusLabel = 'Ready';
+      statusLabel = context.l10n.ready;
     }
 
     return Card(
@@ -465,7 +476,7 @@ class _MacroRunScreenState extends State<MacroRunScreen> with SingleTickerProvid
                   ),
                 ),
                 Text(
-                  '$_currentStep / $total steps',
+                  context.l10n.stepsProgress(_currentStep, total),
                   style: theme.textTheme.labelMedium?.copyWith(
                     color: cs.onSurface.withValues(alpha: 0.7),
                     fontWeight: FontWeight.w700,
@@ -509,7 +520,7 @@ class _MacroRunScreenState extends State<MacroRunScreen> with SingleTickerProvid
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Text(
-                    'Waiting',
+                    context.l10n.waiting,
                     style: theme.textTheme.titleMedium?.copyWith(
                       fontWeight: FontWeight.w900,
                       color: cs.onSecondaryContainer,
@@ -517,7 +528,7 @@ class _MacroRunScreenState extends State<MacroRunScreen> with SingleTickerProvid
                   ),
                   const SizedBox(height: 4),
                   Text(
-                    '${sec}s remaining',
+                    context.l10n.secondsRemaining(sec),
                     style: theme.textTheme.bodyMedium?.copyWith(
                       color: cs.onSecondaryContainer.withValues(alpha: 0.8),
                       fontWeight: FontWeight.w600,
@@ -527,7 +538,7 @@ class _MacroRunScreenState extends State<MacroRunScreen> with SingleTickerProvid
               ),
             ),
             Text(
-              '${_remainingMs}ms',
+              context.l10n.millisecondsShort(_remainingMs),
               style: theme.textTheme.titleLarge?.copyWith(
                 fontWeight: FontWeight.w900,
                 color: cs.onSecondaryContainer,
@@ -569,7 +580,7 @@ class _MacroRunScreenState extends State<MacroRunScreen> with SingleTickerProvid
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Text(
-                    'Manual Continue',
+                    context.l10n.manualContinue,
                     style: theme.textTheme.titleMedium?.copyWith(
                       fontWeight: FontWeight.w900,
                       color: cs.onTertiaryContainer,
@@ -577,7 +588,7 @@ class _MacroRunScreenState extends State<MacroRunScreen> with SingleTickerProvid
                   ),
                   const SizedBox(height: 4),
                   Text(
-                    'Tap Continue when ready for the next step',
+                    context.l10n.tapContinueWhenReady,
                     style: theme.textTheme.bodySmall?.copyWith(
                       color: cs.onTertiaryContainer.withValues(alpha: 0.8),
                       fontWeight: FontWeight.w600,
@@ -612,7 +623,7 @@ class _MacroRunScreenState extends State<MacroRunScreen> with SingleTickerProvid
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Text(
-                    'Error',
+                    context.l10n.error,
                     style: theme.textTheme.titleSmall?.copyWith(
                       fontWeight: FontWeight.w900,
                       color: cs.onErrorContainer,
@@ -660,7 +671,7 @@ class _MacroRunScreenState extends State<MacroRunScreen> with SingleTickerProvid
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Text(
-                    'Macro Completed',
+                    context.l10n.macroCompleted,
                     style: theme.textTheme.titleMedium?.copyWith(
                       fontWeight: FontWeight.w900,
                       color: Colors.green.shade800,
@@ -669,7 +680,7 @@ class _MacroRunScreenState extends State<MacroRunScreen> with SingleTickerProvid
                   if (elapsed != null) ...[
                     const SizedBox(height: 4),
                     Text(
-                      'Finished in ${_formatDuration(elapsed)}',
+                      context.l10n.finishedIn(_formatDuration(elapsed)),
                       style: theme.textTheme.bodySmall?.copyWith(
                         color: Colors.green.shade700,
                         fontWeight: FontWeight.w600,
@@ -692,7 +703,7 @@ class _MacroRunScreenState extends State<MacroRunScreen> with SingleTickerProvid
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         Text(
-          'Sequence',
+          context.l10n.sequence,
           style: theme.textTheme.titleSmall?.copyWith(
             fontWeight: FontWeight.w900,
           ),
@@ -815,16 +826,17 @@ class _MacroRunScreenState extends State<MacroRunScreen> with SingleTickerProvid
         if (button != null) {
           return displayButtonLabel(
             button,
-            fallback: 'Unnamed',
-            iconFallback: 'Icon',
+            fallback: context.l10n.unnamedButton,
+            iconFallback: context.l10n.iconFallback,
+            iconNameLocalizer: (name) => localizedIconPickerName(context.l10n, name),
           );
         }
         final fallback = (step.buttonRef ?? step.buttonId ?? '').trim();
-        return displayButtonRefLabel(fallback, fallback: 'Unknown Button');
+        return displayButtonRefLabel(fallback, fallback: context.l10n.unknownButton);
       case MacroStepType.delay:
-        return 'Wait ${step.delayMs ?? 0}ms';
+        return context.l10n.waitMilliseconds(step.delayMs ?? 0);
       case MacroStepType.manualContinue:
-        return 'Manual Continue';
+        return context.l10n.manualContinue;
     }
   }
 
@@ -855,7 +867,7 @@ class _MacroRunScreenState extends State<MacroRunScreen> with SingleTickerProvid
                 child: FilledButton.icon(
                   onPressed: _start,
                   icon: Icon(canRestart ? Icons.replay_rounded : Icons.play_arrow_rounded),
-                  label: Text(canRestart ? 'Run Again' : 'Start Macro'),
+                  label: Text(canRestart ? context.l10n.runAgain : context.l10n.startMacro),
                   style: FilledButton.styleFrom(
                     padding: const EdgeInsets.symmetric(vertical: 16),
                   ),
@@ -867,7 +879,7 @@ class _MacroRunScreenState extends State<MacroRunScreen> with SingleTickerProvid
                 child: FilledButton.icon(
                   onPressed: _continueManual,
                   icon: const Icon(Icons.play_arrow_rounded),
-                  label: const Text('Continue'),
+                  label: Text(context.l10n.continueAction),
                   style: FilledButton.styleFrom(
                     padding: const EdgeInsets.symmetric(vertical: 16),
                   ),
@@ -879,7 +891,7 @@ class _MacroRunScreenState extends State<MacroRunScreen> with SingleTickerProvid
                 child: OutlinedButton.icon(
                   onPressed: canCancel ? _cancel : null,
                   icon: const Icon(Icons.stop_rounded),
-                  label: const Text('Cancel'),
+                  label: Text(context.l10n.cancel),
                   style: OutlinedButton.styleFrom(
                     padding: const EdgeInsets.symmetric(vertical: 16),
                   ),
@@ -892,7 +904,7 @@ class _MacroRunScreenState extends State<MacroRunScreen> with SingleTickerProvid
                 child: FilledButton.tonalIcon(
                   onPressed: _cancel,
                   icon: const Icon(Icons.stop_rounded),
-                  label: const Text('Cancel'),
+                  label: Text(context.l10n.cancel),
                   style: FilledButton.styleFrom(
                     padding: const EdgeInsets.symmetric(vertical: 16),
                   ),

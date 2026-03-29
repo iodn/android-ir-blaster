@@ -2,6 +2,7 @@ import 'dart:async';
 
 import 'package:flutter/material.dart';
 import 'package:irblaster_controller/ir_finder/irblaster_db.dart';
+import 'package:irblaster_controller/l10n/l10n.dart';
 import 'package:irblaster_controller/state/haptics.dart';
 import 'package:irblaster_controller/state/orientation_pref.dart';
 import 'package:irblaster_controller/universal_power/power_code_repository.dart';
@@ -149,7 +150,7 @@ class _UniversalPowerScreenState extends State<UniversalPowerScreen>
     if (!_dbReady) return;
     if (!_hasTransmitter()) {
       ScaffoldMessenger.of(context).showSnackBar(
-        const SnackBar(content: Text('No IR transmitter available.')),
+        SnackBar(content: Text(context.l10n.homeNoIrTransmitterTitle)),
       );
       return;
     }
@@ -172,7 +173,7 @@ class _UniversalPowerScreenState extends State<UniversalPowerScreen>
     if (!mounted) return;
     if (codes.isEmpty) {
       ScaffoldMessenger.of(context).showSnackBar(
-        const SnackBar(content: Text('No power codes found. Try broadening the search.')),
+        SnackBar(content: Text(context.l10n.universalPowerNoCodesFound)),
       );
       return;
     }
@@ -186,7 +187,7 @@ class _UniversalPowerScreenState extends State<UniversalPowerScreen>
     if (!mounted) return;
     if (!ok) {
       ScaffoldMessenger.of(context).showSnackBar(
-        const SnackBar(content: Text('Unable to start.')),
+        SnackBar(content: Text(context.l10n.universalPowerUnableToStart)),
       );
       return;
     }
@@ -238,12 +239,12 @@ class _UniversalPowerScreenState extends State<UniversalPowerScreen>
     if (!_consentLoaded) {
       return Scaffold(
         appBar: AppBar(
-          title: const Text('Universal Power'),
+          title: Text(context.l10n.universalPowerTitle),
           actions: [
             IconButton(
               tooltip: RemoteOrientationController.instance.flipped
-                  ? 'Orientation: flipped (tap to normal)'
-                  : 'Orientation: normal (tap to flip)',
+                  ? context.l10n.remoteOrientationFlippedTooltip
+                  : context.l10n.remoteOrientationNormalTooltip,
               onPressed: () async {
                 final next = !RemoteOrientationController.instance.flipped;
                 await RemoteOrientationController.instance.setFlipped(next);
@@ -263,12 +264,12 @@ class _UniversalPowerScreenState extends State<UniversalPowerScreen>
     if (!_consented) {
       return Scaffold(
         appBar: AppBar(
-          title: const Text('Universal Power'),
+          title: Text(context.l10n.universalPowerTitle),
           actions: [
             IconButton(
               tooltip: RemoteOrientationController.instance.flipped
-                  ? 'Orientation: flipped (tap to normal)'
-                  : 'Orientation: normal (tap to flip)',
+                  ? context.l10n.remoteOrientationFlippedTooltip
+                  : context.l10n.remoteOrientationNormalTooltip,
               onPressed: () async {
                 final next = !RemoteOrientationController.instance.flipped;
                 await RemoteOrientationController.instance.setFlipped(next);
@@ -287,12 +288,12 @@ class _UniversalPowerScreenState extends State<UniversalPowerScreen>
 
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Universal Power'),
+        title: Text(context.l10n.universalPowerTitle),
         actions: [
           IconButton(
             tooltip: RemoteOrientationController.instance.flipped
-                ? 'Orientation: flipped (tap to normal)'
-                : 'Orientation: normal (tap to flip)',
+                ? context.l10n.remoteOrientationFlippedTooltip
+                : context.l10n.remoteOrientationNormalTooltip,
             onPressed: () async {
               final next = !RemoteOrientationController.instance.flipped;
               await RemoteOrientationController.instance.setFlipped(next);
@@ -301,7 +302,7 @@ class _UniversalPowerScreenState extends State<UniversalPowerScreen>
             icon: const Icon(Icons.screen_rotation_rounded),
           ),
           IconButton(
-            tooltip: 'Stop',
+            tooltip: context.l10n.stop,
             onPressed: _controller.running ? _stopRun : null,
             icon: const Icon(Icons.stop_circle_outlined),
           ),
@@ -323,9 +324,9 @@ class _UniversalPowerScreenState extends State<UniversalPowerScreen>
           if (_controller.running && i == 0) return;
           setState(() => _pageIndex = i);
         },
-        destinations: const [
-          NavigationDestination(icon: Icon(Icons.tune_rounded), label: 'Setup'),
-          NavigationDestination(icon: Icon(Icons.power_settings_new), label: 'Run'),
+        destinations: [
+          NavigationDestination(icon: const Icon(Icons.tune_rounded), label: context.l10n.irFinderSetupTab),
+          NavigationDestination(icon: const Icon(Icons.power_settings_new), label: context.l10n.universalPowerRunTab),
         ],
       ),
     );
@@ -346,19 +347,17 @@ class _UniversalPowerScreenState extends State<UniversalPowerScreen>
                   children: [
                     Icon(Icons.warning_amber_rounded, color: theme.colorScheme.error),
                     const SizedBox(width: 8),
-                    Text('Use responsibly', style: theme.textTheme.titleLarge),
+                    Text(context.l10n.universalPowerUseResponsibly, style: theme.textTheme.titleLarge),
                   ],
                 ),
                 const SizedBox(height: 10),
-                const Text(
-                  'Universal Power cycles IR power codes. Use only on devices you own or control. Stop as soon as the device responds.',
-                ),
+                Text(context.l10n.universalPowerConsentBody),
                 const SizedBox(height: 12),
                 CheckboxListTile(
                   contentPadding: EdgeInsets.zero,
                   value: _consentChecked,
                   onChanged: (v) => setState(() => _consentChecked = v ?? false),
-                  title: const Text('I own or control the device'),
+                  title: Text(context.l10n.universalPowerConsentCheckbox),
                 ),
                 const SizedBox(height: 8),
                 FilledButton(
@@ -369,7 +368,7 @@ class _UniversalPowerScreenState extends State<UniversalPowerScreen>
                           setState(() => _consented = true);
                         }
                       : null,
-                  child: const Text('Continue'),
+                  child: Text(context.l10n.continueAction),
                 ),
               ],
             ),
@@ -397,14 +396,14 @@ class _UniversalPowerScreenState extends State<UniversalPowerScreen>
                   children: [
                     Icon(Icons.power_settings_new_rounded, color: cs.primary),
                     const SizedBox(width: 10),
-                    Text('Universal Power', style: theme.textTheme.titleMedium),
+                    Text(context.l10n.universalPowerTitle, style: theme.textTheme.titleMedium),
                   ],
                 ),
                 const SizedBox(height: 8),
-                const Text('Cycles power codes for your selected brand. Stop as soon as the device responds.'),
+                Text(context.l10n.universalPowerSetupBody),
                 if (last != null) ...[
                   const SizedBox(height: 10),
-                  Text('Last sent: ${last.label} · ${last.protocolId.toUpperCase()} ${last.hexCode}',
+                  Text(context.l10n.universalPowerLastSent('${last.label} · ${last.protocolId.toUpperCase()} ${last.hexCode}'),
                       style: theme.textTheme.bodySmall),
                 ],
               ],
@@ -429,13 +428,13 @@ class _UniversalPowerScreenState extends State<UniversalPowerScreen>
                   const SizedBox(width: 12),
                   Expanded(
                     child: Text(
-                      _dbInitFailed ? 'Database initialization failed.' : 'Preparing local IR code database…',
+                      _dbInitFailed ? context.l10n.irFinderDatabaseInitFailed : context.l10n.irFinderPreparingDatabase,
                     ),
                   ),
                   if (_dbInitFailed)
                     FilledButton.tonal(
                       onPressed: _initDb,
-                      child: const Text('Retry'),
+                      child: Text(context.l10n.retry),
                     ),
                 ],
               ),
@@ -445,14 +444,14 @@ class _UniversalPowerScreenState extends State<UniversalPowerScreen>
         ListTile(
           contentPadding: EdgeInsets.zero,
           leading: const Icon(Icons.business_outlined),
-          title: const Text('Brand'),
-          subtitle: Text(_brand ?? 'All brands (no filter)'),
+          title: Text(context.l10n.irFinderBrand),
+          subtitle: Text(_brand ?? context.l10n.universalPowerAllBrands),
           trailing: Wrap(
             spacing: 8,
             children: [
               if (_brand != null)
                 IconButton(
-                  tooltip: 'Clear brand filter',
+                  tooltip: context.l10n.universalPowerClearBrandFilter,
                   onPressed: () => setState(() {
                     _brand = null;
                     _model = null;
@@ -468,8 +467,8 @@ class _UniversalPowerScreenState extends State<UniversalPowerScreen>
         ListTile(
           contentPadding: EdgeInsets.zero,
           leading: const Icon(Icons.memory_outlined),
-          title: const Text('Model (optional)'),
-          subtitle: Text(_model ?? (_brand == null ? 'Select a brand first' : 'Select a model (recommended)')),
+          title: Text(context.l10n.irFinderModelOptional),
+          subtitle: Text(_model ?? (_brand == null ? context.l10n.irFinderSelectBrandFirstShort : context.l10n.irFinderSelectModelRecommended)),
           trailing: const Icon(Icons.chevron_right),
           onTap: (_dbReady && _brand != null) ? _pickModel : null,
         ),
@@ -478,12 +477,12 @@ class _UniversalPowerScreenState extends State<UniversalPowerScreen>
           contentPadding: EdgeInsets.zero,
           value: _broadenSearch,
           onChanged: (v) => setState(() => _broadenSearch = v),
-          title: const Text('Broaden search if needed'),
-          subtitle: const Text('If no power labels are found, include other keys.'),
+          title: Text(context.l10n.universalPowerBroadenSearch),
+          subtitle: Text(context.l10n.universalPowerBroadenSearchHint),
         ),
         const SizedBox(height: 6),
         Text(
-          'Additional patterns depth',
+          context.l10n.universalPowerAdditionalPatternsDepth,
           style: theme.textTheme.labelLarge?.copyWith(fontWeight: FontWeight.w700),
         ),
         const SizedBox(height: 6),
@@ -497,24 +496,24 @@ class _UniversalPowerScreenState extends State<UniversalPowerScreen>
         ),
         Text(
           _depth == 1
-              ? 'Priority only: POWER/OFF'
+              ? context.l10n.universalPowerDepth1
               : _depth == 2
-                  ? 'Include POWER aliases'
+                  ? context.l10n.universalPowerDepth2
                   : _depth == 3
-                      ? 'Include secondary power labels'
-                      : 'Include all labels (lowest priority)',
+                      ? context.l10n.universalPowerDepth3
+                      : context.l10n.universalPowerDepth4,
           style: theme.textTheme.bodySmall,
         ),
         SwitchListTile.adaptive(
           contentPadding: EdgeInsets.zero,
           value: _loop,
           onChanged: (v) => setState(() => _loop = v),
-          title: const Text('Loop until stopped'),
-          subtitle: const Text('Keeps cycling the queue until you stop it.'),
+          title: Text(context.l10n.universalPowerLoopUntilStopped),
+          subtitle: Text(context.l10n.universalPowerLoopUntilStoppedHint),
         ),
         const SizedBox(height: 10),
         Text(
-          'Delay between codes',
+          context.l10n.universalPowerDelayBetweenCodes,
           style: theme.textTheme.labelLarge?.copyWith(fontWeight: FontWeight.w700),
         ),
         const SizedBox(height: 6),
@@ -530,7 +529,7 @@ class _UniversalPowerScreenState extends State<UniversalPowerScreen>
         FilledButton.icon(
           onPressed: _controller.running ? null : _startRun,
           icon: const Icon(Icons.play_arrow_rounded),
-          label: const Text('Start Universal Power'),
+          label: Text(context.l10n.universalPowerStart),
         ),
       ],
     );
@@ -557,28 +556,28 @@ class _UniversalPowerScreenState extends State<UniversalPowerScreen>
                   children: [
                     Icon(Icons.power_settings_new_rounded, color: theme.colorScheme.primary),
                     const SizedBox(width: 10),
-                    Text('Run status', style: theme.textTheme.titleMedium),
+                    Text(context.l10n.universalPowerRunStatus, style: theme.textTheme.titleMedium),
                   ],
                 ),
                 const SizedBox(height: 10),
                 Text(running
-                    ? (paused ? 'Paused' : 'Running')
-                    : 'Stopped'),
+                    ? (paused ? context.l10n.paused : context.l10n.running)
+                    : context.l10n.stopped),
                 const SizedBox(height: 6),
                 if (queueSize > 0)
-                  Text('Progress: ${index.clamp(0, queueSize)}/$queueSize'),
+                  Text(context.l10n.universalPowerProgress('${index.clamp(0, queueSize)}/$queueSize')),
                 if (_pausedByLifecycle && paused)
-                  const Padding(
+                  Padding(
                     padding: EdgeInsets.only(top: 6),
-                    child: Text('Paused because the app was backgrounded.'),
+                    child: Text(context.l10n.universalPowerPausedInBackground),
                   ),
                 if (last != null) ...[
                   const SizedBox(height: 8),
-                  Text('Last sent: ${last.label} · ${last.protocolId.toUpperCase()} ${last.hexCode}'),
+                  Text(context.l10n.universalPowerLastSent('${last.label} · ${last.protocolId.toUpperCase()} ${last.hexCode}')),
                 ],
                 if (_controller.lastError != null) ...[
                   const SizedBox(height: 8),
-                  Text('Last error: ${_controller.lastError}'),
+                  Text(context.l10n.irFinderSendError(_controller.lastError.toString())),
                 ],
               ],
             ),
@@ -593,7 +592,7 @@ class _UniversalPowerScreenState extends State<UniversalPowerScreen>
                     ? (paused ? _controller.resume : _controller.pause)
                     : null,
                 icon: Icon(paused ? Icons.play_arrow_rounded : Icons.pause_rounded),
-                label: Text(paused ? 'Resume' : 'Pause'),
+                label: Text(paused ? context.l10n.resume : context.l10n.pause),
               ),
             ),
             const SizedBox(width: 12),
@@ -601,7 +600,7 @@ class _UniversalPowerScreenState extends State<UniversalPowerScreen>
               child: FilledButton.tonalIcon(
                 onPressed: running ? _stopRun : () => setState(() => _pageIndex = 0),
                 icon: Icon(running ? Icons.stop_rounded : Icons.tune_rounded),
-                label: Text(running ? 'Stop' : 'Edit Setup'),
+                label: Text(running ? context.l10n.stop : context.l10n.irFinderEditSetup),
               ),
             ),
           ],
@@ -610,11 +609,11 @@ class _UniversalPowerScreenState extends State<UniversalPowerScreen>
         FilledButton.tonalIcon(
           onPressed: (running && paused) ? () async { await _controller.step(); await Haptics.selectionClick(); } : null,
           icon: const Icon(Icons.skip_next_rounded),
-          label: const Text('Send one code'),
+          label: Text(context.l10n.universalPowerSendOneCode),
         ),
         const SizedBox(height: 8),
         Text(
-          'Stop as soon as the device responds.',
+          context.l10n.universalPowerStopWhenDeviceResponds,
           style: theme.textTheme.bodySmall,
         ),
       ],
@@ -727,16 +726,17 @@ class _PowerDbPickerSheetState extends State<_PowerDbPickerSheet> {
       if (!mounted) return;
       setState(() => _exhausted = true);
     } finally {
-      if (!mounted) return;
-      setState(() => _loading = false);
+      if (mounted) {
+        setState(() => _loading = false);
+      }
     }
   }
 
   @override
   Widget build(BuildContext context) {
     final theme = Theme.of(context);
-    final title = widget.kind == _PowerDbPickerKind.brand ? 'Select brand' : 'Select model';
-    final hint = widget.kind == _PowerDbPickerKind.brand ? 'Search brands…' : 'Search models…';
+    final title = widget.kind == _PowerDbPickerKind.brand ? context.l10n.irFinderSelectBrand : context.l10n.irFinderSelectModel;
+    final hint = widget.kind == _PowerDbPickerKind.brand ? context.l10n.irFinderSearchBrands : context.l10n.irFinderSearchModels;
 
     return SafeArea(
       child: Padding(
@@ -753,7 +753,7 @@ class _PowerDbPickerSheetState extends State<_PowerDbPickerSheet> {
               children: [
                 Expanded(child: Text(title, style: theme.textTheme.titleLarge)),
                 IconButton(
-                  tooltip: 'Close',
+                  tooltip: context.l10n.close,
                   onPressed: () => Navigator.of(context).pop(),
                   icon: const Icon(Icons.close_rounded),
                 ),

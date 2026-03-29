@@ -3,6 +3,7 @@ import 'dart:io';
 
 import 'package:file_picker/file_picker.dart';
 import 'package:flutter/material.dart';
+import 'package:irblaster_controller/l10n/l10n.dart';
 import 'package:irblaster_controller/models/macro_step.dart';
 import 'package:irblaster_controller/models/timed_macro.dart';
 import 'package:irblaster_controller/utils/remote.dart';
@@ -112,7 +113,7 @@ Future<void> exportMacrosToDownloads(
   if (macros.isEmpty) {
     if (!context.mounted) return;
     ScaffoldMessenger.of(context).showSnackBar(
-      const SnackBar(content: Text('No macros to export.')),
+      SnackBar(content: Text(context.l10n.noMacrosToExport)),
     );
     return;
   }
@@ -147,12 +148,12 @@ Future<void> exportMacrosToDownloads(
 
     if (!context.mounted) return;
     ScaffoldMessenger.of(context).showSnackBar(
-      const SnackBar(content: Text('Macros exported to Downloads.')),
+      SnackBar(content: Text(context.l10n.macrosExportedToDownloads)),
     );
   } catch (_) {
     if (!context.mounted) return;
     ScaffoldMessenger.of(context).showSnackBar(
-      const SnackBar(content: Text('Failed to export macros.')),
+      SnackBar(content: Text(context.l10n.failedToExportMacros)),
     );
   }
 }
@@ -173,7 +174,7 @@ Future<List<TimedMacro>?> importMacrosFromPicker(BuildContext context) async {
     if (path == null) {
       if (!context.mounted) return null;
       ScaffoldMessenger.of(context).showSnackBar(
-        const SnackBar(content: Text('Failed to read file.')),
+        SnackBar(content: Text(context.l10n.failedToReadFile)),
       );
       return null;
     }
@@ -182,7 +183,7 @@ Future<List<TimedMacro>?> importMacrosFromPicker(BuildContext context) async {
     } catch (_) {
       if (!context.mounted) return null;
       ScaffoldMessenger.of(context).showSnackBar(
-        const SnackBar(content: Text('Failed to read file.')),
+        SnackBar(content: Text(context.l10n.failedToReadFile)),
       );
       return null;
     }
@@ -204,7 +205,7 @@ Future<List<TimedMacro>?> importMacrosFromPicker(BuildContext context) async {
     if (macrosList == null) {
       if (!context.mounted) return null;
       ScaffoldMessenger.of(context).showSnackBar(
-        const SnackBar(content: Text('Invalid macro file format.')),
+        SnackBar(content: Text(context.l10n.invalidMacroFileFormat)),
       );
       return null;
     }
@@ -218,7 +219,7 @@ Future<List<TimedMacro>?> importMacrosFromPicker(BuildContext context) async {
   } catch (_) {
     if (!context.mounted) return null;
     ScaffoldMessenger.of(context).showSnackBar(
-      const SnackBar(content: Text('Failed to parse macro file.')),
+      SnackBar(content: Text(context.l10n.failedToParseMacroFile)),
     );
     return null;
   }

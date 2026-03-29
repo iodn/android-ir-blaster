@@ -1,0 +1,1846 @@
+{
+  "@@locale": "ja",
+  "appTitle": "IR Blaster",
+  "loading": "読み込み中…",
+  "unknownError": "不明なエラー",
+  "failedToStart": "開始に失敗しました",
+  "retry": "再試行",
+  "quickTilePower": "電源",
+  "quickTileMute": "ミュート",
+  "quickTileVolumeUp": "音量 +",
+  "quickTileVolumeDown": "音量 -",
+  "homeUsbPermissionRequiredMessage": "この端末には内蔵IR送信機がありません。 USB IRドングルを検出しましたが まだ権限がありません。\n\nIR送信を有効にするにはUSB権限の確認を許可してください。",
+  "homeUsbPermissionDeniedMessage": "この端末には内蔵IR送信機がありません。 USB IRドングルを検出しましたが USB権限が拒否されました。\n\nIR送信を有効にするには権限を再要求し 確認を許可してください。",
+  "homeUsbPermissionGrantedMessage": "この端末には内蔵IR送信機がありません。 USB IRドングルは認証済みですが まだ初期化されていません。",
+  "homeUsbOpenFailedMessage": "この端末には内蔵IR送信機がありません。 USB IRドングルは検出済みかつ認証済みですが 初期化できませんでした。\n\nドングルを再接続して再試行してください。",
+  "homeUsbReadyMessage": "この端末には内蔵IR送信機がありません。",
+  "homeUsbNoDeviceMessage": "この端末には内蔵IR送信機がなく 対応するUSB IRドングルも現在接続されていません。\n\nリモコンの作成 取り込み 管理は可能ですが IR送信には以下のいずれかが必要です。",
+  "homeUsbOptionPlugIn": "対応USB IRドングルを接続し 権限を許可してください。",
+  "homeUsbOptionReady": "使用できます。",
+  "homeUsbOptionPermissionRequired": "接続済みです。権限が必要です。",
+  "homeUsbOptionPermissionDenied": "権限が拒否されました。再要求してください。",
+  "homeUsbOptionPermissionGranted": "認証済みです。ドングルを初期化中です。",
+  "homeUsbOptionOpenFailed": "認証済みですが 初期化に失敗しました。",
+  "homeHardwareBannerNoInternal": "この端末には内蔵IRがありません。USB IRドングルを接続するか 設定で音声モードを有効にしてください。",
+  "homeHardwareBannerPermissionRequired": "USBドングルを検出しました。IR送信には権限が必要です。",
+  "homeHardwareBannerPermissionDenied": "USB権限が拒否されました。IR送信のため再要求してください。",
+  "homeHardwareBannerPermissionGranted": "USBドングルは認証済みです。初期化待ちです。",
+  "homeHardwareBannerOpenFailed": "USBドングルは認証済みですが 初期化に失敗しました。",
+  "homeHardwareBannerReady": "USBは使用可能です。",
+  "homeHardwareRequiredTitle": "コマンド送信にはIRハードが必要です",
+  "homeUsbDongleRecommended": "USB IRドングル 推奨",
+  "homeAudioAdapterAlternative": "音声IRアダプタ 代替",
+  "homeAudioAdapterDescription": "設定 → IR送信機 → 音声 1 LED / 2 LED。音声からIRへのアダプタが必要です。",
+  "close": "閉じる",
+  "homeChooseTransmitter": "送信機を選択",
+  "openSettings": "設定を開く",
+  "homeUsbPermissionSentApprove": "USB権限要求を送信しました。USBを有効にするには確認を許可してください。",
+  "homeUsbDongleNotDetected": "対応するUSB IRドングルが見つかりません。接続して再試行してください。",
+  "homeUsbPermissionRequestFailed": "USB権限の要求に失敗しました。",
+  "working": "処理中…",
+  "requestUsbPermission": "USB権限を要求",
+  "homeHardwareTip": "ヒント リモコンの作成や整理は今でも可能です。ハードが必要なのは送信時だけです。",
+  "homeNoIrTransmitterTitle": "IR送信機がありません",
+  "settingsNavLabel": "設定",
+  "dismiss": "閉じる",
+  "remotesNavLabel": "リモコン",
+  "macrosNavLabel": "マクロ",
+  "signalTesterNavLabel": "信号テスター",
+  "settingsTitle": "設定",
+  "remoteNoIrEmitterTitle": "No IR emitter",
+  "remoteNoIrEmitterMessage": "この端末にはIR送信機がありません",
+  "remoteNoIrEmitterNeedsEmitter": "このアプリの動作にはIR送信機が必要です",
+  "remoteDismiss": "閉じる",
+  "remoteClose": "閉じる",
+  "remoteFailedToSend": "IR送信に失敗しました: {error}",
+  "@remoteFailedToSend": {
+    "placeholders": {
+      "error": {}
+    }
+  },
+  "remoteFailedToStartLoop": "ループ開始に失敗しました: {error}",
+  "@remoteFailedToStartLoop": {
+    "placeholders": {
+      "error": {}
+    }
+  },
+  "remoteLoopStoppedFailed": "ループ停止 送信失敗: {error}",
+  "@remoteLoopStoppedFailed": {
+    "placeholders": {
+      "error": {}
+    }
+  },
+  "remoteLoopingHint": "\"{title}\" をループ中です。上部バーの停止を押すと止まります。",
+  "@remoteLoopingHint": {
+    "placeholders": {
+      "title": {}
+    }
+  },
+  "remoteLoopStopped": "ループを停止しました。",
+  "remoteUpdatedNotFound": "画面上のリモコンを更新しました。保存済み一覧には見つかりませんでした。",
+  "remoteUpdatedNamed": "\"{name}\" を更新しました。",
+  "@remoteUpdatedNamed": {
+    "placeholders": {
+      "name": {}
+    }
+  },
+  "remoteDeleteFailed": "削除に失敗しました: {error}",
+  "@remoteDeleteFailed": {
+    "placeholders": {
+      "error": {}
+    }
+  },
+  "remoteNotFoundSavedList": "保存済み一覧にリモコンが見つかりません。",
+  "remoteDeletedNamed": "\"{name}\" を削除しました。",
+  "@remoteDeletedNamed": {
+    "placeholders": {
+      "name": {}
+    }
+  },
+  "buttonFallbackTitle": "ボタン",
+  "imageFallbackTitle": "画像",
+  "noBrowserAvailable": "ブラウザがありません",
+  "failedToOpen": "開けませんでした: {error}",
+  "@failedToOpen": {
+    "placeholders": {
+      "error": {}
+    }
+  },
+  "cancel": "キャンセル",
+  "settingsRestoreDemoTitle": "デモリモコンを復元しますか?",
+  "settingsRestoreDemoMessage": "現在のリモコンを内蔵デモリモコンに置き換えます。今の一覧を残したい場合はバックアップを推奨します。",
+  "settingsRestoreDemoConfirm": "デモを復元",
+  "settingsDemoRemotesRestored": "デモリモコンを復元しました",
+  "settingsDeleteAllRemotesTitle": "すべてのリモコンを削除しますか?",
+  "settingsDeleteAllRemotesMessage": "この端末のすべてのリモコンを削除します。元に戻せません。",
+  "settingsDeleteAllConfirm": "すべて削除",
+  "settingsAllRemotesDeleted": "すべてのリモコンを削除しました",
+  "themeAuto": "自動テーマ",
+  "themeLight": "ライトテーマ",
+  "themeDark": "ダークテーマ",
+  "themeDescAuto": "端末設定に従います",
+  "themeDescLight": "常に明るく見やすい",
+  "themeDescDark": "目にやさしい",
+  "themeHintAuto": "端末設定のライト ダーク切替に合わせてテーマも自動で切り替わります",
+  "themeHintLight": "日中や明るい場所に最適です",
+  "themeHintDark": "暗い場所で目の負担を減らし OLED画面では電池も節約します。",
+  "supportDevelopmentTitle": "開発を支援",
+  "supportDevelopmentSubtitle": "IR Blasterの保守とハード互換性を支援",
+  "supportDevelopmentBody": "広告なし 追跡なし 機能制限なし。ご支援はプロトコル対応 USBドングル対応 端末互換性向上に使われます。",
+  "donate": "寄付",
+  "starRepo": "リポジトリにスター",
+  "repositoryLinkCopied": "リポジトリのリンクをコピーしました",
+  "supportPillLocalOnly": "ローカルのみ",
+  "supportPillNoTracking": "追跡なし",
+  "supportPillHardwareAware": "ハード対応",
+  "supportPillOpenSource": "オープンソース",
+  "appearanceTitle": "外観",
+  "appearanceSubtitle": "表示をカスタマイズ",
+  "localizationTitle": "言語設定",
+  "localizationSubtitle": "アプリ言語と翻訳動作",
+  "localizationAutoUsing": "自動 使用中: {language}",
+  "@localizationAutoUsing": {
+    "placeholders": {
+      "language": {}
+    }
+  },
+  "localizationAutoDescription": "可能な場合 アプリは端末の言語に従います。",
+  "localizationManualDescription": "アプリ言語は手動で上書きされています。",
+  "useSystemLanguageTitle": "システム言語を使用",
+  "useSystemLanguageEnabled": "端末言語に追従中: {language}",
+  "@useSystemLanguageEnabled": {
+    "placeholders": {
+      "language": {}
+    }
+  },
+  "useSystemLanguageDisabled": "端末既定ではなく 下で選んだ言語を使います。",
+  "chooseAppLanguage": "アプリの言語を選択",
+  "languagePickerDisabledHint": "手動で言語を選ぶにはシステム言語をオフにしてください。",
+  "searchLanguages": "言語を検索",
+  "noLanguagesFound": "一致する言語がありません",
+  "localizationHint": "システム言語が有効な場合 アプリは端末ロケールに従い 翻訳がないときは英語に戻ります。特定の言語に固定するにはオフにしてください。",
+  "appLanguageTitle": "アプリ言語",
+  "appLanguageHint": "自動では端末言語に従います。ここで英語またはフランス語を選ぶとアプリだけ上書きされます。",
+  "languageAuto": "自動 システム",
+  "languageAutoDescription": "端末言語に自動追従",
+  "languageEnglish": "英語",
+  "languageEnglishDescription": "常に英語を使用",
+  "languageFrench": "フランス語",
+  "languageFrenchDescription": "常にフランス語を使用",
+  "languageAutoShort": "自動",
+  "languageEnglishShort": "英語",
+  "languageFrenchShort": "フランス語",
+  "useDynamicColors": "動的カラーを使用",
+  "themeChoiceAuto": "自動",
+  "themeChoiceLight": "弱",
+  "themeChoiceDark": "ダーク",
+  "irTransmitterTitle": "IR送信機",
+  "irTransmitterSubtitle": "IR送信に使うハードを選択",
+  "interactionTitle": "操作",
+  "interactionSubtitle": "触覚フィードバックとレイアウト",
+  "hapticFeedbackTitle": "触覚フィードバック",
+  "hapticFeedbackSubtitle": "タップや操作で振動",
+  "intensity": "強さ",
+  "intensityLight": "弱",
+  "intensityMedium": "中",
+  "intensityStrong": "強",
+  "flipRemoteDefaultTitle": "リモコン表示を既定で反転",
+  "flipRemoteDefaultSubtitle": "リモコン画面を180°回転して開きます 下部接続のUSBドングル向け",
+  "remoteViewFlipped": "リモコン表示は反転して開きます",
+  "remoteViewNormal": "リモコン表示は通常で開きます",
+  "backupTitle": "バックアップ",
+  "backupSubtitle": "リモコンとマクロを入出力",
+  "importBackup": "バックアップを取り込み",
+  "importBackupSubtitle": "リモコン マクロのバックアップや Flipper Zero LIRC IRPLUS ファイルを取り込み",
+  "bulkImportFolder": "フォルダ一括取り込み",
+  "bulkImportFolderSubtitle": "フォルダから複数のリモコンを取り込み",
+  "exportBackup": "バックアップをエクスポート",
+  "exportBackupSubtitle": "リモコンとマクロを1つのJSONファイルでDownloadsに保存",
+  "restoreDemoRemotes": "デモリモコンを復元",
+  "restoreDemoRemotesSubtitle": "現在のリモコンを内蔵デモに置換",
+  "deleteAllRemotes": "すべてのリモコンを削除",
+  "deleteAllRemotesSubtitle": "この端末の全リモコンを削除",
+  "backupTip": "ヒント 大きな編集の前にバックアップをエクスポートしてください。取り込みでは完全バックアップ 旧形式のリモコンのみJSONバックアップ Flipper Zeroの.irファイルに対応します。",
+  "aboutTitle": "情報",
+  "aboutSubtitle": "アプリ情報とオープンソース情報",
+  "aboutAppNameWithCreator": "IR Blaster - {creator}",
+  "@aboutAppNameWithCreator": {
+    "placeholders": {
+      "creator": {}
+    }
+  },
+  "versionLabel": "バージョン {version}",
+  "@versionLabel": {
+    "placeholders": {
+      "version": {}
+    }
+  },
+  "sourceCode": "ソースコード",
+  "viewOnGitHub": "GitHubで見る",
+  "repositoryUrlCopied": "リポジトリURLをコピーしました",
+  "reportIssue": "問題を報告",
+  "reportIssueSubtitle": "不具合報告と機能要望",
+  "issuesUrlCopied": "Issues URLをコピーしました",
+  "license": "ライセンス",
+  "openSourceLicense": "オープンソースライセンス",
+  "licenseUrlCopied": "ライセンスURLをコピーしました",
+  "companyName": "KaijinLab Inc.",
+  "visitWebsite": "Webサイトを開く",
+  "companyUrlCopied": "会社URLをコピーしました",
+  "licenses": "ライセンス",
+  "openSourceLicenses": "オープンソースライセンス",
+  "byCreator": "{creator} 作成",
+  "@byCreator": {
+    "placeholders": {
+      "creator": {}
+    }
+  },
+  "deviceControlsTitle": "デバイスコントロール",
+  "deviceControlsSubtitle": "お気に入りボタンをシステムのデバイスコントロールに表示",
+  "manageFavorites": "お気に入りを管理",
+  "manageFavoritesSubtitle": "デバイスコントロールに出すボタンを選択",
+  "quickSettingsTitle": "クイック設定",
+  "quickSettingsSubtitle": "電源と音量ショートカットのタイルを追加",
+  "configureTiles": "タイルを設定",
+  "configureTilesSubtitle": "タイルにリモコンボタンを割当",
+  "tvKillTitle": "TVKill",
+  "tvKillSubtitle": "所有デバイス向けの電源コード巡回",
+  "openTvKill": "TVKillを開く",
+  "openTvKillSubtitle": "電源コードを巡回 所有デバイスのみで使用",
+  "failedToLoadTransmitterSettings": "送信機設定の読み込みに失敗しました。",
+  "usbStatusReady": "USBドングルは接続済みで IR送信の準備ができています。",
+  "usbStatusPermissionRequired": "USBドングルを検出しました。USB権限を要求し システム確認を許可してください。",
+  "usbStatusPermissionDenied": "接続したドングルのUSB権限が拒否されました。再要求して確認を許可してください。",
+  "usbStatusPermissionGranted": "USB権限は付与されています。IR送信にはドングルの初期化がまだ必要です。",
+  "usbStatusOpenFailed": "USB権限は付与されていますが ドングルを初期化できませんでした。再接続して再試行してください。",
+  "usbStatusNoDevice": "対応するUSB IRドングルが見つかりません。",
+  "usbSelectPermissionRequired": "USBドングルを検出しましたが 未認証です。USB権限を要求 を押してください。",
+  "usbSelectPermissionDenied": "USB権限が拒否されました。USB権限を要求 を押して確認を許可してください。",
+  "usbSelectPermissionGranted": "USB権限は付与されていますが ドングルはまだ初期化されていません。再接続してみてください。",
+  "usbSelectOpenFailed": "USB権限は付与されていますが ドングルを初期化できませんでした。再接続して再試行してください。",
+  "usbSelectNoDevice": "対応するUSB IRドングルが見つかりません。接続してから USB権限を要求 を押してください。",
+  "usbSelectReady": "USBドングルは使用可能です。",
+  "autoSwitchEnabledMessage": "自動切替を有効にしました 接続時はUSB それ以外は内蔵IRを使います。",
+  "autoSwitchDisabledMessage": "自動切替を無効にしました 送信機の選択は手動になります。",
+  "failedToUpdateAutoSwitch": "自動切替設定の更新に失敗しました。",
+  "failedToSwitchTransmitter": "送信機の切替に失敗しました。",
+  "deviceHasNoInternalIr": "この端末には内蔵IR送信機がありません。",
+  "audioModeEnabledMessage": "音声モードを有効にしました。メディア音量を最大にし 音声からIRへのLEDアダプタを使ってください。",
+  "usbPermissionRequestSent": "USB権限要求を送信しました。",
+  "usbPermissionRequestSentApprove": "USB権限要求を送信しました。USBを有効にするには確認を許可してください。",
+  "usbAlreadyReady": "USBドングルはすでに初期化済みで 使用可能です。",
+  "failedToRequestUsbPermission": "USB権限の要求に失敗しました。",
+  "transmitterHelpInternal": "端末内蔵のIR送信機でコマンドを送信します。",
+  "transmitterHelpUsb": "USB IRドングル 権限必要 でコマンドを送信します。",
+  "transmitterHelpAudio1": "音声出力 モノラル を使用します。音声からIRへのLEDアダプタと高いメディア音量が必要です。",
+  "transmitterHelpAudio2": "音声出力 ステレオ を使用します。対応アダプタでは2チャンネルでLED駆動を改善します。",
+  "transmitterInternal": "内蔵 IR",
+  "transmitterUsb": "USB IR ドングル",
+  "transmitterAudio1": "音声 1 LED",
+  "transmitterAudio2": "音声 2 LED",
+  "failedToLoadTransmitterCapabilities": "送信機機能の読み込みに失敗しました。",
+  "selectedTransmitter": "選択中の送信機",
+  "selectedTransmitterValue": "{effective} • 有効: {active}",
+  "@selectedTransmitterValue": {
+    "placeholders": {
+      "effective": {},
+      "active": {}
+    }
+  },
+  "refresh": "更新",
+  "autoSwitchTitle": "自動切替",
+  "autoSwitchDisabledWhileAudio": "音声モード中は無効",
+  "autoSwitchUsesUsbOtherwiseInternal": "接続時はUSB それ以外は内蔵IR",
+  "unavailableOnThisDevice": "この端末では利用不可",
+  "openOnUsbAttachTitle": "USB接続時に開く",
+  "openOnUsbAttachSubtitle": "対応するUSB IRドングル接続時に Androidがアプリを開くよう提案することがあります。",
+  "openOnUsbAttachEnabledMessage": "対応USBドングル接続時にIR Blasterを開く提案を表示します。",
+  "openOnUsbAttachDisabledMessage": "USB接続時に開く提案はしません。",
+  "failedToUpdateSetting": "設定の更新に失敗しました。",
+  "unnamedButton": "無名のボタン",
+  "iconFallback": "アイコン",
+  "remoteListReorderHint": "並べ替えモード 長押ししてカードをドラッグすると移動できます。",
+  "deleteRemoteTitle": "リモコンを削除しますか?",
+  "deleteRemoteMessage": "\"{name}\" は完全に削除されます。元に戻せません。",
+  "@deleteRemoteMessage": {
+    "placeholders": {
+      "name": {}
+    }
+  },
+  "delete": "削除",
+  "addToDeviceControlsTitle": "デバイスコントロールに追加しますか?",
+  "addToDeviceControlsDescription": "システムのデバイスコントロールからすぐ使えます。",
+  "skip": "スキップ",
+  "add": "追加",
+  "addedToDeviceControls": "デバイスコントロールに追加しました",
+  "deletedRemoteUndoUnavailable": "\"{name}\" を削除しました。元に戻せません。",
+  "@deletedRemoteUndoUnavailable": {
+    "placeholders": {
+      "name": {}
+    }
+  },
+  "remoteLayoutSummary": "{count}個のボタン ・ {layout}",
+  "@remoteLayoutSummary": {
+    "placeholders": {
+      "count": {},
+      "layout": {}
+    }
+  },
+  "layoutComfort": "快適",
+  "layoutCompact": "コンパクト",
+  "open": "開く",
+  "useThisRemote": "このリモコンを使う",
+  "edit": "編集",
+  "editRemoteSubtitle": "名前変更とボタン編集",
+  "thisCannotBeUndone": "元に戻せません",
+  "searchRemotes": "リモコンを検索",
+  "reorderRemotes": "リモコンを並べ替え",
+  "addRemote": "リモコンを追加",
+  "more": "その他",
+  "reorderMode": "並べ替えモード",
+  "remoteButtonCount": "{count}個のボタン{plural}",
+  "@remoteButtonCount": {
+    "placeholders": {
+      "count": {},
+      "plural": {}
+    }
+  },
+  "noRemotesYet": "まだリモコンがありません",
+  "noRemotesDescription": "リモコンを作成してIRコード送信を始めましょう",
+  "noRemotesNextStep": "次の操作 追加を押して最初のボタンを追加してください。",
+  "actions": "操作",
+  "macrosTitle": "マクロ",
+  "help": "ヘルプ",
+  "createMacro": "マクロを作成",
+  "timedMacrosTitle": "時間指定マクロ",
+  "timedMacrosSubtitle": "IRコマンド列を正確なタイミングで自動実行",
+  "timedMacrosNextStep": "次の操作 最初のマクロを作成を押し リモコンを選んでからコマンドと待機を追加してください。",
+  "macroFeatureToysTitle": "インタラクティブ玩具に最適",
+  "macroFeatureToysDescription": "i-cybieやi-sobotなど コマンド間に処理時間が必要なおもちゃを操作できます。",
+  "macroFeatureTimingTitle": "高精度タイミング制御",
+  "macroFeatureTimingDescription": "コマンド間に待機 250msから任意 を入れ 次の動作前にデバイスが応答する時間を確保します。",
+  "macroFeatureManualTitle": "手動続行ステップ",
+  "macroFeatureManualDescription": "アニメ時間が一定でない場合や目視確認が必要な場合に 一時停止して確認を待ちます。",
+  "exampleUseCase": "使用例",
+  "macroExampleText": "i-cybie 高度モード\n1. \"Mode\" コマンドを送信\n2. 1000ms待機 おもちゃが処理\n3. \"Action 1\" を送信\n4. 1000ms待機\n5. \"Action 2\" を送信\n…以降も自動で続行",
+  "createFirstMacro": "最初のマクロを作成",
+  "noRemote": "リモコンなし",
+  "macroStepCount": "{count}ステップ{plural}",
+  "@macroStepCount": {
+    "placeholders": {
+      "count": {},
+      "plural": {}
+    }
+  },
+  "aboutTimedMacros": "時間指定マクロについて",
+  "aboutTimedMacrosDescription": "時間指定マクロでは 各ステップの間に正確な待機を入れてIRコマンド列を自動化できます。",
+  "sendCommand": "コマンド送信",
+  "sendCommandDescription": "リモコンからIRコマンドを送信します",
+  "delay": "待機",
+  "delayDescription": "次のステップまで指定時間 例 1000ms 待ちます。",
+  "manualContinue": "手動続行",
+  "manualContinueDescription": "続行を押すまで実行を一時停止します 可変長アニメに便利です。",
+  "gotIt": "了解",
+  "failedToSaveMacros": "マクロの保存に失敗しました。",
+  "deletedMacroNamed": "\"{name}\" を削除しました。",
+  "@deletedMacroNamed": {
+    "placeholders": {
+      "name": {}
+    }
+  },
+  "undo": "元に戻す",
+  "failedToRestoreMacro": "マクロの復元に失敗しました。",
+  "deleteMacroTitle": "マクロを削除しますか?",
+  "deleteMacroMessage": "次のスナックバーから元に戻せます。",
+  "noRemotesAvailable": "利用可能なリモコンがありません",
+  "remoteButtonCountSummary": "{count}個のボタン",
+  "@remoteButtonCountSummary": {
+    "placeholders": {
+      "count": {}
+    }
+  },
+  "remoteOrientationFlippedTooltip": "向き 反転中 タップで通常",
+  "remoteOrientationNormalTooltip": "向き 通常 タップで反転",
+  "stopLoop": "ループ停止",
+  "reorderButtons": "ボタンを並べ替え",
+  "remoteReorderHint": "並べ替えモード 長押ししてボタンをドラッグすると移動できます。",
+  "manageRemote": "リモコンを管理",
+  "remoteNoButtons": "このリモコンにボタンがありません",
+  "remoteNoButtonsDescription": "ボタンの追加や設定には リモコンを編集 を使ってください。",
+  "editRemote": "リモコンを編集",
+  "editRemoteActionsSubtitle": "名前変更 並べ替え ボタン編集",
+  "remoteUpdatedNamedButton": "\"{name}\" を更新しました。",
+  "@remoteUpdatedNamedButton": {
+    "placeholders": {
+      "name": {}
+    }
+  },
+  "buttonAddedNamed": "\"{name}\" を追加しました。",
+  "@buttonAddedNamed": {
+    "placeholders": {
+      "name": {}
+    }
+  },
+  "buttonDuplicated": "ボタンを複製しました。",
+  "loopRunningForButton": "このボタンでループ実行中です",
+  "loopTip": "ヒント ループを使うと停止するまで繰り返せます。",
+  "codeCopied": "コードをコピーしました",
+  "copyCode": "コードをコピー",
+  "startLoop": "ループ開始",
+  "editButtonSubtitle": "ラベル コード プロトコル 周波数を変更",
+  "newButton": "新しいボタン",
+  "newButtonSubtitle": "この後ろに新しいボタンを作成",
+  "duplicate": "複製",
+  "duplicateButtonSubtitle": "このボタンの複製を作成",
+  "removeFromDeviceControls": "デバイスコントロールから削除",
+  "addToDeviceControls": "デバイスコントロールに追加",
+  "deviceControlsButtonSubtitle": "このボタンをシステムのデバイスコントロールに表示",
+  "removedFromDeviceControls": "デバイスコントロールから削除しました",
+  "pinQuickTile": "クイックタイルお気に入りに固定",
+  "unpinQuickTile": "クイックタイルお気に入りから解除",
+  "quickTileButtonSubtitle": "このボタンをクイックタイル選択画面の上部に表示",
+  "removedFromQuickTileFavorites": "クイックタイルお気に入りから削除しました",
+  "pinnedToQuickTileFavorites": "クイックタイルお気に入りに固定しました",
+  "duplicateAndEdit": "複製して編集",
+  "duplicateAndEditSubtitle": "複製を作成してすぐ編集",
+  "done": "完了",
+  "run": "実行",
+  "untitledRemote": "無題のリモコン",
+  "createRemoteTitle": "リモコンを作成",
+  "editRemoteTitle": "リモコンを編集",
+  "removeButtonTitle": "ボタンを削除しますか?",
+  "imageButtonRemovedMessage": "この画像ボタンは削除されます。",
+  "namedButtonRemovedMessage": "\"{name}\" は削除されます。",
+  "@namedButtonRemovedMessage": {
+    "placeholders": {
+      "name": {}
+    }
+  },
+  "remove": "削除",
+  "importedButtonCount": "{count}個のボタンを取り込みました。",
+  "@importedButtonCount": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "importedButtonsFromExistingRemotes": "既存のリモコンから{count}個のボタンを取り込みました。",
+  "@importedButtonsFromExistingRemotes": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "editButtonSettingsSubtitle": "ラベル 信号 詳細設定を変更",
+  "createButtonCopySubtitle": "このボタンの複製を作成",
+  "duplicateAndEditButtonSubtitle": "複製を作成してすぐ編集",
+  "undoAvailableInNextSnackbar": "次のスナックバーから元に戻せます",
+  "buttonRemoved": "ボタンを削除しました",
+  "remoteNameCannotBeEmpty": "リモコン名は空にできません。",
+  "saveRemote": "リモコンを保存",
+  "remoteName": "リモコン名",
+  "remoteNameHint": "例 TV エアコン LEDテープ",
+  "remoteNameHelper": "この名前はリモコン一覧に表示されます。",
+  "layoutStyle": "レイアウト",
+  "layoutWideDescription": "ワイド 2列ボタンで詳細も表示 推奨。",
+  "layoutCompactDescription": "コンパクト 定番の4×グリッド アイコンまたは文字のみ。",
+  "importFromRemotes": "リモコンから取り込み",
+  "importFromDatabase": "DBから取り込み",
+  "addButton": "ボタンを追加",
+  "noButtonsYet": "まだボタンがありません",
+  "createRemoteEmptyStateDescription": "最初のボタンを追加し その後長押しで編集や削除の操作を使ってください。",
+  "createButtonTitle": "ボタンを作成",
+  "editButtonTitle": "ボタンを編集",
+  "failedToLoadProtocols": "プロトコルの読み込みに失敗しました: {error}",
+  "@failedToLoadProtocols": {
+    "placeholders": {
+      "error": {}
+    }
+  },
+  "failedToLoadDatabaseKeys": "データベースキーの読み込みに失敗しました: {error}",
+  "@failedToLoadDatabaseKeys": {
+    "placeholders": {
+      "error": {}
+    }
+  },
+  "presetPower": "電源",
+  "presetVolume": "音量",
+  "presetChannel": "チャンネル",
+  "presetNavigation": "ナビ",
+  "all": "すべて",
+  "completeRequiredFieldsToSave": "保存するには必須項目を入力してください",
+  "buttonLabelStepTitle": "1 ボタンラベル",
+  "buttonLabelStepSubtitle": "画像 アイコン または文字ラベルを選んでください。",
+  "buttonColorStepTitle": "2 ボタン色 任意",
+  "buttonColorStepSubtitle": "このボタンの背景色を選んでください。",
+  "selectColor": "色を選択",
+  "noImageSelected": "画像未選択",
+  "gallery": "ギャラリー",
+  "builtIn": "内蔵",
+  "removeImage": "画像を削除",
+  "requiredSelectImageOrSwitch": "必須 画像を選ぶか アイコンを選ぶか 文字に切り替えてください。",
+  "iconSelected": "アイコンを選択済み",
+  "noIconSelected": "アイコン未選択",
+  "chooseIcon": "アイコンを選択",
+  "removeIcon": "アイコンを削除",
+  "requiredSelectIconOrSwitch": "必須 アイコンを選ぶか 画像 文字に切り替えてください。",
+  "buttonText": "ボタン文字",
+  "buttonTextHint": "例 電源 音量+ HDMI 1",
+  "buttonTextHelper": "この文字がボタンに表示されます",
+  "requiredEnterButtonLabel": "必須 ボタンラベルを入力してください。",
+  "defaultColorName": "既定",
+  "newRemoteCreatedFromLastHit": "最後のヒットから1つのボタンで新しいリモコンを作成しました。",
+  "selectRemote": "リモコンを選択",
+  "remoteNumber": "リモコン #{id}",
+  "@remoteNumber": {
+    "placeholders": {
+      "id": {}
+    }
+  },
+  "newRemoteCreated": "新しいリモコンを作成しました。",
+  "failedToCreateRemote": "リモコンの作成に失敗しました。",
+  "newRemoteEllipsis": "新しいリモコン…",
+  "addedToRemoteNamed": "Added to {name}.",
+  "@addedToRemoteNamed": {
+    "placeholders": {
+      "name": {}
+    }
+  },
+  "failedToAddToRemote": "add to リモコンに失敗しました。",
+  "newRemoteDefaultName": "新しいリモコン",
+  "jumpedToOffsetPaused": "オフセット {offset} に移動しました。停止中です 続けるには再開を押してください。",
+  "@jumpedToOffsetPaused": {
+    "placeholders": {
+      "offset": {
+        "type": "int"
+      }
+    }
+  },
+  "sent": "送信しました",
+  "failedToSend": "送信に失敗しました: {error}",
+  "@failedToSend": {
+    "placeholders": {
+      "error": {}
+    }
+  },
+  "copiedProtocolCode": "コピーしました プロトコル:コード",
+  "savedToResults": "結果に保存しました",
+  "invalidCodeForProtocol": "このプロトコルでは無効なコードです: {error}",
+  "@invalidCodeForProtocol": {
+    "placeholders": {
+      "error": {}
+    }
+  },
+  "copiedCurrentCandidate": "現在の候補をコピーしました",
+  "jumpToOffset": "オフセットへ移動",
+  "jumpToBruteCursor": "総当たりカーソルへ移動",
+  "jump": "移動",
+  "jumpedToCursorPaused": "カーソル 0x{cursor} に移動しました。停止中です 続けるには再開を押してください。",
+  "@jumpedToCursorPaused": {
+    "placeholders": {
+      "cursor": {}
+    }
+  },
+  "irSignalTester": "IR信号テスター",
+  "stop": "停止",
+  "selectButton": "ボタンを選択",
+  "buttonNotFoundInRemotes": "リモコン内にボタンが見つかりません。",
+  "sentNamed": "\"{name}\" を送信しました。",
+  "@sentNamed": {
+    "placeholders": {
+      "name": {}
+    }
+  },
+  "sendFailed": "送信に失敗しました: {error}",
+  "@sendFailed": {
+    "placeholders": {
+      "error": {}
+    }
+  },
+  "noFavoritesYet": "まだお気に入りがありません",
+  "deviceControlsEmptyHint": "リモコンボタンを長押しして デバイスコントロールに追加 を選択してください。",
+  "sendTest": "テスト送信",
+  "testSendCompleted": "テスト送信が完了しました",
+  "testSendFailed": "テスト送信に失敗しました: {error}",
+  "@testSendFailed": {
+    "placeholders": {
+      "error": {}
+    }
+  },
+  "removedNamed": "\"{name}\" を削除しました。",
+  "@removedNamed": {
+    "placeholders": {
+      "name": {}
+    }
+  },
+  "brand": "ブランド",
+  "model": "モデル",
+  "selectBrand": "ブランドを選択",
+  "searchBrand": "ブランドを検索…",
+  "selectModel": "モデルを選択",
+  "searchModel": "モデルを検索…",
+  "unnamedKey": "Unnamed key",
+  "unknown": "不明",
+  "emDash": "—",
+  "searchCommands": "コマンドを検索",
+  "noMatchingCommands": "一致するコマンドがありません",
+  "quickTileFavoritesTitle": "クイックタイルお気に入り",
+  "changeMappingForTile": "Change mapping for {tileLabel} tile",
+  "@changeMappingForTile": {
+    "placeholders": {
+      "tileLabel": {}
+    }
+  },
+  "pickDifferentButton": "別のボタンを選択",
+  "browseAllRemotesEllipsis": "すべてのリモコンを見る…",
+  "invalidMacroFileFormat": "無効なマクロファイル形式です。",
+  "failedToParseMacroFile": "マクロファイルの解析に失敗しました。",
+  "deviceCodeLabel": "デバイスコード",
+  "commandLabel": "コマンド",
+  "editButtonCodeTitle": "ボタンのコードを編集",
+  "thisRemoteHasNoButtons": "このリモコンにボタンがありません。",
+  "selectCommand": "コマンドを選択",
+  "databaseModeAutofillHint": "データベースモードではステップ2 ブランド モデル プロトコル を自動入力します。キー取り込み後は手動で調整できます。",
+  "test": "テスト",
+  "allSelectedButtonsWereDuplicates": "選択したボタンはすべて重複でした。",
+  "noButtonsImported": "ボタンは取り込まれませんでした。",
+  "importedButtonsSkippedDuplicates": "{addedCount}個のボタンを取り込みました。重複{skippedCount}件をスキップしました。",
+  "@importedButtonsSkippedDuplicates": {
+    "placeholders": {
+      "addedCount": {
+        "type": "int"
+      },
+      "skippedCount": {
+        "type": "int"
+      }
+    }
+  },
+  "importAllMatchingTitle": "一致する全ボタンを取り込みますか?",
+  "noMatchingKeysFound": "一致するキーが見つかりません。",
+  "importAllMatchingMessage": "This will import up to {count} matching keys from the current database selection.",
+  "@importAllMatchingMessage": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "importAll": "すべて取り込み",
+  "importingButtons": "ボタンを取り込み中…",
+  "allMatchingButtonsWereDuplicates": "一致したボタンはすべて重複でした。",
+  "quickPresets": "クイックプリセット",
+  "selectDeviceFirst": "先にデバイスを選択",
+  "searchByLabelOrHex": "ラベルまたは16進で検索",
+  "optionalRefinePresetKeys": "任意 {preset} プリセットキーを絞り込む",
+  "@optionalRefinePresetKeys": {
+    "placeholders": {
+      "preset": {}
+    }
+  },
+  "selectBrandModelProtocolFirst": "先にブランド モデル プロトコルを選択してください。",
+  "importFromDatabaseTitle": "データベースから取り込み",
+  "importFromDatabaseSubtitle": "デバイスを選び 一致するキーを読み込み 選択したボタンを取り込みます。",
+  "deviceAndFilters": "デバイスとフィルタ",
+  "loadedCount": "{count} loaded",
+  "@loadedCount": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "hideFilters": "フィルタを隠す",
+  "showFilters": "フィルタを表示",
+  "noProtocolFoundForBrandModel": "このブランドとモデルに対応するプロトコルが見つかりません。",
+  "protocolAutoDetected": "プロトコル",
+  "protocolAutoDetectedHelper": "データベースから自動検出されました。取り込み前に変更できます。",
+  "selectBrandModelToLoadKeys": "キー読み込みのため ブランド モデル プロトコルを選択してください。",
+  "noKeysFound": "キーが見つかりません。",
+  "noKeysFoundForSearch": "\"{query}\" に一致するキーが見つかりません。",
+  "@noKeysFoundForSearch": {
+    "placeholders": {
+      "query": {}
+    }
+  },
+  "skipDuplicates": "重複をスキップ",
+  "skipDuplicatesSubtitle": "このリモコンにあるボタンは取り込みません",
+  "importSelected": "選択を取り込み",
+  "noMacrosToExport": "エクスポートするマクロがありません",
+  "macrosExportedToDownloads": "マクロをDownloadsに書き出しました。",
+  "failedToExportMacros": "マクロのエクスポートに失敗しました。",
+  "failedToReadFile": "ファイルの読み込みに失敗しました。",
+  "importFromExistingRemotesTitle": "既存のリモコンから取り込み",
+  "selectedCount": "{count} selected",
+  "@selectedCount": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "noOtherRemotesWithButtons": "ボタン付きの他のリモコンが見つかりません。",
+  "sourceRemote": "元のリモコン",
+  "searchButtons": "ボタンを検索",
+  "searchButtonsHint": "電源 音量 ミュート...",
+  "selectVisible": "表示中を選択",
+  "clearVisible": "表示中を解除",
+  "protocolNamed": "プロトコル: {name}",
+  "@protocolNamed": {
+    "placeholders": {
+      "name": {}
+    }
+  },
+  "rawSignal": "生",
+  "legacyCode": "旧形式コード",
+  "importCount": "{count}件を取り込み",
+  "@importCount": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "storagePermissionDeniedLegacy": "ストレージ権限が拒否されました 一部の古いAndroid端末では必要です。",
+  "backupExportedToDownloads": "バックアップをDownloadsに書き出しました。",
+  "failedToExport": "エクスポートに失敗しました: {error}",
+  "@failedToExport": {
+    "placeholders": {
+      "error": {}
+    }
+  },
+  "importedLegacyJsonBackup": "Imported {count} remotes from legacy JSON backup. Macros were not changed.",
+  "@importedLegacyJsonBackup": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "importFailedRemotesMustBeList": "取り込み失敗 backupの\"remotes\" は存在する場合 JSON配列である必要があります。",
+  "importFailedMacrosMustBeList": "取り込み失敗 backupの\"macros\" は存在する場合 JSON配列である必要があります。",
+  "importFailedInvalidBackupFormat": "取り込み失敗 無効なバックアップ形式です 旧形式の配列 または remotes macros を持つマップを想定しています。",
+  "importedBackupRemotesOnly": "Imported {remoteCount} remotes from backup. Macros were not changed.",
+  "@importedBackupRemotesOnly": {
+    "placeholders": {
+      "remoteCount": {
+        "type": "int"
+      }
+    }
+  },
+  "importedBackupRemotesAndMacros": "Imported {remoteCount} remotes and {macroCount} macros from backup.",
+  "@importedBackupRemotesAndMacros": {
+    "placeholders": {
+      "remoteCount": {
+        "type": "int"
+      },
+      "macroCount": {
+        "type": "int"
+      }
+    }
+  },
+  "importFailedNoValidButtonsInIr": "取り込み失敗 .ir ファイルに有効なボタンが見つかりません。",
+  "importedOneRemoteFromFlipper": "Flipper .ir から1つのリモコンを取り込みました。マクロは変更されませんでした。",
+  "importFailedInvalidIrplus": "取り込み失敗 無効な irplus ファイルです 有効なボタンが見つかりません。",
+  "importedOneRemoteFromIrplus": "irplus から1つのリモコンを取り込みました。マクロは変更されませんでした。",
+  "importFailedInvalidLirc": "取り込み失敗 無効なLIRCファイルです 有効なコードまたは生コードが見つかりません。",
+  "importedOneRemoteFromLirc": "LIRC設定から1つのリモコンを取り込みました。マクロは変更されませんでした。",
+  "unsupportedFileTypeSelected": "未対応のファイル形式です",
+  "importFailedInvalidUnreadableFile": "取り込み失敗 無効または読めないファイルです。",
+  "bulkImportNoSupportedFilesInFolder": "一括取り込み完了 対応ファイルがフォルダ内にありません。",
+  "bulkImportNoRemotesImported": "一括取り込み完了 リモコンは取り込まれませんでした。{skippedCount}件のファイルをスキップしました。",
+  "@bulkImportNoRemotesImported": {
+    "placeholders": {
+      "skippedCount": {
+        "type": "int"
+      }
+    }
+  },
+  "bulkImportComplete": "一括取り込み完了 {supportedCount}件の対応ファイルから{importedCount}個のリモコンを取り込みました。{skippedCount}件をスキップしました。",
+  "@bulkImportComplete": {
+    "placeholders": {
+      "importedCount": {
+        "type": "int"
+      },
+      "supportedCount": {
+        "type": "int"
+      },
+      "skippedCount": {
+        "type": "int"
+      }
+    }
+  },
+  "storagePermissionDenied": "ストレージ権限が拒否されました。",
+  "bulkImportFailedReadFolder": "一括取り込み失敗 フォルダ内容を読めませんでした。",
+  "bulkImportNoSupportedFilesSource": "一括取り込み完了 対応ファイルが見つかりませんでした {sourceLabel}。",
+  "@bulkImportNoSupportedFilesSource": {
+    "placeholders": {
+      "sourceLabel": {}
+    }
+  },
+  "clearAction": "クリア",
+  "saveAction": "保存",
+  "buttonsTitleCount": "ボタン {count}",
+  "@buttonsTitleCount": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "invalidStepEncountered": "無効なステップがあります",
+  "failedToSendNamed": "送信に失敗しました: {name}",
+  "@failedToSendNamed": {
+    "placeholders": {
+      "name": {}
+    }
+  },
+  "buttonNotFound": "ボタンが見つかりません",
+  "buttonNotFoundNamed": "ボタンが見つかりません: {name}",
+  "@buttonNotFoundNamed": {
+    "placeholders": {
+      "name": {}
+    }
+  },
+  "unknownButton": "不明なボタン",
+  "durationSecondsShort": "{seconds}秒",
+  "@durationSecondsShort": {
+    "placeholders": {
+      "seconds": {
+        "type": "int"
+      }
+    }
+  },
+  "durationMinutesSecondsShort": "{minutes}分 {seconds}秒",
+  "@durationMinutesSecondsShort": {
+    "placeholders": {
+      "minutes": {
+        "type": "int"
+      },
+      "seconds": {
+        "type": "int"
+      }
+    }
+  },
+  "durationHoursMinutesShort": "{hours}時間 {minutes}分",
+  "@durationHoursMinutesShort": {
+    "placeholders": {
+      "hours": {
+        "type": "int"
+      },
+      "minutes": {
+        "type": "int"
+      }
+    }
+  },
+  "orientationFlippedTooltip": "向き 反転中 タップで通常",
+  "orientationNormalTooltip": "向き 通常 タップで反転",
+  "noSteps": "No ステップ",
+  "stepProgress": "ステップ {current} / {total}",
+  "@stepProgress": {
+    "placeholders": {
+      "current": {
+        "type": "int"
+      },
+      "total": {
+        "type": "int"
+      }
+    }
+  },
+  "completed": "完了",
+  "paused": "一時停止",
+  "running": "実行中",
+  "ready": "準備完了",
+  "stepsProgress": "{current} / {total} ステップ",
+  "@stepsProgress": {
+    "placeholders": {
+      "current": {
+        "type": "int"
+      },
+      "total": {
+        "type": "int"
+      }
+    }
+  },
+  "waiting": "待機中",
+  "secondsRemaining": "残り {seconds}秒",
+  "@secondsRemaining": {
+    "placeholders": {
+      "seconds": {}
+    }
+  },
+  "millisecondsShort": "{ms}ms",
+  "@millisecondsShort": {
+    "placeholders": {
+      "ms": {
+        "type": "int"
+      }
+    }
+  },
+  "tapContinueWhenReady": "次のステップの準備ができたら 続行 を押してください",
+  "error": "エラー",
+  "macroCompleted": "マクロ完了",
+  "finishedIn": "{duration}で完了",
+  "@finishedIn": {
+    "placeholders": {
+      "duration": {}
+    }
+  },
+  "sequence": "シーケンス",
+  "waitMilliseconds": "{ms}ms待機",
+  "@waitMilliseconds": {
+    "placeholders": {
+      "ms": {
+        "type": "int"
+      }
+    }
+  },
+  "runAgain": "再実行",
+  "startMacro": "マクロ開始",
+  "continueAction": "続行",
+  "unnamedRemote": "無名のリモコン",
+  "enterMacroName": "マクロ名を入力",
+  "addAtLeastOneStep": "少なくとも1ステップ追加してください",
+  "fixInvalidSteps": "無効なステップを修正してください",
+  "unknownCommand": "不明なコマンド",
+  "unnamedCommand": "無名のコマンド",
+  "iconCommand": "アイコンコマンド",
+  "selectDelay": "待機時間を選択",
+  "keepMilliseconds": "保持 {ms}ms",
+  "@keepMilliseconds": {
+    "placeholders": {
+      "ms": {
+        "type": "int"
+      }
+    }
+  },
+  "custom": "カスタム",
+  "enterCustomDelayDuration": "カスタム待機時間を入力",
+  "millisecondsLong": "{ms}ミリ秒",
+  "@millisecondsLong": {
+    "placeholders": {
+      "ms": {
+        "type": "int"
+      }
+    }
+  },
+  "secondsLong": "{seconds}秒{plural}",
+  "@secondsLong": {
+    "placeholders": {
+      "seconds": {},
+      "plural": {}
+    }
+  },
+  "customDelay": "カスタム待機",
+  "delayMillisecondsLabel": "待機 ミリ秒",
+  "delayMillisecondsHint": "e.g., 3000",
+  "recommendedDelayRange": "多くの機器では250から5000msを推奨",
+  "enterValidPositiveNumber": "有効な正の数を入力してください",
+  "ok": "OK",
+  "remote": "リモコン",
+  "macroName": "マクロ名",
+  "macroNameHint": "例 i-cybie 高度モード",
+  "stepsTitleCount": "ステップ {count}",
+  "@stepsTitleCount": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "noStepsYet": "まだステップがありません",
+  "addCommandsAndDelaysHint": "下にコマンドと待機を追加してシーケンスを組み立ててください",
+  "addStep": "ステップを追加",
+  "reorderStepsHint": "ヒント ハンドルをドラッグしてステップを並べ替えられます。ステップをタップすると編集できます。",
+  "reorderStep": "ステップ{index}を並べ替え",
+  "@reorderStep": {
+    "placeholders": {
+      "index": {
+        "type": "int"
+      }
+    }
+  },
+  "pressAndDragToChangeStepOrder": "長押ししてドラッグするとステップ順を変更できます",
+  "deleteStep": "ステップ{index}を削除",
+  "@deleteStep": {
+    "placeholders": {
+      "index": {
+        "type": "int"
+      }
+    }
+  },
+  "invalidStepTapToFix": "無効なステップです タップして修正してください",
+  "sendIrCommand": "IRコマンドを送信",
+  "waitForUserConfirmation": "Wait for user confirmation",
+  "notImplemented": "未実装",
+  "frequencyKhz": "{value} kHz",
+  "@frequencyKhz": {
+    "placeholders": {
+      "value": {
+        "type": "int"
+      }
+    }
+  },
+  "necProtocolShort": "NEC",
+  "msbShort": "MSB",
+  "layoutWide": "ワイド",
+  "iconButton": "アイコンボタン",
+  "imageButton": "画像ボタン",
+  "noSignalInfo": "信号情報なし",
+  "proceed": "続行",
+  "discard": "破棄",
+  "idle": "待機",
+  "start": "開始",
+  "resume": "再開",
+  "pause": "一時停止",
+  "stopped": "停止済み",
+  "copy": "コピー",
+  "send": "送信",
+  "step": "ステップ",
+  "addToRemote": "to リモコンを追加",
+  "noDescriptionAvailable": "説明はありません",
+  "notAvailableSymbol": "—",
+  "irFinderKaseikyoVendorInvalid": "Kaseikyoベンダーは16進4桁で入力してください。",
+  "irFinderDatabaseNotReady": "データベースの準備がまだできていません",
+  "irFinderSelectBrandFirst": "設定で先にブランドを選択してください",
+  "irFinderBruteforceUnavailable": "このプロトコルでは総当たりはまだ使えません",
+  "irFinderInvalidPrefix": "無効な接頭辞です",
+  "irFinderBrandValue": "ブランド: {value}",
+  "@irFinderBrandValue": {
+    "placeholders": {
+      "value": {}
+    }
+  },
+  "irFinderModelValue": "モデル: {value}",
+  "@irFinderModelValue": {
+    "placeholders": {
+      "value": {}
+    }
+  },
+  "irFinderKeyValue": "キー: {value}",
+  "@irFinderKeyValue": {
+    "placeholders": {
+      "value": {}
+    }
+  },
+  "irFinderRemoteNumber": "リモコン #{value}",
+  "@irFinderRemoteNumber": {
+    "placeholders": {
+      "value": {}
+    }
+  },
+  "irFinderJumpOffsetHelper": "絞り込み済みで順序付け済みのDB結果内で 0始まりの番号を入力してください。",
+  "irFinderJumpCursorHelper": "Enter a 0-based hex cursor within the brute-force space.",
+  "irFinderSetupTab": "設定",
+  "irFinderTestTab": "テスト",
+  "irFinderResultsTab": "結果",
+  "irFinderContinueToTest": "テストへ進む",
+  "irFinderKaseikyoVendorTitle": "Kaseikyoベンダー",
+  "irFinderCustomVendorLabel": "カスタムベンダー 16進4桁",
+  "irFinderBrowseDbCandidates": "DB候補を参照…",
+  "irFinderEditSetup": "設定を編集",
+  "irFinderNoSavedHits": "保存されたヒットはまだありません。テスト画面で デバイスが反応したら ヒットを保存 を押してください。",
+  "irFinderBackToTest": "テストに戻る",
+  "irFinderLargeSearchSpaceTitle": "探索空間が大きすぎます",
+  "irFinderLargeSearchSpaceBody": "この総当たり空間は非常に大きいです {human} 通り。IR Finderは最大試行回数とクールダウンを守りますが IR機器への連打に注意してください。\n\n推奨 まずデータベースモードを使うか 既知の接頭バイトを入れて空間を減らしてください。",
+  "@irFinderLargeSearchSpaceBody": {
+    "placeholders": {
+      "human": {}
+    }
+  },
+  "irFinderDatabaseSession": "DBセッション",
+  "irFinderBruteforceSession": "総当たりセッション",
+  "irFinderResumeLastSession": "前回のセッションを再開",
+  "irFinderResumeBrandModel": "ブランド: {brand} ・ モデル: {model}",
+  "@irFinderResumeBrandModel": {
+    "placeholders": {
+      "brand": {},
+      "model": {}
+    }
+  },
+  "irFinderResumePrefix": "接頭辞: {value}",
+  "@irFinderResumePrefix": {
+    "placeholders": {
+      "value": {}
+    }
+  },
+  "irFinderResumeProgress": "進捗: {progress} ・ 開始: {when}",
+  "@irFinderResumeProgress": {
+    "placeholders": {
+      "progress": {},
+      "when": {}
+    }
+  },
+  "irFinderApplyResume": "適用して再開",
+  "irFinderBruteforceMode": "総当たり",
+  "irFinderDatabaseAssistedMode": "DB支援",
+  "irFinderProtocolTitle": "プロトコル: {name}",
+  "@irFinderProtocolTitle": {
+    "placeholders": {
+      "name": {}
+    }
+  },
+  "irFinderProtocolLabel": "IRプロトコル",
+  "irFinderProtocolHelper": "エンコード方式を決め その結果 探索空間も決まります。",
+  "irFinderKnownPrefixLabel": "既知の接頭辞 16進バイト 任意",
+  "irFinderKnownPrefixHint": "A1B2, A1 B2, A1:B2, 0xA1 0xB2",
+  "irFinderKnownPrefixHelperPayload": "ペイロード長 {digits} 桁",
+  "@irFinderKnownPrefixHelperPayload": {
+    "placeholders": {
+      "digits": {
+        "type": "int"
+      }
+    }
+  },
+  "irFinderKnownPrefixHelperPayloadExample": "ペイロード長 {digits} 桁 ・ 例: {example}",
+  "@irFinderKnownPrefixHelperPayloadExample": {
+    "placeholders": {
+      "digits": {
+        "type": "int"
+      },
+      "example": {}
+    }
+  },
+  "irFinderKnownPrefixHelperPayloadMax": "ペイロード長 {digits} 桁 ・ 最大接頭辞: {bytes}バイト",
+  "@irFinderKnownPrefixHelperPayloadMax": {
+    "placeholders": {
+      "digits": {
+        "type": "int"
+      },
+      "bytes": {
+        "type": "int"
+      }
+    }
+  },
+  "irFinderKnownPrefixHelperPayloadExampleMax": "ペイロード長 {digits} 桁 ・ 例: {example} ・ 最大接頭辞: {bytes}バイト",
+  "@irFinderKnownPrefixHelperPayloadExampleMax": {
+    "placeholders": {
+      "digits": {
+        "type": "int"
+      },
+      "example": {},
+      "bytes": {
+        "type": "int"
+      }
+    }
+  },
+  "irFinderKnownPrefixHelperExample": "例: {example}",
+  "@irFinderKnownPrefixHelperExample": {
+    "placeholders": {
+      "example": {}
+    }
+  },
+  "irFinderKnownPrefixHelperFallback": "探索空間を減らすため 分かっている先頭バイトを入力してください。",
+  "irFinderDatabaseMode": "データベース",
+  "irFinderNormalizedPrefixValue": "正規化済み接頭辞: {value}",
+  "@irFinderNormalizedPrefixValue": {
+    "placeholders": {
+      "value": {}
+    }
+  },
+  "irFinderNormalizedPrefix": "正規化済み接頭辞",
+  "irFinderBruteforceNotConfigured": "このプロトコルの総当たりはまだ設定されていません。",
+  "irFinderAllLimit": "すべて {value}",
+  "@irFinderAllLimit": {
+    "placeholders": {
+      "value": {}
+    }
+  },
+  "irFinderTestControls": "テスト制御",
+  "irFinderPayloadLength": "ペイロード長 {digits} 桁。",
+  "@irFinderPayloadLength": {
+    "placeholders": {
+      "digits": {
+        "type": "int"
+      }
+    }
+  },
+  "irFinderSearchSpace": "探索空間 {value} 通り 接頭辞制約後。",
+  "@irFinderSearchSpace": {
+    "placeholders": {
+      "value": {}
+    }
+  },
+  "irFinderCooldownMs": "クールダウン ms",
+  "irFinderMaxAttemptsPerRun": "最大試行回数 1実行あたり",
+  "irFinderTestAllCombinations": "全組み合わせを試す",
+  "irFinderTestAllCombinationsHint": "探索空間を使い切るまで実行します。今回の有効上限 {value}",
+  "@irFinderTestAllCombinationsHint": {
+    "placeholders": {
+      "value": {}
+    }
+  },
+  "irFinderAttempts": "試行回数",
+  "irFinderAttemptsSliderRange": "スライダ範囲 1から{max} より大きい値は直接入力",
+  "@irFinderAttemptsSliderRange": {
+    "placeholders": {
+      "max": {
+        "type": "int"
+      }
+    }
+  },
+  "irFinderMaxButton": "最大\n{value}",
+  "@irFinderMaxButton": {
+    "placeholders": {
+      "value": {
+        "type": "int"
+      }
+    }
+  },
+  "irFinderEffectiveLimitThisRun": "今回の有効上限 {value}",
+  "@irFinderEffectiveLimitThisRun": {
+    "placeholders": {
+      "value": {}
+    }
+  },
+  "irFinderBruteforceTip": "ヒント まずデータベースモードを使ってください。総当たりは既知の接頭辞 例 先頭1から4バイト がある場合に最適です。",
+  "irFinderDatabaseInitFailed": "データベース初期化に失敗しました",
+  "irFinderPreparingDatabase": "ローカルIRコードDBを準備中…",
+  "irFinderDatabaseAssistedSearch": "DB支援検索",
+  "irFinderBrand": "ブランド",
+  "irFinderSelectBrand": "ブランドを選択",
+  "irFinderModelOptional": "モデル 任意",
+  "irFinderSelectBrandFirstShort": "先にブランドを選択",
+  "irFinderSelectModelRecommended": "モデルを選択 推奨",
+  "irFinderOnlySelectedProtocol": "選択したプロトコルのみ",
+  "irFinderOnlySelectedProtocolHint": "キーを選択中のプロトコルに絞り込みます。無効にすると全プロトコルを見られます。",
+  "irFinderQuickWinsFirst": "Quick wins first",
+  "irFinderQuickWinsFirstHint": "深いキーより前に POWER MUTE VOL CH 系のキーを優先します。",
+  "irFinderMaxKeysPerRun": "テストする最大キー数 1実行あたり",
+  "irFinderTesting": "テスト中…",
+  "irFinderCooldown": "クールダウン",
+  "irFinderEta": "残り時間",
+  "irFinderMode": "モード",
+  "irFinderRetryLast": "最後を再試行",
+  "irFinderTrigger": "実行",
+  "irFinderJump": "移動…",
+  "irFinderSaveHit": "ヒットを保存",
+  "irFinderEtaSeconds": "{seconds}秒",
+  "@irFinderEtaSeconds": {
+    "placeholders": {
+      "seconds": {
+        "type": "int"
+      }
+    }
+  },
+  "irFinderEtaMinutesSeconds": "{minutes}分 {seconds}秒",
+  "@irFinderEtaMinutesSeconds": {
+    "placeholders": {
+      "minutes": {
+        "type": "int"
+      },
+      "seconds": {
+        "type": "int"
+      }
+    }
+  },
+  "irFinderEtaHoursMinutes": "{hours}時間 {minutes}分",
+  "@irFinderEtaHoursMinutes": {
+    "placeholders": {
+      "hours": {
+        "type": "int"
+      },
+      "minutes": {
+        "type": "int"
+      }
+    }
+  },
+  "irFinderLastAttemptedCode": "最後に試したコード: {value}",
+  "@irFinderLastAttemptedCode": {
+    "placeholders": {
+      "value": {}
+    }
+  },
+  "irFinderStartTestingToSeeLastCode": "最後に試したコードを見るにはテストを開始してください。",
+  "irFinderFromDb": "DB由来: {value}",
+  "@irFinderFromDb": {
+    "placeholders": {
+      "value": {}
+    }
+  },
+  "irFinderFromBruteforce": "総当たり由来 プロトコルエンコーダ生成。",
+  "irFinderSendError": "送信エラー: {error}",
+  "@irFinderSendError": {
+    "placeholders": {
+      "error": {}
+    }
+  },
+  "irFinderSourceValue": "ソース: {value}",
+  "@irFinderSourceValue": {
+    "placeholders": {
+      "value": {}
+    }
+  },
+  "irFinderResultsNote": "結果からすぐにテストとコピーができます。リモコンへの直接追加は今後さらに拡張できます。",
+  "irFinderBrowseDbCandidatesTitle": "DB候補を参照",
+  "irFinderFilterByLabelOrHex": "ラベルまたは16進で絞り込み…",
+  "irFinderJumpHere": "Jump here",
+  "irFinderSelectModel": "モデルを選択",
+  "irFinderSearchBrands": "ブランドを検索…",
+  "irFinderSearchModels": "モデルを検索…",
+  "iconPickerTitle": "アイコンを選択",
+  "iconPickerSearchHint": "アイコンを検索...",
+  "iconPickerNoIconsFound": "アイコンが見つかりません",
+  "iconPickerIconsAvailable": "{count}個のアイコンが利用可能",
+  "@iconPickerIconsAvailable": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "iconPickerCategoryAll": "すべて",
+  "iconPickerCategoryMedia": "メディア",
+  "iconPickerCategoryVolume": "音量",
+  "iconPickerCategoryNavigation": "ナビ",
+  "iconPickerCategoryPower": "電源",
+  "iconPickerCategoryNumbers": "数字",
+  "iconPickerCategorySettings": "設定",
+  "iconPickerCategoryDisplay": "表示",
+  "iconPickerCategoryInput": "入力",
+  "iconPickerCategoryFavorite": "お気に入り",
+  "universalPowerTitle": "ユニバーサル電源",
+  "universalPowerRunTab": "実行",
+  "universalPowerUseResponsibly": "責任を持って使用",
+  "universalPowerConsentBody": "ユニバーサル電源はIR電源コードを順に送信します。所有または管理するデバイスのみに使ってください。反応したらすぐ停止してください。",
+  "universalPowerConsentCheckbox": "このデバイスを所有または管理しています",
+  "universalPowerSetupBody": "選択したブランドの電源コードを順に送信します。デバイスが反応したらすぐ停止してください。",
+  "universalPowerLastSent": "最後に送信: {value}",
+  "@universalPowerLastSent": {
+    "placeholders": {
+      "value": {}
+    }
+  },
+  "universalPowerNoCodesFound": "電源コードが見つかりません。検索範囲を広げてください。",
+  "universalPowerUnableToStart": "開始できません",
+  "universalPowerAllBrands": "全ブランド フィルタなし",
+  "universalPowerClearBrandFilter": "ブランドフィルタを解除",
+  "universalPowerBroadenSearch": "必要なら検索を広げる",
+  "universalPowerBroadenSearchHint": "電源ラベルが見つからない場合は 他のキーも含めてください。",
+  "universalPowerAdditionalPatternsDepth": "追加パターン深度",
+  "universalPowerDepth1": "優先のみ POWER OFF",
+  "universalPowerDepth2": "POWERの別名を含める",
+  "universalPowerDepth3": "副次的な電源ラベルを含める",
+  "universalPowerDepth4": "すべてのラベルを含める 最低優先",
+  "universalPowerLoopUntilStopped": "停止までループ",
+  "universalPowerLoopUntilStoppedHint": "停止するまでキューを巡回し続けます。",
+  "universalPowerDelayBetweenCodes": "コード間の待機",
+  "universalPowerStart": "ユニバーサル電源を開始",
+  "universalPowerRunStatus": "実行状態",
+  "universalPowerProgress": "進捗: {value}",
+  "@universalPowerProgress": {
+    "placeholders": {
+      "value": {}
+    }
+  },
+  "universalPowerPausedInBackground": "アプリがバックグラウンドに入ったため一時停止しました。",
+  "universalPowerSendOneCode": "コードを1つ送信",
+  "universalPowerStopWhenDeviceResponds": "デバイスが反応したらすぐ停止",
+  "iconNamePlay": "再生",
+  "iconNamePause": "一時停止",
+  "iconNameStop": "停止",
+  "iconNameFastForward": "早送り",
+  "iconNameRewind": "巻戻し",
+  "iconNameSkipNext": "スキップ 次",
+  "iconNameSkipPrevious": "スキップ 前",
+  "iconNameReplay": "リプレイ",
+  "iconNameForward10S": "早送り 10s",
+  "iconNameForward30S": "早送り 30s",
+  "iconNameReplay10S": "リプレイ 10s",
+  "iconNameReplay30S": "リプレイ 30s",
+  "iconNameRecord": "録画",
+  "iconNameRecordAlt": "録画 Alt",
+  "iconNameEject": "取り出し",
+  "iconNameShuffle": "シャッフル",
+  "iconNameRepeat": "リピート",
+  "iconNameRepeatOne": "リピート 1",
+  "iconNameVolumeUp": "音量 上",
+  "iconNameVolumeDown": "音量 下",
+  "iconNameVolumeOff": "音量 Off",
+  "iconNameMute": "ミュート",
+  "iconNameSpeaker": "スピーカー",
+  "iconNameSurroundSound": "Surround Sound",
+  "iconNameEqualizer": "Equalizer",
+  "iconNameAudio": "音声",
+  "iconNameMicrophone": "マイク",
+  "iconNameMicOff": "Mic Off",
+  "iconNameUp": "上",
+  "iconNameDown": "下",
+  "iconNameLeft": "左",
+  "iconNameRight": "右",
+  "iconNameArrowUp": "矢印 上",
+  "iconNameArrowDown": "矢印 下",
+  "iconNameArrowLeft": "矢印 左",
+  "iconNameArrowRight": "矢印 右",
+  "iconNameNavigation": "ナビ",
+  "iconNameChevronLeft": "シェブロン 左",
+  "iconNameChevronRight": "シェブロン 右",
+  "iconNameExpandLess": "Expand Less",
+  "iconNameExpandMore": "さらに表示",
+  "iconNameCollapse": "Collapse",
+  "iconNameExpand": "Expand",
+  "iconNameCircleUp": "丸 上",
+  "iconNameCircleDown": "丸 下",
+  "iconNameCircleLeft": "丸 左",
+  "iconNameCircleRight": "丸 右",
+  "iconNameOkSelect": "OK/Select",
+  "iconNameConfirm": "Confirm",
+  "iconNameCancel": "キャンセル",
+  "iconNameClose": "閉じる",
+  "iconNameHome": "ホーム",
+  "iconNameReturn": "Return",
+  "iconNameExit": "終了",
+  "iconNameUndo": "元に戻す",
+  "iconNameRedo": "Redo",
+  "iconNamePower": "電源",
+  "iconNamePowerAlt": "電源 Alt",
+  "iconNamePowerOff": "電源 Off",
+  "iconNameOn": "On",
+  "iconNameOff": "Off",
+  "iconNameToggleOn": "Toggle On",
+  "iconNameToggleOff": "Toggle Off",
+  "iconNameRestart": "Restart",
+  "iconNameNum1": "1",
+  "iconNameNum2": "2",
+  "iconNameNum3": "3",
+  "iconNameNum4": "4",
+  "iconNameNum5": "5",
+  "iconNameNum6": "6",
+  "iconNameNum7": "7",
+  "iconNameNum8": "8",
+  "iconNameNum9": "9",
+  "iconNameNum92": "9+",
+  "iconNameNum0": "0",
+  "iconNameOne": "1",
+  "iconNameTwo": "Two",
+  "iconNameThree": "Three",
+  "iconNameFour": "Four",
+  "iconNameFive": "Five",
+  "iconNameSix": "Six",
+  "iconNamePlus": "プラス",
+  "iconNameMinus": "マイナス",
+  "iconNameAddCircle": "丸を追加",
+  "iconNameRemoveCircle": "削除 丸",
+  "iconNameSettings": "設定",
+  "iconNameMenu": "メニュー",
+  "iconNameMoreVertical": "その他 縦",
+  "iconNameMoreHorizontal": "その他 横",
+  "iconNameTune": "Tune",
+  "iconNameRemoteSettings": "リモコン 設定",
+  "iconNameInfo": "情報",
+  "iconNameInfoOutline": "情報 枠線",
+  "iconNameHelp": "ヘルプ",
+  "iconNameHelpOutline": "ヘルプ 枠線",
+  "iconNameList": "一覧",
+  "iconNameViewList": "一覧表示",
+  "iconNameViewGrid": "グリッド表示",
+  "iconNameApps": "Apps",
+  "iconNameWidgets": "Widgets",
+  "iconNameTv": "TV",
+  "iconNameMonitor": "モニター",
+  "iconNameDesktop": "デスクトップ",
+  "iconNameBrightnessHigh": "高輝度",
+  "iconNameBrightnessMedium": "中輝度",
+  "iconNameBrightnessLow": "明るさ Low",
+  "iconNameAutoBrightness": "自動 明るさ",
+  "iconNameLightMode": "ライト モード",
+  "iconNameDarkMode": "ダーク モード",
+  "iconNameContrast": "Contrast",
+  "iconNameHdrOn": "HDR On",
+  "iconNameHdrOff": "HDR Off",
+  "iconNameAspectRatio": "Aspect Ratio",
+  "iconNameCrop": "切り抜き",
+  "iconNameZoomIn": "Zoom In",
+  "iconNameZoomOut": "Zoom Out",
+  "iconNameFullscreen": "全画面",
+  "iconNameExitFullscreen": "終了 全画面",
+  "iconNameFitScreen": "Fit Screen",
+  "iconNamePip": "PiP",
+  "iconNameCropFree": "自由切り抜き",
+  "iconNameInput": "入力",
+  "iconNameCable": "Cable",
+  "iconNameCast": "Cast",
+  "iconNameCastConnected": "Cast Connected",
+  "iconNameScreenShare": "Screen Share",
+  "iconNameBluetooth": "Bluetooth",
+  "iconNameWifi": "WiFi",
+  "iconNameRouter": "Router",
+  "iconNameMemory": "Memory",
+  "iconNameGameConsole": "Game Console",
+  "iconNameGaming": "Gaming",
+  "iconNameMedia": "メディア",
+  "iconNameMusicQueue": "音楽キュー",
+  "iconNameVideoLibrary": "動画ライブラリ",
+  "iconNamePhotoLibrary": "写真ライブラリ",
+  "iconNameComponent": "Component",
+  "iconNameHdmi": "HDMI",
+  "iconNameComposite": "Composite",
+  "iconNameAntenna": "Antenna",
+  "iconNameFavorite": "お気に入り",
+  "iconNameFavoriteOutline": "お気に入り 枠線",
+  "iconNameStar": "Star",
+  "iconNameStarOutline": "星 枠線",
+  "iconNameBookmark": "Bookmark",
+  "iconNameBookmarkOutline": "ブックマーク 枠線",
+  "iconNameFlag": "Flag",
+  "iconNameCheck": "確認",
+  "iconNameDone": "完了",
+  "iconNameDoneAll": "完了 All",
+  "iconNameSchedule": "Schedule",
+  "iconNameTimer": "タイマー",
+  "iconNameTime": "時間",
+  "iconNameAlarm": "アラーム",
+  "iconNameNotifications": "通知",
+  "iconNameLock": "ロック",
+  "iconNameUnlock": "ロック解除",
+  "iconNameLight": "弱",
+  "iconNameLightOutline": "ライト 枠線",
+  "iconNameWarmLight": "暖色 ライト",
+  "iconNameSunny": "晴れ",
+  "iconNameCloudy": "曇り",
+  "iconNameNight": "夜",
+  "iconNameFlare": "フレア",
+  "iconNameGradient": "グラデーション",
+  "iconNameInvertColors": "反転 色",
+  "iconNamePalette": "パレット",
+  "iconNameColor": "色",
+  "iconNameTonality": "色調",
+  "iconNameSearch": "検索",
+  "iconNameRefresh": "更新",
+  "iconNameSync": "Sync",
+  "iconNameUpdate": "Update",
+  "iconNameDownload": "Download",
+  "iconNameUpload": "Upload",
+  "iconNameCloud": "雲",
+  "iconNameFolder": "フォルダ",
+  "iconNameDelete": "削除",
+  "iconNameEdit": "編集",
+  "iconNameSave": "保存",
+  "iconNameShare": "Share",
+  "iconNamePrint": "Print",
+  "iconNameLanguage": "言語",
+  "iconNameTranslate": "Translate",
+  "iconNameMicNone": "Mic None",
+  "iconNameSubtitles": "Subtitles",
+  "iconNameClosedCaption": "Closed Caption",
+  "iconNameMusic": "音楽",
+  "iconNameMovie": "Movie",
+  "iconNameTheater": "Theater",
+  "iconNameLiveTv": "Live TV",
+  "iconNameRadio": "Radio",
+  "iconNameCamera": "カメラ",
+  "iconNameVideoCamera": "動画 カメラ",
+  "iconNamePhotoCamera": "写真 カメラ",
+  "iconNameSlowMotion": "Slow Motion",
+  "iconNameSpeed": "Speed",
+  "iconNameVideoSettings": "動画 設定",
+  "iconNameAudioTrack": "音声トラック",
+  "iconNameGraphicEq": "Graphic EQ",
+  "iconNameMusicVideo": "音楽 動画",
+  "iconNamePlaylist": "Playlist",
+  "iconNameQueue": "Queue",
+  "iconNameNum0Fa": "0 FA",
+  "iconNameNum1Fa": "1 FA",
+  "iconNameNum2Fa": "2 FA",
+  "iconNameNum3Fa": "3 FA",
+  "iconNameNum4Fa": "4 FA",
+  "iconNameNum5Fa": "5 FA",
+  "iconNameNum6Fa": "6 FA",
+  "iconNameNum7Fa": "7 FA",
+  "iconNameNum8Fa": "8 FA",
+  "iconNameNum9Fa": "9 FA",
+  "iconNameHashFa": "シャープ FA",
+  "iconNamePercentFa": "パーセント FA",
+  "iconNameDivideFa": "除算 FA",
+  "iconNameMultiplyFa": "乗算 FA",
+  "iconNameEqualsFa": "イコール FA",
+  "iconNameNotEqualFa": "不一致 FA",
+  "iconNameGreaterThanFa": "大なり FA",
+  "iconNameLessThanFa": "小なり FA",
+  "iconNameAsteriskFa": "アスタリスク FA",
+  "iconNameAFa": "A FA",
+  "iconNameBFa": "B FA",
+  "iconNameCFa": "C FA",
+  "iconNameDFa": "D FA",
+  "iconNameEFa": "E FA",
+  "iconNameFFa": "F FA",
+  "iconNameGFa": "G FA",
+  "iconNameHFa": "H FA",
+  "iconNameIFa": "I FA",
+  "iconNameJFa": "J FA",
+  "iconNameKFa": "K FA",
+  "iconNameLFa": "L FA",
+  "iconNameMFa": "M FA",
+  "iconNameNFa": "N FA",
+  "iconNameOFa": "O FA",
+  "iconNamePFa": "P FA",
+  "iconNameQFa": "Q FA",
+  "iconNameRFa": "R FA",
+  "iconNameSFa": "S FA",
+  "iconNameTFa": "T FA",
+  "iconNameUFa": "U FA",
+  "iconNameVFa": "V FA",
+  "iconNameWFa": "W FA",
+  "iconNameXFa": "X FA",
+  "iconNameYFa": "Y FA",
+  "iconNameZFa": "Z FA",
+  "iconNamePlayFa": "再生 FA",
+  "iconNamePauseFa": "一時停止 FA",
+  "iconNameStopFa": "停止 FA",
+  "iconNamePlayFaOutline": "再生 FA 枠線",
+  "iconNamePauseFaOutline": "一時停止 FA 枠線",
+  "iconNameStopFaOutline": "停止 FA 枠線",
+  "iconNameBackwardFa": "Backward FA",
+  "iconNameForwardFa": "早送り FA",
+  "iconNamePreviousFa": "前 FA",
+  "iconNameNextFa": "次 FA",
+  "iconNameRewindFa": "巻戻し FA",
+  "iconNameFastForwardFa": "早送り FA",
+  "iconNameRepeatFa": "リピート FA",
+  "iconNameShuffleFa": "シャッフル FA",
+  "iconNameEjectFa": "取り出し FA",
+  "iconNameFilmFa": "Film FA",
+  "iconNameVideoFa": "動画 FA",
+  "iconNameMusicFa": "音楽 FA",
+  "iconNameMicrophoneFa": "マイク FA",
+  "iconNameCameraFa": "カメラ FA",
+  "iconNameCameraRetroFa": "レトロカメラ FA",
+  "iconNameVolumeHighFa": "音量大 FA",
+  "iconNameVolumeLowFa": "音量 Low FA",
+  "iconNameVolumeOffFa": "音量 Off FA",
+  "iconNameMuteFa": "Mute FA",
+  "iconNameMicMuteFa": "Mic Mute FA",
+  "iconNameHeadphonesFa": "Headphones FA",
+  "iconNameSpeakerFa": "スピーカー FA",
+  "iconNameUpFa": "上 FA",
+  "iconNameDownFa": "下 FA",
+  "iconNameLeftFa": "左 FA",
+  "iconNameRightFa": "右 FA",
+  "iconNameUpFaOutline": "上 FA 枠線",
+  "iconNameDownFaOutline": "下 FA 枠線",
+  "iconNameLeftFaOutline": "左 FA 枠線",
+  "iconNameRightFaOutline": "右 FA 枠線",
+  "iconNameArrowUpFa": "矢印 上 FA",
+  "iconNameArrowDownFa": "矢印 下 FA",
+  "iconNameArrowLeftFa": "矢印 左 FA",
+  "iconNameArrowRightFa": "矢印 右 FA",
+  "iconNameChevronUpFa": "シェブロン 上 FA",
+  "iconNameChevronDownFa": "シェブロン 下 FA",
+  "iconNameChevronLeftFa": "シェブロン 左 FA",
+  "iconNameChevronRightFa": "シェブロン 右 FA",
+  "iconNameOkFa": "OK FA",
+  "iconNameOkFaOutline": "OK FA 枠線",
+  "iconNameCheckFa": "確認 FA",
+  "iconNameCloseFa": "閉じる FA",
+  "iconNameCloseCircleFa": "閉じる 丸 FA",
+  "iconNameHomeFa": "ホーム FA",
+  "iconNameUndoFa": "Undo FA",
+  "iconNameRedoFa": "Redo FA",
+  "iconNameRotateFa": "Rotate FA",
+  "iconNameSearchFa": "FAを検索",
+  "iconNameRefreshFa": "Refresh FA",
+  "iconNamePowerOffFa": "電源 Off FA",
+  "iconNamePlugFa": "Plug FA",
+  "iconNameToggleOnFa": "Toggle On FA",
+  "iconNameToggleOffFa": "Toggle Off FA",
+  "iconNameSettingsFa": "設定 FA",
+  "iconNameSettingsAltFa": "設定 Alt FA",
+  "iconNameMenuFa": "メニュー FA",
+  "iconNameMoreFa": "その他 FA",
+  "iconNameMoreVerticalFa": "その他 縦 FA",
+  "iconNameInfoFa": "情報 FA",
+  "iconNameInfoFaOutline": "情報 FA 枠線",
+  "iconNameHelpFa": "ヘルプ FA",
+  "iconNameHelpFaOutline": "ヘルプ FA 枠線",
+  "iconNameListFa": "一覧 FA",
+  "iconNameGridFa": "グリッド FA",
+  "iconNameSlidersFa": "Sliders FA",
+  "iconNameTvFa": "TV FA",
+  "iconNameMonitorFa": "モニター FA",
+  "iconNameDesktopFa": "デスクトップ FA",
+  "iconNameBrightnessFa": "明るさ FA",
+  "iconNameNightModeFa": "夜 モード FA",
+  "iconNameLightFa": "ライト FA",
+  "iconNameLightFaOutline": "ライト FA 枠線",
+  "iconNameFlashFa": "フラッシュ FA",
+  "iconNameFullscreenFa": "全画面 FA",
+  "iconNameExitFullscreenFa": "終了 全画面 FA",
+  "iconNameZoomInFa": "Zoom In FA",
+  "iconNameZoomOutFa": "Zoom Out FA",
+  "iconNameSubtitlesFa": "Subtitles FA",
+  "iconNamePictureInPictureFa": "Picture in Picture FA",
+  "iconNameColorFa": "色 FA",
+  "iconNamePaintFa": "Paint FA",
+  "iconNameInputFa": "入力 FA",
+  "iconNameWifiFa": "WiFi FA",
+  "iconNameBluetoothFa": "Bluetooth FA",
+  "iconNameUsbFa": "USB FA",
+  "iconNameEthernetFa": "Ethernet FA",
+  "iconNameGamepadFa": "Gamepad FA",
+  "iconNameBroadcastFa": "Broadcast FA",
+  "iconNameSatelliteFa": "Satellite FA",
+  "iconNameAntennaFa": "Antenna FA",
+  "iconNameNetworkFa": "Network FA",
+  "iconNameCloudFa": "雲 FA",
+  "iconNameStarFa": "Star FA",
+  "iconNameStarFaOutline": "星 FA 枠線",
+  "iconNameHeartFa": "Heart FA",
+  "iconNameHeartFaOutline": "ハート FA 枠線",
+  "iconNameBookmarkFa": "Bookmark FA",
+  "iconNameBookmarkFaOutline": "ブックマーク FA 枠線",
+  "iconNameFlagFa": "Flag FA",
+  "iconNameClockFa": "Clock FA",
+  "iconNameClockFaOutline": "時計 FA 枠線",
+  "iconNameBellFa": "Bell FA",
+  "iconNameBellFaOutline": "ベル FA 枠線",
+  "iconNameTimerFa": "タイマー FA",
+  "iconNameLockFa": "ロック FA",
+  "iconNameUnlockFa": "ロック解除 FA",
+  "iconNameGalleryFa": "Gallery FA",
+  "iconNameImagesFa": "画像 FA",
+  "iconNameImageFa": "画像 FA",
+  "iconNameVideoFileFa": "動画 ファイル FA",
+  "iconNameAudioFileFa": "音声 ファイル FA",
+  "iconNamePlayOutlineFa": "再生 枠線 FA",
+  "iconNamePlaySimpleFa": "再生 シンプル FA",
+  "iconNamePauseSimpleFa": "一時停止 シンプル FA",
+  "iconNameStopSimpleFa": "停止 シンプル FA",
+  "iconNameRecordFa": "録画 FA",
+  "iconNameStopCircleFa": "停止 丸 FA",
+  "iconNameLoadingFa": "Loading FA",
+  "iconNameTextFa": "Text FA",
+  "iconNameTextSizeFa": "Text Size FA",
+  "iconNameLanguageFa": "言語 FA",
+  "iconNameGlobeFa": "Globe FA",
+  "iconNameSubtitlesAltFa": "Subtitles Alt FA",
+  "iconNameSubtitlesAltOutlineFa": "字幕 代替 枠線 FA",
+  "iconNameChannelUpFa": "チャンネル 上 FA",
+  "iconNameChannelDownFa": "チャンネル 下 FA",
+  "iconNamePageUpFa": "ページ上 FA",
+  "iconNamePageDownFa": "ページ下 FA",
+  "iconNameGuideFa": "Guide FA",
+  "iconNameGridViewFa": "グリッド表示 FA",
+  "iconNameGridAltFa": "グリッド Alt FA",
+  "iconNameScheduleFa": "Schedule FA",
+  "iconNameCalendarFa": "Calendar FA",
+  "iconNameRedButtonFa": "Red ボタン FA",
+  "iconNameButtonOutlineFa": "ボタン 枠線 FA",
+  "iconNameSquareButtonFa": "四角 ボタン FA",
+  "iconNameSquareOutlineFa": "四角 枠線 FA",
+  "iconNameDotCircleFa": "Dot 丸 FA",
+  "iconNameToolsFa": "ツール FA",
+  "iconNameScrewdriverFa": "ドライバー FA",
+  "iconNameHammerFa": "ハンマー FA",
+  "iconNameToolboxFa": "工具箱 FA",
+  "iconNameCogFa": "歯車 FA",
+  "iconNameAdjustFa": "調整 FA",
+  "iconNameFilterFa": "フィルタ FA",
+  "iconNameSortDownFa": "並べ替え 下 FA",
+  "iconNameSortUpFa": "並べ替え 上 FA",
+  "iconNameSleepFa": "スリープ FA",
+  "iconNameTimerStartFa": "タイマー開始 FA",
+  "iconNameTimerHalfFa": "タイマー半分 FA",
+  "iconNameTimerEndFa": "タイマー End FA",
+  "iconNameStopwatchFa": "Stopwatch FA",
+  "iconNameAlarmFa": "アラーム FA",
+  "iconNameCropAltFa": "切り抜き Alt FA",
+  "iconNameCropFa": "切り抜き FA",
+  "iconNameSquareFullFa": "四角 塗りつぶし FA",
+  "iconNameFullscreenAltFa": "全画面 Alt FA",
+  "iconNameZoomPlusFa": "ズーム プラス FA",
+  "iconNameZoomMinusFa": "ズーム マイナス FA",
+  "iconNameMusicNoteFa": "音符 FA",
+  "iconNameCdFa": "CD FA",
+  "iconNameVinylFa": "Vinyl FA",
+  "iconNameRssFa": "RSS FA",
+  "iconNameMagicFa": "Magic FA",
+  "iconNameFingerprintFa": "Fingerprint FA",
+  "iconNameUserFa": "User FA",
+  "iconNameUsersFa": "Users FA",
+  "iconNameChildModeFa": "子どもモード FA",
+  "iconNameCastFa": "Cast FA",
+  "iconNameStreamFa": "Stream FA",
+  "iconNameSignalFa": "信号 FA",
+  "iconNameFeedFa": "Feed FA",
+  "iconNameCircleArrowUpFa": "丸 矢印 上 FA",
+  "iconNameCircleArrowDownFa": "丸 矢印 下 FA",
+  "iconNameCircleArrowLeftFa": "丸 矢印 左 FA",
+  "iconNameCircleArrowRightFa": "丸 矢印 右 FA",
+  "iconNameLongArrowUpFa": "長い矢印 上 FA",
+  "iconNameLongArrowDownFa": "長い矢印 下 FA",
+  "iconNameLongArrowLeftFa": "長い矢印 左 FA",
+  "iconNameLongArrowRightFa": "長い矢印 右 FA",
+  "iconNamePlusFa": "プラス FA",
+  "iconNameMinusFa": "マイナス FA",
+  "iconNamePlusCircleFa": "プラス 丸 FA",
+  "iconNameMinusCircleFa": "マイナス 丸 FA",
+  "iconNamePlusSquareFa": "プラス 四角 FA",
+  "iconNameMinusSquareFa": "マイナス 四角 FA",
+  "iconNameTimesFa": "Times FA",
+  "iconNameTimesCircleFa": "閉じる 丸 FA",
+  "iconNameBatteryFullFa": "バッテリー満充電 FA",
+  "iconNameBattery34Fa": "バッテリー 3/4 FA",
+  "iconNameBatteryHalfFa": "バッテリー半分 FA",
+  "iconNameBattery14Fa": "バッテリー 1/4 FA",
+  "iconNameBatteryEmptyFa": "バッテリー空 FA",
+  "iconNameChargingFa": "充電 FA",
+  "iconNameCloudSunFa": "雲 太陽 FA",
+  "iconNameCloudMoonFa": "雲 月 FA",
+  "iconNameRainFa": "雨 FA",
+  "iconNameSnowflakeFa": "雪 FA",
+  "iconNameFireFa": "炎 FA",
+  "iconNameTemperatureFa": "温度 FA",
+  "iconNameBoxFa": "箱 FA",
+  "iconNameGiftFa": "ギフト FA",
+  "iconNameTrophyFa": "トロフィー FA",
+  "iconNameCrownFa": "王冠 FA",
+  "iconNameGemFa": "宝石 FA",
+  "unknownLabel": "不明",
+  "selectedFilesLabel": "選択ファイル",
+  "folderNotFoundOrInaccessible": "フォルダが見つからないかアクセスできません",
+  "importedRemoteDefaultName": "取り込みリモコン",
+  "demoRemoteName": "デモリモコン",
+  "protocolFieldsInvalid": "必須のプロトコル項目を埋め 周波数を設定する場合は15kから60kにしてください",
+  "unknownProtocolSelected": "不明なプロトコルが選択されました"
+}

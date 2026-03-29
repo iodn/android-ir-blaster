@@ -4,8 +4,8 @@ import 'package:irblaster_controller/ir_finder/ir_finder_models.dart';
 import 'package:irblaster_controller/utils/remote.dart';
 import 'package:uuid/uuid.dart';
 
-IRButton? buildButtonFromDbRow(IrDbKeyCandidate row) {
-  final String label = _deriveLabel(row);
+IRButton? buildButtonFromDbRow(IrDbKeyCandidate row, {String unnamedLabel = ''}) {
+  final String label = _deriveLabel(row, unnamedLabel: unnamedLabel);
   final String protoDb = row.protocol.trim();
   final String hexClean = _cleanHex(row.hexcode);
 
@@ -81,11 +81,11 @@ IRButton? buildButtonFromDbRow(IrDbKeyCandidate row) {
   );
 }
 
-String _deriveLabel(IrDbKeyCandidate row) {
+String _deriveLabel(IrDbKeyCandidate row, {required String unnamedLabel}) {
   final String label = (row.label ?? '').trim();
   if (label.isNotEmpty) return label;
   final String hex = row.hexcode.trim();
-  return hex.isEmpty ? 'Unnamed key' : hex;
+  return hex.isEmpty ? unnamedLabel : hex;
 }
 
 String _newId() {

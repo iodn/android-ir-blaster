@@ -7,6 +7,7 @@ import 'package:irblaster_controller/ir/ir_protocol_registry.dart';
 import 'package:irblaster_controller/ir/ir_protocol_types.dart';
 import 'package:irblaster_controller/ir_finder/irblaster_db.dart';
 import 'package:irblaster_controller/ir_finder/ir_finder_models.dart';
+import 'package:irblaster_controller/l10n/l10n.dart';
 import 'package:irblaster_controller/utils/button_color_accessibility.dart';
 import 'package:irblaster_controller/utils/ir.dart';
 import 'package:irblaster_controller/utils/remote.dart';
@@ -70,7 +71,7 @@ class _CreateButtonState extends State<CreateButton> {
   bool _dbLoading = false;
   bool _dbExhausted = false;
   int _dbOffset = 0;
-  List<IrDbKeyCandidate> _dbRows = <IrDbKeyCandidate>[];
+  final List<IrDbKeyCandidate> _dbRows = <IrDbKeyCandidate>[];
   IrDbKeyCandidate? _dbSelected;
 
   final Map<String, TextEditingController> _protoControllers =
@@ -243,7 +244,8 @@ class _CreateButtonState extends State<CreateButton> {
     protoFreqController.addListener(onChanged);
   }
 
-  String get _screenTitle => widget.button == null ? "Create Button" : "Edit Button";
+  String get _screenTitle =>
+      widget.button == null ? context.l10n.createButtonTitle : context.l10n.editButtonTitle;
 
   bool get _hasLabel {
     if (_labelType == _LabelType.image) return _imagePath != null;
@@ -857,7 +859,7 @@ class _CreateButtonState extends State<CreateButton> {
         color == null ? null : normalizeAccessibleButtonColor(color);
     final isSelected = normalizedOption == null
         ? _selectedColor == null
-        : _selectedColor?.value == normalizedOption.value;
+        : _selectedColor?.toARGB32() == normalizedOption.toARGB32();
     final displayColor =
         normalizedOption ?? theme.colorScheme.surfaceContainerHighest;
     final checkColor = normalizedOption == null
@@ -920,7 +922,7 @@ class _CreateButtonState extends State<CreateButton> {
 
   int? get _selectedButtonColorValue => _selectedColor == null
       ? null
-      : normalizeAccessibleButtonColor(_selectedColor!).value;
+      : normalizeAccessibleButtonColor(_selectedColor!).toARGB32();
 
   List<Widget> _buildSignalSummaryChips() {
     final List<Widget> chips = [];
@@ -1125,15 +1127,15 @@ class _CreateButtonState extends State<CreateButton> {
   String _dbPresetTitle(_DbPreset preset) {
     switch (preset) {
       case _DbPreset.power:
-        return 'Power';
+        return context.l10n.presetPower;
       case _DbPreset.volume:
-        return 'Volume';
+        return context.l10n.presetVolume;
       case _DbPreset.channel:
-        return 'Channel';
+        return context.l10n.presetChannel;
       case _DbPreset.navigation:
-        return 'Navigation';
+        return context.l10n.presetNavigation;
       case _DbPreset.all:
-        return 'All';
+        return context.l10n.all;
     }
   }
 
@@ -1175,7 +1177,7 @@ class _CreateButtonState extends State<CreateButton> {
         _dbProtocol = prots.isNotEmpty ? prots.first : null;
       });
     } catch (e) {
-      if (mounted) _showSnack("Failed to load protocols: $e");
+      if (mounted) _showSnack(context.l10n.failedToLoadProtocols(e.toString()));
     } finally {
       if (mounted) setState(() => _dbMetaLoading = false);
     }
@@ -1219,7 +1221,7 @@ class _CreateButtonState extends State<CreateButton> {
         if (rows.isEmpty) _dbExhausted = true;
       });
     } catch (e) {
-      if (mounted) _showSnack("Failed to load database keys: $e");
+      if (mounted) _showSnack(context.l10n.failedToLoadDatabaseKeys(e.toString()));
     } finally {
       if (mounted) setState(() => _dbLoading = false);
     }
@@ -1227,6 +1229,7 @@ class _CreateButtonState extends State<CreateButton> {
 
   Future<String?> _pickBrand(BuildContext context) async {
     await IrBlasterDb.instance.ensureInitialized();
+    if (!context.mounted) return null;
 
     String? selected;
     int offset = 0;
@@ -1240,6 +1243,7 @@ class _CreateButtonState extends State<CreateButton> {
       builder: (ctx) {
         final ctl = TextEditingController();
         final scrollCtl = ScrollController();
+        bool attachedScrollListener = false;
         bool loading = false;
         bool exhausted = false;
 
@@ -1270,8 +1274,9 @@ class _CreateButtonState extends State<CreateButton> {
 
             setModal(() {});
           } finally {
-            if (!alive) return;
-            setModal(() => loading = false);
+            if (alive) {
+              setModal(() => loading = false);
+            }
           }
         }
 
@@ -1284,7 +1289,8 @@ class _CreateButtonState extends State<CreateButton> {
 
         return StatefulBuilder(
           builder: (ctx2, setModal) {
-            if (!scrollCtl.hasListeners) {
+            if (!attachedScrollListener) {
+              attachedScrollListener = true;
               scrollCtl.addListener(() => onScroll(setModal));
               load(setModal, reset: true);
             }
@@ -1299,7 +1305,7 @@ class _CreateButtonState extends State<CreateButton> {
                       children: [
                         Expanded(
                           child: Text(
-                            'Select brand',
+                            context.l10n.selectBrand,
                             style: Theme.of(ctx2).textTheme.titleLarge,
                           ),
                         ),
@@ -1315,10 +1321,10 @@ class _CreateButtonState extends State<CreateButton> {
                     const SizedBox(height: 8),
                     TextField(
                       controller: ctl,
-                      decoration: const InputDecoration(
-                        hintText: 'Search brand…',
-                        prefixIcon: Icon(Icons.search_rounded),
-                        border: OutlineInputBorder(),
+                      decoration: InputDecoration(
+                        hintText: context.l10n.searchBrand,
+                        prefixIcon: const Icon(Icons.search_rounded),
+                        border: const OutlineInputBorder(),
                       ),
                       onChanged: (_) => load(setModal, reset: true),
                     ),
@@ -1362,6 +1368,7 @@ class _CreateButtonState extends State<CreateButton> {
 
   Future<String?> _pickModel(BuildContext context, {required String brand}) async {
     await IrBlasterDb.instance.ensureInitialized();
+    if (!context.mounted) return null;
 
     String? selected;
     int offset = 0;
@@ -1375,6 +1382,7 @@ class _CreateButtonState extends State<CreateButton> {
       builder: (ctx) {
         final ctl = TextEditingController();
         final scrollCtl = ScrollController();
+        bool attachedScrollListener = false;
         bool loading = false;
         bool exhausted = false;
 
@@ -1406,8 +1414,9 @@ class _CreateButtonState extends State<CreateButton> {
 
             setModal(() {});
           } finally {
-            if (!alive) return;
-            setModal(() => loading = false);
+            if (alive) {
+              setModal(() => loading = false);
+            }
           }
         }
 
@@ -1420,7 +1429,8 @@ class _CreateButtonState extends State<CreateButton> {
 
         return StatefulBuilder(
           builder: (ctx2, setModal) {
-            if (!scrollCtl.hasListeners) {
+            if (!attachedScrollListener) {
+              attachedScrollListener = true;
               scrollCtl.addListener(() => onScroll(setModal));
               load(setModal, reset: true);
             }
@@ -1435,7 +1445,7 @@ class _CreateButtonState extends State<CreateButton> {
                       children: [
                         Expanded(
                           child: Text(
-                            'Select model',
+                            context.l10n.selectModel,
                             style: Theme.of(ctx2).textTheme.titleLarge,
                           ),
                         ),
@@ -1451,10 +1461,10 @@ class _CreateButtonState extends State<CreateButton> {
                     const SizedBox(height: 8),
                     TextField(
                       controller: ctl,
-                      decoration: const InputDecoration(
-                        hintText: 'Search model…',
-                        prefixIcon: Icon(Icons.search_rounded),
-                        border: OutlineInputBorder(),
+                      decoration: InputDecoration(
+                        hintText: context.l10n.searchModel,
+                        prefixIcon: const Icon(Icons.search_rounded),
+                        border: const OutlineInputBorder(),
                       ),
                       onChanged: (_) => load(setModal, reset: true),
                     ),
@@ -1498,8 +1508,10 @@ class _CreateButtonState extends State<CreateButton> {
 
   Future<void> _dbSelectBrand() async {
     await _dbEnsureReady();
+    if (!mounted) return;
 
     final b = await _pickBrand(context);
+    if (!mounted) return;
     if (b == null) return;
 
     setState(() {
@@ -1522,8 +1534,10 @@ class _CreateButtonState extends State<CreateButton> {
   Future<void> _dbSelectModel() async {
     await _dbEnsureReady();
     if (_dbBrand == null) return;
+    if (!mounted) return;
 
     final m = await _pickModel(context, brand: _dbBrand!);
+    if (!mounted) return;
     if (m == null) return;
 
     setState(() {
@@ -1668,7 +1682,7 @@ class _CreateButtonState extends State<CreateButton> {
     final sel = _dbSelected;
     if (sel == null) return;
 
-    final protoDb = (sel.protocol ?? '').trim();
+    final protoDb = sel.protocol.trim();
     final hexClean = sel.hexcode.replaceAll(' ', '').toUpperCase();
     final labelTrim = (sel.label ?? '').trim();
 
@@ -1894,7 +1908,7 @@ class _CreateButtonState extends State<CreateButton> {
               const SizedBox(width: 10),
               Expanded(
                 child: Text(
-                  'Database mode auto-fills Step 2 for you (brand + model + protocol). After importing a key, you can refine anything in Manual.',
+                  context.l10n.databaseModeAutofillHint,
                   style: theme.textTheme.bodySmall?.copyWith(
                     color: cs.onSurface.withValues(alpha: 0.8),
                   ),
@@ -1912,9 +1926,9 @@ class _CreateButtonState extends State<CreateButton> {
           children: [
             Expanded(
               child: _dbField(
-                label: 'Brand',
+                label: context.l10n.brand,
                 icon: Icons.factory_outlined,
-                value: hasBrand ? _dbBrand! : 'Select brand',
+                value: hasBrand ? _dbBrand! : context.l10n.selectBrand,
                 enabled: true,
                 onTap: _dbSelectBrand,
               ),
@@ -1922,9 +1936,9 @@ class _CreateButtonState extends State<CreateButton> {
             const SizedBox(width: 12),
             Expanded(
               child: _dbField(
-                label: 'Model',
+                label: context.l10n.model,
                 icon: Icons.devices_other_outlined,
-                value: hasModel ? _dbModel! : 'Select model',
+                value: hasModel ? _dbModel! : context.l10n.selectModel,
                 enabled: hasBrand,
                 onTap: _dbSelectModel,
               ),
@@ -1951,7 +1965,7 @@ class _CreateButtonState extends State<CreateButton> {
             ),
           ] else ...[
             DropdownButtonFormField<String>(
-              value: _dbProtocol,
+              initialValue: _dbProtocol,
               isExpanded: true,
               items: _dbProtocols
                   .map((p) => DropdownMenuItem<String>(
@@ -2053,10 +2067,10 @@ class _CreateButtonState extends State<CreateButton> {
                                 (_dbSelected?.hexcode == r.hexcode) &&
                                 (_dbSelected?.label == r.label);
 
-                            final String titleText =
-                                (r.label ?? '').trim().isEmpty ? 'Unnamed key' : (r.label ?? '').trim();
-                            final String protoText =
-                                (r.protocol ?? '').trim().isEmpty ? 'Unknown' : (r.protocol ?? '').trim();
+                            final String labelText = r.label?.trim() ?? '';
+                            final String protocolText = r.protocol.trim();
+                            final String titleText = labelText.isEmpty ? context.l10n.unnamedKey : labelText;
+                            final String protoText = protocolText.isEmpty ? context.l10n.unknownLabel : protocolText;
                             final String hexText = r.hexcode.trim().isEmpty ? '—' : r.hexcode.trim();
 
                             return ListTile(
@@ -2381,7 +2395,7 @@ class _CreateButtonState extends State<CreateButton> {
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         DropdownButtonFormField<String>(
-          value: _selectedProtocolId,
+          initialValue: _selectedProtocolId,
           isExpanded: true,
           items: defs
               .map(
@@ -2496,7 +2510,7 @@ class _CreateButtonState extends State<CreateButton> {
       }
 
       return DropdownButtonFormField<String>(
-        value: (current != null && opts.contains(current)) ? current : null,
+        initialValue: opts.contains(current) ? current : null,
         isExpanded: true,
         items: opts
             .map(
@@ -2716,13 +2730,13 @@ class _CreateButtonState extends State<CreateButton> {
 
     if (_signalType == _SignalType.protocol) {
       if (!_protocolLooksValid) {
-        _showSnack("Fill required protocol fields and ensure frequency is 15k–60k if set.");
+        _showSnack(context.l10n.protocolFieldsInvalid);
         return;
       }
 
       final def = IrProtocolRegistry.definitionFor(_selectedProtocolId);
       if (def == null) {
-        _showSnack("Unknown protocol selected.");
+        _showSnack(context.l10n.unknownProtocolSelected);
         return;
       }
 
@@ -2828,7 +2842,7 @@ class _CreateButtonState extends State<CreateButton> {
         title: Text(_screenTitle),
         actions: [
           IconButton(
-            tooltip: _canSave ? 'Save' : 'Complete required fields to save',
+            tooltip: _canSave ? context.l10n.saveAction : context.l10n.completeRequiredFieldsToSave,
             onPressed: _canSave ? _onSavePressed : null,
             icon: const Icon(Icons.check),
           ),
@@ -2842,7 +2856,7 @@ class _CreateButtonState extends State<CreateButton> {
               child: OutlinedButton.icon(
                 onPressed: () => Navigator.pop(context),
                 icon: const Icon(Icons.close),
-                label: const Text('Cancel'),
+                label: Text(context.l10n.cancel),
               ),
             ),
             const SizedBox(width: 12),
@@ -2850,7 +2864,7 @@ class _CreateButtonState extends State<CreateButton> {
               child: FilledButton.icon(
                 onPressed: _canSave ? _onSavePressed : null,
                 icon: const Icon(Icons.save),
-                label: const Text('Save'),
+                label: Text(context.l10n.saveAction),
               ),
             ),
           ],
@@ -2862,8 +2876,8 @@ class _CreateButtonState extends State<CreateButton> {
           keyboardDismissBehavior: ScrollViewKeyboardDismissBehavior.onDrag,
           children: [
             _sectionHeader(
-              '1) Button label',
-              subtitle: 'Choose an image, icon, or type a text label.',
+              context.l10n.buttonLabelStepTitle,
+              subtitle: context.l10n.buttonLabelStepSubtitle,
               icon: Icons.label_outline,
             ),
             Card(
@@ -2915,7 +2929,7 @@ class _CreateButtonState extends State<CreateButton> {
                                   ),
                                   const SizedBox(height: 6),
                                   Text(
-                                    'No image selected',
+                                    context.l10n.noImageSelected,
                                     style: theme.textTheme.bodySmall?.copyWith(
                                       color: theme.colorScheme.onSurface.withValues(alpha: 0.75),
                                     ),
@@ -2931,7 +2945,7 @@ class _CreateButtonState extends State<CreateButton> {
                             child: FilledButton.icon(
                               onPressed: _pickImageFromGallery,
                               icon: const Icon(Icons.photo_library_outlined),
-                              label: const Text('Gallery'),
+                              label: Text(context.l10n.gallery),
                             ),
                           ),
                           const SizedBox(width: 12),
@@ -2939,7 +2953,7 @@ class _CreateButtonState extends State<CreateButton> {
                             child: FilledButton.tonalIcon(
                               onPressed: _pickImageFromAssets,
                               icon: const Icon(Icons.grid_view_outlined),
-                              label: const Text('Built-in'),
+                              label: Text(context.l10n.builtIn),
                             ),
                           ),
                         ],
@@ -2951,7 +2965,7 @@ class _CreateButtonState extends State<CreateButton> {
                           child: TextButton.icon(
                             onPressed: _clearImage,
                             icon: const Icon(Icons.delete_outline),
-                            label: const Text('Remove image'),
+                            label: Text(context.l10n.removeImage),
                           ),
                         ),
                       ],
@@ -2960,7 +2974,7 @@ class _CreateButtonState extends State<CreateButton> {
                         Align(
                           alignment: Alignment.centerLeft,
                           child: Text(
-                            'Required: select an image, choose an icon, or switch to Text.',
+                            context.l10n.requiredSelectImageOrSwitch,
                             style: theme.textTheme.bodySmall?.copyWith(
                               color: theme.colorScheme.error,
                               fontWeight: FontWeight.w600,
@@ -2992,7 +3006,7 @@ class _CreateButtonState extends State<CreateButton> {
                                     ),
                                     const SizedBox(height: 8),
                                     Text(
-                                      'Icon selected',
+                                      context.l10n.iconSelected,
                                       style: theme.textTheme.bodySmall?.copyWith(
                                         color: theme.colorScheme.primary,
                                         fontWeight: FontWeight.w600,
@@ -3010,7 +3024,7 @@ class _CreateButtonState extends State<CreateButton> {
                                     ),
                                     const SizedBox(height: 6),
                                     Text(
-                                      'No icon selected',
+                                      context.l10n.noIconSelected,
                                       style: theme.textTheme.bodySmall?.copyWith(
                                         color: theme.colorScheme.onSurface.withValues(alpha: 0.75),
                                       ),
@@ -3023,7 +3037,7 @@ class _CreateButtonState extends State<CreateButton> {
                       FilledButton.icon(
                         onPressed: _pickIcon,
                         icon: const Icon(Icons.apps),
-                        label: const Text('Choose Icon'),
+                        label: Text(context.l10n.chooseIcon),
                       ),
                       if (_selectedIcon != null) ...[
                         const SizedBox(height: 8),
@@ -3032,7 +3046,7 @@ class _CreateButtonState extends State<CreateButton> {
                           child: TextButton.icon(
                             onPressed: _clearIcon,
                             icon: const Icon(Icons.delete_outline),
-                            label: const Text('Remove icon'),
+                            label: Text(context.l10n.removeIcon),
                           ),
                         ),
                       ],
@@ -3041,7 +3055,7 @@ class _CreateButtonState extends State<CreateButton> {
                         Align(
                           alignment: Alignment.centerLeft,
                           child: Text(
-                            'Required: select an icon or switch to Image/Text.',
+                            context.l10n.requiredSelectIconOrSwitch,
                             style: theme.textTheme.bodySmall?.copyWith(
                               color: theme.colorScheme.error,
                               fontWeight: FontWeight.w600,
@@ -3054,15 +3068,15 @@ class _CreateButtonState extends State<CreateButton> {
                         controller: nameController,
                         textInputAction: TextInputAction.done,
                         decoration: InputDecoration(
-                          labelText: 'Button text',
-                          hintText: 'e.g., Power, Volume +, HDMI 1',
-                          helperText: 'This text will appear on the button.',
+                          labelText: context.l10n.buttonText,
+                          hintText: context.l10n.buttonTextHint,
+                          helperText: context.l10n.buttonTextHelper,
                           helperMaxLines: _kHelperMaxLines,
                           hintMaxLines: _kHintMaxLines,
                           suffixIcon: nameController.text.trim().isEmpty
                               ? null
                               : IconButton(
-                                  tooltip: 'Clear',
+                                  tooltip: context.l10n.clearAction,
                                   onPressed: () => nameController.clear(),
                                   icon: const Icon(Icons.clear),
                                 ),
@@ -3073,7 +3087,7 @@ class _CreateButtonState extends State<CreateButton> {
                         Align(
                           alignment: Alignment.centerLeft,
                           child: Text(
-                            'Required: enter a button label.',
+                            context.l10n.requiredEnterButtonLabel,
                             style: theme.textTheme.bodySmall?.copyWith(
                               color: theme.colorScheme.error,
                               fontWeight: FontWeight.w600,
@@ -3087,8 +3101,8 @@ class _CreateButtonState extends State<CreateButton> {
               ),
             ),
             _sectionHeader(
-              '2) Button color (optional)',
-              subtitle: 'Choose a background color for this button.',
+              context.l10n.buttonColorStepTitle,
+              subtitle: context.l10n.buttonColorStepSubtitle,
               icon: Icons.palette_outlined,
             ),
             Card(
@@ -3099,7 +3113,7 @@ class _CreateButtonState extends State<CreateButton> {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Text(
-                      'Select color:',
+                      context.l10n.selectColor,
                       style: theme.textTheme.titleSmall,
                     ),
                     const SizedBox(height: 12),
@@ -3107,7 +3121,7 @@ class _CreateButtonState extends State<CreateButton> {
                       spacing: 12,
                       runSpacing: 12,
                       children: [
-                        _colorOption(null, 'Default', theme),
+                        _colorOption(null, context.l10n.defaultColorName, theme),
                         _colorOption(Colors.red, 'Red', theme),
                         _colorOption(Colors.pink, 'Pink', theme),
                         _colorOption(Colors.purple, 'Purple', theme),
@@ -3254,7 +3268,7 @@ class _CreateButtonState extends State<CreateButton> {
                         children: [
                           Expanded(
                             child: FilledButton.icon(
-                              onPressed: (previewError == null && preview != null)
+                              onPressed: previewError == null
                                   ? () async {
                                       try {
                                         await sendIR(_draftButtonForPreview());
@@ -3366,7 +3380,7 @@ class _PatternPreview extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Text(
-            'Pattern preview ($count durations, total ${sum}µs)',
+            'Pattern preview ($count durations, total $sumµs)',
             style: theme.textTheme.bodySmall?.copyWith(
               color: theme.colorScheme.onSurface.withValues(alpha: 0.8),
               fontWeight: FontWeight.w600,

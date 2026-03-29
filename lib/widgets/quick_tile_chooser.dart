@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:irblaster_controller/l10n/icon_picker_names.dart';
+import 'package:irblaster_controller/l10n/l10n.dart';
 import 'package:irblaster_controller/state/quick_settings_prefs.dart';
 import 'package:irblaster_controller/state/remotes_state.dart';
 import 'package:irblaster_controller/utils/button_label.dart';
@@ -17,7 +19,7 @@ Future<QuickTilePick?> pickButtonForTile(
   if (!context.mounted) return null;
   if (remotes.isEmpty) {
     ScaffoldMessenger.of(context).showSnackBar(
-      const SnackBar(content: Text('No remotes available.')),
+      SnackBar(content: Text(context.l10n.noRemotesAvailable)),
     );
     return null;
   }
@@ -26,6 +28,7 @@ Future<QuickTilePick?> pickButtonForTile(
     context,
     tileLabel: _tileLabelForKey(tileKey),
   );
+  if (!context.mounted) return null;
   if (favResult == _FavoritePickResult.cancelled) return null;
   if (favResult is QuickTileFavorite) {
     return QuickTilePick.fromFavorite(favResult);
@@ -37,6 +40,7 @@ Future<QuickTilePick?> pickButtonForTile(
     showDragHandle: true,
     builder: (_) => _RemotePickerSheet(remotes: remotes),
   );
+  if (!context.mounted) return null;
   if (pickedRemote == null) return null;
 
   final IRButton? pickedButton = await showModalBottomSheet<IRButton>(
@@ -45,12 +49,14 @@ Future<QuickTilePick?> pickButtonForTile(
     showDragHandle: true,
     builder: (_) => _ButtonPickerSheet(remote: pickedRemote),
   );
+  if (!context.mounted) return null;
   if (pickedButton == null) return null;
 
   final title = displayButtonLabel(
     pickedButton,
-    fallback: 'Unnamed Button',
-    iconFallback: 'Icon',
+    fallback: context.l10n.unnamedButton,
+    iconFallback: context.l10n.iconFallback,
+    iconNameLocalizer: (name) => localizedIconPickerName(context.l10n, name),
   );
 
   return QuickTilePick(remote: pickedRemote, button: pickedButton, title: title);
@@ -107,7 +113,7 @@ Future<void> sendButtonPick(BuildContext context, QuickTilePick pick) async {
   if (found == null) {
     if (!context.mounted) return;
     ScaffoldMessenger.of(context).showSnackBar(
-      const SnackBar(content: Text('Button not found in remotes.')),
+      SnackBar(content: Text(context.l10n.buttonNotFoundInRemotes)),
     );
     return;
   }
@@ -115,12 +121,12 @@ Future<void> sendButtonPick(BuildContext context, QuickTilePick pick) async {
     await sendIR(found);
     if (!context.mounted) return;
     ScaffoldMessenger.of(context).showSnackBar(
-      SnackBar(content: Text('Sent \"${pick.title}\".')),
+      SnackBar(content: Text(context.l10n.sentNamed(pick.title))),
     );
   } catch (e) {
     if (!context.mounted) return;
     ScaffoldMessenger.of(context).showSnackBar(
-      SnackBar(content: Text('Send failed: $e')),
+      SnackBar(content: Text(context.l10n.sendFailed(e.toString()))),
     );
   }
 }
@@ -185,9 +191,9 @@ class _RemotePickerSheet extends StatelessWidget {
           children: [
             Row(
               children: [
-                Expanded(child: Text('Select remote', style: theme.textTheme.titleLarge)),
+                Expanded(child: Text(context.l10n.selectRemote, style: theme.textTheme.titleLarge)),
                 IconButton(
-                  tooltip: 'Close',
+                  tooltip: context.l10n.close,
                   onPressed: () => Navigator.of(context).pop(),
                   icon: const Icon(Icons.close_rounded),
                 ),
@@ -203,7 +209,7 @@ class _RemotePickerSheet extends StatelessWidget {
                   final r = remotes[i];
                   return ListTile(
                     title: Text(r.name),
-                    subtitle: Text('${r.buttons.length} button(s)'),
+                    subtitle: Text(context.l10n.remoteButtonCount(r.buttons.length, r.buttons.length == 1 ? '' : 's')),
                     trailing: const Icon(Icons.chevron_right),
                     onTap: () => Navigator.of(context).pop(r),
                   );
@@ -234,8 +240,9 @@ class _ButtonPickerSheetState extends State<_ButtonPickerSheet> {
     return widget.remote.buttons.where((b) {
       final title = displayButtonLabel(
         b,
-        fallback: 'Unnamed Button',
-        iconFallback: 'Icon',
+        fallback: context.l10n.unnamedButton,
+        iconFallback: context.l10n.iconFallback,
+        iconNameLocalizer: (name) => localizedIconPickerName(context.l10n, name),
       ).toLowerCase();
       return title.contains(q);
     }).toList();
@@ -253,9 +260,9 @@ class _ButtonPickerSheetState extends State<_ButtonPickerSheet> {
           children: [
             Row(
               children: [
-                Expanded(child: Text('Select button', style: theme.textTheme.titleLarge)),
+                Expanded(child: Text(context.l10n.selectButton, style: theme.textTheme.titleLarge)),
                 IconButton(
-                  tooltip: 'Close',
+                  tooltip: context.l10n.close,
                   onPressed: () => Navigator.of(context).pop(),
                   icon: const Icon(Icons.close_rounded),
                 ),
@@ -264,10 +271,10 @@ class _ButtonPickerSheetState extends State<_ButtonPickerSheet> {
             const SizedBox(height: 10),
             TextField(
               onChanged: (value) => setState(() => _query = value),
-              decoration: const InputDecoration(
-                hintText: 'Search commands',
-                prefixIcon: Icon(Icons.search_rounded),
-                border: OutlineInputBorder(),
+              decoration: InputDecoration(
+                hintText: context.l10n.searchCommands,
+                prefixIcon: const Icon(Icons.search_rounded),
+                border: const OutlineInputBorder(),
               ),
             ),
             const SizedBox(height: 10),
@@ -275,7 +282,7 @@ class _ButtonPickerSheetState extends State<_ButtonPickerSheet> {
               Padding(
                 padding: const EdgeInsets.symmetric(vertical: 8),
                 child: Text(
-                  'No matching commands',
+                  context.l10n.noMatchingCommands,
                   style: theme.textTheme.bodyMedium?.copyWith(
                     color: theme.colorScheme.onSurfaceVariant,
                   ),
@@ -291,8 +298,9 @@ class _ButtonPickerSheetState extends State<_ButtonPickerSheet> {
                     final b = buttons[i];
                     final title = displayButtonLabel(
                       b,
-                      fallback: 'Unnamed Button',
-                      iconFallback: 'Icon',
+                      fallback: context.l10n.unnamedButton,
+                      iconFallback: context.l10n.iconFallback,
+                      iconNameLocalizer: (name) => localizedIconPickerName(context.l10n, name),
                     );
                     return ListTile(
                       leading: const Icon(Icons.circle),
@@ -329,9 +337,9 @@ class _FavoritePickerSheet extends StatelessWidget {
           children: [
             Row(
               children: [
-                Expanded(child: Text('Quick tile favorites', style: theme.textTheme.titleLarge)),
+                Expanded(child: Text(context.l10n.quickTileFavoritesTitle, style: theme.textTheme.titleLarge)),
                 IconButton(
-                  tooltip: 'Close',
+                  tooltip: context.l10n.close,
                   onPressed: () => Navigator.of(context).pop(_FavoritePickResult.cancelled),
                   icon: const Icon(Icons.close_rounded),
                 ),
@@ -347,8 +355,8 @@ class _FavoritePickerSheet extends StatelessWidget {
                   if (tileLabel != null && i == 0) {
                     return ListTile(
                       leading: const Icon(Icons.edit_rounded),
-                      title: Text('Change mapping for $tileLabel tile'),
-                      subtitle: const Text('Pick a different button'),
+                      title: Text(context.l10n.changeMappingForTile(tileLabel!)),
+                      subtitle: Text(context.l10n.pickDifferentButton),
                       onTap: () => Navigator.of(context).pop(_FavoritePickResult.browseAll),
                     );
                   }
@@ -356,7 +364,7 @@ class _FavoritePickerSheet extends StatelessWidget {
                   if (index == favorites.length) {
                     return ListTile(
                       leading: const Icon(Icons.search_rounded),
-                      title: const Text('Browse all remotes…'),
+                      title: Text(context.l10n.browseAllRemotesEllipsis),
                       onTap: () => Navigator.of(context).pop(_FavoritePickResult.browseAll),
                     );
                   }

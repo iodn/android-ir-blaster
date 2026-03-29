@@ -2,6 +2,7 @@ import 'dart:async';
 
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:irblaster_controller/l10n/l10n.dart';
 import 'package:irblaster_controller/utils/ir.dart';
 
 String deviceCodeString = "00 ff";
@@ -70,12 +71,12 @@ class CodeTestState extends State<CodeTest> {
                   deviceCodeString,
                   style: const TextStyle(fontSize: 25),
                 ),
-                const Text("Device Code"),
+                Text(context.l10n.deviceCodeLabel),
                 Text(
                   commandString,
                   style: const TextStyle(fontSize: 25),
                 ),
-                const Text("Command"),
+                Text(context.l10n.commandLabel),
                 const Padding(padding: EdgeInsets.all(20)),
                 GridView.count(
                     primary: false,
@@ -105,7 +106,7 @@ class CodeTestState extends State<CodeTest> {
                           });
                         },
                         child:
-                            const Text('Test', style: TextStyle(fontSize: 25)),
+                            Text(context.l10n.test, style: const TextStyle(fontSize: 25)),
                       ),
                       IconButton(
                         onPressed: () {
@@ -134,7 +135,7 @@ class CodeTestState extends State<CodeTest> {
                                             onPressed: () {
                                               Navigator.pop(context);
                                             },
-                                            child: const Text("Cancel")),
+                                            child: Text(context.l10n.cancel)),
                                         TextButton(
                                             onPressed: () {
                                               if (controller.text.length == 8) {
@@ -147,10 +148,10 @@ class CodeTestState extends State<CodeTest> {
                                               }
                                               Navigator.pop(context);
                                             },
-                                            child: const Text("Save"))
+                                            child: Text(context.l10n.saveAction))
                                       ],
                                       title:
-                                          const Text("Edit Code of the button"),
+                                          Text(context.l10n.editButtonCodeTitle),
                                       content: TextField(
                                         controller: controller,
                                         maxLength: 8,

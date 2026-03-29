@@ -2,6 +2,8 @@ import 'dart:convert';
 import 'dart:io';
 
 import 'package:flutter/material.dart';
+import 'package:irblaster_controller/l10n/icon_picker_names.dart';
+import 'package:irblaster_controller/l10n/l10n.dart';
 import 'package:irblaster_controller/state/remotes_state.dart';
 import 'package:irblaster_controller/utils/button_label.dart';
 import 'package:irblaster_controller/utils/remote.dart';
@@ -65,7 +67,13 @@ class _ExistingRemoteButtonImportSheetState
   }
 
   String _signature(IRButton b) {
-    final String label = _normalized(displayButtonLabel(b, fallback: b.image));
+    final String label = _normalized(
+      displayButtonLabel(
+        b,
+        fallback: b.image,
+        iconNameLocalizer: (name) => localizedIconPickerName(context.l10n, name),
+      ),
+    );
 
     if (b.protocol != null && b.protocol!.trim().isNotEmpty) {
       final params = b.protocolParams ?? const <String, dynamic>{};
@@ -81,7 +89,11 @@ class _ExistingRemoteButtonImportSheetState
     final q = _searchCtl.text.trim().toLowerCase();
     if (q.isEmpty) return r.buttons;
     return r.buttons.where((b) {
-      final label = displayButtonLabel(b, fallback: b.image).toLowerCase();
+      final label = displayButtonLabel(
+        b,
+        fallback: b.image,
+        iconNameLocalizer: (name) => localizedIconPickerName(context.l10n, name),
+      ).toLowerCase();
       final proto = (b.protocol ?? '').toLowerCase();
       return label.contains(q) || proto.contains(q);
     }).toList(growable: false);
@@ -200,7 +212,7 @@ class _ExistingRemoteButtonImportSheetState
               children: [
                 Expanded(
                   child: Text(
-                    'Import from Existing Remotes',
+                    context.l10n.importFromExistingRemotesTitle,
                     style: theme.textTheme.titleLarge?.copyWith(
                       fontWeight: FontWeight.w800,
                     ),
@@ -213,7 +225,7 @@ class _ExistingRemoteButtonImportSheetState
                     borderRadius: BorderRadius.circular(999),
                   ),
                   child: Text(
-                    '${_selectedKeys.length} selected',
+                    context.l10n.selectedCount(_selectedKeys.length),
                     style: theme.textTheme.labelLarge?.copyWith(
                       color: theme.colorScheme.onPrimaryContainer,
                       fontWeight: FontWeight.w700,
@@ -227,16 +239,16 @@ class _ExistingRemoteButtonImportSheetState
               Expanded(
                 child: Center(
                   child: Text(
-                    'No other remotes with buttons found.',
+                    context.l10n.noOtherRemotesWithButtons,
                     style: theme.textTheme.bodyMedium,
                   ),
                 ),
               )
             else ...[
               DropdownButtonFormField<int>(
-                value: source?.id,
-                decoration: const InputDecoration(
-                  labelText: 'Source remote',
+                initialValue: source?.id,
+                decoration: InputDecoration(
+                  labelText: context.l10n.sourceRemote,
                   prefixIcon: Icon(Icons.settings_remote_outlined),
                 ),
                 items: _sources
@@ -259,8 +271,8 @@ class _ExistingRemoteButtonImportSheetState
               TextField(
                 controller: _searchCtl,
                 decoration: InputDecoration(
-                  labelText: 'Search buttons',
-                  hintText: 'Power, Volume, Mute...',
+                  labelText: context.l10n.searchButtons,
+                  hintText: context.l10n.searchButtonsHint,
                   prefixIcon: const Icon(Icons.search),
                   suffixIcon: _searchCtl.text.trim().isEmpty
                       ? null
@@ -279,13 +291,13 @@ class _ExistingRemoteButtonImportSheetState
                   TextButton.icon(
                     onPressed: source == null ? null : () => _toggleAllVisible(source, true),
                     icon: const Icon(Icons.select_all),
-                    label: const Text('Select visible'),
+                    label: Text(context.l10n.selectVisible),
                   ),
                   const SizedBox(width: 6),
                   TextButton.icon(
                     onPressed: source == null ? null : () => _toggleAllVisible(source, false),
                     icon: const Icon(Icons.deselect),
-                    label: const Text('Clear visible'),
+                    label: Text(context.l10n.clearVisible),
                   ),
                   const Spacer(),
                   Text(
@@ -303,12 +315,16 @@ class _ExistingRemoteButtonImportSheetState
                     final b = visibleButtons[i];
                     final key = _keyFor(source!.id, b.id);
                     final selected = _selectedKeys.contains(key);
-                    final label = displayButtonLabel(b, fallback: b.image);
+                    final label = displayButtonLabel(
+                      b,
+                      fallback: b.image,
+                      iconNameLocalizer: (name) => localizedIconPickerName(context.l10n, name),
+                    );
                     final subtitle = (b.protocol != null && b.protocol!.trim().isNotEmpty)
-                        ? 'Protocol: ${b.protocol}'
+                        ? context.l10n.protocolNamed(b.protocol!)
                         : (b.rawData != null && b.rawData!.trim().isNotEmpty)
-                            ? 'Raw'
-                            : 'Legacy code';
+                            ? context.l10n.rawSignal
+                            : context.l10n.legacyCode;
                     return CheckboxListTile(
                       value: selected,
                       onChanged: (v) {
@@ -343,7 +359,7 @@ class _ExistingRemoteButtonImportSheetState
                     child: OutlinedButton.icon(
                       onPressed: () => Navigator.of(context).pop(const <IRButton>[]),
                       icon: const Icon(Icons.close),
-                      label: const Text('Cancel'),
+                      label: Text(context.l10n.cancel),
                     ),
                   ),
                   const SizedBox(width: 10),
@@ -351,7 +367,7 @@ class _ExistingRemoteButtonImportSheetState
                     child: FilledButton.icon(
                       onPressed: _selectedKeys.isEmpty ? null : _finishImport,
                       icon: const Icon(Icons.download_done_outlined),
-                      label: Text('Import ${_selectedKeys.length}'),
+                      label: Text(context.l10n.importCount(_selectedKeys.length)),
                     ),
                   ),
                 ],

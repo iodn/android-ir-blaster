@@ -1,0 +1,1846 @@
+{
+  "@@locale": "vi",
+  "appTitle": "IR Blaster",
+  "loading": "Đang tải…",
+  "unknownError": "Lỗi không rõ",
+  "failedToStart": "Không khởi động được",
+  "retry": "Thử lại",
+  "quickTilePower": "Nguồn",
+  "quickTileMute": "Tắt tiếng",
+  "quickTileVolumeUp": "Âm +",
+  "quickTileVolumeDown": "Âm -",
+  "homeUsbPermissionRequiredMessage": "Điện thoại này không có bộ phát IR tích hợp. Đã phát hiện USB IR dongle, nhưng chưa được cấp quyền.\n\nHãy chấp nhận lời nhắc quyền USB để bật gửi IR.",
+  "homeUsbPermissionDeniedMessage": "Điện thoại này không có bộ phát IR tích hợp. Đã phát hiện USB IR dongle, nhưng quyền USB đã bị từ chối.\n\nHãy yêu cầu lại quyền và chấp nhận lời nhắc để bật gửi IR.",
+  "homeUsbPermissionGrantedMessage": "Điện thoại này không có bộ phát IR tích hợp. USB IR dongle đã được cấp quyền, nhưng chưa được khởi tạo.",
+  "homeUsbOpenFailedMessage": "Điện thoại này không có bộ phát IR tích hợp. Đã phát hiện và cấp quyền cho USB IR dongle, nhưng không thể khởi tạo.\n\nHãy kết nối lại dongle và thử lại.",
+  "homeUsbReadyMessage": "Điện thoại này không có bộ phát IR tích hợp.",
+  "homeUsbNoDeviceMessage": "This phone does not include a built-in IR emitter, and hiện không có USB IR dongle được hỗ trợ nào được kết nối.\n\nBạn vẫn có thể tạo, nhập và quản lý điều khiển — nhưng để truyền tín hiệu IR bạn cần một trong các tùy chọn bên dưới.",
+  "homeUsbOptionPlugIn": "Cắm USB IR dongle được hỗ trợ rồi chấp nhận quyền.",
+  "homeUsbOptionReady": "Sẵn sàng sử dụng.",
+  "homeUsbOptionPermissionRequired": "Đã cắm. Cần quyền.",
+  "homeUsbOptionPermissionDenied": "Đã từ chối quyền. Hãy yêu cầu lại.",
+  "homeUsbOptionPermissionGranted": "Đã cấp quyền. Đang khởi tạo dongle.",
+  "homeUsbOptionOpenFailed": "Đã cấp quyền, nhưng khởi tạo thất bại.",
+  "homeHardwareBannerNoInternal": "Điện thoại này không có IR tích hợp. Hãy kết nối USB IR dongle hoặc bật chế độ Audio trong Cài đặt.",
+  "homeHardwareBannerPermissionRequired": "Đã phát hiện USB dongle. Cần quyền để gửi IR.",
+  "homeHardwareBannerPermissionDenied": "Quyền USB đã bị từ chối. Hãy yêu cầu lại để gửi IR.",
+  "homeHardwareBannerPermissionGranted": "USB dongle đã được cấp quyền. Đang chờ khởi tạo.",
+  "homeHardwareBannerOpenFailed": "USB dongle đã được cấp quyền, nhưng khởi tạo thất bại.",
+  "homeHardwareBannerReady": "USB đã sẵn sàng.",
+  "homeHardwareRequiredTitle": "Cần phần cứng IR để gửi lệnh",
+  "homeUsbDongleRecommended": "USB IR dongle (khuyên dùng)",
+  "homeAudioAdapterAlternative": "Bộ chuyển IR audio (thay thế)",
+  "homeAudioAdapterDescription": "Cài đặt → Bộ phát IR → Audio (1 LED / 2 LED). Cần bộ chuyển audio sang IR.",
+  "close": "Đóng",
+  "homeChooseTransmitter": "Chọn bộ phát",
+  "openSettings": "Mở Cài đặt",
+  "homeUsbPermissionSentApprove": "Đã gửi yêu cầu quyền USB. Hãy chấp nhận lời nhắc để bật USB.",
+  "homeUsbDongleNotDetected": "Không phát hiện USB IR dongle được hỗ trợ. Hãy cắm vào rồi thử lại.",
+  "homeUsbPermissionRequestFailed": "Không yêu cầu được quyền USB.",
+  "working": "Đang xử lý…",
+  "requestUsbPermission": "Yêu cầu quyền USB",
+  "homeHardwareTip": "Mẹo: Bạn vẫn có thể tạo và sắp xếp điều khiển ngay bây giờ. Chỉ cần phần cứng khi truyền tín hiệu.",
+  "homeNoIrTransmitterTitle": "Không có bộ phát IR khả dụng",
+  "settingsNavLabel": "Cài đặt",
+  "dismiss": "Bỏ qua",
+  "remotesNavLabel": "Điều khiển",
+  "macrosNavLabel": "Macro",
+  "signalTesterNavLabel": "Kiểm tra tín hiệu",
+  "settingsTitle": "Cài đặt",
+  "remoteNoIrEmitterTitle": "Không có bộ phát IR",
+  "remoteNoIrEmitterMessage": "Thiết bị này không có bộ phát IR",
+  "remoteNoIrEmitterNeedsEmitter": "Ứng dụng này cần bộ phát IR để hoạt động",
+  "remoteDismiss": "Bỏ qua",
+  "remoteClose": "Đóng",
+  "remoteFailedToSend": "Gửi IR thất bại: {error}",
+  "@remoteFailedToSend": {
+    "placeholders": {
+      "error": {}
+    }
+  },
+  "remoteFailedToStartLoop": "Không khởi động được vòng lặp: {error}",
+  "@remoteFailedToStartLoop": {
+    "placeholders": {
+      "error": {}
+    }
+  },
+  "remoteLoopStoppedFailed": "Đã dừng lặp (gửi thất bại): {error}",
+  "@remoteLoopStoppedFailed": {
+    "placeholders": {
+      "error": {}
+    }
+  },
+  "remoteLoopingHint": "Đang lặp \"{title}\". Chạm Dừng trên thanh trên cùng để dừng.",
+  "@remoteLoopingHint": {
+    "placeholders": {
+      "title": {}
+    }
+  },
+  "remoteLoopStopped": "Đã dừng lặp.",
+  "remoteUpdatedNotFound": "Điều khiển trên màn hình đã được cập nhật. Không tìm thấy trong danh sách đã lưu.",
+  "remoteUpdatedNamed": "Đã cập nhật \"{name}\".",
+  "@remoteUpdatedNamed": {
+    "placeholders": {
+      "name": {}
+    }
+  },
+  "remoteDeleteFailed": "Xóa thất bại: {error}",
+  "@remoteDeleteFailed": {
+    "placeholders": {
+      "error": {}
+    }
+  },
+  "remoteNotFoundSavedList": "Không tìm thấy điều khiển trong danh sách đã lưu.",
+  "remoteDeletedNamed": "Đã xóa \"{name}\".",
+  "@remoteDeletedNamed": {
+    "placeholders": {
+      "name": {}
+    }
+  },
+  "buttonFallbackTitle": "Nút",
+  "imageFallbackTitle": "Hình ảnh",
+  "noBrowserAvailable": "Không có trình duyệt",
+  "failedToOpen": "Mở thất bại: {error}",
+  "@failedToOpen": {
+    "placeholders": {
+      "error": {}
+    }
+  },
+  "cancel": "Hủy",
+  "settingsRestoreDemoTitle": "Khôi phục điều khiển mẫu?",
+  "settingsRestoreDemoMessage": "Thao tác này sẽ thay điều khiển hiện tại bằng điều khiển mẫu có sẵn. Nên sao lưu nếu bạn muốn giữ danh sách hiện tại.",
+  "settingsRestoreDemoConfirm": "Khôi phục mẫu",
+  "settingsDemoRemotesRestored": "Đã khôi phục điều khiển mẫu.",
+  "settingsDeleteAllRemotesTitle": "Xóa tất cả điều khiển?",
+  "settingsDeleteAllRemotesMessage": "Thao tác này sẽ xóa mọi điều khiển khỏi thiết bị này. Không thể hoàn tác.",
+  "settingsDeleteAllConfirm": "Xóa tất cả",
+  "settingsAllRemotesDeleted": "Đã xóa tất cả điều khiển.",
+  "themeAuto": "Giao diện tự động",
+  "themeLight": "Giao diện sáng",
+  "themeDark": "Giao diện tối",
+  "themeDescAuto": "Theo cài đặt thiết bị",
+  "themeDescLight": "Luôn sáng rõ",
+  "themeDescDark": "Dịu mắt",
+  "themeHintAuto": "Giao diện sẽ tự động đổi khi bạn chuyển thiết bị giữa chế độ sáng và tối",
+  "themeHintLight": "Phù hợp khi dùng ban ngày và nơi đủ sáng",
+  "themeHintDark": "Giảm mỏi mắt trong môi trường thiếu sáng và tiết kiệm pin trên màn hình OLED",
+  "supportDevelopmentTitle": "Ủng hộ phát triển",
+  "supportDevelopmentSubtitle": "Giúp IR Blaster luôn được duy trì và tương thích phần cứng",
+  "supportDevelopmentBody": "Không quảng cáo, không theo dõi, không khóa tính năng. Sự ủng hộ của bạn giúp phát triển giao thức, hỗ trợ USB dongle và tăng tương thích giữa các thiết bị.",
+  "donate": "Ủng hộ",
+  "starRepo": "Gắn sao repo",
+  "repositoryLinkCopied": "Đã sao chép liên kết repo",
+  "supportPillLocalOnly": "Chỉ cục bộ",
+  "supportPillNoTracking": "Không theo dõi",
+  "supportPillHardwareAware": "Hiểu phần cứng",
+  "supportPillOpenSource": "Mã nguồn mở",
+  "appearanceTitle": "Giao diện",
+  "appearanceSubtitle": "Tùy chỉnh giao diện hiển thị",
+  "localizationTitle": "Bản địa hóa",
+  "localizationSubtitle": "Ngôn ngữ ứng dụng và cách dịch",
+  "localizationAutoUsing": "Tự động: đang dùng {language}",
+  "@localizationAutoUsing": {
+    "placeholders": {
+      "language": {}
+    }
+  },
+  "localizationAutoDescription": "Ứng dụng sẽ theo ngôn ngữ thiết bị khi có thể.",
+  "localizationManualDescription": "Ngôn ngữ ứng dụng đã được đặt thủ công.",
+  "useSystemLanguageTitle": "Dùng ngôn ngữ hệ thống",
+  "useSystemLanguageEnabled": "Đang theo ngôn ngữ thiết bị: {language}",
+  "@useSystemLanguageEnabled": {
+    "placeholders": {
+      "language": {}
+    }
+  },
+  "useSystemLanguageDisabled": "Dùng ngôn ngữ được chọn bên dưới thay cho mặc định của thiết bị.",
+  "chooseAppLanguage": "Chọn ngôn ngữ ứng dụng",
+  "languagePickerDisabledHint": "Tắt ngôn ngữ hệ thống để chọn ngôn ngữ thủ công.",
+  "searchLanguages": "Tìm ngôn ngữ",
+  "noLanguagesFound": "Không có ngôn ngữ phù hợp",
+  "localizationHint": "Khi bật ngôn ngữ hệ thống, ứng dụng sẽ theo locale của thiết bị và dùng tiếng Anh nếu không có bản dịch. Tắt tùy chọn này để khóa ứng dụng ở một ngôn ngữ cụ thể.",
+  "appLanguageTitle": "Ngôn ngữ ứng dụng",
+  "appLanguageHint": "Tự động theo ngôn ngữ thiết bị. Chọn Tiếng Anh hoặc Tiếng Pháp ở đây để chỉ ghi đè cho ứng dụng.",
+  "languageAuto": "Tự động (hệ thống)",
+  "languageAutoDescription": "Tự động theo ngôn ngữ thiết bị",
+  "languageEnglish": "Tiếng Anh",
+  "languageEnglishDescription": "Luôn dùng tiếng Anh cho ứng dụng",
+  "languageFrench": "Tiếng Pháp",
+  "languageFrenchDescription": "Luôn dùng tiếng Pháp cho ứng dụng",
+  "languageAutoShort": "Tự động",
+  "languageEnglishShort": "Tiếng Anh",
+  "languageFrenchShort": "Français",
+  "useDynamicColors": "Dùng màu động",
+  "themeChoiceAuto": "Tự động",
+  "themeChoiceLight": "Nhẹ",
+  "themeChoiceDark": "Tối",
+  "irTransmitterTitle": "Bộ phát IR",
+  "irTransmitterSubtitle": "Chọn phần cứng gửi lệnh IR",
+  "interactionTitle": "Tương tác",
+  "interactionSubtitle": "Phản hồi chạm và bố cục điều khiển",
+  "hapticFeedbackTitle": "Phản hồi rung",
+  "hapticFeedbackSubtitle": "Rung khi chạm và thao tác",
+  "intensity": "Cường độ",
+  "intensityLight": "Nhẹ",
+  "intensityMedium": "Vừa",
+  "intensityStrong": "Mạnh",
+  "flipRemoteDefaultTitle": "Mặc định lật màn hình điều khiển",
+  "flipRemoteDefaultSubtitle": "Mở màn hình điều khiển xoay 180° (cho USB dongle gắn dưới).",
+  "remoteViewFlipped": "Màn hình điều khiển sẽ mở ở chế độ lật.",
+  "remoteViewNormal": "Màn hình điều khiển sẽ mở bình thường.",
+  "backupTitle": "Sao lưu",
+  "backupSubtitle": "Nhập/xuất điều khiển và macro",
+  "importBackup": "Nhập bản sao lưu",
+  "importBackupSubtitle": "Nhập bản sao lưu điều khiển/macro hoặc tệp Flipper Zero, LIRC hay IRPLUS",
+  "bulkImportFolder": "Nhập hàng loạt thư mục",
+  "bulkImportFolderSubtitle": "Nhập nhiều điều khiển từ một thư mục",
+  "exportBackup": "Xuất bản sao lưu",
+  "exportBackupSubtitle": "Lưu điều khiển + macro thành một tệp JSON vào Downloads",
+  "restoreDemoRemotes": "Khôi phục điều khiển mẫu",
+  "restoreDemoRemotesSubtitle": "Thay điều khiển hiện tại bằng bản mẫu có sẵn",
+  "deleteAllRemotes": "Xóa tất cả điều khiển",
+  "deleteAllRemotesSubtitle": "Xóa mọi điều khiển khỏi thiết bị này",
+  "backupTip": "Tip: export a backup before large edits. Nhập hỗ trợ bản sao lưu đầy đủ, bản sao lưu JSON điều khiển cũ và tệp .ir của Flipper Zero.",
+  "aboutTitle": "Giới thiệu",
+  "aboutSubtitle": "Thông tin ứng dụng và chi tiết mã nguồn mở",
+  "aboutAppNameWithCreator": "IR Blaster - {creator}",
+  "@aboutAppNameWithCreator": {
+    "placeholders": {
+      "creator": {}
+    }
+  },
+  "versionLabel": "Phiên bản {version}",
+  "@versionLabel": {
+    "placeholders": {
+      "version": {}
+    }
+  },
+  "sourceCode": "Mã nguồn",
+  "viewOnGitHub": "Xem trên GitHub",
+  "repositoryUrlCopied": "Đã sao chép URL repo",
+  "reportIssue": "Báo lỗi",
+  "reportIssueSubtitle": "Báo lỗi và yêu cầu tính năng",
+  "issuesUrlCopied": "Đã sao chép URL lỗi",
+  "license": "Giấy phép",
+  "openSourceLicense": "Giấy phép mã nguồn mở",
+  "licenseUrlCopied": "Đã sao chép URL giấy phép",
+  "companyName": "KaijinLab Inc.",
+  "visitWebsite": "Truy cập website",
+  "companyUrlCopied": "Đã sao chép URL công ty",
+  "licenses": "Giấy phép",
+  "openSourceLicenses": "Giấy phép mã nguồn mở",
+  "byCreator": "bởi {creator}",
+  "@byCreator": {
+    "placeholders": {
+      "creator": {}
+    }
+  },
+  "deviceControlsTitle": "Điều khiển thiết bị",
+  "deviceControlsSubtitle": "Hiện nút yêu thích trong trang điều khiển hệ thống",
+  "manageFavorites": "Quản lý mục yêu thích",
+  "manageFavoritesSubtitle": "Chọn nút hiện trong điều khiển thiết bị",
+  "quickSettingsTitle": "Cài đặt nhanh",
+  "quickSettingsSubtitle": "Thêm ô cho phím tắt nguồn và âm lượng",
+  "configureTiles": "Cấu hình ô",
+  "configureTilesSubtitle": "Gán ô cho nút điều khiển",
+  "tvKillTitle": "TVKill",
+  "tvKillSubtitle": "Chu kỳ nguồn chung cho thiết bị của bạn",
+  "openTvKill": "Mở TVKill",
+  "openTvKillSubtitle": "Lặp mã nguồn (chỉ dùng với thiết bị của bạn)",
+  "failedToLoadTransmitterSettings": "Không tải được cài đặt bộ phát.",
+  "usbStatusReady": "USB dongle đã kết nối và sẵn sàng gửi IR.",
+  "usbStatusPermissionRequired": "Đã phát hiện USB dongle. Hãy yêu cầu quyền USB và chấp nhận lời nhắc hệ thống.",
+  "usbStatusPermissionDenied": "Quyền USB đã bị từ chối cho dongle đang gắn. Hãy yêu cầu lại và chấp nhận lời nhắc.",
+  "usbStatusPermissionGranted": "Quyền USB đã được cấp. Dongle vẫn cần được khởi tạo trước khi có thể gửi IR.",
+  "usbStatusOpenFailed": "Quyền USB đã được cấp, nhưng không thể khởi tạo dongle. Hãy kết nối lại rồi thử lại.",
+  "usbStatusNoDevice": "Không phát hiện USB IR dongle được hỗ trợ.",
+  "usbSelectPermissionRequired": "Đã phát hiện USB dongle nhưng chưa được cấp quyền. Hãy chạm \"Yêu cầu quyền USB\".",
+  "usbSelectPermissionDenied": "Quyền USB đã bị từ chối. Hãy chạm \"Yêu cầu quyền USB\" và chấp nhận lời nhắc.",
+  "usbSelectPermissionGranted": "Quyền USB đã được cấp, nhưng dongle chưa được khởi tạo. Hãy thử kết nối lại.",
+  "usbSelectOpenFailed": "Quyền USB đã được cấp, nhưng không thể khởi tạo dongle. Hãy kết nối lại rồi thử lại.",
+  "usbSelectNoDevice": "Không phát hiện USB IR dongle được hỗ trợ. Hãy cắm vào rồi chạm \"Yêu cầu quyền USB\".",
+  "usbSelectReady": "USB dongle đã sẵn sàng.",
+  "autoSwitchEnabledMessage": "Đã bật tự chuyển: dùng USB khi kết nối, nếu không dùng tích hợp.",
+  "autoSwitchDisabledMessage": "Đã tắt tự chuyển: giờ chọn bộ phát thủ công.",
+  "failedToUpdateAutoSwitch": "Không cập nhật được cài đặt tự chuyển.",
+  "failedToSwitchTransmitter": "Không chuyển được bộ phát.",
+  "deviceHasNoInternalIr": "Thiết bị này không có bộ phát IR tích hợp.",
+  "audioModeEnabledMessage": "Đã bật chế độ Audio. Hãy dùng âm lượng media tối đa và bộ chuyển audio sang IR LED.",
+  "usbPermissionRequestSent": "Đã gửi yêu cầu quyền USB.",
+  "usbPermissionRequestSentApprove": "Đã gửi yêu cầu quyền USB. Hãy chấp nhận lời nhắc để bật USB.",
+  "usbAlreadyReady": "USB dongle đã được khởi tạo và sẵn sàng.",
+  "failedToRequestUsbPermission": "Không yêu cầu được quyền USB.",
+  "transmitterHelpInternal": "Dùng bộ phát IR tích hợp của điện thoại để gửi lệnh.",
+  "transmitterHelpUsb": "Dùng USB IR dongle (cần quyền) để gửi lệnh.",
+  "transmitterHelpAudio1": "Dùng đầu ra audio (mono). Cần bộ chuyển audio sang IR và âm lượng media cao.",
+  "transmitterHelpAudio2": "Dùng đầu ra audio (stereo). Dùng hai kênh để điều khiển LED tốt hơn với bộ chuyển tương thích.",
+  "transmitterInternal": "IR tích hợp",
+  "transmitterUsb": "USB IR Dongle",
+  "transmitterAudio1": "Âm thanh (1 LED)",
+  "transmitterAudio2": "Audio (2 LED)",
+  "failedToLoadTransmitterCapabilities": "Không tải được khả năng của bộ phát.",
+  "selectedTransmitter": "Bộ phát đã chọn",
+  "selectedTransmitterValue": "{effective} • Hoạt động: {active}",
+  "@selectedTransmitterValue": {
+    "placeholders": {
+      "effective": {},
+      "active": {}
+    }
+  },
+  "refresh": "Làm mới",
+  "autoSwitchTitle": "Tự chuyển",
+  "autoSwitchDisabledWhileAudio": "Tắt khi dùng chế độ Audio",
+  "autoSwitchUsesUsbOtherwiseInternal": "Dùng USB khi kết nối, nếu không thì dùng tích hợp",
+  "unavailableOnThisDevice": "Không khả dụng trên thiết bị này",
+  "openOnUsbAttachTitle": "Mở khi gắn USB",
+  "openOnUsbAttachSubtitle": "Android có thể gợi ý mở ứng dụng khi USB IR dongle được hỗ trợ được kết nối.",
+  "openOnUsbAttachEnabledMessage": "Sẽ gợi ý mở IR Blaster khi có USB dongle được hỗ trợ được gắn vào.",
+  "openOnUsbAttachDisabledMessage": "Sẽ không gợi ý mở khi gắn USB.",
+  "failedToUpdateSetting": "Không cập nhật được cài đặt.",
+  "unnamedButton": "Nút chưa tên",
+  "iconFallback": "Biểu tượng",
+  "remoteListReorderHint": "Chế độ sắp xếp lại: nhấn giữ và kéo thẻ để di chuyển.",
+  "deleteRemoteTitle": "Xóa điều khiển?",
+  "deleteRemoteMessage": "\"{name}\" sẽ bị xóa vĩnh viễn. Không thể hoàn tác thao tác này.",
+  "@deleteRemoteMessage": {
+    "placeholders": {
+      "name": {}
+    }
+  },
+  "delete": "Xóa",
+  "addToDeviceControlsTitle": "Thêm vào Điều khiển thiết bị?",
+  "addToDeviceControlsDescription": "Truy cập nhanh trong điều khiển thiết bị hệ thống.",
+  "skip": "Bỏ qua",
+  "add": "Thêm",
+  "addedToDeviceControls": "Đã thêm vào Điều khiển thiết bị.",
+  "deletedRemoteUndoUnavailable": "Đã xóa \"{name}\". This action can't be undone.",
+  "@deletedRemoteUndoUnavailable": {
+    "placeholders": {
+      "name": {}
+    }
+  },
+  "remoteLayoutSummary": "{count} nút · {layout}",
+  "@remoteLayoutSummary": {
+    "placeholders": {
+      "count": {},
+      "layout": {}
+    }
+  },
+  "layoutComfort": "Thoải mái",
+  "layoutCompact": "Gọn",
+  "open": "Mở",
+  "useThisRemote": "Dùng điều khiển này",
+  "edit": "Sửa",
+  "editRemoteSubtitle": "Đổi tên và sửa nút",
+  "thisCannotBeUndone": "Không thể hoàn tác",
+  "searchRemotes": "Tìm điều khiển",
+  "reorderRemotes": "Sắp xếp lại điều khiển",
+  "addRemote": "Thêm điều khiển",
+  "more": "Thêm",
+  "reorderMode": "Chế độ sắp xếp lại",
+  "remoteButtonCount": "{count} nút{plural}",
+  "@remoteButtonCount": {
+    "placeholders": {
+      "count": {},
+      "plural": {}
+    }
+  },
+  "noRemotesYet": "Chưa có điều khiển nào",
+  "noRemotesDescription": "Tạo một điều khiển để bắt đầu gửi mã IR.",
+  "noRemotesNextStep": "Tiếp theo: chạm Thêm điều khiển, rồi thêm các nút đầu tiên.",
+  "actions": "Thao tác",
+  "macrosTitle": "Macro",
+  "help": "Trợ giúp",
+  "createMacro": "Tạo Macro",
+  "timedMacrosTitle": "Macro hẹn giờ",
+  "timedMacrosSubtitle": "Tự động hóa chuỗi lệnh IR với thời gian chính xác",
+  "timedMacrosNextStep": "Tiếp theo: chạm Tạo macro đầu tiên, chọn điều khiển rồi thêm lệnh và độ trễ.",
+  "macroFeatureToysTitle": "Rất hợp cho đồ chơi tương tác",
+  "macroFeatureToysDescription": "Điều khiển các thiết bị như chó robot i-cybie, robot i-sobot và các đồ chơi khác cần thời gian giữa các lệnh để xử lý thao tác.",
+  "macroFeatureTimingTitle": "Điều khiển thời gian chính xác",
+  "macroFeatureTimingDescription": "Thêm độ trễ giữa các lệnh (250ms đến thời lượng tùy chỉnh) để thiết bị có thời gian phản hồi trước thao tác tiếp theo.",
+  "macroFeatureManualTitle": "Bước tiếp tục thủ công",
+  "macroFeatureManualDescription": "Tạm dừng thực thi và chờ bạn xác nhận khi độ dài hoạt ảnh thay đổi hoặc khi cần phản hồi trực quan.",
+  "exampleUseCase": "Ví dụ sử dụng",
+  "macroExampleText": "Chế độ nâng cao i-cybie:\n1. Gửi lệnh \"Mode\"\n2. Chờ 1000ms (đồ chơi xử lý)\n3. Gửi \"Action 1\"\n4. Chờ 1000ms\n5. Gửi \"Action 2\"\n…và cứ thế tự động!",
+  "createFirstMacro": "Tạo macro đầu tiên",
+  "noRemote": "Không có điều khiển",
+  "macroStepCount": "{count} bước{plural}",
+  "@macroStepCount": {
+    "placeholders": {
+      "count": {},
+      "plural": {}
+    }
+  },
+  "aboutTimedMacros": "Về macro hẹn giờ",
+  "aboutTimedMacrosDescription": "Macro hẹn giờ cho phép bạn tự động hóa chuỗi lệnh IR với độ trễ chính xác giữa từng bước.",
+  "sendCommand": "Gửi lệnh",
+  "sendCommandDescription": "Gửi một lệnh IR từ điều khiển của bạn.",
+  "delay": "Độ trễ",
+  "delayDescription": "Waits for a specified duration (vd. 1000ms) before the next step.",
+  "manualContinue": "Tiếp tục thủ công",
+  "manualContinueDescription": "Tạm dừng cho đến khi bạn chạm Tiếp tục (hữu ích với hoạt ảnh có độ dài thay đổi).",
+  "gotIt": "Đã hiểu",
+  "failedToSaveMacros": "Không lưu được macro.",
+  "deletedMacroNamed": "Đã xóa \"{name}\".",
+  "@deletedMacroNamed": {
+    "placeholders": {
+      "name": {}
+    }
+  },
+  "undo": "Hoàn tác",
+  "failedToRestoreMacro": "Không khôi phục được macro.",
+  "deleteMacroTitle": "Xóa macro?",
+  "deleteMacroMessage": "Bạn có thể hoàn tác từ snackbar tiếp theo.",
+  "noRemotesAvailable": "Không có điều khiểns available.",
+  "remoteButtonCountSummary": "{count} nút",
+  "@remoteButtonCountSummary": {
+    "placeholders": {
+      "count": {}
+    }
+  },
+  "remoteOrientationFlippedTooltip": "Hướng: lật (chạm để về bình thường)",
+  "remoteOrientationNormalTooltip": "Hướng: bình thường (chạm để lật)",
+  "stopLoop": "Dừng lặp",
+  "reorderButtons": "Sắp xếp lại nút",
+  "remoteReorderHint": "Chế độ sắp xếp lại: long-press and drag a button to move it.",
+  "manageRemote": "Quản lý điều khiển",
+  "remoteNoButtons": "Điều khiển này không có nút",
+  "remoteNoButtonsDescription": "Dùng \"Sửa điều khiển\" để thêm hoặc cấu hình nút.",
+  "editRemote": "Sửa điều khiển",
+  "editRemoteActionsSubtitle": "Đổi tên, sắp xếp lại và sửa nút",
+  "remoteUpdatedNamedButton": "Đã cập nhật \"{name}\".",
+  "@remoteUpdatedNamedButton": {
+    "placeholders": {
+      "name": {}
+    }
+  },
+  "buttonAddedNamed": "Đã thêm \"{name}\".",
+  "@buttonAddedNamed": {
+    "placeholders": {
+      "name": {}
+    }
+  },
+  "buttonDuplicated": "Đã nhân bản nút.",
+  "loopRunningForButton": "Vòng lặp đang chạy cho nút này.",
+  "loopTip": "Mẹo: Dùng Lặp để lặp lại cho đến khi bạn dừng.",
+  "codeCopied": "Đã sao chép mã.",
+  "copyCode": "Sao chép mã",
+  "startLoop": "Bắt đầu lặp",
+  "editButtonSubtitle": "Sửa nhãn, mã, giao thức, tần số",
+  "newButton": "Nút mới",
+  "newButtonSubtitle": "Tạo nút mới sau nút này",
+  "duplicate": "Nhân bản",
+  "duplicateButtonSubtitle": "Tạo bản sao của nút này",
+  "removeFromDeviceControls": "Xóa khỏi Điều khiển thiết bị",
+  "addToDeviceControls": "Thêm vào Điều khiển thiết bị",
+  "deviceControlsButtonSubtitle": "Hiển thị nút này trong điều khiển thiết bị hệ thống",
+  "removedFromDeviceControls": "Đã xóa khỏi Điều khiển thiết bị.",
+  "pinQuickTile": "Ghim vào mục yêu thích Ô nhanh",
+  "unpinQuickTile": "Bỏ ghim khỏi mục yêu thích Ô nhanh",
+  "quickTileButtonSubtitle": "Hiển thị nút này ở đầu bộ chọn ô nhanh",
+  "removedFromQuickTileFavorites": "Đã bỏ khỏi mục yêu thích Ô nhanh.",
+  "pinnedToQuickTileFavorites": "Đã ghim vào mục yêu thích Ô nhanh.",
+  "duplicateAndEdit": "Nhân bản and edit",
+  "duplicateAndEditSubtitle": "Tạo bản sao và sửa ngay",
+  "done": "Xong",
+  "run": "Chạy",
+  "untitledRemote": "Điều khiển chưa tên",
+  "createRemoteTitle": "Tạo điều khiển",
+  "editRemoteTitle": "Sửa điều khiển",
+  "removeButtonTitle": "Xóa nút?",
+  "imageButtonRemovedMessage": "Nút hình ảnh này sẽ bị xóa.",
+  "namedButtonRemovedMessage": "\"{name}\" sẽ bị xóa.",
+  "@namedButtonRemovedMessage": {
+    "placeholders": {
+      "name": {}
+    }
+  },
+  "remove": "Xóa",
+  "importedButtonCount": "Imported {count} nút.",
+  "@importedButtonCount": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "importedButtonsFromExistingRemotes": "Imported {count} nút from existing remotes.",
+  "@importedButtonsFromExistingRemotes": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "editButtonSettingsSubtitle": "Đổi nhãn, tín hiệu và cài đặt nâng cao",
+  "createButtonCopySubtitle": "Tạo bản sao của nút này",
+  "duplicateAndEditButtonSubtitle": "Tạo bản sao và sửa ngay",
+  "undoAvailableInNextSnackbar": "Bạn có thể hoàn tác từ snackbar tiếp theo",
+  "buttonRemoved": "Đã xóa nút.",
+  "remoteNameCannotBeEmpty": "Tên điều khiển không được để trống.",
+  "saveRemote": "Lưu điều khiển",
+  "remoteName": "Tên điều khiển",
+  "remoteNameHint": "vd. TV, Air Conditioner, LED Strip",
+  "remoteNameHelper": "Tên này sẽ hiện trong danh sách Điều khiển của bạn.",
+  "layoutStyle": "Kiểu bố cục",
+  "layoutWideDescription": "Rộng: nút 2 cột với chi tiết bổ sung (khuyên dùng).",
+  "layoutCompactDescription": "Gọn: classic 4× grid (icons/text only).",
+  "importFromRemotes": "Nhập từ điều khiển",
+  "importFromDatabase": "Nhập từ CSDL",
+  "addButton": "Thêm nút",
+  "noButtonsYet": "Chưa có nút nào",
+  "createRemoteEmptyStateDescription": "Thêm nút đầu tiên, rồi nhấn giữ để xem tùy chọn sửa/xóa.",
+  "createButtonTitle": "Tạo nút",
+  "editButtonTitle": "Sửa nút",
+  "failedToLoadProtocols": "Không tải được giao thức: {error}",
+  "@failedToLoadProtocols": {
+    "placeholders": {
+      "error": {}
+    }
+  },
+  "failedToLoadDatabaseKeys": "Không tải được khóa CSDL: {error}",
+  "@failedToLoadDatabaseKeys": {
+    "placeholders": {
+      "error": {}
+    }
+  },
+  "presetPower": "Nguồn",
+  "presetVolume": "Âm lượng",
+  "presetChannel": "Kênh",
+  "presetNavigation": "Điều hướng",
+  "all": "Tất cả",
+  "completeRequiredFieldsToSave": "Điền đủ trường bắt buộc để lưu",
+  "buttonLabelStepTitle": "1) Nhãn nút",
+  "buttonLabelStepSubtitle": "Chọn hình ảnh, biểu tượng hoặc nhập nhãn văn bản.",
+  "buttonColorStepTitle": "2) Màu nút (tùy chọn)",
+  "buttonColorStepSubtitle": "Chọn màu nền cho nút này.",
+  "selectColor": "Chọn màu:",
+  "noImageSelected": "Chưa chọn hình",
+  "gallery": "Thư viện",
+  "builtIn": "Có sẵn",
+  "removeImage": "Xóa image",
+  "requiredSelectImageOrSwitch": "Bắt buộc: chọn hình, chọn biểu tượng hoặc chuyển sang Văn bản.",
+  "iconSelected": "Biểu tượng selected",
+  "noIconSelected": "Chưa chọn biểu tượng",
+  "chooseIcon": "Choose Biểu tượng",
+  "removeIcon": "Xóa icon",
+  "requiredSelectIconOrSwitch": "Bắt buộc: chọn biểu tượng hoặc chuyển sang Hình/Văn bản.",
+  "buttonText": "Văn bản nút",
+  "buttonTextHint": "vd. Nguồn, Âm lượng +, HDMI 1",
+  "buttonTextHelper": "Văn bản này sẽ hiện trên nút.",
+  "requiredEnterButtonLabel": "Bắt buộc: nhập nhãn nút.",
+  "defaultColorName": "Mặc định",
+  "newRemoteCreatedFromLastHit": "Đã tạo điều khiển mới với một nút từ kết quả cuối.",
+  "selectRemote": "Chọn điều khiển",
+  "remoteNumber": "Điều khiển #{id}",
+  "@remoteNumber": {
+    "placeholders": {
+      "id": {}
+    }
+  },
+  "newRemoteCreated": "Đã tạo điều khiển mới.",
+  "failedToCreateRemote": "Không tạo được điều khiển.",
+  "newRemoteEllipsis": "Điều khiển mới…",
+  "addedToRemoteNamed": "Đã thêm vào {name}.",
+  "@addedToRemoteNamed": {
+    "placeholders": {
+      "name": {}
+    }
+  },
+  "failedToAddToRemote": "Không thêm được vào điều khiển.",
+  "newRemoteDefaultName": "Điều khiển mới",
+  "jumpedToOffsetPaused": "Đã nhảy đến vị trí {offset}. Đã tạm dừng — nhấn Tiếp tục để tiếp tục.",
+  "@jumpedToOffsetPaused": {
+    "placeholders": {
+      "offset": {
+        "type": "int"
+      }
+    }
+  },
+  "sent": "Đã gửi.",
+  "failedToSend": "Gửi thất bại: {error}",
+  "@failedToSend": {
+    "placeholders": {
+      "error": {}
+    }
+  },
+  "copiedProtocolCode": "Đã sao chép (giao thức:mã).",
+  "savedToResults": "Đã lưu vào Kết quả.",
+  "invalidCodeForProtocol": "Mã không hợp lệ cho giao thức: {error}",
+  "@invalidCodeForProtocol": {
+    "placeholders": {
+      "error": {}
+    }
+  },
+  "copiedCurrentCandidate": "Đã sao chép ứng viên hiện tại.",
+  "jumpToOffset": "Nhảy tới vị trí",
+  "jumpToBruteCursor": "Nhảy tới con trỏ brute",
+  "jump": "Nhảy",
+  "jumpedToCursorPaused": "Nhảyed to cursor 0x{cursor}. Đã tạm dừng — press Tiếp tục to continue.",
+  "@jumpedToCursorPaused": {
+    "placeholders": {
+      "cursor": {}
+    }
+  },
+  "irSignalTester": "Bộ kiểm tra tín hiệu IR",
+  "stop": "Dừng",
+  "selectButton": "Chọn nút",
+  "buttonNotFoundInRemotes": "Không tìm thấy nút trong các điều khiển.",
+  "sentNamed": "Đã gửi \"{name}\".",
+  "@sentNamed": {
+    "placeholders": {
+      "name": {}
+    }
+  },
+  "sendFailed": "Gửi thất bại: {error}",
+  "@sendFailed": {
+    "placeholders": {
+      "error": {}
+    }
+  },
+  "noFavoritesYet": "Chưa có mục yêu thích",
+  "deviceControlsEmptyHint": "Nhấn giữ nút điều khiển và chọn “Thêm vào Điều khiển thiết bị”.",
+  "sendTest": "Gửi thử",
+  "testSendCompleted": "Đã gửi thử xong.",
+  "testSendFailed": "Gửi thử thất bại: {error}",
+  "@testSendFailed": {
+    "placeholders": {
+      "error": {}
+    }
+  },
+  "removedNamed": "Xóad \"{name}\".",
+  "@removedNamed": {
+    "placeholders": {
+      "name": {}
+    }
+  },
+  "brand": "Hãng",
+  "model": "Mẫu",
+  "selectBrand": "Chọn hãng",
+  "searchBrand": "Tìm hãng…",
+  "selectModel": "Chọn mẫu",
+  "searchModel": "Tìm mẫu…",
+  "unnamedKey": "Khóa chưa tên",
+  "unknown": "Không rõ",
+  "emDash": "—",
+  "searchCommands": "Tìm lệnh",
+  "noMatchingCommands": "Không có lệnh khớp",
+  "quickTileFavoritesTitle": "Yêu thích ô nhanh",
+  "changeMappingForTile": "Đổi ánh xạ cho ô {tileLabel}",
+  "@changeMappingForTile": {
+    "placeholders": {
+      "tileLabel": {}
+    }
+  },
+  "pickDifferentButton": "Chọn nút khác",
+  "browseAllRemotesEllipsis": "Duyệt mọi điều khiển…",
+  "invalidMacroFileFormat": "Định dạng tệp macro không hợp lệ.",
+  "failedToParseMacroFile": "Phân tích tệp macro thất bại.",
+  "deviceCodeLabel": "Mã thiết bị",
+  "commandLabel": "Lệnh",
+  "editButtonCodeTitle": "Sửa mã của nút",
+  "thisRemoteHasNoButtons": "Điều khiển này không có nút nào.",
+  "selectCommand": "Chọn lệnh",
+  "databaseModeAutofillHint": "Chế độ CSDL sẽ tự điền Bước 2 cho bạn (hãng + mẫu + giao thức). Sau khi nhập một khóa, bạn có thể chỉnh mọi thứ trong Thủ công.",
+  "test": "Kiểm tra",
+  "allSelectedButtonsWereDuplicates": "Tất cả nút đã chọn đều là bản trùng.",
+  "noButtonsImported": "Không nhập nút nào.",
+  "importedButtonsSkippedDuplicates": "Imported {addedCount} nút. Bỏ quaped {skippedCount} duplicate(s).",
+  "@importedButtonsSkippedDuplicates": {
+    "placeholders": {
+      "addedCount": {
+        "type": "int"
+      },
+      "skippedCount": {
+        "type": "int"
+      }
+    }
+  },
+  "importAllMatchingTitle": "Nhập tất cả nút khớp?",
+  "noMatchingKeysFound": "Không tìm thấy khóa khớp.",
+  "importAllMatchingMessage": "Thao tác này sẽ nhập tối đa {count} khóa khớp từ lựa chọn CSDL hiện tại.",
+  "@importAllMatchingMessage": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "importAll": "Nhập tất cả",
+  "importingButtons": "Đang nhập nút…",
+  "allMatchingButtonsWereDuplicates": "Tất cả nút khớp đều là bản trùng.",
+  "quickPresets": "Mẫu nhanh",
+  "selectDeviceFirst": "Chọn thiết bị trước",
+  "searchByLabelOrHex": "Tìm theo nhãn hoặc hex",
+  "optionalRefinePresetKeys": "Tùy chọn: tinh chỉnh khóa mẫu {preset}",
+  "@optionalRefinePresetKeys": {
+    "placeholders": {
+      "preset": {}
+    }
+  },
+  "selectBrandModelProtocolFirst": "Chọn hãng, mẫu và giao thức trước.",
+  "importFromDatabaseTitle": "Nhập từ cơ sở dữ liệu",
+  "importFromDatabaseSubtitle": "Chọn thiết bị, tải khóa khớp rồi nhập các nút đã chọn.",
+  "deviceAndFilters": "Thiết bị và bộ lọc",
+  "loadedCount": "Đã tải {count}",
+  "@loadedCount": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "hideFilters": "Ẩn bộ lọc",
+  "showFilters": "Hiện bộ lọc",
+  "noProtocolFoundForBrandModel": "Không tìm thấy giao thức cho hãng và mẫu này.",
+  "protocolAutoDetected": "Giao thức",
+  "protocolAutoDetectedHelper": "Tự phát hiện từ cơ sở dữ liệu. Bạn có thể đổi trước khi nhập.",
+  "selectBrandModelToLoadKeys": "Chọn hãng, mẫu và giao thức để tải khóa.",
+  "noKeysFound": "Không tìm thấy khóa nào.",
+  "noKeysFoundForSearch": "Không tìm thấy khóa cho “{query}”.",
+  "@noKeysFoundForSearch": {
+    "placeholders": {
+      "query": {}
+    }
+  },
+  "skipDuplicates": "Bỏ qua duplicates",
+  "skipDuplicatesSubtitle": "Không nhập các nút đã tồn tại trong điều khiển này.",
+  "importSelected": "Nhập mục đã chọn",
+  "noMacrosToExport": "Không có macro để xuất.",
+  "macrosExportedToDownloads": "Đã xuất macro vào Downloads.",
+  "failedToExportMacros": "Xuất macro thất bại.",
+  "failedToReadFile": "Đọc tệp thất bại.",
+  "importFromExistingRemotesTitle": "Nhập từ điều khiển hiện có",
+  "selectedCount": "Đã chọn {count}",
+  "@selectedCount": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "noOtherRemotesWithButtons": "Không tìm thấy điều khiển nào khác có nút.",
+  "sourceRemote": "Điều khiển nguồn",
+  "searchButtons": "Tìm nút",
+  "searchButtonsHint": "Nguồn, Âm lượng, Tắt tiếng...",
+  "selectVisible": "Chọn hiển thị",
+  "clearVisible": "Xóa hiển thị",
+  "protocolNamed": "Giao thức: {name}",
+  "@protocolNamed": {
+    "placeholders": {
+      "name": {}
+    }
+  },
+  "rawSignal": "Raw",
+  "legacyCode": "Mã cũ",
+  "importCount": "Nhập {count}",
+  "@importCount": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "storagePermissionDeniedLegacy": "Quyền bộ nhớ bị từ chối (cần trên một số thiết bị Android cũ).",
+  "backupExportedToDownloads": "Đã xuất bản sao lưu vào Downloads.",
+  "failedToExport": "Xuất thất bại: {error}",
+  "@failedToExport": {
+    "placeholders": {
+      "error": {}
+    }
+  },
+  "importedLegacyJsonBackup": "Đã nhập {count} điều khiển từ bản sao lưu JSON cũ. Macro không đổi.",
+  "@importedLegacyJsonBackup": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "importFailedRemotesMustBeList": "Nhập thất bại: \"remotes\" phải là danh sách JSON khi có mặt.",
+  "importFailedMacrosMustBeList": "Nhập thất bại: \"macros\" phải là danh sách JSON khi có mặt.",
+  "importFailedInvalidBackupFormat": "Nhập thất bại: định dạng sao lưu không hợp lệ (cần List cũ hoặc Map có remotes/macros).",
+  "importedBackupRemotesOnly": "Đã nhập {remoteCount} điều khiển từ bản sao lưu. Macro không đổi.",
+  "@importedBackupRemotesOnly": {
+    "placeholders": {
+      "remoteCount": {
+        "type": "int"
+      }
+    }
+  },
+  "importedBackupRemotesAndMacros": "Đã nhập {remoteCount} điều khiển và {macroCount} macro từ bản sao lưu.",
+  "@importedBackupRemotesAndMacros": {
+    "placeholders": {
+      "remoteCount": {
+        "type": "int"
+      },
+      "macroCount": {
+        "type": "int"
+      }
+    }
+  },
+  "importFailedNoValidButtonsInIr": "Nhập thất bại: không tìm thấy nút hợp lệ trong tệp .ir.",
+  "importedOneRemoteFromFlipper": "Đã nhập 1 điều khiển từ Flipper .ir. Macro không đổi.",
+  "importFailedInvalidIrplus": "Nhập thất bại: tệp irplus không hợp lệ (không tìm thấy nút hợp lệ).",
+  "importedOneRemoteFromIrplus": "Đã nhập 1 điều khiển từ irplus. Macro không đổi.",
+  "importFailedInvalidLirc": "Nhập thất bại: tệp LIRC không hợp lệ (không tìm thấy mã/raw code hợp lệ).",
+  "importedOneRemoteFromLirc": "Đã nhập 1 điều khiển từ cấu hình LIRC. Macro không đổi.",
+  "unsupportedFileTypeSelected": "Đã chọn loại tệp không được hỗ trợ.",
+  "importFailedInvalidUnreadableFile": "Nhập thất bại: tệp không hợp lệ hoặc không đọc được.",
+  "bulkImportNoSupportedFilesInFolder": "Nhập hàng loạt xong: không tìm thấy tệp được hỗ trợ trong thư mục.",
+  "bulkImportNoRemotesImported": "Bulk import complete: no remotes imported. Bỏ quaped {skippedCount} file(s).",
+  "@bulkImportNoRemotesImported": {
+    "placeholders": {
+      "skippedCount": {
+        "type": "int"
+      }
+    }
+  },
+  "bulkImportComplete": "Nhập hàng loạt xong: đã nhập {importedCount} điều khiển từ {supportedCount} tệp được hỗ trợ. Bỏ qua {skippedCount} tệp.",
+  "@bulkImportComplete": {
+    "placeholders": {
+      "importedCount": {
+        "type": "int"
+      },
+      "supportedCount": {
+        "type": "int"
+      },
+      "skippedCount": {
+        "type": "int"
+      }
+    }
+  },
+  "storagePermissionDenied": "Quyền bộ nhớ bị từ chối.",
+  "bulkImportFailedReadFolder": "Nhập hàng loạt thất bại: không đọc được nội dung thư mục.",
+  "bulkImportNoSupportedFilesSource": "Nhập hàng loạt xong: không tìm thấy tệp được hỗ trợ ({sourceLabel}).",
+  "@bulkImportNoSupportedFilesSource": {
+    "placeholders": {
+      "sourceLabel": {}
+    }
+  },
+  "clearAction": "Xóa",
+  "saveAction": "Lưu",
+  "buttonsTitleCount": "Nút ({count})",
+  "@buttonsTitleCount": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "invalidStepEncountered": "Gặp bước không hợp lệ",
+  "failedToSendNamed": "Gửi thất bại: {name}",
+  "@failedToSendNamed": {
+    "placeholders": {
+      "name": {}
+    }
+  },
+  "buttonNotFound": "Không tìm thấy nút",
+  "buttonNotFoundNamed": "Không tìm thấy nút: {name}",
+  "@buttonNotFoundNamed": {
+    "placeholders": {
+      "name": {}
+    }
+  },
+  "unknownButton": "Nút không rõ",
+  "durationSecondsShort": "{seconds}s",
+  "@durationSecondsShort": {
+    "placeholders": {
+      "seconds": {
+        "type": "int"
+      }
+    }
+  },
+  "durationMinutesSecondsShort": "{minutes}p {seconds}s",
+  "@durationMinutesSecondsShort": {
+    "placeholders": {
+      "minutes": {
+        "type": "int"
+      },
+      "seconds": {
+        "type": "int"
+      }
+    }
+  },
+  "durationHoursMinutesShort": "{hours}g {minutes}p",
+  "@durationHoursMinutesShort": {
+    "placeholders": {
+      "hours": {
+        "type": "int"
+      },
+      "minutes": {
+        "type": "int"
+      }
+    }
+  },
+  "orientationFlippedTooltip": "Hướng: lật (chạm để về bình thường)",
+  "orientationNormalTooltip": "Hướng: bình thường (chạm để lật)",
+  "noSteps": "Không có bước",
+  "stepProgress": "Bước {current} / {total}",
+  "@stepProgress": {
+    "placeholders": {
+      "current": {
+        "type": "int"
+      },
+      "total": {
+        "type": "int"
+      }
+    }
+  },
+  "completed": "Hoàn tất",
+  "paused": "Đã tạm dừng",
+  "running": "Đang chạy",
+  "ready": "Sẵn sàng",
+  "stepsProgress": "{current} / {total} bước",
+  "@stepsProgress": {
+    "placeholders": {
+      "current": {
+        "type": "int"
+      },
+      "total": {
+        "type": "int"
+      }
+    }
+  },
+  "waiting": "Đang chờ",
+  "secondsRemaining": "Còn {seconds}s",
+  "@secondsRemaining": {
+    "placeholders": {
+      "seconds": {}
+    }
+  },
+  "millisecondsShort": "{ms}ms",
+  "@millisecondsShort": {
+    "placeholders": {
+      "ms": {
+        "type": "int"
+      }
+    }
+  },
+  "tapContinueWhenReady": "Chạm Tiếp tục khi sẵn sàng cho bước tiếp theo",
+  "error": "Lỗi",
+  "macroCompleted": "Đã hoàn tất macro",
+  "finishedIn": "Hoàn tất trong {duration}",
+  "@finishedIn": {
+    "placeholders": {
+      "duration": {}
+    }
+  },
+  "sequence": "Chuỗi",
+  "waitMilliseconds": "Chờ {ms}ms",
+  "@waitMilliseconds": {
+    "placeholders": {
+      "ms": {
+        "type": "int"
+      }
+    }
+  },
+  "runAgain": "Chạy lại",
+  "startMacro": "Bắt đầu Macro",
+  "continueAction": "Tiếp tục",
+  "unnamedRemote": "Điều khiển chưa tên",
+  "enterMacroName": "Nhập tên macro",
+  "addAtLeastOneStep": "Thêm ít nhất một bước",
+  "fixInvalidSteps": "Sửa các bước không hợp lệ",
+  "unknownCommand": "Lệnh không rõ",
+  "unnamedCommand": "Lệnh chưa tên",
+  "iconCommand": "Biểu tượng Command",
+  "selectDelay": "Chọn độ trễ",
+  "keepMilliseconds": "Giữ: {ms}ms",
+  "@keepMilliseconds": {
+    "placeholders": {
+      "ms": {
+        "type": "int"
+      }
+    }
+  },
+  "custom": "Tùy chỉnh",
+  "enterCustomDelayDuration": "Nhập thời lượng trễ tùy chỉnh",
+  "millisecondsLong": "{ms} mili giây",
+  "@millisecondsLong": {
+    "placeholders": {
+      "ms": {
+        "type": "int"
+      }
+    }
+  },
+  "secondsLong": "{seconds} giây{plural}",
+  "@secondsLong": {
+    "placeholders": {
+      "seconds": {},
+      "plural": {}
+    }
+  },
+  "customDelay": "Tùy chỉnh Delay",
+  "delayMillisecondsLabel": "Độ trễ (mili giây)",
+  "delayMillisecondsHint": "vd. 3000",
+  "recommendedDelayRange": "Khuyên dùng: 250-5000ms cho đa số thiết bị",
+  "enterValidPositiveNumber": "Vui lòng nhập số dương hợp lệ",
+  "ok": "OK",
+  "remote": "Điều khiển",
+  "macroName": "Tên macro",
+  "macroNameHint": "vd. i-cybie Advanced Mode",
+  "stepsTitleCount": "Bước ({count})",
+  "@stepsTitleCount": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "noStepsYet": "Không có bước yet",
+  "addCommandsAndDelaysHint": "Thêm lệnh và độ trễ bên dưới để tạo chuỗi",
+  "addStep": "Thêm bước",
+  "reorderStepsHint": "Mẹo: Kéo tay nắm để sắp xếp lại bước. Chạm vào bước để sửa.",
+  "reorderStep": "Sắp xếp lại bước {index}",
+  "@reorderStep": {
+    "placeholders": {
+      "index": {
+        "type": "int"
+      }
+    }
+  },
+  "pressAndDragToChangeStepOrder": "Nhấn và kéo để đổi thứ tự bước",
+  "deleteStep": "Xóa bước {index}",
+  "@deleteStep": {
+    "placeholders": {
+      "index": {
+        "type": "int"
+      }
+    }
+  },
+  "invalidStepTapToFix": "Bước không hợp lệ — chạm để sửa",
+  "sendIrCommand": "Gửi lệnh IR",
+  "waitForUserConfirmation": "Chờ xác nhận của người dùng",
+  "notImplemented": "Chưa triển khai",
+  "frequencyKhz": "{value} kHz",
+  "@frequencyKhz": {
+    "placeholders": {
+      "value": {
+        "type": "int"
+      }
+    }
+  },
+  "necProtocolShort": "NEC",
+  "msbShort": "MSB",
+  "layoutWide": "Rộng",
+  "iconButton": "Biểu tượng button",
+  "imageButton": "Nút hình ảnh",
+  "noSignalInfo": "Không có thông tin tín hiệu",
+  "proceed": "Tiếp tục",
+  "discard": "Bỏ",
+  "idle": "Nhàn",
+  "start": "Bắt đầu",
+  "resume": "Tiếp tục",
+  "pause": "Tạm dừng",
+  "stopped": "Đã dừng",
+  "copy": "Sao chép",
+  "send": "Gửi",
+  "step": "Bước",
+  "addToRemote": "Thêm vào điều khiển",
+  "noDescriptionAvailable": "Không có mô tả.",
+  "notAvailableSymbol": "—",
+  "irFinderKaseikyoVendorInvalid": "Nhà cung cấp Kaseikyo phải có đúng 4 chữ số hex.",
+  "irFinderDatabaseNotReady": "Cơ sở dữ liệu chưa sẵn sàng.",
+  "irFinderSelectBrandFirst": "Hãy chọn hãng trước trong Thiết lập.",
+  "irFinderBruteforceUnavailable": "Brute-force chưa khả dụng cho giao thức này.",
+  "irFinderInvalidPrefix": "Tiền tố không hợp lệ.",
+  "irFinderBrandValue": "Hãng: {value}",
+  "@irFinderBrandValue": {
+    "placeholders": {
+      "value": {}
+    }
+  },
+  "irFinderModelValue": "Mẫu: {value}",
+  "@irFinderModelValue": {
+    "placeholders": {
+      "value": {}
+    }
+  },
+  "irFinderKeyValue": "Khóa: {value}",
+  "@irFinderKeyValue": {
+    "placeholders": {
+      "value": {}
+    }
+  },
+  "irFinderRemoteNumber": "Điều khiển #{value}",
+  "@irFinderRemoteNumber": {
+    "placeholders": {
+      "value": {}
+    }
+  },
+  "irFinderJumpOffsetHelper": "Nhập chỉ số bắt đầu từ 0 trong kết quả CSDL đã lọc và sắp xếp.",
+  "irFinderJumpCursorHelper": "Nhập con trỏ hex bắt đầu từ 0 trong không gian brute-force.",
+  "irFinderSetupTab": "Thiết lập",
+  "irFinderTestTab": "Kiểm tra",
+  "irFinderResultsTab": "Kết quả",
+  "irFinderContinueToTest": "Tiếp tục kiểm tra",
+  "irFinderKaseikyoVendorTitle": "Nhà cung cấp Kaseikyo",
+  "irFinderCustomVendorLabel": "Nhà cung cấp tùy chỉnh (4 hex)",
+  "irFinderBrowseDbCandidates": "Duyệt ứng viên CSDL…",
+  "irFinderEditSetup": "Sửa thiết lập",
+  "irFinderNoSavedHits": "Chưa có kết quả đã lưu. Trong trang Kiểm tra, nhấn \"Lưu kết quả\" khi thiết bị phản hồi.",
+  "irFinderBackToTest": "Quay lại kiểm tra",
+  "irFinderLargeSearchSpaceTitle": "Không gian tìm kiếm lớn",
+  "irFinderLargeSearchSpaceBody": "Không gian brute-force này rất lớn ({human} khả năng). IR Finder vẫn sẽ tôn trọng số lần thử tối đa và thời gian nghỉ của bạn, nhưng hãy cẩn thận để không spam thiết bị IR.\n\nKhuyến nghị: hãy dùng chế độ CSDL trước và/hoặc nhập các byte tiền tố đã biết để thu hẹp không gian.",
+  "@irFinderLargeSearchSpaceBody": {
+    "placeholders": {
+      "human": {}
+    }
+  },
+  "irFinderDatabaseSession": "Phiên CSDL",
+  "irFinderBruteforceSession": "Phiên brute-force",
+  "irFinderResumeLastSession": "Tiếp tục phiên trước",
+  "irFinderResumeBrandModel": "Brand: {brand} · Mẫu: {model}",
+  "@irFinderResumeBrandModel": {
+    "placeholders": {
+      "brand": {},
+      "model": {}
+    }
+  },
+  "irFinderResumePrefix": "Tiền tố: {value}",
+  "@irFinderResumePrefix": {
+    "placeholders": {
+      "value": {}
+    }
+  },
+  "irFinderResumeProgress": "Progress: {progress} · Bắt đầued: {when}",
+  "@irFinderResumeProgress": {
+    "placeholders": {
+      "progress": {},
+      "when": {}
+    }
+  },
+  "irFinderApplyResume": "Áp dụng và tiếp tục",
+  "irFinderBruteforceMode": "Brute-force",
+  "irFinderDatabaseAssistedMode": "Có hỗ trợ CSDL",
+  "irFinderProtocolTitle": "Giao thức: {name}",
+  "@irFinderProtocolTitle": {
+    "placeholders": {
+      "name": {}
+    }
+  },
+  "irFinderProtocolLabel": "Giao thức IR",
+  "irFinderProtocolHelper": "Kiểm soát mã hóa và do đó là không gian tìm kiếm.",
+  "irFinderKnownPrefixLabel": "Tiền tố đã biết (byte hex, tùy chọn)",
+  "irFinderKnownPrefixHint": "A1B2, A1 B2, A1:B2, 0xA1 0xB2",
+  "irFinderKnownPrefixHelperPayload": "Payload: {digits} chữ số hex",
+  "@irFinderKnownPrefixHelperPayload": {
+    "placeholders": {
+      "digits": {
+        "type": "int"
+      }
+    }
+  },
+  "irFinderKnownPrefixHelperPayloadExample": "Payload: {digits} chữ số hex · Ví dụ: {example}",
+  "@irFinderKnownPrefixHelperPayloadExample": {
+    "placeholders": {
+      "digits": {
+        "type": "int"
+      },
+      "example": {}
+    }
+  },
+  "irFinderKnownPrefixHelperPayloadMax": "Payload: {digits} chữ số hex · Max prefix: {bytes} byte(s)",
+  "@irFinderKnownPrefixHelperPayloadMax": {
+    "placeholders": {
+      "digits": {
+        "type": "int"
+      },
+      "bytes": {
+        "type": "int"
+      }
+    }
+  },
+  "irFinderKnownPrefixHelperPayloadExampleMax": "Payload: {digits} chữ số hex · Ví dụ: {example} · Tiền tố tối đa: {bytes} byte",
+  "@irFinderKnownPrefixHelperPayloadExampleMax": {
+    "placeholders": {
+      "digits": {
+        "type": "int"
+      },
+      "example": {},
+      "bytes": {
+        "type": "int"
+      }
+    }
+  },
+  "irFinderKnownPrefixHelperExample": "Ví dụ: {example}",
+  "@irFinderKnownPrefixHelperExample": {
+    "placeholders": {
+      "example": {}
+    }
+  },
+  "irFinderKnownPrefixHelperFallback": "Nhập các byte đầu đã biết để giảm không gian tìm kiếm.",
+  "irFinderDatabaseMode": "Cơ sở dữ liệu",
+  "irFinderNormalizedPrefixValue": "Tiền tố chuẩn hóa: {value}",
+  "@irFinderNormalizedPrefixValue": {
+    "placeholders": {
+      "value": {}
+    }
+  },
+  "irFinderNormalizedPrefix": "Tiền tố chuẩn hóa",
+  "irFinderBruteforceNotConfigured": "Brute-force chưa được cấu hình cho giao thức này.",
+  "irFinderAllLimit": "Tất cả ({value})",
+  "@irFinderAllLimit": {
+    "placeholders": {
+      "value": {}
+    }
+  },
+  "irFinderTestControls": "Điều khiển kiểm tra",
+  "irFinderPayloadLength": "Độ dài payload: {digits} chữ số hex.",
+  "@irFinderPayloadLength": {
+    "placeholders": {
+      "digits": {
+        "type": "int"
+      }
+    }
+  },
+  "irFinderSearchSpace": "Không gian tìm kiếm: {value} khả năng (sau khi áp điều kiện tiền tố).",
+  "@irFinderSearchSpace": {
+    "placeholders": {
+      "value": {}
+    }
+  },
+  "irFinderCooldownMs": "Thời gian nghỉ (ms)",
+  "irFinderMaxAttemptsPerRun": "Số lần thử tối đa (mỗi lần chạy)",
+  "irFinderTestAllCombinations": "Kiểm tra mọi tổ hợp",
+  "irFinderTestAllCombinationsHint": "Chạy cho đến khi hết không gian tìm kiếm. Giới hạn hiệu lực: {value}",
+  "@irFinderTestAllCombinationsHint": {
+    "placeholders": {
+      "value": {}
+    }
+  },
+  "irFinderAttempts": "Lần thử",
+  "irFinderAttemptsSliderRange": "Khoảng thanh trượt: 1–{max} (nhập số bất kỳ cho giá trị lớn hơn)",
+  "@irFinderAttemptsSliderRange": {
+    "placeholders": {
+      "max": {
+        "type": "int"
+      }
+    }
+  },
+  "irFinderMaxButton": "Max {value}",
+  "@irFinderMaxButton": {
+    "placeholders": {
+      "value": {
+        "type": "int"
+      }
+    }
+  },
+  "irFinderEffectiveLimitThisRun": "Giới hạn hiệu lực lần chạy này: {value}",
+  "@irFinderEffectiveLimitThisRun": {
+    "placeholders": {
+      "value": {}
+    }
+  },
+  "irFinderBruteforceTip": "Mẹo: Hãy dùng chế độ CSDL trước; brute-force hiệu quả nhất khi có tiền tố đã biết (ví dụ 1–4 byte đầu tiên).",
+  "irFinderDatabaseInitFailed": "Khởi tạo cơ sở dữ liệu thất bại.",
+  "irFinderPreparingDatabase": "Đang chuẩn bị cơ sở dữ liệu mã IR cục bộ…",
+  "irFinderDatabaseAssistedSearch": "Tìm kiếm có hỗ trợ CSDL",
+  "irFinderBrand": "Hãng",
+  "irFinderSelectBrand": "Chọn hãng",
+  "irFinderModelOptional": "Mẫu (tùy chọn)",
+  "irFinderSelectBrandFirstShort": "Chọn hãng trước",
+  "irFinderSelectModelRecommended": "Chọn mẫu (khuyên dùng)",
+  "irFinderOnlySelectedProtocol": "Chỉ giao thức đã chọn",
+  "irFinderOnlySelectedProtocolHint": "Lọc khóa theo giao thức đã chọn. Tắt để duyệt mọi giao thức.",
+  "irFinderQuickWinsFirst": "Ưu tiên kết quả nhanh",
+  "irFinderQuickWinsFirstHint": "Ưu tiên khóa kiểu POWER, MUTE, VOL và CH trước các khóa sâu hơn.",
+  "irFinderMaxKeysPerRun": "Số khóa tối đa để kiểm tra (mỗi lần chạy)",
+  "irFinderTesting": "Đang kiểm tra…",
+  "irFinderCooldown": "Thời gian nghỉ",
+  "irFinderEta": "ETA",
+  "irFinderMode": "Chế độ",
+  "irFinderRetryLast": "Thử lại lần cuối",
+  "irFinderTrigger": "Kích hoạt",
+  "irFinderJump": "Nhảy…",
+  "irFinderSaveHit": "Lưu kết quả",
+  "irFinderEtaSeconds": "{seconds}s",
+  "@irFinderEtaSeconds": {
+    "placeholders": {
+      "seconds": {
+        "type": "int"
+      }
+    }
+  },
+  "irFinderEtaMinutesSeconds": "{minutes}p {seconds}s",
+  "@irFinderEtaMinutesSeconds": {
+    "placeholders": {
+      "minutes": {
+        "type": "int"
+      },
+      "seconds": {
+        "type": "int"
+      }
+    }
+  },
+  "irFinderEtaHoursMinutes": "{hours}g {minutes}p",
+  "@irFinderEtaHoursMinutes": {
+    "placeholders": {
+      "hours": {
+        "type": "int"
+      },
+      "minutes": {
+        "type": "int"
+      }
+    }
+  },
+  "irFinderLastAttemptedCode": "Mã thử gần nhất: {value}",
+  "@irFinderLastAttemptedCode": {
+    "placeholders": {
+      "value": {}
+    }
+  },
+  "irFinderStartTestingToSeeLastCode": "Bắt đầu testing to see the last attempted code.",
+  "irFinderFromDb": "Từ CSDL: {value}",
+  "@irFinderFromDb": {
+    "placeholders": {
+      "value": {}
+    }
+  },
+  "irFinderFromBruteforce": "From brute-force (generated bởi protocol encoder).",
+  "irFinderSendError": "Gửi error: {error}",
+  "@irFinderSendError": {
+    "placeholders": {
+      "error": {}
+    }
+  },
+  "irFinderSourceValue": "Nguồn: {value}",
+  "@irFinderSourceValue": {
+    "placeholders": {
+      "value": {}
+    }
+  },
+  "irFinderResultsNote": "Kết quả hỗ trợ Kiểm tra và Sao chép ngay. Tích hợp thêm trực tiếp vào điều khiển có thể được mở rộng thêm trong luồng sửa.",
+  "irFinderBrowseDbCandidatesTitle": "Duyệt ứng viên CSDL",
+  "irFinderFilterByLabelOrHex": "Lọc theo nhãn hoặc hex…",
+  "irFinderJumpHere": "Nhảy tới đây",
+  "irFinderSelectModel": "Chọn mẫu",
+  "irFinderSearchBrands": "Tìm hãng…",
+  "irFinderSearchModels": "Tìm mẫu…",
+  "iconPickerTitle": "Select Biểu tượng",
+  "iconPickerSearchHint": "Tìm kiếm icons...",
+  "iconPickerNoIconsFound": "Không tìm thấy biểu tượng",
+  "iconPickerIconsAvailable": "{count} biểu tượng khả dụng",
+  "@iconPickerIconsAvailable": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "iconPickerCategoryAll": "Tất cả",
+  "iconPickerCategoryMedia": "Media",
+  "iconPickerCategoryVolume": "Âm lượng",
+  "iconPickerCategoryNavigation": "Điều hướng",
+  "iconPickerCategoryPower": "Nguồn",
+  "iconPickerCategoryNumbers": "Số",
+  "iconPickerCategorySettings": "Cài đặt",
+  "iconPickerCategoryDisplay": "Màn hình",
+  "iconPickerCategoryInput": "Ngõ vào",
+  "iconPickerCategoryFavorite": "Yêu thích",
+  "universalPowerTitle": "Nguồn chung",
+  "universalPowerRunTab": "Chạy",
+  "universalPowerUseResponsibly": "Dùng có trách nhiệm",
+  "universalPowerConsentBody": "Nguồn chung sẽ lặp các mã nguồn IR. Chỉ dùng với thiết bị bạn sở hữu hoặc kiểm soát. Hãy dừng ngay khi thiết bị phản hồi.",
+  "universalPowerConsentCheckbox": "Tôi sở hữu hoặc kiểm soát thiết bị",
+  "universalPowerSetupBody": "Lặp mã nguồn cho hãng bạn chọn. Dừng ngay khi thiết bị phản hồi.",
+  "universalPowerLastSent": "Đã gửi gần nhất: {value}",
+  "@universalPowerLastSent": {
+    "placeholders": {
+      "value": {}
+    }
+  },
+  "universalPowerNoCodesFound": "Không tìm thấy mã nguồn. Hãy thử mở rộng tìm kiếm.",
+  "universalPowerUnableToStart": "Không thể bắt đầu.",
+  "universalPowerAllBrands": "Tất cả hãng (không lọc)",
+  "universalPowerClearBrandFilter": "Xóa bộ lọc hãng",
+  "universalPowerBroadenSearch": "Mở rộng tìm kiếm nếu cần",
+  "universalPowerBroadenSearchHint": "Nếu không tìm thấy nhãn nguồn, hãy bao gồm các khóa khác.",
+  "universalPowerAdditionalPatternsDepth": "Độ sâu mẫu bổ sung",
+  "universalPowerDepth1": "Chỉ ưu tiên: POWER/OFF",
+  "universalPowerDepth2": "Bao gồm bí danh POWER",
+  "universalPowerDepth3": "Bao gồm nhãn nguồn phụ",
+  "universalPowerDepth4": "Bao gồm mọi nhãn (ưu tiên thấp nhất)",
+  "universalPowerLoopUntilStopped": "Lặp đến khi dừng",
+  "universalPowerLoopUntilStoppedHint": "Tiếp tục lặp hàng đợi cho đến khi bạn dừng.",
+  "universalPowerDelayBetweenCodes": "Độ trễ giữa các mã",
+  "universalPowerStart": "Bắt đầu Nguồn chung",
+  "universalPowerRunStatus": "Trạng thái chạy",
+  "universalPowerProgress": "Tiến độ: {value}",
+  "@universalPowerProgress": {
+    "placeholders": {
+      "value": {}
+    }
+  },
+  "universalPowerPausedInBackground": "Đã tạm dừng because the app was backgrounded.",
+  "universalPowerSendOneCode": "Gửi một mã",
+  "universalPowerStopWhenDeviceResponds": "Dừng ngay khi thiết bị phản hồi.",
+  "iconNamePlay": "Phát",
+  "iconNamePause": "Tạm dừng",
+  "iconNameStop": "Dừng",
+  "iconNameFastForward": "Tua nhanh",
+  "iconNameRewind": "Tua lại",
+  "iconNameSkipNext": "Bỏ qua Tiếp",
+  "iconNameSkipPrevious": "Bỏ qua Trước",
+  "iconNameReplay": "Phát lại",
+  "iconNameForward10S": "Tua 10s",
+  "iconNameForward30S": "Tua 30s",
+  "iconNameReplay10S": "Lùi 10s",
+  "iconNameReplay30S": "Lùi 30s",
+  "iconNameRecord": "Ghi",
+  "iconNameRecordAlt": "Ghi Alt",
+  "iconNameEject": "Đẩy ra",
+  "iconNameShuffle": "Trộn",
+  "iconNameRepeat": "Lặp",
+  "iconNameRepeatOne": "Lặp một",
+  "iconNameVolumeUp": "Tăng âm",
+  "iconNameVolumeDown": "Giảm âm",
+  "iconNameVolumeOff": "Tắt âm",
+  "iconNameMute": "Tắt tiếng",
+  "iconNameSpeaker": "Loa",
+  "iconNameSurroundSound": "Âm thanh vòm",
+  "iconNameEqualizer": "Bộ cân bằng",
+  "iconNameAudio": "Âm thanh",
+  "iconNameMicrophone": "Micrô",
+  "iconNameMicOff": "Tắt mic",
+  "iconNameUp": "Lên",
+  "iconNameDown": "Xuống",
+  "iconNameLeft": "Trái",
+  "iconNameRight": "Phải",
+  "iconNameArrowUp": "Mũi tên lên",
+  "iconNameArrowDown": "Mũi tên xuống",
+  "iconNameArrowLeft": "Mũi tên trái",
+  "iconNameArrowRight": "Mũi tên phải",
+  "iconNameNavigation": "Điều hướng",
+  "iconNameChevronLeft": "Chevron trái",
+  "iconNameChevronRight": "Chevron phải",
+  "iconNameExpandLess": "Thu gọn",
+  "iconNameExpandMore": "Expand Thêm",
+  "iconNameCollapse": "Thu gọn",
+  "iconNameExpand": "Mở rộng",
+  "iconNameCircleUp": "Vòng tròn lên",
+  "iconNameCircleDown": "Vòng tròn xuống",
+  "iconNameCircleLeft": "Vòng tròn trái",
+  "iconNameCircleRight": "Vòng tròn phải",
+  "iconNameOkSelect": "OK/Chọn",
+  "iconNameConfirm": "Xác nhận",
+  "iconNameCancel": "Hủy",
+  "iconNameClose": "Đóng",
+  "iconNameHome": "Trang chủ",
+  "iconNameReturn": "Quay lại",
+  "iconNameExit": "Thoát",
+  "iconNameUndo": "Hoàn tác",
+  "iconNameRedo": "Làm lại",
+  "iconNamePower": "Nguồn",
+  "iconNamePowerAlt": "Nguồn Alt",
+  "iconNamePowerOff": "Tắt nguồn",
+  "iconNameOn": "Bật",
+  "iconNameOff": "Tắt",
+  "iconNameToggleOn": "Bật chuyển",
+  "iconNameToggleOff": "Tắt chuyển",
+  "iconNameRestart": "Khởi động lại",
+  "iconNameNum1": "1",
+  "iconNameNum2": "2",
+  "iconNameNum3": "3",
+  "iconNameNum4": "4",
+  "iconNameNum5": "5",
+  "iconNameNum6": "6",
+  "iconNameNum7": "7",
+  "iconNameNum8": "8",
+  "iconNameNum9": "9",
+  "iconNameNum92": "9+",
+  "iconNameNum0": "0",
+  "iconNameOne": "Một",
+  "iconNameTwo": "Hai",
+  "iconNameThree": "Ba",
+  "iconNameFour": "Bốn",
+  "iconNameFive": "Năm",
+  "iconNameSix": "Sáu",
+  "iconNamePlus": "Cộng",
+  "iconNameMinus": "Trừ",
+  "iconNameAddCircle": "Thêm vòng tròn",
+  "iconNameRemoveCircle": "Xóa Circle",
+  "iconNameSettings": "Cài đặt",
+  "iconNameMenu": "Menu",
+  "iconNameMoreVertical": "Thêm Vertical",
+  "iconNameMoreHorizontal": "Thêm Horizontal",
+  "iconNameTune": "Điều chỉnh",
+  "iconNameRemoteSettings": "Cài đặt điều khiển",
+  "iconNameInfo": "Thông tin",
+  "iconNameInfoOutline": "Viền thông tin",
+  "iconNameHelp": "Trợ giúp",
+  "iconNameHelpOutline": "Viền trợ giúp",
+  "iconNameList": "Danh sách",
+  "iconNameViewList": "Xem danh sách",
+  "iconNameViewGrid": "Xem lưới",
+  "iconNameApps": "Ứng dụng",
+  "iconNameWidgets": "Tiện ích",
+  "iconNameTv": "TV",
+  "iconNameMonitor": "Màn hình",
+  "iconNameDesktop": "Máy tính",
+  "iconNameBrightnessHigh": "Sáng cao",
+  "iconNameBrightnessMedium": "Sáng vừa",
+  "iconNameBrightnessLow": "Sáng thấp",
+  "iconNameAutoBrightness": "Tự động sáng",
+  "iconNameLightMode": "Chế độ sáng",
+  "iconNameDarkMode": "Chế độ tối",
+  "iconNameContrast": "Tương phản",
+  "iconNameHdrOn": "HDR bật",
+  "iconNameHdrOff": "HDR tắt",
+  "iconNameAspectRatio": "Tỷ lệ khung",
+  "iconNameCrop": "Cắt",
+  "iconNameZoomIn": "Phóng to",
+  "iconNameZoomOut": "Thu nhỏ",
+  "iconNameFullscreen": "Toàn màn hình",
+  "iconNameExitFullscreen": "Thoát toàn màn hình",
+  "iconNameFitScreen": "Vừa màn hình",
+  "iconNamePip": "PiP",
+  "iconNameCropFree": "Cắt Tự do",
+  "iconNameInput": "Ngõ vào",
+  "iconNameCable": "Cáp",
+  "iconNameCast": "Truyền",
+  "iconNameCastConnected": "Truyền Đã kết nối",
+  "iconNameScreenShare": "Chia sẻ màn hình",
+  "iconNameBluetooth": "Bluetooth",
+  "iconNameWifi": "WiFi",
+  "iconNameRouter": "Router",
+  "iconNameMemory": "Bộ nhớ",
+  "iconNameGameConsole": "Máy chơi game",
+  "iconNameGaming": "Chơi game",
+  "iconNameMedia": "Media",
+  "iconNameMusicQueue": "Hàng đợi nhạc",
+  "iconNameVideoLibrary": "Thư viện video",
+  "iconNamePhotoLibrary": "Thư viện ảnh",
+  "iconNameComponent": "Component",
+  "iconNameHdmi": "HDMI",
+  "iconNameComposite": "Composite",
+  "iconNameAntenna": "Ăng ten",
+  "iconNameFavorite": "Yêu thích",
+  "iconNameFavoriteOutline": "Viền yêu thích",
+  "iconNameStar": "Sao",
+  "iconNameStarOutline": "Viền sao",
+  "iconNameBookmark": "Đánh dấu",
+  "iconNameBookmarkOutline": "Viền đánh dấu",
+  "iconNameFlag": "Cờ",
+  "iconNameCheck": "Kiểm",
+  "iconNameDone": "Xong",
+  "iconNameDoneAll": "Hoàn tất tất cả",
+  "iconNameSchedule": "Lịch",
+  "iconNameTimer": "Hẹn giờ",
+  "iconNameTime": "Thời gian",
+  "iconNameAlarm": "Báo thức",
+  "iconNameNotifications": "Thông báo",
+  "iconNameLock": "Khóa",
+  "iconNameUnlock": "Mở khóa",
+  "iconNameLight": "Nhẹ",
+  "iconNameLightOutline": "Đèn Viền",
+  "iconNameWarmLight": "Ánh sáng ấm",
+  "iconNameSunny": "Nắng",
+  "iconNameCloudy": "Nhiều mây",
+  "iconNameNight": "Đêm",
+  "iconNameFlare": "Lóa",
+  "iconNameGradient": "Gradient",
+  "iconNameInvertColors": "Đảo màu",
+  "iconNamePalette": "Bảng màu",
+  "iconNameColor": "Màu",
+  "iconNameTonality": "Sắc độ",
+  "iconNameSearch": "Tìm kiếm",
+  "iconNameRefresh": "Làm mới",
+  "iconNameSync": "Đồng bộ",
+  "iconNameUpdate": "Cập nhật",
+  "iconNameDownload": "Tải xuống",
+  "iconNameUpload": "Tải lên",
+  "iconNameCloud": "Mây",
+  "iconNameFolder": "Thư mục",
+  "iconNameDelete": "Xóa",
+  "iconNameEdit": "Sửa",
+  "iconNameSave": "Lưu",
+  "iconNameShare": "Chia sẻ",
+  "iconNamePrint": "In",
+  "iconNameLanguage": "Ngôn ngữ",
+  "iconNameTranslate": "Dịch",
+  "iconNameMicNone": "Không có mic",
+  "iconNameSubtitles": "Phụ đề",
+  "iconNameClosedCaption": "Phụ đề kín",
+  "iconNameMusic": "Nhạc",
+  "iconNameMovie": "Phim",
+  "iconNameTheater": "Rạp",
+  "iconNameLiveTv": "Trực tiếp TV",
+  "iconNameRadio": "Radio",
+  "iconNameCamera": "Máy ảnh",
+  "iconNameVideoCamera": "Máy quay video",
+  "iconNamePhotoCamera": "Máy ảnh",
+  "iconNameSlowMotion": "Chuyển động chậm",
+  "iconNameSpeed": "Tốc độ",
+  "iconNameVideoSettings": "Cài đặt video",
+  "iconNameAudioTrack": "Rãnh âm thanh",
+  "iconNameGraphicEq": "EQ đồ họa",
+  "iconNameMusicVideo": "Video nhạc",
+  "iconNamePlaylist": "Danh sách phát",
+  "iconNameQueue": "Hàng đợi",
+  "iconNameNum0Fa": "0 FA",
+  "iconNameNum1Fa": "1 FA",
+  "iconNameNum2Fa": "2 FA",
+  "iconNameNum3Fa": "3 FA",
+  "iconNameNum4Fa": "4 FA",
+  "iconNameNum5Fa": "5 FA",
+  "iconNameNum6Fa": "6 FA",
+  "iconNameNum7Fa": "7 FA",
+  "iconNameNum8Fa": "8 FA",
+  "iconNameNum9Fa": "9 FA",
+  "iconNameHashFa": "Dấu # FA",
+  "iconNamePercentFa": "Phần trăm % FA",
+  "iconNameDivideFa": "Chia ÷ FA",
+  "iconNameMultiplyFa": "Nhân × FA",
+  "iconNameEqualsFa": "Bằng = FA",
+  "iconNameNotEqualFa": "Không bằng ≠ FA",
+  "iconNameGreaterThanFa": "Lớn hơn > FA",
+  "iconNameLessThanFa": "Nhỏ hơn < FA",
+  "iconNameAsteriskFa": "Dấu * FA",
+  "iconNameAFa": "A FA",
+  "iconNameBFa": "B FA",
+  "iconNameCFa": "C FA",
+  "iconNameDFa": "D FA",
+  "iconNameEFa": "E FA",
+  "iconNameFFa": "F FA",
+  "iconNameGFa": "G FA",
+  "iconNameHFa": "H FA",
+  "iconNameIFa": "I FA",
+  "iconNameJFa": "J FA",
+  "iconNameKFa": "K FA",
+  "iconNameLFa": "L FA",
+  "iconNameMFa": "M FA",
+  "iconNameNFa": "N FA",
+  "iconNameOFa": "O FA",
+  "iconNamePFa": "P FA",
+  "iconNameQFa": "Q FA",
+  "iconNameRFa": "R FA",
+  "iconNameSFa": "S FA",
+  "iconNameTFa": "T FA",
+  "iconNameUFa": "U FA",
+  "iconNameVFa": "V FA",
+  "iconNameWFa": "W FA",
+  "iconNameXFa": "X FA",
+  "iconNameYFa": "Y FA",
+  "iconNameZFa": "Z FA",
+  "iconNamePlayFa": "Phát FA",
+  "iconNamePauseFa": "Tạm dừng FA",
+  "iconNameStopFa": "Dừng FA",
+  "iconNamePlayFaOutline": "Phát FA viền",
+  "iconNamePauseFaOutline": "Tạm dừng FA viền",
+  "iconNameStopFaOutline": "Dừng FA viền",
+  "iconNameBackwardFa": "Lùi FA",
+  "iconNameForwardFa": "Tiến FA",
+  "iconNamePreviousFa": "Trước FA",
+  "iconNameNextFa": "Tiếp FA",
+  "iconNameRewindFa": "Tua lại FA",
+  "iconNameFastForwardFa": "Tua nhanh FA",
+  "iconNameRepeatFa": "Lặp FA",
+  "iconNameShuffleFa": "Trộn FA",
+  "iconNameEjectFa": "Đẩy ra FA",
+  "iconNameFilmFa": "Phim FA",
+  "iconNameVideoFa": "Video FA",
+  "iconNameMusicFa": "Nhạc FA",
+  "iconNameMicrophoneFa": "Micrô FA",
+  "iconNameCameraFa": "Máy ảnh FA",
+  "iconNameCameraRetroFa": "Máy ảnh Retro FA",
+  "iconNameVolumeHighFa": "Âm lượng High FA",
+  "iconNameVolumeLowFa": "Âm lượng Low FA",
+  "iconNameVolumeOffFa": "Tắt âm FA",
+  "iconNameMuteFa": "Tắt tiếng FA",
+  "iconNameMicMuteFa": "Mic Tắt tiếng FA",
+  "iconNameHeadphonesFa": "Tai nghe FA",
+  "iconNameSpeakerFa": "Loa FA",
+  "iconNameUpFa": "Lên FA",
+  "iconNameDownFa": "Xuống FA",
+  "iconNameLeftFa": "Trái FA",
+  "iconNameRightFa": "Phải FA",
+  "iconNameUpFaOutline": "Lên FA viền",
+  "iconNameDownFaOutline": "Xuống FA viền",
+  "iconNameLeftFaOutline": "Trái FA viền",
+  "iconNameRightFaOutline": "Phải FA viền",
+  "iconNameArrowUpFa": "Mũi tên lên FA",
+  "iconNameArrowDownFa": "Mũi tên xuống FA",
+  "iconNameArrowLeftFa": "Mũi tên trái FA",
+  "iconNameArrowRightFa": "Mũi tên phải FA",
+  "iconNameChevronUpFa": "Chevron Lên FA",
+  "iconNameChevronDownFa": "Chevron Xuống FA",
+  "iconNameChevronLeftFa": "Chevron trái FA",
+  "iconNameChevronRightFa": "Chevron phải FA",
+  "iconNameOkFa": "OK FA",
+  "iconNameOkFaOutline": "OK FA viền",
+  "iconNameCheckFa": "Kiểm FA",
+  "iconNameCloseFa": "Đóng FA",
+  "iconNameCloseCircleFa": "Đóng Circle FA",
+  "iconNameHomeFa": "Trang chủ FA",
+  "iconNameUndoFa": "Hoàn tác FA",
+  "iconNameRedoFa": "Làm lại FA",
+  "iconNameRotateFa": "Xoay FA",
+  "iconNameSearchFa": "Tìm kiếm FA",
+  "iconNameRefreshFa": "Làm mới FA",
+  "iconNamePowerOffFa": "Tắt nguồn FA",
+  "iconNamePlugFa": "Cắm FA",
+  "iconNameToggleOnFa": "Bật chuyển FA",
+  "iconNameToggleOffFa": "Tắt chuyển FA",
+  "iconNameSettingsFa": "Cài đặt FA",
+  "iconNameSettingsAltFa": "Cài đặt Alt FA",
+  "iconNameMenuFa": "Menu FA",
+  "iconNameMoreFa": "Thêm FA",
+  "iconNameMoreVerticalFa": "Thêm Vertical FA",
+  "iconNameInfoFa": "Thông tin FA",
+  "iconNameInfoFaOutline": "Thông tin FA viền",
+  "iconNameHelpFa": "Trợ giúp FA",
+  "iconNameHelpFaOutline": "Trợ giúp FA viền",
+  "iconNameListFa": "Danh sách FA",
+  "iconNameGridFa": "Lưới FA",
+  "iconNameSlidersFa": "Thanh trượt FA",
+  "iconNameTvFa": "TV FA",
+  "iconNameMonitorFa": "Màn hình FA",
+  "iconNameDesktopFa": "Máy tính FA",
+  "iconNameBrightnessFa": "Độ sáng FA",
+  "iconNameNightModeFa": "Đêm Mode FA",
+  "iconNameLightFa": "Đèn FA",
+  "iconNameLightFaOutline": "Đèn FA viền",
+  "iconNameFlashFa": "Flash FA",
+  "iconNameFullscreenFa": "Toàn màn hình FA",
+  "iconNameExitFullscreenFa": "Thoát toàn màn hình FA",
+  "iconNameZoomInFa": "Phóng to FA",
+  "iconNameZoomOutFa": "Thu nhỏ FA",
+  "iconNameSubtitlesFa": "Phụ đề FA",
+  "iconNamePictureInPictureFa": "Ảnh trong ảnh FA",
+  "iconNameColorFa": "Màu FA",
+  "iconNamePaintFa": "Sơn FA",
+  "iconNameInputFa": "Ngõ vào FA",
+  "iconNameWifiFa": "WiFi FA",
+  "iconNameBluetoothFa": "Bluetooth FA",
+  "iconNameUsbFa": "USB FA",
+  "iconNameEthernetFa": "Ethernet FA",
+  "iconNameGamepadFa": "Tay cầm FA",
+  "iconNameBroadcastFa": "Phát sóng FA",
+  "iconNameSatelliteFa": "Vệ tinh FA",
+  "iconNameAntennaFa": "Ăng ten FA",
+  "iconNameNetworkFa": "Mạng FA",
+  "iconNameCloudFa": "Mây FA",
+  "iconNameStarFa": "Sao FA",
+  "iconNameStarFaOutline": "Sao FA viền",
+  "iconNameHeartFa": "Tim FA",
+  "iconNameHeartFaOutline": "Tim FA viền",
+  "iconNameBookmarkFa": "Đánh dấu FA",
+  "iconNameBookmarkFaOutline": "Đánh dấu FA viền",
+  "iconNameFlagFa": "Cờ FA",
+  "iconNameClockFa": "Đồng hồ FA",
+  "iconNameClockFaOutline": "Đồng hồ FA viền",
+  "iconNameBellFa": "Chuông FA",
+  "iconNameBellFaOutline": "Chuông FA Viền",
+  "iconNameTimerFa": "Hẹn giờ FA",
+  "iconNameLockFa": "Khóa FA",
+  "iconNameUnlockFa": "Mở khóa FA",
+  "iconNameGalleryFa": "Thư viện FA",
+  "iconNameImagesFa": "Hình ảnh FA",
+  "iconNameImageFa": "Hình ảnh FA",
+  "iconNameVideoFileFa": "Tệp video FA",
+  "iconNameAudioFileFa": "Âm thanh File FA",
+  "iconNamePlayOutlineFa": "Phát Viền FA",
+  "iconNamePlaySimpleFa": "Phát Đơn giản FA",
+  "iconNamePauseSimpleFa": "Tạm dừng Đơn giản FA",
+  "iconNameStopSimpleFa": "Dừng Đơn giản FA",
+  "iconNameRecordFa": "Ghi FA",
+  "iconNameStopCircleFa": "Dừng Circle FA",
+  "iconNameLoadingFa": "Đang tải FA",
+  "iconNameTextFa": "Văn bản FA",
+  "iconNameTextSizeFa": "Văn bản Size FA",
+  "iconNameLanguageFa": "Ngôn ngữ FA",
+  "iconNameGlobeFa": "Địa cầu FA",
+  "iconNameSubtitlesAltFa": "Phụ đề Alt FA",
+  "iconNameSubtitlesAltOutlineFa": "Phụ đề Alt Viền FA",
+  "iconNameChannelUpFa": "Kênh Lên FA",
+  "iconNameChannelDownFa": "Kênh Xuống FA",
+  "iconNamePageUpFa": "Trang Lên FA",
+  "iconNamePageDownFa": "Trang Xuống FA",
+  "iconNameGuideFa": "Hướng dẫn FA",
+  "iconNameGridViewFa": "Xem lưới FA",
+  "iconNameGridAltFa": "Lưới Alt FA",
+  "iconNameScheduleFa": "Lịch FA",
+  "iconNameCalendarFa": "Lịch FA",
+  "iconNameRedButtonFa": "Nút đỏ FA",
+  "iconNameButtonOutlineFa": "Button Viền FA",
+  "iconNameSquareButtonFa": "Vuông Button FA",
+  "iconNameSquareOutlineFa": "Vuông Viền FA",
+  "iconNameDotCircleFa": "Chấm Circle FA",
+  "iconNameToolsFa": "Công cụ FA",
+  "iconNameScrewdriverFa": "Tua vít FA",
+  "iconNameHammerFa": "Búa FA",
+  "iconNameToolboxFa": "Hộp đồ nghề FA",
+  "iconNameCogFa": "Bánh răng FA",
+  "iconNameAdjustFa": "Điều chỉnh FA",
+  "iconNameFilterFa": "Bộ lọc FA",
+  "iconNameSortDownFa": "Sort Xuống FA",
+  "iconNameSortUpFa": "Sort Lên FA",
+  "iconNameSleepFa": "Ngủ FA",
+  "iconNameTimerStartFa": "Hẹn giờ Bắt đầu FA",
+  "iconNameTimerHalfFa": "Hẹn giờ Nửa FA",
+  "iconNameTimerEndFa": "Hẹn giờ Kết thúc FA",
+  "iconNameStopwatchFa": "Đồng hồ bấm giờ FA",
+  "iconNameAlarmFa": "Báo thức FA",
+  "iconNameCropAltFa": "Cắt Alt FA",
+  "iconNameCropFa": "Cắt FA",
+  "iconNameSquareFullFa": "Vuông Full FA",
+  "iconNameFullscreenAltFa": "Toàn màn hình Alt FA",
+  "iconNameZoomPlusFa": "Zoom Cộng FA",
+  "iconNameZoomMinusFa": "Zoom Trừ FA",
+  "iconNameMusicNoteFa": "Nhạc Nốt FA",
+  "iconNameCdFa": "CD FA",
+  "iconNameVinylFa": "Đĩa than FA",
+  "iconNameRssFa": "RSS FA",
+  "iconNameMagicFa": "Phép thuật FA",
+  "iconNameFingerprintFa": "Vân tay FA",
+  "iconNameUserFa": "Người dùng FA",
+  "iconNameUsersFa": "Người dùng FA",
+  "iconNameChildModeFa": "Chế độ trẻ em FA",
+  "iconNameCastFa": "Truyền FA",
+  "iconNameStreamFa": "Luồng FA",
+  "iconNameSignalFa": "Tín hiệu FA",
+  "iconNameFeedFa": "Nguồn tin FA",
+  "iconNameCircleArrowUpFa": "Circle Arrow Lên FA",
+  "iconNameCircleArrowDownFa": "Circle Arrow Xuống FA",
+  "iconNameCircleArrowLeftFa": "Circle Arrow Trái FA",
+  "iconNameCircleArrowRightFa": "Circle Arrow Phải FA",
+  "iconNameLongArrowUpFa": "Long Arrow Lên FA",
+  "iconNameLongArrowDownFa": "Long Arrow Xuống FA",
+  "iconNameLongArrowLeftFa": "Long Arrow Trái FA",
+  "iconNameLongArrowRightFa": "Long Arrow Phải FA",
+  "iconNamePlusFa": "Cộng FA",
+  "iconNameMinusFa": "Trừ FA",
+  "iconNamePlusCircleFa": "Cộng Circle FA",
+  "iconNameMinusCircleFa": "Trừ Circle FA",
+  "iconNamePlusSquareFa": "Cộng Vuông FA",
+  "iconNameMinusSquareFa": "Trừ Vuông FA",
+  "iconNameTimesFa": "Nhân FA",
+  "iconNameTimesCircleFa": "Nhân Circle FA",
+  "iconNameBatteryFullFa": "Pin đầy FA",
+  "iconNameBattery34Fa": "Pin 3/4 FA",
+  "iconNameBatteryHalfFa": "Battery Nửa FA",
+  "iconNameBattery14Fa": "Pin 1/4 FA",
+  "iconNameBatteryEmptyFa": "Pin cạn FA",
+  "iconNameChargingFa": "Đang sạc FA",
+  "iconNameCloudSunFa": "Mây Sun FA",
+  "iconNameCloudMoonFa": "Mây Moon FA",
+  "iconNameRainFa": "Mưa FA",
+  "iconNameSnowflakeFa": "Bông tuyết FA",
+  "iconNameFireFa": "Lửa FA",
+  "iconNameTemperatureFa": "Nhiệt độ FA",
+  "iconNameBoxFa": "Hộp FA",
+  "iconNameGiftFa": "Quà FA",
+  "iconNameTrophyFa": "Cúp FA",
+  "iconNameCrownFa": "Vương miện FA",
+  "iconNameGemFa": "Ngọc FA",
+  "unknownLabel": "Không rõ",
+  "selectedFilesLabel": "tệp đã chọn",
+  "folderNotFoundOrInaccessible": "Không tìm thấy thư mục hoặc không thể truy cập.",
+  "importedRemoteDefaultName": "ĐiềuKhiểnĐãNhập",
+  "demoRemoteName": "Điều khiển mẫu",
+  "protocolFieldsInvalid": "Điền các trường giao thức bắt buộc và bảo đảm tần số là 15k–60k nếu có đặt.",
+  "unknownProtocolSelected": "Đã chọn giao thức không rõ."
+}

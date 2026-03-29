@@ -1,0 +1,1846 @@
+{
+  "@@locale": "th",
+  "appTitle": "IR Blaster",
+  "loading": "กำลังโหลด…",
+  "unknownError": "ข้อผิดพลาดที่ไม่ทราบสาเหตุ",
+  "failedToStart": "เริ่มไม่สำเร็จ",
+  "retry": "ลองอีกครั้ง",
+  "quickTilePower": "Power",
+  "quickTileMute": "ปิดเสียง",
+  "quickTileVolumeUp": "Vol +",
+  "quickTileVolumeDown": "Vol -",
+  "homeUsbPermissionRequiredMessage": "โทรศัพท์นี้ไม่มี IR ในตัว ตรวจพบดองเกิล IR USB แต่ยังไม่ได้รับสิทธิ์\n\nอนุมัติสิทธิ์ USB เพื่อเปิดการส่ง IR",
+  "homeUsbPermissionDeniedMessage": "โทรศัพท์นี้ไม่มี IR ในตัว ตรวจพบดองเกิล IR USB แต่สิทธิ์ USB ถูกปฏิเสธ\n\nขอสิทธิ์อีกครั้งและอนุมัติเพื่อเปิดการส่ง IR",
+  "homeUsbPermissionGrantedMessage": "โทรศัพท์นี้ไม่มี IR ในตัว ดองเกิล IR USB ได้รับสิทธิ์แล้ว แต่ยังไม่เริ่มต้น",
+  "homeUsbOpenFailedMessage": "โทรศัพท์นี้ไม่มี IR ในตัว ตรวจพบและอนุญาตดองเกิล IR USB แล้ว แต่เริ่มต้นไม่สำเร็จ\n\nถอดเสียบใหม่แล้วลองอีกครั้ง",
+  "homeUsbReadyMessage": "โทรศัพท์นี้ไม่มี IR ในตัว",
+  "homeUsbNoDeviceMessage": "โทรศัพท์นี้ไม่มี IR ในตัว และยังไม่มีดองเกิล IR USB ที่รองรับเชื่อมต่ออยู่\n\nคุณยังสร้าง นำเข้า และจัดการรีโมตได้ แต่หากต้องการส่งสัญญาณ IR ต้องใช้ตัวเลือกด้านล่างอย่างใดอย่างหนึ่ง",
+  "homeUsbOptionPlugIn": "เสียบดองเกิล IR USB ที่รองรับ แล้วอนุมัติสิทธิ์",
+  "homeUsbOptionReady": "พร้อมใช้",
+  "homeUsbOptionPermissionRequired": "เสียบแล้ว ต้องการสิทธิ์",
+  "homeUsbOptionPermissionDenied": "สิทธิ์ถูกปฏิเสธ ขอใหม่อีกครั้ง",
+  "homeUsbOptionPermissionGranted": "อนุญาตแล้ว กำลังเริ่มต้นดองเกิล",
+  "homeUsbOptionOpenFailed": "อนุญาตแล้ว แต่เริ่มต้นไม่สำเร็จ",
+  "homeHardwareBannerNoInternal": "โทรศัพท์นี้ไม่มี IR ในตัว เชื่อมต่อดองเกิล IR USB หรือเปิดโหมดเสียงใน การตั้งค่า",
+  "homeHardwareBannerPermissionRequired": "ตรวจพบดองเกิล USB ต้องการสิทธิ์เพื่อส่ง IR",
+  "homeHardwareBannerPermissionDenied": "สิทธิ์ USB ถูกปฏิเสธ ขออีกครั้งเพื่อส่ง IR",
+  "homeHardwareBannerPermissionGranted": "ดองเกิล USB ได้รับสิทธิ์แล้ว รอการเริ่มต้น",
+  "homeHardwareBannerOpenFailed": "ดองเกิล USB ได้รับสิทธิ์แล้ว แต่เริ่มต้นไม่สำเร็จ",
+  "homeHardwareBannerReady": "USB พร้อมแล้ว",
+  "homeHardwareRequiredTitle": "ต้องมีฮาร์ดแวร์ IR เพื่อส่งคำสั่ง",
+  "homeUsbDongleRecommended": "ดองเกิล IR USB แนะนำ",
+  "homeAudioAdapterAlternative": "อะแดปเตอร์ IR เสียง ทางเลือก",
+  "homeAudioAdapterDescription": "การตั้งค่า → ตัวส่ง IR → เสียง 1 LED / 2 LED ต้องใช้อะแดปเตอร์แปลงเสียงเป็น IR",
+  "close": "ปิด",
+  "homeChooseTransmitter": "เลือกตัวส่ง",
+  "openSettings": "เปิดการตั้งค่า",
+  "homeUsbPermissionSentApprove": "ส่งคำขอสิทธิ์ USB แล้ว อนุมัติหน้าต่างแจ้งเพื่อเปิด USB",
+  "homeUsbDongleNotDetected": "ไม่พบดองเกิล IR USB ที่รองรับ เสียบอุปกรณ์แล้วลองอีกครั้ง",
+  "homeUsbPermissionRequestFailed": "ขอสิทธิ์ USB ไม่สำเร็จ",
+  "working": "กำลังทำงาน…",
+  "requestUsbPermission": "ขอสิทธิ์ USB",
+  "homeHardwareTip": "เคล็ดลับ คุณยังสร้างและจัดรีโมตได้ตอนนี้ ฮาร์ดแวร์จำเป็นเฉพาะตอนส่งเท่านั้น",
+  "homeNoIrTransmitterTitle": "ไม่มีตัวส่ง IR",
+  "settingsNavLabel": "การตั้งค่า",
+  "dismiss": "ปิด",
+  "remotesNavLabel": "รีโมต",
+  "macrosNavLabel": "แมโคร",
+  "signalTesterNavLabel": "สัญญาณ Tester",
+  "settingsTitle": "การตั้งค่า",
+  "remoteNoIrEmitterTitle": "ไม่มีตัวส่ง IR",
+  "remoteNoIrEmitterMessage": "อุปกรณ์นี้ไม่มีตัวส่ง IR",
+  "remoteNoIrEmitterNeedsEmitter": "แอปนี้ต้องใช้ตัวส่ง IR จึงจะทำงานได้",
+  "remoteDismiss": "ปิด",
+  "remoteClose": "ปิด",
+  "remoteFailedToSend": "ไม่สำเร็จ เพื่อส่ง IR: {error}",
+  "@remoteFailedToSend": {
+    "placeholders": {
+      "error": {}
+    }
+  },
+  "remoteFailedToStartLoop": "เริ่มลูปไม่สำเร็จ: {error}",
+  "@remoteFailedToStartLoop": {
+    "placeholders": {
+      "error": {}
+    }
+  },
+  "remoteLoopStoppedFailed": "ลูปหยุดแล้ว การส่งไม่สำเร็จ: {error}",
+  "@remoteLoopStoppedFailed": {
+    "placeholders": {
+      "error": {}
+    }
+  },
+  "remoteLoopingHint": "กำลังวน \"{title}\" แตะ Stop ที่แถบบนเพื่อหยุด",
+  "@remoteLoopingHint": {
+    "placeholders": {
+      "title": {}
+    }
+  },
+  "remoteLoopStopped": "หยุดลูปแล้ว",
+  "remoteUpdatedNotFound": "อัปเดตรีโมตบนหน้าจอแล้ว แต่ไม่พบในรายการที่บันทึกไว้",
+  "remoteUpdatedNamed": "อัปเดต \"{name}\" แล้ว",
+  "@remoteUpdatedNamed": {
+    "placeholders": {
+      "name": {}
+    }
+  },
+  "remoteDeleteFailed": "ลบไม่สำเร็จ: {error}",
+  "@remoteDeleteFailed": {
+    "placeholders": {
+      "error": {}
+    }
+  },
+  "remoteNotFoundSavedList": "รีโมต not found in ที่บันทึกไว้ list.",
+  "remoteDeletedNamed": "ลบ \"{name}\" แล้ว",
+  "@remoteDeletedNamed": {
+    "placeholders": {
+      "name": {}
+    }
+  },
+  "buttonFallbackTitle": "ปุ่ม",
+  "imageFallbackTitle": "Image",
+  "noBrowserAvailable": "ไม่มี browser พร้อมใช้",
+  "failedToOpen": "เปิดไม่สำเร็จ: {error}",
+  "@failedToOpen": {
+    "placeholders": {
+      "error": {}
+    }
+  },
+  "cancel": "Cancel",
+  "settingsRestoreDemoTitle": "กู้คืนรีโมตตัวอย่าง",
+  "settingsRestoreDemoMessage": "การดำเนินการนี้จะแทนที่รีโมตปัจจุบันของคุณด้วยรีโมตตัวอย่างในแอป แนะนำให้สำรองข้อมูลหากต้องการเก็บรายการปัจจุบันไว้",
+  "settingsRestoreDemoConfirm": "กู้คืนตัวอย่าง",
+  "settingsDemoRemotesRestored": "กู้คืนรีโมตตัวอย่างแล้ว",
+  "settingsDeleteAllRemotesTitle": "ลบรีโมตทั้งหมด",
+  "settingsDeleteAllRemotesMessage": "การดำเนินการนี้จะลบรีโมตทั้งหมดออกจากอุปกรณ์นี้ และไม่สามารถยกเลิกได้",
+  "settingsDeleteAllConfirm": "ลบทั้งหมด",
+  "settingsAllRemotesDeleted": "ลบรีโมตทั้งหมดแล้ว",
+  "themeAuto": "ธีมอัตโนมัติ",
+  "themeLight": "ธีมสว่าง",
+  "themeDark": "ธีมมืด",
+  "themeDescAuto": "ตามการตั้งค่าอุปกรณ์ของคุณ",
+  "themeDescLight": "สว่างและชัดเจนเสมอ",
+  "themeDescDark": "สบายตา",
+  "themeHintAuto": "ธีมจะสลับอัตโนมัติตามการตั้งค่าโหมดสว่างและมืดของอุปกรณ์",
+  "themeHintLight": "เหมาะสำหรับการใช้งานตอนกลางวันและสภาพแสงดี",
+  "themeHintDark": "ช่วยลดอาการล้าตาในที่แสงน้อยและประหยัดแบตบนจอ OLED",
+  "supportDevelopmentTitle": "สนับสนุนการพัฒนา",
+  "supportDevelopmentSubtitle": "ช่วยให้ IR Blaster ได้รับการดูแลและรองรับฮาร์ดแวร์ต่อไป",
+  "supportDevelopmentBody": "ไม่มีโฆษณา ไม่ติดตาม ไม่มีฟีเจอร์ล็อก. การสนับสนุนของคุณช่วยงานโปรโตคอล การรองรับดองเกิล USB และความเข้ากันได้ที่ดีขึ้นในหลายอุปกรณ์",
+  "donate": "Donate",
+  "starRepo": "ติดดาวรีโป",
+  "repositoryLinkCopied": "คัดลอกลิงก์รีโปแล้ว",
+  "supportPillLocalOnly": "ทำงานในเครื่อง",
+  "supportPillNoTracking": "ไม่ติดตาม",
+  "supportPillHardwareAware": "รู้จักฮาร์ดแวร์",
+  "supportPillOpenSource": "โอเพนซอร์ส",
+  "appearanceTitle": "ลักษณะการแสดงผล",
+  "appearanceSubtitle": "ปรับแต่งประสบการณ์การมองเห็นของคุณ",
+  "localizationTitle": "ในเครื่องization",
+  "localizationSubtitle": "ภาษาของแอปและพฤติกรรมการแปล",
+  "localizationAutoUsing": "อัตโนมัติ: ใช้ {language}",
+  "@localizationAutoUsing": {
+    "placeholders": {
+      "language": {}
+    }
+  },
+  "localizationAutoDescription": "แอปจะใช้ภาษาของอุปกรณ์เมื่อเป็นไปได้",
+  "localizationManualDescription": "ภาษาของแอปถูกกำหนดเอง",
+  "useSystemLanguageTitle": "ใช้ภาษาระบบ",
+  "useSystemLanguageEnabled": "Following your อุปกรณ์ ภาษา: {language}",
+  "@useSystemLanguageEnabled": {
+    "placeholders": {
+      "language": {}
+    }
+  },
+  "useSystemLanguageDisabled": "ใช้ภาษาที่เลือกด้านล่างแทนค่าเริ่มต้นของอุปกรณ์",
+  "chooseAppLanguage": "เลือก app ภาษา",
+  "languagePickerDisabledHint": "ปิดภาษาระบบเพื่อเลือกภาษาเอง",
+  "searchLanguages": "ค้นหาภาษา",
+  "noLanguagesFound": "ไม่มี matching ภาษาs",
+  "localizationHint": "เมื่อเปิดภาษาระบบ แอปจะใช้โลแคลของอุปกรณ์และกลับไปใช้อังกฤษหากยังไม่มีคำแปล ปิดตัวเลือกนี้เพื่อบังคับใช้ภาษาใดภาษาหนึ่ง",
+  "appLanguageTitle": "App ภาษา",
+  "appLanguageHint": "โหมดอัตโนมัติจะใช้ภาษาของอุปกรณ์ เลือก English หรือ French ที่นี่เพื่อบังคับใช้เฉพาะในแอป",
+  "languageAuto": "อัตโนมัติ ตามระบบ",
+  "languageAutoDescription": "ใช้ภาษาของอุปกรณ์โดยอัตโนมัติ",
+  "languageEnglish": "อังกฤษ",
+  "languageEnglishDescription": "บังคับให้แอปใช้อังกฤษเสมอ",
+  "languageFrench": "ฝรั่งเศส",
+  "languageFrenchDescription": "บังคับให้แอปใช้ฝรั่งเศสเสมอ",
+  "languageAutoShort": "อัตโนมัติ",
+  "languageEnglishShort": "อังกฤษ",
+  "languageFrenchShort": "Français",
+  "useDynamicColors": "ใช้สีแบบไดนามิก",
+  "themeChoiceAuto": "อัตโนมัติ",
+  "themeChoiceLight": "สว่าง",
+  "themeChoiceDark": "มืด",
+  "irTransmitterTitle": "ตัวส่ง IR",
+  "irTransmitterSubtitle": "เลือกวิธีส่งสัญญาณ IR",
+  "interactionTitle": "การโต้ตอบ",
+  "interactionSubtitle": "การตอบสนองเมื่อแตะและเลย์เอาต์รีโมต",
+  "hapticFeedbackTitle": "การสั่นตอบสนอง",
+  "hapticFeedbackSubtitle": "สั่นเมื่อแตะและเมื่อทำงาน",
+  "intensity": "ความเข้ม",
+  "intensityLight": "สว่าง",
+  "intensityMedium": "Medium",
+  "intensityStrong": "Strong",
+  "flipRemoteDefaultTitle": "พลิกมุมมองรีโมตเป็นค่าเริ่มต้น",
+  "flipRemoteDefaultSubtitle": "เปิด รีโมต screens rotated 180° (for bottom-mounted USB dongles).",
+  "remoteViewFlipped": "มุมมองรีโมตจะเปิดแบบกลับด้าน",
+  "remoteViewNormal": "มุมมองรีโมตจะเปิดแบบปกติ",
+  "backupTitle": "สำรองข้อมูล",
+  "backupSubtitle": "นำเข้าและส่งออกรีโมตกับแมโคร",
+  "importBackup": "นำเข้าข้อมูลสำรอง",
+  "importBackupSubtitle": "นำเข้าข้อมูลสำรองรีโมตและแมโคร หรือไฟล์ Flipper Zero, LIRC หรือ IRPLUS",
+  "bulkImportFolder": "Bulk import โฟลเดอร์",
+  "bulkImportFolderSubtitle": "นำเข้า multiple รีโมต from a โฟลเดอร์",
+  "exportBackup": "ส่งออก backup",
+  "exportBackupSubtitle": "Save รีโมต + แมโครs as one JSON ไฟล์ to ดาวน์โหลด",
+  "restoreDemoRemotes": "กู้คืนตัวอย่าง รีโมต",
+  "restoreDemoRemotesSubtitle": "แทนที่รีโมตปัจจุบันด้วยรีโมตตัวอย่างในแอป",
+  "deleteAllRemotes": "ลบรีโมตทั้งหมด",
+  "deleteAllRemotesSubtitle": "ลบรีโมตทั้งหมดออกจากอุปกรณ์นี้",
+  "backupTip": "Tip: export a backup before large edits. นำเข้า supports full backups, legacy รีโมต-เท่านั้น JSON backups, and Flipper Zero.ir ไฟล์s.",
+  "aboutTitle": "เกี่ยวกับ",
+  "aboutSubtitle": "ข้อมูลแอปและรายละเอียดโอเพนซอร์ส",
+  "aboutAppNameWithCreator": "IR Bล่าสุดer - {creator}",
+  "@aboutAppNameWithCreator": {
+    "placeholders": {
+      "creator": {}
+    }
+  },
+  "versionLabel": "เวอร์ชัน {version}",
+  "@versionLabel": {
+    "placeholders": {
+      "version": {}
+    }
+  },
+  "sourceCode": "ซอร์สโค้ด",
+  "viewOnGitHub": "ดูบน GitHub",
+  "repositoryUrlCopied": "คัดลอก URL รีโปแล้ว",
+  "reportIssue": "รายงานปัญหา",
+  "reportIssueSubtitle": "รายงานบั๊กและคำขอฟีเจอร์",
+  "issuesUrlCopied": "คัดลอก URL ของ Issues แล้ว",
+  "license": "สัญญาอนุญาต",
+  "openSourceLicense": "สัญญาอนุญาตโอเพนซอร์ส",
+  "licenseUrlCopied": "คัดลอก URL สัญญาอนุญาตแล้ว",
+  "companyName": "KaijinLab Inc.",
+  "visitWebsite": "เยี่ยมชมเว็บไซต์ของเรา",
+  "companyUrlCopied": "คัดลอก URL บริษัทแล้ว",
+  "licenses": "สัญญาอนุญาต",
+  "openSourceLicenses": "สัญญาอนุญาตโอเพนซอร์ส",
+  "byCreator": "โดย {creator}",
+  "@byCreator": {
+    "placeholders": {
+      "creator": {}
+    }
+  },
+  "deviceControlsTitle": "การควบคุมอุปกรณ์",
+  "deviceControlsSubtitle": "แสดงปุ่มโปรดในหน้าควบคุมของระบบ",
+  "manageFavorites": "จัดการรายการโปรด",
+  "manageFavoritesSubtitle": "เลือกว่าปุ่มใดจะแสดงในการควบคุมอุปกรณ์",
+  "quickSettingsTitle": "การตั้งค่าด่วน",
+  "quickSettingsSubtitle": "เพิ่มไทล์สำหรับทางลัดปุ่มเปิดปิดและเสียง",
+  "configureTiles": "ตั้งค่าไทล์",
+  "configureTilesSubtitle": "แมปไทล์กับปุ่มบนรีโมต",
+  "tvKillTitle": "TVKill",
+  "tvKillSubtitle": "วนโค้ดพลังงานสำหรับอุปกรณ์ที่คุณเป็นเจ้าของ",
+  "openTvKill": "เปิด TVKill",
+  "openTvKillSubtitle": "วนโค้ดพลังงาน ใช้กับอุปกรณ์ที่คุณเป็นเจ้าของเท่านั้น",
+  "failedToLoadTransmitterSettings": "ไม่สำเร็จในการload ตัวส่ง settings.",
+  "usbStatusReady": "USB dongle is connected and พร้อม เพื่อส่ง IR.",
+  "usbStatusPermissionRequired": "USB dongle detected. Request USB สิทธิ์ and approve the ระบบ prompt.",
+  "usbStatusPermissionDenied": "สิทธิ์ USB ถูกปฏิเสธ for the attached dongle. ขออีกครั้ง and approve the prompt.",
+  "usbStatusPermissionGranted": "USB ได้รับสิทธิ์แล้ว. The dongle still needs to be initialized before it can send IR.",
+  "usbStatusOpenFailed": "USB ได้รับสิทธิ์แล้ว, but the dongle could not be initialized. ถอดเสียบใหม่แล้วลองอีกครั้ง.",
+  "usbStatusNoDevice": "ไม่พบดองเกิล IR USB ที่รองรับ.",
+  "usbSelectPermissionRequired": "USB dongle detected but not authorized. แตะ \"ขอสิทธิ์ USB\".",
+  "usbSelectPermissionDenied": "สิทธิ์ USB ถูกปฏิเสธ. แตะ \"ขอสิทธิ์ USB\" and approve the prompt.",
+  "usbSelectPermissionGranted": "USB ได้รับสิทธิ์แล้ว, but the dongle is not initialized yet. Try reconnecting it.",
+  "usbSelectOpenFailed": "USB ได้รับสิทธิ์แล้ว, but the dongle could not be initialized. ถอดเสียบใหม่แล้วลองอีกครั้ง.",
+  "usbSelectNoDevice": "ไม่พบดองเกิล IR USB ที่รองรับ. เสียบอุปกรณ์ แล้วแตะ \"ขอสิทธิ์ USB\".",
+  "usbSelectReady": "ดองเกิล USB พร้อมแล้ว.",
+  "autoSwitchEnabledMessage": "เปิดสลับอัตโนมัติ: ใช้ USB เมื่อเชื่อมต่อ มิฉะนั้นใช้ภายใน",
+  "autoSwitchDisabledMessage": "ปิดสลับอัตโนมัติ: ตอนนี้เลือกตัวส่งเอง",
+  "failedToUpdateAutoSwitch": "อัปเดตการตั้งค่าสลับอัตโนมัติไม่สำเร็จ",
+  "failedToSwitchTransmitter": "ไม่สำเร็จในการswitch ตัวส่ง.",
+  "deviceHasNoInternalIr": "อุปกรณ์นี้ไม่มีตัวส่ง IR ในตัว",
+  "audioModeEnabledMessage": "โหมดเสียง enabled. Use max media volume and an audio-to-IR LED adapter.",
+  "usbPermissionRequestSent": "ส่งคำขอสิทธิ์ USB แล้ว.",
+  "usbPermissionRequestSentApprove": "ส่งคำขอสิทธิ์ USB แล้ว. อนุมัติหน้าต่างแจ้ง to enable USB.",
+  "usbAlreadyReady": "USB dongle is alพร้อม initialized and พร้อม.",
+  "failedToRequestUsbPermission": "ไม่สำเร็จในการrequest USB สิทธิ์.",
+  "transmitterHelpInternal": "ใช้ตัวส่ง IR ในตัวของโทรศัพท์เพื่อส่งคำสั่ง",
+  "transmitterHelpUsb": "ใช้ดองเกิล IR USB ต้องมีสิทธิ์ เพื่อส่งคำสั่ง",
+  "transmitterHelpAudio1": "ใช้เอาต์พุตเสียง แบบโมโน ต้องมีอะแดปเตอร์เสียงเป็น IR และเร่งเสียงสื่อสูง",
+  "transmitterHelpAudio2": "ใช้เอาต์พุตเสียง แบบสเตอริโอ ใช้สองช่องสัญญาณเพื่อขับ LED ได้ดีขึ้นกับอะแดปเตอร์ที่รองรับ",
+  "transmitterInternal": "IR ในตัว",
+  "transmitterUsb": "ดองเกิล IR USB",
+  "transmitterAudio1": "เสียง 1 LED",
+  "transmitterAudio2": "เสียง 2 LED",
+  "failedToLoadTransmitterCapabilities": "ไม่สำเร็จในการload ตัวส่ง capabilities.",
+  "selectedTransmitter": "ตัวส่งที่เลือก",
+  "selectedTransmitterValue": "{effective} • ใช้งานอยู่: {active}",
+  "@selectedTransmitterValue": {
+    "placeholders": {
+      "effective": {},
+      "active": {}
+    }
+  },
+  "refresh": "รีเฟรช",
+  "autoSwitchTitle": "สลับอัตโนมัติ",
+  "autoSwitchDisabledWhileAudio": "ปิดใช้งานขณะใช้โหมดเสียง",
+  "autoSwitchUsesUsbOtherwiseInternal": "ใช้ USB เมื่อเชื่อมต่อ มิฉะนั้นใช้ภายใน",
+  "unavailableOnThisDevice": "Unพร้อมใช้ on this อุปกรณ์",
+  "openOnUsbAttachTitle": "เปิดเมื่อเสียบ USB",
+  "openOnUsbAttachSubtitle": "Android may suggest opening the app when a ที่รองรับ ดองเกิล IR USB is connected.",
+  "openOnUsbAttachEnabledMessage": "จะแนะนำให้เปิด IR Bล่าสุดer เมื่อเสียบดองเกิล USB ที่รองรับ",
+  "openOnUsbAttachDisabledMessage": "จะไม่แนะนำให้เปิดเมื่อเสียบ USB",
+  "failedToUpdateSetting": "ไม่สำเร็จในการupdate setting.",
+  "unnamedButton": "ปุ่มไม่มีชื่อ",
+  "iconFallback": "Icon",
+  "remoteListReorderHint": "โหมดจัดลำดับ: กดค้างและลากการ์ดเพื่อย้าย",
+  "deleteRemoteTitle": "ลบรีโมต",
+  "deleteRemoteMessage": "\"{name}\" จะถูกลบถาวร และไม่สามารถยกเลิกได้",
+  "@deleteRemoteMessage": {
+    "placeholders": {
+      "name": {}
+    }
+  },
+  "delete": "ลบ",
+  "addToDeviceControlsTitle": "เพิ่มในการควบคุมอุปกรณ์",
+  "addToDeviceControlsDescription": "เข้าถึงได้เร็วในการควบคุมอุปกรณ์ของระบบ",
+  "skip": "Skip",
+  "add": "เพิ่ม",
+  "addedToDeviceControls": "เพิ่มในการควบคุมอุปกรณ์แล้ว",
+  "deletedRemoteUndoUnavailable": "ลบ \"{name}\" แล้ว การกระทำนี้ยกเลิกไม่ได้",
+  "@deletedRemoteUndoUnavailable": {
+    "placeholders": {
+      "name": {}
+    }
+  },
+  "remoteLayoutSummary": "{count} ปุ่ม · {layout}",
+  "@remoteLayoutSummary": {
+    "placeholders": {
+      "count": {},
+      "layout": {}
+    }
+  },
+  "layoutComfort": "สบายตา",
+  "layoutCompact": "กะทัดรัด",
+  "open": "เปิด",
+  "useThisRemote": "ใช้รีโมตนี้",
+  "edit": "แก้ไข",
+  "editRemoteSubtitle": "เปลี่ยนชื่อและแก้ไขปุ่ม",
+  "thisCannotBeUndone": "ไม่สามารถยกเลิกได้",
+  "searchRemotes": "ค้นหารีโมต",
+  "reorderRemotes": "จัดลำดับรีโมต",
+  "addRemote": "เพิ่มรีโมต",
+  "more": "More",
+  "reorderMode": "โหมดจัดลำดับ",
+  "remoteButtonCount": "{count} ปุ่ม{plural}",
+  "@remoteButtonCount": {
+    "placeholders": {
+      "count": {},
+      "plural": {}
+    }
+  },
+  "noRemotesYet": "ยังไม่มีรีโมต",
+  "noRemotesDescription": "สร้าง a remote to start sending IR codes.",
+  "noRemotesNextStep": "What ถัดไป: tap เพิ่มรีโมต, then add your ก่อน ปุ่มs.",
+  "actions": "การทำงาน",
+  "macrosTitle": "แมโคร",
+  "help": "Help",
+  "createMacro": "สร้างแมโคร",
+  "timedMacrosTitle": "Timed แมโครs",
+  "timedMacrosSubtitle": "Automate sequences of IR commands with precise timing",
+  "timedMacrosNextStep": "ขั้นต่อไป แตะ สร้างแมโครแรกของคุณ เลือกรีโมต แล้วเพิ่มคำสั่งและช่วงหน่วง",
+  "macroFeatureToysTitle": "เหมาะสำหรับของเล่นแบบโต้ตอบ",
+  "macroFeatureToysDescription": "Control อุปกรณ์s like i-cybie robot dogs, i-sobot robots, and other toys that need time between commands to process actions.",
+  "macroFeatureTimingTitle": "ควบคุมเวลาได้แม่นยำ",
+  "macroFeatureTimingDescription": "เพิ่มช่วงหน่วงระหว่างคำสั่ง ตั้งแต่ 250ms ถึงค่าที่กำหนดเอง เพื่อให้อุปกรณ์มีเวลาตอบสนองก่อนการทำงานถัดไป",
+  "macroFeatureManualTitle": "ขั้นตอนทำต่อด้วยตนเอง",
+  "macroFeatureManualDescription": "หยุดการทำงานและรอการยืนยันจากคุณเมื่อความยาวแอนิเมชันไม่แน่นอนหรือเมื่อคุณต้องการดูผลลัพธ์",
+  "exampleUseCase": "ตัวอย่างการใช้งาน",
+  "macroExampleText": "i-cybie Advanced Mode:\n1. Send \"Mode\" command\n2. Wait 1000ms (toy processes)\n3. Send \"Action 1\"\n4. Wait 1000ms\n5. Send \"Action 2\"\n…and so on automatically!",
+  "createFirstMacro": "สร้างแมโครแรกของคุณ",
+  "noRemote": "ไม่มีรีโมต",
+  "macroStepCount": "{count} ขั้นตอน{plural}",
+  "@macroStepCount": {
+    "placeholders": {
+      "count": {},
+      "plural": {}
+    }
+  },
+  "aboutTimedMacros": "เกี่ยวกับแมโครตั้งเวลา",
+  "aboutTimedMacrosDescription": "แมโครตั้งเวลาช่วยให้คุณทำลำดับคำสั่ง IR อัตโนมัติด้วยการหน่วงเวลาที่แม่นยำในแต่ละขั้น",
+  "sendCommand": "ส่งคำสั่ง",
+  "sendCommandDescription": "Transmits an IR command from your remote.",
+  "delay": "หน่วงเวลา",
+  "delayDescription": "รอตามเวลาที่กำหนด เช่น 1000ms ก่อนขั้นถัดไป",
+  "manualContinue": "ทำต่อด้วยตนเอง",
+  "manualContinueDescription": "หยุดการทำงานไว้จนกว่าคุณจะแตะ ทำต่อ เหมาะกับแอนิเมชันที่ความยาวไม่คงที่",
+  "gotIt": "Got it",
+  "failedToSaveMacros": "ไม่สำเร็จในการบันทึก แมโครs.",
+  "deletedMacroNamed": "ลบ \"{name}\" แล้ว",
+  "@deletedMacroNamed": {
+    "placeholders": {
+      "name": {}
+    }
+  },
+  "undo": "Undo",
+  "failedToRestoreMacro": "ไม่สำเร็จในการrestore แมโคร.",
+  "deleteMacroTitle": "ลบแมโคร",
+  "deleteMacroMessage": "คุณยกเลิกได้จาก snackbar ถัดไป",
+  "noRemotesAvailable": "ไม่มีรีโมต",
+  "remoteButtonCountSummary": "{count} ปุ่ม",
+  "@remoteButtonCountSummary": {
+    "placeholders": {
+      "count": {}
+    }
+  },
+  "remoteOrientationFlippedTooltip": "การวางแนว: กลับด้าน แตะเพื่อกลับปกติ",
+  "remoteOrientationNormalTooltip": "การวางแนว: ปกติ แตะเพื่อกลับด้าน",
+  "stopLoop": "หยุด loop",
+  "reorderButtons": "จัดลำดับปุ่ม",
+  "remoteReorderHint": "โหมดจัดลำดับ: กดค้างและลากปุ่มเพื่อย้าย",
+  "manageRemote": "จัดการรีโมต",
+  "remoteNoButtons": "ไม่มีปุ่มในรีโมตนี้",
+  "remoteNoButtonsDescription": "ใช้ แก้ไขรีโมต เพื่อเพิ่มหรือตั้งค่าปุ่ม",
+  "editRemote": "แก้ไข remote",
+  "editRemoteActionsSubtitle": "เปลี่ยนชื่อ จัดลำดับ และแก้ไขปุ่ม",
+  "remoteUpdatedNamedButton": "อัปเดต \"{name}\" แล้ว",
+  "@remoteUpdatedNamedButton": {
+    "placeholders": {
+      "name": {}
+    }
+  },
+  "buttonAddedNamed": "เพิ่ม \"{name}\" แล้ว",
+  "@buttonAddedNamed": {
+    "placeholders": {
+      "name": {}
+    }
+  },
+  "buttonDuplicated": "ทำซ้ำปุ่มแล้ว",
+  "loopRunningForButton": "กำลังวนลูปสำหรับปุ่มนี้",
+  "loopTip": "เคล็ดลับ ใช้ลูปเพื่อทำซ้ำจนกว่าคุณจะหยุด",
+  "codeCopied": "คัดลอกโค้ดแล้ว",
+  "copyCode": "คัดลอกโค้ด",
+  "startLoop": "เริ่ม loop",
+  "editButtonSubtitle": "แก้ไขชื่อ โค้ด โปรโตคอล และความถี่",
+  "newButton": "New ปุ่ม",
+  "newButtonSubtitle": "สร้างปุ่มใหม่ต่อจากปุ่มนี้",
+  "duplicate": "ทำซ้ำ",
+  "duplicateButtonSubtitle": "สร้างสำเนาของปุ่มนี้",
+  "removeFromDeviceControls": "นำออกจากการควบคุมอุปกรณ์",
+  "addToDeviceControls": "เพิ่ม to อุปกรณ์ Controls",
+  "deviceControlsButtonSubtitle": "แสดงปุ่มนี้ในการควบคุมอุปกรณ์ของระบบ",
+  "removedFromDeviceControls": "นำออกแล้ว from อุปกรณ์ Controls.",
+  "pinQuickTile": "ปักหมุดไปยังรายการโปรดไทล์ด่วน",
+  "unpinQuickTile": "เอาออกจากรายการโปรดไทล์ด่วน",
+  "quickTileButtonSubtitle": "แสดงปุ่มนี้ด้านบนของตัวเลือกไทล์ด่วน",
+  "removedFromQuickTileFavorites": "นำออกจากรายการโปรดไทล์ด่วนแล้ว",
+  "pinnedToQuickTileFavorites": "ปักหมุดไว้ในรายการโปรดไทล์ด่วนแล้ว",
+  "duplicateAndEdit": "ทำซ้ำและแก้ไข",
+  "duplicateAndEditSubtitle": "สร้างสำเนาและแก้ไขทันที",
+  "done": "Done",
+  "run": "ทำงาน",
+  "untitledRemote": "รีโมตไม่มีชื่อ",
+  "createRemoteTitle": "สร้างรีโมต",
+  "editRemoteTitle": "แก้ไข remote",
+  "removeButtonTitle": "นำปุ่มออก",
+  "imageButtonRemovedMessage": "ปุ่มรูปภาพนี้จะถูกลบ",
+  "namedButtonRemovedMessage": "\"{name}\" จะถูกลบ",
+  "@namedButtonRemovedMessage": {
+    "placeholders": {
+      "name": {}
+    }
+  },
+  "remove": "นำออก",
+  "importedButtonCount": "นำเข้า {count} ปุ่มแล้ว",
+  "@importedButtonCount": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "importedButtonsFromExistingRemotes": "นำเข้า {count} ปุ่มจากรีโมตที่มีอยู่แล้ว",
+  "@importedButtonsFromExistingRemotes": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "editButtonSettingsSubtitle": "เปลี่ยนชื่อ สัญญาณ และการตั้งค่าขั้นสูง",
+  "createButtonCopySubtitle": "สร้างสำเนาของปุ่มนี้",
+  "duplicateAndEditButtonSubtitle": "สร้างสำเนาและแก้ไขทันที",
+  "undoAvailableInNextSnackbar": "คุณยกเลิกได้จาก snackbar ถัดไป",
+  "buttonRemoved": "ลบปุ่มแล้ว",
+  "remoteNameCannotBeEmpty": "ชื่อรีโมตห้ามว่าง",
+  "saveRemote": "บันทึกรีโมต",
+  "remoteName": "รีโมต name",
+  "remoteNameHint": "e.g., TV, Air Conditioner, LED Strip",
+  "remoteNameHelper": "ชื่อนี้จะแสดงในรายการรีโมตของคุณ",
+  "layoutStyle": "รูปแบบเลย์เอาต์",
+  "layoutWideDescription": "กว้าง: ปุ่ม 2 คอลัมน์พร้อมรายละเอียดเพิ่ม แนะนำ",
+  "layoutCompactDescription": "กะทัดรัด: กริด 4× แบบคลาสสิก ไอคอนและข้อความเท่านั้น",
+  "importFromRemotes": "นำเข้าจากรีโมต",
+  "importFromDatabase": "นำเข้าจากฐานข้อมูล",
+  "addButton": "เพิ่มปุ่ม",
+  "noButtonsYet": "ยังไม่มีปุ่ม",
+  "createRemoteEmptyStateDescription": "เพิ่มปุ่มแรกของคุณ แล้วกดค้างเพื่อแก้ไขหรือลบ",
+  "createButtonTitle": "สร้างปุ่ม",
+  "editButtonTitle": "แก้ไข ปุ่ม",
+  "failedToLoadProtocols": "โหลดโปรโตคอลไม่สำเร็จ: {error}",
+  "@failedToLoadProtocols": {
+    "placeholders": {
+      "error": {}
+    }
+  },
+  "failedToLoadDatabaseKeys": "โหลดคีย์ฐานข้อมูลไม่สำเร็จ: {error}",
+  "@failedToLoadDatabaseKeys": {
+    "placeholders": {
+      "error": {}
+    }
+  },
+  "presetPower": "Power",
+  "presetVolume": "Volume",
+  "presetChannel": "ช่อง",
+  "presetNavigation": "นำทาง",
+  "all": "All",
+  "completeRequiredFieldsToSave": "กรอกข้อมูลที่จำเป็นให้ครบเพื่อบันทึก",
+  "buttonLabelStepTitle": "1) ปุ่ม label",
+  "buttonLabelStepSubtitle": "เลือกรูปภาพ ไอคอน หรือพิมพ์ข้อความป้ายชื่อ",
+  "buttonColorStepTitle": "2) ปุ่ม color (ไม่บังคับ)",
+  "buttonColorStepSubtitle": "เลือกสีพื้นหลังสำหรับปุ่มนี้",
+  "selectColor": "เลือก color:",
+  "noImageSelected": "ยังไม่เลือกรูปภาพ",
+  "gallery": "แกลเลอรี",
+  "builtIn": "ในแอป",
+  "removeImage": "ลบรูปภาพ",
+  "requiredSelectImageOrSwitch": "จำเป็น: เลือกรูปภาพ เลือกไอคอน หรือสลับไปใช้ข้อความ",
+  "iconSelected": "เลือกไอคอนแล้ว",
+  "noIconSelected": "ยังไม่เลือกไอคอน",
+  "chooseIcon": "เลือก Icon",
+  "removeIcon": "ลบไอคอน",
+  "requiredSelectIconOrSwitch": "จำเป็น: เลือกไอคอนหรือสลับไปใช้รูปภาพหรือข้อความ",
+  "buttonText": "ข้อความปุ่ม",
+  "buttonTextHint": "e.g., Power, Volume +, HDMI 1",
+  "buttonTextHelper": "ข้อความนี้จะแสดงบนปุ่ม",
+  "requiredEnterButtonLabel": "จำเป็น: ใส่ป้ายชื่อปุ่ม",
+  "defaultColorName": "ค่าเริ่มต้น",
+  "newRemoteCreatedFromLastHit": "สร้างรีโมตใหม่พร้อม 1 ปุ่มจากผลล่าสุดแล้ว",
+  "selectRemote": "เลือกรีโมต",
+  "remoteNumber": "รีโมต #{id}",
+  "@remoteNumber": {
+    "placeholders": {
+      "id": {}
+    }
+  },
+  "newRemoteCreated": "สร้างรีโมตใหม่แล้ว",
+  "failedToCreateRemote": "ไม่สำเร็จในการcreate remote.",
+  "newRemoteEllipsis": "รีโมตใหม่…",
+  "addedToRemoteNamed": "เพิ่มไปยัง {name} แล้ว",
+  "@addedToRemoteNamed": {
+    "placeholders": {
+      "name": {}
+    }
+  },
+  "failedToAddToRemote": "ไม่สำเร็จในการadd to remote.",
+  "newRemoteDefaultName": "New รีโมต",
+  "jumpedToOffsetPaused": "ข้ามไปยังออฟเซ็ต {offset} แล้ว หยุดชั่วคราว กด ทำต่อ เพื่อไปต่อ",
+  "@jumpedToOffsetPaused": {
+    "placeholders": {
+      "offset": {
+        "type": "int"
+      }
+    }
+  },
+  "sent": "Sent.",
+  "failedToSend": "ส่งไม่สำเร็จ: {error}",
+  "@failedToSend": {
+    "placeholders": {
+      "error": {}
+    }
+  },
+  "copiedProtocolCode": "Copied (โปรโตคอล:code).",
+  "savedToResults": "Saved to ผลลัพธ์s.",
+  "invalidCodeForProtocol": "โค้ดไม่ถูกต้องสำหรับโปรโตคอล: {error}",
+  "@invalidCodeForProtocol": {
+    "placeholders": {
+      "error": {}
+    }
+  },
+  "copiedCurrentCandidate": "คัดลอกตัวเลือกปัจจุบันแล้ว",
+  "jumpToOffset": "ข้ามไปยังออฟเซ็ต",
+  "jumpToBruteCursor": "ข้ามไปยังเคอร์เซอร์เดาสุ่ม",
+  "jump": "Jump",
+  "jumpedToCursorPaused": "ข้ามไปยังเคอร์เซอร์ 0x{cursor} แล้ว หยุดชั่วคราว กด ทำต่อ เพื่อไปต่อ",
+  "@jumpedToCursorPaused": {
+    "placeholders": {
+      "cursor": {}
+    }
+  },
+  "irSignalTester": "ตัวทดสอบสัญญาณ IR",
+  "stop": "หยุด",
+  "selectButton": "เลือกปุ่ม",
+  "buttonNotFoundInRemotes": "ไม่พบปุ่มในรีโมต",
+  "sentNamed": "ส่ง \"{name}\" แล้ว",
+  "@sentNamed": {
+    "placeholders": {
+      "name": {}
+    }
+  },
+  "sendFailed": "ส่งไม่สำเร็จ: {error}",
+  "@sendFailed": {
+    "placeholders": {
+      "error": {}
+    }
+  },
+  "noFavoritesYet": "ยังไม่มีรายการโปรด",
+  "deviceControlsEmptyHint": "กดปุ่มบนรีโมตค้าง แล้วเลือก Add to Device Controls",
+  "sendTest": "ส่งทดสอบ",
+  "testSendCompleted": "ส่งทดสอบเสร็จแล้ว",
+  "testSendFailed": "ส่งทดสอบไม่สำเร็จ: {error}",
+  "@testSendFailed": {
+    "placeholders": {
+      "error": {}
+    }
+  },
+  "removedNamed": "นำออกแล้ว \"{name}\".",
+  "@removedNamed": {
+    "placeholders": {
+      "name": {}
+    }
+  },
+  "brand": "ยี่ห้อ",
+  "model": "รุ่น",
+  "selectBrand": "เลือกยี่ห้อ",
+  "searchBrand": "ค้นหา ยี่ห้อ…",
+  "selectModel": "เลือกรุ่น",
+  "searchModel": "ค้นหา รุ่น…",
+  "unnamedKey": "คีย์ไม่มีชื่อ",
+  "unknown": "ไม่ทราบ",
+  "emDash": "—",
+  "searchCommands": "ค้นหาคำสั่ง",
+  "noMatchingCommands": "ไม่พบคำสั่งที่ตรงกัน",
+  "quickTileFavoritesTitle": "รายการโปรดไทล์ด่วน",
+  "changeMappingForTile": "เปลี่ยนการแมปสำหรับไทล์ {tileLabel}",
+  "@changeMappingForTile": {
+    "placeholders": {
+      "tileLabel": {}
+    }
+  },
+  "pickDifferentButton": "เลือกปุ่มอื่น",
+  "browseAllRemotesEllipsis": "ดูรีโมตทั้งหมด…",
+  "invalidMacroFileFormat": "Invalid แมโคร ไฟล์ format.",
+  "failedToParseMacroFile": "ไม่สำเร็จในการparse แมโคร ไฟล์.",
+  "deviceCodeLabel": "รหัสอุปกรณ์",
+  "commandLabel": "คำสั่ง",
+  "editButtonCodeTitle": "แก้ไขโค้ดของปุ่ม",
+  "thisRemoteHasNoButtons": "รีโมตนี้ไม่มีปุ่ม",
+  "selectCommand": "เลือกคำสั่ง",
+  "databaseModeAutofillHint": "โหมดฐานข้อมูลจะกรอกขั้นตอนที่ 2 ให้อัตโนมัติ ยี่ห้อ รุ่น และโปรโตคอล หลังนำเข้าคีย์แล้ว คุณยังปรับทุกอย่างได้ในโหมด Manual",
+  "test": "ทดสอบ",
+  "allSelectedButtonsWereDuplicates": "ปุ่มที่เลือกทั้งหมดเป็นรายการซ้ำ",
+  "noButtonsImported": "ไม่มีปุ่มที่นำเข้า",
+  "importedButtonsSkippedDuplicates": "นำเข้า {addedCount} ปุ่ม ข้ามรายการซ้ำ {skippedCount} รายการ",
+  "@importedButtonsSkippedDuplicates": {
+    "placeholders": {
+      "addedCount": {
+        "type": "int"
+      },
+      "skippedCount": {
+        "type": "int"
+      }
+    }
+  },
+  "importAllMatchingTitle": "นำเข้าปุ่มที่ตรงกันทั้งหมด",
+  "noMatchingKeysFound": "ไม่พบคีย์ที่ตรงกัน",
+  "importAllMatchingMessage": "การดำเนินการนี้จะนำเข้าคีย์ที่ตรงกันได้สูงสุด {count} รายการจากตัวเลือกฐานข้อมูลปัจจุบัน",
+  "@importAllMatchingMessage": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "importAll": "นำเข้าทั้งหมด",
+  "importingButtons": "กำลังนำเข้าปุ่ม…",
+  "allMatchingButtonsWereDuplicates": "ปุ่มที่ตรงกันทั้งหมดเป็นรายการซ้ำ",
+  "quickPresets": "พรีเซ็ตด่วน",
+  "selectDeviceFirst": "เลือกอุปกรณ์ก่อน",
+  "searchByLabelOrHex": "ค้นหาตามชื่อหรือเลขฐานสิบหก",
+  "optionalRefinePresetKeys": "ไม่บังคับ: ปรับคีย์พรีเซ็ต {preset}",
+  "@optionalRefinePresetKeys": {
+    "placeholders": {
+      "preset": {}
+    }
+  },
+  "selectBrandModelProtocolFirst": "เลือก ยี่ห้อ, รุ่น, and โปรโตคอล ก่อน.",
+  "importFromDatabaseTitle": "นำเข้าจากฐานข้อมูล",
+  "importFromDatabaseSubtitle": "เลือกอุปกรณ์ โหลดคีย์ที่ตรงกัน แล้วนำเข้าปุ่มที่เลือก",
+  "deviceAndFilters": "อุปกรณ์และตัวกรอง",
+  "loadedCount": "โหลดแล้ว {count}",
+  "@loadedCount": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "hideFilters": "ซ่อนตัวกรอง",
+  "showFilters": "แสดงตัวกรอง",
+  "noProtocolFoundForBrandModel": "ไม่พบโปรโตคอลสำหรับยี่ห้อและรุ่นนี้",
+  "protocolAutoDetected": "โปรโตคอล",
+  "protocolAutoDetectedHelper": "ตรวจพบจากฐานข้อมูลอัตโนมัติ คุณเปลี่ยนได้ก่อนนำเข้า",
+  "selectBrandModelToLoadKeys": "เลือก a ยี่ห้อ, รุ่น, and โปรโตคอล to load คีย์.",
+  "noKeysFound": "ไม่พบคีย์",
+  "noKeysFoundForSearch": "ไม่พบคีย์สำหรับ “{query}”",
+  "@noKeysFoundForSearch": {
+    "placeholders": {
+      "query": {}
+    }
+  },
+  "skipDuplicates": "ข้ามรายการซ้ำ",
+  "skipDuplicatesSubtitle": "ไม่นำเข้าปุ่มที่มีอยู่แล้วในรีโมตนี้",
+  "importSelected": "นำเข้าที่เลือก",
+  "noMacrosToExport": "ไม่มีแมโครให้ส่งออก",
+  "macrosExportedToDownloads": "แมโครs exported to ดาวน์โหลด.",
+  "failedToExportMacros": "ไม่สำเร็จในการexport แมโครs.",
+  "failedToReadFile": "ไม่สำเร็จในการread ไฟล์.",
+  "importFromExistingRemotesTitle": "นำเข้าจากรีโมตที่มีอยู่",
+  "selectedCount": "เลือกแล้ว {count}",
+  "@selectedCount": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "noOtherRemotesWithButtons": "ไม่มี other รีโมต with ปุ่มs found.",
+  "sourceRemote": "รีโมตต้นทาง",
+  "searchButtons": "ค้นหาปุ่ม",
+  "searchButtonsHint": "Power, Volume, Mute...",
+  "selectVisible": "เลือกที่แสดง",
+  "clearVisible": "ล้างที่มองเห็น",
+  "protocolNamed": "โปรโตคอล: {name}",
+  "@protocolNamed": {
+    "placeholders": {
+      "name": {}
+    }
+  },
+  "rawSignal": "Raw",
+  "legacyCode": "โค้ดแบบเก่า",
+  "importCount": "นำเข้า {count}",
+  "@importCount": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "storagePermissionDeniedLegacy": "สิทธิ์พื้นที่เก็บข้อมูลถูกปฏิเสธ จำเป็นในอุปกรณ์ Android รุ่นเก่าบางรุ่น",
+  "backupExportedToDownloads": "ส่งออกข้อมูลสำรองไปยัง Downloads แล้ว",
+  "failedToExport": "ส่งออกไม่สำเร็จ: {error}",
+  "@failedToExport": {
+    "placeholders": {
+      "error": {}
+    }
+  },
+  "importedLegacyJsonBackup": "นำเข้ารีโมต {count} รายการจากข้อมูลสำรอง JSON แบบเก่า แมโครไม่เปลี่ยน",
+  "@importedLegacyJsonBackup": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "importFailedRemotesMustBeList": "นำเข้าไม่สำเร็จ ค่า backup \"remotes\" ต้องเป็นรายการ JSON เมื่อมีอยู่",
+  "importFailedMacrosMustBeList": "นำเข้าไม่สำเร็จ ค่า backup \"macros\" ต้องเป็นรายการ JSON เมื่อมีอยู่",
+  "importFailedInvalidBackupFormat": "นำเข้าไม่สำเร็จ รูปแบบข้อมูลสำรองไม่ถูกต้อง คาดว่าเป็น List แบบเก่าหรือ Map ที่มี remotes และ macros",
+  "importedBackupRemotesOnly": "นำเข้ารีโมต {remoteCount} รายการจากข้อมูลสำรอง แมโครไม่เปลี่ยน",
+  "@importedBackupRemotesOnly": {
+    "placeholders": {
+      "remoteCount": {
+        "type": "int"
+      }
+    }
+  },
+  "importedBackupRemotesAndMacros": "นำเข้ารีโมต {remoteCount} รายการ และแมโคร {macroCount} รายการจากข้อมูลสำรอง",
+  "@importedBackupRemotesAndMacros": {
+    "placeholders": {
+      "remoteCount": {
+        "type": "int"
+      },
+      "macroCount": {
+        "type": "int"
+      }
+    }
+  },
+  "importFailedNoValidButtonsInIr": "นำเข้าไม่สำเร็จ: no valid ปุ่มs found in.ir ไฟล์.",
+  "importedOneRemoteFromFlipper": "นำเข้ารีโมต 1 รายการจาก Flipper .ir แมโครไม่เปลี่ยน",
+  "importFailedInvalidIrplus": "นำเข้าไม่สำเร็จ: invalid irplus ไฟล์ (no valid ปุ่มs found).",
+  "importedOneRemoteFromIrplus": "นำเข้ารีโมต 1 รายการจาก irplus แมโครไม่เปลี่ยน",
+  "importFailedInvalidLirc": "นำเข้าไม่สำเร็จ: invalid LIRC ไฟล์ (no valid codes/raw codes found).",
+  "importedOneRemoteFromLirc": "นำเข้ารีโมต 1 รายการจากไฟล์ LIRC แมโครไม่เปลี่ยน",
+  "unsupportedFileTypeSelected": "Unที่รองรับ ไฟล์ type selected.",
+  "importFailedInvalidUnreadableFile": "นำเข้าไม่สำเร็จ: invalid or unreadable ไฟล์.",
+  "bulkImportNoSupportedFilesInFolder": "Bulk import complete: no ที่รองรับ ไฟล์s found in โฟลเดอร์.",
+  "bulkImportNoRemotesImported": "นำเข้าจำนวนมากเสร็จแล้ว แต่ไม่มีรีโมตถูกนำเข้า ข้ามไฟล์ {skippedCount} ไฟล์",
+  "@bulkImportNoRemotesImported": {
+    "placeholders": {
+      "skippedCount": {
+        "type": "int"
+      }
+    }
+  },
+  "bulkImportComplete": "นำเข้าจำนวนมากเสร็จแล้ว นำเข้ารีโมต {importedCount} รายการจากไฟล์ที่รองรับ {supportedCount} ไฟล์ ข้าม {skippedCount} ไฟล์",
+  "@bulkImportComplete": {
+    "placeholders": {
+      "importedCount": {
+        "type": "int"
+      },
+      "supportedCount": {
+        "type": "int"
+      },
+      "skippedCount": {
+        "type": "int"
+      }
+    }
+  },
+  "storagePermissionDenied": "สิทธิ์พื้นที่เก็บข้อมูลถูกปฏิเสธ",
+  "bulkImportFailedReadFolder": "นำเข้าจำนวนมากไม่สำเร็จ ไม่สามารถอ่านเนื้อหาโฟลเดอร์ได้",
+  "bulkImportNoSupportedFilesSource": "นำเข้าจำนวนมากเสร็จแล้ว ไม่พบไฟล์ที่รองรับ {sourceLabel}",
+  "@bulkImportNoSupportedFilesSource": {
+    "placeholders": {
+      "sourceLabel": {}
+    }
+  },
+  "clearAction": "Clear",
+  "saveAction": "Save",
+  "buttonsTitleCount": "ปุ่ม {count}",
+  "@buttonsTitleCount": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "invalidStepEncountered": "พบขั้นตอนที่ไม่ถูกต้อง",
+  "failedToSendNamed": "ส่งไม่สำเร็จ: {name}",
+  "@failedToSendNamed": {
+    "placeholders": {
+      "name": {}
+    }
+  },
+  "buttonNotFound": "ไม่พบปุ่ม",
+  "buttonNotFoundNamed": "ไม่พบปุ่ม: {name}",
+  "@buttonNotFoundNamed": {
+    "placeholders": {
+      "name": {}
+    }
+  },
+  "unknownButton": "ปุ่มที่ไม่ทราบ",
+  "durationSecondsShort": "{seconds}ว",
+  "@durationSecondsShort": {
+    "placeholders": {
+      "seconds": {
+        "type": "int"
+      }
+    }
+  },
+  "durationMinutesSecondsShort": "{minutes}น {seconds}ว",
+  "@durationMinutesSecondsShort": {
+    "placeholders": {
+      "minutes": {
+        "type": "int"
+      },
+      "seconds": {
+        "type": "int"
+      }
+    }
+  },
+  "durationHoursMinutesShort": "{hours}ชม {minutes}น",
+  "@durationHoursMinutesShort": {
+    "placeholders": {
+      "hours": {
+        "type": "int"
+      },
+      "minutes": {
+        "type": "int"
+      }
+    }
+  },
+  "orientationFlippedTooltip": "การวางแนว: กลับด้าน แตะเพื่อกลับปกติ",
+  "orientationNormalTooltip": "การวางแนว: ปกติ แตะเพื่อกลับด้าน",
+  "noSteps": "ไม่มีขั้นตอน",
+  "stepProgress": "Step {current} / {total}",
+  "@stepProgress": {
+    "placeholders": {
+      "current": {
+        "type": "int"
+      },
+      "total": {
+        "type": "int"
+      }
+    }
+  },
+  "completed": "เสร็จสิ้น",
+  "paused": "หยุดชั่วคราวd",
+  "running": "ทำงานning",
+  "ready": "พร้อม",
+  "stepsProgress": "{current} / {total} ขั้นตอน",
+  "@stepsProgress": {
+    "placeholders": {
+      "current": {
+        "type": "int"
+      },
+      "total": {
+        "type": "int"
+      }
+    }
+  },
+  "waiting": "กำลังรอ",
+  "secondsRemaining": "เหลืออีก {seconds}ว",
+  "@secondsRemaining": {
+    "placeholders": {
+      "seconds": {}
+    }
+  },
+  "millisecondsShort": "{ms}ms",
+  "@millisecondsShort": {
+    "placeholders": {
+      "ms": {
+        "type": "int"
+      }
+    }
+  },
+  "tapContinueWhenReady": "แตะ ทำต่อ เมื่อพร้อมสำหรับขั้นตอนถัดไป",
+  "error": "Error",
+  "macroCompleted": "แมโครเสร็จสิ้น",
+  "finishedIn": "เสร็จใน {duration}",
+  "@finishedIn": {
+    "placeholders": {
+      "duration": {}
+    }
+  },
+  "sequence": "ลำดับ",
+  "waitMilliseconds": "รอ {ms}ms",
+  "@waitMilliseconds": {
+    "placeholders": {
+      "ms": {
+        "type": "int"
+      }
+    }
+  },
+  "runAgain": "ทำงาน Again",
+  "startMacro": "เริ่ม แมโคร",
+  "continueAction": "ทำต่อ",
+  "unnamedRemote": "รีโมตไม่มีชื่อ",
+  "enterMacroName": "ใส่ชื่อแมโคร",
+  "addAtLeastOneStep": "เพิ่มอย่างน้อยหนึ่งขั้นตอน",
+  "fixInvalidSteps": "แก้ไขขั้นตอนที่ไม่ถูกต้อง",
+  "unknownCommand": "คำสั่งที่ไม่ทราบ",
+  "unnamedCommand": "คำสั่งไม่มีชื่อ",
+  "iconCommand": "คำสั่งไอคอน",
+  "selectDelay": "เลือกระยะหน่วง",
+  "keepMilliseconds": "คงไว้ {ms}ms",
+  "@keepMilliseconds": {
+    "placeholders": {
+      "ms": {
+        "type": "int"
+      }
+    }
+  },
+  "custom": "Custom",
+  "enterCustomDelayDuration": "ใส่ระยะเวลาหน่วงแบบกำหนดเอง",
+  "millisecondsLong": "{ms} มิลลิวินาที",
+  "@millisecondsLong": {
+    "placeholders": {
+      "ms": {
+        "type": "int"
+      }
+    }
+  },
+  "secondsLong": "{seconds} วินาที{plural}",
+  "@secondsLong": {
+    "placeholders": {
+      "seconds": {},
+      "plural": {}
+    }
+  },
+  "customDelay": "หน่วงเวลาแบบกำหนดเอง",
+  "delayMillisecondsLabel": "หน่วงเวลา มิลลิวินาที",
+  "delayMillisecondsHint": "เช่น 3000",
+  "recommendedDelayRange": "Recommended: 250-5000ms for most อุปกรณ์s",
+  "enterValidPositiveNumber": "โปรดใส่ตัวเลขบวกที่ถูกต้อง",
+  "ok": "OK",
+  "remote": "รีโมต",
+  "macroName": "ชื่อแมโคร",
+  "macroNameHint": "เช่น i-cybie Advanced Mode",
+  "stepsTitleCount": "ขั้นตอน {count}",
+  "@stepsTitleCount": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "noStepsYet": "ยังไม่มีขั้นตอน",
+  "addCommandsAndDelaysHint": "เพิ่มคำสั่งและช่วงหน่วงด้านล่างเพื่อสร้างลำดับของคุณ",
+  "addStep": "เพิ่มขั้นตอน",
+  "reorderStepsHint": "เคล็ดลับ: ลากที่จับเพื่อจัดลำดับขั้นตอน แตะขั้นตอนเพื่อแก้ไข",
+  "reorderStep": "จัดลำดับขั้นตอน {index}",
+  "@reorderStep": {
+    "placeholders": {
+      "index": {
+        "type": "int"
+      }
+    }
+  },
+  "pressAndDragToChangeStepOrder": "กดและลากเพื่อเปลี่ยนลำดับขั้นตอน",
+  "deleteStep": "ลบขั้นตอน {index}",
+  "@deleteStep": {
+    "placeholders": {
+      "index": {
+        "type": "int"
+      }
+    }
+  },
+  "invalidStepTapToFix": "ขั้นตอนไม่ถูกต้อง แตะเพื่อแก้ไข",
+  "sendIrCommand": "ส่งคำสั่ง IR",
+  "waitForUserConfirmation": "รอการยืนยันจากผู้ใช้",
+  "notImplemented": "ยังไม่รองรับ",
+  "frequencyKhz": "{value} kHz",
+  "@frequencyKhz": {
+    "placeholders": {
+      "value": {
+        "type": "int"
+      }
+    }
+  },
+  "necProtocolShort": "NEC",
+  "msbShort": "MSB",
+  "layoutWide": "กว้าง",
+  "iconButton": "ปุ่มไอคอน",
+  "imageButton": "ปุ่มรูปภาพ",
+  "noSignalInfo": "ไม่มีข้อมูลสัญญาณ",
+  "proceed": "ดำเนินการต่อ",
+  "discard": "ละทิ้ง",
+  "idle": "Idle",
+  "start": "เริ่ม",
+  "resume": "Resume",
+  "pause": "หยุดชั่วคราว",
+  "stopped": "หยุดped",
+  "copy": "Copy",
+  "send": "ส่ง",
+  "step": "Step",
+  "addToRemote": "เพิ่มไปยังรีโมต",
+  "noDescriptionAvailable": "ไม่มี description พร้อมใช้.",
+  "notAvailableSymbol": "—",
+  "irFinderKaseikyoVendorInvalid": "ผู้ขาย Kaseikyo ต้องมีเลขฐานสิบหก 4 หลักพอดี",
+  "irFinderDatabaseNotReady": "ฐานข้อมูลยังไม่พร้อม",
+  "irFinderSelectBrandFirst": "เลือกยี่ห้อก่อนในหน้าตั้งค่า",
+  "irFinderBruteforceUnavailable": "ยังไม่รองรับการเดาสุ่มทั้งหมดสำหรับโปรโตคอลนี้",
+  "irFinderInvalidPrefix": "พรีฟิกซ์ไม่ถูกต้อง",
+  "irFinderBrandValue": "ยี่ห้อ: {value}",
+  "@irFinderBrandValue": {
+    "placeholders": {
+      "value": {}
+    }
+  },
+  "irFinderModelValue": "รุ่น: {value}",
+  "@irFinderModelValue": {
+    "placeholders": {
+      "value": {}
+    }
+  },
+  "irFinderKeyValue": "คีย์: {value}",
+  "@irFinderKeyValue": {
+    "placeholders": {
+      "value": {}
+    }
+  },
+  "irFinderRemoteNumber": "รีโมต # {value}",
+  "@irFinderRemoteNumber": {
+    "placeholders": {
+      "value": {}
+    }
+  },
+  "irFinderJumpOffsetHelper": "ใส่อินเด็กซ์เริ่มที่ 0 ภายในผลฐานข้อมูลที่กรองและจัดลำดับแล้ว",
+  "irFinderJumpCursorHelper": "ใส่เคอร์เซอร์เลขฐานสิบหกเริ่มที่ 0 ภายในพื้นที่เดาสุ่มทั้งหมด",
+  "irFinderSetupTab": "ตั้งค่า",
+  "irFinderTestTab": "ทดสอบ",
+  "irFinderResultsTab": "ผลลัพธ์",
+  "irFinderContinueToTest": "ไปที่ทดสอบ",
+  "irFinderKaseikyoVendorTitle": "Kaseikyo Vendor",
+  "irFinderCustomVendorLabel": "ผู้ขายกำหนดเอง 4 hex",
+  "irFinderBrowseDbCandidates": "ดูรายการผู้สมัครจากฐานข้อมูล…",
+  "irFinderEditSetup": "แก้ไข Setup",
+  "irFinderNoSavedHits": "ยังไม่มีผลที่บันทึกไว้ ในหน้าทดสอบ ให้กด \"บันทึกที่ตรง\" เมื่ออุปกรณ์ตอบสนอง",
+  "irFinderBackToTest": "กลับไปทดสอบ",
+  "irFinderLargeSearchSpaceTitle": "พื้นที่ค้นหาขนาดใหญ่",
+  "irFinderLargeSearchSpaceBody": "This brute-force space is very large ({human} possibilities). IR Finder will still respect your max จำนวนครั้ง and ช่วงพัก, but be mindful of spamming IR อุปกรณ์s.\n\nRecommendation: use ฐานข้อมูล mode ก่อน, and/or enter known prefix bytes to reduce the space.",
+  "@irFinderLargeSearchSpaceBody": {
+    "placeholders": {
+      "human": {}
+    }
+  },
+  "irFinderDatabaseSession": "เซสชันฐานข้อมูล",
+  "irFinderBruteforceSession": "เซสชันเดาสุ่มทั้งหมด",
+  "irFinderResumeLastSession": "ทำต่อจากเซสชันล่าสุด",
+  "irFinderResumeBrandModel": "ยี่ห้อ: {brand} · รุ่น: {model}",
+  "@irFinderResumeBrandModel": {
+    "placeholders": {
+      "brand": {},
+      "model": {}
+    }
+  },
+  "irFinderResumePrefix": "พรีฟิกซ์: {value}",
+  "@irFinderResumePrefix": {
+    "placeholders": {
+      "value": {}
+    }
+  },
+  "irFinderResumeProgress": "ความคืบหน้า: {progress} · เริ่มเมื่อ: {when}",
+  "@irFinderResumeProgress": {
+    "placeholders": {
+      "progress": {},
+      "when": {}
+    }
+  },
+  "irFinderApplyResume": "ใช้และทำต่อ",
+  "irFinderBruteforceMode": "เดาสุ่มทั้งหมด",
+  "irFinderDatabaseAssistedMode": "ช่วยด้วยฐานข้อมูล",
+  "irFinderProtocolTitle": "โปรโตคอล: {name}",
+  "@irFinderProtocolTitle": {
+    "placeholders": {
+      "name": {}
+    }
+  },
+  "irFinderProtocolLabel": "โปรโตคอล IR",
+  "irFinderProtocolHelper": "ควบคุมการเข้ารหัสและส่งผลต่อพื้นที่ค้นหา",
+  "irFinderKnownPrefixLabel": "พรีฟิกซ์ที่ทราบ ไบต์ฐานสิบหก ไม่บังคับ",
+  "irFinderKnownPrefixHint": "A1B2, A1 B2, A1:B2, 0xA1 0xB2",
+  "irFinderKnownPrefixHelperPayload": "เพย์โหลด: {digits} หลักฐานสิบหก",
+  "@irFinderKnownPrefixHelperPayload": {
+    "placeholders": {
+      "digits": {
+        "type": "int"
+      }
+    }
+  },
+  "irFinderKnownPrefixHelperPayloadExample": "เพย์โหลด: {digits} หลักฐานสิบหก · ตัวอย่าง: {example}",
+  "@irFinderKnownPrefixHelperPayloadExample": {
+    "placeholders": {
+      "digits": {
+        "type": "int"
+      },
+      "example": {}
+    }
+  },
+  "irFinderKnownPrefixHelperPayloadMax": "เพย์โหลด: {digits} หลักฐานสิบหก · พรีฟิกซ์สูงสุด: {bytes} ไบต์",
+  "@irFinderKnownPrefixHelperPayloadMax": {
+    "placeholders": {
+      "digits": {
+        "type": "int"
+      },
+      "bytes": {
+        "type": "int"
+      }
+    }
+  },
+  "irFinderKnownPrefixHelperPayloadExampleMax": "เพย์โหลด: {digits} หลักฐานสิบหก · ตัวอย่าง: {example} · พรีฟิกซ์สูงสุด: {bytes} ไบต์",
+  "@irFinderKnownPrefixHelperPayloadExampleMax": {
+    "placeholders": {
+      "digits": {
+        "type": "int"
+      },
+      "example": {},
+      "bytes": {
+        "type": "int"
+      }
+    }
+  },
+  "irFinderKnownPrefixHelperExample": "ตัวอย่าง: {example}",
+  "@irFinderKnownPrefixHelperExample": {
+    "placeholders": {
+      "example": {}
+    }
+  },
+  "irFinderKnownPrefixHelperFallback": "ใส่ไบต์แรกที่ทราบเพื่อจำกัดพื้นที่ค้นหา",
+  "irFinderDatabaseMode": "ฐานข้อมูล",
+  "irFinderNormalizedPrefixValue": "พรีฟิกซ์ที่ทำให้เป็นมาตรฐาน: {value}",
+  "@irFinderNormalizedPrefixValue": {
+    "placeholders": {
+      "value": {}
+    }
+  },
+  "irFinderNormalizedPrefix": "พรีฟิกซ์ที่ทำให้เป็นมาตรฐาน",
+  "irFinderBruteforceNotConfigured": "ยังไม่ได้ตั้งค่าการเดาสุ่มทั้งหมดสำหรับโปรโตคอลนี้",
+  "irFinderAllLimit": "ทั้งหมด ({value})",
+  "@irFinderAllLimit": {
+    "placeholders": {
+      "value": {}
+    }
+  },
+  "irFinderTestControls": "การควบคุมการทดสอบ",
+  "irFinderPayloadLength": "ความยาวเพย์โหลด: {digits} หลักฐานสิบหก",
+  "@irFinderPayloadLength": {
+    "placeholders": {
+      "digits": {
+        "type": "int"
+      }
+    }
+  },
+  "irFinderSearchSpace": "พื้นที่ค้นหา: {value} ความเป็นไปได้ หลังใช้เงื่อนไขพรีฟิกซ์",
+  "@irFinderSearchSpace": {
+    "placeholders": {
+      "value": {}
+    }
+  },
+  "irFinderCooldownMs": "ช่วงพัก มิลลิวินาที",
+  "irFinderMaxAttemptsPerRun": "จำนวนครั้งสูงสุด ต่อรอบ",
+  "irFinderTestAllCombinations": "ทดสอบทุกชุดผสม",
+  "irFinderTestAllCombinationsHint": "ทำงานต่อจนกว่าพื้นที่ค้นหาจะหมด ขีดจำกัดที่ใช้จริง: {value}",
+  "@irFinderTestAllCombinationsHint": {
+    "placeholders": {
+      "value": {}
+    }
+  },
+  "irFinderAttempts": "จำนวนครั้ง",
+  "irFinderAttemptsSliderRange": "ช่วงสไลด์: 1–{max} พิมพ์ตัวเลขใดก็ได้สำหรับค่าที่มากกว่า",
+  "@irFinderAttemptsSliderRange": {
+    "placeholders": {
+      "max": {
+        "type": "int"
+      }
+    }
+  },
+  "irFinderMaxButton": "สูงสุด\n{value}",
+  "@irFinderMaxButton": {
+    "placeholders": {
+      "value": {
+        "type": "int"
+      }
+    }
+  },
+  "irFinderEffectiveLimitThisRun": "ขีดจำกัดที่ใช้จริงรอบนี้: {value}",
+  "@irFinderEffectiveLimitThisRun": {
+    "placeholders": {
+      "value": {}
+    }
+  },
+  "irFinderBruteforceTip": "เคล็ดลับ: ใช้โหมดฐานข้อมูลก่อน การเดาสุ่มทั้งหมดเหมาะที่สุดเมื่อรู้พรีฟิกซ์ เช่น 1–4 ไบต์แรก",
+  "irFinderDatabaseInitFailed": "ฐานข้อมูล เริ่มต้นไม่สำเร็จ.",
+  "irFinderPreparingDatabase": "กำลังเตรียมฐานข้อมูลโค้ด IR ในเครื่อง…",
+  "irFinderDatabaseAssistedSearch": "ช่วยด้วยฐานข้อมูล search",
+  "irFinderBrand": "ยี่ห้อ",
+  "irFinderSelectBrand": "เลือกยี่ห้อ",
+  "irFinderModelOptional": "รุ่น ไม่บังคับ",
+  "irFinderSelectBrandFirstShort": "เลือก a ยี่ห้อ ก่อน",
+  "irFinderSelectModelRecommended": "เลือกรุ่น แนะนำ",
+  "irFinderOnlySelectedProtocol": "เฉพาะโปรโตคอลที่เลือก",
+  "irFinderOnlySelectedProtocolHint": "กรองคีย์ให้เหลือเฉพาะโปรโตคอลที่เลือก ปิดตัวเลือกนี้เพื่อดูทุกโปรโตคอล",
+  "irFinderQuickWinsFirst": "เริ่มจากตัวที่มีโอกาสสำเร็จก่อน",
+  "irFinderQuickWinsFirstHint": "ให้ความสำคัญกับคีย์แบบ POWER MUTE VOL และ CH ก่อนคีย์เชิงลึก",
+  "irFinderMaxKeysPerRun": "จำนวนคีย์สูงสุดที่จะทดสอบ ต่อรอบ",
+  "irFinderTesting": "กำลังทดสอบ…",
+  "irFinderCooldown": "ช่วงพัก",
+  "irFinderEta": "เวลาโดยประมาณ",
+  "irFinderMode": "โหมด",
+  "irFinderRetryLast": "ลองล่าสุดอีกครั้ง",
+  "irFinderTrigger": "ทริกเกอร์",
+  "irFinderJump": "ข้ามไป…",
+  "irFinderSaveHit": "บันทึกที่ตรง",
+  "irFinderEtaSeconds": "{seconds}ว",
+  "@irFinderEtaSeconds": {
+    "placeholders": {
+      "seconds": {
+        "type": "int"
+      }
+    }
+  },
+  "irFinderEtaMinutesSeconds": "{minutes}น {seconds}ว",
+  "@irFinderEtaMinutesSeconds": {
+    "placeholders": {
+      "minutes": {
+        "type": "int"
+      },
+      "seconds": {
+        "type": "int"
+      }
+    }
+  },
+  "irFinderEtaHoursMinutes": "{hours}ชม {minutes}น",
+  "@irFinderEtaHoursMinutes": {
+    "placeholders": {
+      "hours": {
+        "type": "int"
+      },
+      "minutes": {
+        "type": "int"
+      }
+    }
+  },
+  "irFinderLastAttemptedCode": "โค้ดล่าสุดที่ลอง: {value}",
+  "@irFinderLastAttemptedCode": {
+    "placeholders": {
+      "value": {}
+    }
+  },
+  "irFinderStartTestingToSeeLastCode": "เริ่มทดสอบเพื่อดูโค้ดล่าสุดที่ลอง",
+  "irFinderFromDb": "จากฐานข้อมูล: {value}",
+  "@irFinderFromDb": {
+    "placeholders": {
+      "value": {}
+    }
+  },
+  "irFinderFromBruteforce": "จากการเดาสุ่มทั้งหมด สร้างโดยตัวเข้ารหัสโปรโตคอล",
+  "irFinderSendError": "ส่งผิดพลาด: {error}",
+  "@irFinderSendError": {
+    "placeholders": {
+      "error": {}
+    }
+  },
+  "irFinderSourceValue": "แหล่งที่มา: {value}",
+  "@irFinderSourceValue": {
+    "placeholders": {
+      "value": {}
+    }
+  },
+  "irFinderResultsNote": "ผลลัพธ์รองรับการทดสอบและคัดลอกได้ทันที การเพิ่มลงรีโมตโดยตรงยังขยายต่อได้ในขั้นตอนแก้ไข",
+  "irFinderBrowseDbCandidatesTitle": "ดูรายการผู้สมัครจากฐานข้อมูล",
+  "irFinderFilterByLabelOrHex": "กรองตามชื่อหรือเลขฐานสิบหก…",
+  "irFinderJumpHere": "ข้ามมาที่นี่",
+  "irFinderSelectModel": "เลือกรุ่น",
+  "irFinderSearchBrands": "ค้นหายี่ห้อ…",
+  "irFinderSearchModels": "ค้นหารุ่น…",
+  "iconPickerTitle": "เลือก Icon",
+  "iconPickerSearchHint": "ค้นหา icons...",
+  "iconPickerNoIconsFound": "ไม่พบไอคอน",
+  "iconPickerIconsAvailable": "{count} icons พร้อมใช้",
+  "@iconPickerIconsAvailable": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "iconPickerCategoryAll": "All",
+  "iconPickerCategoryMedia": "Media",
+  "iconPickerCategoryVolume": "Volume",
+  "iconPickerCategoryNavigation": "การนำทาง",
+  "iconPickerCategoryPower": "Power",
+  "iconPickerCategoryNumbers": "ตัวเลข",
+  "iconPickerCategorySettings": "การตั้งค่า",
+  "iconPickerCategoryDisplay": "จอภาพ",
+  "iconPickerCategoryInput": "Input",
+  "iconPickerCategoryFavorite": "รายการโปรด",
+  "universalPowerTitle": "Universal Power",
+  "universalPowerRunTab": "เริ่ม",
+  "universalPowerUseResponsibly": "ใช้อย่างรับผิดชอบ",
+  "universalPowerConsentBody": "Universal Power cycles IR power codes. Use it เท่านั้น on อุปกรณ์s you own or control. หยุด as soon as the อุปกรณ์ responds.",
+  "universalPowerConsentCheckbox": "ฉันเป็นเจ้าของหรือควบคุมอุปกรณ์นี้",
+  "universalPowerSetupBody": "วนโค้ดพลังงานสำหรับยี่ห้อที่เลือก หยุดทันทีเมื่ออุปกรณ์ตอบสนอง",
+  "universalPowerLastSent": "ส่งล่าสุด: {value}",
+  "@universalPowerLastSent": {
+    "placeholders": {
+      "value": {}
+    }
+  },
+  "universalPowerNoCodesFound": "ไม่พบโค้ดพลังงาน ลองขยายการค้นหา",
+  "universalPowerUnableToStart": "เริ่มไม่ได้",
+  "universalPowerAllBrands": "ทุกยี่ห้อ ไม่มีตัวกรอง",
+  "universalPowerClearBrandFilter": "ล้างตัวกรองยี่ห้อ",
+  "universalPowerBroadenSearch": "ขยายการค้นหาเมื่อจำเป็น",
+  "universalPowerBroadenSearchHint": "หากไม่พบป้ายกำกับพลังงาน ให้รวมคีย์อื่นด้วย",
+  "universalPowerAdditionalPatternsDepth": "ระดับรูปแบบเพิ่มเติม",
+  "universalPowerDepth1": "เฉพาะลำดับความสำคัญ POWER/OFF",
+  "universalPowerDepth2": "รวมชื่อแทนของ POWER",
+  "universalPowerDepth3": "รวมป้ายชื่อพลังงานรอง",
+  "universalPowerDepth4": "รวมทุกป้ายชื่อ ลำดับต่ำสุด",
+  "universalPowerLoopUntilStopped": "วนจนกว่าจะหยุด",
+  "universalPowerLoopUntilStoppedHint": "จะวนคิวต่อไปจนกว่าคุณจะหยุด",
+  "universalPowerDelayBetweenCodes": "หน่วงเวลาระหว่างโค้ด",
+  "universalPowerStart": "เริ่ม Universal Power",
+  "universalPowerRunStatus": "สถานะการทำงาน",
+  "universalPowerProgress": "ความคืบหน้า: {value}",
+  "@universalPowerProgress": {
+    "placeholders": {
+      "value": {}
+    }
+  },
+  "universalPowerPausedInBackground": "หยุดชั่วคราวเพราะแอปอยู่เบื้องหลัง",
+  "universalPowerSendOneCode": "ส่งหนึ่งโค้ด",
+  "universalPowerStopWhenDeviceResponds": "หยุดทันทีเมื่ออุปกรณ์ตอบสนอง",
+  "iconNamePlay": "เล่น",
+  "iconNamePause": "หยุดชั่วคราว",
+  "iconNameStop": "หยุด",
+  "iconNameFastForward": "กรอไปข้างหน้า",
+  "iconNameRewind": "กรอกลับ",
+  "iconNameSkipNext": "ข้ามถัดไป",
+  "iconNameSkipPrevious": "ข้ามก่อนหน้า",
+  "iconNameReplay": "เล่นซ้ำ",
+  "iconNameForward10S": "ไปข้างหน้า 10s",
+  "iconNameForward30S": "ไปข้างหน้า 30s",
+  "iconNameReplay10S": "เล่นซ้ำ 10s",
+  "iconNameReplay30S": "เล่นซ้ำ 30s",
+  "iconNameRecord": "บันทึก",
+  "iconNameRecordAlt": "บันทึก Alt",
+  "iconNameEject": "Eject",
+  "iconNameShuffle": "สุ่ม",
+  "iconNameRepeat": "ซ้ำ",
+  "iconNameRepeatOne": "ซ้ำ หนึ่ง",
+  "iconNameVolumeUp": "เพิ่มเสียง",
+  "iconNameVolumeDown": "ลดเสียง",
+  "iconNameVolumeOff": "ปิดเสียงออก",
+  "iconNameMute": "Mute",
+  "iconNameSpeaker": "ลำโพง",
+  "iconNameSurroundSound": "เสียงรอบทิศ",
+  "iconNameEqualizer": "อีควอไลเซอร์",
+  "iconNameAudio": "เสียง",
+  "iconNameMicrophone": "ไมค์",
+  "iconNameMicOff": "ไมค์ ปิด",
+  "iconNameUp": "ขึ้น",
+  "iconNameDown": "ลง",
+  "iconNameLeft": "ซ้าย",
+  "iconNameRight": "ขวา",
+  "iconNameArrowUp": "ลูกศรขึ้น",
+  "iconNameArrowDown": "ลูกศรลง",
+  "iconNameArrowLeft": "ลูกศรซ้าย",
+  "iconNameArrowRight": "ลูกศรขวา",
+  "iconNameNavigation": "นำทาง",
+  "iconNameChevronLeft": "เชฟรอนซ้าย",
+  "iconNameChevronRight": "เชฟรอนขวา",
+  "iconNameExpandLess": "ย่อน้อยลง",
+  "iconNameExpandMore": "ขยายเพิ่ม",
+  "iconNameCollapse": "ย่อ",
+  "iconNameExpand": "ขยาย",
+  "iconNameCircleUp": "วงกลมขึ้น",
+  "iconNameCircleDown": "วงกลมลง",
+  "iconNameCircleLeft": "วงกลมซ้าย",
+  "iconNameCircleRight": "วงกลมขวา",
+  "iconNameOkSelect": "ตกลง/เลือก",
+  "iconNameConfirm": "ยืนยัน",
+  "iconNameCancel": "ยกเลิก",
+  "iconNameClose": "ปิด",
+  "iconNameHome": "หน้าแรก",
+  "iconNameReturn": "ย้อนกลับ",
+  "iconNameExit": "ออก",
+  "iconNameUndo": "เลิกทำ",
+  "iconNameRedo": "ทำซ้ำ",
+  "iconNamePower": "Power",
+  "iconNamePowerAlt": "Power Alt",
+  "iconNamePowerOff": "ปิดเครื่อง",
+  "iconNameOn": "เปิด",
+  "iconNameOff": "ปิด",
+  "iconNameToggleOn": "สลับเปิด",
+  "iconNameToggleOff": "สลับปิด",
+  "iconNameRestart": "เริ่มใหม่",
+  "iconNameNum1": "1",
+  "iconNameNum2": "2",
+  "iconNameNum3": "3",
+  "iconNameNum4": "4",
+  "iconNameNum5": "5",
+  "iconNameNum6": "6",
+  "iconNameNum7": "7",
+  "iconNameNum8": "8",
+  "iconNameNum9": "9",
+  "iconNameNum92": "9+",
+  "iconNameNum0": "0",
+  "iconNameOne": "หนึ่ง",
+  "iconNameTwo": "Two",
+  "iconNameThree": "Three",
+  "iconNameFour": "Four",
+  "iconNameFive": "Five",
+  "iconNameSix": "Six",
+  "iconNamePlus": "บวก",
+  "iconNameMinus": "ลบ",
+  "iconNameAddCircle": "เพิ่มวงกลม",
+  "iconNameRemoveCircle": "ลบวงกลม",
+  "iconNameSettings": "ตั้งค่า",
+  "iconNameMenu": "เมนู",
+  "iconNameMoreVertical": "เพิ่มเติม แนวตั้ง",
+  "iconNameMoreHorizontal": "เพิ่มเติม แนวนอน",
+  "iconNameTune": "ปรับจูน",
+  "iconNameRemoteSettings": "ตั้งค่ารีโมต",
+  "iconNameInfo": "ข้อมูล",
+  "iconNameInfoOutline": "ข้อมูลเส้นขอบ",
+  "iconNameHelp": "ช่วยเหลือ",
+  "iconNameHelpOutline": "ช่วยเหลือเส้นขอบ",
+  "iconNameList": "รายการ",
+  "iconNameViewList": "มุมมองรายการ",
+  "iconNameViewGrid": "มุมมองตาราง",
+  "iconNameApps": "แอป",
+  "iconNameWidgets": "วิดเจ็ต",
+  "iconNameTv": "TV",
+  "iconNameMonitor": "จอภาพ",
+  "iconNameDesktop": "เดสก์ท็อป",
+  "iconNameBrightnessHigh": "ความสว่างสูง",
+  "iconNameBrightnessMedium": "ความสว่างกลาง",
+  "iconNameBrightnessLow": "ความสว่างต่ำ",
+  "iconNameAutoBrightness": "ความสว่างอัตโนมัติ",
+  "iconNameLightMode": "โหมดสว่าง",
+  "iconNameDarkMode": "โหมดมืด",
+  "iconNameContrast": "คอนทราสต์",
+  "iconNameHdrOn": "HDR เปิด",
+  "iconNameHdrOff": "HDR ปิด",
+  "iconNameAspectRatio": "อัตราส่วนภาพ",
+  "iconNameCrop": "Crop",
+  "iconNameZoomIn": "ซูมเข้า",
+  "iconNameZoomOut": "ซูมออก",
+  "iconNameFullscreen": "เต็มจอ",
+  "iconNameExitFullscreen": "ออกเต็มจอ",
+  "iconNameFitScreen": "พอดีหน้าจอ",
+  "iconNamePip": "PiP",
+  "iconNameCropFree": "ครอปอิสระ",
+  "iconNameInput": "อินพุต",
+  "iconNameCable": "สายเคเบิล",
+  "iconNameCast": "แคสต์",
+  "iconNameCastConnected": "แคสต์เชื่อมต่อ",
+  "iconNameScreenShare": "แชร์หน้าจอ",
+  "iconNameBluetooth": "Bluetooth",
+  "iconNameWifi": "WiFi",
+  "iconNameRouter": "เราเตอร์",
+  "iconNameMemory": "หน่วยความจำ",
+  "iconNameGameConsole": "เครื่องเกม",
+  "iconNameGaming": "เกม",
+  "iconNameMedia": "สื่อ",
+  "iconNameMusicQueue": "คิวเพลง",
+  "iconNameVideoLibrary": "คลังวิดีโอ",
+  "iconNamePhotoLibrary": "คลังรูปภาพ",
+  "iconNameComponent": "คอมโพเนนต์",
+  "iconNameHdmi": "HDMI",
+  "iconNameComposite": "คอมโพสิต",
+  "iconNameAntenna": "เสาอากาศ",
+  "iconNameFavorite": "รายการโปรด",
+  "iconNameFavoriteOutline": "รายการโปรดเส้นขอบ",
+  "iconNameStar": "ดาว",
+  "iconNameStarOutline": "ดาวเส้นขอบ",
+  "iconNameBookmark": "ที่คั่นหน้า",
+  "iconNameBookmarkOutline": "ที่คั่นหน้าเส้นขอบ",
+  "iconNameFlag": "ธง",
+  "iconNameCheck": "เช็ก",
+  "iconNameDone": "เสร็จ",
+  "iconNameDoneAll": "เสร็จทั้งหมด",
+  "iconNameSchedule": "กำหนดเวลา",
+  "iconNameTimer": "ตัวตั้งเวลา",
+  "iconNameTime": "เวลา",
+  "iconNameAlarm": "ปลุก",
+  "iconNameNotifications": "การแจ้งเตือน",
+  "iconNameLock": "ล็อก",
+  "iconNameUnlock": "ปลดล็อก",
+  "iconNameLight": "แสง",
+  "iconNameLightOutline": "แสง เส้นขอบ",
+  "iconNameWarmLight": "แสงอุ่น",
+  "iconNameSunny": "แดด",
+  "iconNameCloudy": "เมฆ",
+  "iconNameNight": "กลางคืน",
+  "iconNameFlare": "แฟลร์",
+  "iconNameGradient": "ไล่สี",
+  "iconNameInvertColors": "สลับสี",
+  "iconNamePalette": "พาเลต",
+  "iconNameColor": "สี",
+  "iconNameTonality": "โทนสี",
+  "iconNameSearch": "ค้นหา",
+  "iconNameRefresh": "รีเฟรช",
+  "iconNameSync": "ซิงก์",
+  "iconNameUpdate": "อัปเดต",
+  "iconNameDownload": "ดาวน์โหลด",
+  "iconNameUpload": "อัปโหลด",
+  "iconNameCloud": "คลาวด์",
+  "iconNameFolder": "โฟลเดอร์",
+  "iconNameDelete": "ลบ",
+  "iconNameEdit": "แก้ไข",
+  "iconNameSave": "บันทึก",
+  "iconNameShare": "แชร์",
+  "iconNamePrint": "พิมพ์",
+  "iconNameLanguage": "ภาษา",
+  "iconNameTranslate": "แปล",
+  "iconNameMicNone": "ไมค์ None",
+  "iconNameSubtitles": "คำบรรยาย",
+  "iconNameClosedCaption": "คำบรรยายปิด",
+  "iconNameMusic": "เพลง",
+  "iconNameMovie": "ภาพยนตร์",
+  "iconNameTheater": "โรงภาพยนตร์",
+  "iconNameLiveTv": "สด TV",
+  "iconNameRadio": "วิทยุ",
+  "iconNameCamera": "กล้อง",
+  "iconNameVideoCamera": "กล้องวิดีโอ",
+  "iconNamePhotoCamera": "กล้องถ่ายภาพ",
+  "iconNameSlowMotion": "สโลว์โมชั่น",
+  "iconNameSpeed": "ความเร็ว",
+  "iconNameVideoSettings": "ตั้งค่าวิดีโอ",
+  "iconNameAudioTrack": "แทร็กเสียง",
+  "iconNameGraphicEq": "กราฟิก EQ",
+  "iconNameMusicVideo": "มิวสิกวิดีโอ",
+  "iconNamePlaylist": "เพลย์ลิสต์",
+  "iconNameQueue": "คิว",
+  "iconNameNum0Fa": "0 FA",
+  "iconNameNum1Fa": "1 FA",
+  "iconNameNum2Fa": "2 FA",
+  "iconNameNum3Fa": "3 FA",
+  "iconNameNum4Fa": "4 FA",
+  "iconNameNum5Fa": "5 FA",
+  "iconNameNum6Fa": "6 FA",
+  "iconNameNum7Fa": "7 FA",
+  "iconNameNum8Fa": "8 FA",
+  "iconNameNum9Fa": "9 FA",
+  "iconNameHashFa": "แฮช # FA",
+  "iconNamePercentFa": "เปอร์เซ็นต์ % FA",
+  "iconNameDivideFa": "หาร ÷ FA",
+  "iconNameMultiplyFa": "คูณ × FA",
+  "iconNameEqualsFa": "เท่ากับ = FA",
+  "iconNameNotEqualFa": "ไม่ เท่ากัน ≠ FA",
+  "iconNameGreaterThanFa": "มากกว่า กว่า > FA",
+  "iconNameLessThanFa": "น้อยกว่า กว่า < FA",
+  "iconNameAsteriskFa": "ดอกจัน * FA",
+  "iconNameAFa": "A FA",
+  "iconNameBFa": "B FA",
+  "iconNameCFa": "C FA",
+  "iconNameDFa": "D FA",
+  "iconNameEFa": "E FA",
+  "iconNameFFa": "F FA",
+  "iconNameGFa": "G FA",
+  "iconNameHFa": "H FA",
+  "iconNameIFa": "I FA",
+  "iconNameJFa": "J FA",
+  "iconNameKFa": "K FA",
+  "iconNameLFa": "L FA",
+  "iconNameMFa": "M FA",
+  "iconNameNFa": "N FA",
+  "iconNameOFa": "O FA",
+  "iconNamePFa": "P FA",
+  "iconNameQFa": "Q FA",
+  "iconNameRFa": "R FA",
+  "iconNameSFa": "S FA",
+  "iconNameTFa": "T FA",
+  "iconNameUFa": "U FA",
+  "iconNameVFa": "V FA",
+  "iconNameWFa": "W FA",
+  "iconNameXFa": "X FA",
+  "iconNameYFa": "Y FA",
+  "iconNameZFa": "Z FA",
+  "iconNamePlayFa": "เล่น FA",
+  "iconNamePauseFa": "หยุดชั่วคราว FA",
+  "iconNameStopFa": "หยุด FA",
+  "iconNamePlayFaOutline": "เล่น FA Outline",
+  "iconNamePauseFaOutline": "หยุดชั่วคราว FA Outline",
+  "iconNameStopFaOutline": "หยุด FA Outline",
+  "iconNameBackwardFa": "ย้อนกลับ FA",
+  "iconNameForwardFa": "ไปข้างหน้า FA",
+  "iconNamePreviousFa": "ก่อนหน้า FA",
+  "iconNameNextFa": "ถัดไป FA",
+  "iconNameRewindFa": "กรอกลับ FA",
+  "iconNameFastForwardFa": "กรอไปข้างหน้า FA",
+  "iconNameRepeatFa": "ซ้ำ FA",
+  "iconNameShuffleFa": "สุ่ม FA",
+  "iconNameEjectFa": "Eject FA",
+  "iconNameFilmFa": "ฟิล์ม FA",
+  "iconNameVideoFa": "Video FA",
+  "iconNameMusicFa": "เพลง FA",
+  "iconNameMicrophoneFa": "ไมค์ FA",
+  "iconNameCameraFa": "กล้อง FA",
+  "iconNameCameraRetroFa": "กล้อง Retro FA",
+  "iconNameVolumeHighFa": "Volume High FA",
+  "iconNameVolumeLowFa": "Volume Low FA",
+  "iconNameVolumeOffFa": "ปิดเสียงออก FA",
+  "iconNameMuteFa": "Mute FA",
+  "iconNameMicMuteFa": "ไมค์ Mute FA",
+  "iconNameHeadphonesFa": "หูฟัง FA",
+  "iconNameSpeakerFa": "ลำโพง FA",
+  "iconNameUpFa": "ขึ้น FA",
+  "iconNameDownFa": "ลง FA",
+  "iconNameLeftFa": "ซ้าย FA",
+  "iconNameRightFa": "ขวา FA",
+  "iconNameUpFaOutline": "ขึ้น FA Outline",
+  "iconNameDownFaOutline": "ลง FA Outline",
+  "iconNameLeftFaOutline": "ซ้าย FA Outline",
+  "iconNameRightFaOutline": "ขวา FA Outline",
+  "iconNameArrowUpFa": "ลูกศรขึ้น FA",
+  "iconNameArrowDownFa": "ลูกศรลง FA",
+  "iconNameArrowLeftFa": "ลูกศรซ้าย FA",
+  "iconNameArrowRightFa": "ลูกศรขวา FA",
+  "iconNameChevronUpFa": "เชฟรอน ขึ้น FA",
+  "iconNameChevronDownFa": "เชฟรอน ลง FA",
+  "iconNameChevronLeftFa": "เชฟรอนซ้าย FA",
+  "iconNameChevronRightFa": "เชฟรอนขวา FA",
+  "iconNameOkFa": "OK FA",
+  "iconNameOkFaOutline": "OK FA Outline",
+  "iconNameCheckFa": "เช็ก FA",
+  "iconNameCloseFa": "ปิด FA",
+  "iconNameCloseCircleFa": "ปิด Circle FA",
+  "iconNameHomeFa": "หน้าแรก FA",
+  "iconNameUndoFa": "เลิกทำ FA",
+  "iconNameRedoFa": "ทำซ้ำ FA",
+  "iconNameRotateFa": "Rotate FA",
+  "iconNameSearchFa": "ค้นหา FA",
+  "iconNameRefreshFa": "รีเฟรช FA",
+  "iconNamePowerOffFa": "ปิดเครื่อง FA",
+  "iconNamePlugFa": "Plug FA",
+  "iconNameToggleOnFa": "สลับเปิด FA",
+  "iconNameToggleOffFa": "สลับปิด FA",
+  "iconNameSettingsFa": "ตั้งค่า FA",
+  "iconNameSettingsAltFa": "ตั้งค่า Alt FA",
+  "iconNameMenuFa": "เมนู FA",
+  "iconNameMoreFa": "เพิ่มเติม FA",
+  "iconNameMoreVerticalFa": "เพิ่มเติม แนวตั้ง FA",
+  "iconNameInfoFa": "ข้อมูล FA",
+  "iconNameInfoFaOutline": "ข้อมูล FA Outline",
+  "iconNameHelpFa": "ช่วยเหลือ FA",
+  "iconNameHelpFaOutline": "ช่วยเหลือ FA Outline",
+  "iconNameListFa": "รายการ FA",
+  "iconNameGridFa": "ตาราง FA",
+  "iconNameSlidersFa": "สไลเดอร์ FA",
+  "iconNameTvFa": "TV FA",
+  "iconNameMonitorFa": "จอภาพ FA",
+  "iconNameDesktopFa": "เดสก์ท็อป FA",
+  "iconNameBrightnessFa": "ความสว่าง FA",
+  "iconNameNightModeFa": "กลางคืน Mode FA",
+  "iconNameLightFa": "แสง FA",
+  "iconNameLightFaOutline": "แสง FA Outline",
+  "iconNameFlashFa": "แฟลช FA",
+  "iconNameFullscreenFa": "เต็มจอ FA",
+  "iconNameExitFullscreenFa": "ออกเต็มจอ FA",
+  "iconNameZoomInFa": "ซูมเข้า FA",
+  "iconNameZoomOutFa": "ซูมออก FA",
+  "iconNameSubtitlesFa": "คำบรรยาย FA",
+  "iconNamePictureInPictureFa": "ภาพซ้อนภาพ FA",
+  "iconNameColorFa": "สี FA",
+  "iconNamePaintFa": "Paint FA",
+  "iconNameInputFa": "อินพุต FA",
+  "iconNameWifiFa": "WiFi FA",
+  "iconNameBluetoothFa": "Bluetooth FA",
+  "iconNameUsbFa": "USB FA",
+  "iconNameEthernetFa": "Ethernet FA",
+  "iconNameGamepadFa": "เกมแพด FA",
+  "iconNameBroadcastFa": "กระจายสัญญาณ FA",
+  "iconNameSatelliteFa": "ดาวเทียม FA",
+  "iconNameAntennaFa": "เสาอากาศ FA",
+  "iconNameNetworkFa": "เครือข่าย FA",
+  "iconNameCloudFa": "คลาวด์ FA",
+  "iconNameStarFa": "ดาว FA",
+  "iconNameStarFaOutline": "ดาว FA Outline",
+  "iconNameHeartFa": "หัวใจ FA",
+  "iconNameHeartFaOutline": "หัวใจ FA Outline",
+  "iconNameBookmarkFa": "ที่คั่นหน้า FA",
+  "iconNameBookmarkFaOutline": "ที่คั่นหน้า FA Outline",
+  "iconNameFlagFa": "ธง FA",
+  "iconNameClockFa": "Clock FA",
+  "iconNameClockFaOutline": "Clock FA Outline",
+  "iconNameBellFa": "กระดิ่ง FA",
+  "iconNameBellFaOutline": "กระดิ่ง FA Outline",
+  "iconNameTimerFa": "ตัวตั้งเวลา FA",
+  "iconNameLockFa": "ล็อก FA",
+  "iconNameUnlockFa": "ปลดล็อก FA",
+  "iconNameGalleryFa": "แกลเลอรี FA",
+  "iconNameImagesFa": "รูปภาพ FA",
+  "iconNameImageFa": "ภาพ FA",
+  "iconNameVideoFileFa": "Video ไฟล์ FA",
+  "iconNameAudioFileFa": "เสียง ไฟล์ FA",
+  "iconNamePlayOutlineFa": "เล่น เส้นขอบ FA",
+  "iconNamePlaySimpleFa": "เล่น แบบง่าย FA",
+  "iconNamePauseSimpleFa": "หยุดชั่วคราว แบบง่าย FA",
+  "iconNameStopSimpleFa": "หยุด แบบง่าย FA",
+  "iconNameRecordFa": "บันทึก FA",
+  "iconNameStopCircleFa": "หยุด Circle FA",
+  "iconNameLoadingFa": "Loading FA",
+  "iconNameTextFa": "ข้อความ FA",
+  "iconNameTextSizeFa": "ข้อความ Size FA",
+  "iconNameLanguageFa": "ภาษา FA",
+  "iconNameGlobeFa": "โลก FA",
+  "iconNameSubtitlesAltFa": "คำบรรยาย Alt FA",
+  "iconNameSubtitlesAltOutlineFa": "คำบรรยาย Alt เส้นขอบ FA",
+  "iconNameChannelUpFa": "Channel ขึ้น FA",
+  "iconNameChannelDownFa": "Channel ลง FA",
+  "iconNamePageUpFa": "เลื่อนหน้าขึ้น FA",
+  "iconNamePageDownFa": "เลื่อนหน้าลง FA",
+  "iconNameGuideFa": "คู่มือ FA",
+  "iconNameGridViewFa": "ตาราง View FA",
+  "iconNameGridAltFa": "ตาราง Alt FA",
+  "iconNameScheduleFa": "กำหนดเวลา FA",
+  "iconNameCalendarFa": "ปฏิทิน FA",
+  "iconNameRedButtonFa": "แดง Button FA",
+  "iconNameButtonOutlineFa": "Button เส้นขอบ FA",
+  "iconNameSquareButtonFa": "สี่เหลี่ยม Button FA",
+  "iconNameSquareOutlineFa": "สี่เหลี่ยม เส้นขอบ FA",
+  "iconNameDotCircleFa": "จุด Circle FA",
+  "iconNameToolsFa": "เครื่องมือ FA",
+  "iconNameScrewdriverFa": "ไขควง FA",
+  "iconNameHammerFa": "ค้อน FA",
+  "iconNameToolboxFa": "กล่องเครื่องมือ FA",
+  "iconNameCogFa": "เฟือง FA",
+  "iconNameAdjustFa": "ปรับ FA",
+  "iconNameFilterFa": "ตัวกรอง FA",
+  "iconNameSortDownFa": "เรียง ลง FA",
+  "iconNameSortUpFa": "เรียง ขึ้น FA",
+  "iconNameSleepFa": "สลีป FA",
+  "iconNameTimerStartFa": "ตัวตั้งเวลา Start FA",
+  "iconNameTimerHalfFa": "ตัวตั้งเวลา Half FA",
+  "iconNameTimerEndFa": "ตัวตั้งเวลา End FA",
+  "iconNameStopwatchFa": "จับเวลา FA",
+  "iconNameAlarmFa": "ปลุก FA",
+  "iconNameCropAltFa": "Crop Alt FA",
+  "iconNameCropFa": "Crop FA",
+  "iconNameSquareFullFa": "สี่เหลี่ยม Full FA",
+  "iconNameFullscreenAltFa": "เต็มจอ Alt FA",
+  "iconNameZoomPlusFa": "Zoom บวก FA",
+  "iconNameZoomMinusFa": "Zoom ลบ FA",
+  "iconNameMusicNoteFa": "เพลง Note FA",
+  "iconNameCdFa": "CD FA",
+  "iconNameVinylFa": "แผ่นเสียง FA",
+  "iconNameRssFa": "RSS FA",
+  "iconNameMagicFa": "เวทมนตร์ FA",
+  "iconNameFingerprintFa": "ลายนิ้วมือ FA",
+  "iconNameUserFa": "ผู้ใช้ FA",
+  "iconNameUsersFa": "ผู้ใช้หลายคน FA",
+  "iconNameChildModeFa": "เด็ก Mode FA",
+  "iconNameCastFa": "แคสต์ FA",
+  "iconNameStreamFa": "สตรีม FA",
+  "iconNameSignalFa": "สัญญาณ FA",
+  "iconNameFeedFa": "ฟีด FA",
+  "iconNameCircleArrowUpFa": "Circle ลูกศรขึ้น FA",
+  "iconNameCircleArrowDownFa": "Circle ลูกศรลง FA",
+  "iconNameCircleArrowLeftFa": "Circle ลูกศรซ้าย FA",
+  "iconNameCircleArrowRightFa": "Circle ลูกศรขวา FA",
+  "iconNameLongArrowUpFa": "Long ลูกศรขึ้น FA",
+  "iconNameLongArrowDownFa": "Long ลูกศรลง FA",
+  "iconNameLongArrowLeftFa": "Long ลูกศรซ้าย FA",
+  "iconNameLongArrowRightFa": "Long ลูกศรขวา FA",
+  "iconNamePlusFa": "บวก FA",
+  "iconNameMinusFa": "ลบ FA",
+  "iconNamePlusCircleFa": "บวก Circle FA",
+  "iconNameMinusCircleFa": "ลบ Circle FA",
+  "iconNamePlusSquareFa": "บวก สี่เหลี่ยม FA",
+  "iconNameMinusSquareFa": "ลบ สี่เหลี่ยม FA",
+  "iconNameTimesFa": "Times FA",
+  "iconNameTimesCircleFa": "Times Circle FA",
+  "iconNameBatteryFullFa": "แบตเต็ม FA",
+  "iconNameBattery34Fa": "แบต 3/4 FA",
+  "iconNameBatteryHalfFa": "แบตครึ่ง FA",
+  "iconNameBattery14Fa": "แบต 1/4 FA",
+  "iconNameBatteryEmptyFa": "แบตหมด FA",
+  "iconNameChargingFa": "ชาร์จ FA",
+  "iconNameCloudSunFa": "เมฆกับแดด FA",
+  "iconNameCloudMoonFa": "เมฆกับจันทร์ FA",
+  "iconNameRainFa": "ฝน FA",
+  "iconNameSnowflakeFa": "เกล็ดหิมะ FA",
+  "iconNameFireFa": "ไฟ FA",
+  "iconNameTemperatureFa": "อุณหภูมิ FA",
+  "iconNameBoxFa": "กล่อง FA",
+  "iconNameGiftFa": "ของขวัญ FA",
+  "iconNameTrophyFa": "ถ้วยรางวัล FA",
+  "iconNameCrownFa": "มงกุฎ FA",
+  "iconNameGemFa": "อัญมณี FA",
+  "unknownLabel": "ไม่ทราบ",
+  "selectedFilesLabel": "ไฟล์ที่เลือก",
+  "folderNotFoundOrInaccessible": "ไม่พบโฟลเดอร์หรือไม่สามารถเข้าถึงได้",
+  "importedRemoteDefaultName": "นำเข้าแล้วรีโมต",
+  "demoRemoteName": "Demo รีโมต",
+  "protocolFieldsInvalid": "Fill required โปรโตคอล fields and ensure ความถี่ is 15k–60k if set.",
+  "unknownProtocolSelected": "เลือกโปรโตคอลที่ไม่ทราบ"
+}
