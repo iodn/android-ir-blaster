@@ -55,6 +55,10 @@ class SettingsScreen extends StatelessWidget {
     'th': 'ไทย',
     'tr': 'Türkçe',
     'vi': 'Tiếng Việt',
+    'pl': 'Polski',
+    'fil': 'Filipino',
+    'uk': 'Українська',
+    'nl': 'Nederlands',
   };
 
   Future<void> _launchUrl(BuildContext context, String url) async {

@@ -30,13 +30,14 @@ class AppLocaleController extends ChangeNotifier {
   }
 
   Locale resolveActiveLocale(List<Locale> supportedLocales, Locale? systemLocale) {
+    final fallbackLocale = _englishFallback(supportedLocales);
     if (_overrideLocale != null) {
-      return _matchSupportedLocale(_overrideLocale!, supportedLocales) ?? supportedLocales.first;
+      return _matchSupportedLocale(_overrideLocale!, supportedLocales) ?? fallbackLocale;
     }
     if (systemLocale != null) {
-      return _matchSupportedLocale(systemLocale, supportedLocales) ?? supportedLocales.first;
+      return _matchSupportedLocale(systemLocale, supportedLocales) ?? fallbackLocale;
     }
-    return supportedLocales.first;
+    return fallbackLocale;
   }
 
   static String _encode(Locale locale) {
@@ -63,6 +64,10 @@ class AppLocaleController extends ChangeNotifier {
       if (locale.languageCode == wanted.languageCode) return locale;
     }
     return null;
+  }
+
+  static Locale _englishFallback(List<Locale> supportedLocales) {
+    return _matchSupportedLocale(const Locale('en'), supportedLocales) ?? supportedLocales.first;
   }
 
   static bool _sameLocale(Locale? a, Locale? b) {

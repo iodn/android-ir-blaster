@@ -1,0 +1,2 @@
+Default unsupported app locale fallback to English
+Added translations for Polish, Filipino, Ukrainian, and Dutch

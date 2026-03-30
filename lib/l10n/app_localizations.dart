@@ -9,6 +9,7 @@ import 'app_localizations_ar.dart';
 import 'app_localizations_de.dart';
 import 'app_localizations_en.dart';
 import 'app_localizations_es.dart';
+import 'app_localizations_fil.dart';
 import 'app_localizations_fr.dart';
 import 'app_localizations_hi.dart';
 import 'app_localizations_id.dart';
@@ -16,10 +17,13 @@ import 'app_localizations_it.dart';
 import 'app_localizations_ja.dart';
 import 'app_localizations_ko.dart';
 import 'app_localizations_ms.dart';
+import 'app_localizations_nl.dart';
+import 'app_localizations_pl.dart';
 import 'app_localizations_pt.dart';
 import 'app_localizations_ru.dart';
 import 'app_localizations_th.dart';
 import 'app_localizations_tr.dart';
+import 'app_localizations_uk.dart';
 import 'app_localizations_vi.dart';
 import 'app_localizations_zh.dart';
 
@@ -114,6 +118,7 @@ abstract class AppLocalizations {
     Locale('de'),
     Locale('en'),
     Locale('es'),
+    Locale('fil'),
     Locale('fr'),
     Locale('hi'),
     Locale('id'),
@@ -121,11 +126,14 @@ abstract class AppLocalizations {
     Locale('ja'),
     Locale('ko'),
     Locale('ms'),
+    Locale('nl'),
+    Locale('pl'),
     Locale('pt'),
     Locale('pt', 'BR'),
     Locale('ru'),
     Locale('th'),
     Locale('tr'),
+    Locale('uk'),
     Locale('vi'),
     Locale('zh')
   ];
@@ -7360,6 +7368,7 @@ class _AppLocalizationsDelegate
         'de',
         'en',
         'es',
+        'fil',
         'fr',
         'hi',
         'id',
@@ -7367,10 +7376,13 @@ class _AppLocalizationsDelegate
         'ja',
         'ko',
         'ms',
+        'nl',
+        'pl',
         'pt',
         'ru',
         'th',
         'tr',
+        'uk',
         'vi',
         'zh'
       ].contains(locale.languageCode);
@@ -7410,6 +7422,8 @@ AppLocalizations lookupAppLocalizations(Locale locale) {
       return AppLocalizationsEn();
     case 'es':
       return AppLocalizationsEs();
+    case 'fil':
+      return AppLocalizationsFil();
     case 'fr':
       return AppLocalizationsFr();
     case 'hi':
@@ -7424,6 +7438,10 @@ AppLocalizations lookupAppLocalizations(Locale locale) {
       return AppLocalizationsKo();
     case 'ms':
       return AppLocalizationsMs();
+    case 'nl':
+      return AppLocalizationsNl();
+    case 'pl':
+      return AppLocalizationsPl();
     case 'pt':
       return AppLocalizationsPt();
     case 'ru':
@@ -7432,6 +7450,8 @@ AppLocalizations lookupAppLocalizations(Locale locale) {
       return AppLocalizationsTh();
     case 'tr':
       return AppLocalizationsTr();
+    case 'uk':
+      return AppLocalizationsUk();
     case 'vi':
       return AppLocalizationsVi();
     case 'zh':

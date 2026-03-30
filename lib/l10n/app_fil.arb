@@ -1,0 +1,1851 @@
+{
+  "@@locale": "fil",
+  "appTitle": "IR Blaster",
+  "loading": "Naglo-load…",
+  "unknownError": "Hindi kilalang error",
+  "failedToStart": "Hindi nagsimula",
+  "retry": "Subukan muli",
+  "quickTilePower": "Power",
+  "quickTileMute": "Mute",
+  "quickTileVolumeUp": "Lakasan",
+  "quickTileVolumeDown": "Hinaan",
+  "homeUsbPermissionRequiredMessage": "Walang built-in IR emitter ang teleponong ito. May natukoy na USB IR dongle, pero wala pang pahintulot.\n\nPayagan ang USB prompt para makapagpadala ng IR.",
+  "homeUsbPermissionDeniedMessage": "Walang built-in IR emitter ang teleponong ito. May natukoy na USB IR dongle, pero tinanggihan ang pahintulot sa USB.\n\nHumiling muli ng pahintulot at payagan ang prompt para makapagpadala ng IR.",
+  "homeUsbPermissionGrantedMessage": "Walang built-in IR emitter ang teleponong ito. Pinayagan ang USB IR dongle, pero hindi pa ito na-init.",
+  "homeUsbOpenFailedMessage": "Walang built-in IR emitter ang teleponong ito. May natukoy at pinayagang USB IR dongle, pero hindi ito ma-init.\n\nIkabit muli ang dongle at subukan ulit.",
+  "homeUsbReadyMessage": "Walang built-in IR emitter ang teleponong ito.",
+  "homeUsbNoDeviceMessage": "Walang built-in IR emitter ang teleponong ito, at walang suportadong USB IR dongle na nakakabit ngayon.\n\nMaaari ka pa ring gumawa, mag-import, at mamahala ng mga remote — pero para magpadala ng IR signal kailangan mo ang isa sa mga opsyon sa ibaba.",
+  "homeUsbOptionPlugIn": "Isaksak ang suportadong USB IR dongle, saka payagan ito.",
+  "homeUsbOptionReady": "Handa nang gamitin.",
+  "homeUsbOptionPermissionRequired": "Nakakabit na. Kailangan ng pahintulot.",
+  "homeUsbOptionPermissionDenied": "Tinanggihan ang pahintulot. Humiling muli.",
+  "homeUsbOptionPermissionGranted": "Authorized. Initializing dongle.",
+  "homeUsbOptionOpenFailed": "Authorized, but initialization nabigo.",
+  "homeHardwareBannerNoInternal": "Walang built-in IR ang teleponong ito. Ikabit ang USB IR dongle o i-on ang Audio mode sa Mga Setting.",
+  "homeHardwareBannerPermissionRequired": "USB dongle detected. Pahintulot kailangan to send IR.",
+  "homeHardwareBannerPermissionDenied": "USB pahintulot was tinanggihan. Hiling it muli to send IR.",
+  "homeHardwareBannerPermissionGranted": "USB dongle authorized. Waiting para sa initialization.",
+  "homeHardwareBannerOpenFailed": "USB dongle authorized, but initialization nabigo.",
+  "homeHardwareBannerReady": "USB is ready.",
+  "homeHardwareRequiredTitle": "IR hardware kailangan to send commands",
+  "homeUsbDongleRecommended": "USB IR dongle (recommended)",
+  "homeAudioAdapterAlternative": "Audio IR adapter (alternative)",
+  "homeAudioAdapterDescription": "Mga Setting → IR Transmitter → Audio 1 LED / 2 LED. Kailangan ng audio to IR adapter.",
+  "close": "Isara",
+  "homeChooseTransmitter": "Piliin ang a transmitter",
+  "openSettings": "Open Settings",
+  "homeUsbPermissionSentApprove": "Naipadala na ang hiling para sa pahintulot sa USB. Payagan ang prompt para ma-enable ang USB.",
+  "homeUsbDongleNotDetected": "Walang supported USB IR dongle detected. Plug it in at try muli.",
+  "homeUsbPermissionRequestFailed": "Nabigo to hiling USB pahintulot.",
+  "working": "Working…",
+  "requestUsbPermission": "Humiling ng pahintulot sa USB",
+  "homeHardwareTip": "Tip. Maaari ka nang gumawa at mag-ayos ng mga remote ngayon. Kailangan lang ang hardware kapag magpapadala na.",
+  "homeNoIrTransmitterTitle": "Walang IR transmitter available",
+  "settingsNavLabel": "Mga Setting",
+  "dismiss": "Dismiss",
+  "remotesNavLabel": "Mga Remote",
+  "macrosNavLabel": "Mga Macro",
+  "signalTesterNavLabel": "Signal Tester",
+  "settingsTitle": "Mga Setting",
+  "remoteNoIrEmitterTitle": "Walang IR emitter",
+  "remoteNoIrEmitterMessage": "Ang device does not have an IR emitter",
+  "remoteNoIrEmitterNeedsEmitter": "Ang app needs an IR emitter to function",
+  "remoteDismiss": "Dismiss",
+  "remoteClose": "Isara",
+  "remoteFailedToSend": "Nabigong magpadala ng IR: {error}",
+  "@remoteFailedToSend": {
+    "placeholders": {
+      "error": {}
+    }
+  },
+  "remoteFailedToStartLoop": "Nabigong simulan ang loop: {error}",
+  "@remoteFailedToStartLoop": {
+    "placeholders": {
+      "error": {}
+    }
+  },
+  "remoteLoopStoppedFailed": "Nahinto ang loop, nabigong magpadala: {error}",
+  "@remoteLoopStoppedFailed": {
+    "placeholders": {
+      "error": {}
+    }
+  },
+  "remoteLoopingHint": "Paulit-ulit ang \"{title}\". Tapikin ang Ihinto sa itaas para huminto.",
+  "@remoteLoopingHint": {
+    "placeholders": {
+      "title": {}
+    }
+  },
+  "remoteLoopStopped": "Loop stopped.",
+  "remoteUpdatedNotFound": "Remote updated on screen. It was not found in the saved list.",
+  "remoteUpdatedNamed": "Na-update ang \"{name}\".",
+  "@remoteUpdatedNamed": {
+    "placeholders": {
+      "name": {}
+    }
+  },
+  "remoteDeleteFailed": "Nabigo ang pagbura: {error}",
+  "@remoteDeleteFailed": {
+    "placeholders": {
+      "error": {}
+    }
+  },
+  "remoteNotFoundSavedList": "Remote not found in saved list.",
+  "remoteDeletedNamed": "Nabura ang \"{name}\".",
+  "@remoteDeletedNamed": {
+    "placeholders": {
+      "name": {}
+    }
+  },
+  "buttonFallbackTitle": "Button",
+  "imageFallbackTitle": "Image",
+  "noBrowserAvailable": "Walang browser available",
+  "failedToOpen": "Nabigong buksan: {error}",
+  "@failedToOpen": {
+    "placeholders": {
+      "error": {}
+    }
+  },
+  "cancel": "Kanselahin",
+  "settingsRestoreDemoTitle": "Restore demo mga remote?",
+  "settingsRestoreDemoMessage": "Papaltan nito ang kasalukuyan mong mga remote ng built-in demo remotes. Inirerekomenda ang backup kung gusto mong panatilihin ang kasalukuyan mong listahan.",
+  "settingsRestoreDemoConfirm": "Restore demo",
+  "settingsDemoRemotesRestored": "Demo mga remote restored.",
+  "settingsDeleteAllRemotesTitle": "Delete all mga remote?",
+  "settingsDeleteAllRemotesMessage": "Aalisin nito ang lahat ng remote sa device na ito. Hindi na ito mababawi.",
+  "settingsDeleteAllConfirm": "Delete all",
+  "settingsAllRemotesDeleted": "All mga remote deleted.",
+  "themeAuto": "Auto Theme",
+  "themeLight": "Maliwanag na Tema",
+  "themeDark": "Madilim na Tema",
+  "themeDescAuto": "Sinusundan ang setting ng device mo",
+  "themeDescLight": "Always bright at clear",
+  "themeDescDark": "Easy on the eyes",
+  "themeHintAuto": "Awtomatikong nagpapalit ang tema kapag binago mo ang setting ng device sa maliwanag o madilim na mode",
+  "themeHintLight": "Perfect para sa daytime use at well-lit environments",
+  "themeHintDark": "Reduces eye strain in low-maliwanag conditions at saves battery on OLED screens",
+  "supportDevelopmentTitle": "Support Development",
+  "supportDevelopmentSubtitle": "Keep IR Blaster maintained at hardware-compatible",
+  "supportDevelopmentBody": "Walang ads, walang tracking, walang naka-lock na feature. Ang suporta mo ang tumutustos sa protocol work, USB dongle support, at mas maayos na compatibility sa mga device.",
+  "donate": "Donate",
+  "starRepo": "Star Repo",
+  "repositoryLinkCopied": "Repository link copied",
+  "supportPillLocalOnly": "Local-only",
+  "supportPillNoTracking": "Walang tracking",
+  "supportPillHardwareAware": "Hardware-aware",
+  "supportPillOpenSource": "Open-source",
+  "appearanceTitle": "Appearance",
+  "appearanceSubtitle": "Customize iyong visual experience",
+  "localizationTitle": "Localization",
+  "localizationSubtitle": "App wika at translation behavior",
+  "localizationAutoUsing": "Auto: gamit ang {language}",
+  "@localizationAutoUsing": {
+    "placeholders": {
+      "language": {}
+    }
+  },
+  "localizationAutoDescription": "The app follows iyong device wika when possible.",
+  "localizationManualDescription": "The app wika is manually overridden.",
+  "useSystemLanguageTitle": "Use system wika",
+  "useSystemLanguageEnabled": "Sinusundan ang wika ng device mo: {language}",
+  "@useSystemLanguageEnabled": {
+    "placeholders": {
+      "language": {}
+    }
+  },
+  "useSystemLanguageDisabled": "Gamitin ang wikang pinili sa ibaba sa halip na default ng device.",
+  "chooseAppLanguage": "Piliin ang app wika",
+  "languagePickerDisabledHint": "Turn off system wika to piliin a wika manually.",
+  "searchLanguages": "Search languages",
+  "noLanguagesFound": "Walang matching languages",
+  "localizationHint": "Kapag naka-on ang wika ng system, susundan ng app ang locale ng device mo at babalik sa English kung walang salin. I-off ito para itakda ang app sa isang tiyak na wika.",
+  "appLanguageTitle": "App wika",
+  "appLanguageHint": "Auto nitong sinusundan ang wika ng device mo. Piliin dito ang English o French para sa app lang.",
+  "languageAuto": "Auto (system)",
+  "languageAutoDescription": "Follow iyong device wika automatically",
+  "languageEnglish": "English",
+  "languageEnglishDescription": "Force the app to always use English",
+  "languageFrench": "French",
+  "languageFrenchDescription": "Force the app to always use French",
+  "languageAutoShort": "Auto",
+  "languageEnglishShort": "English",
+  "languageFrenchShort": "Français",
+  "useDynamicColors": "Use dynamic colors",
+  "themeChoiceAuto": "Auto",
+  "themeChoiceLight": "Maliwanag",
+  "themeChoiceDark": "Madilim",
+  "irTransmitterTitle": "IR Transmitter",
+  "irTransmitterSubtitle": "Piliin ang which hardware sends IR commands",
+  "interactionTitle": "Interaction",
+  "interactionSubtitle": "Touch feedback at remote layout",
+  "hapticFeedbackTitle": "Haptic feedback",
+  "hapticFeedbackSubtitle": "Vibrate on taps at actions",
+  "intensity": "Intensity",
+  "intensityLight": "Maliwanag",
+  "intensityMedium": "Medium",
+  "intensityStrong": "Strong",
+  "flipRemoteDefaultTitle": "Flip Remote View by default",
+  "flipRemoteDefaultSubtitle": "Open Remote screens rotated 180° (for bottom-mounted USB dongles).",
+  "remoteViewFlipped": "Remote View will open flipped.",
+  "remoteViewNormal": "Remote View will open normally.",
+  "backupTitle": "Backup",
+  "backupSubtitle": "Import o export ng mga remote at macro",
+  "importBackup": "Import backup",
+  "importBackupSubtitle": "Mag-import ng backup ng remotes o macros, o Flipper Zero, LIRC, o IRPLUS files",
+  "bulkImportFolder": "Bulk import folder",
+  "bulkImportFolderSubtitle": "Import multiple mga remote from a folder",
+  "exportBackup": "Export backup",
+  "exportBackupSubtitle": "I-save ang mga remote at macro bilang iisang JSON file sa Downloads",
+  "restoreDemoRemotes": "Restore demo mga remote",
+  "restoreDemoRemotesSubtitle": "Replace kasalukuyang mga remote with the built-in demo",
+  "deleteAllRemotes": "Delete all mga remote",
+  "deleteAllRemotesSubtitle": "Alisin ang lahat ng remote sa device na ito",
+  "backupTip": "Tip. Mag-export ng backup bago ang malalaking edit. Sinusuportahan ng import ang full backup, legacy mga remote lamang JSON backup, at Flipper Zero .ir files.",
+  "aboutTitle": "Tungkol",
+  "aboutSubtitle": "App information at open-source details",
+  "aboutAppNameWithCreator": "IR Blaster - {creator}",
+  "@aboutAppNameWithCreator": {
+    "placeholders": {
+      "creator": {}
+    }
+  },
+  "versionLabel": "Bersyon {version}",
+  "@versionLabel": {
+    "placeholders": {
+      "version": {}
+    }
+  },
+  "sourceCode": "Source Code",
+  "viewOnGitHub": "View on GitHub",
+  "repositoryUrlCopied": "Repository URL copied",
+  "reportIssue": "Report Issue",
+  "reportIssueSubtitle": "Bug reports & feature requests",
+  "issuesUrlCopied": "Issues URL copied",
+  "license": "License",
+  "openSourceLicense": "Open-source license",
+  "licenseUrlCopied": "License URL copied",
+  "companyName": "KaijinLab Inc.",
+  "visitWebsite": "Visit our website",
+  "companyUrlCopied": "Company URL copied",
+  "licenses": "Licenses",
+  "openSourceLicenses": "Open source licenses",
+  "byCreator": "ni {creator}",
+  "@byCreator": {
+    "placeholders": {
+      "creator": {}
+    }
+  },
+  "deviceControlsTitle": "Device Controls",
+  "deviceControlsSubtitle": "Show favorite mga button in the system controls page",
+  "manageFavorites": "Manage favorites",
+  "manageFavoritesSubtitle": "Piliin kung aling mga button ang lalabas sa device controls",
+  "quickSettingsTitle": "Quick Settings",
+  "quickSettingsSubtitle": "Add tiles para sa power at volume shortcuts",
+  "configureTiles": "Configure tiles",
+  "configureTilesSubtitle": "Itugma ang mga tile sa mga button ng remote",
+  "tvKillTitle": "TVKill",
+  "tvKillSubtitle": "Universal power cycling para sa owned mga device",
+  "openTvKill": "Open TVKill",
+  "openTvKillSubtitle": "Paikutin ang mga power code, gamitin lamang sa mga device na sa iyo",
+  "failedToLoadTransmitterSettings": "Nabigo to load transmitter settings.",
+  "usbStatusReady": "USB dongle is connected at ready to send IR.",
+  "usbStatusPermissionRequired": "May natukoy na USB dongle. Humiling ng pahintulot sa USB at payagan ang system prompt.",
+  "usbStatusPermissionDenied": "Tinanggihan ang pahintulot sa USB para sa nakakabit na dongle. Humiling muli at payagan ang prompt.",
+  "usbStatusPermissionGranted": "Pinayagan ang pahintulot sa USB. Kailangan pa ring ma-init ang dongle bago ito makapagpadala ng IR.",
+  "usbStatusOpenFailed": "Pinayagan ang pahintulot sa USB, pero hindi ma-init ang dongle. Ikabit muli ito at subukan ulit.",
+  "usbStatusNoDevice": "Walang supported USB IR dongle detected.",
+  "usbSelectPermissionRequired": "May natukoy na USB dongle pero hindi pa pinapayagan. Tapikin ang \"Humiling ng pahintulot sa USB\".",
+  "usbSelectPermissionDenied": "Tinanggihan ang pahintulot sa USB. Tapikin ang \"Humiling ng pahintulot sa USB\" at payagan ang prompt.",
+  "usbSelectPermissionGranted": "Pinayagan ang pahintulot sa USB, pero hindi pa na-init ang dongle. Subukang ikabit muli ito.",
+  "usbSelectOpenFailed": "Pinayagan ang pahintulot sa USB, pero hindi ma-init ang dongle. Ikabit muli ito at subukan ulit.",
+  "usbSelectNoDevice": "Walang natukoy na suportadong USB IR dongle. Isaksak ito, saka tapikin ang \"Humiling ng pahintulot sa USB\".",
+  "usbSelectReady": "USB dongle is ready.",
+  "autoSwitchEnabledMessage": "Auto-switch naka-on: uses USB when connected, otherwise Internal.",
+  "autoSwitchDisabledMessage": "Auto-switch naka-off: transmitter selection is now manual.",
+  "failedToUpdateAutoSwitch": "Nabigo to update auto-switch setting.",
+  "failedToSwitchTransmitter": "Nabigo to switch transmitter.",
+  "deviceHasNoInternalIr": "Ang device has no built-in IR emitter.",
+  "audioModeEnabledMessage": "Naka-on ang Audio mode. Gamitin ang max media volume at audio to IR LED adapter.",
+  "usbPermissionRequestSent": "Naipadala na ang hiling para sa pahintulot sa USB.",
+  "usbPermissionRequestSentApprove": "Naipadala na ang hiling para sa pahintulot sa USB. Payagan ang prompt para ma-enable ang USB.",
+  "usbAlreadyReady": "USB dongle is already initialized at ready.",
+  "failedToRequestUsbPermission": "Nabigo to hiling USB pahintulot.",
+  "transmitterHelpInternal": "Use the telepono’s built-in IR emitter to send commands.",
+  "transmitterHelpUsb": "Use a USB IR dongle (pahintulot kailangan) to send commands.",
+  "transmitterHelpAudio1": "Gamitin ang audio output mono. Kailangan ng audio to IR LED adapter at mataas na media volume.",
+  "transmitterHelpAudio2": "Gamitin ang audio output stereo. Gumagamit ng dalawang channel para sa mas maayos na LED driving sa compatible na adapter.",
+  "transmitterInternal": "Internal IR",
+  "transmitterUsb": "USB IR Dongle",
+  "transmitterAudio1": "Audio (1 LED)",
+  "transmitterAudio2": "Audio (2 LEDs)",
+  "failedToLoadTransmitterCapabilities": "Nabigo to load transmitter capabilities.",
+  "selectedTransmitter": "Selected transmitter",
+  "selectedTransmitterValue": "{effective} • Active: {active}",
+  "@selectedTransmitterValue": {
+    "placeholders": {
+      "effective": {},
+      "active": {}
+    }
+  },
+  "refresh": "Refresh",
+  "autoSwitchTitle": "Auto-switch",
+  "autoSwitchDisabledWhileAudio": "Naka-off habang gamit ang Audio mode",
+  "autoSwitchUsesUsbOtherwiseInternal": "Uses USB when connected, otherwise Internal",
+  "unavailableOnThisDevice": "Hindi available sa device na ito",
+  "openOnUsbAttachTitle": "Open on USB attach",
+  "openOnUsbAttachSubtitle": "Android may suggest opening the app when a supported USB IR dongle is connected.",
+  "openOnUsbAttachEnabledMessage": "Will suggest opening IR Blaster when a supported USB dongle is attached.",
+  "openOnUsbAttachDisabledMessage": "Won't suggest opening on USB attach.",
+  "failedToUpdateSetting": "Nabigo to update setting.",
+  "unnamedButton": "Button na walang pangalan",
+  "iconFallback": "Icon",
+  "remoteListReorderHint": "Reorder mode: long-press at drag a card to move it.",
+  "deleteRemoteTitle": "Delete remote?",
+  "deleteRemoteMessage": "\"{name}\" will be permanently removed. Ang action hindi na mababawi.",
+  "@deleteRemoteMessage": {
+    "placeholders": {
+      "name": {}
+    }
+  },
+  "delete": "Burahin",
+  "addToDeviceControlsTitle": "Add to Device Controls?",
+  "addToDeviceControlsDescription": "Quick access in the system device controls.",
+  "skip": "Skip",
+  "add": "Add",
+  "addedToDeviceControls": "Added to Device Controls.",
+  "deletedRemoteUndoUnavailable": "Deleted \"{name}\". Ang action hindi na mababawi.",
+  "@deletedRemoteUndoUnavailable": {
+    "placeholders": {
+      "name": {}
+    }
+  },
+  "remoteLayoutSummary": "{count} button(s) · {layout}",
+  "@remoteLayoutSummary": {
+    "placeholders": {
+      "count": {},
+      "layout": {}
+    }
+  },
+  "layoutComfort": "Comfort",
+  "layoutCompact": "Compact",
+  "open": "Open",
+  "useThisRemote": "Gamitin ang remote na ito",
+  "edit": "I-edit",
+  "editRemoteSubtitle": "Palitan ang pangalan at i-edit ang mga button",
+  "thisCannotBeUndone": "Ang cannot be undone",
+  "searchRemotes": "Search Remotes",
+  "reorderRemotes": "Reorder mga remote",
+  "addRemote": "Add remote",
+  "more": "More",
+  "reorderMode": "Reorder mode",
+  "remoteButtonCount": "{count} button{plural}",
+  "@remoteButtonCount": {
+    "placeholders": {
+      "count": {},
+      "plural": {}
+    }
+  },
+  "noRemotesYet": "Walang mga remote yet",
+  "noRemotesDescription": "Create a remote to start sending IR codes.",
+  "noRemotesNextStep": "Susunod: tapikin ang Add remote, saka idagdag ang una mong mga button.",
+  "actions": "Actions",
+  "macrosTitle": "Mga Macro",
+  "help": "Help",
+  "createMacro": "Create Macro",
+  "timedMacrosTitle": "Timed Macros",
+  "timedMacrosSubtitle": "Automate sequences ng IR commands with precise timing",
+  "timedMacrosNextStep": "Susunod. Tapikin ang Gumawa ng Unang Macro, pumili ng remote, saka magdagdag ng mga command at delay.",
+  "macroFeatureToysTitle": "Perfect para sa Interactive Toys",
+  "macroFeatureToysDescription": "Kontrolin ang mga device tulad ng i-cybie robot dogs, i-sobot robots, at iba pang laruan na kailangan ng pagitan sa bawat command para maproseso ang kilos.",
+  "macroFeatureTimingTitle": "Precise Timing Control",
+  "macroFeatureTimingDescription": "Magdagdag ng delay sa pagitan ng mga command mula 250ms hanggang custom na haba para may oras ang device na tumugon bago ang susunod na kilos.",
+  "macroFeatureManualTitle": "Manual Continue Steps",
+  "macroFeatureManualDescription": "I-pause ang pagpapatakbo at hintayin ang kumpirmasyon mo kapag pabago-bago ang haba ng animation o kailangan mo ng visual feedback.",
+  "exampleUseCase": "Example Use Case",
+  "macroExampleText": "i-cybie Advanced Mode:\n1. Ipadala ang utos na \"Mode\"\n2. Maghintay ng 1000ms, pinoproseso ng laruan\n3. Ipadala ang \"Action 1\"\n4. Maghintay ng 1000ms\n5. Ipadala ang \"Action 2\"\n…at tuloy-tuloy nang awtomatiko!",
+  "createFirstMacro": "Create Ang iyong First Macro",
+  "noRemote": "Walang remote",
+  "macroStepCount": "{count} hakbang{plural}",
+  "@macroStepCount": {
+    "placeholders": {
+      "count": {},
+      "plural": {}
+    }
+  },
+  "aboutTimedMacros": "About Timed Macros",
+  "aboutTimedMacrosDescription": "Hinahayaan ka ng Timed Macros na i-automate ang sunod-sunod na IR command na may eksaktong delay sa bawat hakbang.",
+  "sendCommand": "Send Command",
+  "sendCommandDescription": "Transmits an IR command from iyong remote.",
+  "delay": "Delay",
+  "delayDescription": "Waits para sa a specified duration (e.g., 1000ms) before the next hakbang.",
+  "manualContinue": "Manual Continue",
+  "manualContinueDescription": "Pauses execution until you tapikin Continue (useful para sa variable-length animations).",
+  "gotIt": "Got it",
+  "failedToSaveMacros": "Nabigong i-save ang mga macro.",
+  "deletedMacroNamed": "Nabura ang \"{name}\".",
+  "@deletedMacroNamed": {
+    "placeholders": {
+      "name": {}
+    }
+  },
+  "undo": "Undo",
+  "failedToRestoreMacro": "Nabigo to restore macro.",
+  "deleteMacroTitle": "Delete macro?",
+  "deleteMacroMessage": "You can undo this from the next snackbar.",
+  "noRemotesAvailable": "Walang mga remote available.",
+  "remoteButtonCountSummary": "{count} button(s)",
+  "@remoteButtonCountSummary": {
+    "placeholders": {
+      "count": {}
+    }
+  },
+  "remoteOrientationFlippedTooltip": "Orientation: flipped (tap to normal)",
+  "remoteOrientationNormalTooltip": "Orientation: normal (tap to flip)",
+  "stopLoop": "Stop loop",
+  "reorderButtons": "Reorder mga button",
+  "remoteReorderHint": "Reorder mode: pindutin nang matagal at i-drag ang button para ilipat ito.",
+  "manageRemote": "Manage remote",
+  "remoteNoButtons": "Walang button sa remote na ito",
+  "remoteNoButtonsDescription": "Gamitin ang \"I-edit remote\" para magdagdag o mag-ayos ng mga button.",
+  "editRemote": "I-edit remote",
+  "editRemoteActionsSubtitle": "Palitan ang pangalan, ayusin muli, at i-edit ang mga button",
+  "remoteUpdatedNamedButton": "Na-update ang \"{name}\".",
+  "@remoteUpdatedNamedButton": {
+    "placeholders": {
+      "name": {}
+    }
+  },
+  "buttonAddedNamed": "Added \"{name}\".",
+  "@buttonAddedNamed": {
+    "placeholders": {
+      "name": {}
+    }
+  },
+  "buttonDuplicated": "Button duplicated.",
+  "loopRunningForButton": "Tumatakbo ang loop para sa button na ito.",
+  "loopTip": "Tip: Use Loop to repeat until you stop it.",
+  "codeCopied": "Code copied.",
+  "copyCode": "Copy code",
+  "startLoop": "Start loop",
+  "editButtonSubtitle": "Modify label, code, protocol, frequency",
+  "newButton": "New button",
+  "newButtonSubtitle": "Gumawa ng bagong button pagkatapos nito",
+  "duplicate": "Duplicate",
+  "duplicateButtonSubtitle": "Gumawa ng kopya ng button na ito",
+  "removeFromDeviceControls": "Remove from Device Controls",
+  "addToDeviceControls": "Add to Device Controls",
+  "deviceControlsButtonSubtitle": "Ipinapakita ang button na ito sa system device controls",
+  "removedFromDeviceControls": "Removed from Device Controls.",
+  "pinQuickTile": "Pin to Quick Tile favorites",
+  "unpinQuickTile": "Unpin from Quick Tile favorites",
+  "quickTileButtonSubtitle": "Ipinapakita ang button na ito sa itaas ng quick tile chooser",
+  "removedFromQuickTileFavorites": "Removed from Quick Tile favorites.",
+  "pinnedToQuickTileFavorites": "Pinned to Quick Tile favorites.",
+  "duplicateAndEdit": "Duplicate at edit",
+  "duplicateAndEditSubtitle": "Create a copy at edit it immediately",
+  "done": "Tapos",
+  "run": "Run",
+  "untitledRemote": "Remote na walang pamagat",
+  "createRemoteTitle": "Create remote",
+  "editRemoteTitle": "I-edit remote",
+  "removeButtonTitle": "Remove button?",
+  "imageButtonRemovedMessage": "Ang image button will be removed.",
+  "namedButtonRemovedMessage": "\"{name}\" will be removed.",
+  "@namedButtonRemovedMessage": {
+    "placeholders": {
+      "name": {}
+    }
+  },
+  "remove": "Remove",
+  "importedButtonCount": "Na-import ang {count} button.",
+  "@importedButtonCount": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "importedButtonsFromExistingRemotes": "Na-import ang {count} button mula sa kasalukuyang mga remote.",
+  "@importedButtonsFromExistingRemotes": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "editButtonSettingsSubtitle": "Change label, signal, at advanced settings",
+  "createButtonCopySubtitle": "Gumawa ng kopya ng button na ito",
+  "duplicateAndEditButtonSubtitle": "Create a copy at edit it immediately",
+  "undoAvailableInNextSnackbar": "You can undo from the next snackbar",
+  "buttonRemoved": "Button removed.",
+  "remoteNameCannotBeEmpty": "Remote pangalan can't be empty.",
+  "saveRemote": "I-save ang remote",
+  "remoteName": "Remote pangalan",
+  "remoteNameHint": "e.g., TV, Air Conditioner, LED Strip",
+  "remoteNameHelper": "Ang pangalan appears in iyong Remotes list.",
+  "layoutStyle": "Layout style",
+  "layoutWideDescription": "Wide: 2-column mga button with extra details (recommended).",
+  "layoutCompactDescription": "Compact: classic 4× grid (icons/text only).",
+  "importFromRemotes": "Import from mga remote",
+  "importFromDatabase": "Import from DB",
+  "addButton": "Add button",
+  "noButtonsYet": "Walang mga button yet",
+  "createRemoteEmptyStateDescription": "Idagdag ang una mong button, saka pindutin ito nang matagal para sa edit o remove na opsyon.",
+  "createButtonTitle": "Create Button",
+  "editButtonTitle": "I-edit ang Button",
+  "failedToLoadProtocols": "Nabigong i-load ang mga protocol: {error}",
+  "@failedToLoadProtocols": {
+    "placeholders": {
+      "error": {}
+    }
+  },
+  "failedToLoadDatabaseKeys": "Nabigong i-load ang mga database key: {error}",
+  "@failedToLoadDatabaseKeys": {
+    "placeholders": {
+      "error": {}
+    }
+  },
+  "presetPower": "Power",
+  "presetVolume": "Volume",
+  "presetChannel": "Channel",
+  "presetNavigation": "Navigation",
+  "all": "All",
+  "completeRequiredFieldsToSave": "Complete kailangan fields to save",
+  "buttonLabelStepTitle": "1) Button label",
+  "buttonLabelStepSubtitle": "Piliin ang an image, icon, o type a text label.",
+  "buttonColorStepTitle": "2) Button color (optional)",
+  "buttonColorStepSubtitle": "Pumili ng background color para sa button na ito.",
+  "selectColor": "Select color:",
+  "noImageSelected": "Walang image selected",
+  "gallery": "Gallery",
+  "builtIn": "Built-in",
+  "removeImage": "Remove image",
+  "requiredSelectImageOrSwitch": "Required: select an image, piliin an icon, o switch to Text.",
+  "iconSelected": "Icon selected",
+  "noIconSelected": "Walang icon selected",
+  "chooseIcon": "Piliin ang Icon",
+  "removeIcon": "Remove icon",
+  "requiredSelectIconOrSwitch": "Required: select an icon o switch to Image/Text.",
+  "buttonText": "Button text",
+  "buttonTextHint": "e.g., Power, Volume +, HDMI 1",
+  "buttonTextHelper": "Ang text will appear on the button.",
+  "requiredEnterButtonLabel": "Kailangan: maglagay ng label ng button.",
+  "defaultColorName": "Default",
+  "newRemoteCreatedFromLastHit": "Nakagawa ng bagong remote na may isang button mula sa huling hit.",
+  "selectRemote": "Select remote",
+  "remoteNumber": "Remote #{id}",
+  "@remoteNumber": {
+    "placeholders": {
+      "id": {}
+    }
+  },
+  "newRemoteCreated": "New remote created.",
+  "failedToCreateRemote": "Nabigo to create remote.",
+  "newRemoteEllipsis": "New remote…",
+  "addedToRemoteNamed": "Added to {name}.",
+  "@addedToRemoteNamed": {
+    "placeholders": {
+      "name": {}
+    }
+  },
+  "failedToAddToRemote": "Nabigo to add to remote.",
+  "newRemoteDefaultName": "New Remote",
+  "jumpedToOffsetPaused": "Jumped to offset {offset}. Paused — press Resume to continue.",
+  "@jumpedToOffsetPaused": {
+    "placeholders": {
+      "offset": {
+        "type": "int"
+      }
+    }
+  },
+  "sent": "Sent.",
+  "failedToSend": "Nabigong magpadala: {error}",
+  "@failedToSend": {
+    "placeholders": {
+      "error": {}
+    }
+  },
+  "copiedProtocolCode": "Copied (protocol:code).",
+  "savedToResults": "Saved to Results.",
+  "invalidCodeForProtocol": "Invalid code para sa protocol: {error}",
+  "@invalidCodeForProtocol": {
+    "placeholders": {
+      "error": {}
+    }
+  },
+  "copiedCurrentCandidate": "Copied kasalukuyang candidate.",
+  "jumpToOffset": "Jump to offset",
+  "jumpToBruteCursor": "Jump to brute cursor",
+  "jump": "Jump",
+  "jumpedToCursorPaused": "Jumped to cursor 0x{cursor}. Paused — press Resume to continue.",
+  "@jumpedToCursorPaused": {
+    "placeholders": {
+      "cursor": {}
+    }
+  },
+  "irSignalTester": "IR Signal Tester",
+  "stop": "Ihinto",
+  "selectButton": "Select button",
+  "buttonNotFoundInRemotes": "Hindi nahanap ang button sa mga remote.",
+  "sentNamed": "Sent \"{name}\".",
+  "@sentNamed": {
+    "placeholders": {
+      "name": {}
+    }
+  },
+  "sendFailed": "Nabigo ang pagpapadala: {error}",
+  "@sendFailed": {
+    "placeholders": {
+      "error": {}
+    }
+  },
+  "noFavoritesYet": "Walang favorites yet",
+  "deviceControlsEmptyHint": "Pindutin nang matagal ang button ng remote at piliin ang “Add to Device Controls”.",
+  "sendTest": "Send test",
+  "testSendCompleted": "Test send completed.",
+  "testSendFailed": "Nabigo ang test send: {error}",
+  "@testSendFailed": {
+    "placeholders": {
+      "error": {}
+    }
+  },
+  "removedNamed": "Removed \"{name}\".",
+  "@removedNamed": {
+    "placeholders": {
+      "name": {}
+    }
+  },
+  "brand": "Brand",
+  "model": "Modelo",
+  "selectBrand": "Select brand",
+  "searchBrand": "Search brand…",
+  "selectModel": "Select modelo",
+  "searchModel": "Search modelo…",
+  "unnamedKey": "Unnamed key",
+  "unknown": "Hindi kilala",
+  "emDash": "—",
+  "searchCommands": "Search commands",
+  "noMatchingCommands": "Walang matching commands",
+  "quickTileFavoritesTitle": "Quick tile favorites",
+  "changeMappingForTile": "Change mapping para sa {tileLabel} tile",
+  "@changeMappingForTile": {
+    "placeholders": {
+      "tileLabel": {}
+    }
+  },
+  "pickDifferentButton": "Pick a different button",
+  "browseAllRemotesEllipsis": "Browse all mga remote…",
+  "invalidMacroFileFormat": "Invalid macro file format.",
+  "failedToParseMacroFile": "Nabigo to parse macro file.",
+  "deviceCodeLabel": "Device Code",
+  "commandLabel": "Command",
+  "editButtonCodeTitle": "I-edit ang Code ng button",
+  "thisRemoteHasNoButtons": "Ang remote has no mga button.",
+  "selectCommand": "Select Command",
+  "databaseModeAutofillHint": "Awtomatikong pinupunan ng Database mode ang Hakbang 2 para sa iyo, brand, modelo, at protocol. Pagkatapos mag-import ng key, maaari mong ayusin pa ang lahat sa Manual.",
+  "test": "Subukan",
+  "allSelectedButtonsWereDuplicates": "All napiling mga button were duplicates.",
+  "noButtonsImported": "Walang mga button imported.",
+  "importedButtonsSkippedDuplicates": "Imported {addedCount} button(s). Skipped {skippedCount} duplicate(s).",
+  "@importedButtonsSkippedDuplicates": {
+    "placeholders": {
+      "addedCount": {
+        "type": "int"
+      },
+      "skippedCount": {
+        "type": "int"
+      }
+    }
+  },
+  "importAllMatchingTitle": "Import all matching mga button?",
+  "noMatchingKeysFound": "Walang matching keys found.",
+  "importAllMatchingMessage": "Ang will import up to {count} matching keys from the kasalukuyang database selection.",
+  "@importAllMatchingMessage": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "importAll": "Import all",
+  "importingButtons": "Importing mga button…",
+  "allMatchingButtonsWereDuplicates": "All matching mga button were duplicates.",
+  "quickPresets": "Quick presets",
+  "selectDeviceFirst": "Select device first",
+  "searchByLabelOrHex": "Search by label o hex",
+  "optionalRefinePresetKeys": "Optional: refine the {preset} preset keys",
+  "@optionalRefinePresetKeys": {
+    "placeholders": {
+      "preset": {}
+    }
+  },
+  "selectBrandModelProtocolFirst": "Select brand, modelo, at protocol first.",
+  "importFromDatabaseTitle": "Import from database",
+  "importFromDatabaseSubtitle": "Pumili ng device, i-load ang magkakatugmang keys, saka i-import ang mga napiling button.",
+  "deviceAndFilters": "Device & filters",
+  "loadedCount": "{count} na-load",
+  "@loadedCount": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "hideFilters": "Hide filters",
+  "showFilters": "Show filters",
+  "noProtocolFoundForBrandModel": "Walang protocol found para sa this brand at modelo.",
+  "protocolAutoDetected": "Protocol",
+  "protocolAutoDetectedHelper": "Auto-detected from the database. You can change it before importing.",
+  "selectBrandModelToLoadKeys": "Select a brand, modelo, at protocol to load keys.",
+  "noKeysFound": "Walang keys found.",
+  "noKeysFoundForSearch": "Walang keys found para sa “{query}”.",
+  "@noKeysFoundForSearch": {
+    "placeholders": {
+      "query": {}
+    }
+  },
+  "skipDuplicates": "Skip duplicates",
+  "skipDuplicatesSubtitle": "Huwag i-import ang mga button na nasa remote na ito.",
+  "importSelected": "Import selected",
+  "noMacrosToExport": "Walang mga macro to export.",
+  "macrosExportedToDownloads": "Macros exported to Downloads.",
+  "failedToExportMacros": "Nabigo to export mga macro.",
+  "failedToReadFile": "Nabigo to read file.",
+  "importFromExistingRemotesTitle": "Import from Existing Remotes",
+  "selectedCount": "{count} selected",
+  "@selectedCount": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "noOtherRemotesWithButtons": "Walang ibang remote na may button ang nahanap.",
+  "sourceRemote": "Source remote",
+  "searchButtons": "Search mga button",
+  "searchButtonsHint": "Power, Volume, Mute...",
+  "selectVisible": "Select visible",
+  "clearVisible": "Clear visible",
+  "protocolNamed": "Protocol: {name}",
+  "@protocolNamed": {
+    "placeholders": {
+      "name": {}
+    }
+  },
+  "rawSignal": "Raw",
+  "legacyCode": "Legacy code",
+  "importCount": "Import {count}",
+  "@importCount": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "storagePermissionDeniedLegacy": "Storage pahintulot tinanggihan (needed on some older Android mga device).",
+  "backupExportedToDownloads": "Backup exported to Downloads.",
+  "failedToExport": "Nabigong i-export: {error}",
+  "@failedToExport": {
+    "placeholders": {
+      "error": {}
+    }
+  },
+  "importedLegacyJsonBackup": "Na-import ang {count} remote mula sa legacy JSON backup. Hindi binago ang mga macro.",
+  "@importedLegacyJsonBackup": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "importFailedRemotesMustBeList": "Import nabigo: backup \"mga remote\" must be a JSON list when present.",
+  "importFailedMacrosMustBeList": "Import nabigo: backup \"mga macro\" must be a JSON list when present.",
+  "importFailedInvalidBackupFormat": "Nabigo ang import. Hindi wastong backup format. Inaasahan ang legacy List o Map na may remotes o macros.",
+  "importedBackupRemotesOnly": "Na-import ang {remoteCount} remote mula sa backup. Hindi binago ang mga macro.",
+  "@importedBackupRemotesOnly": {
+    "placeholders": {
+      "remoteCount": {
+        "type": "int"
+      }
+    }
+  },
+  "importedBackupRemotesAndMacros": "Na-import ang {remoteCount} remote at {macroCount} macro mula sa backup.",
+  "@importedBackupRemotesAndMacros": {
+    "placeholders": {
+      "remoteCount": {
+        "type": "int"
+      },
+      "macroCount": {
+        "type": "int"
+      }
+    }
+  },
+  "importFailedNoValidButtonsInIr": "Import nabigo: no valid mga button found in .ir file.",
+  "importedOneRemoteFromFlipper": "Imported 1 remote from Flipper .ir. Macros were not changed.",
+  "importFailedInvalidIrplus": "Import nabigo: hindi wasto irplus file (no valid mga button found).",
+  "importedOneRemoteFromIrplus": "Imported 1 remote from irplus. Macros were not changed.",
+  "importFailedInvalidLirc": "Import nabigo: hindi wasto LIRC file (no valid codes/raw codes found).",
+  "importedOneRemoteFromLirc": "Imported 1 remote from LIRC config. Macros were not changed.",
+  "unsupportedFileTypeSelected": "Unsupported file type selected.",
+  "importFailedInvalidUnreadableFile": "Import nabigo: hindi wasto o unreadable file.",
+  "bulkImportNoSupportedFilesInFolder": "Bulk import complete: no supported files found in folder.",
+  "bulkImportNoRemotesImported": "Tapos ang maramihang import. Walang na-import na remote. Nilaktawan ang {skippedCount} file.",
+  "@bulkImportNoRemotesImported": {
+    "placeholders": {
+      "skippedCount": {
+        "type": "int"
+      }
+    }
+  },
+  "bulkImportComplete": "Tapos ang maramihang import. Na-import ang {importedCount} remote mula sa {supportedCount} suportadong file. Nilaktawan ang {skippedCount} file.",
+  "@bulkImportComplete": {
+    "placeholders": {
+      "importedCount": {
+        "type": "int"
+      },
+      "supportedCount": {
+        "type": "int"
+      },
+      "skippedCount": {
+        "type": "int"
+      }
+    }
+  },
+  "storagePermissionDenied": "Storage pahintulot tinanggihan.",
+  "bulkImportFailedReadFolder": "Bulk import nabigo: unable to read folder contents.",
+  "bulkImportNoSupportedFilesSource": "Tapos ang maramihang import. Walang suportadong file na nahanap, {sourceLabel}.",
+  "@bulkImportNoSupportedFilesSource": {
+    "placeholders": {
+      "sourceLabel": {}
+    }
+  },
+  "clearAction": "Clear",
+  "saveAction": "I-save",
+  "buttonsTitleCount": "Buttons ({count})",
+  "@buttonsTitleCount": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "invalidStepEncountered": "Invalid hakbang encountered",
+  "failedToSendNamed": "Nabigong magpadala: {name}",
+  "@failedToSendNamed": {
+    "placeholders": {
+      "name": {}
+    }
+  },
+  "buttonNotFound": "Button not found",
+  "buttonNotFoundNamed": "Hindi nahanap ang button: {name}",
+  "@buttonNotFoundNamed": {
+    "placeholders": {
+      "name": {}
+    }
+  },
+  "unknownButton": "Hindi kilalang Button",
+  "durationSecondsShort": "{seconds}s",
+  "@durationSecondsShort": {
+    "placeholders": {
+      "seconds": {
+        "type": "int"
+      }
+    }
+  },
+  "durationMinutesSecondsShort": "{minutes}m {seconds}s",
+  "@durationMinutesSecondsShort": {
+    "placeholders": {
+      "minutes": {
+        "type": "int"
+      },
+      "seconds": {
+        "type": "int"
+      }
+    }
+  },
+  "durationHoursMinutesShort": "{hours}h {minutes}m",
+  "@durationHoursMinutesShort": {
+    "placeholders": {
+      "hours": {
+        "type": "int"
+      },
+      "minutes": {
+        "type": "int"
+      }
+    }
+  },
+  "orientationFlippedTooltip": "Orientation: flipped (tap to normal)",
+  "orientationNormalTooltip": "Orientation: normal (tap to flip)",
+  "noSteps": "Walang mga hakbang",
+  "stepProgress": "Hakbang {current} / {total}",
+  "@stepProgress": {
+    "placeholders": {
+      "current": {
+        "type": "int"
+      },
+      "total": {
+        "type": "int"
+      }
+    }
+  },
+  "completed": "Completed",
+  "paused": "Paused",
+  "running": "Running",
+  "ready": "Ready",
+  "stepsProgress": "{current} / {total} mga hakbang",
+  "@stepsProgress": {
+    "placeholders": {
+      "current": {
+        "type": "int"
+      },
+      "total": {
+        "type": "int"
+      }
+    }
+  },
+  "waiting": "Waiting",
+  "secondsRemaining": "{seconds}s natitira",
+  "@secondsRemaining": {
+    "placeholders": {
+      "seconds": {}
+    }
+  },
+  "millisecondsShort": "{ms}ms",
+  "@millisecondsShort": {
+    "placeholders": {
+      "ms": {
+        "type": "int"
+      }
+    }
+  },
+  "tapContinueWhenReady": "Tapikin ang Continue when ready para sa the next hakbang",
+  "error": "Error",
+  "macroCompleted": "Macro Completed",
+  "finishedIn": "Finished in {duration}",
+  "@finishedIn": {
+    "placeholders": {
+      "duration": {}
+    }
+  },
+  "sequence": "Sequence",
+  "waitMilliseconds": "Maghintay {ms}ms",
+  "@waitMilliseconds": {
+    "placeholders": {
+      "ms": {
+        "type": "int"
+      }
+    }
+  },
+  "runAgain": "Run Again",
+  "startMacro": "Start Macro",
+  "continueAction": "Continue",
+  "unnamedRemote": "Remote na walang pangalan",
+  "enterMacroName": "Enter a macro pangalan",
+  "addAtLeastOneStep": "Add at least one hakbang",
+  "fixInvalidSteps": "Fix hindi wasto mga hakbang",
+  "unknownCommand": "Hindi kilala Command",
+  "unnamedCommand": "Unnamed Command",
+  "iconCommand": "Icon Command",
+  "selectDelay": "Select Delay",
+  "keepMilliseconds": "Keep: {ms}ms",
+  "@keepMilliseconds": {
+    "placeholders": {
+      "ms": {
+        "type": "int"
+      }
+    }
+  },
+  "custom": "Custom",
+  "enterCustomDelayDuration": "Enter a custom delay duration",
+  "millisecondsLong": "{ms} milliseconds",
+  "@millisecondsLong": {
+    "placeholders": {
+      "ms": {
+        "type": "int"
+      }
+    }
+  },
+  "secondsLong": "{seconds} second{plural}",
+  "@secondsLong": {
+    "placeholders": {
+      "seconds": {},
+      "plural": {}
+    }
+  },
+  "customDelay": "Custom Delay",
+  "delayMillisecondsLabel": "Delay (milliseconds)",
+  "delayMillisecondsHint": "e.g., 3000",
+  "recommendedDelayRange": "Recommended: 250-5000ms para sa most mga device",
+  "enterValidPositiveNumber": "Please enter a valid positive number",
+  "ok": "OK",
+  "remote": "Remote",
+  "macroName": "Macro Pangalan",
+  "macroNameHint": "e.g., i-cybie Advanced Mode",
+  "stepsTitleCount": "Steps ({count})",
+  "@stepsTitleCount": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "noStepsYet": "Walang mga hakbang yet",
+  "addCommandsAndDelaysHint": "Add commands at delays below to build iyong sequence",
+  "addStep": "Add Hakbang",
+  "reorderStepsHint": "Tip: Drag the handle to reorder mga hakbang. Tapikin ang a hakbang to edit it.",
+  "reorderStep": "Reorder hakbang {index}",
+  "@reorderStep": {
+    "placeholders": {
+      "index": {
+        "type": "int"
+      }
+    }
+  },
+  "pressAndDragToChangeStepOrder": "Press at drag to change hakbang order",
+  "deleteStep": "Delete hakbang {index}",
+  "@deleteStep": {
+    "placeholders": {
+      "index": {
+        "type": "int"
+      }
+    }
+  },
+  "invalidStepTapToFix": "Invalid hakbang — tapikin to fix",
+  "sendIrCommand": "Send IR command",
+  "waitForUserConfirmation": "Maghintay para sa user confirmation",
+  "notImplemented": "Not implemented",
+  "frequencyKhz": "{value} kHz",
+  "@frequencyKhz": {
+    "placeholders": {
+      "value": {
+        "type": "int"
+      }
+    }
+  },
+  "necProtocolShort": "NEC",
+  "msbShort": "MSB",
+  "layoutWide": "Wide",
+  "iconButton": "Icon button",
+  "imageButton": "Image button",
+  "noSignalInfo": "Walang signal info",
+  "proceed": "Proceed",
+  "discard": "Discard",
+  "idle": "Idle",
+  "start": "Simulan",
+  "resume": "Ipagpatuloy",
+  "pause": "I-pause",
+  "stopped": "Stopped",
+  "copy": "Kopyahin",
+  "send": "Send",
+  "step": "Hakbang",
+  "addToRemote": "Add to remote",
+  "noDescriptionAvailable": "Walang description available.",
+  "notAvailableSymbol": "—",
+  "irFinderKaseikyoVendorInvalid": "Kaseikyo vendor must be exactly 4 hex digits.",
+  "irFinderDatabaseNotReady": "Database is not ready yet.",
+  "irFinderSelectBrandFirst": "Select a brand first in Setup.",
+  "irFinderBruteforceUnavailable": "Brute-force is not available para sa this protocol yet.",
+  "irFinderInvalidPrefix": "Invalid prefix.",
+  "irFinderBrandValue": "Brand: {value}",
+  "@irFinderBrandValue": {
+    "placeholders": {
+      "value": {}
+    }
+  },
+  "irFinderModelValue": "Modelo: {value}",
+  "@irFinderModelValue": {
+    "placeholders": {
+      "value": {}
+    }
+  },
+  "irFinderKeyValue": "Key: {value}",
+  "@irFinderKeyValue": {
+    "placeholders": {
+      "value": {}
+    }
+  },
+  "irFinderRemoteNumber": "Remote #{value}",
+  "@irFinderRemoteNumber": {
+    "placeholders": {
+      "value": {}
+    }
+  },
+  "irFinderJumpOffsetHelper": "Enter a 0-based index within filtered, ordered database results.",
+  "irFinderJumpCursorHelper": "Enter a 0-based hex cursor within the brute-force space.",
+  "irFinderSetupTab": "Setup",
+  "irFinderTestTab": "Subukan",
+  "irFinderResultsTab": "Results",
+  "irFinderContinueToTest": "Continue to Test",
+  "irFinderKaseikyoVendorTitle": "Kaseikyo Vendor",
+  "irFinderCustomVendorLabel": "Custom vendor (4 hex)",
+  "irFinderBrowseDbCandidates": "Browse DB candidates…",
+  "irFinderEditSetup": "Edit Setup",
+  "irFinderNoSavedHits": "Wala pang saved hits. Sa Test page, pindutin ang \"Save hit\" kapag tumugon ang device.",
+  "irFinderBackToTest": "Back to Test",
+  "irFinderLargeSearchSpaceTitle": "Large search space",
+  "irFinderLargeSearchSpaceBody": "Napakalaki ng brute-force space na ito ({human} possibilities). Igagalang pa rin ng IR Finder ang max attempts at cooldown mo, pero mag-ingat sa pag-spam ng mga IR device.\n\nRekomendasyon: gamitin muna ang Database mode at maglagay ng kilalang prefix bytes para lumiit ang space.",
+  "@irFinderLargeSearchSpaceBody": {
+    "placeholders": {
+      "human": {}
+    }
+  },
+  "irFinderDatabaseSession": "Database session",
+  "irFinderBruteforceSession": "Brute-force session",
+  "irFinderResumeLastSession": "Resume last session",
+  "irFinderResumeBrandModel": "Brand: {brand} · Modelo: {model}",
+  "@irFinderResumeBrandModel": {
+    "placeholders": {
+      "brand": {},
+      "model": {}
+    }
+  },
+  "irFinderResumePrefix": "Prefix: {value}",
+  "@irFinderResumePrefix": {
+    "placeholders": {
+      "value": {}
+    }
+  },
+  "irFinderResumeProgress": "Progress: {progress} · Started: {when}",
+  "@irFinderResumeProgress": {
+    "placeholders": {
+      "progress": {},
+      "when": {}
+    }
+  },
+  "irFinderApplyResume": "Apply & Resume",
+  "irFinderBruteforceMode": "Brute-force",
+  "irFinderDatabaseAssistedMode": "Database-assisted",
+  "irFinderProtocolTitle": "Protocol: {name}",
+  "@irFinderProtocolTitle": {
+    "placeholders": {
+      "name": {}
+    }
+  },
+  "irFinderProtocolLabel": "IR protocol",
+  "irFinderProtocolHelper": "Controls encoding at tditofore the search space.",
+  "irFinderKnownPrefixLabel": "Known prefix (hex bytes, optional)",
+  "irFinderKnownPrefixHint": "A1B2, A1 B2, A1:B2, 0xA1 0xB2",
+  "irFinderKnownPrefixHelperPayload": "Payload: {digits} hex digit(s)",
+  "@irFinderKnownPrefixHelperPayload": {
+    "placeholders": {
+      "digits": {
+        "type": "int"
+      }
+    }
+  },
+  "irFinderKnownPrefixHelperPayloadExample": "Payload: {digits} hex digit(s) · Example: {example}",
+  "@irFinderKnownPrefixHelperPayloadExample": {
+    "placeholders": {
+      "digits": {
+        "type": "int"
+      },
+      "example": {}
+    }
+  },
+  "irFinderKnownPrefixHelperPayloadMax": "Payload: {digits} hex digit(s) · Max prefix: {bytes} byte(s)",
+  "@irFinderKnownPrefixHelperPayloadMax": {
+    "placeholders": {
+      "digits": {
+        "type": "int"
+      },
+      "bytes": {
+        "type": "int"
+      }
+    }
+  },
+  "irFinderKnownPrefixHelperPayloadExampleMax": "Payload: {digits} hex digit(s) · Example: {example} · Max prefix: {bytes} byte(s)",
+  "@irFinderKnownPrefixHelperPayloadExampleMax": {
+    "placeholders": {
+      "digits": {
+        "type": "int"
+      },
+      "example": {},
+      "bytes": {
+        "type": "int"
+      }
+    }
+  },
+  "irFinderKnownPrefixHelperExample": "Example: {example}",
+  "@irFinderKnownPrefixHelperExample": {
+    "placeholders": {
+      "example": {}
+    }
+  },
+  "irFinderKnownPrefixHelperFallback": "Enter any known first bytes to reduce the search space.",
+  "irFinderDatabaseMode": "Database",
+  "irFinderNormalizedPrefixValue": "Normalized prefix: {value}",
+  "@irFinderNormalizedPrefixValue": {
+    "placeholders": {
+      "value": {}
+    }
+  },
+  "irFinderNormalizedPrefix": "Normalized prefix",
+  "irFinderBruteforceNotConfigured": "Brute-force is not configured para sa this protocol yet.",
+  "irFinderAllLimit": "All ({value})",
+  "@irFinderAllLimit": {
+    "placeholders": {
+      "value": {}
+    }
+  },
+  "irFinderTestControls": "Test controls",
+  "irFinderPayloadLength": "Payload length: {digits} hex digit(s).",
+  "@irFinderPayloadLength": {
+    "placeholders": {
+      "digits": {
+        "type": "int"
+      }
+    }
+  },
+  "irFinderSearchSpace": "Search space: {value} possibilities (after prefix constraints).",
+  "@irFinderSearchSpace": {
+    "placeholders": {
+      "value": {}
+    }
+  },
+  "irFinderCooldownMs": "Cooldown (ms)",
+  "irFinderMaxAttemptsPerRun": "Max attempts (per run)",
+  "irFinderTestAllCombinations": "Test all combinations",
+  "irFinderTestAllCombinationsHint": "Runs until the search space is exhausted. Effective limit: {value}",
+  "@irFinderTestAllCombinationsHint": {
+    "placeholders": {
+      "value": {}
+    }
+  },
+  "irFinderAttempts": "Attempts",
+  "irFinderAttemptsSliderRange": "Slider range: 1–{max} (type any number para sa larger values)",
+  "@irFinderAttemptsSliderRange": {
+    "placeholders": {
+      "max": {
+        "type": "int"
+      }
+    }
+  },
+  "irFinderMaxButton": "Max\n{value}",
+  "@irFinderMaxButton": {
+    "placeholders": {
+      "value": {
+        "type": "int"
+      }
+    }
+  },
+  "irFinderEffectiveLimitThisRun": "Effective limit this run: {value}",
+  "@irFinderEffectiveLimitThisRun": {
+    "placeholders": {
+      "value": {}
+    }
+  },
+  "irFinderBruteforceTip": "Tip: gamitin muna ang Database mode. Pinakamainam ang brute-force kapag may kilalang prefix, halimbawa ang unang 1 hanggang 4 bytes.",
+  "irFinderDatabaseInitFailed": "Database initialization nabigo.",
+  "irFinderPreparingDatabase": "Preparing local IR code database…",
+  "irFinderDatabaseAssistedSearch": "Database-assisted search",
+  "irFinderBrand": "Brand",
+  "irFinderSelectBrand": "Select brand",
+  "irFinderModelOptional": "Modelo (optional)",
+  "irFinderSelectBrandFirstShort": "Select a brand first",
+  "irFinderSelectModelRecommended": "Select a modelo (recommended)",
+  "irFinderOnlySelectedProtocol": "Only napiling protocol",
+  "irFinderOnlySelectedProtocolHint": "Filters keys to the napiling protocol. Disable it to browse all protocols.",
+  "irFinderQuickWinsFirst": "Quick wins first",
+  "irFinderQuickWinsFirstHint": "Prioritizes POWER, MUTE, VOL, at CH style keys before deeper keys.",
+  "irFinderMaxKeysPerRun": "Max keys to test (per run)",
+  "irFinderTesting": "Testing…",
+  "irFinderCooldown": "Cooldown",
+  "irFinderEta": "ETA",
+  "irFinderMode": "Mode",
+  "irFinderRetryLast": "Subukan muli last",
+  "irFinderTrigger": "Trigger",
+  "irFinderJump": "Jump…",
+  "irFinderSaveHit": "Save hit",
+  "irFinderEtaSeconds": "{seconds}s",
+  "@irFinderEtaSeconds": {
+    "placeholders": {
+      "seconds": {
+        "type": "int"
+      }
+    }
+  },
+  "irFinderEtaMinutesSeconds": "{minutes}m {seconds}s",
+  "@irFinderEtaMinutesSeconds": {
+    "placeholders": {
+      "minutes": {
+        "type": "int"
+      },
+      "seconds": {
+        "type": "int"
+      }
+    }
+  },
+  "irFinderEtaHoursMinutes": "{hours}h {minutes}m",
+  "@irFinderEtaHoursMinutes": {
+    "placeholders": {
+      "hours": {
+        "type": "int"
+      },
+      "minutes": {
+        "type": "int"
+      }
+    }
+  },
+  "irFinderLastAttemptedCode": "Last attempted code: {value}",
+  "@irFinderLastAttemptedCode": {
+    "placeholders": {
+      "value": {}
+    }
+  },
+  "irFinderStartTestingToSeeLastCode": "Start testing to see the last attempted code.",
+  "irFinderFromDb": "From DB: {value}",
+  "@irFinderFromDb": {
+    "placeholders": {
+      "value": {}
+    }
+  },
+  "irFinderFromBruteforce": "From brute-force (generated by protocol encoder).",
+  "irFinderSendError": "Send error: {error}",
+  "@irFinderSendError": {
+    "placeholders": {
+      "error": {}
+    }
+  },
+  "irFinderSourceValue": "Source: {value}",
+  "@irFinderSourceValue": {
+    "placeholders": {
+      "value": {}
+    }
+  },
+  "irFinderResultsNote": "Sinusuportahan agad ng resulta ang Test at Copy. Maaari pang palawakin ang direktang add to remote integration sa daloy ng editor.",
+  "irFinderBrowseDbCandidatesTitle": "Browse DB candidates",
+  "irFinderFilterByLabelOrHex": "Filter by label o hex…",
+  "irFinderJumpHere": "Jump dito",
+  "irFinderSelectModel": "Select modelo",
+  "irFinderSearchBrands": "Search brands…",
+  "irFinderSearchModels": "Search models…",
+  "iconPickerTitle": "Select Icon",
+  "iconPickerSearchHint": "Search icons...",
+  "iconPickerNoIconsFound": "Walang icons found",
+  "iconPickerIconsAvailable": "{count} icons available",
+  "@iconPickerIconsAvailable": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "iconPickerCategoryAll": "All",
+  "iconPickerCategoryMedia": "Media",
+  "iconPickerCategoryVolume": "Volume",
+  "iconPickerCategoryNavigation": "Navigation",
+  "iconPickerCategoryPower": "Power",
+  "iconPickerCategoryNumbers": "Numbers",
+  "iconPickerCategorySettings": "Mga Setting",
+  "iconPickerCategoryDisplay": "Display",
+  "iconPickerCategoryInput": "Input",
+  "iconPickerCategoryFavorite": "Favorite",
+  "universalPowerTitle": "Universal Power",
+  "universalPowerRunTab": "Run",
+  "universalPowerUseResponsibly": "Use responsibly",
+  "universalPowerConsentBody": "Iniikot ng Universal Power ang mga IR power code. Gamitin lamang ito sa mga device na pag-aari o kontrolado mo. Ihinto agad kapag tumugon ang device.",
+  "universalPowerConsentCheckbox": "I own o control the device",
+  "universalPowerSetupBody": "Iniikot ang mga power code para sa napili mong brand. Ihinto agad kapag tumugon ang device.",
+  "universalPowerLastSent": "Last sent: {value}",
+  "@universalPowerLastSent": {
+    "placeholders": {
+      "value": {}
+    }
+  },
+  "universalPowerNoCodesFound": "Walang power codes found. Try broadening the search.",
+  "universalPowerUnableToStart": "Unable to start.",
+  "universalPowerAllBrands": "All brands (no filter)",
+  "universalPowerClearBrandFilter": "Clear brand filter",
+  "universalPowerBroadenSearch": "Broaden search if needed",
+  "universalPowerBroadenSearchHint": "If no power labels are found, include other keys.",
+  "universalPowerAdditionalPatternsDepth": "Additional patterns depth",
+  "universalPowerDepth1": "Priority only: POWER/OFF",
+  "universalPowerDepth2": "Include POWER aliases",
+  "universalPowerDepth3": "Include secondary power labels",
+  "universalPowerDepth4": "Include all labels (lowest priority)",
+  "universalPowerLoopUntilStopped": "Loop until stopped",
+  "universalPowerLoopUntilStoppedHint": "Keeps cycling the queue until you stop it.",
+  "universalPowerDelayBetweenCodes": "Delay between codes",
+  "universalPowerStart": "Start Universal Power",
+  "universalPowerRunStatus": "Run status",
+  "universalPowerProgress": "Progress: {value}",
+  "@universalPowerProgress": {
+    "placeholders": {
+      "value": {}
+    }
+  },
+  "universalPowerPausedInBackground": "Paused because the app was backgrounded.",
+  "universalPowerSendOneCode": "Send one code",
+  "universalPowerStopWhenDeviceResponds": "Stop as soon as the device responds.",
+  "iconNamePlay": "Play",
+  "iconNamePause": "I-pause",
+  "iconNameStop": "Ihinto",
+  "iconNameFastForward": "Fast Forward",
+  "iconNameRewind": "Rewind",
+  "iconNameSkipNext": "Skip Next",
+  "iconNameSkipPrevious": "Skip Previous",
+  "iconNameReplay": "Replay",
+  "iconNameForward10S": "Forward 10s",
+  "iconNameForward30S": "Forward 30s",
+  "iconNameReplay10S": "Replay 10s",
+  "iconNameReplay30S": "Replay 30s",
+  "iconNameRecord": "Record",
+  "iconNameRecordAlt": "Record Alt",
+  "iconNameEject": "Eject",
+  "iconNameShuffle": "Shuffle",
+  "iconNameRepeat": "Repeat",
+  "iconNameRepeatOne": "Repeat One",
+  "iconNameVolumeUp": "Volume Up",
+  "iconNameVolumeDown": "Volume Down",
+  "iconNameVolumeOff": "Volume Off",
+  "iconNameMute": "Mute",
+  "iconNameSpeaker": "Speaker",
+  "iconNameSurroundSound": "Surround Sound",
+  "iconNameEqualizer": "Equalizer",
+  "iconNameAudio": "Audio",
+  "iconNameMicrophone": "Microphone",
+  "iconNameMicOff": "Mic Off",
+  "iconNameUp": "Up",
+  "iconNameDown": "Down",
+  "iconNameLeft": "Left",
+  "iconNameRight": "Right",
+  "iconNameArrowUp": "Arrow Up",
+  "iconNameArrowDown": "Arrow Down",
+  "iconNameArrowLeft": "Arrow Left",
+  "iconNameArrowRight": "Arrow Right",
+  "iconNameNavigation": "Navigation",
+  "iconNameChevronLeft": "Chevron Left",
+  "iconNameChevronRight": "Chevron Right",
+  "iconNameExpandLess": "Expand Less",
+  "iconNameExpandMore": "Expand More",
+  "iconNameCollapse": "Collapse",
+  "iconNameExpand": "Expand",
+  "iconNameCircleUp": "Circle Up",
+  "iconNameCircleDown": "Circle Down",
+  "iconNameCircleLeft": "Circle Left",
+  "iconNameCircleRight": "Circle Right",
+  "iconNameOkSelect": "OK/Select",
+  "iconNameConfirm": "Confirm",
+  "iconNameCancel": "Kanselahin",
+  "iconNameClose": "Isara",
+  "iconNameHome": "Home",
+  "iconNameReturn": "Return",
+  "iconNameExit": "Exit",
+  "iconNameUndo": "Undo",
+  "iconNameRedo": "Redo",
+  "iconNamePower": "Power",
+  "iconNamePowerAlt": "Power Alt",
+  "iconNamePowerOff": "Power Off",
+  "iconNameOn": "On",
+  "iconNameOff": "Off",
+  "iconNameToggleOn": "Toggle On",
+  "iconNameToggleOff": "Toggle Off",
+  "iconNameRestart": "Restart",
+  "iconNameNum1": "1",
+  "iconNameNum2": "2",
+  "iconNameNum3": "3",
+  "iconNameNum4": "4",
+  "iconNameNum5": "5",
+  "iconNameNum6": "6",
+  "iconNameNum7": "7",
+  "iconNameNum8": "8",
+  "iconNameNum9": "9",
+  "iconNameNum92": "9+",
+  "iconNameNum0": "0",
+  "iconNameOne": "One",
+  "iconNameTwo": "Two",
+  "iconNameThree": "Three",
+  "iconNameFour": "Four",
+  "iconNameFive": "Five",
+  "iconNameSix": "Six",
+  "iconNamePlus": "Plus",
+  "iconNameMinus": "Minus",
+  "iconNameAddCircle": "Add Circle",
+  "iconNameRemoveCircle": "Remove Circle",
+  "iconNameSettings": "Mga Setting",
+  "iconNameMenu": "Menu",
+  "iconNameMoreVertical": "More Vertical",
+  "iconNameMoreHorizontal": "More Horizontal",
+  "iconNameTune": "Tune",
+  "iconNameRemoteSettings": "Mga Setting ng Remote",
+  "iconNameInfo": "Info",
+  "iconNameInfoOutline": "Info Outline",
+  "iconNameHelp": "Help",
+  "iconNameHelpOutline": "Help Outline",
+  "iconNameList": "List",
+  "iconNameViewList": "View List",
+  "iconNameViewGrid": "View Grid",
+  "iconNameApps": "Apps",
+  "iconNameWidgets": "Widgets",
+  "iconNameTv": "TV",
+  "iconNameMonitor": "Monitor",
+  "iconNameDesktop": "Desktop",
+  "iconNameBrightnessHigh": "Brightness High",
+  "iconNameBrightnessMedium": "Brightness Medium",
+  "iconNameBrightnessLow": "Brightness Low",
+  "iconNameAutoBrightness": "Auto Brightness",
+  "iconNameLightMode": "Maliwanag na Mode",
+  "iconNameDarkMode": "Madilim na Mode",
+  "iconNameContrast": "Contrast",
+  "iconNameHdrOn": "HDR On",
+  "iconNameHdrOff": "HDR Off",
+  "iconNameAspectRatio": "Aspect Ratio",
+  "iconNameCrop": "Crop",
+  "iconNameZoomIn": "Zoom In",
+  "iconNameZoomOut": "Zoom Out",
+  "iconNameFullscreen": "Fullscreen",
+  "iconNameExitFullscreen": "Exit Fullscreen",
+  "iconNameFitScreen": "Fit Screen",
+  "iconNamePip": "PiP",
+  "iconNameCropFree": "Crop Free",
+  "iconNameInput": "Input",
+  "iconNameCable": "Cable",
+  "iconNameCast": "Cast",
+  "iconNameCastConnected": "Cast Connected",
+  "iconNameScreenShare": "Screen Share",
+  "iconNameBluetooth": "Bluetooth",
+  "iconNameWifi": "WiFi",
+  "iconNameRouter": "Router",
+  "iconNameMemory": "Memory",
+  "iconNameGameConsole": "Game Console",
+  "iconNameGaming": "Gaming",
+  "iconNameMedia": "Media",
+  "iconNameMusicQueue": "Music Queue",
+  "iconNameVideoLibrary": "Video Library",
+  "iconNamePhotoLibrary": "Photo Library",
+  "iconNameComponent": "Component",
+  "iconNameHdmi": "HDMI",
+  "iconNameComposite": "Composite",
+  "iconNameAntenna": "Antenna",
+  "iconNameFavorite": "Favorite",
+  "iconNameFavoriteOutline": "Favorite Outline",
+  "iconNameStar": "Star",
+  "iconNameStarOutline": "Star Outline",
+  "iconNameBookmark": "Bookmark",
+  "iconNameBookmarkOutline": "Bookmark Outline",
+  "iconNameFlag": "Flag",
+  "iconNameCheck": "Check",
+  "iconNameDone": "Tapos",
+  "iconNameDoneAll": "Done All",
+  "iconNameSchedule": "Schedule",
+  "iconNameTimer": "Timer",
+  "iconNameTime": "Time",
+  "iconNameAlarm": "Alarm",
+  "iconNameNotifications": "Notifications",
+  "iconNameLock": "Lock",
+  "iconNameUnlock": "Unlock",
+  "iconNameLight": "Maliwanag",
+  "iconNameLightOutline": "Light Outline",
+  "iconNameWarmLight": "Warm Light",
+  "iconNameSunny": "Sunny",
+  "iconNameCloudy": "Cloudy",
+  "iconNameNight": "Night",
+  "iconNameFlare": "Flare",
+  "iconNameGradient": "Gradient",
+  "iconNameInvertColors": "Invert Colors",
+  "iconNamePalette": "Palette",
+  "iconNameColor": "Color",
+  "iconNameTonality": "Tonality",
+  "iconNameSearch": "Hanapin",
+  "iconNameRefresh": "Refresh",
+  "iconNameSync": "Sync",
+  "iconNameUpdate": "Update",
+  "iconNameDownload": "Download",
+  "iconNameUpload": "Upload",
+  "iconNameCloud": "Cloud",
+  "iconNameFolder": "Folder",
+  "iconNameDelete": "Burahin",
+  "iconNameEdit": "I-edit",
+  "iconNameSave": "I-save",
+  "iconNameShare": "Share",
+  "iconNamePrint": "Print",
+  "iconNameLanguage": "Wika",
+  "iconNameTranslate": "Translate",
+  "iconNameMicNone": "Mic None",
+  "iconNameSubtitles": "Subtitles",
+  "iconNameClosedCaption": "Closed Caption",
+  "iconNameMusic": "Music",
+  "iconNameMovie": "Movie",
+  "iconNameTheater": "Theater",
+  "iconNameLiveTv": "Live TV",
+  "iconNameRadio": "Radio",
+  "iconNameCamera": "Camera",
+  "iconNameVideoCamera": "Video Camera",
+  "iconNamePhotoCamera": "Photo Camera",
+  "iconNameSlowMotion": "Slow Motion",
+  "iconNameSpeed": "Speed",
+  "iconNameVideoSettings": "Video Settings",
+  "iconNameAudioTrack": "Audio Track",
+  "iconNameGraphicEq": "Graphic EQ",
+  "iconNameMusicVideo": "Music Video",
+  "iconNamePlaylist": "Playlist",
+  "iconNameQueue": "Queue",
+  "iconNameNum0Fa": "0 FA",
+  "iconNameNum1Fa": "1 FA",
+  "iconNameNum2Fa": "2 FA",
+  "iconNameNum3Fa": "3 FA",
+  "iconNameNum4Fa": "4 FA",
+  "iconNameNum5Fa": "5 FA",
+  "iconNameNum6Fa": "6 FA",
+  "iconNameNum7Fa": "7 FA",
+  "iconNameNum8Fa": "8 FA",
+  "iconNameNum9Fa": "9 FA",
+  "iconNameHashFa": "Hash # FA",
+  "iconNamePercentFa": "Percent % FA",
+  "iconNameDivideFa": "Divide ÷ FA",
+  "iconNameMultiplyFa": "Multiply × FA",
+  "iconNameEqualsFa": "Equals = FA",
+  "iconNameNotEqualFa": "Not Equal ≠ FA",
+  "iconNameGreaterThanFa": "Greater Than > FA",
+  "iconNameLessThanFa": "Less Than < FA",
+  "iconNameAsteriskFa": "Asterisk * FA",
+  "iconNameAFa": "A FA",
+  "iconNameBFa": "B FA",
+  "iconNameCFa": "C FA",
+  "iconNameDFa": "D FA",
+  "iconNameEFa": "E FA",
+  "iconNameFFa": "F FA",
+  "iconNameGFa": "G FA",
+  "iconNameHFa": "H FA",
+  "iconNameIFa": "I FA",
+  "iconNameJFa": "J FA",
+  "iconNameKFa": "K FA",
+  "iconNameLFa": "L FA",
+  "iconNameMFa": "M FA",
+  "iconNameNFa": "N FA",
+  "iconNameOFa": "O FA",
+  "iconNamePFa": "P FA",
+  "iconNameQFa": "Q FA",
+  "iconNameRFa": "R FA",
+  "iconNameSFa": "S FA",
+  "iconNameTFa": "T FA",
+  "iconNameUFa": "U FA",
+  "iconNameVFa": "V FA",
+  "iconNameWFa": "W FA",
+  "iconNameXFa": "X FA",
+  "iconNameYFa": "Y FA",
+  "iconNameZFa": "Z FA",
+  "iconNamePlayFa": "Play FA",
+  "iconNamePauseFa": "Pause FA",
+  "iconNameStopFa": "Stop FA",
+  "iconNamePlayFaOutline": "Play FA Outline",
+  "iconNamePauseFaOutline": "Pause FA Outline",
+  "iconNameStopFaOutline": "Stop FA Outline",
+  "iconNameBackwardFa": "Backward FA",
+  "iconNameForwardFa": "Forward FA",
+  "iconNamePreviousFa": "Previous FA",
+  "iconNameNextFa": "Next FA",
+  "iconNameRewindFa": "Rewind FA",
+  "iconNameFastForwardFa": "Fast Forward FA",
+  "iconNameRepeatFa": "Repeat FA",
+  "iconNameShuffleFa": "Shuffle FA",
+  "iconNameEjectFa": "Eject FA",
+  "iconNameFilmFa": "Film FA",
+  "iconNameVideoFa": "Video FA",
+  "iconNameMusicFa": "Music FA",
+  "iconNameMicrophoneFa": "Microphone FA",
+  "iconNameCameraFa": "Camera FA",
+  "iconNameCameraRetroFa": "Camera Retro FA",
+  "iconNameVolumeHighFa": "Volume High FA",
+  "iconNameVolumeLowFa": "Volume Low FA",
+  "iconNameVolumeOffFa": "Volume Off FA",
+  "iconNameMuteFa": "Mute FA",
+  "iconNameMicMuteFa": "Mic Mute FA",
+  "iconNameHeadphonesFa": "Headphones FA",
+  "iconNameSpeakerFa": "Speaker FA",
+  "iconNameUpFa": "Up FA",
+  "iconNameDownFa": "Down FA",
+  "iconNameLeftFa": "Left FA",
+  "iconNameRightFa": "Right FA",
+  "iconNameUpFaOutline": "Up FA Outline",
+  "iconNameDownFaOutline": "Down FA Outline",
+  "iconNameLeftFaOutline": "Left FA Outline",
+  "iconNameRightFaOutline": "Right FA Outline",
+  "iconNameArrowUpFa": "Arrow Up FA",
+  "iconNameArrowDownFa": "Arrow Down FA",
+  "iconNameArrowLeftFa": "Arrow Left FA",
+  "iconNameArrowRightFa": "Arrow Right FA",
+  "iconNameChevronUpFa": "Chevron Up FA",
+  "iconNameChevronDownFa": "Chevron Down FA",
+  "iconNameChevronLeftFa": "Chevron Left FA",
+  "iconNameChevronRightFa": "Chevron Right FA",
+  "iconNameOkFa": "OK FA",
+  "iconNameOkFaOutline": "OK FA Outline",
+  "iconNameCheckFa": "Check FA",
+  "iconNameCloseFa": "Close FA",
+  "iconNameCloseCircleFa": "Close Circle FA",
+  "iconNameHomeFa": "Home FA",
+  "iconNameUndoFa": "Undo FA",
+  "iconNameRedoFa": "Redo FA",
+  "iconNameRotateFa": "Rotate FA",
+  "iconNameSearchFa": "Search FA",
+  "iconNameRefreshFa": "Refresh FA",
+  "iconNamePowerOffFa": "Power Off FA",
+  "iconNamePlugFa": "Plug FA",
+  "iconNameToggleOnFa": "Toggle On FA",
+  "iconNameToggleOffFa": "Toggle Off FA",
+  "iconNameSettingsFa": "Settings FA",
+  "iconNameSettingsAltFa": "Settings Alt FA",
+  "iconNameMenuFa": "Menu FA",
+  "iconNameMoreFa": "More FA",
+  "iconNameMoreVerticalFa": "More Vertical FA",
+  "iconNameInfoFa": "Info FA",
+  "iconNameInfoFaOutline": "Info FA Outline",
+  "iconNameHelpFa": "Help FA",
+  "iconNameHelpFaOutline": "Help FA Outline",
+  "iconNameListFa": "List FA",
+  "iconNameGridFa": "Grid FA",
+  "iconNameSlidersFa": "Sliders FA",
+  "iconNameTvFa": "TV FA",
+  "iconNameMonitorFa": "Monitor FA",
+  "iconNameDesktopFa": "Desktop FA",
+  "iconNameBrightnessFa": "Brightness FA",
+  "iconNameNightModeFa": "Night Mode FA",
+  "iconNameLightFa": "Light FA",
+  "iconNameLightFaOutline": "Light FA Outline",
+  "iconNameFlashFa": "Flash FA",
+  "iconNameFullscreenFa": "Fullscreen FA",
+  "iconNameExitFullscreenFa": "Exit Fullscreen FA",
+  "iconNameZoomInFa": "Zoom In FA",
+  "iconNameZoomOutFa": "Zoom Out FA",
+  "iconNameSubtitlesFa": "Subtitles FA",
+  "iconNamePictureInPictureFa": "Picture in Picture FA",
+  "iconNameColorFa": "Color FA",
+  "iconNamePaintFa": "Paint FA",
+  "iconNameInputFa": "Input FA",
+  "iconNameWifiFa": "WiFi FA",
+  "iconNameBluetoothFa": "Bluetooth FA",
+  "iconNameUsbFa": "USB FA",
+  "iconNameEthernetFa": "Ethernet FA",
+  "iconNameGamepadFa": "Gamepad FA",
+  "iconNameBroadcastFa": "Broadcast FA",
+  "iconNameSatelliteFa": "Satellite FA",
+  "iconNameAntennaFa": "Antenna FA",
+  "iconNameNetworkFa": "Network FA",
+  "iconNameCloudFa": "Cloud FA",
+  "iconNameStarFa": "Star FA",
+  "iconNameStarFaOutline": "Star FA Outline",
+  "iconNameHeartFa": "Heart FA",
+  "iconNameHeartFaOutline": "Heart FA Outline",
+  "iconNameBookmarkFa": "Bookmark FA",
+  "iconNameBookmarkFaOutline": "Bookmark FA Outline",
+  "iconNameFlagFa": "Flag FA",
+  "iconNameClockFa": "Clock FA",
+  "iconNameClockFaOutline": "Clock FA Outline",
+  "iconNameBellFa": "Bell FA",
+  "iconNameBellFaOutline": "Bell FA Outline",
+  "iconNameTimerFa": "Timer FA",
+  "iconNameLockFa": "Lock FA",
+  "iconNameUnlockFa": "Unlock FA",
+  "iconNameGalleryFa": "Gallery FA",
+  "iconNameImagesFa": "Images FA",
+  "iconNameImageFa": "Image FA",
+  "iconNameVideoFileFa": "Video File FA",
+  "iconNameAudioFileFa": "Audio File FA",
+  "iconNamePlayOutlineFa": "Play Outline FA",
+  "iconNamePlaySimpleFa": "Play Simple FA",
+  "iconNamePauseSimpleFa": "Pause Simple FA",
+  "iconNameStopSimpleFa": "Stop Simple FA",
+  "iconNameRecordFa": "Record FA",
+  "iconNameStopCircleFa": "Stop Circle FA",
+  "iconNameLoadingFa": "Naglo-load FA",
+  "iconNameTextFa": "Text FA",
+  "iconNameTextSizeFa": "Text Size FA",
+  "iconNameLanguageFa": "Language FA",
+  "iconNameGlobeFa": "Globe FA",
+  "iconNameSubtitlesAltFa": "Subtitles Alt FA",
+  "iconNameSubtitlesAltOutlineFa": "Subtitles Alt Outline FA",
+  "iconNameChannelUpFa": "Channel Up FA",
+  "iconNameChannelDownFa": "Channel Down FA",
+  "iconNamePageUpFa": "Page Up FA",
+  "iconNamePageDownFa": "Page Down FA",
+  "iconNameGuideFa": "Guide FA",
+  "iconNameGridViewFa": "Grid View FA",
+  "iconNameGridAltFa": "Grid Alt FA",
+  "iconNameScheduleFa": "Schedule FA",
+  "iconNameCalendarFa": "Calendar FA",
+  "iconNameRedButtonFa": "Red Button FA",
+  "iconNameButtonOutlineFa": "Button Outline FA",
+  "iconNameSquareButtonFa": "Square Button FA",
+  "iconNameSquareOutlineFa": "Square Outline FA",
+  "iconNameDotCircleFa": "Dot Circle FA",
+  "iconNameToolsFa": "Tools FA",
+  "iconNameScrewdriverFa": "Screwdriver FA",
+  "iconNameHammerFa": "Hammer FA",
+  "iconNameToolboxFa": "Toolbox FA",
+  "iconNameCogFa": "Cog FA",
+  "iconNameAdjustFa": "Adjust FA",
+  "iconNameFilterFa": "Filter FA",
+  "iconNameSortDownFa": "Sort Down FA",
+  "iconNameSortUpFa": "Sort Up FA",
+  "iconNameSleepFa": "Sleep FA",
+  "iconNameTimerStartFa": "Timer Start FA",
+  "iconNameTimerHalfFa": "Timer Half FA",
+  "iconNameTimerEndFa": "Timer End FA",
+  "iconNameStopwatchFa": "Stopwatch FA",
+  "iconNameAlarmFa": "Alarm FA",
+  "iconNameCropAltFa": "Crop Alt FA",
+  "iconNameCropFa": "Crop FA",
+  "iconNameSquareFullFa": "Square Full FA",
+  "iconNameFullscreenAltFa": "Fullscreen Alt FA",
+  "iconNameZoomPlusFa": "Zoom Plus FA",
+  "iconNameZoomMinusFa": "Zoom Minus FA",
+  "iconNameMusicNoteFa": "Music Note FA",
+  "iconNameCdFa": "CD FA",
+  "iconNameVinylFa": "Vinyl FA",
+  "iconNameRssFa": "RSS FA",
+  "iconNameMagicFa": "Magic FA",
+  "iconNameFingerprintFa": "Fingerprint FA",
+  "iconNameUserFa": "User FA",
+  "iconNameUsersFa": "Users FA",
+  "iconNameChildModeFa": "Child Mode FA",
+  "iconNameCastFa": "Cast FA",
+  "iconNameStreamFa": "Stream FA",
+  "iconNameSignalFa": "Signal FA",
+  "iconNameFeedFa": "Feed FA",
+  "iconNameCircleArrowUpFa": "Circle Arrow Up FA",
+  "iconNameCircleArrowDownFa": "Circle Arrow Down FA",
+  "iconNameCircleArrowLeftFa": "Circle Arrow Left FA",
+  "iconNameCircleArrowRightFa": "Circle Arrow Right FA",
+  "iconNameLongArrowUpFa": "Long Arrow Up FA",
+  "iconNameLongArrowDownFa": "Long Arrow Down FA",
+  "iconNameLongArrowLeftFa": "Long Arrow Left FA",
+  "iconNameLongArrowRightFa": "Long Arrow Right FA",
+  "iconNamePlusFa": "Plus FA",
+  "iconNameMinusFa": "Minus FA",
+  "iconNamePlusCircleFa": "Plus Circle FA",
+  "iconNameMinusCircleFa": "Minus Circle FA",
+  "iconNamePlusSquareFa": "Plus Square FA",
+  "iconNameMinusSquareFa": "Minus Square FA",
+  "iconNameTimesFa": "Times FA",
+  "iconNameTimesCircleFa": "Times Circle FA",
+  "iconNameBatteryFullFa": "Battery Full FA",
+  "iconNameBattery34Fa": "Battery 3/4 FA",
+  "iconNameBatteryHalfFa": "Battery Half FA",
+  "iconNameBattery14Fa": "Battery 1/4 FA",
+  "iconNameBatteryEmptyFa": "Battery Empty FA",
+  "iconNameChargingFa": "Charging FA",
+  "iconNameCloudSunFa": "Cloud Sun FA",
+  "iconNameCloudMoonFa": "Cloud Moon FA",
+  "iconNameRainFa": "Rain FA",
+  "iconNameSnowflakeFa": "Snowflake FA",
+  "iconNameFireFa": "Fire FA",
+  "iconNameTemperatureFa": "Temperature FA",
+  "iconNameBoxFa": "Box FA",
+  "iconNameGiftFa": "Gift FA",
+  "iconNameTrophyFa": "Trophy FA",
+  "iconNameCrownFa": "Crown FA",
+  "iconNameGemFa": "Gem FA",
+  "unknownLabel": "Hindi kilala",
+  "selectedFilesLabel": "napiling file(s)",
+  "folderNotFoundOrInaccessible": "Folder not found o inaccessible.",
+  "importedRemoteDefaultName": "ImportedRemote",
+  "demoRemoteName": "Demo Remote",
+  "protocolFieldsInvalid": "Fill kailangan protocol fields at ensure frequency is 15k–60k if set.",
+  "unknownProtocolSelected": "Hindi kilala protocol selected.",
+  "forceInAppVibrationTitle": "Force in-app vibration",
+  "forceInAppVibrationSubtitle": "Use the vibrator directly even if system touch feedback is off",
+  "forceInAppVibrationWarning": "Advanced option. This can make the app vibrate even when Android touch feedback is disabled globally.",
+  "forceInAppVibrationBlockedMasterWarning": "Android system vibration is disabled. Force in-app vibration cannot override it on this device.",
+  "forceInAppVibrationNoVibratorWarning": "This device reports no vibrator hardware, so in-app vibration cannot work."
+}

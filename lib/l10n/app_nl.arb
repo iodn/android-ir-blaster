@@ -1,0 +1,1851 @@
+{
+  "@@locale": "nl",
+  "appTitle": "IR Blaster",
+  "loading": "Laden…",
+  "unknownError": "Onbekende fout",
+  "failedToStart": "Start mislukt",
+  "retry": "Opnieuw",
+  "quickTilePower": "Aan/uit",
+  "quickTileMute": "Dempen",
+  "quickTileVolumeUp": "Vol +",
+  "quickTileVolumeDown": "Vol -",
+  "homeUsbPermissionRequiredMessage": "Deze telefoon heeft geen ingebouwde IR-zender. Er is een USB-IR-dongle gedetecteerd, maar er is nog geen toestemming.\n\nKeur de USB-melding goed om IR te kunnen verzenden.",
+  "homeUsbPermissionDeniedMessage": "Deze telefoon heeft geen ingebouwde IR-zender. Er is een USB-IR-dongle gedetecteerd, maar USB-toestemming is geweigerd.\n\nVraag opnieuw toestemming aan en keur de melding goed om IR te kunnen verzenden.",
+  "homeUsbPermissionGrantedMessage": "Deze telefoon heeft geen ingebouwde IR-zender. Een USB-IR-dongle is geautoriseerd, maar nog niet geïnitialiseerd.",
+  "homeUsbOpenFailedMessage": "Deze telefoon heeft geen ingebouwde IR-zender. Een USB-IR-dongle is gedetecteerd en geautoriseerd, maar kon niet worden geïnitialiseerd.\n\nSluit de dongle opnieuw aan en probeer het opnieuw.",
+  "homeUsbReadyMessage": "Deze telefoon heeft geen ingebouwde IR-zender.",
+  "homeUsbNoDeviceMessage": "Deze telefoon heeft geen ingebouwde IR-zender en er is momenteel geen ondersteunde USB-IR-dongle aangesloten.\n\nJe kunt nog steeds afstandsbedieningen maken, importeren en beheren, maar om IR-signalen te verzenden heb je een van de onderstaande opties nodig.",
+  "homeUsbOptionPlugIn": "Sluit een ondersteunde USB-IR-dongle aan en keur de toestemming goed.",
+  "homeUsbOptionReady": "Klaar voor gebruik.",
+  "homeUsbOptionPermissionRequired": "Aangesloten. Toestemming vereist.",
+  "homeUsbOptionPermissionDenied": "Toestemming geweigerd. Vraag opnieuw aan.",
+  "homeUsbOptionPermissionGranted": "Geautoriseerd. Dongle wordt geïnitialiseerd.",
+  "homeUsbOptionOpenFailed": "Geautoriseerd, maar initialisatie mislukt.",
+  "homeHardwareBannerNoInternal": "Deze telefoon heeft geen ingebouwde IR. Sluit een USB-IR-dongle aan of schakel Audiomodus in bij Instellingen.",
+  "homeHardwareBannerPermissionRequired": "USB-dongle gedetecteerd. Toestemming vereist om IR te verzenden.",
+  "homeHardwareBannerPermissionDenied": "USB-toestemming is geweigerd. Vraag opnieuw aan om IR te verzenden.",
+  "homeHardwareBannerPermissionGranted": "USB-dongle geautoriseerd. Wacht op initialisatie.",
+  "homeHardwareBannerOpenFailed": "USB-dongle geautoriseerd, maar initialisatie mislukt.",
+  "homeHardwareBannerReady": "USB is klaar.",
+  "homeHardwareRequiredTitle": "IR-hardware nodig om opdrachten te verzenden",
+  "homeUsbDongleRecommended": "USB-IR-dongle aanbevolen",
+  "homeAudioAdapterAlternative": "Audio-IR-adapter alternatief",
+  "homeAudioAdapterDescription": "Instellingen → IR-zender → Audio (1 LED / 2 LED). Vereist een audio-naar-IR-adapter.",
+  "close": "Sluiten",
+  "homeChooseTransmitter": "Kies een zender",
+  "openSettings": "Open Instellingen",
+  "homeUsbPermissionSentApprove": "USB-toestemmingsaanvraag verzonden. Keur de melding goed om USB te activeren.",
+  "homeUsbDongleNotDetected": "Geen ondersteunde USB-IR-dongle gedetecteerd. Sluit hem aan en probeer het opnieuw.",
+  "homeUsbPermissionRequestFailed": "USB-toestemming aanvragen mislukt.",
+  "working": "Bezig…",
+  "requestUsbPermission": "USB-toestemming aanvragen",
+  "homeHardwareTip": "Tip: je kunt nu al afstandsbedieningen maken en ordenen. Hardware is alleen nodig bij verzenden.",
+  "homeNoIrTransmitterTitle": "Geen IR-zender beschikbaar",
+  "settingsNavLabel": "Instellingen",
+  "dismiss": "Sluiten",
+  "remotesNavLabel": "Afstandsbedieningen",
+  "macrosNavLabel": "Macro's",
+  "signalTesterNavLabel": "Signaaltester",
+  "settingsTitle": "Instellingen",
+  "remoteNoIrEmitterTitle": "Geen IR-zender",
+  "remoteNoIrEmitterMessage": "Dit apparaat heeft geen IR-zender",
+  "remoteNoIrEmitterNeedsEmitter": "Deze app heeft een IR-zender nodig om te werken",
+  "remoteDismiss": "Sluiten",
+  "remoteClose": "Sluiten",
+  "remoteFailedToSend": "IR verzenden mislukt: {error}",
+  "@remoteFailedToSend": {
+    "placeholders": {
+      "error": {}
+    }
+  },
+  "remoteFailedToStartLoop": "Lus starten mislukt: {error}",
+  "@remoteFailedToStartLoop": {
+    "placeholders": {
+      "error": {}
+    }
+  },
+  "remoteLoopStoppedFailed": "Lus gestopt verzenden mislukt: {error}",
+  "@remoteLoopStoppedFailed": {
+    "placeholders": {
+      "error": {}
+    }
+  },
+  "remoteLoopingHint": "Lus \"{title}\". Tik bovenaan op Stop om te stoppen.",
+  "@remoteLoopingHint": {
+    "placeholders": {
+      "title": {}
+    }
+  },
+  "remoteLoopStopped": "Lus gestopt.",
+  "remoteUpdatedNotFound": "Afstandsbediening op scherm bijgewerkt. Niet gevonden in de opgeslagen lijst.",
+  "remoteUpdatedNamed": "\"{name}\" bijgewerkt.",
+  "@remoteUpdatedNamed": {
+    "placeholders": {
+      "name": {}
+    }
+  },
+  "remoteDeleteFailed": "Verwijderen mislukt: {error}",
+  "@remoteDeleteFailed": {
+    "placeholders": {
+      "error": {}
+    }
+  },
+  "remoteNotFoundSavedList": "Afstandsbediening niet gevonden in de opgeslagen lijst.",
+  "remoteDeletedNamed": "\"{name}\" verwijderd.",
+  "@remoteDeletedNamed": {
+    "placeholders": {
+      "name": {}
+    }
+  },
+  "buttonFallbackTitle": "Knop",
+  "imageFallbackTitle": "Afbeelding",
+  "noBrowserAvailable": "Geen browser beschikbaar",
+  "failedToOpen": "Openen mislukt: {error}",
+  "@failedToOpen": {
+    "placeholders": {
+      "error": {}
+    }
+  },
+  "cancel": "Annuleren",
+  "settingsRestoreDemoTitle": "Demo-afstandsbedieningen herstellen?",
+  "settingsRestoreDemoMessage": "Hiermee vervang je je huidige afstandsbedieningen door de ingebouwde demo-afstandsbedieningen. Een back-up is aanbevolen als je je huidige lijst wilt behouden.",
+  "settingsRestoreDemoConfirm": "Demo herstellen",
+  "settingsDemoRemotesRestored": "Demo-afstandsbedieningen hersteld.",
+  "settingsDeleteAllRemotesTitle": "Alle afstandsbedieningen verwijderen?",
+  "settingsDeleteAllRemotesMessage": "Hiermee verwijder je elke afstandsbediening van dit apparaat. Deze actie kan niet ongedaan worden gemaakt.",
+  "settingsDeleteAllConfirm": "Alles verwijderen",
+  "settingsAllRemotesDeleted": "Alle afstandsbedieningen verwijderd.",
+  "themeAuto": "Automatisch thema",
+  "themeLight": "Licht thema",
+  "themeDark": "Donker thema",
+  "themeDescAuto": "Volgt je apparaatinstellingen",
+  "themeDescLight": "Altijd helder en duidelijk",
+  "themeDescDark": "Rustig voor de ogen",
+  "themeHintAuto": "Het thema wisselt automatisch wanneer je op je apparaat tussen licht en donker schakelt",
+  "themeHintLight": "Perfect voor overdag en goed verlichte omgevingen",
+  "themeHintDark": "Vermindert oogbelasting bij weinig licht en bespaart batterij op OLED-schermen",
+  "supportDevelopmentTitle": "Ontwikkeling steunen",
+  "supportDevelopmentSubtitle": "Help IR Blaster onderhouden en hardwarecompatibel te houden",
+  "supportDevelopmentBody": "Geen advertenties, geen tracking, geen vergrendelde functies. Jouw steun financiert protocolwerk, USB-dongleondersteuning en betere compatibiliteit op apparaten.",
+  "donate": "Doneren",
+  "starRepo": "Repo sterren",
+  "repositoryLinkCopied": "Repositoriumlink gekopieerd",
+  "supportPillLocalOnly": "Alleen lokaal",
+  "supportPillNoTracking": "Geen tracking",
+  "supportPillHardwareAware": "Hardwarebewust",
+  "supportPillOpenSource": "Open source",
+  "appearanceTitle": "Weergave",
+  "appearanceSubtitle": "Pas je visuele ervaring aan",
+  "localizationTitle": "Lokalisatie",
+  "localizationSubtitle": "App-taal en vertaalgedrag",
+  "localizationAutoUsing": "Auto gebruikt {language}",
+  "@localizationAutoUsing": {
+    "placeholders": {
+      "language": {}
+    }
+  },
+  "localizationAutoDescription": "De app volgt je apparaattaal wanneer mogelijk.",
+  "localizationManualDescription": "De app-taal is handmatig ingesteld.",
+  "useSystemLanguageTitle": "Systeemtaal gebruiken",
+  "useSystemLanguageEnabled": "Volgt je apparaattaal: {language}",
+  "@useSystemLanguageEnabled": {
+    "placeholders": {
+      "language": {}
+    }
+  },
+  "useSystemLanguageDisabled": "Gebruik de hieronder gekozen taal in plaats van de standaard van het apparaat.",
+  "chooseAppLanguage": "Kies app-taal",
+  "languagePickerDisabledHint": "Schakel systeemtaal uit om handmatig een taal te kiezen.",
+  "searchLanguages": "Zoek talen",
+  "noLanguagesFound": "Geen talen gevonden",
+  "localizationHint": "Wanneer systeemtaal is ingeschakeld volgt de app je apparaatlocale en valt terug op Engels als een vertaling ontbreekt. Schakel dit uit om de app op een vaste taal te zetten.",
+  "appLanguageTitle": "App-taal",
+  "appLanguageHint": "Auto volgt je apparaattaal. Kies hier Engels of Frans om dit alleen voor de app te overschrijven.",
+  "languageAuto": "Auto (systeem)",
+  "languageAutoDescription": "Volg automatisch je apparaattaal",
+  "languageEnglish": "Engels",
+  "languageEnglishDescription": "Dwing de app altijd Engels te gebruiken",
+  "languageFrench": "Frans",
+  "languageFrenchDescription": "Dwing de app altijd Frans te gebruiken",
+  "languageAutoShort": "Auto",
+  "languageEnglishShort": "Engels",
+  "languageFrenchShort": "Français",
+  "useDynamicColors": "Dynamische kleuren gebruiken",
+  "themeChoiceAuto": "Auto",
+  "themeChoiceLight": "Licht",
+  "themeChoiceDark": "Donker",
+  "irTransmitterTitle": "IR-zender",
+  "irTransmitterSubtitle": "Kies welke hardware IR-opdrachten verzendt",
+  "interactionTitle": "Interactie",
+  "interactionSubtitle": "Aanraakfeedback en lay-out van afstandsbediening",
+  "hapticFeedbackTitle": "Haptische feedback",
+  "hapticFeedbackSubtitle": "Trillen bij tikken en acties",
+  "intensity": "Intensiteit",
+  "intensityLight": "Licht",
+  "intensityMedium": "Middel",
+  "intensityStrong": "Sterk",
+  "flipRemoteDefaultTitle": "Afstandsbedieningsweergave standaard omdraaien",
+  "flipRemoteDefaultSubtitle": "Open schermen van de afstandsbediening 180° gedraaid voor USB-dongles aan de onderkant.",
+  "remoteViewFlipped": "Weergave van afstandsbediening opent omgedraaid.",
+  "remoteViewNormal": "Weergave van afstandsbediening opent normaal.",
+  "backupTitle": "Back-up",
+  "backupSubtitle": "Afstandsbedieningen en macro's importeren of exporteren",
+  "importBackup": "Back-up importeren",
+  "importBackupSubtitle": "Importeer back-up van afstandsbedieningen of macro's of Flipper Zero, LIRC of IRPLUS-bestanden",
+  "bulkImportFolder": "Map in bulk importeren",
+  "bulkImportFolderSubtitle": "Importeer meerdere afstandsbedieningen uit een map",
+  "exportBackup": "Back-up exporteren",
+  "exportBackupSubtitle": "Sla afstandsbedieningen en macro's als één JSON-bestand op in Downloads",
+  "restoreDemoRemotes": "Demo-afstandsbedieningen herstellen",
+  "restoreDemoRemotesSubtitle": "Vervang huidige afstandsbedieningen door de ingebouwde demo",
+  "deleteAllRemotes": "Alle afstandsbedieningen verwijderen",
+  "deleteAllRemotesSubtitle": "Verwijder elke afstandsbediening van dit apparaat",
+  "backupTip": "Tip: exporteer een back-up vóór grote bewerkingen. Import ondersteunt volledige back-ups, oudere JSON-back-ups alleen voor afstandsbedieningen en Flipper Zero .ir-bestanden.",
+  "aboutTitle": "Over",
+  "aboutSubtitle": "App-info en open-sourcegegevens",
+  "aboutAppNameWithCreator": "IR Blaster - {creator}",
+  "@aboutAppNameWithCreator": {
+    "placeholders": {
+      "creator": {}
+    }
+  },
+  "versionLabel": "Versie {version}",
+  "@versionLabel": {
+    "placeholders": {
+      "version": {}
+    }
+  },
+  "sourceCode": "Broncode",
+  "viewOnGitHub": "Bekijk op GitHub",
+  "repositoryUrlCopied": "Repository-URL gekopieerd",
+  "reportIssue": "Probleem melden",
+  "reportIssueSubtitle": "Bugmeldingen en functieverzoeken",
+  "issuesUrlCopied": "Issues-URL gekopieerd",
+  "license": "Licentie",
+  "openSourceLicense": "Open-sourcelicentie",
+  "licenseUrlCopied": "Licentie-URL gekopieerd",
+  "companyName": "KaijinLab Inc.",
+  "visitWebsite": "Website bezoeken",
+  "companyUrlCopied": "Bedrijfs-URL gekopieerd",
+  "licenses": "Licenties",
+  "openSourceLicenses": "Open-sourcelicenties",
+  "byCreator": "door {creator}",
+  "@byCreator": {
+    "placeholders": {
+      "creator": {}
+    }
+  },
+  "deviceControlsTitle": "Apparaatbediening",
+  "deviceControlsSubtitle": "Toon favoriete knoppen op de systeempagina voor apparaatbediening",
+  "manageFavorites": "Favorieten beheren",
+  "manageFavoritesSubtitle": "Kies welke knoppen in apparaatbediening verschijnen",
+  "quickSettingsTitle": "Snelle instellingen",
+  "quickSettingsSubtitle": "Tegels toevoegen voor aan/uit- en volumeknoppen",
+  "configureTiles": "Tegels configureren",
+  "configureTilesSubtitle": "Koppel tegels aan knoppen van afstandsbediening",
+  "tvKillTitle": "TVKill",
+  "tvKillSubtitle": "Universeel aan/uit-cyclen voor eigen apparaten",
+  "openTvKill": "TVKill openen",
+  "openTvKillSubtitle": "Wissel door aan/uit-codes, alleen voor apparaten die je bezit",
+  "failedToLoadTransmitterSettings": "Instellingen van de zender laden mislukt.",
+  "usbStatusReady": "USB-dongle is verbonden en klaar om IR te verzenden.",
+  "usbStatusPermissionRequired": "USB-dongle gedetecteerd. Vraag USB-toestemming aan en keur de systeemmelding goed.",
+  "usbStatusPermissionDenied": "USB-toestemming is geweigerd voor de aangesloten dongle. Vraag opnieuw aan en keur de melding goed.",
+  "usbStatusPermissionGranted": "USB-toestemming is verleend. De dongle moet nog worden geïnitialiseerd voordat hij IR kan verzenden.",
+  "usbStatusOpenFailed": "USB-toestemming is verleend, maar de dongle kon niet worden geïnitialiseerd. Sluit hem opnieuw aan en probeer het opnieuw.",
+  "usbStatusNoDevice": "Geen ondersteunde USB-IR-dongle gedetecteerd.",
+  "usbSelectPermissionRequired": "USB-dongle gedetecteerd maar niet geautoriseerd. Tik op USB-toestemming aanvragen.",
+  "usbSelectPermissionDenied": "USB-toestemming is geweigerd. Tik op USB-toestemming aanvragen en keur de melding goed.",
+  "usbSelectPermissionGranted": "USB-toestemming is verleend, maar de dongle is nog niet geïnitialiseerd. Probeer hem opnieuw aan te sluiten.",
+  "usbSelectOpenFailed": "USB-toestemming is verleend, maar de dongle kon niet worden geïnitialiseerd. Sluit hem opnieuw aan en probeer het opnieuw.",
+  "usbSelectNoDevice": "Geen ondersteunde USB-IR-dongle gedetecteerd. Sluit hem aan en tik dan op USB-toestemming aanvragen.",
+  "usbSelectReady": "USB-dongle is klaar.",
+  "autoSwitchEnabledMessage": "Automatisch wisselen ingeschakeld gebruikt USB wanneer verbonden, anders Intern.",
+  "autoSwitchDisabledMessage": "Automatisch wisselen uitgeschakeld zenderkeuze is nu handmatig.",
+  "failedToUpdateAutoSwitch": "Instelling voor automatisch wisselen bijwerken mislukt.",
+  "failedToSwitchTransmitter": "Wisselen van zender mislukt.",
+  "deviceHasNoInternalIr": "Dit apparaat heeft geen ingebouwde IR-zender.",
+  "audioModeEnabledMessage": "Audiomodus ingeschakeld. Gebruik maximaal mediavolume en een audio-naar-IR-ledadapter.",
+  "usbPermissionRequestSent": "USB-toestemmingsaanvraag verzonden.",
+  "usbPermissionRequestSentApprove": "USB-toestemmingsaanvraag verzonden. Keur de melding goed om USB te activeren.",
+  "usbAlreadyReady": "USB-dongle is al geïnitialiseerd en klaar.",
+  "failedToRequestUsbPermission": "USB-toestemming aanvragen mislukt.",
+  "transmitterHelpInternal": "Gebruik de ingebouwde IR-zender van de telefoon om opdrachten te verzenden.",
+  "transmitterHelpUsb": "Gebruik een USB-IR-dongle om opdrachten te verzenden. Toestemming vereist.",
+  "transmitterHelpAudio1": "Gebruik audio-uitvoer mono. Vereist een audio-naar-IR-ledadapter en hoog mediavolume.",
+  "transmitterHelpAudio2": "Gebruik audio-uitvoer stereo. Gebruikt twee kanalen voor betere led-aansturing met compatibele adapters.",
+  "transmitterInternal": "Interne IR",
+  "transmitterUsb": "USB-IR-dongle",
+  "transmitterAudio1": "Audio 1 LED",
+  "transmitterAudio2": "Audio 2 LEDs",
+  "failedToLoadTransmitterCapabilities": "Mogelijkheden van de zender laden mislukt.",
+  "selectedTransmitter": "Geselecteerde zender",
+  "selectedTransmitterValue": "{effective} • Actief: {active}",
+  "@selectedTransmitterValue": {
+    "placeholders": {
+      "effective": {},
+      "active": {}
+    }
+  },
+  "refresh": "Vernieuwen",
+  "autoSwitchTitle": "Automatisch wisselen",
+  "autoSwitchDisabledWhileAudio": "Uitgeschakeld bij Audiomodus",
+  "autoSwitchUsesUsbOtherwiseInternal": "Gebruikt USB wanneer verbonden, anders Intern",
+  "unavailableOnThisDevice": "Niet beschikbaar op dit apparaat",
+  "openOnUsbAttachTitle": "Openen bij USB-aansluiting",
+  "openOnUsbAttachSubtitle": "Android kan voorstellen de app te openen wanneer een ondersteunde USB-IR-dongle wordt aangesloten.",
+  "openOnUsbAttachEnabledMessage": "Zal voorstellen IR Blaster te openen wanneer een ondersteunde USB-dongle wordt aangesloten.",
+  "openOnUsbAttachDisabledMessage": "Niet voorstellen te openen bij USB-aansluiting.",
+  "failedToUpdateSetting": "Instelling bijwerken mislukt.",
+  "unnamedButton": "Naamloze knop",
+  "iconFallback": "Pictogram",
+  "remoteListReorderHint": "Sorteermodus druk lang op een kaart en sleep om te verplaatsen.",
+  "deleteRemoteTitle": "Afstandsbediening verwijderen",
+  "deleteRemoteMessage": "\"{name}\" wordt permanent verwijderd. Deze actie kan niet ongedaan worden gemaakt.",
+  "@deleteRemoteMessage": {
+    "placeholders": {
+      "name": {}
+    }
+  },
+  "delete": "Verwijderen",
+  "addToDeviceControlsTitle": "Aan apparaatbediening toevoegen",
+  "addToDeviceControlsDescription": "Snelle toegang in de systeem-apparaatbediening.",
+  "skip": "Overslaan",
+  "add": "Toevoegen",
+  "addedToDeviceControls": "Toegevoegd aan apparaatbediening.",
+  "deletedRemoteUndoUnavailable": "\"{name}\" verwijderd. Deze actie kan niet ongedaan worden gemaakt.",
+  "@deletedRemoteUndoUnavailable": {
+    "placeholders": {
+      "name": {}
+    }
+  },
+  "remoteLayoutSummary": "{count} knop(pen) · {layout}",
+  "@remoteLayoutSummary": {
+    "placeholders": {
+      "count": {},
+      "layout": {}
+    }
+  },
+  "layoutComfort": "Comfort",
+  "layoutCompact": "Compact",
+  "open": "Openen",
+  "useThisRemote": "Deze afstandsbediening gebruiken",
+  "edit": "Bewerken",
+  "editRemoteSubtitle": "Hernoemen en knoppen bewerken",
+  "thisCannotBeUndone": "Dit kan niet ongedaan worden gemaakt",
+  "searchRemotes": "Zoek afstandsbedieningen",
+  "reorderRemotes": "Afstandsbedieningen sorteren",
+  "addRemote": "Afstandsbediening toevoegen",
+  "more": "Meer",
+  "reorderMode": "Sorteermodus",
+  "remoteButtonCount": "{count} knop{plural}",
+  "@remoteButtonCount": {
+    "placeholders": {
+      "count": {},
+      "plural": {}
+    }
+  },
+  "noRemotesYet": "Nog geen afstandsbedieningen",
+  "noRemotesDescription": "Maak een afstandsbediening om IR-codes te verzenden.",
+  "noRemotesNextStep": "Wat nu tik op Afstandsbediening toevoegen en voeg daarna je eerste knoppen toe.",
+  "actions": "Acties",
+  "macrosTitle": "Macro's",
+  "help": "Help",
+  "createMacro": "Macro maken",
+  "timedMacrosTitle": "Getimede macro's",
+  "timedMacrosSubtitle": "Automatiseer reeksen IR-opdrachten met nauwkeurige timing",
+  "timedMacrosNextStep": "Wat nu tik op Maak je eerste macro, kies een afstandsbediening en voeg daarna opdrachten en vertragingen toe.",
+  "macroFeatureToysTitle": "Perfect voor interactief speelgoed",
+  "macroFeatureToysDescription": "Bestuur apparaten zoals i-cybie-robothonden, i-sobot-robots en ander speelgoed dat tijd nodig heeft tussen opdrachten om acties te verwerken.",
+  "macroFeatureTimingTitle": "Nauwkeurige tijdregeling",
+  "macroFeatureTimingDescription": "Voeg vertragingen tussen opdrachten toe van 250 ms tot aangepaste duur zodat je apparaat tijd heeft om te reageren voor de volgende actie.",
+  "macroFeatureManualTitle": "Handmatige vervolgsteps",
+  "macroFeatureManualDescription": "Pauzeer de uitvoering en wacht op je bevestiging wanneer de animatielengte varieert of je visuele feedback nodig hebt.",
+  "exampleUseCase": "Voorbeeld",
+  "macroExampleText": "i-cybie geavanceerde modus:\n1. Verzend opdracht \"Mode\"\n2. Wacht 1000ms speelgoed verwerkt\n3. Verzend \"Action 1\"\n4. Wacht 1000ms\n5. Verzend \"Action 2\"\n…enzovoort automatisch!",
+  "createFirstMacro": "Maak je eerste macro",
+  "noRemote": "Geen remote",
+  "macroStepCount": "{count} stap{plural}",
+  "@macroStepCount": {
+    "placeholders": {
+      "count": {},
+      "plural": {}
+    }
+  },
+  "aboutTimedMacros": "Over getimede macro's",
+  "aboutTimedMacrosDescription": "Getimede macro's laten je reeksen IR-opdrachten automatiseren met precieze vertragingen tussen elke stap.",
+  "sendCommand": "Opdracht verzenden",
+  "sendCommandDescription": "Verzendt een IR-opdracht vanaf je afstandsbediening.",
+  "delay": "Vertraging",
+  "delayDescription": "Wacht een opgegeven duur bijvoorbeeld 1000ms vóór de volgende stap.",
+  "manualContinue": "Manual Doorgaan",
+  "manualContinueDescription": "Pauzes execution until you tap Doorgaan (useful for variable-length animations).",
+  "gotIt": "Begrepen",
+  "failedToSaveMacros": "Macro's opslaan mislukt.",
+  "deletedMacroNamed": "Verwijderend \"{name}\".",
+  "@deletedMacroNamed": {
+    "placeholders": {
+      "name": {}
+    }
+  },
+  "undo": "Ongedaan maken",
+  "failedToRestoreMacro": "Macro herstellen mislukt.",
+  "deleteMacroTitle": "Verwijderen macro?",
+  "deleteMacroMessage": "Je kunt dit ongedaan maken via de volgende snackbar.",
+  "noRemotesAvailable": "Geen remotes available.",
+  "remoteButtonCountSummary": "{count} knop(s)",
+  "@remoteButtonCountSummary": {
+    "placeholders": {
+      "count": {}
+    }
+  },
+  "remoteOrientationFlippedTooltip": "Oriëntatie omgedraaid tik voor normaal",
+  "remoteOrientationNormalTooltip": "Oriëntatie normaal tik om om te draaien",
+  "stopLoop": "Lus stoppen",
+  "reorderButtons": "Reorder knoppen",
+  "remoteReorderHint": "Reorder mode: long-press and drag a knop to move it.",
+  "manageRemote": "Afstandsbediening beheren",
+  "remoteNoButtons": "Geen knoppen in deze afstandsbediening",
+  "remoteNoButtonsDescription": "Gebruik \"Afstandsbediening bewerken\" om knoppen toe te voegen of te configureren.",
+  "editRemote": "Afstandsbediening bewerken",
+  "editRemoteActionsSubtitle": "Hernoemen, sorteren en knoppen bewerken",
+  "remoteUpdatedNamedButton": "\"{name}\" bijgewerkt.",
+  "@remoteUpdatedNamedButton": {
+    "placeholders": {
+      "name": {}
+    }
+  },
+  "buttonAddedNamed": "Toevoegened \"{name}\".",
+  "@buttonAddedNamed": {
+    "placeholders": {
+      "name": {}
+    }
+  },
+  "buttonDuplicated": "Knop gedupliceerd.",
+  "loopRunningForButton": "Lus draait voor deze knop.",
+  "loopTip": "Tip gebruik Lus om te herhalen tot je stopt.",
+  "codeCopied": "Code gekopieerd.",
+  "copyCode": "Code kopiëren",
+  "startLoop": "Lus starten",
+  "editButtonSubtitle": "Wijzig label, code, protocol en frequentie",
+  "newButton": "New knop",
+  "newButtonSubtitle": "Maak een nieuwe knop na deze",
+  "duplicate": "Dupliceren",
+  "duplicateButtonSubtitle": "Maak een kopie van deze knop",
+  "removeFromDeviceControls": "Verwijderen from Apparaatbediening",
+  "addToDeviceControls": "Toevoegen to Apparaatbediening",
+  "deviceControlsButtonSubtitle": "Shows this knop in the system apparaat controls",
+  "removedFromDeviceControls": "Verwijderd uit apparaatbediening.",
+  "pinQuickTile": "Vastzetten aan favorieten van Snelle tegel",
+  "unpinQuickTile": "Unpin from Snelle tegel favorieten",
+  "quickTileButtonSubtitle": "Shows this knop at the top of the quick tile chooser",
+  "removedFromQuickTileFavorites": "Verwijderd uit favorieten van Snelle tegel.",
+  "pinnedToQuickTileFavorites": "Vastgezet aan favorieten van Snelle tegel.",
+  "duplicateAndEdit": "Duplicate and bewerken",
+  "duplicateAndEditSubtitle": "Maak een kopie en bewerk die meteen",
+  "done": "Klaar",
+  "run": "Uitvoeren",
+  "untitledRemote": "Untitled Afstandsbediening",
+  "createRemoteTitle": "Maken remote",
+  "editRemoteTitle": "Afstandsbediening bewerken",
+  "removeButtonTitle": "Verwijderen knop?",
+  "imageButtonRemovedMessage": "Deze afbeeldingsknop wordt verwijderd.",
+  "namedButtonRemovedMessage": "\"{name}\" wordt verwijderd.",
+  "@namedButtonRemovedMessage": {
+    "placeholders": {
+      "name": {}
+    }
+  },
+  "remove": "Verwijderen",
+  "importedButtonCount": "Importerened {count} knop(s).",
+  "@importedButtonCount": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "importedButtonsFromExistingRemotes": "Importerened {count} knop(s) from existing remotes.",
+  "@importedButtonsFromExistingRemotes": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "editButtonSettingsSubtitle": "Wijzig label, signaal en geavanceerde instellingen",
+  "createButtonCopySubtitle": "Maak een kopie van deze knop",
+  "duplicateAndEditButtonSubtitle": "Maak een kopie en bewerk die meteen",
+  "undoAvailableInNextSnackbar": "Je kunt dit ongedaan maken via de volgende snackbar",
+  "buttonRemoved": "Knop verwijderd.",
+  "remoteNameCannotBeEmpty": "Afstandsbediening name can't be empty.",
+  "saveRemote": "Opslaan remote",
+  "remoteName": "Afstandsbediening name",
+  "remoteNameHint": "bijv. tv, airconditioner, ledstrip",
+  "remoteNameHelper": "This name appears in your Afstandsbedieningen list.",
+  "layoutStyle": "Lay-outstijl",
+  "layoutWideDescription": "Wide: 2-column knoppen with extra details (recommended).",
+  "layoutCompactDescription": "Compact klassieke 4×-rasterknoppen alleen pictogrammen of tekst.",
+  "importFromRemotes": "Importeren from remotes",
+  "importFromDatabase": "Importeren from DB",
+  "addButton": "Toevoegen knop",
+  "noButtonsYet": "Geen knoppen yet",
+  "createRemoteEmptyStateDescription": "Toevoegen your first knop, then long-press it for bewerken/remove options.",
+  "createButtonTitle": "Maken Knop",
+  "editButtonTitle": "Bewerken Knop",
+  "failedToLoadProtocols": "Mislukt to load protocols: {error}",
+  "@failedToLoadProtocols": {
+    "placeholders": {
+      "error": {}
+    }
+  },
+  "failedToLoadDatabaseKeys": "Mislukt to load database keys: {error}",
+  "@failedToLoadDatabaseKeys": {
+    "placeholders": {
+      "error": {}
+    }
+  },
+  "presetPower": "Aan/uit",
+  "presetVolume": "Volume",
+  "presetChannel": "Kanaal",
+  "presetNavigation": "Navigatie",
+  "all": "Alles",
+  "completeRequiredFieldsToSave": "Complete vereist fields to opslaan",
+  "buttonLabelStepTitle": "1) Knop label",
+  "buttonLabelStepSubtitle": "Kies een afbeelding, pictogram of typ een tekstlabel.",
+  "buttonColorStepTitle": "2) Knop color (optional)",
+  "buttonColorStepSubtitle": "Kies een achtergrondkleur voor deze knop.",
+  "selectColor": "Selecteer color:",
+  "noImageSelected": "Geen image geselecteerd",
+  "gallery": "Galerij",
+  "builtIn": "Ingebouwd",
+  "removeImage": "Verwijderen image",
+  "requiredSelectImageOrSwitch": "Vereist selecteer een afbeelding, kies een pictogram of schakel naar Tekst.",
+  "iconSelected": "Pictogram geselecteerd",
+  "noIconSelected": "Geen icon geselecteerd",
+  "chooseIcon": "Kies pictogram",
+  "removeIcon": "Verwijderen icon",
+  "requiredSelectIconOrSwitch": "Vereist selecteer een pictogram of schakel naar Afbeelding/Tekst.",
+  "buttonText": "Knoptekst",
+  "buttonTextHint": "bijv. Aan/uit, Volume +, HDMI 1",
+  "buttonTextHelper": "Deze tekst verschijnt op de knop.",
+  "requiredEnterButtonLabel": "Vereist voer een knoplabel in.",
+  "defaultColorName": "Standaard",
+  "newRemoteCreatedFromLastHit": "New remote makend with one knop from last hit.",
+  "selectRemote": "Selecteer remote",
+  "remoteNumber": "Afstandsbediening #{id}",
+  "@remoteNumber": {
+    "placeholders": {
+      "id": {}
+    }
+  },
+  "newRemoteCreated": "New remote makend.",
+  "failedToCreateRemote": "Afstandsbediening maken mislukt.",
+  "newRemoteEllipsis": "Nieuwe afstandsbediening…",
+  "addedToRemoteNamed": "Toevoegened to {name}.",
+  "@addedToRemoteNamed": {
+    "placeholders": {
+      "name": {}
+    }
+  },
+  "failedToAddToRemote": "Toevoegen aan afstandsbediening mislukt.",
+  "newRemoteDefaultName": "New Afstandsbediening",
+  "jumpedToOffsetPaused": "Jumped to offset {offset}. Pauzed — press Hervatten to continue.",
+  "@jumpedToOffsetPaused": {
+    "placeholders": {
+      "offset": {
+        "type": "int"
+      }
+    }
+  },
+  "sent": "Verzonden.",
+  "failedToSend": "Verzenden mislukt: {error}",
+  "@failedToSend": {
+    "placeholders": {
+      "error": {}
+    }
+  },
+  "copiedProtocolCode": "Gekopieerd protocol:code.",
+  "savedToResults": "Opslaand to Results.",
+  "invalidCodeForProtocol": "Ongeldige code voor protocol: {error}",
+  "@invalidCodeForProtocol": {
+    "placeholders": {
+      "error": {}
+    }
+  },
+  "copiedCurrentCandidate": "Huidige kandidaat gekopieerd.",
+  "jumpToOffset": "Spring naar offset",
+  "jumpToBruteCursor": "Spring naar brute-cursor",
+  "jump": "Springen",
+  "jumpedToCursorPaused": "Jumped to cursor 0x{cursor}. Pauzed — press Hervatten to continue.",
+  "@jumpedToCursorPaused": {
+    "placeholders": {
+      "cursor": {}
+    }
+  },
+  "irSignalTester": "IR-signaaltester",
+  "stop": "Stop",
+  "selectButton": "Selecteer knop",
+  "buttonNotFoundInRemotes": "Knop not found in remotes.",
+  "sentNamed": "\"{name}\" verzonden.",
+  "@sentNamed": {
+    "placeholders": {
+      "name": {}
+    }
+  },
+  "sendFailed": "Send mislukt: {error}",
+  "@sendFailed": {
+    "placeholders": {
+      "error": {}
+    }
+  },
+  "noFavoritesYet": "Geen favorieten yet",
+  "deviceControlsEmptyHint": "Long-press a remote knop and select “Toevoegen to Apparaatbediening”.",
+  "sendTest": "Test verzenden",
+  "testSendCompleted": "Testverzending voltooid.",
+  "testSendFailed": "Test send mislukt: {error}",
+  "@testSendFailed": {
+    "placeholders": {
+      "error": {}
+    }
+  },
+  "removedNamed": "Verwijderd \"{name}\".",
+  "@removedNamed": {
+    "placeholders": {
+      "name": {}
+    }
+  },
+  "brand": "Merk",
+  "model": "Model",
+  "selectBrand": "Selecteer brand",
+  "searchBrand": "Zoeken brand…",
+  "selectModel": "Selecteer model",
+  "searchModel": "Zoeken model…",
+  "unnamedKey": "Naamloze toets",
+  "unknown": "Onbekend",
+  "emDash": "—",
+  "searchCommands": "Zoeken commands",
+  "noMatchingCommands": "Geen matching commands",
+  "quickTileFavoritesTitle": "Quick tile favorieten",
+  "changeMappingForTile": "Wijzig koppeling voor tegel {tileLabel}",
+  "@changeMappingForTile": {
+    "placeholders": {
+      "tileLabel": {}
+    }
+  },
+  "pickDifferentButton": "Pick a different knop",
+  "browseAllRemotesEllipsis": "Bladeren all remotes…",
+  "invalidMacroFileFormat": "Ongeldig macrobestandsformaat.",
+  "failedToParseMacroFile": "Macrobestand parseren mislukt.",
+  "deviceCodeLabel": "Apparaat Code",
+  "commandLabel": "Opdracht",
+  "editButtonCodeTitle": "Bewerken Code of the knop",
+  "thisRemoteHasNoButtons": "Deze afstandsbediening heeft geen knoppen.",
+  "selectCommand": "Selecteer Command",
+  "databaseModeAutofillHint": "Database mode auto-fills Step 2 for you (brand + model + protocol). After importerening a key, you can refine anything in Manual.",
+  "test": "Test",
+  "allSelectedButtonsWereDuplicates": "All geselecteerd knoppen were duplicates.",
+  "noButtonsImported": "Geen knoppen importerened.",
+  "importedButtonsSkippedDuplicates": "Importerened {addedCount} knop(s). Overslaanped {skippedCount} duplicate(s).",
+  "@importedButtonsSkippedDuplicates": {
+    "placeholders": {
+      "addedCount": {
+        "type": "int"
+      },
+      "skippedCount": {
+        "type": "int"
+      }
+    }
+  },
+  "importAllMatchingTitle": "Importeren all matching knoppen?",
+  "noMatchingKeysFound": "Geen overeenkomende toetsen gevonden.",
+  "importAllMatchingMessage": "This will importeren up to {count} matching keys from the current database selection.",
+  "@importAllMatchingMessage": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "importAll": "Importeren all",
+  "importingButtons": "Importeren knoppen…",
+  "allMatchingButtonsWereDuplicates": "All matching knoppen were duplicates.",
+  "quickPresets": "Snelle presets",
+  "selectDeviceFirst": "Selecteer apparaat first",
+  "searchByLabelOrHex": "Zoek op label of hex",
+  "optionalRefinePresetKeys": "Optioneel verfijn de presettoetsen voor {preset}",
+  "@optionalRefinePresetKeys": {
+    "placeholders": {
+      "preset": {}
+    }
+  },
+  "selectBrandModelProtocolFirst": "Selecteer brand, model, and protocol first.",
+  "importFromDatabaseTitle": "Importereneren uit database",
+  "importFromDatabaseSubtitle": "Kies een apparaat, laad overeenkomende toetsen en importereneer daarna de geselecteerde knoppen.",
+  "deviceAndFilters": "Apparaat & filters",
+  "loadedCount": "{count} geladen",
+  "@loadedCount": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "hideFilters": "Filters verbergen",
+  "showFilters": "Filters tonen",
+  "noProtocolFoundForBrandModel": "Geen protocol gevonden voor dit merk en model.",
+  "protocolAutoDetected": "Protocol",
+  "protocolAutoDetectedHelper": "Automatisch uit de database gedetecteerd. Je kunt dit vóór het importereneren wijzigen.",
+  "selectBrandModelToLoadKeys": "Selecteereer een merk, model en protocol om toetsen te laden.",
+  "noKeysFound": "Geen keys found.",
+  "noKeysFoundForSearch": "Geen toetsen gevonden voor “{query}”.",
+  "@noKeysFoundForSearch": {
+    "placeholders": {
+      "query": {}
+    }
+  },
+  "skipDuplicates": "Overslaan duplicates",
+  "skipDuplicatesSubtitle": "Do not importeren knoppen that already exist in this remote.",
+  "importSelected": "Importeren geselecteerd",
+  "noMacrosToExport": "Geen macros to exporteren.",
+  "macrosExportedToDownloads": "Macro's exporterened to Downloads.",
+  "failedToExportMacros": "Macro's exportereneren mislukt.",
+  "failedToReadFile": "Bestand lezen mislukt.",
+  "importFromExistingRemotesTitle": "Importereneren uit bestaande afstandsbedieningen",
+  "selectedCount": "{count} geselecteerd",
+  "@selectedCount": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "noOtherRemotesWithButtons": "Geen andere afstandsbedieningen met knoppen gevonden.",
+  "sourceRemote": "Bron-afstandsbediening",
+  "searchButtons": "Zoeken knoppen",
+  "searchButtonsHint": "Power, Volume, Mute..",
+  "selectVisible": "Selecteer visible",
+  "clearVisible": "Zichtbare wissen",
+  "protocolNamed": "Protocol: {name}",
+  "@protocolNamed": {
+    "placeholders": {
+      "name": {}
+    }
+  },
+  "rawSignal": "Ruw",
+  "legacyCode": "Verouderde code",
+  "importCount": "Importeren {count}",
+  "@importCount": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "storagePermissionDeniedLegacy": "Opslagtoestemming geweigerd nodig op sommige oudere Android-apparaten.",
+  "backupExportedToDownloads": "Back-up exporterened to Downloads.",
+  "failedToExport": "Mislukt to exporteren: {error}",
+  "@failedToExport": {
+    "placeholders": {
+      "error": {}
+    }
+  },
+  "importedLegacyJsonBackup": "Importerened {count} remotes from legacy JSON back-up. Macro's were not changed.",
+  "@importedLegacyJsonBackup": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "importFailedRemotesMustBeList": "Importeren mislukt back-up \"remotes\" moet een JSON-lijst zijn wanneer aanwezig.",
+  "importFailedMacrosMustBeList": "Importeren mislukt back-up \"macros\" moet een JSON-lijst zijn wanneer aanwezig.",
+  "importFailedInvalidBackupFormat": "Importeren mislukt ongeldig back-upformaat verwacht oude List of Map met remotes/macros.",
+  "importedBackupRemotesOnly": "Importerened {remoteCount} remotes from back-up. Macro's were not changed.",
+  "@importedBackupRemotesOnly": {
+    "placeholders": {
+      "remoteCount": {
+        "type": "int"
+      }
+    }
+  },
+  "importedBackupRemotesAndMacros": "Importerened {remoteCount} remotes and {macroCount} macros from back-up.",
+  "@importedBackupRemotesAndMacros": {
+    "placeholders": {
+      "remoteCount": {
+        "type": "int"
+      },
+      "macroCount": {
+        "type": "int"
+      }
+    }
+  },
+  "importFailedNoValidButtonsInIr": "Importeren mislukt geen geldige knoppen gevonden in .ir-bestand.",
+  "importedOneRemoteFromFlipper": "1 afstandsbediening geïmporteerd uit Flipper .ir. Macro's zijn niet gewijzigd.",
+  "importFailedInvalidIrplus": "Importeren mislukt ongeldig irplus-bestand geen geldige knoppen gevonden.",
+  "importedOneRemoteFromIrplus": "1 afstandsbediening geïmporteerd uit irplus. Macro's zijn niet gewijzigd.",
+  "importFailedInvalidLirc": "Importeren mislukt ongeldig LIRC-bestand geen geldige codes of ruwe codes gevonden.",
+  "importedOneRemoteFromLirc": "1 afstandsbediening geïmporteerd uit LIRC-configuratie. Macro's zijn niet gewijzigd.",
+  "unsupportedFileTypeSelected": "Niet-ondersteund bestandstype geselecteerd.",
+  "importFailedInvalidUnreadableFile": "Importeren mislukt ongeldige of onleesbare bestand.",
+  "bulkImportNoSupportedFilesInFolder": "Bulkimporteren voltooid: no ondersteunde files found in folder.",
+  "bulkImportNoRemotesImported": "Bulkimporteren voltooid: no remotes importerened. Overslaanped {skippedCount} file(s).",
+  "@bulkImportNoRemotesImported": {
+    "placeholders": {
+      "skippedCount": {
+        "type": "int"
+      }
+    }
+  },
+  "bulkImportComplete": "Bulkimporteren voltooid: importerened {importedCount} remote(s) from {supportedCount} ondersteunde file(s). Overslaanped {skippedCount} file(s).",
+  "@bulkImportComplete": {
+    "placeholders": {
+      "importedCount": {
+        "type": "int"
+      },
+      "supportedCount": {
+        "type": "int"
+      },
+      "skippedCount": {
+        "type": "int"
+      }
+    }
+  },
+  "storagePermissionDenied": "Opslagtoestemming geweigerd.",
+  "bulkImportFailedReadFolder": "Bulk importeren mislukt: unable to read folder contents.",
+  "bulkImportNoSupportedFilesSource": "Bulkimporteren voltooid: no ondersteunde files found ({sourceLabel}).",
+  "@bulkImportNoSupportedFilesSource": {
+    "placeholders": {
+      "sourceLabel": {}
+    }
+  },
+  "clearAction": "Wissen",
+  "saveAction": "Opslaan",
+  "buttonsTitleCount": "Knops ({count})",
+  "@buttonsTitleCount": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "invalidStepEncountered": "Ongeldige stap aangetroffen",
+  "failedToSendNamed": "Verzenden mislukt: {name}",
+  "@failedToSendNamed": {
+    "placeholders": {
+      "name": {}
+    }
+  },
+  "buttonNotFound": "Knop not found",
+  "buttonNotFoundNamed": "Knop not found: {name}",
+  "@buttonNotFoundNamed": {
+    "placeholders": {
+      "name": {}
+    }
+  },
+  "unknownButton": "Onbekend Knop",
+  "durationSecondsShort": "{seconds}s",
+  "@durationSecondsShort": {
+    "placeholders": {
+      "seconds": {
+        "type": "int"
+      }
+    }
+  },
+  "durationMinutesSecondsShort": "{minutes}m {seconds}s",
+  "@durationMinutesSecondsShort": {
+    "placeholders": {
+      "minutes": {
+        "type": "int"
+      },
+      "seconds": {
+        "type": "int"
+      }
+    }
+  },
+  "durationHoursMinutesShort": "{hours}h {minutes}m",
+  "@durationHoursMinutesShort": {
+    "placeholders": {
+      "hours": {
+        "type": "int"
+      },
+      "minutes": {
+        "type": "int"
+      }
+    }
+  },
+  "orientationFlippedTooltip": "Oriëntatie omgedraaid tik voor normaal",
+  "orientationNormalTooltip": "Oriëntatie normaal tik om om te draaien",
+  "noSteps": "Geen steps",
+  "stepProgress": "Stap {current} / {total}",
+  "@stepProgress": {
+    "placeholders": {
+      "current": {
+        "type": "int"
+      },
+      "total": {
+        "type": "int"
+      }
+    }
+  },
+  "completed": "Voltooid",
+  "paused": "Pauzed",
+  "running": "Actief",
+  "ready": "Klaar",
+  "stepsProgress": "{current} / {total} stappen",
+  "@stepsProgress": {
+    "placeholders": {
+      "current": {
+        "type": "int"
+      },
+      "total": {
+        "type": "int"
+      }
+    }
+  },
+  "waiting": "Wachten",
+  "secondsRemaining": "{seconds}s resterend",
+  "@secondsRemaining": {
+    "placeholders": {
+      "seconds": {}
+    }
+  },
+  "millisecondsShort": "{ms}ms",
+  "@millisecondsShort": {
+    "placeholders": {
+      "ms": {
+        "type": "int"
+      }
+    }
+  },
+  "tapContinueWhenReady": "Tik op Doorgaan wanneer je klaar bent voor de volgende stap",
+  "error": "Fout",
+  "macroCompleted": "Macro voltooid",
+  "finishedIn": "Voltooid in {duration}",
+  "@finishedIn": {
+    "placeholders": {
+      "duration": {}
+    }
+  },
+  "sequence": "Reeks",
+  "waitMilliseconds": "Wacht {ms}ms",
+  "@waitMilliseconds": {
+    "placeholders": {
+      "ms": {
+        "type": "int"
+      }
+    }
+  },
+  "runAgain": "Opnieuw uitvoeren",
+  "startMacro": "Macro starten",
+  "continueAction": "Doorgaan",
+  "unnamedRemote": "Unnamed Afstandsbediening",
+  "enterMacroName": "Voer een macronaam in",
+  "addAtLeastOneStep": "Toevoegen at least one step",
+  "fixInvalidSteps": "Herstel ongeldige stappen",
+  "unknownCommand": "Onbekend Command",
+  "unnamedCommand": "Naamloze opdracht",
+  "iconCommand": "Pictogram Command",
+  "selectDelay": "Selecteer Delay",
+  "keepMilliseconds": "Houd {ms}ms",
+  "@keepMilliseconds": {
+    "placeholders": {
+      "ms": {
+        "type": "int"
+      }
+    }
+  },
+  "custom": "Aangepast",
+  "enterCustomDelayDuration": "Voer een aangepaste vertraging in",
+  "millisecondsLong": "{ms} milliseconden",
+  "@millisecondsLong": {
+    "placeholders": {
+      "ms": {
+        "type": "int"
+      }
+    }
+  },
+  "secondsLong": "{seconds} seconde{plural}",
+  "@secondsLong": {
+    "placeholders": {
+      "seconds": {},
+      "plural": {}
+    }
+  },
+  "customDelay": "Aangepaste vertraging",
+  "delayMillisecondsLabel": "Vertraging milliseconden",
+  "delayMillisecondsHint": "bijv. 3000",
+  "recommendedDelayRange": "Recommended: 250-5000ms for most apparaten",
+  "enterValidPositiveNumber": "Voer een geldig positief getal in",
+  "ok": "OK",
+  "remote": "Afstandsbediening",
+  "macroName": "Macronaam",
+  "macroNameHint": "bijv. i-cybie geavanceerde modus",
+  "stepsTitleCount": "Stappen ({count})",
+  "@stepsTitleCount": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "noStepsYet": "Geen steps yet",
+  "addCommandsAndDelaysHint": "Voeg hieronder opdrachten en vertragingen toe om je reeks op te bouwen",
+  "addStep": "Toevoegen Step",
+  "reorderStepsHint": "Tip: Drag the handle to reorder steps. Tap a step to bewerken it.",
+  "reorderStep": "Stap {index} verplaatsen",
+  "@reorderStep": {
+    "placeholders": {
+      "index": {
+        "type": "int"
+      }
+    }
+  },
+  "pressAndDragToChangeStepOrder": "Druk en sleep om de volgorde van stappen te wijzigen",
+  "deleteStep": "Verwijderen step {index}",
+  "@deleteStep": {
+    "placeholders": {
+      "index": {
+        "type": "int"
+      }
+    }
+  },
+  "invalidStepTapToFix": "Ongeldige stap tik om te herstellen",
+  "sendIrCommand": "IR-opdracht verzenden",
+  "waitForUserConfirmation": "Wachten op bevestiging van gebruiker",
+  "notImplemented": "Niet geïmplementeerd",
+  "frequencyKhz": "{value} kHz",
+  "@frequencyKhz": {
+    "placeholders": {
+      "value": {
+        "type": "int"
+      }
+    }
+  },
+  "necProtocolShort": "NEC",
+  "msbShort": "MSB",
+  "layoutWide": "Breed",
+  "iconButton": "Pictogramknop",
+  "imageButton": "Afbeeldingsknop",
+  "noSignalInfo": "Geen signal info",
+  "proceed": "Doorgaan",
+  "discard": "Verwerpen",
+  "idle": "Inactief",
+  "start": "Start",
+  "resume": "Hervatten",
+  "pause": "Pauze",
+  "stopped": "Gestopt",
+  "copy": "Kopiëren",
+  "send": "Verzenden",
+  "step": "Stap",
+  "addToRemote": "Toevoegen to remote",
+  "noDescriptionAvailable": "Geen description available.",
+  "notAvailableSymbol": "—",
+  "irFinderKaseikyoVendorInvalid": "Kaseikyo-leverancier moet precies 4 hexcijfers zijn.",
+  "irFinderDatabaseNotReady": "Database is nog niet klaar.",
+  "irFinderSelectBrandFirst": "Selecteereer eerst een merk in Instellen.",
+  "irFinderBruteforceUnavailable": "Brute-force is nog niet beschikbaar voor dit protocol.",
+  "irFinderInvalidPrefix": "Ongeldig voorvoegsel.",
+  "irFinderBrandValue": "Merk: {value}",
+  "@irFinderBrandValue": {
+    "placeholders": {
+      "value": {}
+    }
+  },
+  "irFinderModelValue": "Model: {value}",
+  "@irFinderModelValue": {
+    "placeholders": {
+      "value": {}
+    }
+  },
+  "irFinderKeyValue": "Toets: {value}",
+  "@irFinderKeyValue": {
+    "placeholders": {
+      "value": {}
+    }
+  },
+  "irFinderRemoteNumber": "Afstandsbediening #{value}",
+  "@irFinderRemoteNumber": {
+    "placeholders": {
+      "value": {}
+    }
+  },
+  "irFinderJumpOffsetHelper": "Voer een op nul gebaseerde index in binnen gefilterde en geordende databaseresultaten.",
+  "irFinderJumpCursorHelper": "Voer een op nul gebaseerde hexcursor in binnen de brute-force-ruimte.",
+  "irFinderSetupTab": "Instellen",
+  "irFinderTestTab": "Test",
+  "irFinderResultsTab": "Resultaten",
+  "irFinderContinueToTest": "Doorgaan to Test",
+  "irFinderKaseikyoVendorTitle": "Kaseikyo-leverancier",
+  "irFinderCustomVendorLabel": "Aangepaste leverancier 4 hex",
+  "irFinderBrowseDbCandidates": "Bladeren DB candidates…",
+  "irFinderEditSetup": "Bewerken Setup",
+  "irFinderNoSavedHits": "Geen opslaand hits yet. In the Test page, press \"Opslaan hit\" when the apparaat responds.",
+  "irFinderBackToTest": "Terug naar Test",
+  "irFinderLargeSearchSpaceTitle": "Grote zoekruimte",
+  "irFinderLargeSearchSpaceBody": "This brute-force space is very large ({human} possibilities). IR Finder will still respect your max attempts and cooldown, but be mindful of spamming IR apparaten.\n\nRecommendation: use Database mode first, and/or enter known prefix bytes to reduce the space.",
+  "@irFinderLargeSearchSpaceBody": {
+    "placeholders": {
+      "human": {}
+    }
+  },
+  "irFinderDatabaseSession": "Databasesessie",
+  "irFinderBruteforceSession": "Brute-force-sessie",
+  "irFinderResumeLastSession": "Hervatten last session",
+  "irFinderResumeBrandModel": "Merk: {brand} · Model: {model}",
+  "@irFinderResumeBrandModel": {
+    "placeholders": {
+      "brand": {},
+      "model": {}
+    }
+  },
+  "irFinderResumePrefix": "Voorvoegsel: {value}",
+  "@irFinderResumePrefix": {
+    "placeholders": {
+      "value": {}
+    }
+  },
+  "irFinderResumeProgress": "Voortgang: {progress} · Gestart: {when}",
+  "@irFinderResumeProgress": {
+    "placeholders": {
+      "progress": {},
+      "when": {}
+    }
+  },
+  "irFinderApplyResume": "Apply & Hervatten",
+  "irFinderBruteforceMode": "Brute-force",
+  "irFinderDatabaseAssistedMode": "Database-ondersteund",
+  "irFinderProtocolTitle": "Protocol: {name}",
+  "@irFinderProtocolTitle": {
+    "placeholders": {
+      "name": {}
+    }
+  },
+  "irFinderProtocolLabel": "IR-protocol",
+  "irFinderProtocolHelper": "Bediening encoding and therefore the zoeken space.",
+  "irFinderKnownPrefixLabel": "Bekend voorvoegsel hexbytes optioneel",
+  "irFinderKnownPrefixHint": "A1B2, A1 B2, A1:B2, 0xA1 0xB2",
+  "irFinderKnownPrefixHelperPayload": "Payload: {digits} hexcijfer(s)",
+  "@irFinderKnownPrefixHelperPayload": {
+    "placeholders": {
+      "digits": {
+        "type": "int"
+      }
+    }
+  },
+  "irFinderKnownPrefixHelperPayloadExample": "Payload: {digits} hexcijfer(s) · Voorbeeld: {example}",
+  "@irFinderKnownPrefixHelperPayloadExample": {
+    "placeholders": {
+      "digits": {
+        "type": "int"
+      },
+      "example": {}
+    }
+  },
+  "irFinderKnownPrefixHelperPayloadMax": "Payload: {digits} hexcijfer(s) · Max voorvoegsel: {bytes} byte(s)",
+  "@irFinderKnownPrefixHelperPayloadMax": {
+    "placeholders": {
+      "digits": {
+        "type": "int"
+      },
+      "bytes": {
+        "type": "int"
+      }
+    }
+  },
+  "irFinderKnownPrefixHelperPayloadExampleMax": "Payload: {digits} hexcijfer(s) · Voorbeeld: {example} · Max voorvoegsel: {bytes} byte(s)",
+  "@irFinderKnownPrefixHelperPayloadExampleMax": {
+    "placeholders": {
+      "digits": {
+        "type": "int"
+      },
+      "example": {},
+      "bytes": {
+        "type": "int"
+      }
+    }
+  },
+  "irFinderKnownPrefixHelperExample": "Voorbeeld: {example}",
+  "@irFinderKnownPrefixHelperExample": {
+    "placeholders": {
+      "example": {}
+    }
+  },
+  "irFinderKnownPrefixHelperFallback": "Enter any known first bytes to reduce the zoeken space.",
+  "irFinderDatabaseMode": "Database",
+  "irFinderNormalizedPrefixValue": "Genormaliseerd voorvoegsel: {value}",
+  "@irFinderNormalizedPrefixValue": {
+    "placeholders": {
+      "value": {}
+    }
+  },
+  "irFinderNormalizedPrefix": "Genormaliseerd voorvoegsel",
+  "irFinderBruteforceNotConfigured": "Brute-force is nog niet geconfigureerd voor dit protocol.",
+  "irFinderAllLimit": "Alles ({value})",
+  "@irFinderAllLimit": {
+    "placeholders": {
+      "value": {}
+    }
+  },
+  "irFinderTestControls": "Testbediening",
+  "irFinderPayloadLength": "Payloadlengte: {digits} hexcijfer(s).",
+  "@irFinderPayloadLength": {
+    "placeholders": {
+      "digits": {
+        "type": "int"
+      }
+    }
+  },
+  "irFinderSearchSpace": "Zoekruimte: {value} possibilities (after prefix constraints).",
+  "@irFinderSearchSpace": {
+    "placeholders": {
+      "value": {}
+    }
+  },
+  "irFinderCooldownMs": "Afkoeling (ms)",
+  "irFinderMaxAttemptsPerRun": "Max pogingen per run",
+  "irFinderTestAllCombinations": "Test alle combinaties",
+  "irFinderTestAllCombinationsHint": "Runs until the zoeken space is exhausted. Effective limit: {value}",
+  "@irFinderTestAllCombinationsHint": {
+    "placeholders": {
+      "value": {}
+    }
+  },
+  "irFinderAttempts": "Pogingen",
+  "irFinderAttemptsSliderRange": "Schuifbereik: 1–{max} typ elk getal voor grotere waarden",
+  "@irFinderAttemptsSliderRange": {
+    "placeholders": {
+      "max": {
+        "type": "int"
+      }
+    }
+  },
+  "irFinderMaxButton": "Max\n{value}",
+  "@irFinderMaxButton": {
+    "placeholders": {
+      "value": {
+        "type": "int"
+      }
+    }
+  },
+  "irFinderEffectiveLimitThisRun": "Effectieve limiet in deze run: {value}",
+  "@irFinderEffectiveLimitThisRun": {
+    "placeholders": {
+      "value": {}
+    }
+  },
+  "irFinderBruteforceTip": "Tip gebruik eerst Databasemodus brute-force werkt het best met een bekend voorvoegsel bijvoorbeeld de eerste 1–4 bytes.",
+  "irFinderDatabaseInitFailed": "Database initialization mislukt.",
+  "irFinderPreparingDatabase": "Lokale IR-codedatabase wordt voorbereid…",
+  "irFinderDatabaseAssistedSearch": "Database-assisted zoeken",
+  "irFinderBrand": "Merk",
+  "irFinderSelectBrand": "Selecteer brand",
+  "irFinderModelOptional": "Model optioneel",
+  "irFinderSelectBrandFirstShort": "Selecteer a brand first",
+  "irFinderSelectModelRecommended": "Selecteereer een model aanbevolen",
+  "irFinderOnlySelectedProtocol": "Only geselecteerd protocol",
+  "irFinderOnlySelectedProtocolHint": "Filters keys to the geselecteerd protocol. Disable it to browse all protocols.",
+  "irFinderQuickWinsFirst": "Snelle treffers eerst",
+  "irFinderQuickWinsFirstHint": "Geeft prioriteit aan POWER, MUTE, VOL en CH-achtige toetsen vóór diepere toetsen.",
+  "irFinderMaxKeysPerRun": "Max toetsen om te testen per run",
+  "irFinderTesting": "Testen…",
+  "irFinderCooldown": "Afkoeling",
+  "irFinderEta": "ETA",
+  "irFinderMode": "Modus",
+  "irFinderRetryLast": "Laatste opnieuw",
+  "irFinderTrigger": "Trigger",
+  "irFinderJump": "Springen…",
+  "irFinderSaveHit": "Opslaan hit",
+  "irFinderEtaSeconds": "{seconds}s",
+  "@irFinderEtaSeconds": {
+    "placeholders": {
+      "seconds": {
+        "type": "int"
+      }
+    }
+  },
+  "irFinderEtaMinutesSeconds": "{minutes}m {seconds}s",
+  "@irFinderEtaMinutesSeconds": {
+    "placeholders": {
+      "minutes": {
+        "type": "int"
+      },
+      "seconds": {
+        "type": "int"
+      }
+    }
+  },
+  "irFinderEtaHoursMinutes": "{hours}h {minutes}m",
+  "@irFinderEtaHoursMinutes": {
+    "placeholders": {
+      "hours": {
+        "type": "int"
+      },
+      "minutes": {
+        "type": "int"
+      }
+    }
+  },
+  "irFinderLastAttemptedCode": "Laatst geteste code: {value}",
+  "@irFinderLastAttemptedCode": {
+    "placeholders": {
+      "value": {}
+    }
+  },
+  "irFinderStartTestingToSeeLastCode": "Start testen om de laatst geteste code te zien.",
+  "irFinderFromDb": "Uit DB: {value}",
+  "@irFinderFromDb": {
+    "placeholders": {
+      "value": {}
+    }
+  },
+  "irFinderFromBruteforce": "Uit brute-force gegenereerd door protocolencoder.",
+  "irFinderSendError": "Verzendfout: {error}",
+  "@irFinderSendError": {
+    "placeholders": {
+      "error": {}
+    }
+  },
+  "irFinderSourceValue": "Bron: {value}",
+  "@irFinderSourceValue": {
+    "placeholders": {
+      "value": {}
+    }
+  },
+  "irFinderResultsNote": "Results support Test and Copy immediately. Direct add-to-remote integration can be extended further in the bewerkenor flow.",
+  "irFinderBrowseDbCandidatesTitle": "Bladeren DB candidates",
+  "irFinderFilterByLabelOrHex": "Filter op label of hex…",
+  "irFinderJumpHere": "Hierheen springen",
+  "irFinderSelectModel": "Selecteer model",
+  "irFinderSearchBrands": "Zoeken brands…",
+  "irFinderSearchModels": "Zoeken models…",
+  "iconPickerTitle": "Selecteer Pictogram",
+  "iconPickerSearchHint": "Zoeken icons..",
+  "iconPickerNoIconsFound": "Geen icons found",
+  "iconPickerIconsAvailable": "{count} pictogrammen beschikbaar",
+  "@iconPickerIconsAvailable": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "iconPickerCategoryAll": "Alles",
+  "iconPickerCategoryMedia": "Media",
+  "iconPickerCategoryVolume": "Volume",
+  "iconPickerCategoryNavigation": "Navigatie",
+  "iconPickerCategoryPower": "Aan/uit",
+  "iconPickerCategoryNumbers": "Cijfers",
+  "iconPickerCategorySettings": "Instellingen",
+  "iconPickerCategoryDisplay": "Display",
+  "iconPickerCategoryInput": "Ingang",
+  "iconPickerCategoryFavorite": "Favoriet",
+  "universalPowerTitle": "Universele Power",
+  "universalPowerRunTab": "Uitvoeren",
+  "universalPowerUseResponsibly": "Verantwoord gebruiken",
+  "universalPowerConsentBody": "Universal Power cycles IR power codes. Use it only on apparaten you own or control. Stop zodra het apparaat reageert.",
+  "universalPowerConsentCheckbox": "Ik bezit of beheer het apparaat",
+  "universalPowerSetupBody": "Cycles power codes for your geselecteerd brand. Stop zodra het apparaat reageert.",
+  "universalPowerLastSent": "Laatst verzonden: {value}",
+  "@universalPowerLastSent": {
+    "placeholders": {
+      "value": {}
+    }
+  },
+  "universalPowerNoCodesFound": "Geen powercodes gevonden. Probeer de zoekopdracht te verbreden.",
+  "universalPowerUnableToStart": "Kan niet starten.",
+  "universalPowerAllBrands": "Alle merken geen filter",
+  "universalPowerClearBrandFilter": "Merkfilter wissen",
+  "universalPowerBroadenSearch": "Breid de zoekopdracht indien nodig uit",
+  "universalPowerBroadenSearchHint": "Als geen powerlabels worden gevonden, neem dan andere toetsen op.",
+  "universalPowerAdditionalPatternsDepth": "Diepte van extra patronen",
+  "universalPowerDepth1": "Alleen prioriteit POWER/OFF",
+  "universalPowerDepth2": "POWER-aliassen opnemen",
+  "universalPowerDepth3": "Secundaire powerlabels opnemen",
+  "universalPowerDepth4": "Alle labels opnemen laagste prioriteit",
+  "universalPowerLoopUntilStopped": "Herhalen tot gestopt",
+  "universalPowerLoopUntilStoppedHint": "Blijft de wachtrij doorlopen tot je stopt.",
+  "universalPowerDelayBetweenCodes": "Vertraging tussen codes",
+  "universalPowerStart": "Start Universele Power",
+  "universalPowerRunStatus": "Uitvoerstatus",
+  "universalPowerProgress": "Voortgang: {value}",
+  "@universalPowerProgress": {
+    "placeholders": {
+      "value": {}
+    }
+  },
+  "universalPowerPausedInBackground": "Gepauzeerd omdat de app naar de achtergrond ging.",
+  "universalPowerSendOneCode": "Verzend één code",
+  "universalPowerStopWhenDeviceResponds": "Stop zodra het apparaat reageert.",
+  "iconNamePlay": "Afspelen",
+  "iconNamePause": "Pauze",
+  "iconNameStop": "Stoppen",
+  "iconNameFastForward": "Snel vooruit",
+  "iconNameRewind": "Terugspoelen",
+  "iconNameSkipNext": "Overslaan Next",
+  "iconNameSkipPrevious": "Overslaan Previous",
+  "iconNameReplay": "Opnieuw afspelen",
+  "iconNameForward10S": "10s vooruit",
+  "iconNameForward30S": "30s vooruit",
+  "iconNameReplay10S": "10s terug",
+  "iconNameReplay30S": "30s terug",
+  "iconNameRecord": "Opnemen",
+  "iconNameRecordAlt": "Alternatieve opname",
+  "iconNameEject": "Uitwerpen",
+  "iconNameShuffle": "Willekeurig",
+  "iconNameRepeat": "Herhalen",
+  "iconNameRepeatOne": "Eén herhalen",
+  "iconNameVolumeUp": "Volume omhoog",
+  "iconNameVolumeDown": "Volume omlaag",
+  "iconNameVolumeOff": "Volume uit",
+  "iconNameMute": "Dempen",
+  "iconNameSpeaker": "Luidspreker",
+  "iconNameSurroundSound": "Surroundgeluid",
+  "iconNameEqualizer": "Equalizer",
+  "iconNameAudio": "Audio",
+  "iconNameMicrophone": "Microfoon",
+  "iconNameMicOff": "Mic uit",
+  "iconNameUp": "Omhoog",
+  "iconNameDown": "Omlaag",
+  "iconNameLeft": "Links",
+  "iconNameRight": "Rechts",
+  "iconNameArrowUp": "Pijl omhoog",
+  "iconNameArrowDown": "Pijl omlaag",
+  "iconNameArrowLeft": "Pijl links",
+  "iconNameArrowRight": "Pijl rechts",
+  "iconNameNavigation": "Navigatie",
+  "iconNameChevronLeft": "Chevron links",
+  "iconNameChevronRight": "Chevron rechts",
+  "iconNameExpandLess": "Minder uitvouwen",
+  "iconNameExpandMore": "Meer uitvouwen",
+  "iconNameCollapse": "Inklappen",
+  "iconNameExpand": "Uitvouwen",
+  "iconNameCircleUp": "Cirkel omhoog",
+  "iconNameCircleDown": "Cirkel omlaag",
+  "iconNameCircleLeft": "Cirkel links",
+  "iconNameCircleRight": "Cirkel rechts",
+  "iconNameOkSelect": "OK/Selecteer",
+  "iconNameConfirm": "Bevestigen",
+  "iconNameCancel": "Annuleren",
+  "iconNameClose": "Sluiten",
+  "iconNameHome": "Start",
+  "iconNameReturn": "Terug",
+  "iconNameExit": "Afsluiten",
+  "iconNameUndo": "Ongedaan maken",
+  "iconNameRedo": "Opnieuw",
+  "iconNamePower": "Aan/uit",
+  "iconNamePowerAlt": "Power alt",
+  "iconNamePowerOff": "Power Off",
+  "iconNameOn": "On",
+  "iconNameOff": "Off",
+  "iconNameToggleOn": "Toggle On",
+  "iconNameToggleOff": "Toggle Off",
+  "iconNameRestart": "Restart",
+  "iconNameNum1": "1",
+  "iconNameNum2": "2",
+  "iconNameNum3": "3",
+  "iconNameNum4": "4",
+  "iconNameNum5": "5",
+  "iconNameNum6": "6",
+  "iconNameNum7": "7",
+  "iconNameNum8": "8",
+  "iconNameNum9": "9",
+  "iconNameNum92": "9+",
+  "iconNameNum0": "0",
+  "iconNameOne": "One",
+  "iconNameTwo": "Two",
+  "iconNameThree": "Three",
+  "iconNameFour": "Four",
+  "iconNameFive": "Five",
+  "iconNameSix": "Six",
+  "iconNamePlus": "Plus",
+  "iconNameMinus": "Minus",
+  "iconNameAddCircle": "Toevoegen Circle",
+  "iconNameRemoveCircle": "Verwijderen Circle",
+  "iconNameSettings": "Instellingen",
+  "iconNameMenu": "Menu",
+  "iconNameMoreVertical": "More Vertical",
+  "iconNameMoreHorizontal": "More Horizontal",
+  "iconNameTune": "Tune",
+  "iconNameRemoteSettings": "Afstandsbediening Instellingen",
+  "iconNameInfo": "Info",
+  "iconNameInfoOutline": "Info Outline",
+  "iconNameHelp": "Hulp",
+  "iconNameHelpOutline": "Help Outline",
+  "iconNameList": "List",
+  "iconNameViewList": "View List",
+  "iconNameViewGrid": "View Grid",
+  "iconNameApps": "Apps",
+  "iconNameWidgets": "Widgets",
+  "iconNameTv": "TV",
+  "iconNameMonitor": "Monitor",
+  "iconNameDesktop": "Desktop",
+  "iconNameBrightnessHigh": "Brightness High",
+  "iconNameBrightnessMedium": "Brightness Middel",
+  "iconNameBrightnessLow": "Brightness Low",
+  "iconNameAutoBrightness": "Auto Brightness",
+  "iconNameLightMode": "Licht Mode",
+  "iconNameDarkMode": "Dark Mode",
+  "iconNameContrast": "Contrast",
+  "iconNameHdrOn": "HDR On",
+  "iconNameHdrOff": "HDR Off",
+  "iconNameAspectRatio": "Aspect Ratio",
+  "iconNameCrop": "Crop",
+  "iconNameZoomIn": "Zoom In",
+  "iconNameZoomOut": "Zoom Out",
+  "iconNameFullscreen": "Fullscreen",
+  "iconNameExitFullscreen": "Exit Fullscreen",
+  "iconNameFitScreen": "Fit Screen",
+  "iconNamePip": "PiP",
+  "iconNameCropFree": "Crop Free",
+  "iconNameInput": "Ingang",
+  "iconNameCable": "Cable",
+  "iconNameCast": "Cast",
+  "iconNameCastConnected": "Cast Connected",
+  "iconNameScreenShare": "Screen Share",
+  "iconNameBluetooth": "Bluetooth",
+  "iconNameWifi": "WiFi",
+  "iconNameRouter": "Router",
+  "iconNameMemory": "Memory",
+  "iconNameGameConsole": "Game Console",
+  "iconNameGaming": "Gaming",
+  "iconNameMedia": "Media",
+  "iconNameMusicQueue": "Music Queue",
+  "iconNameVideoLibrary": "Video Library",
+  "iconNamePhotoLibrary": "Photo Library",
+  "iconNameComponent": "Component",
+  "iconNameHdmi": "HDMI",
+  "iconNameComposite": "Composite",
+  "iconNameAntenna": "Antenna",
+  "iconNameFavorite": "Favoriet",
+  "iconNameFavoriteOutline": "Favoriet Outline",
+  "iconNameStar": "Star",
+  "iconNameStarOutline": "Star Outline",
+  "iconNameBookmark": "Bookmark",
+  "iconNameBookmarkOutline": "Bookmark Outline",
+  "iconNameFlag": "Flag",
+  "iconNameCheck": "Check",
+  "iconNameDone": "Klaar",
+  "iconNameDoneAll": "Klaar All",
+  "iconNameSchedule": "Schedule",
+  "iconNameTimer": "Timer",
+  "iconNameTime": "Time",
+  "iconNameAlarm": "Alarm",
+  "iconNameNotifications": "Notifications",
+  "iconNameLock": "Lock",
+  "iconNameUnlock": "Unlock",
+  "iconNameLight": "Licht",
+  "iconNameLightOutline": "Licht Outline",
+  "iconNameWarmLight": "Warm Licht",
+  "iconNameSunny": "Sunny",
+  "iconNameCloudy": "Cloudy",
+  "iconNameNight": "Night",
+  "iconNameFlare": "Flare",
+  "iconNameGradient": "Gradient",
+  "iconNameInvertColors": "Invert Colors",
+  "iconNamePalette": "Palette",
+  "iconNameColor": "Color",
+  "iconNameTonality": "Tonality",
+  "iconNameSearch": "Zoeken",
+  "iconNameRefresh": "Vernieuwen",
+  "iconNameSync": "Sync",
+  "iconNameUpdate": "Update",
+  "iconNameDownload": "Download",
+  "iconNameUpload": "Upload",
+  "iconNameCloud": "Cloud",
+  "iconNameFolder": "Folder",
+  "iconNameDelete": "Verwijderen",
+  "iconNameEdit": "Bewerken",
+  "iconNameSave": "Opslaan",
+  "iconNameShare": "Share",
+  "iconNamePrint": "Print",
+  "iconNameLanguage": "Taal",
+  "iconNameTranslate": "Translate",
+  "iconNameMicNone": "Mic None",
+  "iconNameSubtitles": "Subtitles",
+  "iconNameClosedCaption": "Sluitend Caption",
+  "iconNameMusic": "Music",
+  "iconNameMovie": "Movie",
+  "iconNameTheater": "Theater",
+  "iconNameLiveTv": "Live TV",
+  "iconNameRadio": "Radio",
+  "iconNameCamera": "Camera",
+  "iconNameVideoCamera": "Video Camera",
+  "iconNamePhotoCamera": "Photo Camera",
+  "iconNameSlowMotion": "Slow Motion",
+  "iconNameSpeed": "Speed",
+  "iconNameVideoSettings": "Video Instellingen",
+  "iconNameAudioTrack": "Audio Track",
+  "iconNameGraphicEq": "Graphic EQ",
+  "iconNameMusicVideo": "Music Video",
+  "iconNamePlaylist": "Playlist",
+  "iconNameQueue": "Queue",
+  "iconNameNum0Fa": "0 FA",
+  "iconNameNum1Fa": "1 FA",
+  "iconNameNum2Fa": "2 FA",
+  "iconNameNum3Fa": "3 FA",
+  "iconNameNum4Fa": "4 FA",
+  "iconNameNum5Fa": "5 FA",
+  "iconNameNum6Fa": "6 FA",
+  "iconNameNum7Fa": "7 FA",
+  "iconNameNum8Fa": "8 FA",
+  "iconNameNum9Fa": "9 FA",
+  "iconNameHashFa": "Hash # FA",
+  "iconNamePercentFa": "Percent % FA",
+  "iconNameDivideFa": "Divide ÷ FA",
+  "iconNameMultiplyFa": "Multiply × FA",
+  "iconNameEqualsFa": "Equals = FA",
+  "iconNameNotEqualFa": "Not Equal ≠ FA",
+  "iconNameGreaterThanFa": "Greater Than > FA",
+  "iconNameLessThanFa": "Less Than < FA",
+  "iconNameAsteriskFa": "Asterisk * FA",
+  "iconNameAFa": "A FA",
+  "iconNameBFa": "B FA",
+  "iconNameCFa": "C FA",
+  "iconNameDFa": "D FA",
+  "iconNameEFa": "E FA",
+  "iconNameFFa": "F FA",
+  "iconNameGFa": "G FA",
+  "iconNameHFa": "H FA",
+  "iconNameIFa": "I FA",
+  "iconNameJFa": "J FA",
+  "iconNameKFa": "K FA",
+  "iconNameLFa": "L FA",
+  "iconNameMFa": "M FA",
+  "iconNameNFa": "N FA",
+  "iconNameOFa": "O FA",
+  "iconNamePFa": "P FA",
+  "iconNameQFa": "Q FA",
+  "iconNameRFa": "R FA",
+  "iconNameSFa": "S FA",
+  "iconNameTFa": "T FA",
+  "iconNameUFa": "U FA",
+  "iconNameVFa": "V FA",
+  "iconNameWFa": "W FA",
+  "iconNameXFa": "X FA",
+  "iconNameYFa": "Y FA",
+  "iconNameZFa": "Z FA",
+  "iconNamePlayFa": "Play FA",
+  "iconNamePauseFa": "Pause FA",
+  "iconNameStopFa": "Stop FA",
+  "iconNamePlayFaOutline": "Play FA Outline",
+  "iconNamePauseFaOutline": "Pause FA Outline",
+  "iconNameStopFaOutline": "Stop FA Outline",
+  "iconNameBackwardFa": "Backward FA",
+  "iconNameForwardFa": "Forward FA",
+  "iconNamePreviousFa": "Previous FA",
+  "iconNameNextFa": "Next FA",
+  "iconNameRewindFa": "Rewind FA",
+  "iconNameFastForwardFa": "Fast Forward FA",
+  "iconNameRepeatFa": "Repeat FA",
+  "iconNameShuffleFa": "Shuffle FA",
+  "iconNameEjectFa": "Eject FA",
+  "iconNameFilmFa": "Film FA",
+  "iconNameVideoFa": "Video FA",
+  "iconNameMusicFa": "Music FA",
+  "iconNameMicrophoneFa": "Microphone FA",
+  "iconNameCameraFa": "Camera FA",
+  "iconNameCameraRetroFa": "Camera Retro FA",
+  "iconNameVolumeHighFa": "Volume High FA",
+  "iconNameVolumeLowFa": "Volume Low FA",
+  "iconNameVolumeOffFa": "Volume Off FA",
+  "iconNameMuteFa": "Mute FA",
+  "iconNameMicMuteFa": "Mic Mute FA",
+  "iconNameHeadphonesFa": "Headphones FA",
+  "iconNameSpeakerFa": "Speaker FA",
+  "iconNameUpFa": "Up FA",
+  "iconNameDownFa": "Down FA",
+  "iconNameLeftFa": "Left FA",
+  "iconNameRightFa": "Right FA",
+  "iconNameUpFaOutline": "Up FA Outline",
+  "iconNameDownFaOutline": "Down FA Outline",
+  "iconNameLeftFaOutline": "Left FA Outline",
+  "iconNameRightFaOutline": "Right FA Outline",
+  "iconNameArrowUpFa": "Arrow Up FA",
+  "iconNameArrowDownFa": "Arrow Down FA",
+  "iconNameArrowLeftFa": "Arrow Left FA",
+  "iconNameArrowRightFa": "Arrow Right FA",
+  "iconNameChevronUpFa": "Chevron Up FA",
+  "iconNameChevronDownFa": "Chevron Down FA",
+  "iconNameChevronLeftFa": "Chevron Left FA",
+  "iconNameChevronRightFa": "Chevron Right FA",
+  "iconNameOkFa": "OK FA",
+  "iconNameOkFaOutline": "OK FA Outline",
+  "iconNameCheckFa": "Check FA",
+  "iconNameCloseFa": "Close FA",
+  "iconNameCloseCircleFa": "Close Circle FA",
+  "iconNameHomeFa": "Home FA",
+  "iconNameUndoFa": "Undo FA",
+  "iconNameRedoFa": "Redo FA",
+  "iconNameRotateFa": "Rotate FA",
+  "iconNameSearchFa": "Search FA",
+  "iconNameRefreshFa": "Refresh FA",
+  "iconNamePowerOffFa": "Power Off FA",
+  "iconNamePlugFa": "Plug FA",
+  "iconNameToggleOnFa": "Toggle On FA",
+  "iconNameToggleOffFa": "Toggle Off FA",
+  "iconNameSettingsFa": "Settings FA",
+  "iconNameSettingsAltFa": "Settings Alt FA",
+  "iconNameMenuFa": "Menu FA",
+  "iconNameMoreFa": "More FA",
+  "iconNameMoreVerticalFa": "More Vertical FA",
+  "iconNameInfoFa": "Info FA",
+  "iconNameInfoFaOutline": "Info FA Outline",
+  "iconNameHelpFa": "Help FA",
+  "iconNameHelpFaOutline": "Help FA Outline",
+  "iconNameListFa": "List FA",
+  "iconNameGridFa": "Grid FA",
+  "iconNameSlidersFa": "Sliders FA",
+  "iconNameTvFa": "TV FA",
+  "iconNameMonitorFa": "Monitor FA",
+  "iconNameDesktopFa": "Desktop FA",
+  "iconNameBrightnessFa": "Brightness FA",
+  "iconNameNightModeFa": "Night Mode FA",
+  "iconNameLightFa": "Light FA",
+  "iconNameLightFaOutline": "Light FA Outline",
+  "iconNameFlashFa": "Flash FA",
+  "iconNameFullscreenFa": "Fullscreen FA",
+  "iconNameExitFullscreenFa": "Exit Fullscreen FA",
+  "iconNameZoomInFa": "Zoom In FA",
+  "iconNameZoomOutFa": "Zoom Out FA",
+  "iconNameSubtitlesFa": "Subtitles FA",
+  "iconNamePictureInPictureFa": "Picture in Picture FA",
+  "iconNameColorFa": "Color FA",
+  "iconNamePaintFa": "Paint FA",
+  "iconNameInputFa": "Input FA",
+  "iconNameWifiFa": "WiFi FA",
+  "iconNameBluetoothFa": "Bluetooth FA",
+  "iconNameUsbFa": "USB FA",
+  "iconNameEthernetFa": "Ethernet FA",
+  "iconNameGamepadFa": "Gamepad FA",
+  "iconNameBroadcastFa": "Broadcast FA",
+  "iconNameSatelliteFa": "Satellite FA",
+  "iconNameAntennaFa": "Antenna FA",
+  "iconNameNetworkFa": "Network FA",
+  "iconNameCloudFa": "Cloud FA",
+  "iconNameStarFa": "Star FA",
+  "iconNameStarFaOutline": "Star FA Outline",
+  "iconNameHeartFa": "Heart FA",
+  "iconNameHeartFaOutline": "Heart FA Outline",
+  "iconNameBookmarkFa": "Bookmark FA",
+  "iconNameBookmarkFaOutline": "Bookmark FA Outline",
+  "iconNameFlagFa": "Flag FA",
+  "iconNameClockFa": "Clock FA",
+  "iconNameClockFaOutline": "Clock FA Outline",
+  "iconNameBellFa": "Bell FA",
+  "iconNameBellFaOutline": "Bell FA Outline",
+  "iconNameTimerFa": "Timer FA",
+  "iconNameLockFa": "Lock FA",
+  "iconNameUnlockFa": "Unlock FA",
+  "iconNameGalleryFa": "Gallery FA",
+  "iconNameImagesFa": "Images FA",
+  "iconNameImageFa": "Image FA",
+  "iconNameVideoFileFa": "Video File FA",
+  "iconNameAudioFileFa": "Audio File FA",
+  "iconNamePlayOutlineFa": "Play Outline FA",
+  "iconNamePlaySimpleFa": "Play Simple FA",
+  "iconNamePauseSimpleFa": "Pause Simple FA",
+  "iconNameStopSimpleFa": "Stop Simple FA",
+  "iconNameRecordFa": "Record FA",
+  "iconNameStopCircleFa": "Stop Circle FA",
+  "iconNameLoadingFa": "Loading FA",
+  "iconNameTextFa": "Text FA",
+  "iconNameTextSizeFa": "Text Size FA",
+  "iconNameLanguageFa": "Language FA",
+  "iconNameGlobeFa": "Globe FA",
+  "iconNameSubtitlesAltFa": "Subtitles Alt FA",
+  "iconNameSubtitlesAltOutlineFa": "Subtitles Alt Outline FA",
+  "iconNameChannelUpFa": "Channel Up FA",
+  "iconNameChannelDownFa": "Channel Down FA",
+  "iconNamePageUpFa": "Page Up FA",
+  "iconNamePageDownFa": "Page Down FA",
+  "iconNameGuideFa": "Guide FA",
+  "iconNameGridViewFa": "Grid View FA",
+  "iconNameGridAltFa": "Grid Alt FA",
+  "iconNameScheduleFa": "Schedule FA",
+  "iconNameCalendarFa": "Calendar FA",
+  "iconNameRedButtonFa": "Red Button FA",
+  "iconNameButtonOutlineFa": "Button Outline FA",
+  "iconNameSquareButtonFa": "Square Button FA",
+  "iconNameSquareOutlineFa": "Square Outline FA",
+  "iconNameDotCircleFa": "Dot Circle FA",
+  "iconNameToolsFa": "Tools FA",
+  "iconNameScrewdriverFa": "Screwdriver FA",
+  "iconNameHammerFa": "Hammer FA",
+  "iconNameToolboxFa": "Toolbox FA",
+  "iconNameCogFa": "Cog FA",
+  "iconNameAdjustFa": "Adjust FA",
+  "iconNameFilterFa": "Filter FA",
+  "iconNameSortDownFa": "Sort Down FA",
+  "iconNameSortUpFa": "Sort Up FA",
+  "iconNameSleepFa": "Sleep FA",
+  "iconNameTimerStartFa": "Timer Start FA",
+  "iconNameTimerHalfFa": "Timer Half FA",
+  "iconNameTimerEndFa": "Timer End FA",
+  "iconNameStopwatchFa": "Stopwatch FA",
+  "iconNameAlarmFa": "Alarm FA",
+  "iconNameCropAltFa": "Crop Alt FA",
+  "iconNameCropFa": "Crop FA",
+  "iconNameSquareFullFa": "Square Full FA",
+  "iconNameFullscreenAltFa": "Fullscreen Alt FA",
+  "iconNameZoomPlusFa": "Zoom Plus FA",
+  "iconNameZoomMinusFa": "Zoom Minus FA",
+  "iconNameMusicNoteFa": "Music Note FA",
+  "iconNameCdFa": "CD FA",
+  "iconNameVinylFa": "Vinyl FA",
+  "iconNameRssFa": "RSS FA",
+  "iconNameMagicFa": "Magic FA",
+  "iconNameFingerprintFa": "Fingerprint FA",
+  "iconNameUserFa": "User FA",
+  "iconNameUsersFa": "Users FA",
+  "iconNameChildModeFa": "Child Mode FA",
+  "iconNameCastFa": "Cast FA",
+  "iconNameStreamFa": "Stream FA",
+  "iconNameSignalFa": "Signal FA",
+  "iconNameFeedFa": "Feed FA",
+  "iconNameCircleArrowUpFa": "Circle Arrow Up FA",
+  "iconNameCircleArrowDownFa": "Circle Arrow Down FA",
+  "iconNameCircleArrowLeftFa": "Circle Arrow Left FA",
+  "iconNameCircleArrowRightFa": "Circle Arrow Right FA",
+  "iconNameLongArrowUpFa": "Long Arrow Up FA",
+  "iconNameLongArrowDownFa": "Long Arrow Down FA",
+  "iconNameLongArrowLeftFa": "Long Arrow Left FA",
+  "iconNameLongArrowRightFa": "Long Arrow Right FA",
+  "iconNamePlusFa": "Plus FA",
+  "iconNameMinusFa": "Minus FA",
+  "iconNamePlusCircleFa": "Plus Circle FA",
+  "iconNameMinusCircleFa": "Minus Circle FA",
+  "iconNamePlusSquareFa": "Plus Square FA",
+  "iconNameMinusSquareFa": "Minus Square FA",
+  "iconNameTimesFa": "Times FA",
+  "iconNameTimesCircleFa": "Times Circle FA",
+  "iconNameBatteryFullFa": "Battery Full FA",
+  "iconNameBattery34Fa": "Battery 3/4 FA",
+  "iconNameBatteryHalfFa": "Battery Half FA",
+  "iconNameBattery14Fa": "Battery 1/4 FA",
+  "iconNameBatteryEmptyFa": "Battery Empty FA",
+  "iconNameChargingFa": "Charging FA",
+  "iconNameCloudSunFa": "Cloud Sun FA",
+  "iconNameCloudMoonFa": "Cloud Moon FA",
+  "iconNameRainFa": "Rain FA",
+  "iconNameSnowflakeFa": "Snowflake FA",
+  "iconNameFireFa": "Fire FA",
+  "iconNameTemperatureFa": "Temperature FA",
+  "iconNameBoxFa": "Box FA",
+  "iconNameGiftFa": "Gift FA",
+  "iconNameTrophyFa": "Trophy FA",
+  "iconNameCrownFa": "Crown FA",
+  "iconNameGemFa": "Gem FA",
+  "unknownLabel": "Onbekend",
+  "selectedFilesLabel": "geselecteerd file(s)",
+  "folderNotFoundOrInaccessible": "Map niet gevonden of niet toegankelijk.",
+  "importedRemoteDefaultName": "ImporterenedAfstandsbediening",
+  "demoRemoteName": "Demo Afstandsbediening",
+  "protocolFieldsInvalid": "Fill vereist protocol fields and ensure frequency is 15k–60k if set.",
+  "unknownProtocolSelected": "Onbekend protocol geselecteerd.",
+  "forceInAppVibrationTitle": "Force in-app vibration",
+  "forceInAppVibrationSubtitle": "Use the vibrator directly even if system touch feedback is off",
+  "forceInAppVibrationWarning": "Advanced option. This can make the app vibrate even when Android touch feedback is disabled globally.",
+  "forceInAppVibrationBlockedMasterWarning": "Android system vibration is disabled. Force in-app vibration cannot override it on this device.",
+  "forceInAppVibrationNoVibratorWarning": "This device reports no vibrator hardware, so in-app vibration cannot work."
+}

@@ -229,7 +229,9 @@ class _BootstrapScreenState extends State<_BootstrapScreen> {
     try {
       bootstrapL10n = await AppLocalizations.delegate.load(bootstrapLocale);
     } catch (_) {
-      bootstrapL10n = await AppLocalizations.delegate.load(supportedLocales.first);
+      bootstrapL10n = await AppLocalizations.delegate.load(
+        AppLocaleController.instance.resolveActiveLocale(supportedLocales, const Locale('en')),
+      );
     }
     await MediaStore.ensureInitialized().timeout(
       const Duration(seconds: 8),
