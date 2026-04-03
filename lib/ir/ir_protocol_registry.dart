@@ -5,6 +5,7 @@ import 'protocols/raw_signal.dart';
 import 'protocols/denon.dart';
 import 'protocols/f12_relaxed.dart';
 import 'protocols/jvc.dart';
+import 'protocols/marantz.dart';
 import 'protocols/nec2.dart';
 import 'protocols/necx1.dart';
 import 'protocols/necx2.dart';
@@ -35,6 +36,7 @@ class IrProtocolIds {
   static const String denon = 'denon';
   static const String f12Relaxed = 'f12_relaxed';
   static const String jvc = 'jvc';
+  static const String marantz = 'marantz';
   static const String nec = 'nec';
   static const String nec2 = 'nec2';
   static const String necx1 = 'necx1';
@@ -70,6 +72,7 @@ class IrProtocolRegistry {
     denonProtocolDefinition.id: denonProtocolDefinition,
     f12RelaxedProtocolDefinition.id: f12RelaxedProtocolDefinition,
     jvcProtocolDefinition.id: jvcProtocolDefinition,
+    marantzProtocolDefinition.id: marantzProtocolDefinition,
     nec2ProtocolDefinition.id: nec2ProtocolDefinition,
     necx1ProtocolDefinition.id: necx1ProtocolDefinition,
     necx2ProtocolDefinition.id: necx2ProtocolDefinition,
@@ -102,6 +105,8 @@ class IrProtocolRegistry {
     DenonProtocolEncoder.protocolId: const DenonProtocolEncoder(),
     F12RelaxedProtocolEncoder.protocolId: const F12RelaxedProtocolEncoder(),
     JvcProtocolEncoder.protocolId: const JvcProtocolEncoder(),
+
+    MarantzProtocolEncoder.protocolId: const MarantzProtocolEncoder(),
 
     NecProtocolEncoder.protocolId: const NecProtocolEncoder(),
     Nec2ProtocolEncoder.protocolId: const Nec2ProtocolEncoder(),
