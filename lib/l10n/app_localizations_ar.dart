@@ -875,8 +875,14 @@ class AppLocalizationsAr extends AppLocalizations {
   String get reorderMode => 'Reorder mode';
 
   @override
-  String remoteButtonCount(Object count, Object plural) {
-    return '$count زر$plural';
+  String remoteButtonCountLabel(int count) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: '$count buttons',
+      one: '$count button',
+    );
+    return '$_temp0';
   }
 
   @override
@@ -946,8 +952,14 @@ class AppLocalizationsAr extends AppLocalizations {
   String get noRemote => 'لا يوجد جهاز تحكم';
 
   @override
-  String macroStepCount(Object count, Object plural) {
-    return '$count خطوة$plural';
+  String macroStepCountLabel(int count) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: '$count steps',
+      one: '$count step',
+    );
+    return '$_temp0';
   }
 
   @override
@@ -4839,8 +4851,14 @@ class AppLocalizationsArEg extends AppLocalizationsAr {
   String get reorderMode => 'Reorder mode';
 
   @override
-  String remoteButtonCount(Object count, Object plural) {
-    return '$count زر$plural';
+  String remoteButtonCountLabel(int count) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: '$count buttons',
+      one: '$count button',
+    );
+    return '$_temp0';
   }
 
   @override
@@ -4910,8 +4928,14 @@ class AppLocalizationsArEg extends AppLocalizationsAr {
   String get noRemote => 'لا يوجد جهاز تحكم';
 
   @override
-  String macroStepCount(Object count, Object plural) {
-    return '$count خطوة$plural';
+  String macroStepCountLabel(int count) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: '$count steps',
+      one: '$count step',
+    );
+    return '$_temp0';
   }
 
   @override

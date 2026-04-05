@@ -893,8 +893,14 @@ class AppLocalizationsPl extends AppLocalizations {
   String get reorderMode => 'Tryb zmiany kolejności';
 
   @override
-  String remoteButtonCount(Object count, Object plural) {
-    return '$count przycisk$plural';
+  String remoteButtonCountLabel(int count) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: '$count buttons',
+      one: '$count button',
+    );
+    return '$_temp0';
   }
 
   @override
@@ -966,8 +972,14 @@ class AppLocalizationsPl extends AppLocalizations {
   String get noRemote => 'Brak pilota';
 
   @override
-  String macroStepCount(Object count, Object plural) {
-    return '$count krok$plural';
+  String macroStepCountLabel(int count) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: '$count steps',
+      one: '$count step',
+    );
+    return '$_temp0';
   }
 
   @override

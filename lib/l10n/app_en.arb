@@ -343,11 +343,12 @@
   "addRemote": "Add remote",
   "more": "More",
   "reorderMode": "Reorder mode",
-  "remoteButtonCount": "{count} button{plural}",
-  "@remoteButtonCount": {
+  "remoteButtonCountLabel": "{count, plural, one{{count} button} other{{count} buttons}}",
+  "@remoteButtonCountLabel": {
     "placeholders": {
-      "count": {},
-      "plural": {}
+      "count": {
+        "type": "int"
+      }
     }
   },
   "noRemotesYet": "No remotes yet",
@@ -370,11 +371,12 @@
   "macroExampleText": "i-cybie Advanced Mode:\n1. Send \"Mode\" command\n2. Wait 1000ms (toy processes)\n3. Send \"Action 1\"\n4. Wait 1000ms\n5. Send \"Action 2\"\n…and so on automatically!",
   "createFirstMacro": "Create Your First Macro",
   "noRemote": "No remote",
-  "macroStepCount": "{count} step{plural}",
-  "@macroStepCount": {
+  "macroStepCountLabel": "{count, plural, one{{count} step} other{{count} steps}}",
+  "@macroStepCountLabel": {
     "placeholders": {
-      "count": {},
-      "plural": {}
+      "count": {
+        "type": "int"
+      }
     }
   },
   "aboutTimedMacros": "About Timed Macros",

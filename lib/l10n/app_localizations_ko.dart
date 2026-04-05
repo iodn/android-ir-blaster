@@ -853,8 +853,14 @@ class AppLocalizationsKo extends AppLocalizations {
   String get reorderMode => '순서 변경 모드';
 
   @override
-  String remoteButtonCount(Object count, Object plural) {
-    return '버튼 $count개$plural';
+  String remoteButtonCountLabel(int count) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: '$count buttons',
+      one: '$count button',
+    );
+    return '$_temp0';
   }
 
   @override
@@ -923,8 +929,14 @@ class AppLocalizationsKo extends AppLocalizations {
   String get noRemote => '없음 리모컨';
 
   @override
-  String macroStepCount(Object count, Object plural) {
-    return '$count단계$plural';
+  String macroStepCountLabel(int count) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: '$count steps',
+      one: '$count step',
+    );
+    return '$_temp0';
   }
 
   @override

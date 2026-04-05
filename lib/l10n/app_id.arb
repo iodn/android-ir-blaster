@@ -1847,5 +1847,21 @@
   "forceInAppVibrationSubtitle": "Gunakan vibrator secara langsung meskipun umpan balik sentuhan sistem dimatikan",
   "forceInAppVibrationWarning": "Opsi lanjutan. Aplikasi dapat bergetar meskipun umpan balik sentuhan Android dinonaktifkan secara global.",
   "forceInAppVibrationBlockedMasterWarning": "Android system vibration is disabled. Force in-app vibration cannot override it on this device.",
-  "forceInAppVibrationNoVibratorWarning": "This device reports no vibrator hardware, so in-app vibration cannot work."
+  "forceInAppVibrationNoVibratorWarning": "This device reports no vibrator hardware, so in-app vibration cannot work.",
+  "remoteButtonCountLabel": "{count, plural, one{{count} button} other{{count} buttons}}",
+  "@remoteButtonCountLabel": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "macroStepCountLabel": "{count, plural, one{{count} step} other{{count} steps}}",
+  "@macroStepCountLabel": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  }
 }

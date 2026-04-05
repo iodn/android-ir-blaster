@@ -43,7 +43,7 @@
   "homeNoIrTransmitterTitle": "Kein IR-Sender verfügbar",
   "settingsNavLabel": "Einstellungen",
   "dismiss": "Schließen",
-  "remotesNavLabel": "Fernbedienungen",
+  "remotesNavLabel": "Remotes",
   "macrosNavLabel": "Makros",
   "signalTesterNavLabel": "Signaltester",
   "settingsTitle": "Einstellungen",
@@ -338,11 +338,12 @@
   "addRemote": "Fernbedienung hinzufügen",
   "more": "Mehr",
   "reorderMode": "Sortiermodus",
-  "remoteButtonCount": "{count} Taste{plural}",
-  "@remoteButtonCount": {
+  "remoteButtonCountLabel": "{count, plural, one{{count} Taste} other{{count} Tasten}}",
+  "@remoteButtonCountLabel": {
     "placeholders": {
-      "count": {},
-      "plural": {}
+      "count": {
+        "type": "int"
+      }
     }
   },
   "noRemotesYet": "Noch keine Fernbedienungen",
@@ -365,11 +366,12 @@
   "macroExampleText": "i-cybie erweiterter Modus\n1. Befehl Modus senden\n2. 1000 ms warten Gerät verarbeitet\n3. Aktion 1 senden\n4. 1000 ms warten\n5. Aktion 2 senden\n… und so weiter automatisch",
   "createFirstMacro": "Dein erstes Makro erstellen",
   "noRemote": "Keine Fernbedienung",
-  "macroStepCount": "{count} Schritt{plural}",
-  "@macroStepCount": {
+  "macroStepCountLabel": "{count, plural, one{{count} Schritt} other{{count} Schritte}}",
+  "@macroStepCountLabel": {
     "placeholders": {
-      "count": {},
-      "plural": {}
+      "count": {
+        "type": "int"
+      }
     }
   },
   "aboutTimedMacros": "Über zeitgesteuerte Makros",

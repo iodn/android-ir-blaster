@@ -1847,5 +1847,21 @@
   "forceInAppVibrationSubtitle": "Usa direttamente il vibratore anche se il feedback tattile di sistema è disattivato",
   "forceInAppVibrationWarning": "Opzione avanzata. L'app può vibrare anche quando il feedback tattile di Android è disattivato globalmente.",
   "forceInAppVibrationBlockedMasterWarning": "Android system vibration is disabled. Force in-app vibration cannot override it on this device.",
-  "forceInAppVibrationNoVibratorWarning": "This device reports no vibrator hardware, so in-app vibration cannot work."
+  "forceInAppVibrationNoVibratorWarning": "This device reports no vibrator hardware, so in-app vibration cannot work.",
+  "remoteButtonCountLabel": "{count, plural, one{{count} button} other{{count} buttons}}",
+  "@remoteButtonCountLabel": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "macroStepCountLabel": "{count, plural, one{{count} step} other{{count} steps}}",
+  "@macroStepCountLabel": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  }
 }

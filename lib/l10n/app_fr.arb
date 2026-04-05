@@ -1847,5 +1847,21 @@
   "importedRemoteDefaultName": "TélécommandeImportée",
   "demoRemoteName": "Télécommande de démonstration",
   "protocolFieldsInvalid": "Remplissez les champs requis du protocole et vérifiez que la fréquence est comprise entre 15 kHz et 60 kHz si elle est définie.",
-  "unknownProtocolSelected": "Protocole sélectionné inconnu."
+  "unknownProtocolSelected": "Protocole sélectionné inconnu.",
+  "remoteButtonCountLabel": "{count, plural, one{{count} button} other{{count} buttons}}",
+  "@remoteButtonCountLabel": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "macroStepCountLabel": "{count, plural, one{{count} step} other{{count} steps}}",
+  "@macroStepCountLabel": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  }
 }

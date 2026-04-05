@@ -1847,5 +1847,21 @@
   "forceInAppVibrationSubtitle": "시스템 터치 피드백이 꺼져 있어도 진동기를 직접 사용합니다",
   "forceInAppVibrationWarning": "고급 옵션입니다. Android 터치 피드백이 전역으로 꺼져 있어도 앱이 진동할 수 있습니다.",
   "forceInAppVibrationBlockedMasterWarning": "Android system vibration is disabled. Force in-app vibration cannot override it on this device.",
-  "forceInAppVibrationNoVibratorWarning": "This device reports no vibrator hardware, so in-app vibration cannot work."
+  "forceInAppVibrationNoVibratorWarning": "This device reports no vibrator hardware, so in-app vibration cannot work.",
+  "remoteButtonCountLabel": "{count, plural, one{{count} button} other{{count} buttons}}",
+  "@remoteButtonCountLabel": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "macroStepCountLabel": "{count, plural, one{{count} step} other{{count} steps}}",
+  "@macroStepCountLabel": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  }
 }

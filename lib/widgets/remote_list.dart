@@ -734,10 +734,7 @@ class _RemoteCard extends StatelessWidget {
                     const SizedBox(width: 6),
                     Flexible(
                       child: Text(
-                        context.l10n.remoteButtonCount(
-                          count.toString(),
-                          count != 1 ? 's' : '',
-                        ),
+                        context.l10n.remoteButtonCountLabel(count),
                         style: theme.textTheme.labelSmall?.copyWith(
                           fontWeight: FontWeight.w800,
                           color: cs.onSurface.withValues(alpha: 0.85),

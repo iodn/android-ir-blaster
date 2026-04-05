@@ -339,10 +339,7 @@ class _MacrosTabState extends State<MacrosTab> {
                                   ),
                                   const SizedBox(width: 4),
                                   Text(
-                                    context.l10n.macroStepCount(
-                                      stepCount.toString(),
-                                      stepCount != 1 ? 's' : '',
-                                    ),
+                                    context.l10n.macroStepCountLabel(stepCount),
                                     style: TextStyle(
                                       fontSize: 11,
                                       fontWeight: FontWeight.w800,

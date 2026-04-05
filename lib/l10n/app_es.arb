@@ -1847,5 +1847,21 @@
   "importedRemoteDefaultName": "MandoImportado",
   "demoRemoteName": "Mando demo",
   "protocolFieldsInvalid": "Rellena los campos obligatorios del protocolo y asegúrate de que la frecuencia sea 15k–60k si se define.",
-  "unknownProtocolSelected": "Se seleccionó un protocolo desconocido."
+  "unknownProtocolSelected": "Se seleccionó un protocolo desconocido.",
+  "remoteButtonCountLabel": "{count, plural, one{{count} button} other{{count} buttons}}",
+  "@remoteButtonCountLabel": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "macroStepCountLabel": "{count, plural, one{{count} step} other{{count} steps}}",
+  "@macroStepCountLabel": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  }
 }

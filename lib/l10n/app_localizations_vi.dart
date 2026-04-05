@@ -883,8 +883,14 @@ class AppLocalizationsVi extends AppLocalizations {
   String get reorderMode => 'Chế độ sắp xếp lại';
 
   @override
-  String remoteButtonCount(Object count, Object plural) {
-    return '$count nút$plural';
+  String remoteButtonCountLabel(int count) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: '$count buttons',
+      one: '$count button',
+    );
+    return '$_temp0';
   }
 
   @override
@@ -955,8 +961,14 @@ class AppLocalizationsVi extends AppLocalizations {
   String get noRemote => 'Không có điều khiển';
 
   @override
-  String macroStepCount(Object count, Object plural) {
-    return '$count bước$plural';
+  String macroStepCountLabel(int count) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: '$count steps',
+      one: '$count step',
+    );
+    return '$_temp0';
   }
 
   @override

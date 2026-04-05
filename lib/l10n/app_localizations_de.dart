@@ -159,7 +159,7 @@ class AppLocalizationsDe extends AppLocalizations {
   String get dismiss => 'Schließen';
 
   @override
-  String get remotesNavLabel => 'Fernbedienungen';
+  String get remotesNavLabel => 'Remotes';
 
   @override
   String get macrosNavLabel => 'Makros';
@@ -900,8 +900,14 @@ class AppLocalizationsDe extends AppLocalizations {
   String get reorderMode => 'Sortiermodus';
 
   @override
-  String remoteButtonCount(Object count, Object plural) {
-    return '$count Taste$plural';
+  String remoteButtonCountLabel(int count) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: '$count Tasten',
+      one: '$count Taste',
+    );
+    return '$_temp0';
   }
 
   @override
@@ -973,8 +979,14 @@ class AppLocalizationsDe extends AppLocalizations {
   String get noRemote => 'Keine Fernbedienung';
 
   @override
-  String macroStepCount(Object count, Object plural) {
-    return '$count Schritt$plural';
+  String macroStepCountLabel(int count) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: '$count Schritte',
+      one: '$count Schritt',
+    );
+    return '$_temp0';
   }
 
   @override

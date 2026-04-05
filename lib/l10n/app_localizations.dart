@@ -1674,11 +1674,11 @@ abstract class AppLocalizations {
   /// **'Reorder mode'**
   String get reorderMode;
 
-  /// No description provided for @remoteButtonCount.
+  /// No description provided for @remoteButtonCountLabel.
   ///
   /// In en, this message translates to:
-  /// **'{count} button{plural}'**
-  String remoteButtonCount(Object count, Object plural);
+  /// **'{count, plural, one{{count} button} other{{count} buttons}}'**
+  String remoteButtonCountLabel(int count);
 
   /// No description provided for @noRemotesYet.
   ///
@@ -1800,11 +1800,11 @@ abstract class AppLocalizations {
   /// **'No remote'**
   String get noRemote;
 
-  /// No description provided for @macroStepCount.
+  /// No description provided for @macroStepCountLabel.
   ///
   /// In en, this message translates to:
-  /// **'{count} step{plural}'**
-  String macroStepCount(Object count, Object plural);
+  /// **'{count, plural, one{{count} step} other{{count} steps}}'**
+  String macroStepCountLabel(int count);
 
   /// No description provided for @aboutTimedMacros.
   ///

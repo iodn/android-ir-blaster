@@ -124,7 +124,7 @@ class _IrFinderScreenState extends State<IrFinderScreen> with WidgetsBindingObse
                 final r = list[i];
                 return ListTile(
                   title: Text(r.name.isEmpty ? context.l10n.remoteNumber(r.id.toString()) : r.name),
-                  subtitle: Text(context.l10n.remoteButtonCount(r.buttons.length, r.buttons.length == 1 ? '' : 's')),
+                  subtitle: Text(context.l10n.remoteButtonCountLabel(r.buttons.length)),
                   onTap: () => Navigator.of(ctx).pop(r),
                 );
               },

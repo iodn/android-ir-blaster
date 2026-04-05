@@ -209,7 +209,7 @@ class _RemotePickerSheet extends StatelessWidget {
                   final r = remotes[i];
                   return ListTile(
                     title: Text(r.name),
-                    subtitle: Text(context.l10n.remoteButtonCount(r.buttons.length, r.buttons.length == 1 ? '' : 's')),
+                    subtitle: Text(context.l10n.remoteButtonCountLabel(r.buttons.length)),
                     trailing: const Icon(Icons.chevron_right),
                     onTap: () => Navigator.of(context).pop(r),
                   );
