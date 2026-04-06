@@ -21,6 +21,7 @@ import android.os.VibrationAttributes
 import android.os.Vibrator
 import android.os.VibratorManager
 import android.provider.Settings
+import android.util.Base64
 import android.util.Log
 import android.view.HapticFeedbackConstants
 import androidx.annotation.NonNull
@@ -49,6 +50,8 @@ class MainActivity : FlutterActivity() {
     private var usbManager: UsbManager? = null
     private var usbDiscovery: UsbDiscoveryManager? = null
     private var usbTransmitter: UsbIrTransmitter? = null
+    @Volatile private var usbLearner: TiqiaaUsbLearner? = null
+    @Volatile private var usbLearningCancelRequested: Boolean = false
     private var usbState: UsbAvailabilityState = UsbAvailabilityState.NO_DEVICE
     private var usbStateMessage: String? = null
 
@@ -188,6 +191,11 @@ class MainActivity : FlutterActivity() {
     }
 
     private fun acquireUsbTransmitter(requestPermissionIfNeeded: Boolean): UsbAcquireResult {
+        if (usbLearner != null) {
+            setUsbState(UsbAvailabilityState.OPEN_FAILED, "USB dongle is busy in learning mode.")
+            return UsbAcquireResult(null, UsbAvailabilityState.OPEN_FAILED)
+        }
+
         usbTransmitter?.let {
             setUsbState(UsbAvailabilityState.READY, "USB dongle is connected and initialized.")
             return UsbAcquireResult(it, UsbAvailabilityState.READY)
@@ -469,6 +477,9 @@ class MainActivity : FlutterActivity() {
                     "setAutoSwitchEnabled" -> handleSetAutoSwitchEnabled(call, result)
                     "getOpenOnUsbAttachEnabled" -> result.success(openOnUsbAttachEnabled)
                     "setOpenOnUsbAttachEnabled" -> handleSetOpenOnUsbAttachEnabled(call, result)
+                    "learnUsbSignal" -> handleLearnUsbSignal(call, result)
+                    "cancelUsbLearning" -> handleCancelUsbLearning(result)
+                    "replayLearnedUsbSignal" -> handleReplayLearnedUsbSignal(call, result)
                     else -> result.notImplemented()
                 }
             }
@@ -821,6 +832,8 @@ class MainActivity : FlutterActivity() {
         } catch (_: Throwable) {
         }
         txEventSink = null
+        usbLearner?.closeSafely()
+        usbLearner = null
         usbTransmitter?.closeSafely()
         usbTransmitter = null
         audio1Tx.stop()
@@ -866,6 +879,47 @@ class MainActivity : FlutterActivity() {
             )
         }
         return tx
+    }
+
+    private fun openTiqiaaLearnerDevice(device: UsbDevice): TiqiaaUsbLearner? {
+        val mgr = usbManager ?: return null
+        return TiqiaaUsbLearner.open(mgr, device)
+    }
+
+    private fun beginUsbLearningSession(): UsbDevice? {
+        val disc = usbDiscovery ?: return null
+        val mgr = usbManager ?: return null
+        val dev = try {
+            disc.scanSupported().firstOrNull { UsbDeviceFilter.isTiqiaaTviewFamily(it) }
+        } catch (_: Throwable) {
+            null
+        } ?: return null
+        if (!mgr.hasPermission(dev)) {
+            return null
+        }
+
+        usbLearner?.closeSafely()
+        usbLearner = null
+        usbTransmitter?.closeSafely()
+        usbTransmitter = null
+        refreshUsbStateSnapshot()
+        emitTxStatus("usb_learning_session_begin")
+        emitTxStatusDelayed("usb_learning_session_begin_delayed", 150L)
+        return dev
+    }
+
+    private fun endUsbLearningSession(reason: String) {
+        usbLearner?.closeSafely()
+        usbLearner = null
+
+        try {
+            openUsbIfPermitted()?.let { usbTransmitter = it }
+        } catch (_: Throwable) {
+        }
+
+        refreshUsbStateSnapshot()
+        emitTxStatus(reason)
+        emitTxStatusDelayed("${reason}_delayed", 250L)
     }
 
     private fun getOrOpenUsbTransmitterOrRequest(): UsbIrTransmitter? {
@@ -1164,6 +1218,150 @@ class MainActivity : FlutterActivity() {
         result.success(buildTxCapsMap())
     }
 
+    private fun handleLearnUsbSignal(call: MethodCall, result: MethodChannel.Result) {
+        if (usbLearner != null) {
+            result.error("LEARN_BUSY", "USB learning is already active", null)
+            return
+        }
+
+        val timeoutMs = (call.argument<Int>("timeoutMs") ?: 30000).coerceIn(1000, 60000)
+        val disc = usbDiscovery
+        val mgr = usbManager
+        if (disc == null || mgr == null) {
+            result.error("NO_USB", "UsbManager not available", null)
+            return
+        }
+
+        val dev = try {
+            disc.scanSupported().firstOrNull { UsbDeviceFilter.isTiqiaaTviewFamily(it) }
+        } catch (_: Throwable) {
+            null
+        }
+        if (dev == null) {
+            result.error("LEARN_UNSUPPORTED", "No Tiqiaa/ZaZa learning-capable USB dongle is attached", null)
+            return
+        }
+        if (!mgr.hasPermission(dev)) {
+            disc.requestPermission(dev)
+            result.error("USB_PERMISSION_REQUIRED", "USB permission is required for the attached dongle.", null)
+            return
+        }
+
+        val sessionDevice = beginUsbLearningSession()
+        if (sessionDevice == null) {
+            result.error("LEARN_OPEN_FAILED", "The Tiqiaa/ZaZa dongle could not be prepared for learning", null)
+            return
+        }
+        usbLearningCancelRequested = false
+
+        Thread {
+            var learner: TiqiaaUsbLearner? = null
+            try {
+                learner = openTiqiaaLearnerDevice(sessionDevice)
+                if (learner == null) {
+                    runOnUiThread {
+                        result.error("LEARN_OPEN_FAILED", "The Tiqiaa/ZaZa dongle could not be opened for learning", null)
+                    }
+                    return@Thread
+                }
+
+                usbLearner = learner
+                val learned = learner.learn(timeoutMs) { usbLearningCancelRequested }
+                runOnUiThread {
+                    if (usbLearningCancelRequested) {
+                        result.success(null)
+                    } else if (learned != null) {
+                        result.success(learned.toWireMap())
+                    } else {
+                        result.error("LEARN_TIMEOUT", "No IR signal was captured before the listening window expired", null)
+                    }
+                }
+            } catch (t: Throwable) {
+                Log.w(TAG, "learnUsbSignal failed: ${t.message}", t)
+                runOnUiThread {
+                    result.error("LEARN_FAILED", t.message ?: "USB learning failed", null)
+                }
+            } finally {
+                usbLearningCancelRequested = false
+                learner?.closeSafely()
+                endUsbLearningSession("usb_learning_finished")
+            }
+        }.start()
+    }
+
+    private fun handleCancelUsbLearning(result: MethodChannel.Result) {
+        usbLearningCancelRequested = true
+        usbLearner?.cancel()
+        result.success(true)
+    }
+
+    private fun handleReplayLearnedUsbSignal(call: MethodCall, result: MethodChannel.Result) {
+        val family = (call.argument<String>("family") ?: "").trim().lowercase()
+        val frameBase64 = (call.argument<String>("opaqueFrameBase64") ?: "").trim()
+        if (family != "tiqiaa" || frameBase64.isEmpty()) {
+            result.error("BAD_LEARNED_SIGNAL", "Missing learned Tiqiaa frame payload", null)
+            return
+        }
+
+        val frame = try {
+            Base64.decode(frameBase64, Base64.DEFAULT)
+        } catch (t: Throwable) {
+            result.error("BAD_LEARNED_SIGNAL", "Opaque Tiqiaa frame is not valid Base64", null)
+            return
+        }
+
+        val disc = usbDiscovery
+        val mgr = usbManager
+        if (disc == null || mgr == null) {
+            result.error("NO_USB", "UsbManager not available", null)
+            return
+        }
+        val dev = try {
+            disc.scanSupported().firstOrNull { UsbDeviceFilter.isTiqiaaTviewFamily(it) }
+        } catch (_: Throwable) {
+            null
+        }
+        if (dev == null) {
+            result.error("NO_USB_DEVICE", "No Tiqiaa/ZaZa USB dongle is attached", null)
+            return
+        }
+        if (!mgr.hasPermission(dev)) {
+            disc.requestPermission(dev)
+            result.error("USB_PERMISSION_REQUIRED", "USB permission is required for the attached dongle.", null)
+            return
+        }
+
+        val sessionDevice = beginUsbLearningSession()
+        if (sessionDevice == null) {
+            result.error("LEARNED_REPLAY_FAILED", "The Tiqiaa/ZaZa dongle could not be prepared for replay", null)
+            return
+        }
+
+        Thread {
+            var learner: TiqiaaUsbLearner? = null
+            try {
+                learner = openTiqiaaLearnerDevice(sessionDevice)
+                usbLearner = learner
+                val ok = learner?.replayOpaqueFrame(frame) == true
+                runOnUiThread {
+                    if (ok) {
+                        result.success(true)
+                    } else {
+                        result.error("LEARNED_REPLAY_FAILED", "The Tiqiaa learned signal could not be replayed", null)
+                    }
+                }
+            } catch (t: Throwable) {
+                Log.w(TAG, "replayLearnedUsbSignal failed: ${t.message}", t)
+                runOnUiThread {
+                    result.error("LEARNED_REPLAY_FAILED", t.message ?: "Replay failed", null)
+                }
+            } finally {
+                learner?.closeSafely()
+                endUsbLearningSession("usb_learning_replay_finished")
+            }
+        }.start()
+    }
+
     private fun handleUsbScanAndRequest(result: MethodChannel.Result) {
         val disc = usbDiscovery
         val mgr = usbManager
@@ -1395,6 +1593,13 @@ class MainActivity : FlutterActivity() {
     }
 
     private fun UsbIrTransmitter.closeSafely() {
+        try {
+            close()
+        } catch (_: Throwable) {
+        }
+    }
+
+    private fun TiqiaaUsbLearner.closeSafely() {
         try {
             close()
         } catch (_: Throwable) {

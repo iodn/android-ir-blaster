@@ -894,6 +894,540 @@ abstract class AppLocalizations {
   /// **'Choose which hardware sends IR commands'**
   String get irTransmitterSubtitle;
 
+  /// No description provided for @learningModeEntryTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Learning Mode'**
+  String get learningModeEntryTitle;
+
+  /// No description provided for @learningModeEntrySubtitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Capture a button from a physical remote step by step'**
+  String get learningModeEntrySubtitle;
+
+  /// No description provided for @learningModeTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Learning Mode'**
+  String get learningModeTitle;
+
+  /// No description provided for @learningModeHeroTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Learn a remote button cleanly'**
+  String get learningModeHeroTitle;
+
+  /// No description provided for @learningModeHeroSubtitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Set up your receiver, prepare the original remote, capture one command, then review it before saving it into a remote.'**
+  String get learningModeHeroSubtitle;
+
+  /// No description provided for @learningModeReadyBadge.
+  ///
+  /// In en, this message translates to:
+  /// **'Receiver ready'**
+  String get learningModeReadyBadge;
+
+  /// No description provided for @learningModeNeedsPermissionBadge.
+  ///
+  /// In en, this message translates to:
+  /// **'USB permission needed'**
+  String get learningModeNeedsPermissionBadge;
+
+  /// No description provided for @learningModeSetupBadge.
+  ///
+  /// In en, this message translates to:
+  /// **'Receiver setup needed'**
+  String get learningModeSetupBadge;
+
+  /// No description provided for @learningModeNoReceiverBadge.
+  ///
+  /// In en, this message translates to:
+  /// **'No learning receiver'**
+  String get learningModeNoReceiverBadge;
+
+  /// No description provided for @learningModeCheckingBadge.
+  ///
+  /// In en, this message translates to:
+  /// **'Checking hardware'**
+  String get learningModeCheckingBadge;
+
+  /// No description provided for @learningModeFourStepFlow.
+  ///
+  /// In en, this message translates to:
+  /// **'4-step guided flow'**
+  String get learningModeFourStepFlow;
+
+  /// No description provided for @learningModeSaveAnywhereBadge.
+  ///
+  /// In en, this message translates to:
+  /// **'Review before save'**
+  String get learningModeSaveAnywhereBadge;
+
+  /// No description provided for @learningModeGuideTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Pick up where capture should happen'**
+  String get learningModeGuideTitle;
+
+  /// No description provided for @learningModeStepHardwareShort.
+  ///
+  /// In en, this message translates to:
+  /// **'Hardware'**
+  String get learningModeStepHardwareShort;
+
+  /// No description provided for @learningModeStepPrepareShort.
+  ///
+  /// In en, this message translates to:
+  /// **'Prepare'**
+  String get learningModeStepPrepareShort;
+
+  /// No description provided for @learningModeStepCaptureShort.
+  ///
+  /// In en, this message translates to:
+  /// **'Capture'**
+  String get learningModeStepCaptureShort;
+
+  /// No description provided for @learningModeStepReviewShort.
+  ///
+  /// In en, this message translates to:
+  /// **'Review'**
+  String get learningModeStepReviewShort;
+
+  /// No description provided for @learningModeStepHardwareTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Check receiver hardware'**
+  String get learningModeStepHardwareTitle;
+
+  /// No description provided for @learningModeStepHardwareSubtitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Make sure a compatible learning receiver is attached and authorized before starting.'**
+  String get learningModeStepHardwareSubtitle;
+
+  /// No description provided for @learningModeCurrentSenderLabel.
+  ///
+  /// In en, this message translates to:
+  /// **'Current transmitter'**
+  String get learningModeCurrentSenderLabel;
+
+  /// No description provided for @learningModeReceiverStatusLabel.
+  ///
+  /// In en, this message translates to:
+  /// **'Learning status'**
+  String get learningModeReceiverStatusLabel;
+
+  /// No description provided for @learningModeCheckingHardwareBody.
+  ///
+  /// In en, this message translates to:
+  /// **'Checking available transmitter and USB receiver state.'**
+  String get learningModeCheckingHardwareBody;
+
+  /// No description provided for @learningModeHardwareReadyBody.
+  ///
+  /// In en, this message translates to:
+  /// **'A USB IR dongle is attached and initialized. This is the right place to start the learning flow once capture wiring is connected.'**
+  String get learningModeHardwareReadyBody;
+
+  /// No description provided for @learningModeHardwarePermissionBody.
+  ///
+  /// In en, this message translates to:
+  /// **'A USB dongle is present, but Android permission is still blocking it. Grant USB permission in the transmitter section before learning.'**
+  String get learningModeHardwarePermissionBody;
+
+  /// No description provided for @learningModeHardwareSetupBody.
+  ///
+  /// In en, this message translates to:
+  /// **'A dongle is partially detected, but it still needs setup or reconnecting before learning can begin reliably.'**
+  String get learningModeHardwareSetupBody;
+
+  /// No description provided for @learningModeHardwareNoReceiverBody.
+  ///
+  /// In en, this message translates to:
+  /// **'No compatible receiver hardware is currently available. Learning mode is intended for supported external dongles with receive capability.'**
+  String get learningModeHardwareNoReceiverBody;
+
+  /// No description provided for @learningModeRefreshHardware.
+  ///
+  /// In en, this message translates to:
+  /// **'Refresh hardware status'**
+  String get learningModeRefreshHardware;
+
+  /// No description provided for @learningModeHardwareTipTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Best placement'**
+  String get learningModeHardwareTipTitle;
+
+  /// No description provided for @learningModeHardwareTipBody.
+  ///
+  /// In en, this message translates to:
+  /// **'Learning Mode lives under IR Transmitter because it depends on hardware availability and is used less often than sending remotes.'**
+  String get learningModeHardwareTipBody;
+
+  /// No description provided for @learningModeStepPrepareTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Prepare the original remote'**
+  String get learningModeStepPrepareTitle;
+
+  /// No description provided for @learningModeStepPrepareSubtitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Decide what you are learning, then keep the original remote steady and close to the receiver.'**
+  String get learningModeStepPrepareSubtitle;
+
+  /// No description provided for @learningModeButtonNameLabel.
+  ///
+  /// In en, this message translates to:
+  /// **'Button name'**
+  String get learningModeButtonNameLabel;
+
+  /// No description provided for @learningModeButtonNameHint.
+  ///
+  /// In en, this message translates to:
+  /// **'For example: HDMI 1, Power, Menu'**
+  String get learningModeButtonNameHint;
+
+  /// No description provided for @learningModeSinglePress.
+  ///
+  /// In en, this message translates to:
+  /// **'Single press'**
+  String get learningModeSinglePress;
+
+  /// No description provided for @learningModeHoldButton.
+  ///
+  /// In en, this message translates to:
+  /// **'Hold button'**
+  String get learningModeHoldButton;
+
+  /// No description provided for @learningModePreparationChecklistTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Before you capture'**
+  String get learningModePreparationChecklistTitle;
+
+  /// No description provided for @learningModePreparationItemDistance.
+  ///
+  /// In en, this message translates to:
+  /// **'Keep the original remote roughly 2 to 5 cm from the receiver.'**
+  String get learningModePreparationItemDistance;
+
+  /// No description provided for @learningModePreparationItemOneButton.
+  ///
+  /// In en, this message translates to:
+  /// **'Learn one button at a time and use a short, clean press first.'**
+  String get learningModePreparationItemOneButton;
+
+  /// No description provided for @learningModePreparationItemStill.
+  ///
+  /// In en, this message translates to:
+  /// **'Keep both devices steady to avoid noisy or partial captures.'**
+  String get learningModePreparationItemStill;
+
+  /// No description provided for @learningModeStepCaptureTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Capture the signal'**
+  String get learningModeStepCaptureTitle;
+
+  /// No description provided for @learningModeStepCaptureSubtitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Listen for a single command, then lock the result before reviewing it.'**
+  String get learningModeStepCaptureSubtitle;
+
+  /// No description provided for @learningModeCaptureReadyTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Ready to listen'**
+  String get learningModeCaptureReadyTitle;
+
+  /// No description provided for @learningModeCaptureReadyBody.
+  ///
+  /// In en, this message translates to:
+  /// **'Your hardware state looks good. The capture backend will plug into this step next.'**
+  String get learningModeCaptureReadyBody;
+
+  /// No description provided for @learningModeCaptureBlockedTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Hardware not ready yet'**
+  String get learningModeCaptureBlockedTitle;
+
+  /// No description provided for @learningModeCaptureBlockedBody.
+  ///
+  /// In en, this message translates to:
+  /// **'You can still review the flow now, but capture should wait until the receiver is ready.'**
+  String get learningModeCaptureBlockedBody;
+
+  /// No description provided for @learningModeStartListening.
+  ///
+  /// In en, this message translates to:
+  /// **'Start listening'**
+  String get learningModeStartListening;
+
+  /// No description provided for @learningModeCaptureStubTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Capture backend comes next'**
+  String get learningModeCaptureStubTitle;
+
+  /// No description provided for @learningModeCaptureStubBody.
+  ///
+  /// In en, this message translates to:
+  /// **'This screen is fully scaffolded first so the final capture flow can plug into real hardware states instead of being bolted on later.'**
+  String get learningModeCaptureStubBody;
+
+  /// No description provided for @learningModeCaptureStubMessage.
+  ///
+  /// In en, this message translates to:
+  /// **'Learning capture is not wired yet. This screen scaffolds the full flow first.'**
+  String get learningModeCaptureStubMessage;
+
+  /// No description provided for @learningModeUnnamedCapture.
+  ///
+  /// In en, this message translates to:
+  /// **'Unnamed capture'**
+  String get learningModeUnnamedCapture;
+
+  /// No description provided for @learningModeStatusCheckingTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Checking receiver'**
+  String get learningModeStatusCheckingTitle;
+
+  /// No description provided for @learningModeStatusNoReceiverTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Receiver not ready'**
+  String get learningModeStatusNoReceiverTitle;
+
+  /// No description provided for @learningModeStatusPermissionTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'USB permission required'**
+  String get learningModeStatusPermissionTitle;
+
+  /// No description provided for @learningModeStatusSetupTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Receiver needs setup'**
+  String get learningModeStatusSetupTitle;
+
+  /// No description provided for @learningModeStatusReadyTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Ready to learn'**
+  String get learningModeStatusReadyTitle;
+
+  /// No description provided for @learningModeStatusListeningTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Listening for a signal'**
+  String get learningModeStatusListeningTitle;
+
+  /// No description provided for @learningModeStatusCapturedTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Signal captured'**
+  String get learningModeStatusCapturedTitle;
+
+  /// No description provided for @learningModeStatusReadyBody.
+  ///
+  /// In en, this message translates to:
+  /// **'Name the button, point the original remote at the receiver, and start listening when you are ready.'**
+  String get learningModeStatusReadyBody;
+
+  /// No description provided for @learningModeStatusListeningBody.
+  ///
+  /// In en, this message translates to:
+  /// **'Press the original remote button now. Once capture is wired, this state will lock onto the next clean signal.'**
+  String get learningModeStatusListeningBody;
+
+  /// No description provided for @learningModeStatusCapturedBody.
+  ///
+  /// In en, this message translates to:
+  /// **'A learned signal preview is ready for {buttonName}. Replay it, confirm it works, then save it into your library.'**
+  String learningModeStatusCapturedBody(Object buttonName);
+
+  /// No description provided for @learningModeConnectReceiverTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Connect a compatible learning dongle'**
+  String get learningModeConnectReceiverTitle;
+
+  /// No description provided for @learningModeConnectReceiverBody.
+  ///
+  /// In en, this message translates to:
+  /// **'Learning mode depends on external hardware that can receive IR. Once the receiver is detected and authorized, this page becomes a direct listen -> test -> save flow.'**
+  String get learningModeConnectReceiverBody;
+
+  /// No description provided for @learningModeListenCardTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Listen for one button'**
+  String get learningModeListenCardTitle;
+
+  /// No description provided for @learningModeListenCardBody.
+  ///
+  /// In en, this message translates to:
+  /// **'Set a label first if you want, then start listening and press the button on the original remote.'**
+  String get learningModeListenCardBody;
+
+  /// No description provided for @learningModeReadyToListenTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Ready to listen'**
+  String get learningModeReadyToListenTitle;
+
+  /// No description provided for @learningModeReadyToListenBody.
+  ///
+  /// In en, this message translates to:
+  /// **'This is the main capture surface. Start listening only when the original remote is aimed and steady.'**
+  String get learningModeReadyToListenBody;
+
+  /// No description provided for @learningModeListeningNowTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Listening now'**
+  String get learningModeListeningNowTitle;
+
+  /// No description provided for @learningModeListeningNowBody.
+  ///
+  /// In en, this message translates to:
+  /// **'Press the original remote button once. Use preview capture to move through the rest of the scaffold before the real capture backend is wired.'**
+  String get learningModeListeningNowBody;
+
+  /// No description provided for @learningModePreviewCaptureAction.
+  ///
+  /// In en, this message translates to:
+  /// **'Preview captured signal'**
+  String get learningModePreviewCaptureAction;
+
+  /// No description provided for @learningModeCapturedSummary.
+  ///
+  /// In en, this message translates to:
+  /// **'Learned signal preview'**
+  String get learningModeCapturedSummary;
+
+  /// No description provided for @learningModeResultActionsTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Test and save'**
+  String get learningModeResultActionsTitle;
+
+  /// No description provided for @learningModeResultActionsBody.
+  ///
+  /// In en, this message translates to:
+  /// **'Replay the learned signal, verify the target device responds, then save it as a reusable button.'**
+  String get learningModeResultActionsBody;
+
+  /// No description provided for @learningModeReplayAction.
+  ///
+  /// In en, this message translates to:
+  /// **'Replay'**
+  String get learningModeReplayAction;
+
+  /// No description provided for @learningModeReplayStubMessage.
+  ///
+  /// In en, this message translates to:
+  /// **'Replay is not wired yet. This is the UI scaffold for the final learn -> test -> save flow.'**
+  String get learningModeReplayStubMessage;
+
+  /// No description provided for @learningModeSaveStubMessage.
+  ///
+  /// In en, this message translates to:
+  /// **'Save is not wired yet. The next step is connecting this screen to Create Button and existing remotes.'**
+  String get learningModeSaveStubMessage;
+
+  /// No description provided for @learningModeLearnAnotherAction.
+  ///
+  /// In en, this message translates to:
+  /// **'Learn another button'**
+  String get learningModeLearnAnotherAction;
+
+  /// No description provided for @learningModeStepReviewTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Review and save'**
+  String get learningModeStepReviewTitle;
+
+  /// No description provided for @learningModeStepReviewSubtitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Confirm what was learned, then choose where it should live in your remote library.'**
+  String get learningModeStepReviewSubtitle;
+
+  /// No description provided for @learningModeSaveToExistingRemote.
+  ///
+  /// In en, this message translates to:
+  /// **'Existing remote'**
+  String get learningModeSaveToExistingRemote;
+
+  /// No description provided for @learningModeCreateNewRemote.
+  ///
+  /// In en, this message translates to:
+  /// **'New remote'**
+  String get learningModeCreateNewRemote;
+
+  /// No description provided for @learningModeProtocolPreviewTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Protocol preview'**
+  String get learningModeProtocolPreviewTitle;
+
+  /// No description provided for @learningModeProtocolPreviewBody.
+  ///
+  /// In en, this message translates to:
+  /// **'Decoded protocol details will appear here once the receiver captures a clean button press.'**
+  String get learningModeProtocolPreviewBody;
+
+  /// No description provided for @learningModeRawPreviewTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Raw fallback'**
+  String get learningModeRawPreviewTitle;
+
+  /// No description provided for @learningModeRawPreviewBody.
+  ///
+  /// In en, this message translates to:
+  /// **'If decoding is incomplete, the raw timing capture will still be available here for review and saving.'**
+  String get learningModeRawPreviewBody;
+
+  /// No description provided for @learningModeSaveCapture.
+  ///
+  /// In en, this message translates to:
+  /// **'Save capture'**
+  String get learningModeSaveCapture;
+
+  /// No description provided for @learningModeReviewTipTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Where this will go next'**
+  String get learningModeReviewTipTitle;
+
+  /// No description provided for @learningModeReviewTipBody.
+  ///
+  /// In en, this message translates to:
+  /// **'The next implementation step should connect this review panel to Create Button and existing remotes so the learned signal drops directly into your library.'**
+  String get learningModeReviewTipBody;
+
+  /// No description provided for @learningModeFinishPreview.
+  ///
+  /// In en, this message translates to:
+  /// **'Finish preview'**
+  String get learningModeFinishPreview;
+
+  /// No description provided for @backAction.
+  ///
+  /// In en, this message translates to:
+  /// **'Back'**
+  String get backAction;
+
   /// No description provided for @interactionTitle.
   ///
   /// In en, this message translates to:
@@ -7621,6 +8155,54 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'MACRO'**
   String get globalSearchTypeMacro;
+
+  /// No description provided for @learningModeCaptureFailed.
+  ///
+  /// In en, this message translates to:
+  /// **'Learning capture failed.'**
+  String get learningModeCaptureFailed;
+
+  /// No description provided for @learningModeReplaySent.
+  ///
+  /// In en, this message translates to:
+  /// **'Learned signal replayed.'**
+  String get learningModeReplaySent;
+
+  /// No description provided for @learningModeReplayFailed.
+  ///
+  /// In en, this message translates to:
+  /// **'The learned signal could not be replayed.'**
+  String get learningModeReplayFailed;
+
+  /// No description provided for @learningModeNoRemotesAvailable.
+  ///
+  /// In en, this message translates to:
+  /// **'There are no saved remotes yet.'**
+  String get learningModeNoRemotesAvailable;
+
+  /// No description provided for @learningModeChooseRemoteTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Choose a remote'**
+  String get learningModeChooseRemoteTitle;
+
+  /// No description provided for @learningModeNewRemoteTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Create a new remote'**
+  String get learningModeNewRemoteTitle;
+
+  /// No description provided for @learningModeSaveSuccess.
+  ///
+  /// In en, this message translates to:
+  /// **'Learned button saved.'**
+  String get learningModeSaveSuccess;
+
+  /// No description provided for @learningModeSaveFailed.
+  ///
+  /// In en, this message translates to:
+  /// **'The learned button could not be saved.'**
+  String get learningModeSaveFailed;
 }
 
 class _AppLocalizationsDelegate

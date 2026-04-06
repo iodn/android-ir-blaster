@@ -4,6 +4,7 @@ class SectionCard extends StatelessWidget {
   final String title;
   final String? subtitle;
   final Widget? leading;
+  final Widget? titleSuffix;
   final Widget child;
 
   const SectionCard({
@@ -11,6 +12,7 @@ class SectionCard extends StatelessWidget {
     required this.title,
     this.subtitle,
     this.leading,
+    this.titleSuffix,
     required this.child,
   });
 
@@ -34,16 +36,28 @@ class SectionCard extends StatelessWidget {
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    Text(
-                      title,
-                      style: theme.textTheme.titleMedium?.copyWith(fontWeight: FontWeight.w900),
+                    Row(
+                      children: [
+                        Flexible(
+                          child: Text(
+                            title,
+                            style: theme.textTheme.titleMedium?.copyWith(
+                              fontWeight: FontWeight.w900,
+                            ),
+                          ),
+                        ),
+                        if (titleSuffix != null) ...[
+                          const SizedBox(width: 8),
+                          titleSuffix!,
+                        ],
+                      ],
                     ),
                     if (subtitle != null) ...[
                       const SizedBox(height: 2),
                       Text(
                         subtitle!,
                         style: theme.textTheme.bodySmall?.copyWith(
-                          color: cs.onSurface.withOpacity(0.7),
+                          color: cs.onSurface.withValues(alpha: 0.7),
                         ),
                       ),
                     ],
@@ -55,10 +69,10 @@ class SectionCard extends StatelessWidget {
         ),
         Card(
           elevation: 0,
-          color: cs.surfaceContainerHighest.withOpacity(0.5),
+          color: cs.surfaceContainerHighest.withValues(alpha: 0.5),
           shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(16),
-            side: BorderSide(color: cs.outlineVariant.withOpacity(0.3)),
+            side: BorderSide(color: cs.outlineVariant.withValues(alpha: 0.3)),
           ),
           child: Padding(
             padding: const EdgeInsets.all(4),

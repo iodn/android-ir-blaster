@@ -21,6 +21,7 @@ import 'package:irblaster_controller/widgets/settings/widgets/section_card.dart'
 import 'package:irblaster_controller/widgets/settings/widgets/support_pill.dart';
 import 'package:irblaster_controller/widgets/universal_power_screen.dart';
 import 'package:irblaster_controller/widgets/device_controls_screen.dart';
+import 'package:irblaster_controller/widgets/learning_mode_screen.dart';
 import 'package:irblaster_controller/widgets/quick_settings_screen.dart';
 import 'package:package_info_plus/package_info_plus.dart';
 import 'package:url_launcher/url_launcher.dart';
@@ -482,6 +483,8 @@ class SettingsScreen extends StatelessWidget {
           const SizedBox(height: 10),
           _buildIrTransmitterSection(context, cs),
           const SizedBox(height: 10),
+          _buildLearningSection(context, cs),
+          const SizedBox(height: 10),
           _buildRemotesSection(context),
           const SizedBox(height: 10),
           _buildDeviceControlsSection(context),
@@ -751,7 +754,71 @@ class SettingsScreen extends StatelessWidget {
         title: context.l10n.irTransmitterTitle,
         subtitle: context.l10n.irTransmitterSubtitle,
         leading: Icon(Icons.settings_input_antenna_rounded, color: cs.primary),
+        titleSuffix: _buildSignalBadge(
+          context,
+          label: 'TX',
+          foreground: cs.primary,
+          background: cs.primaryContainer,
+        ),
         child: const _IrTransmitterCard(),
+      ),
+    );
+  }
+
+  Widget _buildLearningSection(BuildContext context, ColorScheme cs) {
+    return Padding(
+      padding: const EdgeInsets.symmetric(horizontal: 16),
+      child: SectionCard(
+        title: context.l10n.learningModeEntryTitle,
+        subtitle: context.l10n.learningModeEntrySubtitle,
+        leading: Icon(Icons.sensors_rounded, color: cs.primary),
+        titleSuffix: _buildSignalBadge(
+          context,
+          label: 'RX',
+          foreground: cs.secondary,
+          background: cs.secondaryContainer,
+        ),
+        child: Column(
+          children: [
+            ListTile(
+              leading: const Icon(Icons.sensors_rounded),
+              title: Text(context.l10n.learningModeEntryTitle),
+              subtitle: Text(context.l10n.learningModeEntrySubtitle),
+              trailing: const Icon(Icons.chevron_right_rounded),
+              onTap: () {
+                Navigator.of(context).push(
+                  MaterialPageRoute<void>(
+                    builder: (_) => const LearningModeScreen(),
+                  ),
+                );
+              },
+            ),
+          ],
+        ),
+      ),
+    );
+  }
+
+  Widget _buildSignalBadge(
+    BuildContext context, {
+    required String label,
+    required Color foreground,
+    required Color background,
+  }) {
+    final theme = Theme.of(context);
+    return Container(
+      padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 3),
+      decoration: BoxDecoration(
+        color: background,
+        borderRadius: BorderRadius.circular(999),
+      ),
+      child: Text(
+        label,
+        style: theme.textTheme.labelSmall?.copyWith(
+          color: foreground,
+          fontWeight: FontWeight.w800,
+          letterSpacing: 0.5,
+        ),
       ),
     );
   }

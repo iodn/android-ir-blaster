@@ -144,6 +144,38 @@ class IrTransmitterCapabilities {
   }
 }
 
+class LearnedUsbSignal {
+  final String family;
+  final List<int> rawPatternUs;
+  final String opaqueFrameBase64;
+  final int opaqueMeta;
+  final int quality;
+  final int frequencyHz;
+
+  const LearnedUsbSignal({
+    required this.family,
+    required this.rawPatternUs,
+    required this.opaqueFrameBase64,
+    required this.opaqueMeta,
+    required this.quality,
+    required this.frequencyHz,
+  });
+
+  factory LearnedUsbSignal.fromMap(Map<String, dynamic> m) {
+    final raw = (m['rawPatternUs'] as List?) ?? const [];
+    return LearnedUsbSignal(
+      family: (m['family'] as String? ?? '').trim(),
+      rawPatternUs: raw.map((e) => (e as num).toInt()).toList(growable: false),
+      opaqueFrameBase64: (m['opaqueFrameBase64'] as String? ?? '').trim(),
+      opaqueMeta: (m['opaqueMeta'] as num?)?.toInt() ?? 0,
+      quality: (m['quality'] as num?)?.toInt() ?? -1,
+      frequencyHz: (m['frequencyHz'] as num?)?.toInt() ?? 38000,
+    );
+  }
+
+  String get rawPreview => rawPatternUs.join(' ');
+}
+
 class IrTransmitterPlatform {
   IrTransmitterPlatform._();
 
@@ -245,5 +277,40 @@ class IrTransmitterPlatform {
   static Future<bool> setOpenOnUsbAttachEnabled(bool enabled) async {
     final v = await _ch.invokeMethod('setOpenOnUsbAttachEnabled', <String, dynamic>{'enabled': enabled});
     return v == true;
+  }
+
+  static Future<LearnedUsbSignal?> learnUsbSignal({int timeoutMs = 30000}) async {
+    final raw = await _ch.invokeMethod(
+      'learnUsbSignal',
+      <String, dynamic>{'timeoutMs': timeoutMs},
+    );
+    if (raw == null) return null;
+    if (raw is Map) {
+      final m = raw.map((k, v) => MapEntry(k.toString(), v)).cast<String, dynamic>();
+      return LearnedUsbSignal.fromMap(m);
+    }
+    throw PlatformException(
+      code: 'BAD_LEARNED_SIGNAL',
+      message: 'Unexpected learned USB signal payload',
+    );
+  }
+
+  static Future<bool> cancelUsbLearning() async {
+    final raw = await _ch.invokeMethod('cancelUsbLearning');
+    return raw == true;
+  }
+
+  static Future<bool> replayLearnedUsbSignal({
+    required String family,
+    required String opaqueFrameBase64,
+  }) async {
+    final raw = await _ch.invokeMethod(
+      'replayLearnedUsbSignal',
+      <String, dynamic>{
+        'family': family,
+        'opaqueFrameBase64': opaqueFrameBase64,
+      },
+    );
+    return raw == true;
   }
 }

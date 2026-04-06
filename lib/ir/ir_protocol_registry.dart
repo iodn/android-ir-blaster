@@ -27,6 +27,7 @@ import 'protocols/sony12.dart';
 import 'protocols/sony15.dart';
 import 'protocols/sony20.dart';
 import 'protocols/thomson7.dart';
+import 'protocols/tiqiaa_learned.dart';
 import 'protocols/xsat.dart';
 
 class IrProtocolIds {
@@ -58,6 +59,7 @@ class IrProtocolIds {
   static const String thomson7 = 'thomson7';
   static const String xsat = 'xsat';
   static const String kaseikyo = 'kaseikyo';
+  static const String tiqiaaLearned = 'tiqiaa_learned';
 }
 
 class IrProtocolRegistry {
@@ -90,6 +92,7 @@ class IrProtocolRegistry {
     sony15ProtocolDefinition.id: sony15ProtocolDefinition,
     sony20ProtocolDefinition.id: sony20ProtocolDefinition,
     thomson7ProtocolDefinition.id: thomson7ProtocolDefinition,
+    tiqiaaLearnedProtocolDefinition.id: tiqiaaLearnedProtocolDefinition,
     xsatProtocolDefinition.id: xsatProtocolDefinition,
   };
 
