@@ -8,6 +8,7 @@ import 'package:irblaster_controller/ir/ir_protocol_types.dart';
 import 'package:irblaster_controller/ir_finder/irblaster_db.dart';
 import 'package:irblaster_controller/ir_finder/ir_finder_models.dart';
 import 'package:irblaster_controller/l10n/l10n.dart';
+import 'package:irblaster_controller/state/last_action_strip.dart';
 import 'package:irblaster_controller/utils/button_color_accessibility.dart';
 import 'package:irblaster_controller/utils/ir.dart';
 import 'package:irblaster_controller/utils/remote.dart';
@@ -16,8 +17,11 @@ import 'package:irblaster_controller/widgets/icon_picker.dart';
 import 'package:uuid/uuid.dart';
 
 enum _LabelType { image, text, icon }
+
 enum _SignalType { hex, raw, protocol }
+
 enum _NecBitOrder { msb, lsb }
+
 enum _DbPreset { power, volume, channel, navigation, all }
 
 class CreateButton extends StatefulWidget {
@@ -152,7 +156,8 @@ class _CreateButtonState extends State<CreateButton> {
         _syncProtocolControllersFromDefinition(normalizedParams);
 
         // If params were empty or incomplete, try deriving from legacy code as a last step
-        if ((b.protocolParams == null || b.protocolParams!.isEmpty) && b.code != null) {
+        if ((b.protocolParams == null || b.protocolParams!.isEmpty) &&
+            b.code != null) {
           final hexFallback = b.code!.toRadixString(16).toUpperCase();
           _fillProtocolFieldsFromDbHex(hexFallback);
         }
@@ -174,12 +179,14 @@ class _CreateButtonState extends State<CreateButton> {
         zeroSpaceCtrl.text = params.zeroSpace.toString();
         oneSpaceCtrl.text = params.oneSpace.toString();
         trailerMarkCtrl.text = params.trailerMark.toString();
-        _necBitOrder =
-            ((b.necBitOrder ?? 'msb').toLowerCase() == 'lsb') ? _NecBitOrder.lsb : _NecBitOrder.msb;
+        _necBitOrder = ((b.necBitOrder ?? 'msb').toLowerCase() == 'lsb')
+            ? _NecBitOrder.lsb
+            : _NecBitOrder.msb;
       } else if (hasRaw) {
         _signalType = _SignalType.raw;
         rawDataController.text = b.rawData!;
-        freqController.text = (b.frequency ?? kDefaultNecFrequencyHz).toString();
+        freqController.text =
+            (b.frequency ?? kDefaultNecFrequencyHz).toString();
       } else if (b.code != null) {
         _signalType = _SignalType.hex;
         useCustomNec = false;
@@ -244,8 +251,9 @@ class _CreateButtonState extends State<CreateButton> {
     protoFreqController.addListener(onChanged);
   }
 
-  String get _screenTitle =>
-      widget.button == null ? context.l10n.createButtonTitle : context.l10n.editButtonTitle;
+  String get _screenTitle => widget.button == null
+      ? context.l10n.createButtonTitle
+      : context.l10n.editButtonTitle;
 
   bool get _hasLabel {
     if (_labelType == _LabelType.image) return _imagePath != null;
@@ -341,10 +349,16 @@ class _CreateButtonState extends State<CreateButton> {
     return true;
   }
 
-  bool get _canSave => _hasLabel && _hexLooksValid && _rawLooksValid && _customNecLooksValid && _protocolLooksValid;
+  bool get _canSave =>
+      _hasLabel &&
+      _hexLooksValid &&
+      _rawLooksValid &&
+      _customNecLooksValid &&
+      _protocolLooksValid;
 
   void _showSnack(String message) {
-    ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text(message)));
+    ScaffoldMessenger.of(context)
+        .showSnackBar(SnackBar(content: Text(message)));
   }
 
   static bool _coerceBool(dynamic v) {
@@ -363,7 +377,8 @@ class _CreateButtonState extends State<CreateButton> {
   }
 
   bool _fieldLooksHexLike(IrFieldDef f) {
-    final s = ('${f.id} ${f.label} ${f.hint ?? ''} ${f.helperText ?? ''}').toLowerCase();
+    final s = ('${f.id} ${f.label} ${f.hint ?? ''} ${f.helperText ?? ''}')
+        .toLowerCase();
     return s.contains('hex') ||
         s.contains('byte') ||
         s.contains('address') ||
@@ -391,7 +406,8 @@ class _CreateButtonState extends State<CreateButton> {
       final hint = (f.hint ?? '').trim();
       if (hint.isNotEmpty) {
         if (_wantsSpacedBytes(f)) {
-          final int pairCount = RegExp(r'[0-9A-Fa-f]{2}').allMatches(hint).length;
+          final int pairCount =
+              RegExp(r'[0-9A-Fa-f]{2}').allMatches(hint).length;
           if (pairCount > 0) return pairCount * 2;
         }
 
@@ -434,7 +450,8 @@ class _CreateButtonState extends State<CreateButton> {
     return null;
   }
 
-  Map<String, String> _deriveProtocolFieldTextFromHex(String protocolId, String hexInput) {
+  Map<String, String> _deriveProtocolFieldTextFromHex(
+      String protocolId, String hexInput) {
     final def = IrProtocolRegistry.definitionFor(protocolId);
     if (def == null) return const <String, String>{};
 
@@ -447,15 +464,22 @@ class _CreateButtonState extends State<CreateButton> {
 
     for (final f in def.fields) {
       if (addrId == null && _idLooksLike(f, 'address')) addrId = f.id;
-      if (cmdId == null && (_idLooksLike(f, 'command') || _idLooksLike(f, 'cmd'))) cmdId = f.id;
-      if (hexId == null && (_idLooksLike(f, 'hex') || _idLooksLike(f, 'code') || _idLooksLike(f, 'value'))) {
+      if (cmdId == null &&
+          (_idLooksLike(f, 'command') || _idLooksLike(f, 'cmd'))) {
+        cmdId = f.id;
+      }
+      if (hexId == null &&
+          (_idLooksLike(f, 'hex') ||
+              _idLooksLike(f, 'code') ||
+              _idLooksLike(f, 'value'))) {
         hexId = f.id;
       }
     }
 
     // Special: RCA (24-bit packed) -> address nibble + command byte
     if (protocolId == IrProtocolIds.rca38 && addrId != null && cmdId != null) {
-      final String packed = hex.length >= 3 ? hex.substring(hex.length - 3) : hex.padLeft(3, '0');
+      final String packed =
+          hex.length >= 3 ? hex.substring(hex.length - 3) : hex.padLeft(3, '0');
       final String addrNib = packed.substring(0, 1).toUpperCase();
       final String cmdByte = packed.substring(1, 3).toUpperCase();
       return <String, String>{
@@ -499,15 +523,23 @@ class _CreateButtonState extends State<CreateButton> {
 
       final addrField = _findFieldById(def, addrId);
       final cmdField = _findFieldById(def, cmdId);
-      final int addrDigits =
-          (addrField == null) ? ((addrBits + 3) ~/ 4) : (_expectedHexDigits(addrField) ?? ((addrBits + 3) ~/ 4));
-      final int cmdDigits =
-          (cmdField == null) ? ((cmdBits + 3) ~/ 4) : (_expectedHexDigits(cmdField) ?? ((cmdBits + 3) ~/ 4));
+      final int addrDigits = (addrField == null)
+          ? ((addrBits + 3) ~/ 4)
+          : (_expectedHexDigits(addrField) ?? ((addrBits + 3) ~/ 4));
+      final int cmdDigits = (cmdField == null)
+          ? ((cmdBits + 3) ~/ 4)
+          : (_expectedHexDigits(cmdField) ?? ((cmdBits + 3) ~/ 4));
 
-      String addrVal = addr.toRadixString(16).toUpperCase().padLeft(addrDigits, '0');
-      String cmdVal = cmd.toRadixString(16).toUpperCase().padLeft(cmdDigits, '0');
-      if (addrField != null && _wantsSpacedBytes(addrField)) addrVal = _formatBytesSpaced(addrVal);
-      if (cmdField != null && _wantsSpacedBytes(cmdField)) cmdVal = _formatBytesSpaced(cmdVal);
+      String addrVal =
+          addr.toRadixString(16).toUpperCase().padLeft(addrDigits, '0');
+      String cmdVal =
+          cmd.toRadixString(16).toUpperCase().padLeft(cmdDigits, '0');
+      if (addrField != null && _wantsSpacedBytes(addrField)) {
+        addrVal = _formatBytesSpaced(addrVal);
+      }
+      if (cmdField != null && _wantsSpacedBytes(cmdField)) {
+        cmdVal = _formatBytesSpaced(cmdVal);
+      }
 
       return <String, String>{
         addrId: addrVal,
@@ -520,10 +552,13 @@ class _CreateButtonState extends State<CreateButton> {
       final addrField = _findFieldById(def, addrId);
       final cmdField = _findFieldById(def, cmdId);
 
-      final int aDigits = addrField == null ? 2 : (_expectedHexDigits(addrField) ?? 2);
-      final int cDigits = cmdField == null ? 2 : (_expectedHexDigits(cmdField) ?? 2);
+      final int aDigits =
+          addrField == null ? 2 : (_expectedHexDigits(addrField) ?? 2);
+      final int cDigits =
+          cmdField == null ? 2 : (_expectedHexDigits(cmdField) ?? 2);
       final int totalDigits = aDigits + cDigits;
-      final String splitHex = (hex.length < totalDigits) ? hex.padLeft(totalDigits, '0') : hex;
+      final String splitHex =
+          (hex.length < totalDigits) ? hex.padLeft(totalDigits, '0') : hex;
 
       String addrVal = '';
       String cmdVal = '';
@@ -550,8 +585,12 @@ class _CreateButtonState extends State<CreateButton> {
       }
 
       if (addrVal.isNotEmpty || cmdVal.isNotEmpty) {
-        if (addrField != null && _wantsSpacedBytes(addrField)) addrVal = _formatBytesSpaced(addrVal);
-        if (cmdField != null && _wantsSpacedBytes(cmdField)) cmdVal = _formatBytesSpaced(cmdVal);
+        if (addrField != null && _wantsSpacedBytes(addrField)) {
+          addrVal = _formatBytesSpaced(addrVal);
+        }
+        if (cmdField != null && _wantsSpacedBytes(cmdField)) {
+          cmdVal = _formatBytesSpaced(cmdVal);
+        }
         return <String, String>{
           if (addrVal.isNotEmpty) addrId: addrVal,
           if (cmdVal.isNotEmpty) cmdId: cmdVal,
@@ -619,7 +658,11 @@ class _CreateButtonState extends State<CreateButton> {
 
     // If params were missing or not matched, try fallback from common "hex/code/value" keys
     if (out.isEmpty) {
-      dynamic vHex = norm['hex'] ?? norm['code'] ?? norm['value'] ?? norm['data'] ?? norm['hexcode'];
+      dynamic vHex = norm['hex'] ??
+          norm['code'] ??
+          norm['value'] ??
+          norm['data'] ??
+          norm['hexcode'];
       String? hexCandidate;
 
       if (vHex is int) {
@@ -629,10 +672,13 @@ class _CreateButtonState extends State<CreateButton> {
       }
 
       // Or fallback from legacy saved `button.code`
-      hexCandidate ??= (legacyCode != null) ? legacyCode.toRadixString(16).toUpperCase() : null;
+      hexCandidate ??= (legacyCode != null)
+          ? legacyCode.toRadixString(16).toUpperCase()
+          : null;
 
       if (hexCandidate != null && hexCandidate.trim().isNotEmpty) {
-        final derived = _deriveProtocolFieldTextFromHex(protocolId, hexCandidate);
+        final derived =
+            _deriveProtocolFieldTextFromHex(protocolId, hexCandidate);
         for (final kv in derived.entries) {
           out[kv.key] = kv.value;
         }
@@ -642,8 +688,8 @@ class _CreateButtonState extends State<CreateButton> {
     return out;
   }
 
-
-  void _syncProtocolControllersFromDefinition(Map<String, dynamic> existingParams) {
+  void _syncProtocolControllersFromDefinition(
+      Map<String, dynamic> existingParams) {
     final def = IrProtocolRegistry.definitionFor(_selectedProtocolId);
 
     _protoControllers.forEach((_, c) => c.dispose());
@@ -657,7 +703,9 @@ class _CreateButtonState extends State<CreateButton> {
       dynamic v = existingParams[field.id];
       v ??= field.defaultValue;
 
-      if (v == null && field.type == IrFieldType.choice && field.options.isNotEmpty) {
+      if (v == null &&
+          field.type == IrFieldType.choice &&
+          field.options.isNotEmpty) {
         v = field.options.first;
       }
 
@@ -670,7 +718,8 @@ class _CreateButtonState extends State<CreateButton> {
           }
         } else if (field.type == IrFieldType.boolean) {
           c.text = _coerceBool(v).toString();
-        } else if (field.type == IrFieldType.string && _fieldLooksHexLike(field)) {
+        } else if (field.type == IrFieldType.string &&
+            _fieldLooksHexLike(field)) {
           // Critical fix: most protocols store "hex/address/command" as STRING fields
           if (v is int) {
             final int? digits = _expectedHexDigits(field);
@@ -706,8 +755,8 @@ class _CreateButtonState extends State<CreateButton> {
     }
   }
 
-
-  Future<void> _pasteInto(TextEditingController controller, {bool hexOnly = false}) async {
+  Future<void> _pasteInto(TextEditingController controller,
+      {bool hexOnly = false}) async {
     final data = await Clipboard.getData('text/plain');
     final text = data?.text;
     if (text == null || text.trim().isEmpty) return;
@@ -744,7 +793,8 @@ class _CreateButtonState extends State<CreateButton> {
           child: Column(
             mainAxisSize: MainAxisSize.min,
             children: [
-              Text('Choose a built-in icon', style: Theme.of(ctx).textTheme.titleMedium),
+              Text('Choose a built-in icon',
+                  style: Theme.of(ctx).textTheme.titleMedium),
               const SizedBox(height: 12),
               Flexible(
                 child: GridView.builder(
@@ -828,13 +878,16 @@ class _CreateButtonState extends State<CreateButton> {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                Text(title, style: theme.textTheme.titleMedium?.copyWith(fontWeight: FontWeight.w700)),
+                Text(title,
+                    style: theme.textTheme.titleMedium
+                        ?.copyWith(fontWeight: FontWeight.w700)),
                 if (subtitle != null) ...[
                   const SizedBox(height: 2),
                   Text(
                     subtitle,
                     style: theme.textTheme.bodySmall?.copyWith(
-                      color: theme.colorScheme.onSurface.withValues(alpha: 0.75),
+                      color:
+                          theme.colorScheme.onSurface.withValues(alpha: 0.75),
                     ),
                   ),
                 ],
@@ -868,54 +921,53 @@ class _CreateButtonState extends State<CreateButton> {
 
     return Semantics(
       button: true,
-      label: isSelected
-          ? 'Button color $label, selected'
-          : 'Button color $label',
+      label:
+          isSelected ? 'Button color $label, selected' : 'Button color $label',
       child: InkWell(
-      onTap: () {
-        setState(() {
-          _selectedColor = normalizedOption;
-        });
-      },
-      borderRadius: BorderRadius.circular(8),
-      child: Container(
-        constraints: const BoxConstraints(minWidth: 60, minHeight: 60),
-        padding: const EdgeInsets.symmetric(vertical: 8),
-        child: Column(
-          mainAxisSize: MainAxisSize.min,
-          children: [
-            Container(
-              width: 40,
-              height: 40,
-              decoration: BoxDecoration(
-                color: displayColor,
-                shape: BoxShape.circle,
-                border: Border.all(
-                  color: isSelected
-                      ? theme.colorScheme.primary
-                      : theme.colorScheme.outline,
-                  width: isSelected ? 3 : 1,
+        onTap: () {
+          setState(() {
+            _selectedColor = normalizedOption;
+          });
+        },
+        borderRadius: BorderRadius.circular(8),
+        child: Container(
+          constraints: const BoxConstraints(minWidth: 60, minHeight: 60),
+          padding: const EdgeInsets.symmetric(vertical: 8),
+          child: Column(
+            mainAxisSize: MainAxisSize.min,
+            children: [
+              Container(
+                width: 40,
+                height: 40,
+                decoration: BoxDecoration(
+                  color: displayColor,
+                  shape: BoxShape.circle,
+                  border: Border.all(
+                    color: isSelected
+                        ? theme.colorScheme.primary
+                        : theme.colorScheme.outline,
+                    width: isSelected ? 3 : 1,
+                  ),
                 ),
+                child: isSelected
+                    ? Icon(
+                        Icons.check,
+                        color: checkColor,
+                        size: 20,
+                      )
+                    : null,
               ),
-              child: isSelected
-                  ? Icon(
-                      Icons.check,
-                      color: checkColor,
-                      size: 20,
-                    )
-                  : null,
-            ),
-            const SizedBox(height: 4),
-            Text(
-              label,
-              style: theme.textTheme.bodySmall?.copyWith(fontSize: 10),
-              textAlign: TextAlign.center,
-              maxLines: 2,
-              overflow: TextOverflow.ellipsis,
-            ),
-          ],
+              const SizedBox(height: 4),
+              Text(
+                label,
+                style: theme.textTheme.bodySmall?.copyWith(fontSize: 10),
+                textAlign: TextAlign.center,
+                maxLines: 2,
+                overflow: TextOverflow.ellipsis,
+              ),
+            ],
+          ),
         ),
-      ),
       ),
     );
   }
@@ -931,7 +983,8 @@ class _CreateButtonState extends State<CreateButton> {
       chips.add(_chip('HEX / NEC', icon: Icons.numbers));
       if (useCustomNec) {
         chips.add(_chip('Custom timings', icon: Icons.tune));
-        chips.add(_chip(_necBitOrder == _NecBitOrder.lsb ? 'LSB' : 'MSB', icon: Icons.swap_horiz));
+        chips.add(_chip(_necBitOrder == _NecBitOrder.lsb ? 'LSB' : 'MSB',
+            icon: Icons.swap_horiz));
         final f = int.tryParse(hexFreqController.text.trim());
         if (f != null && f > 0) {
           chips.add(_chip('${(f / 1000).round()} kHz', icon: Icons.waves));
@@ -964,25 +1017,36 @@ class _CreateButtonState extends State<CreateButton> {
   }
 
   IRButton _draftButtonForPreview() {
-    final String labelValue = (_labelType == _LabelType.image) ? (_imagePath ?? '') : nameController.text.trim();
+    final String labelValue = (_labelType == _LabelType.image)
+        ? (_imagePath ?? '')
+        : nameController.text.trim();
 
     if (_signalType == _SignalType.hex) {
-      final int parsedHex = int.tryParse(codeController.text.trim(), radix: 16) ?? 0;
+      final int parsedHex =
+          int.tryParse(codeController.text.trim(), radix: 16) ?? 0;
 
       String? rawDataForNec;
       int? freqForNec;
       String? bitOrder;
 
       if (useCustomNec) {
-        final hMark = int.tryParse(headerMarkCtrl.text.trim()) ?? NECParams.defaults.headerMark;
-        final hSpace = int.tryParse(headerSpaceCtrl.text.trim()) ?? NECParams.defaults.headerSpace;
-        final bMark = int.tryParse(bitMarkCtrl.text.trim()) ?? NECParams.defaults.bitMark;
-        final zSpace = int.tryParse(zeroSpaceCtrl.text.trim()) ?? NECParams.defaults.zeroSpace;
-        final oSpace = int.tryParse(oneSpaceCtrl.text.trim()) ?? NECParams.defaults.oneSpace;
-        final tMark = int.tryParse(trailerMarkCtrl.text.trim()) ?? NECParams.defaults.trailerMark;
+        final hMark = int.tryParse(headerMarkCtrl.text.trim()) ??
+            NECParams.defaults.headerMark;
+        final hSpace = int.tryParse(headerSpaceCtrl.text.trim()) ??
+            NECParams.defaults.headerSpace;
+        final bMark =
+            int.tryParse(bitMarkCtrl.text.trim()) ?? NECParams.defaults.bitMark;
+        final zSpace = int.tryParse(zeroSpaceCtrl.text.trim()) ??
+            NECParams.defaults.zeroSpace;
+        final oSpace = int.tryParse(oneSpaceCtrl.text.trim()) ??
+            NECParams.defaults.oneSpace;
+        final tMark = int.tryParse(trailerMarkCtrl.text.trim()) ??
+            NECParams.defaults.trailerMark;
 
-        rawDataForNec = "NEC:h=$hMark,$hSpace;b=$bMark,$zSpace,$oSpace;t=$tMark";
-        freqForNec = int.tryParse(hexFreqController.text.trim()) ?? kDefaultNecFrequencyHz;
+        rawDataForNec =
+            "NEC:h=$hMark,$hSpace;b=$bMark,$zSpace,$oSpace;t=$tMark";
+        freqForNec = int.tryParse(hexFreqController.text.trim()) ??
+            kDefaultNecFrequencyHz;
         bitOrder = (_necBitOrder == _NecBitOrder.lsb) ? 'lsb' : 'msb';
       }
 
@@ -994,15 +1058,19 @@ class _CreateButtonState extends State<CreateButton> {
         image: labelValue,
         isImage: _labelType == _LabelType.image,
         necBitOrder: bitOrder,
-        iconCodePoint: _labelType == _LabelType.icon ? _selectedIcon?.codePoint : null,
-        iconFontFamily: _labelType == _LabelType.icon ? _selectedIcon?.fontFamily : null,
-        iconFontPackage: _labelType == _LabelType.icon ? _selectedIcon?.fontPackage : null,
+        iconCodePoint:
+            _labelType == _LabelType.icon ? _selectedIcon?.codePoint : null,
+        iconFontFamily:
+            _labelType == _LabelType.icon ? _selectedIcon?.fontFamily : null,
+        iconFontPackage:
+            _labelType == _LabelType.icon ? _selectedIcon?.fontPackage : null,
         buttonColor: _selectedButtonColorValue,
       );
     }
 
     if (_signalType == _SignalType.raw) {
-      final int freq = int.tryParse(freqController.text.trim()) ?? kDefaultNecFrequencyHz;
+      final int freq =
+          int.tryParse(freqController.text.trim()) ?? kDefaultNecFrequencyHz;
       return IRButton(
         id: _buttonId,
         code: null,
@@ -1010,9 +1078,12 @@ class _CreateButtonState extends State<CreateButton> {
         frequency: freq,
         image: labelValue,
         isImage: _labelType == _LabelType.image,
-        iconCodePoint: _labelType == _LabelType.icon ? _selectedIcon?.codePoint : null,
-        iconFontFamily: _labelType == _LabelType.icon ? _selectedIcon?.fontFamily : null,
-        iconFontPackage: _labelType == _LabelType.icon ? _selectedIcon?.fontPackage : null,
+        iconCodePoint:
+            _labelType == _LabelType.icon ? _selectedIcon?.codePoint : null,
+        iconFontFamily:
+            _labelType == _LabelType.icon ? _selectedIcon?.fontFamily : null,
+        iconFontPackage:
+            _labelType == _LabelType.icon ? _selectedIcon?.fontPackage : null,
         buttonColor: _selectedButtonColorValue,
       );
     }
@@ -1042,7 +1113,9 @@ class _CreateButtonState extends State<CreateButton> {
       }
     }
 
-    final int? f = protoFreqController.text.trim().isEmpty ? null : int.tryParse(protoFreqController.text.trim());
+    final int? f = protoFreqController.text.trim().isEmpty
+        ? null
+        : int.tryParse(protoFreqController.text.trim());
 
     return IRButton(
       id: _buttonId,
@@ -1053,9 +1126,12 @@ class _CreateButtonState extends State<CreateButton> {
       isImage: _labelType == _LabelType.image,
       protocol: _selectedProtocolId,
       protocolParams: params,
-      iconCodePoint: _labelType == _LabelType.icon ? _selectedIcon?.codePoint : null,
-      iconFontFamily: _labelType == _LabelType.icon ? _selectedIcon?.fontFamily : null,
-      iconFontPackage: _labelType == _LabelType.icon ? _selectedIcon?.fontPackage : null,
+      iconCodePoint:
+          _labelType == _LabelType.icon ? _selectedIcon?.codePoint : null,
+      iconFontFamily:
+          _labelType == _LabelType.icon ? _selectedIcon?.fontFamily : null,
+      iconFontPackage:
+          _labelType == _LabelType.icon ? _selectedIcon?.fontPackage : null,
       buttonColor: _selectedButtonColorValue,
     );
   }
@@ -1077,7 +1153,8 @@ class _CreateButtonState extends State<CreateButton> {
     if (_dbLoading || _dbExhausted) return;
     if (!_dbScrollCtl.hasClients) return;
 
-    if (_dbScrollCtl.position.pixels >= _dbScrollCtl.position.maxScrollExtent - 240) {
+    if (_dbScrollCtl.position.pixels >=
+        _dbScrollCtl.position.maxScrollExtent - 240) {
       _dbReloadKeys(reset: false);
     }
   }
@@ -1221,7 +1298,9 @@ class _CreateButtonState extends State<CreateButton> {
         if (rows.isEmpty) _dbExhausted = true;
       });
     } catch (e) {
-      if (mounted) _showSnack(context.l10n.failedToLoadDatabaseKeys(e.toString()));
+      if (mounted) {
+        _showSnack(context.l10n.failedToLoadDatabaseKeys(e.toString()));
+      }
     } finally {
       if (mounted) setState(() => _dbLoading = false);
     }
@@ -1282,7 +1361,8 @@ class _CreateButtonState extends State<CreateButton> {
 
         void onScroll(StateSetter setModal) {
           if (loading || exhausted) return;
-          if (scrollCtl.position.pixels >= scrollCtl.position.maxScrollExtent - 240) {
+          if (scrollCtl.position.pixels >=
+              scrollCtl.position.maxScrollExtent - 240) {
             load(setModal, reset: false);
           }
         }
@@ -1338,7 +1418,9 @@ class _CreateButtonState extends State<CreateButton> {
                           if (i >= items.length) {
                             return const Padding(
                               padding: EdgeInsets.all(14),
-                              child: Center(child: CircularProgressIndicator(strokeWidth: 2)),
+                              child: Center(
+                                  child: CircularProgressIndicator(
+                                      strokeWidth: 2)),
                             );
                           }
                           final b = items[i];
@@ -1366,7 +1448,8 @@ class _CreateButtonState extends State<CreateButton> {
     return selected;
   }
 
-  Future<String?> _pickModel(BuildContext context, {required String brand}) async {
+  Future<String?> _pickModel(BuildContext context,
+      {required String brand}) async {
     await IrBlasterDb.instance.ensureInitialized();
     if (!context.mounted) return null;
 
@@ -1422,7 +1505,8 @@ class _CreateButtonState extends State<CreateButton> {
 
         void onScroll(StateSetter setModal) {
           if (loading || exhausted) return;
-          if (scrollCtl.position.pixels >= scrollCtl.position.maxScrollExtent - 240) {
+          if (scrollCtl.position.pixels >=
+              scrollCtl.position.maxScrollExtent - 240) {
             load(setModal, reset: false);
           }
         }
@@ -1478,7 +1562,9 @@ class _CreateButtonState extends State<CreateButton> {
                           if (i >= items.length) {
                             return const Padding(
                               padding: EdgeInsets.all(14),
-                              child: Center(child: CircularProgressIndicator(strokeWidth: 2)),
+                              child: Center(
+                                  child: CircularProgressIndicator(
+                                      strokeWidth: 2)),
                             );
                           }
                           final m = items[i];
@@ -1598,7 +1684,8 @@ class _CreateButtonState extends State<CreateButton> {
     final def = IrProtocolRegistry.definitionFor(_selectedProtocolId);
     if (def == null) return;
 
-    final derived = _deriveProtocolFieldTextFromHex(_selectedProtocolId, hexClean);
+    final derived =
+        _deriveProtocolFieldTextFromHex(_selectedProtocolId, hexClean);
     if (derived.isNotEmpty) {
       for (final e in derived.entries) {
         final c = _protoControllers[e.key];
@@ -1616,7 +1703,10 @@ class _CreateButtonState extends State<CreateButton> {
 
     for (final f in def.fields) {
       if (addr == null && _idLooksLike(f, 'address')) addr = f;
-      if (cmd == null && (_idLooksLike(f, 'command') || _idLooksLike(f, 'cmd'))) cmd = f;
+      if (cmd == null &&
+          (_idLooksLike(f, 'command') || _idLooksLike(f, 'cmd'))) {
+        cmd = f;
+      }
     }
 
     if (addr != null && cmd != null) {
@@ -1626,7 +1716,8 @@ class _CreateButtonState extends State<CreateButton> {
         final int aDigits = _expectedHexDigits(addr) ?? 2;
         final int cDigits = _expectedHexDigits(cmd) ?? 2;
         final int totalDigits = aDigits + cDigits;
-        final String splitHex = (hex.length < totalDigits) ? hex.padLeft(totalDigits, '0') : hex;
+        final String splitHex =
+            (hex.length < totalDigits) ? hex.padLeft(totalDigits, '0') : hex;
 
         if (splitHex.length >= totalDigits) {
           String aVal = '';
@@ -1647,8 +1738,10 @@ class _CreateButtonState extends State<CreateButton> {
             cVal = splitHex.substring(aDigits, aDigits + cDigits);
           }
 
-          addrCtl.text = _wantsSpacedBytes(addr) ? _formatBytesSpaced(aVal) : aVal;
-          cmdCtl.text = _wantsSpacedBytes(cmd) ? _formatBytesSpaced(cVal) : cVal;
+          addrCtl.text =
+              _wantsSpacedBytes(addr) ? _formatBytesSpaced(aVal) : aVal;
+          cmdCtl.text =
+              _wantsSpacedBytes(cmd) ? _formatBytesSpaced(cVal) : cVal;
           return;
         }
       }
@@ -1657,7 +1750,9 @@ class _CreateButtonState extends State<CreateButton> {
     // Find best single hex-like field (string OR intHex)
     IrFieldDef? target;
     for (final f in def.fields) {
-      if (_idLooksLike(f, 'hex') || _idLooksLike(f, 'code') || _idLooksLike(f, 'value')) {
+      if (_idLooksLike(f, 'hex') ||
+          _idLooksLike(f, 'code') ||
+          _idLooksLike(f, 'value')) {
         target = f;
         break;
       }
@@ -1676,7 +1771,6 @@ class _CreateButtonState extends State<CreateButton> {
 
     c.text = _wantsSpacedBytes(target) ? _formatBytesSpaced(v) : v;
   }
-
 
   Future<void> _dbUseSelectedKey() async {
     final sel = _dbSelected;
@@ -1715,7 +1809,8 @@ class _CreateButtonState extends State<CreateButton> {
         codeController.text = hexClean;
       });
       if (!_hasLabel) {
-        _showSnack('IR code imported. Step 1 still requires a label (icon or text).');
+        _showSnack(
+            'IR code imported. Step 1 still requires a label (icon or text).');
       } else {
         _showSnack('Imported from database.');
       }
@@ -1728,7 +1823,8 @@ class _CreateButtonState extends State<CreateButton> {
         _signalType = _SignalType.hex;
         codeController.text = hexClean;
       });
-      _showSnack('Protocol "$protoDb" is not mapped. Imported as HEX. You can adjust in Manual.');
+      _showSnack(
+          'Protocol "$protoDb" is not mapped. Imported as HEX. You can adjust in Manual.');
       return;
     }
 
@@ -1740,13 +1836,15 @@ class _CreateButtonState extends State<CreateButton> {
 
     final def = IrProtocolRegistry.definitionFor(_selectedProtocolId);
     if (def != null) {
-      if (protoFreqController.text.trim().isEmpty && def.defaultFrequencyHz > 0) {
+      if (protoFreqController.text.trim().isEmpty &&
+          def.defaultFrequencyHz > 0) {
         protoFreqController.text = def.defaultFrequencyHz.toString();
       }
       _fillProtocolFieldsFromDbHex(hexClean);
       _showSnack('Imported from database.');
     } else {
-      _showSnack('Imported protocol "$protoDb", but no field definition exists. Please configure manually.');
+      _showSnack(
+          'Imported protocol "$protoDb", but no field definition exists. Please configure manually.');
     }
 
     if (!_hasLabel) {
@@ -1779,14 +1877,17 @@ class _CreateButtonState extends State<CreateButton> {
               child: Text(
                 value,
                 style: theme.textTheme.bodyMedium?.copyWith(
-                  fontWeight: value.startsWith('Select') ? FontWeight.w500 : FontWeight.w700,
+                  fontWeight: value.startsWith('Select')
+                      ? FontWeight.w500
+                      : FontWeight.w700,
                 ),
               ),
             ),
             const SizedBox(width: 8),
             Icon(
               Icons.keyboard_arrow_down_rounded,
-              color: theme.colorScheme.onSurface.withValues(alpha: enabled ? 0.75 : 0.4),
+              color: theme.colorScheme.onSurface
+                  .withValues(alpha: enabled ? 0.75 : 0.4),
             ),
           ],
         ),
@@ -1834,7 +1935,8 @@ class _CreateButtonState extends State<CreateButton> {
               Expanded(
                 child: Text(
                   'Quick presets',
-                  style: theme.textTheme.titleSmall?.copyWith(fontWeight: FontWeight.w800),
+                  style: theme.textTheme.titleSmall
+                      ?.copyWith(fontWeight: FontWeight.w800),
                 ),
               ),
               if (!enabled)
@@ -1877,7 +1979,8 @@ class _CreateButtonState extends State<CreateButton> {
 
     final bool hasBrand = (_dbBrand != null && _dbBrand!.trim().isNotEmpty);
     final bool hasModel = (_dbModel != null && _dbModel!.trim().isNotEmpty);
-    final bool hasProtocol = (_dbProtocol != null && _dbProtocol!.trim().isNotEmpty);
+    final bool hasProtocol =
+        (_dbProtocol != null && _dbProtocol!.trim().isNotEmpty);
     final bool canBrowseKeys = hasBrand && hasModel && hasProtocol;
 
     final String effectiveSearch = _dbEffectiveSearch();
@@ -2033,7 +2136,8 @@ class _CreateButtonState extends State<CreateButton> {
                   ),
                 )
               : (_dbRows.isEmpty && _dbLoading)
-                  ? const Center(child: CircularProgressIndicator(strokeWidth: 2))
+                  ? const Center(
+                      child: CircularProgressIndicator(strokeWidth: 2))
                   : (_dbRows.isEmpty)
                       ? Center(
                           child: Padding(
@@ -2057,27 +2161,40 @@ class _CreateButtonState extends State<CreateButton> {
                             if (i >= _dbRows.length) {
                               return const Padding(
                                 padding: EdgeInsets.all(14),
-                                child: Center(child: CircularProgressIndicator(strokeWidth: 2)),
+                                child: Center(
+                                    child: CircularProgressIndicator(
+                                        strokeWidth: 2)),
                               );
                             }
 
                             final r = _dbRows[i];
 
-                            final bool selected = (_dbSelected?.remoteId == r.remoteId) &&
-                                (_dbSelected?.hexcode == r.hexcode) &&
-                                (_dbSelected?.label == r.label);
+                            final bool selected =
+                                (_dbSelected?.remoteId == r.remoteId) &&
+                                    (_dbSelected?.hexcode == r.hexcode) &&
+                                    (_dbSelected?.label == r.label);
 
                             final String labelText = r.label?.trim() ?? '';
                             final String protocolText = r.protocol.trim();
-                            final String titleText = labelText.isEmpty ? context.l10n.unnamedKey : labelText;
-                            final String protoText = protocolText.isEmpty ? context.l10n.unknownLabel : protocolText;
-                            final String hexText = r.hexcode.trim().isEmpty ? '—' : r.hexcode.trim();
+                            final String titleText = labelText.isEmpty
+                                ? context.l10n.unnamedKey
+                                : labelText;
+                            final String protoText = protocolText.isEmpty
+                                ? context.l10n.unknownLabel
+                                : protocolText;
+                            final String hexText = r.hexcode.trim().isEmpty
+                                ? '—'
+                                : r.hexcode.trim();
 
                             return ListTile(
                               selected: selected,
                               leading: Icon(
-                                selected ? Icons.radio_button_checked : Icons.radio_button_off,
-                                color: selected ? cs.primary : cs.onSurface.withValues(alpha: 0.5),
+                                selected
+                                    ? Icons.radio_button_checked
+                                    : Icons.radio_button_off,
+                                color: selected
+                                    ? cs.primary
+                                    : cs.onSurface.withValues(alpha: 0.5),
                               ),
                               title: Text(titleText),
                               subtitle: Text('$hexText · $protoText'),
@@ -2098,7 +2215,9 @@ class _CreateButtonState extends State<CreateButton> {
           children: [
             Expanded(
               child: OutlinedButton.icon(
-                onPressed: _dbSelected == null ? null : () => setState(() => _dbSelected = null),
+                onPressed: _dbSelected == null
+                    ? null
+                    : () => setState(() => _dbSelected = null),
                 icon: const Icon(Icons.clear),
                 label: const Text('Clear selection'),
               ),
@@ -2141,7 +2260,9 @@ class _CreateButtonState extends State<CreateButton> {
             helperText: '8 hex digits (example: 00F700FF).',
             helperMaxLines: _kHelperMaxLines,
             hintMaxLines: _kHintMaxLines,
-            errorText: (_signalType == _SignalType.hex && !_hexLooksValid) ? 'Enter a valid hex code.' : null,
+            errorText: (_signalType == _SignalType.hex && !_hexLooksValid)
+                ? 'Enter a valid hex code.'
+                : null,
             errorMaxLines: _kErrorMaxLines,
             suffixIcon: SizedBox(
               width: 144,
@@ -2206,7 +2327,9 @@ class _CreateButtonState extends State<CreateButton> {
       initiallyExpanded: useCustomNec,
       title: const Text('Advanced (optional)'),
       subtitle: Text(
-        useCustomNec ? 'Custom NEC timings and carrier frequency' : 'Use defaults unless a device requires custom timings',
+        useCustomNec
+            ? 'Custom NEC timings and carrier frequency'
+            : 'Use defaults unless a device requires custom timings',
         style: theme.textTheme.bodySmall?.copyWith(
           color: theme.colorScheme.onSurface.withValues(alpha: 0.75),
         ),
@@ -2216,7 +2339,8 @@ class _CreateButtonState extends State<CreateButton> {
         SwitchListTile(
           contentPadding: EdgeInsets.zero,
           title: const Text("Use custom NEC timings"),
-          subtitle: const Text("Stores a NEC:... config and transmits as raw with the chosen frequency."),
+          subtitle: const Text(
+              "Stores a NEC:... config and transmits as raw with the chosen frequency."),
           value: useCustomNec,
           onChanged: (v) => setState(() => useCustomNec = v),
         ),
@@ -2238,7 +2362,8 @@ class _CreateButtonState extends State<CreateButton> {
             alignment: Alignment.centerLeft,
             child: Text(
               'Bit order',
-              style: theme.textTheme.labelLarge?.copyWith(fontWeight: FontWeight.w700),
+              style: theme.textTheme.labelLarge
+                  ?.copyWith(fontWeight: FontWeight.w700),
             ),
           ),
           const SizedBox(height: 6),
@@ -2260,11 +2385,14 @@ class _CreateButtonState extends State<CreateButton> {
               helperText: "Carrier frequency, e.g. 38000",
               helperMaxLines: _kHelperMaxLines,
               hintMaxLines: _kHintMaxLines,
-              errorText: !_customNecLooksValid ? 'Enter a valid frequency (15k–60k).' : null,
+              errorText: !_customNecLooksValid
+                  ? 'Enter a valid frequency (15k–60k).'
+                  : null,
               errorMaxLines: _kErrorMaxLines,
               suffixIcon: IconButton(
                 tooltip: 'Reset to 38000',
-                onPressed: () => setState(() => hexFreqController.text = kDefaultNecFrequencyHz.toString()),
+                onPressed: () => setState(() =>
+                    hexFreqController.text = kDefaultNecFrequencyHz.toString()),
                 icon: const Icon(Icons.restart_alt),
               ),
             ),
@@ -2304,9 +2432,11 @@ class _CreateButtonState extends State<CreateButton> {
       children: [
         Row(
           children: [
-            Expanded(child: numField(headerMarkCtrl, "Header Mark (µs)", "9000")),
+            Expanded(
+                child: numField(headerMarkCtrl, "Header Mark (µs)", "9000")),
             const SizedBox(width: 10),
-            Expanded(child: numField(headerSpaceCtrl, "Header Space (µs)", "4500")),
+            Expanded(
+                child: numField(headerSpaceCtrl, "Header Space (µs)", "4500")),
           ],
         ),
         const SizedBox(height: 10),
@@ -2322,7 +2452,8 @@ class _CreateButtonState extends State<CreateButton> {
           children: [
             Expanded(child: numField(oneSpaceCtrl, "1 Space (µs)", "1690")),
             const SizedBox(width: 10),
-            Expanded(child: numField(trailerMarkCtrl, "Trailer Mark (µs)", "560")),
+            Expanded(
+                child: numField(trailerMarkCtrl, "Trailer Mark (µs)", "560")),
           ],
         ),
       ],
@@ -2344,7 +2475,9 @@ class _CreateButtonState extends State<CreateButton> {
             helperText: "Required. Example: 38000",
             helperMaxLines: _kHelperMaxLines,
             hintMaxLines: _kHintMaxLines,
-            errorText: (_signalType == _SignalType.raw && !_rawLooksValid) ? 'Enter a valid frequency (15k–60k).' : null,
+            errorText: (_signalType == _SignalType.raw && !_rawLooksValid)
+                ? 'Enter a valid frequency (15k–60k).'
+                : null,
             errorMaxLines: _kErrorMaxLines,
             suffixIcon: IconButton(
               tooltip: 'Reset to 38000',
@@ -2389,7 +2522,8 @@ class _CreateButtonState extends State<CreateButton> {
 
     final defs = IrProtocolRegistry.allDefinitions();
     final def = IrProtocolRegistry.definitionFor(_selectedProtocolId);
-    final bool implemented = IrProtocolRegistry.isImplemented(_selectedProtocolId);
+    final bool implemented =
+        IrProtocolRegistry.isImplemented(_selectedProtocolId);
 
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
@@ -2414,7 +2548,8 @@ class _CreateButtonState extends State<CreateButton> {
           },
           decoration: InputDecoration(
             labelText: 'Protocol',
-            helperText: 'Encoding is implemented only for protocols marked as implemented.',
+            helperText:
+                'Encoding is implemented only for protocols marked as implemented.',
             helperMaxLines: _kHelperMaxLines,
             hintMaxLines: _kHintMaxLines,
           ),
@@ -2426,10 +2561,12 @@ class _CreateButtonState extends State<CreateButton> {
           inputFormatters: [FilteringTextInputFormatter.digitsOnly],
           decoration: InputDecoration(
             labelText: 'Frequency (Hz)',
-            helperText: 'Optional. If empty, protocol default is used where available.',
+            helperText:
+                'Optional. If empty, protocol default is used where available.',
             helperMaxLines: _kHelperMaxLines,
             hintMaxLines: _kHintMaxLines,
-            errorText: (_signalType == _SignalType.protocol && !_protocolLooksValid)
+            errorText: (_signalType == _SignalType.protocol &&
+                    !_protocolLooksValid)
                 ? 'Fill required fields and ensure frequency is 15k–60k if set.'
                 : null,
             errorMaxLines: _kErrorMaxLines,
@@ -2446,7 +2583,8 @@ class _CreateButtonState extends State<CreateButton> {
             width: double.infinity,
             padding: const EdgeInsets.all(12),
             decoration: BoxDecoration(
-              color: theme.colorScheme.secondaryContainer.withValues(alpha: 0.6),
+              color:
+                  theme.colorScheme.secondaryContainer.withValues(alpha: 0.6),
               borderRadius: BorderRadius.circular(12),
             ),
             child: Text(
@@ -2484,8 +2622,9 @@ class _CreateButtonState extends State<CreateButton> {
       String? current = c.text.trim().isEmpty ? null : c.text.trim();
       if (current == null || !opts.contains(current)) {
         final dynamic dv = field.defaultValue;
-        final String? fallback =
-            (dv is String && opts.contains(dv)) ? dv : (opts.isNotEmpty ? opts.first : null);
+        final String? fallback = (dv is String && opts.contains(dv))
+            ? dv
+            : (opts.isNotEmpty ? opts.first : null);
 
         if (fallback != null) {
           WidgetsBinding.instance.addPostFrameCallback((_) {
@@ -2543,7 +2682,8 @@ class _CreateButtonState extends State<CreateButton> {
     }
 
     if (field.type == IrFieldType.boolean) {
-      final bool value = _coerceBool(c.text.trim().isEmpty ? field.defaultValue : c.text);
+      final bool value =
+          _coerceBool(c.text.trim().isEmpty ? field.defaultValue : c.text);
       return SwitchListTile(
         contentPadding: EdgeInsets.zero,
         title: Text(field.label),
@@ -2576,13 +2716,19 @@ class _CreateButtonState extends State<CreateButton> {
       errorText = 'Required';
     } else if (_signalType == _SignalType.protocol && t.isNotEmpty) {
       if (isDec && int.tryParse(t) == null) errorText = 'Must be a number';
-      if (isHex && int.tryParse(t, radix: 16) == null) errorText = 'Must be hex';
+      if (isHex && int.tryParse(t, radix: 16) == null) {
+        errorText = 'Must be hex';
+      }
 
       if (errorText == null && (isDec || isHex)) {
         final int? n = isHex ? int.tryParse(t, radix: 16) : int.tryParse(t);
         if (n != null) {
-          if (field.min != null && n < field.min!) errorText = 'Min: ${field.min}';
-          if (field.max != null && n > field.max!) errorText = 'Max: ${field.max}';
+          if (field.min != null && n < field.min!) {
+            errorText = 'Min: ${field.min}';
+          }
+          if (field.max != null && n > field.max!) {
+            errorText = 'Max: ${field.max}';
+          }
         }
       }
     }
@@ -2673,15 +2819,23 @@ class _CreateButtonState extends State<CreateButton> {
       String? bitOrder;
 
       if (useCustomNec) {
-        final hMark = int.tryParse(headerMarkCtrl.text.trim()) ?? NECParams.defaults.headerMark;
-        final hSpace = int.tryParse(headerSpaceCtrl.text.trim()) ?? NECParams.defaults.headerSpace;
-        final bMark = int.tryParse(bitMarkCtrl.text.trim()) ?? NECParams.defaults.bitMark;
-        final zSpace = int.tryParse(zeroSpaceCtrl.text.trim()) ?? NECParams.defaults.zeroSpace;
-        final oSpace = int.tryParse(oneSpaceCtrl.text.trim()) ?? NECParams.defaults.oneSpace;
-        final tMark = int.tryParse(trailerMarkCtrl.text.trim()) ?? NECParams.defaults.trailerMark;
+        final hMark = int.tryParse(headerMarkCtrl.text.trim()) ??
+            NECParams.defaults.headerMark;
+        final hSpace = int.tryParse(headerSpaceCtrl.text.trim()) ??
+            NECParams.defaults.headerSpace;
+        final bMark =
+            int.tryParse(bitMarkCtrl.text.trim()) ?? NECParams.defaults.bitMark;
+        final zSpace = int.tryParse(zeroSpaceCtrl.text.trim()) ??
+            NECParams.defaults.zeroSpace;
+        final oSpace = int.tryParse(oneSpaceCtrl.text.trim()) ??
+            NECParams.defaults.oneSpace;
+        final tMark = int.tryParse(trailerMarkCtrl.text.trim()) ??
+            NECParams.defaults.trailerMark;
 
-        rawDataForNec = "NEC:h=$hMark,$hSpace;b=$bMark,$zSpace,$oSpace;t=$tMark";
-        freqForNec = int.tryParse(hexFreqController.text.trim()) ?? kDefaultNecFrequencyHz;
+        rawDataForNec =
+            "NEC:h=$hMark,$hSpace;b=$bMark,$zSpace,$oSpace;t=$tMark";
+        freqForNec = int.tryParse(hexFreqController.text.trim()) ??
+            kDefaultNecFrequencyHz;
         bitOrder = (_necBitOrder == _NecBitOrder.lsb) ? 'lsb' : 'msb';
       }
 
@@ -2693,9 +2847,12 @@ class _CreateButtonState extends State<CreateButton> {
         image: labelValue,
         isImage: _labelType == _LabelType.image,
         necBitOrder: bitOrder,
-        iconCodePoint: _labelType == _LabelType.icon ? _selectedIcon?.codePoint : null,
-        iconFontFamily: _labelType == _LabelType.icon ? _selectedIcon?.fontFamily : null,
-        iconFontPackage: _labelType == _LabelType.icon ? _selectedIcon?.fontPackage : null,
+        iconCodePoint:
+            _labelType == _LabelType.icon ? _selectedIcon?.codePoint : null,
+        iconFontFamily:
+            _labelType == _LabelType.icon ? _selectedIcon?.fontFamily : null,
+        iconFontPackage:
+            _labelType == _LabelType.icon ? _selectedIcon?.fontPackage : null,
         buttonColor: _selectedButtonColorValue,
       );
 
@@ -2705,7 +2862,8 @@ class _CreateButtonState extends State<CreateButton> {
 
     if (_signalType == _SignalType.raw) {
       if (!_rawLooksValid) {
-        _showSnack("Raw data must be integers separated by spaces/newlines, and frequency must be 15k–60k.");
+        _showSnack(
+            "Raw data must be integers separated by spaces/newlines, and frequency must be 15k–60k.");
         return;
       }
 
@@ -2718,9 +2876,12 @@ class _CreateButtonState extends State<CreateButton> {
         frequency: freq,
         image: labelValue,
         isImage: _labelType == _LabelType.image,
-        iconCodePoint: _labelType == _LabelType.icon ? _selectedIcon?.codePoint : null,
-        iconFontFamily: _labelType == _LabelType.icon ? _selectedIcon?.fontFamily : null,
-        iconFontPackage: _labelType == _LabelType.icon ? _selectedIcon?.fontPackage : null,
+        iconCodePoint:
+            _labelType == _LabelType.icon ? _selectedIcon?.codePoint : null,
+        iconFontFamily:
+            _labelType == _LabelType.icon ? _selectedIcon?.fontFamily : null,
+        iconFontPackage:
+            _labelType == _LabelType.icon ? _selectedIcon?.fontPackage : null,
         buttonColor: _selectedButtonColorValue,
       );
 
@@ -2762,7 +2923,9 @@ class _CreateButtonState extends State<CreateButton> {
         }
       }
 
-      final int? f = protoFreqController.text.trim().isEmpty ? null : int.tryParse(protoFreqController.text.trim());
+      final int? f = protoFreqController.text.trim().isEmpty
+          ? null
+          : int.tryParse(protoFreqController.text.trim());
 
       final button = IRButton(
         id: _buttonId,
@@ -2773,9 +2936,12 @@ class _CreateButtonState extends State<CreateButton> {
         isImage: _labelType == _LabelType.image,
         protocol: _selectedProtocolId,
         protocolParams: params,
-        iconCodePoint: _labelType == _LabelType.icon ? _selectedIcon?.codePoint : null,
-        iconFontFamily: _labelType == _LabelType.icon ? _selectedIcon?.fontFamily : null,
-        iconFontPackage: _labelType == _LabelType.icon ? _selectedIcon?.fontPackage : null,
+        iconCodePoint:
+            _labelType == _LabelType.icon ? _selectedIcon?.codePoint : null,
+        iconFontFamily:
+            _labelType == _LabelType.icon ? _selectedIcon?.fontFamily : null,
+        iconFontPackage:
+            _labelType == _LabelType.icon ? _selectedIcon?.fontPackage : null,
         buttonColor: _selectedButtonColorValue,
       );
 
@@ -2828,7 +2994,9 @@ class _CreateButtonState extends State<CreateButton> {
     String? previewError;
 
     try {
-      if ((_signalType == _SignalType.hex && _hexLooksValid && _customNecLooksValid) ||
+      if ((_signalType == _SignalType.hex &&
+              _hexLooksValid &&
+              _customNecLooksValid) ||
           (_signalType == _SignalType.raw && _rawLooksValid) ||
           (_signalType == _SignalType.protocol && _protocolLooksValid)) {
         preview = previewIRButton(_draftButtonForPreview());
@@ -2842,7 +3010,9 @@ class _CreateButtonState extends State<CreateButton> {
         title: Text(_screenTitle),
         actions: [
           IconButton(
-            tooltip: _canSave ? context.l10n.saveAction : context.l10n.completeRequiredFieldsToSave,
+            tooltip: _canSave
+                ? context.l10n.saveAction
+                : context.l10n.completeRequiredFieldsToSave,
             onPressed: _canSave ? _onSavePressed : null,
             icon: const Icon(Icons.check),
           ),
@@ -2914,8 +3084,11 @@ class _CreateButtonState extends State<CreateButton> {
                         width: double.infinity,
                         decoration: BoxDecoration(
                           borderRadius: BorderRadius.circular(12),
-                          color: theme.colorScheme.surfaceContainerHighest.withValues(alpha: 0.6),
-                          border: Border.all(color: theme.colorScheme.outlineVariant.withValues(alpha: 0.8)),
+                          color: theme.colorScheme.surfaceContainerHighest
+                              .withValues(alpha: 0.6),
+                          border: Border.all(
+                              color: theme.colorScheme.outlineVariant
+                                  .withValues(alpha: 0.8)),
                         ),
                         child: Center(
                           child: _imagePreview ??
@@ -2925,13 +3098,15 @@ class _CreateButtonState extends State<CreateButton> {
                                   Icon(
                                     Icons.add_photo_alternate_outlined,
                                     size: 40,
-                                    color: theme.colorScheme.onSurface.withValues(alpha: 0.7),
+                                    color: theme.colorScheme.onSurface
+                                        .withValues(alpha: 0.7),
                                   ),
                                   const SizedBox(height: 6),
                                   Text(
                                     context.l10n.noImageSelected,
                                     style: theme.textTheme.bodySmall?.copyWith(
-                                      color: theme.colorScheme.onSurface.withValues(alpha: 0.75),
+                                      color: theme.colorScheme.onSurface
+                                          .withValues(alpha: 0.75),
                                     ),
                                   ),
                                 ],
@@ -2988,8 +3163,11 @@ class _CreateButtonState extends State<CreateButton> {
                         width: double.infinity,
                         decoration: BoxDecoration(
                           borderRadius: BorderRadius.circular(12),
-                          color: theme.colorScheme.surfaceContainerHighest.withValues(alpha: 0.6),
-                          border: Border.all(color: theme.colorScheme.outlineVariant.withValues(alpha: 0.8)),
+                          color: theme.colorScheme.surfaceContainerHighest
+                              .withValues(alpha: 0.6),
+                          border: Border.all(
+                              color: theme.colorScheme.outlineVariant
+                                  .withValues(alpha: 0.8)),
                         ),
                         child: Center(
                           child: _selectedIcon != null
@@ -3007,7 +3185,8 @@ class _CreateButtonState extends State<CreateButton> {
                                     const SizedBox(height: 8),
                                     Text(
                                       context.l10n.iconSelected,
-                                      style: theme.textTheme.bodySmall?.copyWith(
+                                      style:
+                                          theme.textTheme.bodySmall?.copyWith(
                                         color: theme.colorScheme.primary,
                                         fontWeight: FontWeight.w600,
                                       ),
@@ -3020,13 +3199,16 @@ class _CreateButtonState extends State<CreateButton> {
                                     Icon(
                                       Icons.emoji_symbols_outlined,
                                       size: 40,
-                                      color: theme.colorScheme.onSurface.withValues(alpha: 0.7),
+                                      color: theme.colorScheme.onSurface
+                                          .withValues(alpha: 0.7),
                                     ),
                                     const SizedBox(height: 6),
                                     Text(
                                       context.l10n.noIconSelected,
-                                      style: theme.textTheme.bodySmall?.copyWith(
-                                        color: theme.colorScheme.onSurface.withValues(alpha: 0.75),
+                                      style:
+                                          theme.textTheme.bodySmall?.copyWith(
+                                        color: theme.colorScheme.onSurface
+                                            .withValues(alpha: 0.75),
                                       ),
                                     ),
                                   ],
@@ -3121,7 +3303,8 @@ class _CreateButtonState extends State<CreateButton> {
                       spacing: 12,
                       runSpacing: 12,
                       children: [
-                        _colorOption(null, context.l10n.defaultColorName, theme),
+                        _colorOption(
+                            null, context.l10n.defaultColorName, theme),
                         _colorOption(Colors.red, 'Red', theme),
                         _colorOption(Colors.pink, 'Pink', theme),
                         _colorOption(Colors.purple, 'Purple', theme),
@@ -3163,8 +3346,14 @@ class _CreateButtonState extends State<CreateButton> {
                       alignment: Alignment.centerLeft,
                       child: SegmentedButton<bool>(
                         segments: const [
-                          ButtonSegment(value: false, label: Text('Manual'), icon: Icon(Icons.tune)),
-                          ButtonSegment(value: true, label: Text('Database'), icon: Icon(Icons.storage_rounded)),
+                          ButtonSegment(
+                              value: false,
+                              label: Text('Manual'),
+                              icon: Icon(Icons.tune)),
+                          ButtonSegment(
+                              value: true,
+                              label: Text('Database'),
+                              icon: Icon(Icons.storage_rounded)),
                         ],
                         selected: {_tabDatabase},
                         onSelectionChanged: (s) {
@@ -3192,7 +3381,8 @@ class _CreateButtonState extends State<CreateButton> {
                               if (next == _SignalType.protocol) {
                                 if (_protoControllers.isEmpty) {
                                   _syncProtocolControllersFromDefinition(
-                                    widget.button?.protocolParams ?? const <String, dynamic>{},
+                                    widget.button?.protocolParams ??
+                                        const <String, dynamic>{},
                                   );
                                 }
                               }
@@ -3229,7 +3419,8 @@ class _CreateButtonState extends State<CreateButton> {
             const SizedBox(height: 12),
             _sectionHeader(
               '3) Preview & test',
-              subtitle: 'Review the generated timings and transmit once without saving.',
+              subtitle:
+                  'Review the generated timings and transmit once without saving.',
               icon: Icons.visibility_outlined,
             ),
             Card(
@@ -3252,13 +3443,15 @@ class _CreateButtonState extends State<CreateButton> {
                     if (preview != null) ...[
                       Text(
                         'Mode: ${preview.mode}',
-                        style: theme.textTheme.titleSmall?.copyWith(fontWeight: FontWeight.w700),
+                        style: theme.textTheme.titleSmall
+                            ?.copyWith(fontWeight: FontWeight.w700),
                       ),
                       const SizedBox(height: 6),
                       Text(
                         'Frequency: ${preview.frequencyHz} Hz',
                         style: theme.textTheme.bodySmall?.copyWith(
-                          color: theme.colorScheme.onSurface.withValues(alpha: 0.8),
+                          color: theme.colorScheme.onSurface
+                              .withValues(alpha: 0.8),
                         ),
                       ),
                       const SizedBox(height: 8),
@@ -3271,7 +3464,13 @@ class _CreateButtonState extends State<CreateButton> {
                               onPressed: previewError == null
                                   ? () async {
                                       try {
-                                        await sendIR(_draftButtonForPreview());
+                                        final previewButton =
+                                            _draftButtonForPreview();
+                                        await sendIR(previewButton);
+                                        showLastActionForButton(
+                                          button: previewButton,
+                                          title: 'Test transmit',
+                                        );
                                         if (!mounted) return;
                                         _showSnack('Test transmit sent.');
                                       } catch (e) {
@@ -3294,18 +3493,22 @@ class _CreateButtonState extends State<CreateButton> {
                           ),
                         ],
                       ),
-                      if (_signalType == _SignalType.protocol && !IrProtocolRegistry.isImplemented(_selectedProtocolId)) ...[
+                      if (_signalType == _SignalType.protocol &&
+                          !IrProtocolRegistry.isImplemented(
+                              _selectedProtocolId)) ...[
                         const SizedBox(height: 10),
                         Row(
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
-                            Icon(Icons.info_outline, color: theme.colorScheme.primary),
+                            Icon(Icons.info_outline,
+                                color: theme.colorScheme.primary),
                             const SizedBox(width: 10),
                             Expanded(
                               child: Text(
                                 'This protocol is registered but encoding is not implemented yet.',
                                 style: theme.textTheme.bodySmall?.copyWith(
-                                  color: theme.colorScheme.onSurface.withValues(alpha: 0.8),
+                                  color: theme.colorScheme.onSurface
+                                      .withValues(alpha: 0.8),
                                 ),
                               ),
                             ),
@@ -3316,7 +3519,8 @@ class _CreateButtonState extends State<CreateButton> {
                       Text(
                         'Enter valid inputs to generate a preview.',
                         style: theme.textTheme.bodySmall?.copyWith(
-                          color: theme.colorScheme.onSurface.withValues(alpha: 0.75),
+                          color: theme.colorScheme.onSurface
+                              .withValues(alpha: 0.75),
                         ),
                       ),
                     ],
@@ -3326,7 +3530,8 @@ class _CreateButtonState extends State<CreateButton> {
             ),
             const SizedBox(height: 12),
             Card(
-              color: theme.colorScheme.surfaceContainerHighest.withValues(alpha: 0.35),
+              color: theme.colorScheme.surfaceContainerHighest
+                  .withValues(alpha: 0.35),
               child: Padding(
                 padding: const EdgeInsets.all(12),
                 child: Row(
@@ -3338,7 +3543,8 @@ class _CreateButtonState extends State<CreateButton> {
                       child: Text(
                         'Tip: Use Database mode for fast import, then switch to Manual to fine-tune protocols/timings as needed.',
                         style: theme.textTheme.bodySmall?.copyWith(
-                          color: theme.colorScheme.onSurface.withValues(alpha: 0.8),
+                          color: theme.colorScheme.onSurface
+                              .withValues(alpha: 0.8),
                         ),
                       ),
                     ),
@@ -3374,7 +3580,8 @@ class _PatternPreview extends StatelessWidget {
       decoration: BoxDecoration(
         color: theme.colorScheme.surfaceContainerHighest.withValues(alpha: 0.5),
         borderRadius: BorderRadius.circular(12),
-        border: Border.all(color: theme.colorScheme.outlineVariant.withValues(alpha: 0.8)),
+        border: Border.all(
+            color: theme.colorScheme.outlineVariant.withValues(alpha: 0.8)),
       ),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,

@@ -5,7 +5,10 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:irblaster_controller/ir/ir_protocol_registry.dart';
 import 'package:irblaster_controller/l10n/l10n.dart';
+import 'package:irblaster_controller/state/continue_context_prefs.dart';
 import 'package:irblaster_controller/state/haptics.dart';
+import 'package:irblaster_controller/state/last_action_strip.dart';
+import 'package:irblaster_controller/state/remote_highlights_prefs.dart';
 import 'package:irblaster_controller/state/orientation_pref.dart';
 import 'package:irblaster_controller/state/device_controls_prefs.dart';
 import 'package:irblaster_controller/state/quick_settings_prefs.dart';
@@ -22,12 +25,14 @@ class RemoteView extends StatefulWidget {
   final Remote remote;
   final VoidCallback? onEditRemote;
   final Future<void> Function()? onDeleteRemote;
+  final String? initialFocusButtonId;
 
   const RemoteView({
     super.key,
     required this.remote,
     this.onEditRemote,
     this.onDeleteRemote,
+    this.initialFocusButtonId,
   });
 
   @override
@@ -37,6 +42,10 @@ class RemoteView extends StatefulWidget {
 class RemoteViewState extends State<RemoteView> {
   bool _reorderMode = false;
   bool _rotate180 = false;
+  String? _highlightButtonId;
+  String? _pressedButtonId;
+  Timer? _highlightTimer;
+  final ScrollController _gridScrollController = ScrollController();
 
   final RemoteOrientationController _orientation =
       RemoteOrientationController.instance;
@@ -56,6 +65,11 @@ class RemoteViewState extends State<RemoteView> {
     super.initState();
     _remote = widget.remote;
     _rotate180 = _orientation.flipped;
+    _highlightButtonId = widget.initialFocusButtonId?.trim();
+    unawaited(ContinueContextsPrefs.saveLastRemote(_remote));
+    unawaited(RemoteHighlightsPrefs.addRecent(_remote));
+    _scheduleHighlightClear();
+    _scheduleScrollToHighlightedButton();
 
     hasIrEmitter().then((value) {
       if (!value && mounted) {
@@ -97,22 +111,135 @@ class RemoteViewState extends State<RemoteView> {
     if (!identical(oldWidget.remote, widget.remote)) {
       _remote = widget.remote;
     }
+    if (oldWidget.initialFocusButtonId != widget.initialFocusButtonId) {
+      _highlightButtonId = widget.initialFocusButtonId?.trim();
+      _scheduleHighlightClear();
+      _scheduleScrollToHighlightedButton();
+    }
   }
 
   @override
   void dispose() {
+    _highlightTimer?.cancel();
+    _gridScrollController.dispose();
     _stopLoop(silent: true);
     super.dispose();
+  }
+
+  void _scheduleHighlightClear() {
+    _highlightTimer?.cancel();
+    final focusId = _highlightButtonId;
+    if (focusId == null || focusId.isEmpty) return;
+    _highlightTimer = Timer(const Duration(seconds: 5), () {
+      if (!mounted) return;
+      if (_highlightButtonId == focusId) {
+        setState(() => _highlightButtonId = null);
+      }
+    });
+  }
+
+  void _scheduleScrollToHighlightedButton() {
+    final focusId = _highlightButtonId;
+    if (focusId == null || focusId.isEmpty) return;
+    WidgetsBinding.instance.addPostFrameCallback((_) {
+      if (!mounted || _highlightButtonId != focusId) return;
+      _scrollToHighlightedButton(focusId);
+    });
+  }
+
+  void _scrollToHighlightedButton(String focusId) {
+    if (!_gridScrollController.hasClients) return;
+    final int index = _remote.buttons.indexWhere((b) => b.id == focusId);
+    if (index < 0) return;
+
+    final double topPadding = 12;
+    final double targetOffset = _remote.useNewStyle
+        ? _estimatedComfortOffset(index, topPadding)
+        : _estimatedCompactOffset(index, topPadding);
+    final double maxOffset = _gridScrollController.position.maxScrollExtent;
+    final double clampedOffset = targetOffset.clamp(0.0, maxOffset);
+    final double currentOffset = _gridScrollController.offset;
+
+    if ((currentOffset - clampedOffset).abs() < 8) return;
+
+    _gridScrollController.animateTo(
+      clampedOffset,
+      duration: const Duration(milliseconds: 320),
+      curve: Curves.easeOutCubic,
+    );
+  }
+
+  double _estimatedCompactOffset(int index, double topPadding) {
+    const int crossAxisCount = 4;
+    const double spacing = 10;
+    const double horizontalPadding = 24;
+    final double width = MediaQuery.sizeOf(context).width - horizontalPadding;
+    final double tileWidth = (width - (spacing * (crossAxisCount - 1))) /
+        crossAxisCount;
+    final double rowExtent = tileWidth + spacing;
+    final int row = index ~/ crossAxisCount;
+    return topPadding + (row * rowExtent) - 16;
+  }
+
+  double _estimatedComfortOffset(int index, double topPadding) {
+    const int crossAxisCount = 2;
+    const double rowExtent = 130 + 12;
+    final int row = index ~/ crossAxisCount;
+    return topPadding + (row * rowExtent) - 16;
+  }
+
+  void _setPressedButton(IRButton button, bool pressed) {
+    final String id = button.id;
+    if (pressed) {
+      if (_pressedButtonId == id) return;
+      if (!mounted) return;
+      setState(() => _pressedButtonId = id);
+      return;
+    }
+    if (_pressedButtonId != id) return;
+    if (!mounted) return;
+    setState(() => _pressedButtonId = null);
+  }
+
+  Color _interactiveButtonColor(
+    Color base,
+    ColorScheme cs, {
+    required bool highlighted,
+    required bool pressed,
+    required bool looping,
+  }) {
+    Color color = highlighted
+        ? cs.tertiaryContainer.withValues(alpha: 0.92)
+        : base;
+    if (looping) {
+      color = Color.alphaBlend(
+        cs.secondaryContainer.withValues(alpha: 0.42),
+        color,
+      );
+    }
+    if (pressed) {
+      color = Color.alphaBlend(
+        cs.primary.withValues(alpha: highlighted ? 0.18 : 0.14),
+        color,
+      );
+    }
+    return color;
   }
 
   Future<void> _sendOnce(IRButton button, {bool silent = false}) async {
     if (!silent) await Haptics.lightImpact();
     try {
       await sendIR(button);
+      showLastActionForButton(
+        button: button,
+        title: _buttonTitle(button),
+        remoteName: _remote.name,
+      );
     } catch (e) {
       if (!silent && mounted) {
         ScaffoldMessenger.of(context).showSnackBar(
-          SnackBar(content: Text(context.l10n.remoteFailedToSend(e.toString()))),
+          SnackBar(
+              content: Text(context.l10n.remoteFailedToSend(e.toString()))),
         );
       }
       rethrow;
@@ -135,7 +262,8 @@ class RemoteViewState extends State<RemoteView> {
       _stopLoop(silent: true);
       if (!mounted) return;
       ScaffoldMessenger.of(context).showSnackBar(
-        SnackBar(content: Text(context.l10n.remoteFailedToStartLoop(e.toString()))),
+        SnackBar(
+            content: Text(context.l10n.remoteFailedToStartLoop(e.toString()))),
       );
     });
 
@@ -151,7 +279,9 @@ class RemoteViewState extends State<RemoteView> {
         _stopLoop(silent: true);
         if (!mounted) return;
         ScaffoldMessenger.of(context).showSnackBar(
-          SnackBar(content: Text(context.l10n.remoteLoopStoppedFailed(e.toString()))),
+          SnackBar(
+              content:
+                  Text(context.l10n.remoteLoopStoppedFailed(e.toString()))),
         );
       } finally {
         _loopSending = false;
@@ -286,7 +416,8 @@ class RemoteViewState extends State<RemoteView> {
       } catch (e) {
         if (!mounted) return;
         ScaffoldMessenger.of(context).showSnackBar(
-          SnackBar(content: Text(context.l10n.remoteDeleteFailed(e.toString()))),
+          SnackBar(
+              content: Text(context.l10n.remoteDeleteFailed(e.toString()))),
         );
         return;
       }
@@ -309,6 +440,7 @@ class RemoteViewState extends State<RemoteView> {
     }
 
     final String name = _remote.name;
+    await RemoteHighlightsPrefs.removeForRemote(_remote);
     setState(() {
       remotes.removeAt(idx);
       _reassignIds();
@@ -340,7 +472,9 @@ class RemoteViewState extends State<RemoteView> {
     final s = raw.replaceAll('\\', '/');
     final parts = s.split('/');
     final last = parts.isNotEmpty ? parts.last : raw;
-    final clean = last.isEmpty ? context.l10n.imageFallbackTitle : _stripFileExtension(last);
+    final clean = last.isEmpty
+        ? context.l10n.imageFallbackTitle
+        : _stripFileExtension(last);
     return clean.isEmpty ? context.l10n.imageFallbackTitle : clean;
   }
 
@@ -437,7 +571,8 @@ class RemoteViewState extends State<RemoteView> {
     );
   }
 
-  bool _hasProtocol(IRButton b) => b.protocol != null && b.protocol!.trim().isNotEmpty;
+  bool _hasProtocol(IRButton b) =>
+      b.protocol != null && b.protocol!.trim().isNotEmpty;
 
   Map<String, dynamic>? _protocolParams(IRButton b) {
     final dynamic p = b.protocolParams;
@@ -495,9 +630,10 @@ class RemoteViewState extends State<RemoteView> {
     final m0x = RegExp(r'0x([0-9a-fA-F]{1,16})').firstMatch(s);
     if (m0x != null) return m0x.group(1)!.toUpperCase();
 
-    final matches = RegExp(r'(?<![0-9a-fA-F])([0-9a-fA-F]{1,16})(?![0-9a-fA-F])')
-        .allMatches(s)
-        .toList();
+    final matches =
+        RegExp(r'(?<![0-9a-fA-F])([0-9a-fA-F]{1,16})(?![0-9a-fA-F])')
+            .allMatches(s)
+            .toList();
     if (matches.isEmpty) return null;
 
     String best = matches.first.group(1)!.toUpperCase();
@@ -609,7 +745,9 @@ class RemoteViewState extends State<RemoteView> {
     );
 
     if (protoId == 'kaseikyo' || protoId.startsWith('kaseikyo')) {
-      if (vendor != null && addr != null && cmd != null) return '$vendor-$addr-$cmd';
+      if (vendor != null && addr != null && cmd != null) {
+        return '$vendor-$addr-$cmd';
+      }
       if (addr != null && cmd != null) return '$addr-$cmd';
       if (cmd != null) return cmd;
     }
@@ -677,7 +815,8 @@ class RemoteViewState extends State<RemoteView> {
     double fontSize = 10,
   }) {
     final colorScheme = Theme.of(context).colorScheme;
-    final Color background = bg ?? colorScheme.secondaryContainer.withValues(alpha: 0.9);
+    final Color background =
+        bg ?? colorScheme.secondaryContainer.withValues(alpha: 0.9);
     final Color foreground = fg ?? colorScheme.onSecondaryContainer;
 
     return Container(
@@ -706,6 +845,8 @@ class RemoteViewState extends State<RemoteView> {
   Future<void> _openRemoteActionsSheet() async {
     final theme = Theme.of(context);
     final cs = theme.colorScheme;
+    final bool pinned = await RemoteHighlightsPrefs.isPinned(_remote);
+    if (!mounted) return;
 
     await showModalBottomSheet<void>(
       context: context,
@@ -732,7 +873,8 @@ class RemoteViewState extends State<RemoteView> {
                     Row(
                       children: [
                         CircleAvatar(
-                          backgroundColor: cs.primaryContainer.withValues(alpha: 0.65),
+                          backgroundColor:
+                              cs.primaryContainer.withValues(alpha: 0.65),
                           child: Icon(
                             Icons.settings_remote_rounded,
                             color: cs.onPrimaryContainer,
@@ -753,7 +895,7 @@ class RemoteViewState extends State<RemoteView> {
                               const SizedBox(height: 2),
                               Text(
                                 context.l10n.remoteLayoutSummary(
-                                  _remote.buttons.length.toString(),
+                                  _remote.buttons.length,
                                   _remote.useNewStyle
                                       ? context.l10n.layoutComfort
                                       : context.l10n.layoutCompact,
@@ -769,6 +911,36 @@ class RemoteViewState extends State<RemoteView> {
                       ],
                     ),
                     const SizedBox(height: 12),
+                    const Divider(height: 0),
+                    ListTile(
+                      contentPadding: EdgeInsets.zero,
+                      leading: Icon(
+                        pinned
+                            ? Icons.push_pin_rounded
+                            : Icons.push_pin_outlined,
+                      ),
+                      title: Text(
+                        pinned
+                            ? context.l10n.unpinRemote
+                            : context.l10n.pinRemote,
+                      ),
+                      subtitle: Text(context.l10n.pinRemoteSubtitle),
+                      trailing: const Icon(Icons.chevron_right_rounded),
+                      onTap: () async {
+                        Navigator.of(ctx).pop();
+                        await RemoteHighlightsPrefs.togglePinned(_remote);
+                        if (!mounted) return;
+                        ScaffoldMessenger.of(context).showSnackBar(
+                          SnackBar(
+                            content: Text(
+                              pinned
+                                  ? context.l10n.remoteRemovedFromPinned
+                                  : context.l10n.remoteAddedToPinned,
+                            ),
+                          ),
+                        );
+                      },
+                    ),
                     const Divider(height: 0),
                     ListTile(
                       contentPadding: EdgeInsets.zero,
@@ -862,7 +1034,9 @@ class RemoteViewState extends State<RemoteView> {
     if (!mounted) return;
     Haptics.selectionClick();
     ScaffoldMessenger.of(context).showSnackBar(
-      SnackBar(content: Text(context.l10n.remoteUpdatedNamedButton(_buttonTitle(updated)))),
+      SnackBar(
+          content: Text(
+              context.l10n.remoteUpdatedNamedButton(_buttonTitle(updated)))),
     );
   }
 
@@ -903,7 +1077,8 @@ class RemoteViewState extends State<RemoteView> {
     if (!mounted) return;
     Haptics.selectionClick();
     ScaffoldMessenger.of(context).showSnackBar(
-      SnackBar(content: Text(context.l10n.buttonAddedNamed(_buttonTitle(created)))),
+      SnackBar(
+          content: Text(context.l10n.buttonAddedNamed(_buttonTitle(created)))),
     );
   }
 
@@ -969,7 +1144,8 @@ class RemoteViewState extends State<RemoteView> {
     if (!mounted) return;
 
     final String typeLine = 'Type: $proto';
-    final String codeLine = isRaw ? 'Code: Raw signal' : 'Code: ${displayHex ?? 'NO CODE'}';
+    final String codeLine =
+        isRaw ? 'Code: Raw signal' : 'Code: ${displayHex ?? 'NO CODE'}';
     final String freqLine = 'Frequency: $freq';
 
     await showModalBottomSheet<void>(
@@ -997,7 +1173,8 @@ class RemoteViewState extends State<RemoteView> {
                     Row(
                       children: [
                         CircleAvatar(
-                          backgroundColor: cs.secondaryContainer.withValues(alpha: 0.75),
+                          backgroundColor:
+                              cs.secondaryContainer.withValues(alpha: 0.75),
                           child: Icon(
                             Icons.touch_app_outlined,
                             color: cs.onSecondaryContainer,
@@ -1033,7 +1210,8 @@ class RemoteViewState extends State<RemoteView> {
                       width: double.infinity,
                       padding: const EdgeInsets.all(12),
                       decoration: BoxDecoration(
-                        color: cs.surfaceContainerHighest.withValues(alpha: 0.55),
+                        color:
+                            cs.surfaceContainerHighest.withValues(alpha: 0.55),
                         borderRadius: BorderRadius.circular(12),
                         border: Border.all(
                           color: cs.outlineVariant.withValues(alpha: 0.3),
@@ -1061,7 +1239,9 @@ class RemoteViewState extends State<RemoteView> {
                           Row(
                             children: [
                               Icon(
-                                loopingThis ? Icons.sync_rounded : Icons.info_outline,
+                                loopingThis
+                                    ? Icons.sync_rounded
+                                    : Icons.info_outline,
                                 size: 16,
                                 color: cs.onSurface.withValues(alpha: 0.75),
                               ),
@@ -1107,7 +1287,9 @@ class RemoteViewState extends State<RemoteView> {
                                     if (!mounted || !ctx.mounted) return;
                                     Navigator.of(ctx).pop();
                                     ScaffoldMessenger.of(context).showSnackBar(
-                                      SnackBar(content: Text(context.l10n.codeCopied)),
+                                      SnackBar(
+                                          content:
+                                              Text(context.l10n.codeCopied)),
                                     );
                                     Haptics.selectionClick();
                                   },
@@ -1179,8 +1361,12 @@ class RemoteViewState extends State<RemoteView> {
                     ),
                     ListTile(
                       contentPadding: EdgeInsets.zero,
-                      leading: Icon(isControlFav ? Icons.remove_circle_outline : Icons.add_circle_outline),
-                      title: Text(isControlFav ? context.l10n.removeFromDeviceControls : context.l10n.addToDeviceControls),
+                      leading: Icon(isControlFav
+                          ? Icons.remove_circle_outline
+                          : Icons.add_circle_outline),
+                      title: Text(isControlFav
+                          ? context.l10n.removeFromDeviceControls
+                          : context.l10n.addToDeviceControls),
                       subtitle: Text(context.l10n.deviceControlsButtonSubtitle),
                       onTap: () async {
                         Navigator.of(ctx).pop();
@@ -1205,15 +1391,20 @@ class RemoteViewState extends State<RemoteView> {
                     ),
                     ListTile(
                       contentPadding: EdgeInsets.zero,
-                      leading: Icon(isQuickFav ? Icons.star_rounded : Icons.star_border_rounded),
-                      title: Text(isQuickFav ? context.l10n.unpinQuickTile : context.l10n.pinQuickTile),
+                      leading: Icon(isQuickFav
+                          ? Icons.star_rounded
+                          : Icons.star_border_rounded),
+                      title: Text(isQuickFav
+                          ? context.l10n.unpinQuickTile
+                          : context.l10n.pinQuickTile),
                       subtitle: Text(context.l10n.quickTileButtonSubtitle),
                       onTap: () async {
                         Navigator.of(ctx).pop();
                         if (isQuickFav) {
                           await QuickSettingsPrefs.removeFavorite(b.id);
                         } else {
-                          await QuickSettingsPrefs.addFavorite(QuickTileFavorite(
+                          await QuickSettingsPrefs.addFavorite(
+                              QuickTileFavorite(
                             buttonId: b.id,
                             title: label,
                             subtitle: _remote.name,
@@ -1270,7 +1461,7 @@ class RemoteViewState extends State<RemoteView> {
             ),
             const SizedBox(height: 2),
             Text(
-              context.l10n.remoteButtonCountSummary(count.toString()),
+              context.l10n.remoteButtonCountSummary(count),
               style: theme.textTheme.labelSmall?.copyWith(
                 color: cs.onSurface.withValues(alpha: 0.65),
                 fontWeight: FontWeight.w600,
@@ -1297,7 +1488,8 @@ class RemoteViewState extends State<RemoteView> {
               icon: Icon(Icons.stop_circle_rounded, color: cs.error),
             ),
           IconButton(
-            tooltip: _reorderMode ? context.l10n.done : context.l10n.reorderButtons,
+            tooltip:
+                _reorderMode ? context.l10n.done : context.l10n.reorderButtons,
             onPressed: () {
               setState(() => _reorderMode = !_reorderMode);
               Haptics.selectionClick();
@@ -1313,7 +1505,9 @@ class RemoteViewState extends State<RemoteView> {
                 );
               }
             },
-            icon: Icon(_reorderMode ? Icons.check_rounded : Icons.drag_indicator_rounded),
+            icon: Icon(_reorderMode
+                ? Icons.check_rounded
+                : Icons.drag_indicator_rounded),
           ),
           IconButton(
             tooltip: context.l10n.manageRemote,
@@ -1345,7 +1539,9 @@ class RemoteViewState extends State<RemoteView> {
                   angle: _rotate180 ? 3.1415926535897932 : 0.0,
                   child: count == 0
                       ? _EmptyRemoteState(onManage: _openRemoteActionsSheet)
-                      : (useNewStyle ? _buildComfortGrid() : _buildCompactGrid()),
+                      : (useNewStyle
+                          ? _buildComfortGrid()
+                          : _buildCompactGrid()),
                 ),
               ),
             ],
@@ -1364,12 +1560,15 @@ class RemoteViewState extends State<RemoteView> {
   }
 
   Widget _buildCompactGrid() {
-    final dragDelay = _reorderMode ? const Duration(milliseconds: 200) : const Duration(days: 3650);
+    final dragDelay = _reorderMode
+        ? const Duration(milliseconds: 200)
+        : const Duration(days: 3650);
     final theme = Theme.of(context);
     final cs = theme.colorScheme;
     final cardColor = cs.primary.withValues(alpha: 0.20);
 
     return ReorderableGridView.builder(
+      controller: _gridScrollController,
       padding: EdgeInsets.fromLTRB(
         12,
         12,
@@ -1386,9 +1585,19 @@ class RemoteViewState extends State<RemoteView> {
       ),
       itemBuilder: (context, index) {
         final IRButton button = _remote.buttons[index];
+        final bool highlighted = _highlightButtonId == button.id;
+        final bool pressed = _pressedButtonId == button.id;
+        final bool loopingThis = _isLoopingThis(button);
         final String proto = _protocolLabel(button);
         final Color bgColor = _buttonBgColor(button, cardColor);
         final Color fgColor = _buttonFgColor(button, cs.onSurface);
+        final Color surfaceColor = _interactiveButtonColor(
+          bgColor,
+          cs,
+          highlighted: highlighted,
+          pressed: pressed,
+          looping: loopingThis,
+        );
         final Widget content = Padding(
           padding: const EdgeInsets.all(6),
           child: _buildPrimaryButtonVisual(
@@ -1399,30 +1608,84 @@ class RemoteViewState extends State<RemoteView> {
           ),
         );
 
-        return Material(
+        return AnimatedScale(
           key: ValueKey(button.id),
-          color: bgColor,
-          borderRadius: BorderRadius.circular(14),
-          clipBehavior: Clip.antiAlias,
-          child: InkWell(
-            onTap: () => _handleButtonPress(button),
-            onLongPress: _reorderMode ? null : () => _openButtonActions(button),
-            child: Stack(
-              children: [
-                Positioned.fill(
-                  child: content,
+          scale: pressed ? 0.965 : 1,
+          duration: const Duration(milliseconds: 110),
+          curve: Curves.easeOutCubic,
+          child: AnimatedContainer(
+            duration: const Duration(milliseconds: 120),
+            curve: Curves.easeOutCubic,
+            decoration: BoxDecoration(
+              borderRadius: BorderRadius.circular(14),
+              boxShadow: pressed
+                  ? []
+                  : [
+                      BoxShadow(
+                        color: cs.shadow.withValues(alpha: loopingThis ? 0.12 : 0.08),
+                        blurRadius: loopingThis ? 14 : 10,
+                        offset: const Offset(0, 4),
+                      ),
+                    ],
+            ),
+            child: Material(
+              color: surfaceColor,
+              borderRadius: BorderRadius.circular(14),
+              clipBehavior: Clip.antiAlias,
+              child: InkWell(
+                borderRadius: BorderRadius.circular(14),
+                splashFactory: InkSparkle.splashFactory,
+                splashColor: cs.primary.withValues(alpha: 0.16),
+                highlightColor: cs.primary.withValues(alpha: 0.08),
+                onHighlightChanged: (value) => _setPressedButton(button, value),
+                onTap: () => _handleButtonPress(button),
+                onLongPress:
+                    _reorderMode ? null : () => _openButtonActions(button),
+                child: Stack(
+                  children: [
+                    Positioned.fill(
+                      child: content,
+                    ),
+                    if (highlighted)
+                      Positioned.fill(
+                        child: Container(
+                          decoration: BoxDecoration(
+                            borderRadius: BorderRadius.circular(14),
+                            border: Border.all(
+                              color: cs.tertiary,
+                              width: 2,
+                            ),
+                          ),
+                        ),
+                      ),
+                    Positioned(
+                      top: 4,
+                      right: 4,
+                      child: _pill(
+                        context,
+                        proto,
+                        padding: const EdgeInsets.symmetric(
+                            horizontal: 6, vertical: 3),
+                        fontSize: 9,
+                      ),
+                    ),
+                    if (loopingThis)
+                      Positioned(
+                        left: 4,
+                        top: 4,
+                        child: _pill(
+                          context,
+                          context.l10n.loopingBadge,
+                          bg: cs.secondary,
+                          fg: cs.onSecondary,
+                          padding: const EdgeInsets.symmetric(
+                              horizontal: 7, vertical: 3),
+                          fontSize: 9,
+                        ),
+                      ),
+                  ],
                 ),
-                Positioned(
-                  top: 4,
-                  right: 4,
-                  child: _pill(
-                    context,
-                    proto,
-                    padding: const EdgeInsets.symmetric(horizontal: 6, vertical: 3),
-                    fontSize: 9,
-                  ),
-                ),
-              ],
+              ),
             ),
           ),
         );
@@ -1443,12 +1706,15 @@ class RemoteViewState extends State<RemoteView> {
   }
 
   Widget _buildComfortGrid() {
-    final dragDelay = _reorderMode ? const Duration(milliseconds: 200) : const Duration(days: 3650);
+    final dragDelay = _reorderMode
+        ? const Duration(milliseconds: 200)
+        : const Duration(days: 3650);
     final theme = Theme.of(context);
     final cs = theme.colorScheme;
     final cardColor = cs.primary.withValues(alpha: 0.20);
 
     return ReorderableGridView.builder(
+      controller: _gridScrollController,
       padding: EdgeInsets.fromLTRB(
         12,
         12,
@@ -1477,71 +1743,127 @@ class RemoteViewState extends State<RemoteView> {
       },
       itemBuilder: (context, index) {
         final IRButton button = _remote.buttons[index];
+        final bool highlighted = _highlightButtonId == button.id;
+        final bool pressed = _pressedButtonId == button.id;
+        final bool loopingThis = _isLoopingThis(button);
         final bool isRaw = _isRawSignalButton(button);
 
         final String proto = _protocolLabel(button);
         final String freq = _freqLabelKhz(button);
         final Color bgColor = _buttonBgColor(button, cardColor);
         final Color fgColor = _buttonFgColor(button, cs.onSurface);
+        final Color surfaceColor = _interactiveButtonColor(
+          bgColor,
+          cs,
+          highlighted: highlighted,
+          pressed: pressed,
+          looping: loopingThis,
+        );
 
         final String? displayHex = _displayHex(button);
         final String codeText = isRaw ? 'RAW' : (displayHex ?? 'NO CODE');
-        return Card(
+        return AnimatedScale(
           key: ValueKey(button.id),
-          elevation: 0,
-          shape: RoundedRectangleBorder(
-            borderRadius: BorderRadius.circular(16),
-            side: BorderSide(color: cs.outlineVariant.withValues(alpha: 0.35)),
-          ),
-          color: bgColor,
-          clipBehavior: Clip.antiAlias,
-          child: InkWell(
-            onTap: () => _handleButtonPress(button),
-            onLongPress: _reorderMode ? null : () => _openButtonActions(button),
-            child: Padding(
-              padding: const EdgeInsets.all(14),
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Expanded(
-                    child: Center(
-                      child: SizedBox(
-                        width: 72,
-                        height: 72,
-                        child: _buildPrimaryButtonVisual(
-                          button,
-                          theme: theme,
-                          textColor: fgColor,
-                          maxLines: 2,
+          scale: pressed ? 0.975 : 1,
+          duration: const Duration(milliseconds: 110),
+          curve: Curves.easeOutCubic,
+          child: AnimatedContainer(
+            duration: const Duration(milliseconds: 120),
+            curve: Curves.easeOutCubic,
+            decoration: BoxDecoration(
+              borderRadius: BorderRadius.circular(16),
+              boxShadow: pressed
+                  ? []
+                  : [
+                      BoxShadow(
+                        color: cs.shadow.withValues(alpha: loopingThis ? 0.12 : 0.07),
+                        blurRadius: loopingThis ? 16 : 12,
+                        offset: const Offset(0, 5),
+                      ),
+                    ],
+            ),
+            child: Material(
+              shape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.circular(16),
+                side: BorderSide(
+                  color: highlighted
+                      ? cs.tertiary
+                      : (loopingThis
+                          ? cs.secondary.withValues(alpha: 0.65)
+                          : cs.outlineVariant.withValues(alpha: 0.35)),
+                  width: highlighted ? 2 : (loopingThis ? 1.5 : 1),
+                ),
+              ),
+              color: surfaceColor,
+              clipBehavior: Clip.antiAlias,
+              child: InkWell(
+                borderRadius: BorderRadius.circular(16),
+                splashFactory: InkSparkle.splashFactory,
+                splashColor: cs.primary.withValues(alpha: 0.14),
+                highlightColor: cs.primary.withValues(alpha: 0.08),
+                onHighlightChanged: (value) => _setPressedButton(button, value),
+                onTap: () => _handleButtonPress(button),
+                onLongPress:
+                    _reorderMode ? null : () => _openButtonActions(button),
+                child: Padding(
+                  padding: const EdgeInsets.all(14),
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Row(
+                        children: [
+                          if (loopingThis)
+                            _pill(
+                              context,
+                              context.l10n.loopingBadge,
+                              bg: cs.secondary,
+                              fg: cs.onSecondary,
+                              fontSize: 9,
+                            ),
+                          if (loopingThis) const Spacer() else const SizedBox.shrink(),
+                        ],
+                      ),
+                      Expanded(
+                        child: Center(
+                          child: SizedBox(
+                            width: 72,
+                            height: 72,
+                            child: _buildPrimaryButtonVisual(
+                              button,
+                              theme: theme,
+                              textColor: fgColor,
+                              maxLines: 2,
+                            ),
+                          ),
                         ),
                       ),
-                    ),
-                  ),
-                  const SizedBox(height: 8),
-                  Center(
-                    child: Text(
-                      codeText,
-                      maxLines: 1,
-                      overflow: TextOverflow.ellipsis,
-                      style: theme.textTheme.bodySmall?.copyWith(
-                        fontFamily: isRaw ? null : 'monospace',
-                        fontWeight: FontWeight.w800,
-                        color: fgColor.withValues(alpha: 0.82),
-                        fontSize: 11,
+                      const SizedBox(height: 8),
+                      Center(
+                        child: Text(
+                          codeText,
+                          maxLines: 1,
+                          overflow: TextOverflow.ellipsis,
+                          style: theme.textTheme.bodySmall?.copyWith(
+                            fontFamily: isRaw ? null : 'monospace',
+                            fontWeight: FontWeight.w800,
+                            color: fgColor.withValues(alpha: 0.82),
+                            fontSize: 11,
+                          ),
+                        ),
                       ),
-                    ),
-                  ),
-                  const SizedBox(height: 10),
-                  Wrap(
-                    alignment: WrapAlignment.center,
-                    spacing: 6,
-                    runSpacing: 6,
-                    children: [
-                      _pill(context, proto, fontSize: 9),
-                      _pill(context, freq, fontSize: 9),
+                      const SizedBox(height: 10),
+                      Wrap(
+                        alignment: WrapAlignment.center,
+                        spacing: 6,
+                        runSpacing: 6,
+                        children: [
+                          _pill(context, proto, fontSize: 9),
+                          _pill(context, freq, fontSize: 9),
+                        ],
+                      ),
                     ],
                   ),
-                ],
+                ),
               ),
             ),
           ),
@@ -1617,7 +1939,8 @@ class _EmptyRemoteState extends StatelessWidget {
             const SizedBox(height: 12),
             Text(
               context.l10n.remoteNoButtons,
-              style: theme.textTheme.titleMedium?.copyWith(fontWeight: FontWeight.w900),
+              style: theme.textTheme.titleMedium
+                  ?.copyWith(fontWeight: FontWeight.w900),
               textAlign: TextAlign.center,
             ),
             const SizedBox(height: 6),

@@ -1,6 +1,13 @@
 import 'dart:convert';
 
+import 'package:flutter/foundation.dart';
 import 'package:shared_preferences/shared_preferences.dart';
+
+final ValueNotifier<int> deviceControlsRevision = ValueNotifier<int>(0);
+
+void notifyDeviceControlsChanged() {
+  deviceControlsRevision.value = deviceControlsRevision.value + 1;
+}
 
 class DeviceControlsPrefs {
   DeviceControlsPrefs._();
@@ -27,6 +34,7 @@ class DeviceControlsPrefs {
     final prefs = await SharedPreferences.getInstance();
     final payload = jsonEncode(items.map((e) => e.toJson()).toList());
     await prefs.setString(_key, payload);
+    notifyDeviceControlsChanged();
   }
 
   static Future<bool> isFavorite(String buttonId) async {

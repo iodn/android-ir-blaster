@@ -804,7 +804,7 @@ class AppLocalizationsJa extends AppLocalizations {
   }
 
   @override
-  String remoteLayoutSummary(Object count, Object layout) {
+  String remoteLayoutSummary(int count, Object layout) {
     return '$count個のボタン ・ $layout';
   }
 
@@ -983,7 +983,7 @@ class AppLocalizationsJa extends AppLocalizations {
   String get noRemotesAvailable => '利用可能なリモコンがありません';
 
   @override
-  String remoteButtonCountSummary(Object count) {
+  String remoteButtonCountSummary(int count) {
     return '$count個のボタン';
   }
 
@@ -1035,6 +1035,9 @@ class AppLocalizationsJa extends AppLocalizations {
 
   @override
   String get loopTip => 'ヒント ループを使うと停止するまで繰り返せます。';
+
+  @override
+  String get loopingBadge => 'Looping';
 
   @override
   String get codeCopied => 'コードをコピーしました';
@@ -1983,6 +1986,24 @@ class AppLocalizationsJa extends AppLocalizations {
 
   @override
   String get discard => '破棄';
+
+  @override
+  String get continueEditing => 'Continue editing';
+
+  @override
+  String get unsavedChangesTitle => 'Unsaved changes';
+
+  @override
+  String get unsavedMacroChangesMessage =>
+      'Discard your macro changes and leave this screen?';
+
+  @override
+  String get stopMacroBeforeLeaving =>
+      'Stop the macro before leaving this screen.';
+
+  @override
+  String get stopTestingBeforeLeaving =>
+      'Stop testing before leaving this screen.';
 
   @override
   String get idle => '待機';
@@ -3904,4 +3925,131 @@ class AppLocalizationsJa extends AppLocalizations {
 
   @override
   String get unknownProtocolSelected => '不明なプロトコルが選択されました';
+
+  @override
+  String get continueSectionTitle => 'Continue';
+
+  @override
+  String get continueSectionSubtitle => 'Pick up where you left off.';
+
+  @override
+  String get continueLastRemoteTitle => 'Last remote';
+
+  @override
+  String get continueLastMacroTitle => 'Last macro';
+
+  @override
+  String get continueLastIrFinderHitTitle => 'Last IR Finder hit';
+
+  @override
+  String get continueTargetUnavailable => 'That item is no longer available.';
+
+  @override
+  String get continueUniversalPowerAllBrands => 'All brands';
+
+  @override
+  String get untitledMacro => 'Untitled Macro';
+
+  @override
+  String get pinnedRemotesTitle => 'Pinned remotes';
+
+  @override
+  String get pinnedRemotesSubtitle =>
+      'Keep your most important remotes one tap away.';
+
+  @override
+  String get recentlyUsedRemotesTitle => 'Recently used';
+
+  @override
+  String get recentlyUsedRemotesSubtitle =>
+      'Jump back into the remotes you opened most recently.';
+
+  @override
+  String get pinRemote => 'Pin remote';
+
+  @override
+  String get unpinRemote => 'Unpin remote';
+
+  @override
+  String get pinRemoteSubtitle =>
+      'Keep this remote at the top for faster access.';
+
+  @override
+  String get remoteAddedToPinned => 'Remote pinned.';
+
+  @override
+  String get remoteRemovedFromPinned => 'Remote removed from pinned.';
+
+  @override
+  String get homeDeviceControlsTitle => 'Quick controls';
+
+  @override
+  String get homeDeviceControlsSubtitle =>
+      'Power, mute, and volume without opening a remote.';
+
+  @override
+  String get homeDeviceControlsEmptySubtitle =>
+      'Set up power, mute, and volume buttons in Device Controls.';
+
+  @override
+  String get showDeviceControlsOnHome => 'Show quick controls on home';
+
+  @override
+  String get showDeviceControlsOnHomeSubtitle =>
+      'Show the compact Power, Mute, and Volume row on the main screen.';
+
+  @override
+  String get homeDeviceControlsShown => 'Quick controls shown on home.';
+
+  @override
+  String get homeDeviceControlsHidden => 'Quick controls hidden from home.';
+
+  @override
+  String get power => 'Power';
+
+  @override
+  String get mute => 'Mute';
+
+  @override
+  String get volumeUp => 'Vol +';
+
+  @override
+  String get volumeDown => 'Vol -';
+
+  @override
+  String get manage => 'Manage';
+
+  @override
+  String get hide => 'Hide';
+
+  @override
+  String get lastActionTitle => 'Last action';
+
+  @override
+  String lastActionSent(String title) {
+    return 'Sent $title';
+  }
+
+  @override
+  String lastActionSentTo(String remoteName, String title) {
+    return 'Sent $remoteName -> $title';
+  }
+
+  @override
+  String get repeatAction => 'Repeat';
+
+  @override
+  String get globalSearchTitle => 'Search everything';
+
+  @override
+  String get globalSearchNoResults => 'No results found.';
+
+  @override
+  String get globalSearchTypeRemote => 'REMOTE';
+
+  @override
+  String get globalSearchTypeButton => 'BUTTON';
+
+  @override
+  String get globalSearchTypeMacro => 'MACRO';
 }

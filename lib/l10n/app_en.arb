@@ -324,10 +324,12 @@
       "name": {}
     }
   },
-  "remoteLayoutSummary": "{count} button(s) · {layout}",
+  "remoteLayoutSummary": "{count, plural, one{{count} button} other{{count} buttons}} · {layout}",
   "@remoteLayoutSummary": {
     "placeholders": {
-      "count": {},
+      "count": {
+        "type": "int"
+      },
       "layout": {}
     }
   },
@@ -400,10 +402,12 @@
   "deleteMacroTitle": "Delete macro?",
   "deleteMacroMessage": "You can undo this from the next snackbar.",
   "noRemotesAvailable": "No remotes available.",
-  "remoteButtonCountSummary": "{count} button(s)",
+  "remoteButtonCountSummary": "{count, plural, one{{count} button} other{{count} buttons}}",
   "@remoteButtonCountSummary": {
     "placeholders": {
-      "count": {}
+      "count": {
+        "type": "int"
+      }
     }
   },
   "remoteOrientationFlippedTooltip": "Orientation: flipped (tap to normal)",
@@ -431,6 +435,7 @@
   "buttonDuplicated": "Button duplicated.",
   "loopRunningForButton": "Loop is running for this button.",
   "loopTip": "Tip: Use Loop to repeat until you stop it.",
+  "loopingBadge": "Looping",
   "codeCopied": "Code copied.",
   "copyCode": "Copy code",
   "startLoop": "Start loop",
@@ -464,7 +469,7 @@
     }
   },
   "remove": "Remove",
-  "importedButtonCount": "Imported {count} button(s).",
+  "importedButtonCount": "{count, plural, one{Imported {count} button.} other{Imported {count} buttons.}}",
   "@importedButtonCount": {
     "placeholders": {
       "count": {
@@ -472,7 +477,7 @@
       }
     }
   },
-  "importedButtonsFromExistingRemotes": "Imported {count} button(s) from existing remotes.",
+  "importedButtonsFromExistingRemotes": "{count, plural, one{Imported {count} button from existing remotes.} other{Imported {count} buttons from existing remotes.}}",
   "@importedButtonsFromExistingRemotes": {
     "placeholders": {
       "count": {
@@ -757,7 +762,7 @@
       "error": {}
     }
   },
-  "importedLegacyJsonBackup": "Imported {count} remotes from legacy JSON backup. Macros were not changed.",
+  "importedLegacyJsonBackup": "{count, plural, one{Imported {count} remote from legacy JSON backup. Macros were not changed.} other{Imported {count} remotes from legacy JSON backup. Macros were not changed.}}",
   "@importedLegacyJsonBackup": {
     "placeholders": {
       "count": {
@@ -768,7 +773,7 @@
   "importFailedRemotesMustBeList": "Import failed: backup \"remotes\" must be a JSON list when present.",
   "importFailedMacrosMustBeList": "Import failed: backup \"macros\" must be a JSON list when present.",
   "importFailedInvalidBackupFormat": "Import failed: invalid backup format (expected legacy List or Map with remotes/macros).",
-  "importedBackupRemotesOnly": "Imported {remoteCount} remotes from backup. Macros were not changed.",
+  "importedBackupRemotesOnly": "{remoteCount, plural, one{Imported {remoteCount} remote from backup. Macros were not changed.} other{Imported {remoteCount} remotes from backup. Macros were not changed.}}",
   "@importedBackupRemotesOnly": {
     "placeholders": {
       "remoteCount": {
@@ -776,7 +781,7 @@
       }
     }
   },
-  "importedBackupRemotesAndMacros": "Imported {remoteCount} remotes and {macroCount} macros from backup.",
+  "importedBackupRemotesAndMacros": "{remoteCount, plural, one{{remoteCount} remote} other{{remoteCount} remotes}} and {macroCount, plural, one{{macroCount} macro} other{{macroCount} macros}} imported from backup.",
   "@importedBackupRemotesAndMacros": {
     "placeholders": {
       "remoteCount": {
@@ -1037,6 +1042,11 @@
   "noSignalInfo": "No signal info",
   "proceed": "Proceed",
   "discard": "Discard",
+  "continueEditing": "Continue editing",
+  "unsavedChangesTitle": "Unsaved changes",
+  "unsavedMacroChangesMessage": "Discard your macro changes and leave this screen?",
+  "stopMacroBeforeLeaving": "Stop the macro before leaving this screen.",
+  "stopTestingBeforeLeaving": "Stop testing before leaving this screen.",
   "idle": "Idle",
   "start": "Start",
   "resume": "Resume",
@@ -1849,5 +1859,174 @@
   "importedRemoteDefaultName": "ImportedRemote",
   "demoRemoteName": "Demo Remote",
   "protocolFieldsInvalid": "Fill required protocol fields and ensure frequency is 15k–60k if set.",
-  "unknownProtocolSelected": "Unknown protocol selected."
+  "unknownProtocolSelected": "Unknown protocol selected.",
+  "continueSectionTitle": "Continue",
+  "@continueSectionTitle": {
+    "description": "Title for the recent continue strip on the remotes screen."
+  },
+  "continueSectionSubtitle": "Pick up where you left off.",
+  "@continueSectionSubtitle": {
+    "description": "Subtitle for the continue strip on the remotes screen."
+  },
+  "continueLastRemoteTitle": "Last remote",
+  "@continueLastRemoteTitle": {
+    "description": "Eyebrow label for the last opened remote card."
+  },
+  "continueLastMacroTitle": "Last macro",
+  "@continueLastMacroTitle": {
+    "description": "Eyebrow label for the last run macro card."
+  },
+  "continueLastIrFinderHitTitle": "Last IR Finder hit",
+  "@continueLastIrFinderHitTitle": {
+    "description": "Eyebrow label for the last saved IR Finder result card."
+  },
+  "continueTargetUnavailable": "That item is no longer available.",
+  "@continueTargetUnavailable": {
+    "description": "Shown when a continue card points to a deleted or missing target."
+  },
+  "continueUniversalPowerAllBrands": "All brands",
+  "@continueUniversalPowerAllBrands": {
+    "description": "Fallback label when the saved universal power context has no selected brand."
+  },
+  "untitledMacro": "Untitled Macro",
+  "@untitledMacro": {
+    "description": "Fallback title for a macro without a saved name."
+  },
+  "pinnedRemotesTitle": "Pinned remotes",
+  "@pinnedRemotesTitle": {
+    "description": "Title for the pinned remotes section on the remotes screen."
+  },
+  "pinnedRemotesSubtitle": "Keep your most important remotes one tap away.",
+  "@pinnedRemotesSubtitle": {
+    "description": "Subtitle for the pinned remotes section on the remotes screen."
+  },
+  "recentlyUsedRemotesTitle": "Recently used",
+  "@recentlyUsedRemotesTitle": {
+    "description": "Title for the recently used remotes section on the remotes screen."
+  },
+  "recentlyUsedRemotesSubtitle": "Jump back into the remotes you opened most recently.",
+  "@recentlyUsedRemotesSubtitle": {
+    "description": "Subtitle for the recently used remotes section on the remotes screen."
+  },
+  "pinRemote": "Pin remote",
+  "@pinRemote": {
+    "description": "Action label to pin a remote for quick access."
+  },
+  "unpinRemote": "Unpin remote",
+  "@unpinRemote": {
+    "description": "Action label to remove a remote from the pinned section."
+  },
+  "pinRemoteSubtitle": "Keep this remote at the top for faster access.",
+  "@pinRemoteSubtitle": {
+    "description": "Subtitle shown under the pin/unpin remote action."
+  },
+  "remoteAddedToPinned": "Remote pinned.",
+  "@remoteAddedToPinned": {
+    "description": "Snackbar shown after pinning a remote."
+  },
+  "remoteRemovedFromPinned": "Remote removed from pinned.",
+  "@remoteRemovedFromPinned": {
+    "description": "Snackbar shown after unpinning a remote."
+  },
+  "homeDeviceControlsTitle": "Quick controls",
+  "@homeDeviceControlsTitle": {
+    "description": "Title for the compact device controls row on the home surface."
+  },
+  "homeDeviceControlsSubtitle": "Power, mute, and volume without opening a remote.",
+  "@homeDeviceControlsSubtitle": {
+    "description": "Subtitle for the compact device controls row when controls are configured."
+  },
+  "homeDeviceControlsEmptySubtitle": "Set up power, mute, and volume buttons in Device Controls.",
+  "@homeDeviceControlsEmptySubtitle": {
+    "description": "Subtitle for the compact device controls row when no matching controls are configured."
+  },
+  "showDeviceControlsOnHome": "Show quick controls on home",
+  "@showDeviceControlsOnHome": {
+    "description": "Settings toggle title for showing the compact device controls row on the home surface."
+  },
+  "showDeviceControlsOnHomeSubtitle": "Show the compact Power, Mute, and Volume row on the main screen.",
+  "@showDeviceControlsOnHomeSubtitle": {
+    "description": "Settings toggle subtitle for showing the compact device controls row on the home surface."
+  },
+  "homeDeviceControlsShown": "Quick controls shown on home.",
+  "@homeDeviceControlsShown": {
+    "description": "Snackbar shown when the home quick controls row is enabled."
+  },
+  "homeDeviceControlsHidden": "Quick controls hidden from home.",
+  "@homeDeviceControlsHidden": {
+    "description": "Snackbar shown when the home quick controls row is disabled."
+  },
+  "power": "Power",
+  "@power": {
+    "description": "Short label for the power control."
+  },
+  "mute": "Mute",
+  "@mute": {
+    "description": "Short label for the mute control."
+  },
+  "volumeUp": "Vol +",
+  "@volumeUp": {
+    "description": "Short label for the volume up control."
+  },
+  "volumeDown": "Vol -",
+  "@volumeDown": {
+    "description": "Short label for the volume down control."
+  },
+  "manage": "Manage",
+  "@manage": {
+    "description": "Short action label for opening a management screen."
+  },
+  "hide": "Hide",
+  "@hide": {
+    "description": "Short action label for hiding a surface or section."
+  },
+  "lastActionTitle": "Last action",
+  "@lastActionTitle": {
+    "description": "Title for the compact last action strip shown after sending IR."
+  },
+  "lastActionSent": "Sent {title}",
+  "@lastActionSent": {
+    "description": "Compact message in the last action strip when only the button title is known.",
+    "placeholders": {
+      "title": {
+        "type": "String"
+      }
+    }
+  },
+  "lastActionSentTo": "Sent {remoteName} -> {title}",
+  "@lastActionSentTo": {
+    "description": "Compact message in the last action strip when both remote name and button title are known.",
+    "placeholders": {
+      "remoteName": {
+        "type": "String"
+      },
+      "title": {
+        "type": "String"
+      }
+    }
+  },
+  "repeatAction": "Repeat",
+  "@repeatAction": {
+    "description": "Short action label to resend the last IR action."
+  },
+  "globalSearchTitle": "Search everything",
+  "@globalSearchTitle": {
+    "description": "Title or tooltip for global search across remotes, buttons, and macros."
+  },
+  "globalSearchNoResults": "No results found.",
+  "@globalSearchNoResults": {
+    "description": "Empty state message for global search."
+  },
+  "globalSearchTypeRemote": "REMOTE",
+  "@globalSearchTypeRemote": {
+    "description": "Badge label for a remote search result."
+  },
+  "globalSearchTypeButton": "BUTTON",
+  "@globalSearchTypeButton": {
+    "description": "Badge label for a button search result."
+  },
+  "globalSearchTypeMacro": "MACRO",
+  "@globalSearchTypeMacro": {
+    "description": "Badge label for a macro search result."
+  }
 }

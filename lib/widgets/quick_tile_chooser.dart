@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:irblaster_controller/l10n/icon_picker_names.dart';
 import 'package:irblaster_controller/l10n/l10n.dart';
+import 'package:irblaster_controller/state/last_action_strip.dart';
 import 'package:irblaster_controller/state/quick_settings_prefs.dart';
 import 'package:irblaster_controller/state/remotes_state.dart';
 import 'package:irblaster_controller/utils/button_label.dart';
@@ -59,7 +60,8 @@ Future<QuickTilePick?> pickButtonForTile(
     iconNameLocalizer: (name) => localizedIconPickerName(context.l10n, name),
   );
 
-  return QuickTilePick(remote: pickedRemote, button: pickedButton, title: title);
+  return QuickTilePick(
+      remote: pickedRemote, button: pickedButton, title: title);
 }
 
 Future<QuickTileMapping?> buildQuickTileMapping(QuickTilePick pick) async {
@@ -119,6 +121,11 @@ Future<void> sendButtonPick(BuildContext context, QuickTilePick pick) async {
   }
   try {
     await sendIR(found);
+    showLastActionForButton(
+      button: found,
+      title: pick.title,
+      remoteName: pick.remote.name,
+    );
     if (!context.mounted) return;
     ScaffoldMessenger.of(context).showSnackBar(
       SnackBar(content: Text(context.l10n.sentNamed(pick.title))),
@@ -191,7 +198,9 @@ class _RemotePickerSheet extends StatelessWidget {
           children: [
             Row(
               children: [
-                Expanded(child: Text(context.l10n.selectRemote, style: theme.textTheme.titleLarge)),
+                Expanded(
+                    child: Text(context.l10n.selectRemote,
+                        style: theme.textTheme.titleLarge)),
                 IconButton(
                   tooltip: context.l10n.close,
                   onPressed: () => Navigator.of(context).pop(),
@@ -209,7 +218,8 @@ class _RemotePickerSheet extends StatelessWidget {
                   final r = remotes[i];
                   return ListTile(
                     title: Text(r.name),
-                    subtitle: Text(context.l10n.remoteButtonCountLabel(r.buttons.length)),
+                    subtitle: Text(
+                        context.l10n.remoteButtonCountLabel(r.buttons.length)),
                     trailing: const Icon(Icons.chevron_right),
                     onTap: () => Navigator.of(context).pop(r),
                   );
@@ -242,7 +252,8 @@ class _ButtonPickerSheetState extends State<_ButtonPickerSheet> {
         b,
         fallback: context.l10n.unnamedButton,
         iconFallback: context.l10n.iconFallback,
-        iconNameLocalizer: (name) => localizedIconPickerName(context.l10n, name),
+        iconNameLocalizer: (name) =>
+            localizedIconPickerName(context.l10n, name),
       ).toLowerCase();
       return title.contains(q);
     }).toList();
@@ -260,7 +271,9 @@ class _ButtonPickerSheetState extends State<_ButtonPickerSheet> {
           children: [
             Row(
               children: [
-                Expanded(child: Text(context.l10n.selectButton, style: theme.textTheme.titleLarge)),
+                Expanded(
+                    child: Text(context.l10n.selectButton,
+                        style: theme.textTheme.titleLarge)),
                 IconButton(
                   tooltip: context.l10n.close,
                   onPressed: () => Navigator.of(context).pop(),
@@ -300,7 +313,8 @@ class _ButtonPickerSheetState extends State<_ButtonPickerSheet> {
                       b,
                       fallback: context.l10n.unnamedButton,
                       iconFallback: context.l10n.iconFallback,
-                      iconNameLocalizer: (name) => localizedIconPickerName(context.l10n, name),
+                      iconNameLocalizer: (name) =>
+                          localizedIconPickerName(context.l10n, name),
                     );
                     return ListTile(
                       leading: const Icon(Icons.circle),
@@ -337,10 +351,13 @@ class _FavoritePickerSheet extends StatelessWidget {
           children: [
             Row(
               children: [
-                Expanded(child: Text(context.l10n.quickTileFavoritesTitle, style: theme.textTheme.titleLarge)),
+                Expanded(
+                    child: Text(context.l10n.quickTileFavoritesTitle,
+                        style: theme.textTheme.titleLarge)),
                 IconButton(
                   tooltip: context.l10n.close,
-                  onPressed: () => Navigator.of(context).pop(_FavoritePickResult.cancelled),
+                  onPressed: () =>
+                      Navigator.of(context).pop(_FavoritePickResult.cancelled),
                   icon: const Icon(Icons.close_rounded),
                 ),
               ],
@@ -355,9 +372,11 @@ class _FavoritePickerSheet extends StatelessWidget {
                   if (tileLabel != null && i == 0) {
                     return ListTile(
                       leading: const Icon(Icons.edit_rounded),
-                      title: Text(context.l10n.changeMappingForTile(tileLabel!)),
+                      title:
+                          Text(context.l10n.changeMappingForTile(tileLabel!)),
                       subtitle: Text(context.l10n.pickDifferentButton),
-                      onTap: () => Navigator.of(context).pop(_FavoritePickResult.browseAll),
+                      onTap: () => Navigator.of(context)
+                          .pop(_FavoritePickResult.browseAll),
                     );
                   }
                   final index = tileLabel == null ? i : i - 1;
@@ -365,7 +384,8 @@ class _FavoritePickerSheet extends StatelessWidget {
                     return ListTile(
                       leading: const Icon(Icons.search_rounded),
                       title: Text(context.l10n.browseAllRemotesEllipsis),
-                      onTap: () => Navigator.of(context).pop(_FavoritePickResult.browseAll),
+                      onTap: () => Navigator.of(context)
+                          .pop(_FavoritePickResult.browseAll),
                     );
                   }
                   final f = favorites[index];

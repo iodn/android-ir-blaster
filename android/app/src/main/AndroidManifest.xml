@@ -46,7 +46,8 @@
     <application
         android:label="IR Blaster Remote"
         android:name="${applicationName}"
-        android:icon="@mipmap/ic_launcher">
+        android:icon="@mipmap/ic_launcher"
+        android:enableOnBackInvokedCallback="true">
 
         <!-- Mitigation for old GPU drivers: opt-out of Impeller -->
         <meta-data

@@ -3,6 +3,7 @@ import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:irblaster_controller/ir_finder/irblaster_db.dart';
 import 'package:irblaster_controller/l10n/l10n.dart';
+import 'package:irblaster_controller/state/continue_context_prefs.dart';
 import 'package:irblaster_controller/state/haptics.dart';
 import 'package:irblaster_controller/state/orientation_pref.dart';
 import 'package:irblaster_controller/universal_power/power_code_repository.dart';
@@ -11,7 +12,14 @@ import 'package:irblaster_controller/universal_power/universal_power_prefs.dart'
 import 'package:irblaster_controller/utils/ir_transmitter_platform.dart';
 
 class UniversalPowerScreen extends StatefulWidget {
-  const UniversalPowerScreen({super.key});
+  final String? initialBrand;
+  final String? initialModel;
+
+  const UniversalPowerScreen({
+    super.key,
+    this.initialBrand,
+    this.initialModel,
+  });
 
   @override
   State<UniversalPowerScreen> createState() => _UniversalPowerScreenState();
@@ -58,6 +66,8 @@ class _UniversalPowerScreenState extends State<UniversalPowerScreen>
       if (!mounted) return;
       setState(() => _caps = caps);
     });
+    _brand = widget.initialBrand?.trim();
+    _model = widget.initialModel?.trim();
   }
 
   @override
@@ -73,7 +83,8 @@ class _UniversalPowerScreenState extends State<UniversalPowerScreen>
   @override
   void didChangeAppLifecycleState(AppLifecycleState state) {
     if (!_controller.running) return;
-    if (state == AppLifecycleState.paused || state == AppLifecycleState.inactive) {
+    if (state == AppLifecycleState.paused ||
+        state == AppLifecycleState.inactive) {
       if (_controller.paused) return;
       _controller.pause();
       _pausedByLifecycle = true;
@@ -192,6 +203,8 @@ class _UniversalPowerScreenState extends State<UniversalPowerScreen>
       return;
     }
 
+    unawaited(ContinueContextsPrefs.saveLastUniversalPower(
+        brand: _brand, model: _model));
     setState(() => _pageIndex = 1);
     await Haptics.selectionClick();
   }
@@ -216,6 +229,8 @@ class _UniversalPowerScreenState extends State<UniversalPowerScreen>
       _brand = picked;
       _model = null;
     });
+    unawaited(ContinueContextsPrefs.saveLastUniversalPower(
+        brand: _brand, model: _model));
   }
 
   Future<void> _pickModel() async {
@@ -230,6 +245,8 @@ class _UniversalPowerScreenState extends State<UniversalPowerScreen>
     if (!mounted) return;
     if (picked == null) return;
     setState(() => _model = picked);
+    unawaited(ContinueContextsPrefs.saveLastUniversalPower(
+        brand: _brand, model: _model));
   }
 
   @override
@@ -255,7 +272,9 @@ class _UniversalPowerScreenState extends State<UniversalPowerScreen>
           ],
         ),
         body: Transform.rotate(
-          angle: RemoteOrientationController.instance.flipped ? 3.1415926535897932 : 0.0,
+          angle: RemoteOrientationController.instance.flipped
+              ? 3.1415926535897932
+              : 0.0,
           child: const Center(child: CircularProgressIndicator()),
         ),
       );
@@ -280,7 +299,9 @@ class _UniversalPowerScreenState extends State<UniversalPowerScreen>
           ],
         ),
         body: Transform.rotate(
-          angle: RemoteOrientationController.instance.flipped ? 3.1415926535897932 : 0.0,
+          angle: RemoteOrientationController.instance.flipped
+              ? 3.1415926535897932
+              : 0.0,
           child: _buildConsent(theme),
         ),
       );
@@ -309,7 +330,9 @@ class _UniversalPowerScreenState extends State<UniversalPowerScreen>
         ],
       ),
       body: Transform.rotate(
-        angle: RemoteOrientationController.instance.flipped ? 3.1415926535897932 : 0.0,
+        angle: RemoteOrientationController.instance.flipped
+            ? 3.1415926535897932
+            : 0.0,
         child: IndexedStack(
           index: _pageIndex,
           children: [
@@ -325,8 +348,12 @@ class _UniversalPowerScreenState extends State<UniversalPowerScreen>
           setState(() => _pageIndex = i);
         },
         destinations: [
-          NavigationDestination(icon: const Icon(Icons.tune_rounded), label: context.l10n.irFinderSetupTab),
-          NavigationDestination(icon: const Icon(Icons.power_settings_new), label: context.l10n.universalPowerRunTab),
+          NavigationDestination(
+              icon: const Icon(Icons.tune_rounded),
+              label: context.l10n.irFinderSetupTab),
+          NavigationDestination(
+              icon: const Icon(Icons.power_settings_new),
+              label: context.l10n.universalPowerRunTab),
         ],
       ),
     );
@@ -345,9 +372,11 @@ class _UniversalPowerScreenState extends State<UniversalPowerScreen>
               children: [
                 Row(
                   children: [
-                    Icon(Icons.warning_amber_rounded, color: theme.colorScheme.error),
+                    Icon(Icons.warning_amber_rounded,
+                        color: theme.colorScheme.error),
                     const SizedBox(width: 8),
-                    Text(context.l10n.universalPowerUseResponsibly, style: theme.textTheme.titleLarge),
+                    Text(context.l10n.universalPowerUseResponsibly,
+                        style: theme.textTheme.titleLarge),
                   ],
                 ),
                 const SizedBox(height: 10),
@@ -356,7 +385,8 @@ class _UniversalPowerScreenState extends State<UniversalPowerScreen>
                 CheckboxListTile(
                   contentPadding: EdgeInsets.zero,
                   value: _consentChecked,
-                  onChanged: (v) => setState(() => _consentChecked = v ?? false),
+                  onChanged: (v) =>
+                      setState(() => _consentChecked = v ?? false),
                   title: Text(context.l10n.universalPowerConsentCheckbox),
                 ),
                 const SizedBox(height: 8),
@@ -396,14 +426,17 @@ class _UniversalPowerScreenState extends State<UniversalPowerScreen>
                   children: [
                     Icon(Icons.power_settings_new_rounded, color: cs.primary),
                     const SizedBox(width: 10),
-                    Text(context.l10n.universalPowerTitle, style: theme.textTheme.titleMedium),
+                    Text(context.l10n.universalPowerTitle,
+                        style: theme.textTheme.titleMedium),
                   ],
                 ),
                 const SizedBox(height: 8),
                 Text(context.l10n.universalPowerSetupBody),
                 if (last != null) ...[
                   const SizedBox(height: 10),
-                  Text(context.l10n.universalPowerLastSent('${last.label} · ${last.protocolId.toUpperCase()} ${last.hexCode}'),
+                  Text(
+                      context.l10n.universalPowerLastSent(
+                          '${last.label} · ${last.protocolId.toUpperCase()} ${last.hexCode}'),
                       style: theme.textTheme.bodySmall),
                 ],
               ],
@@ -428,7 +461,9 @@ class _UniversalPowerScreenState extends State<UniversalPowerScreen>
                   const SizedBox(width: 12),
                   Expanded(
                     child: Text(
-                      _dbInitFailed ? context.l10n.irFinderDatabaseInitFailed : context.l10n.irFinderPreparingDatabase,
+                      _dbInitFailed
+                          ? context.l10n.irFinderDatabaseInitFailed
+                          : context.l10n.irFinderPreparingDatabase,
                     ),
                   ),
                   if (_dbInitFailed)
@@ -468,7 +503,10 @@ class _UniversalPowerScreenState extends State<UniversalPowerScreen>
           contentPadding: EdgeInsets.zero,
           leading: const Icon(Icons.memory_outlined),
           title: Text(context.l10n.irFinderModelOptional),
-          subtitle: Text(_model ?? (_brand == null ? context.l10n.irFinderSelectBrandFirstShort : context.l10n.irFinderSelectModelRecommended)),
+          subtitle: Text(_model ??
+              (_brand == null
+                  ? context.l10n.irFinderSelectBrandFirstShort
+                  : context.l10n.irFinderSelectModelRecommended)),
           trailing: const Icon(Icons.chevron_right),
           onTap: (_dbReady && _brand != null) ? _pickModel : null,
         ),
@@ -483,7 +521,8 @@ class _UniversalPowerScreenState extends State<UniversalPowerScreen>
         const SizedBox(height: 6),
         Text(
           context.l10n.universalPowerAdditionalPatternsDepth,
-          style: theme.textTheme.labelLarge?.copyWith(fontWeight: FontWeight.w700),
+          style:
+              theme.textTheme.labelLarge?.copyWith(fontWeight: FontWeight.w700),
         ),
         const SizedBox(height: 6),
         Slider(
@@ -514,7 +553,8 @@ class _UniversalPowerScreenState extends State<UniversalPowerScreen>
         const SizedBox(height: 10),
         Text(
           context.l10n.universalPowerDelayBetweenCodes,
-          style: theme.textTheme.labelLarge?.copyWith(fontWeight: FontWeight.w700),
+          style:
+              theme.textTheme.labelLarge?.copyWith(fontWeight: FontWeight.w700),
         ),
         const SizedBox(height: 6),
         Slider(
@@ -554,9 +594,11 @@ class _UniversalPowerScreenState extends State<UniversalPowerScreen>
               children: [
                 Row(
                   children: [
-                    Icon(Icons.power_settings_new_rounded, color: theme.colorScheme.primary),
+                    Icon(Icons.power_settings_new_rounded,
+                        color: theme.colorScheme.primary),
                     const SizedBox(width: 10),
-                    Text(context.l10n.universalPowerRunStatus, style: theme.textTheme.titleMedium),
+                    Text(context.l10n.universalPowerRunStatus,
+                        style: theme.textTheme.titleMedium),
                   ],
                 ),
                 const SizedBox(height: 10),
@@ -565,7 +607,8 @@ class _UniversalPowerScreenState extends State<UniversalPowerScreen>
                     : context.l10n.stopped),
                 const SizedBox(height: 6),
                 if (queueSize > 0)
-                  Text(context.l10n.universalPowerProgress('${index.clamp(0, queueSize)}/$queueSize')),
+                  Text(context.l10n.universalPowerProgress(
+                      '${index.clamp(0, queueSize)}/$queueSize')),
                 if (_pausedByLifecycle && paused)
                   Padding(
                     padding: EdgeInsets.only(top: 6),
@@ -573,11 +616,13 @@ class _UniversalPowerScreenState extends State<UniversalPowerScreen>
                   ),
                 if (last != null) ...[
                   const SizedBox(height: 8),
-                  Text(context.l10n.universalPowerLastSent('${last.label} · ${last.protocolId.toUpperCase()} ${last.hexCode}')),
+                  Text(context.l10n.universalPowerLastSent(
+                      '${last.label} · ${last.protocolId.toUpperCase()} ${last.hexCode}')),
                 ],
                 if (_controller.lastError != null) ...[
                   const SizedBox(height: 8),
-                  Text(context.l10n.irFinderSendError(_controller.lastError.toString())),
+                  Text(context.l10n
+                      .irFinderSendError(_controller.lastError.toString())),
                 ],
               ],
             ),
@@ -591,23 +636,32 @@ class _UniversalPowerScreenState extends State<UniversalPowerScreen>
                 onPressed: running
                     ? (paused ? _controller.resume : _controller.pause)
                     : null,
-                icon: Icon(paused ? Icons.play_arrow_rounded : Icons.pause_rounded),
+                icon: Icon(
+                    paused ? Icons.play_arrow_rounded : Icons.pause_rounded),
                 label: Text(paused ? context.l10n.resume : context.l10n.pause),
               ),
             ),
             const SizedBox(width: 12),
             Expanded(
               child: FilledButton.tonalIcon(
-                onPressed: running ? _stopRun : () => setState(() => _pageIndex = 0),
+                onPressed:
+                    running ? _stopRun : () => setState(() => _pageIndex = 0),
                 icon: Icon(running ? Icons.stop_rounded : Icons.tune_rounded),
-                label: Text(running ? context.l10n.stop : context.l10n.irFinderEditSetup),
+                label: Text(running
+                    ? context.l10n.stop
+                    : context.l10n.irFinderEditSetup),
               ),
             ),
           ],
         ),
         const SizedBox(height: 12),
         FilledButton.tonalIcon(
-          onPressed: (running && paused) ? () async { await _controller.step(); await Haptics.selectionClick(); } : null,
+          onPressed: (running && paused)
+              ? () async {
+                  await _controller.step();
+                  await Haptics.selectionClick();
+                }
+              : null,
           icon: const Icon(Icons.skip_next_rounded),
           label: Text(context.l10n.universalPowerSendOneCode),
         ),
@@ -637,7 +691,8 @@ class _PowerDbPickerSheet extends StatefulWidget {
   }
 
   static Widget model({required IrBlasterDb db, required String brand}) {
-    return _PowerDbPickerSheet._(db: db, kind: _PowerDbPickerKind.model, brandName: brand);
+    return _PowerDbPickerSheet._(
+        db: db, kind: _PowerDbPickerKind.model, brandName: brand);
   }
 
   @override
@@ -683,7 +738,8 @@ class _PowerDbPickerSheetState extends State<_PowerDbPickerSheet> {
 
   void _onScroll() {
     if (_loading || _exhausted) return;
-    if (_scrollCtl.position.pixels >= _scrollCtl.position.maxScrollExtent - 240) {
+    if (_scrollCtl.position.pixels >=
+        _scrollCtl.position.maxScrollExtent - 240) {
       _load(reset: false);
     }
   }
@@ -735,8 +791,12 @@ class _PowerDbPickerSheetState extends State<_PowerDbPickerSheet> {
   @override
   Widget build(BuildContext context) {
     final theme = Theme.of(context);
-    final title = widget.kind == _PowerDbPickerKind.brand ? context.l10n.irFinderSelectBrand : context.l10n.irFinderSelectModel;
-    final hint = widget.kind == _PowerDbPickerKind.brand ? context.l10n.irFinderSearchBrands : context.l10n.irFinderSearchModels;
+    final title = widget.kind == _PowerDbPickerKind.brand
+        ? context.l10n.irFinderSelectBrand
+        : context.l10n.irFinderSelectModel;
+    final hint = widget.kind == _PowerDbPickerKind.brand
+        ? context.l10n.irFinderSearchBrands
+        : context.l10n.irFinderSearchModels;
 
     return SafeArea(
       child: Padding(
@@ -780,7 +840,9 @@ class _PowerDbPickerSheetState extends State<_PowerDbPickerSheet> {
                         if (i >= _items.length) {
                           return const Padding(
                             padding: EdgeInsets.all(14),
-                            child: Center(child: CircularProgressIndicator(strokeWidth: 2)),
+                            child: Center(
+                                child:
+                                    CircularProgressIndicator(strokeWidth: 2)),
                           );
                         }
                         final v = _items[i];

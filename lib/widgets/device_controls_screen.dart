@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:irblaster_controller/l10n/icon_picker_names.dart';
 import 'package:irblaster_controller/l10n/l10n.dart';
 import 'package:irblaster_controller/state/device_controls_prefs.dart';
+import 'package:irblaster_controller/state/last_action_strip.dart';
 import 'package:irblaster_controller/state/remotes_state.dart';
 import 'package:irblaster_controller/utils/button_label.dart';
 import 'package:irblaster_controller/utils/ir.dart';
@@ -46,7 +47,8 @@ class _DeviceControlsScreenState extends State<DeviceControlsScreen> {
             b,
             fallback: context.l10n.unnamedButton,
             iconFallback: context.l10n.iconFallback,
-            iconNameLocalizer: (name) => localizedIconPickerName(context.l10n, name),
+            iconNameLocalizer: (name) =>
+                localizedIconPickerName(context.l10n, name),
           );
         }
       }
@@ -111,6 +113,11 @@ class _DeviceControlsScreenState extends State<DeviceControlsScreen> {
 
     try {
       await sendIR(found);
+      showLastActionForButton(
+        button: found,
+        title: _displayTitle(fav),
+        remoteName: fav.subtitle,
+      );
       if (!mounted) return;
       ScaffoldMessenger.of(context).showSnackBar(
         SnackBar(content: Text(context.l10n.testSendCompleted)),
@@ -138,11 +145,13 @@ class _DeviceControlsScreenState extends State<DeviceControlsScreen> {
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      Text(context.l10n.noFavoritesYet, style: theme.textTheme.titleLarge),
+                      Text(context.l10n.noFavoritesYet,
+                          style: theme.textTheme.titleLarge),
                       const SizedBox(height: 6),
                       Text(
                         context.l10n.deviceControlsEmptyHint,
-                        style: theme.textTheme.bodyMedium?.copyWith(color: cs.onSurfaceVariant),
+                        style: theme.textTheme.bodyMedium
+                            ?.copyWith(color: cs.onSurfaceVariant),
                       ),
                     ],
                   ),

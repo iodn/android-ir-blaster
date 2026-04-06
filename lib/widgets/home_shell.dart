@@ -2,6 +2,9 @@ import 'dart:async';
 
 import 'package:flutter/material.dart';
 import 'package:irblaster_controller/l10n/l10n.dart';
+import 'package:irblaster_controller/state/app_locale.dart';
+import 'package:irblaster_controller/state/app_shortcuts.dart';
+import 'package:irblaster_controller/state/continue_context_prefs.dart';
 import 'package:irblaster_controller/state/haptics.dart';
 import 'package:irblaster_controller/utils/ir_transmitter_platform.dart';
 import 'package:irblaster_controller/widgets/ir_finder_screen.dart';
@@ -45,13 +48,20 @@ class _HomeShellState extends State<HomeShell> {
 
     _listenCaps();
     unawaited(_loadCapsAndMaybeShowStartupNotice());
+    continueContextsRevision.addListener(_handleShortcutInputsChanged);
+    AppLocaleController.instance.addListener(_handleShortcutInputsChanged);
 
-    _capsEventsSub =
-        IrTransmitterPlatform.capabilitiesEvents().listen(_onCaps);
+    _capsEventsSub = IrTransmitterPlatform.capabilitiesEvents().listen(_onCaps);
+    WidgetsBinding.instance.addPostFrameCallback((_) {
+      if (!mounted) return;
+      unawaited(AppShortcutController.instance.sync(context.l10n));
+    });
   }
 
   @override
   void dispose() {
+    continueContextsRevision.removeListener(_handleShortcutInputsChanged);
+    AppLocaleController.instance.removeListener(_handleShortcutInputsChanged);
     _capsEventsSub?.cancel();
     _capsEventsSub = null;
 
@@ -60,6 +70,11 @@ class _HomeShellState extends State<HomeShell> {
 
     _startupSheetContext = null;
     super.dispose();
+  }
+
+  void _handleShortcutInputsChanged() {
+    if (!mounted) return;
+    unawaited(AppShortcutController.instance.sync(context.l10n));
   }
 
   void _closeStartupSheetIfOpen() {
@@ -119,8 +134,7 @@ class _HomeShellState extends State<HomeShell> {
   }
 
   bool _isAudio(IrTransmitterType t) {
-    return t == IrTransmitterType.audio1Led ||
-        t == IrTransmitterType.audio2Led;
+    return t == IrTransmitterType.audio1Led || t == IrTransmitterType.audio2Led;
   }
 
   bool _needsHardwareNotice(IrTransmitterCapabilities caps) {
@@ -128,7 +142,8 @@ class _HomeShellState extends State<HomeShell> {
     return !audioSelected && !caps.hasInternal && !caps.usbReady;
   }
 
-  String _usbUnavailableMessage(BuildContext context, IrTransmitterCapabilities caps) {
+  String _usbUnavailableMessage(
+      BuildContext context, IrTransmitterCapabilities caps) {
     switch (caps.usbStatus) {
       case UsbConnectionStatus.permissionRequired:
         return context.l10n.homeUsbPermissionRequiredMessage;
@@ -145,7 +160,8 @@ class _HomeShellState extends State<HomeShell> {
     }
   }
 
-  String _usbOptionSubtitle(BuildContext context, IrTransmitterCapabilities caps) {
+  String _usbOptionSubtitle(
+      BuildContext context, IrTransmitterCapabilities caps) {
     if (!caps.hasUsb) {
       return context.l10n.homeUsbOptionPlugIn;
     }
@@ -165,7 +181,8 @@ class _HomeShellState extends State<HomeShell> {
     }
   }
 
-  String _hardwareBannerSubtitle(BuildContext context, IrTransmitterCapabilities caps) {
+  String _hardwareBannerSubtitle(
+      BuildContext context, IrTransmitterCapabilities caps) {
     if (!caps.hasUsb) {
       return context.l10n.homeHardwareBannerNoInternal;
     }
@@ -253,10 +270,10 @@ class _HomeShellState extends State<HomeShell> {
                       width: 44,
                       height: 44,
                       decoration: BoxDecoration(
-                        color: cs.errorContainer.withOpacity(0.65),
+                        color: cs.errorContainer.withValues(alpha: 0.65),
                         borderRadius: BorderRadius.circular(14),
                         border: Border.all(
-                          color: cs.outlineVariant.withOpacity(0.25),
+                          color: cs.outlineVariant.withValues(alpha: 0.25),
                         ),
                       ),
                       child: Icon(
@@ -284,16 +301,16 @@ class _HomeShellState extends State<HomeShell> {
                   width: double.infinity,
                   padding: const EdgeInsets.all(12),
                   decoration: BoxDecoration(
-                    color: cs.surfaceContainerHighest.withOpacity(0.55),
+                    color: cs.surfaceContainerHighest.withValues(alpha: 0.55),
                     borderRadius: BorderRadius.circular(14),
                     border: Border.all(
-                      color: cs.outlineVariant.withOpacity(0.22),
+                      color: cs.outlineVariant.withValues(alpha: 0.22),
                     ),
                   ),
                   child: Text(
                     message,
                     style: theme.textTheme.bodyMedium?.copyWith(
-                      color: cs.onSurface.withOpacity(0.85),
+                      color: cs.onSurface.withValues(alpha: 0.85),
                       fontWeight: FontWeight.w600,
                     ),
                   ),
@@ -341,8 +358,10 @@ class _HomeShellState extends State<HomeShell> {
                                     SnackBar(
                                       content: Text(
                                         ok
-                                            ? context.l10n.homeUsbPermissionSentApprove
-                                            : context.l10n.homeUsbDongleNotDetected,
+                                            ? context.l10n
+                                                .homeUsbPermissionSentApprove
+                                            : context
+                                                .l10n.homeUsbDongleNotDetected,
                                       ),
                                     ),
                                   );
@@ -351,7 +370,8 @@ class _HomeShellState extends State<HomeShell> {
                                   ScaffoldMessenger.of(context).showSnackBar(
                                     SnackBar(
                                       content: Text(
-                                        context.l10n.homeUsbPermissionRequestFailed,
+                                        context.l10n
+                                            .homeUsbPermissionRequestFailed,
                                       ),
                                     ),
                                   );
@@ -362,8 +382,9 @@ class _HomeShellState extends State<HomeShell> {
                                 }
                               },
                         icon: const Icon(Icons.usb_rounded),
-                        label:
-                            Text(_busy ? ctx.l10n.working : ctx.l10n.requestUsbPermission),
+                        label: Text(_busy
+                            ? ctx.l10n.working
+                            : ctx.l10n.requestUsbPermission),
                       ),
                     ),
                   ],
@@ -372,7 +393,7 @@ class _HomeShellState extends State<HomeShell> {
                 Text(
                   ctx.l10n.homeHardwareTip,
                   style: theme.textTheme.bodySmall?.copyWith(
-                    color: cs.onSurface.withOpacity(0.65),
+                    color: cs.onSurface.withValues(alpha: 0.65),
                     fontWeight: FontWeight.w600,
                   ),
                 ),
@@ -403,7 +424,7 @@ class _HomeShellState extends State<HomeShell> {
       padding: const EdgeInsets.fromLTRB(12, 12, 12, 6),
       child: Card(
         elevation: 0,
-        color: cs.errorContainer.withOpacity(0.22),
+        color: cs.errorContainer.withValues(alpha: 0.22),
         shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(16)),
         child: Padding(
           padding: const EdgeInsets.all(12),
@@ -412,7 +433,7 @@ class _HomeShellState extends State<HomeShell> {
             children: [
               Icon(
                 Icons.info_outline_rounded,
-                color: cs.onErrorContainer.withOpacity(0.95),
+                color: cs.onErrorContainer.withValues(alpha: 0.95),
               ),
               const SizedBox(width: 10),
               Expanded(
@@ -423,14 +444,14 @@ class _HomeShellState extends State<HomeShell> {
                       title,
                       style: theme.textTheme.titleSmall?.copyWith(
                         fontWeight: FontWeight.w900,
-                        color: cs.onErrorContainer.withOpacity(0.95),
+                        color: cs.onErrorContainer.withValues(alpha: 0.95),
                       ),
                     ),
                     const SizedBox(height: 4),
                     Text(
                       subtitle,
                       style: theme.textTheme.bodySmall?.copyWith(
-                        color: cs.onErrorContainer.withOpacity(0.88),
+                        color: cs.onErrorContainer.withValues(alpha: 0.88),
                         fontWeight: FontWeight.w700,
                       ),
                     ),
@@ -530,7 +551,7 @@ class _OptionCard extends StatelessWidget {
 
     return Card(
       elevation: 0,
-      color: cs.surfaceContainerHighest.withOpacity(0.55),
+      color: cs.surfaceContainerHighest.withValues(alpha: 0.55),
       shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(16)),
       child: Padding(
         padding: const EdgeInsets.all(12),
@@ -541,10 +562,10 @@ class _OptionCard extends StatelessWidget {
               width: 40,
               height: 40,
               decoration: BoxDecoration(
-                color: cs.primaryContainer.withOpacity(0.65),
+                color: cs.primaryContainer.withValues(alpha: 0.65),
                 borderRadius: BorderRadius.circular(14),
                 border: Border.all(
-                  color: cs.outlineVariant.withOpacity(0.22),
+                  color: cs.outlineVariant.withValues(alpha: 0.22),
                 ),
               ),
               child: Icon(option.icon, color: cs.onPrimaryContainer),
@@ -563,7 +584,7 @@ class _OptionCard extends StatelessWidget {
                   Text(
                     option.subtitle,
                     style: theme.textTheme.bodySmall?.copyWith(
-                      color: cs.onSurface.withOpacity(0.72),
+                      color: cs.onSurface.withValues(alpha: 0.72),
                       fontWeight: FontWeight.w700,
                     ),
                   ),

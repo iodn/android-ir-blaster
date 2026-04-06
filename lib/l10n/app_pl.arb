@@ -319,10 +319,12 @@
       "name": {}
     }
   },
-  "remoteLayoutSummary": "{count} przycisk(s) · {layout}",
+  "remoteLayoutSummary": "{count, plural, one{{count} przycisk} few{{count} przyciski} many{{count} przycisków} other{{count} przycisków}} · {layout}",
   "@remoteLayoutSummary": {
     "placeholders": {
-      "count": {},
+      "count": {
+        "type": "int"
+      },
       "layout": {}
     }
   },
@@ -341,7 +343,7 @@
   "remoteButtonCount": "{count} przycisk{plural}",
   "@remoteButtonCount": {
     "placeholders": {
-      "count": {},
+      "count": {"type": "int"},
       "plural": {}
     }
   },
@@ -393,10 +395,12 @@
   "deleteMacroTitle": "Usunąć makro?",
   "deleteMacroMessage": "Możesz do cofnąć z następnego paska powiadomienia.",
   "noRemotesAvailable": "Brak dostępnych pilotów.",
-  "remoteButtonCountSummary": "{count} przycisk(i)",
+  "remoteButtonCountSummary": "{count, plural, one{{count} przycisk} few{{count} przyciski} many{{count} przycisków} other{{count} przycisków}}",
   "@remoteButtonCountSummary": {
     "placeholders": {
-      "count": {}
+      "count": {
+        "type": "int"
+      }
     }
   },
   "remoteOrientationFlippedTooltip": "Orientacja: odwrócona (stuknij, aby przywrócić normalną)",
@@ -424,6 +428,7 @@
   "buttonDuplicated": "Przycisk zduplikowany.",
   "loopRunningForButton": "Dla tego przycisku działa pętla.",
   "loopTip": "Wskazówka: użyj pętli, aby powtarzać do zatrzymania.",
+  "loopingBadge": "Looping",
   "codeCopied": "Kod skopiowany.",
   "copyCode": "Kopiuj kod",
   "startLoop": "Uruchom pętlę",
@@ -457,7 +462,7 @@
     }
   },
   "remove": "Usuń",
-  "importedButtonCount": "Zaimportowano {count} przycisk(i).",
+  "importedButtonCount": "Zaimportowano {count, plural, one{{count} przycisk} few{{count} przyciski} many{{count} przycisków} other{{count} przycisków}}.",
   "@importedButtonCount": {
     "placeholders": {
       "count": {
@@ -465,7 +470,7 @@
       }
     }
   },
-  "importedButtonsFromExistingRemotes": "Zaimportowano {count} przycisk(i) z istniejących pilotów.",
+  "importedButtonsFromExistingRemotes": "Zaimportowano {count, plural, one{{count} przycisk} few{{count} przyciski} many{{count} przycisków} other{{count} przycisków}} z istniejących pilotów.",
   "@importedButtonsFromExistingRemotes": {
     "placeholders": {
       "count": {
@@ -750,7 +755,7 @@
       "error": {}
     }
   },
-  "importedLegacyJsonBackup": "Imported {count} piloty from legacy JSON backup. makra were nie changed.",
+  "importedLegacyJsonBackup": "{count, plural, one{Zaimportowano {count} pilot ze starszej kopii zapasowej JSON. Makra nie zostały zmienione.} few{Zaimportowano {count} piloty ze starszej kopii zapasowej JSON. Makra nie zostały zmienione.} many{Zaimportowano {count} pilotów ze starszej kopii zapasowej JSON. Makra nie zostały zmienione.} other{Zaimportowano {count} pilotów ze starszej kopii zapasowej JSON. Makra nie zostały zmienione.}}",
   "@importedLegacyJsonBackup": {
     "placeholders": {
       "count": {
@@ -761,7 +766,7 @@
   "importFailedRemotesMustBeList": "Import nieudane: backup \"piloty\" must be a JSON liście gdy present.",
   "importFailedMacrosMustBeList": "Import nieudane: backup \"makra\" must be a JSON liście gdy present.",
   "importFailedInvalidBackupFormat": "Import nieudane: invalid backup format (expected legacy List lub Map z piloty/makra).",
-  "importedBackupRemotesOnly": "Imported {remoteCount} piloty from backup. makra were nie changed.",
+  "importedBackupRemotesOnly": "{remoteCount, plural, one{Zaimportowano {remoteCount} pilot z kopii zapasowej. Makra nie zostały zmienione.} few{Zaimportowano {remoteCount} piloty z kopii zapasowej. Makra nie zostały zmienione.} many{Zaimportowano {remoteCount} pilotów z kopii zapasowej. Makra nie zostały zmienione.} other{Zaimportowano {remoteCount} pilotów z kopii zapasowej. Makra nie zostały zmienione.}}",
   "@importedBackupRemotesOnly": {
     "placeholders": {
       "remoteCount": {
@@ -769,7 +774,7 @@
       }
     }
   },
-  "importedBackupRemotesAndMacros": "Imported {remoteCount} piloty i {macroCount} makra from backup.",
+  "importedBackupRemotesAndMacros": "Zaimportowano {remoteCount, plural, one{{remoteCount} pilot} few{{remoteCount} piloty} many{{remoteCount} pilotów} other{{remoteCount} pilotów}} i {macroCount, plural, one{{macroCount} makro} few{{macroCount} makra} many{{macroCount} makr} other{{macroCount} makr}} z kopii zapasowej.",
   "@importedBackupRemotesAndMacros": {
     "placeholders": {
       "remoteCount": {
@@ -1848,7 +1853,7 @@
   "forceInAppVibrationWarning": "Advanced option. This can make the app vibrate even when Android touch feedback is disabled globally.",
   "forceInAppVibrationBlockedMasterWarning": "Android system vibration is disabled. Force in-app vibration cannot override it on this device.",
   "forceInAppVibrationNoVibratorWarning": "This device reports no vibrator hardware, so in-app vibration cannot work.",
-  "remoteButtonCountLabel": "{count, plural, one{{count} button} other{{count} buttons}}",
+  "remoteButtonCountLabel": "{count, plural, one{{count} przycisk} few{{count} przyciski} many{{count} przycisków} other{{count} przycisków}}",
   "@remoteButtonCountLabel": {
     "placeholders": {
       "count": {
@@ -1856,12 +1861,186 @@
       }
     }
   },
-  "macroStepCountLabel": "{count, plural, one{{count} step} other{{count} steps}}",
+  "macroStepCountLabel": "{count, plural, one{{count} krok} few{{count} kroki} many{{count} kroków} other{{count} kroków}}",
   "@macroStepCountLabel": {
     "placeholders": {
       "count": {
         "type": "int"
       }
     }
-  }
+  },
+  "continueSectionTitle": "Continue",
+  "@continueSectionTitle": {
+    "description": "Title for the recent continue strip on the remotes screen."
+  },
+  "continueSectionSubtitle": "Pick up where you left off.",
+  "@continueSectionSubtitle": {
+    "description": "Subtitle for the continue strip on the remotes screen."
+  },
+  "continueLastRemoteTitle": "Last remote",
+  "@continueLastRemoteTitle": {
+    "description": "Eyebrow label for the last opened remote card."
+  },
+  "continueLastMacroTitle": "Last macro",
+  "@continueLastMacroTitle": {
+    "description": "Eyebrow label for the last run macro card."
+  },
+  "continueLastIrFinderHitTitle": "Last IR Finder hit",
+  "@continueLastIrFinderHitTitle": {
+    "description": "Eyebrow label for the last saved IR Finder result card."
+  },
+  "continueTargetUnavailable": "That item is no longer available.",
+  "@continueTargetUnavailable": {
+    "description": "Shown when a continue card points to a deleted or missing target."
+  },
+  "continueUniversalPowerAllBrands": "All brands",
+  "@continueUniversalPowerAllBrands": {
+    "description": "Fallback label when the saved universal power context has no selected brand."
+  },
+  "untitledMacro": "Untitled Macro",
+  "@untitledMacro": {
+    "description": "Fallback title for a macro without a saved name."
+  },
+  "pinnedRemotesTitle": "Pinned remotes",
+  "@pinnedRemotesTitle": {
+    "description": "Title for the pinned remotes section on the remotes screen."
+  },
+  "pinnedRemotesSubtitle": "Keep your most important remotes one tap away.",
+  "@pinnedRemotesSubtitle": {
+    "description": "Subtitle for the pinned remotes section on the remotes screen."
+  },
+  "recentlyUsedRemotesTitle": "Recently used",
+  "@recentlyUsedRemotesTitle": {
+    "description": "Title for the recently used remotes section on the remotes screen."
+  },
+  "recentlyUsedRemotesSubtitle": "Jump back into the remotes you opened most recently.",
+  "@recentlyUsedRemotesSubtitle": {
+    "description": "Subtitle for the recently used remotes section on the remotes screen."
+  },
+  "pinRemote": "Pin remote",
+  "@pinRemote": {
+    "description": "Action label to pin a remote for quick access."
+  },
+  "unpinRemote": "Unpin remote",
+  "@unpinRemote": {
+    "description": "Action label to remove a remote from the pinned section."
+  },
+  "pinRemoteSubtitle": "Keep this remote at the top for faster access.",
+  "@pinRemoteSubtitle": {
+    "description": "Subtitle shown under the pin/unpin remote action."
+  },
+  "remoteAddedToPinned": "Remote pinned.",
+  "@remoteAddedToPinned": {
+    "description": "Snackbar shown after pinning a remote."
+  },
+  "remoteRemovedFromPinned": "Remote removed from pinned.",
+  "@remoteRemovedFromPinned": {
+    "description": "Snackbar shown after unpinning a remote."
+  },
+  "homeDeviceControlsTitle": "Quick controls",
+  "@homeDeviceControlsTitle": {
+    "description": "Title for the compact device controls row on the home surface."
+  },
+  "homeDeviceControlsSubtitle": "Power, mute, and volume without opening a remote.",
+  "@homeDeviceControlsSubtitle": {
+    "description": "Subtitle for the compact device controls row when controls are configured."
+  },
+  "homeDeviceControlsEmptySubtitle": "Set up power, mute, and volume buttons in Device Controls.",
+  "@homeDeviceControlsEmptySubtitle": {
+    "description": "Subtitle for the compact device controls row when no matching controls are configured."
+  },
+  "showDeviceControlsOnHome": "Show quick controls on home",
+  "@showDeviceControlsOnHome": {
+    "description": "Settings toggle title for showing the compact device controls row on the home surface."
+  },
+  "showDeviceControlsOnHomeSubtitle": "Show the compact Power, Mute, and Volume row on the main screen.",
+  "@showDeviceControlsOnHomeSubtitle": {
+    "description": "Settings toggle subtitle for showing the compact device controls row on the home surface."
+  },
+  "homeDeviceControlsShown": "Quick controls shown on home.",
+  "@homeDeviceControlsShown": {
+    "description": "Snackbar shown when the home quick controls row is enabled."
+  },
+  "homeDeviceControlsHidden": "Quick controls hidden from home.",
+  "@homeDeviceControlsHidden": {
+    "description": "Snackbar shown when the home quick controls row is disabled."
+  },
+  "power": "Power",
+  "@power": {
+    "description": "Short label for the power control."
+  },
+  "mute": "Mute",
+  "@mute": {
+    "description": "Short label for the mute control."
+  },
+  "volumeUp": "Vol +",
+  "@volumeUp": {
+    "description": "Short label for the volume up control."
+  },
+  "volumeDown": "Vol -",
+  "@volumeDown": {
+    "description": "Short label for the volume down control."
+  },
+  "manage": "Manage",
+  "@manage": {
+    "description": "Short action label for opening a management screen."
+  },
+  "hide": "Hide",
+  "@hide": {
+    "description": "Short action label for hiding a surface or section."
+  },
+  "lastActionTitle": "Last action",
+  "@lastActionTitle": {
+    "description": "Title for the compact last action strip shown after sending IR."
+  },
+  "lastActionSent": "Sent {title}",
+  "@lastActionSent": {
+    "description": "Compact message in the last action strip when only the button title is known.",
+    "placeholders": {
+      "title": {
+        "type": "String"
+      }
+    }
+  },
+  "lastActionSentTo": "Sent {remoteName} -> {title}",
+  "@lastActionSentTo": {
+    "description": "Compact message in the last action strip when both remote name and button title are known.",
+    "placeholders": {
+      "remoteName": {
+        "type": "String"
+      },
+      "title": {
+        "type": "String"
+      }
+    }
+  },
+  "repeatAction": "Repeat",
+  "@repeatAction": {
+    "description": "Short action label to resend the last IR action."
+  },
+  "globalSearchTitle": "Search everything",
+  "@globalSearchTitle": {
+    "description": "Title or tooltip for global search across remotes, buttons, and macros."
+  },
+  "globalSearchNoResults": "No results found.",
+  "@globalSearchNoResults": {
+    "description": "Empty state message for global search."
+  },
+  "globalSearchTypeRemote": "REMOTE",
+  "@globalSearchTypeRemote": {
+    "description": "Badge label for a remote search result."
+  },
+  "globalSearchTypeButton": "BUTTON",
+  "@globalSearchTypeButton": {
+    "description": "Badge label for a button search result."
+  },
+  "globalSearchTypeMacro": "MACRO",
+  "@globalSearchTypeMacro": {
+    "description": "Badge label for a macro search result."
+  },
+  "continueEditing": "Continue editing",
+  "unsavedChangesTitle": "Unsaved changes",
+  "unsavedMacroChangesMessage": "Discard your macro changes and leave this screen?",
+  "stopMacroBeforeLeaving": "Stop the macro before leaving this screen.",
+  "stopTestingBeforeLeaving": "Stop testing before leaving this screen."
 }

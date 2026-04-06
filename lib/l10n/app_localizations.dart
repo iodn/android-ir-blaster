@@ -1599,8 +1599,8 @@ abstract class AppLocalizations {
   /// No description provided for @remoteLayoutSummary.
   ///
   /// In en, this message translates to:
-  /// **'{count} button(s) · {layout}'**
-  String remoteLayoutSummary(Object count, Object layout);
+  /// **'{count, plural, one{{count} button} other{{count} buttons}} · {layout}'**
+  String remoteLayoutSummary(int count, Object layout);
 
   /// No description provided for @layoutComfort.
   ///
@@ -1905,8 +1905,8 @@ abstract class AppLocalizations {
   /// No description provided for @remoteButtonCountSummary.
   ///
   /// In en, this message translates to:
-  /// **'{count} button(s)'**
-  String remoteButtonCountSummary(Object count);
+  /// **'{count, plural, one{{count} button} other{{count} buttons}}'**
+  String remoteButtonCountSummary(int count);
 
   /// No description provided for @remoteOrientationFlippedTooltip.
   ///
@@ -1997,6 +1997,12 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Tip: Use Loop to repeat until you stop it.'**
   String get loopTip;
+
+  /// No description provided for @loopingBadge.
+  ///
+  /// In en, this message translates to:
+  /// **'Looping'**
+  String get loopingBadge;
 
   /// No description provided for @codeCopied.
   ///
@@ -2169,13 +2175,13 @@ abstract class AppLocalizations {
   /// No description provided for @importedButtonCount.
   ///
   /// In en, this message translates to:
-  /// **'Imported {count} button(s).'**
+  /// **'{count, plural, one{Imported {count} button.} other{Imported {count} buttons.}}'**
   String importedButtonCount(int count);
 
   /// No description provided for @importedButtonsFromExistingRemotes.
   ///
   /// In en, this message translates to:
-  /// **'Imported {count} button(s) from existing remotes.'**
+  /// **'{count, plural, one{Imported {count} button from existing remotes.} other{Imported {count} buttons from existing remotes.}}'**
   String importedButtonsFromExistingRemotes(int count);
 
   /// No description provided for @editButtonSettingsSubtitle.
@@ -3093,7 +3099,7 @@ abstract class AppLocalizations {
   /// No description provided for @importedLegacyJsonBackup.
   ///
   /// In en, this message translates to:
-  /// **'Imported {count} remotes from legacy JSON backup. Macros were not changed.'**
+  /// **'{count, plural, one{Imported {count} remote from legacy JSON backup. Macros were not changed.} other{Imported {count} remotes from legacy JSON backup. Macros were not changed.}}'**
   String importedLegacyJsonBackup(int count);
 
   /// No description provided for @importFailedRemotesMustBeList.
@@ -3117,13 +3123,13 @@ abstract class AppLocalizations {
   /// No description provided for @importedBackupRemotesOnly.
   ///
   /// In en, this message translates to:
-  /// **'Imported {remoteCount} remotes from backup. Macros were not changed.'**
+  /// **'{remoteCount, plural, one{Imported {remoteCount} remote from backup. Macros were not changed.} other{Imported {remoteCount} remotes from backup. Macros were not changed.}}'**
   String importedBackupRemotesOnly(int remoteCount);
 
   /// No description provided for @importedBackupRemotesAndMacros.
   ///
   /// In en, this message translates to:
-  /// **'Imported {remoteCount} remotes and {macroCount} macros from backup.'**
+  /// **'{remoteCount, plural, one{{remoteCount} remote} other{{remoteCount} remotes}} and {macroCount, plural, one{{macroCount} macro} other{{macroCount} macros}} imported from backup.'**
   String importedBackupRemotesAndMacros(int remoteCount, int macroCount);
 
   /// No description provided for @importFailedNoValidButtonsInIr.
@@ -3660,6 +3666,36 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Discard'**
   String get discard;
+
+  /// No description provided for @continueEditing.
+  ///
+  /// In en, this message translates to:
+  /// **'Continue editing'**
+  String get continueEditing;
+
+  /// No description provided for @unsavedChangesTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Unsaved changes'**
+  String get unsavedChangesTitle;
+
+  /// No description provided for @unsavedMacroChangesMessage.
+  ///
+  /// In en, this message translates to:
+  /// **'Discard your macro changes and leave this screen?'**
+  String get unsavedMacroChangesMessage;
+
+  /// No description provided for @stopMacroBeforeLeaving.
+  ///
+  /// In en, this message translates to:
+  /// **'Stop the macro before leaving this screen.'**
+  String get stopMacroBeforeLeaving;
+
+  /// No description provided for @stopTestingBeforeLeaving.
+  ///
+  /// In en, this message translates to:
+  /// **'Stop testing before leaving this screen.'**
+  String get stopTestingBeforeLeaving;
 
   /// No description provided for @idle.
   ///
@@ -7351,6 +7387,240 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Unknown protocol selected.'**
   String get unknownProtocolSelected;
+
+  /// Title for the recent continue strip on the remotes screen.
+  ///
+  /// In en, this message translates to:
+  /// **'Continue'**
+  String get continueSectionTitle;
+
+  /// Subtitle for the continue strip on the remotes screen.
+  ///
+  /// In en, this message translates to:
+  /// **'Pick up where you left off.'**
+  String get continueSectionSubtitle;
+
+  /// Eyebrow label for the last opened remote card.
+  ///
+  /// In en, this message translates to:
+  /// **'Last remote'**
+  String get continueLastRemoteTitle;
+
+  /// Eyebrow label for the last run macro card.
+  ///
+  /// In en, this message translates to:
+  /// **'Last macro'**
+  String get continueLastMacroTitle;
+
+  /// Eyebrow label for the last saved IR Finder result card.
+  ///
+  /// In en, this message translates to:
+  /// **'Last IR Finder hit'**
+  String get continueLastIrFinderHitTitle;
+
+  /// Shown when a continue card points to a deleted or missing target.
+  ///
+  /// In en, this message translates to:
+  /// **'That item is no longer available.'**
+  String get continueTargetUnavailable;
+
+  /// Fallback label when the saved universal power context has no selected brand.
+  ///
+  /// In en, this message translates to:
+  /// **'All brands'**
+  String get continueUniversalPowerAllBrands;
+
+  /// Fallback title for a macro without a saved name.
+  ///
+  /// In en, this message translates to:
+  /// **'Untitled Macro'**
+  String get untitledMacro;
+
+  /// Title for the pinned remotes section on the remotes screen.
+  ///
+  /// In en, this message translates to:
+  /// **'Pinned remotes'**
+  String get pinnedRemotesTitle;
+
+  /// Subtitle for the pinned remotes section on the remotes screen.
+  ///
+  /// In en, this message translates to:
+  /// **'Keep your most important remotes one tap away.'**
+  String get pinnedRemotesSubtitle;
+
+  /// Title for the recently used remotes section on the remotes screen.
+  ///
+  /// In en, this message translates to:
+  /// **'Recently used'**
+  String get recentlyUsedRemotesTitle;
+
+  /// Subtitle for the recently used remotes section on the remotes screen.
+  ///
+  /// In en, this message translates to:
+  /// **'Jump back into the remotes you opened most recently.'**
+  String get recentlyUsedRemotesSubtitle;
+
+  /// Action label to pin a remote for quick access.
+  ///
+  /// In en, this message translates to:
+  /// **'Pin remote'**
+  String get pinRemote;
+
+  /// Action label to remove a remote from the pinned section.
+  ///
+  /// In en, this message translates to:
+  /// **'Unpin remote'**
+  String get unpinRemote;
+
+  /// Subtitle shown under the pin/unpin remote action.
+  ///
+  /// In en, this message translates to:
+  /// **'Keep this remote at the top for faster access.'**
+  String get pinRemoteSubtitle;
+
+  /// Snackbar shown after pinning a remote.
+  ///
+  /// In en, this message translates to:
+  /// **'Remote pinned.'**
+  String get remoteAddedToPinned;
+
+  /// Snackbar shown after unpinning a remote.
+  ///
+  /// In en, this message translates to:
+  /// **'Remote removed from pinned.'**
+  String get remoteRemovedFromPinned;
+
+  /// Title for the compact device controls row on the home surface.
+  ///
+  /// In en, this message translates to:
+  /// **'Quick controls'**
+  String get homeDeviceControlsTitle;
+
+  /// Subtitle for the compact device controls row when controls are configured.
+  ///
+  /// In en, this message translates to:
+  /// **'Power, mute, and volume without opening a remote.'**
+  String get homeDeviceControlsSubtitle;
+
+  /// Subtitle for the compact device controls row when no matching controls are configured.
+  ///
+  /// In en, this message translates to:
+  /// **'Set up power, mute, and volume buttons in Device Controls.'**
+  String get homeDeviceControlsEmptySubtitle;
+
+  /// Settings toggle title for showing the compact device controls row on the home surface.
+  ///
+  /// In en, this message translates to:
+  /// **'Show quick controls on home'**
+  String get showDeviceControlsOnHome;
+
+  /// Settings toggle subtitle for showing the compact device controls row on the home surface.
+  ///
+  /// In en, this message translates to:
+  /// **'Show the compact Power, Mute, and Volume row on the main screen.'**
+  String get showDeviceControlsOnHomeSubtitle;
+
+  /// Snackbar shown when the home quick controls row is enabled.
+  ///
+  /// In en, this message translates to:
+  /// **'Quick controls shown on home.'**
+  String get homeDeviceControlsShown;
+
+  /// Snackbar shown when the home quick controls row is disabled.
+  ///
+  /// In en, this message translates to:
+  /// **'Quick controls hidden from home.'**
+  String get homeDeviceControlsHidden;
+
+  /// Short label for the power control.
+  ///
+  /// In en, this message translates to:
+  /// **'Power'**
+  String get power;
+
+  /// Short label for the mute control.
+  ///
+  /// In en, this message translates to:
+  /// **'Mute'**
+  String get mute;
+
+  /// Short label for the volume up control.
+  ///
+  /// In en, this message translates to:
+  /// **'Vol +'**
+  String get volumeUp;
+
+  /// Short label for the volume down control.
+  ///
+  /// In en, this message translates to:
+  /// **'Vol -'**
+  String get volumeDown;
+
+  /// Short action label for opening a management screen.
+  ///
+  /// In en, this message translates to:
+  /// **'Manage'**
+  String get manage;
+
+  /// Short action label for hiding a surface or section.
+  ///
+  /// In en, this message translates to:
+  /// **'Hide'**
+  String get hide;
+
+  /// Title for the compact last action strip shown after sending IR.
+  ///
+  /// In en, this message translates to:
+  /// **'Last action'**
+  String get lastActionTitle;
+
+  /// Compact message in the last action strip when only the button title is known.
+  ///
+  /// In en, this message translates to:
+  /// **'Sent {title}'**
+  String lastActionSent(String title);
+
+  /// Compact message in the last action strip when both remote name and button title are known.
+  ///
+  /// In en, this message translates to:
+  /// **'Sent {remoteName} -> {title}'**
+  String lastActionSentTo(String remoteName, String title);
+
+  /// Short action label to resend the last IR action.
+  ///
+  /// In en, this message translates to:
+  /// **'Repeat'**
+  String get repeatAction;
+
+  /// Title or tooltip for global search across remotes, buttons, and macros.
+  ///
+  /// In en, this message translates to:
+  /// **'Search everything'**
+  String get globalSearchTitle;
+
+  /// Empty state message for global search.
+  ///
+  /// In en, this message translates to:
+  /// **'No results found.'**
+  String get globalSearchNoResults;
+
+  /// Badge label for a remote search result.
+  ///
+  /// In en, this message translates to:
+  /// **'REMOTE'**
+  String get globalSearchTypeRemote;
+
+  /// Badge label for a button search result.
+  ///
+  /// In en, this message translates to:
+  /// **'BUTTON'**
+  String get globalSearchTypeButton;
+
+  /// Badge label for a macro search result.
+  ///
+  /// In en, this message translates to:
+  /// **'MACRO'**
+  String get globalSearchTypeMacro;
 }
 
 class _AppLocalizationsDelegate

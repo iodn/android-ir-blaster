@@ -1,12 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:irblaster_controller/l10n/icon_picker_names.dart';
 import 'package:irblaster_controller/l10n/l10n.dart';
+import 'package:irblaster_controller/state/continue_context_prefs.dart';
 import 'package:irblaster_controller/state/haptics.dart';
 import 'package:irblaster_controller/state/device_controls_prefs.dart';
+import 'package:irblaster_controller/state/remote_highlights_prefs.dart';
 import 'package:irblaster_controller/state/remotes_state.dart';
 import 'package:irblaster_controller/utils/button_label.dart';
 import 'package:irblaster_controller/utils/remote.dart';
 import 'package:irblaster_controller/widgets/create_remote.dart';
+import 'package:irblaster_controller/widgets/global_search_delegate.dart';
 import 'package:irblaster_controller/widgets/remote_view.dart';
 import 'package:reorderable_grid_view/reorderable_grid_view.dart';
 
@@ -19,11 +22,109 @@ class RemoteList extends StatefulWidget {
 
 class _RemoteListState extends State<RemoteList> {
   bool _reorderMode = false;
+  ContinueContextsSnapshot _continueContexts = const ContinueContextsSnapshot(
+    remote: null,
+    macro: null,
+    irFinderHit: null,
+    universalPower: null,
+  );
+  List<Remote> _pinnedRemotes = const <Remote>[];
+
+  @override
+  void initState() {
+    super.initState();
+    continueContextsRevision.addListener(_handleContinueContextsChanged);
+    remoteHighlightsRevision.addListener(_handleRemoteHighlightsChanged);
+    _refreshContinueContexts();
+    _refreshRemoteHighlights();
+  }
+
+  @override
+  void dispose() {
+    continueContextsRevision.removeListener(_handleContinueContextsChanged);
+    remoteHighlightsRevision.removeListener(_handleRemoteHighlightsChanged);
+    super.dispose();
+  }
+
+  void _handleContinueContextsChanged() {
+    _refreshContinueContexts();
+  }
+
+  void _handleRemoteHighlightsChanged() {
+    _refreshRemoteHighlights();
+  }
+
+  Future<void> _refreshContinueContexts() async {
+    final next = await ContinueContextsPrefs.load();
+    if (!mounted) return;
+    setState(() => _continueContexts = next);
+  }
+
+  Future<void> _refreshRemoteHighlights() async {
+    final pinnedRefs = await RemoteHighlightsPrefs.loadPinned();
+    if (!mounted) return;
+    final pinned = _resolveHighlightRefs(pinnedRefs, limit: 6);
+    setState(() {
+      _pinnedRemotes = pinned;
+    });
+  }
 
   void _reassignIds() {
     for (int i = 0; i < remotes.length; i++) {
       remotes[i].id = i + 1;
     }
+  }
+
+  Remote? _findRemoteForContinue(LastRemoteContext ctx) {
+    final String wantedName = ctx.remoteName.trim();
+    if (wantedName.isNotEmpty) {
+      try {
+        return remotes.firstWhere((r) => r.name.trim() == wantedName);
+      } catch (_) {}
+    }
+    try {
+      return remotes.firstWhere((r) => r.id == ctx.remoteId);
+    } catch (_) {
+      return null;
+    }
+  }
+
+  Remote? _findRemoteByRef(RemoteHighlightRef ctx) {
+    final String wantedName = ctx.remoteName.trim();
+    if (wantedName.isNotEmpty) {
+      try {
+        return remotes.firstWhere((r) => r.name.trim() == wantedName);
+      } catch (_) {}
+    }
+    try {
+      return remotes.firstWhere((r) => r.id == ctx.remoteId);
+    } catch (_) {
+      return null;
+    }
+  }
+
+  List<Remote> _resolveHighlightRefs(
+    List<RemoteHighlightRef> refs, {
+    required int limit,
+  }) {
+    final List<Remote> out = <Remote>[];
+    final Set<int> seenIds = <int>{};
+    for (final ref in refs) {
+      final remote = _findRemoteByRef(ref);
+      if (remote == null) continue;
+      if (seenIds.contains(remote.id)) continue;
+      out.add(remote);
+      seenIds.add(remote.id);
+      if (out.length >= limit) break;
+    }
+    return out;
+  }
+
+  void _showContinueUnavailable() {
+    if (!mounted) return;
+    ScaffoldMessenger.of(context).showSnackBar(
+      SnackBar(content: Text(context.l10n.continueTargetUnavailable)),
+    );
   }
 
   void _setReorderMode(bool v) {
@@ -41,6 +142,106 @@ class _RemoteListState extends State<RemoteList> {
     }
   }
 
+  Future<void> _openLastRemote(LastRemoteContext ctx) async {
+    final remote = _findRemoteForContinue(ctx);
+    if (remote == null) {
+      _showContinueUnavailable();
+      return;
+    }
+    await Navigator.push(
+      context,
+      MaterialPageRoute(builder: (context) => RemoteView(remote: remote)),
+    );
+  }
+
+  Future<void> _togglePinnedRemote(Remote remote) async {
+    final wasPinned = await RemoteHighlightsPrefs.isPinned(remote);
+    await RemoteHighlightsPrefs.togglePinned(remote);
+    if (!mounted) return;
+    ScaffoldMessenger.of(context).showSnackBar(
+      SnackBar(
+        content: Text(
+          wasPinned
+              ? context.l10n.remoteRemovedFromPinned
+              : context.l10n.remoteAddedToPinned,
+        ),
+      ),
+    );
+  }
+
+  List<_TopRemoteAccessCardData> _topRemoteAccessItems(BuildContext context) {
+    final List<_TopRemoteAccessCardData> items = <_TopRemoteAccessCardData>[];
+    final lastRemoteCtx = _continueContexts.remote;
+    String? lastRemoteKey;
+
+    if (lastRemoteCtx != null) {
+      lastRemoteKey =
+          '${lastRemoteCtx.remoteId}:${lastRemoteCtx.remoteName.trim()}';
+      items.add(
+        _TopRemoteAccessCardData(
+          icon: Icons.history_rounded,
+          eyebrow: context.l10n.continueLastRemoteTitle,
+          title: lastRemoteCtx.remoteName.trim().isEmpty
+              ? context.l10n.unnamedRemote
+              : lastRemoteCtx.remoteName,
+          subtitle: context.l10n.remoteButtonCountLabel(
+            lastRemoteCtx.buttonCount,
+          ),
+          pinned: false,
+          onTap: () => _openLastRemote(lastRemoteCtx),
+        ),
+      );
+    }
+
+    for (final remote in _pinnedRemotes) {
+      final key = '${remote.id}:${remote.name.trim()}';
+      if (lastRemoteKey != null && key == lastRemoteKey) continue;
+      items.add(
+        _TopRemoteAccessCardData(
+          icon: Icons.push_pin_rounded,
+          eyebrow: context.l10n.pinRemote,
+          title: remote.name,
+          subtitle: context.l10n.remoteButtonCountLabel(remote.buttons.length),
+          pinned: true,
+          onTap: () async {
+            await Navigator.push(
+              context,
+              MaterialPageRoute(builder: (context) => RemoteView(remote: remote)),
+            );
+          },
+        ),
+      );
+    }
+
+    return items;
+  }
+
+  Widget _buildTopRemoteAccessStrip(BuildContext context) {
+    final screenWidth = MediaQuery.sizeOf(context).width;
+    final verySmallPhone = screenWidth < 380;
+    final items = _topRemoteAccessItems(context);
+    if (items.isEmpty) return const SizedBox.shrink();
+    final visibleItems = verySmallPhone ? items.take(4).toList() : items;
+    final cs = Theme.of(context).colorScheme;
+
+    return Padding(
+      padding: const EdgeInsets.fromLTRB(16, 8, 16, 4),
+      child: SizedBox(
+        height: 68,
+        child: ListView.separated(
+          scrollDirection: Axis.horizontal,
+          itemCount: visibleItems.length,
+          separatorBuilder: (_, __) => const SizedBox(width: 8),
+          itemBuilder: (context, index) => _TopRemoteAccessCard(
+            item: visibleItems[index],
+            colorScheme: cs,
+            compactWidth: verySmallPhone,
+          ),
+        ),
+      ),
+    );
+  }
+
   Future<bool> _confirmDeleteRemote(BuildContext context, Remote remote) async {
     final theme = Theme.of(context);
     return await showModalBottomSheet<bool>(
@@ -56,7 +257,8 @@ class _RemoteListState extends State<RemoteList> {
           child: Column(
             mainAxisSize: MainAxisSize.min,
             children: [
-              Icon(Icons.warning_amber_rounded, size: 44, color: theme.colorScheme.error),
+              Icon(Icons.warning_amber_rounded,
+                  size: 44, color: theme.colorScheme.error),
               const SizedBox(height: 12),
               Text(
                 context.l10n.deleteRemoteTitle,
@@ -136,7 +338,8 @@ class _RemoteListState extends State<RemoteList> {
       if (!mounted) return;
       Haptics.selectionClick();
       ScaffoldMessenger.of(context).showSnackBar(
-        SnackBar(content: Text(context.l10n.remoteUpdatedNamed(editedRemote.name))),
+        SnackBar(
+            content: Text(context.l10n.remoteUpdatedNamed(editedRemote.name))),
       );
     } catch (_) {}
   }
@@ -185,7 +388,9 @@ class _RemoteListState extends State<RemoteList> {
             },
           ),
           actions: [
-            TextButton(onPressed: () => Navigator.of(ctx).pop(false), child: Text(context.l10n.skip)),
+            TextButton(
+                onPressed: () => Navigator.of(ctx).pop(false),
+                child: Text(context.l10n.skip)),
             FilledButton(
               onPressed: () => Navigator.of(ctx).pop(true),
               child: Text(context.l10n.add),
@@ -216,7 +421,9 @@ class _RemoteListState extends State<RemoteList> {
     for (final b in remote.buttons) {
       final label = _normalizeButtonLabel(_buttonDisplayLabel(b));
       if (label.isEmpty) continue;
-      if (_isPowerLabel(label) || _isMuteLabel(label) || _isVolumeLabel(label)) {
+      if (_isPowerLabel(label) ||
+          _isMuteLabel(label) ||
+          _isVolumeLabel(label)) {
         out.add(b);
       }
     }
@@ -263,6 +470,7 @@ class _RemoteListState extends State<RemoteList> {
     final Remote remote = remotes[index];
     final confirmed = await _confirmDeleteRemote(context, remote);
     if (!confirmed) return;
+    await RemoteHighlightsPrefs.removeForRemote(remote);
     setState(() {
       remotes.removeAt(index);
       _reassignIds();
@@ -282,6 +490,8 @@ class _RemoteListState extends State<RemoteList> {
     if (_reorderMode) return;
     final theme = Theme.of(context);
     final cs = theme.colorScheme;
+    final bool pinned = await RemoteHighlightsPrefs.isPinned(remote);
+    if (!mounted) return;
     await showModalBottomSheet<void>(
       context: context,
       showDragHandle: true,
@@ -303,89 +513,111 @@ class _RemoteListState extends State<RemoteList> {
                 child: Column(
                   mainAxisSize: MainAxisSize.min,
                   children: [
-                Row(
-                  children: [
-                    CircleAvatar(
-                      backgroundColor: cs.primaryContainer.withValues(alpha: 0.65),
-                      child: Icon(Icons.settings_remote_rounded, color: cs.onPrimaryContainer),
-                    ),
-                    const SizedBox(width: 12),
-                    Expanded(
-                      child: Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          Text(
-                            remote.name,
-                            maxLines: 1,
-                            overflow: TextOverflow.ellipsis,
-                            style: theme.textTheme.titleLarge
-                                ?.copyWith(fontWeight: FontWeight.w900),
+                    Row(
+                      children: [
+                        CircleAvatar(
+                          backgroundColor:
+                              cs.primaryContainer.withValues(alpha: 0.65),
+                          child: Icon(Icons.settings_remote_rounded,
+                              color: cs.onPrimaryContainer),
+                        ),
+                        const SizedBox(width: 12),
+                        Expanded(
+                          child: Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              Text(
+                                remote.name,
+                                maxLines: 1,
+                                overflow: TextOverflow.ellipsis,
+                                style: theme.textTheme.titleLarge
+                                    ?.copyWith(fontWeight: FontWeight.w900),
+                              ),
+                              const SizedBox(height: 2),
+                              Text(
+                                context.l10n.remoteLayoutSummary(
+                                  remote.buttons.length,
+                                  remote.useNewStyle
+                                      ? context.l10n.layoutComfort
+                                      : context.l10n.layoutCompact,
+                                ),
+                                style: theme.textTheme.bodySmall?.copyWith(
+                                    color: cs.onSurface.withValues(alpha: 0.7),
+                                    fontWeight: FontWeight.w600),
+                              ),
+                            ],
                           ),
-                          const SizedBox(height: 2),
-                          Text(
-                            context.l10n.remoteLayoutSummary(
-                              remote.buttons.length.toString(),
-                              remote.useNewStyle
-                                  ? context.l10n.layoutComfort
-                                  : context.l10n.layoutCompact,
-                            ),
-                            style: theme.textTheme.bodySmall?.copyWith(
-                                color: cs.onSurface.withValues(alpha: 0.7),
-                                fontWeight: FontWeight.w600),
+                        ),
+                      ],
+                    ),
+                    const SizedBox(height: 12),
+                    const Divider(height: 0),
+                    ListTile(
+                      contentPadding: EdgeInsets.zero,
+                      leading: const Icon(Icons.play_arrow_rounded),
+                      title: Text(context.l10n.open),
+                      subtitle: Text(context.l10n.useThisRemote),
+                      trailing: const Icon(Icons.chevron_right_rounded),
+                      onTap: () {
+                        Navigator.of(ctx).pop();
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => RemoteView(remote: remote),
                           ),
-                        ],
-                      ),
+                        );
+                      },
                     ),
-                  ],
-                ),
-                const SizedBox(height: 12),
-                const Divider(height: 0),
-                ListTile(
-                  contentPadding: EdgeInsets.zero,
-                  leading: const Icon(Icons.play_arrow_rounded),
-                  title: Text(context.l10n.open),
-                  subtitle: Text(context.l10n.useThisRemote),
-                  trailing: const Icon(Icons.chevron_right_rounded),
-                  onTap: () {
-                    Navigator.of(ctx).pop();
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                        builder: (context) => RemoteView(remote: remote),
+                    const Divider(height: 0),
+                    ListTile(
+                      contentPadding: EdgeInsets.zero,
+                      leading: Icon(
+                        pinned
+                            ? Icons.push_pin_rounded
+                            : Icons.push_pin_outlined,
                       ),
-                    );
-                  },
-                ),
-                const Divider(height: 0),
-                ListTile(
-                  contentPadding: EdgeInsets.zero,
-                  leading: const Icon(Icons.edit_outlined),
-                  title: Text(context.l10n.edit),
-                  subtitle: Text(context.l10n.editRemoteSubtitle),
-                  trailing: const Icon(Icons.chevron_right_rounded),
-                  onTap: () {
-                    Navigator.of(ctx).pop();
-                    _editRemoteAt(index);
-                  },
-                ),
-                const Divider(height: 0),
-                ListTile(
-                  contentPadding: EdgeInsets.zero,
-                  leading: Icon(Icons.delete_outline, color: cs.error),
-                  title: Text(
-                    context.l10n.delete,
-                    style: TextStyle(
-                      color: cs.error,
-                      fontWeight: FontWeight.w800,
+                      title: Text(
+                        pinned
+                            ? context.l10n.unpinRemote
+                            : context.l10n.pinRemote,
+                      ),
+                      subtitle: Text(context.l10n.pinRemoteSubtitle),
+                      trailing: const Icon(Icons.chevron_right_rounded),
+                      onTap: () async {
+                        Navigator.of(ctx).pop();
+                        await _togglePinnedRemote(remote);
+                      },
                     ),
-                  ),
-                  subtitle: Text(context.l10n.thisCannotBeUndone),
-                  onTap: () async {
-                    Navigator.of(ctx).pop();
-                    await _deleteRemoteAt(index);
-                  },
-                ),
-                const SizedBox(height: 6),
+                    const Divider(height: 0),
+                    ListTile(
+                      contentPadding: EdgeInsets.zero,
+                      leading: const Icon(Icons.edit_outlined),
+                      title: Text(context.l10n.edit),
+                      subtitle: Text(context.l10n.editRemoteSubtitle),
+                      trailing: const Icon(Icons.chevron_right_rounded),
+                      onTap: () {
+                        Navigator.of(ctx).pop();
+                        _editRemoteAt(index);
+                      },
+                    ),
+                    const Divider(height: 0),
+                    ListTile(
+                      contentPadding: EdgeInsets.zero,
+                      leading: Icon(Icons.delete_outline, color: cs.error),
+                      title: Text(
+                        context.l10n.delete,
+                        style: TextStyle(
+                          color: cs.error,
+                          fontWeight: FontWeight.w800,
+                        ),
+                      ),
+                      subtitle: Text(context.l10n.thisCannotBeUndone),
+                      onTap: () async {
+                        Navigator.of(ctx).pop();
+                        await _deleteRemoteAt(index);
+                      },
+                    ),
+                    const SizedBox(height: 6),
                   ],
                 ),
               ),
@@ -449,38 +681,22 @@ class _RemoteListState extends State<RemoteList> {
               actions: [
                 if (!_reorderMode)
                   IconButton(
-                    tooltip: context.l10n.searchRemotes,
+                    tooltip: context.l10n.globalSearchTitle,
                     icon: const Icon(Icons.search),
                     onPressed: () {
                       showSearch(
                         context: context,
-                        delegate: RemoteSearchDelegate(
-                          remotes,
-                          onOpen: (remote) {
-                            Navigator.push(
-                              context,
-                              MaterialPageRoute(
-                                builder: (context) => RemoteView(remote: remote),
-                              ),
-                            );
-                          },
-                          onEdit: (remote) async {
-                            final int idx = remotes.indexOf(remote);
-                            if (idx < 0) return;
-                            await _editRemoteAt(idx);
-                          },
-                          onDelete: (remote) async {
-                            final int idx = remotes.indexOf(remote);
-                            if (idx < 0) return;
-                            await _deleteRemoteAt(idx);
-                          },
-                        ),
+                        delegate: GlobalSearchDelegate(),
                       );
                     },
                   ),
                 IconButton(
-                  tooltip: _reorderMode ? context.l10n.done : context.l10n.reorderRemotes,
-                  icon: Icon(_reorderMode ? Icons.check_rounded : Icons.drag_indicator_rounded),
+                  tooltip: _reorderMode
+                      ? context.l10n.done
+                      : context.l10n.reorderRemotes,
+                  icon: Icon(_reorderMode
+                      ? Icons.check_rounded
+                      : Icons.drag_indicator_rounded),
                   onPressed: () => _setReorderMode(!_reorderMode),
                 ),
               ],
@@ -492,9 +708,20 @@ class _RemoteListState extends State<RemoteList> {
             ),
             body: SafeArea(
               child: remotes.isEmpty
-                  ? _EmptyState(onAdd: _addRemote)
+                  ? CustomScrollView(
+                      slivers: [
+                        SliverToBoxAdapter(
+                          child: _buildTopRemoteAccessStrip(context),
+                        ),
+                        SliverFillRemaining(
+                          hasScrollBody: false,
+                          child: _EmptyState(onAdd: _addRemote),
+                        ),
+                      ],
+                    )
                   : Column(
                       children: [
+                        _buildTopRemoteAccessStrip(context),
                         AnimatedSwitcher(
                           duration: const Duration(milliseconds: 180),
                           child: !_reorderMode
@@ -507,11 +734,14 @@ class _RemoteListState extends State<RemoteList> {
                         Expanded(
                           child: LayoutBuilder(
                             builder: (context, constraints) {
-                              final crossAxisCount = _calculateCrossAxisCount(context);
-                              final aspectRatio = _calculateChildAspectRatio(context);
+                              final crossAxisCount =
+                                  _calculateCrossAxisCount(context);
+                              final aspectRatio =
+                                  _calculateChildAspectRatio(context);
                               return ReorderableGridView.builder(
                                 padding: const EdgeInsets.all(16),
-                                gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                                gridDelegate:
+                                    SliverGridDelegateWithFixedCrossAxisCount(
                                   crossAxisCount: crossAxisCount,
                                   childAspectRatio: aspectRatio,
                                   mainAxisSpacing: 12,
@@ -533,19 +763,23 @@ class _RemoteListState extends State<RemoteList> {
                                       Navigator.push(
                                         context,
                                         MaterialPageRoute(
-                                          builder: (context) => RemoteView(remote: remote),
+                                          builder: (context) =>
+                                              RemoteView(remote: remote),
                                         ),
                                       );
                                     },
-                                    onLongPress: () => _openRemoteActionsSheet(remote, index),
-                                    onOverflow: () => _openRemoteActionsSheet(remote, index),
+                                    onLongPress: () =>
+                                        _openRemoteActionsSheet(remote, index),
+                                    onOverflow: () =>
+                                        _openRemoteActionsSheet(remote, index),
                                   );
                                 },
                                 onReorder: (oldIndex, newIndex) async {
                                   if (!_reorderMode) return;
                                   setState(() {
                                     if (newIndex > oldIndex) newIndex--;
-                                    final Remote movedRemote = remotes.removeAt(oldIndex);
+                                    final Remote movedRemote =
+                                        remotes.removeAt(oldIndex);
                                     remotes.insert(newIndex, movedRemote);
                                     _reassignIds();
                                   });
@@ -583,7 +817,8 @@ class _ReorderHintBanner extends StatelessWidget {
         padding: const EdgeInsets.fromLTRB(16, 10, 12, 10),
         child: Row(
           children: [
-            Icon(Icons.drag_indicator_rounded, color: cs.onSecondaryContainer.withValues(alpha: 0.9)),
+            Icon(Icons.drag_indicator_rounded,
+                color: cs.onSecondaryContainer.withValues(alpha: 0.9)),
             const SizedBox(width: 10),
             Expanded(
               child: Text(
@@ -686,7 +921,8 @@ class _RemoteCard extends StatelessWidget {
                       child: Container(
                         padding: const EdgeInsets.all(8),
                         decoration: BoxDecoration(
-                          color: cs.surfaceContainerHighest.withValues(alpha: 0.55),
+                          color: cs.surfaceContainerHighest
+                              .withValues(alpha: 0.55),
                           borderRadius: BorderRadius.circular(10),
                           border: Border.all(
                             color: cs.outlineVariant.withValues(alpha: 0.25),
@@ -721,16 +957,19 @@ class _RemoteCard extends StatelessWidget {
               ),
               const SizedBox(height: 8),
               Container(
-                padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 6),
+                padding:
+                    const EdgeInsets.symmetric(horizontal: 10, vertical: 6),
                 decoration: BoxDecoration(
                   color: cs.surfaceContainerHighest.withValues(alpha: 0.55),
                   borderRadius: BorderRadius.circular(999),
-                  border: Border.all(color: cs.outlineVariant.withValues(alpha: 0.25)),
+                  border: Border.all(
+                      color: cs.outlineVariant.withValues(alpha: 0.25)),
                 ),
                 child: Row(
                   mainAxisSize: MainAxisSize.min,
                   children: [
-                    Icon(Icons.grid_view_rounded, size: 14, color: cs.onSurface.withValues(alpha: 0.8)),
+                    Icon(Icons.grid_view_rounded,
+                        size: 14, color: cs.onSurface.withValues(alpha: 0.8)),
                     const SizedBox(width: 6),
                     Flexible(
                       child: Text(
@@ -754,6 +993,118 @@ class _RemoteCard extends StatelessWidget {
   }
 }
 
+class _TopRemoteAccessCardData {
+  final IconData icon;
+  final String eyebrow;
+  final String title;
+  final String subtitle;
+  final bool pinned;
+  final Future<void> Function() onTap;
+
+  const _TopRemoteAccessCardData({
+    required this.icon,
+    required this.eyebrow,
+    required this.title,
+    required this.subtitle,
+    required this.pinned,
+    required this.onTap,
+  });
+}
+
+class _TopRemoteAccessCard extends StatelessWidget {
+  final _TopRemoteAccessCardData item;
+  final ColorScheme colorScheme;
+  final bool compactWidth;
+
+  const _TopRemoteAccessCard({
+    required this.item,
+    required this.colorScheme,
+    this.compactWidth = false,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    final theme = Theme.of(context);
+    return Tooltip(
+      message: item.subtitle,
+      waitDuration: const Duration(milliseconds: 350),
+      child: SizedBox(
+        width: compactWidth ? 142 : 148,
+        child: Material(
+          color: item.pinned
+              ? colorScheme.surfaceContainerHigh
+              : colorScheme.secondaryContainer.withValues(alpha: 0.72),
+          borderRadius: BorderRadius.circular(14),
+          clipBehavior: Clip.antiAlias,
+          child: InkWell(
+            borderRadius: BorderRadius.circular(14),
+            onTap: () => item.onTap(),
+            child: Padding(
+              padding: const EdgeInsets.fromLTRB(10, 8, 10, 8),
+              child: Row(
+                children: [
+                  Container(
+                    width: 30,
+                    height: 30,
+                    decoration: BoxDecoration(
+                      color: item.pinned
+                          ? colorScheme.primaryContainer.withValues(alpha: 0.72)
+                          : colorScheme.onSecondaryContainer
+                              .withValues(alpha: 0.10),
+                      borderRadius: BorderRadius.circular(9),
+                    ),
+                    child: Icon(
+                      item.icon,
+                      size: 16,
+                      color: item.pinned
+                          ? colorScheme.onPrimaryContainer
+                          : colorScheme.onSecondaryContainer,
+                    ),
+                  ),
+                  const SizedBox(width: 8),
+                  Expanded(
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Text(
+                          item.eyebrow,
+                          maxLines: 1,
+                          overflow: TextOverflow.ellipsis,
+                          style: theme.textTheme.labelSmall?.copyWith(
+                            color: item.pinned
+                                ? colorScheme.primary
+                                : colorScheme.onSecondaryContainer,
+                            fontWeight: FontWeight.w900,
+                            height: 1.0,
+                          ),
+                        ),
+                        const SizedBox(height: 3),
+                        Text(
+                          item.title,
+                          maxLines: 1,
+                          overflow: TextOverflow.ellipsis,
+                          style: theme.textTheme.labelLarge?.copyWith(
+                            fontWeight: FontWeight.w800,
+                            height: 1.05,
+                            color: item.pinned
+                                ? colorScheme.onSurface
+                                : colorScheme.onSecondaryContainer,
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
+                ],
+              ),
+            ),
+          ),
+        ),
+      ),
+    );
+  }
+}
+
 class _EmptyState extends StatelessWidget {
   final VoidCallback onAdd;
 
@@ -768,7 +1119,8 @@ class _EmptyState extends StatelessWidget {
         child: Column(
           mainAxisSize: MainAxisSize.min,
           children: [
-            Icon(Icons.grid_view_outlined, size: 52, color: theme.colorScheme.primary),
+            Icon(Icons.grid_view_outlined,
+                size: 52, color: theme.colorScheme.primary),
             const SizedBox(height: 12),
             Text(
               context.l10n.noRemotesYet,
@@ -824,7 +1176,8 @@ class RemoteSearchDelegate extends SearchDelegate {
     return await showDialog<bool>(
       context: context,
       builder: (ctx) => AlertDialog(
-        icon: Icon(Icons.warning_amber_rounded, color: theme.colorScheme.error, size: 32),
+        icon: Icon(Icons.warning_amber_rounded,
+            color: theme.colorScheme.error, size: 32),
         title: Text(context.l10n.deleteRemoteTitle),
         content: Text(
           context.l10n.deleteRemoteMessage(remoteName),
@@ -871,7 +1224,8 @@ class RemoteSearchDelegate extends SearchDelegate {
   @override
   Widget buildResults(BuildContext context) {
     final results = remotes
-        .where((remote) => remote.name.toLowerCase().contains(query.toLowerCase()))
+        .where(
+            (remote) => remote.name.toLowerCase().contains(query.toLowerCase()))
         .toList();
     return _buildList(context, results);
   }
@@ -879,7 +1233,8 @@ class RemoteSearchDelegate extends SearchDelegate {
   @override
   Widget buildSuggestions(BuildContext context) {
     final suggestions = remotes
-        .where((remote) => remote.name.toLowerCase().contains(query.toLowerCase()))
+        .where(
+            (remote) => remote.name.toLowerCase().contains(query.toLowerCase()))
         .toList();
     return _buildList(context, suggestions);
   }
@@ -896,10 +1251,12 @@ class RemoteSearchDelegate extends SearchDelegate {
         return Card(
           key: ObjectKey(remote),
           color: cs.primary.withValues(alpha: 0.12),
-          shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(14)),
+          shape:
+              RoundedRectangleBorder(borderRadius: BorderRadius.circular(14)),
           clipBehavior: Clip.antiAlias,
           child: ListTile(
-            contentPadding: const EdgeInsets.symmetric(horizontal: 14, vertical: 6),
+            contentPadding:
+                const EdgeInsets.symmetric(horizontal: 14, vertical: 6),
             leading: Container(
               width: 44,
               height: 44,
@@ -909,7 +1266,8 @@ class RemoteSearchDelegate extends SearchDelegate {
                 border: Border.all(
                     color: cs.outlineVariant.withValues(alpha: 0.25)),
               ),
-              child: Icon(Icons.settings_remote_rounded, color: cs.onPrimaryContainer),
+              child: Icon(Icons.settings_remote_rounded,
+                  color: cs.onPrimaryContainer),
             ),
             title: Text(
               remote.name,
@@ -948,8 +1306,8 @@ class RemoteSearchDelegate extends SearchDelegate {
                   if (!context.mounted) return;
                   ScaffoldMessenger.of(context).showSnackBar(
                     SnackBar(
-                      content: Text(
-                          context.l10n.deletedRemoteUndoUnavailable(remote.name)),
+                      content: Text(context.l10n
+                          .deletedRemoteUndoUnavailable(remote.name)),
                     ),
                   );
                 }

@@ -1,6 +1,7 @@
 import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:irblaster_controller/l10n/icon_picker_names.dart';
+import 'package:irblaster_controller/state/continue_context_prefs.dart';
 import 'package:irblaster_controller/state/haptics.dart';
 import 'package:irblaster_controller/l10n/l10n.dart';
 import 'package:irblaster_controller/state/orientation_pref.dart';
@@ -13,18 +14,21 @@ import 'package:irblaster_controller/utils/remote.dart';
 class MacroRunScreen extends StatefulWidget {
   final TimedMacro macro;
   final Remote remote;
+  final bool autoStart;
 
   const MacroRunScreen({
     super.key,
     required this.macro,
     required this.remote,
+    this.autoStart = false,
   });
 
   @override
   State<MacroRunScreen> createState() => _MacroRunScreenState();
 }
 
-class _MacroRunScreenState extends State<MacroRunScreen> with SingleTickerProviderStateMixin {
+class _MacroRunScreenState extends State<MacroRunScreen>
+    with SingleTickerProviderStateMixin {
   bool _running = false;
   bool _waitingForManual = false;
   bool _executing = false;
@@ -40,6 +44,12 @@ class _MacroRunScreenState extends State<MacroRunScreen> with SingleTickerProvid
   @override
   void initState() {
     super.initState();
+    unawaited(
+      ContinueContextsPrefs.saveLastMacro(
+        macro: widget.macro,
+        remote: widget.remote,
+      ),
+    );
     _pulseController = AnimationController(
       vsync: this,
       duration: const Duration(milliseconds: 1200),
@@ -47,6 +57,12 @@ class _MacroRunScreenState extends State<MacroRunScreen> with SingleTickerProvid
     _pulseAnimation = Tween<double>(begin: 1.0, end: 1.15).animate(
       CurvedAnimation(parent: _pulseController, curve: Curves.easeInOut),
     );
+    if (widget.autoStart) {
+      WidgetsBinding.instance.addPostFrameCallback((_) {
+        if (!mounted) return;
+        unawaited(_start());
+      });
+    }
   }
 
   @override
@@ -120,7 +136,8 @@ class _MacroRunScreenState extends State<MacroRunScreen> with SingleTickerProvid
     final key = normalizeButtonKey(ref ?? '');
     if (key.isEmpty) return null;
     try {
-      return widget.remote.buttons.firstWhere((b) => normalizeButtonKey(b.image) == key);
+      return widget.remote.buttons
+          .firstWhere((b) => normalizeButtonKey(b.image) == key);
     } catch (_) {
       return null;
     }
@@ -130,7 +147,8 @@ class _MacroRunScreenState extends State<MacroRunScreen> with SingleTickerProvid
     final byId = _findButtonById(step.buttonId);
     if (byId != null) return byId;
 
-    final byRef = _findButtonByRef(step.buttonRef) ?? _findButtonByRef(step.buttonId);
+    final byRef =
+        _findButtonByRef(step.buttonRef) ?? _findButtonByRef(step.buttonId);
     return byRef;
   }
 
@@ -173,7 +191,8 @@ class _MacroRunScreenState extends State<MacroRunScreen> with SingleTickerProvid
                     button,
                     fallback: context.l10n.unnamedButton,
                     iconFallback: context.l10n.iconFallback,
-                    iconNameLocalizer: (name) => localizedIconPickerName(context.l10n, name),
+                    iconNameLocalizer: (name) =>
+                        localizedIconPickerName(context.l10n, name),
                   ),
                 );
               });
@@ -185,7 +204,8 @@ class _MacroRunScreenState extends State<MacroRunScreen> with SingleTickerProvid
               _lastError = fallback.isEmpty
                   ? context.l10n.buttonNotFound
                   : context.l10n.buttonNotFoundNamed(
-                      displayButtonRefLabel(fallback, fallback: context.l10n.unknownButton),
+                      displayButtonRefLabel(fallback,
+                          fallback: context.l10n.unknownButton),
                     );
             });
           }
@@ -280,6 +300,13 @@ class _MacroRunScreenState extends State<MacroRunScreen> with SingleTickerProvid
     return context.l10n.durationHoursMinutesShort(h, rm);
   }
 
+  void _handleBlockedBack() {
+    ScaffoldMessenger.of(context).hideCurrentSnackBar();
+    ScaffoldMessenger.of(context).showSnackBar(
+      SnackBar(content: Text(context.l10n.stopMacroBeforeLeaving)),
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     final theme = Theme.of(context);
@@ -287,64 +314,78 @@ class _MacroRunScreenState extends State<MacroRunScreen> with SingleTickerProvid
 
     final total = widget.macro.steps.length;
     final progress = total == 0 ? 0.0 : (_currentStep / total).clamp(0.0, 1.0);
-    final elapsed = _startTime == null ? null : DateTime.now().difference(_startTime!);
+    final elapsed =
+        _startTime == null ? null : DateTime.now().difference(_startTime!);
 
     final canStart = !_running && total > 0 && !_completed;
     final canRestart = !_running && total > 0 && _completed;
     final canCancel = _running;
     final canContinue = _waitingForManual;
 
-    return Scaffold(
-      appBar: AppBar(
-        title: Text(widget.macro.name),
-        actions: [
-          IconButton(
-            tooltip: RemoteOrientationController.instance.flipped
-                ? context.l10n.orientationFlippedTooltip
-                : context.l10n.orientationNormalTooltip,
-            onPressed: () async {
-              final next = !RemoteOrientationController.instance.flipped;
-              await RemoteOrientationController.instance.setFlipped(next);
-              setState(() {});
-            },
-            icon: const Icon(Icons.screen_rotation_rounded),
-          ),
-          if (canCancel && !canContinue)
+    return PopScope(
+      canPop: !_running,
+      onPopInvokedWithResult: (didPop, _) {
+        if (didPop) return;
+        _handleBlockedBack();
+      },
+      child: Scaffold(
+        appBar: AppBar(
+          title: Text(widget.macro.name),
+          actions: [
             IconButton(
-              tooltip: context.l10n.cancel,
-              onPressed: _cancel,
-              icon: const Icon(Icons.stop_circle_rounded),
+              tooltip: RemoteOrientationController.instance.flipped
+                  ? context.l10n.orientationFlippedTooltip
+                  : context.l10n.orientationNormalTooltip,
+              onPressed: () async {
+                final next = !RemoteOrientationController.instance.flipped;
+                await RemoteOrientationController.instance.setFlipped(next);
+                setState(() {});
+              },
+              icon: const Icon(Icons.screen_rotation_rounded),
             ),
-        ],
-      ),
-      body: SafeArea(
-        child: Transform.rotate(
-          angle: RemoteOrientationController.instance.flipped ? 3.1415926535897932 : 0.0,
-          child: Column(
-          children: [
-            Expanded(
-              child: SingleChildScrollView(
-                padding: const EdgeInsets.all(16),
-                child: Column(
-                  children: [
-                    _buildStatusCard(theme, cs, total, progress, elapsed),
-                    const SizedBox(height: 16),
-                    if (_running && _remainingMs > 0) _buildDelayCard(theme, cs),
-                    if (_waitingForManual) _buildManualContinueCard(theme, cs),
-                    if (_lastError != null) _buildErrorCard(theme, cs),
-                    if (_completed) _buildCompletionCard(theme, cs, elapsed),
-                    const SizedBox(height: 16),
-                    _buildStepsList(theme, cs),
-                  ],
-                ),
+            if (canCancel && !canContinue)
+              IconButton(
+                tooltip: context.l10n.cancel,
+                onPressed: _cancel,
+                icon: const Icon(Icons.stop_circle_rounded),
               ),
-            ),
-            _buildControls(theme, cs, canStart, canRestart, canCancel, canContinue),
           ],
         ),
-       ),
-     ),
-   );
+        body: SafeArea(
+          child: Transform.rotate(
+            angle: RemoteOrientationController.instance.flipped
+                ? 3.1415926535897932
+                : 0.0,
+            child: Column(
+              children: [
+                Expanded(
+                  child: SingleChildScrollView(
+                    padding: const EdgeInsets.all(16),
+                    child: Column(
+                      children: [
+                        _buildStatusCard(theme, cs, total, progress, elapsed),
+                        const SizedBox(height: 16),
+                        if (_running && _remainingMs > 0)
+                          _buildDelayCard(theme, cs),
+                        if (_waitingForManual)
+                          _buildManualContinueCard(theme, cs),
+                        if (_lastError != null) _buildErrorCard(theme, cs),
+                        if (_completed)
+                          _buildCompletionCard(theme, cs, elapsed),
+                        const SizedBox(height: 16),
+                        _buildStepsList(theme, cs),
+                      ],
+                    ),
+                  ),
+                ),
+                _buildControls(
+                    theme, cs, canStart, canRestart, canCancel, canContinue),
+              ],
+            ),
+          ),
+        ),
+      ),
+    );
   }
 
   Widget _buildStatusCard(
@@ -356,7 +397,8 @@ class _MacroRunScreenState extends State<MacroRunScreen> with SingleTickerProvid
   ) {
     final stepLabel = total == 0
         ? context.l10n.noSteps
-        : context.l10n.stepProgress(((_currentStep + 1).clamp(1, total)), total);
+        : context.l10n
+            .stepProgress(((_currentStep + 1).clamp(1, total)), total);
 
     IconData statusIcon;
     Color statusColor;
@@ -394,7 +436,9 @@ class _MacroRunScreenState extends State<MacroRunScreen> with SingleTickerProvid
             Row(
               children: [
                 ScaleTransition(
-                  scale: _running && !_waitingForManual ? _pulseAnimation : const AlwaysStoppedAnimation(1.0),
+                  scale: _running && !_waitingForManual
+                      ? _pulseAnimation
+                      : const AlwaysStoppedAnimation(1.0),
                   child: Container(
                     padding: const EdgeInsets.all(16),
                     decoration: BoxDecoration(
@@ -428,7 +472,8 @@ class _MacroRunScreenState extends State<MacroRunScreen> with SingleTickerProvid
                 ),
                 if (elapsed != null)
                   Container(
-                    padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 8),
+                    padding:
+                        const EdgeInsets.symmetric(horizontal: 12, vertical: 8),
                     decoration: BoxDecoration(
                       color: cs.primaryContainer.withValues(alpha: 0.5),
                       borderRadius: BorderRadius.circular(12),
@@ -645,7 +690,8 @@ class _MacroRunScreenState extends State<MacroRunScreen> with SingleTickerProvid
     );
   }
 
-  Widget _buildCompletionCard(ThemeData theme, ColorScheme cs, Duration? elapsed) {
+  Widget _buildCompletionCard(
+      ThemeData theme, ColorScheme cs, Duration? elapsed) {
     return Card(
       elevation: 0,
       color: Colors.green.withValues(alpha: 0.1),
@@ -663,7 +709,8 @@ class _MacroRunScreenState extends State<MacroRunScreen> with SingleTickerProvid
                 color: Colors.green.withValues(alpha: 0.2),
                 borderRadius: BorderRadius.circular(12),
               ),
-              child: const Icon(Icons.check_circle_rounded, color: Colors.green),
+              child:
+                  const Icon(Icons.check_circle_rounded, color: Colors.green),
             ),
             const SizedBox(width: 16),
             Expanded(
@@ -775,13 +822,16 @@ class _MacroRunScreenState extends State<MacroRunScreen> with SingleTickerProvid
             ),
             child: Center(
               child: isDone
-                  ? const Icon(Icons.check_rounded, size: 16, color: Colors.green)
+                  ? const Icon(Icons.check_rounded,
+                      size: 16, color: Colors.green)
                   : Text(
                       '${index + 1}',
                       style: TextStyle(
                         fontSize: 12,
                         fontWeight: FontWeight.w900,
-                        color: isActive ? iconColor : cs.onSurface.withValues(alpha: 0.6),
+                        color: isActive
+                            ? iconColor
+                            : cs.onSurface.withValues(alpha: 0.6),
                       ),
                     ),
             ),
@@ -791,10 +841,14 @@ class _MacroRunScreenState extends State<MacroRunScreen> with SingleTickerProvid
             child: Container(
               padding: const EdgeInsets.all(12),
               decoration: BoxDecoration(
-                color: isActive ? iconColor.withValues(alpha: 0.1) : cs.surfaceContainerHighest.withValues(alpha: 0.3),
+                color: isActive
+                    ? iconColor.withValues(alpha: 0.1)
+                    : cs.surfaceContainerHighest.withValues(alpha: 0.3),
                 borderRadius: BorderRadius.circular(12),
                 border: Border.all(
-                  color: isActive ? iconColor.withValues(alpha: 0.5) : cs.outlineVariant.withValues(alpha: 0.3),
+                  color: isActive
+                      ? iconColor.withValues(alpha: 0.5)
+                      : cs.outlineVariant.withValues(alpha: 0.3),
                 ),
               ),
               child: Row(
@@ -805,8 +859,11 @@ class _MacroRunScreenState extends State<MacroRunScreen> with SingleTickerProvid
                     child: Text(
                       _stepLabel(step),
                       style: theme.textTheme.bodyMedium?.copyWith(
-                        fontWeight: isActive ? FontWeight.w900 : FontWeight.w600,
-                        color: isActive ? cs.onSurface : cs.onSurface.withValues(alpha: 0.7),
+                        fontWeight:
+                            isActive ? FontWeight.w900 : FontWeight.w600,
+                        color: isActive
+                            ? cs.onSurface
+                            : cs.onSurface.withValues(alpha: 0.7),
                       ),
                     ),
                   ),
@@ -828,11 +885,13 @@ class _MacroRunScreenState extends State<MacroRunScreen> with SingleTickerProvid
             button,
             fallback: context.l10n.unnamedButton,
             iconFallback: context.l10n.iconFallback,
-            iconNameLocalizer: (name) => localizedIconPickerName(context.l10n, name),
+            iconNameLocalizer: (name) =>
+                localizedIconPickerName(context.l10n, name),
           );
         }
         final fallback = (step.buttonRef ?? step.buttonId ?? '').trim();
-        return displayButtonRefLabel(fallback, fallback: context.l10n.unknownButton);
+        return displayButtonRefLabel(fallback,
+            fallback: context.l10n.unknownButton);
       case MacroStepType.delay:
         return context.l10n.waitMilliseconds(step.delayMs ?? 0);
       case MacroStepType.manualContinue:
@@ -866,8 +925,12 @@ class _MacroRunScreenState extends State<MacroRunScreen> with SingleTickerProvid
                 width: double.infinity,
                 child: FilledButton.icon(
                   onPressed: _start,
-                  icon: Icon(canRestart ? Icons.replay_rounded : Icons.play_arrow_rounded),
-                  label: Text(canRestart ? context.l10n.runAgain : context.l10n.startMacro),
+                  icon: Icon(canRestart
+                      ? Icons.replay_rounded
+                      : Icons.play_arrow_rounded),
+                  label: Text(canRestart
+                      ? context.l10n.runAgain
+                      : context.l10n.startMacro),
                   style: FilledButton.styleFrom(
                     padding: const EdgeInsets.symmetric(vertical: 16),
                   ),

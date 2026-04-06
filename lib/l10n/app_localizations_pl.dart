@@ -852,8 +852,16 @@ class AppLocalizationsPl extends AppLocalizations {
   }
 
   @override
-  String remoteLayoutSummary(Object count, Object layout) {
-    return '$count przycisk(s) · $layout';
+  String remoteLayoutSummary(int count, Object layout) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: '$count przycisków',
+      many: '$count przycisków',
+      few: '$count przyciski',
+      one: '$count przycisk',
+    );
+    return '$_temp0 · $layout';
   }
 
   @override
@@ -897,8 +905,10 @@ class AppLocalizationsPl extends AppLocalizations {
     String _temp0 = intl.Intl.pluralLogic(
       count,
       locale: localeName,
-      other: '$count buttons',
-      one: '$count button',
+      other: '$count przycisków',
+      many: '$count przycisków',
+      few: '$count przyciski',
+      one: '$count przycisk',
     );
     return '$_temp0';
   }
@@ -976,8 +986,10 @@ class AppLocalizationsPl extends AppLocalizations {
     String _temp0 = intl.Intl.pluralLogic(
       count,
       locale: localeName,
-      other: '$count steps',
-      one: '$count step',
+      other: '$count kroków',
+      many: '$count kroków',
+      few: '$count kroki',
+      one: '$count krok',
     );
     return '$_temp0';
   }
@@ -1037,8 +1049,16 @@ class AppLocalizationsPl extends AppLocalizations {
   String get noRemotesAvailable => 'Brak dostępnych pilotów.';
 
   @override
-  String remoteButtonCountSummary(Object count) {
-    return '$count przycisk(i)';
+  String remoteButtonCountSummary(int count) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: '$count przycisków',
+      many: '$count przycisków',
+      few: '$count przyciski',
+      one: '$count przycisk',
+    );
+    return '$_temp0';
   }
 
   @override
@@ -1094,6 +1114,9 @@ class AppLocalizationsPl extends AppLocalizations {
 
   @override
   String get loopTip => 'Wskazówka: użyj pętli, aby powtarzać do zatrzymania.';
+
+  @override
+  String get loopingBadge => 'Looping';
 
   @override
   String get codeCopied => 'Kod skopiowany.';
@@ -1189,12 +1212,28 @@ class AppLocalizationsPl extends AppLocalizations {
 
   @override
   String importedButtonCount(int count) {
-    return 'Zaimportowano $count przycisk(i).';
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: '$count przycisków',
+      many: '$count przycisków',
+      few: '$count przyciski',
+      one: '$count przycisk',
+    );
+    return 'Zaimportowano $_temp0.';
   }
 
   @override
   String importedButtonsFromExistingRemotes(int count) {
-    return 'Zaimportowano $count przycisk(i) z istniejących pilotów.';
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: '$count przycisków',
+      many: '$count przycisków',
+      few: '$count przyciski',
+      one: '$count przycisk',
+    );
+    return 'Zaimportowano $_temp0 z istniejących pilotów.';
   }
 
   @override
@@ -1722,7 +1761,19 @@ class AppLocalizationsPl extends AppLocalizations {
 
   @override
   String importedLegacyJsonBackup(int count) {
-    return 'Imported $count piloty from legacy JSON backup. makra were nie changed.';
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other:
+          'Zaimportowano $count pilotów ze starszej kopii zapasowej JSON. Makra nie zostały zmienione.',
+      many:
+          'Zaimportowano $count pilotów ze starszej kopii zapasowej JSON. Makra nie zostały zmienione.',
+      few:
+          'Zaimportowano $count piloty ze starszej kopii zapasowej JSON. Makra nie zostały zmienione.',
+      one:
+          'Zaimportowano $count pilot ze starszej kopii zapasowej JSON. Makra nie zostały zmienione.',
+    );
+    return '$_temp0';
   }
 
   @override
@@ -1739,12 +1790,40 @@ class AppLocalizationsPl extends AppLocalizations {
 
   @override
   String importedBackupRemotesOnly(int remoteCount) {
-    return 'Imported $remoteCount piloty from backup. makra were nie changed.';
+    String _temp0 = intl.Intl.pluralLogic(
+      remoteCount,
+      locale: localeName,
+      other:
+          'Zaimportowano $remoteCount pilotów z kopii zapasowej. Makra nie zostały zmienione.',
+      many:
+          'Zaimportowano $remoteCount pilotów z kopii zapasowej. Makra nie zostały zmienione.',
+      few:
+          'Zaimportowano $remoteCount piloty z kopii zapasowej. Makra nie zostały zmienione.',
+      one:
+          'Zaimportowano $remoteCount pilot z kopii zapasowej. Makra nie zostały zmienione.',
+    );
+    return '$_temp0';
   }
 
   @override
   String importedBackupRemotesAndMacros(int remoteCount, int macroCount) {
-    return 'Imported $remoteCount piloty i $macroCount makra from backup.';
+    String _temp0 = intl.Intl.pluralLogic(
+      remoteCount,
+      locale: localeName,
+      other: '$remoteCount pilotów',
+      many: '$remoteCount pilotów',
+      few: '$remoteCount piloty',
+      one: '$remoteCount pilot',
+    );
+    String _temp1 = intl.Intl.pluralLogic(
+      macroCount,
+      locale: localeName,
+      other: '$macroCount makr',
+      many: '$macroCount makr',
+      few: '$macroCount makra',
+      one: '$macroCount makro',
+    );
+    return 'Zaimportowano $_temp0 i $_temp1 z kopii zapasowej.';
   }
 
   @override
@@ -2075,6 +2154,24 @@ class AppLocalizationsPl extends AppLocalizations {
 
   @override
   String get discard => 'Odrzuć';
+
+  @override
+  String get continueEditing => 'Continue editing';
+
+  @override
+  String get unsavedChangesTitle => 'Unsaved changes';
+
+  @override
+  String get unsavedMacroChangesMessage =>
+      'Discard your macro changes and leave this screen?';
+
+  @override
+  String get stopMacroBeforeLeaving =>
+      'Stop the macro before leaving this screen.';
+
+  @override
+  String get stopTestingBeforeLeaving =>
+      'Stop testing before leaving this screen.';
 
   @override
   String get idle => 'Bezczynny';
@@ -4014,4 +4111,131 @@ class AppLocalizationsPl extends AppLocalizations {
 
   @override
   String get unknownProtocolSelected => 'Wybrano nieznany protokół.';
+
+  @override
+  String get continueSectionTitle => 'Continue';
+
+  @override
+  String get continueSectionSubtitle => 'Pick up where you left off.';
+
+  @override
+  String get continueLastRemoteTitle => 'Last remote';
+
+  @override
+  String get continueLastMacroTitle => 'Last macro';
+
+  @override
+  String get continueLastIrFinderHitTitle => 'Last IR Finder hit';
+
+  @override
+  String get continueTargetUnavailable => 'That item is no longer available.';
+
+  @override
+  String get continueUniversalPowerAllBrands => 'All brands';
+
+  @override
+  String get untitledMacro => 'Untitled Macro';
+
+  @override
+  String get pinnedRemotesTitle => 'Pinned remotes';
+
+  @override
+  String get pinnedRemotesSubtitle =>
+      'Keep your most important remotes one tap away.';
+
+  @override
+  String get recentlyUsedRemotesTitle => 'Recently used';
+
+  @override
+  String get recentlyUsedRemotesSubtitle =>
+      'Jump back into the remotes you opened most recently.';
+
+  @override
+  String get pinRemote => 'Pin remote';
+
+  @override
+  String get unpinRemote => 'Unpin remote';
+
+  @override
+  String get pinRemoteSubtitle =>
+      'Keep this remote at the top for faster access.';
+
+  @override
+  String get remoteAddedToPinned => 'Remote pinned.';
+
+  @override
+  String get remoteRemovedFromPinned => 'Remote removed from pinned.';
+
+  @override
+  String get homeDeviceControlsTitle => 'Quick controls';
+
+  @override
+  String get homeDeviceControlsSubtitle =>
+      'Power, mute, and volume without opening a remote.';
+
+  @override
+  String get homeDeviceControlsEmptySubtitle =>
+      'Set up power, mute, and volume buttons in Device Controls.';
+
+  @override
+  String get showDeviceControlsOnHome => 'Show quick controls on home';
+
+  @override
+  String get showDeviceControlsOnHomeSubtitle =>
+      'Show the compact Power, Mute, and Volume row on the main screen.';
+
+  @override
+  String get homeDeviceControlsShown => 'Quick controls shown on home.';
+
+  @override
+  String get homeDeviceControlsHidden => 'Quick controls hidden from home.';
+
+  @override
+  String get power => 'Power';
+
+  @override
+  String get mute => 'Mute';
+
+  @override
+  String get volumeUp => 'Vol +';
+
+  @override
+  String get volumeDown => 'Vol -';
+
+  @override
+  String get manage => 'Manage';
+
+  @override
+  String get hide => 'Hide';
+
+  @override
+  String get lastActionTitle => 'Last action';
+
+  @override
+  String lastActionSent(String title) {
+    return 'Sent $title';
+  }
+
+  @override
+  String lastActionSentTo(String remoteName, String title) {
+    return 'Sent $remoteName -> $title';
+  }
+
+  @override
+  String get repeatAction => 'Repeat';
+
+  @override
+  String get globalSearchTitle => 'Search everything';
+
+  @override
+  String get globalSearchNoResults => 'No results found.';
+
+  @override
+  String get globalSearchTypeRemote => 'REMOTE';
+
+  @override
+  String get globalSearchTypeButton => 'BUTTON';
+
+  @override
+  String get globalSearchTypeMacro => 'MACRO';
 }

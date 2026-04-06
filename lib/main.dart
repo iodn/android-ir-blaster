@@ -5,6 +5,7 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:irblaster_controller/state/app_locale.dart';
+import 'package:irblaster_controller/state/app_shortcuts.dart';
 import 'package:irblaster_controller/state/app_theme.dart';
 import 'package:irblaster_controller/state/dynamic_color.dart';
 import 'package:irblaster_controller/state/haptics.dart';
@@ -26,6 +27,7 @@ import 'package:media_store_plus/media_store_plus.dart';
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
   _initControlChannel();
+  await AppShortcutController.instance.initialize(_navKey);
   FlutterError.onError = (details) {
     FlutterError.presentError(details);
     debugPrint('FlutterError: ${details.exception}\n${details.stack}');
@@ -257,6 +259,7 @@ class _BootstrapScreenState extends State<_BootstrapScreen> {
       },
     );
     notifyMacrosChanged();
+    AppShortcutController.instance.markBootstrapReady();
   }
 
   @override

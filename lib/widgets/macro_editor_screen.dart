@@ -1,3 +1,4 @@
+import 'dart:convert';
 import 'dart:io';
 
 import 'package:flutter/material.dart';
@@ -27,6 +28,7 @@ class MacroEditorScreen extends StatefulWidget {
 class _MacroEditorScreenState extends State<MacroEditorScreen> {
   final TextEditingController _nameCtl = TextEditingController();
   final List<MacroStep> _steps = <MacroStep>[];
+  late final String _initialSignature;
 
   @override
   void initState() {
@@ -40,6 +42,7 @@ class _MacroEditorScreenState extends State<MacroEditorScreen> {
         .toList();
 
     _steps.addAll(loaded);
+    _initialSignature = _buildSignature();
   }
 
   @override
@@ -58,6 +61,15 @@ class _MacroEditorScreenState extends State<MacroEditorScreen> {
   String get _remoteDisplayName {
     final n = widget.remote.name.trim();
     return n.isEmpty ? context.l10n.unnamedRemote : n;
+  }
+
+  bool get _hasUnsavedChanges => _buildSignature() != _initialSignature;
+
+  String _buildSignature() {
+    return jsonEncode(<String, dynamic>{
+      'name': _nameCtl.text.trim(),
+      'steps': _steps.map((s) => s.toJson()).toList(),
+    });
   }
 
   bool get _canSave {
@@ -506,12 +518,42 @@ class _MacroEditorScreenState extends State<MacroEditorScreen> {
     Haptics.selectionClick();
   }
 
+  Future<bool> _confirmDiscardChanges() async {
+    return await showDialog<bool>(
+          context: context,
+          builder: (ctx) => AlertDialog(
+            title: Text(context.l10n.unsavedChangesTitle),
+            content: Text(context.l10n.unsavedMacroChangesMessage),
+            actions: [
+              TextButton(
+                onPressed: () => Navigator.of(ctx).pop(false),
+                child: Text(context.l10n.continueEditing),
+              ),
+              FilledButton.tonal(
+                onPressed: () => Navigator.of(ctx).pop(true),
+                child: Text(context.l10n.discard),
+              ),
+            ],
+          ),
+        ) ??
+        false;
+  }
+
   @override
   Widget build(BuildContext context) {
     final theme = Theme.of(context);
     final cs = theme.colorScheme;
 
-    return Scaffold(
+    return PopScope(
+      canPop: !_hasUnsavedChanges,
+      onPopInvokedWithResult: (didPop, _) async {
+        if (didPop || !_hasUnsavedChanges) return;
+        final navigator = Navigator.of(context);
+        final discard = await _confirmDiscardChanges();
+        if (!mounted || !discard) return;
+        navigator.pop();
+      },
+      child: Scaffold(
       appBar: AppBar(
         title: Text(_screenTitle),
         actions: [
@@ -771,6 +813,7 @@ class _MacroEditorScreenState extends State<MacroEditorScreen> {
           ),
         ],
       ),
+    ),
     );
   }
 

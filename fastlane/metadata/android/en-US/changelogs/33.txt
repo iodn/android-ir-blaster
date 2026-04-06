@@ -1,0 +1,7 @@
+- Improved the Remotes home screen with a faster and cleaner top strip for last remote and pinned remotes
+- Added launcher shortcuts for Last Remote, Signal Tester, Last Macro, and Universal Power
+- Added predictive back support handling for Remote View, Signal Tester, and macro screens
+- Improved localization support, added more app languages, and fixed fallback-to-English behavior for unsupported system languages
+- Fixed Polish plural and count grammar in key UI labels and summaries
+- Improved USB IR dongle support, including additional ElkSmart device detection
+- Reduced bulky top-of-screen UI so remotes are easier to reach on small phones

@@ -6,6 +6,9 @@ import android.content.Context
 import android.content.Intent
 import android.content.IntentFilter
 import android.content.pm.PackageManager
+import android.content.pm.ShortcutInfo
+import android.content.pm.ShortcutManager
+import android.graphics.drawable.Icon
 import android.hardware.ConsumerIrManager
 import android.hardware.usb.UsbDevice
 import android.hardware.usb.UsbManager
@@ -64,6 +67,8 @@ class MainActivity : FlutterActivity() {
     private var pendingControlButtonId: String? = null
     private var quickTileChannel: MethodChannel? = null
     private var pendingQuickTileChooserKey: String? = null
+    private var shortcutsChannel: MethodChannel? = null
+    private var pendingShortcutAction: String? = null
 
     private fun loadTxTypeFromPrefs(): TxType {
         val v = prefs.getString("tx_type", TxType.INTERNAL.name) ?: TxType.INTERNAL.name
@@ -390,6 +395,8 @@ class MainActivity : FlutterActivity() {
         private const val EVENT_CHANNEL = "org.nslabs/irtransmitter_events"
         private const val CONTROL_CHANNEL = "org.nslabs/irtransmitter_controls"
         private const val QUICK_TILE_CHANNEL = "org.nslabs/irtransmitter_quick_tile"
+        private const val SHORTCUTS_CHANNEL = "org.nslabs/app_shortcuts"
+        private const val EXTRA_SHORTCUT_ACTION = "org.nslabs.irblaster.SHORTCUT_ACTION"
         private const val DEFAULT_HEX_FREQUENCY = 38000
         private const val MIN_IR_HZ = 15000
         private const val MAX_IR_HZ = 60000
@@ -478,8 +485,66 @@ class MainActivity : FlutterActivity() {
             dispatchQuickTileChooser(key)
         }
 
+        shortcutsChannel = MethodChannel(flutterEngine.dartExecutor.binaryMessenger, SHORTCUTS_CHANNEL)
+        shortcutsChannel?.setMethodCallHandler { call, result ->
+            when (call.method) {
+                "updateDynamicShortcuts" -> handleUpdateDynamicShortcuts(call, result)
+                "consumeInitialShortcutAction" -> {
+                    val action = pendingShortcutAction
+                    pendingShortcutAction = null
+                    result.success(action)
+                }
+                else -> result.notImplemented()
+            }
+        }
+
         emitTxStatus("startup_done")
         emitTxStatusDelayed("startup_done_delayed", 350L)
+    }
+
+    private fun handleUpdateDynamicShortcuts(call: MethodCall, result: MethodChannel.Result) {
+        if (Build.VERSION.SDK_INT < 25) {
+            result.success(false)
+            return
+        }
+
+        val shortcutManager = getSystemService(ShortcutManager::class.java)
+        if (shortcutManager == null) {
+            result.success(false)
+            return
+        }
+
+        val args = call.arguments as? Map<*, *>
+        val rawItems = args?.get("items") as? List<*>
+        val shortcuts = rawItems
+            ?.mapIndexedNotNull { index, raw -> buildDynamicShortcut(raw as? Map<*, *>, index) }
+            ?.take(4)
+            ?: emptyList()
+
+        shortcutManager.dynamicShortcuts = shortcuts
+        result.success(true)
+    }
+
+    private fun buildDynamicShortcut(raw: Map<*, *>?, rank: Int): ShortcutInfo? {
+        if (raw == null || Build.VERSION.SDK_INT < 25) return null
+        val id = (raw["id"] as? String)?.trim().orEmpty()
+        val shortLabel = (raw["shortLabel"] as? String)?.trim().orEmpty()
+        val longLabel = (raw["longLabel"] as? String)?.trim().orEmpty()
+        if (id.isEmpty() || shortLabel.isEmpty()) return null
+
+        val intent = Intent(applicationContext, MainActivity::class.java).apply {
+            action = Intent.ACTION_VIEW
+            putExtra(EXTRA_SHORTCUT_ACTION, id)
+            flags = Intent.FLAG_ACTIVITY_SINGLE_TOP or Intent.FLAG_ACTIVITY_CLEAR_TOP
+        }
+
+        return ShortcutInfo.Builder(applicationContext, id)
+            .setShortLabel(shortLabel)
+            .setLongLabel(if (longLabel.isNotEmpty()) longLabel else shortLabel)
+            .setIcon(Icon.createWithResource(applicationContext, R.mipmap.ic_launcher))
+            .setIntent(intent)
+            .setRank(rank)
+            .build()
     }
 
     private fun handlePerformHaptic(call: MethodCall, result: MethodChannel.Result) {
@@ -686,12 +751,14 @@ class MainActivity : FlutterActivity() {
         super.onNewIntent(intent)
         handleControlIntent(intent)
         handleQuickTileIntent(intent)
+        handleRuntimeShortcutIntent(intent)
     }
 
     override fun onCreate(savedInstanceState: android.os.Bundle?) {
         super.onCreate(savedInstanceState)
         handleControlIntent(intent)
         handleQuickTileIntent(intent)
+        captureInitialShortcutIntent(intent)
     }
 
     private fun handleControlIntent(intent: Intent?) {
@@ -721,6 +788,27 @@ class MainActivity : FlutterActivity() {
             return
         }
         ch.invokeMethod("openChooser", mapOf("tileKey" to tileKey))
+    }
+
+    private fun captureInitialShortcutIntent(intent: Intent?) {
+        val action = intent?.getStringExtra(EXTRA_SHORTCUT_ACTION)?.trim().orEmpty()
+        if (action.isEmpty()) return
+        pendingShortcutAction = action
+    }
+
+    private fun handleRuntimeShortcutIntent(intent: Intent?) {
+        val action = intent?.getStringExtra(EXTRA_SHORTCUT_ACTION)?.trim().orEmpty()
+        if (action.isEmpty()) return
+        dispatchShortcutAction(action)
+    }
+
+    private fun dispatchShortcutAction(action: String) {
+        val ch = shortcutsChannel
+        if (ch == null) {
+            pendingShortcutAction = action
+            return
+        }
+        ch.invokeMethod("openShortcut", mapOf("action" to action))
     }
 
     override fun onDestroy() {
