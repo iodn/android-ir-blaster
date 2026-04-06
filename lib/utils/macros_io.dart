@@ -162,34 +162,31 @@ Future<List<TimedMacro>?> importMacrosFromPicker(BuildContext context) async {
   final result = await FilePicker.platform.pickFiles(
     type: FileType.custom,
     allowedExtensions: const <String>['json'],
-    withData: true,
+    withData: false,
+    withReadStream: false,
   );
   if (result == null || result.files.isEmpty) return null;
 
   final pf = result.files.single;
-  List<int>? bytes = pf.bytes;
-
-  if (bytes == null) {
-    final path = pf.path;
-    if (path == null) {
-      if (!context.mounted) return null;
-      ScaffoldMessenger.of(context).showSnackBar(
-        SnackBar(content: Text(context.l10n.failedToReadFile)),
-      );
-      return null;
-    }
-    try {
-      bytes = await File(path).readAsBytes();
-    } catch (_) {
-      if (!context.mounted) return null;
-      ScaffoldMessenger.of(context).showSnackBar(
-        SnackBar(content: Text(context.l10n.failedToReadFile)),
-      );
-      return null;
-    }
+  final path = pf.path;
+  if (path == null || path.isEmpty) {
+    if (!context.mounted) return null;
+    ScaffoldMessenger.of(context).showSnackBar(
+      SnackBar(content: Text(context.l10n.failedToReadFile)),
+    );
+    return null;
   }
 
-  final contents = utf8.decode(bytes, allowMalformed: true);
+  String contents;
+  try {
+    contents = await File(path).readAsString();
+  } catch (_) {
+    if (!context.mounted) return null;
+    ScaffoldMessenger.of(context).showSnackBar(
+      SnackBar(content: Text(context.l10n.failedToReadFile)),
+    );
+    return null;
+  }
 
   try {
     final decoded = jsonDecode(contents);

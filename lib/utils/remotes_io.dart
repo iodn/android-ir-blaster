@@ -116,16 +116,16 @@ Future<ImportResult?> importRemotesFromPicker(
       'cfg',
       'lirc',
     ],
-    withData: true,
-    withReadStream: true,
+    withData: false,
+    withReadStream: false,
   );
 
   if (result == null || result.files.isEmpty) return null;
 
   final pf = result.files.single;
-  final List<int>? bytes = await _readPlatformFileBytes(pf);
+  final String? contents = await _readPlatformFileText(pf);
 
-  if (bytes == null) {
+  if (contents == null) {
     return ImportResult(
       remotes: <Remote>[],
       macros: null,
@@ -151,7 +151,6 @@ Future<ImportResult?> importRemotesFromPicker(
     );
   }
 
-  final contents = utf8.decode(bytes, allowMalformed: true);
   final importedRemoteName = _sanitizeRemoteNameFromFilename(
     pf.name,
     fallbackName: l10n.importedRemoteDefaultName,
@@ -362,8 +361,8 @@ Future<ImportResult?> importRemotesFromFolderPicker(
         'lirc',
       ],
       allowMultiple: true,
-      withData: true,
-      withReadStream: true,
+      withData: false,
+      withReadStream: false,
     );
 
     if (res == null || res.files.isEmpty) return null;
@@ -530,13 +529,11 @@ Future<ImportResult> _bulkImportFromPlatformFiles(
 
     supported++;
 
-    final List<int>? bytes = await _readPlatformFileBytes(pf);
-    if (bytes == null) {
+    final String? contents = await _readPlatformFileText(pf);
+    if (contents == null) {
       skippedBroken++;
       continue;
     }
-
-    final String contents = utf8.decode(bytes, allowMalformed: true);
     final String remoteNameHint = _sanitizeRemoteNameFromFilename(
       fileName,
       fallbackName: l10n.importedRemoteDefaultName,
@@ -585,24 +582,11 @@ Future<ImportResult> _bulkImportFromPlatformFiles(
   );
 }
 
-Future<List<int>?> _readPlatformFileBytes(PlatformFile pf) async {
-  if (pf.bytes != null && pf.bytes!.isNotEmpty) return pf.bytes!;
-
-  final Stream<List<int>>? s = pf.readStream;
-  if (s != null) {
-    final List<int> out = <int>[];
-    try {
-      await for (final chunk in s) {
-        out.addAll(chunk);
-      }
-      if (out.isNotEmpty) return out;
-    } catch (_) {}
-  }
-
+Future<String?> _readPlatformFileText(PlatformFile pf) async {
   final path = pf.path;
   if (path != null && path.isNotEmpty) {
     try {
-      return await File(path).readAsBytes();
+      return await File(path).readAsString();
     } catch (_) {}
   }
 
