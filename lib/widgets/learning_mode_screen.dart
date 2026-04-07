@@ -1,4 +1,5 @@
 import 'dart:async';
+import 'dart:math' as math;
 
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
@@ -6,8 +7,11 @@ import 'package:irblaster_controller/ir/ir_protocol_registry.dart';
 import 'package:irblaster_controller/l10n/l10n.dart';
 import 'package:irblaster_controller/state/haptics.dart';
 import 'package:irblaster_controller/state/orientation_pref.dart';
+import 'package:irblaster_controller/state/remotes_state.dart';
+import 'package:irblaster_controller/utils/ir.dart';
 import 'package:irblaster_controller/utils/ir_transmitter_platform.dart';
 import 'package:irblaster_controller/utils/remote.dart';
+import 'package:irblaster_controller/widgets/remote_view.dart';
 
 class LearningModeScreen extends StatefulWidget {
   const LearningModeScreen({super.key});
@@ -21,11 +25,21 @@ class _LearningModeScreenState extends State<LearningModeScreen>
   static const int _tiqiaaVid1 = 0x10C4;
   static const int _tiqiaaVid2 = 0x045E;
   static const int _tiqiaaPid = 0x8468;
+  static const int _elkSmartVid = 0x045C;
+  static const Set<int> _elkSmartPids = <int>{
+    0x0131,
+    0x0132,
+    0x014A,
+    0x0184,
+    0x0195,
+    0x02AA,
+  };
 
   final TextEditingController _buttonNameCtrl = TextEditingController();
 
   StreamSubscription<IrTransmitterCapabilities>? _capsSub;
   IrTransmitterCapabilities? _caps;
+  IrTransmitterType? _preferredType;
   LearnedUsbSignal? _capturedSignal;
   bool _busy = false;
   String? _errorText;
@@ -63,15 +77,29 @@ class _LearningModeScreenState extends State<LearningModeScreen>
   Future<void> _loadCaps() async {
     try {
       final caps = await IrTransmitterPlatform.getCapabilities();
+      final preferredType = await IrTransmitterPlatform.getPreferredType();
       if (!mounted) return;
-      setState(() => _caps = caps);
+      setState(() {
+        _caps = caps;
+        _preferredType = preferredType;
+      });
     } catch (_) {}
   }
 
   List<UsbDeviceInfo> get _learningDevices {
     final caps = _caps;
     if (caps == null) return const [];
-    return caps.usbDevices.where(_isTiqiaaFamily).toList(growable: false);
+    return caps.usbDevices.where(_isLearningFamily).toList(growable: false);
+  }
+
+  bool get _audioLearningSelected {
+    final type = _preferredType ?? _caps?.currentType;
+    return type == IrTransmitterType.audio1Led || type == IrTransmitterType.audio2Led;
+  }
+
+  bool get _usbSwitchRecommended {
+    final selectedType = _preferredType ?? _caps?.currentType;
+    return _learningDevices.isNotEmpty && selectedType != IrTransmitterType.usb;
   }
 
   bool _isTiqiaaFamily(UsbDeviceInfo d) {
@@ -79,9 +107,20 @@ class _LearningModeScreenState extends State<LearningModeScreen>
         (d.vendorId == _tiqiaaVid1 || d.vendorId == _tiqiaaVid2);
   }
 
+  bool _isElkSmartFamily(UsbDeviceInfo d) {
+    return d.vendorId == _elkSmartVid && _elkSmartPids.contains(d.productId);
+  }
+
+  bool _isLearningFamily(UsbDeviceInfo d) {
+    return _isTiqiaaFamily(d) || _isElkSmartFamily(d);
+  }
+
   _LearningHardwareState get _hardwareState {
     final caps = _caps;
     if (caps == null) return _LearningHardwareState.checking;
+    if (_audioLearningSelected) {
+      return _LearningHardwareState.noReceiver;
+    }
     final devices = _learningDevices;
     if (devices.isEmpty) return _LearningHardwareState.noReceiver;
     if (devices.any((d) => !d.hasPermission) ||
@@ -105,6 +144,54 @@ class _LearningModeScreenState extends State<LearningModeScreen>
 
   String get _rawPreview => _capturedSignal?.rawPreview ?? '';
 
+  bool _isLikelyCompleteCapture(LearnedUsbSignal signal) {
+    final totalUs = signal.rawPatternUs.fold<int>(0, (sum, v) => sum + v);
+    switch (signal.family) {
+      case 'audio':
+        return signal.opaqueFrameBase64.length >= 2048 && totalUs >= 20 * 1000;
+      case 'tiqiaa':
+      case 'elksmart':
+        return signal.rawPatternUs.length >= 6 &&
+            totalUs >= 1000 &&
+            signal.opaqueFrameBase64.length >= 16;
+      default:
+        return signal.rawPatternUs.isNotEmpty && signal.opaqueFrameBase64.isNotEmpty;
+    }
+  }
+
+  String _capturePreviewBody(LearnedUsbSignal signal) {
+    final String header = signal.displayPreview.isNotEmpty
+        ? signal.displayPreview
+        : signal.family == 'audio'
+        ? 'Audio learned capture'
+        : signal.family == 'elksmart'
+        ? 'ElkSmart USB learned frame'
+        : 'Tiqiaa USB learned frame';
+    final lines = <String>[
+      header,
+      'RAW',
+    ];
+    if (signal.frequencyHz > 0) {
+      lines.add('${signal.frequencyHz} Hz');
+    } else if (signal.family == 'audio') {
+      lines.add('Carrier unknown');
+    }
+    return lines.join('\n');
+  }
+
+  String _learningDeviceLabel(BuildContext context) {
+    if (_audioLearningSelected) {
+      final selectedType = _preferredType ?? _caps?.currentType;
+      return selectedType == IrTransmitterType.audio2Led ? 'Audio 2 LED' : 'Audio 1 LED';
+    }
+    if (_learningDevices.isEmpty) {
+      return 'USB learning dongle';
+    }
+    final device = _learningDevices.first;
+    final productName = device.productName.isEmpty ? 'USB learning dongle' : device.productName;
+    return '$productName (${device.vendorId.toRadixString(16)}:${device.productId.toRadixString(16)})';
+  }
+
   Future<void> _startListening() async {
     if (!_hardwareReady || _busy) return;
     setState(() {
@@ -126,6 +213,24 @@ class _LearningModeScreenState extends State<LearningModeScreen>
           _busy = false;
           _captureState = _LearningCaptureState.idle;
         });
+        return;
+      }
+      if (!_isLikelyCompleteCapture(learned)) {
+        setState(() {
+          _busy = false;
+          _captureState = _LearningCaptureState.idle;
+          _errorText =
+              'The captured signal looks incomplete. Move the remote closer and try again.';
+        });
+        ScaffoldMessenger.of(context)
+          ..hideCurrentSnackBar()
+          ..showSnackBar(
+            const SnackBar(
+              content: Text(
+                'The captured signal looks incomplete. Move the remote closer and try again.',
+              ),
+            ),
+          );
         return;
       }
       setState(() {
@@ -152,6 +257,75 @@ class _LearningModeScreenState extends State<LearningModeScreen>
     }
   }
 
+  Future<void> _requestUsbPermission() async {
+    final messenger = ScaffoldMessenger.of(context);
+    final l10n = context.l10n;
+    setState(() => _busy = true);
+    try {
+      final ok = await IrTransmitterPlatform.usbScanAndRequest();
+      await _loadCaps();
+      if (!mounted) return;
+      final freshCaps = _caps;
+      if (!ok) {
+        messenger.showSnackBar(
+          SnackBar(content: Text(l10n.homeUsbDongleNotDetected)),
+        );
+      } else if (freshCaps == null) {
+        messenger.showSnackBar(
+          SnackBar(content: Text(l10n.usbPermissionRequestSent)),
+        );
+      } else if (freshCaps.usbStatus == UsbConnectionStatus.permissionRequired ||
+          freshCaps.usbStatus == UsbConnectionStatus.permissionDenied) {
+        messenger.showSnackBar(
+          SnackBar(content: Text(l10n.usbPermissionRequestSentApprove)),
+        );
+      } else if (freshCaps.usbStatus == UsbConnectionStatus.ready) {
+        messenger.showSnackBar(
+          SnackBar(content: Text(l10n.usbAlreadyReady)),
+        );
+      } else {
+        messenger.showSnackBar(
+          SnackBar(content: Text(freshCaps.usbStatusMessage ?? l10n.usbStatusOpenFailed)),
+        );
+      }
+    } catch (_) {
+      if (mounted) {
+        messenger.showSnackBar(
+          SnackBar(content: Text(l10n.failedToRequestUsbPermission)),
+        );
+      }
+    } finally {
+      if (mounted) {
+        setState(() => _busy = false);
+      }
+    }
+  }
+
+  Future<void> _switchToUsbLearningMode() async {
+    final messenger = ScaffoldMessenger.of(context);
+    setState(() => _busy = true);
+    try {
+      await IrTransmitterPlatform.setPreferredType(IrTransmitterType.usb);
+      await IrTransmitterPlatform.setActiveType(IrTransmitterType.usb);
+      await _loadCaps();
+      if (!mounted) return;
+      messenger
+        ..hideCurrentSnackBar()
+        ..showSnackBar(
+          const SnackBar(content: Text('Switched to USB IR dongle')),
+        );
+    } catch (e) {
+      if (!mounted) return;
+      messenger
+        ..hideCurrentSnackBar()
+        ..showSnackBar(
+          SnackBar(content: Text('Failed to switch to USB IR dongle: $e')),
+        );
+    } finally {
+      if (mounted) setState(() => _busy = false);
+    }
+  }
+
   Future<void> _stopListening() async {
     setState(() => _busy = true);
     try {
@@ -172,14 +346,15 @@ class _LearningModeScreenState extends State<LearningModeScreen>
     if (signal == null || _busy) return;
     setState(() => _busy = true);
     try {
-      final ok = await IrTransmitterPlatform.replayLearnedUsbSignal(
-        family: signal.family,
-        opaqueFrameBase64: signal.opaqueFrameBase64,
+      final previewButton = _buildSavedButton(
+        signal,
+        _buttonNameCtrl.text.trim().isEmpty
+            ? context.l10n.learningModeUnnamedCapture
+            : _buttonNameCtrl.text.trim(),
       );
+      await sendIR(previewButton);
       if (!mounted) return;
-      final msg = ok
-          ? context.l10n.learningModeReplaySent
-          : context.l10n.learningModeReplayFailed;
+      final msg = context.l10n.learningModeReplaySent;
       ScaffoldMessenger.of(context)
         ..hideCurrentSnackBar()
         ..showSnackBar(SnackBar(content: Text(msg)));
@@ -210,42 +385,65 @@ class _LearningModeScreenState extends State<LearningModeScreen>
     final signal = _capturedSignal;
     if (signal == null || _busy) return;
     final l10n = context.l10n;
+    final buttonName = _buttonNameCtrl.text.trim().isEmpty
+        ? context.l10n.learningModeUnnamedCapture
+        : _buttonNameCtrl.text.trim();
     setState(() => _busy = true);
     try {
-      final remotes = await readRemotes();
+      final existingRemotes = await readRemotes();
+      Remote? targetRemote;
       if (_saveTarget == _LearningSaveTarget.existingRemote) {
-        if (remotes.isEmpty) {
+        if (existingRemotes.isEmpty) {
           throw Exception(l10n.learningModeNoRemotesAvailable);
         }
-        final selected = await _pickRemote(remotes);
+        final selected = await _pickRemote(existingRemotes);
         if (selected == null) return;
-        final updated = remotes.map((r) {
+        final updated = existingRemotes.map((r) {
           if (r.id != selected.id) return r;
-          return Remote(
+          final next = Remote(
             id: r.id,
             name: r.name,
             useNewStyle: r.useNewStyle,
-            buttons: [...r.buttons, _buildSavedButton(signal)],
+            buttons: [...r.buttons, _buildSavedButton(signal, buttonName)],
           );
+          targetRemote = next;
+          return next;
         }).toList(growable: false);
         await writeRemotelist(updated);
       } else {
         final remoteName = await _promptForNewRemoteName();
         if (remoteName == null) return;
-        final updated = [...remotes];
-        updated.add(
-          Remote(
-            name: remoteName,
-            buttons: <IRButton>[_buildSavedButton(signal)],
-          ),
+        final created = Remote(
+          name: remoteName,
+          buttons: <IRButton>[_buildSavedButton(signal, buttonName)],
         );
+        final updated = [...existingRemotes];
+        updated.add(created);
+        targetRemote = created;
         await writeRemotelist(updated);
       }
       if (!mounted) return;
       ScaffoldMessenger.of(context)
         ..hideCurrentSnackBar()
         ..showSnackBar(SnackBar(content: Text(l10n.learningModeSaveSuccess)));
+      remotes = await readRemotes();
+      notifyRemotesChanged();
+      final refreshedTarget = targetRemote == null
+          ? null
+          : remotes.cast<Remote?>().firstWhere(
+              (r) => r?.id == targetRemote!.id,
+              orElse: () => remotes.cast<Remote?>().firstWhere(
+                (r) => r?.name == targetRemote!.name,
+                orElse: () => null,
+              ),
+            );
+      _buttonNameCtrl.clear();
+      setState(() {
+        _capturedSignal = null;
+        _captureState = _LearningCaptureState.idle;
+      });
       await Haptics.mediumImpact();
+      await _showPostSaveSheet(refreshedTarget);
     } catch (e) {
       if (!mounted) return;
       final msg =
@@ -258,14 +456,110 @@ class _LearningModeScreenState extends State<LearningModeScreen>
     }
   }
 
-  IRButton _buildSavedButton(LearnedUsbSignal signal) {
+  Future<void> _showPostSaveSheet(Remote? targetRemote) async {
+    if (!mounted) return;
+    final action = await showModalBottomSheet<String>(
+      context: context,
+      useSafeArea: true,
+      showDragHandle: true,
+      builder: (sheetContext) {
+        final theme = Theme.of(sheetContext);
+        final cs = theme.colorScheme;
+        return Padding(
+          padding: const EdgeInsets.fromLTRB(20, 4, 20, 20),
+          child: Column(
+            mainAxisSize: MainAxisSize.min,
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Row(
+                children: [
+                  Container(
+                    width: 52,
+                    height: 52,
+                    decoration: BoxDecoration(
+                      color: Colors.green.withValues(alpha: 0.14),
+                      shape: BoxShape.circle,
+                    ),
+                    child: const Icon(
+                      Icons.check_circle_rounded,
+                      color: Colors.green,
+                      size: 28,
+                    ),
+                  ),
+                  const SizedBox(width: 14),
+                  Expanded(
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Text(
+                          sheetContext.l10n.learningModeSaveSuccess,
+                          style: theme.textTheme.titleMedium?.copyWith(
+                            fontWeight: FontWeight.w900,
+                          ),
+                        ),
+                        const SizedBox(height: 4),
+                        Text(
+                          'Choose what to do next.',
+                          style: theme.textTheme.bodyMedium?.copyWith(
+                            color: cs.onSurfaceVariant,
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
+                ],
+              ),
+              const SizedBox(height: 18),
+              if (targetRemote != null) ...[
+                FilledButton.icon(
+                  onPressed: () => Navigator.of(sheetContext).pop('open_remote'),
+                  icon: const Icon(Icons.settings_remote_rounded),
+                  label: const Text('Open remote'),
+                ),
+                const SizedBox(height: 10),
+              ],
+              OutlinedButton.icon(
+                onPressed: () => Navigator.of(sheetContext).pop('learn_another'),
+                icon: const Icon(Icons.add_circle_outline_rounded),
+                label: Text(sheetContext.l10n.learningModeLearnAnotherAction),
+              ),
+            ],
+          ),
+        );
+      },
+    );
+
+    if (!mounted) return;
+    if (action == 'open_remote' && targetRemote != null) {
+      await Navigator.of(context).push(
+        MaterialPageRoute<void>(
+          builder: (_) => RemoteView(remote: targetRemote),
+        ),
+      );
+    }
+  }
+
+  IRButton _buildSavedButton(LearnedUsbSignal signal, String buttonName) {
+    if (signal.family == 'audio') {
+      return IRButton(
+        id: DateTime.now().microsecondsSinceEpoch.toString(),
+        image: buttonName,
+        isImage: false,
+        frequency: signal.frequencyHz > 0 ? signal.frequencyHz : 38000,
+        rawData: signal.rawPreview,
+      );
+    }
     return IRButton(
       id: DateTime.now().microsecondsSinceEpoch.toString(),
-      image: _buttonLabel(context),
+      image: buttonName,
       isImage: false,
-      frequency: signal.frequencyHz,
-      rawData: signal.rawPreview,
-      protocol: IrProtocolIds.tiqiaaLearned,
+      frequency: null,
+      rawData: null,
+      protocol: signal.family == 'elksmart'
+          ? IrProtocolIds.elksmartLearned
+          : signal.family == 'audio'
+          ? IrProtocolIds.audioLearned
+          : IrProtocolIds.tiqiaaLearned,
       protocolParams: <String, dynamic>{
         'family': signal.family,
         'opaqueFrameBase64': signal.opaqueFrameBase64,
@@ -273,6 +567,7 @@ class _LearningModeScreenState extends State<LearningModeScreen>
         'quality': signal.quality,
         'frequencyHz': signal.frequencyHz,
         'rawPreview': signal.rawPreview,
+        'displayPreview': signal.displayPreview,
       },
     );
   }
@@ -364,6 +659,9 @@ class _LearningModeScreenState extends State<LearningModeScreen>
 
   IconData _statusIcon() {
     if (!_hardwareReady) {
+      if (_audioLearningSelected) {
+        return Icons.headset_off_rounded;
+      }
       return switch (_hardwareState) {
         _LearningHardwareState.permissionRequired => Icons.usb_rounded,
         _LearningHardwareState.needsSetup => Icons.build_circle_rounded,
@@ -382,6 +680,9 @@ class _LearningModeScreenState extends State<LearningModeScreen>
 
   String _statusTitle(BuildContext context) {
     if (!_hardwareReady) {
+      if (_audioLearningSelected) {
+        return 'Audio learning not supported';
+      }
       return switch (_hardwareState) {
         _LearningHardwareState.permissionRequired =>
           context.l10n.learningModeStatusPermissionTitle,
@@ -405,6 +706,9 @@ class _LearningModeScreenState extends State<LearningModeScreen>
 
   String _statusBody(BuildContext context) {
     if (!_hardwareReady) {
+      if (_audioLearningSelected) {
+        return 'Learning Mode supports compatible USB IR dongles only. Audio IR accessories remain available for transmit.';
+      }
       return switch (_hardwareState) {
         _LearningHardwareState.permissionRequired =>
           context.l10n.learningModeHardwarePermissionBody,
@@ -497,15 +801,30 @@ class _LearningModeScreenState extends State<LearningModeScreen>
                 Expanded(
                   child: _InfoChip(
                     icon: Icons.usb_rounded,
-                    label: _learningDevices.isEmpty
-                        ? 'Tiqiaa / ZaZa USB'
-                        : '${_learningDevices.first.productName.isEmpty ? 'Tiqiaa / ZaZa USB' : _learningDevices.first.productName} (${_learningDevices.first.vendorId.toRadixString(16)}:${_learningDevices.first.productId.toRadixString(16)})',
+                    label: _learningDeviceLabel(context),
                     foreground: cs.onSurface,
                     background: cs.surfaceContainerHighest,
                   ),
                 ),
               ],
             ),
+            if (_usbSwitchRecommended) ...[
+              const SizedBox(height: 14),
+              FilledButton.tonalIcon(
+                onPressed: _busy ? null : _switchToUsbLearningMode,
+                icon: const Icon(Icons.usb_rounded),
+                label: const Text('Use USB dongle'),
+              ),
+            ],
+            if (!_audioLearningSelected &&
+                _hardwareState == _LearningHardwareState.permissionRequired) ...[
+              const SizedBox(height: 14),
+              FilledButton.tonalIcon(
+                onPressed: _busy ? null : _requestUsbPermission,
+                icon: const Icon(Icons.usb_rounded),
+                label: Text(context.l10n.requestUsbPermission),
+              ),
+            ],
             if (_errorText != null) ...[
               const SizedBox(height: 14),
               _InlineNotice(message: _errorText!, tone: _NoticeTone.error),
@@ -531,14 +850,18 @@ class _LearningModeScreenState extends State<LearningModeScreen>
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Text(
-              context.l10n.learningModeConnectReceiverTitle,
+              _audioLearningSelected
+                  ? 'USB learning only'
+                  : context.l10n.learningModeConnectReceiverTitle,
               style: Theme.of(context).textTheme.titleMedium?.copyWith(
                     fontWeight: FontWeight.w800,
                   ),
             ),
             const SizedBox(height: 6),
             Text(
-              context.l10n.learningModeConnectReceiverBody,
+              _audioLearningSelected
+                  ? 'Switch to a compatible USB learning dongle such as Tiqiaa, ZaZa, or ElkSmart to use Learning Mode.'
+                  : context.l10n.learningModeConnectReceiverBody,
               style: Theme.of(context).textTheme.bodyMedium?.copyWith(
                     color: cs.onSurfaceVariant,
                     height: 1.35,
@@ -550,6 +873,14 @@ class _LearningModeScreenState extends State<LearningModeScreen>
               icon: const Icon(Icons.refresh_rounded),
               label: Text(context.l10n.learningModeRefreshHardware),
             ),
+            if (_usbSwitchRecommended) ...[
+              const SizedBox(height: 10),
+              FilledButton.icon(
+                onPressed: _busy ? null : _switchToUsbLearningMode,
+                icon: const Icon(Icons.usb_rounded),
+                label: const Text('Use USB dongle'),
+              ),
+            ],
           ],
         ),
       ),
@@ -563,92 +894,111 @@ class _LearningModeScreenState extends State<LearningModeScreen>
 
     return Card(
       elevation: 0,
-      color: cs.surfaceContainerHighest.withValues(alpha: 0.5),
+      color: listening
+          ? cs.tertiaryContainer.withValues(alpha: 0.86)
+          : cs.primaryContainer.withValues(alpha: 0.72),
       shape: RoundedRectangleBorder(
         borderRadius: BorderRadius.circular(20),
-        side: BorderSide(color: cs.outlineVariant.withValues(alpha: 0.45)),
+        side: BorderSide(
+          color: listening
+              ? cs.tertiary.withValues(alpha: 0.30)
+              : cs.primary.withValues(alpha: 0.24),
+        ),
       ),
       child: Padding(
         padding: const EdgeInsets.all(18),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
-            AnimatedContainer(
-              duration: const Duration(milliseconds: 220),
-              width: double.infinity,
-              padding: const EdgeInsets.all(18),
-              decoration: BoxDecoration(
-                gradient: LinearGradient(
-                  colors: listening
-                      ? [
-                          cs.tertiaryContainer.withValues(alpha: 0.86),
-                          cs.primaryContainer.withValues(alpha: 0.74),
-                        ]
-                      : [
-                          cs.primaryContainer.withValues(alpha: 0.82),
-                          cs.secondaryContainer.withValues(alpha: 0.64),
-                        ],
+            if (listening)
+              SizedBox(
+                height: 92,
+                child: AnimatedBuilder(
+                  animation: _pulseController,
+                  builder: (context, _) {
+                    return Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      crossAxisAlignment: CrossAxisAlignment.end,
+                      children: List.generate(7, (index) {
+                        final phase =
+                            (_pulseController.value * 2 * math.pi) + (index * 0.7);
+                        final wave = (math.sin(phase) + 1) / 2;
+                        final height = 18.0 + (wave * 42.0);
+                        final opacity = 0.35 + (wave * 0.55);
+                        return Padding(
+                          padding: const EdgeInsets.symmetric(horizontal: 4),
+                          child: AnimatedContainer(
+                            duration: const Duration(milliseconds: 120),
+                            width: 10,
+                            height: height,
+                            decoration: BoxDecoration(
+                              color: cs.onPrimaryContainer.withValues(alpha: opacity),
+                              borderRadius: BorderRadius.circular(999),
+                              boxShadow: [
+                                BoxShadow(
+                                  color: cs.onPrimaryContainer.withValues(alpha: 0.12),
+                                  blurRadius: 10,
+                                  spreadRadius: 1,
+                                ),
+                              ],
+                            ),
+                          ),
+                        );
+                      }),
+                    );
+                  },
                 ),
-                borderRadius: BorderRadius.circular(20),
+              )
+            else
+              ScaleTransition(
+                scale: const AlwaysStoppedAnimation(1.0),
+                child: Container(
+                  width: 76,
+                  height: 76,
+                  decoration: BoxDecoration(
+                    shape: BoxShape.circle,
+                    color: cs.onPrimaryContainer.withValues(alpha: 0.12),
+                  ),
+                  child: Icon(
+                    Icons.hearing_rounded,
+                    size: 36,
+                    color: cs.onPrimaryContainer,
+                  ),
+                ),
               ),
-              child: Column(
-                children: [
-                  ScaleTransition(
-                    scale: listening
-                        ? _pulseAnimation
-                        : const AlwaysStoppedAnimation(1.0),
-                    child: Container(
-                      width: 76,
-                      height: 76,
-                      decoration: BoxDecoration(
-                        shape: BoxShape.circle,
-                        color: cs.onPrimaryContainer.withValues(alpha: 0.12),
-                      ),
-                      child: Icon(
-                        listening
-                            ? Icons.graphic_eq_rounded
-                            : Icons.hearing_rounded,
-                        size: 36,
-                        color: cs.onPrimaryContainer,
-                      ),
-                    ),
-                  ),
-                  const SizedBox(height: 14),
-                  Text(
-                    listening
-                        ? context.l10n.learningModeListeningNowTitle
-                        : context.l10n.learningModeReadyToListenTitle,
-                    style: theme.textTheme.titleMedium?.copyWith(
-                      fontWeight: FontWeight.w900,
-                      color: cs.onPrimaryContainer,
-                    ),
-                    textAlign: TextAlign.center,
-                  ),
-                  const SizedBox(height: 6),
-                  Text(
-                    _statusBody(context),
-                    style: theme.textTheme.bodyMedium?.copyWith(
-                      color: cs.onPrimaryContainer.withValues(alpha: 0.82),
-                      height: 1.35,
-                    ),
-                    textAlign: TextAlign.center,
-                  ),
-                  const SizedBox(height: 16),
-                  if (!listening)
-                    FilledButton.icon(
-                      onPressed: _busy ? null : _startListening,
-                      icon: const Icon(Icons.hearing_rounded),
-                      label: Text(context.l10n.learningModeStartListening),
-                    )
-                  else
-                    OutlinedButton.icon(
-                      onPressed: _busy ? null : _stopListening,
-                      icon: const Icon(Icons.stop_circle_outlined),
-                      label: Text(context.l10n.cancel),
-                    ),
-                ],
+            const SizedBox(height: 14),
+            Text(
+              listening
+                  ? context.l10n.learningModeListeningNowTitle
+                  : context.l10n.learningModeReadyToListenTitle,
+              style: theme.textTheme.titleMedium?.copyWith(
+                fontWeight: FontWeight.w900,
+                color: cs.onPrimaryContainer,
               ),
+              textAlign: TextAlign.center,
             ),
+            const SizedBox(height: 6),
+            Text(
+              _statusBody(context),
+              style: theme.textTheme.bodyMedium?.copyWith(
+                color: cs.onPrimaryContainer.withValues(alpha: 0.82),
+                height: 1.35,
+              ),
+              textAlign: TextAlign.center,
+            ),
+            const SizedBox(height: 16),
+            if (!listening)
+              FilledButton.icon(
+                onPressed: _busy ? null : _startListening,
+                icon: const Icon(Icons.hearing_rounded),
+                label: Text(context.l10n.learningModeStartListening),
+              )
+            else
+              OutlinedButton.icon(
+                onPressed: _busy ? null : _stopListening,
+                icon: const Icon(Icons.stop_circle_outlined),
+                label: Text(context.l10n.cancel),
+              ),
           ],
         ),
       ),
@@ -715,7 +1065,7 @@ class _LearningModeScreenState extends State<LearningModeScreen>
                 const SizedBox(height: 16),
                 _PreviewBlock(
                   title: context.l10n.learningModeProtocolPreviewTitle,
-                  body: 'Tiqiaa USB learned frame\n${IrProtocolRegistry.displayName(IrProtocolIds.tiqiaaLearned)}\n${signal.frequencyHz} Hz',
+                  body: _capturePreviewBody(signal),
                   trailing: FilledButton.tonal(
                     onPressed: _busy ? null : _replayCapturedSignal,
                     child: Text(context.l10n.learningModeReplayAction),

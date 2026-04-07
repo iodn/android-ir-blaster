@@ -20,7 +20,7 @@ class TiqiaaUsbLearner private constructor(
     private val claimedInterface: UsbInterface,
     private val outEndpoint: UsbEndpoint,
     private val inEndpoint: UsbEndpoint
-) {
+) : UsbLearnerSession {
     private data class ParsedFrame(
         val type: Int,
         val status: Int,
@@ -161,7 +161,7 @@ class TiqiaaUsbLearner private constructor(
         }
     }
 
-    fun cancel() {
+    override fun cancel() {
         if (closed) return
         try {
             sendModeAndWaitState(6, 300) { false }
@@ -179,43 +179,53 @@ class TiqiaaUsbLearner private constructor(
         if (frame[3] != 'D'.code.toByte()) return false
         if (frame[frame.size - 2] != 'E'.code.toByte() || frame[frame.size - 1] != 'N'.code.toByte()) return false
 
-        if (!sendModeAndWaitState(1, 500) { false }) return false
-        if (currentState != 1) return false
+        try {
+            if (!sendModeAndWaitState(1, 500) { false }) return false
+            if (currentState != 1) return false
 
-        clearParsedQueue()
-        val fresh = frame.copyOf()
-        fresh[2] = nextSeqByte()
-        var wroteAny = false
-        for (chunk in wrapPayload(fresh)) {
-            val rc = try {
-                connection.bulkTransfer(outEndpoint, chunk, chunk.size, 800)
-            } catch (t: Throwable) {
-                Log.w(tag, "replay chunk failed: ${t.message}")
-                -1
+            clearParsedQueue()
+            val fresh = frame.copyOf()
+            fresh[2] = nextSeqByte()
+            var wroteAny = false
+            for (chunk in wrapPayload(fresh)) {
+                val rc = try {
+                    connection.bulkTransfer(outEndpoint, chunk, chunk.size, 800)
+                } catch (t: Throwable) {
+                    Log.w(tag, "replay chunk failed: ${t.message}")
+                    -1
+                }
+                Log.i(
+                    tag,
+                    "replay chunk rc=$rc env=${chunk[2].toInt() and 0xFF} payloadSeq=${fresh[2].toInt() and 0xFF} part=${chunk[4].toInt() and 0xFF}/${chunk[3].toInt() and 0xFF}"
+                )
+                if (rc <= 0) {
+                    return false
+                }
+                wroteAny = true
             }
-            Log.i(
-                tag,
-                "replay chunk rc=$rc env=${chunk[2].toInt() and 0xFF} payloadSeq=${fresh[2].toInt() and 0xFF} part=${chunk[4].toInt() and 0xFF}/${chunk[3].toInt() and 0xFF}"
-            )
-            if (rc <= 0) {
+            val ack = waitForParsedFrame(1500) { false }
+            if (ack != null) {
+                currentState = ack.status
+                Log.i(tag, "replay ack type=${ack.type} status=${ack.status} meta=${ack.meta}")
+            } else {
+                Log.i(tag, "replay produced no post-send ack")
+            }
+            return wroteAny && (ack == null || ack.type == 4 || ack.type == 1)
+        } finally {
+            if (!closed && currentState != 0) {
                 sendModeAndWaitState(0, 300) { false }
-                return false
             }
-            wroteAny = true
         }
-        val ack = waitForParsedFrame(1500) { false }
-        if (ack != null) {
-            currentState = ack.status
-            Log.i(tag, "replay ack type=${ack.type} status=${ack.status} meta=${ack.meta}")
-        } else {
-            Log.i(tag, "replay produced no post-send ack")
-        }
-        sendModeAndWaitState(0, 300) { false }
-        return wroteAny && (ack == null || ack.type == 4 || ack.type == 1)
     }
 
-    fun close() {
+    override fun close() {
         if (closed) return
+        try {
+            if (currentState != 0) {
+                sendModeAndWaitState(0, 250) { false }
+            }
+        } catch (_: Throwable) {
+        }
         closed = true
         synchronized(notifyLock) {
             notifyLock.notifyAll()

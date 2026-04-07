@@ -1263,7 +1263,7 @@ abstract class AppLocalizations {
   /// No description provided for @learningModeConnectReceiverBody.
   ///
   /// In en, this message translates to:
-  /// **'Learning mode depends on external hardware that can receive IR. Once the receiver is detected and authorized, this page becomes a direct listen -> test -> save flow.'**
+  /// **'Learning mode depends on external hardware that can receive IR. Once the receiver is detected and authorized, this page becomes a direct listen, test, and save flow.'**
   String get learningModeConnectReceiverBody;
 
   /// No description provided for @learningModeListenCardTitle.
@@ -1335,7 +1335,7 @@ abstract class AppLocalizations {
   /// No description provided for @learningModeReplayStubMessage.
   ///
   /// In en, this message translates to:
-  /// **'Replay is not wired yet. This is the UI scaffold for the final learn -> test -> save flow.'**
+  /// **'Replay is not wired yet. This is the UI scaffold for the final learn, test, and save flow.'**
   String get learningModeReplayStubMessage;
 
   /// No description provided for @learningModeSaveStubMessage.

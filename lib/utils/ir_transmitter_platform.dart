@@ -151,6 +151,7 @@ class LearnedUsbSignal {
   final int opaqueMeta;
   final int quality;
   final int frequencyHz;
+  final String displayPreview;
 
   const LearnedUsbSignal({
     required this.family,
@@ -159,6 +160,7 @@ class LearnedUsbSignal {
     required this.opaqueMeta,
     required this.quality,
     required this.frequencyHz,
+    required this.displayPreview,
   });
 
   factory LearnedUsbSignal.fromMap(Map<String, dynamic> m) {
@@ -170,10 +172,31 @@ class LearnedUsbSignal {
       opaqueMeta: (m['opaqueMeta'] as num?)?.toInt() ?? 0,
       quality: (m['quality'] as num?)?.toInt() ?? -1,
       frequencyHz: (m['frequencyHz'] as num?)?.toInt() ?? 38000,
+      displayPreview: (m['displayPreview'] as String? ?? '').trim(),
     );
   }
 
   String get rawPreview => rawPatternUs.join(' ');
+}
+
+class AudioLearningDiagnostics {
+  final bool permissionGranted;
+  final bool usbInputAvailable;
+  final String? inputName;
+
+  const AudioLearningDiagnostics({
+    required this.permissionGranted,
+    required this.usbInputAvailable,
+    required this.inputName,
+  });
+
+  factory AudioLearningDiagnostics.fromMap(Map<String, dynamic> m) {
+    return AudioLearningDiagnostics(
+      permissionGranted: (m['permissionGranted'] as bool?) ?? false,
+      usbInputAvailable: (m['usbInputAvailable'] as bool?) ?? false,
+      inputName: (m['inputName'] as String?)?.trim(),
+    );
+  }
 }
 
 class IrTransmitterPlatform {
@@ -300,15 +323,35 @@ class IrTransmitterPlatform {
     return raw == true;
   }
 
+  static Future<AudioLearningDiagnostics> getAudioLearningDiagnostics() async {
+    final raw = await _ch.invokeMethod('getAudioLearningDiagnostics');
+    if (raw is Map) {
+      final m = raw.map((k, v) => MapEntry(k.toString(), v)).cast<String, dynamic>();
+      return AudioLearningDiagnostics.fromMap(m);
+    }
+    return const AudioLearningDiagnostics(
+      permissionGranted: false,
+      usbInputAvailable: false,
+      inputName: null,
+    );
+  }
+
+  static Future<bool> requestAudioLearningPermission() async {
+    final raw = await _ch.invokeMethod('requestAudioLearningPermission');
+    return raw == true;
+  }
+
   static Future<bool> replayLearnedUsbSignal({
     required String family,
     required String opaqueFrameBase64,
+    int? opaqueMeta,
   }) async {
     final raw = await _ch.invokeMethod(
       'replayLearnedUsbSignal',
       <String, dynamic>{
         'family': family,
         'opaqueFrameBase64': opaqueFrameBase64,
+        if (opaqueMeta != null) 'opaqueMeta': opaqueMeta,
       },
     );
     return raw == true;

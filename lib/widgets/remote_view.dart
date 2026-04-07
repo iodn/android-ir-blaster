@@ -582,7 +582,15 @@ class RemoteViewState extends State<RemoteView> {
   }
 
   String _protocolLabel(IRButton b) {
-    if (_hasProtocol(b)) return IrProtocolRegistry.displayName(b.protocol);
+    if (_hasProtocol(b)) {
+      final String id = b.protocol!.trim();
+      if (id == IrProtocolIds.tiqiaaLearned ||
+          id == IrProtocolIds.elksmartLearned ||
+          id == IrProtocolIds.audioLearned) {
+        return 'RAW';
+      }
+      return IrProtocolRegistry.displayName(b.protocol);
+    }
     if (_isRawSignalButton(b)) return 'RAW';
     return 'NEC';
   }
@@ -775,6 +783,9 @@ class RemoteViewState extends State<RemoteView> {
   }
 
   int _effectiveFrequencyHz(IRButton b) {
+    if ((b.protocol?.trim() ?? '') == IrProtocolIds.audioLearned) {
+      return 0;
+    }
     if (_isRawProtocol(b)) {
       final params = _protocolParams(b);
       final dynamic f = params?['frequencyHz'];
@@ -801,6 +812,7 @@ class RemoteViewState extends State<RemoteView> {
   }
 
   String _freqLabelKhz(IRButton b) {
+    if (_effectiveFrequencyHz(b) <= 0) return '';
     final int khz = (_effectiveFrequencyHz(b) / 1000).round();
     return '${khz}kHz';
   }
@@ -1146,7 +1158,7 @@ class RemoteViewState extends State<RemoteView> {
     final String typeLine = 'Type: $proto';
     final String codeLine =
         isRaw ? 'Code: Raw signal' : 'Code: ${displayHex ?? 'NO CODE'}';
-    final String freqLine = 'Frequency: $freq';
+    final String? freqLine = freq.isEmpty ? null : 'Frequency: $freq';
 
     await showModalBottomSheet<void>(
       context: context,
@@ -1228,14 +1240,16 @@ class RemoteViewState extends State<RemoteView> {
                             ),
                           ),
                           const SizedBox(height: 6),
-                          Text(
-                            freqLine,
-                            style: theme.textTheme.bodySmall?.copyWith(
-                              color: cs.onSurface.withValues(alpha: 0.75),
-                              fontWeight: FontWeight.w600,
+                          if (freqLine != null) ...[
+                            Text(
+                              freqLine,
+                              style: theme.textTheme.bodySmall?.copyWith(
+                                color: cs.onSurface.withValues(alpha: 0.75),
+                                fontWeight: FontWeight.w600,
+                              ),
                             ),
-                          ),
-                          const SizedBox(height: 8),
+                            const SizedBox(height: 8),
+                          ],
                           Row(
                             children: [
                               Icon(
@@ -1858,7 +1872,7 @@ class RemoteViewState extends State<RemoteView> {
                         runSpacing: 6,
                         children: [
                           _pill(context, proto, fontSize: 9),
-                          _pill(context, freq, fontSize: 9),
+                          if (freq.isNotEmpty) _pill(context, freq, fontSize: 9),
                         ],
                       ),
                     ],

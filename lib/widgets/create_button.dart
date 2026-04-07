@@ -111,6 +111,16 @@ class _CreateButtonState extends State<CreateButton> {
     if (widget.button != null) {
       final b = widget.button!;
       final hasRaw = b.rawData != null && b.rawData!.trim().isNotEmpty;
+      final learnedProtocolId = b.protocol?.trim();
+      final bool isLearnedProtocol = learnedProtocolId == IrProtocolIds.tiqiaaLearned ||
+          learnedProtocolId == IrProtocolIds.elksmartLearned ||
+          learnedProtocolId == IrProtocolIds.audioLearned;
+      final Map<String, dynamic> learnedParams =
+          b.protocolParams ?? const <String, dynamic>{};
+      final String learnedRawPreview =
+          (learnedParams['rawPreview'] as String? ?? '').trim();
+      final int learnedFreq = ((learnedParams['frequencyHz'] as num?)?.toInt() ?? 38000)
+          .clamp(kMinIrFrequencyHz, kMaxIrFrequencyHz);
 
       if (b.iconCodePoint != null) {
         _labelType = _LabelType.icon;
@@ -136,7 +146,11 @@ class _CreateButtonState extends State<CreateButton> {
         _selectedColor = normalizeAccessibleButtonColor(Color(b.buttonColor!));
       }
 
-      if (b.protocol != null && b.protocol!.trim().isNotEmpty) {
+      if (isLearnedProtocol && learnedRawPreview.isNotEmpty) {
+        _signalType = _SignalType.raw;
+        rawDataController.text = learnedRawPreview;
+        freqController.text = learnedFreq.toString();
+      } else if (b.protocol != null && b.protocol!.trim().isNotEmpty) {
         final normalized = b.protocol!.trim();
         _selectedProtocolId = normalized;
         if (IrProtocolRegistry.definitionFor(_selectedProtocolId) == null) {

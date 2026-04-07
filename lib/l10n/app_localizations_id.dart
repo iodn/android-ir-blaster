@@ -441,302 +441,307 @@ class AppLocalizationsId extends AppLocalizations {
   String get irTransmitterSubtitle => 'Pilih perangkat yang kirim perintah IR';
 
   @override
-  String get learningModeEntryTitle => 'Learning Mode';
+  String get learningModeEntryTitle => 'Modus Pembelajaran';
 
   @override
   String get learningModeEntrySubtitle =>
-      'Capture a button from a physical remote step by step';
+      'Tangkap tombol dari jarak jauh fisik selangkah demi selangkah';
 
   @override
-  String get learningModeTitle => 'Learning Mode';
+  String get learningModeTitle => 'Modus Pembelajaran';
 
   @override
-  String get learningModeHeroTitle => 'Learn a remote button cleanly';
+  String get learningModeHeroTitle =>
+      'Pelajari tombol jarak jauh dengan bersih';
 
   @override
   String get learningModeHeroSubtitle =>
-      'Set up your receiver, prepare the original remote, capture one command, then review it before saving it into a remote.';
+      'Siapkan receiver Anda, siapkan remote asli, ambil satu perintah, lalu tinjau sebelum menyimpannya ke dalam remote.';
 
   @override
-  String get learningModeReadyBadge => 'Receiver ready';
+  String get learningModeReadyBadge => 'Penerima sudah siap';
 
   @override
-  String get learningModeNeedsPermissionBadge => 'USB permission needed';
+  String get learningModeNeedsPermissionBadge => 'Izin USB diperlukan';
 
   @override
-  String get learningModeSetupBadge => 'Receiver setup needed';
+  String get learningModeSetupBadge => 'Diperlukan pengaturan penerima';
 
   @override
-  String get learningModeNoReceiverBadge => 'No learning receiver';
+  String get learningModeNoReceiverBadge => 'Tidak ada penerima pembelajaran';
 
   @override
-  String get learningModeCheckingBadge => 'Checking hardware';
+  String get learningModeCheckingBadge => 'Memeriksa perangkat keras';
 
   @override
-  String get learningModeFourStepFlow => '4-step guided flow';
+  String get learningModeFourStepFlow => 'Aliran terpandu 4 langkah';
 
   @override
-  String get learningModeSaveAnywhereBadge => 'Review before save';
+  String get learningModeSaveAnywhereBadge => 'Tinjau sebelum menyimpan';
 
   @override
-  String get learningModeGuideTitle => 'Pick up where capture should happen';
+  String get learningModeGuideTitle =>
+      'Ambil di mana penangkapan harus dilakukan';
 
   @override
-  String get learningModeStepHardwareShort => 'Hardware';
+  String get learningModeStepHardwareShort => 'Perangkat keras';
 
   @override
-  String get learningModeStepPrepareShort => 'Prepare';
+  String get learningModeStepPrepareShort => 'Mempersiapkan';
 
   @override
-  String get learningModeStepCaptureShort => 'Capture';
+  String get learningModeStepCaptureShort => 'Menangkap';
 
   @override
-  String get learningModeStepReviewShort => 'Review';
+  String get learningModeStepReviewShort => 'Tinjauan';
 
   @override
-  String get learningModeStepHardwareTitle => 'Check receiver hardware';
+  String get learningModeStepHardwareTitle =>
+      'Periksa perangkat keras penerima';
 
   @override
   String get learningModeStepHardwareSubtitle =>
-      'Make sure a compatible learning receiver is attached and authorized before starting.';
+      'Pastikan penerima pembelajaran yang kompatibel terpasang dan diotorisasi sebelum memulai.';
 
   @override
-  String get learningModeCurrentSenderLabel => 'Current transmitter';
+  String get learningModeCurrentSenderLabel => 'Pemancar saat ini';
 
   @override
-  String get learningModeReceiverStatusLabel => 'Learning status';
+  String get learningModeReceiverStatusLabel => 'Status pembelajaran';
 
   @override
   String get learningModeCheckingHardwareBody =>
-      'Checking available transmitter and USB receiver state.';
+      'Memeriksa status pemancar dan penerima USB yang tersedia.';
 
   @override
   String get learningModeHardwareReadyBody =>
-      'A USB IR dongle is attached and initialized. This is the right place to start the learning flow once capture wiring is connected.';
+      'Dongle USB IR terpasang dan diinisialisasi. Ini adalah tempat yang tepat untuk memulai alur pembelajaran setelah kabel penangkapan tersambung.';
 
   @override
   String get learningModeHardwarePermissionBody =>
-      'A USB dongle is present, but Android permission is still blocking it. Grant USB permission in the transmitter section before learning.';
+      'Dongle USB ada, namun izin Android masih memblokirnya. Berikan izin USB di bagian pemancar sebelum belajar.';
 
   @override
   String get learningModeHardwareSetupBody =>
-      'A dongle is partially detected, but it still needs setup or reconnecting before learning can begin reliably.';
+      'Dongle terdeteksi sebagian, namun masih memerlukan penyiapan atau penyambungan kembali sebelum pembelajaran dapat dimulai dengan andal.';
 
   @override
   String get learningModeHardwareNoReceiverBody =>
-      'No compatible receiver hardware is currently available. Learning mode is intended for supported external dongles with receive capability.';
+      'Saat ini tidak ada perangkat keras receiver yang kompatibel yang tersedia. Mode pembelajaran ditujukan untuk dongle eksternal yang didukung dengan kemampuan menerima.';
 
   @override
-  String get learningModeRefreshHardware => 'Refresh hardware status';
+  String get learningModeRefreshHardware => 'Segarkan status perangkat keras';
 
   @override
-  String get learningModeHardwareTipTitle => 'Best placement';
+  String get learningModeHardwareTipTitle => 'Penempatan terbaik';
 
   @override
   String get learningModeHardwareTipBody =>
-      'Learning Mode lives under IR Transmitter because it depends on hardware availability and is used less often than sending remotes.';
+      'Mode Pembelajaran berada di bawah Pemancar IR karena bergantung pada ketersediaan perangkat keras dan lebih jarang digunakan dibandingkan mengirim jarak jauh.';
 
   @override
-  String get learningModeStepPrepareTitle => 'Prepare the original remote';
+  String get learningModeStepPrepareTitle => 'Siapkan remote aslinya';
 
   @override
   String get learningModeStepPrepareSubtitle =>
-      'Decide what you are learning, then keep the original remote steady and close to the receiver.';
+      'Putuskan apa yang Anda pelajari, lalu jaga jarak jauh asli tetap stabil dan dekat dengan penerima.';
 
   @override
-  String get learningModeButtonNameLabel => 'Button name';
+  String get learningModeButtonNameLabel => 'Nama tombol';
 
   @override
-  String get learningModeButtonNameHint => 'For example: HDMI 1, Power, Menu';
+  String get learningModeButtonNameHint => 'Misalnya: HDMI 1, Daya, Menu';
 
   @override
-  String get learningModeSinglePress => 'Single press';
+  String get learningModeSinglePress => 'Tekan sekali';
 
   @override
-  String get learningModeHoldButton => 'Hold button';
+  String get learningModeHoldButton => 'Tombol tahan';
 
   @override
-  String get learningModePreparationChecklistTitle => 'Before you capture';
+  String get learningModePreparationChecklistTitle => 'Sebelum Anda menangkap';
 
   @override
   String get learningModePreparationItemDistance =>
-      'Keep the original remote roughly 2 to 5 cm from the receiver.';
+      'Jaga jarak remote asli kira-kira 2 hingga 5 cm dari receiver.';
 
   @override
   String get learningModePreparationItemOneButton =>
-      'Learn one button at a time and use a short, clean press first.';
+      'Pelajari satu tombol pada satu waktu dan gunakan penekanan singkat dan bersih terlebih dahulu.';
 
   @override
   String get learningModePreparationItemStill =>
-      'Keep both devices steady to avoid noisy or partial captures.';
+      'Jaga agar kedua perangkat tetap stabil untuk menghindari pengambilan gambar yang berisik atau sebagian.';
 
   @override
-  String get learningModeStepCaptureTitle => 'Capture the signal';
+  String get learningModeStepCaptureTitle => 'Tangkap sinyalnya';
 
   @override
   String get learningModeStepCaptureSubtitle =>
-      'Listen for a single command, then lock the result before reviewing it.';
+      'Dengarkan satu perintah, lalu kunci hasilnya sebelum meninjaunya.';
 
   @override
-  String get learningModeCaptureReadyTitle => 'Ready to listen';
+  String get learningModeCaptureReadyTitle => 'Siap mendengarkan';
 
   @override
   String get learningModeCaptureReadyBody =>
-      'Your hardware state looks good. The capture backend will plug into this step next.';
+      'Status perangkat keras Anda terlihat bagus. Backend pengambilan akan dihubungkan ke langkah ini selanjutnya.';
 
   @override
-  String get learningModeCaptureBlockedTitle => 'Hardware not ready yet';
+  String get learningModeCaptureBlockedTitle => 'Perangkat keras belum siap';
 
   @override
   String get learningModeCaptureBlockedBody =>
-      'You can still review the flow now, but capture should wait until the receiver is ready.';
+      'Anda masih dapat meninjau alurnya sekarang, namun pengambilan gambar harus menunggu hingga penerima siap.';
 
   @override
-  String get learningModeStartListening => 'Start listening';
+  String get learningModeStartListening => 'Mulailah mendengarkan';
 
   @override
-  String get learningModeCaptureStubTitle => 'Capture backend comes next';
+  String get learningModeCaptureStubTitle =>
+      'Tangkap backend datang berikutnya';
 
   @override
   String get learningModeCaptureStubBody =>
-      'This screen is fully scaffolded first so the final capture flow can plug into real hardware states instead of being bolted on later.';
+      'Layar ini dirangkai sepenuhnya terlebih dahulu sehingga alur pengambilan akhir dapat dihubungkan ke status perangkat keras yang sebenarnya alih-alih dipasang di kemudian hari.';
 
   @override
   String get learningModeCaptureStubMessage =>
-      'Learning capture is not wired yet. This screen scaffolds the full flow first.';
+      'Pengambilan pembelajaran belum terhubung. Layar ini merancah aliran penuh terlebih dahulu.';
 
   @override
-  String get learningModeUnnamedCapture => 'Unnamed capture';
+  String get learningModeUnnamedCapture => 'Penangkapan tanpa nama';
 
   @override
-  String get learningModeStatusCheckingTitle => 'Checking receiver';
+  String get learningModeStatusCheckingTitle => 'Memeriksa penerima';
 
   @override
-  String get learningModeStatusNoReceiverTitle => 'Receiver not ready';
+  String get learningModeStatusNoReceiverTitle => 'Penerima belum siap';
 
   @override
-  String get learningModeStatusPermissionTitle => 'USB permission required';
+  String get learningModeStatusPermissionTitle => 'Izin USB diperlukan';
 
   @override
-  String get learningModeStatusSetupTitle => 'Receiver needs setup';
+  String get learningModeStatusSetupTitle => 'Penerima perlu pengaturan';
 
   @override
-  String get learningModeStatusReadyTitle => 'Ready to learn';
+  String get learningModeStatusReadyTitle => 'Siap untuk belajar';
 
   @override
-  String get learningModeStatusListeningTitle => 'Listening for a signal';
+  String get learningModeStatusListeningTitle => 'Mendengarkan sinyal';
 
   @override
-  String get learningModeStatusCapturedTitle => 'Signal captured';
+  String get learningModeStatusCapturedTitle => 'Sinyal ditangkap';
 
   @override
   String get learningModeStatusReadyBody =>
-      'Name the button, point the original remote at the receiver, and start listening when you are ready.';
+      'Beri nama tombolnya, arahkan remote asli ke penerima, dan mulailah mendengarkan ketika Anda siap.';
 
   @override
   String get learningModeStatusListeningBody =>
-      'Press the original remote button now. Once capture is wired, this state will lock onto the next clean signal.';
+      'Tekan tombol remote asli sekarang. Setelah penangkapan dilakukan, status ini akan mengunci sinyal bersih berikutnya.';
 
   @override
   String learningModeStatusCapturedBody(Object buttonName) {
-    return 'A learned signal preview is ready for $buttonName. Replay it, confirm it works, then save it into your library.';
+    return 'Pratinjau sinyal yang dipelajari siap untuk $buttonName. Putar ulang, konfirmasikan berfungsi, lalu simpan ke perpustakaan Anda.';
   }
 
   @override
   String get learningModeConnectReceiverTitle =>
-      'Connect a compatible learning dongle';
+      'Hubungkan dongle pembelajaran yang kompatibel';
 
   @override
   String get learningModeConnectReceiverBody =>
-      'Learning mode depends on external hardware that can receive IR. Once the receiver is detected and authorized, this page becomes a direct listen -> test -> save flow.';
+      'Mode pembelajaran bergantung pada perangkat keras eksternal yang dapat menerima IR. Setelah penerima terdeteksi dan diotorisasi, halaman ini menjadi aliran mendengarkan, menguji, dan menyimpan secara langsung.';
 
   @override
-  String get learningModeListenCardTitle => 'Listen for one button';
+  String get learningModeListenCardTitle => 'Dengarkan satu tombol';
 
   @override
   String get learningModeListenCardBody =>
-      'Set a label first if you want, then start listening and press the button on the original remote.';
+      'Tetapkan label terlebih dahulu jika Anda mau, lalu mulailah mendengarkan dan tekan tombol pada remote asli.';
 
   @override
-  String get learningModeReadyToListenTitle => 'Ready to listen';
+  String get learningModeReadyToListenTitle => 'Siap mendengarkan';
 
   @override
   String get learningModeReadyToListenBody =>
-      'This is the main capture surface. Start listening only when the original remote is aimed and steady.';
+      'Ini adalah permukaan tangkapan utama. Mulailah mendengarkan hanya ketika remote asli diarahkan dan stabil.';
 
   @override
-  String get learningModeListeningNowTitle => 'Listening now';
+  String get learningModeListeningNowTitle => 'Mendengarkan sekarang';
 
   @override
   String get learningModeListeningNowBody =>
-      'Press the original remote button once. Use preview capture to move through the rest of the scaffold before the real capture backend is wired.';
+      'Tekan tombol remote asli satu kali. Gunakan pengambilan pratinjau untuk menelusuri sisa scaffold sebelum backend pengambilan sebenarnya dihubungkan.';
 
   @override
-  String get learningModePreviewCaptureAction => 'Preview captured signal';
+  String get learningModePreviewCaptureAction =>
+      'Pratinjau sinyal yang ditangkap';
 
   @override
-  String get learningModeCapturedSummary => 'Learned signal preview';
+  String get learningModeCapturedSummary => 'Pratinjau sinyal yang dipelajari';
 
   @override
-  String get learningModeResultActionsTitle => 'Test and save';
+  String get learningModeResultActionsTitle => 'Uji dan simpan';
 
   @override
   String get learningModeResultActionsBody =>
-      'Replay the learned signal, verify the target device responds, then save it as a reusable button.';
+      'Putar ulang sinyal yang dipelajari, verifikasi respons perangkat target, lalu simpan sebagai tombol yang dapat digunakan kembali.';
 
   @override
-  String get learningModeReplayAction => 'Replay';
+  String get learningModeReplayAction => 'Memutar ulang';
 
   @override
   String get learningModeReplayStubMessage =>
-      'Replay is not wired yet. This is the UI scaffold for the final learn -> test -> save flow.';
+      'Pemutaran ulang belum ditransfer. Ini adalah perancah UI untuk alur pembelajaran, pengujian, dan penyimpanan akhir.';
 
   @override
   String get learningModeSaveStubMessage =>
-      'Save is not wired yet. The next step is connecting this screen to Create Button and existing remotes.';
+      'Simpan belum ditransfer. Langkah selanjutnya adalah menghubungkan layar ini ke Tombol Buat dan remote yang ada.';
 
   @override
-  String get learningModeLearnAnotherAction => 'Learn another button';
+  String get learningModeLearnAnotherAction => 'Pelajari tombol lain';
 
   @override
-  String get learningModeStepReviewTitle => 'Review and save';
+  String get learningModeStepReviewTitle => 'Tinjau dan simpan';
 
   @override
   String get learningModeStepReviewSubtitle =>
-      'Confirm what was learned, then choose where it should live in your remote library.';
+      'Konfirmasikan apa yang telah dipelajari, lalu pilih lokasinya di perpustakaan jarak jauh Anda.';
 
   @override
-  String get learningModeSaveToExistingRemote => 'Existing remote';
+  String get learningModeSaveToExistingRemote => 'Jarak jauh yang ada';
 
   @override
-  String get learningModeCreateNewRemote => 'New remote';
+  String get learningModeCreateNewRemote => 'Jarak jauh baru';
 
   @override
-  String get learningModeProtocolPreviewTitle => 'Protocol preview';
+  String get learningModeProtocolPreviewTitle => 'Pratinjau protokol';
 
   @override
   String get learningModeProtocolPreviewBody =>
-      'Decoded protocol details will appear here once the receiver captures a clean button press.';
+      'Detail protokol yang didekodekan akan muncul di sini setelah penerima menangkap penekanan tombol bersih.';
 
   @override
-  String get learningModeRawPreviewTitle => 'Raw fallback';
+  String get learningModeRawPreviewTitle => 'Penggantian mentah';
 
   @override
   String get learningModeRawPreviewBody =>
-      'If decoding is incomplete, the raw timing capture will still be available here for review and saving.';
+      'Jika decoding tidak lengkap, rekaman waktu mentah akan tetap tersedia di sini untuk ditinjau dan disimpan.';
 
   @override
-  String get learningModeSaveCapture => 'Save capture';
+  String get learningModeSaveCapture => 'Simpan tangkapan';
 
   @override
-  String get learningModeReviewTipTitle => 'Where this will go next';
+  String get learningModeReviewTipTitle => 'Kemana arahnya selanjutnya';
 
   @override
   String get learningModeReviewTipBody =>
-      'The next implementation step should connect this review panel to Create Button and existing remotes so the learned signal drops directly into your library.';
+      'Langkah implementasi selanjutnya harus menghubungkan panel tinjauan ini ke Tombol Buat dan remote yang ada sehingga sinyal yang dipelajari langsung masuk ke perpustakaan Anda.';
 
   @override
-  String get learningModeFinishPreview => 'Finish preview';
+  String get learningModeFinishPreview => 'Selesaikan pratinjau';
 
   @override
   String get backAction => 'Back';
@@ -4455,28 +4460,29 @@ class AppLocalizationsId extends AppLocalizations {
   String get globalSearchTypeMacro => 'MACRO';
 
   @override
-  String get learningModeCaptureFailed => 'Learning capture failed.';
+  String get learningModeCaptureFailed => 'Pengambilan pembelajaran gagal.';
 
   @override
-  String get learningModeReplaySent => 'Learned signal replayed.';
+  String get learningModeReplaySent => 'Sinyal yang dipelajari diputar ulang.';
 
   @override
   String get learningModeReplayFailed =>
-      'The learned signal could not be replayed.';
+      'Sinyal yang dipelajari tidak dapat diputar ulang.';
 
   @override
   String get learningModeNoRemotesAvailable =>
-      'There are no saved remotes yet.';
+      'Belum ada remote yang disimpan.';
 
   @override
-  String get learningModeChooseRemoteTitle => 'Choose a remote';
+  String get learningModeChooseRemoteTitle => 'Pilih jarak jauh';
 
   @override
-  String get learningModeNewRemoteTitle => 'Create a new remote';
+  String get learningModeNewRemoteTitle => 'Buat kendali jarak jauh baru';
 
   @override
-  String get learningModeSaveSuccess => 'Learned button saved.';
+  String get learningModeSaveSuccess => 'Tombol yang dipelajari disimpan.';
 
   @override
-  String get learningModeSaveFailed => 'The learned button could not be saved.';
+  String get learningModeSaveFailed =>
+      'Tombol yang dipelajari tidak dapat disimpan.';
 }

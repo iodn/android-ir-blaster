@@ -1,0 +1,3 @@
+Add Tiqiaa and ZaZa USB learning mode with capture and replay
+Add Elksmart USB learning mode with capture and replay
+Fix file picker OOM by disabling in-memory import loading

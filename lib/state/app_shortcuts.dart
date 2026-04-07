@@ -10,6 +10,7 @@ import 'package:irblaster_controller/state/remotes_state.dart';
 import 'package:irblaster_controller/utils/macros_io.dart';
 import 'package:irblaster_controller/utils/remote.dart';
 import 'package:irblaster_controller/widgets/ir_finder_screen.dart';
+import 'package:irblaster_controller/widgets/learning_mode_screen.dart';
 import 'package:irblaster_controller/widgets/macro_run_screen.dart';
 import 'package:irblaster_controller/widgets/remote_view.dart';
 import 'package:irblaster_controller/widgets/universal_power_screen.dart';
@@ -69,6 +70,11 @@ class AppShortcutController {
         'id': _ShortcutAction.irFinder.value,
         'shortLabel': l10n.signalTesterNavLabel,
         'longLabel': l10n.signalTesterNavLabel,
+      },
+      {
+        'id': _ShortcutAction.learningMode.value,
+        'shortLabel': l10n.learningModeTitle,
+        'longLabel': l10n.learningModeTitle,
       },
       if (snapshot.macro != null)
         {
@@ -180,6 +186,11 @@ class AppShortcutController {
           MaterialPageRoute(builder: (_) => const IrFinderScreen()),
         );
         break;
+      case _ShortcutAction.learningMode:
+        await navigator.push(
+          MaterialPageRoute(builder: (_) => const LearningModeScreen()),
+        );
+        break;
       case _ShortcutAction.lastMacro:
         final macro = _findMacro(snapshot.macro);
         final remote = _findMacroRemote(snapshot.macro);
@@ -253,6 +264,7 @@ class AppShortcutController {
 enum _ShortcutAction {
   lastRemote('last_remote'),
   irFinder('ir_finder'),
+  learningMode('learning_mode'),
   lastMacro('last_macro'),
   universalPower('universal_power');
 

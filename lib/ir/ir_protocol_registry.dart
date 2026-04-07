@@ -19,6 +19,7 @@ import 'protocols/rcc2026.dart';
 import 'protocols/rec80.dart';
 import 'protocols/recs80.dart';
 import 'protocols/recs80_l.dart';
+import 'protocols/audio_learned.dart';
 import 'protocols/samsung32.dart';
 import 'protocols/samsung36.dart';
 import 'protocols/kaseikyo.dart';
@@ -27,10 +28,12 @@ import 'protocols/sony12.dart';
 import 'protocols/sony15.dart';
 import 'protocols/sony20.dart';
 import 'protocols/thomson7.dart';
+import 'protocols/elksmart_learned.dart';
 import 'protocols/tiqiaa_learned.dart';
 import 'protocols/xsat.dart';
 
 class IrProtocolIds {
+  static const String audioLearned = 'audio_learned';
   static const String raw = 'raw';
   static const String denon = 'denon';
   static const String f12Relaxed = 'f12_relaxed';
@@ -59,6 +62,7 @@ class IrProtocolIds {
   static const String thomson7 = 'thomson7';
   static const String xsat = 'xsat';
   static const String kaseikyo = 'kaseikyo';
+  static const String elksmartLearned = 'elksmart_learned';
   static const String tiqiaaLearned = 'tiqiaa_learned';
 }
 
@@ -88,6 +92,8 @@ class IrProtocolRegistry {
     samsung36ProtocolDefinition.id: samsung36ProtocolDefinition,
     sharpProtocolDefinition.id: sharpProtocolDefinition,
     kaseikyoProtocolDefinition.id: kaseikyoProtocolDefinition,
+    audioLearnedProtocolDefinition.id: audioLearnedProtocolDefinition,
+    elksmartLearnedProtocolDefinition.id: elksmartLearnedProtocolDefinition,
     sony12ProtocolDefinition.id: sony12ProtocolDefinition,
     sony15ProtocolDefinition.id: sony15ProtocolDefinition,
     sony20ProtocolDefinition.id: sony20ProtocolDefinition,

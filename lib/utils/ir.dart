@@ -257,6 +257,43 @@ class IrPreview {
 }
 
 IrPreview previewIRButton(IRButton button) {
+  if (button.protocol != null && button.protocol!.trim().isNotEmpty) {
+    final id = button.protocol!.trim();
+    if (id == IrProtocolIds.tiqiaaLearned ||
+        id == IrProtocolIds.elksmartLearned ||
+        id == IrProtocolIds.audioLearned) {
+      final params = button.protocolParams ?? <String, dynamic>{};
+      final rawPreview = (params['rawPreview'] as String? ?? '').trim();
+      if (rawPreview.isEmpty) {
+        throw StateError('Learned signal is missing raw preview data');
+      }
+      final parts = rawPreview
+          .split(RegExp(r'\s+'))
+          .where((e) => e.isNotEmpty)
+          .toList(growable: false);
+      final pattern = <int>[];
+      for (int i = 0; i < parts.length; i++) {
+        final parsed = int.tryParse(parts[i]);
+        if (parsed == null) {
+          throw FormatException(
+            'Invalid integer in learned preview at index $i: "${parts[i]}"',
+          );
+        }
+        pattern.add(parsed);
+      }
+      final rawFreq = (params['frequencyHz'] as num?)?.toInt() ?? 0;
+      final freq = rawFreq > 0
+          ? rawFreq.clamp(kMinIrFrequencyHz, kMaxIrFrequencyHz)
+          : 38000;
+      _validatePattern(pattern, where: 'previewLearnedSignal');
+      return IrPreview(
+        frequencyHz: freq,
+        pattern: pattern,
+        mode: 'protocol:$id',
+      );
+    }
+  }
+
   final hasRaw = button.rawData != null && button.rawData!.trim().isNotEmpty;
   final hasFreq = button.frequency != null && button.frequency! > 0;
 
@@ -308,37 +345,6 @@ IrPreview previewIRButton(IRButton button) {
 
   if (button.protocol != null && button.protocol!.trim().isNotEmpty) {
     final id = button.protocol!.trim();
-    if (id == IrProtocolIds.tiqiaaLearned) {
-      final params = button.protocolParams ?? <String, dynamic>{};
-      final rawPreview = (params['rawPreview'] as String? ?? '').trim();
-      if (rawPreview.isEmpty) {
-        throw StateError('Tiqiaa learned signal is missing raw preview data');
-      }
-      final parts = rawPreview
-          .split(RegExp(r'\s+'))
-          .where((e) => e.isNotEmpty)
-          .toList(growable: false);
-      final pattern = <int>[];
-      for (int i = 0; i < parts.length; i++) {
-        final parsed = int.tryParse(parts[i]);
-        if (parsed == null) {
-          throw FormatException(
-            'Invalid integer in learned preview at index $i: "${parts[i]}"',
-          );
-        }
-        pattern.add(parsed);
-      }
-      final freq = (button.frequency != null && button.frequency! > 0)
-          ? button.frequency!
-          : ((params['frequencyHz'] as num?)?.toInt() ?? 38000);
-      _validateFrequency(freq);
-      _validatePattern(pattern, where: 'previewLearnedTiqiaa');
-      return IrPreview(
-        frequencyHz: freq,
-        pattern: pattern,
-        mode: 'protocol:$id',
-      );
-    }
     final enc = IrProtocolRegistry.encoderFor(id);
     final params = button.protocolParams ?? <String, dynamic>{};
     final res = enc.encode(params);
@@ -368,6 +374,34 @@ IrPreview previewIRButton(IRButton button) {
 }
 
 Future<void> sendIR(IRButton button) async {
+  if (button.protocol != null && button.protocol!.trim().isNotEmpty) {
+    final id = button.protocol!.trim();
+    if (id == IrProtocolIds.tiqiaaLearned ||
+        id == IrProtocolIds.elksmartLearned ||
+        id == IrProtocolIds.audioLearned) {
+      final params = button.protocolParams ?? <String, dynamic>{};
+      final family = (params['family'] as String? ?? '').trim();
+      final opaqueFrameBase64 =
+          (params['opaqueFrameBase64'] as String? ?? '').trim();
+      final opaqueMeta = (params['opaqueMeta'] as num?)?.toInt();
+      if (family.isEmpty || opaqueFrameBase64.isEmpty) {
+        throw StateError('Learned signal is missing replay payload');
+      }
+      final ok = await IrTransmitterPlatform.replayLearnedUsbSignal(
+        family: family,
+        opaqueFrameBase64: opaqueFrameBase64,
+        opaqueMeta: opaqueMeta,
+      );
+      if (!ok) {
+        throw PlatformException(
+          code: 'LEARNED_REPLAY_FAILED',
+          message: 'The learned signal could not be replayed',
+        );
+      }
+      return;
+    }
+  }
+
   final hasRaw = button.rawData != null && button.rawData!.trim().isNotEmpty;
   final hasFreq = button.frequency != null && button.frequency! > 0;
 
@@ -417,26 +451,6 @@ Future<void> sendIR(IRButton button) async {
 
   if (button.protocol != null && button.protocol!.trim().isNotEmpty) {
     final id = button.protocol!.trim();
-    if (id == IrProtocolIds.tiqiaaLearned) {
-      final params = button.protocolParams ?? <String, dynamic>{};
-      final family = (params['family'] as String? ?? '').trim();
-      final opaqueFrameBase64 =
-          (params['opaqueFrameBase64'] as String? ?? '').trim();
-      if (family.isEmpty || opaqueFrameBase64.isEmpty) {
-        throw StateError('Tiqiaa learned signal is missing replay payload');
-      }
-      final ok = await IrTransmitterPlatform.replayLearnedUsbSignal(
-        family: family,
-        opaqueFrameBase64: opaqueFrameBase64,
-      );
-      if (!ok) {
-        throw PlatformException(
-          code: 'LEARNED_REPLAY_FAILED',
-          message: 'The learned Tiqiaa signal could not be replayed',
-        );
-      }
-      return;
-    }
     final enc = IrProtocolRegistry.encoderFor(id);
     final params = button.protocolParams ?? <String, dynamic>{};
     final res = enc.encode(params);

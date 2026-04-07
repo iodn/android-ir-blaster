@@ -33,6 +33,7 @@
     <!-- IR transmission permission -->
     <uses-permission android:name="android.permission.TRANSMIT_IR" />
     <uses-permission android:name="android.permission.VIBRATE" />
+    <uses-permission android:name="android.permission.RECORD_AUDIO" />
 
     <!-- Legacy storage permissions for Android 9 and below.
          Not requested on Android 10+ due to maxSdkVersion. -->

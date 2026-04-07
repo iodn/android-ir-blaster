@@ -441,302 +441,304 @@ class AppLocalizationsVi extends AppLocalizations {
   String get irTransmitterSubtitle => 'Chọn phần cứng gửi lệnh IR';
 
   @override
-  String get learningModeEntryTitle => 'Learning Mode';
+  String get learningModeEntryTitle => 'Chế độ học tập';
 
   @override
   String get learningModeEntrySubtitle =>
-      'Capture a button from a physical remote step by step';
+      'Từng bước chụp một nút từ điều khiển từ xa';
 
   @override
-  String get learningModeTitle => 'Learning Mode';
+  String get learningModeTitle => 'Chế độ học tập';
 
   @override
-  String get learningModeHeroTitle => 'Learn a remote button cleanly';
+  String get learningModeHeroTitle =>
+      'Tìm hiểu một nút điều khiển từ xa một cách rõ ràng';
 
   @override
   String get learningModeHeroSubtitle =>
-      'Set up your receiver, prepare the original remote, capture one command, then review it before saving it into a remote.';
+      'Thiết lập bộ thu của bạn, chuẩn bị điều khiển từ xa ban đầu, ghi lại một lệnh, sau đó xem lại trước khi lưu vào điều khiển từ xa.';
 
   @override
-  String get learningModeReadyBadge => 'Receiver ready';
+  String get learningModeReadyBadge => 'Bộ thu đã sẵn sàng';
 
   @override
-  String get learningModeNeedsPermissionBadge => 'USB permission needed';
+  String get learningModeNeedsPermissionBadge => 'Cần có sự cho phép của USB';
 
   @override
-  String get learningModeSetupBadge => 'Receiver setup needed';
+  String get learningModeSetupBadge => 'Cần thiết lập bộ thu';
 
   @override
-  String get learningModeNoReceiverBadge => 'No learning receiver';
+  String get learningModeNoReceiverBadge => 'Không có máy thu học tập';
 
   @override
-  String get learningModeCheckingBadge => 'Checking hardware';
+  String get learningModeCheckingBadge => 'Kiểm tra phần cứng';
 
   @override
-  String get learningModeFourStepFlow => '4-step guided flow';
+  String get learningModeFourStepFlow => 'Luồng hướng dẫn 4 bước';
 
   @override
-  String get learningModeSaveAnywhereBadge => 'Review before save';
+  String get learningModeSaveAnywhereBadge => 'Xem lại trước khi lưu';
 
   @override
-  String get learningModeGuideTitle => 'Pick up where capture should happen';
+  String get learningModeGuideTitle => 'Chọn nơi việc chụp sẽ diễn ra';
 
   @override
-  String get learningModeStepHardwareShort => 'Hardware';
+  String get learningModeStepHardwareShort => 'Phần cứng';
 
   @override
-  String get learningModeStepPrepareShort => 'Prepare';
+  String get learningModeStepPrepareShort => 'Chuẩn bị';
 
   @override
-  String get learningModeStepCaptureShort => 'Capture';
+  String get learningModeStepCaptureShort => 'Chiếm lấy';
 
   @override
-  String get learningModeStepReviewShort => 'Review';
+  String get learningModeStepReviewShort => 'Ôn tập';
 
   @override
-  String get learningModeStepHardwareTitle => 'Check receiver hardware';
+  String get learningModeStepHardwareTitle => 'Kiểm tra phần cứng máy thu';
 
   @override
   String get learningModeStepHardwareSubtitle =>
-      'Make sure a compatible learning receiver is attached and authorized before starting.';
+      'Đảm bảo rằng một máy thu học tập tương thích được đính kèm và ủy quyền trước khi bắt đầu.';
 
   @override
-  String get learningModeCurrentSenderLabel => 'Current transmitter';
+  String get learningModeCurrentSenderLabel => 'Máy phát hiện tại';
 
   @override
-  String get learningModeReceiverStatusLabel => 'Learning status';
+  String get learningModeReceiverStatusLabel => 'Tình trạng học tập';
 
   @override
   String get learningModeCheckingHardwareBody =>
-      'Checking available transmitter and USB receiver state.';
+      'Kiểm tra trạng thái bộ phát và bộ thu USB khả dụng.';
 
   @override
   String get learningModeHardwareReadyBody =>
-      'A USB IR dongle is attached and initialized. This is the right place to start the learning flow once capture wiring is connected.';
+      'Một dongle USB IR được gắn và khởi tạo. Đây là nơi thích hợp để bắt đầu quá trình học tập sau khi kết nối dây chụp.';
 
   @override
   String get learningModeHardwarePermissionBody =>
-      'A USB dongle is present, but Android permission is still blocking it. Grant USB permission in the transmitter section before learning.';
+      'Có khóa USB nhưng quyền của Android vẫn chặn nó. Cấp quyền USB ở phần phát trước khi học.';
 
   @override
   String get learningModeHardwareSetupBody =>
-      'A dongle is partially detected, but it still needs setup or reconnecting before learning can begin reliably.';
+      'Một dongle được phát hiện một phần nhưng vẫn cần thiết lập hoặc kết nối lại trước khi quá trình học có thể bắt đầu một cách đáng tin cậy.';
 
   @override
   String get learningModeHardwareNoReceiverBody =>
-      'No compatible receiver hardware is currently available. Learning mode is intended for supported external dongles with receive capability.';
+      'Hiện tại không có phần cứng máy thu tương thích. Chế độ học tập dành cho các dongle bên ngoài được hỗ trợ có khả năng nhận.';
 
   @override
-  String get learningModeRefreshHardware => 'Refresh hardware status';
+  String get learningModeRefreshHardware => 'Làm mới trạng thái phần cứng';
 
   @override
-  String get learningModeHardwareTipTitle => 'Best placement';
+  String get learningModeHardwareTipTitle => 'Vị trí tốt nhất';
 
   @override
   String get learningModeHardwareTipBody =>
-      'Learning Mode lives under IR Transmitter because it depends on hardware availability and is used less often than sending remotes.';
+      'Chế độ học tập hoạt động trong Bộ phát hồng ngoại vì nó phụ thuộc vào tính khả dụng của phần cứng và được sử dụng ít thường xuyên hơn so với gửi điều khiển từ xa.';
 
   @override
-  String get learningModeStepPrepareTitle => 'Prepare the original remote';
+  String get learningModeStepPrepareTitle =>
+      'Chuẩn bị điều khiển từ xa ban đầu';
 
   @override
   String get learningModeStepPrepareSubtitle =>
-      'Decide what you are learning, then keep the original remote steady and close to the receiver.';
+      'Quyết định những gì bạn đang học, sau đó giữ điều khiển từ xa ban đầu cố định và gần với máy thu.';
 
   @override
-  String get learningModeButtonNameLabel => 'Button name';
+  String get learningModeButtonNameLabel => 'Tên nút';
 
   @override
-  String get learningModeButtonNameHint => 'For example: HDMI 1, Power, Menu';
+  String get learningModeButtonNameHint => 'Ví dụ: HDMI 1, Nguồn, Menu';
 
   @override
-  String get learningModeSinglePress => 'Single press';
+  String get learningModeSinglePress => 'Bấm một lần';
 
   @override
-  String get learningModeHoldButton => 'Hold button';
+  String get learningModeHoldButton => 'Nút giữ';
 
   @override
-  String get learningModePreparationChecklistTitle => 'Before you capture';
+  String get learningModePreparationChecklistTitle => 'Trước khi bạn chụp';
 
   @override
   String get learningModePreparationItemDistance =>
-      'Keep the original remote roughly 2 to 5 cm from the receiver.';
+      'Giữ điều khiển từ xa ban đầu cách bộ thu khoảng 2 đến 5 cm.';
 
   @override
   String get learningModePreparationItemOneButton =>
-      'Learn one button at a time and use a short, clean press first.';
+      'Tìm hiểu từng nút một và sử dụng thao tác nhấn ngắn, rõ ràng trước tiên.';
 
   @override
   String get learningModePreparationItemStill =>
-      'Keep both devices steady to avoid noisy or partial captures.';
+      'Giữ ổn định cả hai thiết bị để tránh ảnh chụp bị nhiễu hoặc chụp một phần.';
 
   @override
-  String get learningModeStepCaptureTitle => 'Capture the signal';
+  String get learningModeStepCaptureTitle => 'Bắt tín hiệu';
 
   @override
   String get learningModeStepCaptureSubtitle =>
-      'Listen for a single command, then lock the result before reviewing it.';
+      'Nghe một lệnh duy nhất, sau đó khóa kết quả trước khi xem lại.';
 
   @override
-  String get learningModeCaptureReadyTitle => 'Ready to listen';
+  String get learningModeCaptureReadyTitle => 'Sẵn sàng lắng nghe';
 
   @override
   String get learningModeCaptureReadyBody =>
-      'Your hardware state looks good. The capture backend will plug into this step next.';
+      'Trạng thái phần cứng của bạn có vẻ tốt. Phần phụ trợ chụp sẽ cắm vào bước này tiếp theo.';
 
   @override
-  String get learningModeCaptureBlockedTitle => 'Hardware not ready yet';
+  String get learningModeCaptureBlockedTitle => 'Phần cứng chưa sẵn sàng';
 
   @override
   String get learningModeCaptureBlockedBody =>
-      'You can still review the flow now, but capture should wait until the receiver is ready.';
+      'Bạn vẫn có thể xem lại quy trình ngay bây giờ nhưng quá trình chụp phải đợi cho đến khi bộ thu sẵn sàng.';
 
   @override
-  String get learningModeStartListening => 'Start listening';
+  String get learningModeStartListening => 'Bắt đầu nghe';
 
   @override
-  String get learningModeCaptureStubTitle => 'Capture backend comes next';
+  String get learningModeCaptureStubTitle => 'Chụp phụ trợ tiếp theo';
 
   @override
   String get learningModeCaptureStubBody =>
-      'This screen is fully scaffolded first so the final capture flow can plug into real hardware states instead of being bolted on later.';
+      'Màn hình này trước tiên được lắp đặt hoàn chỉnh để luồng chụp cuối cùng có thể cắm vào trạng thái phần cứng thực thay vì được gắn chặt sau này.';
 
   @override
   String get learningModeCaptureStubMessage =>
-      'Learning capture is not wired yet. This screen scaffolds the full flow first.';
+      'Chụp học tập chưa được kết nối. Màn hình này sẽ dàn dựng toàn bộ luồng đầu tiên.';
 
   @override
-  String get learningModeUnnamedCapture => 'Unnamed capture';
+  String get learningModeUnnamedCapture => 'Ảnh chụp không tên';
 
   @override
-  String get learningModeStatusCheckingTitle => 'Checking receiver';
+  String get learningModeStatusCheckingTitle => 'Kiểm tra máy thu';
 
   @override
-  String get learningModeStatusNoReceiverTitle => 'Receiver not ready';
+  String get learningModeStatusNoReceiverTitle => 'Bộ thu chưa sẵn sàng';
 
   @override
-  String get learningModeStatusPermissionTitle => 'USB permission required';
+  String get learningModeStatusPermissionTitle => 'Cần có sự cho phép của USB';
 
   @override
-  String get learningModeStatusSetupTitle => 'Receiver needs setup';
+  String get learningModeStatusSetupTitle => 'Người nhận cần thiết lập';
 
   @override
-  String get learningModeStatusReadyTitle => 'Ready to learn';
+  String get learningModeStatusReadyTitle => 'Sẵn sàng học hỏi';
 
   @override
-  String get learningModeStatusListeningTitle => 'Listening for a signal';
+  String get learningModeStatusListeningTitle => 'Lắng nghe tín hiệu';
 
   @override
-  String get learningModeStatusCapturedTitle => 'Signal captured';
+  String get learningModeStatusCapturedTitle => 'Đã bắt được tín hiệu';
 
   @override
   String get learningModeStatusReadyBody =>
-      'Name the button, point the original remote at the receiver, and start listening when you are ready.';
+      'Đặt tên cho nút, hướng điều khiển từ xa ban đầu vào bộ thu và bắt đầu nghe khi bạn đã sẵn sàng.';
 
   @override
   String get learningModeStatusListeningBody =>
-      'Press the original remote button now. Once capture is wired, this state will lock onto the next clean signal.';
+      'Nhấn nút điều khiển từ xa ban đầu bây giờ. Sau khi chụp được nối dây, trạng thái này sẽ khóa vào tín hiệu sạch tiếp theo.';
 
   @override
   String learningModeStatusCapturedBody(Object buttonName) {
-    return 'A learned signal preview is ready for $buttonName. Replay it, confirm it works, then save it into your library.';
+    return 'Bản xem trước tín hiệu đã học đã sẵn sàng cho $buttonName. Phát lại nó, xác nhận nó hoạt động, sau đó lưu nó vào thư viện của bạn.';
   }
 
   @override
   String get learningModeConnectReceiverTitle =>
-      'Connect a compatible learning dongle';
+      'Kết nối một dongle học tập tương thích';
 
   @override
   String get learningModeConnectReceiverBody =>
-      'Learning mode depends on external hardware that can receive IR. Once the receiver is detected and authorized, this page becomes a direct listen -> test -> save flow.';
+      'Chế độ học tập phụ thuộc vào phần cứng bên ngoài có thể nhận IR. Sau khi người nhận được phát hiện và ủy quyền, trang này sẽ trở thành luồng nghe, kiểm tra và lưu trực tiếp.';
 
   @override
-  String get learningModeListenCardTitle => 'Listen for one button';
+  String get learningModeListenCardTitle => 'Nghe một nút';
 
   @override
   String get learningModeListenCardBody =>
-      'Set a label first if you want, then start listening and press the button on the original remote.';
+      'Đặt nhãn trước nếu bạn muốn, sau đó bắt đầu nghe và nhấn nút trên điều khiển từ xa gốc.';
 
   @override
-  String get learningModeReadyToListenTitle => 'Ready to listen';
+  String get learningModeReadyToListenTitle => 'Sẵn sàng lắng nghe';
 
   @override
   String get learningModeReadyToListenBody =>
-      'This is the main capture surface. Start listening only when the original remote is aimed and steady.';
+      'Đây là bề mặt chụp chính. Chỉ bắt đầu nghe khi điều khiển từ xa ban đầu được nhắm mục tiêu và ổn định.';
 
   @override
-  String get learningModeListeningNowTitle => 'Listening now';
+  String get learningModeListeningNowTitle => 'Đang nghe';
 
   @override
   String get learningModeListeningNowBody =>
-      'Press the original remote button once. Use preview capture to move through the rest of the scaffold before the real capture backend is wired.';
+      'Nhấn nút điều khiển từ xa ban đầu một lần. Sử dụng tính năng chụp xem trước để di chuyển qua phần còn lại của khung trước khi phần phụ trợ chụp thực sự được nối dây.';
 
   @override
-  String get learningModePreviewCaptureAction => 'Preview captured signal';
+  String get learningModePreviewCaptureAction => 'Xem trước tín hiệu thu được';
 
   @override
-  String get learningModeCapturedSummary => 'Learned signal preview';
+  String get learningModeCapturedSummary => 'Xem trước tín hiệu đã học';
 
   @override
-  String get learningModeResultActionsTitle => 'Test and save';
+  String get learningModeResultActionsTitle => 'Kiểm tra và lưu';
 
   @override
   String get learningModeResultActionsBody =>
-      'Replay the learned signal, verify the target device responds, then save it as a reusable button.';
+      'Phát lại tín hiệu đã học, xác minh phản hồi của thiết bị đích, sau đó lưu dưới dạng nút có thể sử dụng lại.';
 
   @override
-  String get learningModeReplayAction => 'Replay';
+  String get learningModeReplayAction => 'Phát lại';
 
   @override
   String get learningModeReplayStubMessage =>
-      'Replay is not wired yet. This is the UI scaffold for the final learn -> test -> save flow.';
+      'Replay chưa được kết nối. Đây là khung giao diện người dùng dành cho quy trình tìm hiểu, kiểm tra và lưu cuối cùng.';
 
   @override
   String get learningModeSaveStubMessage =>
-      'Save is not wired yet. The next step is connecting this screen to Create Button and existing remotes.';
+      'Lưu chưa được kết nối. Bước tiếp theo là kết nối màn hình này với Nút Tạo và điều khiển từ xa hiện có.';
 
   @override
-  String get learningModeLearnAnotherAction => 'Learn another button';
+  String get learningModeLearnAnotherAction => 'Tìm hiểu nút khác';
 
   @override
-  String get learningModeStepReviewTitle => 'Review and save';
+  String get learningModeStepReviewTitle => 'Xem lại và lưu';
 
   @override
   String get learningModeStepReviewSubtitle =>
-      'Confirm what was learned, then choose where it should live in your remote library.';
+      'Xác nhận những gì đã học được, sau đó chọn nơi nó sẽ tồn tại trong thư viện từ xa của bạn.';
 
   @override
-  String get learningModeSaveToExistingRemote => 'Existing remote';
+  String get learningModeSaveToExistingRemote => 'Điều khiển từ xa hiện có';
 
   @override
-  String get learningModeCreateNewRemote => 'New remote';
+  String get learningModeCreateNewRemote => 'Điều khiển từ xa mới';
 
   @override
-  String get learningModeProtocolPreviewTitle => 'Protocol preview';
+  String get learningModeProtocolPreviewTitle => 'Xem trước giao thức';
 
   @override
   String get learningModeProtocolPreviewBody =>
-      'Decoded protocol details will appear here once the receiver captures a clean button press.';
+      'Chi tiết giao thức được giải mã sẽ xuất hiện ở đây sau khi người nhận nhấn nút sạch.';
 
   @override
-  String get learningModeRawPreviewTitle => 'Raw fallback';
+  String get learningModeRawPreviewTitle => 'Dự phòng thô';
 
   @override
   String get learningModeRawPreviewBody =>
-      'If decoding is incomplete, the raw timing capture will still be available here for review and saving.';
+      'Nếu quá trình giải mã chưa hoàn tất, bản ghi thời gian thô sẽ vẫn có sẵn ở đây để xem lại và lưu.';
 
   @override
-  String get learningModeSaveCapture => 'Save capture';
+  String get learningModeSaveCapture => 'Lưu ảnh chụp';
 
   @override
-  String get learningModeReviewTipTitle => 'Where this will go next';
+  String get learningModeReviewTipTitle => 'Chuyện này sẽ đi tới đâu tiếp theo';
 
   @override
   String get learningModeReviewTipBody =>
-      'The next implementation step should connect this review panel to Create Button and existing remotes so the learned signal drops directly into your library.';
+      'Bước triển khai tiếp theo sẽ kết nối bảng đánh giá này với Nút tạo và điều khiển từ xa hiện có để tín hiệu đã học được truyền thẳng vào thư viện của bạn.';
 
   @override
-  String get learningModeFinishPreview => 'Finish preview';
+  String get learningModeFinishPreview => 'Kết thúc xem trước';
 
   @override
   String get backAction => 'Back';
@@ -4443,28 +4445,29 @@ class AppLocalizationsVi extends AppLocalizations {
   String get globalSearchTypeMacro => 'MACRO';
 
   @override
-  String get learningModeCaptureFailed => 'Learning capture failed.';
+  String get learningModeCaptureFailed =>
+      'Ghi lại quá trình học tập không thành công.';
 
   @override
-  String get learningModeReplaySent => 'Learned signal replayed.';
+  String get learningModeReplaySent => 'Tín hiệu đã học được phát lại.';
 
   @override
   String get learningModeReplayFailed =>
-      'The learned signal could not be replayed.';
+      'Tín hiệu đã học không thể được phát lại.';
 
   @override
   String get learningModeNoRemotesAvailable =>
-      'There are no saved remotes yet.';
+      'Chưa có điều khiển từ xa nào được lưu.';
 
   @override
-  String get learningModeChooseRemoteTitle => 'Choose a remote';
+  String get learningModeChooseRemoteTitle => 'Chọn điều khiển từ xa';
 
   @override
-  String get learningModeNewRemoteTitle => 'Create a new remote';
+  String get learningModeNewRemoteTitle => 'Tạo một điều khiển từ xa mới';
 
   @override
-  String get learningModeSaveSuccess => 'Learned button saved.';
+  String get learningModeSaveSuccess => 'Đã lưu nút đã học.';
 
   @override
-  String get learningModeSaveFailed => 'The learned button could not be saved.';
+  String get learningModeSaveFailed => 'Không thể lưu nút đã học.';
 }

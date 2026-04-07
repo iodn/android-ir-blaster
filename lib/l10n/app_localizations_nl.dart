@@ -451,302 +451,311 @@ class AppLocalizationsNl extends AppLocalizations {
       'Kies welke hardware IR-opdrachten verzendt';
 
   @override
-  String get learningModeEntryTitle => 'Learning Mode';
+  String get learningModeEntryTitle => 'Leermodus';
 
   @override
   String get learningModeEntrySubtitle =>
-      'Capture a button from a physical remote step by step';
+      'Leg stap voor stap een knop van een fysieke afstandsbediening vast';
 
   @override
-  String get learningModeTitle => 'Learning Mode';
+  String get learningModeTitle => 'Leermodus';
 
   @override
-  String get learningModeHeroTitle => 'Learn a remote button cleanly';
+  String get learningModeHeroTitle =>
+      'Leer een afstandsbedieningsknop netjes kennen';
 
   @override
   String get learningModeHeroSubtitle =>
-      'Set up your receiver, prepare the original remote, capture one command, then review it before saving it into a remote.';
+      'Stel uw ontvanger in, bereid de originele afstandsbediening voor, leg één opdracht vast en bekijk deze voordat u deze op een afstandsbediening opslaat.';
 
   @override
-  String get learningModeReadyBadge => 'Receiver ready';
+  String get learningModeReadyBadge => 'Ontvanger klaar';
 
   @override
-  String get learningModeNeedsPermissionBadge => 'USB permission needed';
+  String get learningModeNeedsPermissionBadge => 'USB-toestemming vereist';
 
   @override
-  String get learningModeSetupBadge => 'Receiver setup needed';
+  String get learningModeSetupBadge => 'Ontvangerconfiguratie vereist';
 
   @override
-  String get learningModeNoReceiverBadge => 'No learning receiver';
+  String get learningModeNoReceiverBadge => 'Geen lerende ontvanger';
 
   @override
-  String get learningModeCheckingBadge => 'Checking hardware';
+  String get learningModeCheckingBadge => 'Hardware controleren';
 
   @override
-  String get learningModeFourStepFlow => '4-step guided flow';
+  String get learningModeFourStepFlow => 'Begeleide stroom in 4 stappen';
 
   @override
-  String get learningModeSaveAnywhereBadge => 'Review before save';
+  String get learningModeSaveAnywhereBadge =>
+      'Controleer voordat u het opslaat';
 
   @override
-  String get learningModeGuideTitle => 'Pick up where capture should happen';
+  String get learningModeGuideTitle =>
+      'Ga verder waar de opname zou moeten plaatsvinden';
 
   @override
   String get learningModeStepHardwareShort => 'Hardware';
 
   @override
-  String get learningModeStepPrepareShort => 'Prepare';
+  String get learningModeStepPrepareShort => 'Voorbereiden';
 
   @override
-  String get learningModeStepCaptureShort => 'Capture';
+  String get learningModeStepCaptureShort => 'Vastlegging';
 
   @override
-  String get learningModeStepReviewShort => 'Review';
+  String get learningModeStepReviewShort => 'Beoordeling';
 
   @override
-  String get learningModeStepHardwareTitle => 'Check receiver hardware';
+  String get learningModeStepHardwareTitle =>
+      'Controleer de hardware van de ontvanger';
 
   @override
   String get learningModeStepHardwareSubtitle =>
-      'Make sure a compatible learning receiver is attached and authorized before starting.';
+      'Zorg ervoor dat een compatibele leerontvanger is aangesloten en geautoriseerd voordat u begint.';
 
   @override
-  String get learningModeCurrentSenderLabel => 'Current transmitter';
+  String get learningModeCurrentSenderLabel => 'Huidige zender';
 
   @override
-  String get learningModeReceiverStatusLabel => 'Learning status';
+  String get learningModeReceiverStatusLabel => 'Leerstatus';
 
   @override
   String get learningModeCheckingHardwareBody =>
-      'Checking available transmitter and USB receiver state.';
+      'Beschikbare zender- en USB-ontvangerstatus controleren.';
 
   @override
   String get learningModeHardwareReadyBody =>
-      'A USB IR dongle is attached and initialized. This is the right place to start the learning flow once capture wiring is connected.';
+      'Er is een USB IR-dongle aangesloten en geïnitialiseerd. Dit is de juiste plaats om het leerproces te starten zodra de capture-bedrading is aangesloten.';
 
   @override
   String get learningModeHardwarePermissionBody =>
-      'A USB dongle is present, but Android permission is still blocking it. Grant USB permission in the transmitter section before learning.';
+      'Er is een USB-dongle aanwezig, maar Android-toestemming blokkeert deze nog steeds. Verleen USB-toestemming in het zendergedeelte voordat u gaat leren.';
 
   @override
   String get learningModeHardwareSetupBody =>
-      'A dongle is partially detected, but it still needs setup or reconnecting before learning can begin reliably.';
+      'Een dongle wordt gedeeltelijk gedetecteerd, maar moet nog steeds worden ingesteld of opnieuw worden aangesloten voordat het leren betrouwbaar kan beginnen.';
 
   @override
   String get learningModeHardwareNoReceiverBody =>
-      'No compatible receiver hardware is currently available. Learning mode is intended for supported external dongles with receive capability.';
+      'Er is momenteel geen compatibele ontvangerhardware beschikbaar. De leermodus is bedoeld voor ondersteunde externe dongles met ontvangstmogelijkheid.';
 
   @override
-  String get learningModeRefreshHardware => 'Refresh hardware status';
+  String get learningModeRefreshHardware => 'Hardwarestatus vernieuwen';
 
   @override
-  String get learningModeHardwareTipTitle => 'Best placement';
+  String get learningModeHardwareTipTitle => 'Beste plaatsing';
 
   @override
   String get learningModeHardwareTipBody =>
-      'Learning Mode lives under IR Transmitter because it depends on hardware availability and is used less often than sending remotes.';
+      'De leermodus leeft onder de IR-zender omdat deze afhankelijk is van de beschikbaarheid van hardware en minder vaak wordt gebruikt dan het verzenden van afstandsbedieningen.';
 
   @override
-  String get learningModeStepPrepareTitle => 'Prepare the original remote';
+  String get learningModeStepPrepareTitle =>
+      'Bereid de originele afstandsbediening voor';
 
   @override
   String get learningModeStepPrepareSubtitle =>
-      'Decide what you are learning, then keep the original remote steady and close to the receiver.';
+      'Bepaal wat u gaat leren en houd de originele afstandsbediening stabiel en dicht bij de ontvanger.';
 
   @override
-  String get learningModeButtonNameLabel => 'Button name';
+  String get learningModeButtonNameLabel => 'Knopnaam';
 
   @override
-  String get learningModeButtonNameHint => 'For example: HDMI 1, Power, Menu';
+  String get learningModeButtonNameHint =>
+      'Bijvoorbeeld: HDMI 1, Voeding, Menu';
 
   @override
-  String get learningModeSinglePress => 'Single press';
+  String get learningModeSinglePress => 'Enkele druk';
 
   @override
-  String get learningModeHoldButton => 'Hold button';
+  String get learningModeHoldButton => 'Houd de knop vast';
 
   @override
-  String get learningModePreparationChecklistTitle => 'Before you capture';
+  String get learningModePreparationChecklistTitle => 'Voordat je vastlegt';
 
   @override
   String get learningModePreparationItemDistance =>
-      'Keep the original remote roughly 2 to 5 cm from the receiver.';
+      'Houd de originele afstandsbediening op ongeveer 2 tot 5 cm afstand van de ontvanger.';
 
   @override
   String get learningModePreparationItemOneButton =>
-      'Learn one button at a time and use a short, clean press first.';
+      'Leer één knop tegelijk en gebruik eerst een korte, zuivere druk.';
 
   @override
   String get learningModePreparationItemStill =>
-      'Keep both devices steady to avoid noisy or partial captures.';
+      'Houd beide apparaten stabiel om luidruchtige of gedeeltelijke opnames te voorkomen.';
 
   @override
-  String get learningModeStepCaptureTitle => 'Capture the signal';
+  String get learningModeStepCaptureTitle => 'Leg het signaal vast';
 
   @override
   String get learningModeStepCaptureSubtitle =>
-      'Listen for a single command, then lock the result before reviewing it.';
+      'Luister naar een enkele opdracht en vergrendel het resultaat voordat u het bekijkt.';
 
   @override
-  String get learningModeCaptureReadyTitle => 'Ready to listen';
+  String get learningModeCaptureReadyTitle => 'Klaar om te luisteren';
 
   @override
   String get learningModeCaptureReadyBody =>
-      'Your hardware state looks good. The capture backend will plug into this step next.';
+      'Uw hardwarestatus ziet er goed uit. De capture-backend wordt als volgende in deze stap aangesloten.';
 
   @override
-  String get learningModeCaptureBlockedTitle => 'Hardware not ready yet';
+  String get learningModeCaptureBlockedTitle => 'Hardware nog niet gereed';
 
   @override
   String get learningModeCaptureBlockedBody =>
-      'You can still review the flow now, but capture should wait until the receiver is ready.';
+      'U kunt de stroom nu nog steeds bekijken, maar het vastleggen moet wachten totdat de ontvanger gereed is.';
 
   @override
-  String get learningModeStartListening => 'Start listening';
+  String get learningModeStartListening => 'Begin met luisteren';
 
   @override
-  String get learningModeCaptureStubTitle => 'Capture backend comes next';
+  String get learningModeCaptureStubTitle =>
+      'De capture-backend komt als volgende';
 
   @override
   String get learningModeCaptureStubBody =>
-      'This screen is fully scaffolded first so the final capture flow can plug into real hardware states instead of being bolted on later.';
+      'Dit scherm wordt eerst volledig in de steigers gezet, zodat de uiteindelijke opnamestroom kan worden aangesloten op echte hardwarestatussen in plaats van later te worden vastgeschroefd.';
 
   @override
   String get learningModeCaptureStubMessage =>
-      'Learning capture is not wired yet. This screen scaffolds the full flow first.';
+      'Leren vastleggen is nog niet bedraad. Dit scherm ondersteunt eerst de volledige stroom.';
 
   @override
-  String get learningModeUnnamedCapture => 'Unnamed capture';
+  String get learningModeUnnamedCapture => 'Naamloze opname';
 
   @override
-  String get learningModeStatusCheckingTitle => 'Checking receiver';
+  String get learningModeStatusCheckingTitle => 'Ontvanger controleren';
 
   @override
-  String get learningModeStatusNoReceiverTitle => 'Receiver not ready';
+  String get learningModeStatusNoReceiverTitle => 'Ontvanger niet gereed';
 
   @override
-  String get learningModeStatusPermissionTitle => 'USB permission required';
+  String get learningModeStatusPermissionTitle => 'USB-toestemming vereist';
 
   @override
-  String get learningModeStatusSetupTitle => 'Receiver needs setup';
+  String get learningModeStatusSetupTitle => 'Ontvanger moet worden ingesteld';
 
   @override
-  String get learningModeStatusReadyTitle => 'Ready to learn';
+  String get learningModeStatusReadyTitle => 'Klaar om te leren';
 
   @override
-  String get learningModeStatusListeningTitle => 'Listening for a signal';
+  String get learningModeStatusListeningTitle => 'Luisteren naar een signaal';
 
   @override
-  String get learningModeStatusCapturedTitle => 'Signal captured';
+  String get learningModeStatusCapturedTitle => 'Signaal vastgelegd';
 
   @override
   String get learningModeStatusReadyBody =>
-      'Name the button, point the original remote at the receiver, and start listening when you are ready.';
+      'Geef de knop een naam, richt de originele afstandsbediening op de ontvanger en begin met luisteren wanneer je er klaar voor bent.';
 
   @override
   String get learningModeStatusListeningBody =>
-      'Press the original remote button now. Once capture is wired, this state will lock onto the next clean signal.';
+      'Druk nu op de originele afstandsbedieningsknop. Zodra de opname is bedraad, wordt deze status gekoppeld aan het volgende schone signaal.';
 
   @override
   String learningModeStatusCapturedBody(Object buttonName) {
-    return 'A learned signal preview is ready for $buttonName. Replay it, confirm it works, then save it into your library.';
+    return 'Een geleerd signaalvoorbeeld is gereed voor $buttonName. Speel het opnieuw af, bevestig dat het werkt en sla het vervolgens op in uw bibliotheek.';
   }
 
   @override
   String get learningModeConnectReceiverTitle =>
-      'Connect a compatible learning dongle';
+      'Sluit een compatibele leerdongle aan';
 
   @override
   String get learningModeConnectReceiverBody =>
-      'Learning mode depends on external hardware that can receive IR. Once the receiver is detected and authorized, this page becomes a direct listen -> test -> save flow.';
+      'De leermodus is afhankelijk van externe hardware die IR kan ontvangen. Zodra de ontvanger is gedetecteerd en geautoriseerd, wordt deze pagina een directe luister-, test- en opslagstroom.';
 
   @override
-  String get learningModeListenCardTitle => 'Listen for one button';
+  String get learningModeListenCardTitle => 'Luister naar één knop';
 
   @override
   String get learningModeListenCardBody =>
-      'Set a label first if you want, then start listening and press the button on the original remote.';
+      'Stel desgewenst eerst een label in, begin dan met luisteren en druk op de knop op de originele afstandsbediening.';
 
   @override
-  String get learningModeReadyToListenTitle => 'Ready to listen';
+  String get learningModeReadyToListenTitle => 'Klaar om te luisteren';
 
   @override
   String get learningModeReadyToListenBody =>
-      'This is the main capture surface. Start listening only when the original remote is aimed and steady.';
+      'Dit is het belangrijkste vangoppervlak. Begin pas met luisteren als de originele afstandsbediening gericht en stabiel is.';
 
   @override
-  String get learningModeListeningNowTitle => 'Listening now';
+  String get learningModeListeningNowTitle => 'Ik ben nu aan het luisteren';
 
   @override
   String get learningModeListeningNowBody =>
-      'Press the original remote button once. Use preview capture to move through the rest of the scaffold before the real capture backend is wired.';
+      'Druk één keer op de originele afstandsbedieningsknop. Gebruik preview-opname om door de rest van het schavot te bewegen voordat de echte opname-backend wordt aangesloten.';
 
   @override
-  String get learningModePreviewCaptureAction => 'Preview captured signal';
+  String get learningModePreviewCaptureAction =>
+      'Bekijk een voorbeeld van het vastgelegde signaal';
 
   @override
-  String get learningModeCapturedSummary => 'Learned signal preview';
+  String get learningModeCapturedSummary => 'Voorbeeld van geleerd signaal';
 
   @override
-  String get learningModeResultActionsTitle => 'Test and save';
+  String get learningModeResultActionsTitle => 'Testen en opslaan';
 
   @override
   String get learningModeResultActionsBody =>
-      'Replay the learned signal, verify the target device responds, then save it as a reusable button.';
+      'Speel het geleerde signaal opnieuw af, controleer of het doelapparaat reageert en sla het vervolgens op als een herbruikbare knop.';
 
   @override
-  String get learningModeReplayAction => 'Replay';
+  String get learningModeReplayAction => 'Opnieuw afspelen';
 
   @override
   String get learningModeReplayStubMessage =>
-      'Replay is not wired yet. This is the UI scaffold for the final learn -> test -> save flow.';
+      'Replay is nog niet bedraad. Dit is het UI-scaffold voor de laatste leer-, test- en opslagstroom.';
 
   @override
   String get learningModeSaveStubMessage =>
-      'Save is not wired yet. The next step is connecting this screen to Create Button and existing remotes.';
+      'Opslaan is nog niet bedraad. De volgende stap is het verbinden van dit scherm met Create Button en bestaande afstandsbedieningen.';
 
   @override
-  String get learningModeLearnAnotherAction => 'Learn another button';
+  String get learningModeLearnAnotherAction => 'Leer nog een knop';
 
   @override
-  String get learningModeStepReviewTitle => 'Review and save';
+  String get learningModeStepReviewTitle => 'Bekijk en bewaar';
 
   @override
   String get learningModeStepReviewSubtitle =>
-      'Confirm what was learned, then choose where it should live in your remote library.';
+      'Bevestig wat er is geleerd en kies vervolgens waar het in uw externe bibliotheek moet komen te staan.';
 
   @override
-  String get learningModeSaveToExistingRemote => 'Existing remote';
+  String get learningModeSaveToExistingRemote => 'Bestaande afstandsbediening';
 
   @override
-  String get learningModeCreateNewRemote => 'New remote';
+  String get learningModeCreateNewRemote => 'Nieuwe afstandsbediening';
 
   @override
-  String get learningModeProtocolPreviewTitle => 'Protocol preview';
+  String get learningModeProtocolPreviewTitle => 'Protocolvoorbeeld';
 
   @override
   String get learningModeProtocolPreviewBody =>
-      'Decoded protocol details will appear here once the receiver captures a clean button press.';
+      'Gedecodeerde protocoldetails verschijnen hier zodra de ontvanger een schone druk op de knop vastlegt.';
 
   @override
-  String get learningModeRawPreviewTitle => 'Raw fallback';
+  String get learningModeRawPreviewTitle => 'Ruwe terugval';
 
   @override
   String get learningModeRawPreviewBody =>
-      'If decoding is incomplete, the raw timing capture will still be available here for review and saving.';
+      'Als de decodering onvolledig is, is de onbewerkte timingopname hier nog steeds beschikbaar om te bekijken en op te slaan.';
 
   @override
-  String get learningModeSaveCapture => 'Save capture';
+  String get learningModeSaveCapture => 'Opname opslaan';
 
   @override
-  String get learningModeReviewTipTitle => 'Where this will go next';
+  String get learningModeReviewTipTitle =>
+      'Waar dit de volgende keer naartoe zal gaan';
 
   @override
   String get learningModeReviewTipBody =>
-      'The next implementation step should connect this review panel to Create Button and existing remotes so the learned signal drops directly into your library.';
+      'De volgende implementatiestap zou dit beoordelingspaneel moeten verbinden met Create Button en bestaande afstandsbedieningen, zodat het geleerde signaal rechtstreeks in uw bibliotheek terechtkomt.';
 
   @override
-  String get learningModeFinishPreview => 'Finish preview';
+  String get learningModeFinishPreview => 'Voorbeeld voltooien';
 
   @override
   String get backAction => 'Back';
@@ -4483,28 +4492,29 @@ class AppLocalizationsNl extends AppLocalizations {
   String get globalSearchTypeMacro => 'MACRO';
 
   @override
-  String get learningModeCaptureFailed => 'Learning capture failed.';
+  String get learningModeCaptureFailed => 'Leren vastleggen is mislukt.';
 
   @override
-  String get learningModeReplaySent => 'Learned signal replayed.';
+  String get learningModeReplaySent => 'Geleerd signaal opnieuw afgespeeld.';
 
   @override
   String get learningModeReplayFailed =>
-      'The learned signal could not be replayed.';
+      'Het geleerde signaal kon niet opnieuw worden afgespeeld.';
 
   @override
   String get learningModeNoRemotesAvailable =>
-      'There are no saved remotes yet.';
+      'Er zijn nog geen opgeslagen afstandsbedieningen.';
 
   @override
-  String get learningModeChooseRemoteTitle => 'Choose a remote';
+  String get learningModeChooseRemoteTitle => 'Kies een afstandsbediening';
 
   @override
-  String get learningModeNewRemoteTitle => 'Create a new remote';
+  String get learningModeNewRemoteTitle => 'Maak een nieuwe afstandsbediening';
 
   @override
-  String get learningModeSaveSuccess => 'Learned button saved.';
+  String get learningModeSaveSuccess => 'Knop Geleerd opgeslagen.';
 
   @override
-  String get learningModeSaveFailed => 'The learned button could not be saved.';
+  String get learningModeSaveFailed =>
+      'De geleerde knop kon niet worden opgeslagen.';
 }

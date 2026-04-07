@@ -242,7 +242,7 @@
     }
   },
   "learningModeConnectReceiverTitle": "Connect a compatible learning dongle",
-  "learningModeConnectReceiverBody": "Learning mode depends on external hardware that can receive IR. Once the receiver is detected and authorized, this page becomes a direct listen -> test -> save flow.",
+  "learningModeConnectReceiverBody": "Learning mode depends on external hardware that can receive IR. Once the receiver is detected and authorized, this page becomes a direct listen, test, and save flow.",
   "learningModeListenCardTitle": "Listen for one button",
   "learningModeListenCardBody": "Set a label first if you want, then start listening and press the button on the original remote.",
   "learningModeReadyToListenTitle": "Ready to listen",
@@ -254,7 +254,7 @@
   "learningModeResultActionsTitle": "Test and save",
   "learningModeResultActionsBody": "Replay the learned signal, verify the target device responds, then save it as a reusable button.",
   "learningModeReplayAction": "Replay",
-  "learningModeReplayStubMessage": "Replay is not wired yet. This is the UI scaffold for the final learn -> test -> save flow.",
+  "learningModeReplayStubMessage": "Replay is not wired yet. This is the UI scaffold for the final learn, test, and save flow.",
   "learningModeSaveStubMessage": "Save is not wired yet. The next step is connecting this screen to Create Button and existing remotes.",
   "learningModeLearnAnotherAction": "Learn another button",
   "learningModeStepReviewTitle": "Review and save",
