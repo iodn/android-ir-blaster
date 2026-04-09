@@ -21,6 +21,7 @@ import 'package:irblaster_controller/widgets/settings/widgets/section_card.dart'
 import 'package:irblaster_controller/widgets/settings/widgets/support_pill.dart';
 import 'package:irblaster_controller/widgets/universal_power_screen.dart';
 import 'package:irblaster_controller/widgets/device_controls_screen.dart';
+import 'package:irblaster_controller/widgets/github_store_screen.dart';
 import 'package:irblaster_controller/widgets/learning_mode_screen.dart';
 import 'package:irblaster_controller/widgets/quick_settings_screen.dart';
 import 'package:package_info_plus/package_info_plus.dart';
@@ -485,6 +486,8 @@ class SettingsScreen extends StatelessWidget {
           const SizedBox(height: 10),
           _buildLearningSection(context, cs),
           const SizedBox(height: 10),
+          _buildGitHubStoreSection(context, cs),
+          const SizedBox(height: 10),
           _buildRemotesSection(context),
           const SizedBox(height: 10),
           _buildDeviceControlsSection(context),
@@ -789,6 +792,37 @@ class SettingsScreen extends StatelessWidget {
                 Navigator.of(context).push(
                   MaterialPageRoute<void>(
                     builder: (_) => const LearningModeScreen(),
+                  ),
+                );
+              },
+            ),
+          ],
+        ),
+      ),
+    );
+  }
+
+  Widget _buildGitHubStoreSection(BuildContext context, ColorScheme cs) {
+    return Padding(
+      padding: const EdgeInsets.symmetric(horizontal: 16),
+      child: SectionCard(
+        title: 'GitHub Store',
+        subtitle:
+            'Browse GitHub repositories and import supported IR files directly.',
+        leading: Icon(Icons.storefront_outlined, color: cs.primary),
+        child: Column(
+          children: [
+            ListTile(
+              leading: const Icon(Icons.storefront_outlined),
+              title: const Text('Open GitHub Store'),
+              subtitle: const Text(
+                'Preview compatible files, save favorite sources, and import into remotes.',
+              ),
+              trailing: const Icon(Icons.chevron_right_rounded),
+              onTap: () {
+                Navigator.of(context).push(
+                  MaterialPageRoute<void>(
+                    builder: (_) => const GitHubStoreScreen(),
                   ),
                 );
               },

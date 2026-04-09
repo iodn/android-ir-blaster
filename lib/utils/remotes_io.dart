@@ -26,6 +26,222 @@ class ImportResult {
   });
 }
 
+class ImportPreviewResult {
+  final String formatLabel;
+  final bool isSupported;
+  final String supportReason;
+  final List<String> issues;
+  final List<Remote> remotes;
+
+  const ImportPreviewResult({
+    required this.formatLabel,
+    required this.isSupported,
+    required this.supportReason,
+    required this.issues,
+    required this.remotes,
+  });
+
+  int get totalButtons =>
+      remotes.fold<int>(0, (sum, remote) => sum + remote.buttons.length);
+}
+
+enum _ImportFileKind {
+  json,
+  flipperIr,
+  irplusXml,
+  lircConfig,
+  unsupported,
+}
+
+bool isSupportedImportFilename(String filename) {
+  final String trimmed = filename.trim();
+  if (trimmed.isEmpty) return false;
+  return _isSupportedImportFile(
+    trimmed.toLowerCase(),
+    _extensionLower(trimmed),
+  );
+}
+
+List<Remote> parseImportedRemotesFromText(
+  String contents, {
+  required String filename,
+  required String fallbackRemoteName,
+  required String fallbackButtonLabel,
+}) {
+  return analyzeImportedText(
+    contents,
+    filename: filename,
+    fallbackRemoteName: fallbackRemoteName,
+    fallbackButtonLabel: fallbackButtonLabel,
+  ).remotes;
+}
+
+List<IRButton> cloneButtonsForImport(Iterable<IRButton> buttons) {
+  final uuid = const Uuid();
+  return buttons
+      .map(
+        (button) => button.copyWith(
+          id: uuid.v4(),
+          protocolParams: button.protocolParams == null
+              ? null
+              : Map<String, dynamic>.from(button.protocolParams!),
+        ),
+      )
+      .toList(growable: false);
+}
+
+List<Remote> cloneRemotesForImport(Iterable<Remote> remotes) {
+  return remotes
+      .map(
+        (remote) => Remote(
+          buttons: cloneButtonsForImport(remote.buttons),
+          name: remote.name,
+          useNewStyle: remote.useNewStyle,
+        ),
+      )
+      .toList();
+}
+
+ImportPreviewResult analyzeImportedText(
+  String contents, {
+  required String filename,
+  required String fallbackRemoteName,
+  required String fallbackButtonLabel,
+}) {
+  final extLower = _extensionLower(filename);
+  final nameLower = filename.toLowerCase();
+  final remoteNameHint = _sanitizeRemoteNameFromFilename(
+    filename,
+    fallbackName: fallbackRemoteName,
+  );
+
+  bool validRemotes(List<Remote> remotes) {
+    if (remotes.isEmpty) return false;
+    return remotes.fold<int>(0, (sum, remote) => sum + remote.buttons.length) >
+        0;
+  }
+
+  ImportPreviewResult unsupported(
+    String formatLabel,
+    String reason, {
+    List<String> issues = const <String>[],
+  }) {
+    return ImportPreviewResult(
+      formatLabel: formatLabel,
+      isSupported: false,
+      supportReason: reason,
+      issues: issues,
+      remotes: const <Remote>[],
+    );
+  }
+
+  try {
+    final kind = _detectImportFileKind(nameLower, extLower);
+    final remotes = _parseSupportedFileToRemotes(
+      contents,
+      filename: filename,
+      extLower: extLower,
+      remoteNameHint: remoteNameHint,
+      fallbackButtonLabel: fallbackButtonLabel,
+    );
+
+    if (kind == _ImportFileKind.json) {
+      if (!validRemotes(remotes)) {
+        return unsupported(
+          'JSON backup',
+          'The JSON structure was recognized, but no importable IR buttons were found.',
+          issues: const <String>[
+            'Expected a top-level list or a map containing a "remotes" list.',
+          ],
+        );
+      }
+
+      _reassignIds(remotes);
+      return ImportPreviewResult(
+        formatLabel: 'JSON backup',
+        isSupported: true,
+        supportReason: 'Compatible IR Blaster JSON backup.',
+        issues: const <String>[],
+        remotes: remotes,
+      );
+    }
+
+    if (kind == _ImportFileKind.flipperIr) {
+      if (!validRemotes(remotes)) {
+        return unsupported(
+          'Flipper .ir',
+          'This .ir file could not be parsed into importable IR buttons.',
+        );
+      }
+      return ImportPreviewResult(
+        formatLabel: 'Flipper .ir',
+        isSupported: true,
+        supportReason: 'Compatible Flipper IR file.',
+        issues: const <String>[],
+        remotes: remotes,
+      );
+    }
+
+    if (kind == _ImportFileKind.irplusXml) {
+      if (!validRemotes(remotes)) {
+        return unsupported(
+          'IRPlus XML',
+          'This XML/IRPlus file could not be parsed into importable IR buttons.',
+        );
+      }
+      return ImportPreviewResult(
+        formatLabel: 'IRPlus XML',
+        isSupported: true,
+        supportReason: 'Compatible IRPlus/XML import.',
+        issues: const <String>[],
+        remotes: remotes,
+      );
+    }
+
+    if (kind == _ImportFileKind.lircConfig) {
+      final isLirc = RegExp(
+        r'\bbegin\s+remote\b',
+        caseSensitive: false,
+      ).hasMatch(contents);
+      if (!isLirc) {
+        return unsupported(
+          'LIRC config',
+          'This config file does not look like a LIRC remote definition.',
+          issues: const <String>['Missing "begin remote" section.'],
+        );
+      }
+
+      if (!validRemotes(remotes)) {
+        return unsupported(
+          'LIRC config',
+          'This LIRC file could not be parsed into importable IR buttons.',
+        );
+      }
+      return ImportPreviewResult(
+        formatLabel: 'LIRC config',
+        isSupported: true,
+        supportReason: 'Compatible LIRC import.',
+        issues: const <String>[],
+        remotes: remotes,
+      );
+    }
+
+    return unsupported(
+      'Unknown',
+      'Unsupported file type for IR Blaster import.',
+      issues: const <String>[
+        'Supported formats: IR Blaster JSON backup, Flipper .ir, IRPlus XML, and LIRC config.',
+      ],
+    );
+  } catch (e) {
+    return unsupported(
+      'Unknown',
+      'The file could not be parsed safely.',
+      issues: <String>[e.toString()],
+    );
+  }
+}
+
 Future<bool> _requestLegacyStoragePermission(BuildContext context) async {
   if (!Platform.isAndroid) return true;
 
@@ -115,6 +331,7 @@ Future<ImportResult?> importRemotesFromPicker(
       'conf',
       'cfg',
       'lirc',
+      'lrc',
     ],
     withData: false,
     withReadStream: false,
@@ -135,15 +352,9 @@ Future<ImportResult?> importRemotesFromPicker(
 
   final nameLower = pf.name.toLowerCase();
   final extLower = (pf.extension ?? '').toLowerCase();
-  final isJson = extLower == 'json' || nameLower.endsWith('.json');
-  final isIr = extLower == 'ir' || nameLower.endsWith('.ir');
-  final isXmlLike = extLower == 'xml' ||
-      extLower == 'irplus' ||
-      nameLower.endsWith('.xml') ||
-      nameLower.endsWith('.irplus');
-  final isConfLike = extLower == 'conf' || extLower == 'cfg' || extLower == 'lirc';
+  final kind = _detectImportFileKind(nameLower, extLower);
 
-  if (!isJson && !isIr && !isXmlLike && !isConfLike) {
+  if (kind == _ImportFileKind.unsupported) {
     return ImportResult(
       remotes: <Remote>[],
       macros: null,
@@ -157,7 +368,7 @@ Future<ImportResult?> importRemotesFromPicker(
   );
 
   try {
-    if (isJson) {
+    if (kind == _ImportFileKind.json) {
       final dynamic decoded = jsonDecode(contents);
 
       if (decoded is List) {
@@ -251,7 +462,7 @@ Future<ImportResult?> importRemotesFromPicker(
       );
     }
 
-    if (isIr) {
+    if (kind == _ImportFileKind.flipperIr) {
       final Remote? remoteFromIr = _parseFlipperIrFile(
         contents,
         remoteName: importedRemoteName,
@@ -274,7 +485,7 @@ Future<ImportResult?> importRemotesFromPicker(
       );
     }
 
-    if (isXmlLike) {
+    if (kind == _ImportFileKind.irplusXml) {
       final Remote? remoteFromIrplus = _parseIrplusXml(
         contents,
         filename: pf.name,
@@ -304,7 +515,7 @@ Future<ImportResult?> importRemotesFromPicker(
       caseSensitive: false,
     ).hasMatch(contents);
 
-    if (isConfLike && isLirc) {
+    if (kind == _ImportFileKind.lircConfig && isLirc) {
       final Remote? remoteFromLirc = _parseLircConfig(
         contents,
         remoteName: importedRemoteName,
@@ -359,6 +570,7 @@ Future<ImportResult?> importRemotesFromFolderPicker(
         'conf',
         'cfg',
         'lirc',
+        'lrc',
       ],
       allowMultiple: true,
       withData: false,
@@ -612,10 +824,35 @@ bool _isSupportedImportFile(String nameLower, String extLower) {
     case 'conf':
     case 'cfg':
     case 'lirc':
+    case 'lrc':
       return true;
     default:
       return false;
   }
+}
+
+_ImportFileKind _detectImportFileKind(String nameLower, String extLower) {
+  if (extLower == 'json' || nameLower.endsWith('.json')) {
+    return _ImportFileKind.json;
+  }
+  if (extLower == 'ir' || nameLower.endsWith('.ir')) {
+    return _ImportFileKind.flipperIr;
+  }
+  if (extLower == 'xml' ||
+      extLower == 'irplus' ||
+      nameLower.endsWith('.xml') ||
+      nameLower.endsWith('.irplus')) {
+    return _ImportFileKind.irplusXml;
+  }
+  if (nameLower.endsWith('.lircd.conf') ||
+      nameLower.endsWith('.lirc.conf') ||
+      extLower == 'conf' ||
+      extLower == 'cfg' ||
+      extLower == 'lirc' ||
+      extLower == 'lrc') {
+    return _ImportFileKind.lircConfig;
+  }
+  return _ImportFileKind.unsupported;
 }
 
 List<Remote> _parseSupportedFileToRemotes(
@@ -632,7 +869,11 @@ List<Remote> _parseSupportedFileToRemotes(
       extLower == 'irplus' ||
       nameLower.endsWith('.xml') ||
       nameLower.endsWith('.irplus');
-  final bool isConfLike = extLower == 'conf' || extLower == 'cfg' || extLower == 'lirc';
+  final bool isConfLike =
+      extLower == 'conf' ||
+      extLower == 'cfg' ||
+      extLower == 'lirc' ||
+      extLower == 'lrc';
 
   if (isJson) {
     final dynamic decoded = jsonDecode(contents);
@@ -694,7 +935,8 @@ List<Remote> _parseSupportedFileToRemotes(
   return const <Remote>[];
 }
 
-String _sanitizeRemoteNameFromFilename(String filename, {required String fallbackName}) {
+String _sanitizeRemoteNameFromFilename(String filename,
+    {required String fallbackName}) {
   String base = filename.trim();
   if (base.isEmpty) return fallbackName;
 
@@ -706,7 +948,8 @@ String _sanitizeRemoteNameFromFilename(String filename, {required String fallbac
   );
 
   base = base.replaceAll(
-    RegExp(r'\.(json|ir|xml|irplus|conf|cfg|lirc)$', caseSensitive: false),
+    RegExp(r'\.(json|ir|xml|irplus|conf|cfg|lirc|lrc)$',
+        caseSensitive: false),
     '',
   );
 
@@ -859,10 +1102,8 @@ Remote? _parseFlipperIrFile(
       } else if (mappedProtocol == 'rc6') {
         final int addr = int.parse(addressMatch.group(1)!, radix: 16) & 0xFF;
         final int cmd = int.parse(commandMatch.group(1)!, radix: 16) & 0xFF;
-        final String hex = ((addr << 8) | cmd)
-            .toRadixString(16)
-            .padLeft(4, '0')
-            .toUpperCase();
+        final String hex =
+            ((addr << 8) | cmd).toRadixString(16).padLeft(4, '0').toUpperCase();
 
         buttons.add(
           IRButton(
@@ -877,7 +1118,8 @@ Remote? _parseFlipperIrFile(
           ),
         );
       } else if (mappedProtocol == 'rca_38') {
-        final int addrNibble = int.parse(addressMatch.group(1)!, radix: 16) & 0x0F;
+        final int addrNibble =
+            int.parse(addressMatch.group(1)!, radix: 16) & 0x0F;
         final String addrHex = addrNibble.toRadixString(16).toUpperCase();
         final String cmdHex = int.parse(commandMatch.group(1)!, radix: 16)
             .toRadixString(16)
@@ -985,7 +1227,9 @@ Remote? _parseFlipperIrFile(
           ),
         );
       } else if (mappedProtocol != null &&
-          (mappedProtocol == 'nec' || mappedProtocol == 'nec2' || mappedProtocol == 'necx1')) {
+          (mappedProtocol == 'nec' ||
+              mappedProtocol == 'nec2' ||
+              mappedProtocol == 'necx1')) {
         final String hexCode = _convertToLircHex(addressMatch, commandMatch);
 
         buttons.add(
@@ -1060,10 +1304,12 @@ String _convertToLircHex(RegExpMatch addressMatch, RegExpMatch commandMatch) {
   final int cmdByte2 = int.parse(commandMatch.group(2)!, radix: 16);
 
   final int lircCmd = _bitReverse(addrByte1);
-  final int lircCmdInv = (addrByte2 == 0) ? (0xFF - lircCmd) : _bitReverse(addrByte2);
+  final int lircCmdInv =
+      (addrByte2 == 0) ? (0xFF - lircCmd) : _bitReverse(addrByte2);
 
   final int lircAddr = _bitReverse(cmdByte1);
-  final int lircAddrInv = (cmdByte2 == 0) ? (0xFF - lircAddr) : _bitReverse(cmdByte2);
+  final int lircAddrInv =
+      (cmdByte2 == 0) ? (0xFF - lircAddr) : _bitReverse(cmdByte2);
 
   return "${lircCmd.toRadixString(16).padLeft(2, '0')}"
           "${lircCmdInv.toRadixString(16).padLeft(2, '0')}"
@@ -1082,7 +1328,8 @@ _ProntoParsed? _tryParseProntoHexToRaw(String payload) {
   final cleaned = payload.replaceAll('\r', ' ').replaceAll('\n', ' ').trim();
   if (cleaned.isEmpty) return null;
 
-  final tokens = cleaned.split(RegExp(r'\s+')).where((e) => e.isNotEmpty).toList();
+  final tokens =
+      cleaned.split(RegExp(r'\s+')).where((e) => e.isNotEmpty).toList();
   if (tokens.length < 6) return null;
 
   bool looksHex = true;
@@ -1186,7 +1433,8 @@ Remote? _parseIrplusXml(
         continue;
       }
 
-      final pairMatch = RegExp(r'^0x([0-9A-Fa-f]+)\s+0x([0-9A-Fa-f]+)$').firstMatch(payload);
+      final pairMatch =
+          RegExp(r'^0x([0-9A-Fa-f]+)\s+0x([0-9A-Fa-f]+)$').firstMatch(payload);
       if (pairMatch != null) {
         final int addr16 = int.parse(pairMatch.group(1)!, radix: 16) & 0xFFFF;
         final int cmd16 = int.parse(pairMatch.group(2)!, radix: 16) & 0xFFFF;
@@ -1256,20 +1504,12 @@ String _sanitizeIrplusLabel({
   required String fallbackLabel,
 }) {
   String s = (rawLabel ?? '').replaceAll('\r', '\n');
-  s = s
-      .split('\n')
-      .map((e) => e.trim())
-      .where((e) => e.isNotEmpty)
-      .join(' ');
+  s = s.split('\n').map((e) => e.trim()).where((e) => e.isNotEmpty).join(' ');
   s = s.trim();
 
   if (s.isEmpty || RegExp(r'^_+$').hasMatch(s)) {
     String a = (altLabel ?? '').replaceAll('\r', '\n');
-    a = a
-        .split('\n')
-        .map((e) => e.trim())
-        .where((e) => e.isNotEmpty)
-        .join(' ');
+    a = a.split('\n').map((e) => e.trim()).where((e) => e.isNotEmpty).join(' ');
     a = a.trim();
     if (a.isNotEmpty) return a;
     return fallbackLabel;
@@ -1290,7 +1530,8 @@ String? _normalizeRawDurations(String payload) {
   final cleaned = payload.replaceAll('\r', ' ').replaceAll('\n', ' ').trim();
   if (!RegExp(r'^[0-9\s]+$').hasMatch(cleaned)) return null;
 
-  final parts = cleaned.split(RegExp(r'\s+')).where((e) => e.isNotEmpty).toList();
+  final parts =
+      cleaned.split(RegExp(r'\s+')).where((e) => e.isNotEmpty).toList();
   if (parts.length < 6) return null;
 
   for (final p in parts) {
@@ -1338,7 +1579,8 @@ Remote? _parseLircConfig(
   required String remoteName,
   required String fallbackLabel,
 }) {
-  final String normalized = content.replaceAll('\r\n', '\n').replaceAll('\r', '\n');
+  final String normalized =
+      content.replaceAll('\r\n', '\n').replaceAll('\r', '\n');
   final uuid = const Uuid();
 
   final remoteBlocks = RegExp(
@@ -1364,10 +1606,11 @@ Remote? _parseLircConfig(
       caseSensitive: false,
     ).firstMatch(block)?.group(1)?.trim();
 
-    final String prefix =
-        (remoteBlocks.length > 1 && lircRemoteName != null && lircRemoteName.isNotEmpty)
-            ? '${lircRemoteName}_'
-            : '';
+    final String prefix = (remoteBlocks.length > 1 &&
+            lircRemoteName != null &&
+            lircRemoteName.isNotEmpty)
+        ? '${lircRemoteName}_'
+        : '';
 
     final int frequency = _lircReadInt(block, 'frequency') ?? 38000;
     final String flags = _lircReadString(block, 'flags') ?? '';
@@ -1569,20 +1812,25 @@ bool _looksXsat(List<int>? header, List<int>? one, List<int>? zero, int bits) {
   if (bits != 16) return false;
   if (header == null || one == null || zero == null) return false;
   if (header.length != 2 || one.length != 2 || zero.length != 2) return false;
-  final bool headerLike = _within(header[0], 8000, 1800) && _within(header[1], 4000, 1200);
-  final bool marksLike = _within(one[0], 526, 200) && _within(zero[0], 526, 200);
+  final bool headerLike =
+      _within(header[0], 8000, 1800) && _within(header[1], 4000, 1200);
+  final bool marksLike =
+      _within(one[0], 526, 200) && _within(zero[0], 526, 200);
   final bool total0Like = _within(zero[0] + zero[1], 1000, 300);
   final bool total1Like = _within(one[0] + one[1], 2000, 400);
   return headerLike && marksLike && total0Like && total1Like;
 }
 
-bool _looksNecLike(List<int>? header, List<int>? one, List<int>? zero, int bits) {
+bool _looksNecLike(
+    List<int>? header, List<int>? one, List<int>? zero, int bits) {
   if (bits < 24) return false;
   if (header == null || one == null || zero == null) return false;
   if (header.length != 2 || one.length != 2 || zero.length != 2) return false;
 
-  final bool headerLike = _within(header[0], 9000, 1800) && _within(header[1], 4500, 1200);
-  final bool marksLike = _within(one[0], 560, 220) && _within(zero[0], 560, 220);
+  final bool headerLike =
+      _within(header[0], 9000, 1800) && _within(header[1], 4500, 1200);
+  final bool marksLike =
+      _within(one[0], 560, 220) && _within(zero[0], 560, 220);
   final bool spacesLike = (one[1] - zero[1]).abs() >= 500;
   return headerLike && marksLike && spacesLike;
 }
@@ -1647,7 +1895,8 @@ IRButton? _buildProtocolButtonFromLircCode({
 
   final int n = value.toInt();
   final int bitCount = (codeBits ?? 0).clamp(1, 63).toInt();
-  final int masked = (codeBits != null && codeBits > 0) ? (n & ((1 << bitCount) - 1)) : n;
+  final int masked =
+      (codeBits != null && codeBits > 0) ? (n & ((1 << bitCount) - 1)) : n;
 
   if (protocolId == 'xsat') {
     final int data = masked & 0xFFFF;
@@ -1726,7 +1975,8 @@ IRButton? _buildProtocolButtonFromLircCode({
   }
 
   if (protocolId == 'jvc') {
-    final String hex = (masked & 0xFFFF).toRadixString(16).padLeft(4, '0').toUpperCase();
+    final String hex =
+        (masked & 0xFFFF).toRadixString(16).padLeft(4, '0').toUpperCase();
     return IRButton(
       id: id,
       code: null,
@@ -1774,7 +2024,8 @@ IRButton? _buildProtocolButtonFromLircCode({
   }
 
   if (protocolId == 'nec' || protocolId == 'nec2' || protocolId == 'necx1') {
-    final String hex = (masked & 0xFFFFFFFF).toRadixString(16).padLeft(8, '0').toUpperCase();
+    final String hex =
+        (masked & 0xFFFFFFFF).toRadixString(16).padLeft(8, '0').toUpperCase();
     return IRButton(
       id: id,
       code: null,
@@ -1796,9 +2047,8 @@ String _lircRc5PayloadHex({
 }) {
   final int n = value.toInt();
   final int bitCount = (codeBits ?? 0).clamp(1, 63).toInt();
-  final int masked = (codeBits != null && codeBits > 0)
-      ? (n & ((1 << bitCount) - 1))
-      : n;
+  final int masked =
+      (codeBits != null && codeBits > 0) ? (n & ((1 << bitCount) - 1)) : n;
   final int payload11 = masked & 0x7FF;
   return payload11.toRadixString(16).toUpperCase();
 }
@@ -1809,9 +2059,8 @@ String _lircRc6PayloadHex({
 }) {
   final int n = value.toInt();
   final int bitCount = (codeBits ?? 0).clamp(1, 63).toInt();
-  final int masked = (codeBits != null && codeBits > 0)
-      ? (n & ((1 << bitCount) - 1))
-      : n;
+  final int masked =
+      (codeBits != null && codeBits > 0) ? (n & ((1 << bitCount) - 1)) : n;
   final int payload16 = masked & 0xFFFF;
   return payload16.toRadixString(16).padLeft(4, '0').toUpperCase();
 }
@@ -1874,7 +2123,8 @@ List<_LircCodeEntry> _parseLircCodesSection(String section) {
     final String line = lineRaw.split('#').first.trim();
     if (line.isEmpty) continue;
 
-    final m = RegExp(r'^\s*(\S+)\s+(\S+)\s*$', caseSensitive: false).firstMatch(line);
+    final m =
+        RegExp(r'^\s*(\S+)\s+(\S+)\s*$', caseSensitive: false).firstMatch(line);
     if (m == null) continue;
 
     final String name = (m.group(1) ?? '').trim();
@@ -2007,8 +2257,11 @@ bool _lircShouldUseLsbFirst({
   final int zm = zero[0];
   final int zs = zero[1];
 
-  final bool headerLikeNec = hm >= 8000 && hm <= 10000 && hs >= 3500 && hs <= 5500;
-  final bool marksLikeNec = (om >= 350 && om <= 800) && (zm >= 350 && zm <= 800) && (om - zm).abs() <= 250;
+  final bool headerLikeNec =
+      hm >= 8000 && hm <= 10000 && hs >= 3500 && hs <= 5500;
+  final bool marksLikeNec = (om >= 350 && om <= 800) &&
+      (zm >= 350 && zm <= 800) &&
+      (om - zm).abs() <= 250;
   final bool spacesDifferent = (os - zs).abs() >= 400;
 
   if (headerLikeNec && marksLikeNec && spacesDifferent && codeBits >= 8) {

@@ -31,7 +31,7 @@ class _ExistingRemoteButtonImportSheetState
   final Set<String> _selectedKeys = <String>{};
 
   List<Remote> _sources = <Remote>[];
-  Remote? _activeSource;
+  int? _activeSourceIndex;
 
   @override
   void initState() {
@@ -41,7 +41,7 @@ class _ExistingRemoteButtonImportSheetState
             (widget.currentRemoteId == null || r.id != widget.currentRemoteId) &&
             r.buttons.isNotEmpty)
         .toList(growable: false);
-    _activeSource = _sources.isNotEmpty ? _sources.first : null;
+    _activeSourceIndex = _sources.isNotEmpty ? 0 : null;
   }
 
   @override
@@ -50,7 +50,13 @@ class _ExistingRemoteButtonImportSheetState
     super.dispose();
   }
 
-  String _keyFor(int remoteId, String buttonId) => '$remoteId::$buttonId';
+  Remote? get _activeSource {
+    final index = _activeSourceIndex;
+    if (index == null || index < 0 || index >= _sources.length) return null;
+    return _sources[index];
+  }
+
+  String _keyFor(int sourceIndex, String buttonId) => '$sourceIndex::$buttonId';
 
   String _normalized(String value) => value.trim().toLowerCase();
 
@@ -99,11 +105,11 @@ class _ExistingRemoteButtonImportSheetState
     }).toList(growable: false);
   }
 
-  void _toggleAllVisible(Remote r, bool select) {
+  void _toggleAllVisible(int sourceIndex, Remote r, bool select) {
     final visible = _filteredButtons(r);
     setState(() {
       for (final b in visible) {
-        final k = _keyFor(r.id, b.id);
+        final k = _keyFor(sourceIndex, b.id);
         if (select) {
           _selectedKeys.add(k);
         } else {
@@ -138,9 +144,10 @@ class _ExistingRemoteButtonImportSheetState
     final existingSignatures = widget.existingButtons.map(_signature).toSet();
     final picked = <IRButton>[];
 
-    for (final r in _sources) {
+    for (var sourceIndex = 0; sourceIndex < _sources.length; sourceIndex++) {
+      final r = _sources[sourceIndex];
       for (final b in r.buttons) {
-        final k = _keyFor(r.id, b.id);
+        final k = _keyFor(sourceIndex, b.id);
         if (!_selectedKeys.contains(k)) continue;
         final sig = _signature(b);
         if (existingSignatures.contains(sig)) continue;
@@ -196,11 +203,12 @@ class _ExistingRemoteButtonImportSheetState
   Widget build(BuildContext context) {
     final theme = Theme.of(context);
     final source = _activeSource;
+    final sourceIndex = _activeSourceIndex;
     final visibleButtons = source == null ? const <IRButton>[] : _filteredButtons(source);
     final int selectedVisible = source == null
         ? 0
         : visibleButtons
-            .where((b) => _selectedKeys.contains(_keyFor(source.id, b.id)))
+            .where((b) => _selectedKeys.contains(_keyFor(sourceIndex!, b.id)))
             .length;
 
     return SafeArea(
@@ -245,27 +253,38 @@ class _ExistingRemoteButtonImportSheetState
                 ),
               )
             else ...[
-              DropdownButtonFormField<int>(
-                initialValue: source?.id,
+              InputDecorator(
                 decoration: InputDecoration(
                   labelText: context.l10n.sourceRemote,
-                  prefixIcon: Icon(Icons.settings_remote_outlined),
+                  prefixIcon: const Icon(Icons.settings_remote_outlined),
+                  border: const OutlineInputBorder(),
                 ),
-                items: _sources
-                    .map(
-                      (r) => DropdownMenuItem<int>(
-                        value: r.id,
-                        child: Text('${r.name} (${r.buttons.length})'),
-                      ),
-                    )
-                    .toList(growable: false),
-                onChanged: (id) {
-                  if (id == null) return;
-                  setState(() {
-                    _activeSource =
-                        _sources.firstWhere((r) => r.id == id, orElse: () => _sources.first);
-                  });
-                },
+                child: DropdownButtonHideUnderline(
+                  child: DropdownButton<int>(
+                    value: sourceIndex,
+                    isExpanded: true,
+                    items: _sources
+                        .asMap()
+                        .entries
+                        .map(
+                          (entry) => DropdownMenuItem<int>(
+                            value: entry.key,
+                            child: Text(
+                              '${entry.value.name} (${entry.value.buttons.length})',
+                            ),
+                          ),
+                        )
+                        .toList(growable: false),
+                    onChanged: (index) {
+                      if (index == null || index < 0 || index >= _sources.length) {
+                        return;
+                      }
+                      setState(() {
+                        _activeSourceIndex = index;
+                      });
+                    },
+                  ),
+                ),
               ),
               const SizedBox(height: 8),
               TextField(
@@ -289,13 +308,17 @@ class _ExistingRemoteButtonImportSheetState
               Row(
                 children: [
                   TextButton.icon(
-                    onPressed: source == null ? null : () => _toggleAllVisible(source, true),
+                    onPressed: source == null || sourceIndex == null
+                        ? null
+                        : () => _toggleAllVisible(sourceIndex, source, true),
                     icon: const Icon(Icons.select_all),
                     label: Text(context.l10n.selectVisible),
                   ),
                   const SizedBox(width: 6),
                   TextButton.icon(
-                    onPressed: source == null ? null : () => _toggleAllVisible(source, false),
+                    onPressed: source == null || sourceIndex == null
+                        ? null
+                        : () => _toggleAllVisible(sourceIndex, source, false),
                     icon: const Icon(Icons.deselect),
                     label: Text(context.l10n.clearVisible),
                   ),
@@ -313,7 +336,7 @@ class _ExistingRemoteButtonImportSheetState
                   separatorBuilder: (_, __) => const Divider(height: 1),
                   itemBuilder: (context, i) {
                     final b = visibleButtons[i];
-                    final key = _keyFor(source!.id, b.id);
+                    final key = _keyFor(sourceIndex!, b.id);
                     final selected = _selectedKeys.contains(key);
                     final label = displayButtonLabel(
                       b,

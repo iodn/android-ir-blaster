@@ -1,3 +1,4 @@
+
 # Android IR Blaster
 
 <a href="https://play.google.com/store/apps/details?id=org.nslabs.ir_blaster">
@@ -10,6 +11,8 @@
     <strong>IR Blaster</strong> is an Android application for creating, managing, and transmitting infrared (IR) signals through multiple output methods, including a device’s built-in IR emitter, supported USB IR dongles, and audio-to-IR LED adapters.
 
 The app enables users to build fully custom remotes, discover unknown IR codes through guided brute-force tools, and seamlessly manage IR configurations. It also supports importing IR signals from Flipper Zero `.ir` files, **IRPLUS `.irplus` / XML files**, and **LIRC `.conf` / `.cfg` / `.lirc` files**, making it easy to reuse and adapt existing IR libraries across devices.
+
+It also includes a GitHub Store for browsing compatible IR files directly from GitHub repositories and importing them into the app without manually downloading and moving files first. For supported USB learning dongles, Learning Mode can capture a signal from a physical remote, preview it, and save it into a new or existing remote.
 
 IR Blaster is designed to be flexible, hardware-agnostic, and user-friendly, while remaining powerful enough for advanced users who need precise control over IR protocols and signal timing.
 
@@ -46,8 +49,8 @@ IR Blaster is designed to be flexible, hardware-agnostic, and user-friendly, whi
   - USB IR dongle (with discovery, permission, and bulk transfers)
   - Audio IR (mono 1‑LED or stereo anti‑phase 2‑LED adapters)
 - Rich protocol support and a raw‑signal mode for precise mark/space patterns
-- Import/export of remotes, including Flipper Zero `.ir`, IRPLUS `.irplus` / XML, LIRC `.conf` / `.cfg` / `.lirc` files, and JSON backups
-- Material 3 UI with dynamic color, dark mode, and a tabbed layout (Remotes, Signal Tester, Settings)
+- Import/export of remotes, including Flipper Zero `.ir`, IRPLUS `.irplus` / XML, LIRC `.conf` / `.cfg` / `.lirc` files, JSON backups, and direct GitHub browsing/import
+- Learning Mode for supported USB learning dongles, with capture, preview, replay, and save flows
 
 Tip: At least one transmit path must be available (Internal, USB, or Audio). A built‑in IR blaster is not required if you use a USB dongle or audio adapter.
 
@@ -60,17 +63,22 @@ Tip: At least one transmit path must be available (Internal, USB, or Audio). A b
   - Optional Auto Switch uses USB when a supported dongle is attached, otherwise Internal (disabled if Audio is selected).
 - Import/Export & Maintenance (Settings > Remotes):
   - Import JSON backups, Flipper Zero `.ir`, IRPLUS `.irplus` / XML (beta), and LIRC `.conf` / `.cfg` / `.lirc` (beta) files
+  - Browse compatible files from GitHub repositories in GitHub Store and import them directly into the app
   - Export remotes to Downloads
   - Restore the built‑in demo remote
   - Delete all remotes
-- Modern UI: Material 3 styling, dynamic color, and responsive layouts.
+- Learning Mode (Settings > Learning Mode):
+  - Use a supported USB learning dongle to capture a button from a physical remote
+  - Preview the learned signal, replay it, and save it into a new or existing remote
+- GitHub Store for browsing GitHub repositories and importing compatible IR files directly.
 
 
 ### User‑facing
 - Transmitter selection card with live capability updates and USB permission request flow.
+- Learning Mode for supported USB learning dongles, with guided capture and save flow.
+- GitHub Store for browsing GitHub repositories and importing compatible IR files directly.
 - Signal Tester promoted as an IR bruteforcer (IR Finder) to help discover unknown codes.
 - Expanded import/export options and maintenance actions for remotes.
-- Material 3 theming with dynamic light/dark color schemes.
 
 ### Technical/architectural
 - Multi‑transmitter architecture:
@@ -144,11 +152,16 @@ The Signal Tester is designed to help discover unknown working IR commands.
 ## Remotes Management
 
 - Import remotes: JSON backups and Flipper Zero `.ir` files (Settings > Remotes > Import remotes).
+- GitHub Store: Browse GitHub repositories, preview supported files, and import them directly into your remote library.
 - Export remotes: Save a JSON backup to Downloads.
 - Restore Demo Remote: Reset to a built‑in demo configuration.
 - Delete all remotes: Clear the entire list from this device.
 
-## Supported Infrared Protocols
+## Learning Mode
+
+- Open Settings > Learning Mode to capture a button from a physical remote with a supported USB learning dongle.
+- Review the learned signal, replay it to confirm the target device reacts, then save it into a new or existing remote.
+- Learning Mode is designed for compatible USB learning receivers such as supported Tiqiaa, ZaZa, or ElkSmart-style dongles.
 
 ## Supported Infrared Protocols
 
@@ -249,13 +262,24 @@ Or download the latest APK from the Releases Section.
 
 ### Creating Custom Remotes
 1. Open the Remotes tab.
-2. Create a remote and add buttons using protocol encoders or raw patterns.
+2. Create a remote and add buttons using protocol encoders, raw patterns, GitHub Store imports, or buttons imported from existing remotes and the database.
 3. Save and test your buttons from the Remote view.
+
+### Using the GitHub Store
+1. Open Settings > GitHub Store.
+2. Enter a GitHub repository or folder URL, then load the repository when you want to browse it.
+3. Open a supported file to preview how it will be parsed.
+4. Import it into a new remote or add compatible buttons to an existing remote.
 
 ### Using the Signal Tester (IR Finder)
 1. Open the "Signal Tester" tab.
 2. Provide protocol parameters and optional hex prefix constraints.
 3. Start testing; the bruteforcer will try variations to identify working signals via your selected transmitter.
+
+### Using Learning Mode
+1. Connect a supported USB learning dongle and grant USB permission if Android asks.
+2. Open Settings > Learning Mode.
+3. Capture one button from the original remote, replay it if needed, then save it into your library.
 
 ### USB Notes
 - When a supported USB dongle is attached, use "Request USB permission" if prompted.

@@ -1,0 +1,5 @@
+Add GitHub Store for browsing compatible IR files directly from GitHub repositories
+Add preview and validation before importing GitHub Store files into remotes
+Improve GitHub Store UX with saved sources, better back navigation, hidden internal files, and post-import actions
+Add caching and optional GitHub connection settings to reduce rate limit issues
+Improve create/edit remote flow with direct access to GitHub Store imports

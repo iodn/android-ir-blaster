@@ -215,10 +215,19 @@ Future<List<Remote>> readRemotes() async {
     final remotes = normalized.map((m) => Remote.fromJson(m)).toList();
 
     if (remotes.isNotEmpty) {
-      final int maxId = remotes.fold<int>(
+      final seenIds = <int>{};
+      var maxId = remotes.fold<int>(
         0,
         (prev, remote) => remote.id > prev ? remote.id : prev,
       );
+      for (final remote in remotes) {
+        if (remote.id <= 0 || seenIds.contains(remote.id)) {
+          maxId++;
+          remote.id = maxId;
+          mutated = true;
+        }
+        seenIds.add(remote.id);
+      }
       Remote._nextId = maxId + 1;
     }
 

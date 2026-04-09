@@ -10,6 +10,7 @@ import 'package:irblaster_controller/utils/remote.dart';
 import 'package:irblaster_controller/widgets/create_button.dart';
 import 'package:irblaster_controller/widgets/db_bulk_import_sheet.dart';
 import 'package:irblaster_controller/widgets/existing_remote_button_import_sheet.dart';
+import 'package:irblaster_controller/widgets/github_store_screen.dart';
 import 'package:uuid/uuid.dart';
 
 enum _LayoutStyle { compact, wide }
@@ -151,6 +152,15 @@ class _CreateRemoteState extends State<CreateRemote> {
       });
       final int added = remote.buttons.length - before;
       _showSnack(context.l10n.importedButtonsFromExistingRemotes(added));
+    } catch (_) {}
+  }
+
+  Future<void> _openGitHubStore() async {
+    try {
+      await Navigator.push<void>(
+        context,
+        MaterialPageRoute(builder: (context) => const GitHubStoreScreen()),
+      );
     } catch (_) {}
   }
 
@@ -450,10 +460,10 @@ class _CreateRemoteState extends State<CreateRemote> {
                   const SizedBox(height: 8),
                   SizedBox(
                     width: double.infinity,
-                    child: FilledButton.icon(
-                      onPressed: _addButton,
-                      icon: const Icon(Icons.add),
-                      label: Text(context.l10n.addButton),
+                    child: FilledButton.tonalIcon(
+                      onPressed: _openGitHubStore,
+                      icon: const Icon(Icons.storefront_rounded),
+                      label: const Text('Browse GitHub Store'),
                     ),
                   ),
                 ],
@@ -483,10 +493,13 @@ class _CreateRemoteState extends State<CreateRemote> {
                               ),
                             ),
                             const SizedBox(height: 16),
-                            FilledButton.icon(
-                              onPressed: _addButton,
-                              icon: const Icon(Icons.add),
-                              label: Text(context.l10n.addButton),
+                            SizedBox(
+                              width: double.infinity,
+                              child: FilledButton.icon(
+                                onPressed: _addButton,
+                                icon: const Icon(Icons.add),
+                                label: Text(context.l10n.addButton),
+                              ),
                             ),
                             const SizedBox(height: 8),
                             Row(
