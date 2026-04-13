@@ -29,6 +29,8 @@ import 'protocols/sony15.dart';
 import 'protocols/sony20.dart';
 import 'protocols/thomson7.dart';
 import 'protocols/elksmart_learned.dart';
+import 'protocols/huawei_ir_learned.dart';
+import 'protocols/lge_ir_learned.dart';
 import 'protocols/tiqiaa_learned.dart';
 import 'protocols/xsat.dart';
 
@@ -63,6 +65,8 @@ class IrProtocolIds {
   static const String xsat = 'xsat';
   static const String kaseikyo = 'kaseikyo';
   static const String elksmartLearned = 'elksmart_learned';
+  static const String huaweiIrLearned = 'huawei_ir_learned';
+  static const String lgeIrLearned    = 'lge_ir_learned';
   static const String tiqiaaLearned = 'tiqiaa_learned';
 }
 
@@ -94,6 +98,8 @@ class IrProtocolRegistry {
     kaseikyoProtocolDefinition.id: kaseikyoProtocolDefinition,
     audioLearnedProtocolDefinition.id: audioLearnedProtocolDefinition,
     elksmartLearnedProtocolDefinition.id: elksmartLearnedProtocolDefinition,
+    huaweiIrLearnedProtocolDefinition.id: huaweiIrLearnedProtocolDefinition,
+    lgeIrLearnedProtocolDefinition.id:    lgeIrLearnedProtocolDefinition,
     sony12ProtocolDefinition.id: sony12ProtocolDefinition,
     sony15ProtocolDefinition.id: sony15ProtocolDefinition,
     sony20ProtocolDefinition.id: sony20ProtocolDefinition,

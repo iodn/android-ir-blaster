@@ -136,6 +136,7 @@ class _ExistingRemoteButtonImportSheetState
       iconCodePoint: src.iconCodePoint,
       iconFontFamily: src.iconFontFamily,
       iconFontPackage: src.iconFontPackage,
+      iconColor: src.iconColor,
       buttonColor: src.buttonColor,
     );
   }

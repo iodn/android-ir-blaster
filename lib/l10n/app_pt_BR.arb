@@ -41,6 +41,17 @@
   "requestUsbPermission": "Pedir permissão USB",
   "homeHardwareTip": "Dica: ainda pode criar e ordenar controles. O hardware só é necessário ao transmitir.",
   "homeNoIrTransmitterTitle": "Nenhum emissor IR disponível",
+  "homeHardwareRequiredBody": "O IR Blaster pode criar e gerenciar controles remotos em qualquer telefone. Para realmente enviar comandos por infravermelho, seu dispositivo precisa de uma das opções de hardware abaixo.",
+  "homeCanStillUseWithoutHardware": "Você ainda pode criar, importar e organizar controles remotos agora mesmo.",
+  "homeWaysToUseIrBlaster": "Formas de usar o IR Blaster",
+  "homeBuiltInIrOptionTitle": "Telefone com IR embutido",
+  "homeBuiltInIrOptionSubtitle": "Funciona em telefones compatíveis com emissor IR embutido. Este telefone não tem um.",
+  "homeBuiltInIrUnavailable": "Não disponível neste telefone",
+  "homeUsbFamilyTiqiaaZaza": "Tiqiaa / ZaZa",
+  "homeUsbFamilyElkSmart": "ElkSmart",
+  "homeAudioAccessoryLabel": "Adaptador de áudio de 3,5 mm",
+  "homeContinueWithoutHardware": "Continuar sem hardware",
+  "homeHowItWorks": "Como funciona",
   "settingsNavLabel": "configurações",
   "dismiss": "Descartar",
   "remotesNavLabel": "controles",
@@ -516,9 +527,9 @@
   "presetNavigation": "Navegación",
   "all": "Todos",
   "completeRequiredFieldsToSave": "Completa os campos obrigatórios para salvar",
-  "buttonLabelStepTitle": "1) Etiqueta do botão",
+  "buttonLabelStepTitle": "Etiqueta do botão",
   "buttonLabelStepSubtitle": "Escolha uma imagem, un icono o escreva uma etiqueta.",
-  "buttonColorStepTitle": "2) Cor do botão (opcional)",
+  "buttonColorStepTitle": "Cor do botão",
   "buttonColorStepSubtitle": "Escolha un cor de fondo para este botão.",
   "selectColor": "Selecione cor:",
   "noImageSelected": "Não há imagem selecionada",
@@ -2144,5 +2155,60 @@
   "learningModeChooseRemoteTitle": "Escolha um controle remoto",
   "learningModeNewRemoteTitle": "Crie um novo controle remoto",
   "learningModeSaveSuccess": "Botão aprendido salvo.",
-  "learningModeSaveFailed": "O botão aprendido não pôde ser salvo."
+  "learningModeSaveFailed": "O botão aprendido não pôde ser salvo.",
+  "remoteSetupIntro": "Escolha primeiro um nome e um layout. Depois você poderá adicionar botões.",
+  "startWithDefault": "Começar com o padrão",
+  "browseGithubStore": "Explorar GitHub Store",
+  "addFirstButton": "Adicionar primeiro botão",
+  "moreWaysToStart": "Mais formas de começar",
+  "unsavedRemoteSetupChangesMessage": "Descartar esta nova configuração do controle e sair desta tela?",
+  "unsavedRemoteStudioChangesMessage": "Descartar as alterações do controle e sair desta tela?",
+  "firstButtonAdded": "Primeiro botão adicionado.",
+  "iconColorTitle": "Cor do ícone",
+  "iconColorHelper": "Escolha uma cor para o símbolo que continue visível sobre o fundo do botão.",
+  "colorRed": "Vermelho",
+  "colorPink": "Rosa",
+  "colorPurple": "Roxo",
+  "colorDeepPurple": "Roxo escuro",
+  "colorIndigo": "Índigo",
+  "colorBlue": "Azul",
+  "colorLightBlue": "Azul claro",
+  "colorCyan": "Ciano",
+  "colorTeal": "Verde-azulado",
+  "colorGreen": "Verde",
+  "colorLightGreen": "Verde claro",
+  "colorLime": "Lima",
+  "colorYellow": "Amarelo",
+  "colorAmber": "Âmbar",
+  "colorOrange": "Laranja",
+  "colorDeepOrange": "Laranja escuro",
+  "colorBrown": "Marrom",
+  "colorGrey": "Cinza",
+  "colorBlueGrey": "Cinza azulado",
+  "colorBlack": "Preto",
+  "colorWhite": "Branco",
+  "buttonColorSemantics": "Cor do botão {colorName}",
+  "@buttonColorSemantics": {
+    "placeholders": {
+      "colorName": {}
+    }
+  },
+  "buttonColorSemanticsSelected": "Cor do botão {colorName}, selecionada",
+  "@buttonColorSemanticsSelected": {
+    "placeholders": {
+      "colorName": {}
+    }
+  },
+  "iconColorSemantics": "Cor do ícone {colorName}",
+  "@iconColorSemantics": {
+    "placeholders": {
+      "colorName": {}
+    }
+  },
+  "iconColorSemanticsSelected": "Cor do ícone {colorName}, selecionada",
+  "@iconColorSemanticsSelected": {
+    "placeholders": {
+      "colorName": {}
+    }
+  }
 }

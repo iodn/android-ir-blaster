@@ -140,6 +140,40 @@ class AppLocalizationsZh extends AppLocalizations {
   String get homeNoIrTransmitterTitle => '没有可用的红外发射器';
 
   @override
+  String get homeHardwareRequiredBody =>
+      'IR Blaster 可以在任何手机上创建和管理遥控器。但若要真正发送红外命令，设备需要具备下列其中一种硬件方式。';
+
+  @override
+  String get homeCanStillUseWithoutHardware => '你现在仍然可以创建、导入和整理遥控器。';
+
+  @override
+  String get homeWaysToUseIrBlaster => '使用 IR Blaster 的方式';
+
+  @override
+  String get homeBuiltInIrOptionTitle => '带内置红外的手机';
+
+  @override
+  String get homeBuiltInIrOptionSubtitle => '可在带有内置红外发射器的受支持手机上使用。这部手机不具备该功能。';
+
+  @override
+  String get homeBuiltInIrUnavailable => '此手机不可用';
+
+  @override
+  String get homeUsbFamilyTiqiaaZaza => 'Tiqiaa / ZaZa';
+
+  @override
+  String get homeUsbFamilyElkSmart => 'ElkSmart';
+
+  @override
+  String get homeAudioAccessoryLabel => '3.5 毫米音频适配器';
+
+  @override
+  String get homeContinueWithoutHardware => '无硬件继续';
+
+  @override
+  String get homeHowItWorks => '工作原理';
+
+  @override
   String get settingsNavLabel => '设置';
 
   @override
@@ -1492,13 +1526,13 @@ class AppLocalizationsZh extends AppLocalizations {
   String get completeRequiredFieldsToSave => '请填写必填项后再保存';
 
   @override
-  String get buttonLabelStepTitle => '1 按钮标签';
+  String get buttonLabelStepTitle => '按钮标签';
 
   @override
   String get buttonLabelStepSubtitle => '选择图片、图标或输入文本标签。';
 
   @override
-  String get buttonColorStepTitle => '2 按钮颜色 可选';
+  String get buttonColorStepTitle => '按钮颜色';
 
   @override
   String get buttonColorStepSubtitle => '为此按钮选择背景颜色。';
@@ -4323,4 +4357,117 @@ class AppLocalizationsZh extends AppLocalizations {
 
   @override
   String get learningModeSaveFailed => '无法保存学习到的按钮。';
+
+  @override
+  String get remoteSetupIntro => '先选择名称和布局，之后可以再添加按钮。';
+
+  @override
+  String get startWithDefault => '使用默认设置开始';
+
+  @override
+  String get browseGithubStore => '浏览 GitHub 商店';
+
+  @override
+  String get addFirstButton => '添加第一个按钮';
+
+  @override
+  String get moreWaysToStart => '更多开始方式';
+
+  @override
+  String get unsavedRemoteSetupChangesMessage => '要放弃这个新遥控器设置并离开此页面吗？';
+
+  @override
+  String get unsavedRemoteStudioChangesMessage => '要放弃遥控器更改并离开此页面吗？';
+
+  @override
+  String get firstButtonAdded => '已添加第一个按钮。';
+
+  @override
+  String get iconColorTitle => '图标颜色';
+
+  @override
+  String get iconColorHelper => '选择一个在按钮背景上仍然清晰可见的符号颜色。';
+
+  @override
+  String get colorRed => '红色';
+
+  @override
+  String get colorPink => '粉色';
+
+  @override
+  String get colorPurple => '紫色';
+
+  @override
+  String get colorDeepPurple => '深紫色';
+
+  @override
+  String get colorIndigo => '靛蓝';
+
+  @override
+  String get colorBlue => '蓝色';
+
+  @override
+  String get colorLightBlue => '浅蓝色';
+
+  @override
+  String get colorCyan => '青色';
+
+  @override
+  String get colorTeal => '蓝绿色';
+
+  @override
+  String get colorGreen => '绿色';
+
+  @override
+  String get colorLightGreen => '浅绿色';
+
+  @override
+  String get colorLime => '青柠色';
+
+  @override
+  String get colorYellow => '黄色';
+
+  @override
+  String get colorAmber => '琥珀色';
+
+  @override
+  String get colorOrange => '橙色';
+
+  @override
+  String get colorDeepOrange => '深橙色';
+
+  @override
+  String get colorBrown => '棕色';
+
+  @override
+  String get colorGrey => '灰色';
+
+  @override
+  String get colorBlueGrey => '蓝灰色';
+
+  @override
+  String get colorBlack => '黑色';
+
+  @override
+  String get colorWhite => '白色';
+
+  @override
+  String buttonColorSemantics(Object colorName) {
+    return '按钮颜色 $colorName';
+  }
+
+  @override
+  String buttonColorSemanticsSelected(Object colorName) {
+    return '按钮颜色 $colorName，已选中';
+  }
+
+  @override
+  String iconColorSemantics(Object colorName) {
+    return '图标颜色 $colorName';
+  }
+
+  @override
+  String iconColorSemanticsSelected(Object colorName) {
+    return '图标颜色 $colorName，已选中';
+  }
 }

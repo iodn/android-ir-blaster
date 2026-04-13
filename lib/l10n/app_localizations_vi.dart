@@ -151,6 +151,42 @@ class AppLocalizationsVi extends AppLocalizations {
   String get homeNoIrTransmitterTitle => 'Không có bộ phát IR khả dụng';
 
   @override
+  String get homeHardwareRequiredBody =>
+      'IR Blaster có thể tạo và quản lý điều khiển từ xa trên bất kỳ điện thoại nào. Nhưng để thực sự gửi lệnh hồng ngoại, thiết bị của bạn cần một trong các tùy chọn phần cứng bên dưới.';
+
+  @override
+  String get homeCanStillUseWithoutHardware =>
+      'Bạn vẫn có thể tạo, nhập và sắp xếp điều khiển từ xa ngay bây giờ.';
+
+  @override
+  String get homeWaysToUseIrBlaster => 'Các cách dùng IR Blaster';
+
+  @override
+  String get homeBuiltInIrOptionTitle => 'Điện thoại có IR tích hợp';
+
+  @override
+  String get homeBuiltInIrOptionSubtitle =>
+      'Hoạt động trên các điện thoại được hỗ trợ có bộ phát IR tích hợp. Điện thoại này không có.';
+
+  @override
+  String get homeBuiltInIrUnavailable => 'Không có trên điện thoại này';
+
+  @override
+  String get homeUsbFamilyTiqiaaZaza => 'Tiqiaa / ZaZa';
+
+  @override
+  String get homeUsbFamilyElkSmart => 'ElkSmart';
+
+  @override
+  String get homeAudioAccessoryLabel => 'Bộ chuyển âm thanh 3,5 mm';
+
+  @override
+  String get homeContinueWithoutHardware => 'Tiếp tục không cần phần cứng';
+
+  @override
+  String get homeHowItWorks => 'Cách hoạt động';
+
+  @override
   String get settingsNavLabel => 'Cài đặt';
 
   @override
@@ -1582,14 +1618,14 @@ class AppLocalizationsVi extends AppLocalizations {
   String get completeRequiredFieldsToSave => 'Điền đủ trường bắt buộc để lưu';
 
   @override
-  String get buttonLabelStepTitle => '1) Nhãn nút';
+  String get buttonLabelStepTitle => 'Nhãn nút';
 
   @override
   String get buttonLabelStepSubtitle =>
       'Chọn hình ảnh, biểu tượng hoặc nhập nhãn văn bản.';
 
   @override
-  String get buttonColorStepTitle => '2) Màu nút (tùy chọn)';
+  String get buttonColorStepTitle => 'Màu nút';
 
   @override
   String get buttonColorStepSubtitle => 'Chọn màu nền cho nút này.';
@@ -4470,4 +4506,120 @@ class AppLocalizationsVi extends AppLocalizations {
 
   @override
   String get learningModeSaveFailed => 'Không thể lưu nút đã học.';
+
+  @override
+  String get remoteSetupIntro =>
+      'Hãy chọn tên và bố cục trước. Bạn có thể thêm nút sau.';
+
+  @override
+  String get startWithDefault => 'Bắt đầu với mặc định';
+
+  @override
+  String get browseGithubStore => 'Mở GitHub Store';
+
+  @override
+  String get addFirstButton => 'Thêm nút đầu tiên';
+
+  @override
+  String get moreWaysToStart => 'Thêm cách để bắt đầu';
+
+  @override
+  String get unsavedRemoteSetupChangesMessage =>
+      'Hủy thiết lập điều khiển mới này và rời khỏi màn hình?';
+
+  @override
+  String get unsavedRemoteStudioChangesMessage =>
+      'Hủy các thay đổi của điều khiển và rời khỏi màn hình?';
+
+  @override
+  String get firstButtonAdded => 'Đã thêm nút đầu tiên.';
+
+  @override
+  String get iconColorTitle => 'Màu biểu tượng';
+
+  @override
+  String get iconColorHelper => 'Chọn màu biểu tượng vẫn dễ nhìn trên nền nút.';
+
+  @override
+  String get colorRed => 'Đỏ';
+
+  @override
+  String get colorPink => 'Hồng';
+
+  @override
+  String get colorPurple => 'Tím';
+
+  @override
+  String get colorDeepPurple => 'Tím đậm';
+
+  @override
+  String get colorIndigo => 'Chàm';
+
+  @override
+  String get colorBlue => 'Xanh dương';
+
+  @override
+  String get colorLightBlue => 'Xanh dương nhạt';
+
+  @override
+  String get colorCyan => 'Lục lam';
+
+  @override
+  String get colorTeal => 'Xanh mòng két';
+
+  @override
+  String get colorGreen => 'Xanh lá';
+
+  @override
+  String get colorLightGreen => 'Xanh lá nhạt';
+
+  @override
+  String get colorLime => 'Xanh chanh';
+
+  @override
+  String get colorYellow => 'Vàng';
+
+  @override
+  String get colorAmber => 'Hổ phách';
+
+  @override
+  String get colorOrange => 'Cam';
+
+  @override
+  String get colorDeepOrange => 'Cam đậm';
+
+  @override
+  String get colorBrown => 'Nâu';
+
+  @override
+  String get colorGrey => 'Xám';
+
+  @override
+  String get colorBlueGrey => 'Xanh xám';
+
+  @override
+  String get colorBlack => 'Đen';
+
+  @override
+  String get colorWhite => 'Trắng';
+
+  @override
+  String buttonColorSemantics(Object colorName) {
+    return 'Màu nút $colorName';
+  }
+
+  @override
+  String buttonColorSemanticsSelected(Object colorName) {
+    return 'Màu nút $colorName, đã chọn';
+  }
+
+  @override
+  String iconColorSemantics(Object colorName) {
+    return 'Màu biểu tượng $colorName';
+  }
+
+  @override
+  String iconColorSemanticsSelected(Object colorName) {
+    return 'Màu biểu tượng $colorName, đã chọn';
+  }
 }

@@ -41,6 +41,17 @@
   "requestUsbPermission": "申请 USB 权限",
   "homeHardwareTip": "提示 你现在仍可创建和整理遥控器。只有发送时才需要硬件。",
   "homeNoIrTransmitterTitle": "没有可用的红外发射器",
+  "homeHardwareRequiredBody": "IR Blaster 可以在任何手机上创建和管理遥控器。但若要真正发送红外命令，设备需要具备下列其中一种硬件方式。",
+  "homeCanStillUseWithoutHardware": "你现在仍然可以创建、导入和整理遥控器。",
+  "homeWaysToUseIrBlaster": "使用 IR Blaster 的方式",
+  "homeBuiltInIrOptionTitle": "带内置红外的手机",
+  "homeBuiltInIrOptionSubtitle": "可在带有内置红外发射器的受支持手机上使用。这部手机不具备该功能。",
+  "homeBuiltInIrUnavailable": "此手机不可用",
+  "homeUsbFamilyTiqiaaZaza": "Tiqiaa / ZaZa",
+  "homeUsbFamilyElkSmart": "ElkSmart",
+  "homeAudioAccessoryLabel": "3.5 毫米音频适配器",
+  "homeContinueWithoutHardware": "无硬件继续",
+  "homeHowItWorks": "工作原理",
   "settingsNavLabel": "设置",
   "dismiss": "关闭",
   "remotesNavLabel": "遥控器",
@@ -516,9 +527,9 @@
   "presetNavigation": "导航",
   "all": "全部",
   "completeRequiredFieldsToSave": "请填写必填项后再保存",
-  "buttonLabelStepTitle": "1 按钮标签",
+  "buttonLabelStepTitle": "按钮标签",
   "buttonLabelStepSubtitle": "选择图片、图标或输入文本标签。",
-  "buttonColorStepTitle": "2 按钮颜色 可选",
+  "buttonColorStepTitle": "按钮颜色",
   "buttonColorStepSubtitle": "为此按钮选择背景颜色。",
   "selectColor": "选择颜色",
   "noImageSelected": "未选择图片",
@@ -2144,5 +2155,60 @@
   "learningModeChooseRemoteTitle": "选择遥控器",
   "learningModeNewRemoteTitle": "创建一个新的远程",
   "learningModeSaveSuccess": "已学会的按钮已保存。",
-  "learningModeSaveFailed": "无法保存学习到的按钮。"
+  "learningModeSaveFailed": "无法保存学习到的按钮。",
+  "remoteSetupIntro": "先选择名称和布局，之后可以再添加按钮。",
+  "startWithDefault": "使用默认设置开始",
+  "browseGithubStore": "浏览 GitHub 商店",
+  "addFirstButton": "添加第一个按钮",
+  "moreWaysToStart": "更多开始方式",
+  "unsavedRemoteSetupChangesMessage": "要放弃这个新遥控器设置并离开此页面吗？",
+  "unsavedRemoteStudioChangesMessage": "要放弃遥控器更改并离开此页面吗？",
+  "firstButtonAdded": "已添加第一个按钮。",
+  "iconColorTitle": "图标颜色",
+  "iconColorHelper": "选择一个在按钮背景上仍然清晰可见的符号颜色。",
+  "colorRed": "红色",
+  "colorPink": "粉色",
+  "colorPurple": "紫色",
+  "colorDeepPurple": "深紫色",
+  "colorIndigo": "靛蓝",
+  "colorBlue": "蓝色",
+  "colorLightBlue": "浅蓝色",
+  "colorCyan": "青色",
+  "colorTeal": "蓝绿色",
+  "colorGreen": "绿色",
+  "colorLightGreen": "浅绿色",
+  "colorLime": "青柠色",
+  "colorYellow": "黄色",
+  "colorAmber": "琥珀色",
+  "colorOrange": "橙色",
+  "colorDeepOrange": "深橙色",
+  "colorBrown": "棕色",
+  "colorGrey": "灰色",
+  "colorBlueGrey": "蓝灰色",
+  "colorBlack": "黑色",
+  "colorWhite": "白色",
+  "buttonColorSemantics": "按钮颜色 {colorName}",
+  "@buttonColorSemantics": {
+    "placeholders": {
+      "colorName": {}
+    }
+  },
+  "buttonColorSemanticsSelected": "按钮颜色 {colorName}，已选中",
+  "@buttonColorSemanticsSelected": {
+    "placeholders": {
+      "colorName": {}
+    }
+  },
+  "iconColorSemantics": "图标颜色 {colorName}",
+  "@iconColorSemantics": {
+    "placeholders": {
+      "colorName": {}
+    }
+  },
+  "iconColorSemanticsSelected": "图标颜色 {colorName}，已选中",
+  "@iconColorSemanticsSelected": {
+    "placeholders": {
+      "colorName": {}
+    }
+  }
 }

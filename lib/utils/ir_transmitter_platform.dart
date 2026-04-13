@@ -103,6 +103,12 @@ class IrTransmitterCapabilities {
   final UsbConnectionStatus usbStatus;
   final String? usbStatusMessage;
   final bool hasAudio;
+  /// True when the device is a Huawei/Honor phone with a built-in IR receiver
+  /// that supports the proprietary self-learning API.
+  final bool hasHuaweiIrLearning;
+  /// True when the device is an LG phone with the UEI Quickset service
+  /// (com.uei.lg.quicksetsdk) installed and the IR learning feature available.
+  final bool hasLgeIrLearning;
   final IrTransmitterType currentType;
   final List<UsbDeviceInfo> usbDevices;
   final bool autoSwitchEnabled;
@@ -114,6 +120,8 @@ class IrTransmitterCapabilities {
     required this.usbStatus,
     required this.usbStatusMessage,
     required this.hasAudio,
+    required this.hasHuaweiIrLearning,
+    required this.hasLgeIrLearning,
     required this.currentType,
     required this.usbDevices,
     required this.autoSwitchEnabled,
@@ -137,6 +145,8 @@ class IrTransmitterCapabilities {
       usbStatus: UsbConnectionStatusX.fromWire(m['usbStatus'] as String?),
       usbStatusMessage: m['usbStatusMessage'] as String?,
       hasAudio: (m['hasAudio'] as bool?) ?? true,
+      hasHuaweiIrLearning: (m['hasHuaweiIrLearning'] as bool?) ?? false,
+      hasLgeIrLearning:    (m['hasLgeIrLearning']    as bool?) ?? false,
       currentType: IrTransmitterTypeX.fromWire(m['currentType'] as String?),
       usbDevices: devices,
       autoSwitchEnabled: (m['autoSwitchEnabled'] as bool?) ?? false,
@@ -222,6 +232,8 @@ class IrTransmitterPlatform {
             usbStatus: UsbConnectionStatus.noDevice,
             usbStatusMessage: null,
             hasAudio: true,
+            hasHuaweiIrLearning: false,
+            hasLgeIrLearning: false,
             currentType: IrTransmitterType.internal,
             usbDevices: <UsbDeviceInfo>[],
             autoSwitchEnabled: false,
@@ -271,6 +283,8 @@ class IrTransmitterPlatform {
       usbStatus: UsbConnectionStatus.noDevice,
       usbStatusMessage: null,
       hasAudio: true,
+      hasHuaweiIrLearning: false,
+      hasLgeIrLearning: false,
       currentType: IrTransmitterType.internal,
       usbDevices: <UsbDeviceInfo>[],
       autoSwitchEnabled: false,
@@ -338,6 +352,58 @@ class IrTransmitterPlatform {
 
   static Future<bool> requestAudioLearningPermission() async {
     final raw = await _ch.invokeMethod('requestAudioLearningPermission');
+    return raw == true;
+  }
+
+  /// Triggers the built-in Huawei IR receiver to learn a signal.
+  /// Returns null when the user cancelled; throws [PlatformException] on error.
+  /// Only available when [IrTransmitterCapabilities.hasHuaweiIrLearning] is true.
+  static Future<LearnedUsbSignal?> learnHuaweiSignal({int timeoutMs = 30000}) async {
+    final raw = await _ch.invokeMethod(
+      'learnHuaweiSignal',
+      <String, dynamic>{'timeoutMs': timeoutMs},
+    );
+    if (raw == null) return null;
+    if (raw is Map) {
+      final m = raw.map((k, v) => MapEntry(k.toString(), v)).cast<String, dynamic>();
+      return LearnedUsbSignal.fromMap(m);
+    }
+    throw PlatformException(
+      code: 'BAD_LEARNED_SIGNAL',
+      message: 'Unexpected Huawei IR learned signal payload',
+    );
+  }
+
+  /// Cancels an in-progress [learnHuaweiSignal] call.
+  static Future<bool> cancelHuaweiLearning() async {
+    final raw = await _ch.invokeMethod('cancelHuaweiLearning');
+    return raw == true;
+  }
+
+  /// Triggers the built-in LG IR receiver (UEI Quickset) to learn a signal.
+  /// Returns null when the user cancelled; throws [PlatformException] on error.
+  /// Only available when [IrTransmitterCapabilities.hasLgeIrLearning] is true.
+  /// NOTE: The captured signal is device-locked — it can only be replayed on the
+  /// same LG device with the UEI service present.
+  static Future<LearnedUsbSignal?> learnLgSignal({int timeoutMs = 30000}) async {
+    final raw = await _ch.invokeMethod(
+      'learnLgSignal',
+      <String, dynamic>{'timeoutMs': timeoutMs},
+    );
+    if (raw == null) return null;
+    if (raw is Map) {
+      final m = raw.map((k, v) => MapEntry(k.toString(), v)).cast<String, dynamic>();
+      return LearnedUsbSignal.fromMap(m);
+    }
+    throw PlatformException(
+      code: 'BAD_LEARNED_SIGNAL',
+      message: 'Unexpected LG IR learned signal payload',
+    );
+  }
+
+  /// Cancels an in-progress [learnLgSignal] call.
+  static Future<bool> cancelLgLearning() async {
+    final raw = await _ch.invokeMethod('cancelLgLearning');
     return raw == true;
   }
 

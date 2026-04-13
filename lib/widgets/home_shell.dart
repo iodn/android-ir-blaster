@@ -11,6 +11,7 @@ import 'package:irblaster_controller/widgets/ir_finder_screen.dart';
 import 'package:irblaster_controller/widgets/macros_tab.dart';
 import 'package:irblaster_controller/widgets/remote_list.dart';
 import 'package:irblaster_controller/widgets/settings_screen.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 class HomeShell extends StatefulWidget {
   const HomeShell({super.key});
@@ -20,6 +21,9 @@ class HomeShell extends StatefulWidget {
 }
 
 class _HomeShellState extends State<HomeShell> {
+  static const String _hardwareEducationSeenKey =
+      'home_hardware_education_seen_v2';
+
   // Global capabilities listener for USB Audio auto-select
   StreamSubscription<IrTransmitterCapabilities>? _capsEventsSub;
 
@@ -36,6 +40,7 @@ class _HomeShellState extends State<HomeShell> {
   StreamSubscription<IrTransmitterCapabilities>? _capsSub;
 
   bool _startupNoticeShown = false;
+  bool _hardwareEducationSeen = false;
   bool _bannerDismissed = false;
   bool _busy = false;
 
@@ -119,6 +124,9 @@ class _HomeShellState extends State<HomeShell> {
 
   Future<void> _loadCapsAndMaybeShowStartupNotice() async {
     try {
+      final prefs = await SharedPreferences.getInstance();
+      _hardwareEducationSeen =
+          prefs.getBool(_hardwareEducationSeenKey) ?? false;
       final caps = await IrTransmitterPlatform.getCapabilities();
       if (!mounted) return;
 
@@ -128,6 +136,16 @@ class _HomeShellState extends State<HomeShell> {
         if (!mounted) return;
         _maybeShowStartupNotice(caps);
       });
+    } catch (_) {
+      // ignore
+    }
+  }
+
+  Future<void> _markHardwareEducationSeen() async {
+    _hardwareEducationSeen = true;
+    try {
+      final prefs = await SharedPreferences.getInstance();
+      await prefs.setBool(_hardwareEducationSeenKey, true);
     } catch (_) {
       // ignore
     }
@@ -202,6 +220,13 @@ class _HomeShellState extends State<HomeShell> {
     }
   }
 
+  List<String> _usbFamilyBadges(BuildContext context) {
+    return <String>[
+      context.l10n.homeUsbFamilyTiqiaaZaza,
+      context.l10n.homeUsbFamilyElkSmart,
+    ];
+  }
+
   /// Missing handler you referenced in initState().
   Future<void> _onCaps(IrTransmitterCapabilities caps) async {
     if (!mounted) return;
@@ -212,9 +237,15 @@ class _HomeShellState extends State<HomeShell> {
 
   Future<void> _maybeShowStartupNotice(IrTransmitterCapabilities caps) async {
     if (_startupNoticeShown) return;
+    if (_hardwareEducationSeen) return;
     if (!_needsHardwareNotice(caps)) return;
 
     _startupNoticeShown = true;
+    await _markHardwareEducationSeen();
+    await _showHardwareExplainer(caps);
+  }
+
+  Future<void> _showHardwareExplainer(IrTransmitterCapabilities caps) async {
     _startupSheetOpen = true;
     _startupSheetContext = null;
 
@@ -243,14 +274,22 @@ class _HomeShellState extends State<HomeShell> {
 
           final List<_HardwareOption> options = <_HardwareOption>[
             _HardwareOption(
+              icon: Icons.smartphone_rounded,
+              title: ctx.l10n.homeBuiltInIrOptionTitle,
+              subtitle: ctx.l10n.homeBuiltInIrOptionSubtitle,
+              badges: <String>[ctx.l10n.homeBuiltInIrUnavailable],
+            ),
+            _HardwareOption(
               icon: Icons.usb_rounded,
               title: ctx.l10n.homeUsbDongleRecommended,
               subtitle: _usbOptionSubtitle(ctx, caps),
+              badges: _usbFamilyBadges(ctx),
             ),
             _HardwareOption(
               icon: Icons.graphic_eq_rounded,
               title: ctx.l10n.homeAudioAdapterAlternative,
               subtitle: ctx.l10n.homeAudioAdapterDescription,
+              badges: <String>[ctx.l10n.homeAudioAccessoryLabel],
             ),
           ];
 
@@ -299,27 +338,67 @@ class _HomeShellState extends State<HomeShell> {
                 const SizedBox(height: 12),
                 Container(
                   width: double.infinity,
-                  padding: const EdgeInsets.all(12),
+                  padding: const EdgeInsets.all(14),
                   decoration: BoxDecoration(
-                    color: cs.surfaceContainerHighest.withValues(alpha: 0.55),
+                    gradient: LinearGradient(
+                      colors: <Color>[
+                        cs.surfaceContainerHighest.withValues(alpha: 0.78),
+                        cs.surfaceContainerHigh.withValues(alpha: 0.64),
+                      ],
+                      begin: Alignment.topLeft,
+                      end: Alignment.bottomRight,
+                    ),
                     borderRadius: BorderRadius.circular(14),
                     border: Border.all(
                       color: cs.outlineVariant.withValues(alpha: 0.22),
                     ),
                   ),
-                  child: Text(
-                    message,
-                    style: theme.textTheme.bodyMedium?.copyWith(
-                      color: cs.onSurface.withValues(alpha: 0.85),
-                      fontWeight: FontWeight.w600,
-                    ),
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Text(
+                        message,
+                        style: theme.textTheme.bodyMedium?.copyWith(
+                          color: cs.onSurface.withValues(alpha: 0.9),
+                          fontWeight: FontWeight.w700,
+                        ),
+                      ),
+                      const SizedBox(height: 10),
+                      Text(
+                        ctx.l10n.homeHardwareRequiredBody,
+                        style: theme.textTheme.bodySmall?.copyWith(
+                          color: cs.onSurface.withValues(alpha: 0.74),
+                          fontWeight: FontWeight.w600,
+                        ),
+                      ),
+                      const SizedBox(height: 10),
+                      Row(
+                        children: [
+                          Icon(
+                            Icons.check_circle_outline_rounded,
+                            size: 18,
+                            color: cs.primary,
+                          ),
+                          const SizedBox(width: 8),
+                          Expanded(
+                            child: Text(
+                              ctx.l10n.homeCanStillUseWithoutHardware,
+                              style: theme.textTheme.bodySmall?.copyWith(
+                                color: cs.onSurface.withValues(alpha: 0.82),
+                                fontWeight: FontWeight.w700,
+                              ),
+                            ),
+                          ),
+                        ],
+                      ),
+                    ],
                   ),
                 ),
-                const SizedBox(height: 12),
+                const SizedBox(height: 14),
                 Align(
                   alignment: Alignment.centerLeft,
                   child: Text(
-                    ctx.l10n.homeChooseTransmitter,
+                    ctx.l10n.homeWaysToUseIrBlaster,
                     style: theme.textTheme.titleSmall
                         ?.copyWith(fontWeight: FontWeight.w900),
                   ),
@@ -338,58 +417,64 @@ class _HomeShellState extends State<HomeShell> {
                           setState(() => _index = 3);
                           Haptics.selectionClick();
                         },
-                        icon: const Icon(Icons.settings_rounded),
+                        icon: const Icon(Icons.tune_rounded),
                         label: Text(ctx.l10n.openSettings),
                       ),
                     ),
-                    const SizedBox(width: 10),
-                    Expanded(
-                      child: FilledButton.icon(
-                        onPressed: _busy
-                            ? null
-                            : () async {
-                                setState(() => _busy = true);
-                                try {
-                                  final ok = await IrTransmitterPlatform
-                                      .usbScanAndRequest();
-                                  if (!mounted) return;
+                    if (caps.hasUsb) ...[
+                      const SizedBox(width: 10),
+                      Expanded(
+                        child: FilledButton.icon(
+                          onPressed: _busy
+                              ? null
+                              : () async {
+                                  setState(() => _busy = true);
+                                  try {
+                                    final ok = await IrTransmitterPlatform
+                                        .usbScanAndRequest();
+                                    if (!mounted) return;
 
-                                  ScaffoldMessenger.of(context).showSnackBar(
-                                    SnackBar(
-                                      content: Text(
-                                        ok
-                                            ? context.l10n
-                                                .homeUsbPermissionSentApprove
-                                            : context
-                                                .l10n.homeUsbDongleNotDetected,
+                                    ScaffoldMessenger.of(context).showSnackBar(
+                                      SnackBar(
+                                        content: Text(
+                                          ok
+                                              ? context.l10n
+                                                  .homeUsbPermissionSentApprove
+                                              : context.l10n
+                                                  .homeUsbDongleNotDetected,
+                                        ),
                                       ),
-                                    ),
-                                  );
-                                } catch (_) {
-                                  if (!mounted) return;
-                                  ScaffoldMessenger.of(context).showSnackBar(
-                                    SnackBar(
-                                      content: Text(
-                                        context.l10n
-                                            .homeUsbPermissionRequestFailed,
+                                    );
+                                  } catch (_) {
+                                    if (!mounted) return;
+                                    ScaffoldMessenger.of(context).showSnackBar(
+                                      SnackBar(
+                                        content: Text(
+                                          context.l10n
+                                              .homeUsbPermissionRequestFailed,
+                                        ),
                                       ),
-                                    ),
-                                  );
-                                } finally {
-                                  if (mounted) {
-                                    setState(() => _busy = false);
+                                    );
+                                  } finally {
+                                    if (mounted) {
+                                      setState(() => _busy = false);
+                                    }
                                   }
-                                }
-                              },
-                        icon: const Icon(Icons.usb_rounded),
-                        label: Text(_busy
-                            ? ctx.l10n.working
-                            : ctx.l10n.requestUsbPermission),
+                                },
+                          icon: const Icon(Icons.usb_rounded),
+                          label: Text(_busy
+                              ? ctx.l10n.working
+                              : ctx.l10n.requestUsbPermission),
+                        ),
                       ),
-                    ),
+                    ],
                   ],
                 ),
                 const SizedBox(height: 10),
+                TextButton(
+                  onPressed: () => Navigator.of(ctx).pop(),
+                  child: Text(ctx.l10n.homeContinueWithoutHardware),
+                ),
                 Text(
                   ctx.l10n.homeHardwareTip,
                   style: theme.textTheme.bodySmall?.copyWith(
@@ -462,6 +547,16 @@ class _HomeShellState extends State<HomeShell> {
                       children: [
                         FilledButton.tonalIcon(
                           onPressed: () {
+                            final caps = _caps;
+                            if (caps == null) return;
+                            unawaited(_showHardwareExplainer(caps));
+                            Haptics.selectionClick();
+                          },
+                          icon: const Icon(Icons.lightbulb_outline_rounded),
+                          label: Text(context.l10n.homeHowItWorks),
+                        ),
+                        FilledButton.tonalIcon(
+                          onPressed: () {
                             setState(() => _index = 3);
                             Haptics.selectionClick();
                           },
@@ -531,11 +626,13 @@ class _HardwareOption {
   final IconData icon;
   final String title;
   final String subtitle;
+  final List<String> badges;
 
   const _HardwareOption({
     required this.icon,
     required this.title,
     required this.subtitle,
+    this.badges = const <String>[],
   });
 }
 
@@ -588,6 +685,39 @@ class _OptionCard extends StatelessWidget {
                       fontWeight: FontWeight.w700,
                     ),
                   ),
+                  if (option.badges.isNotEmpty) ...[
+                    const SizedBox(height: 8),
+                    Wrap(
+                      spacing: 6,
+                      runSpacing: 6,
+                      children: option.badges
+                          .map(
+                            (badge) => Container(
+                              padding: const EdgeInsets.symmetric(
+                                horizontal: 10,
+                                vertical: 6,
+                              ),
+                              decoration: BoxDecoration(
+                                color: cs.primaryContainer
+                                    .withValues(alpha: 0.55),
+                                borderRadius: BorderRadius.circular(999),
+                                border: Border.all(
+                                  color: cs.outlineVariant
+                                      .withValues(alpha: 0.18),
+                                ),
+                              ),
+                              child: Text(
+                                badge,
+                                style: theme.textTheme.labelMedium?.copyWith(
+                                  color: cs.onPrimaryContainer,
+                                  fontWeight: FontWeight.w800,
+                                ),
+                              ),
+                            ),
+                          )
+                          .toList(growable: false),
+                    ),
+                  ],
                 ],
               ),
             ),

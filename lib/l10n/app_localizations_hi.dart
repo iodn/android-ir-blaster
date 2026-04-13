@@ -21,7 +21,7 @@ class AppLocalizationsHi extends AppLocalizations {
   String get failedToStart => 'प्रारंभ नहीं हुआ';
 
   @override
-  String get retry => 'Retry';
+  String get retry => 'फिर से प्रयास करें';
 
   @override
   String get quickTilePower => 'पावर';
@@ -37,40 +37,41 @@ class AppLocalizationsHi extends AppLocalizations {
 
   @override
   String get homeUsbPermissionRequiredMessage =>
-      'इस फ़ोन में अंतर्निर्मित IR emitter नहीं है। USB IR डोंगल मिला है, लेकिन अभी अनुमति नहीं मिली है।\n\nIR भेजना सक्षम करने के लिए USB अनुमति प्रॉम्प्ट स्वीकार करें।';
+      'इस फ़ोन में बिल्ट-इन IR एमिटर नहीं है। USB IR डोंगल मिला है, लेकिन अभी अनुमति नहीं मिली है。\n\nIR भेजना सक्षम करने के लिए USB अनुमति प्रॉम्प्ट स्वीकार करें।';
 
   @override
   String get homeUsbPermissionDeniedMessage =>
-      'इस फ़ोन में अंतर्निर्मित IR emitter नहीं है। USB IR डोंगल मिला, लेकिन USB अनुमति अस्वीकृत हुई।\n\nफिर से अनुमति मांगें और IR भेजना सक्षम करने के लिए प्रॉम्प्ट स्वीकार करें।';
+      'इस फ़ोन में बिल्ट-इन IR एमिटर नहीं है। USB IR डोंगल मिला, लेकिन USB अनुमति अस्वीकृत हो गई。\n\nफिर से अनुमति मांगें और IR भेजना सक्षम करने के लिए प्रॉम्प्ट स्वीकार करें।';
 
   @override
   String get homeUsbPermissionGrantedMessage =>
-      'इस फ़ोन में अंतर्निर्मित IR emitter नहीं है। USB IR डोंगल अधिकृत है, लेकिन अभी शुरू नहीं हुआ है।';
+      'इस फ़ोन में बिल्ट-इन IR एमिटर नहीं है। USB IR डोंगल अधिकृत है, लेकिन अभी शुरू नहीं हुआ है।';
 
   @override
   String get homeUsbOpenFailedMessage =>
-      'इस फ़ोन में अंतर्निर्मित IR emitter नहीं है। USB IR डोंगल मिला और अधिकृत है, लेकिन इसे शुरू नहीं किया जा सका।\n\nडोंगल फिर से जोड़ें और दोबारा प्रयास करें।';
+      'इस फ़ोन में बिल्ट-इन IR एमिटर नहीं है। USB IR डोंगल मिला और अधिकृत है, लेकिन इसे शुरू नहीं किया जा सका。\n\nडोंगल फिर से जोड़ें और दोबारा प्रयास करें।';
 
   @override
-  String get homeUsbReadyMessage =>
-      'इस फ़ोन में अंतर्निर्मित IR emitter नहीं है।';
+  String get homeUsbReadyMessage => 'इस फ़ोन में बिल्ट-इन IR एमिटर नहीं है।';
 
   @override
   String get homeUsbNoDeviceMessage =>
-      'इस फ़ोन में अंतर्निर्मित IR emitter नहीं है, और अभी कोई समर्थित USB IR डोंगल जुड़ा नहीं है।\n\nYou सकता है अभी भी बनाएं, आयात, और प्रबंधित करें रिमोट — लेकिन तक transmit IR सिग्नल you ज़रूरत एक का the options नीचे.';
+      'इस फ़ोन में बिल्ट-इन IR एमिटर नहीं है, और अभी कोई समर्थित USB IR डोंगल जुड़ा नहीं है。\n\nआप अभी भी रिमोट बना, आयात और प्रबंधित कर सकते हैं, लेकिन IR सिग्नल भेजने के लिए आपको नीचे दिए गए विकल्पों में से एक की आवश्यकता होगी।';
 
   @override
   String get homeUsbOptionPlugIn =>
-      'Plug में a समर्थित USB IR डोंगल, फिर स्वीकार करें अनुमति.';
+      'समर्थित USB IR डोंगल लगाएँ, फिर अनुमति स्वीकार करें।';
 
   @override
   String get homeUsbOptionReady => 'उपयोग के लिए तैयार।';
 
   @override
-  String get homeUsbOptionPermissionRequired => 'Plugged में. अनुमति आवश्यक.';
+  String get homeUsbOptionPermissionRequired =>
+      'जुड़ा हुआ है। अनुमति आवश्यक है।';
 
   @override
-  String get homeUsbOptionPermissionDenied => 'अनुमति अस्वीकृत. अनुरोध it फिर.';
+  String get homeUsbOptionPermissionDenied =>
+      'अनुमति अस्वीकृत। फिर से अनुरोध करें।';
 
   @override
   String get homeUsbOptionPermissionGranted =>
@@ -81,15 +82,15 @@ class AppLocalizationsHi extends AppLocalizations {
 
   @override
   String get homeHardwareBannerNoInternal =>
-      'यह फ़ोन has नहीं अंतर्निर्मित IR. Connect a USB IR डोंगल या सक्षम करें ऑडियो मोड में सेटिंग्स.';
+      'इस फ़ोन में बिल्ट-इन IR नहीं है। USB IR डोंगल जोड़ें या सेटिंग्स में ऑडियो मोड सक्षम करें।';
 
   @override
   String get homeHardwareBannerPermissionRequired =>
-      'USB डोंगल मिला. अनुमति आवश्यक तक भेजें IR.';
+      'USB डोंगल मिला है। IR भेजने के लिए अनुमति आवश्यक है।';
 
   @override
   String get homeHardwareBannerPermissionDenied =>
-      'USB अनुमति अस्वीकृत हुई. अनुरोध it फिर तक भेजें IR.';
+      'USB अनुमति अस्वीकृत हुई। IR भेजने के लिए फिर से अनुरोध करें।';
 
   @override
   String get homeHardwareBannerPermissionGranted =>
@@ -97,7 +98,7 @@ class AppLocalizationsHi extends AppLocalizations {
 
   @override
   String get homeHardwareBannerOpenFailed =>
-      'USB डोंगल अधिकृत, लेकिन आरंभ विफल.';
+      'USB डोंगल अधिकृत है, लेकिन आरंभ विफल रहा।';
 
   @override
   String get homeHardwareBannerReady => 'USB तैयार है।';
@@ -114,13 +115,13 @@ class AppLocalizationsHi extends AppLocalizations {
 
   @override
   String get homeAudioAdapterDescription =>
-      'सेटिंग्स → IR प्रेषक → ऑडियो (1 LED / 2 LED). आवश्यक है an audio-to-IR adapter.';
+      'सेटिंग्स → IR प्रेषक → ऑडियो (1 LED / 2 LED). इसके लिए audio-to-IR एडेप्टर चाहिए।';
 
   @override
   String get close => 'बंद करें';
 
   @override
-  String get homeChooseTransmitter => 'चुनें a प्रेषक';
+  String get homeChooseTransmitter => 'एक प्रेषक चुनें';
 
   @override
   String get openSettings => 'खोलें सेटिंग्स';
@@ -131,29 +132,65 @@ class AppLocalizationsHi extends AppLocalizations {
 
   @override
   String get homeUsbDongleNotDetected =>
-      'नहीं समर्थित USB IR डोंगल मिला. Plug it में और दोबारा प्रयास करें.';
+      'कोई समर्थित USB IR डोंगल नहीं मिला। इसे लगाएँ और दोबारा प्रयास करें।';
 
   @override
   String get homeUsbPermissionRequestFailed => 'USB अनुमति का अनुरोध विफल रहा।';
 
   @override
-  String get working => 'Working…';
+  String get working => 'काम हो रहा है…';
 
   @override
-  String get requestUsbPermission => 'अनुरोध USB अनुमति';
+  String get requestUsbPermission => 'USB अनुमति का अनुरोध करें';
 
   @override
   String get homeHardwareTip =>
       'सुझाव: आप अभी भी रिमोट बना और व्यवस्थित कर सकते हैं। हार्डवेयर केवल IR भेजते समय आवश्यक है।';
 
   @override
-  String get homeNoIrTransmitterTitle => 'नहीं IR प्रेषक उपलब्ध';
+  String get homeNoIrTransmitterTitle => 'कोई IR प्रेषक उपलब्ध नहीं';
+
+  @override
+  String get homeHardwareRequiredBody =>
+      'IR Blaster किसी भी फ़ोन पर रिमोट बना और प्रबंधित कर सकता है। लेकिन वास्तव में इन्फ्रारेड कमांड भेजने के लिए आपके डिवाइस में नीचे दिए गए हार्डवेयर विकल्पों में से एक होना ज़रूरी है।';
+
+  @override
+  String get homeCanStillUseWithoutHardware =>
+      'आप अभी भी रिमोट बना, आयात कर और व्यवस्थित कर सकते हैं।';
+
+  @override
+  String get homeWaysToUseIrBlaster => 'IR Blaster इस्तेमाल करने के तरीके';
+
+  @override
+  String get homeBuiltInIrOptionTitle => 'बिल्ट-इन IR वाला फ़ोन';
+
+  @override
+  String get homeBuiltInIrOptionSubtitle =>
+      'बिल्ट-इन IR ब्लास्टर वाले समर्थित फ़ोन पर काम करता है। इस फ़ोन में यह नहीं है।';
+
+  @override
+  String get homeBuiltInIrUnavailable => 'इस फ़ोन पर उपलब्ध नहीं';
+
+  @override
+  String get homeUsbFamilyTiqiaaZaza => 'Tiqiaa / ZaZa';
+
+  @override
+  String get homeUsbFamilyElkSmart => 'ElkSmart';
+
+  @override
+  String get homeAudioAccessoryLabel => '3.5 mm ऑडियो एडेप्टर';
+
+  @override
+  String get homeContinueWithoutHardware => 'हार्डवेयर के बिना जारी रखें';
+
+  @override
+  String get homeHowItWorks => 'यह कैसे काम करता है';
 
   @override
   String get settingsNavLabel => 'सेटिंग्स';
 
   @override
-  String get dismiss => 'हटाएं';
+  String get dismiss => 'बंद करें';
 
   @override
   String get remotesNavLabel => 'रिमोट';
@@ -1591,14 +1628,14 @@ class AppLocalizationsHi extends AppLocalizations {
   String get completeRequiredFieldsToSave => 'पूर्ण आवश्यक fields तक सहेजें';
 
   @override
-  String get buttonLabelStepTitle => '1) बटन लेबल';
+  String get buttonLabelStepTitle => 'बटन लेबल';
 
   @override
   String get buttonLabelStepSubtitle =>
       'चुनें an छवि, आइकन, या type a पाठ लेबल.';
 
   @override
-  String get buttonColorStepTitle => '2) बटन color (वैकल्पिक)';
+  String get buttonColorStepTitle => 'बटन का रंग';
 
   @override
   String get buttonColorStepSubtitle => 'इस बटन के लिए पृष्ठभूमि रंग चुनें।';
@@ -4480,4 +4517,121 @@ class AppLocalizationsHi extends AppLocalizations {
 
   @override
   String get learningModeSaveFailed => 'सीखा गया बटन सहेजा नहीं जा सका.';
+
+  @override
+  String get remoteSetupIntro =>
+      'पहले नाम और लेआउट चुनें। उसके बाद आप बटन जोड़ सकते हैं।';
+
+  @override
+  String get startWithDefault => 'डिफ़ॉल्ट से शुरू करें';
+
+  @override
+  String get browseGithubStore => 'GitHub स्टोर देखें';
+
+  @override
+  String get addFirstButton => 'पहला बटन जोड़ें';
+
+  @override
+  String get moreWaysToStart => 'शुरू करने के और तरीके';
+
+  @override
+  String get unsavedRemoteSetupChangesMessage =>
+      'क्या इस नए रिमोट सेटअप को छोड़कर इस स्क्रीन से बाहर निकलना है?';
+
+  @override
+  String get unsavedRemoteStudioChangesMessage =>
+      'क्या रिमोट के बदलाव छोड़कर इस स्क्रीन से बाहर निकलना है?';
+
+  @override
+  String get firstButtonAdded => 'पहला बटन जोड़ दिया गया।';
+
+  @override
+  String get iconColorTitle => 'आइकन का रंग';
+
+  @override
+  String get iconColorHelper =>
+      'ऐसा प्रतीक रंग चुनें जो बटन की पृष्ठभूमि पर साफ़ दिखे।';
+
+  @override
+  String get colorRed => 'लाल';
+
+  @override
+  String get colorPink => 'गुलाबी';
+
+  @override
+  String get colorPurple => 'बैंगनी';
+
+  @override
+  String get colorDeepPurple => 'गहरा बैंगनी';
+
+  @override
+  String get colorIndigo => 'इंडिगो';
+
+  @override
+  String get colorBlue => 'नीला';
+
+  @override
+  String get colorLightBlue => 'हल्का नीला';
+
+  @override
+  String get colorCyan => 'सियान';
+
+  @override
+  String get colorTeal => 'हरित-नीला';
+
+  @override
+  String get colorGreen => 'हरा';
+
+  @override
+  String get colorLightGreen => 'हल्का हरा';
+
+  @override
+  String get colorLime => 'लाइम';
+
+  @override
+  String get colorYellow => 'पीला';
+
+  @override
+  String get colorAmber => 'एम्बर';
+
+  @override
+  String get colorOrange => 'नारंगी';
+
+  @override
+  String get colorDeepOrange => 'गहरा नारंगी';
+
+  @override
+  String get colorBrown => 'भूरा';
+
+  @override
+  String get colorGrey => 'धूसर';
+
+  @override
+  String get colorBlueGrey => 'नीला-धूसर';
+
+  @override
+  String get colorBlack => 'काला';
+
+  @override
+  String get colorWhite => 'सफेद';
+
+  @override
+  String buttonColorSemantics(Object colorName) {
+    return 'बटन का रंग $colorName';
+  }
+
+  @override
+  String buttonColorSemanticsSelected(Object colorName) {
+    return 'बटन का रंग $colorName, चयनित';
+  }
+
+  @override
+  String iconColorSemantics(Object colorName) {
+    return 'आइकन का रंग $colorName';
+  }
+
+  @override
+  String iconColorSemanticsSelected(Object colorName) {
+    return 'आइकन का रंग $colorName, चयनित';
+  }
 }

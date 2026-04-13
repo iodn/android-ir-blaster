@@ -41,6 +41,17 @@
   "requestUsbPermission": "Minta izin USB",
   "homeHardwareTip": "Tip: Anda masih boleh membuat dan mengatur remote sekarang. Peranti keras hanya diperlukan saat menghantar.",
   "homeNoIrTransmitterTitle": "Tiada pemancar IR",
+  "homeHardwareRequiredBody": "IR Blaster boleh mencipta dan mengurus alat kawalan jauh pada mana-mana telefon. Tetapi untuk benar-benar menghantar arahan inframerah, peranti anda memerlukan salah satu pilihan perkakasan di bawah.",
+  "homeCanStillUseWithoutHardware": "Anda masih boleh mencipta, mengimport dan menyusun alat kawalan jauh sekarang.",
+  "homeWaysToUseIrBlaster": "Cara menggunakan IR Blaster",
+  "homeBuiltInIrOptionTitle": "Telefon dengan IR terbina dalam",
+  "homeBuiltInIrOptionSubtitle": "Berfungsi pada telefon yang disokong dengan pemancar IR terbina dalam. Telefon ini tidak memilikinya.",
+  "homeBuiltInIrUnavailable": "Tidak tersedia pada telefon ini",
+  "homeUsbFamilyTiqiaaZaza": "Tiqiaa / ZaZa",
+  "homeUsbFamilyElkSmart": "ElkSmart",
+  "homeAudioAccessoryLabel": "Penyesuai audio 3.5 mm",
+  "homeContinueWithoutHardware": "Teruskan tanpa perkakasan",
+  "homeHowItWorks": "Cara ia berfungsi",
   "settingsNavLabel": "Tetapan",
   "dismiss": "Tutup",
   "remotesNavLabel": "Remote",
@@ -516,11 +527,11 @@
   "presetNavigation": "Navigasi",
   "all": "Semua",
   "completeRequiredFieldsToSave": "Lengkapi bidang wajib untuk menyimpan",
-  "buttonLabelStepTitle": "1) Butang label",
+  "buttonLabelStepTitle": "Label butang",
   "buttonLabelStepSubtitle": "Pilih gambar, ikon, atau ketik label teks.",
-  "buttonColorStepTitle": "2) Butang color (optional)",
+  "buttonColorStepTitle": "Warna butang",
   "buttonColorStepSubtitle": "Pilih warna latar untuk butang ini.",
-  "selectColor": "Pilih color:",
+  "selectColor": "Pilih warna:",
   "noImageSelected": "Tiada gambar terpilih",
   "gallery": "Galeri",
   "builtIn": "Bawaan",
@@ -535,7 +546,7 @@
   "buttonTextHint": "cth. Daya, Volum +, HDMI 1",
   "buttonTextHelper": "Teks ini akan muncul pada butang.",
   "requiredEnterButtonLabel": "Wajib: masukkan label butang.",
-  "defaultColorName": "Default",
+  "defaultColorName": "Lalai",
   "newRemoteCreatedFromLastHit": "Remote baru dibuat dengan satu butang dari hasil terakhir.",
   "selectRemote": "Pilih remote",
   "remoteNumber": "Remote #{id}",
@@ -2144,5 +2155,60 @@
   "learningModeChooseRemoteTitle": "Pilih alat kawalan jauh",
   "learningModeNewRemoteTitle": "Buat alat kawalan jauh baharu",
   "learningModeSaveSuccess": "Butang yang dipelajari disimpan.",
-  "learningModeSaveFailed": "Butang yang dipelajari tidak dapat disimpan."
+  "learningModeSaveFailed": "Butang yang dipelajari tidak dapat disimpan.",
+  "remoteSetupIntro": "Pilih nama dan susun atur dahulu. Anda boleh menambah butang selepas itu.",
+  "startWithDefault": "Mulakan dengan lalai",
+  "browseGithubStore": "Semak GitHub Store",
+  "addFirstButton": "Tambah butang pertama",
+  "moreWaysToStart": "Lagi cara untuk bermula",
+  "unsavedRemoteSetupChangesMessage": "Buang persediaan alat kawalan jauh baharu ini dan tinggalkan skrin ini?",
+  "unsavedRemoteStudioChangesMessage": "Buang perubahan alat kawalan jauh dan tinggalkan skrin ini?",
+  "firstButtonAdded": "Butang pertama ditambah.",
+  "iconColorTitle": "Warna ikon",
+  "iconColorHelper": "Pilih warna simbol yang kekal jelas pada latar butang.",
+  "colorRed": "Merah",
+  "colorPink": "Merah jambu",
+  "colorPurple": "Ungu",
+  "colorDeepPurple": "Ungu gelap",
+  "colorIndigo": "Indigo",
+  "colorBlue": "Biru",
+  "colorLightBlue": "Biru muda",
+  "colorCyan": "Sian",
+  "colorTeal": "Teal",
+  "colorGreen": "Hijau",
+  "colorLightGreen": "Hijau muda",
+  "colorLime": "Limau",
+  "colorYellow": "Kuning",
+  "colorAmber": "Amber",
+  "colorOrange": "Oren",
+  "colorDeepOrange": "Oren gelap",
+  "colorBrown": "Coklat",
+  "colorGrey": "Kelabu",
+  "colorBlueGrey": "Biru kelabu",
+  "colorBlack": "Hitam",
+  "colorWhite": "Putih",
+  "buttonColorSemantics": "Warna butang {colorName}",
+  "@buttonColorSemantics": {
+    "placeholders": {
+      "colorName": {}
+    }
+  },
+  "buttonColorSemanticsSelected": "Warna butang {colorName}, dipilih",
+  "@buttonColorSemanticsSelected": {
+    "placeholders": {
+      "colorName": {}
+    }
+  },
+  "iconColorSemantics": "Warna ikon {colorName}",
+  "@iconColorSemantics": {
+    "placeholders": {
+      "colorName": {}
+    }
+  },
+  "iconColorSemanticsSelected": "Warna ikon {colorName}, dipilih",
+  "@iconColorSemanticsSelected": {
+    "placeholders": {
+      "colorName": {}
+    }
+  }
 }

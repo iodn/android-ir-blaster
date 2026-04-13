@@ -41,6 +41,17 @@
   "requestUsbPermission": "Запросить доступ USB",
   "homeHardwareTip": "Подсказка: вы уже можете создавать и упорядочивать пульты. Оборудование нужно только для передачи.",
   "homeNoIrTransmitterTitle": "Нет ИК-передатчика",
+  "homeHardwareRequiredBody": "IR Blaster может создавать и управлять пультами на любом телефоне. Но для отправки инфракрасных команд устройству нужен один из вариантов оборудования ниже.",
+  "homeCanStillUseWithoutHardware": "Вы уже можете создавать, импортировать и упорядочивать пульты прямо сейчас.",
+  "homeWaysToUseIrBlaster": "Как использовать IR Blaster",
+  "homeBuiltInIrOptionTitle": "Телефон со встроенным ИК",
+  "homeBuiltInIrOptionSubtitle": "Работает на поддерживаемых телефонах со встроенным ИК-передатчиком. В этом телефоне его нет.",
+  "homeBuiltInIrUnavailable": "Недоступно на этом телефоне",
+  "homeUsbFamilyTiqiaaZaza": "Tiqiaa / ZaZa",
+  "homeUsbFamilyElkSmart": "ElkSmart",
+  "homeAudioAccessoryLabel": "Аудиоадаптер 3,5 мм",
+  "homeContinueWithoutHardware": "Продолжить без оборудования",
+  "homeHowItWorks": "Как это работает",
   "settingsNavLabel": "Настройки",
   "dismiss": "Закрыть",
   "remotesNavLabel": "Пульты",
@@ -516,9 +527,9 @@
   "presetNavigation": "Навигация",
   "all": "Все",
   "completeRequiredFieldsToSave": "Заполните обязательные поля для сохранения",
-  "buttonLabelStepTitle": "1) Метка кнопки",
+  "buttonLabelStepTitle": "Метка кнопки",
   "buttonLabelStepSubtitle": "Выберите изображение, иконку или введите текстовую метку.",
-  "buttonColorStepTitle": "2) Цвет кнопки, необяз.",
+  "buttonColorStepTitle": "Цвет кнопки",
   "buttonColorStepSubtitle": "Выберите цвет фона для этой кнопки.",
   "selectColor": "Выберите цвет:",
   "noImageSelected": "Изображение не выбрано",
@@ -2144,5 +2155,60 @@
   "learningModeChooseRemoteTitle": "Выберите пульт",
   "learningModeNewRemoteTitle": "Создать новый пульт",
   "learningModeSaveSuccess": "Кнопка «Обучение» сохранена.",
-  "learningModeSaveFailed": "Обученную кнопку не удалось сохранить."
+  "learningModeSaveFailed": "Обученную кнопку не удалось сохранить.",
+  "remoteSetupIntro": "Сначала выберите имя и макет. Кнопки можно добавить позже.",
+  "startWithDefault": "Начать с настроек по умолчанию",
+  "browseGithubStore": "Открыть GitHub Store",
+  "addFirstButton": "Добавить первую кнопку",
+  "moreWaysToStart": "Другие способы начать",
+  "unsavedRemoteSetupChangesMessage": "Отменить настройку нового пульта и выйти с этого экрана?",
+  "unsavedRemoteStudioChangesMessage": "Отменить изменения пульта и выйти с этого экрана?",
+  "firstButtonAdded": "Первая кнопка добавлена.",
+  "iconColorTitle": "Цвет значка",
+  "iconColorHelper": "Выберите цвет символа, который будет хорошо виден на фоне кнопки.",
+  "colorRed": "Красный",
+  "colorPink": "Розовый",
+  "colorPurple": "Фиолетовый",
+  "colorDeepPurple": "Тёмно-фиолетовый",
+  "colorIndigo": "Индиго",
+  "colorBlue": "Синий",
+  "colorLightBlue": "Голубой",
+  "colorCyan": "Циан",
+  "colorTeal": "Сине-зелёный",
+  "colorGreen": "Зелёный",
+  "colorLightGreen": "Светло-зелёный",
+  "colorLime": "Лаймовый",
+  "colorYellow": "Жёлтый",
+  "colorAmber": "Янтарный",
+  "colorOrange": "Оранжевый",
+  "colorDeepOrange": "Тёмно-оранжевый",
+  "colorBrown": "Коричневый",
+  "colorGrey": "Серый",
+  "colorBlueGrey": "Сине-серый",
+  "colorBlack": "Чёрный",
+  "colorWhite": "Белый",
+  "buttonColorSemantics": "Цвет кнопки {colorName}",
+  "@buttonColorSemantics": {
+    "placeholders": {
+      "colorName": {}
+    }
+  },
+  "buttonColorSemanticsSelected": "Цвет кнопки {colorName}, выбран",
+  "@buttonColorSemanticsSelected": {
+    "placeholders": {
+      "colorName": {}
+    }
+  },
+  "iconColorSemantics": "Цвет значка {colorName}",
+  "@iconColorSemantics": {
+    "placeholders": {
+      "colorName": {}
+    }
+  },
+  "iconColorSemanticsSelected": "Цвет значка {colorName}, выбран",
+  "@iconColorSemanticsSelected": {
+    "placeholders": {
+      "colorName": {}
+    }
+  }
 }

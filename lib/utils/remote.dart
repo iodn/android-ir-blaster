@@ -18,6 +18,7 @@ class IRButton {
   final int? iconCodePoint;
   final String? iconFontFamily;
   final String? iconFontPackage;
+  final int? iconColor;
   final int? buttonColor;
 
   const IRButton({
@@ -33,6 +34,7 @@ class IRButton {
     this.iconCodePoint,
     this.iconFontFamily,
     this.iconFontPackage,
+    this.iconColor,
     this.buttonColor,
   });
 
@@ -49,6 +51,7 @@ class IRButton {
         'iconCodePoint': iconCodePoint,
         'iconFontFamily': iconFontFamily,
         'iconFontPackage': iconFontPackage,
+        'iconColor': iconColor,
         'buttonColor': buttonColor,
       };
 
@@ -71,6 +74,7 @@ class IRButton {
         json['iconFontPackage'] as String?,
         json['iconFontFamily'] as String?,
       ),
+      iconColor: json['iconColor'] is int ? json['iconColor'] as int? : int.tryParse('${json['iconColor'] ?? ''}'),
       buttonColor: json['buttonColor'] is int ? json['buttonColor'] as int? : int.tryParse('${json['buttonColor'] ?? ''}'),
     );
   }
@@ -88,6 +92,7 @@ class IRButton {
     int? iconCodePoint,
     String? iconFontFamily,
     String? iconFontPackage,
+    int? iconColor,
     int? buttonColor,
   }) {
     return IRButton(
@@ -103,6 +108,7 @@ class IRButton {
       iconCodePoint: iconCodePoint ?? this.iconCodePoint,
       iconFontFamily: iconFontFamily ?? this.iconFontFamily,
       iconFontPackage: iconFontPackage ?? this.iconFontPackage,
+      iconColor: iconColor ?? this.iconColor,
       buttonColor: buttonColor ?? this.buttonColor,
     );
   }

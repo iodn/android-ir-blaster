@@ -41,6 +41,17 @@
   "requestUsbPermission": "Request USB permission",
   "homeHardwareTip": "Tip: You can still build and organize remotes now. Hardware is only required when transmitting.",
   "homeNoIrTransmitterTitle": "No IR transmitter available",
+  "homeHardwareRequiredBody": "IR Blaster can create and manage remotes on any phone. To actually send infrared commands, your device needs one of the hardware options below.",
+  "homeCanStillUseWithoutHardware": "You can still create, import, and organize remotes right now.",
+  "homeWaysToUseIrBlaster": "Ways to use IR Blaster",
+  "homeBuiltInIrOptionTitle": "Phone with built-in IR",
+  "homeBuiltInIrOptionSubtitle": "Works on supported phones with a built-in IR blaster. This phone does not include one.",
+  "homeBuiltInIrUnavailable": "Not available on this phone",
+  "homeUsbFamilyTiqiaaZaza": "Tiqiaa / ZaZa",
+  "homeUsbFamilyElkSmart": "ElkSmart",
+  "homeAudioAccessoryLabel": "3.5 mm audio adapter",
+  "homeContinueWithoutHardware": "Continue without hardware",
+  "homeHowItWorks": "How it works",
   "settingsNavLabel": "Settings",
   "dismiss": "Dismiss",
   "remotesNavLabel": "Remotes",
@@ -617,9 +628,9 @@
   "presetNavigation": "Navigation",
   "all": "All",
   "completeRequiredFieldsToSave": "Complete required fields to save",
-  "buttonLabelStepTitle": "1) Button label",
+  "buttonLabelStepTitle": "Button label",
   "buttonLabelStepSubtitle": "Choose an image, icon, or type a text label.",
-  "buttonColorStepTitle": "2) Button color (optional)",
+  "buttonColorStepTitle": "Button color",
   "buttonColorStepSubtitle": "Choose a background color for this button.",
   "selectColor": "Select color:",
   "noImageSelected": "No image selected",
@@ -2130,5 +2141,60 @@
   "learningModeChooseRemoteTitle": "Choose a remote",
   "learningModeNewRemoteTitle": "Create a new remote",
   "learningModeSaveSuccess": "Learned button saved.",
-  "learningModeSaveFailed": "The learned button could not be saved."
+  "learningModeSaveFailed": "The learned button could not be saved.",
+  "remoteSetupIntro": "Choose a name and layout first. You can add buttons after this.",
+  "startWithDefault": "Start with default",
+  "browseGithubStore": "Browse GitHub Store",
+  "addFirstButton": "Add first button",
+  "moreWaysToStart": "More ways to start",
+  "unsavedRemoteSetupChangesMessage": "Discard this new remote setup and leave this screen?",
+  "unsavedRemoteStudioChangesMessage": "Discard your remote changes and leave this screen?",
+  "firstButtonAdded": "First button added.",
+  "iconColorTitle": "Icon color",
+  "iconColorHelper": "Choose a symbol color that stays visible on the button background.",
+  "colorRed": "Red",
+  "colorPink": "Pink",
+  "colorPurple": "Purple",
+  "colorDeepPurple": "Deep Purple",
+  "colorIndigo": "Indigo",
+  "colorBlue": "Blue",
+  "colorLightBlue": "Light Blue",
+  "colorCyan": "Cyan",
+  "colorTeal": "Teal",
+  "colorGreen": "Green",
+  "colorLightGreen": "Light Green",
+  "colorLime": "Lime",
+  "colorYellow": "Yellow",
+  "colorAmber": "Amber",
+  "colorOrange": "Orange",
+  "colorDeepOrange": "Deep Orange",
+  "colorBrown": "Brown",
+  "colorGrey": "Grey",
+  "colorBlueGrey": "Blue Grey",
+  "colorBlack": "Black",
+  "colorWhite": "White",
+  "buttonColorSemantics": "Button color {colorName}",
+  "@buttonColorSemantics": {
+    "placeholders": {
+      "colorName": {}
+    }
+  },
+  "buttonColorSemanticsSelected": "Button color {colorName}, selected",
+  "@buttonColorSemanticsSelected": {
+    "placeholders": {
+      "colorName": {}
+    }
+  },
+  "iconColorSemantics": "Icon color {colorName}",
+  "@iconColorSemantics": {
+    "placeholders": {
+      "colorName": {}
+    }
+  },
+  "iconColorSemanticsSelected": "Icon color {colorName}, selected",
+  "@iconColorSemanticsSelected": {
+    "placeholders": {
+      "colorName": {}
+    }
+  }
 }

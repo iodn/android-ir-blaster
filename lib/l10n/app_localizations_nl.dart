@@ -154,6 +154,42 @@ class AppLocalizationsNl extends AppLocalizations {
   String get homeNoIrTransmitterTitle => 'Geen IR-zender beschikbaar';
 
   @override
+  String get homeHardwareRequiredBody =>
+      'IR Blaster kan op elke telefoon afstandsbedieningen maken en beheren. Om daadwerkelijk infraroodcommando\'s te verzenden, heeft je apparaat een van de onderstaande hardwareopties nodig.';
+
+  @override
+  String get homeCanStillUseWithoutHardware =>
+      'Je kunt nu nog steeds afstandsbedieningen maken, importeren en organiseren.';
+
+  @override
+  String get homeWaysToUseIrBlaster => 'Manieren om IR Blaster te gebruiken';
+
+  @override
+  String get homeBuiltInIrOptionTitle => 'Telefoon met ingebouwde IR';
+
+  @override
+  String get homeBuiltInIrOptionSubtitle =>
+      'Werkt op ondersteunde telefoons met een ingebouwde IR-zender. Deze telefoon heeft er geen.';
+
+  @override
+  String get homeBuiltInIrUnavailable => 'Niet beschikbaar op deze telefoon';
+
+  @override
+  String get homeUsbFamilyTiqiaaZaza => 'Tiqiaa / ZaZa';
+
+  @override
+  String get homeUsbFamilyElkSmart => 'ElkSmart';
+
+  @override
+  String get homeAudioAccessoryLabel => '3,5 mm audio-adapter';
+
+  @override
+  String get homeContinueWithoutHardware => 'Doorgaan zonder hardware';
+
+  @override
+  String get homeHowItWorks => 'Hoe het werkt';
+
+  @override
   String get settingsNavLabel => 'Instellingen';
 
   @override
@@ -1621,21 +1657,21 @@ class AppLocalizationsNl extends AppLocalizations {
       'Complete vereist fields to opslaan';
 
   @override
-  String get buttonLabelStepTitle => '1) Knop label';
+  String get buttonLabelStepTitle => 'Knoplabel';
 
   @override
   String get buttonLabelStepSubtitle =>
       'Kies een afbeelding, pictogram of typ een tekstlabel.';
 
   @override
-  String get buttonColorStepTitle => '2) Knop color (optional)';
+  String get buttonColorStepTitle => 'Knopkleur';
 
   @override
   String get buttonColorStepSubtitle =>
       'Kies een achtergrondkleur voor deze knop.';
 
   @override
-  String get selectColor => 'Selecteer color:';
+  String get selectColor => 'Kies kleur:';
 
   @override
   String get noImageSelected => 'Geen image geselecteerd';
@@ -4517,4 +4553,121 @@ class AppLocalizationsNl extends AppLocalizations {
   @override
   String get learningModeSaveFailed =>
       'De geleerde knop kon niet worden opgeslagen.';
+
+  @override
+  String get remoteSetupIntro =>
+      'Kies eerst een naam en lay-out. Daarna kun je knoppen toevoegen.';
+
+  @override
+  String get startWithDefault => 'Start met standaardinstellingen';
+
+  @override
+  String get browseGithubStore => 'GitHub Store bekijken';
+
+  @override
+  String get addFirstButton => 'Eerste knop toevoegen';
+
+  @override
+  String get moreWaysToStart => 'Meer manieren om te beginnen';
+
+  @override
+  String get unsavedRemoteSetupChangesMessage =>
+      'Deze nieuwe afstandsbedieningsinstelling verwijderen en dit scherm verlaten?';
+
+  @override
+  String get unsavedRemoteStudioChangesMessage =>
+      'Wijzigingen aan de afstandsbediening verwijderen en dit scherm verlaten?';
+
+  @override
+  String get firstButtonAdded => 'Eerste knop toegevoegd.';
+
+  @override
+  String get iconColorTitle => 'Icoonkleur';
+
+  @override
+  String get iconColorHelper =>
+      'Kies een symboolkleur die goed zichtbaar blijft op de achtergrond van de knop.';
+
+  @override
+  String get colorRed => 'Rood';
+
+  @override
+  String get colorPink => 'Roze';
+
+  @override
+  String get colorPurple => 'Paars';
+
+  @override
+  String get colorDeepPurple => 'Donkerpaars';
+
+  @override
+  String get colorIndigo => 'Indigo';
+
+  @override
+  String get colorBlue => 'Blauw';
+
+  @override
+  String get colorLightBlue => 'Lichtblauw';
+
+  @override
+  String get colorCyan => 'Cyaan';
+
+  @override
+  String get colorTeal => 'Groenblauw';
+
+  @override
+  String get colorGreen => 'Groen';
+
+  @override
+  String get colorLightGreen => 'Lichtgroen';
+
+  @override
+  String get colorLime => 'Lime';
+
+  @override
+  String get colorYellow => 'Geel';
+
+  @override
+  String get colorAmber => 'Amber';
+
+  @override
+  String get colorOrange => 'Oranje';
+
+  @override
+  String get colorDeepOrange => 'Donkeroranje';
+
+  @override
+  String get colorBrown => 'Bruin';
+
+  @override
+  String get colorGrey => 'Grijs';
+
+  @override
+  String get colorBlueGrey => 'Blauwgrijs';
+
+  @override
+  String get colorBlack => 'Zwart';
+
+  @override
+  String get colorWhite => 'Wit';
+
+  @override
+  String buttonColorSemantics(Object colorName) {
+    return 'Knopkleur $colorName';
+  }
+
+  @override
+  String buttonColorSemanticsSelected(Object colorName) {
+    return 'Knopkleur $colorName, geselecteerd';
+  }
+
+  @override
+  String iconColorSemantics(Object colorName) {
+    return 'Icoonkleur $colorName';
+  }
+
+  @override
+  String iconColorSemanticsSelected(Object colorName) {
+    return 'Icoonkleur $colorName, geselecteerd';
+  }
 }

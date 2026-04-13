@@ -153,6 +153,42 @@ class AppLocalizationsRu extends AppLocalizations {
   String get homeNoIrTransmitterTitle => 'Нет ИК-передатчика';
 
   @override
+  String get homeHardwareRequiredBody =>
+      'IR Blaster может создавать и управлять пультами на любом телефоне. Но для отправки инфракрасных команд устройству нужен один из вариантов оборудования ниже.';
+
+  @override
+  String get homeCanStillUseWithoutHardware =>
+      'Вы уже можете создавать, импортировать и упорядочивать пульты прямо сейчас.';
+
+  @override
+  String get homeWaysToUseIrBlaster => 'Как использовать IR Blaster';
+
+  @override
+  String get homeBuiltInIrOptionTitle => 'Телефон со встроенным ИК';
+
+  @override
+  String get homeBuiltInIrOptionSubtitle =>
+      'Работает на поддерживаемых телефонах со встроенным ИК-передатчиком. В этом телефоне его нет.';
+
+  @override
+  String get homeBuiltInIrUnavailable => 'Недоступно на этом телефоне';
+
+  @override
+  String get homeUsbFamilyTiqiaaZaza => 'Tiqiaa / ZaZa';
+
+  @override
+  String get homeUsbFamilyElkSmart => 'ElkSmart';
+
+  @override
+  String get homeAudioAccessoryLabel => 'Аудиоадаптер 3,5 мм';
+
+  @override
+  String get homeContinueWithoutHardware => 'Продолжить без оборудования';
+
+  @override
+  String get homeHowItWorks => 'Как это работает';
+
+  @override
   String get settingsNavLabel => 'Настройки';
 
   @override
@@ -1599,14 +1635,14 @@ class AppLocalizationsRu extends AppLocalizations {
       'Заполните обязательные поля для сохранения';
 
   @override
-  String get buttonLabelStepTitle => '1) Метка кнопки';
+  String get buttonLabelStepTitle => 'Метка кнопки';
 
   @override
   String get buttonLabelStepSubtitle =>
       'Выберите изображение, иконку или введите текстовую метку.';
 
   @override
-  String get buttonColorStepTitle => '2) Цвет кнопки, необяз.';
+  String get buttonColorStepTitle => 'Цвет кнопки';
 
   @override
   String get buttonColorStepSubtitle => 'Выберите цвет фона для этой кнопки.';
@@ -4486,4 +4522,121 @@ class AppLocalizationsRu extends AppLocalizations {
 
   @override
   String get learningModeSaveFailed => 'Обученную кнопку не удалось сохранить.';
+
+  @override
+  String get remoteSetupIntro =>
+      'Сначала выберите имя и макет. Кнопки можно добавить позже.';
+
+  @override
+  String get startWithDefault => 'Начать с настроек по умолчанию';
+
+  @override
+  String get browseGithubStore => 'Открыть GitHub Store';
+
+  @override
+  String get addFirstButton => 'Добавить первую кнопку';
+
+  @override
+  String get moreWaysToStart => 'Другие способы начать';
+
+  @override
+  String get unsavedRemoteSetupChangesMessage =>
+      'Отменить настройку нового пульта и выйти с этого экрана?';
+
+  @override
+  String get unsavedRemoteStudioChangesMessage =>
+      'Отменить изменения пульта и выйти с этого экрана?';
+
+  @override
+  String get firstButtonAdded => 'Первая кнопка добавлена.';
+
+  @override
+  String get iconColorTitle => 'Цвет значка';
+
+  @override
+  String get iconColorHelper =>
+      'Выберите цвет символа, который будет хорошо виден на фоне кнопки.';
+
+  @override
+  String get colorRed => 'Красный';
+
+  @override
+  String get colorPink => 'Розовый';
+
+  @override
+  String get colorPurple => 'Фиолетовый';
+
+  @override
+  String get colorDeepPurple => 'Тёмно-фиолетовый';
+
+  @override
+  String get colorIndigo => 'Индиго';
+
+  @override
+  String get colorBlue => 'Синий';
+
+  @override
+  String get colorLightBlue => 'Голубой';
+
+  @override
+  String get colorCyan => 'Циан';
+
+  @override
+  String get colorTeal => 'Сине-зелёный';
+
+  @override
+  String get colorGreen => 'Зелёный';
+
+  @override
+  String get colorLightGreen => 'Светло-зелёный';
+
+  @override
+  String get colorLime => 'Лаймовый';
+
+  @override
+  String get colorYellow => 'Жёлтый';
+
+  @override
+  String get colorAmber => 'Янтарный';
+
+  @override
+  String get colorOrange => 'Оранжевый';
+
+  @override
+  String get colorDeepOrange => 'Тёмно-оранжевый';
+
+  @override
+  String get colorBrown => 'Коричневый';
+
+  @override
+  String get colorGrey => 'Серый';
+
+  @override
+  String get colorBlueGrey => 'Сине-серый';
+
+  @override
+  String get colorBlack => 'Чёрный';
+
+  @override
+  String get colorWhite => 'Белый';
+
+  @override
+  String buttonColorSemantics(Object colorName) {
+    return 'Цвет кнопки $colorName';
+  }
+
+  @override
+  String buttonColorSemanticsSelected(Object colorName) {
+    return 'Цвет кнопки $colorName, выбран';
+  }
+
+  @override
+  String iconColorSemantics(Object colorName) {
+    return 'Цвет значка $colorName';
+  }
+
+  @override
+  String iconColorSemanticsSelected(Object colorName) {
+    return 'Цвет значка $colorName, выбран';
+  }
 }

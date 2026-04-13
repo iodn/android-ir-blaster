@@ -41,6 +41,17 @@
   "requestUsbPermission": "USB-toestemming aanvragen",
   "homeHardwareTip": "Tip: je kunt nu al afstandsbedieningen maken en ordenen. Hardware is alleen nodig bij verzenden.",
   "homeNoIrTransmitterTitle": "Geen IR-zender beschikbaar",
+  "homeHardwareRequiredBody": "IR Blaster kan op elke telefoon afstandsbedieningen maken en beheren. Om daadwerkelijk infraroodcommando's te verzenden, heeft je apparaat een van de onderstaande hardwareopties nodig.",
+  "homeCanStillUseWithoutHardware": "Je kunt nu nog steeds afstandsbedieningen maken, importeren en organiseren.",
+  "homeWaysToUseIrBlaster": "Manieren om IR Blaster te gebruiken",
+  "homeBuiltInIrOptionTitle": "Telefoon met ingebouwde IR",
+  "homeBuiltInIrOptionSubtitle": "Werkt op ondersteunde telefoons met een ingebouwde IR-zender. Deze telefoon heeft er geen.",
+  "homeBuiltInIrUnavailable": "Niet beschikbaar op deze telefoon",
+  "homeUsbFamilyTiqiaaZaza": "Tiqiaa / ZaZa",
+  "homeUsbFamilyElkSmart": "ElkSmart",
+  "homeAudioAccessoryLabel": "3,5 mm audio-adapter",
+  "homeContinueWithoutHardware": "Doorgaan zonder hardware",
+  "homeHowItWorks": "Hoe het werkt",
   "settingsNavLabel": "Instellingen",
   "dismiss": "Sluiten",
   "remotesNavLabel": "Afstandsbedieningen",
@@ -516,11 +527,11 @@
   "presetNavigation": "Navigatie",
   "all": "Alles",
   "completeRequiredFieldsToSave": "Complete vereist fields to opslaan",
-  "buttonLabelStepTitle": "1) Knop label",
+  "buttonLabelStepTitle": "Knoplabel",
   "buttonLabelStepSubtitle": "Kies een afbeelding, pictogram of typ een tekstlabel.",
-  "buttonColorStepTitle": "2) Knop color (optional)",
+  "buttonColorStepTitle": "Knopkleur",
   "buttonColorStepSubtitle": "Kies een achtergrondkleur voor deze knop.",
-  "selectColor": "Selecteer color:",
+  "selectColor": "Kies kleur:",
   "noImageSelected": "Geen image geselecteerd",
   "gallery": "Galerij",
   "builtIn": "Ingebouwd",
@@ -2144,5 +2155,60 @@
   "learningModeChooseRemoteTitle": "Kies een afstandsbediening",
   "learningModeNewRemoteTitle": "Maak een nieuwe afstandsbediening",
   "learningModeSaveSuccess": "Knop Geleerd opgeslagen.",
-  "learningModeSaveFailed": "De geleerde knop kon niet worden opgeslagen."
+  "learningModeSaveFailed": "De geleerde knop kon niet worden opgeslagen.",
+  "remoteSetupIntro": "Kies eerst een naam en lay-out. Daarna kun je knoppen toevoegen.",
+  "startWithDefault": "Start met standaardinstellingen",
+  "browseGithubStore": "GitHub Store bekijken",
+  "addFirstButton": "Eerste knop toevoegen",
+  "moreWaysToStart": "Meer manieren om te beginnen",
+  "unsavedRemoteSetupChangesMessage": "Deze nieuwe afstandsbedieningsinstelling verwijderen en dit scherm verlaten?",
+  "unsavedRemoteStudioChangesMessage": "Wijzigingen aan de afstandsbediening verwijderen en dit scherm verlaten?",
+  "firstButtonAdded": "Eerste knop toegevoegd.",
+  "iconColorTitle": "Icoonkleur",
+  "iconColorHelper": "Kies een symboolkleur die goed zichtbaar blijft op de achtergrond van de knop.",
+  "colorRed": "Rood",
+  "colorPink": "Roze",
+  "colorPurple": "Paars",
+  "colorDeepPurple": "Donkerpaars",
+  "colorIndigo": "Indigo",
+  "colorBlue": "Blauw",
+  "colorLightBlue": "Lichtblauw",
+  "colorCyan": "Cyaan",
+  "colorTeal": "Groenblauw",
+  "colorGreen": "Groen",
+  "colorLightGreen": "Lichtgroen",
+  "colorLime": "Lime",
+  "colorYellow": "Geel",
+  "colorAmber": "Amber",
+  "colorOrange": "Oranje",
+  "colorDeepOrange": "Donkeroranje",
+  "colorBrown": "Bruin",
+  "colorGrey": "Grijs",
+  "colorBlueGrey": "Blauwgrijs",
+  "colorBlack": "Zwart",
+  "colorWhite": "Wit",
+  "buttonColorSemantics": "Knopkleur {colorName}",
+  "@buttonColorSemantics": {
+    "placeholders": {
+      "colorName": {}
+    }
+  },
+  "buttonColorSemanticsSelected": "Knopkleur {colorName}, geselecteerd",
+  "@buttonColorSemanticsSelected": {
+    "placeholders": {
+      "colorName": {}
+    }
+  },
+  "iconColorSemantics": "Icoonkleur {colorName}",
+  "@iconColorSemantics": {
+    "placeholders": {
+      "colorName": {}
+    }
+  },
+  "iconColorSemanticsSelected": "Icoonkleur {colorName}, geselecteerd",
+  "@iconColorSemanticsSelected": {
+    "placeholders": {
+      "colorName": {}
+    }
+  }
 }

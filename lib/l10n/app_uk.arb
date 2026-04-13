@@ -41,6 +41,17 @@
   "requestUsbPermission": "Запросить дозвіл USB",
   "homeHardwareTip": "Підказка: ви вже можете створювати і упорядковувати пульти. Обладнання потрібно лише для передавання.",
   "homeNoIrTransmitterTitle": "Немає ІЧ-передавача",
+  "homeHardwareRequiredBody": "IR Blaster може створювати й керувати пультами на будь-якому телефоні. Але для фактичного надсилання інфрачервоних команд пристрою потрібен один із наведених нижче варіантів обладнання.",
+  "homeCanStillUseWithoutHardware": "Ви вже можете створювати, імпортувати й упорядковувати пульти просто зараз.",
+  "homeWaysToUseIrBlaster": "Як користуватися IR Blaster",
+  "homeBuiltInIrOptionTitle": "Телефон із вбудованим IR",
+  "homeBuiltInIrOptionSubtitle": "Працює на підтримуваних телефонах із вбудованим IR-передавачем. У цьому телефоні його немає.",
+  "homeBuiltInIrUnavailable": "Недоступно на цьому телефоні",
+  "homeUsbFamilyTiqiaaZaza": "Tiqiaa / ZaZa",
+  "homeUsbFamilyElkSmart": "ElkSmart",
+  "homeAudioAccessoryLabel": "Аудіоадаптер 3,5 мм",
+  "homeContinueWithoutHardware": "Продовжити без обладнання",
+  "homeHowItWorks": "Як це працює",
   "settingsNavLabel": "Налаштування",
   "dismiss": "Закрити",
   "remotesNavLabel": "Пульти",
@@ -516,9 +527,9 @@
   "presetNavigation": "Навигация",
   "all": "Все",
   "completeRequiredFieldsToSave": "Заполните обов'язкові поля для сохранения",
-  "buttonLabelStepTitle": "1) Мітка кнопки",
+  "buttonLabelStepTitle": "Мітка кнопки",
   "buttonLabelStepSubtitle": "Виберіть зображення, иконку або введите текстовую метку.",
-  "buttonColorStepTitle": "2) Колір кнопки, необов.",
+  "buttonColorStepTitle": "Колір кнопки",
   "buttonColorStepSubtitle": "Виберіть колір фона для цій кнопки.",
   "selectColor": "Виберіть колір:",
   "noImageSelected": "Зображення не вибрано",
@@ -535,7 +546,7 @@
   "buttonTextHint": "напр., Живлення, Гучність +, HDMI 1",
   "buttonTextHelper": "Цей текст буде покизан на кнопке.",
   "requiredEnterButtonLabel": "Обязательно: введите метку кнопки.",
-  "defaultColorName": "За умолчанию",
+  "defaultColorName": "Типовий",
   "newRemoteCreatedFromLastHit": "Створено новий пульт з одной кнопкой з последнего попадания.",
   "selectRemote": "Виберіть пульт",
   "remoteNumber": "Пульт #{id}",
@@ -2144,5 +2155,60 @@
   "learningModeChooseRemoteTitle": "Виберіть пульт",
   "learningModeNewRemoteTitle": "Створіть новий пульт",
   "learningModeSaveSuccess": "Вивчену кнопку збережено.",
-  "learningModeSaveFailed": "Не вдалося зберегти вивчену кнопку."
+  "learningModeSaveFailed": "Не вдалося зберегти вивчену кнопку.",
+  "remoteSetupIntro": "Спочатку виберіть назву та макет. Кнопки можна додати пізніше.",
+  "startWithDefault": "Почати з типових параметрів",
+  "browseGithubStore": "Відкрити GitHub Store",
+  "addFirstButton": "Додати першу кнопку",
+  "moreWaysToStart": "Інші способи почати",
+  "unsavedRemoteSetupChangesMessage": "Відхилити налаштування нового пульта й залишити цей екран?",
+  "unsavedRemoteStudioChangesMessage": "Відхилити зміни пульта й залишити цей екран?",
+  "firstButtonAdded": "Першу кнопку додано.",
+  "iconColorTitle": "Колір значка",
+  "iconColorHelper": "Виберіть колір символу, який залишатиметься помітним на тлі кнопки.",
+  "colorRed": "Червоний",
+  "colorPink": "Рожевий",
+  "colorPurple": "Фіолетовий",
+  "colorDeepPurple": "Темно-фіолетовий",
+  "colorIndigo": "Індиго",
+  "colorBlue": "Синій",
+  "colorLightBlue": "Блакитний",
+  "colorCyan": "Ціан",
+  "colorTeal": "Бірюзовий",
+  "colorGreen": "Зелений",
+  "colorLightGreen": "Світло-зелений",
+  "colorLime": "Лаймовий",
+  "colorYellow": "Жовтий",
+  "colorAmber": "Бурштиновий",
+  "colorOrange": "Помаранчевий",
+  "colorDeepOrange": "Темно-помаранчевий",
+  "colorBrown": "Коричневий",
+  "colorGrey": "Сірий",
+  "colorBlueGrey": "Сіро-синій",
+  "colorBlack": "Чорний",
+  "colorWhite": "Білий",
+  "buttonColorSemantics": "Колір кнопки {colorName}",
+  "@buttonColorSemantics": {
+    "placeholders": {
+      "colorName": {}
+    }
+  },
+  "buttonColorSemanticsSelected": "Колір кнопки {colorName}, вибрано",
+  "@buttonColorSemanticsSelected": {
+    "placeholders": {
+      "colorName": {}
+    }
+  },
+  "iconColorSemantics": "Колір значка {colorName}",
+  "@iconColorSemantics": {
+    "placeholders": {
+      "colorName": {}
+    }
+  },
+  "iconColorSemanticsSelected": "Колір значка {colorName}, вибрано",
+  "@iconColorSemanticsSelected": {
+    "placeholders": {
+      "colorName": {}
+    }
+  }
 }

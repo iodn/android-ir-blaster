@@ -1342,22 +1342,79 @@ class _IrFinderScreenState extends State<IrFinderScreen>
     }
   }
 
+  /// Resolves a raw DB protocol string (e.g. "NEC", "RC-5", "rca_38") to
+  /// a canonical IrProtocolRegistry ID (e.g. "nec", "rc5", "rca_38").
+  ///
+  /// Strategy (in order):
+  ///   1. Exact match against the registry.
+  ///   2. Lowercase exact match.
+  ///   3. Strip all non-alphanumeric chars from both sides and compare —
+  ///      handles "RC-5" → "rc5" matching registry "rc5",
+  ///      and "NEC_X1" → "necx1" matching registry "necx1".
+  static String? _dbProtocolToRegistryId(String raw) {
+    final String s = raw.trim();
+    if (s.isEmpty) return null;
+
+    // 1. Exact
+    if (IrProtocolRegistry.definitionFor(s) != null) return s;
+
+    // 2. Lowercase
+    final String lower = s.toLowerCase();
+    if (IrProtocolRegistry.definitionFor(lower) != null) return lower;
+
+    // 3. Normalized (strip non-alphanumeric)
+    final String norm = lower.replaceAll(RegExp(r'[^a-z0-9]'), '');
+    if (norm.isEmpty) return null;
+    for (final def in IrProtocolRegistry.allDefinitions()) {
+      final String regNorm =
+          def.id.toLowerCase().replaceAll(RegExp(r'[^a-z0-9]'), '');
+      if (regNorm == norm) return def.id;
+    }
+
+    return null; // DB protocol unknown to the registry — keep current
+  }
+
   Future<void> _pickBrand() async {
     if (!_dbReady) return;
+    // Always show ALL brands — no protocol filter — so every brand in the
+    // database is visible regardless of which protocol is currently selected.
     final String? picked = await showModalBottomSheet<String>(
       context: context,
       isScrollControlled: true,
       showDragHandle: true,
       builder: (_) => _DbPickerSheet.brand(
         db: _db,
-        protocolId: _dbOnlySelectedProtocol ? _protocolId : null,
+        protocolId: null,
       ),
     );
     if (!mounted) return;
     if (picked == null) return;
+
+    // Look up which protocols this brand uses and auto-select the first one
+    // that the registry recognises.
+    String newProtocol = _protocolId;
+    try {
+      final List<String> brandProtocols =
+          await _db.listProtocolsForBrand(picked);
+      for (final dbProto in brandProtocols) {
+        final String? registryId = _dbProtocolToRegistryId(dbProto);
+        if (registryId != null) {
+          newProtocol = registryId;
+          break;
+        }
+      }
+    } catch (_) {
+      // DB query failed — keep the existing protocol, no crash.
+    }
+
+    if (!mounted) return;
     setState(() {
       _brand = picked;
       _model = null;
+      if (newProtocol != _protocolId) {
+        _protocolId = newProtocol;
+        _applyPrefixLimitForCurrentProtocol();
+      }
     });
     _syncRunConfigToController();
   }

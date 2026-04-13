@@ -41,6 +41,17 @@
   "requestUsbPermission": "Pedir permiso USB",
   "homeHardwareTip": "Consejo: aún puedes crear y ordenar mandos. El hardware solo se necesita al transmitir.",
   "homeNoIrTransmitterTitle": "No hay emisor IR disponible",
+  "homeHardwareRequiredBody": "IR Blaster puede crear y gestionar mandos en cualquier teléfono. Para enviar comandos por infrarrojos, tu dispositivo necesita una de las opciones de hardware de abajo.",
+  "homeCanStillUseWithoutHardware": "Aún puedes crear, importar y organizar mandos ahora mismo.",
+  "homeWaysToUseIrBlaster": "Formas de usar IR Blaster",
+  "homeBuiltInIrOptionTitle": "Teléfono con IR integrado",
+  "homeBuiltInIrOptionSubtitle": "Funciona en teléfonos compatibles con emisor IR integrado. Este teléfono no incluye uno.",
+  "homeBuiltInIrUnavailable": "No disponible en este teléfono",
+  "homeUsbFamilyTiqiaaZaza": "Tiqiaa / ZaZa",
+  "homeUsbFamilyElkSmart": "ElkSmart",
+  "homeAudioAccessoryLabel": "Adaptador de audio de 3,5 mm",
+  "homeContinueWithoutHardware": "Continuar sin hardware",
+  "homeHowItWorks": "Cómo funciona",
   "settingsNavLabel": "Ajustes",
   "dismiss": "Descartar",
   "remotesNavLabel": "Mandos",
@@ -521,9 +532,9 @@
   "presetNavigation": "Navegación",
   "all": "Todo",
   "completeRequiredFieldsToSave": "Completa los campos obligatorios para guardar",
-  "buttonLabelStepTitle": "1) Etiqueta del botón",
+  "buttonLabelStepTitle": "Etiqueta del botón",
   "buttonLabelStepSubtitle": "Elige una imagen, un icono o escribe una etiqueta.",
-  "buttonColorStepTitle": "2) Color del botón (opcional)",
+  "buttonColorStepTitle": "Color del botón",
   "buttonColorStepSubtitle": "Elige un color de fondo para este botón.",
   "selectColor": "Selecciona color:",
   "noImageSelected": "No hay imagen seleccionada",
@@ -2144,5 +2155,60 @@
   "learningModeChooseRemoteTitle": "Elige un control remoto",
   "learningModeNewRemoteTitle": "Crear un nuevo control remoto",
   "learningModeSaveSuccess": "Botón aprendido guardado.",
-  "learningModeSaveFailed": "El botón aprendido no se pudo guardar."
+  "learningModeSaveFailed": "El botón aprendido no se pudo guardar.",
+  "remoteSetupIntro": "Elige primero un nombre y un diseño. Podrás añadir botones después.",
+  "startWithDefault": "Empezar con los valores predeterminados",
+  "browseGithubStore": "Explorar GitHub Store",
+  "addFirstButton": "Añadir primer botón",
+  "moreWaysToStart": "Más formas de empezar",
+  "unsavedRemoteSetupChangesMessage": "¿Descartar esta nueva configuración del mando y salir de esta pantalla?",
+  "unsavedRemoteStudioChangesMessage": "¿Descartar los cambios del mando y salir de esta pantalla?",
+  "firstButtonAdded": "Primer botón añadido.",
+  "iconColorTitle": "Color del icono",
+  "iconColorHelper": "Elige un color para el símbolo que siga siendo visible sobre el fondo del botón.",
+  "colorRed": "Rojo",
+  "colorPink": "Rosa",
+  "colorPurple": "Morado",
+  "colorDeepPurple": "Morado oscuro",
+  "colorIndigo": "Índigo",
+  "colorBlue": "Azul",
+  "colorLightBlue": "Azul claro",
+  "colorCyan": "Cian",
+  "colorTeal": "Verde azulado",
+  "colorGreen": "Verde",
+  "colorLightGreen": "Verde claro",
+  "colorLime": "Lima",
+  "colorYellow": "Amarillo",
+  "colorAmber": "Ámbar",
+  "colorOrange": "Naranja",
+  "colorDeepOrange": "Naranja oscuro",
+  "colorBrown": "Marrón",
+  "colorGrey": "Gris",
+  "colorBlueGrey": "Gris azulado",
+  "colorBlack": "Negro",
+  "colorWhite": "Blanco",
+  "buttonColorSemantics": "Color del botón {colorName}",
+  "@buttonColorSemantics": {
+    "placeholders": {
+      "colorName": {}
+    }
+  },
+  "buttonColorSemanticsSelected": "Color del botón {colorName}, seleccionado",
+  "@buttonColorSemanticsSelected": {
+    "placeholders": {
+      "colorName": {}
+    }
+  },
+  "iconColorSemantics": "Color del icono {colorName}",
+  "@iconColorSemantics": {
+    "placeholders": {
+      "colorName": {}
+    }
+  },
+  "iconColorSemanticsSelected": "Color del icono {colorName}, seleccionado",
+  "@iconColorSemanticsSelected": {
+    "placeholders": {
+      "colorName": {}
+    }
+  }
 }

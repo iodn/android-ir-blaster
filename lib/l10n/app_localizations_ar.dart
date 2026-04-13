@@ -95,19 +95,19 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String get homeHardwareBannerOpenFailed =>
-      'USB دونجل authorized, but تهيئة فشل.';
+      'تم السماح لدونجل USB، لكن فشلت التهيئة.';
 
   @override
   String get homeHardwareBannerReady => 'USB جاهز.';
 
   @override
-  String get homeHardwareRequiredTitle => 'IR hardware مطلوب إلى send commands';
+  String get homeHardwareRequiredTitle => 'يلزم عتاد IR لإرسال الأوامر';
 
   @override
   String get homeUsbDongleRecommended => 'دونجل IR عبر USB، موصى به';
 
   @override
-  String get homeAudioAdapterAlternative => 'صوت IR adapter (alternative)';
+  String get homeAudioAdapterAlternative => 'محول IR صوتي (بديل)';
 
   @override
   String get homeAudioAdapterDescription =>
@@ -117,7 +117,7 @@ class AppLocalizationsAr extends AppLocalizations {
   String get close => 'إغلاق';
 
   @override
-  String get homeChooseTransmitter => 'اختر a transmitter';
+  String get homeChooseTransmitter => 'اختر مرسلاً';
 
   @override
   String get openSettings => 'فتح الإعدادات';
@@ -134,7 +134,7 @@ class AppLocalizationsAr extends AppLocalizations {
   String get homeUsbPermissionRequestFailed => 'فشل طلب إذن USB.';
 
   @override
-  String get working => 'Working…';
+  String get working => 'جارٍ التنفيذ…';
 
   @override
   String get requestUsbPermission => 'طلب إذن USB';
@@ -144,13 +144,49 @@ class AppLocalizationsAr extends AppLocalizations {
       'ملاحظة: ما زال بإمكانك إنشاء أجهزة التحكم وتنظيمها الآن. يلزم العتاد فقط عند الإرسال.';
 
   @override
-  String get homeNoIrTransmitterTitle => 'No IR transmitter available';
+  String get homeNoIrTransmitterTitle => 'لا يوجد مرسل IR متاح';
+
+  @override
+  String get homeHardwareRequiredBody =>
+      'يمكن لتطبيق IR Blaster إنشاء وإدارة أجهزة التحكم على أي هاتف. لكن لإرسال أوامر الأشعة تحت الحمراء فعليًا، يحتاج جهازك إلى أحد خيارات العتاد أدناه.';
+
+  @override
+  String get homeCanStillUseWithoutHardware =>
+      'ما زال بإمكانك إنشاء أجهزة التحكم واستيرادها وتنظيمها الآن.';
+
+  @override
+  String get homeWaysToUseIrBlaster => 'طرق استخدام IR Blaster';
+
+  @override
+  String get homeBuiltInIrOptionTitle => 'هاتف مزود بـ IR مدمج';
+
+  @override
+  String get homeBuiltInIrOptionSubtitle =>
+      'يعمل على الهواتف المدعومة التي تحتوي على مرسل IR مدمج. هذا الهاتف لا يحتوي على واحد.';
+
+  @override
+  String get homeBuiltInIrUnavailable => 'غير متاح على هذا الهاتف';
+
+  @override
+  String get homeUsbFamilyTiqiaaZaza => 'Tiqiaa / ZaZa';
+
+  @override
+  String get homeUsbFamilyElkSmart => 'ElkSmart';
+
+  @override
+  String get homeAudioAccessoryLabel => 'محوّل صوت 3.5 مم';
+
+  @override
+  String get homeContinueWithoutHardware => 'المتابعة بدون عتاد';
+
+  @override
+  String get homeHowItWorks => 'كيف يعمل';
 
   @override
   String get settingsNavLabel => 'الإعدادات';
 
   @override
-  String get dismiss => 'Dismiss';
+  String get dismiss => 'تجاهل';
 
   @override
   String get remotesNavLabel => 'أجهزة التحكم';
@@ -175,7 +211,7 @@ class AppLocalizationsAr extends AppLocalizations {
       'This app needs an IR emitter إلى function';
 
   @override
-  String get remoteDismiss => 'Dismiss';
+  String get remoteDismiss => 'تجاهل';
 
   @override
   String get remoteClose => 'إغلاق';
@@ -1572,20 +1608,20 @@ class AppLocalizationsAr extends AppLocalizations {
   String get completeRequiredFieldsToSave => 'أكمل الحقول المطلوبة للحفظ';
 
   @override
-  String get buttonLabelStepTitle => '1) زر label';
+  String get buttonLabelStepTitle => 'تسمية الزر';
 
   @override
   String get buttonLabelStepSubtitle =>
       'اختر an image, icon, or type a text label.';
 
   @override
-  String get buttonColorStepTitle => '2) زر color (optional)';
+  String get buttonColorStepTitle => 'لون الزر';
 
   @override
   String get buttonColorStepSubtitle => 'اختر لون خلفية لهذا الزر.';
 
   @override
-  String get selectColor => 'اختر color:';
+  String get selectColor => 'اختر اللون:';
 
   @override
   String get noImageSelected => 'No image المحدد';
@@ -1632,7 +1668,7 @@ class AppLocalizationsAr extends AppLocalizations {
   String get requiredEnterButtonLabel => 'مطلوب: أدخل تسمية للزر.';
 
   @override
-  String get defaultColorName => 'Default';
+  String get defaultColorName => 'افتراضي';
 
   @override
   String get newRemoteCreatedFromLastHit =>
@@ -4455,6 +4491,122 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String get learningModeSaveFailed => 'لا يمكن حفظ الزر الذي تم التعرف عليه.';
+
+  @override
+  String get remoteSetupIntro =>
+      'اختر الاسم والتخطيط أولاً. يمكنك إضافة الأزرار بعد ذلك.';
+
+  @override
+  String get startWithDefault => 'ابدأ بالإعدادات الافتراضية';
+
+  @override
+  String get browseGithubStore => 'تصفح متجر GitHub';
+
+  @override
+  String get addFirstButton => 'أضف الزر الأول';
+
+  @override
+  String get moreWaysToStart => 'المزيد من طرق البدء';
+
+  @override
+  String get unsavedRemoteSetupChangesMessage =>
+      'هل تريد تجاهل إعداد هذا الريموت الجديد ومغادرة هذه الشاشة؟';
+
+  @override
+  String get unsavedRemoteStudioChangesMessage =>
+      'هل تريد تجاهل تغييرات الريموت ومغادرة هذه الشاشة؟';
+
+  @override
+  String get firstButtonAdded => 'تمت إضافة الزر الأول.';
+
+  @override
+  String get iconColorTitle => 'لون الرمز';
+
+  @override
+  String get iconColorHelper => 'اختر لونًا للرمز يبقى واضحًا فوق خلفية الزر.';
+
+  @override
+  String get colorRed => 'أحمر';
+
+  @override
+  String get colorPink => 'وردي';
+
+  @override
+  String get colorPurple => 'أرجواني';
+
+  @override
+  String get colorDeepPurple => 'أرجواني داكن';
+
+  @override
+  String get colorIndigo => 'نيلي';
+
+  @override
+  String get colorBlue => 'أزرق';
+
+  @override
+  String get colorLightBlue => 'أزرق فاتح';
+
+  @override
+  String get colorCyan => 'سماوي';
+
+  @override
+  String get colorTeal => 'تركوازي';
+
+  @override
+  String get colorGreen => 'أخضر';
+
+  @override
+  String get colorLightGreen => 'أخضر فاتح';
+
+  @override
+  String get colorLime => 'ليموني';
+
+  @override
+  String get colorYellow => 'أصفر';
+
+  @override
+  String get colorAmber => 'كهرماني';
+
+  @override
+  String get colorOrange => 'برتقالي';
+
+  @override
+  String get colorDeepOrange => 'برتقالي داكن';
+
+  @override
+  String get colorBrown => 'بني';
+
+  @override
+  String get colorGrey => 'رمادي';
+
+  @override
+  String get colorBlueGrey => 'أزرق رمادي';
+
+  @override
+  String get colorBlack => 'أسود';
+
+  @override
+  String get colorWhite => 'أبيض';
+
+  @override
+  String buttonColorSemantics(Object colorName) {
+    return 'لون الزر $colorName';
+  }
+
+  @override
+  String buttonColorSemanticsSelected(Object colorName) {
+    return 'لون الزر $colorName، محدد';
+  }
+
+  @override
+  String iconColorSemantics(Object colorName) {
+    return 'لون الرمز $colorName';
+  }
+
+  @override
+  String iconColorSemanticsSelected(Object colorName) {
+    return 'لون الرمز $colorName، محدد';
+  }
 }
 
 /// The translations for Arabic, as used in Egypt (`ar_EG`).
@@ -4548,19 +4700,19 @@ class AppLocalizationsArEg extends AppLocalizationsAr {
 
   @override
   String get homeHardwareBannerOpenFailed =>
-      'USB دونجل authorized, but تهيئة فشل.';
+      'تم السماح لدونجل USB، لكن التهيئة فشلت.';
 
   @override
   String get homeHardwareBannerReady => 'USB جاهز.';
 
   @override
-  String get homeHardwareRequiredTitle => 'IR hardware مطلوب إلى send commands';
+  String get homeHardwareRequiredTitle => 'محتاج هاردوير IR عشان تبعت أوامر';
 
   @override
   String get homeUsbDongleRecommended => 'دونجل IR عبر USB، موصى به';
 
   @override
-  String get homeAudioAdapterAlternative => 'صوت IR adapter (alternative)';
+  String get homeAudioAdapterAlternative => 'محول IR صوتي (بديل)';
 
   @override
   String get homeAudioAdapterDescription =>
@@ -4570,7 +4722,7 @@ class AppLocalizationsArEg extends AppLocalizationsAr {
   String get close => 'إغلاق';
 
   @override
-  String get homeChooseTransmitter => 'اختر a transmitter';
+  String get homeChooseTransmitter => 'اختار مرسل';
 
   @override
   String get openSettings => 'فتح الإعدادات';
@@ -4587,7 +4739,7 @@ class AppLocalizationsArEg extends AppLocalizationsAr {
   String get homeUsbPermissionRequestFailed => 'فشل طلب إذن USB.';
 
   @override
-  String get working => 'Working…';
+  String get working => 'جارٍ التنفيذ…';
 
   @override
   String get requestUsbPermission => 'طلب إذن USB';
@@ -4597,13 +4749,49 @@ class AppLocalizationsArEg extends AppLocalizationsAr {
       'ملاحظة: ما زال بإمكانك إنشاء أجهزة التحكم وتنظيمها الآن. يلزم العتاد فقط عند الإرسال.';
 
   @override
-  String get homeNoIrTransmitterTitle => 'No IR transmitter available';
+  String get homeNoIrTransmitterTitle => 'مافيش مرسل IR متاح';
+
+  @override
+  String get homeHardwareRequiredBody =>
+      'يقدر IR Blaster ينشئ ويدير الريموتات على أي موبايل. لكن عشان ترسل أوامر الأشعة تحت الحمراء فعليًا، جهازك محتاج واحد من خيارات الهاردوير اللي تحت.';
+
+  @override
+  String get homeCanStillUseWithoutHardware =>
+      'لسه تقدر تنشئ الريموتات وتستوردها وتنظمها دلوقتي.';
+
+  @override
+  String get homeWaysToUseIrBlaster => 'طرق استخدام IR Blaster';
+
+  @override
+  String get homeBuiltInIrOptionTitle => 'موبايل فيه IR مدمج';
+
+  @override
+  String get homeBuiltInIrOptionSubtitle =>
+      'يشتغل على الموبايلات المدعومة اللي فيها مرسل IR مدمج. الموبايل ده ما فيهوش واحد.';
+
+  @override
+  String get homeBuiltInIrUnavailable => 'غير متاح على هذا الهاتف';
+
+  @override
+  String get homeUsbFamilyTiqiaaZaza => 'Tiqiaa / ZaZa';
+
+  @override
+  String get homeUsbFamilyElkSmart => 'ElkSmart';
+
+  @override
+  String get homeAudioAccessoryLabel => 'محول صوت 3.5 مم';
+
+  @override
+  String get homeContinueWithoutHardware => 'كمل بدون هاردوير';
+
+  @override
+  String get homeHowItWorks => 'كيف يعمل';
 
   @override
   String get settingsNavLabel => 'الإعدادات';
 
   @override
-  String get dismiss => 'Dismiss';
+  String get dismiss => 'تجاهل';
 
   @override
   String get remotesNavLabel => 'أجهزة التحكم';
@@ -4628,7 +4816,7 @@ class AppLocalizationsArEg extends AppLocalizationsAr {
       'This app needs an IR emitter إلى function';
 
   @override
-  String get remoteDismiss => 'Dismiss';
+  String get remoteDismiss => 'تجاهل';
 
   @override
   String get remoteClose => 'إغلاق';
@@ -6025,20 +6213,20 @@ class AppLocalizationsArEg extends AppLocalizationsAr {
   String get completeRequiredFieldsToSave => 'أكمل الحقول المطلوبة للحفظ';
 
   @override
-  String get buttonLabelStepTitle => '1) زر label';
+  String get buttonLabelStepTitle => 'تسمية الزر';
 
   @override
   String get buttonLabelStepSubtitle =>
       'اختر an image, icon, or type a text label.';
 
   @override
-  String get buttonColorStepTitle => '2) زر color (optional)';
+  String get buttonColorStepTitle => 'لون الزر';
 
   @override
   String get buttonColorStepSubtitle => 'اختر لون خلفية لهذا الزر.';
 
   @override
-  String get selectColor => 'اختر color:';
+  String get selectColor => 'اختر اللون:';
 
   @override
   String get noImageSelected => 'No image المحدد';
@@ -6085,7 +6273,7 @@ class AppLocalizationsArEg extends AppLocalizationsAr {
   String get requiredEnterButtonLabel => 'مطلوب: أدخل تسمية للزر.';
 
   @override
-  String get defaultColorName => 'Default';
+  String get defaultColorName => 'افتراضي';
 
   @override
   String get newRemoteCreatedFromLastHit =>
@@ -8908,4 +9096,120 @@ class AppLocalizationsArEg extends AppLocalizationsAr {
 
   @override
   String get learningModeSaveFailed => 'لا يمكن حفظ الزر الذي تم التعرف عليه.';
+
+  @override
+  String get remoteSetupIntro =>
+      'اختر الاسم والتخطيط أولاً. يمكنك إضافة الأزرار بعد ذلك.';
+
+  @override
+  String get startWithDefault => 'ابدأ بالإعدادات الافتراضية';
+
+  @override
+  String get browseGithubStore => 'تصفح متجر GitHub';
+
+  @override
+  String get addFirstButton => 'أضف الزر الأول';
+
+  @override
+  String get moreWaysToStart => 'المزيد من طرق البدء';
+
+  @override
+  String get unsavedRemoteSetupChangesMessage =>
+      'هل تريد تجاهل إعداد هذا الريموت الجديد ومغادرة هذه الشاشة؟';
+
+  @override
+  String get unsavedRemoteStudioChangesMessage =>
+      'هل تريد تجاهل تغييرات الريموت ومغادرة هذه الشاشة؟';
+
+  @override
+  String get firstButtonAdded => 'تمت إضافة الزر الأول.';
+
+  @override
+  String get iconColorTitle => 'لون الرمز';
+
+  @override
+  String get iconColorHelper => 'اختر لونًا للرمز يبقى واضحًا فوق خلفية الزر.';
+
+  @override
+  String get colorRed => 'أحمر';
+
+  @override
+  String get colorPink => 'وردي';
+
+  @override
+  String get colorPurple => 'أرجواني';
+
+  @override
+  String get colorDeepPurple => 'أرجواني داكن';
+
+  @override
+  String get colorIndigo => 'نيلي';
+
+  @override
+  String get colorBlue => 'أزرق';
+
+  @override
+  String get colorLightBlue => 'أزرق فاتح';
+
+  @override
+  String get colorCyan => 'سماوي';
+
+  @override
+  String get colorTeal => 'تركوازي';
+
+  @override
+  String get colorGreen => 'أخضر';
+
+  @override
+  String get colorLightGreen => 'أخضر فاتح';
+
+  @override
+  String get colorLime => 'ليموني';
+
+  @override
+  String get colorYellow => 'أصفر';
+
+  @override
+  String get colorAmber => 'كهرماني';
+
+  @override
+  String get colorOrange => 'برتقالي';
+
+  @override
+  String get colorDeepOrange => 'برتقالي داكن';
+
+  @override
+  String get colorBrown => 'بني';
+
+  @override
+  String get colorGrey => 'رمادي';
+
+  @override
+  String get colorBlueGrey => 'أزرق رمادي';
+
+  @override
+  String get colorBlack => 'أسود';
+
+  @override
+  String get colorWhite => 'أبيض';
+
+  @override
+  String buttonColorSemantics(Object colorName) {
+    return 'لون الزر $colorName';
+  }
+
+  @override
+  String buttonColorSemanticsSelected(Object colorName) {
+    return 'لون الزر $colorName، محدد';
+  }
+
+  @override
+  String iconColorSemantics(Object colorName) {
+    return 'لون الرمز $colorName';
+  }
+
+  @override
+  String iconColorSemanticsSelected(Object colorName) {
+    return 'لون الرمز $colorName، محدد';
+  }
 }

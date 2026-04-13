@@ -24,6 +24,8 @@ enum _NecBitOrder { msb, lsb }
 
 enum _DbPreset { power, volume, channel, navigation, all }
 
+const MethodChannel _platformChannel = MethodChannel('org.nslabs/irtransmitter');
+
 class CreateButton extends StatefulWidget {
   final IRButton? button;
   const CreateButton({super.key, this.button});
@@ -36,6 +38,7 @@ class _CreateButtonState extends State<CreateButton> {
   static const int _kHelperMaxLines = 4;
   static const int _kHintMaxLines = 2;
   static const int _kErrorMaxLines = 3;
+  static const int _kTotalSteps = 3;
 
   late final String _buttonId;
 
@@ -61,6 +64,7 @@ class _CreateButtonState extends State<CreateButton> {
   final TextEditingController protoFreqController = TextEditingController();
 
   bool _tabDatabase = false;
+  int _currentStep = 0;
 
   String? _dbBrand;
   String? _dbModel;
@@ -81,7 +85,7 @@ class _CreateButtonState extends State<CreateButton> {
   final Map<String, TextEditingController> _protoControllers =
       <String, TextEditingController>{};
 
-  _LabelType _labelType = _LabelType.image;
+  _LabelType _labelType = _LabelType.text;
   _SignalType _signalType = _SignalType.hex;
 
   bool useCustomNec = false;
@@ -94,6 +98,7 @@ class _CreateButtonState extends State<CreateButton> {
 
   IconData? _selectedIcon;
   Color? _selectedColor;
+  Color? _selectedIconColor;
 
   bool _didAttachListeners = false;
 
@@ -144,6 +149,9 @@ class _CreateButtonState extends State<CreateButton> {
 
       if (b.buttonColor != null) {
         _selectedColor = normalizeAccessibleButtonColor(Color(b.buttonColor!));
+      }
+      if (b.iconColor != null) {
+        _selectedIconColor = normalizeAccessibleButtonColor(Color(b.iconColor!));
       }
 
       if (isLearnedProtocol && learnedRawPreview.isNotEmpty) {
@@ -370,9 +378,58 @@ class _CreateButtonState extends State<CreateButton> {
       _customNecLooksValid &&
       _protocolLooksValid;
 
+  bool get _stepCanContinue {
+    switch (_currentStep) {
+      case 0:
+        return _hasLabel;
+      case 1:
+        return true;
+      case 2:
+        return _canSave;
+      default:
+        return false;
+    }
+  }
+
   void _showSnack(String message) {
     ScaffoldMessenger.of(context)
         .showSnackBar(SnackBar(content: Text(message)));
+  }
+
+  void _showCurrentStepValidationMessage() {
+    if (_currentStep == 0) {
+      if (_labelType == _LabelType.image) {
+        _showSnack(context.l10n.requiredSelectImageOrSwitch);
+      } else if (_labelType == _LabelType.icon) {
+        _showSnack(context.l10n.requiredSelectIconOrSwitch);
+      } else {
+        _showSnack(context.l10n.requiredEnterButtonLabel);
+      }
+      return;
+    }
+
+    if (_currentStep == 2) {
+      _showSnack(context.l10n.completeRequiredFieldsToSave);
+    }
+  }
+
+  void _goToNextStep() {
+    FocusScope.of(context).unfocus();
+    if (!_stepCanContinue) {
+      _showCurrentStepValidationMessage();
+      return;
+    }
+    if (_currentStep >= _kTotalSteps - 1) return;
+    setState(() => _currentStep += 1);
+  }
+
+  void _goToPreviousStep() {
+    FocusScope.of(context).unfocus();
+    if (_currentStep == 0) {
+      Navigator.pop(context);
+      return;
+    }
+    setState(() => _currentStep -= 1);
   }
 
   static bool _coerceBool(dynamic v) {
@@ -874,6 +931,7 @@ class _CreateButtonState extends State<CreateButton> {
   void _clearIcon() {
     setState(() {
       _selectedIcon = null;
+      _selectedIconColor = null;
     });
   }
 
@@ -913,6 +971,93 @@ class _CreateButtonState extends State<CreateButton> {
     );
   }
 
+  Widget _buildStepProgress(ThemeData theme) {
+    final steps = <({String title, IconData icon})>[
+      (
+        title: context.l10n.buttonLabelStepTitle,
+        icon: Icons.label_outline,
+      ),
+      (
+        title: context.l10n.buttonColorStepTitle,
+        icon: Icons.palette_outlined,
+      ),
+      (
+        title: 'IR signal',
+        icon: Icons.settings_remote_outlined,
+      ),
+    ];
+
+    return Padding(
+      padding: const EdgeInsets.fromLTRB(0, 4, 0, 16),
+      child: Row(
+        children: List<Widget>.generate(steps.length, (index) {
+          final step = steps[index];
+          final selected = index == _currentStep;
+          final completed = index < _currentStep;
+          final cs = theme.colorScheme;
+          final bg = selected
+              ? cs.primaryContainer
+              : completed
+                  ? cs.secondaryContainer
+                  : cs.surfaceContainerHighest;
+          final fg = selected
+              ? cs.onPrimaryContainer
+              : completed
+                  ? cs.onSecondaryContainer
+                  : cs.onSurfaceVariant;
+
+          return Expanded(
+            child: Padding(
+              padding: EdgeInsets.only(right: index == steps.length - 1 ? 0 : 8),
+              child: InkWell(
+                borderRadius: BorderRadius.circular(16),
+                onTap: index <= _currentStep
+                    ? () => setState(() => _currentStep = index)
+                    : null,
+                child: AnimatedContainer(
+                  duration: const Duration(milliseconds: 180),
+                  padding: const EdgeInsets.symmetric(
+                    horizontal: 10,
+                    vertical: 10,
+                  ),
+                  decoration: BoxDecoration(
+                    color: bg,
+                    borderRadius: BorderRadius.circular(16),
+                    border: Border.all(
+                      color: selected
+                          ? cs.primary.withValues(alpha: 0.24)
+                          : cs.outlineVariant.withValues(alpha: 0.22),
+                    ),
+                  ),
+                  child: Column(
+                    children: [
+                      Icon(
+                        completed ? Icons.check_circle_rounded : step.icon,
+                        size: 18,
+                        color: fg,
+                      ),
+                      const SizedBox(height: 6),
+                      Text(
+                        step.title,
+                        textAlign: TextAlign.center,
+                        maxLines: 2,
+                        overflow: TextOverflow.ellipsis,
+                        style: theme.textTheme.labelMedium?.copyWith(
+                          color: fg,
+                          fontWeight: FontWeight.w800,
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+              ),
+            ),
+          );
+        }),
+      ),
+    );
+  }
+
   Widget _chip(String text, {IconData? icon}) {
     return Chip(
       visualDensity: VisualDensity.compact,
@@ -935,8 +1080,9 @@ class _CreateButtonState extends State<CreateButton> {
 
     return Semantics(
       button: true,
-      label:
-          isSelected ? 'Button color $label, selected' : 'Button color $label',
+      label: isSelected
+          ? context.l10n.buttonColorSemanticsSelected(label)
+          : context.l10n.buttonColorSemantics(label),
       child: InkWell(
         onTap: () {
           setState(() {
@@ -989,6 +1135,72 @@ class _CreateButtonState extends State<CreateButton> {
   int? get _selectedButtonColorValue => _selectedColor == null
       ? null
       : normalizeAccessibleButtonColor(_selectedColor!).toARGB32();
+
+  int? get _selectedIconColorValue => _selectedIconColor == null
+      ? null
+      : normalizeAccessibleButtonColor(_selectedIconColor!).toARGB32();
+
+  Widget _iconColorOption(Color? color, String label, ThemeData theme) {
+    final normalizedOption =
+        color == null ? null : normalizeAccessibleButtonColor(color);
+    final isSelected = normalizedOption == null
+        ? _selectedIconColor == null
+        : _selectedIconColor?.toARGB32() == normalizedOption.toARGB32();
+    final previewColor = normalizedOption ?? theme.colorScheme.onSurface;
+
+    return Semantics(
+      button: true,
+      label: isSelected
+          ? context.l10n.iconColorSemanticsSelected(label)
+          : context.l10n.iconColorSemantics(label),
+      child: InkWell(
+        onTap: () {
+          setState(() {
+            _selectedIconColor = normalizedOption;
+          });
+        },
+        borderRadius: BorderRadius.circular(8),
+        child: Container(
+          constraints: const BoxConstraints(minWidth: 60, minHeight: 60),
+          padding: const EdgeInsets.symmetric(vertical: 8),
+          child: Column(
+            mainAxisSize: MainAxisSize.min,
+            children: [
+              Container(
+                width: 40,
+                height: 40,
+                decoration: BoxDecoration(
+                  color: theme.colorScheme.surfaceContainerHighest,
+                  shape: BoxShape.circle,
+                  border: Border.all(
+                    color: isSelected
+                        ? theme.colorScheme.primary
+                        : theme.colorScheme.outline,
+                    width: isSelected ? 3 : 1,
+                  ),
+                ),
+                child: Center(
+                  child: Icon(
+                    _selectedIcon ?? Icons.power_settings_new_rounded,
+                    size: 20,
+                    color: previewColor,
+                  ),
+                ),
+              ),
+              const SizedBox(height: 4),
+              Text(
+                label,
+                style: theme.textTheme.bodySmall?.copyWith(fontSize: 10),
+                textAlign: TextAlign.center,
+                maxLines: 2,
+                overflow: TextOverflow.ellipsis,
+              ),
+            ],
+          ),
+        ),
+      ),
+    );
+  }
 
   List<Widget> _buildSignalSummaryChips() {
     final List<Widget> chips = [];
@@ -1079,6 +1291,7 @@ class _CreateButtonState extends State<CreateButton> {
         iconFontPackage:
             _labelType == _LabelType.icon ? _selectedIcon?.fontPackage : null,
         buttonColor: _selectedButtonColorValue,
+        iconColor: _selectedIconColorValue,
       );
     }
 
@@ -1099,6 +1312,7 @@ class _CreateButtonState extends State<CreateButton> {
         iconFontPackage:
             _labelType == _LabelType.icon ? _selectedIcon?.fontPackage : null,
         buttonColor: _selectedButtonColorValue,
+        iconColor: _selectedIconColorValue,
       );
     }
 
@@ -1146,6 +1360,7 @@ class _CreateButtonState extends State<CreateButton> {
           _labelType == _LabelType.icon ? _selectedIcon?.fontFamily : null,
       iconFontPackage:
           _labelType == _LabelType.icon ? _selectedIcon?.fontPackage : null,
+      iconColor: _selectedIconColorValue,
       buttonColor: _selectedButtonColorValue,
     );
   }
@@ -2867,6 +3082,7 @@ class _CreateButtonState extends State<CreateButton> {
             _labelType == _LabelType.icon ? _selectedIcon?.fontFamily : null,
         iconFontPackage:
             _labelType == _LabelType.icon ? _selectedIcon?.fontPackage : null,
+        iconColor: _selectedIconColorValue,
         buttonColor: _selectedButtonColorValue,
       );
 
@@ -2896,6 +3112,7 @@ class _CreateButtonState extends State<CreateButton> {
             _labelType == _LabelType.icon ? _selectedIcon?.fontFamily : null,
         iconFontPackage:
             _labelType == _LabelType.icon ? _selectedIcon?.fontPackage : null,
+        iconColor: _selectedIconColorValue,
         buttonColor: _selectedButtonColorValue,
       );
 
@@ -2956,6 +3173,7 @@ class _CreateButtonState extends State<CreateButton> {
             _labelType == _LabelType.icon ? _selectedIcon?.fontFamily : null,
         iconFontPackage:
             _labelType == _LabelType.icon ? _selectedIcon?.fontPackage : null,
+        iconColor: _selectedIconColorValue,
         buttonColor: _selectedButtonColorValue,
       );
 
@@ -2967,17 +3185,39 @@ class _CreateButtonState extends State<CreateButton> {
   @override
   Widget build(BuildContext context) {
     final theme = Theme.of(context);
+    final colorChoices = <({Color color, String label})>[
+      (color: Colors.red, label: context.l10n.colorRed),
+      (color: Colors.pink, label: context.l10n.colorPink),
+      (color: Colors.purple, label: context.l10n.colorPurple),
+      (color: Colors.deepPurple, label: context.l10n.colorDeepPurple),
+      (color: Colors.indigo, label: context.l10n.colorIndigo),
+      (color: Colors.blue, label: context.l10n.colorBlue),
+      (color: Colors.lightBlue, label: context.l10n.colorLightBlue),
+      (color: Colors.cyan, label: context.l10n.colorCyan),
+      (color: Colors.teal, label: context.l10n.colorTeal),
+      (color: Colors.green, label: context.l10n.colorGreen),
+      (color: Colors.lightGreen, label: context.l10n.colorLightGreen),
+      (color: Colors.lime, label: context.l10n.colorLime),
+      (color: Colors.yellow, label: context.l10n.colorYellow),
+      (color: Colors.amber, label: context.l10n.colorAmber),
+      (color: Colors.orange, label: context.l10n.colorOrange),
+      (color: Colors.deepOrange, label: context.l10n.colorDeepOrange),
+      (color: Colors.brown, label: context.l10n.colorBrown),
+      (color: Colors.grey, label: context.l10n.colorGrey),
+      (color: Colors.blueGrey, label: context.l10n.colorBlueGrey),
+      (color: Colors.black, label: context.l10n.colorBlack),
+    ];
 
     final labelSegments = <ButtonSegment<_LabelType>>[
-      const ButtonSegment(
-        value: _LabelType.image,
-        label: Text('Image'),
-        icon: Icon(Icons.image_outlined),
-      ),
       const ButtonSegment(
         value: _LabelType.text,
         label: Text('Text'),
         icon: Icon(Icons.text_fields),
+      ),
+      const ButtonSegment(
+        value: _LabelType.image,
+        label: Text('Image'),
+        icon: Icon(Icons.image_outlined),
       ),
       const ButtonSegment(
         value: _LabelType.icon,
@@ -3022,15 +3262,6 @@ class _CreateButtonState extends State<CreateButton> {
     return Scaffold(
       appBar: AppBar(
         title: Text(_screenTitle),
-        actions: [
-          IconButton(
-            tooltip: _canSave
-                ? context.l10n.saveAction
-                : context.l10n.completeRequiredFieldsToSave,
-            onPressed: _canSave ? _onSavePressed : null,
-            icon: const Icon(Icons.check),
-          ),
-        ],
       ),
       bottomNavigationBar: SafeArea(
         minimum: const EdgeInsets.fromLTRB(16, 8, 16, 12),
@@ -3038,17 +3269,31 @@ class _CreateButtonState extends State<CreateButton> {
           children: [
             Expanded(
               child: OutlinedButton.icon(
-                onPressed: () => Navigator.pop(context),
-                icon: const Icon(Icons.close),
-                label: Text(context.l10n.cancel),
+                onPressed: _goToPreviousStep,
+                icon: Icon(_currentStep == 0 ? Icons.close : Icons.arrow_back),
+                label: Text(
+                  _currentStep == 0
+                      ? context.l10n.cancel
+                      : context.l10n.backAction,
+                ),
               ),
             ),
             const SizedBox(width: 12),
             Expanded(
               child: FilledButton.icon(
-                onPressed: _canSave ? _onSavePressed : null,
-                icon: const Icon(Icons.save),
-                label: Text(context.l10n.saveAction),
+                onPressed: _currentStep == _kTotalSteps - 1
+                    ? (_canSave ? _onSavePressed : null)
+                    : _goToNextStep,
+                icon: Icon(
+                  _currentStep == _kTotalSteps - 1
+                      ? Icons.save
+                      : Icons.arrow_forward,
+                ),
+                label: Text(
+                  _currentStep == _kTotalSteps - 1
+                      ? context.l10n.saveAction
+                      : context.l10n.continueAction,
+                ),
               ),
             ),
           ],
@@ -3059,513 +3304,571 @@ class _CreateButtonState extends State<CreateButton> {
           padding: const EdgeInsets.fromLTRB(16, 12, 16, 24),
           keyboardDismissBehavior: ScrollViewKeyboardDismissBehavior.onDrag,
           children: [
-            _sectionHeader(
-              context.l10n.buttonLabelStepTitle,
-              subtitle: context.l10n.buttonLabelStepSubtitle,
-              icon: Icons.label_outline,
-            ),
-            Card(
-              clipBehavior: Clip.antiAlias,
-              child: Padding(
-                padding: const EdgeInsets.all(12),
-                child: Column(
-                  children: [
-                    Align(
-                      alignment: Alignment.centerLeft,
-                      child: SegmentedButton<_LabelType>(
-                        segments: labelSegments,
-                        selected: {_labelType},
-                        onSelectionChanged: (s) {
-                          final next = s.first;
-                          setState(() {
-                            _labelType = next;
-                            if (_labelType == _LabelType.text) {
-                              _clearImage();
-                              _clearIcon();
-                            } else if (_labelType == _LabelType.icon) {
-                              _clearImage();
-                            } else if (_labelType == _LabelType.image) {
-                              _clearIcon();
-                            }
-                          });
-                        },
-                      ),
-                    ),
-                    const SizedBox(height: 12),
-                    if (_labelType == _LabelType.image) ...[
-                      Container(
-                        height: 120,
-                        width: double.infinity,
-                        decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(12),
-                          color: theme.colorScheme.surfaceContainerHighest
-                              .withValues(alpha: 0.6),
-                          border: Border.all(
-                              color: theme.colorScheme.outlineVariant
-                                  .withValues(alpha: 0.8)),
-                        ),
-                        child: Center(
-                          child: _imagePreview ??
-                              Column(
-                                mainAxisSize: MainAxisSize.min,
-                                children: [
-                                  Icon(
-                                    Icons.add_photo_alternate_outlined,
-                                    size: 40,
-                                    color: theme.colorScheme.onSurface
-                                        .withValues(alpha: 0.7),
-                                  ),
-                                  const SizedBox(height: 6),
-                                  Text(
-                                    context.l10n.noImageSelected,
-                                    style: theme.textTheme.bodySmall?.copyWith(
-                                      color: theme.colorScheme.onSurface
-                                          .withValues(alpha: 0.75),
-                                    ),
-                                  ),
-                                ],
-                              ),
+            _buildStepProgress(theme),
+            if (_currentStep == 0) ...[
+              _sectionHeader(
+                context.l10n.buttonLabelStepTitle,
+                subtitle: context.l10n.buttonLabelStepSubtitle,
+                icon: Icons.label_outline,
+              ),
+              Card(
+                clipBehavior: Clip.antiAlias,
+                child: Padding(
+                  padding: const EdgeInsets.all(12),
+                  child: Column(
+                    children: [
+                      Align(
+                        alignment: Alignment.centerLeft,
+                        child: SegmentedButton<_LabelType>(
+                          segments: labelSegments,
+                          selected: {_labelType},
+                          onSelectionChanged: (s) {
+                            final next = s.first;
+                            setState(() {
+                              _labelType = next;
+                              if (_labelType == _LabelType.text) {
+                                _clearImage();
+                                _clearIcon();
+                              } else if (_labelType == _LabelType.icon) {
+                                _clearImage();
+                              } else if (_labelType == _LabelType.image) {
+                                _clearIcon();
+                              }
+                            });
+                          },
                         ),
                       ),
                       const SizedBox(height: 12),
-                      Row(
-                        children: [
-                          Expanded(
-                            child: FilledButton.icon(
-                              onPressed: _pickImageFromGallery,
-                              icon: const Icon(Icons.photo_library_outlined),
-                              label: Text(context.l10n.gallery),
-                            ),
+                      if (_labelType == _LabelType.image) ...[
+                        Container(
+                          height: 120,
+                          width: double.infinity,
+                          decoration: BoxDecoration(
+                            borderRadius: BorderRadius.circular(12),
+                            color: theme.colorScheme.surfaceContainerHighest
+                                .withValues(alpha: 0.6),
+                            border: Border.all(
+                                color: theme.colorScheme.outlineVariant
+                                    .withValues(alpha: 0.8)),
                           ),
-                          const SizedBox(width: 12),
-                          Expanded(
-                            child: FilledButton.tonalIcon(
-                              onPressed: _pickImageFromAssets,
-                              icon: const Icon(Icons.grid_view_outlined),
-                              label: Text(context.l10n.builtIn),
-                            ),
-                          ),
-                        ],
-                      ),
-                      if (_imagePath != null) ...[
-                        const SizedBox(height: 8),
-                        Align(
-                          alignment: Alignment.centerRight,
-                          child: TextButton.icon(
-                            onPressed: _clearImage,
-                            icon: const Icon(Icons.delete_outline),
-                            label: Text(context.l10n.removeImage),
-                          ),
-                        ),
-                      ],
-                      if (!_hasLabel) ...[
-                        const SizedBox(height: 6),
-                        Align(
-                          alignment: Alignment.centerLeft,
-                          child: Text(
-                            context.l10n.requiredSelectImageOrSwitch,
-                            style: theme.textTheme.bodySmall?.copyWith(
-                              color: theme.colorScheme.error,
-                              fontWeight: FontWeight.w600,
-                            ),
-                          ),
-                        ),
-                      ],
-                    ] else if (_labelType == _LabelType.icon) ...[
-                      Container(
-                        height: 120,
-                        width: double.infinity,
-                        decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(12),
-                          color: theme.colorScheme.surfaceContainerHighest
-                              .withValues(alpha: 0.6),
-                          border: Border.all(
-                              color: theme.colorScheme.outlineVariant
-                                  .withValues(alpha: 0.8)),
-                        ),
-                        child: Center(
-                          child: _selectedIcon != null
-                              ? Column(
-                                  mainAxisAlignment: MainAxisAlignment.center,
-                                  children: [
-                                    Icon(
-                                      IconData(
-                                        _selectedIcon!.codePoint,
-                                        fontFamily: _selectedIcon!.fontFamily,
-                                      ),
-                                      size: 64,
-                                      color: theme.colorScheme.primary,
-                                    ),
-                                    const SizedBox(height: 8),
-                                    Text(
-                                      context.l10n.iconSelected,
-                                      style:
-                                          theme.textTheme.bodySmall?.copyWith(
-                                        color: theme.colorScheme.primary,
-                                        fontWeight: FontWeight.w600,
-                                      ),
-                                    ),
-                                  ],
-                                )
-                              : Column(
+                          child: Center(
+                            child: _imagePreview ??
+                                Column(
                                   mainAxisSize: MainAxisSize.min,
                                   children: [
                                     Icon(
-                                      Icons.emoji_symbols_outlined,
+                                      Icons.add_photo_alternate_outlined,
                                       size: 40,
                                       color: theme.colorScheme.onSurface
                                           .withValues(alpha: 0.7),
                                     ),
                                     const SizedBox(height: 6),
                                     Text(
-                                      context.l10n.noIconSelected,
-                                      style:
-                                          theme.textTheme.bodySmall?.copyWith(
+                                      context.l10n.noImageSelected,
+                                      style: theme.textTheme.bodySmall?.copyWith(
                                         color: theme.colorScheme.onSurface
                                             .withValues(alpha: 0.75),
                                       ),
                                     ),
                                   ],
                                 ),
-                        ),
-                      ),
-                      const SizedBox(height: 12),
-                      FilledButton.icon(
-                        onPressed: _pickIcon,
-                        icon: const Icon(Icons.apps),
-                        label: Text(context.l10n.chooseIcon),
-                      ),
-                      if (_selectedIcon != null) ...[
-                        const SizedBox(height: 8),
-                        Align(
-                          alignment: Alignment.centerRight,
-                          child: TextButton.icon(
-                            onPressed: _clearIcon,
-                            icon: const Icon(Icons.delete_outline),
-                            label: Text(context.l10n.removeIcon),
                           ),
                         ),
-                      ],
-                      if (!_hasLabel) ...[
-                        const SizedBox(height: 6),
-                        Align(
-                          alignment: Alignment.centerLeft,
-                          child: Text(
-                            context.l10n.requiredSelectIconOrSwitch,
-                            style: theme.textTheme.bodySmall?.copyWith(
-                              color: theme.colorScheme.error,
-                              fontWeight: FontWeight.w600,
-                            ),
-                          ),
-                        ),
-                      ],
-                    ] else ...[
-                      TextField(
-                        controller: nameController,
-                        textInputAction: TextInputAction.done,
-                        decoration: InputDecoration(
-                          labelText: context.l10n.buttonText,
-                          hintText: context.l10n.buttonTextHint,
-                          helperText: context.l10n.buttonTextHelper,
-                          helperMaxLines: _kHelperMaxLines,
-                          hintMaxLines: _kHintMaxLines,
-                          suffixIcon: nameController.text.trim().isEmpty
-                              ? null
-                              : IconButton(
-                                  tooltip: context.l10n.clearAction,
-                                  onPressed: () => nameController.clear(),
-                                  icon: const Icon(Icons.clear),
-                                ),
-                        ),
-                      ),
-                      if (!_hasLabel) ...[
-                        const SizedBox(height: 6),
-                        Align(
-                          alignment: Alignment.centerLeft,
-                          child: Text(
-                            context.l10n.requiredEnterButtonLabel,
-                            style: theme.textTheme.bodySmall?.copyWith(
-                              color: theme.colorScheme.error,
-                              fontWeight: FontWeight.w600,
-                            ),
-                          ),
-                        ),
-                      ],
-                    ],
-                  ],
-                ),
-              ),
-            ),
-            _sectionHeader(
-              context.l10n.buttonColorStepTitle,
-              subtitle: context.l10n.buttonColorStepSubtitle,
-              icon: Icons.palette_outlined,
-            ),
-            Card(
-              clipBehavior: Clip.antiAlias,
-              child: Padding(
-                padding: const EdgeInsets.all(12),
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Text(
-                      context.l10n.selectColor,
-                      style: theme.textTheme.titleSmall,
-                    ),
-                    const SizedBox(height: 12),
-                    Wrap(
-                      spacing: 12,
-                      runSpacing: 12,
-                      children: [
-                        _colorOption(
-                            null, context.l10n.defaultColorName, theme),
-                        _colorOption(Colors.red, 'Red', theme),
-                        _colorOption(Colors.pink, 'Pink', theme),
-                        _colorOption(Colors.purple, 'Purple', theme),
-                        _colorOption(Colors.deepPurple, 'Deep Purple', theme),
-                        _colorOption(Colors.indigo, 'Indigo', theme),
-                        _colorOption(Colors.blue, 'Blue', theme),
-                        _colorOption(Colors.lightBlue, 'Light Blue', theme),
-                        _colorOption(Colors.cyan, 'Cyan', theme),
-                        _colorOption(Colors.teal, 'Teal', theme),
-                        _colorOption(Colors.green, 'Green', theme),
-                        _colorOption(Colors.lightGreen, 'Light Green', theme),
-                        _colorOption(Colors.lime, 'Lime', theme),
-                        _colorOption(Colors.yellow, 'Yellow', theme),
-                        _colorOption(Colors.amber, 'Amber', theme),
-                        _colorOption(Colors.orange, 'Orange', theme),
-                        _colorOption(Colors.deepOrange, 'Deep Orange', theme),
-                        _colorOption(Colors.brown, 'Brown', theme),
-                        _colorOption(Colors.grey, 'Grey', theme),
-                        _colorOption(Colors.blueGrey, 'Blue Grey', theme),
-                        _colorOption(Colors.black, 'Black', theme),
-                      ],
-                    ),
-                  ],
-                ),
-              ),
-            ),
-            _sectionHeader(
-              '3) IR signal',
-              subtitle: 'Manual entry or database import.',
-              icon: Icons.settings_remote_outlined,
-            ),
-            Card(
-              clipBehavior: Clip.antiAlias,
-              child: Padding(
-                padding: const EdgeInsets.all(12),
-                child: Column(
-                  children: [
-                    Align(
-                      alignment: Alignment.centerLeft,
-                      child: SegmentedButton<bool>(
-                        segments: const [
-                          ButtonSegment(
-                              value: false,
-                              label: Text('Manual'),
-                              icon: Icon(Icons.tune)),
-                          ButtonSegment(
-                              value: true,
-                              label: Text('Database'),
-                              icon: Icon(Icons.storage_rounded)),
-                        ],
-                        selected: {_tabDatabase},
-                        onSelectionChanged: (s) {
-                          final next = s.first;
-                          setState(() => _tabDatabase = next);
-                          if (next) {
-                            _dbEnsureReady();
-                          }
-                        },
-                      ),
-                    ),
-                    const SizedBox(height: 12),
-                    if (_tabDatabase) ...[
-                      _buildDbTab(),
-                    ] else ...[
-                      Align(
-                        alignment: Alignment.centerLeft,
-                        child: SegmentedButton<_SignalType>(
-                          segments: signalSegments,
-                          selected: {_signalType},
-                          onSelectionChanged: (s) {
-                            final next = s.first;
-                            setState(() {
-                              _signalType = next;
-                              if (next == _SignalType.protocol) {
-                                if (_protoControllers.isEmpty) {
-                                  _syncProtocolControllersFromDefinition(
-                                    widget.button?.protocolParams ??
-                                        const <String, dynamic>{},
-                                  );
-                                }
-                              }
-                            });
-                          },
-                        ),
-                      ),
-                      const SizedBox(height: 10),
-                      Align(
-                        alignment: Alignment.centerLeft,
-                        child: Wrap(
-                          spacing: 8,
-                          runSpacing: 8,
-                          children: _buildSignalSummaryChips(),
-                        ),
-                      ),
-                      const SizedBox(height: 12),
-                      const Divider(height: 0),
-                      const SizedBox(height: 12),
-                      if (_signalType == _SignalType.hex) ...[
-                        _buildHexSection(),
-                        const SizedBox(height: 10),
-                        _buildNecAdvancedSection(),
-                      ] else if (_signalType == _SignalType.raw) ...[
-                        _buildRawSection(),
-                      ] else ...[
-                        _buildProtocolSection(),
-                      ],
-                    ],
-                  ],
-                ),
-              ),
-            ),
-            const SizedBox(height: 12),
-            _sectionHeader(
-              '3) Preview & test',
-              subtitle:
-                  'Review the generated timings and transmit once without saving.',
-              icon: Icons.visibility_outlined,
-            ),
-            Card(
-              clipBehavior: Clip.antiAlias,
-              child: Padding(
-                padding: const EdgeInsets.all(12),
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    if (previewError != null) ...[
-                      Text(
-                        previewError,
-                        style: theme.textTheme.bodySmall?.copyWith(
-                          color: theme.colorScheme.error,
-                          fontWeight: FontWeight.w600,
-                        ),
-                      ),
-                      const SizedBox(height: 10),
-                    ],
-                    if (preview != null) ...[
-                      Text(
-                        'Mode: ${preview.mode}',
-                        style: theme.textTheme.titleSmall
-                            ?.copyWith(fontWeight: FontWeight.w700),
-                      ),
-                      const SizedBox(height: 6),
-                      Text(
-                        'Frequency: ${preview.frequencyHz} Hz',
-                        style: theme.textTheme.bodySmall?.copyWith(
-                          color: theme.colorScheme.onSurface
-                              .withValues(alpha: 0.8),
-                        ),
-                      ),
-                      const SizedBox(height: 8),
-                      _PatternPreview(pattern: preview.pattern),
-                      const SizedBox(height: 12),
-                      Row(
-                        children: [
-                          Expanded(
-                            child: FilledButton.icon(
-                              onPressed: previewError == null
-                                  ? () async {
-                                      try {
-                                        final previewButton =
-                                            _draftButtonForPreview();
-                                        await sendIR(previewButton);
-                                        showLastActionForButton(
-                                          button: previewButton,
-                                          title: 'Test transmit',
-                                        );
-                                        if (!mounted) return;
-                                        _showSnack('Test transmit sent.');
-                                      } catch (e) {
-                                        if (!mounted) return;
-                                        _showSnack('Test transmit failed: $e');
-                                      }
-                                    }
-                                  : null,
-                              icon: const Icon(Icons.wifi_tethering),
-                              label: const Text('Test transmit'),
-                            ),
-                          ),
-                          const SizedBox(width: 12),
-                          Expanded(
-                            child: OutlinedButton.icon(
-                              onPressed: () => setState(() {}),
-                              icon: const Icon(Icons.refresh),
-                              label: const Text('Refresh'),
-                            ),
-                          ),
-                        ],
-                      ),
-                      if (_signalType == _SignalType.protocol &&
-                          !IrProtocolRegistry.isImplemented(
-                              _selectedProtocolId)) ...[
-                        const SizedBox(height: 10),
+                        const SizedBox(height: 12),
                         Row(
-                          crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
-                            Icon(Icons.info_outline,
-                                color: theme.colorScheme.primary),
-                            const SizedBox(width: 10),
                             Expanded(
-                              child: Text(
-                                'This protocol is registered but encoding is not implemented yet.',
-                                style: theme.textTheme.bodySmall?.copyWith(
-                                  color: theme.colorScheme.onSurface
-                                      .withValues(alpha: 0.8),
-                                ),
+                              child: FilledButton.icon(
+                                onPressed: _pickImageFromGallery,
+                                icon: const Icon(Icons.photo_library_outlined),
+                                label: Text(context.l10n.gallery),
+                              ),
+                            ),
+                            const SizedBox(width: 12),
+                            Expanded(
+                              child: FilledButton.tonalIcon(
+                                onPressed: _pickImageFromAssets,
+                                icon: const Icon(Icons.grid_view_outlined),
+                                label: Text(context.l10n.builtIn),
                               ),
                             ),
                           ],
                         ),
+                        if (_imagePath != null) ...[
+                          const SizedBox(height: 8),
+                          Align(
+                            alignment: Alignment.centerRight,
+                            child: TextButton.icon(
+                              onPressed: _clearImage,
+                              icon: const Icon(Icons.delete_outline),
+                              label: Text(context.l10n.removeImage),
+                            ),
+                          ),
+                        ],
+                        if (!_hasLabel) ...[
+                          const SizedBox(height: 6),
+                          Align(
+                            alignment: Alignment.centerLeft,
+                            child: Text(
+                              context.l10n.requiredSelectImageOrSwitch,
+                              style: theme.textTheme.bodySmall?.copyWith(
+                                color: theme.colorScheme.error,
+                                fontWeight: FontWeight.w600,
+                              ),
+                            ),
+                          ),
+                        ],
+                      ] else if (_labelType == _LabelType.icon) ...[
+                        Container(
+                          height: 120,
+                          width: double.infinity,
+                          decoration: BoxDecoration(
+                            borderRadius: BorderRadius.circular(12),
+                            color: theme.colorScheme.surfaceContainerHighest
+                                .withValues(alpha: 0.6),
+                            border: Border.all(
+                                color: theme.colorScheme.outlineVariant
+                                    .withValues(alpha: 0.8)),
+                          ),
+                          child: Center(
+                            child: _selectedIcon != null
+                                ? Column(
+                                    mainAxisAlignment: MainAxisAlignment.center,
+                                    children: [
+                                      Icon(
+                                        IconData(
+                                          _selectedIcon!.codePoint,
+                                          fontFamily: _selectedIcon!.fontFamily,
+                                          fontPackage: _selectedIcon!.fontPackage,
+                                        ),
+                                        size: 64,
+                                        color: _selectedIconColor ??
+                                            theme.colorScheme.primary,
+                                      ),
+                                      const SizedBox(height: 8),
+                                      Text(
+                                        context.l10n.iconSelected,
+                                        style:
+                                            theme.textTheme.bodySmall?.copyWith(
+                                          color: _selectedIconColor ??
+                                              theme.colorScheme.primary,
+                                          fontWeight: FontWeight.w600,
+                                        ),
+                                      ),
+                                    ],
+                                  )
+                                : Column(
+                                    mainAxisSize: MainAxisSize.min,
+                                    children: [
+                                      Icon(
+                                        Icons.emoji_symbols_outlined,
+                                        size: 40,
+                                        color: theme.colorScheme.onSurface
+                                            .withValues(alpha: 0.7),
+                                      ),
+                                      const SizedBox(height: 6),
+                                      Text(
+                                        context.l10n.noIconSelected,
+                                        style:
+                                            theme.textTheme.bodySmall?.copyWith(
+                                          color: theme.colorScheme.onSurface
+                                              .withValues(alpha: 0.75),
+                                        ),
+                                      ),
+                                    ],
+                                  ),
+                          ),
+                        ),
+                        const SizedBox(height: 12),
+                        FilledButton.icon(
+                          onPressed: _pickIcon,
+                          icon: const Icon(Icons.apps),
+                          label: Text(context.l10n.chooseIcon),
+                        ),
+                        if (_selectedIcon != null) ...[
+                          const SizedBox(height: 16),
+                          Text(
+                            context.l10n.iconColorTitle,
+                            style: theme.textTheme.titleSmall,
+                          ),
+                          const SizedBox(height: 8),
+                          Container(
+                            padding: const EdgeInsets.all(12),
+                            decoration: BoxDecoration(
+                              color: theme.colorScheme.surfaceContainerHighest
+                                  .withValues(alpha: 0.45),
+                              borderRadius: BorderRadius.circular(16),
+                            ),
+                            child: Row(
+                              children: [
+                                Container(
+                                  width: 54,
+                                  height: 54,
+                                  decoration: BoxDecoration(
+                                    color: _selectedColor ??
+                                        theme.colorScheme.surface,
+                                    borderRadius: BorderRadius.circular(16),
+                                    border: Border.all(
+                                      color: theme.colorScheme.outlineVariant,
+                                    ),
+                                  ),
+                                  child: Icon(
+                                    _selectedIcon,
+                                    size: 28,
+                                    color: _selectedIconColor ??
+                                        theme.colorScheme.onSurface,
+                                  ),
+                                ),
+                                const SizedBox(width: 12),
+                                Expanded(
+                                  child: Text(
+                                    context.l10n.iconColorHelper,
+                                    style: theme.textTheme.bodySmall?.copyWith(
+                                      color: theme.colorScheme.onSurfaceVariant,
+                                      height: 1.35,
+                                    ),
+                                  ),
+                                ),
+                              ],
+                            ),
+                          ),
+                          const SizedBox(height: 12),
+                          Wrap(
+                            spacing: 12,
+                            runSpacing: 12,
+                            children: [
+                              _iconColorOption(
+                                null,
+                                context.l10n.defaultColorName,
+                                theme,
+                              ),
+                              for (final choice in colorChoices)
+                                _iconColorOption(choice.color, choice.label, theme),
+                              _iconColorOption(
+                                Colors.white,
+                                context.l10n.colorWhite,
+                                theme,
+                              ),
+                            ],
+                          ),
+                          const SizedBox(height: 8),
+                          Align(
+                            alignment: Alignment.centerRight,
+                            child: TextButton.icon(
+                              onPressed: _clearIcon,
+                              icon: const Icon(Icons.delete_outline),
+                              label: Text(context.l10n.removeIcon),
+                            ),
+                          ),
+                        ],
+                        if (!_hasLabel) ...[
+                          const SizedBox(height: 6),
+                          Align(
+                            alignment: Alignment.centerLeft,
+                            child: Text(
+                              context.l10n.requiredSelectIconOrSwitch,
+                              style: theme.textTheme.bodySmall?.copyWith(
+                                color: theme.colorScheme.error,
+                                fontWeight: FontWeight.w600,
+                              ),
+                            ),
+                          ),
+                        ],
+                      ] else ...[
+                        TextField(
+                          controller: nameController,
+                          textInputAction: TextInputAction.done,
+                          decoration: InputDecoration(
+                            labelText: context.l10n.buttonText,
+                            hintText: context.l10n.buttonTextHint,
+                            helperText: context.l10n.buttonTextHelper,
+                            helperMaxLines: _kHelperMaxLines,
+                            hintMaxLines: _kHintMaxLines,
+                            suffixIcon: nameController.text.trim().isEmpty
+                                ? null
+                                : IconButton(
+                                    tooltip: context.l10n.clearAction,
+                                    onPressed: () => nameController.clear(),
+                                    icon: const Icon(Icons.clear),
+                                  ),
+                          ),
+                        ),
+                        if (!_hasLabel) ...[
+                          const SizedBox(height: 6),
+                          Align(
+                            alignment: Alignment.centerLeft,
+                            child: Text(
+                              context.l10n.requiredEnterButtonLabel,
+                              style: theme.textTheme.bodySmall?.copyWith(
+                                color: theme.colorScheme.error,
+                                fontWeight: FontWeight.w600,
+                              ),
+                            ),
+                          ),
+                        ],
                       ],
-                    ] else ...[
+                    ],
+                  ),
+                ),
+              ),
+            ] else if (_currentStep == 1) ...[
+              _sectionHeader(
+                context.l10n.buttonColorStepTitle,
+                subtitle: context.l10n.buttonColorStepSubtitle,
+                icon: Icons.palette_outlined,
+              ),
+              Card(
+                clipBehavior: Clip.antiAlias,
+                child: Padding(
+                  padding: const EdgeInsets.all(12),
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
                       Text(
-                        'Enter valid inputs to generate a preview.',
-                        style: theme.textTheme.bodySmall?.copyWith(
-                          color: theme.colorScheme.onSurface
-                              .withValues(alpha: 0.75),
+                        context.l10n.selectColor,
+                        style: theme.textTheme.titleSmall,
+                      ),
+                      const SizedBox(height: 12),
+                      Wrap(
+                        spacing: 12,
+                        runSpacing: 12,
+                        children: [
+                          _colorOption(
+                              null, context.l10n.defaultColorName, theme),
+                          for (final choice in colorChoices)
+                            _colorOption(choice.color, choice.label, theme),
+                        ],
+                      ),
+                    ],
+                  ),
+                ),
+              ),
+            ] else ...[
+              _sectionHeader(
+                'IR signal',
+                subtitle: 'Manual entry or database import.',
+                icon: Icons.settings_remote_outlined,
+              ),
+              Card(
+                clipBehavior: Clip.antiAlias,
+                child: Padding(
+                  padding: const EdgeInsets.all(12),
+                  child: Column(
+                    children: [
+                      Align(
+                        alignment: Alignment.centerLeft,
+                        child: SegmentedButton<bool>(
+                          segments: const [
+                            ButtonSegment(
+                                value: false,
+                                label: Text('Manual'),
+                                icon: Icon(Icons.tune)),
+                            ButtonSegment(
+                                value: true,
+                                label: Text('Database'),
+                                icon: Icon(Icons.storage_rounded)),
+                          ],
+                          selected: {_tabDatabase},
+                          onSelectionChanged: (s) {
+                            final next = s.first;
+                            setState(() => _tabDatabase = next);
+                            if (next) {
+                              _dbEnsureReady();
+                            }
+                          },
+                        ),
+                      ),
+                      const SizedBox(height: 12),
+                      if (_tabDatabase) ...[
+                        _buildDbTab(),
+                      ] else ...[
+                        Align(
+                          alignment: Alignment.centerLeft,
+                          child: SegmentedButton<_SignalType>(
+                            segments: signalSegments,
+                            selected: {_signalType},
+                            onSelectionChanged: (s) {
+                              final next = s.first;
+                              setState(() {
+                                _signalType = next;
+                                if (next == _SignalType.protocol) {
+                                  if (_protoControllers.isEmpty) {
+                                    _syncProtocolControllersFromDefinition(
+                                      widget.button?.protocolParams ??
+                                          const <String, dynamic>{},
+                                    );
+                                  }
+                                }
+                              });
+                            },
+                          ),
+                        ),
+                        const SizedBox(height: 10),
+                        Align(
+                          alignment: Alignment.centerLeft,
+                          child: Wrap(
+                            spacing: 8,
+                            runSpacing: 8,
+                            children: _buildSignalSummaryChips(),
+                          ),
+                        ),
+                        const SizedBox(height: 12),
+                        const Divider(height: 0),
+                        const SizedBox(height: 12),
+                        if (_signalType == _SignalType.hex) ...[
+                          _buildHexSection(),
+                          const SizedBox(height: 10),
+                          _buildNecAdvancedSection(),
+                        ] else if (_signalType == _SignalType.raw) ...[
+                          _buildRawSection(),
+                        ] else ...[
+                          _buildProtocolSection(),
+                        ],
+                      ],
+                    ],
+                  ),
+                ),
+              ),
+              const SizedBox(height: 12),
+              _sectionHeader(
+                'Preview & test',
+                subtitle:
+                    'Review the generated timings and transmit once before saving.',
+                icon: Icons.visibility_outlined,
+              ),
+              Card(
+                clipBehavior: Clip.antiAlias,
+                child: Padding(
+                  padding: const EdgeInsets.all(12),
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      if (previewError != null) ...[
+                        Text(
+                          previewError,
+                          style: theme.textTheme.bodySmall?.copyWith(
+                            color: theme.colorScheme.error,
+                            fontWeight: FontWeight.w600,
+                          ),
+                        ),
+                        const SizedBox(height: 10),
+                      ],
+                      if (preview != null) ...[
+                        Text(
+                          'Mode: ${preview.mode}',
+                          style: theme.textTheme.titleSmall
+                              ?.copyWith(fontWeight: FontWeight.w700),
+                        ),
+                        const SizedBox(height: 6),
+                        Text(
+                          'Frequency: ${preview.frequencyHz} Hz',
+                          style: theme.textTheme.bodySmall?.copyWith(
+                            color: theme.colorScheme.onSurface
+                                .withValues(alpha: 0.8),
+                          ),
+                        ),
+                        const SizedBox(height: 8),
+                        _PatternPreview(
+                          pattern: preview.pattern,
+                          frequencyHz: preview.frequencyHz,
+                        ),
+                        const SizedBox(height: 12),
+                        Row(
+                          children: [
+                            Expanded(
+                              child: FilledButton.icon(
+                                onPressed: previewError == null
+                                    ? () async {
+                                        try {
+                                          final previewButton =
+                                              _draftButtonForPreview();
+                                          await sendIR(previewButton);
+                                          showLastActionForButton(
+                                            button: previewButton,
+                                            title: 'Test transmit',
+                                          );
+                                          if (!mounted) return;
+                                          _showSnack('Test transmit sent.');
+                                        } catch (e) {
+                                          if (!mounted) return;
+                                          _showSnack('Test transmit failed: $e');
+                                        }
+                                      }
+                                    : null,
+                                icon: const Icon(Icons.wifi_tethering),
+                                label: const Text('Test transmit'),
+                              ),
+                            ),
+                            const SizedBox(width: 12),
+                            Expanded(
+                              child: OutlinedButton.icon(
+                                onPressed: () => setState(() {}),
+                                icon: const Icon(Icons.refresh),
+                                label: Text(context.l10n.refresh),
+                              ),
+                            ),
+                          ],
+                        ),
+                        if (_signalType == _SignalType.protocol &&
+                            !IrProtocolRegistry.isImplemented(
+                                _selectedProtocolId)) ...[
+                          const SizedBox(height: 10),
+                          Row(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              Icon(Icons.info_outline,
+                                  color: theme.colorScheme.primary),
+                              const SizedBox(width: 10),
+                              Expanded(
+                                child: Text(
+                                  'This protocol is registered but encoding is not implemented yet.',
+                                  style: theme.textTheme.bodySmall?.copyWith(
+                                    color: theme.colorScheme.onSurface
+                                        .withValues(alpha: 0.8),
+                                  ),
+                                ),
+                              ),
+                            ],
+                          ),
+                        ],
+                      ] else ...[
+                        Text(
+                          'Enter valid inputs to generate a preview.',
+                          style: theme.textTheme.bodySmall?.copyWith(
+                            color: theme.colorScheme.onSurface
+                                .withValues(alpha: 0.75),
+                          ),
+                        ),
+                      ],
+                    ],
+                  ),
+                ),
+              ),
+              const SizedBox(height: 12),
+              Card(
+                color: theme.colorScheme.surfaceContainerHighest
+                    .withValues(alpha: 0.35),
+                child: Padding(
+                  padding: const EdgeInsets.all(12),
+                  child: Row(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Icon(Icons.info_outline, color: theme.colorScheme.primary),
+                      const SizedBox(width: 10),
+                      Expanded(
+                        child: Text(
+                          'Tip: Use Database mode for fast import, then switch to Manual to fine-tune protocols/timings as needed.',
+                          style: theme.textTheme.bodySmall?.copyWith(
+                            color: theme.colorScheme.onSurface
+                                .withValues(alpha: 0.8),
+                          ),
                         ),
                       ),
                     ],
-                  ],
+                  ),
                 ),
               ),
-            ),
-            const SizedBox(height: 12),
-            Card(
-              color: theme.colorScheme.surfaceContainerHighest
-                  .withValues(alpha: 0.35),
-              child: Padding(
-                padding: const EdgeInsets.all(12),
-                child: Row(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Icon(Icons.info_outline, color: theme.colorScheme.primary),
-                    const SizedBox(width: 10),
-                    Expanded(
-                      child: Text(
-                        'Tip: Use Database mode for fast import, then switch to Manual to fine-tune protocols/timings as needed.',
-                        style: theme.textTheme.bodySmall?.copyWith(
-                          color: theme.colorScheme.onSurface
-                              .withValues(alpha: 0.8),
-                        ),
-                      ),
-                    ),
-                  ],
-                ),
-              ),
-            ),
+            ],
           ],
         ),
       ),
@@ -3575,7 +3878,118 @@ class _CreateButtonState extends State<CreateButton> {
 
 class _PatternPreview extends StatelessWidget {
   final List<int> pattern;
-  const _PatternPreview({required this.pattern});
+  final int frequencyHz;
+
+  const _PatternPreview({
+    required this.pattern,
+    required this.frequencyHz,
+  });
+
+  String get _patternText => pattern.join(', ');
+
+  Future<void> _copyPattern(BuildContext context) async {
+    await Clipboard.setData(ClipboardData(text: _patternText));
+    if (!context.mounted) return;
+    ScaffoldMessenger.of(context)
+      ..hideCurrentSnackBar()
+      ..showSnackBar(
+        SnackBar(
+          content: Text(context.l10n.codeCopied),
+          behavior: SnackBarBehavior.floating,
+        ),
+      );
+  }
+
+  Future<void> _sharePattern() async {
+    await _platformChannel.invokeMethod<void>(
+      'shareText',
+      <String, dynamic>{
+        'subject': 'IR pattern',
+        'text': 'Frequency: $frequencyHz Hz\n\n$_patternText',
+      },
+    );
+  }
+
+  Future<void> _openDetails(BuildContext context) async {
+    final theme = Theme.of(context);
+    await showModalBottomSheet<void>(
+      context: context,
+      useSafeArea: true,
+      isScrollControlled: true,
+      showDragHandle: true,
+      builder: (sheetContext) => SafeArea(
+        child: Padding(
+          padding: const EdgeInsets.fromLTRB(16, 8, 16, 16),
+          child: Column(
+            children: [
+              Row(
+                children: [
+                  Expanded(
+                    child: Text(
+                      'Pattern preview',
+                      style: theme.textTheme.titleLarge?.copyWith(
+                        fontWeight: FontWeight.w900,
+                      ),
+                    ),
+                  ),
+                  IconButton(
+                    onPressed: () => _copyPattern(sheetContext),
+                    icon: const Icon(Icons.copy_rounded),
+                    tooltip: sheetContext.l10n.copyCode,
+                  ),
+                  IconButton(
+                    onPressed: _sharePattern,
+                    icon: const Icon(Icons.ios_share_rounded),
+                  ),
+                  IconButton(
+                    onPressed: () => Navigator.of(sheetContext).pop(),
+                    icon: const Icon(Icons.close_rounded),
+                    tooltip: sheetContext.l10n.close,
+                  ),
+                ],
+              ),
+              const SizedBox(height: 8),
+              Align(
+                alignment: Alignment.centerLeft,
+                child: Text(
+                  'Frequency: $frequencyHz Hz',
+                  style: theme.textTheme.bodyMedium?.copyWith(
+                    color: theme.colorScheme.onSurfaceVariant,
+                    fontWeight: FontWeight.w600,
+                  ),
+                ),
+              ),
+              const SizedBox(height: 12),
+              Expanded(
+                child: Container(
+                  width: double.infinity,
+                  padding: const EdgeInsets.all(14),
+                  decoration: BoxDecoration(
+                    color: theme.colorScheme.surfaceContainerHighest
+                        .withValues(alpha: 0.5),
+                    borderRadius: BorderRadius.circular(18),
+                    border: Border.all(
+                      color: theme.colorScheme.outlineVariant
+                          .withValues(alpha: 0.7),
+                    ),
+                  ),
+                  child: SingleChildScrollView(
+                    child: SelectableText(
+                      _patternText,
+                      style: theme.textTheme.bodyMedium?.copyWith(
+                        fontFamily: 'monospace',
+                        height: 1.45,
+                      ),
+                    ),
+                  ),
+                ),
+              ),
+            ],
+          ),
+        ),
+      ),
+    );
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -3600,12 +4014,24 @@ class _PatternPreview extends StatelessWidget {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          Text(
-            'Pattern preview ($count durations, total $sumµs)',
-            style: theme.textTheme.bodySmall?.copyWith(
-              color: theme.colorScheme.onSurface.withValues(alpha: 0.8),
-              fontWeight: FontWeight.w600,
-            ),
+          Row(
+            children: [
+              Expanded(
+                child: Text(
+                  'Pattern preview ($count durations, total $sumµs)',
+                  style: theme.textTheme.bodySmall?.copyWith(
+                    color: theme.colorScheme.onSurface.withValues(alpha: 0.8),
+                    fontWeight: FontWeight.w600,
+                  ),
+                ),
+              ),
+              IconButton(
+                onPressed: () => _openDetails(context),
+                icon: const Icon(Icons.open_in_full_rounded, size: 18),
+                visualDensity: VisualDensity.compact,
+                splashRadius: 20,
+              ),
+            ],
           ),
           const SizedBox(height: 8),
           Text(

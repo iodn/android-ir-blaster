@@ -149,6 +149,42 @@ class AppLocalizationsId extends AppLocalizations {
   String get homeNoIrTransmitterTitle => 'Tidak ada pemancar IR';
 
   @override
+  String get homeHardwareRequiredBody =>
+      'IR Blaster dapat membuat dan mengelola remote di ponsel apa pun. Namun untuk benar-benar mengirim perintah inframerah, perangkat Anda memerlukan salah satu opsi perangkat keras di bawah ini.';
+
+  @override
+  String get homeCanStillUseWithoutHardware =>
+      'Anda tetap bisa membuat, mengimpor, dan menata remote sekarang juga.';
+
+  @override
+  String get homeWaysToUseIrBlaster => 'Cara menggunakan IR Blaster';
+
+  @override
+  String get homeBuiltInIrOptionTitle => 'Ponsel dengan IR bawaan';
+
+  @override
+  String get homeBuiltInIrOptionSubtitle =>
+      'Berfungsi pada ponsel yang didukung dengan pemancar IR bawaan. Ponsel ini tidak memilikinya.';
+
+  @override
+  String get homeBuiltInIrUnavailable => 'Tidak tersedia di ponsel ini';
+
+  @override
+  String get homeUsbFamilyTiqiaaZaza => 'Tiqiaa / ZaZa';
+
+  @override
+  String get homeUsbFamilyElkSmart => 'ElkSmart';
+
+  @override
+  String get homeAudioAccessoryLabel => 'Adaptor audio 3,5 mm';
+
+  @override
+  String get homeContinueWithoutHardware => 'Lanjutkan tanpa perangkat keras';
+
+  @override
+  String get homeHowItWorks => 'Cara kerjanya';
+
+  @override
   String get settingsNavLabel => 'Setelan';
 
   @override
@@ -1595,20 +1631,20 @@ class AppLocalizationsId extends AppLocalizations {
       'Lengkapi bidang wajib untuk menyimpan';
 
   @override
-  String get buttonLabelStepTitle => '1) Tombol label';
+  String get buttonLabelStepTitle => 'Label tombol';
 
   @override
   String get buttonLabelStepSubtitle =>
       'Pilih gambar, ikon, atau ketik label teks.';
 
   @override
-  String get buttonColorStepTitle => '2) Tombol color (optional)';
+  String get buttonColorStepTitle => 'Warna tombol';
 
   @override
   String get buttonColorStepSubtitle => 'Pilih warna latar untuk tombol ini.';
 
   @override
-  String get selectColor => 'Pilih color:';
+  String get selectColor => 'Pilih warna:';
 
   @override
   String get noImageSelected => 'Tidak ada gambar terpilih';
@@ -1655,7 +1691,7 @@ class AppLocalizationsId extends AppLocalizations {
   String get requiredEnterButtonLabel => 'Wajib: masukkan label tombol.';
 
   @override
-  String get defaultColorName => 'Default';
+  String get defaultColorName => 'Bawaan';
 
   @override
   String get newRemoteCreatedFromLastHit =>
@@ -4485,4 +4521,121 @@ class AppLocalizationsId extends AppLocalizations {
   @override
   String get learningModeSaveFailed =>
       'Tombol yang dipelajari tidak dapat disimpan.';
+
+  @override
+  String get remoteSetupIntro =>
+      'Pilih nama dan tata letak terlebih dahulu. Setelah itu Anda dapat menambahkan tombol.';
+
+  @override
+  String get startWithDefault => 'Mulai dengan default';
+
+  @override
+  String get browseGithubStore => 'Telusuri GitHub Store';
+
+  @override
+  String get addFirstButton => 'Tambah tombol pertama';
+
+  @override
+  String get moreWaysToStart => 'Cara lain untuk memulai';
+
+  @override
+  String get unsavedRemoteSetupChangesMessage =>
+      'Buang pengaturan remote baru ini dan tinggalkan layar ini?';
+
+  @override
+  String get unsavedRemoteStudioChangesMessage =>
+      'Buang perubahan remote dan tinggalkan layar ini?';
+
+  @override
+  String get firstButtonAdded => 'Tombol pertama ditambahkan.';
+
+  @override
+  String get iconColorTitle => 'Warna ikon';
+
+  @override
+  String get iconColorHelper =>
+      'Pilih warna simbol yang tetap terlihat jelas di atas latar tombol.';
+
+  @override
+  String get colorRed => 'Merah';
+
+  @override
+  String get colorPink => 'Merah muda';
+
+  @override
+  String get colorPurple => 'Ungu';
+
+  @override
+  String get colorDeepPurple => 'Ungu tua';
+
+  @override
+  String get colorIndigo => 'Indigo';
+
+  @override
+  String get colorBlue => 'Biru';
+
+  @override
+  String get colorLightBlue => 'Biru muda';
+
+  @override
+  String get colorCyan => 'Sian';
+
+  @override
+  String get colorTeal => 'Teal';
+
+  @override
+  String get colorGreen => 'Hijau';
+
+  @override
+  String get colorLightGreen => 'Hijau muda';
+
+  @override
+  String get colorLime => 'Limau';
+
+  @override
+  String get colorYellow => 'Kuning';
+
+  @override
+  String get colorAmber => 'Amber';
+
+  @override
+  String get colorOrange => 'Oranye';
+
+  @override
+  String get colorDeepOrange => 'Oranye tua';
+
+  @override
+  String get colorBrown => 'Cokelat';
+
+  @override
+  String get colorGrey => 'Abu-abu';
+
+  @override
+  String get colorBlueGrey => 'Biru abu-abu';
+
+  @override
+  String get colorBlack => 'Hitam';
+
+  @override
+  String get colorWhite => 'Putih';
+
+  @override
+  String buttonColorSemantics(Object colorName) {
+    return 'Warna tombol $colorName';
+  }
+
+  @override
+  String buttonColorSemanticsSelected(Object colorName) {
+    return 'Warna tombol $colorName, dipilih';
+  }
+
+  @override
+  String iconColorSemantics(Object colorName) {
+    return 'Warna ikon $colorName';
+  }
+
+  @override
+  String iconColorSemanticsSelected(Object colorName) {
+    return 'Warna ikon $colorName, dipilih';
+  }
 }

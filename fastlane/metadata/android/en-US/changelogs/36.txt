@@ -1,0 +1,8 @@
+- Add a guided Remote Setup and Remote Studio flow to make creating and editing remotes faster and easier on phones
+- Refine the button editor into a 3-step pipeline for label, button color, and IR signal setup
+- Improve empty remote UX with clearer import and add actions, plus better layout previews when creating a remote
+- Add icon color customization so symbol buttons can use a different icon color from the button background
+- Add full USB Learning Mode polish for supported Tiqiaa / ZaZa and ElkSmart dongles, including capture, replay, save, and better post-save flow
+- Improve the raw pattern preview with a full-screen inspector, copy, and share actions
+- Add clearer first-run hardware guidance so users know the app needs built-in IR or a compatible dongle to transmit
+- Improve translations across supported languages, including new Learning Mode, remote editor, hardware guidance, and icon color strings

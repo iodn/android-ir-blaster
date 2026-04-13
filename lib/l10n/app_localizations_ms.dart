@@ -149,6 +149,42 @@ class AppLocalizationsMs extends AppLocalizations {
   String get homeNoIrTransmitterTitle => 'Tiada pemancar IR';
 
   @override
+  String get homeHardwareRequiredBody =>
+      'IR Blaster boleh mencipta dan mengurus alat kawalan jauh pada mana-mana telefon. Tetapi untuk benar-benar menghantar arahan inframerah, peranti anda memerlukan salah satu pilihan perkakasan di bawah.';
+
+  @override
+  String get homeCanStillUseWithoutHardware =>
+      'Anda masih boleh mencipta, mengimport dan menyusun alat kawalan jauh sekarang.';
+
+  @override
+  String get homeWaysToUseIrBlaster => 'Cara menggunakan IR Blaster';
+
+  @override
+  String get homeBuiltInIrOptionTitle => 'Telefon dengan IR terbina dalam';
+
+  @override
+  String get homeBuiltInIrOptionSubtitle =>
+      'Berfungsi pada telefon yang disokong dengan pemancar IR terbina dalam. Telefon ini tidak memilikinya.';
+
+  @override
+  String get homeBuiltInIrUnavailable => 'Tidak tersedia pada telefon ini';
+
+  @override
+  String get homeUsbFamilyTiqiaaZaza => 'Tiqiaa / ZaZa';
+
+  @override
+  String get homeUsbFamilyElkSmart => 'ElkSmart';
+
+  @override
+  String get homeAudioAccessoryLabel => 'Penyesuai audio 3.5 mm';
+
+  @override
+  String get homeContinueWithoutHardware => 'Teruskan tanpa perkakasan';
+
+  @override
+  String get homeHowItWorks => 'Cara ia berfungsi';
+
+  @override
   String get settingsNavLabel => 'Tetapan';
 
   @override
@@ -1591,20 +1627,20 @@ class AppLocalizationsMs extends AppLocalizations {
       'Lengkapi bidang wajib untuk menyimpan';
 
   @override
-  String get buttonLabelStepTitle => '1) Butang label';
+  String get buttonLabelStepTitle => 'Label butang';
 
   @override
   String get buttonLabelStepSubtitle =>
       'Pilih gambar, ikon, atau ketik label teks.';
 
   @override
-  String get buttonColorStepTitle => '2) Butang color (optional)';
+  String get buttonColorStepTitle => 'Warna butang';
 
   @override
   String get buttonColorStepSubtitle => 'Pilih warna latar untuk butang ini.';
 
   @override
-  String get selectColor => 'Pilih color:';
+  String get selectColor => 'Pilih warna:';
 
   @override
   String get noImageSelected => 'Tiada gambar terpilih';
@@ -1651,7 +1687,7 @@ class AppLocalizationsMs extends AppLocalizations {
   String get requiredEnterButtonLabel => 'Wajib: masukkan label butang.';
 
   @override
-  String get defaultColorName => 'Default';
+  String get defaultColorName => 'Lalai';
 
   @override
   String get newRemoteCreatedFromLastHit =>
@@ -4482,4 +4518,121 @@ class AppLocalizationsMs extends AppLocalizations {
   @override
   String get learningModeSaveFailed =>
       'Butang yang dipelajari tidak dapat disimpan.';
+
+  @override
+  String get remoteSetupIntro =>
+      'Pilih nama dan susun atur dahulu. Anda boleh menambah butang selepas itu.';
+
+  @override
+  String get startWithDefault => 'Mulakan dengan lalai';
+
+  @override
+  String get browseGithubStore => 'Semak GitHub Store';
+
+  @override
+  String get addFirstButton => 'Tambah butang pertama';
+
+  @override
+  String get moreWaysToStart => 'Lagi cara untuk bermula';
+
+  @override
+  String get unsavedRemoteSetupChangesMessage =>
+      'Buang persediaan alat kawalan jauh baharu ini dan tinggalkan skrin ini?';
+
+  @override
+  String get unsavedRemoteStudioChangesMessage =>
+      'Buang perubahan alat kawalan jauh dan tinggalkan skrin ini?';
+
+  @override
+  String get firstButtonAdded => 'Butang pertama ditambah.';
+
+  @override
+  String get iconColorTitle => 'Warna ikon';
+
+  @override
+  String get iconColorHelper =>
+      'Pilih warna simbol yang kekal jelas pada latar butang.';
+
+  @override
+  String get colorRed => 'Merah';
+
+  @override
+  String get colorPink => 'Merah jambu';
+
+  @override
+  String get colorPurple => 'Ungu';
+
+  @override
+  String get colorDeepPurple => 'Ungu gelap';
+
+  @override
+  String get colorIndigo => 'Indigo';
+
+  @override
+  String get colorBlue => 'Biru';
+
+  @override
+  String get colorLightBlue => 'Biru muda';
+
+  @override
+  String get colorCyan => 'Sian';
+
+  @override
+  String get colorTeal => 'Teal';
+
+  @override
+  String get colorGreen => 'Hijau';
+
+  @override
+  String get colorLightGreen => 'Hijau muda';
+
+  @override
+  String get colorLime => 'Limau';
+
+  @override
+  String get colorYellow => 'Kuning';
+
+  @override
+  String get colorAmber => 'Amber';
+
+  @override
+  String get colorOrange => 'Oren';
+
+  @override
+  String get colorDeepOrange => 'Oren gelap';
+
+  @override
+  String get colorBrown => 'Coklat';
+
+  @override
+  String get colorGrey => 'Kelabu';
+
+  @override
+  String get colorBlueGrey => 'Biru kelabu';
+
+  @override
+  String get colorBlack => 'Hitam';
+
+  @override
+  String get colorWhite => 'Putih';
+
+  @override
+  String buttonColorSemantics(Object colorName) {
+    return 'Warna butang $colorName';
+  }
+
+  @override
+  String buttonColorSemanticsSelected(Object colorName) {
+    return 'Warna butang $colorName, dipilih';
+  }
+
+  @override
+  String iconColorSemantics(Object colorName) {
+    return 'Warna ikon $colorName';
+  }
+
+  @override
+  String iconColorSemanticsSelected(Object colorName) {
+    return 'Warna ikon $colorName, dipilih';
+  }
 }

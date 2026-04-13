@@ -7,11 +7,7 @@ import 'package:irblaster_controller/utils/button_color_accessibility.dart';
 import 'package:irblaster_controller/utils/button_label.dart';
 import 'package:irblaster_controller/utils/ir.dart';
 import 'package:irblaster_controller/utils/remote.dart';
-import 'package:irblaster_controller/widgets/create_button.dart';
-import 'package:irblaster_controller/widgets/db_bulk_import_sheet.dart';
-import 'package:irblaster_controller/widgets/existing_remote_button_import_sheet.dart';
-import 'package:irblaster_controller/widgets/github_store_screen.dart';
-import 'package:uuid/uuid.dart';
+import 'package:irblaster_controller/widgets/remote_editor/remote_editor_actions.dart';
 
 enum _LayoutStyle { compact, wide }
 
@@ -52,116 +48,53 @@ class _CreateRemoteState extends State<CreateRemote> {
     ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text(message)));
   }
 
-  Future<bool> _confirmDeleteButton(BuildContext ctx, IRButton b) async {
-    return await showDialog<bool>(
-      context: ctx,
-      builder: (dctx) => AlertDialog(
-        icon: const Icon(Icons.warning_amber_rounded),
-        title: Text(context.l10n.removeButtonTitle),
-        content: Text(
-          b.isImage
-              ? context.l10n.imageButtonRemovedMessage
-              : context.l10n.namedButtonRemovedMessage(b.image),
-        ),
-        actions: [
-          TextButton(
-            onPressed: () => Navigator.of(dctx).pop(false),
-            child: Text(context.l10n.cancel),
-          ),
-          FilledButton.tonalIcon(
-            onPressed: () => Navigator.of(dctx).pop(true),
-            icon: const Icon(Icons.delete_outline),
-            label: Text(context.l10n.remove),
-          ),
-        ],
-      ),
-    ).then((v) => v ?? false);
-  }
-
   Future<void> _editButtonAt(int index) async {
     final IRButton current = remote.buttons[index];
-    try {
-      final IRButton? updated = await Navigator.push<IRButton?>(
-        context,
-        MaterialPageRoute(
-          builder: (context) => CreateButton(button: current),
-        ),
-      );
-      if (updated == null) return;
-      setState(() {
-        remote.buttons[index] = updated;
-      });
-    } catch (_) {}
+    final IRButton? updated = await RemoteEditorActions.editButton(context, current);
+    if (updated == null || !mounted) return;
+    setState(() {
+      remote.buttons[index] = updated;
+    });
   }
 
   Future<void> _addButton() async {
-    try {
-      final IRButton? button = await Navigator.push<IRButton?>(
-        context,
-        MaterialPageRoute(builder: (context) => const CreateButton()),
-      );
-      if (button == null) return;
-      setState(() {
-        remote.buttons.add(button);
-      });
-    } catch (_) {}
+    final IRButton? button = await RemoteEditorActions.addButton(context);
+    if (button == null || !mounted) return;
+    setState(() {
+      remote.buttons.add(button);
+    });
   }
 
   Future<void> _openBulkImport() async {
-    try {
-      final imported = await showModalBottomSheet<List<IRButton>>(
-        context: context,
-        isScrollControlled: true,
-        useSafeArea: true,
-        showDragHandle: true,
-        builder: (ctx) => FractionallySizedBox(
-          heightFactor: 0.97,
-          child: DbBulkImportSheet(existingButtons: remote.buttons),
-        ),
-      );
-      if (imported == null || imported.isEmpty) return;
-      if (!mounted) return;
-      setState(() {
-        remote.buttons.addAll(imported);
-      });
-      _showSnack(context.l10n.importedButtonCount(imported.length));
-    } catch (_) {}
+    final imported = await RemoteEditorActions.importFromDatabase(
+      context,
+      existingButtons: remote.buttons,
+    );
+    if (imported == null || imported.isEmpty || !mounted) return;
+    setState(() {
+      remote.buttons.addAll(imported);
+    });
+    _showSnack(context.l10n.importedButtonCount(imported.length));
   }
 
   Future<void> _openImportFromExistingRemotes() async {
-    try {
-      final imported = await showModalBottomSheet<List<IRButton>>(
-        context: context,
-        isScrollControlled: true,
-        useSafeArea: true,
-        showDragHandle: true,
-        builder: (ctx) => FractionallySizedBox(
-          heightFactor: 0.97,
-          child: ExistingRemoteButtonImportSheet(
-            existingButtons: remote.buttons,
-            currentRemoteId: remote.id,
-          ),
-        ),
-      );
-      if (imported == null || imported.isEmpty) return;
-      if (!mounted) return;
+    final imported = await RemoteEditorActions.importFromExistingRemotes(
+      context,
+      existingButtons: remote.buttons,
+      currentRemoteId: remote.id,
+    );
+    if (imported == null || imported.isEmpty || !mounted) return;
 
-      final int before = remote.buttons.length;
-      setState(() {
-        remote.buttons.addAll(imported);
-      });
-      final int added = remote.buttons.length - before;
-      _showSnack(context.l10n.importedButtonsFromExistingRemotes(added));
-    } catch (_) {}
+    final int before = remote.buttons.length;
+    setState(() {
+      remote.buttons.addAll(imported);
+    });
+    final int added = remote.buttons.length - before;
+    _showSnack(context.l10n.importedButtonsFromExistingRemotes(added));
   }
 
   Future<void> _openGitHubStore() async {
-    try {
-      await Navigator.push<void>(
-        context,
-        MaterialPageRoute(builder: (context) => const GitHubStoreScreen()),
-      );
-    } catch (_) {}
+    await RemoteEditorActions.browseGithubStore(context);
   }
 
   Future<void> _openButtonActions(int index) async {
@@ -192,7 +125,7 @@ class _CreateRemoteState extends State<CreateRemote> {
                 subtitle: Text(context.l10n.createButtonCopySubtitle),
                 onTap: () {
                   Navigator.of(ctx).pop();
-                  final dup = b.copyWith(id: const Uuid().v4());
+                  final dup = RemoteEditorActions.duplicateButton(b);
                   setState(() {
                     remote.buttons.insert(index + 1, dup);
                   });
@@ -205,14 +138,14 @@ class _CreateRemoteState extends State<CreateRemote> {
                 subtitle: Text(context.l10n.duplicateAndEditButtonSubtitle),
                 onTap: () async {
                   Navigator.of(ctx).pop();
-                  final dup = b.copyWith(id: const Uuid().v4());
+                  final dup = RemoteEditorActions.duplicateButton(b);
                   final int newIdx = index + 1;
                   setState(() {
                     remote.buttons.insert(newIdx, dup);
                   });
-                  final IRButton? updated = await Navigator.push<IRButton?>(
+                  final IRButton? updated = await RemoteEditorActions.editButton(
                     context,
-                    MaterialPageRoute(builder: (context) => CreateButton(button: dup)),
+                    dup,
                   );
                   if (updated != null && mounted) {
                     setState(() {
@@ -227,7 +160,10 @@ class _CreateRemoteState extends State<CreateRemote> {
                 subtitle: Text(context.l10n.undoAvailableInNextSnackbar),
                 onTap: () async {
                   Navigator.of(ctx).pop();
-                  final confirmed = await _confirmDeleteButton(context, b);
+                  final confirmed = await RemoteEditorActions.confirmDeleteButton(
+                    context,
+                    b,
+                  );
                   if (!confirmed) return;
                   if (!mounted) return;
                   final removedIndex = index;
@@ -356,176 +292,74 @@ class _CreateRemoteState extends State<CreateRemote> {
         ),
       ),
       body: SafeArea(
-        child: Column(
-          children: [
-            Padding(
-              padding: const EdgeInsets.fromLTRB(16, 12, 16, 8),
-              child: Column(
+        child: remote.buttons.isEmpty
+            // ── Empty state ────────────────────────────────────────────────
+            // Wrap everything in a SingleChildScrollView so the header and the
+            // "Add button" call-to-action can never be obscured by the
+            // bottomNavigationBar on small screens or when the keyboard is open.
+            ? SingleChildScrollView(
+                padding: const EdgeInsets.fromLTRB(16, 12, 16, 24),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.stretch,
+                  children: [
+                    _buildHeaderContent(context, theme, segments),
+                    const SizedBox(height: 32),
+                    Icon(Icons.grid_view_outlined,
+                        size: 48, color: theme.colorScheme.primary),
+                    const SizedBox(height: 12),
+                    Text(
+                      context.l10n.noButtonsYet,
+                      textAlign: TextAlign.center,
+                      style: theme.textTheme.titleLarge?.copyWith(fontWeight: FontWeight.w800),
+                    ),
+                    const SizedBox(height: 8),
+                    Text(
+                      context.l10n.createRemoteEmptyStateDescription,
+                      textAlign: TextAlign.center,
+                      style: theme.textTheme.bodyMedium?.copyWith(
+                        color: theme.colorScheme.onSurface.withValues(alpha: 0.75),
+                      ),
+                    ),
+                    const SizedBox(height: 20),
+                    FilledButton.icon(
+                      onPressed: _addButton,
+                      icon: const Icon(Icons.add),
+                      label: Text(context.l10n.addButton),
+                    ),
+                    const SizedBox(height: 8),
+                    Row(
+                      children: [
+                        Expanded(
+                          child: FilledButton.tonalIcon(
+                            onPressed: _openImportFromExistingRemotes,
+                            icon: const Icon(Icons.merge_type_rounded),
+                            label: Text(context.l10n.importFromRemotes),
+                          ),
+                        ),
+                        const SizedBox(width: 8),
+                        Expanded(
+                          child: FilledButton.tonalIcon(
+                            onPressed: _openBulkImport,
+                            icon: const Icon(Icons.playlist_add_rounded),
+                            label: Text(context.l10n.importFromDatabase),
+                          ),
+                        ),
+                      ],
+                    ),
+                  ],
+                ),
+              )
+            // ── Has buttons ────────────────────────────────────────────────
+            // Fixed header + independently scrolling GridView; structure
+            // unchanged from the original so no regressions here.
+            : Column(
                 children: [
-                  Card(
-                    clipBehavior: Clip.antiAlias,
-                    child: Padding(
-                      padding: const EdgeInsets.all(12),
-                      child: TextField(
-                        controller: textEditingController,
-                        textInputAction: TextInputAction.done,
-                        onChanged: (value) => remote.name = value,
-                        decoration: InputDecoration(
-                          labelText: context.l10n.remoteName,
-                          hintText: context.l10n.remoteNameHint,
-                          helperText: context.l10n.remoteNameHelper,
-                          suffixIcon: textEditingController.text.trim().isEmpty
-                              ? null
-                              : IconButton(
-                                  tooltip: context.l10n.clearAction,
-                                  onPressed: () {
-                                    setState(() {
-                                      textEditingController.clear();
-                                      remote.name = '';
-                                    });
-                                  },
-                                  icon: const Icon(Icons.clear),
-                                ),
-                        ),
-                      ),
-                    ),
+                  Padding(
+                    padding: const EdgeInsets.fromLTRB(16, 12, 16, 8),
+                    child: _buildHeaderContent(context, theme, segments),
                   ),
-                  const SizedBox(height: 10),
-                  Card(
-                    clipBehavior: Clip.antiAlias,
-                    child: Padding(
-                      padding: const EdgeInsets.all(12),
-                      child: Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          Text(
-                            context.l10n.layoutStyle,
-                            style: theme.textTheme.titleSmall?.copyWith(fontWeight: FontWeight.w700),
-                          ),
-                          const SizedBox(height: 6),
-                          SegmentedButton<_LayoutStyle>(
-                            segments: segments,
-                            selected: {_layoutStyle},
-                            onSelectionChanged: (s) {
-                              final next = s.first;
-                              setState(() {
-                                useNewStyle = (next == _LayoutStyle.wide);
-                              });
-                            },
-                          ),
-                          const SizedBox(height: 8),
-                          Text(
-                            useNewStyle
-                                ? context.l10n.layoutWideDescription
-                                : context.l10n.layoutCompactDescription,
-                            style: theme.textTheme.bodySmall?.copyWith(
-                              color: theme.colorScheme.onSurface.withValues(alpha: 0.75),
-                            ),
-                          ),
-                        ],
-                      ),
-                    ),
-                  ),
-                  const SizedBox(height: 10),
-                  Row(
-                    children: [
-                      Expanded(
-                        child: Text(
-                          context.l10n.buttonsTitleCount(remote.buttons.length),
-                          style: theme.textTheme.titleMedium?.copyWith(fontWeight: FontWeight.w800),
-                        ),
-                      ),
-                    ],
-                  ),
-                  const SizedBox(height: 8),
-                  Row(
-                    children: [
-                      Expanded(
-                        child: FilledButton.tonalIcon(
-                          onPressed: _openImportFromExistingRemotes,
-                          icon: const Icon(Icons.merge_type_rounded),
-                          label: Text(context.l10n.importFromRemotes),
-                        ),
-                      ),
-                      const SizedBox(width: 8),
-                      Expanded(
-                        child: FilledButton.tonalIcon(
-                          onPressed: _openBulkImport,
-                          icon: const Icon(Icons.playlist_add_rounded),
-                          label: Text(context.l10n.importFromDatabase),
-                        ),
-                      ),
-                    ],
-                  ),
-                  const SizedBox(height: 8),
-                  SizedBox(
-                    width: double.infinity,
-                    child: FilledButton.tonalIcon(
-                      onPressed: _openGitHubStore,
-                      icon: const Icon(Icons.storefront_rounded),
-                      label: const Text('Browse GitHub Store'),
-                    ),
-                  ),
-                ],
-              ),
-            ),
-            Expanded(
-              child: remote.buttons.isEmpty
-                  ? Center(
-                      child: Padding(
-                        padding: const EdgeInsets.all(24),
-                        child: Column(
-                          mainAxisSize: MainAxisSize.min,
-                          children: [
-                            Icon(Icons.grid_view_outlined,
-                                size: 48, color: theme.colorScheme.primary),
-                            const SizedBox(height: 12),
-                            Text(
-                              context.l10n.noButtonsYet,
-                              style: theme.textTheme.titleLarge?.copyWith(fontWeight: FontWeight.w800),
-                            ),
-                            const SizedBox(height: 8),
-                            Text(
-                              context.l10n.createRemoteEmptyStateDescription,
-                              textAlign: TextAlign.center,
-                              style: theme.textTheme.bodyMedium?.copyWith(
-                                color: theme.colorScheme.onSurface.withValues(alpha: 0.75),
-                              ),
-                            ),
-                            const SizedBox(height: 16),
-                            SizedBox(
-                              width: double.infinity,
-                              child: FilledButton.icon(
-                                onPressed: _addButton,
-                                icon: const Icon(Icons.add),
-                                label: Text(context.l10n.addButton),
-                              ),
-                            ),
-                            const SizedBox(height: 8),
-                            Row(
-                              children: [
-                                Expanded(
-                                  child: FilledButton.tonalIcon(
-                                    onPressed: _openImportFromExistingRemotes,
-                                    icon: const Icon(Icons.merge_type_rounded),
-                                    label: Text(context.l10n.importFromRemotes),
-                                  ),
-                                ),
-                                const SizedBox(width: 8),
-                                Expanded(
-                                  child: FilledButton.tonalIcon(
-                                    onPressed: _openBulkImport,
-                                    icon: const Icon(Icons.playlist_add_rounded),
-                                    label: Text(context.l10n.importFromDatabase),
-                                  ),
-                                ),
-                              ],
-                            ),
-                          ],
-                        ),
-                      ),
-                    )
-                  : GridView.builder(
+                  Expanded(
+                    child: GridView.builder(
                       padding: const EdgeInsets.fromLTRB(16, 8, 16, 16),
                       itemCount: remote.buttons.length + 1,
                       gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
@@ -542,10 +376,119 @@ class _CreateRemoteState extends State<CreateRemote> {
                         return _buildAddTile();
                       },
                     ),
+                  ),
+                ],
+              ),
+      ),
+    );
+  }
+
+  /// The name field, layout toggle, and import buttons — shared between the
+  /// empty-state scroll view and the has-buttons fixed header.
+  Widget _buildHeaderContent(
+    BuildContext context,
+    ThemeData theme,
+    List<ButtonSegment<_LayoutStyle>> segments,
+  ) {
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.stretch,
+      children: [
+        Card(
+          clipBehavior: Clip.antiAlias,
+          child: Padding(
+            padding: const EdgeInsets.all(12),
+            child: TextField(
+              controller: textEditingController,
+              textInputAction: TextInputAction.done,
+              onChanged: (value) => remote.name = value,
+              decoration: InputDecoration(
+                labelText: context.l10n.remoteName,
+                hintText: context.l10n.remoteNameHint,
+                helperText: context.l10n.remoteNameHelper,
+                suffixIcon: textEditingController.text.trim().isEmpty
+                    ? null
+                    : IconButton(
+                        tooltip: context.l10n.clearAction,
+                        onPressed: () {
+                          setState(() {
+                            textEditingController.clear();
+                            remote.name = '';
+                          });
+                        },
+                        icon: const Icon(Icons.clear),
+                      ),
+              ),
+            ),
+          ),
+        ),
+        const SizedBox(height: 10),
+        Card(
+          clipBehavior: Clip.antiAlias,
+          child: Padding(
+            padding: const EdgeInsets.all(12),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Text(
+                  context.l10n.layoutStyle,
+                  style: theme.textTheme.titleSmall?.copyWith(fontWeight: FontWeight.w700),
+                ),
+                const SizedBox(height: 6),
+                SegmentedButton<_LayoutStyle>(
+                  segments: segments,
+                  selected: {_layoutStyle},
+                  onSelectionChanged: (s) {
+                    final next = s.first;
+                    setState(() {
+                      useNewStyle = (next == _LayoutStyle.wide);
+                    });
+                  },
+                ),
+                const SizedBox(height: 8),
+                Text(
+                  useNewStyle
+                      ? context.l10n.layoutWideDescription
+                      : context.l10n.layoutCompactDescription,
+                  style: theme.textTheme.bodySmall?.copyWith(
+                    color: theme.colorScheme.onSurface.withValues(alpha: 0.75),
+                  ),
+                ),
+              ],
+            ),
+          ),
+        ),
+        const SizedBox(height: 10),
+        Text(
+          context.l10n.buttonsTitleCount(remote.buttons.length),
+          style: theme.textTheme.titleMedium?.copyWith(fontWeight: FontWeight.w800),
+        ),
+        const SizedBox(height: 8),
+        Row(
+          children: [
+            Expanded(
+              child: FilledButton.tonalIcon(
+                onPressed: _openImportFromExistingRemotes,
+                icon: const Icon(Icons.merge_type_rounded),
+                label: Text(context.l10n.importFromRemotes),
+              ),
+            ),
+            const SizedBox(width: 8),
+            Expanded(
+              child: FilledButton.tonalIcon(
+                onPressed: _openBulkImport,
+                icon: const Icon(Icons.playlist_add_rounded),
+                label: Text(context.l10n.importFromDatabase),
+              ),
             ),
           ],
         ),
-      ),
+        const SizedBox(height: 8),
+        FilledButton.tonalIcon(
+          onPressed: _openGitHubStore,
+          icon: const Icon(Icons.storefront_rounded),
+          label: const Text('Browse GitHub Store'),
+        ),
+      ],
     );
   }
 
@@ -571,6 +514,9 @@ class _CreateRemoteState extends State<CreateRemote> {
         ((b.iconFontFamily?.trim().isNotEmpty ?? false) ||
             (b.iconFontPackage?.trim().isNotEmpty ?? false));
     if (canRenderIcon) {
+      final iconColor = b.iconColor != null
+          ? Color(b.iconColor!)
+          : textColor;
       labelWidget = Center(
         child: Icon(
           IconData(
@@ -579,7 +525,7 @@ class _CreateRemoteState extends State<CreateRemote> {
             fontPackage: b.iconFontPackage,
           ),
           size: 32,
-          color: textColor,
+          color: iconColor,
         ),
       );
     } else if (b.isImage) {

@@ -206,6 +206,28 @@ class IrBlasterDb {
         .toList(growable: false);
   }
 
+  /// Returns distinct protocols used by [brand] across all its models,
+  /// ordered alphabetically. Used to auto-adjust the protocol when a
+  /// brand is selected in the IR Finder without a protocol filter.
+  Future<List<String>> listProtocolsForBrand(String brand) async {
+    await ensureInitialized();
+    final db = _requireDb();
+    final String b = brand.trim();
+    if (b.isEmpty) return <String>[];
+
+    final rows = await db.rawQuery('''
+      SELECT DISTINCT k.protocol AS protocol
+      FROM models m
+      JOIN keys k ON k.id = m.id
+      WHERE m.brand = ? AND k.protocol IS NOT NULL
+      ORDER BY UPPER(k.protocol) ASC
+    ''', [b]);
+    return rows
+        .map((r) => (r['protocol'] as String?)?.trim())
+        .whereType<String>()
+        .toList(growable: false);
+  }
+
   Future<List<String>> listBrands({
     String? search,
     String? protocolId,
@@ -218,44 +240,33 @@ class IrBlasterDb {
     final String? q = (search == null || search.trim().isEmpty) ? null : search.trim();
     final _ProtocolFilter? pf = await _resolveProtocolFilter(protocolId);
 
-    // Fast path: no protocol filter -> brands table
-    if (pf == null) {
-      final where = <String>[];
-      final args = <Object?>[];
-
-      if (q != null) {
-        where.add('name LIKE ? ESCAPE \'\\\'');
-        args.add('%${_escapeLike(q)}%');
-      }
-
-      final rows = await db.query(
-        'brands',
-        columns: const <String>['name'],
-        where: where.isEmpty ? null : where.join(' AND '),
-        whereArgs: args,
-        orderBy: 'name COLLATE NOCASE ASC',
-        limit: limit,
-        offset: offset,
-      );
-      return rows.map((r) => (r['name'] as String)).toList(growable: false);
-    }
-
-    // Protocol-filtered brands:
+    // Always query through models+keys so the returned brand names are
+    // exactly the same strings stored in models.brand. This is critical for
+    // consistency: listProtocolsForBrand, listModelsDistinct, and the signal
+    // test all query models.brand with an exact-match WHERE clause. If we
+    // returned brand names from the separate `brands` display table they might
+    // differ in capitalisation or spacing (e.g. "O General" vs "O-General"),
+    // causing those follow-up queries to return zero results.
     final where = <String>[];
     final args = <Object?>[];
 
-    _appendProtocolWhere(where: where, args: args, column: 'k.protocol', filter: pf);
+    if (pf != null) {
+      _appendProtocolWhere(where: where, args: args, column: 'k.protocol', filter: pf);
+    }
 
     if (q != null) {
       where.add('m.brand LIKE ? ESCAPE \'\\\'');
       args.add('%${_escapeLike(q)}%');
     }
 
+    final String whereSql =
+        where.isEmpty ? '' : 'WHERE ${where.join(' AND ')}';
+
     final sql = '''
       SELECT DISTINCT m.brand AS name
       FROM models m
       JOIN keys k ON k.id = m.id
-      WHERE ${where.join(' AND ')}
+      $whereSql
       ORDER BY name COLLATE NOCASE ASC
       LIMIT ? OFFSET ?
     ''';

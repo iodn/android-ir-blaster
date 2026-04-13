@@ -115,12 +115,35 @@ class _LearningModeScreenState extends State<LearningModeScreen>
     return _isTiqiaaFamily(d) || _isElkSmartFamily(d);
   }
 
+  /// True when the device has Huawei internal IR learning AND no USB learning
+  /// dongle is attached (USB takes priority when both are present).
+  bool get _huaweiInternalSelected {
+    final caps = _caps;
+    if (caps == null || !caps.hasHuaweiIrLearning) return false;
+    if (_audioLearningSelected) return false;
+    return _learningDevices.isEmpty;
+  }
+
+  /// True when the device has LG UEI Quickset IR learning AND no USB dongle
+  /// or Huawei receiver is available (USB always takes priority).
+  bool get _lgInternalSelected {
+    final caps = _caps;
+    if (caps == null || !caps.hasLgeIrLearning) return false;
+    if (_audioLearningSelected) return false;
+    if (_learningDevices.isNotEmpty) return false;
+    if (_huaweiInternalSelected) return false;
+    return true;
+  }
+
   _LearningHardwareState get _hardwareState {
     final caps = _caps;
     if (caps == null) return _LearningHardwareState.checking;
     if (_audioLearningSelected) {
       return _LearningHardwareState.noReceiver;
     }
+    // Built-in IR receivers are ready when no USB dongle is present.
+    if (_huaweiInternalSelected) return _LearningHardwareState.ready;
+    if (_lgInternalSelected)     return _LearningHardwareState.ready;
     final devices = _learningDevices;
     if (devices.isEmpty) return _LearningHardwareState.noReceiver;
     if (devices.any((d) => !d.hasPermission) ||
@@ -154,6 +177,11 @@ class _LearningModeScreenState extends State<LearningModeScreen>
         return signal.rawPatternUs.length >= 6 &&
             totalUs >= 1000 &&
             signal.opaqueFrameBase64.length >= 16;
+      case 'huawei_ir':
+        return signal.rawPatternUs.length >= 6 && totalUs >= 1000;
+      case 'lge_ir':
+        // LG signals have no rawPatternUs; validate the opaque blob is non-empty.
+        return signal.opaqueFrameBase64.length >= 4;
       default:
         return signal.rawPatternUs.isNotEmpty && signal.opaqueFrameBase64.isNotEmpty;
     }
@@ -166,6 +194,10 @@ class _LearningModeScreenState extends State<LearningModeScreen>
         ? 'Audio learned capture'
         : signal.family == 'elksmart'
         ? 'ElkSmart USB learned frame'
+        : signal.family == 'huawei_ir'
+        ? 'Huawei internal IR learned frame'
+        : signal.family == 'lge_ir'
+        ? 'LG internal IR learned frame (UEI Quickset)'
         : 'Tiqiaa USB learned frame';
     final lines = <String>[
       header,
@@ -179,13 +211,34 @@ class _LearningModeScreenState extends State<LearningModeScreen>
     return lines.join('\n');
   }
 
+  /// Returns the icon that represents the active learning source.
+  IconData _learningDeviceIcon() {
+    if (_huaweiInternalSelected || _lgInternalSelected) {
+      // Built-in phone IR receiver — not USB
+      return Icons.smartphone_rounded;
+    }
+    if (_audioLearningSelected) {
+      return Icons.headset_rounded;
+    }
+    return Icons.usb_rounded;
+  }
+
   String _learningDeviceLabel(BuildContext context) {
     if (_audioLearningSelected) {
       final selectedType = _preferredType ?? _caps?.currentType;
       return selectedType == IrTransmitterType.audio2Led ? 'Audio 2 LED' : 'Audio 1 LED';
     }
+    if (_huaweiInternalSelected) {
+      return 'Huawei built-in IR receiver';
+    }
+    if (_lgInternalSelected) {
+      return 'LG built-in IR receiver (UEI Quickset)';
+    }
+    if (_caps == null) {
+      return 'Checking device…';
+    }
     if (_learningDevices.isEmpty) {
-      return 'USB learning dongle';
+      return 'No learning receiver detected';
     }
     final device = _learningDevices.first;
     final productName = device.productName.isEmpty ? 'USB learning dongle' : device.productName;
@@ -204,7 +257,11 @@ class _LearningModeScreenState extends State<LearningModeScreen>
     await Haptics.mediumImpact();
 
     try {
-      final learned = await IrTransmitterPlatform.learnUsbSignal(timeoutMs: 30000);
+      final learned = _huaweiInternalSelected
+          ? await IrTransmitterPlatform.learnHuaweiSignal(timeoutMs: 30000)
+          : _lgInternalSelected
+          ? await IrTransmitterPlatform.learnLgSignal(timeoutMs: 30000)
+          : await IrTransmitterPlatform.learnUsbSignal(timeoutMs: 30000);
       if (!mounted) return;
       _pulseController.stop();
       _pulseController.reset();
@@ -329,7 +386,13 @@ class _LearningModeScreenState extends State<LearningModeScreen>
   Future<void> _stopListening() async {
     setState(() => _busy = true);
     try {
-      await IrTransmitterPlatform.cancelUsbLearning();
+      if (_huaweiInternalSelected) {
+        await IrTransmitterPlatform.cancelHuaweiLearning();
+      } else if (_lgInternalSelected) {
+        await IrTransmitterPlatform.cancelLgLearning();
+      } else {
+        await IrTransmitterPlatform.cancelUsbLearning();
+      }
     } catch (_) {}
     if (!mounted) return;
     _pulseController.stop();
@@ -540,7 +603,12 @@ class _LearningModeScreenState extends State<LearningModeScreen>
   }
 
   IRButton _buildSavedButton(LearnedUsbSignal signal, String buttonName) {
-    if (signal.family == 'audio') {
+    // Signals that carry standard IR pulse data (frequency + µs pattern) are
+    // stored as raw buttons so they play back via ConsumerIrManager or any USB
+    // dongle without requiring a device-specific replay channel.
+    // LGE signals are opaque UEI blobs — they MUST use protocol params and
+    // can only be replayed on the same LG device via the UEI service.
+    if (signal.family == 'audio' || signal.family == 'huawei_ir') {
       return IRButton(
         id: DateTime.now().microsecondsSinceEpoch.toString(),
         image: buttonName,
@@ -557,6 +625,8 @@ class _LearningModeScreenState extends State<LearningModeScreen>
       rawData: null,
       protocol: signal.family == 'elksmart'
           ? IrProtocolIds.elksmartLearned
+          : signal.family == 'lge_ir'
+          ? IrProtocolIds.lgeIrLearned
           : signal.family == 'audio'
           ? IrProtocolIds.audioLearned
           : IrProtocolIds.tiqiaaLearned,
@@ -800,7 +870,7 @@ class _LearningModeScreenState extends State<LearningModeScreen>
               children: [
                 Expanded(
                   child: _InfoChip(
-                    icon: Icons.usb_rounded,
+                    icon: _learningDeviceIcon(),
                     label: _learningDeviceLabel(context),
                     foreground: cs.onSurface,
                     background: cs.surfaceContainerHighest,
@@ -861,7 +931,10 @@ class _LearningModeScreenState extends State<LearningModeScreen>
             Text(
               _audioLearningSelected
                   ? 'Switch to a compatible USB learning dongle such as Tiqiaa, ZaZa, or ElkSmart to use Learning Mode.'
-                  : context.l10n.learningModeConnectReceiverBody,
+                  : 'No compatible learning receiver was detected.\n\n'
+                    '• Plug in a Tiqiaa, ZaZa, or ElkSmart USB IR dongle, or\n'
+                    '• Use a Huawei / Honor phone with a built-in IR receiver, or\n'
+                    '• Use an LG phone with the UEI Quickset service installed.',
               style: Theme.of(context).textTheme.bodyMedium?.copyWith(
                     color: cs.onSurfaceVariant,
                     height: 1.35,

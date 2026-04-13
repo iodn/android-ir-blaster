@@ -41,6 +41,17 @@
   "requestUsbPermission": "Poproś o uprawnienie USB",
   "homeHardwareTip": "Wskazówka: już teraz możesz tworzyć i porządkować piloty. Sprzęt jest potrzebny tylko do nadawania.",
   "homeNoIrTransmitterTitle": "Brak dostępnego nadajnika IR",
+  "homeHardwareRequiredBody": "IR Blaster może tworzyć i zarządzać pilotami na każdym telefonie. Aby jednak naprawdę wysyłać polecenia podczerwieni, urządzenie musi mieć jedną z poniższych opcji sprzętowych.",
+  "homeCanStillUseWithoutHardware": "Nadal możesz teraz tworzyć, importować i porządkować piloty.",
+  "homeWaysToUseIrBlaster": "Sposoby używania IR Blaster",
+  "homeBuiltInIrOptionTitle": "Telefon z wbudowanym IR",
+  "homeBuiltInIrOptionSubtitle": "Działa na obsługiwanych telefonach z wbudowanym nadajnikiem IR. Ten telefon go nie ma.",
+  "homeBuiltInIrUnavailable": "Niedostępne na tym telefonie",
+  "homeUsbFamilyTiqiaaZaza": "Tiqiaa / ZaZa",
+  "homeUsbFamilyElkSmart": "ElkSmart",
+  "homeAudioAccessoryLabel": "Adapter audio 3,5 mm",
+  "homeContinueWithoutHardware": "Kontynuuj bez sprzętu",
+  "homeHowItWorks": "Jak to działa",
   "settingsNavLabel": "Ustawienia",
   "dismiss": "Zamknij",
   "remotesNavLabel": "Piloty",
@@ -518,9 +529,9 @@
   "presetNavigation": "Nawigacja",
   "all": "Wszystko",
   "completeRequiredFieldsToSave": "Uzupełnij wymagane pola, aby zapisać",
-  "buttonLabelStepTitle": "1) Etykieta przycisku",
+  "buttonLabelStepTitle": "Etykieta przycisku",
   "buttonLabelStepSubtitle": "Wybierz obraz, ikonę lub wpisz etykietę tekstową.",
-  "buttonColorStepTitle": "2) Kolor przycisku (opcjonalnie)",
+  "buttonColorStepTitle": "Kolor przycisku",
   "buttonColorStepSubtitle": "Wybierz kolor tła dla tego przycisku.",
   "selectColor": "Wybierz kolor:",
   "noImageSelected": "Nie wybrano obrazu",
@@ -537,7 +548,7 @@
   "buttonTextHint": "e.g., zasilanie, głośność +, HDMI 1",
   "buttonTextHelper": "This tekst will appear na przycisk.",
   "requiredEnterButtonLabel": "Required: enter a przycisk etykieta.",
-  "defaultColorName": "Default",
+  "defaultColorName": "Domyślny",
   "newRemoteCreatedFromLastHit": "New pilot created z one przycisk from last hit.",
   "selectRemote": "Select pilot",
   "remoteNumber": "Pilot nr {id}",
@@ -2146,5 +2157,60 @@
   "learningModeChooseRemoteTitle": "Wybierz pilota",
   "learningModeNewRemoteTitle": "Utwórz nowego pilota",
   "learningModeSaveSuccess": "Wyuczony przycisk został zapisany.",
-  "learningModeSaveFailed": "Nie można zapisać wyuczonego przycisku."
+  "learningModeSaveFailed": "Nie można zapisać wyuczonego przycisku.",
+  "remoteSetupIntro": "Najpierw wybierz nazwę i układ. Przyciski możesz dodać później.",
+  "startWithDefault": "Zacznij od domyślnych ustawień",
+  "browseGithubStore": "Przeglądaj GitHub Store",
+  "addFirstButton": "Dodaj pierwszy przycisk",
+  "moreWaysToStart": "Więcej sposobów rozpoczęcia",
+  "unsavedRemoteSetupChangesMessage": "Odrzucić konfigurację nowego pilota i opuścić ten ekran?",
+  "unsavedRemoteStudioChangesMessage": "Odrzucić zmiany pilota i opuścić ten ekran?",
+  "firstButtonAdded": "Dodano pierwszy przycisk.",
+  "iconColorTitle": "Kolor ikony",
+  "iconColorHelper": "Wybierz kolor symbolu, który pozostanie wyraźny na tle przycisku.",
+  "colorRed": "Czerwony",
+  "colorPink": "Różowy",
+  "colorPurple": "Fioletowy",
+  "colorDeepPurple": "Ciemny fiolet",
+  "colorIndigo": "Indygo",
+  "colorBlue": "Niebieski",
+  "colorLightBlue": "Jasnoniebieski",
+  "colorCyan": "Cyjan",
+  "colorTeal": "Turkusowy",
+  "colorGreen": "Zielony",
+  "colorLightGreen": "Jasnozielony",
+  "colorLime": "Limonkowy",
+  "colorYellow": "Żółty",
+  "colorAmber": "Bursztynowy",
+  "colorOrange": "Pomarańczowy",
+  "colorDeepOrange": "Ciemnopomarańczowy",
+  "colorBrown": "Brązowy",
+  "colorGrey": "Szary",
+  "colorBlueGrey": "Niebieskoszary",
+  "colorBlack": "Czarny",
+  "colorWhite": "Biały",
+  "buttonColorSemantics": "Kolor przycisku {colorName}",
+  "@buttonColorSemantics": {
+    "placeholders": {
+      "colorName": {}
+    }
+  },
+  "buttonColorSemanticsSelected": "Kolor przycisku {colorName}, wybrany",
+  "@buttonColorSemanticsSelected": {
+    "placeholders": {
+      "colorName": {}
+    }
+  },
+  "iconColorSemantics": "Kolor ikony {colorName}",
+  "@iconColorSemantics": {
+    "placeholders": {
+      "colorName": {}
+    }
+  },
+  "iconColorSemanticsSelected": "Kolor ikony {colorName}, wybrany",
+  "@iconColorSemanticsSelected": {
+    "placeholders": {
+      "colorName": {}
+    }
+  }
 }

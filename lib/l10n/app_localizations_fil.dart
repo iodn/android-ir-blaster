@@ -76,11 +76,11 @@ class AppLocalizationsFil extends AppLocalizations {
 
   @override
   String get homeUsbOptionPermissionGranted =>
-      'Authorized. Initializing dongle.';
+      'Awtorisado. Ino-initialize ang dongle.';
 
   @override
   String get homeUsbOptionOpenFailed =>
-      'Authorized, but initialization nabigo.';
+      'Awtorisado, pero nabigo ang pag-initialize.';
 
   @override
   String get homeHardwareBannerNoInternal =>
@@ -88,45 +88,45 @@ class AppLocalizationsFil extends AppLocalizations {
 
   @override
   String get homeHardwareBannerPermissionRequired =>
-      'USB dongle detected. Pahintulot kailangan to send IR.';
+      'May natukoy na USB dongle. Kailangan ng pahintulot para makapagpadala ng IR.';
 
   @override
   String get homeHardwareBannerPermissionDenied =>
-      'USB pahintulot was tinanggihan. Hiling it muli to send IR.';
+      'Tinanggihan ang pahintulot sa USB. Humiling muli para makapagpadala ng IR.';
 
   @override
   String get homeHardwareBannerPermissionGranted =>
-      'USB dongle authorized. Waiting para sa initialization.';
+      'Awtorisado ang USB dongle. Naghihintay ng pag-initialize.';
 
   @override
   String get homeHardwareBannerOpenFailed =>
-      'USB dongle authorized, but initialization nabigo.';
+      'Awtorisado ang USB dongle, pero nabigo ang pag-initialize.';
 
   @override
-  String get homeHardwareBannerReady => 'USB is ready.';
+  String get homeHardwareBannerReady => 'Handa na ang USB.';
 
   @override
   String get homeHardwareRequiredTitle =>
-      'IR hardware kailangan to send commands';
+      'Kailangan ang IR hardware para makapagpadala ng mga command';
 
   @override
-  String get homeUsbDongleRecommended => 'USB IR dongle (recommended)';
+  String get homeUsbDongleRecommended => 'USB IR dongle (inirerekomenda)';
 
   @override
-  String get homeAudioAdapterAlternative => 'Audio IR adapter (alternative)';
+  String get homeAudioAdapterAlternative => 'Audio IR adapter (alternatibo)';
 
   @override
   String get homeAudioAdapterDescription =>
-      'Mga Setting → IR Transmitter → Audio 1 LED / 2 LED. Kailangan ng audio to IR adapter.';
+      'Mga Setting → IR Transmitter → Audio 1 LED / 2 LED. Kailangan ng audio-to-IR adapter.';
 
   @override
   String get close => 'Isara';
 
   @override
-  String get homeChooseTransmitter => 'Piliin ang a transmitter';
+  String get homeChooseTransmitter => 'Pumili ng transmitter';
 
   @override
-  String get openSettings => 'Open Settings';
+  String get openSettings => 'Buksan ang Settings';
 
   @override
   String get homeUsbPermissionSentApprove =>
@@ -134,14 +134,14 @@ class AppLocalizationsFil extends AppLocalizations {
 
   @override
   String get homeUsbDongleNotDetected =>
-      'Walang supported USB IR dongle detected. Plug it in at try muli.';
+      'Walang natukoy na suportadong USB IR dongle. Isaksak ito at subukan muli.';
 
   @override
   String get homeUsbPermissionRequestFailed =>
-      'Nabigo to hiling USB pahintulot.';
+      'Nabigong humiling ng pahintulot sa USB.';
 
   @override
-  String get working => 'Working…';
+  String get working => 'Gumagana…';
 
   @override
   String get requestUsbPermission => 'Humiling ng pahintulot sa USB';
@@ -151,13 +151,49 @@ class AppLocalizationsFil extends AppLocalizations {
       'Tip. Maaari ka nang gumawa at mag-ayos ng mga remote ngayon. Kailangan lang ang hardware kapag magpapadala na.';
 
   @override
-  String get homeNoIrTransmitterTitle => 'Walang IR transmitter available';
+  String get homeNoIrTransmitterTitle => 'Walang available na IR transmitter';
+
+  @override
+  String get homeHardwareRequiredBody =>
+      'Kayang gumawa at mamahala ng IR Blaster ng mga remote sa anumang telepono. Pero para aktuwal na makapagpadala ng infrared command, kailangan ng iyong device ang isa sa mga hardware option sa ibaba.';
+
+  @override
+  String get homeCanStillUseWithoutHardware =>
+      'Maaari ka pa ring gumawa, mag-import, at mag-ayos ng mga remote ngayon din.';
+
+  @override
+  String get homeWaysToUseIrBlaster => 'Mga paraan para gamitin ang IR Blaster';
+
+  @override
+  String get homeBuiltInIrOptionTitle => 'Teleponong may built-in IR';
+
+  @override
+  String get homeBuiltInIrOptionSubtitle =>
+      'Gumagana sa mga suportadong teleponong may built-in IR blaster. Wala nito ang teleponong ito.';
+
+  @override
+  String get homeBuiltInIrUnavailable => 'Hindi available sa teleponong ito';
+
+  @override
+  String get homeUsbFamilyTiqiaaZaza => 'Tiqiaa / ZaZa';
+
+  @override
+  String get homeUsbFamilyElkSmart => 'ElkSmart';
+
+  @override
+  String get homeAudioAccessoryLabel => '3.5 mm na audio adapter';
+
+  @override
+  String get homeContinueWithoutHardware => 'Magpatuloy nang walang hardware';
+
+  @override
+  String get homeHowItWorks => 'Paano ito gumagana';
 
   @override
   String get settingsNavLabel => 'Mga Setting';
 
   @override
-  String get dismiss => 'Dismiss';
+  String get dismiss => 'Isara';
 
   @override
   String get remotesNavLabel => 'Mga Remote';
@@ -183,7 +219,7 @@ class AppLocalizationsFil extends AppLocalizations {
       'Ang app needs an IR emitter to function';
 
   @override
-  String get remoteDismiss => 'Dismiss';
+  String get remoteDismiss => 'Isara';
 
   @override
   String get remoteClose => 'Isara';
@@ -1604,21 +1640,21 @@ class AppLocalizationsFil extends AppLocalizations {
       'Complete kailangan fields to save';
 
   @override
-  String get buttonLabelStepTitle => '1) Button label';
+  String get buttonLabelStepTitle => 'Button label';
 
   @override
   String get buttonLabelStepSubtitle =>
       'Piliin ang an image, icon, o type a text label.';
 
   @override
-  String get buttonColorStepTitle => '2) Button color (optional)';
+  String get buttonColorStepTitle => 'Button color';
 
   @override
   String get buttonColorStepSubtitle =>
       'Pumili ng background color para sa button na ito.';
 
   @override
-  String get selectColor => 'Select color:';
+  String get selectColor => 'Pumili ng kulay:';
 
   @override
   String get noImageSelected => 'Walang image selected';
@@ -4490,4 +4526,121 @@ class AppLocalizationsFil extends AppLocalizations {
 
   @override
   String get learningModeSaveFailed => 'Hindi ma-save ang button na natutunan.';
+
+  @override
+  String get remoteSetupIntro =>
+      'Pumili muna ng pangalan at layout. Maaari kang magdagdag ng mga button pagkatapos.';
+
+  @override
+  String get startWithDefault => 'Magsimula sa default';
+
+  @override
+  String get browseGithubStore => 'Buksan ang GitHub Store';
+
+  @override
+  String get addFirstButton => 'Idagdag ang unang button';
+
+  @override
+  String get moreWaysToStart => 'Iba pang paraan para magsimula';
+
+  @override
+  String get unsavedRemoteSetupChangesMessage =>
+      'Itapon ang bagong setup ng remote na ito at umalis sa screen na ito?';
+
+  @override
+  String get unsavedRemoteStudioChangesMessage =>
+      'Itapon ang mga pagbabago sa remote at umalis sa screen na ito?';
+
+  @override
+  String get firstButtonAdded => 'Naidagdag ang unang button.';
+
+  @override
+  String get iconColorTitle => 'Kulay ng icon';
+
+  @override
+  String get iconColorHelper =>
+      'Pumili ng kulay ng simbolo na mananatiling malinaw sa ibabaw ng background ng button.';
+
+  @override
+  String get colorRed => 'Pula';
+
+  @override
+  String get colorPink => 'Rosas';
+
+  @override
+  String get colorPurple => 'Lila';
+
+  @override
+  String get colorDeepPurple => 'Madilim na lila';
+
+  @override
+  String get colorIndigo => 'Indigo';
+
+  @override
+  String get colorBlue => 'Asul';
+
+  @override
+  String get colorLightBlue => 'Mapusyaw na asul';
+
+  @override
+  String get colorCyan => 'Cyan';
+
+  @override
+  String get colorTeal => 'Teal';
+
+  @override
+  String get colorGreen => 'Berde';
+
+  @override
+  String get colorLightGreen => 'Mapusyaw na berde';
+
+  @override
+  String get colorLime => 'Lime';
+
+  @override
+  String get colorYellow => 'Dilaw';
+
+  @override
+  String get colorAmber => 'Amber';
+
+  @override
+  String get colorOrange => 'Kahel';
+
+  @override
+  String get colorDeepOrange => 'Madilim na kahel';
+
+  @override
+  String get colorBrown => 'Kayumanggi';
+
+  @override
+  String get colorGrey => 'Abo';
+
+  @override
+  String get colorBlueGrey => 'Asul-abong';
+
+  @override
+  String get colorBlack => 'Itim';
+
+  @override
+  String get colorWhite => 'Puti';
+
+  @override
+  String buttonColorSemantics(Object colorName) {
+    return 'Kulay ng button na $colorName';
+  }
+
+  @override
+  String buttonColorSemanticsSelected(Object colorName) {
+    return 'Kulay ng button na $colorName, napili';
+  }
+
+  @override
+  String iconColorSemantics(Object colorName) {
+    return 'Kulay ng icon na $colorName';
+  }
+
+  @override
+  String iconColorSemanticsSelected(Object colorName) {
+    return 'Kulay ng icon na $colorName, napili';
+  }
 }

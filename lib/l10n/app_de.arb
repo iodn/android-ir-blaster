@@ -41,6 +41,17 @@
   "requestUsbPermission": "USB-Berechtigung anfordern",
   "homeHardwareTip": "Tipp: Du kannst Fernbedienungen schon jetzt erstellen und sortieren. Hardware ist nur zum Senden nötig.",
   "homeNoIrTransmitterTitle": "Kein IR-Sender verfügbar",
+  "homeHardwareRequiredBody": "IR Blaster kann Fernbedienungen auf jedem Telefon erstellen und verwalten. Um tatsächlich Infrarotbefehle zu senden, benötigt Ihr Gerät eine der unten aufgeführten Hardware-Optionen.",
+  "homeCanStillUseWithoutHardware": "Sie können Fernbedienungen jetzt schon erstellen, importieren und organisieren.",
+  "homeWaysToUseIrBlaster": "So können Sie IR Blaster nutzen",
+  "homeBuiltInIrOptionTitle": "Telefon mit integriertem IR",
+  "homeBuiltInIrOptionSubtitle": "Funktioniert auf unterstützten Telefonen mit integriertem IR-Sender. Dieses Telefon hat keinen.",
+  "homeBuiltInIrUnavailable": "Auf diesem Telefon nicht verfügbar",
+  "homeUsbFamilyTiqiaaZaza": "Tiqiaa / ZaZa",
+  "homeUsbFamilyElkSmart": "ElkSmart",
+  "homeAudioAccessoryLabel": "3,5-mm-Audioadapter",
+  "homeContinueWithoutHardware": "Ohne Hardware fortfahren",
+  "homeHowItWorks": "So funktioniert es",
   "settingsNavLabel": "Einstellungen",
   "dismiss": "Schließen",
   "remotesNavLabel": "Remotes",
@@ -518,9 +529,9 @@
   "presetNavigation": "Navigation",
   "all": "Alle",
   "completeRequiredFieldsToSave": "Pflichtfelder zum Speichern ausfüllen",
-  "buttonLabelStepTitle": "1 Taste beschriften",
+  "buttonLabelStepTitle": "Taste beschriften",
   "buttonLabelStepSubtitle": "Wähle ein Bild, Symbol oder gib einen Text ein.",
-  "buttonColorStepTitle": "2 Tastenfarbe optional",
+  "buttonColorStepTitle": "Tastenfarbe",
   "buttonColorStepSubtitle": "Wähle eine Hintergrundfarbe für diese Taste.",
   "selectColor": "Farbe wählen",
   "noImageSelected": "Kein Bild gewählt",
@@ -2130,5 +2141,60 @@
   "learningModeChooseRemoteTitle": "Wählen Sie eine Fernbedienung",
   "learningModeNewRemoteTitle": "Erstellen Sie eine neue Fernbedienung",
   "learningModeSaveSuccess": "Gelernte Schaltfläche gespeichert.",
-  "learningModeSaveFailed": "Der gelernte Button konnte nicht gespeichert werden."
+  "learningModeSaveFailed": "Der gelernte Button konnte nicht gespeichert werden.",
+  "remoteSetupIntro": "Wählen Sie zuerst einen Namen und ein Layout. Danach können Sie Tasten hinzufügen.",
+  "startWithDefault": "Mit Standardwerten starten",
+  "browseGithubStore": "GitHub-Store durchsuchen",
+  "addFirstButton": "Erste Taste hinzufügen",
+  "moreWaysToStart": "Weitere Startmöglichkeiten",
+  "unsavedRemoteSetupChangesMessage": "Neue Fernbedienungs-Einrichtung verwerfen und diesen Bildschirm verlassen?",
+  "unsavedRemoteStudioChangesMessage": "Änderungen an der Fernbedienung verwerfen und diesen Bildschirm verlassen?",
+  "firstButtonAdded": "Erste Taste hinzugefügt.",
+  "iconColorTitle": "Symbolfarbe",
+  "iconColorHelper": "Wähle eine Symbolfarbe, die auf dem Button-Hintergrund gut sichtbar bleibt.",
+  "colorRed": "Rot",
+  "colorPink": "Pink",
+  "colorPurple": "Lila",
+  "colorDeepPurple": "Tiefes Lila",
+  "colorIndigo": "Indigo",
+  "colorBlue": "Blau",
+  "colorLightBlue": "Hellblau",
+  "colorCyan": "Cyan",
+  "colorTeal": "Blaugrün",
+  "colorGreen": "Grün",
+  "colorLightGreen": "Hellgrün",
+  "colorLime": "Limette",
+  "colorYellow": "Gelb",
+  "colorAmber": "Bernstein",
+  "colorOrange": "Orange",
+  "colorDeepOrange": "Dunkelorange",
+  "colorBrown": "Braun",
+  "colorGrey": "Grau",
+  "colorBlueGrey": "Blaugrau",
+  "colorBlack": "Schwarz",
+  "colorWhite": "Weiß",
+  "buttonColorSemantics": "Tastenfarbe {colorName}",
+  "@buttonColorSemantics": {
+    "placeholders": {
+      "colorName": {}
+    }
+  },
+  "buttonColorSemanticsSelected": "Tastenfarbe {colorName}, ausgewählt",
+  "@buttonColorSemanticsSelected": {
+    "placeholders": {
+      "colorName": {}
+    }
+  },
+  "iconColorSemantics": "Symbolfarbe {colorName}",
+  "@iconColorSemantics": {
+    "placeholders": {
+      "colorName": {}
+    }
+  },
+  "iconColorSemanticsSelected": "Symbolfarbe {colorName}, ausgewählt",
+  "@iconColorSemanticsSelected": {
+    "placeholders": {
+      "colorName": {}
+    }
+  }
 }

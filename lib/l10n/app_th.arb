@@ -41,6 +41,17 @@
   "requestUsbPermission": "ขอสิทธิ์ USB",
   "homeHardwareTip": "เคล็ดลับ คุณยังสร้างและจัดรีโมตได้ตอนนี้ ฮาร์ดแวร์จำเป็นเฉพาะตอนส่งเท่านั้น",
   "homeNoIrTransmitterTitle": "ไม่มีตัวส่ง IR",
+  "homeHardwareRequiredBody": "IR Blaster สามารถสร้างและจัดการรีโมตได้บนโทรศัพท์ทุกรุ่น แต่หากต้องการส่งคำสั่งอินฟราเรดจริง อุปกรณ์ของคุณต้องมีฮาร์ดแวร์อย่างใดอย่างหนึ่งด้านล่างนี้",
+  "homeCanStillUseWithoutHardware": "ตอนนี้คุณยังสร้าง นำเข้า และจัดระเบียบรีโมตได้อยู่",
+  "homeWaysToUseIrBlaster": "วิธีใช้งาน IR Blaster",
+  "homeBuiltInIrOptionTitle": "โทรศัพท์ที่มี IR ในตัว",
+  "homeBuiltInIrOptionSubtitle": "ใช้งานได้กับโทรศัพท์ที่รองรับและมีตัวส่ง IR ในตัว โทรศัพท์เครื่องนี้ไม่มี",
+  "homeBuiltInIrUnavailable": "ไม่พร้อมใช้งานบนโทรศัพท์เครื่องนี้",
+  "homeUsbFamilyTiqiaaZaza": "Tiqiaa / ZaZa",
+  "homeUsbFamilyElkSmart": "ElkSmart",
+  "homeAudioAccessoryLabel": "อะแดปเตอร์เสียง 3.5 มม.",
+  "homeContinueWithoutHardware": "ใช้งานต่อโดยไม่มีฮาร์ดแวร์",
+  "homeHowItWorks": "วิธีการทำงาน",
   "settingsNavLabel": "การตั้งค่า",
   "dismiss": "ปิด",
   "remotesNavLabel": "รีโมต",
@@ -516,11 +527,11 @@
   "presetNavigation": "นำทาง",
   "all": "All",
   "completeRequiredFieldsToSave": "กรอกข้อมูลที่จำเป็นให้ครบเพื่อบันทึก",
-  "buttonLabelStepTitle": "1) ปุ่ม label",
+  "buttonLabelStepTitle": "ป้ายชื่อปุ่ม",
   "buttonLabelStepSubtitle": "เลือกรูปภาพ ไอคอน หรือพิมพ์ข้อความป้ายชื่อ",
-  "buttonColorStepTitle": "2) ปุ่ม color (ไม่บังคับ)",
+  "buttonColorStepTitle": "สีปุ่ม",
   "buttonColorStepSubtitle": "เลือกสีพื้นหลังสำหรับปุ่มนี้",
-  "selectColor": "เลือก color:",
+  "selectColor": "เลือกสี:",
   "noImageSelected": "ยังไม่เลือกรูปภาพ",
   "gallery": "แกลเลอรี",
   "builtIn": "ในแอป",
@@ -2144,5 +2155,60 @@
   "learningModeChooseRemoteTitle": "เลือกรีโมท",
   "learningModeNewRemoteTitle": "สร้างรีโมทใหม่",
   "learningModeSaveSuccess": "บันทึกปุ่มเรียนรู้แล้ว",
-  "learningModeSaveFailed": "ไม่สามารถบันทึกปุ่มเรียนรู้ได้"
+  "learningModeSaveFailed": "ไม่สามารถบันทึกปุ่มเรียนรู้ได้",
+  "remoteSetupIntro": "เลือกชื่อและเลย์เอาต์ก่อน แล้วค่อยเพิ่มปุ่มภายหลัง",
+  "startWithDefault": "เริ่มด้วยค่าเริ่มต้น",
+  "browseGithubStore": "เปิด GitHub Store",
+  "addFirstButton": "เพิ่มปุ่มแรก",
+  "moreWaysToStart": "วิธีเริ่มต้นเพิ่มเติม",
+  "unsavedRemoteSetupChangesMessage": "ละทิ้งการตั้งค่ารีโมตใหม่นี้และออกจากหน้านี้หรือไม่?",
+  "unsavedRemoteStudioChangesMessage": "ละทิ้งการเปลี่ยนแปลงของรีโมตและออกจากหน้านี้หรือไม่?",
+  "firstButtonAdded": "เพิ่มปุ่มแรกแล้ว",
+  "iconColorTitle": "สีไอคอน",
+  "iconColorHelper": "เลือกสีสัญลักษณ์ที่ยังมองเห็นได้ชัดบนพื้นหลังปุ่ม",
+  "colorRed": "แดง",
+  "colorPink": "ชมพู",
+  "colorPurple": "ม่วง",
+  "colorDeepPurple": "ม่วงเข้ม",
+  "colorIndigo": "คราม",
+  "colorBlue": "น้ำเงิน",
+  "colorLightBlue": "ฟ้าอ่อน",
+  "colorCyan": "ไซแอน",
+  "colorTeal": "เขียวน้ำทะเล",
+  "colorGreen": "เขียว",
+  "colorLightGreen": "เขียวอ่อน",
+  "colorLime": "ไลม์",
+  "colorYellow": "เหลือง",
+  "colorAmber": "อำพัน",
+  "colorOrange": "ส้ม",
+  "colorDeepOrange": "ส้มเข้ม",
+  "colorBrown": "น้ำตาล",
+  "colorGrey": "เทา",
+  "colorBlueGrey": "เทาอมฟ้า",
+  "colorBlack": "ดำ",
+  "colorWhite": "ขาว",
+  "buttonColorSemantics": "สีปุ่ม {colorName}",
+  "@buttonColorSemantics": {
+    "placeholders": {
+      "colorName": {}
+    }
+  },
+  "buttonColorSemanticsSelected": "สีปุ่ม {colorName}, เลือกอยู่",
+  "@buttonColorSemanticsSelected": {
+    "placeholders": {
+      "colorName": {}
+    }
+  },
+  "iconColorSemantics": "สีไอคอน {colorName}",
+  "@iconColorSemantics": {
+    "placeholders": {
+      "colorName": {}
+    }
+  },
+  "iconColorSemanticsSelected": "สีไอคอน {colorName}, เลือกอยู่",
+  "@iconColorSemanticsSelected": {
+    "placeholders": {
+      "colorName": {}
+    }
+  }
 }

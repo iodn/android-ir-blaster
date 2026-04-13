@@ -37,6 +37,8 @@ import io.flutter.plugin.common.MethodChannel
 import org.nslabs.ir_blaster.audio.AudioCapturedIrPlayer
 import org.nslabs.ir_blaster.audio.AudioIrTransmitter
 import org.nslabs.ir_blaster.audio.AudioIrLearner
+import org.nslabs.ir_blaster.huawei.HuaweiIrLearner
+import org.nslabs.ir_blaster.lg.LgIrLearner
 import org.nslabs.ir_blaster.BaseQuickTileService
 
 class MainActivity : FlutterActivity() {
@@ -66,6 +68,12 @@ class MainActivity : FlutterActivity() {
     @Volatile private var audioLearner: AudioIrLearner? = null
     @Volatile private var audioLearningCancelRequested: Boolean = false
     private var pendingAudioPermissionResult: MethodChannel.Result? = null
+
+    @Volatile private var huaweiLearner: HuaweiIrLearner? = null
+    @Volatile private var huaweiLearningCancelRequested: Boolean = false
+
+    @Volatile private var lgLearner: LgIrLearner? = null
+    @Volatile private var lgLearningCancelRequested: Boolean = false
 
     private val prefs by lazy {
         applicationContext.getSharedPreferences("ir_blaster_prefs", Context.MODE_PRIVATE)
@@ -289,6 +297,8 @@ class MainActivity : FlutterActivity() {
             "usbStatus" to usbStateWireValue(usbState),
             "usbStatusMessage" to usbStateMessage,
             "hasAudio" to true,
+            "hasHuaweiIrLearning" to HuaweiIrLearner.isSupported(applicationContext),
+            "hasLgeIrLearning"    to LgIrLearner.isSupported(applicationContext),
             "currentType" to currentTxType.name,
             "usbDevices" to usbDevs,
             "autoSwitchEnabled" to autoSwitchEnabled
@@ -487,11 +497,16 @@ class MainActivity : FlutterActivity() {
                     "setAutoSwitchEnabled" -> handleSetAutoSwitchEnabled(call, result)
                     "getOpenOnUsbAttachEnabled" -> result.success(openOnUsbAttachEnabled)
                     "setOpenOnUsbAttachEnabled" -> handleSetOpenOnUsbAttachEnabled(call, result)
+                    "shareText" -> handleShareText(call, result)
                     "learnUsbSignal" -> handleLearnUsbSignal(call, result)
                     "cancelUsbLearning" -> handleCancelUsbLearning(result)
                     "replayLearnedUsbSignal" -> handleReplayLearnedUsbSignal(call, result)
                     "getAudioLearningDiagnostics" -> result.success(buildAudioLearningDiagnostics())
                     "requestAudioLearningPermission" -> handleRequestAudioLearningPermission(result)
+                    "learnHuaweiSignal" -> handleLearnHuaweiSignal(call, result)
+                    "cancelHuaweiLearning" -> handleCancelHuaweiLearning(result)
+                    "learnLgSignal" -> handleLearnLgSignal(call, result)
+                    "cancelLgLearning" -> handleCancelLgLearning(result)
                     else -> result.notImplemented()
                 }
             }
@@ -547,6 +562,32 @@ class MainActivity : FlutterActivity() {
 
         shortcutManager.dynamicShortcuts = shortcuts
         result.success(true)
+    }
+
+    private fun handleShareText(call: MethodCall, result: MethodChannel.Result) {
+        val text = call.argument<String>("text")?.trim().orEmpty()
+        val subject = call.argument<String>("subject")?.trim().orEmpty()
+        if (text.isEmpty()) {
+            result.error("INVALID_ARGUMENT", "Missing share text.", null)
+            return
+        }
+
+        runOnUiThread {
+            try {
+                val chooserTitle: String? = if (subject.isNotEmpty()) subject else null
+                val intent = Intent(Intent.ACTION_SEND).apply {
+                    type = "text/plain"
+                    putExtra(Intent.EXTRA_TEXT, text)
+                    if (subject.isNotEmpty()) {
+                        putExtra(Intent.EXTRA_SUBJECT, subject)
+                    }
+                }
+                startActivity(Intent.createChooser(intent, chooserTitle))
+                result.success(true)
+            } catch (t: Throwable) {
+                result.error("SHARE_FAILED", t.message, null)
+            }
+        }
     }
 
     private fun buildDynamicShortcut(raw: Map<*, *>?, rank: Int): ShortcutInfo? {
@@ -849,6 +890,10 @@ class MainActivity : FlutterActivity() {
         usbLearner = null
         audioLearner?.cancel()
         audioLearner = null
+        huaweiLearner?.cancel()
+        huaweiLearner = null
+        lgLearner?.cancel()
+        lgLearner = null
         usbTransmitter?.closeSafely()
         usbTransmitter = null
         audio1Tx.stop()
@@ -1430,6 +1475,155 @@ class MainActivity : FlutterActivity() {
         usbLearner?.cancel()
         audioLearningCancelRequested = true
         audioLearner?.cancel()
+        // Also cancel any concurrent internal-hardware learning sessions so a
+        // single cancel call from the Flutter side covers all active learners.
+        huaweiLearningCancelRequested = true
+        huaweiLearner?.cancel()
+        lgLearningCancelRequested = true
+        lgLearner?.cancel()
+        result.success(true)
+    }
+
+    private fun handleLearnHuaweiSignal(call: MethodCall, result: MethodChannel.Result) {
+        if (huaweiLearner != null) {
+            result.error("LEARN_BUSY", "Huawei IR learning is already active", null)
+            return
+        }
+        if (!HuaweiIrLearner.isSupported(applicationContext)) {
+            result.error(
+                "LEARN_UNSUPPORTED",
+                "This device does not support Huawei IR self-learning",
+                null,
+            )
+            return
+        }
+
+        val timeoutMs = (call.argument<Int>("timeoutMs") ?: 30_000).coerceIn(1_000, 60_000)
+        huaweiLearningCancelRequested = false
+
+        Thread {
+            var learner: HuaweiIrLearner? = null
+            try {
+                val opened = HuaweiIrLearner.open(applicationContext)
+                if (opened == null) {
+                    runOnUiThread {
+                        result.error(
+                            "LEARN_OPEN_FAILED",
+                            "Could not initialize Huawei IR learning hardware",
+                            null,
+                        )
+                    }
+                    return@Thread
+                }
+                learner = opened
+                huaweiLearner = opened
+
+                val learned = opened.learn(timeoutMs) { huaweiLearningCancelRequested }
+
+                runOnUiThread {
+                    when {
+                        huaweiLearningCancelRequested -> result.success(null)
+                        learned != null -> result.success(learned.toWireMap())
+                        else -> result.error(
+                            "LEARN_TIMEOUT",
+                            "No IR signal was captured before the listening window expired",
+                            null,
+                        )
+                    }
+                }
+            } catch (t: Throwable) {
+                Log.w(TAG, "learnHuaweiSignal failed: ${t.message}", t)
+                runOnUiThread {
+                    result.error("LEARN_FAILED", t.message ?: "Huawei IR learning failed", null)
+                }
+            } finally {
+                huaweiLearningCancelRequested = false
+                learner?.cancel()
+                huaweiLearner = null
+            }
+        }.start()
+    }
+
+    private fun handleCancelHuaweiLearning(result: MethodChannel.Result) {
+        huaweiLearningCancelRequested = true
+        huaweiLearner?.cancel()
+        result.success(true)
+    }
+
+    private fun handleLearnLgSignal(call: MethodCall, result: MethodChannel.Result) {
+        if (lgLearner != null) {
+            result.error("LEARN_BUSY", "LG IR learning is already active", null)
+            return
+        }
+        if (!LgIrLearner.isSupported(applicationContext)) {
+            result.error(
+                "LEARN_UNSUPPORTED",
+                "This device does not have the LG UEI Quickset IR service",
+                null,
+            )
+            return
+        }
+
+        val timeoutMs = (call.argument<Int>("timeoutMs") ?: 30_000).coerceIn(1_000, 60_000)
+        lgLearningCancelRequested = false
+
+        Thread {
+            var learner: LgIrLearner? = null
+            try {
+                val opened = LgIrLearner.open(applicationContext)
+                if (opened == null) {
+                    runOnUiThread {
+                        result.error(
+                            "LEARN_OPEN_FAILED",
+                            "Could not connect to LG UEI Quickset service",
+                            null,
+                        )
+                    }
+                    return@Thread
+                }
+                learner = opened
+                lgLearner = opened
+
+                if (!opened.isLearningSupported()) {
+                    runOnUiThread {
+                        result.error(
+                            "LEARN_UNSUPPORTED",
+                            "This LG device does not support IR learning",
+                            null,
+                        )
+                    }
+                    return@Thread
+                }
+
+                val learned = opened.learn(timeoutMs) { lgLearningCancelRequested }
+
+                runOnUiThread {
+                    when {
+                        lgLearningCancelRequested -> result.success(null)
+                        learned != null           -> result.success(learned.toWireMap())
+                        else -> result.error(
+                            "LEARN_TIMEOUT",
+                            "No IR signal was captured before the listening window expired",
+                            null,
+                        )
+                    }
+                }
+            } catch (t: Throwable) {
+                Log.w(TAG, "learnLgSignal failed: ${t.message}", t)
+                runOnUiThread {
+                    result.error("LEARN_FAILED", t.message ?: "LG IR learning failed", null)
+                }
+            } finally {
+                lgLearningCancelRequested = false
+                learner?.cancel()
+                lgLearner = null
+            }
+        }.start()
+    }
+
+    private fun handleCancelLgLearning(result: MethodChannel.Result) {
+        lgLearningCancelRequested = true
+        lgLearner?.cancel()
         result.success(true)
     }
 

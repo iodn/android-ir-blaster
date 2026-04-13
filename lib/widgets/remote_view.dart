@@ -17,7 +17,8 @@ import 'package:irblaster_controller/utils/button_color_accessibility.dart';
 import 'package:irblaster_controller/utils/ir.dart';
 import 'package:irblaster_controller/utils/remote.dart';
 import 'package:irblaster_controller/widgets/create_button.dart';
-import 'package:irblaster_controller/widgets/create_remote.dart';
+import 'package:irblaster_controller/widgets/remote_editor/remote_editor_draft.dart';
+import 'package:irblaster_controller/widgets/remote_studio_screen.dart';
 import 'package:reorderable_grid_view/reorderable_grid_view.dart';
 import 'package:uuid/uuid.dart';
 
@@ -372,12 +373,16 @@ class RemoteViewState extends State<RemoteView> {
     final int idx = _findRemoteIndexInGlobalList();
 
     try {
-      final Remote edited = await Navigator.push(
+      final Remote? edited = await Navigator.push<Remote?>(
         context,
-        MaterialPageRoute(builder: (context) => CreateRemote(remote: _remote)),
+        MaterialPageRoute(
+          builder: (context) => RemoteStudioScreen(
+            initialDraft: RemoteEditorDraft.fromRemote(_remote),
+          ),
+        ),
       );
 
-      if (!mounted) return;
+      if (edited == null || !mounted) return;
 
       setState(() => _remote = edited);
 
@@ -397,10 +402,6 @@ class RemoteViewState extends State<RemoteView> {
       }
 
       Haptics.selectionClick();
-      if (!mounted) return;
-      ScaffoldMessenger.of(context).showSnackBar(
-        SnackBar(content: Text(context.l10n.remoteUpdatedNamed(edited.name))),
-      );
     } catch (_) {}
   }
 
@@ -507,6 +508,9 @@ class RemoteViewState extends State<RemoteView> {
     final String fallbackLabel = _buttonTitle(button);
 
     if (_hasRenderableIcon(button)) {
+      final iconColor = button.iconColor != null
+          ? Color(button.iconColor!)
+          : textColor;
       return Center(
         child: Icon(
           IconData(
@@ -515,7 +519,7 @@ class RemoteViewState extends State<RemoteView> {
             fontPackage: button.iconFontPackage,
           ),
           size: 34,
-          color: textColor,
+          color: iconColor,
         ),
       );
     }

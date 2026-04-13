@@ -153,6 +153,42 @@ class AppLocalizationsPt extends AppLocalizations {
   String get homeNoIrTransmitterTitle => 'Nenhum emissor IR disponível';
 
   @override
+  String get homeHardwareRequiredBody =>
+      'O IR Blaster pode criar e gerir comandos em qualquer telemóvel. Para enviar efetivamente comandos por infravermelhos, o seu dispositivo precisa de uma das opções de hardware abaixo.';
+
+  @override
+  String get homeCanStillUseWithoutHardware =>
+      'Ainda pode criar, importar e organizar comandos neste momento.';
+
+  @override
+  String get homeWaysToUseIrBlaster => 'Formas de usar o IR Blaster';
+
+  @override
+  String get homeBuiltInIrOptionTitle => 'Telemóvel com IV integrado';
+
+  @override
+  String get homeBuiltInIrOptionSubtitle =>
+      'Funciona em telemóveis compatíveis com emissor IV integrado. Este telemóvel não inclui um.';
+
+  @override
+  String get homeBuiltInIrUnavailable => 'Não disponível neste telemóvel';
+
+  @override
+  String get homeUsbFamilyTiqiaaZaza => 'Tiqiaa / ZaZa';
+
+  @override
+  String get homeUsbFamilyElkSmart => 'ElkSmart';
+
+  @override
+  String get homeAudioAccessoryLabel => 'Adaptador de áudio de 3,5 mm';
+
+  @override
+  String get homeContinueWithoutHardware => 'Continuar sem hardware';
+
+  @override
+  String get homeHowItWorks => 'Como funciona';
+
+  @override
   String get settingsNavLabel => 'Definições';
 
   @override
@@ -1611,14 +1647,14 @@ class AppLocalizationsPt extends AppLocalizations {
       'Completa os campos obrigatórios para guardar';
 
   @override
-  String get buttonLabelStepTitle => '1) Etiqueta do botão';
+  String get buttonLabelStepTitle => 'Etiqueta do botão';
 
   @override
   String get buttonLabelStepSubtitle =>
       'Escolha uma imagem, un icono o escreva uma etiqueta.';
 
   @override
-  String get buttonColorStepTitle => '2) Cor do botão (opcional)';
+  String get buttonColorStepTitle => 'Cor do botão';
 
   @override
   String get buttonColorStepSubtitle =>
@@ -4513,6 +4549,123 @@ class AppLocalizationsPt extends AppLocalizations {
 
   @override
   String get learningModeSaveFailed => 'O botão aprendido não pôde ser salvo.';
+
+  @override
+  String get remoteSetupIntro =>
+      'Escolha primeiro um nome e um layout. Depois você poderá adicionar botões.';
+
+  @override
+  String get startWithDefault => 'Começar com o padrão';
+
+  @override
+  String get browseGithubStore => 'Explorar GitHub Store';
+
+  @override
+  String get addFirstButton => 'Adicionar primeiro botão';
+
+  @override
+  String get moreWaysToStart => 'Mais formas de começar';
+
+  @override
+  String get unsavedRemoteSetupChangesMessage =>
+      'Descartar esta nova configuração do comando e sair deste ecrã?';
+
+  @override
+  String get unsavedRemoteStudioChangesMessage =>
+      'Descartar as alterações do comando e sair deste ecrã?';
+
+  @override
+  String get firstButtonAdded => 'Primeiro botão adicionado.';
+
+  @override
+  String get iconColorTitle => 'Cor do ícone';
+
+  @override
+  String get iconColorHelper =>
+      'Escolha uma cor para o símbolo que continue visível sobre o fundo do botão.';
+
+  @override
+  String get colorRed => 'Vermelho';
+
+  @override
+  String get colorPink => 'Rosa';
+
+  @override
+  String get colorPurple => 'Roxo';
+
+  @override
+  String get colorDeepPurple => 'Roxo escuro';
+
+  @override
+  String get colorIndigo => 'Índigo';
+
+  @override
+  String get colorBlue => 'Azul';
+
+  @override
+  String get colorLightBlue => 'Azul claro';
+
+  @override
+  String get colorCyan => 'Ciano';
+
+  @override
+  String get colorTeal => 'Verde-azulado';
+
+  @override
+  String get colorGreen => 'Verde';
+
+  @override
+  String get colorLightGreen => 'Verde claro';
+
+  @override
+  String get colorLime => 'Lima';
+
+  @override
+  String get colorYellow => 'Amarelo';
+
+  @override
+  String get colorAmber => 'Âmbar';
+
+  @override
+  String get colorOrange => 'Laranja';
+
+  @override
+  String get colorDeepOrange => 'Laranja escuro';
+
+  @override
+  String get colorBrown => 'Castanho';
+
+  @override
+  String get colorGrey => 'Cinzento';
+
+  @override
+  String get colorBlueGrey => 'Cinzento azulado';
+
+  @override
+  String get colorBlack => 'Preto';
+
+  @override
+  String get colorWhite => 'Branco';
+
+  @override
+  String buttonColorSemantics(Object colorName) {
+    return 'Cor do botão $colorName';
+  }
+
+  @override
+  String buttonColorSemanticsSelected(Object colorName) {
+    return 'Cor do botão $colorName, selecionada';
+  }
+
+  @override
+  String iconColorSemantics(Object colorName) {
+    return 'Cor do ícone $colorName';
+  }
+
+  @override
+  String iconColorSemanticsSelected(Object colorName) {
+    return 'Cor do ícone $colorName, selecionada';
+  }
 }
 
 /// The translations for Portuguese, as used in Brazil (`pt_BR`).
@@ -4663,6 +4816,42 @@ class AppLocalizationsPtBr extends AppLocalizationsPt {
 
   @override
   String get homeNoIrTransmitterTitle => 'Nenhum emissor IR disponível';
+
+  @override
+  String get homeHardwareRequiredBody =>
+      'O IR Blaster pode criar e gerenciar controles remotos em qualquer telefone. Para realmente enviar comandos por infravermelho, seu dispositivo precisa de uma das opções de hardware abaixo.';
+
+  @override
+  String get homeCanStillUseWithoutHardware =>
+      'Você ainda pode criar, importar e organizar controles remotos agora mesmo.';
+
+  @override
+  String get homeWaysToUseIrBlaster => 'Formas de usar o IR Blaster';
+
+  @override
+  String get homeBuiltInIrOptionTitle => 'Telefone com IR embutido';
+
+  @override
+  String get homeBuiltInIrOptionSubtitle =>
+      'Funciona em telefones compatíveis com emissor IR embutido. Este telefone não tem um.';
+
+  @override
+  String get homeBuiltInIrUnavailable => 'Não disponível neste telefone';
+
+  @override
+  String get homeUsbFamilyTiqiaaZaza => 'Tiqiaa / ZaZa';
+
+  @override
+  String get homeUsbFamilyElkSmart => 'ElkSmart';
+
+  @override
+  String get homeAudioAccessoryLabel => 'Adaptador de áudio de 3,5 mm';
+
+  @override
+  String get homeContinueWithoutHardware => 'Continuar sem hardware';
+
+  @override
+  String get homeHowItWorks => 'Como funciona';
 
   @override
   String get settingsNavLabel => 'configurações';
@@ -6125,14 +6314,14 @@ class AppLocalizationsPtBr extends AppLocalizationsPt {
       'Completa os campos obrigatórios para salvar';
 
   @override
-  String get buttonLabelStepTitle => '1) Etiqueta do botão';
+  String get buttonLabelStepTitle => 'Etiqueta do botão';
 
   @override
   String get buttonLabelStepSubtitle =>
       'Escolha uma imagem, un icono o escreva uma etiqueta.';
 
   @override
-  String get buttonColorStepTitle => '2) Cor do botão (opcional)';
+  String get buttonColorStepTitle => 'Cor do botão';
 
   @override
   String get buttonColorStepSubtitle =>
@@ -9028,4 +9217,121 @@ class AppLocalizationsPtBr extends AppLocalizationsPt {
 
   @override
   String get learningModeSaveFailed => 'O botão aprendido não pôde ser salvo.';
+
+  @override
+  String get remoteSetupIntro =>
+      'Escolha primeiro um nome e um layout. Depois você poderá adicionar botões.';
+
+  @override
+  String get startWithDefault => 'Começar com o padrão';
+
+  @override
+  String get browseGithubStore => 'Explorar GitHub Store';
+
+  @override
+  String get addFirstButton => 'Adicionar primeiro botão';
+
+  @override
+  String get moreWaysToStart => 'Mais formas de começar';
+
+  @override
+  String get unsavedRemoteSetupChangesMessage =>
+      'Descartar esta nova configuração do controle e sair desta tela?';
+
+  @override
+  String get unsavedRemoteStudioChangesMessage =>
+      'Descartar as alterações do controle e sair desta tela?';
+
+  @override
+  String get firstButtonAdded => 'Primeiro botão adicionado.';
+
+  @override
+  String get iconColorTitle => 'Cor do ícone';
+
+  @override
+  String get iconColorHelper =>
+      'Escolha uma cor para o símbolo que continue visível sobre o fundo do botão.';
+
+  @override
+  String get colorRed => 'Vermelho';
+
+  @override
+  String get colorPink => 'Rosa';
+
+  @override
+  String get colorPurple => 'Roxo';
+
+  @override
+  String get colorDeepPurple => 'Roxo escuro';
+
+  @override
+  String get colorIndigo => 'Índigo';
+
+  @override
+  String get colorBlue => 'Azul';
+
+  @override
+  String get colorLightBlue => 'Azul claro';
+
+  @override
+  String get colorCyan => 'Ciano';
+
+  @override
+  String get colorTeal => 'Verde-azulado';
+
+  @override
+  String get colorGreen => 'Verde';
+
+  @override
+  String get colorLightGreen => 'Verde claro';
+
+  @override
+  String get colorLime => 'Lima';
+
+  @override
+  String get colorYellow => 'Amarelo';
+
+  @override
+  String get colorAmber => 'Âmbar';
+
+  @override
+  String get colorOrange => 'Laranja';
+
+  @override
+  String get colorDeepOrange => 'Laranja escuro';
+
+  @override
+  String get colorBrown => 'Marrom';
+
+  @override
+  String get colorGrey => 'Cinza';
+
+  @override
+  String get colorBlueGrey => 'Cinza azulado';
+
+  @override
+  String get colorBlack => 'Preto';
+
+  @override
+  String get colorWhite => 'Branco';
+
+  @override
+  String buttonColorSemantics(Object colorName) {
+    return 'Cor do botão $colorName';
+  }
+
+  @override
+  String buttonColorSemanticsSelected(Object colorName) {
+    return 'Cor do botão $colorName, selecionada';
+  }
+
+  @override
+  String iconColorSemantics(Object colorName) {
+    return 'Cor do ícone $colorName';
+  }
+
+  @override
+  String iconColorSemanticsSelected(Object colorName) {
+    return 'Cor do ícone $colorName, selecionada';
+  }
 }

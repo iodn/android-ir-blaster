@@ -150,6 +150,42 @@ class AppLocalizationsTr extends AppLocalizations {
   String get homeNoIrTransmitterTitle => 'IR verici yok';
 
   @override
+  String get homeHardwareRequiredBody =>
+      'IR Blaster herhangi bir telefonda kumandalar oluşturup yönetebilir. Ancak gerçekten kızılötesi komut göndermek için cihazınızın aşağıdaki donanım seçeneklerinden birine sahip olması gerekir.';
+
+  @override
+  String get homeCanStillUseWithoutHardware =>
+      'Şu anda yine de kumandalar oluşturabilir, içe aktarabilir ve düzenleyebilirsiniz.';
+
+  @override
+  String get homeWaysToUseIrBlaster => 'IR Blaster kullanma yolları';
+
+  @override
+  String get homeBuiltInIrOptionTitle => 'Dahili IR bulunan telefon';
+
+  @override
+  String get homeBuiltInIrOptionSubtitle =>
+      'Dahili IR vericisi olan desteklenen telefonlarda çalışır. Bu telefonda yok.';
+
+  @override
+  String get homeBuiltInIrUnavailable => 'Bu telefonda mevcut değil';
+
+  @override
+  String get homeUsbFamilyTiqiaaZaza => 'Tiqiaa / ZaZa';
+
+  @override
+  String get homeUsbFamilyElkSmart => 'ElkSmart';
+
+  @override
+  String get homeAudioAccessoryLabel => '3,5 mm ses adaptörü';
+
+  @override
+  String get homeContinueWithoutHardware => 'Donanım olmadan devam et';
+
+  @override
+  String get homeHowItWorks => 'Nasıl çalışır';
+
+  @override
   String get settingsNavLabel => 'Ayarlar';
 
   @override
@@ -1592,21 +1628,21 @@ class AppLocalizationsTr extends AppLocalizations {
       'Complete gerekli fields to kaydet';
 
   @override
-  String get buttonLabelStepTitle => '1) Düğme label';
+  String get buttonLabelStepTitle => 'Düğme etiketi';
 
   @override
   String get buttonLabelStepSubtitle =>
       'Choose an image, icon, or type a text label.';
 
   @override
-  String get buttonColorStepTitle => '2) Düğme rengi (isteğe bağlı)';
+  String get buttonColorStepTitle => 'Düğme rengi';
 
   @override
   String get buttonColorStepSubtitle =>
       'Bu düğme için bir arka plan rengi seçin.';
 
   @override
-  String get selectColor => 'Seç color:';
+  String get selectColor => 'Renk seçin:';
 
   @override
   String get noImageSelected => 'No image seçili';
@@ -1653,7 +1689,7 @@ class AppLocalizationsTr extends AppLocalizations {
   String get requiredEnterButtonLabel => 'Required: enter a düğme label.';
 
   @override
-  String get defaultColorName => 'Default';
+  String get defaultColorName => 'Varsayılan';
 
   @override
   String get newRemoteCreatedFromLastHit =>
@@ -4480,4 +4516,121 @@ class AppLocalizationsTr extends AppLocalizations {
 
   @override
   String get learningModeSaveFailed => 'Öğrenilen düğme kaydedilemedi.';
+
+  @override
+  String get remoteSetupIntro =>
+      'Önce bir ad ve düzen seçin. Düğmeleri daha sonra ekleyebilirsiniz.';
+
+  @override
+  String get startWithDefault => 'Varsayılanla başla';
+
+  @override
+  String get browseGithubStore => 'GitHub Store\'u aç';
+
+  @override
+  String get addFirstButton => 'İlk düğmeyi ekle';
+
+  @override
+  String get moreWaysToStart => 'Başlamanın diğer yolları';
+
+  @override
+  String get unsavedRemoteSetupChangesMessage =>
+      'Bu yeni kumanda kurulumunu silip bu ekrandan çıkmak istiyor musunuz?';
+
+  @override
+  String get unsavedRemoteStudioChangesMessage =>
+      'Kumanda değişikliklerini silip bu ekrandan çıkmak istiyor musunuz?';
+
+  @override
+  String get firstButtonAdded => 'İlk düğme eklendi.';
+
+  @override
+  String get iconColorTitle => 'Simge rengi';
+
+  @override
+  String get iconColorHelper =>
+      'Düğme arka planında görünür kalacak bir simge rengi seçin.';
+
+  @override
+  String get colorRed => 'Kırmızı';
+
+  @override
+  String get colorPink => 'Pembe';
+
+  @override
+  String get colorPurple => 'Mor';
+
+  @override
+  String get colorDeepPurple => 'Koyu mor';
+
+  @override
+  String get colorIndigo => 'İndigo';
+
+  @override
+  String get colorBlue => 'Mavi';
+
+  @override
+  String get colorLightBlue => 'Açık mavi';
+
+  @override
+  String get colorCyan => 'Camgöbeği';
+
+  @override
+  String get colorTeal => 'Mavi-yeşil';
+
+  @override
+  String get colorGreen => 'Yeşil';
+
+  @override
+  String get colorLightGreen => 'Açık yeşil';
+
+  @override
+  String get colorLime => 'Limon';
+
+  @override
+  String get colorYellow => 'Sarı';
+
+  @override
+  String get colorAmber => 'Kehribar';
+
+  @override
+  String get colorOrange => 'Turuncu';
+
+  @override
+  String get colorDeepOrange => 'Koyu turuncu';
+
+  @override
+  String get colorBrown => 'Kahverengi';
+
+  @override
+  String get colorGrey => 'Gri';
+
+  @override
+  String get colorBlueGrey => 'Mavi-gri';
+
+  @override
+  String get colorBlack => 'Siyah';
+
+  @override
+  String get colorWhite => 'Beyaz';
+
+  @override
+  String buttonColorSemantics(Object colorName) {
+    return 'Düğme rengi $colorName';
+  }
+
+  @override
+  String buttonColorSemanticsSelected(Object colorName) {
+    return 'Düğme rengi $colorName, seçili';
+  }
+
+  @override
+  String iconColorSemantics(Object colorName) {
+    return 'Simge rengi $colorName';
+  }
+
+  @override
+  String iconColorSemanticsSelected(Object colorName) {
+    return 'Simge rengi $colorName, seçili';
+  }
 }

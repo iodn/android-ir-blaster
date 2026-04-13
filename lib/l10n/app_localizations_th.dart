@@ -148,6 +148,42 @@ class AppLocalizationsTh extends AppLocalizations {
   String get homeNoIrTransmitterTitle => 'ไม่มีตัวส่ง IR';
 
   @override
+  String get homeHardwareRequiredBody =>
+      'IR Blaster สามารถสร้างและจัดการรีโมตได้บนโทรศัพท์ทุกรุ่น แต่หากต้องการส่งคำสั่งอินฟราเรดจริง อุปกรณ์ของคุณต้องมีฮาร์ดแวร์อย่างใดอย่างหนึ่งด้านล่างนี้';
+
+  @override
+  String get homeCanStillUseWithoutHardware =>
+      'ตอนนี้คุณยังสร้าง นำเข้า และจัดระเบียบรีโมตได้อยู่';
+
+  @override
+  String get homeWaysToUseIrBlaster => 'วิธีใช้งาน IR Blaster';
+
+  @override
+  String get homeBuiltInIrOptionTitle => 'โทรศัพท์ที่มี IR ในตัว';
+
+  @override
+  String get homeBuiltInIrOptionSubtitle =>
+      'ใช้งานได้กับโทรศัพท์ที่รองรับและมีตัวส่ง IR ในตัว โทรศัพท์เครื่องนี้ไม่มี';
+
+  @override
+  String get homeBuiltInIrUnavailable => 'ไม่พร้อมใช้งานบนโทรศัพท์เครื่องนี้';
+
+  @override
+  String get homeUsbFamilyTiqiaaZaza => 'Tiqiaa / ZaZa';
+
+  @override
+  String get homeUsbFamilyElkSmart => 'ElkSmart';
+
+  @override
+  String get homeAudioAccessoryLabel => 'อะแดปเตอร์เสียง 3.5 มม.';
+
+  @override
+  String get homeContinueWithoutHardware => 'ใช้งานต่อโดยไม่มีฮาร์ดแวร์';
+
+  @override
+  String get homeHowItWorks => 'วิธีการทำงาน';
+
+  @override
   String get settingsNavLabel => 'การตั้งค่า';
 
   @override
@@ -1575,20 +1611,20 @@ class AppLocalizationsTh extends AppLocalizations {
       'กรอกข้อมูลที่จำเป็นให้ครบเพื่อบันทึก';
 
   @override
-  String get buttonLabelStepTitle => '1) ปุ่ม label';
+  String get buttonLabelStepTitle => 'ป้ายชื่อปุ่ม';
 
   @override
   String get buttonLabelStepSubtitle =>
       'เลือกรูปภาพ ไอคอน หรือพิมพ์ข้อความป้ายชื่อ';
 
   @override
-  String get buttonColorStepTitle => '2) ปุ่ม color (ไม่บังคับ)';
+  String get buttonColorStepTitle => 'สีปุ่ม';
 
   @override
   String get buttonColorStepSubtitle => 'เลือกสีพื้นหลังสำหรับปุ่มนี้';
 
   @override
-  String get selectColor => 'เลือก color:';
+  String get selectColor => 'เลือกสี:';
 
   @override
   String get noImageSelected => 'ยังไม่เลือกรูปภาพ';
@@ -4457,4 +4493,121 @@ class AppLocalizationsTh extends AppLocalizations {
 
   @override
   String get learningModeSaveFailed => 'ไม่สามารถบันทึกปุ่มเรียนรู้ได้';
+
+  @override
+  String get remoteSetupIntro =>
+      'เลือกชื่อและเลย์เอาต์ก่อน แล้วค่อยเพิ่มปุ่มภายหลัง';
+
+  @override
+  String get startWithDefault => 'เริ่มด้วยค่าเริ่มต้น';
+
+  @override
+  String get browseGithubStore => 'เปิด GitHub Store';
+
+  @override
+  String get addFirstButton => 'เพิ่มปุ่มแรก';
+
+  @override
+  String get moreWaysToStart => 'วิธีเริ่มต้นเพิ่มเติม';
+
+  @override
+  String get unsavedRemoteSetupChangesMessage =>
+      'ละทิ้งการตั้งค่ารีโมตใหม่นี้และออกจากหน้านี้หรือไม่?';
+
+  @override
+  String get unsavedRemoteStudioChangesMessage =>
+      'ละทิ้งการเปลี่ยนแปลงของรีโมตและออกจากหน้านี้หรือไม่?';
+
+  @override
+  String get firstButtonAdded => 'เพิ่มปุ่มแรกแล้ว';
+
+  @override
+  String get iconColorTitle => 'สีไอคอน';
+
+  @override
+  String get iconColorHelper =>
+      'เลือกสีสัญลักษณ์ที่ยังมองเห็นได้ชัดบนพื้นหลังปุ่ม';
+
+  @override
+  String get colorRed => 'แดง';
+
+  @override
+  String get colorPink => 'ชมพู';
+
+  @override
+  String get colorPurple => 'ม่วง';
+
+  @override
+  String get colorDeepPurple => 'ม่วงเข้ม';
+
+  @override
+  String get colorIndigo => 'คราม';
+
+  @override
+  String get colorBlue => 'น้ำเงิน';
+
+  @override
+  String get colorLightBlue => 'ฟ้าอ่อน';
+
+  @override
+  String get colorCyan => 'ไซแอน';
+
+  @override
+  String get colorTeal => 'เขียวน้ำทะเล';
+
+  @override
+  String get colorGreen => 'เขียว';
+
+  @override
+  String get colorLightGreen => 'เขียวอ่อน';
+
+  @override
+  String get colorLime => 'ไลม์';
+
+  @override
+  String get colorYellow => 'เหลือง';
+
+  @override
+  String get colorAmber => 'อำพัน';
+
+  @override
+  String get colorOrange => 'ส้ม';
+
+  @override
+  String get colorDeepOrange => 'ส้มเข้ม';
+
+  @override
+  String get colorBrown => 'น้ำตาล';
+
+  @override
+  String get colorGrey => 'เทา';
+
+  @override
+  String get colorBlueGrey => 'เทาอมฟ้า';
+
+  @override
+  String get colorBlack => 'ดำ';
+
+  @override
+  String get colorWhite => 'ขาว';
+
+  @override
+  String buttonColorSemantics(Object colorName) {
+    return 'สีปุ่ม $colorName';
+  }
+
+  @override
+  String buttonColorSemanticsSelected(Object colorName) {
+    return 'สีปุ่ม $colorName, เลือกอยู่';
+  }
+
+  @override
+  String iconColorSemantics(Object colorName) {
+    return 'สีไอคอน $colorName';
+  }
+
+  @override
+  String iconColorSemanticsSelected(Object colorName) {
+    return 'สีไอคอน $colorName, เลือกอยู่';
+  }
 }

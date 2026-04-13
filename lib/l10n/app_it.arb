@@ -41,6 +41,17 @@
   "requestUsbPermission": "Richiedi permesso USB",
   "homeHardwareTip": "Suggerimento. Puoi ancora creare e organizzare telecomandi ora. L'hardware serve solo in trasmissione.",
   "homeNoIrTransmitterTitle": "Nessun trasmettitore IR disponibile",
+  "homeHardwareRequiredBody": "IR Blaster può creare e gestire telecomandi su qualsiasi telefono. Per inviare davvero comandi a infrarossi, il dispositivo ha bisogno di una delle opzioni hardware qui sotto.",
+  "homeCanStillUseWithoutHardware": "Puoi comunque creare, importare e organizzare telecomandi già da ora.",
+  "homeWaysToUseIrBlaster": "Modi per usare IR Blaster",
+  "homeBuiltInIrOptionTitle": "Telefono con IR integrato",
+  "homeBuiltInIrOptionSubtitle": "Funziona sui telefoni supportati con emettitore IR integrato. Questo telefono non ne include uno.",
+  "homeBuiltInIrUnavailable": "Non disponibile su questo telefono",
+  "homeUsbFamilyTiqiaaZaza": "Tiqiaa / ZaZa",
+  "homeUsbFamilyElkSmart": "ElkSmart",
+  "homeAudioAccessoryLabel": "Adattatore audio da 3,5 mm",
+  "homeContinueWithoutHardware": "Continua senza hardware",
+  "homeHowItWorks": "Come funziona",
   "settingsNavLabel": "Impostazioni",
   "dismiss": "Ignora",
   "remotesNavLabel": "Telecomandi",
@@ -516,9 +527,9 @@
   "presetNavigation": "Navigazione",
   "all": "Tutti",
   "completeRequiredFieldsToSave": "Completa i campi richiesti per salvare",
-  "buttonLabelStepTitle": "1 Pulsante etichetta",
+  "buttonLabelStepTitle": "Etichetta pulsante",
   "buttonLabelStepSubtitle": "Scegli un'immagine, un'icona o digita un'etichetta testuale.",
-  "buttonColorStepTitle": "2 Colore pulsante opzionale",
+  "buttonColorStepTitle": "Colore del pulsante",
   "buttonColorStepSubtitle": "Scegli un colore di sfondo per questo pulsante.",
   "selectColor": "Seleziona colore",
   "noImageSelected": "Nessuna immagine selezionata",
@@ -2144,5 +2155,60 @@
   "learningModeChooseRemoteTitle": "Scegli un telecomando",
   "learningModeNewRemoteTitle": "Crea un nuovo telecomando",
   "learningModeSaveSuccess": "Pulsante appreso salvato.",
-  "learningModeSaveFailed": "Impossibile salvare il pulsante appreso."
+  "learningModeSaveFailed": "Impossibile salvare il pulsante appreso.",
+  "remoteSetupIntro": "Scegli prima un nome e un layout. Potrai aggiungere pulsanti dopo.",
+  "startWithDefault": "Inizia con i valori predefiniti",
+  "browseGithubStore": "Sfoglia GitHub Store",
+  "addFirstButton": "Aggiungi il primo pulsante",
+  "moreWaysToStart": "Altri modi per iniziare",
+  "unsavedRemoteSetupChangesMessage": "Vuoi scartare questa nuova configurazione del telecomando e lasciare questa schermata?",
+  "unsavedRemoteStudioChangesMessage": "Vuoi scartare le modifiche al telecomando e lasciare questa schermata?",
+  "firstButtonAdded": "Primo pulsante aggiunto.",
+  "iconColorTitle": "Colore icona",
+  "iconColorHelper": "Scegli un colore per il simbolo che resti visibile sullo sfondo del pulsante.",
+  "colorRed": "Rosso",
+  "colorPink": "Rosa",
+  "colorPurple": "Viola",
+  "colorDeepPurple": "Viola scuro",
+  "colorIndigo": "Indaco",
+  "colorBlue": "Blu",
+  "colorLightBlue": "Azzurro",
+  "colorCyan": "Ciano",
+  "colorTeal": "Verde acqua",
+  "colorGreen": "Verde",
+  "colorLightGreen": "Verde chiaro",
+  "colorLime": "Lime",
+  "colorYellow": "Giallo",
+  "colorAmber": "Ambra",
+  "colorOrange": "Arancione",
+  "colorDeepOrange": "Arancione scuro",
+  "colorBrown": "Marrone",
+  "colorGrey": "Grigio",
+  "colorBlueGrey": "Grigio blu",
+  "colorBlack": "Nero",
+  "colorWhite": "Bianco",
+  "buttonColorSemantics": "Colore del pulsante {colorName}",
+  "@buttonColorSemantics": {
+    "placeholders": {
+      "colorName": {}
+    }
+  },
+  "buttonColorSemanticsSelected": "Colore del pulsante {colorName}, selezionato",
+  "@buttonColorSemanticsSelected": {
+    "placeholders": {
+      "colorName": {}
+    }
+  },
+  "iconColorSemantics": "Colore icona {colorName}",
+  "@iconColorSemantics": {
+    "placeholders": {
+      "colorName": {}
+    }
+  },
+  "iconColorSemanticsSelected": "Colore icona {colorName}, selezionato",
+  "@iconColorSemanticsSelected": {
+    "placeholders": {
+      "colorName": {}
+    }
+  }
 }

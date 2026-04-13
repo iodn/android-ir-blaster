@@ -41,6 +41,17 @@
   "requestUsbPermission": "USB izni iste",
   "homeHardwareTip": "İpucu: Kumandaları şimdi de oluşturup düzenleyebilirsiniz. Donanım yalnızca gönderimde gerekir.",
   "homeNoIrTransmitterTitle": "IR verici yok",
+  "homeHardwareRequiredBody": "IR Blaster herhangi bir telefonda kumandalar oluşturup yönetebilir. Ancak gerçekten kızılötesi komut göndermek için cihazınızın aşağıdaki donanım seçeneklerinden birine sahip olması gerekir.",
+  "homeCanStillUseWithoutHardware": "Şu anda yine de kumandalar oluşturabilir, içe aktarabilir ve düzenleyebilirsiniz.",
+  "homeWaysToUseIrBlaster": "IR Blaster kullanma yolları",
+  "homeBuiltInIrOptionTitle": "Dahili IR bulunan telefon",
+  "homeBuiltInIrOptionSubtitle": "Dahili IR vericisi olan desteklenen telefonlarda çalışır. Bu telefonda yok.",
+  "homeBuiltInIrUnavailable": "Bu telefonda mevcut değil",
+  "homeUsbFamilyTiqiaaZaza": "Tiqiaa / ZaZa",
+  "homeUsbFamilyElkSmart": "ElkSmart",
+  "homeAudioAccessoryLabel": "3,5 mm ses adaptörü",
+  "homeContinueWithoutHardware": "Donanım olmadan devam et",
+  "homeHowItWorks": "Nasıl çalışır",
   "settingsNavLabel": "Ayarlar",
   "dismiss": "Kapat",
   "remotesNavLabel": "Kumandalar",
@@ -516,11 +527,11 @@
   "presetNavigation": "Navigation",
   "all": "Tümü",
   "completeRequiredFieldsToSave": "Complete gerekli fields to kaydet",
-  "buttonLabelStepTitle": "1) Düğme label",
+  "buttonLabelStepTitle": "Düğme etiketi",
   "buttonLabelStepSubtitle": "Choose an image, icon, or type a text label.",
-  "buttonColorStepTitle": "2) Düğme rengi (isteğe bağlı)",
+  "buttonColorStepTitle": "Düğme rengi",
   "buttonColorStepSubtitle": "Bu düğme için bir arka plan rengi seçin.",
-  "selectColor": "Seç color:",
+  "selectColor": "Renk seçin:",
   "noImageSelected": "No image seçili",
   "gallery": "Gallery",
   "builtIn": "Built-in",
@@ -535,7 +546,7 @@
   "buttonTextHint": "e.g., Güç, Ses +, HDMI 1",
   "buttonTextHelper": "Bu metin düğmede görünecek.",
   "requiredEnterButtonLabel": "Required: enter a düğme label.",
-  "defaultColorName": "Default",
+  "defaultColorName": "Varsayılan",
   "newRemoteCreatedFromLastHit": "Son eşleşmeden bir düğmeyle yeni kumanda oluşturuldu.",
   "selectRemote": "Seç kumanda",
   "remoteNumber": "Kumanda #{id}",
@@ -2144,5 +2155,60 @@
   "learningModeChooseRemoteTitle": "Bir uzaktan kumanda seçin",
   "learningModeNewRemoteTitle": "Yeni bir uzaktan kumanda oluştur",
   "learningModeSaveSuccess": "Öğrenilen düğme kaydedildi.",
-  "learningModeSaveFailed": "Öğrenilen düğme kaydedilemedi."
+  "learningModeSaveFailed": "Öğrenilen düğme kaydedilemedi.",
+  "remoteSetupIntro": "Önce bir ad ve düzen seçin. Düğmeleri daha sonra ekleyebilirsiniz.",
+  "startWithDefault": "Varsayılanla başla",
+  "browseGithubStore": "GitHub Store'u aç",
+  "addFirstButton": "İlk düğmeyi ekle",
+  "moreWaysToStart": "Başlamanın diğer yolları",
+  "unsavedRemoteSetupChangesMessage": "Bu yeni kumanda kurulumunu silip bu ekrandan çıkmak istiyor musunuz?",
+  "unsavedRemoteStudioChangesMessage": "Kumanda değişikliklerini silip bu ekrandan çıkmak istiyor musunuz?",
+  "firstButtonAdded": "İlk düğme eklendi.",
+  "iconColorTitle": "Simge rengi",
+  "iconColorHelper": "Düğme arka planında görünür kalacak bir simge rengi seçin.",
+  "colorRed": "Kırmızı",
+  "colorPink": "Pembe",
+  "colorPurple": "Mor",
+  "colorDeepPurple": "Koyu mor",
+  "colorIndigo": "İndigo",
+  "colorBlue": "Mavi",
+  "colorLightBlue": "Açık mavi",
+  "colorCyan": "Camgöbeği",
+  "colorTeal": "Mavi-yeşil",
+  "colorGreen": "Yeşil",
+  "colorLightGreen": "Açık yeşil",
+  "colorLime": "Limon",
+  "colorYellow": "Sarı",
+  "colorAmber": "Kehribar",
+  "colorOrange": "Turuncu",
+  "colorDeepOrange": "Koyu turuncu",
+  "colorBrown": "Kahverengi",
+  "colorGrey": "Gri",
+  "colorBlueGrey": "Mavi-gri",
+  "colorBlack": "Siyah",
+  "colorWhite": "Beyaz",
+  "buttonColorSemantics": "Düğme rengi {colorName}",
+  "@buttonColorSemantics": {
+    "placeholders": {
+      "colorName": {}
+    }
+  },
+  "buttonColorSemanticsSelected": "Düğme rengi {colorName}, seçili",
+  "@buttonColorSemanticsSelected": {
+    "placeholders": {
+      "colorName": {}
+    }
+  },
+  "iconColorSemantics": "Simge rengi {colorName}",
+  "@iconColorSemantics": {
+    "placeholders": {
+      "colorName": {}
+    }
+  },
+  "iconColorSemanticsSelected": "Simge rengi {colorName}, seçili",
+  "@iconColorSemanticsSelected": {
+    "placeholders": {
+      "colorName": {}
+    }
+  }
 }

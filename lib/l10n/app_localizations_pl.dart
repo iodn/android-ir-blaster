@@ -154,6 +154,42 @@ class AppLocalizationsPl extends AppLocalizations {
   String get homeNoIrTransmitterTitle => 'Brak dostępnego nadajnika IR';
 
   @override
+  String get homeHardwareRequiredBody =>
+      'IR Blaster może tworzyć i zarządzać pilotami na każdym telefonie. Aby jednak naprawdę wysyłać polecenia podczerwieni, urządzenie musi mieć jedną z poniższych opcji sprzętowych.';
+
+  @override
+  String get homeCanStillUseWithoutHardware =>
+      'Nadal możesz teraz tworzyć, importować i porządkować piloty.';
+
+  @override
+  String get homeWaysToUseIrBlaster => 'Sposoby używania IR Blaster';
+
+  @override
+  String get homeBuiltInIrOptionTitle => 'Telefon z wbudowanym IR';
+
+  @override
+  String get homeBuiltInIrOptionSubtitle =>
+      'Działa na obsługiwanych telefonach z wbudowanym nadajnikiem IR. Ten telefon go nie ma.';
+
+  @override
+  String get homeBuiltInIrUnavailable => 'Niedostępne na tym telefonie';
+
+  @override
+  String get homeUsbFamilyTiqiaaZaza => 'Tiqiaa / ZaZa';
+
+  @override
+  String get homeUsbFamilyElkSmart => 'ElkSmart';
+
+  @override
+  String get homeAudioAccessoryLabel => 'Adapter audio 3,5 mm';
+
+  @override
+  String get homeContinueWithoutHardware => 'Kontynuuj bez sprzętu';
+
+  @override
+  String get homeHowItWorks => 'Jak to działa';
+
+  @override
   String get settingsNavLabel => 'Ustawienia';
 
   @override
@@ -1638,14 +1674,14 @@ class AppLocalizationsPl extends AppLocalizations {
       'Uzupełnij wymagane pola, aby zapisać';
 
   @override
-  String get buttonLabelStepTitle => '1) Etykieta przycisku';
+  String get buttonLabelStepTitle => 'Etykieta przycisku';
 
   @override
   String get buttonLabelStepSubtitle =>
       'Wybierz obraz, ikonę lub wpisz etykietę tekstową.';
 
   @override
-  String get buttonColorStepTitle => '2) Kolor przycisku (opcjonalnie)';
+  String get buttonColorStepTitle => 'Kolor przycisku';
 
   @override
   String get buttonColorStepSubtitle => 'Wybierz kolor tła dla tego przycisku.';
@@ -1698,7 +1734,7 @@ class AppLocalizationsPl extends AppLocalizations {
   String get requiredEnterButtonLabel => 'Required: enter a przycisk etykieta.';
 
   @override
-  String get defaultColorName => 'Default';
+  String get defaultColorName => 'Domyślny';
 
   @override
   String get newRemoteCreatedFromLastHit =>
@@ -4572,4 +4608,121 @@ class AppLocalizationsPl extends AppLocalizations {
   @override
   String get learningModeSaveFailed =>
       'Nie można zapisać wyuczonego przycisku.';
+
+  @override
+  String get remoteSetupIntro =>
+      'Najpierw wybierz nazwę i układ. Przyciski możesz dodać później.';
+
+  @override
+  String get startWithDefault => 'Zacznij od domyślnych ustawień';
+
+  @override
+  String get browseGithubStore => 'Przeglądaj GitHub Store';
+
+  @override
+  String get addFirstButton => 'Dodaj pierwszy przycisk';
+
+  @override
+  String get moreWaysToStart => 'Więcej sposobów rozpoczęcia';
+
+  @override
+  String get unsavedRemoteSetupChangesMessage =>
+      'Odrzucić konfigurację nowego pilota i opuścić ten ekran?';
+
+  @override
+  String get unsavedRemoteStudioChangesMessage =>
+      'Odrzucić zmiany pilota i opuścić ten ekran?';
+
+  @override
+  String get firstButtonAdded => 'Dodano pierwszy przycisk.';
+
+  @override
+  String get iconColorTitle => 'Kolor ikony';
+
+  @override
+  String get iconColorHelper =>
+      'Wybierz kolor symbolu, który pozostanie wyraźny na tle przycisku.';
+
+  @override
+  String get colorRed => 'Czerwony';
+
+  @override
+  String get colorPink => 'Różowy';
+
+  @override
+  String get colorPurple => 'Fioletowy';
+
+  @override
+  String get colorDeepPurple => 'Ciemny fiolet';
+
+  @override
+  String get colorIndigo => 'Indygo';
+
+  @override
+  String get colorBlue => 'Niebieski';
+
+  @override
+  String get colorLightBlue => 'Jasnoniebieski';
+
+  @override
+  String get colorCyan => 'Cyjan';
+
+  @override
+  String get colorTeal => 'Turkusowy';
+
+  @override
+  String get colorGreen => 'Zielony';
+
+  @override
+  String get colorLightGreen => 'Jasnozielony';
+
+  @override
+  String get colorLime => 'Limonkowy';
+
+  @override
+  String get colorYellow => 'Żółty';
+
+  @override
+  String get colorAmber => 'Bursztynowy';
+
+  @override
+  String get colorOrange => 'Pomarańczowy';
+
+  @override
+  String get colorDeepOrange => 'Ciemnopomarańczowy';
+
+  @override
+  String get colorBrown => 'Brązowy';
+
+  @override
+  String get colorGrey => 'Szary';
+
+  @override
+  String get colorBlueGrey => 'Niebieskoszary';
+
+  @override
+  String get colorBlack => 'Czarny';
+
+  @override
+  String get colorWhite => 'Biały';
+
+  @override
+  String buttonColorSemantics(Object colorName) {
+    return 'Kolor przycisku $colorName';
+  }
+
+  @override
+  String buttonColorSemanticsSelected(Object colorName) {
+    return 'Kolor przycisku $colorName, wybrany';
+  }
+
+  @override
+  String iconColorSemantics(Object colorName) {
+    return 'Kolor ikony $colorName';
+  }
+
+  @override
+  String iconColorSemanticsSelected(Object colorName) {
+    return 'Kolor ikony $colorName, wybrany';
+  }
 }

@@ -41,6 +41,17 @@
   "requestUsbPermission": "USB権限を要求",
   "homeHardwareTip": "ヒント リモコンの作成や整理は今でも可能です。ハードが必要なのは送信時だけです。",
   "homeNoIrTransmitterTitle": "IR送信機がありません",
+  "homeHardwareRequiredBody": "IR Blaster はどのスマートフォンでもリモコンの作成と管理ができます。実際に赤外線コマンドを送信するには、下記のいずれかのハードウェアが必要です。",
+  "homeCanStillUseWithoutHardware": "今すぐリモコンの作成、インポート、整理は行えます。",
+  "homeWaysToUseIrBlaster": "IR Blaster の使い方",
+  "homeBuiltInIrOptionTitle": "IR 内蔵スマートフォン",
+  "homeBuiltInIrOptionSubtitle": "内蔵 IR ブラスターを備えた対応スマートフォンで動作します。このスマートフォンには搭載されていません。",
+  "homeBuiltInIrUnavailable": "このスマートフォンでは利用できません",
+  "homeUsbFamilyTiqiaaZaza": "Tiqiaa / ZaZa",
+  "homeUsbFamilyElkSmart": "ElkSmart",
+  "homeAudioAccessoryLabel": "3.5 mm オーディオアダプター",
+  "homeContinueWithoutHardware": "ハードウェアなしで続ける",
+  "homeHowItWorks": "仕組みを見る",
   "settingsNavLabel": "設定",
   "dismiss": "閉じる",
   "remotesNavLabel": "リモコン",
@@ -516,9 +527,9 @@
   "presetNavigation": "ナビ",
   "all": "すべて",
   "completeRequiredFieldsToSave": "保存するには必須項目を入力してください",
-  "buttonLabelStepTitle": "1 ボタンラベル",
+  "buttonLabelStepTitle": "ボタンラベル",
   "buttonLabelStepSubtitle": "画像 アイコン または文字ラベルを選んでください。",
-  "buttonColorStepTitle": "2 ボタン色 任意",
+  "buttonColorStepTitle": "ボタンの色",
   "buttonColorStepSubtitle": "このボタンの背景色を選んでください。",
   "selectColor": "色を選択",
   "noImageSelected": "画像未選択",
@@ -2144,5 +2155,60 @@
   "learningModeChooseRemoteTitle": "リモコンを選択してください",
   "learningModeNewRemoteTitle": "新しいリモコンを作成する",
   "learningModeSaveSuccess": "学習ボタンが保存されました。",
-  "learningModeSaveFailed": "学習したボタンを保存できませんでした。"
+  "learningModeSaveFailed": "学習したボタンを保存できませんでした。",
+  "remoteSetupIntro": "まず名前とレイアウトを選択します。ボタンはあとから追加できます。",
+  "startWithDefault": "デフォルトで開始",
+  "browseGithubStore": "GitHubストアを見る",
+  "addFirstButton": "最初のボタンを追加",
+  "moreWaysToStart": "他の始め方を見る",
+  "unsavedRemoteSetupChangesMessage": "この新しいリモコン設定を破棄してこの画面を閉じますか？",
+  "unsavedRemoteStudioChangesMessage": "リモコンの変更を破棄してこの画面を閉じますか？",
+  "firstButtonAdded": "最初のボタンを追加しました。",
+  "iconColorTitle": "アイコンの色",
+  "iconColorHelper": "ボタンの背景でも見やすいシンボル色を選んでください。",
+  "colorRed": "赤",
+  "colorPink": "ピンク",
+  "colorPurple": "紫",
+  "colorDeepPurple": "濃い紫",
+  "colorIndigo": "インディゴ",
+  "colorBlue": "青",
+  "colorLightBlue": "水色",
+  "colorCyan": "シアン",
+  "colorTeal": "ティール",
+  "colorGreen": "緑",
+  "colorLightGreen": "黄緑",
+  "colorLime": "ライム",
+  "colorYellow": "黄色",
+  "colorAmber": "アンバー",
+  "colorOrange": "オレンジ",
+  "colorDeepOrange": "濃いオレンジ",
+  "colorBrown": "茶色",
+  "colorGrey": "灰色",
+  "colorBlueGrey": "青みがかった灰色",
+  "colorBlack": "黒",
+  "colorWhite": "白",
+  "buttonColorSemantics": "ボタンの色 {colorName}",
+  "@buttonColorSemantics": {
+    "placeholders": {
+      "colorName": {}
+    }
+  },
+  "buttonColorSemanticsSelected": "ボタンの色 {colorName}、選択済み",
+  "@buttonColorSemanticsSelected": {
+    "placeholders": {
+      "colorName": {}
+    }
+  },
+  "iconColorSemantics": "アイコンの色 {colorName}",
+  "@iconColorSemantics": {
+    "placeholders": {
+      "colorName": {}
+    }
+  },
+  "iconColorSemanticsSelected": "アイコンの色 {colorName}、選択済み",
+  "@iconColorSemanticsSelected": {
+    "placeholders": {
+      "colorName": {}
+    }
+  }
 }

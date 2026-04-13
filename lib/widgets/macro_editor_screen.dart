@@ -966,7 +966,7 @@ class _MacroEditorScreenState extends State<MacroEditorScreen> {
               fontPackage: button.iconFontPackage,
             ),
             size: 18,
-            color: fallbackFg,
+            color: button.iconColor != null ? Color(button.iconColor!) : fallbackFg,
           )
         : button.isImage
             ? (button.image.startsWith('assets/')

@@ -41,6 +41,17 @@
   "requestUsbPermission": "Demander l'autorisation USB",
   "homeHardwareTip": "Astuce : vous pouvez déjà créer et organiser vos télécommandes. Le matériel n'est requis qu'à l'envoi.",
   "homeNoIrTransmitterTitle": "Aucun émetteur IR dispo",
+  "homeHardwareRequiredBody": "IR Blaster permet de créer et de gérer des télécommandes sur n'importe quel téléphone. Pour envoyer réellement des commandes infrarouges, votre appareil a besoin de l'une des options matérielles ci-dessous.",
+  "homeCanStillUseWithoutHardware": "Vous pouvez déjà créer, importer et organiser des télécommandes dès maintenant.",
+  "homeWaysToUseIrBlaster": "Façons d'utiliser IR Blaster",
+  "homeBuiltInIrOptionTitle": "Téléphone avec IR intégré",
+  "homeBuiltInIrOptionSubtitle": "Fonctionne sur les téléphones compatibles dotés d'un émetteur IR intégré. Ce téléphone n'en possède pas.",
+  "homeBuiltInIrUnavailable": "Non disponible sur ce téléphone",
+  "homeUsbFamilyTiqiaaZaza": "Tiqiaa / ZaZa",
+  "homeUsbFamilyElkSmart": "ElkSmart",
+  "homeAudioAccessoryLabel": "Adaptateur audio 3,5 mm",
+  "homeContinueWithoutHardware": "Continuer sans matériel",
+  "homeHowItWorks": "Comment ça marche",
   "settingsNavLabel": "Réglages",
   "dismiss": "Ignorer",
   "remotesNavLabel": "Télécommandes",
@@ -521,9 +532,9 @@
   "presetNavigation": "Navigation",
   "all": "Tout",
   "completeRequiredFieldsToSave": "Remplissez les champs requis pour enregistrer",
-  "buttonLabelStepTitle": "1) Libellé du bouton",
+  "buttonLabelStepTitle": "Libellé du bouton",
   "buttonLabelStepSubtitle": "Choisissez une image, une icône ou saisissez un texte.",
-  "buttonColorStepTitle": "2) Couleur du bouton (optionnel)",
+  "buttonColorStepTitle": "Couleur du bouton",
   "buttonColorStepSubtitle": "Choisissez une couleur de fond pour ce bouton.",
   "selectColor": "Choisir la couleur :",
   "noImageSelected": "Aucune image choisie",
@@ -2144,5 +2155,60 @@
   "learningModeChooseRemoteTitle": "Choisissez une télécommande",
   "learningModeNewRemoteTitle": "Créer une nouvelle télécommande",
   "learningModeSaveSuccess": "Bouton appris enregistré.",
-  "learningModeSaveFailed": "Le bouton appris n'a pas pu être enregistré."
+  "learningModeSaveFailed": "Le bouton appris n'a pas pu être enregistré.",
+  "remoteSetupIntro": "Choisissez d'abord un nom et une disposition. Vous pourrez ajouter des boutons ensuite.",
+  "startWithDefault": "Commencer avec les valeurs par défaut",
+  "browseGithubStore": "Parcourir le store GitHub",
+  "addFirstButton": "Ajouter le premier bouton",
+  "moreWaysToStart": "Plus de façons de commencer",
+  "unsavedRemoteSetupChangesMessage": "Abandonner cette nouvelle configuration de télécommande et quitter cet écran ?",
+  "unsavedRemoteStudioChangesMessage": "Abandonner les modifications de la télécommande et quitter cet écran ?",
+  "firstButtonAdded": "Premier bouton ajouté.",
+  "iconColorTitle": "Couleur de l’icône",
+  "iconColorHelper": "Choisissez une couleur de symbole qui reste visible sur le fond du bouton.",
+  "colorRed": "Rouge",
+  "colorPink": "Rose",
+  "colorPurple": "Violet",
+  "colorDeepPurple": "Violet foncé",
+  "colorIndigo": "Indigo",
+  "colorBlue": "Bleu",
+  "colorLightBlue": "Bleu clair",
+  "colorCyan": "Cyan",
+  "colorTeal": "Bleu canard",
+  "colorGreen": "Vert",
+  "colorLightGreen": "Vert clair",
+  "colorLime": "Citron vert",
+  "colorYellow": "Jaune",
+  "colorAmber": "Ambre",
+  "colorOrange": "Orange",
+  "colorDeepOrange": "Orange foncé",
+  "colorBrown": "Marron",
+  "colorGrey": "Gris",
+  "colorBlueGrey": "Gris bleu",
+  "colorBlack": "Noir",
+  "colorWhite": "Blanc",
+  "buttonColorSemantics": "Couleur du bouton {colorName}",
+  "@buttonColorSemantics": {
+    "placeholders": {
+      "colorName": {}
+    }
+  },
+  "buttonColorSemanticsSelected": "Couleur du bouton {colorName}, sélectionnée",
+  "@buttonColorSemanticsSelected": {
+    "placeholders": {
+      "colorName": {}
+    }
+  },
+  "iconColorSemantics": "Couleur de l’icône {colorName}",
+  "@iconColorSemantics": {
+    "placeholders": {
+      "colorName": {}
+    }
+  },
+  "iconColorSemanticsSelected": "Couleur de l’icône {colorName}, sélectionnée",
+  "@iconColorSemanticsSelected": {
+    "placeholders": {
+      "colorName": {}
+    }
+  }
 }

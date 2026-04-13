@@ -384,6 +384,72 @@ abstract class AppLocalizations {
   /// **'No IR transmitter available'**
   String get homeNoIrTransmitterTitle;
 
+  /// No description provided for @homeHardwareRequiredBody.
+  ///
+  /// In en, this message translates to:
+  /// **'IR Blaster can create and manage remotes on any phone. To actually send infrared commands, your device needs one of the hardware options below.'**
+  String get homeHardwareRequiredBody;
+
+  /// No description provided for @homeCanStillUseWithoutHardware.
+  ///
+  /// In en, this message translates to:
+  /// **'You can still create, import, and organize remotes right now.'**
+  String get homeCanStillUseWithoutHardware;
+
+  /// No description provided for @homeWaysToUseIrBlaster.
+  ///
+  /// In en, this message translates to:
+  /// **'Ways to use IR Blaster'**
+  String get homeWaysToUseIrBlaster;
+
+  /// No description provided for @homeBuiltInIrOptionTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Phone with built-in IR'**
+  String get homeBuiltInIrOptionTitle;
+
+  /// No description provided for @homeBuiltInIrOptionSubtitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Works on supported phones with a built-in IR blaster. This phone does not include one.'**
+  String get homeBuiltInIrOptionSubtitle;
+
+  /// No description provided for @homeBuiltInIrUnavailable.
+  ///
+  /// In en, this message translates to:
+  /// **'Not available on this phone'**
+  String get homeBuiltInIrUnavailable;
+
+  /// No description provided for @homeUsbFamilyTiqiaaZaza.
+  ///
+  /// In en, this message translates to:
+  /// **'Tiqiaa / ZaZa'**
+  String get homeUsbFamilyTiqiaaZaza;
+
+  /// No description provided for @homeUsbFamilyElkSmart.
+  ///
+  /// In en, this message translates to:
+  /// **'ElkSmart'**
+  String get homeUsbFamilyElkSmart;
+
+  /// No description provided for @homeAudioAccessoryLabel.
+  ///
+  /// In en, this message translates to:
+  /// **'3.5 mm audio adapter'**
+  String get homeAudioAccessoryLabel;
+
+  /// No description provided for @homeContinueWithoutHardware.
+  ///
+  /// In en, this message translates to:
+  /// **'Continue without hardware'**
+  String get homeContinueWithoutHardware;
+
+  /// No description provided for @homeHowItWorks.
+  ///
+  /// In en, this message translates to:
+  /// **'How it works'**
+  String get homeHowItWorks;
+
   /// No description provided for @settingsNavLabel.
   ///
   /// In en, this message translates to:
@@ -2889,7 +2955,7 @@ abstract class AppLocalizations {
   /// No description provided for @buttonLabelStepTitle.
   ///
   /// In en, this message translates to:
-  /// **'1) Button label'**
+  /// **'Button label'**
   String get buttonLabelStepTitle;
 
   /// No description provided for @buttonLabelStepSubtitle.
@@ -2901,7 +2967,7 @@ abstract class AppLocalizations {
   /// No description provided for @buttonColorStepTitle.
   ///
   /// In en, this message translates to:
-  /// **'2) Button color (optional)'**
+  /// **'Button color'**
   String get buttonColorStepTitle;
 
   /// No description provided for @buttonColorStepSubtitle.
@@ -8203,6 +8269,216 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'The learned button could not be saved.'**
   String get learningModeSaveFailed;
+
+  /// No description provided for @remoteSetupIntro.
+  ///
+  /// In en, this message translates to:
+  /// **'Choose a name and layout first. You can add buttons after this.'**
+  String get remoteSetupIntro;
+
+  /// No description provided for @startWithDefault.
+  ///
+  /// In en, this message translates to:
+  /// **'Start with default'**
+  String get startWithDefault;
+
+  /// No description provided for @browseGithubStore.
+  ///
+  /// In en, this message translates to:
+  /// **'Browse GitHub Store'**
+  String get browseGithubStore;
+
+  /// No description provided for @addFirstButton.
+  ///
+  /// In en, this message translates to:
+  /// **'Add first button'**
+  String get addFirstButton;
+
+  /// No description provided for @moreWaysToStart.
+  ///
+  /// In en, this message translates to:
+  /// **'More ways to start'**
+  String get moreWaysToStart;
+
+  /// No description provided for @unsavedRemoteSetupChangesMessage.
+  ///
+  /// In en, this message translates to:
+  /// **'Discard this new remote setup and leave this screen?'**
+  String get unsavedRemoteSetupChangesMessage;
+
+  /// No description provided for @unsavedRemoteStudioChangesMessage.
+  ///
+  /// In en, this message translates to:
+  /// **'Discard your remote changes and leave this screen?'**
+  String get unsavedRemoteStudioChangesMessage;
+
+  /// No description provided for @firstButtonAdded.
+  ///
+  /// In en, this message translates to:
+  /// **'First button added.'**
+  String get firstButtonAdded;
+
+  /// No description provided for @iconColorTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Icon color'**
+  String get iconColorTitle;
+
+  /// No description provided for @iconColorHelper.
+  ///
+  /// In en, this message translates to:
+  /// **'Choose a symbol color that stays visible on the button background.'**
+  String get iconColorHelper;
+
+  /// No description provided for @colorRed.
+  ///
+  /// In en, this message translates to:
+  /// **'Red'**
+  String get colorRed;
+
+  /// No description provided for @colorPink.
+  ///
+  /// In en, this message translates to:
+  /// **'Pink'**
+  String get colorPink;
+
+  /// No description provided for @colorPurple.
+  ///
+  /// In en, this message translates to:
+  /// **'Purple'**
+  String get colorPurple;
+
+  /// No description provided for @colorDeepPurple.
+  ///
+  /// In en, this message translates to:
+  /// **'Deep Purple'**
+  String get colorDeepPurple;
+
+  /// No description provided for @colorIndigo.
+  ///
+  /// In en, this message translates to:
+  /// **'Indigo'**
+  String get colorIndigo;
+
+  /// No description provided for @colorBlue.
+  ///
+  /// In en, this message translates to:
+  /// **'Blue'**
+  String get colorBlue;
+
+  /// No description provided for @colorLightBlue.
+  ///
+  /// In en, this message translates to:
+  /// **'Light Blue'**
+  String get colorLightBlue;
+
+  /// No description provided for @colorCyan.
+  ///
+  /// In en, this message translates to:
+  /// **'Cyan'**
+  String get colorCyan;
+
+  /// No description provided for @colorTeal.
+  ///
+  /// In en, this message translates to:
+  /// **'Teal'**
+  String get colorTeal;
+
+  /// No description provided for @colorGreen.
+  ///
+  /// In en, this message translates to:
+  /// **'Green'**
+  String get colorGreen;
+
+  /// No description provided for @colorLightGreen.
+  ///
+  /// In en, this message translates to:
+  /// **'Light Green'**
+  String get colorLightGreen;
+
+  /// No description provided for @colorLime.
+  ///
+  /// In en, this message translates to:
+  /// **'Lime'**
+  String get colorLime;
+
+  /// No description provided for @colorYellow.
+  ///
+  /// In en, this message translates to:
+  /// **'Yellow'**
+  String get colorYellow;
+
+  /// No description provided for @colorAmber.
+  ///
+  /// In en, this message translates to:
+  /// **'Amber'**
+  String get colorAmber;
+
+  /// No description provided for @colorOrange.
+  ///
+  /// In en, this message translates to:
+  /// **'Orange'**
+  String get colorOrange;
+
+  /// No description provided for @colorDeepOrange.
+  ///
+  /// In en, this message translates to:
+  /// **'Deep Orange'**
+  String get colorDeepOrange;
+
+  /// No description provided for @colorBrown.
+  ///
+  /// In en, this message translates to:
+  /// **'Brown'**
+  String get colorBrown;
+
+  /// No description provided for @colorGrey.
+  ///
+  /// In en, this message translates to:
+  /// **'Grey'**
+  String get colorGrey;
+
+  /// No description provided for @colorBlueGrey.
+  ///
+  /// In en, this message translates to:
+  /// **'Blue Grey'**
+  String get colorBlueGrey;
+
+  /// No description provided for @colorBlack.
+  ///
+  /// In en, this message translates to:
+  /// **'Black'**
+  String get colorBlack;
+
+  /// No description provided for @colorWhite.
+  ///
+  /// In en, this message translates to:
+  /// **'White'**
+  String get colorWhite;
+
+  /// No description provided for @buttonColorSemantics.
+  ///
+  /// In en, this message translates to:
+  /// **'Button color {colorName}'**
+  String buttonColorSemantics(Object colorName);
+
+  /// No description provided for @buttonColorSemanticsSelected.
+  ///
+  /// In en, this message translates to:
+  /// **'Button color {colorName}, selected'**
+  String buttonColorSemanticsSelected(Object colorName);
+
+  /// No description provided for @iconColorSemantics.
+  ///
+  /// In en, this message translates to:
+  /// **'Icon color {colorName}'**
+  String iconColorSemantics(Object colorName);
+
+  /// No description provided for @iconColorSemanticsSelected.
+  ///
+  /// In en, this message translates to:
+  /// **'Icon color {colorName}, selected'**
+  String iconColorSemanticsSelected(Object colorName);
 }
 
 class _AppLocalizationsDelegate

@@ -41,6 +41,17 @@
   "requestUsbPermission": "요청 USB 권한",
   "homeHardwareTip": "팁: 지금도 리모컨을 만들고 정리할 수 있습니다. 하드웨어는 IR 송신 시에만 필요합니다.",
   "homeNoIrTransmitterTitle": "사용 가능한 IR 송신기가 없습니다",
+  "homeHardwareRequiredBody": "IR Blaster는 어떤 휴대폰에서도 리모컨을 만들고 관리할 수 있습니다. 하지만 실제로 적외선 명령을 보내려면 아래 하드웨어 옵션 중 하나가 필요합니다.",
+  "homeCanStillUseWithoutHardware": "지금도 리모컨을 만들고, 가져오고, 정리할 수 있습니다.",
+  "homeWaysToUseIrBlaster": "IR Blaster 사용 방법",
+  "homeBuiltInIrOptionTitle": "IR 내장 휴대폰",
+  "homeBuiltInIrOptionSubtitle": "내장 IR 블래스터가 있는 지원 휴대폰에서 작동합니다. 이 휴대폰에는 해당 기능이 없습니다.",
+  "homeBuiltInIrUnavailable": "이 휴대폰에서는 사용할 수 없음",
+  "homeUsbFamilyTiqiaaZaza": "Tiqiaa / ZaZa",
+  "homeUsbFamilyElkSmart": "ElkSmart",
+  "homeAudioAccessoryLabel": "3.5mm 오디오 어댑터",
+  "homeContinueWithoutHardware": "하드웨어 없이 계속",
+  "homeHowItWorks": "작동 방식",
   "settingsNavLabel": "설정",
   "dismiss": "닫기",
   "remotesNavLabel": "리모컨",
@@ -516,9 +527,9 @@
   "presetNavigation": "탐색",
   "all": "전체",
   "completeRequiredFieldsToSave": "저장하려면 필수 항목을 모두 완료하세요",
-  "buttonLabelStepTitle": "1) 버튼 레이블",
+  "buttonLabelStepTitle": "버튼 레이블",
   "buttonLabelStepSubtitle": "이미지나 아이콘을 선택하거나 텍스트 레이블을 입력하세요.",
-  "buttonColorStepTitle": "2) 버튼 색상(선택)",
+  "buttonColorStepTitle": "버튼 색상",
   "buttonColorStepSubtitle": "이 버튼의 배경색을 선택하세요.",
   "selectColor": "색상 선택:",
   "noImageSelected": "이미지를 선택하지 않음",
@@ -2144,5 +2155,60 @@
   "learningModeChooseRemoteTitle": "리모컨을 선택하세요",
   "learningModeNewRemoteTitle": "새 리모컨 만들기",
   "learningModeSaveSuccess": "학습된 버튼이 저장되었습니다.",
-  "learningModeSaveFailed": "학습된 버튼을 저장할 수 없습니다."
+  "learningModeSaveFailed": "학습된 버튼을 저장할 수 없습니다.",
+  "remoteSetupIntro": "먼저 이름과 레이아웃을 선택하세요. 버튼은 나중에 추가할 수 있습니다.",
+  "startWithDefault": "기본값으로 시작",
+  "browseGithubStore": "GitHub 스토어 보기",
+  "addFirstButton": "첫 버튼 추가",
+  "moreWaysToStart": "다른 시작 방법",
+  "unsavedRemoteSetupChangesMessage": "새 리모컨 설정을 버리고 이 화면을 나가시겠습니까?",
+  "unsavedRemoteStudioChangesMessage": "리모컨 변경사항을 버리고 이 화면을 나가시겠습니까?",
+  "firstButtonAdded": "첫 버튼을 추가했습니다.",
+  "iconColorTitle": "아이콘 색상",
+  "iconColorHelper": "버튼 배경 위에서도 잘 보이는 심볼 색상을 선택하세요.",
+  "colorRed": "빨강",
+  "colorPink": "분홍",
+  "colorPurple": "보라",
+  "colorDeepPurple": "진보라",
+  "colorIndigo": "인디고",
+  "colorBlue": "파랑",
+  "colorLightBlue": "하늘색",
+  "colorCyan": "시안",
+  "colorTeal": "청록",
+  "colorGreen": "초록",
+  "colorLightGreen": "연두",
+  "colorLime": "라임",
+  "colorYellow": "노랑",
+  "colorAmber": "호박색",
+  "colorOrange": "주황",
+  "colorDeepOrange": "진주황",
+  "colorBrown": "갈색",
+  "colorGrey": "회색",
+  "colorBlueGrey": "청회색",
+  "colorBlack": "검정",
+  "colorWhite": "흰색",
+  "buttonColorSemantics": "버튼 색상 {colorName}",
+  "@buttonColorSemantics": {
+    "placeholders": {
+      "colorName": {}
+    }
+  },
+  "buttonColorSemanticsSelected": "버튼 색상 {colorName}, 선택됨",
+  "@buttonColorSemanticsSelected": {
+    "placeholders": {
+      "colorName": {}
+    }
+  },
+  "iconColorSemantics": "아이콘 색상 {colorName}",
+  "@iconColorSemantics": {
+    "placeholders": {
+      "colorName": {}
+    }
+  },
+  "iconColorSemanticsSelected": "아이콘 색상 {colorName}, 선택됨",
+  "@iconColorSemanticsSelected": {
+    "placeholders": {
+      "colorName": {}
+    }
+  }
 }

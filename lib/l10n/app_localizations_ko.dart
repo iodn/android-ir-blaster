@@ -146,6 +146,42 @@ class AppLocalizationsKo extends AppLocalizations {
   String get homeNoIrTransmitterTitle => '사용 가능한 IR 송신기가 없습니다';
 
   @override
+  String get homeHardwareRequiredBody =>
+      'IR Blaster는 어떤 휴대폰에서도 리모컨을 만들고 관리할 수 있습니다. 하지만 실제로 적외선 명령을 보내려면 아래 하드웨어 옵션 중 하나가 필요합니다.';
+
+  @override
+  String get homeCanStillUseWithoutHardware =>
+      '지금도 리모컨을 만들고, 가져오고, 정리할 수 있습니다.';
+
+  @override
+  String get homeWaysToUseIrBlaster => 'IR Blaster 사용 방법';
+
+  @override
+  String get homeBuiltInIrOptionTitle => 'IR 내장 휴대폰';
+
+  @override
+  String get homeBuiltInIrOptionSubtitle =>
+      '내장 IR 블래스터가 있는 지원 휴대폰에서 작동합니다. 이 휴대폰에는 해당 기능이 없습니다.';
+
+  @override
+  String get homeBuiltInIrUnavailable => '이 휴대폰에서는 사용할 수 없음';
+
+  @override
+  String get homeUsbFamilyTiqiaaZaza => 'Tiqiaa / ZaZa';
+
+  @override
+  String get homeUsbFamilyElkSmart => 'ElkSmart';
+
+  @override
+  String get homeAudioAccessoryLabel => '3.5mm 오디오 어댑터';
+
+  @override
+  String get homeContinueWithoutHardware => '하드웨어 없이 계속';
+
+  @override
+  String get homeHowItWorks => '작동 방식';
+
+  @override
   String get settingsNavLabel => '설정';
 
   @override
@@ -1532,13 +1568,13 @@ class AppLocalizationsKo extends AppLocalizations {
   String get completeRequiredFieldsToSave => '저장하려면 필수 항목을 모두 완료하세요';
 
   @override
-  String get buttonLabelStepTitle => '1) 버튼 레이블';
+  String get buttonLabelStepTitle => '버튼 레이블';
 
   @override
   String get buttonLabelStepSubtitle => '이미지나 아이콘을 선택하거나 텍스트 레이블을 입력하세요.';
 
   @override
-  String get buttonColorStepTitle => '2) 버튼 색상(선택)';
+  String get buttonColorStepTitle => '버튼 색상';
 
   @override
   String get buttonColorStepSubtitle => '이 버튼의 배경색을 선택하세요.';
@@ -4386,4 +4422,118 @@ class AppLocalizationsKo extends AppLocalizations {
 
   @override
   String get learningModeSaveFailed => '학습된 버튼을 저장할 수 없습니다.';
+
+  @override
+  String get remoteSetupIntro => '먼저 이름과 레이아웃을 선택하세요. 버튼은 나중에 추가할 수 있습니다.';
+
+  @override
+  String get startWithDefault => '기본값으로 시작';
+
+  @override
+  String get browseGithubStore => 'GitHub 스토어 보기';
+
+  @override
+  String get addFirstButton => '첫 버튼 추가';
+
+  @override
+  String get moreWaysToStart => '다른 시작 방법';
+
+  @override
+  String get unsavedRemoteSetupChangesMessage => '새 리모컨 설정을 버리고 이 화면을 나가시겠습니까?';
+
+  @override
+  String get unsavedRemoteStudioChangesMessage =>
+      '리모컨 변경사항을 버리고 이 화면을 나가시겠습니까?';
+
+  @override
+  String get firstButtonAdded => '첫 버튼을 추가했습니다.';
+
+  @override
+  String get iconColorTitle => '아이콘 색상';
+
+  @override
+  String get iconColorHelper => '버튼 배경 위에서도 잘 보이는 심볼 색상을 선택하세요.';
+
+  @override
+  String get colorRed => '빨강';
+
+  @override
+  String get colorPink => '분홍';
+
+  @override
+  String get colorPurple => '보라';
+
+  @override
+  String get colorDeepPurple => '진보라';
+
+  @override
+  String get colorIndigo => '인디고';
+
+  @override
+  String get colorBlue => '파랑';
+
+  @override
+  String get colorLightBlue => '하늘색';
+
+  @override
+  String get colorCyan => '시안';
+
+  @override
+  String get colorTeal => '청록';
+
+  @override
+  String get colorGreen => '초록';
+
+  @override
+  String get colorLightGreen => '연두';
+
+  @override
+  String get colorLime => '라임';
+
+  @override
+  String get colorYellow => '노랑';
+
+  @override
+  String get colorAmber => '호박색';
+
+  @override
+  String get colorOrange => '주황';
+
+  @override
+  String get colorDeepOrange => '진주황';
+
+  @override
+  String get colorBrown => '갈색';
+
+  @override
+  String get colorGrey => '회색';
+
+  @override
+  String get colorBlueGrey => '청회색';
+
+  @override
+  String get colorBlack => '검정';
+
+  @override
+  String get colorWhite => '흰색';
+
+  @override
+  String buttonColorSemantics(Object colorName) {
+    return '버튼 색상 $colorName';
+  }
+
+  @override
+  String buttonColorSemanticsSelected(Object colorName) {
+    return '버튼 색상 $colorName, 선택됨';
+  }
+
+  @override
+  String iconColorSemantics(Object colorName) {
+    return '아이콘 색상 $colorName';
+  }
+
+  @override
+  String iconColorSemanticsSelected(Object colorName) {
+    return '아이콘 색상 $colorName, 선택됨';
+  }
 }

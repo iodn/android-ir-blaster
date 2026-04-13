@@ -152,6 +152,42 @@ class AppLocalizationsFr extends AppLocalizations {
   String get homeNoIrTransmitterTitle => 'Aucun émetteur IR dispo';
 
   @override
+  String get homeHardwareRequiredBody =>
+      'IR Blaster permet de créer et de gérer des télécommandes sur n\'importe quel téléphone. Pour envoyer réellement des commandes infrarouges, votre appareil a besoin de l\'une des options matérielles ci-dessous.';
+
+  @override
+  String get homeCanStillUseWithoutHardware =>
+      'Vous pouvez déjà créer, importer et organiser des télécommandes dès maintenant.';
+
+  @override
+  String get homeWaysToUseIrBlaster => 'Façons d\'utiliser IR Blaster';
+
+  @override
+  String get homeBuiltInIrOptionTitle => 'Téléphone avec IR intégré';
+
+  @override
+  String get homeBuiltInIrOptionSubtitle =>
+      'Fonctionne sur les téléphones compatibles dotés d\'un émetteur IR intégré. Ce téléphone n\'en possède pas.';
+
+  @override
+  String get homeBuiltInIrUnavailable => 'Non disponible sur ce téléphone';
+
+  @override
+  String get homeUsbFamilyTiqiaaZaza => 'Tiqiaa / ZaZa';
+
+  @override
+  String get homeUsbFamilyElkSmart => 'ElkSmart';
+
+  @override
+  String get homeAudioAccessoryLabel => 'Adaptateur audio 3,5 mm';
+
+  @override
+  String get homeContinueWithoutHardware => 'Continuer sans matériel';
+
+  @override
+  String get homeHowItWorks => 'Comment ça marche';
+
+  @override
   String get settingsNavLabel => 'Réglages';
 
   @override
@@ -1611,14 +1647,14 @@ class AppLocalizationsFr extends AppLocalizations {
       'Remplissez les champs requis pour enregistrer';
 
   @override
-  String get buttonLabelStepTitle => '1) Libellé du bouton';
+  String get buttonLabelStepTitle => 'Libellé du bouton';
 
   @override
   String get buttonLabelStepSubtitle =>
       'Choisissez une image, une icône ou saisissez un texte.';
 
   @override
-  String get buttonColorStepTitle => '2) Couleur du bouton (optionnel)';
+  String get buttonColorStepTitle => 'Couleur du bouton';
 
   @override
   String get buttonColorStepSubtitle =>
@@ -4523,4 +4559,121 @@ class AppLocalizationsFr extends AppLocalizations {
   @override
   String get learningModeSaveFailed =>
       'Le bouton appris n\'a pas pu être enregistré.';
+
+  @override
+  String get remoteSetupIntro =>
+      'Choisissez d\'abord un nom et une disposition. Vous pourrez ajouter des boutons ensuite.';
+
+  @override
+  String get startWithDefault => 'Commencer avec les valeurs par défaut';
+
+  @override
+  String get browseGithubStore => 'Parcourir le store GitHub';
+
+  @override
+  String get addFirstButton => 'Ajouter le premier bouton';
+
+  @override
+  String get moreWaysToStart => 'Plus de façons de commencer';
+
+  @override
+  String get unsavedRemoteSetupChangesMessage =>
+      'Abandonner cette nouvelle configuration de télécommande et quitter cet écran ?';
+
+  @override
+  String get unsavedRemoteStudioChangesMessage =>
+      'Abandonner les modifications de la télécommande et quitter cet écran ?';
+
+  @override
+  String get firstButtonAdded => 'Premier bouton ajouté.';
+
+  @override
+  String get iconColorTitle => 'Couleur de l’icône';
+
+  @override
+  String get iconColorHelper =>
+      'Choisissez une couleur de symbole qui reste visible sur le fond du bouton.';
+
+  @override
+  String get colorRed => 'Rouge';
+
+  @override
+  String get colorPink => 'Rose';
+
+  @override
+  String get colorPurple => 'Violet';
+
+  @override
+  String get colorDeepPurple => 'Violet foncé';
+
+  @override
+  String get colorIndigo => 'Indigo';
+
+  @override
+  String get colorBlue => 'Bleu';
+
+  @override
+  String get colorLightBlue => 'Bleu clair';
+
+  @override
+  String get colorCyan => 'Cyan';
+
+  @override
+  String get colorTeal => 'Bleu canard';
+
+  @override
+  String get colorGreen => 'Vert';
+
+  @override
+  String get colorLightGreen => 'Vert clair';
+
+  @override
+  String get colorLime => 'Citron vert';
+
+  @override
+  String get colorYellow => 'Jaune';
+
+  @override
+  String get colorAmber => 'Ambre';
+
+  @override
+  String get colorOrange => 'Orange';
+
+  @override
+  String get colorDeepOrange => 'Orange foncé';
+
+  @override
+  String get colorBrown => 'Marron';
+
+  @override
+  String get colorGrey => 'Gris';
+
+  @override
+  String get colorBlueGrey => 'Gris bleu';
+
+  @override
+  String get colorBlack => 'Noir';
+
+  @override
+  String get colorWhite => 'Blanc';
+
+  @override
+  String buttonColorSemantics(Object colorName) {
+    return 'Couleur du bouton $colorName';
+  }
+
+  @override
+  String buttonColorSemanticsSelected(Object colorName) {
+    return 'Couleur du bouton $colorName, sélectionnée';
+  }
+
+  @override
+  String iconColorSemantics(Object colorName) {
+    return 'Couleur de l’icône $colorName';
+  }
+
+  @override
+  String iconColorSemanticsSelected(Object colorName) {
+    return 'Couleur de l’icône $colorName, sélectionnée';
+  }
 }

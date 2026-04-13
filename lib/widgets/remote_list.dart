@@ -1,16 +1,15 @@
 import 'package:flutter/material.dart';
-import 'package:irblaster_controller/l10n/icon_picker_names.dart';
 import 'package:irblaster_controller/l10n/l10n.dart';
 import 'package:irblaster_controller/state/continue_context_prefs.dart';
 import 'package:irblaster_controller/state/haptics.dart';
-import 'package:irblaster_controller/state/device_controls_prefs.dart';
 import 'package:irblaster_controller/state/remote_highlights_prefs.dart';
 import 'package:irblaster_controller/state/remotes_state.dart';
-import 'package:irblaster_controller/utils/button_label.dart';
 import 'package:irblaster_controller/utils/remote.dart';
-import 'package:irblaster_controller/widgets/create_remote.dart';
 import 'package:irblaster_controller/widgets/global_search_delegate.dart';
 import 'package:irblaster_controller/widgets/remote_view.dart';
+import 'package:irblaster_controller/widgets/remote_editor/remote_editor_draft.dart';
+import 'package:irblaster_controller/widgets/remote_setup_screen.dart';
+import 'package:irblaster_controller/widgets/remote_studio_screen.dart';
 import 'package:reorderable_grid_view/reorderable_grid_view.dart';
 
 class RemoteList extends StatefulWidget {
@@ -307,10 +306,18 @@ class _RemoteListState extends State<RemoteList> {
   Future<void> _addRemote() async {
     if (_reorderMode) _setReorderMode(false);
     try {
-      final Remote newRemote = await Navigator.push(
+      final RemoteEditorDraft? setupDraft = await Navigator.push<RemoteEditorDraft?>(
         context,
-        MaterialPageRoute(builder: (context) => const CreateRemote()),
+        MaterialPageRoute(builder: (context) => const RemoteSetupScreen()),
       );
+      if (setupDraft == null || !mounted) return;
+      final Remote? newRemote = await Navigator.push<Remote?>(
+        context,
+        MaterialPageRoute(
+          builder: (context) => RemoteStudioScreen(initialDraft: setupDraft),
+        ),
+      );
+      if (newRemote == null || !mounted) return;
       setState(() {
         remotes.add(newRemote);
         _reassignIds();
@@ -318,7 +325,10 @@ class _RemoteListState extends State<RemoteList> {
       await writeRemotelist(remotes);
       notifyRemotesChanged();
       if (!mounted) return;
-      await _suggestDeviceControls(newRemote);
+      await Navigator.push(
+        context,
+        MaterialPageRoute(builder: (context) => RemoteView(remote: newRemote)),
+      );
     } catch (_) {}
   }
 
@@ -326,10 +336,15 @@ class _RemoteListState extends State<RemoteList> {
     if (_reorderMode) _setReorderMode(false);
     final Remote remote = remotes[index];
     try {
-      final Remote editedRemote = await Navigator.push(
+      final Remote? editedRemote = await Navigator.push<Remote?>(
         context,
-        MaterialPageRoute(builder: (context) => CreateRemote(remote: remote)),
+        MaterialPageRoute(
+          builder: (context) => RemoteStudioScreen(
+            initialDraft: RemoteEditorDraft.fromRemote(remote),
+          ),
+        ),
       );
+      if (editedRemote == null || !mounted) return;
       setState(() {
         remotes[index] = editedRemote;
       });
@@ -337,132 +352,7 @@ class _RemoteListState extends State<RemoteList> {
       notifyRemotesChanged();
       if (!mounted) return;
       Haptics.selectionClick();
-      ScaffoldMessenger.of(context).showSnackBar(
-        SnackBar(
-            content: Text(context.l10n.remoteUpdatedNamed(editedRemote.name))),
-      );
     } catch (_) {}
-  }
-
-  Future<void> _suggestDeviceControls(Remote remote) async {
-    final candidates = _findSuggestedButtons(remote);
-    if (candidates.isEmpty) return;
-
-    final picked = <IRButton>{...candidates};
-
-    final bool? ok = await showDialog<bool>(
-      context: context,
-      builder: (ctx) {
-        return AlertDialog(
-          title: Text(context.l10n.addToDeviceControlsTitle),
-          content: StatefulBuilder(
-            builder: (ctx, setState) {
-              return SizedBox(
-                width: double.maxFinite,
-                child: ListView(
-                  shrinkWrap: true,
-                  children: [
-                    Text(context.l10n.addToDeviceControlsDescription),
-                    const SizedBox(height: 10),
-                    ...candidates.map((b) {
-                      final title = _buttonDisplayLabel(b);
-                      return CheckboxListTile(
-                        value: picked.contains(b),
-                        onChanged: (v) {
-                          setState(() {
-                            if (v == true) {
-                              picked.add(b);
-                            } else {
-                              picked.remove(b);
-                            }
-                          });
-                        },
-                        title: Text(title),
-                        subtitle: Text(remote.name),
-                        controlAffinity: ListTileControlAffinity.leading,
-                      );
-                    }),
-                  ],
-                ),
-              );
-            },
-          ),
-          actions: [
-            TextButton(
-                onPressed: () => Navigator.of(ctx).pop(false),
-                child: Text(context.l10n.skip)),
-            FilledButton(
-              onPressed: () => Navigator.of(ctx).pop(true),
-              child: Text(context.l10n.add),
-            ),
-          ],
-        );
-      },
-    );
-
-    if (ok != true) return;
-
-    for (final b in picked) {
-      await DeviceControlsPrefs.add(DeviceControlFavorite(
-        buttonId: b.id,
-        title: _buttonDisplayLabel(b),
-        subtitle: remote.name,
-      ));
-    }
-
-    if (!mounted) return;
-    ScaffoldMessenger.of(context).showSnackBar(
-      SnackBar(content: Text(context.l10n.addedToDeviceControls)),
-    );
-  }
-
-  List<IRButton> _findSuggestedButtons(Remote remote) {
-    final List<IRButton> out = <IRButton>[];
-    for (final b in remote.buttons) {
-      final label = _normalizeButtonLabel(_buttonDisplayLabel(b));
-      if (label.isEmpty) continue;
-      if (_isPowerLabel(label) ||
-          _isMuteLabel(label) ||
-          _isVolumeLabel(label)) {
-        out.add(b);
-      }
-    }
-    return out;
-  }
-
-  String _buttonDisplayLabel(IRButton b) {
-    return displayButtonLabel(
-      b,
-      fallback: context.l10n.unnamedButton,
-      iconFallback: context.l10n.iconFallback,
-      iconNameLocalizer: (name) => localizedIconPickerName(context.l10n, name),
-    );
-  }
-
-  String _normalizeButtonLabel(String raw) {
-    final StringBuffer out = StringBuffer();
-    for (int i = 0; i < raw.length; i++) {
-      final int u = raw.codeUnitAt(i);
-      final bool isAlphaNum =
-          (u >= 48 && u <= 57) || (u >= 65 && u <= 90) || (u >= 97 && u <= 122);
-      if (isAlphaNum) {
-        final int upper = (u >= 97 && u <= 122) ? (u - 32) : u;
-        out.writeCharCode(upper);
-      }
-    }
-    return out.toString();
-  }
-
-  bool _isPowerLabel(String s) {
-    return s.contains('POWER') || s == 'PWR' || s.contains('ONOFF');
-  }
-
-  bool _isMuteLabel(String s) {
-    return s.contains('MUTE') || s == 'MUT';
-  }
-
-  bool _isVolumeLabel(String s) {
-    return s.contains('VOL') || s.contains('VOLUME');
   }
 
   Future<void> _deleteRemoteAt(int index) async {

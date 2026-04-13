@@ -41,6 +41,17 @@
   "requestUsbPermission": "Yêu cầu quyền USB",
   "homeHardwareTip": "Mẹo: Bạn vẫn có thể tạo và sắp xếp điều khiển ngay bây giờ. Chỉ cần phần cứng khi truyền tín hiệu.",
   "homeNoIrTransmitterTitle": "Không có bộ phát IR khả dụng",
+  "homeHardwareRequiredBody": "IR Blaster có thể tạo và quản lý điều khiển từ xa trên bất kỳ điện thoại nào. Nhưng để thực sự gửi lệnh hồng ngoại, thiết bị của bạn cần một trong các tùy chọn phần cứng bên dưới.",
+  "homeCanStillUseWithoutHardware": "Bạn vẫn có thể tạo, nhập và sắp xếp điều khiển từ xa ngay bây giờ.",
+  "homeWaysToUseIrBlaster": "Các cách dùng IR Blaster",
+  "homeBuiltInIrOptionTitle": "Điện thoại có IR tích hợp",
+  "homeBuiltInIrOptionSubtitle": "Hoạt động trên các điện thoại được hỗ trợ có bộ phát IR tích hợp. Điện thoại này không có.",
+  "homeBuiltInIrUnavailable": "Không có trên điện thoại này",
+  "homeUsbFamilyTiqiaaZaza": "Tiqiaa / ZaZa",
+  "homeUsbFamilyElkSmart": "ElkSmart",
+  "homeAudioAccessoryLabel": "Bộ chuyển âm thanh 3,5 mm",
+  "homeContinueWithoutHardware": "Tiếp tục không cần phần cứng",
+  "homeHowItWorks": "Cách hoạt động",
   "settingsNavLabel": "Cài đặt",
   "dismiss": "Bỏ qua",
   "remotesNavLabel": "Điều khiển",
@@ -516,9 +527,9 @@
   "presetNavigation": "Điều hướng",
   "all": "Tất cả",
   "completeRequiredFieldsToSave": "Điền đủ trường bắt buộc để lưu",
-  "buttonLabelStepTitle": "1) Nhãn nút",
+  "buttonLabelStepTitle": "Nhãn nút",
   "buttonLabelStepSubtitle": "Chọn hình ảnh, biểu tượng hoặc nhập nhãn văn bản.",
-  "buttonColorStepTitle": "2) Màu nút (tùy chọn)",
+  "buttonColorStepTitle": "Màu nút",
   "buttonColorStepSubtitle": "Chọn màu nền cho nút này.",
   "selectColor": "Chọn màu:",
   "noImageSelected": "Chưa chọn hình",
@@ -2144,5 +2155,60 @@
   "learningModeChooseRemoteTitle": "Chọn điều khiển từ xa",
   "learningModeNewRemoteTitle": "Tạo một điều khiển từ xa mới",
   "learningModeSaveSuccess": "Đã lưu nút đã học.",
-  "learningModeSaveFailed": "Không thể lưu nút đã học."
+  "learningModeSaveFailed": "Không thể lưu nút đã học.",
+  "remoteSetupIntro": "Hãy chọn tên và bố cục trước. Bạn có thể thêm nút sau.",
+  "startWithDefault": "Bắt đầu với mặc định",
+  "browseGithubStore": "Mở GitHub Store",
+  "addFirstButton": "Thêm nút đầu tiên",
+  "moreWaysToStart": "Thêm cách để bắt đầu",
+  "unsavedRemoteSetupChangesMessage": "Hủy thiết lập điều khiển mới này và rời khỏi màn hình?",
+  "unsavedRemoteStudioChangesMessage": "Hủy các thay đổi của điều khiển và rời khỏi màn hình?",
+  "firstButtonAdded": "Đã thêm nút đầu tiên.",
+  "iconColorTitle": "Màu biểu tượng",
+  "iconColorHelper": "Chọn màu biểu tượng vẫn dễ nhìn trên nền nút.",
+  "colorRed": "Đỏ",
+  "colorPink": "Hồng",
+  "colorPurple": "Tím",
+  "colorDeepPurple": "Tím đậm",
+  "colorIndigo": "Chàm",
+  "colorBlue": "Xanh dương",
+  "colorLightBlue": "Xanh dương nhạt",
+  "colorCyan": "Lục lam",
+  "colorTeal": "Xanh mòng két",
+  "colorGreen": "Xanh lá",
+  "colorLightGreen": "Xanh lá nhạt",
+  "colorLime": "Xanh chanh",
+  "colorYellow": "Vàng",
+  "colorAmber": "Hổ phách",
+  "colorOrange": "Cam",
+  "colorDeepOrange": "Cam đậm",
+  "colorBrown": "Nâu",
+  "colorGrey": "Xám",
+  "colorBlueGrey": "Xanh xám",
+  "colorBlack": "Đen",
+  "colorWhite": "Trắng",
+  "buttonColorSemantics": "Màu nút {colorName}",
+  "@buttonColorSemantics": {
+    "placeholders": {
+      "colorName": {}
+    }
+  },
+  "buttonColorSemanticsSelected": "Màu nút {colorName}, đã chọn",
+  "@buttonColorSemanticsSelected": {
+    "placeholders": {
+      "colorName": {}
+    }
+  },
+  "iconColorSemantics": "Màu biểu tượng {colorName}",
+  "@iconColorSemantics": {
+    "placeholders": {
+      "colorName": {}
+    }
+  },
+  "iconColorSemanticsSelected": "Màu biểu tượng {colorName}, đã chọn",
+  "@iconColorSemanticsSelected": {
+    "placeholders": {
+      "colorName": {}
+    }
+  }
 }

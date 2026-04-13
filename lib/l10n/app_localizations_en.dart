@@ -154,6 +154,42 @@ class AppLocalizationsEn extends AppLocalizations {
   String get homeNoIrTransmitterTitle => 'No IR transmitter available';
 
   @override
+  String get homeHardwareRequiredBody =>
+      'IR Blaster can create and manage remotes on any phone. To actually send infrared commands, your device needs one of the hardware options below.';
+
+  @override
+  String get homeCanStillUseWithoutHardware =>
+      'You can still create, import, and organize remotes right now.';
+
+  @override
+  String get homeWaysToUseIrBlaster => 'Ways to use IR Blaster';
+
+  @override
+  String get homeBuiltInIrOptionTitle => 'Phone with built-in IR';
+
+  @override
+  String get homeBuiltInIrOptionSubtitle =>
+      'Works on supported phones with a built-in IR blaster. This phone does not include one.';
+
+  @override
+  String get homeBuiltInIrUnavailable => 'Not available on this phone';
+
+  @override
+  String get homeUsbFamilyTiqiaaZaza => 'Tiqiaa / ZaZa';
+
+  @override
+  String get homeUsbFamilyElkSmart => 'ElkSmart';
+
+  @override
+  String get homeAudioAccessoryLabel => '3.5 mm audio adapter';
+
+  @override
+  String get homeContinueWithoutHardware => 'Continue without hardware';
+
+  @override
+  String get homeHowItWorks => 'How it works';
+
+  @override
   String get settingsNavLabel => 'Settings';
 
   @override
@@ -1616,14 +1652,14 @@ class AppLocalizationsEn extends AppLocalizations {
   String get completeRequiredFieldsToSave => 'Complete required fields to save';
 
   @override
-  String get buttonLabelStepTitle => '1) Button label';
+  String get buttonLabelStepTitle => 'Button label';
 
   @override
   String get buttonLabelStepSubtitle =>
       'Choose an image, icon, or type a text label.';
 
   @override
-  String get buttonColorStepTitle => '2) Button color (optional)';
+  String get buttonColorStepTitle => 'Button color';
 
   @override
   String get buttonColorStepSubtitle =>
@@ -4529,4 +4565,121 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get learningModeSaveFailed => 'The learned button could not be saved.';
+
+  @override
+  String get remoteSetupIntro =>
+      'Choose a name and layout first. You can add buttons after this.';
+
+  @override
+  String get startWithDefault => 'Start with default';
+
+  @override
+  String get browseGithubStore => 'Browse GitHub Store';
+
+  @override
+  String get addFirstButton => 'Add first button';
+
+  @override
+  String get moreWaysToStart => 'More ways to start';
+
+  @override
+  String get unsavedRemoteSetupChangesMessage =>
+      'Discard this new remote setup and leave this screen?';
+
+  @override
+  String get unsavedRemoteStudioChangesMessage =>
+      'Discard your remote changes and leave this screen?';
+
+  @override
+  String get firstButtonAdded => 'First button added.';
+
+  @override
+  String get iconColorTitle => 'Icon color';
+
+  @override
+  String get iconColorHelper =>
+      'Choose a symbol color that stays visible on the button background.';
+
+  @override
+  String get colorRed => 'Red';
+
+  @override
+  String get colorPink => 'Pink';
+
+  @override
+  String get colorPurple => 'Purple';
+
+  @override
+  String get colorDeepPurple => 'Deep Purple';
+
+  @override
+  String get colorIndigo => 'Indigo';
+
+  @override
+  String get colorBlue => 'Blue';
+
+  @override
+  String get colorLightBlue => 'Light Blue';
+
+  @override
+  String get colorCyan => 'Cyan';
+
+  @override
+  String get colorTeal => 'Teal';
+
+  @override
+  String get colorGreen => 'Green';
+
+  @override
+  String get colorLightGreen => 'Light Green';
+
+  @override
+  String get colorLime => 'Lime';
+
+  @override
+  String get colorYellow => 'Yellow';
+
+  @override
+  String get colorAmber => 'Amber';
+
+  @override
+  String get colorOrange => 'Orange';
+
+  @override
+  String get colorDeepOrange => 'Deep Orange';
+
+  @override
+  String get colorBrown => 'Brown';
+
+  @override
+  String get colorGrey => 'Grey';
+
+  @override
+  String get colorBlueGrey => 'Blue Grey';
+
+  @override
+  String get colorBlack => 'Black';
+
+  @override
+  String get colorWhite => 'White';
+
+  @override
+  String buttonColorSemantics(Object colorName) {
+    return 'Button color $colorName';
+  }
+
+  @override
+  String buttonColorSemanticsSelected(Object colorName) {
+    return 'Button color $colorName, selected';
+  }
+
+  @override
+  String iconColorSemantics(Object colorName) {
+    return 'Icon color $colorName';
+  }
+
+  @override
+  String iconColorSemanticsSelected(Object colorName) {
+    return 'Icon color $colorName, selected';
+  }
 }
