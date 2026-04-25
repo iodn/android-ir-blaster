@@ -17,6 +17,7 @@ import 'package:irblaster_controller/utils/button_color_accessibility.dart';
 import 'package:irblaster_controller/utils/ir.dart';
 import 'package:irblaster_controller/utils/remote.dart';
 import 'package:irblaster_controller/widgets/create_button.dart';
+import 'package:irblaster_controller/widgets/ir_waveform_view.dart';
 import 'package:irblaster_controller/widgets/remote_editor/remote_editor_draft.dart';
 import 'package:irblaster_controller/widgets/remote_studio_screen.dart';
 import 'package:reorderable_grid_view/reorderable_grid_view.dart';
@@ -175,8 +176,8 @@ class RemoteViewState extends State<RemoteView> {
     const double spacing = 10;
     const double horizontalPadding = 24;
     final double width = MediaQuery.sizeOf(context).width - horizontalPadding;
-    final double tileWidth = (width - (spacing * (crossAxisCount - 1))) /
-        crossAxisCount;
+    final double tileWidth =
+        (width - (spacing * (crossAxisCount - 1))) / crossAxisCount;
     final double rowExtent = tileWidth + spacing;
     final int row = index ~/ crossAxisCount;
     return topPadding + (row * rowExtent) - 16;
@@ -209,9 +210,8 @@ class RemoteViewState extends State<RemoteView> {
     required bool pressed,
     required bool looping,
   }) {
-    Color color = highlighted
-        ? cs.tertiaryContainer.withValues(alpha: 0.92)
-        : base;
+    Color color =
+        highlighted ? cs.tertiaryContainer.withValues(alpha: 0.92) : base;
     if (looping) {
       color = Color.alphaBlend(
         cs.secondaryContainer.withValues(alpha: 0.42),
@@ -508,9 +508,8 @@ class RemoteViewState extends State<RemoteView> {
     final String fallbackLabel = _buttonTitle(button);
 
     if (_hasRenderableIcon(button)) {
-      final iconColor = button.iconColor != null
-          ? Color(button.iconColor!)
-          : textColor;
+      final iconColor =
+          button.iconColor != null ? Color(button.iconColor!) : textColor;
       return Center(
         child: Icon(
           IconData(
@@ -1163,6 +1162,13 @@ class RemoteViewState extends State<RemoteView> {
     final String codeLine =
         isRaw ? 'Code: Raw signal' : 'Code: ${displayHex ?? 'NO CODE'}';
     final String? freqLine = freq.isEmpty ? null : 'Frequency: $freq';
+    IrPreview? preview;
+    Object? previewError;
+    try {
+      preview = previewIRButton(b);
+    } catch (e) {
+      previewError = e;
+    }
 
     await showModalBottomSheet<void>(
       context: context,
@@ -1280,68 +1286,35 @@ class RemoteViewState extends State<RemoteView> {
                         ],
                       ),
                     ),
-                    const SizedBox(height: 10),
-                    Row(
-                      children: [
-                        Expanded(
-                          child: FilledButton.icon(
-                            onPressed: () {
-                              Navigator.of(ctx).pop();
-                              _handleButtonPress(b);
-                            },
-                            icon: const Icon(Icons.play_arrow_rounded),
-                            label: Text(context.l10n.sendCommand),
-                          ),
-                        ),
-                        const SizedBox(width: 12),
-                        Expanded(
-                          child: FilledButton.tonalIcon(
-                            onPressed: (isRaw || displayHex == null)
-                                ? null
-                                : () async {
-                                    await Clipboard.setData(
-                                      ClipboardData(text: displayHex),
-                                    );
-                                    if (!mounted || !ctx.mounted) return;
-                                    Navigator.of(ctx).pop();
-                                    ScaffoldMessenger.of(context).showSnackBar(
-                                      SnackBar(
-                                          content:
-                                              Text(context.l10n.codeCopied)),
-                                    );
-                                    Haptics.selectionClick();
-                                  },
-                            icon: const Icon(Icons.copy_rounded),
-                            label: Text(context.l10n.copyCode),
-                          ),
-                        ),
-                      ],
-                    ),
                     const SizedBox(height: 12),
-                    SizedBox(
-                      width: double.infinity,
-                      child: loopingThis
-                          ? FilledButton.icon(
-                              style: FilledButton.styleFrom(
-                                backgroundColor: cs.error,
-                                foregroundColor: cs.onError,
-                              ),
-                              onPressed: () {
-                                Navigator.of(ctx).pop();
-                                _stopLoop(silent: false);
-                              },
-                              icon: const Icon(Icons.stop_rounded),
-                              label: Text(context.l10n.stopLoop),
-                            )
-                          : FilledButton.tonalIcon(
-                              onPressed: () {
-                                Navigator.of(ctx).pop();
-                                _startLoop(b);
-                              },
-                              icon: const Icon(Icons.loop_rounded),
-                              label: Text(context.l10n.startLoop),
-                            ),
+                    _InteractiveIrSignalPanel(
+                      preview: preview,
+                      previewError: previewError,
+                      initiallyLooping: loopingThis,
+                      onSendOnce: () => _sendOnce(b),
+                      onStartLoop: () => _startLoop(b),
+                      onStopLoop: () => _stopLoop(silent: false),
                     ),
+                    if (!isRaw && displayHex != null) ...[
+                      const SizedBox(height: 10),
+                      SizedBox(
+                        width: double.infinity,
+                        child: FilledButton.tonalIcon(
+                          onPressed: () async {
+                            await Clipboard.setData(
+                              ClipboardData(text: displayHex),
+                            );
+                            if (!mounted || !ctx.mounted) return;
+                            ScaffoldMessenger.of(context).showSnackBar(
+                              SnackBar(content: Text(context.l10n.codeCopied)),
+                            );
+                            Haptics.selectionClick();
+                          },
+                          icon: const Icon(Icons.copy_rounded),
+                          label: Text(context.l10n.copyCode),
+                        ),
+                      ),
+                    ],
                     const SizedBox(height: 10),
                     const Divider(height: 0),
                     ListTile(
@@ -1640,7 +1613,8 @@ class RemoteViewState extends State<RemoteView> {
                   ? []
                   : [
                       BoxShadow(
-                        color: cs.shadow.withValues(alpha: loopingThis ? 0.12 : 0.08),
+                        color: cs.shadow
+                            .withValues(alpha: loopingThis ? 0.12 : 0.08),
                         blurRadius: loopingThis ? 14 : 10,
                         offset: const Offset(0, 4),
                       ),
@@ -1794,7 +1768,8 @@ class RemoteViewState extends State<RemoteView> {
                   ? []
                   : [
                       BoxShadow(
-                        color: cs.shadow.withValues(alpha: loopingThis ? 0.12 : 0.07),
+                        color: cs.shadow
+                            .withValues(alpha: loopingThis ? 0.12 : 0.07),
                         blurRadius: loopingThis ? 16 : 12,
                         offset: const Offset(0, 5),
                       ),
@@ -1838,7 +1813,10 @@ class RemoteViewState extends State<RemoteView> {
                               fg: cs.onSecondary,
                               fontSize: 9,
                             ),
-                          if (loopingThis) const Spacer() else const SizedBox.shrink(),
+                          if (loopingThis)
+                            const Spacer()
+                          else
+                            const SizedBox.shrink(),
                         ],
                       ),
                       Expanded(
@@ -1876,7 +1854,8 @@ class RemoteViewState extends State<RemoteView> {
                         runSpacing: 6,
                         children: [
                           _pill(context, proto, fontSize: 9),
-                          if (freq.isNotEmpty) _pill(context, freq, fontSize: 9),
+                          if (freq.isNotEmpty)
+                            _pill(context, freq, fontSize: 9),
                         ],
                       ),
                     ],
@@ -1885,6 +1864,334 @@ class RemoteViewState extends State<RemoteView> {
               ),
             ),
           ),
+        );
+      },
+    );
+  }
+}
+
+class _InteractiveIrSignalPanel extends StatefulWidget {
+  final IrPreview? preview;
+  final Object? previewError;
+  final bool initiallyLooping;
+  final Future<void> Function() onSendOnce;
+  final VoidCallback onStartLoop;
+  final VoidCallback onStopLoop;
+
+  const _InteractiveIrSignalPanel({
+    required this.preview,
+    required this.previewError,
+    required this.initiallyLooping,
+    required this.onSendOnce,
+    required this.onStartLoop,
+    required this.onStopLoop,
+  });
+
+  @override
+  State<_InteractiveIrSignalPanel> createState() =>
+      _InteractiveIrSignalPanelState();
+}
+
+class _InteractiveIrSignalPanelState extends State<_InteractiveIrSignalPanel>
+    with SingleTickerProviderStateMixin {
+  static const Duration _kSentPulseDuration = Duration(milliseconds: 650);
+
+  late final AnimationController _playhead;
+  Timer? _sentPulseTimer;
+  bool _sending = false;
+  bool _sentPulse = false;
+  late bool _looping;
+
+  @override
+  void initState() {
+    super.initState();
+    _looping = widget.initiallyLooping;
+    _playhead = AnimationController(
+      vsync: this,
+      duration: _visualDuration,
+    );
+    if (_looping) {
+      _playhead.repeat();
+    }
+  }
+
+  @override
+  void didUpdateWidget(covariant _InteractiveIrSignalPanel oldWidget) {
+    super.didUpdateWidget(oldWidget);
+    if (oldWidget.preview?.pattern != widget.preview?.pattern) {
+      _playhead.duration = _visualDuration;
+      if (_looping) {
+        _playhead.repeat();
+      }
+    }
+  }
+
+  @override
+  void dispose() {
+    _sentPulseTimer?.cancel();
+    _playhead.dispose();
+    super.dispose();
+  }
+
+  Duration get _visualDuration {
+    final totalUs = widget.preview?.pattern.fold<int>(
+          0,
+          (sum, value) => sum + value,
+        ) ??
+        0;
+    final millis = (totalUs / 1000).round().clamp(1000, 5000);
+    return Duration(milliseconds: millis);
+  }
+
+  Future<void> _sendOnce() async {
+    if (_sending) return;
+    _sentPulseTimer?.cancel();
+    setState(() {
+      _sending = true;
+      _sentPulse = false;
+    });
+    try {
+      _playhead
+        ..stop()
+        ..value = 0;
+      final animation = _playhead.forward(from: 0);
+      await Future.wait<void>([
+        widget.onSendOnce(),
+        animation,
+      ]);
+    } catch (_) {
+      // The caller already surfaces transmit errors.
+    } finally {
+      if (mounted) {
+        setState(() {
+          _sending = false;
+          _sentPulse = true;
+        });
+        if (!_looping) {
+          _playhead.stop();
+        }
+        _sentPulseTimer = Timer(_kSentPulseDuration, () {
+          if (!mounted) return;
+          setState(() => _sentPulse = false);
+        });
+      }
+    }
+  }
+
+  void _toggleLoop() {
+    if (_looping) {
+      widget.onStopLoop();
+      _playhead.stop();
+      if (mounted) {
+        setState(() => _looping = false);
+      }
+      return;
+    }
+
+    widget.onStartLoop();
+    _playhead.repeat();
+    if (mounted) {
+      setState(() => _looping = true);
+    }
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    final theme = Theme.of(context);
+    final cs = theme.colorScheme;
+    final preview = widget.preview;
+
+    if (preview == null) {
+      return Container(
+        width: double.infinity,
+        padding: const EdgeInsets.all(14),
+        decoration: BoxDecoration(
+          color: cs.surfaceContainerHighest.withValues(alpha: 0.55),
+          borderRadius: BorderRadius.circular(16),
+          border: Border.all(
+            color: cs.outlineVariant.withValues(alpha: 0.6),
+          ),
+        ),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Row(
+              children: [
+                Icon(Icons.query_stats_rounded, color: cs.onSurfaceVariant),
+                const SizedBox(width: 10),
+                Expanded(
+                  child: Text(
+                    '${context.l10n.irWaveformTitle}: ${widget.previewError ?? ''}',
+                    style: theme.textTheme.bodySmall?.copyWith(
+                      color: cs.onSurfaceVariant,
+                      fontWeight: FontWeight.w700,
+                    ),
+                  ),
+                ),
+              ],
+            ),
+            const SizedBox(height: 10),
+            Row(
+              children: [
+                Expanded(
+                  child: FilledButton.icon(
+                    onPressed: _sending ? null : _sendOnce,
+                    icon: _sending
+                        ? SizedBox(
+                            width: 18,
+                            height: 18,
+                            child: CircularProgressIndicator(
+                              strokeWidth: 2,
+                              color: cs.onPrimary,
+                            ),
+                          )
+                        : const Icon(Icons.play_arrow_rounded),
+                    label: Text(context.l10n.sendCommand),
+                  ),
+                ),
+                const SizedBox(width: 12),
+                Expanded(
+                  child: FilledButton.tonalIcon(
+                    style: _looping
+                        ? FilledButton.styleFrom(
+                            backgroundColor: cs.errorContainer,
+                            foregroundColor: cs.onErrorContainer,
+                          )
+                        : null,
+                    onPressed: _toggleLoop,
+                    icon: Icon(
+                      _looping ? Icons.stop_rounded : Icons.loop_rounded,
+                    ),
+                    label: Text(
+                      _looping ? context.l10n.stopLoop : context.l10n.startLoop,
+                    ),
+                  ),
+                ),
+              ],
+            ),
+          ],
+        ),
+      );
+    }
+
+    return AnimatedBuilder(
+      animation: _playhead,
+      builder: (context, _) {
+        final showPlayhead = _sending || _looping;
+        return Column(
+          children: [
+            AnimatedContainer(
+              duration: const Duration(milliseconds: 180),
+              curve: Curves.easeOutCubic,
+              decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(18),
+                boxShadow: _sentPulse
+                    ? [
+                        BoxShadow(
+                          color: cs.primary.withValues(alpha: 0.22),
+                          blurRadius: 22,
+                          spreadRadius: 1,
+                        ),
+                      ]
+                    : null,
+              ),
+              child: Stack(
+                children: [
+                  IrWaveformPanel(
+                    pattern: preview.pattern,
+                    frequencyHz: preview.frequencyHz,
+                    compact: true,
+                    playheadProgress: showPlayhead ? _playhead.value : null,
+                  ),
+                  Positioned(
+                    right: 12,
+                    top: 12,
+                    child: AnimatedScale(
+                      scale: _sentPulse ? 1 : 0.86,
+                      duration: const Duration(milliseconds: 180),
+                      child: AnimatedOpacity(
+                        opacity: _sentPulse ? 1 : 0,
+                        duration: const Duration(milliseconds: 180),
+                        child: Container(
+                          padding: const EdgeInsets.symmetric(
+                            horizontal: 10,
+                            vertical: 6,
+                          ),
+                          decoration: BoxDecoration(
+                            color: cs.primary,
+                            borderRadius: BorderRadius.circular(999),
+                            boxShadow: [
+                              BoxShadow(
+                                color: cs.primary.withValues(alpha: 0.26),
+                                blurRadius: 12,
+                              ),
+                            ],
+                          ),
+                          child: Row(
+                            mainAxisSize: MainAxisSize.min,
+                            children: [
+                              Icon(
+                                Icons.check_rounded,
+                                size: 15,
+                                color: cs.onPrimary,
+                              ),
+                              const SizedBox(width: 5),
+                              Text(
+                                context.l10n.sent,
+                                style: theme.textTheme.labelSmall?.copyWith(
+                                  color: cs.onPrimary,
+                                  fontWeight: FontWeight.w900,
+                                ),
+                              ),
+                            ],
+                          ),
+                        ),
+                      ),
+                    ),
+                  ),
+                ],
+              ),
+            ),
+            const SizedBox(height: 10),
+            Row(
+              children: [
+                Expanded(
+                  child: FilledButton.icon(
+                    onPressed: _sending ? null : _sendOnce,
+                    icon: _sending
+                        ? SizedBox(
+                            width: 18,
+                            height: 18,
+                            child: CircularProgressIndicator(
+                              strokeWidth: 2,
+                              color: cs.onPrimary,
+                            ),
+                          )
+                        : const Icon(Icons.play_arrow_rounded),
+                    label: Text(context.l10n.sendCommand),
+                  ),
+                ),
+                const SizedBox(width: 12),
+                Expanded(
+                  child: FilledButton.tonalIcon(
+                    style: _looping
+                        ? FilledButton.styleFrom(
+                            backgroundColor: cs.errorContainer,
+                            foregroundColor: cs.onErrorContainer,
+                          )
+                        : null,
+                    onPressed: _toggleLoop,
+                    icon: Icon(
+                      _looping ? Icons.stop_rounded : Icons.loop_rounded,
+                    ),
+                    label: Text(
+                      _looping ? context.l10n.stopLoop : context.l10n.startLoop,
+                    ),
+                  ),
+                ),
+              ],
+            ),
+          ],
         );
       },
     );

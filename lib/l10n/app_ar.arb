@@ -2210,5 +2210,48 @@
     "placeholders": {
       "colorName": {}
     }
+  },
+  "irWaveformTitle": "IR waveform",
+  "@irWaveformTitle": {
+    "description": "Title for the IR waveform visualization panel."
+  },
+  "irWaveformPulseCount": "{count, plural, one{{count} pulse} other{{count} pulses}}",
+  "@irWaveformPulseCount": {
+    "description": "Number of active IR pulses in a waveform.",
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "irWaveformGapLabel": "Gap {duration}",
+  "@irWaveformGapLabel": {
+    "description": "Longest off gap in an IR waveform.",
+    "placeholders": {
+      "duration": {
+        "type": "String"
+      }
+    }
+  },
+  "irWaveformDurationCount": "{count, plural, one{{count} duration} other{{count} durations}}",
+  "@irWaveformDurationCount": {
+    "description": "Number of timing durations in an IR waveform.",
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "irWaveformActiveHint": "High means the IR LED carrier is active; low means silence.",
+  "@irWaveformActiveHint": {
+    "description": "Explanation for high and low states in the IR waveform graph."
+  },
+  "irWaveformOnLabel": "ON",
+  "@irWaveformOnLabel": {
+    "description": "Legend label for active carrier sections in an IR waveform."
+  },
+  "irWaveformOffLabel": "OFF",
+  "@irWaveformOffLabel": {
+    "description": "Legend label for inactive/silent sections in an IR waveform."
   }
 }

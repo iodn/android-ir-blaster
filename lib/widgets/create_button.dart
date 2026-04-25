@@ -1,6 +1,5 @@
 // ./lib/widgets/create_button.dart
 import 'dart:io';
-
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:irblaster_controller/ir/ir_protocol_registry.dart';
@@ -14,6 +13,7 @@ import 'package:irblaster_controller/utils/ir.dart';
 import 'package:irblaster_controller/utils/remote.dart';
 import 'package:irblaster_controller/widgets/code_test.dart';
 import 'package:irblaster_controller/widgets/icon_picker.dart';
+import 'package:irblaster_controller/widgets/ir_waveform_view.dart';
 import 'package:uuid/uuid.dart';
 
 enum _LabelType { image, text, icon }
@@ -24,7 +24,8 @@ enum _NecBitOrder { msb, lsb }
 
 enum _DbPreset { power, volume, channel, navigation, all }
 
-const MethodChannel _platformChannel = MethodChannel('org.nslabs/irtransmitter');
+const MethodChannel _platformChannel =
+    MethodChannel('org.nslabs/irtransmitter');
 
 class CreateButton extends StatefulWidget {
   final IRButton? button;
@@ -117,15 +118,17 @@ class _CreateButtonState extends State<CreateButton> {
       final b = widget.button!;
       final hasRaw = b.rawData != null && b.rawData!.trim().isNotEmpty;
       final learnedProtocolId = b.protocol?.trim();
-      final bool isLearnedProtocol = learnedProtocolId == IrProtocolIds.tiqiaaLearned ||
-          learnedProtocolId == IrProtocolIds.elksmartLearned ||
-          learnedProtocolId == IrProtocolIds.audioLearned;
+      final bool isLearnedProtocol =
+          learnedProtocolId == IrProtocolIds.tiqiaaLearned ||
+              learnedProtocolId == IrProtocolIds.elksmartLearned ||
+              learnedProtocolId == IrProtocolIds.audioLearned;
       final Map<String, dynamic> learnedParams =
           b.protocolParams ?? const <String, dynamic>{};
       final String learnedRawPreview =
           (learnedParams['rawPreview'] as String? ?? '').trim();
-      final int learnedFreq = ((learnedParams['frequencyHz'] as num?)?.toInt() ?? 38000)
-          .clamp(kMinIrFrequencyHz, kMaxIrFrequencyHz);
+      final int learnedFreq =
+          ((learnedParams['frequencyHz'] as num?)?.toInt() ?? 38000)
+              .clamp(kMinIrFrequencyHz, kMaxIrFrequencyHz);
 
       if (b.iconCodePoint != null) {
         _labelType = _LabelType.icon;
@@ -151,7 +154,8 @@ class _CreateButtonState extends State<CreateButton> {
         _selectedColor = normalizeAccessibleButtonColor(Color(b.buttonColor!));
       }
       if (b.iconColor != null) {
-        _selectedIconColor = normalizeAccessibleButtonColor(Color(b.iconColor!));
+        _selectedIconColor =
+            normalizeAccessibleButtonColor(Color(b.iconColor!));
       }
 
       if (isLearnedProtocol && learnedRawPreview.isNotEmpty) {
@@ -1008,7 +1012,8 @@ class _CreateButtonState extends State<CreateButton> {
 
           return Expanded(
             child: Padding(
-              padding: EdgeInsets.only(right: index == steps.length - 1 ? 0 : 8),
+              padding:
+                  EdgeInsets.only(right: index == steps.length - 1 ? 0 : 8),
               child: InkWell(
                 borderRadius: BorderRadius.circular(16),
                 onTap: index <= _currentStep
@@ -3365,7 +3370,8 @@ class _CreateButtonState extends State<CreateButton> {
                                     const SizedBox(height: 6),
                                     Text(
                                       context.l10n.noImageSelected,
-                                      style: theme.textTheme.bodySmall?.copyWith(
+                                      style:
+                                          theme.textTheme.bodySmall?.copyWith(
                                         color: theme.colorScheme.onSurface
                                             .withValues(alpha: 0.75),
                                       ),
@@ -3439,7 +3445,8 @@ class _CreateButtonState extends State<CreateButton> {
                                         IconData(
                                           _selectedIcon!.codePoint,
                                           fontFamily: _selectedIcon!.fontFamily,
-                                          fontPackage: _selectedIcon!.fontPackage,
+                                          fontPackage:
+                                              _selectedIcon!.fontPackage,
                                         ),
                                         size: 64,
                                         color: _selectedIconColor ??
@@ -3543,7 +3550,8 @@ class _CreateButtonState extends State<CreateButton> {
                                 theme,
                               ),
                               for (final choice in colorChoices)
-                                _iconColorOption(choice.color, choice.label, theme),
+                                _iconColorOption(
+                                    choice.color, choice.label, theme),
                               _iconColorOption(
                                 Colors.white,
                                 context.l10n.colorWhite,
@@ -3791,7 +3799,8 @@ class _CreateButtonState extends State<CreateButton> {
                                           _showSnack('Test transmit sent.');
                                         } catch (e) {
                                           if (!mounted) return;
-                                          _showSnack('Test transmit failed: $e');
+                                          _showSnack(
+                                              'Test transmit failed: $e');
                                         }
                                       }
                                     : null,
@@ -3853,7 +3862,8 @@ class _CreateButtonState extends State<CreateButton> {
                   child: Row(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      Icon(Icons.info_outline, color: theme.colorScheme.primary),
+                      Icon(Icons.info_outline,
+                          color: theme.colorScheme.primary),
                       const SizedBox(width: 10),
                       Expanded(
                         child: Text(
@@ -3958,6 +3968,11 @@ class _PatternPreview extends StatelessWidget {
                     fontWeight: FontWeight.w600,
                   ),
                 ),
+              ),
+              const SizedBox(height: 12),
+              IrWaveformPanel(
+                pattern: pattern,
+                frequencyHz: frequencyHz,
               ),
               const SizedBox(height: 12),
               Expanded(

@@ -1,3 +1,5 @@
+import 'dart:async';
+
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:irblaster_controller/ir_finder/ir_finder_models.dart';
@@ -19,12 +21,14 @@ class DbBulkImportSheet extends StatefulWidget {
 class _DbBulkImportSheetState extends State<DbBulkImportSheet> {
   final TextEditingController _dbSearchCtl = TextEditingController();
   final ScrollController _dbScrollCtl = ScrollController();
+  Timer? _dbSearchDebounce;
 
   bool _dbInit = false;
   bool _dbMetaLoading = false;
   bool _dbLoading = false;
   bool _dbExhausted = false;
   int _dbOffset = 0;
+  int _dbLoadGeneration = 0;
 
   String? _dbBrand;
   String? _dbModel;
@@ -57,6 +61,7 @@ class _DbBulkImportSheetState extends State<DbBulkImportSheet> {
 
   @override
   void dispose() {
+    _dbSearchDebounce?.cancel();
     _dbSearchCtl.dispose();
     _dbScrollCtl.dispose();
     super.dispose();
@@ -77,7 +82,8 @@ class _DbBulkImportSheetState extends State<DbBulkImportSheet> {
     if (_dbLoading || _dbExhausted) return;
     if (!_dbScrollCtl.hasClients) return;
 
-    if (_dbScrollCtl.position.pixels >= _dbScrollCtl.position.maxScrollExtent - 240) {
+    if (_dbScrollCtl.position.pixels >=
+        _dbScrollCtl.position.maxScrollExtent - 240) {
       _dbReloadKeys(reset: false);
     }
   }
@@ -162,8 +168,10 @@ class _DbBulkImportSheetState extends State<DbBulkImportSheet> {
   Future<void> _dbReloadKeys({required bool reset}) async {
     if (_dbBrand == null || _dbModel == null) return;
     if (_dbProtocol == null || _dbProtocol!.trim().isEmpty) return;
-    if (_dbLoading || _dbExhausted) return;
+    if (!reset && (_dbLoading || _dbExhausted)) return;
 
+    final int requestGeneration =
+        reset ? ++_dbLoadGeneration : _dbLoadGeneration;
     if (reset) {
       setState(() {
         _dbOffset = 0;
@@ -178,6 +186,7 @@ class _DbBulkImportSheetState extends State<DbBulkImportSheet> {
     try {
       await _dbEnsureReady();
       final search = _dbEffectiveSearch();
+      final offset = reset ? 0 : _dbOffset;
       final rows = await IrBlasterDb.instance.fetchCandidateKeys(
         brand: _dbBrand!,
         model: _dbModel!,
@@ -186,18 +195,38 @@ class _DbBulkImportSheetState extends State<DbBulkImportSheet> {
         hexPrefixUpper: null,
         search: search,
         limit: 80,
-        offset: _dbOffset,
+        offset: offset,
       );
+      if (!mounted || requestGeneration != _dbLoadGeneration) return;
       setState(() {
         _dbRows.addAll(rows);
-        _dbOffset += rows.length;
+        _dbOffset = offset + rows.length;
         if (rows.isEmpty) _dbExhausted = true;
       });
     } catch (e) {
-      if (mounted) _showSnack(context.l10n.failedToLoadDatabaseKeys(e.toString()));
+      if (mounted && requestGeneration == _dbLoadGeneration) {
+        _showSnack(context.l10n.failedToLoadDatabaseKeys(e.toString()));
+      }
     } finally {
-      if (mounted) setState(() => _dbLoading = false);
+      if (mounted && requestGeneration == _dbLoadGeneration) {
+        setState(() => _dbLoading = false);
+      }
     }
+  }
+
+  void _queueDbSearchReload() {
+    _dbSearchDebounce?.cancel();
+    _dbSearchDebounce = Timer(const Duration(milliseconds: 280), () {
+      if (!mounted) return;
+      _dbReloadKeys(reset: true);
+    });
+  }
+
+  void _runDbSearchNow() {
+    _dbSearchDebounce?.cancel();
+    FocusManager.instance.primaryFocus?.unfocus();
+    if (_dbBrand == null || _dbModel == null || _dbProtocol == null) return;
+    _dbReloadKeys(reset: true);
   }
 
   Future<void> _dbSelectBrand() async {
@@ -288,54 +317,66 @@ class _DbBulkImportSheetState extends State<DbBulkImportSheet> {
     int offset = 0;
     final items = <String>[];
     bool alive = true;
+    final ctl = TextEditingController();
+    final scrollCtl = ScrollController();
+    Timer? searchDebounce;
+    bool attachedScrollListener = false;
+    bool loading = false;
+    bool exhausted = false;
+    int generation = 0;
+
+    Future<void> load(StateSetter setModal, {required bool reset}) async {
+      if (!alive) return;
+      if (!reset && loading) return;
+
+      final requestGeneration = reset ? ++generation : generation;
+      setModal(() => loading = true);
+
+      try {
+        if (reset) {
+          offset = 0;
+          exhausted = false;
+          items.clear();
+          if (scrollCtl.hasClients) scrollCtl.jumpTo(0);
+        }
+
+        final next = await IrBlasterDb.instance.listBrands(
+          search: ctl.text.trim(),
+          limit: 60,
+          offset: offset,
+        );
+
+        if (!alive || requestGeneration != generation) return;
+
+        items.addAll(next);
+        offset += next.length;
+        if (next.isEmpty) exhausted = true;
+
+        setModal(() {});
+      } finally {
+        if (alive && requestGeneration == generation) {
+          setModal(() => loading = false);
+        }
+      }
+    }
+
+    void queueSearch(StateSetter setModal) {
+      searchDebounce?.cancel();
+      searchDebounce = Timer(const Duration(milliseconds: 220), () {
+        if (!alive) return;
+        load(setModal, reset: true);
+      });
+    }
 
     await showModalBottomSheet<void>(
       context: context,
       isScrollControlled: true,
       showDragHandle: true,
       builder: (ctx) {
-        final ctl = TextEditingController();
-        final scrollCtl = ScrollController();
-        bool attachedScrollListener = false;
-        bool loading = false;
-        bool exhausted = false;
-
-        Future<void> load(StateSetter setModal, {required bool reset}) async {
-          if (!alive) return;
-          if (loading) return;
-
-          setModal(() => loading = true);
-
-          try {
-            if (reset) {
-              offset = 0;
-              exhausted = false;
-              items.clear();
-            }
-
-            final next = await IrBlasterDb.instance.listBrands(
-              search: ctl.text.trim(),
-              limit: 60,
-              offset: offset,
-            );
-
-            if (!alive) return;
-
-            items.addAll(next);
-            offset += next.length;
-            if (next.isEmpty) exhausted = true;
-
-            setModal(() {});
-          } finally {
-            if (alive) {
-              setModal(() => loading = false);
-            }
-          }
-        }
-
         void onScroll(StateSetter setModal) {
           if (loading || exhausted) return;
-          if (scrollCtl.position.pixels >= scrollCtl.position.maxScrollExtent - 240) {
+          if (scrollCtl.position.pixels >=
+              scrollCtl.position.maxScrollExtent - 240) {
             load(setModal, reset: false);
           }
         }
@@ -357,7 +398,8 @@ class _DbBulkImportSheetState extends State<DbBulkImportSheet> {
                     Row(
                       children: [
                         Expanded(
-                          child: Text(context.l10n.selectBrand, style: Theme.of(ctx2).textTheme.titleLarge),
+                          child: Text(context.l10n.selectBrand,
+                              style: Theme.of(ctx2).textTheme.titleLarge),
                         ),
                         IconButton(
                           onPressed: () {
@@ -376,7 +418,15 @@ class _DbBulkImportSheetState extends State<DbBulkImportSheet> {
                         prefixIcon: Icon(Icons.search_rounded),
                         border: OutlineInputBorder(),
                       ),
-                      onChanged: (_) => load(setModal, reset: true),
+                      textInputAction: TextInputAction.search,
+                      onChanged: (_) => queueSearch(setModal),
+                      onSubmitted: (_) {
+                        searchDebounce?.cancel();
+                        FocusManager.instance.primaryFocus?.unfocus();
+                        load(setModal, reset: true);
+                      },
+                      onTapOutside: (_) =>
+                          FocusManager.instance.primaryFocus?.unfocus(),
                     ),
                     const SizedBox(height: 8),
                     Expanded(
@@ -388,7 +438,9 @@ class _DbBulkImportSheetState extends State<DbBulkImportSheet> {
                           if (i >= items.length) {
                             return const Padding(
                               padding: EdgeInsets.all(14),
-                              child: Center(child: CircularProgressIndicator(strokeWidth: 2)),
+                              child: Center(
+                                  child: CircularProgressIndicator(
+                                      strokeWidth: 2)),
                             );
                           }
                           final b = items[i];
@@ -413,10 +465,14 @@ class _DbBulkImportSheetState extends State<DbBulkImportSheet> {
     );
 
     alive = false;
+    searchDebounce?.cancel();
+    ctl.dispose();
+    scrollCtl.dispose();
     return selected;
   }
 
-  Future<String?> _pickModel(BuildContext context, {required String brand}) async {
+  Future<String?> _pickModel(BuildContext context,
+      {required String brand}) async {
     await IrBlasterDb.instance.ensureInitialized();
     if (!context.mounted) return null;
 
@@ -424,55 +480,67 @@ class _DbBulkImportSheetState extends State<DbBulkImportSheet> {
     int offset = 0;
     final items = <String>[];
     bool alive = true;
+    final ctl = TextEditingController();
+    final scrollCtl = ScrollController();
+    Timer? searchDebounce;
+    bool attachedScrollListener = false;
+    bool loading = false;
+    bool exhausted = false;
+    int generation = 0;
+
+    Future<void> load(StateSetter setModal, {required bool reset}) async {
+      if (!alive) return;
+      if (!reset && loading) return;
+
+      final requestGeneration = reset ? ++generation : generation;
+      setModal(() => loading = true);
+
+      try {
+        if (reset) {
+          offset = 0;
+          exhausted = false;
+          items.clear();
+          if (scrollCtl.hasClients) scrollCtl.jumpTo(0);
+        }
+
+        final next = await IrBlasterDb.instance.listModelsDistinct(
+          brand: brand,
+          search: ctl.text.trim(),
+          limit: 60,
+          offset: offset,
+        );
+
+        if (!alive || requestGeneration != generation) return;
+
+        items.addAll(next);
+        offset += next.length;
+        if (next.isEmpty) exhausted = true;
+
+        setModal(() {});
+      } finally {
+        if (alive && requestGeneration == generation) {
+          setModal(() => loading = false);
+        }
+      }
+    }
+
+    void queueSearch(StateSetter setModal) {
+      searchDebounce?.cancel();
+      searchDebounce = Timer(const Duration(milliseconds: 220), () {
+        if (!alive) return;
+        load(setModal, reset: true);
+      });
+    }
 
     await showModalBottomSheet<void>(
       context: context,
       isScrollControlled: true,
       showDragHandle: true,
       builder: (ctx) {
-        final ctl = TextEditingController();
-        final scrollCtl = ScrollController();
-        bool attachedScrollListener = false;
-        bool loading = false;
-        bool exhausted = false;
-
-        Future<void> load(StateSetter setModal, {required bool reset}) async {
-          if (!alive) return;
-          if (loading) return;
-
-          setModal(() => loading = true);
-
-          try {
-            if (reset) {
-              offset = 0;
-              exhausted = false;
-              items.clear();
-            }
-
-            final next = await IrBlasterDb.instance.listModelsDistinct(
-              brand: brand,
-              search: ctl.text.trim(),
-              limit: 60,
-              offset: offset,
-            );
-
-            if (!alive) return;
-
-            items.addAll(next);
-            offset += next.length;
-            if (next.isEmpty) exhausted = true;
-
-            setModal(() {});
-          } finally {
-            if (alive) {
-              setModal(() => loading = false);
-            }
-          }
-        }
-
         void onScroll(StateSetter setModal) {
           if (loading || exhausted) return;
-          if (scrollCtl.position.pixels >= scrollCtl.position.maxScrollExtent - 240) {
+          if (scrollCtl.position.pixels >=
+              scrollCtl.position.maxScrollExtent - 240) {
             load(setModal, reset: false);
           }
         }
@@ -494,7 +562,8 @@ class _DbBulkImportSheetState extends State<DbBulkImportSheet> {
                     Row(
                       children: [
                         Expanded(
-                          child: Text(context.l10n.selectModel, style: Theme.of(ctx2).textTheme.titleLarge),
+                          child: Text(context.l10n.selectModel,
+                              style: Theme.of(ctx2).textTheme.titleLarge),
                         ),
                         IconButton(
                           onPressed: () {
@@ -513,7 +582,15 @@ class _DbBulkImportSheetState extends State<DbBulkImportSheet> {
                         prefixIcon: Icon(Icons.search_rounded),
                         border: OutlineInputBorder(),
                       ),
-                      onChanged: (_) => load(setModal, reset: true),
+                      textInputAction: TextInputAction.search,
+                      onChanged: (_) => queueSearch(setModal),
+                      onSubmitted: (_) {
+                        searchDebounce?.cancel();
+                        FocusManager.instance.primaryFocus?.unfocus();
+                        load(setModal, reset: true);
+                      },
+                      onTapOutside: (_) =>
+                          FocusManager.instance.primaryFocus?.unfocus(),
                     ),
                     const SizedBox(height: 8),
                     Expanded(
@@ -525,7 +602,9 @@ class _DbBulkImportSheetState extends State<DbBulkImportSheet> {
                           if (i >= items.length) {
                             return const Padding(
                               padding: EdgeInsets.all(14),
-                              child: Center(child: CircularProgressIndicator(strokeWidth: 2)),
+                              child: Center(
+                                  child: CircularProgressIndicator(
+                                      strokeWidth: 2)),
                             );
                           }
                           final m = items[i];
@@ -550,6 +629,9 @@ class _DbBulkImportSheetState extends State<DbBulkImportSheet> {
     );
 
     alive = false;
+    searchDebounce?.cancel();
+    ctl.dispose();
+    scrollCtl.dispose();
     return selected;
   }
 
@@ -604,10 +686,12 @@ class _DbBulkImportSheetState extends State<DbBulkImportSheet> {
 
     for (final r in _dbRows) {
       if (!_isSelected(r)) continue;
-      final btn = buildButtonFromDbRow(r, unnamedLabel: context.l10n.unnamedKey);
+      final btn =
+          buildButtonFromDbRow(r, unnamedLabel: context.l10n.unnamedKey);
       if (btn == null) continue;
       final key = _dupKeyForButton(btn);
-      if (_skipDuplicates && (existing.contains(key) || addedKeys.contains(key))) {
+      if (_skipDuplicates &&
+          (existing.contains(key) || addedKeys.contains(key))) {
         skipped++;
         continue;
       }
@@ -627,7 +711,8 @@ class _DbBulkImportSheetState extends State<DbBulkImportSheet> {
     if (mounted) {
       Navigator.of(context).pop(added);
       if (skipped > 0) {
-        _showSnack(context.l10n.importedButtonsSkippedDuplicates(added.length, skipped));
+        _showSnack(context.l10n
+            .importedButtonsSkippedDuplicates(added.length, skipped));
       }
     }
   }
@@ -652,7 +737,9 @@ class _DbBulkImportSheetState extends State<DbBulkImportSheet> {
             ? context.l10n.noMatchingKeysFound
             : context.l10n.importAllMatchingMessage(total)),
         actions: [
-          TextButton(onPressed: () => Navigator.of(ctx).pop(false), child: Text(context.l10n.cancel)),
+          TextButton(
+              onPressed: () => Navigator.of(ctx).pop(false),
+              child: Text(context.l10n.cancel)),
           FilledButton(
             onPressed: total == 0 ? null : () => Navigator.of(ctx).pop(true),
             child: Text(context.l10n.importAll),
@@ -665,6 +752,7 @@ class _DbBulkImportSheetState extends State<DbBulkImportSheet> {
 
     int processed = 0;
     int skipped = 0;
+    final unnamedLabel = context.l10n.unnamedKey;
     final existing = widget.existingButtons.map(_dupKeyForButton).toSet();
     final added = <IRButton>[];
     final addedKeys = <String>{};
@@ -690,10 +778,11 @@ class _DbBulkImportSheetState extends State<DbBulkImportSheet> {
             );
             if (rows.isEmpty) break;
             for (final r in rows) {
-              final btn = buildButtonFromDbRow(r, unnamedLabel: context.l10n.unnamedKey);
+              final btn = buildButtonFromDbRow(r, unnamedLabel: unnamedLabel);
               if (btn == null) continue;
               final key = _dupKeyForButton(btn);
-              if (_skipDuplicates && (existing.contains(key) || addedKeys.contains(key))) {
+              if (_skipDuplicates &&
+                  (existing.contains(key) || addedKeys.contains(key))) {
                 skipped++;
                 continue;
               }
@@ -715,13 +804,15 @@ class _DbBulkImportSheetState extends State<DbBulkImportSheet> {
         return StatefulBuilder(
           builder: (ctx2, sm) {
             setModal = sm;
-            final int pct = total == 0 ? 0 : ((processed / total) * 100).round();
+            final int pct =
+                total == 0 ? 0 : ((processed / total) * 100).round();
             return AlertDialog(
               title: Text(context.l10n.importingButtons),
               content: Column(
                 mainAxisSize: MainAxisSize.min,
                 children: [
-                  LinearProgressIndicator(value: total == 0 ? null : processed / total),
+                  LinearProgressIndicator(
+                      value: total == 0 ? null : processed / total),
                   const SizedBox(height: 12),
                   Text('$processed / $total  ($pct%)'),
                 ],
@@ -743,12 +834,14 @@ class _DbBulkImportSheetState extends State<DbBulkImportSheet> {
     }
     Navigator.of(context).pop(added);
     if (skipped > 0) {
-      _showSnack(context.l10n.importedButtonsSkippedDuplicates(added.length, skipped));
+      _showSnack(
+          context.l10n.importedButtonsSkippedDuplicates(added.length, skipped));
     }
   }
 
   void _showSnack(String message) {
-    ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text(message)));
+    ScaffoldMessenger.of(context)
+        .showSnackBar(SnackBar(content: Text(message)));
   }
 
   void _toggleFiltersExpanded() {
@@ -779,14 +872,17 @@ class _DbBulkImportSheetState extends State<DbBulkImportSheet> {
               child: Text(
                 value,
                 style: theme.textTheme.bodyMedium?.copyWith(
-                  fontWeight: value.startsWith('Select') ? FontWeight.w500 : FontWeight.w700,
+                  fontWeight: value.startsWith('Select')
+                      ? FontWeight.w500
+                      : FontWeight.w700,
                 ),
               ),
             ),
             const SizedBox(width: 8),
             Icon(
               Icons.keyboard_arrow_down_rounded,
-              color: theme.colorScheme.onSurface.withValues(alpha: enabled ? 0.75 : 0.4),
+              color: theme.colorScheme.onSurface
+                  .withValues(alpha: enabled ? 0.75 : 0.4),
             ),
           ],
         ),
@@ -834,7 +930,8 @@ class _DbBulkImportSheetState extends State<DbBulkImportSheet> {
               Expanded(
                 child: Text(
                   context.l10n.quickPresets,
-                  style: theme.textTheme.titleSmall?.copyWith(fontWeight: FontWeight.w800),
+                  style: theme.textTheme.titleSmall
+                      ?.copyWith(fontWeight: FontWeight.w800),
                 ),
               ),
               if (!enabled)
@@ -876,7 +973,8 @@ class _DbBulkImportSheetState extends State<DbBulkImportSheet> {
 
     final bool hasBrand = (_dbBrand != null && _dbBrand!.trim().isNotEmpty);
     final bool hasModel = (_dbModel != null && _dbModel!.trim().isNotEmpty);
-    final bool hasProtocol = (_dbProtocol != null && _dbProtocol!.trim().isNotEmpty);
+    final bool hasProtocol =
+        (_dbProtocol != null && _dbProtocol!.trim().isNotEmpty);
     final bool canBrowseKeys = hasBrand && hasModel && hasProtocol;
 
     final String effectiveSearch = _dbEffectiveSearch();
@@ -886,7 +984,8 @@ class _DbBulkImportSheetState extends State<DbBulkImportSheet> {
             ? context.l10n.searchByLabelOrHex
             : (_dbPreset == _DbPreset.all
                 ? context.l10n.searchByLabelOrHex
-                : context.l10n.optionalRefinePresetKeys(_dbPresetTitle(_dbPreset))))
+                : context.l10n
+                    .optionalRefinePresetKeys(_dbPresetTitle(_dbPreset))))
         : context.l10n.selectBrandModelProtocolFirst;
 
     return SafeArea(
@@ -899,7 +998,8 @@ class _DbBulkImportSheetState extends State<DbBulkImportSheet> {
                 Expanded(
                   child: Text(
                     context.l10n.importFromDatabaseTitle,
-                    style: theme.textTheme.titleLarge?.copyWith(fontWeight: FontWeight.w800),
+                    style: theme.textTheme.titleLarge
+                        ?.copyWith(fontWeight: FontWeight.w800),
                   ),
                 ),
                 IconButton(
@@ -932,7 +1032,8 @@ class _DbBulkImportSheetState extends State<DbBulkImportSheet> {
                   Expanded(
                     child: Text(
                       context.l10n.deviceAndFilters,
-                      style: theme.textTheme.titleSmall?.copyWith(fontWeight: FontWeight.w800),
+                      style: theme.textTheme.titleSmall
+                          ?.copyWith(fontWeight: FontWeight.w800),
                     ),
                   ),
                   if (canBrowseKeys)
@@ -953,7 +1054,9 @@ class _DbBulkImportSheetState extends State<DbBulkImportSheet> {
                             : Icons.keyboard_arrow_down_rounded,
                       ),
                       label: Text(
-                        _filtersExpanded ? context.l10n.hideFilters : context.l10n.showFilters,
+                        _filtersExpanded
+                            ? context.l10n.hideFilters
+                            : context.l10n.showFilters,
                       ),
                       style: FilledButton.styleFrom(
                         visualDensity: VisualDensity.compact,
@@ -1032,25 +1135,30 @@ class _DbBulkImportSheetState extends State<DbBulkImportSheet> {
                 TextField(
                   controller: _dbSearchCtl,
                   enabled: canBrowseKeys,
+                  textInputAction: TextInputAction.search,
                   decoration: InputDecoration(
                     hintText: searchHint,
                     prefixIcon: const Icon(Icons.search_rounded),
                     border: const OutlineInputBorder(),
-                    suffixIcon: (!canBrowseKeys || _dbSearchCtl.text.trim().isEmpty)
-                        ? null
-                        : IconButton(
-                            tooltip: context.l10n.clearAction,
-                            onPressed: () {
-                              setState(() => _dbSearchCtl.clear());
-                              _dbReloadKeys(reset: true);
-                            },
-                            icon: const Icon(Icons.clear),
-                          ),
+                    suffixIcon:
+                        (!canBrowseKeys || _dbSearchCtl.text.trim().isEmpty)
+                            ? null
+                            : IconButton(
+                                tooltip: context.l10n.clearAction,
+                                onPressed: () {
+                                  setState(() => _dbSearchCtl.clear());
+                                  _runDbSearchNow();
+                                },
+                                icon: const Icon(Icons.clear),
+                              ),
                   ),
                   onChanged: (_) {
                     if (!canBrowseKeys) return;
-                    _dbReloadKeys(reset: true);
+                    _queueDbSearchReload();
                   },
+                  onSubmitted: (_) => _runDbSearchNow(),
+                  onTapOutside: (_) =>
+                      FocusManager.instance.primaryFocus?.unfocus(),
                 ),
               ],
             ),
@@ -1059,7 +1167,8 @@ class _DbBulkImportSheetState extends State<DbBulkImportSheet> {
               child: Container(
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(12),
-                  border: Border.all(color: cs.outlineVariant.withValues(alpha: 0.8)),
+                  border: Border.all(
+                      color: cs.outlineVariant.withValues(alpha: 0.8)),
                 ),
                 child: !canBrowseKeys
                     ? Center(
@@ -1075,7 +1184,8 @@ class _DbBulkImportSheetState extends State<DbBulkImportSheet> {
                         ),
                       )
                     : (_dbRows.isEmpty && _dbLoading)
-                        ? const Center(child: CircularProgressIndicator(strokeWidth: 2))
+                        ? const Center(
+                            child: CircularProgressIndicator(strokeWidth: 2))
                         : (_dbRows.isEmpty)
                             ? Center(
                                 child: Padding(
@@ -1083,23 +1193,29 @@ class _DbBulkImportSheetState extends State<DbBulkImportSheet> {
                                   child: Text(
                                     effectiveSearch.isEmpty
                                         ? context.l10n.noKeysFound
-                                        : context.l10n.noKeysFoundForSearch(effectiveSearch),
+                                        : context.l10n.noKeysFoundForSearch(
+                                            effectiveSearch),
                                     textAlign: TextAlign.center,
                                     style: theme.textTheme.bodySmall?.copyWith(
-                                      color: cs.onSurface.withValues(alpha: 0.7),
+                                      color:
+                                          cs.onSurface.withValues(alpha: 0.7),
                                     ),
                                   ),
                                 ),
                               )
                             : ListView.separated(
                                 controller: _dbScrollCtl,
-                                itemCount: _dbRows.length + (_dbLoading ? 1 : 0),
-                                separatorBuilder: (_, __) => const Divider(height: 0),
+                                itemCount:
+                                    _dbRows.length + (_dbLoading ? 1 : 0),
+                                separatorBuilder: (_, __) =>
+                                    const Divider(height: 0),
                                 itemBuilder: (ctx, i) {
                                   if (i >= _dbRows.length) {
                                     return const Padding(
                                       padding: EdgeInsets.all(14),
-                                      child: Center(child: CircularProgressIndicator(strokeWidth: 2)),
+                                      child: Center(
+                                          child: CircularProgressIndicator(
+                                              strokeWidth: 2)),
                                     );
                                   }
 
@@ -1107,10 +1223,17 @@ class _DbBulkImportSheetState extends State<DbBulkImportSheet> {
                                   final bool selected = _isSelected(r);
 
                                   final String titleText =
-                                      (r.label ?? '').trim().isEmpty ? context.l10n.unnamedKey : (r.label ?? '').trim();
+                                      (r.label ?? '').trim().isEmpty
+                                          ? context.l10n.unnamedKey
+                                          : (r.label ?? '').trim();
                                   final String protoText =
-                                      r.protocol.trim().isEmpty ? context.l10n.unknown : r.protocol.trim();
-                                  final String hexText = r.hexcode.trim().isEmpty ? context.l10n.emDash : r.hexcode.trim();
+                                      r.protocol.trim().isEmpty
+                                          ? context.l10n.unknown
+                                          : r.protocol.trim();
+                                  final String hexText =
+                                      r.hexcode.trim().isEmpty
+                                          ? context.l10n.emDash
+                                          : r.hexcode.trim();
 
                                   return CheckboxListTile(
                                     value: selected,
@@ -1121,7 +1244,8 @@ class _DbBulkImportSheetState extends State<DbBulkImportSheet> {
                                       tooltip: context.l10n.copyCode,
                                       icon: const Icon(Icons.copy_rounded),
                                       onPressed: () => Clipboard.setData(
-                                        ClipboardData(text: '$protoText:$hexText'),
+                                        ClipboardData(
+                                            text: '$protoText:$hexText'),
                                       ),
                                     ),
                                   );
@@ -1134,11 +1258,14 @@ class _DbBulkImportSheetState extends State<DbBulkImportSheet> {
               children: [
                 Text(
                   context.l10n.selectedCount(_selectedKeys.length),
-                  style: theme.textTheme.bodyMedium?.copyWith(fontWeight: FontWeight.w700),
+                  style: theme.textTheme.bodyMedium
+                      ?.copyWith(fontWeight: FontWeight.w700),
                 ),
                 const Spacer(),
                 TextButton(
-                  onPressed: _dbRows.isEmpty ? null : () => setState(() => _selectedKeys.clear()),
+                  onPressed: _dbRows.isEmpty
+                      ? null
+                      : () => setState(() => _selectedKeys.clear()),
                   child: Text(context.l10n.clearAction),
                 ),
                 const SizedBox(width: 8),

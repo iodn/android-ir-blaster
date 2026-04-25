@@ -63,8 +63,8 @@ class MainActivity : FlutterActivity() {
     private var usbState: UsbAvailabilityState = UsbAvailabilityState.NO_DEVICE
     private var usbStateMessage: String? = null
 
-    private val audio1Tx = AudioIrTransmitter(mode = 1)
-    private val audio2Tx = AudioIrTransmitter(mode = 2)
+    private val audio1Tx by lazy { AudioIrTransmitter(applicationContext, mode = 1) }
+    private val audio2Tx by lazy { AudioIrTransmitter(applicationContext, mode = 2) }
     @Volatile private var audioLearner: AudioIrLearner? = null
     @Volatile private var audioLearningCancelRequested: Boolean = false
     private var pendingAudioPermissionResult: MethodChannel.Result? = null

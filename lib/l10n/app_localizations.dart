@@ -8479,6 +8479,48 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Icon color {colorName}, selected'**
   String iconColorSemanticsSelected(Object colorName);
+
+  /// Title for the IR waveform visualization panel.
+  ///
+  /// In en, this message translates to:
+  /// **'IR waveform'**
+  String get irWaveformTitle;
+
+  /// Number of active IR pulses in a waveform.
+  ///
+  /// In en, this message translates to:
+  /// **'{count, plural, one{{count} pulse} other{{count} pulses}}'**
+  String irWaveformPulseCount(int count);
+
+  /// Longest off gap in an IR waveform.
+  ///
+  /// In en, this message translates to:
+  /// **'Gap {duration}'**
+  String irWaveformGapLabel(String duration);
+
+  /// Number of timing durations in an IR waveform.
+  ///
+  /// In en, this message translates to:
+  /// **'{count, plural, one{{count} duration} other{{count} durations}}'**
+  String irWaveformDurationCount(int count);
+
+  /// Explanation for high and low states in the IR waveform graph.
+  ///
+  /// In en, this message translates to:
+  /// **'High means the IR LED carrier is active; low means silence.'**
+  String get irWaveformActiveHint;
+
+  /// Legend label for active carrier sections in an IR waveform.
+  ///
+  /// In en, this message translates to:
+  /// **'ON'**
+  String get irWaveformOnLabel;
+
+  /// Legend label for inactive/silent sections in an IR waveform.
+  ///
+  /// In en, this message translates to:
+  /// **'OFF'**
+  String get irWaveformOffLabel;
 }
 
 class _AppLocalizationsDelegate

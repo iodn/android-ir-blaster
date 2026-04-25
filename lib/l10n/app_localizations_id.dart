@@ -4638,4 +4638,44 @@ class AppLocalizationsId extends AppLocalizations {
   String iconColorSemanticsSelected(Object colorName) {
     return 'Warna ikon $colorName, dipilih';
   }
+
+  @override
+  String get irWaveformTitle => 'IR waveform';
+
+  @override
+  String irWaveformPulseCount(int count) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: '$count pulses',
+      one: '$count pulse',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String irWaveformGapLabel(String duration) {
+    return 'Gap $duration';
+  }
+
+  @override
+  String irWaveformDurationCount(int count) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: '$count durations',
+      one: '$count duration',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String get irWaveformActiveHint =>
+      'High means the IR LED carrier is active; low means silence.';
+
+  @override
+  String get irWaveformOnLabel => 'ON';
+
+  @override
+  String get irWaveformOffLabel => 'OFF';
 }

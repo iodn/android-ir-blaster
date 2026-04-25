@@ -1,6 +1,7 @@
 import 'dart:async';
 import 'dart:convert';
 import 'dart:io';
+import 'dart:typed_data';
 
 import 'package:file_picker/file_picker.dart';
 import 'package:flutter/material.dart';
@@ -261,20 +262,18 @@ Future<void> exportRemotesToDownloads(
   List<TimedMacro> macros = const <TimedMacro>[],
 }) async {
   final mediaStore = MediaStore();
+  final timestamp = DateTime.now().millisecondsSinceEpoch;
+  final fileName = 'irblaster_backup_$timestamp.json';
+  final payload = <String, dynamic>{
+    'schema': 'irblaster.backup',
+    'version': 1,
+    'exportedAt': DateTime.now().toIso8601String(),
+    'remotes': remotes.map((r) => r.toJson()).toList(),
+    'macros': macros.map((m) => m.copyWith(version: 1).toJson()).toList(),
+  };
+  final jsonString = jsonEncode(payload);
 
   Future<void> doSave() async {
-    final timestamp = DateTime.now().millisecondsSinceEpoch;
-    final fileName = 'irblaster_backup_$timestamp.json';
-    final payload = <String, dynamic>{
-      'schema': 'irblaster.backup',
-      'version': 1,
-      'exportedAt': DateTime.now().toIso8601String(),
-      'remotes': remotes.map((r) => r.toJson()).toList(),
-      'macros': macros.map((m) => m.copyWith(version: 1).toJson()).toList(),
-    };
-
-    final jsonString = jsonEncode(payload);
-
     final tempDir = await getTemporaryDirectory();
     final tempPath = '${tempDir.path}/$fileName';
     final tempFile = File(tempPath);
@@ -296,10 +295,31 @@ Future<void> exportRemotesToDownloads(
     );
   }
 
+  Future<bool> doPickerSave() async {
+    final savedPath = await FilePicker.platform.saveFile(
+      fileName: fileName,
+      type: FileType.custom,
+      allowedExtensions: const <String>['json'],
+      bytes: Uint8List.fromList(utf8.encode(jsonString)),
+    );
+    if (savedPath == null) return false;
+    if (!context.mounted) return true;
+    ScaffoldMessenger.of(context).showSnackBar(
+      SnackBar(content: Text(context.l10n.backupExportedToDownloads)),
+    );
+    return true;
+  }
+
   try {
     await doSave();
     return;
   } catch (_) {
+    if (!context.mounted) return;
+    try {
+      final saved = await doPickerSave();
+      if (saved) return;
+    } catch (_) {}
+
     if (!context.mounted) return;
     final ok = await _requestLegacyStoragePermission(context);
     if (!ok) return;

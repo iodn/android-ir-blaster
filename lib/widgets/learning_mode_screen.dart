@@ -11,6 +11,7 @@ import 'package:irblaster_controller/state/remotes_state.dart';
 import 'package:irblaster_controller/utils/ir.dart';
 import 'package:irblaster_controller/utils/ir_transmitter_platform.dart';
 import 'package:irblaster_controller/utils/remote.dart';
+import 'package:irblaster_controller/widgets/ir_waveform_view.dart';
 import 'package:irblaster_controller/widgets/remote_view.dart';
 
 class LearningModeScreen extends StatefulWidget {
@@ -21,7 +22,7 @@ class LearningModeScreen extends StatefulWidget {
 }
 
 class _LearningModeScreenState extends State<LearningModeScreen>
-    with SingleTickerProviderStateMixin {
+    with TickerProviderStateMixin {
   static const int _tiqiaaVid1 = 0x10C4;
   static const int _tiqiaaVid2 = 0x045E;
   static const int _tiqiaaPid = 0x8468;
@@ -48,6 +49,10 @@ class _LearningModeScreenState extends State<LearningModeScreen>
 
   late final AnimationController _pulseController;
   late final Animation<double> _pulseAnimation;
+  late final AnimationController _replayWaveformController;
+  Timer? _replayLoopTimer;
+  bool _replayWaveformActive = false;
+  bool _replayLooping = false;
 
   @override
   void initState() {
@@ -59,6 +64,10 @@ class _LearningModeScreenState extends State<LearningModeScreen>
     _pulseAnimation = Tween<double>(begin: 1.0, end: 1.08).animate(
       CurvedAnimation(parent: _pulseController, curve: Curves.easeInOut),
     );
+    _replayWaveformController = AnimationController(
+      vsync: this,
+      duration: const Duration(milliseconds: 1000),
+    );
     _loadCaps();
     _capsSub = IrTransmitterPlatform.capabilitiesEvents().listen((caps) {
       if (!mounted) return;
@@ -69,8 +78,10 @@ class _LearningModeScreenState extends State<LearningModeScreen>
   @override
   void dispose() {
     _capsSub?.cancel();
+    _replayLoopTimer?.cancel();
     _buttonNameCtrl.dispose();
     _pulseController.dispose();
+    _replayWaveformController.dispose();
     super.dispose();
   }
 
@@ -94,7 +105,8 @@ class _LearningModeScreenState extends State<LearningModeScreen>
 
   bool get _audioLearningSelected {
     final type = _preferredType ?? _caps?.currentType;
-    return type == IrTransmitterType.audio1Led || type == IrTransmitterType.audio2Led;
+    return type == IrTransmitterType.audio1Led ||
+        type == IrTransmitterType.audio2Led;
   }
 
   bool get _usbSwitchRecommended {
@@ -143,7 +155,7 @@ class _LearningModeScreenState extends State<LearningModeScreen>
     }
     // Built-in IR receivers are ready when no USB dongle is present.
     if (_huaweiInternalSelected) return _LearningHardwareState.ready;
-    if (_lgInternalSelected)     return _LearningHardwareState.ready;
+    if (_lgInternalSelected) return _LearningHardwareState.ready;
     final devices = _learningDevices;
     if (devices.isEmpty) return _LearningHardwareState.noReceiver;
     if (devices.any((d) => !d.hasPermission) ||
@@ -183,7 +195,8 @@ class _LearningModeScreenState extends State<LearningModeScreen>
         // LG signals have no rawPatternUs; validate the opaque blob is non-empty.
         return signal.opaqueFrameBase64.length >= 4;
       default:
-        return signal.rawPatternUs.isNotEmpty && signal.opaqueFrameBase64.isNotEmpty;
+        return signal.rawPatternUs.isNotEmpty &&
+            signal.opaqueFrameBase64.isNotEmpty;
     }
   }
 
@@ -191,14 +204,14 @@ class _LearningModeScreenState extends State<LearningModeScreen>
     final String header = signal.displayPreview.isNotEmpty
         ? signal.displayPreview
         : signal.family == 'audio'
-        ? 'Audio learned capture'
-        : signal.family == 'elksmart'
-        ? 'ElkSmart USB learned frame'
-        : signal.family == 'huawei_ir'
-        ? 'Huawei internal IR learned frame'
-        : signal.family == 'lge_ir'
-        ? 'LG internal IR learned frame (UEI Quickset)'
-        : 'Tiqiaa USB learned frame';
+            ? 'Audio learned capture'
+            : signal.family == 'elksmart'
+                ? 'ElkSmart USB learned frame'
+                : signal.family == 'huawei_ir'
+                    ? 'Huawei internal IR learned frame'
+                    : signal.family == 'lge_ir'
+                        ? 'LG internal IR learned frame (UEI Quickset)'
+                        : 'Tiqiaa USB learned frame';
     final lines = <String>[
       header,
       'RAW',
@@ -209,6 +222,22 @@ class _LearningModeScreenState extends State<LearningModeScreen>
       lines.add('Carrier unknown');
     }
     return lines.join('\n');
+  }
+
+  bool _hasWaveformPreview(LearnedUsbSignal signal) {
+    return signal.rawPatternUs.isNotEmpty &&
+        signal.rawPatternUs.any((v) => v > 0);
+  }
+
+  int _waveformFrequencyHz(LearnedUsbSignal signal) {
+    return signal.frequencyHz > 0 ? signal.frequencyHz : 38000;
+  }
+
+  Duration _waveformReplayDuration(LearnedUsbSignal signal) {
+    final totalUs =
+        signal.rawPatternUs.fold<int>(0, (sum, value) => sum + value);
+    final millis = (totalUs / 1000).round().clamp(1000, 5000);
+    return Duration(milliseconds: millis);
   }
 
   /// Returns the icon that represents the active learning source.
@@ -226,7 +255,9 @@ class _LearningModeScreenState extends State<LearningModeScreen>
   String _learningDeviceLabel(BuildContext context) {
     if (_audioLearningSelected) {
       final selectedType = _preferredType ?? _caps?.currentType;
-      return selectedType == IrTransmitterType.audio2Led ? 'Audio 2 LED' : 'Audio 1 LED';
+      return selectedType == IrTransmitterType.audio2Led
+          ? 'Audio 2 LED'
+          : 'Audio 1 LED';
     }
     if (_huaweiInternalSelected) {
       return 'Huawei built-in IR receiver';
@@ -241,7 +272,8 @@ class _LearningModeScreenState extends State<LearningModeScreen>
       return 'No learning receiver detected';
     }
     final device = _learningDevices.first;
-    final productName = device.productName.isEmpty ? 'USB learning dongle' : device.productName;
+    final productName =
+        device.productName.isEmpty ? 'USB learning dongle' : device.productName;
     return '$productName (${device.vendorId.toRadixString(16)}:${device.productId.toRadixString(16)})';
   }
 
@@ -260,8 +292,8 @@ class _LearningModeScreenState extends State<LearningModeScreen>
       final learned = _huaweiInternalSelected
           ? await IrTransmitterPlatform.learnHuaweiSignal(timeoutMs: 30000)
           : _lgInternalSelected
-          ? await IrTransmitterPlatform.learnLgSignal(timeoutMs: 30000)
-          : await IrTransmitterPlatform.learnUsbSignal(timeoutMs: 30000);
+              ? await IrTransmitterPlatform.learnLgSignal(timeoutMs: 30000)
+              : await IrTransmitterPlatform.learnUsbSignal(timeoutMs: 30000);
       if (!mounted) return;
       _pulseController.stop();
       _pulseController.reset();
@@ -331,7 +363,8 @@ class _LearningModeScreenState extends State<LearningModeScreen>
         messenger.showSnackBar(
           SnackBar(content: Text(l10n.usbPermissionRequestSent)),
         );
-      } else if (freshCaps.usbStatus == UsbConnectionStatus.permissionRequired ||
+      } else if (freshCaps.usbStatus ==
+              UsbConnectionStatus.permissionRequired ||
           freshCaps.usbStatus == UsbConnectionStatus.permissionDenied) {
         messenger.showSnackBar(
           SnackBar(content: Text(l10n.usbPermissionRequestSentApprove)),
@@ -342,7 +375,9 @@ class _LearningModeScreenState extends State<LearningModeScreen>
         );
       } else {
         messenger.showSnackBar(
-          SnackBar(content: Text(freshCaps.usbStatusMessage ?? l10n.usbStatusOpenFailed)),
+          SnackBar(
+              content:
+                  Text(freshCaps.usbStatusMessage ?? l10n.usbStatusOpenFailed)),
         );
       }
     } catch (_) {
@@ -404,7 +439,7 @@ class _LearningModeScreenState extends State<LearningModeScreen>
     await Haptics.selectionClick();
   }
 
-  Future<void> _replayCapturedSignal() async {
+  Future<void> _replayCapturedSignal({bool showFeedback = true}) async {
     final signal = _capturedSignal;
     if (signal == null || _busy) return;
     setState(() => _busy = true);
@@ -415,13 +450,27 @@ class _LearningModeScreenState extends State<LearningModeScreen>
             ? context.l10n.learningModeUnnamedCapture
             : _buttonNameCtrl.text.trim(),
       );
-      await sendIR(previewButton);
+      Future<void>? animation;
+      if (_hasWaveformPreview(signal)) {
+        _replayWaveformController
+          ..duration = _waveformReplayDuration(signal)
+          ..stop()
+          ..value = 0;
+        setState(() => _replayWaveformActive = true);
+        animation = _replayWaveformController.forward(from: 0);
+      }
+      await Future.wait<void>([
+        sendIR(previewButton),
+        if (animation != null) animation,
+      ]);
       if (!mounted) return;
-      final msg = context.l10n.learningModeReplaySent;
-      ScaffoldMessenger.of(context)
-        ..hideCurrentSnackBar()
-        ..showSnackBar(SnackBar(content: Text(msg)));
-      await Haptics.selectionClick();
+      if (showFeedback) {
+        final msg = context.l10n.learningModeReplaySent;
+        ScaffoldMessenger.of(context)
+          ..hideCurrentSnackBar()
+          ..showSnackBar(SnackBar(content: Text(msg)));
+        await Haptics.selectionClick();
+      }
     } catch (e) {
       if (!mounted) return;
       final msg = e is PlatformException
@@ -431,11 +480,57 @@ class _LearningModeScreenState extends State<LearningModeScreen>
         ..hideCurrentSnackBar()
         ..showSnackBar(SnackBar(content: Text(msg)));
     } finally {
-      if (mounted) setState(() => _busy = false);
+      if (mounted) {
+        setState(() {
+          _busy = false;
+          _replayWaveformActive = false;
+        });
+      }
     }
   }
 
+  void _stopReplayLoop() {
+    _replayLoopTimer?.cancel();
+    _replayLoopTimer = null;
+    if (!mounted) return;
+    setState(() {
+      _replayLooping = false;
+      _replayWaveformActive = false;
+    });
+  }
+
+  void _toggleReplayLoop() {
+    final signal = _capturedSignal;
+    if (signal == null) return;
+    if (_busy && !_replayLooping) return;
+    if (_replayLooping) {
+      _stopReplayLoop();
+      return;
+    }
+
+    final interval =
+        _waveformReplayDuration(signal) + const Duration(milliseconds: 180);
+    setState(() => _replayLooping = true);
+    unawaited(_replayCapturedSignal(showFeedback: false));
+    _replayLoopTimer = Timer.periodic(interval, (_) {
+      if (!mounted || !_replayLooping || _capturedSignal == null) return;
+      unawaited(_replayCapturedSignal(showFeedback: false));
+    });
+  }
+
+  Future<void> _copyRawPreview() async {
+    final raw = _rawPreview.trim();
+    if (raw.isEmpty) return;
+    await Clipboard.setData(ClipboardData(text: raw));
+    if (!mounted) return;
+    ScaffoldMessenger.of(context)
+      ..hideCurrentSnackBar()
+      ..showSnackBar(SnackBar(content: Text(context.l10n.codeCopied)));
+    await Haptics.selectionClick();
+  }
+
   Future<void> _learnAnother() async {
+    _stopReplayLoop();
     setState(() {
       _capturedSignal = null;
       _captureState = _LearningCaptureState.idle;
@@ -494,13 +589,14 @@ class _LearningModeScreenState extends State<LearningModeScreen>
       final refreshedTarget = targetRemote == null
           ? null
           : remotes.cast<Remote?>().firstWhere(
-              (r) => r?.id == targetRemote!.id,
-              orElse: () => remotes.cast<Remote?>().firstWhere(
-                (r) => r?.name == targetRemote!.name,
-                orElse: () => null,
-              ),
-            );
+                (r) => r?.id == targetRemote!.id,
+                orElse: () => remotes.cast<Remote?>().firstWhere(
+                      (r) => r?.name == targetRemote!.name,
+                      orElse: () => null,
+                    ),
+              );
       _buttonNameCtrl.clear();
+      _stopReplayLoop();
       setState(() {
         _capturedSignal = null;
         _captureState = _LearningCaptureState.idle;
@@ -509,8 +605,9 @@ class _LearningModeScreenState extends State<LearningModeScreen>
       await _showPostSaveSheet(refreshedTarget);
     } catch (e) {
       if (!mounted) return;
-      final msg =
-          e is Exception ? e.toString().replaceFirst('Exception: ', '') : l10n.learningModeSaveFailed;
+      final msg = e is Exception
+          ? e.toString().replaceFirst('Exception: ', '')
+          : l10n.learningModeSaveFailed;
       ScaffoldMessenger.of(context)
         ..hideCurrentSnackBar()
         ..showSnackBar(SnackBar(content: Text(msg)));
@@ -575,14 +672,16 @@ class _LearningModeScreenState extends State<LearningModeScreen>
               const SizedBox(height: 18),
               if (targetRemote != null) ...[
                 FilledButton.icon(
-                  onPressed: () => Navigator.of(sheetContext).pop('open_remote'),
+                  onPressed: () =>
+                      Navigator.of(sheetContext).pop('open_remote'),
                   icon: const Icon(Icons.settings_remote_rounded),
                   label: const Text('Open remote'),
                 ),
                 const SizedBox(height: 10),
               ],
               OutlinedButton.icon(
-                onPressed: () => Navigator.of(sheetContext).pop('learn_another'),
+                onPressed: () =>
+                    Navigator.of(sheetContext).pop('learn_another'),
                 icon: const Icon(Icons.add_circle_outline_rounded),
                 label: Text(sheetContext.l10n.learningModeLearnAnotherAction),
               ),
@@ -626,10 +725,10 @@ class _LearningModeScreenState extends State<LearningModeScreen>
       protocol: signal.family == 'elksmart'
           ? IrProtocolIds.elksmartLearned
           : signal.family == 'lge_ir'
-          ? IrProtocolIds.lgeIrLearned
-          : signal.family == 'audio'
-          ? IrProtocolIds.audioLearned
-          : IrProtocolIds.tiqiaaLearned,
+              ? IrProtocolIds.lgeIrLearned
+              : signal.family == 'audio'
+                  ? IrProtocolIds.audioLearned
+                  : IrProtocolIds.tiqiaaLearned,
       protocolParams: <String, dynamic>{
         'family': signal.family,
         'opaqueFrameBase64': signal.opaqueFrameBase64,
@@ -762,7 +861,8 @@ class _LearningModeScreenState extends State<LearningModeScreen>
           context.l10n.learningModeStatusNoReceiverTitle,
         _LearningHardwareState.checking =>
           context.l10n.learningModeStatusCheckingTitle,
-        _LearningHardwareState.ready => context.l10n.learningModeStatusReadyTitle,
+        _LearningHardwareState.ready =>
+          context.l10n.learningModeStatusReadyTitle,
       };
     }
     return switch (_captureState) {
@@ -887,7 +987,8 @@ class _LearningModeScreenState extends State<LearningModeScreen>
               ),
             ],
             if (!_audioLearningSelected &&
-                _hardwareState == _LearningHardwareState.permissionRequired) ...[
+                _hardwareState ==
+                    _LearningHardwareState.permissionRequired) ...[
               const SizedBox(height: 14),
               FilledButton.tonalIcon(
                 onPressed: _busy ? null : _requestUsbPermission,
@@ -932,9 +1033,9 @@ class _LearningModeScreenState extends State<LearningModeScreen>
               _audioLearningSelected
                   ? 'Switch to a compatible USB learning dongle such as Tiqiaa, ZaZa, or ElkSmart to use Learning Mode.'
                   : 'No compatible learning receiver was detected.\n\n'
-                    '• Plug in a Tiqiaa, ZaZa, or ElkSmart USB IR dongle, or\n'
-                    '• Use a Huawei / Honor phone with a built-in IR receiver, or\n'
-                    '• Use an LG phone with the UEI Quickset service installed.',
+                      '• Plug in a Tiqiaa, ZaZa, or ElkSmart USB IR dongle, or\n'
+                      '• Use a Huawei / Honor phone with a built-in IR receiver, or\n'
+                      '• Use an LG phone with the UEI Quickset service installed.',
               style: Theme.of(context).textTheme.bodyMedium?.copyWith(
                     color: cs.onSurfaceVariant,
                     height: 1.35,
@@ -993,8 +1094,8 @@ class _LearningModeScreenState extends State<LearningModeScreen>
                       mainAxisAlignment: MainAxisAlignment.center,
                       crossAxisAlignment: CrossAxisAlignment.end,
                       children: List.generate(7, (index) {
-                        final phase =
-                            (_pulseController.value * 2 * math.pi) + (index * 0.7);
+                        final phase = (_pulseController.value * 2 * math.pi) +
+                            (index * 0.7);
                         final wave = (math.sin(phase) + 1) / 2;
                         final height = 18.0 + (wave * 42.0);
                         final opacity = 0.35 + (wave * 0.55);
@@ -1005,11 +1106,13 @@ class _LearningModeScreenState extends State<LearningModeScreen>
                             width: 10,
                             height: height,
                             decoration: BoxDecoration(
-                              color: cs.onPrimaryContainer.withValues(alpha: opacity),
+                              color: cs.onPrimaryContainer
+                                  .withValues(alpha: opacity),
                               borderRadius: BorderRadius.circular(999),
                               boxShadow: [
                                 BoxShadow(
-                                  color: cs.onPrimaryContainer.withValues(alpha: 0.12),
+                                  color: cs.onPrimaryContainer
+                                      .withValues(alpha: 0.12),
                                   blurRadius: 10,
                                   spreadRadius: 1,
                                 ),
@@ -1083,6 +1186,7 @@ class _LearningModeScreenState extends State<LearningModeScreen>
     final cs = theme.colorScheme;
     final label = _buttonLabel(context);
     final signal = _capturedSignal!;
+    final hasWaveform = _hasWaveformPreview(signal);
 
     return Column(
       children: [
@@ -1136,18 +1240,21 @@ class _LearningModeScreenState extends State<LearningModeScreen>
                   ],
                 ),
                 const SizedBox(height: 16),
-                _PreviewBlock(
-                  title: context.l10n.learningModeProtocolPreviewTitle,
-                  body: _capturePreviewBody(signal),
-                  trailing: FilledButton.tonal(
-                    onPressed: _busy ? null : _replayCapturedSignal,
-                    child: Text(context.l10n.learningModeReplayAction),
-                  ),
-                ),
-                const SizedBox(height: 12),
-                _PreviewBlock(
-                  title: context.l10n.learningModeRawPreviewTitle,
-                  body: _rawPreview,
+                _CapturedSignalPreviewTabs(
+                  signal: signal,
+                  hasWaveform: hasWaveform,
+                  rawPreview: _rawPreview,
+                  protocolPreview: _capturePreviewBody(signal),
+                  replaying: _busy,
+                  looping: _replayLooping,
+                  replayAnimation: _replayWaveformController,
+                  replayWaveformActive: _replayWaveformActive,
+                  frequencyHz: _waveformFrequencyHz(signal),
+                  onReplay: _busy
+                      ? null
+                      : () => _replayCapturedSignal(showFeedback: true),
+                  onToggleLoop: _toggleReplayLoop,
+                  onCopyRaw: _copyRawPreview,
                 ),
               ],
             ),
@@ -1196,7 +1303,8 @@ class _LearningModeScreenState extends State<LearningModeScreen>
                     ButtonSegment<_LearningSaveTarget>(
                       value: _LearningSaveTarget.existingRemote,
                       icon: const Icon(Icons.settings_remote_rounded),
-                      label: Text(context.l10n.learningModeSaveToExistingRemote),
+                      label:
+                          Text(context.l10n.learningModeSaveToExistingRemote),
                     ),
                     ButtonSegment<_LearningSaveTarget>(
                       value: _LearningSaveTarget.newRemote,
@@ -1384,6 +1492,197 @@ class _InlineNotice extends StatelessWidget {
 }
 
 enum _NoticeTone { error }
+
+class _CapturedSignalPreviewTabs extends StatelessWidget {
+  const _CapturedSignalPreviewTabs({
+    required this.signal,
+    required this.hasWaveform,
+    required this.rawPreview,
+    required this.protocolPreview,
+    required this.replaying,
+    required this.looping,
+    required this.replayAnimation,
+    required this.replayWaveformActive,
+    required this.frequencyHz,
+    required this.onReplay,
+    required this.onToggleLoop,
+    required this.onCopyRaw,
+  });
+
+  final LearnedUsbSignal signal;
+  final bool hasWaveform;
+  final String rawPreview;
+  final String protocolPreview;
+  final bool replaying;
+  final bool looping;
+  final Animation<double> replayAnimation;
+  final bool replayWaveformActive;
+  final int frequencyHz;
+  final VoidCallback? onReplay;
+  final VoidCallback onToggleLoop;
+  final VoidCallback onCopyRaw;
+
+  @override
+  Widget build(BuildContext context) {
+    final hasRaw = rawPreview.trim().isNotEmpty;
+    final tabCount = hasRaw ? 2 : 1;
+
+    return DefaultTabController(
+      length: tabCount,
+      child: Column(
+        children: [
+          Container(
+            decoration: BoxDecoration(
+              color:
+                  Theme.of(context).colorScheme.surface.withValues(alpha: 0.72),
+              borderRadius: BorderRadius.circular(14),
+              border: Border.all(
+                color: Theme.of(context)
+                    .colorScheme
+                    .outlineVariant
+                    .withValues(alpha: 0.5),
+              ),
+            ),
+            child: TabBar(
+              tabs: [
+                Tab(text: context.l10n.irWaveformTitle),
+                if (hasRaw) Tab(text: context.l10n.learningModeRawPreviewTitle),
+              ],
+            ),
+          ),
+          const SizedBox(height: 12),
+          SizedBox(
+            height: hasWaveform ? 410 : 260,
+            child: TabBarView(
+              children: [
+                _CapturedWaveformTab(
+                  signal: signal,
+                  hasWaveform: hasWaveform,
+                  protocolPreview: protocolPreview,
+                  replaying: replaying,
+                  looping: looping,
+                  replayAnimation: replayAnimation,
+                  replayWaveformActive: replayWaveformActive,
+                  frequencyHz: frequencyHz,
+                  onReplay: onReplay,
+                  onToggleLoop: onToggleLoop,
+                ),
+                if (hasRaw)
+                  _RawFallbackTab(
+                    rawPreview: rawPreview,
+                    onCopyRaw: onCopyRaw,
+                  ),
+              ],
+            ),
+          ),
+        ],
+      ),
+    );
+  }
+}
+
+class _CapturedWaveformTab extends StatelessWidget {
+  const _CapturedWaveformTab({
+    required this.signal,
+    required this.hasWaveform,
+    required this.protocolPreview,
+    required this.replaying,
+    required this.looping,
+    required this.replayAnimation,
+    required this.replayWaveformActive,
+    required this.frequencyHz,
+    required this.onReplay,
+    required this.onToggleLoop,
+  });
+
+  final LearnedUsbSignal signal;
+  final bool hasWaveform;
+  final String protocolPreview;
+  final bool replaying;
+  final bool looping;
+  final Animation<double> replayAnimation;
+  final bool replayWaveformActive;
+  final int frequencyHz;
+  final VoidCallback? onReplay;
+  final VoidCallback onToggleLoop;
+
+  @override
+  Widget build(BuildContext context) {
+    return ListView(
+      padding: EdgeInsets.zero,
+      children: [
+        if (hasWaveform)
+          AnimatedBuilder(
+            animation: replayAnimation,
+            builder: (context, _) {
+              return IrWaveformPanel(
+                pattern: signal.rawPatternUs,
+                frequencyHz: frequencyHz,
+                compact: true,
+                playheadProgress:
+                    replayWaveformActive ? replayAnimation.value : null,
+              );
+            },
+          ),
+        if (hasWaveform) const SizedBox(height: 12),
+        _PreviewBlock(
+          title: context.l10n.learningModeProtocolPreviewTitle,
+          body: protocolPreview,
+        ),
+        const SizedBox(height: 12),
+        Row(
+          children: [
+            Expanded(
+              child: FilledButton.tonalIcon(
+                onPressed: onReplay,
+                icon: replaying
+                    ? const SizedBox(
+                        width: 18,
+                        height: 18,
+                        child: CircularProgressIndicator(strokeWidth: 2),
+                      )
+                    : const Icon(Icons.play_arrow_rounded),
+                label: Text(context.l10n.learningModeReplayAction),
+              ),
+            ),
+            const SizedBox(width: 10),
+            Expanded(
+              child: FilledButton.tonalIcon(
+                onPressed: onToggleLoop,
+                icon: Icon(looping ? Icons.stop_rounded : Icons.loop_rounded),
+                label: Text(
+                    looping ? context.l10n.stopLoop : context.l10n.startLoop),
+              ),
+            ),
+          ],
+        ),
+      ],
+    );
+  }
+}
+
+class _RawFallbackTab extends StatelessWidget {
+  const _RawFallbackTab({
+    required this.rawPreview,
+    required this.onCopyRaw,
+  });
+
+  final String rawPreview;
+  final VoidCallback onCopyRaw;
+
+  @override
+  Widget build(BuildContext context) {
+    return _PreviewBlock(
+      title: context.l10n.learningModeRawPreviewTitle,
+      body: rawPreview,
+      trailing: FilledButton.tonalIcon(
+        onPressed: onCopyRaw,
+        icon: const Icon(Icons.copy_rounded),
+        label: Text(context.l10n.copyCode),
+      ),
+    );
+  }
+}
 
 class _PreviewBlock extends StatelessWidget {
   const _PreviewBlock({

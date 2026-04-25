@@ -1,0 +1,6 @@
+Fixed IR database search losing the query when pressing keyboard OK or dismissing the keyboard.
+Fixed remote export on Android 10 by improving the storage permission and file picker fallback flow.
+Fixed Quick Settings tile icon alignment on HyperOS/Xiaomi control center.
+Added IR waveform visualization to the button signal preview inspector.
+Added an interactive waveform view to remote button long-press actions with Send and Loop controls.
+Added waveform preview and replay animation for captured Learning Mode signals when raw timing data is available.
