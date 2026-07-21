@@ -831,6 +831,19 @@ class AppLocalizationsUk extends AppLocalizations {
   String get intensityStrong => 'Висока';
 
   @override
+  String get remoteButtonMetadataTitle => 'Показувати технічні мітки кнопок';
+
+  @override
+  String get remoteButtonMetadataSubtitle =>
+      'Показує протокол, код і частоту на кнопках пульта.';
+
+  @override
+  String get remoteButtonMetadataShown => 'Технічні мітки кнопок показано.';
+
+  @override
+  String get remoteButtonMetadataHidden => 'Технічні мітки кнопок приховано.';
+
+  @override
   String get flipRemoteDefaultTitle => 'Перевертати пульт за замовчуванням';
 
   @override

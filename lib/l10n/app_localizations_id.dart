@@ -826,6 +826,19 @@ class AppLocalizationsId extends AppLocalizations {
   String get intensityStrong => 'Kuat';
 
   @override
+  String get remoteButtonMetadataTitle => 'Tampilkan label teknis tombol';
+
+  @override
+  String get remoteButtonMetadataSubtitle =>
+      'Tampilkan protokol, kode, dan frekuensi pada tombol remote.';
+
+  @override
+  String get remoteButtonMetadataShown => 'Label teknis tombol ditampilkan.';
+
+  @override
+  String get remoteButtonMetadataHidden => 'Label teknis tombol disembunyikan.';
+
+  @override
   String get flipRemoteDefaultTitle => 'Balik Tampilan Remote default';
 
   @override

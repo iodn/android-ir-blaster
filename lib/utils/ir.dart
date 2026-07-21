@@ -103,8 +103,7 @@ NECParams parseNecParamsFromString(String rawData) {
         final headerSpace =
             int.tryParse(nums[1]) ?? NECParams.defaults.headerSpace;
         final bitMark = int.tryParse(nums[2]) ?? NECParams.defaults.bitMark;
-        final zeroSpace =
-            int.tryParse(nums[3]) ?? NECParams.defaults.zeroSpace;
+        final zeroSpace = int.tryParse(nums[3]) ?? NECParams.defaults.zeroSpace;
         final oneSpace = int.tryParse(nums[4]) ?? NECParams.defaults.oneSpace;
         final trailerMark =
             int.tryParse(nums[5]) ?? NECParams.defaults.trailerMark;
@@ -193,6 +192,27 @@ void _validateFrequency(int frequencyHz) {
   }
 }
 
+List<int> _parseRawPattern(String rawData, {required String where}) {
+  final parts = rawData
+      .split(RegExp(r'\s+'))
+      .where((e) => e.isNotEmpty)
+      .toList(growable: false);
+  if (parts.isEmpty) {
+    throw FormatException('$where is empty');
+  }
+  final pattern = <int>[];
+  for (int i = 0; i < parts.length; i++) {
+    final parsed = int.tryParse(parts[i]);
+    if (parsed == null) {
+      throw FormatException(
+        'Invalid integer in $where at index $i: "${parts[i]}"',
+      );
+    }
+    pattern.add(parsed);
+  }
+  return pattern;
+}
+
 Future<void> transmit(int code) async {
   final pattern = convertNECtoList(code);
   _validatePattern(pattern, where: 'hexPattern');
@@ -267,20 +287,10 @@ IrPreview previewIRButton(IRButton button) {
       if (rawPreview.isEmpty) {
         throw StateError('Learned signal is missing raw preview data');
       }
-      final parts = rawPreview
-          .split(RegExp(r'\s+'))
-          .where((e) => e.isNotEmpty)
-          .toList(growable: false);
-      final pattern = <int>[];
-      for (int i = 0; i < parts.length; i++) {
-        final parsed = int.tryParse(parts[i]);
-        if (parsed == null) {
-          throw FormatException(
-            'Invalid integer in learned preview at index $i: "${parts[i]}"',
-          );
-        }
-        pattern.add(parsed);
-      }
+      final pattern = _parseRawPattern(
+        rawPreview,
+        where: 'learned preview',
+      );
       final rawFreq = (params['frequencyHz'] as num?)?.toInt() ?? 0;
       final freq = rawFreq > 0
           ? rawFreq.clamp(kMinIrFrequencyHz, kMaxIrFrequencyHz)
@@ -318,22 +328,7 @@ IrPreview previewIRButton(IRButton button) {
       throw StateError('Custom NEC timings provided but hex code is missing');
     }
 
-    final parts = button.rawData!
-        .split(RegExp(r'\s+'))
-        .where((e) => e.isNotEmpty)
-        .toList(growable: false);
-    if (parts.isEmpty) {
-      throw FormatException('Raw data is empty');
-    }
-    final List<int> pattern = <int>[];
-    for (int i = 0; i < parts.length; i++) {
-      final parsed = int.tryParse(parts[i]);
-      if (parsed == null) {
-        throw FormatException(
-            'Invalid integer in raw data at index $i: "${parts[i]}"');
-      }
-      pattern.add(parsed);
-    }
+    final pattern = _parseRawPattern(button.rawData!, where: 'raw data');
     _validatePattern(pattern, where: 'previewRaw');
     _validateFrequency(button.frequency!);
     return IrPreview(
@@ -381,6 +376,23 @@ Future<void> sendIR(IRButton button) async {
         id == IrProtocolIds.audioLearned) {
       final params = button.protocolParams ?? <String, dynamic>{};
       final family = (params['family'] as String? ?? '').trim();
+      final rawPreview = (params['rawPreview'] as String? ?? '').trim();
+      final isUsbLearned = id == IrProtocolIds.tiqiaaLearned ||
+          id == IrProtocolIds.elksmartLearned;
+      if (isUsbLearned && rawPreview.isNotEmpty) {
+        final rawFreq = (params['frequencyHz'] as num?)?.toInt() ?? 0;
+        final freq = rawFreq > 0
+            ? rawFreq.clamp(kMinIrFrequencyHz, kMaxIrFrequencyHz)
+            : kDefaultNecFrequencyHz;
+        await transmitRaw(
+          freq,
+          _parseRawPattern(rawPreview, where: 'learned raw preview'),
+        );
+        return;
+      }
+      if (id == IrProtocolIds.tiqiaaLearned) {
+        throw StateError('Learned Tiqiaa signal is missing raw replay data');
+      }
       final opaqueFrameBase64 =
           (params['opaqueFrameBase64'] as String? ?? '').trim();
       final opaqueMeta = (params['opaqueMeta'] as num?)?.toInt();
@@ -415,30 +427,14 @@ Future<void> sendIR(IRButton button) async {
             ? buildNecPatternLSBFirst(button.code!, params: params)
             : buildNecPatternFromStoredCodeMSBFirst(button.code!,
                 params: params);
-        await transmitRaw(
-            button.frequency ?? kDefaultNecFrequencyHz, pattern);
+        await transmitRaw(button.frequency ?? kDefaultNecFrequencyHz, pattern);
         return;
       } else {
         throw StateError('Custom NEC timings provided but hex code is missing');
       }
     }
 
-    final parts = button.rawData!
-        .split(RegExp(r'\s+'))
-        .where((e) => e.isNotEmpty)
-        .toList(growable: false);
-    if (parts.isEmpty) {
-      throw FormatException('Raw data is empty');
-    }
-    final List<int> pattern = <int>[];
-    for (int i = 0; i < parts.length; i++) {
-      final parsed = int.tryParse(parts[i]);
-      if (parsed == null) {
-        throw FormatException(
-            'Invalid integer in raw data at index $i: "${parts[i]}"');
-      }
-      pattern.add(parsed);
-    }
+    final pattern = _parseRawPattern(button.rawData!, where: 'raw data');
     await transmitRaw(button.frequency!, pattern);
     return;
   }

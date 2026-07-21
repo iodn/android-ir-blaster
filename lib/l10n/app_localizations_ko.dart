@@ -803,6 +803,18 @@ class AppLocalizationsKo extends AppLocalizations {
   String get intensityStrong => '강함';
 
   @override
+  String get remoteButtonMetadataTitle => '버튼 기술 라벨 표시';
+
+  @override
+  String get remoteButtonMetadataSubtitle => '리모컨 버튼에 프로토콜, 코드, 주파수를 표시합니다.';
+
+  @override
+  String get remoteButtonMetadataShown => '버튼 기술 라벨을 표시합니다.';
+
+  @override
+  String get remoteButtonMetadataHidden => '버튼 기술 라벨을 숨겼습니다.';
+
+  @override
   String get flipRemoteDefaultTitle => '기본으로 리모컨 보기 뒤집기';
 
   @override

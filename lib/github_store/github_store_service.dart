@@ -52,6 +52,7 @@ class _MemoryCacheEntry<T> {
 class GitHubStoreService {
   static const String userAgent = 'IRBlaster/1.0';
   static const int maxPreviewBytes = 512 * 1024;
+  static const int _directoryCacheVersion = 2;
   static const Duration _directoryCacheTtl = Duration(minutes: 15);
   static const Duration _fileCacheTtl = Duration(hours: 6);
   static const int _maxPersistedFileCacheBytes = 128 * 1024;
@@ -86,7 +87,7 @@ class GitHubStoreService {
         .join('/')
         .replaceAll('//', '/');
     final cacheKey =
-        'dir|${ref.owner}|${ref.repo}|${ref.branch}|$path|${_authToken != null ? 'auth' : 'public'}';
+        'dir:v$_directoryCacheVersion|${ref.owner}|${ref.repo}|${ref.branch}|$path|${_authToken != null ? 'auth' : 'public'}';
 
     final memory = _directoryMemoryCache[cacheKey];
     if (!forceRefresh && memory != null && memory.isFresh(_directoryCacheTtl)) {
@@ -136,10 +137,7 @@ class GitHubStoreService {
             );
           })
           .where(
-            (item) =>
-                item.name.isNotEmpty &&
-                !item.name.startsWith('.') &&
-                !item.name.startsWith('_'),
+            (item) => item.name.isNotEmpty && !item.name.startsWith('.'),
           )
           .toList()
         ..sort((a, b) {
@@ -176,7 +174,8 @@ class GitHubStoreService {
       return memory.value;
     }
 
-    final local = await _readFileCache(cacheKey, allowStale: forceRefresh == false);
+    final local =
+        await _readFileCache(cacheKey, allowStale: forceRefresh == false);
     if (!forceRefresh && local != null && local.isFresh(_fileCacheTtl)) {
       _fileMemoryCache[cacheKey] = local;
       return local.value;
@@ -460,7 +459,8 @@ class GitHubStoreService {
       savedAt: DateTime.now(),
     );
     _fileMemoryCache[rawKey] = entry;
-    if (_authToken != null || payload.text.length > _maxPersistedFileCacheBytes) {
+    if (_authToken != null ||
+        payload.text.length > _maxPersistedFileCacheBytes) {
       return;
     }
 

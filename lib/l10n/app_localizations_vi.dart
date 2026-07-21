@@ -823,6 +823,19 @@ class AppLocalizationsVi extends AppLocalizations {
   String get intensityStrong => 'Mạnh';
 
   @override
+  String get remoteButtonMetadataTitle => 'Hiện nhãn kỹ thuật của nút';
+
+  @override
+  String get remoteButtonMetadataSubtitle =>
+      'Hiển thị giao thức, mã và tần số trên nút điều khiển.';
+
+  @override
+  String get remoteButtonMetadataShown => 'Đã hiện nhãn kỹ thuật của nút.';
+
+  @override
+  String get remoteButtonMetadataHidden => 'Đã ẩn nhãn kỹ thuật của nút.';
+
+  @override
   String get flipRemoteDefaultTitle => 'Mặc định lật màn hình điều khiển';
 
   @override

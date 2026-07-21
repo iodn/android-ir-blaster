@@ -827,6 +827,19 @@ class AppLocalizationsHi extends AppLocalizations {
   String get intensityStrong => 'Strong';
 
   @override
+  String get remoteButtonMetadataTitle => 'बटन के तकनीकी लेबल दिखाएँ';
+
+  @override
+  String get remoteButtonMetadataSubtitle =>
+      'रिमोट बटन पर प्रोटोकॉल, कोड और फ़्रीक्वेंसी चिप दिखाएँ.';
+
+  @override
+  String get remoteButtonMetadataShown => 'बटन के तकनीकी लेबल दिख रहे हैं.';
+
+  @override
+  String get remoteButtonMetadataHidden => 'बटन के तकनीकी लेबल छिपे हैं.';
+
+  @override
   String get flipRemoteDefaultTitle => 'Flip रिमोट दृश्य द्वारा डिफ़ॉल्ट';
 
   @override

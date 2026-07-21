@@ -830,6 +830,22 @@ class AppLocalizationsPl extends AppLocalizations {
   String get intensityStrong => 'Mocna';
 
   @override
+  String get remoteButtonMetadataTitle =>
+      'Pokaż techniczne etykiety przycisków';
+
+  @override
+  String get remoteButtonMetadataSubtitle =>
+      'Wyświetla protokół, kod i częstotliwość na przyciskach pilota.';
+
+  @override
+  String get remoteButtonMetadataShown =>
+      'Techniczne etykiety przycisków są widoczne.';
+
+  @override
+  String get remoteButtonMetadataHidden =>
+      'Techniczne etykiety przycisków są ukryte.';
+
+  @override
   String get flipRemoteDefaultTitle => 'Domyślnie odwróć widok pilota';
 
   @override

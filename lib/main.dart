@@ -10,6 +10,7 @@ import 'package:irblaster_controller/state/app_theme.dart';
 import 'package:irblaster_controller/state/dynamic_color.dart';
 import 'package:irblaster_controller/state/haptics.dart';
 import 'package:irblaster_controller/state/orientation_pref.dart';
+import 'package:irblaster_controller/state/remote_display_prefs.dart';
 import 'package:irblaster_controller/state/transmitter_prefs.dart';
 import 'package:irblaster_controller/state/remotes_state.dart';
 import 'package:irblaster_controller/state/macros_state.dart';
@@ -45,6 +46,7 @@ Future<void> main() async {
     await Future.wait([
       HapticsController.instance.load(),
       RemoteOrientationController.instance.load(),
+      RemoteDisplayController.instance.load(),
       TransmitterPrefs.instance.load(),
       // lazy import to avoid circulars; we refer by string to keep tool happy
     ]);

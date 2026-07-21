@@ -833,6 +833,22 @@ class AppLocalizationsPt extends AppLocalizations {
   String get intensityStrong => 'Fuerte';
 
   @override
+  String get remoteButtonMetadataTitle =>
+      'Mostrar etiquetas técnicas dos botões';
+
+  @override
+  String get remoteButtonMetadataSubtitle =>
+      'Mostra protocolo, código e frequência nos botões do comando.';
+
+  @override
+  String get remoteButtonMetadataShown =>
+      'Etiquetas técnicas dos botões visíveis.';
+
+  @override
+  String get remoteButtonMetadataHidden =>
+      'Etiquetas técnicas dos botões ocultas.';
+
+  @override
   String get flipRemoteDefaultTitle => 'Inverter vista do comando por defecto';
 
   @override
@@ -5686,6 +5702,22 @@ class AppLocalizationsPtBr extends AppLocalizationsPt {
 
   @override
   String get intensityStrong => 'Fuerte';
+
+  @override
+  String get remoteButtonMetadataTitle =>
+      'Mostrar etiquetas técnicas dos botões';
+
+  @override
+  String get remoteButtonMetadataSubtitle =>
+      'Mostra protocolo, código e frequência nos botões do controle.';
+
+  @override
+  String get remoteButtonMetadataShown =>
+      'Etiquetas técnicas dos botões visíveis.';
+
+  @override
+  String get remoteButtonMetadataHidden =>
+      'Etiquetas técnicas dos botões ocultas.';
 
   @override
   String get flipRemoteDefaultTitle => 'Inverter vista do controle por defecto';

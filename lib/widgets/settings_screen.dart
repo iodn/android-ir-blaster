@@ -11,6 +11,7 @@ import 'package:irblaster_controller/state/home_surface_prefs.dart';
 import 'package:irblaster_controller/state/app_theme.dart';
 import 'package:irblaster_controller/state/dynamic_color.dart';
 import 'package:irblaster_controller/state/macros_state.dart';
+import 'package:irblaster_controller/state/remote_display_prefs.dart';
 import 'package:irblaster_controller/state/remotes_state.dart';
 import 'package:irblaster_controller/utils/ir_transmitter_platform.dart';
 import 'package:irblaster_controller/utils/macros_io.dart';
@@ -1012,6 +1013,7 @@ class SettingsScreen extends StatelessWidget {
 
   Widget _buildInteractionSection(BuildContext context) {
     final orientationCtrl = RemoteOrientationController.instance;
+    final displayCtrl = RemoteDisplayController.instance;
     final cs = Theme.of(context).colorScheme;
     unawaited(HapticsController.instance.refreshDiagnostics(notify: false));
 
@@ -1187,6 +1189,32 @@ class SettingsScreen extends StatelessWidget {
                       );
                     },
                   ),
+                );
+              },
+            ),
+            const Divider(height: 1),
+            AnimatedBuilder(
+              animation: displayCtrl,
+              builder: (context, _) {
+                return SwitchListTile.adaptive(
+                  secondary: const Icon(Icons.view_agenda_outlined),
+                  title: Text(context.l10n.remoteButtonMetadataTitle),
+                  subtitle: Text(context.l10n.remoteButtonMetadataSubtitle),
+                  value: displayCtrl.showButtonMetadata,
+                  onChanged: (v) async {
+                    final messenger = ScaffoldMessenger.of(context);
+                    final l10n = context.l10n;
+                    await displayCtrl.setShowButtonMetadata(v);
+                    messenger.showSnackBar(
+                      SnackBar(
+                        content: Text(
+                          v
+                              ? l10n.remoteButtonMetadataShown
+                              : l10n.remoteButtonMetadataHidden,
+                        ),
+                      ),
+                    );
+                  },
                 );
               },
             ),

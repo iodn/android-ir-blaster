@@ -13,6 +13,7 @@ import 'package:irblaster_controller/state/orientation_pref.dart';
 import 'package:irblaster_controller/state/device_controls_prefs.dart';
 import 'package:irblaster_controller/state/home_button_widget_prefs.dart';
 import 'package:irblaster_controller/state/quick_settings_prefs.dart';
+import 'package:irblaster_controller/state/remote_display_prefs.dart';
 import 'package:irblaster_controller/state/remotes_state.dart';
 import 'package:irblaster_controller/utils/button_color_accessibility.dart';
 import 'package:irblaster_controller/utils/ir.dart';
@@ -54,6 +55,7 @@ class RemoteViewState extends State<RemoteView> {
 
   final RemoteOrientationController _orientation =
       RemoteOrientationController.instance;
+  final RemoteDisplayController _display = RemoteDisplayController.instance;
 
   late Remote _remote;
 
@@ -71,6 +73,7 @@ class RemoteViewState extends State<RemoteView> {
     _remote = widget.remote;
     _rotate180 = _orientation.flipped;
     _highlightButtonId = widget.initialFocusButtonId?.trim();
+    _display.addListener(_handleDisplayPrefsChanged);
     unawaited(ContinueContextsPrefs.saveLastRemote(_remote));
     unawaited(RemoteHighlightsPrefs.addRecent(_remote));
     _scheduleHighlightClear();
@@ -141,8 +144,14 @@ class RemoteViewState extends State<RemoteView> {
   void dispose() {
     _highlightTimer?.cancel();
     _gridScrollController.dispose();
+    _display.removeListener(_handleDisplayPrefsChanged);
     _stopLoop(silent: true);
     super.dispose();
+  }
+
+  void _handleDisplayPrefsChanged() {
+    if (!mounted) return;
+    setState(() {});
   }
 
   void _scheduleHighlightClear() {
@@ -1676,6 +1685,7 @@ class RemoteViewState extends State<RemoteView> {
     final theme = Theme.of(context);
     final cs = theme.colorScheme;
     final cardColor = cs.primary.withValues(alpha: 0.20);
+    final showMetadata = _display.showButtonMetadata;
 
     return ReorderableGridView.builder(
       controller: _gridScrollController,
@@ -1769,17 +1779,18 @@ class RemoteViewState extends State<RemoteView> {
                           ),
                         ),
                       ),
-                    Positioned(
-                      top: 4,
-                      right: 4,
-                      child: _pill(
-                        context,
-                        proto,
-                        padding: const EdgeInsets.symmetric(
-                            horizontal: 6, vertical: 3),
-                        fontSize: 9,
+                    if (showMetadata)
+                      Positioned(
+                        top: 4,
+                        right: 4,
+                        child: _pill(
+                          context,
+                          proto,
+                          padding: const EdgeInsets.symmetric(
+                              horizontal: 6, vertical: 3),
+                          fontSize: 9,
+                        ),
                       ),
-                    ),
                     if (loopingThis)
                       Positioned(
                         left: 4,
@@ -1823,6 +1834,7 @@ class RemoteViewState extends State<RemoteView> {
     final theme = Theme.of(context);
     final cs = theme.colorScheme;
     final cardColor = cs.primary.withValues(alpha: 0.20);
+    final showMetadata = _display.showButtonMetadata;
 
     return ReorderableGridView.builder(
       controller: _gridScrollController,
@@ -1953,31 +1965,33 @@ class RemoteViewState extends State<RemoteView> {
                           ),
                         ),
                       ),
-                      const SizedBox(height: 8),
-                      Center(
-                        child: Text(
-                          codeText,
-                          maxLines: 1,
-                          overflow: TextOverflow.ellipsis,
-                          style: theme.textTheme.bodySmall?.copyWith(
-                            fontFamily: isRaw ? null : 'monospace',
-                            fontWeight: FontWeight.w800,
-                            color: fgColor.withValues(alpha: 0.82),
-                            fontSize: 11,
+                      if (showMetadata) ...[
+                        const SizedBox(height: 8),
+                        Center(
+                          child: Text(
+                            codeText,
+                            maxLines: 1,
+                            overflow: TextOverflow.ellipsis,
+                            style: theme.textTheme.bodySmall?.copyWith(
+                              fontFamily: isRaw ? null : 'monospace',
+                              fontWeight: FontWeight.w800,
+                              color: fgColor.withValues(alpha: 0.82),
+                              fontSize: 11,
+                            ),
                           ),
                         ),
-                      ),
-                      const SizedBox(height: 10),
-                      Wrap(
-                        alignment: WrapAlignment.center,
-                        spacing: 6,
-                        runSpacing: 6,
-                        children: [
-                          _pill(context, proto, fontSize: 9),
-                          if (freq.isNotEmpty)
-                            _pill(context, freq, fontSize: 9),
-                        ],
-                      ),
+                        const SizedBox(height: 10),
+                        Wrap(
+                          alignment: WrapAlignment.center,
+                          spacing: 6,
+                          runSpacing: 6,
+                          children: [
+                            _pill(context, proto, fontSize: 9),
+                            if (freq.isNotEmpty)
+                              _pill(context, freq, fontSize: 9),
+                          ],
+                        ),
+                      ],
                     ],
                   ),
                 ),

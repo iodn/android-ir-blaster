@@ -841,6 +841,21 @@ class AppLocalizationsIt extends AppLocalizations {
   String get intensityStrong => 'Forte';
 
   @override
+  String get remoteButtonMetadataTitle => 'Mostra etichette tecniche pulsanti';
+
+  @override
+  String get remoteButtonMetadataSubtitle =>
+      'Mostra protocollo, codice e frequenza sui pulsanti del telecomando.';
+
+  @override
+  String get remoteButtonMetadataShown =>
+      'Etichette tecniche pulsanti visibili.';
+
+  @override
+  String get remoteButtonMetadataHidden =>
+      'Etichette tecniche pulsanti nascoste.';
+
+  @override
   String get flipRemoteDefaultTitle => 'Capovolgi Telecomando per default';
 
   @override

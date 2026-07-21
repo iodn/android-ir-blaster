@@ -831,6 +831,22 @@ class AppLocalizationsFil extends AppLocalizations {
   String get intensityStrong => 'Strong';
 
   @override
+  String get remoteButtonMetadataTitle =>
+      'Ipakita ang teknikal na label ng button';
+
+  @override
+  String get remoteButtonMetadataSubtitle =>
+      'Ipakita ang protocol, code, at frequency sa mga button ng remote.';
+
+  @override
+  String get remoteButtonMetadataShown =>
+      'Ipinapakita ang teknikal na label ng button.';
+
+  @override
+  String get remoteButtonMetadataHidden =>
+      'Nakatago ang teknikal na label ng button.';
+
+  @override
   String get flipRemoteDefaultTitle => 'Flip Remote View by default';
 
   @override

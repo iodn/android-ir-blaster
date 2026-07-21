@@ -836,6 +836,19 @@ class AppLocalizationsFr extends AppLocalizations {
   String get intensityStrong => 'Fort';
 
   @override
+  String get remoteButtonMetadataTitle => 'Afficher les libellés techniques';
+
+  @override
+  String get remoteButtonMetadataSubtitle =>
+      'Affiche le protocole, le code et la fréquence sur les boutons.';
+
+  @override
+  String get remoteButtonMetadataShown => 'Libellés techniques affichés.';
+
+  @override
+  String get remoteButtonMetadataHidden => 'Libellés techniques masqués.';
+
+  @override
   String get flipRemoteDefaultTitle => 'Vue télécommande inversée par défaut';
 
   @override

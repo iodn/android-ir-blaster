@@ -708,7 +708,10 @@ class _LearningModeScreenState extends State<LearningModeScreen>
     // dongle without requiring a device-specific replay channel.
     // LGE signals are opaque UEI blobs — they MUST use protocol params and
     // can only be replayed on the same LG device via the UEI service.
-    if (signal.family == 'audio' || signal.family == 'huawei_ir') {
+    if (signal.family == 'audio' ||
+        signal.family == 'huawei_ir' ||
+        signal.family == 'tiqiaa' ||
+        signal.family == 'elksmart') {
       return IRButton(
         id: DateTime.now().microsecondsSinceEpoch.toString(),
         image: buttonName,

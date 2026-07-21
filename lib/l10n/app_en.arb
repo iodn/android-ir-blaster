@@ -294,6 +294,22 @@
   "intensityLight": "Light",
   "intensityMedium": "Medium",
   "intensityStrong": "Strong",
+  "remoteButtonMetadataTitle": "Show button technical labels",
+  "@remoteButtonMetadataTitle": {
+    "description": "Settings toggle title for showing or hiding technical metadata on remote buttons."
+  },
+  "remoteButtonMetadataSubtitle": "Display protocol, code, and frequency chips on remote buttons.",
+  "@remoteButtonMetadataSubtitle": {
+    "description": "Settings toggle subtitle for showing or hiding protocol, code, and frequency labels on remote buttons."
+  },
+  "remoteButtonMetadataShown": "Button technical labels shown.",
+  "@remoteButtonMetadataShown": {
+    "description": "Snackbar shown when remote button technical metadata is enabled."
+  },
+  "remoteButtonMetadataHidden": "Button technical labels hidden.",
+  "@remoteButtonMetadataHidden": {
+    "description": "Snackbar shown when remote button technical metadata is disabled."
+  },
   "flipRemoteDefaultTitle": "Flip Remote View by default",
   "flipRemoteDefaultSubtitle": "Open Remote screens rotated 180° (for bottom-mounted USB dongles).",
   "remoteViewFlipped": "Remote View will open flipped.",

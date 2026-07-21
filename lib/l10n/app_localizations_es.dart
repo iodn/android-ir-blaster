@@ -834,6 +834,22 @@ class AppLocalizationsEs extends AppLocalizations {
   String get intensityStrong => 'Fuerte';
 
   @override
+  String get remoteButtonMetadataTitle =>
+      'Mostrar etiquetas técnicas de botones';
+
+  @override
+  String get remoteButtonMetadataSubtitle =>
+      'Muestra protocolo, código y frecuencia en los botones del mando.';
+
+  @override
+  String get remoteButtonMetadataShown =>
+      'Etiquetas técnicas de botones visibles.';
+
+  @override
+  String get remoteButtonMetadataHidden =>
+      'Etiquetas técnicas de botones ocultas.';
+
+  @override
   String get flipRemoteDefaultTitle => 'Invertir vista del mando por defecto';
 
   @override

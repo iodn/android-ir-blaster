@@ -776,6 +776,18 @@ class AppLocalizationsZh extends AppLocalizations {
   String get intensityStrong => '强';
 
   @override
+  String get remoteButtonMetadataTitle => '显示按钮技术标签';
+
+  @override
+  String get remoteButtonMetadataSubtitle => '在遥控器按钮上显示协议 代码和频率。';
+
+  @override
+  String get remoteButtonMetadataShown => '已显示按钮技术标签。';
+
+  @override
+  String get remoteButtonMetadataHidden => '已隐藏按钮技术标签。';
+
+  @override
   String get flipRemoteDefaultTitle => '默认翻转遥控器视图';
 
   @override

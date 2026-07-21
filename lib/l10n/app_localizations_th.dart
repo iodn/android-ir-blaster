@@ -817,6 +817,19 @@ class AppLocalizationsTh extends AppLocalizations {
   String get intensityStrong => 'Strong';
 
   @override
+  String get remoteButtonMetadataTitle => 'แสดงป้ายเทคนิคของปุ่ม';
+
+  @override
+  String get remoteButtonMetadataSubtitle =>
+      'แสดงโปรโตคอล รหัส และความถี่บนปุ่มรีโมต';
+
+  @override
+  String get remoteButtonMetadataShown => 'แสดงป้ายเทคนิคของปุ่มแล้ว';
+
+  @override
+  String get remoteButtonMetadataHidden => 'ซ่อนป้ายเทคนิคของปุ่มแล้ว';
+
+  @override
   String get flipRemoteDefaultTitle => 'พลิกมุมมองรีโมตเป็นค่าเริ่มต้น';
 
   @override
