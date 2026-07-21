@@ -1,4 +1,5 @@
 import 'package:flutter/foundation.dart';
+import 'package:irblaster_controller/config/build_flags.dart';
 import 'package:irblaster_controller/state/haptics.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
@@ -11,13 +12,13 @@ import 'settings/widgets/support_pill.dart';
 class AboutScreen extends StatefulWidget {
   final String repoUrl;
   final String issuesUrl;
-  final String liberapayUrl;
+  final String? liberapayUrl;
 
   const AboutScreen({
     super.key,
     required this.repoUrl,
     required this.issuesUrl,
-    required this.liberapayUrl,
+    this.liberapayUrl,
   });
 
   @override
@@ -134,6 +135,8 @@ class _AboutScreenState extends State<AboutScreen> {
     final pkg = _packageName();
     final mode = _buildModeLabel();
     final year = DateTime.now().year;
+    final showDonationLink =
+        BuildFlags.showDonations && widget.liberapayUrl != null;
 
     return Scaffold(
       appBar: AppBar(title: const Text('About')),
@@ -177,7 +180,9 @@ class _AboutScreenState extends State<AboutScreen> {
           const SizedBox(height: 18),
           SectionCard(
             title: 'Links',
-            subtitle: 'Repository, issues, and donations',
+            subtitle: showDonationLink
+                ? 'Repository, issues, and donations'
+                : 'Repository and issues',
             leading: Icon(Icons.link_rounded, color: cs.primary),
             child: Column(
               children: [
@@ -198,15 +203,21 @@ class _AboutScreenState extends State<AboutScreen> {
                   onTap: () => _launchExternal(context, widget.issuesUrl),
                   onLongPress: () => _copy(context, widget.issuesUrl, 'Issues link copied'),
                 ),
-                const Divider(height: 1),
-                ListTile(
-                  leading: const Icon(Icons.favorite_rounded),
-                  title: const Text('Donate via Liberapay'),
-                  subtitle: Text(widget.liberapayUrl),
-                  trailing: const Icon(Icons.open_in_new_rounded),
-                  onTap: () => _launchExternal(context, widget.liberapayUrl),
-                  onLongPress: () => _copy(context, widget.liberapayUrl, 'Liberapay link copied'),
-                ),
+                if (showDonationLink) ...[
+                  const Divider(height: 1),
+                  ListTile(
+                    leading: const Icon(Icons.favorite_rounded),
+                    title: const Text('Donate via Liberapay'),
+                    subtitle: Text(widget.liberapayUrl!),
+                    trailing: const Icon(Icons.open_in_new_rounded),
+                    onTap: () => _launchExternal(context, widget.liberapayUrl!),
+                    onLongPress: () => _copy(
+                      context,
+                      widget.liberapayUrl!,
+                      'Liberapay link copied',
+                    ),
+                  ),
+                ],
               ],
             ),
           ),

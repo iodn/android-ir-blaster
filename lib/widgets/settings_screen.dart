@@ -1,5 +1,6 @@
 import 'dart:async';
 import 'package:flutter/material.dart';
+import 'package:irblaster_controller/config/build_flags.dart';
 import 'package:irblaster_controller/l10n/app_localizations.dart';
 import 'package:irblaster_controller/l10n/l10n.dart';
 import 'package:irblaster_controller/state/app_locale.dart';
@@ -474,8 +475,10 @@ class SettingsScreen extends StatelessWidget {
       body: ListView(
         children: [
           const SizedBox(height: 10),
-          _buildSupportSection(context),
-          const SizedBox(height: 10),
+          if (BuildFlags.showDonations) ...[
+            _buildSupportSection(context),
+            const SizedBox(height: 10),
+          ],
           _buildAppearanceSection(context),
           const SizedBox(height: 10),
           _buildLocalizationSection(context),
@@ -1284,7 +1287,8 @@ class SettingsScreen extends StatelessWidget {
                         builder: (context) => AboutScreen(
                           repoUrl: _repoUrl,
                           issuesUrl: _issuesUrl,
-                          liberapayUrl: _liberapayUrl,
+                          liberapayUrl:
+                              BuildFlags.showDonations ? _liberapayUrl : null,
                         ),
                       ),
                     );
