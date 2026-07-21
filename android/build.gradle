@@ -28,11 +28,23 @@ subprojects { subproject ->
         if (subproject.hasProperty("android")) {
             subproject.android {
                 compileSdkVersion 36
+
+                compileOptions {
+                    sourceCompatibility JavaVersion.VERSION_11
+                    targetCompatibility JavaVersion.VERSION_11
+                }
             }
         }
     }
     subproject.plugins.withId("com.android.application") { forceCompileSdk() }
     subproject.plugins.withId("com.android.library") { forceCompileSdk() }
+    subproject.plugins.withId("org.jetbrains.kotlin.android") {
+        subproject.tasks.withType(org.jetbrains.kotlin.gradle.tasks.KotlinCompile).configureEach {
+            kotlinOptions {
+                jvmTarget = "11"
+            }
+        }
+    }
     if (subproject.state.executed) {
         forceCompileSdk()
     } else {

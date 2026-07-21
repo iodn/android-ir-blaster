@@ -46,7 +46,7 @@ android {
     defaultConfig {
         applicationId "org.nslabs.ir_blaster"
         minSdkVersion flutter.minSdkVersion
-        targetSdkVersion flutter.targetSdkVersion
+        targetSdkVersion 36
         versionCode flutterVersionCode.toInteger()
         versionName flutterVersionName
         resConfigs "en"
