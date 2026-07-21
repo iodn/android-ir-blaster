@@ -1864,8 +1864,8 @@
   "forceInAppVibrationTitle": "Vibration in der App erzwingen",
   "forceInAppVibrationSubtitle": "Den Vibrator direkt verwenden, auch wenn das System-Tastfeedback deaktiviert ist",
   "forceInAppVibrationWarning": "Erweiterte Option. Die App kann dadurch vibrieren, auch wenn das Android-Tastfeedback global deaktiviert ist.",
-  "forceInAppVibrationBlockedMasterWarning": "Android system vibration is disabled. Force in-app vibration cannot override it on this device.",
-  "forceInAppVibrationNoVibratorWarning": "This device reports no vibrator hardware, so in-app vibration cannot work.",
+  "forceInAppVibrationBlockedMasterWarning": "Die Android-Systemvibration ist deaktiviert. Erzwungene In-App-Vibration kann dies auf diesem Gerät nicht umgehen.",
+  "forceInAppVibrationNoVibratorWarning": "Dieses Gerät meldet keine Vibrationshardware, daher kann die In-App-Vibration nicht funktionieren.",
   "continueSectionTitle": "Continue",
   "@continueSectionTitle": {
     "description": "Title for the recent continue strip on the remotes screen."
@@ -1934,31 +1934,31 @@
   "@remoteRemovedFromPinned": {
     "description": "Snackbar shown after unpinning a remote."
   },
-  "homeDeviceControlsTitle": "Quick controls",
+  "homeDeviceControlsTitle": "Schnellsteuerung",
   "@homeDeviceControlsTitle": {
     "description": "Title for the compact device controls row on the home surface."
   },
-  "homeDeviceControlsSubtitle": "Power, mute, and volume without opening a remote.",
+  "homeDeviceControlsSubtitle": "Ein/Aus, Stumm und Lautstärke, ohne eine Fernbedienung zu öffnen.",
   "@homeDeviceControlsSubtitle": {
     "description": "Subtitle for the compact device controls row when controls are configured."
   },
-  "homeDeviceControlsEmptySubtitle": "Set up power, mute, and volume buttons in Device Controls.",
+  "homeDeviceControlsEmptySubtitle": "Richte Ein/Aus-, Stumm- und Lautstärketasten in der Gerätesteuerung ein.",
   "@homeDeviceControlsEmptySubtitle": {
     "description": "Subtitle for the compact device controls row when no matching controls are configured."
   },
-  "showDeviceControlsOnHome": "Show quick controls on home",
+  "showDeviceControlsOnHome": "Schnellsteuerung auf der Startseite anzeigen",
   "@showDeviceControlsOnHome": {
     "description": "Settings toggle title for showing the compact device controls row on the home surface."
   },
-  "showDeviceControlsOnHomeSubtitle": "Show the compact Power, Mute, and Volume row on the main screen.",
+  "showDeviceControlsOnHomeSubtitle": "Zeigt die kompakte Zeile für Ein/Aus, Stumm und Lautstärke auf dem Hauptbildschirm.",
   "@showDeviceControlsOnHomeSubtitle": {
     "description": "Settings toggle subtitle for showing the compact device controls row on the home surface."
   },
-  "homeDeviceControlsShown": "Quick controls shown on home.",
+  "homeDeviceControlsShown": "Schnellsteuerung wird auf der Startseite angezeigt.",
   "@homeDeviceControlsShown": {
     "description": "Snackbar shown when the home quick controls row is enabled."
   },
-  "homeDeviceControlsHidden": "Quick controls hidden from home.",
+  "homeDeviceControlsHidden": "Schnellsteuerung wurde von der Startseite ausgeblendet.",
   "@homeDeviceControlsHidden": {
     "description": "Snackbar shown when the home quick controls row is disabled."
   },
@@ -2239,5 +2239,47 @@
   "irWaveformOffLabel": "OFF",
   "@irWaveformOffLabel": {
     "description": "Legend label for inactive/silent sections in an IR waveform."
-  }
+  },
+  "quickSettingsTilesTitle": "Kacheln für Schnelleinstellungen",
+  "quickSettingsPowerTile": "Ein/Aus-Kachel",
+  "quickSettingsMuteTile": "Stumm-Kachel",
+  "quickSettingsVolumeUpTile": "Lauter-Kachel",
+  "quickSettingsVolumeDownTile": "Leiser-Kachel",
+  "quickSettingsNoTilesConfigured": "Keine Kacheln konfiguriert",
+  "quickSettingsEmptyHint": "Nächster Schritt: Wählen Sie für mindestens eine Kachel einen Befehl aus und fügen Sie die Kachel dann im Bearbeitungsmenü der Android-Schnelleinstellungen hinzu.",
+  "quickSettingsSetPowerTile": "Ein/Aus-Kachel festlegen",
+  "quickSettingsConfiguredHint": "Wählen Sie aus, welche Taste jede Kachel sendet. Fügen Sie Kacheln im Bearbeitungsmenü der Android-Schnelleinstellungen hinzu.",
+  "quickSettingsNotSet": "Nicht festgelegt",
+  "quickSettingsTileMappingSummary": "{title} · {subtitle}",
+  "quickSettingsPickButtonTooltip": "Taste auswählen",
+  "quickSettingsClearTooltip": "Löschen",
+  "homeWidgetUnsupportedLauncher": "Ihr Launcher unterstützt das Hinzufügen von Widgets aus der App nicht. Fügen Sie das IR-Tasten-Widget über die Widget-Auswahl des Startbildschirms hinzu.",
+  "homeWidgetButtonUnsupported": "Diese Taste kann nicht als Startbildschirm-Widget verwendet werden.",
+  "homeWidgetRequestSent": "Widget-Anfrage gesendet. Bestätigen Sie sie in Ihrem Launcher.",
+  "homeWidgetRequestRejected": "Der Launcher hat die Widget-Anfrage abgelehnt.",
+  "homeWidgetSetupFailed": "Einrichtung des Startbildschirm-Widgets fehlgeschlagen: {error}",
+  "addHomeWidget": "Startbildschirm-Widget hinzufügen",
+  "addHomeWidgetSubtitle": "Diese Taste auf dem Startbildschirm platzieren.",
+  "buttonInfoType": "Typ: {type}",
+  "buttonInfoCodeRaw": "Code: Rohsignal",
+  "buttonInfoCode": "Code: {code}",
+  "buttonInfoNoCode": "KEIN CODE",
+  "buttonInfoFrequency": "Frequenz: {frequency}",
+  "frequencyHzLabel": "Frequenz (Hz)",
+  "carrierFrequencyHelper": "Trägerfrequenz, z. B. 38000",
+  "requiredFrequencyHelper": "Erforderlich. Beispiel: 38000",
+  "validFrequencyError": "Geben Sie eine gültige Frequenz ein (15k-60k).",
+  "resetToDefaultFrequency": "Auf 38000 zurücksetzen",
+  "rawDataLabel": "Rohdaten",
+  "rawDataHelper": "Durch Leerzeichen getrennte Ganzzahlen, z. B. 9000 4500 560 560 ...",
+  "rawDataInvalid": "Rohdaten müssen Ganzzahlen sein, getrennt durch Leerzeichen oder Zeilenumbrüche.",
+  "rawDataSafeguard": "Schutz: Ungültige Einträge werden blockiert, damit kein nicht sendbares Muster gespeichert wird.",
+  "protocolLabel": "Protokoll",
+  "protocolEncodingHelper": "Die Codierung ist nur für Protokolle implementiert, die als implementiert markiert sind.",
+  "protocolFrequencyHelper": "Optional. Wenn leer, wird nach Möglichkeit die Standardfrequenz des Protokolls verwendet.",
+  "rawSignalInvalidWithFrequency": "Rohdaten müssen Ganzzahlen sein, getrennt durch Leerzeichen oder Zeilenumbrüche, und die Frequenz muss 15k-60k betragen.",
+  "necTimingsNumeric": "Alle NEC-Timings müssen numerisch sein.",
+  "frequencyRangeError": "Die Frequenz muss 15k-60k Hz betragen.",
+  "pasteTooltip": "Einfügen",
+  "clearTooltip": "Löschen"
 }

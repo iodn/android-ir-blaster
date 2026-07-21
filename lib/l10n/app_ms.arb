@@ -1862,8 +1862,8 @@
   "forceInAppVibrationTitle": "Paksa getaran dalam aplikasi",
   "forceInAppVibrationSubtitle": "Gunakan penggetar secara langsung walaupun maklum balas sentuhan sistem dimatikan",
   "forceInAppVibrationWarning": "Pilihan lanjutan. Aplikasi boleh bergetar walaupun maklum balas sentuhan Android dimatikan secara global.",
-  "forceInAppVibrationBlockedMasterWarning": "Android system vibration is disabled. Force in-app vibration cannot override it on this device.",
-  "forceInAppVibrationNoVibratorWarning": "This device reports no vibrator hardware, so in-app vibration cannot work.",
+  "forceInAppVibrationBlockedMasterWarning": "Getaran sistem Android dilumpuhkan. Getaran paksa dalam aplikasi tidak boleh mengatasinya pada peranti ini.",
+  "forceInAppVibrationNoVibratorWarning": "Peranti ini tidak melaporkan perkakasan getaran, jadi getaran dalam aplikasi tidak boleh berfungsi.",
   "remoteButtonCountLabel": "{count, plural, one{{count} button} other{{count} buttons}}",
   "@remoteButtonCountLabel": {
     "placeholders": {
@@ -1948,31 +1948,31 @@
   "@remoteRemovedFromPinned": {
     "description": "Snackbar shown after unpinning a remote."
   },
-  "homeDeviceControlsTitle": "Quick controls",
+  "homeDeviceControlsTitle": "Kawalan pantas",
   "@homeDeviceControlsTitle": {
     "description": "Title for the compact device controls row on the home surface."
   },
-  "homeDeviceControlsSubtitle": "Power, mute, and volume without opening a remote.",
+  "homeDeviceControlsSubtitle": "Kuasa, senyap dan kelantangan tanpa membuka alat kawalan jauh.",
   "@homeDeviceControlsSubtitle": {
     "description": "Subtitle for the compact device controls row when controls are configured."
   },
-  "homeDeviceControlsEmptySubtitle": "Set up power, mute, and volume buttons in Device Controls.",
+  "homeDeviceControlsEmptySubtitle": "Sediakan butang kuasa, senyap dan kelantangan dalam Kawalan Peranti.",
   "@homeDeviceControlsEmptySubtitle": {
     "description": "Subtitle for the compact device controls row when no matching controls are configured."
   },
-  "showDeviceControlsOnHome": "Show quick controls on home",
+  "showDeviceControlsOnHome": "Tunjukkan kawalan pantas di laman utama",
   "@showDeviceControlsOnHome": {
     "description": "Settings toggle title for showing the compact device controls row on the home surface."
   },
-  "showDeviceControlsOnHomeSubtitle": "Show the compact Power, Mute, and Volume row on the main screen.",
+  "showDeviceControlsOnHomeSubtitle": "Tunjukkan baris ringkas Kuasa, Senyap dan Kelantangan pada skrin utama.",
   "@showDeviceControlsOnHomeSubtitle": {
     "description": "Settings toggle subtitle for showing the compact device controls row on the home surface."
   },
-  "homeDeviceControlsShown": "Quick controls shown on home.",
+  "homeDeviceControlsShown": "Kawalan pantas ditunjukkan di laman utama.",
   "@homeDeviceControlsShown": {
     "description": "Snackbar shown when the home quick controls row is enabled."
   },
-  "homeDeviceControlsHidden": "Quick controls hidden from home.",
+  "homeDeviceControlsHidden": "Kawalan pantas disembunyikan daripada laman utama.",
   "@homeDeviceControlsHidden": {
     "description": "Snackbar shown when the home quick controls row is disabled."
   },
@@ -2253,5 +2253,47 @@
   "irWaveformOffLabel": "OFF",
   "@irWaveformOffLabel": {
     "description": "Legend label for inactive/silent sections in an IR waveform."
-  }
+  },
+  "quickSettingsTilesTitle": "Jubin Tetapan Pantas",
+  "quickSettingsPowerTile": "Jubin kuasa",
+  "quickSettingsMuteTile": "Jubin senyap",
+  "quickSettingsVolumeUpTile": "Jubin kuatkan bunyi",
+  "quickSettingsVolumeDownTile": "Jubin perlahankan bunyi",
+  "quickSettingsNoTilesConfigured": "Tiada jubin dikonfigurasikan",
+  "quickSettingsEmptyHint": "Langkah seterusnya: pilih arahan untuk sekurang-kurangnya satu jubin, kemudian tambah jubin daripada menu edit Tetapan Pantas Android.",
+  "quickSettingsSetPowerTile": "Tetapkan jubin kuasa",
+  "quickSettingsConfiguredHint": "Pilih butang yang dihantar oleh setiap jubin. Tambah jubin daripada menu edit Tetapan Pantas Android.",
+  "quickSettingsNotSet": "Belum ditetapkan",
+  "quickSettingsTileMappingSummary": "{title} · {subtitle}",
+  "quickSettingsPickButtonTooltip": "Pilih butang",
+  "quickSettingsClearTooltip": "Kosongkan",
+  "homeWidgetUnsupportedLauncher": "Pelancar anda tidak menyokong penambahan widget dari dalam aplikasi. Tambah widget Butang IR daripada pemilih widget skrin utama.",
+  "homeWidgetButtonUnsupported": "Butang ini tidak boleh digunakan sebagai widget skrin utama.",
+  "homeWidgetRequestSent": "Permintaan widget dihantar. Sahkan pada pelancar anda.",
+  "homeWidgetRequestRejected": "Pelancar menolak permintaan widget.",
+  "homeWidgetSetupFailed": "Gagal menyediakan widget skrin utama: {error}",
+  "addHomeWidget": "Tambah widget skrin utama",
+  "addHomeWidgetSubtitle": "Letakkan butang ini pada skrin utama anda.",
+  "buttonInfoType": "Jenis: {type}",
+  "buttonInfoCodeRaw": "Kod: isyarat mentah",
+  "buttonInfoCode": "Kod: {code}",
+  "buttonInfoNoCode": "TIADA KOD",
+  "buttonInfoFrequency": "Frekuensi: {frequency}",
+  "frequencyHzLabel": "Frekuensi (Hz)",
+  "carrierFrequencyHelper": "Frekuensi pembawa, cth. 38000",
+  "requiredFrequencyHelper": "Wajib. Contoh: 38000",
+  "validFrequencyError": "Masukkan frekuensi yang sah (15k-60k).",
+  "resetToDefaultFrequency": "Tetapkan semula kepada 38000",
+  "rawDataLabel": "Data mentah",
+  "rawDataHelper": "Integer dipisahkan ruang, cth. 9000 4500 560 560 ...",
+  "rawDataInvalid": "Data mentah mestilah integer yang dipisahkan ruang atau baris baharu.",
+  "rawDataSafeguard": "Perlindungan: token tidak sah disekat untuk mengelakkan corak yang tidak boleh dihantar disimpan.",
+  "protocolLabel": "Protokol",
+  "protocolEncodingHelper": "Pengekodan hanya dilaksanakan untuk protokol yang ditanda sebagai dilaksanakan.",
+  "protocolFrequencyHelper": "Pilihan. Jika kosong, frekuensi lalai protokol digunakan jika tersedia.",
+  "rawSignalInvalidWithFrequency": "Data mentah mestilah integer yang dipisahkan ruang atau baris baharu, dan frekuensi mesti 15k-60k.",
+  "necTimingsNumeric": "Semua pemasaan NEC mestilah nombor.",
+  "frequencyRangeError": "Frekuensi mesti 15k-60k Hz.",
+  "pasteTooltip": "Tampal",
+  "clearTooltip": "Kosongkan"
 }

@@ -58,7 +58,7 @@
   "macrosNavLabel": "Makrolar",
   "signalTesterNavLabel": "Sinyal Testi",
   "settingsTitle": "Ayarlar",
-  "remoteNoIrEmitterTitle": "No IR emitter",
+  "remoteNoIrEmitterTitle": "IR verici yok",
   "remoteNoIrEmitterMessage": "Bu cihazda IR verici yok",
   "remoteNoIrEmitterNeedsEmitter": "Bu uygulamanın çalışması için IR verici gerekir",
   "remoteDismiss": "Kapat",
@@ -248,11 +248,11 @@
   },
   "deviceControlsTitle": "Cihaz Kontrolleri",
   "deviceControlsSubtitle": "Favori düğmeleri sistem kontrolleri sayfasında göster",
-  "manageFavorites": "Manage favorites",
+  "manageFavorites": "Favorileri yönet",
   "manageFavoritesSubtitle": "Cihaz kontrollerinde hangi düğmelerin görüneceğini seçin",
   "quickSettingsTitle": "Hızlı Ayarlar",
   "quickSettingsSubtitle": "Güç ve ses kısayolları için döşemeler ekleyin",
-  "configureTiles": "Configure tiles",
+  "configureTiles": "Kutucukları yapılandır",
   "configureTilesSubtitle": "Döşemeleri kumanda düğmelerine eşleyin",
   "tvKillTitle": "TVKill",
   "tvKillSubtitle": "Sahip olduğunuz cihazlar için evrensel güç döngüsü",
@@ -319,7 +319,7 @@
     }
   },
   "delete": "Sil",
-  "addToDeviceControlsTitle": "Ekle to Cihaz Kontrolleri?",
+  "addToDeviceControlsTitle": "Cihaz Kontrollerine eklensin mi?",
   "addToDeviceControlsDescription": "Sistem cihaz kontrollerinde hızlı erişim.",
   "skip": "Skip",
   "add": "Ekle",
@@ -449,14 +449,14 @@
   "duplicate": "Çoğalt",
   "duplicateButtonSubtitle": "Bu düğmenin bir kopyasını oluştur",
   "removeFromDeviceControls": "Cihaz Kontrollerinden Kaldır",
-  "addToDeviceControls": "Ekle to Cihaz Kontrolleri",
+  "addToDeviceControls": "Cihaz Kontrollerine ekle",
   "deviceControlsButtonSubtitle": "Bu düğmeyi sistem cihaz kontrollerinde gösterir",
   "removedFromDeviceControls": "Cihaz Kontrollerinden kaldırıldı.",
-  "pinQuickTile": "Pin to Hızlı Döşeme favorites",
+  "pinQuickTile": "Hızlı Döşeme favorilerine sabitle",
   "unpinQuickTile": "Hızlı Döşeme favorilerinden kaldır",
   "quickTileButtonSubtitle": "Bu düğmeyi hızlı döşeme seçicisinde üstte gösterir",
   "removedFromQuickTileFavorites": "Hızlı Döşeme favorilerinden kaldırıldı.",
-  "pinnedToQuickTileFavorites": "Pinned to Hızlı Döşeme favorites.",
+  "pinnedToQuickTileFavorites": "Hızlı kutucuk favorilerine sabitlendi.",
   "duplicateAndEdit": "Çoğalt ve düzenle",
   "duplicateAndEditSubtitle": "Bir kopya oluştur ve hemen düzenle",
   "done": "Done",
@@ -1867,8 +1867,8 @@
   "forceInAppVibrationTitle": "Uygulama içi titreşimi zorla",
   "forceInAppVibrationSubtitle": "Sistem dokunma geri bildirimi kapalı olsa bile titreşimi doğrudan kullan",
   "forceInAppVibrationWarning": "Gelişmiş seçenek. Android dokunma geri bildirimi genel olarak kapalı olsa bile uygulama titreşebilir.",
-  "forceInAppVibrationBlockedMasterWarning": "Android system vibration is disabled. Force in-app vibration cannot override it on this device.",
-  "forceInAppVibrationNoVibratorWarning": "This device reports no vibrator hardware, so in-app vibration cannot work.",
+  "forceInAppVibrationBlockedMasterWarning": "Android sistem titreşimi devre dışı. Uygulama içi zorunlu titreşim bu cihazda bunu geçersiz kılamaz.",
+  "forceInAppVibrationNoVibratorWarning": "Bu cihaz titreşim donanımı bildirmiyor, bu yüzden uygulama içi titreşim çalışamaz.",
   "remoteButtonCountLabel": "{count, plural, one{{count} button} other{{count} buttons}}",
   "@remoteButtonCountLabel": {
     "placeholders": {
@@ -1953,31 +1953,31 @@
   "@remoteRemovedFromPinned": {
     "description": "Snackbar shown after unpinning a remote."
   },
-  "homeDeviceControlsTitle": "Quick controls",
+  "homeDeviceControlsTitle": "Hızlı kontroller",
   "@homeDeviceControlsTitle": {
     "description": "Title for the compact device controls row on the home surface."
   },
-  "homeDeviceControlsSubtitle": "Power, mute, and volume without opening a remote.",
+  "homeDeviceControlsSubtitle": "Kumanda açmadan güç, sessiz ve ses düzeyi.",
   "@homeDeviceControlsSubtitle": {
     "description": "Subtitle for the compact device controls row when controls are configured."
   },
-  "homeDeviceControlsEmptySubtitle": "Set up power, mute, and volume buttons in Device Controls.",
+  "homeDeviceControlsEmptySubtitle": "Cihaz Kontrolleri içinde güç, sessiz ve ses düğmelerini ayarlayın.",
   "@homeDeviceControlsEmptySubtitle": {
     "description": "Subtitle for the compact device controls row when no matching controls are configured."
   },
-  "showDeviceControlsOnHome": "Show quick controls on home",
+  "showDeviceControlsOnHome": "Hızlı kontrolleri ana ekranda göster",
   "@showDeviceControlsOnHome": {
     "description": "Settings toggle title for showing the compact device controls row on the home surface."
   },
-  "showDeviceControlsOnHomeSubtitle": "Show the compact Power, Mute, and Volume row on the main screen.",
+  "showDeviceControlsOnHomeSubtitle": "Ana ekranda kompakt Güç, Sessiz ve Ses satırını gösterir.",
   "@showDeviceControlsOnHomeSubtitle": {
     "description": "Settings toggle subtitle for showing the compact device controls row on the home surface."
   },
-  "homeDeviceControlsShown": "Quick controls shown on home.",
+  "homeDeviceControlsShown": "Hızlı kontroller ana ekranda gösteriliyor.",
   "@homeDeviceControlsShown": {
     "description": "Snackbar shown when the home quick controls row is enabled."
   },
-  "homeDeviceControlsHidden": "Quick controls hidden from home.",
+  "homeDeviceControlsHidden": "Hızlı kontroller ana ekrandan gizlendi.",
   "@homeDeviceControlsHidden": {
     "description": "Snackbar shown when the home quick controls row is disabled."
   },
@@ -2253,5 +2253,47 @@
   "irWaveformOffLabel": "OFF",
   "@irWaveformOffLabel": {
     "description": "Legend label for inactive/silent sections in an IR waveform."
-  }
+  },
+  "quickSettingsTilesTitle": "Hızlı Ayarlar kutucukları",
+  "quickSettingsPowerTile": "Güç kutucuğu",
+  "quickSettingsMuteTile": "Sessiz kutucuğu",
+  "quickSettingsVolumeUpTile": "Ses artırma kutucuğu",
+  "quickSettingsVolumeDownTile": "Ses azaltma kutucuğu",
+  "quickSettingsNoTilesConfigured": "Yapılandırılmış kutucuk yok",
+  "quickSettingsEmptyHint": "Sonraki adım: en az bir kutucuk için komut seçin, ardından kutucuğu Android Hızlı Ayarlar düzenleme menüsünden ekleyin.",
+  "quickSettingsSetPowerTile": "Güç kutucuğunu ayarla",
+  "quickSettingsConfiguredHint": "Her kutucuğun hangi düğmeyi göndereceğini seçin. Kutucukları Android Hızlı Ayarlar düzenleme menüsünden ekleyin.",
+  "quickSettingsNotSet": "Ayarlanmadı",
+  "quickSettingsTileMappingSummary": "{title} · {subtitle}",
+  "quickSettingsPickButtonTooltip": "Düğme seç",
+  "quickSettingsClearTooltip": "Temizle",
+  "homeWidgetUnsupportedLauncher": "Başlatıcınız uygulama içinden widget eklemeyi desteklemiyor. IR Düğmesi widget’ını ana ekran widget seçicisinden ekleyin.",
+  "homeWidgetButtonUnsupported": "Bu düğme ana ekran widget’ı olarak kullanılamaz.",
+  "homeWidgetRequestSent": "Widget isteği gönderildi. Başlatıcınızda onaylayın.",
+  "homeWidgetRequestRejected": "Başlatıcı widget isteğini reddetti.",
+  "homeWidgetSetupFailed": "Ana ekran widget kurulumu başarısız: {error}",
+  "addHomeWidget": "Ana ekran widget’ı ekle",
+  "addHomeWidgetSubtitle": "Bu düğmeyi ana ekranınıza yerleştirin.",
+  "buttonInfoType": "Tür: {type}",
+  "buttonInfoCodeRaw": "Kod: ham sinyal",
+  "buttonInfoCode": "Kod: {code}",
+  "buttonInfoNoCode": "KOD YOK",
+  "buttonInfoFrequency": "Frekans: {frequency}",
+  "frequencyHzLabel": "Frekans (Hz)",
+  "carrierFrequencyHelper": "Taşıyıcı frekans, örn. 38000",
+  "requiredFrequencyHelper": "Gerekli. Örnek: 38000",
+  "validFrequencyError": "Geçerli bir frekans girin (15k-60k).",
+  "resetToDefaultFrequency": "38000 olarak sıfırla",
+  "rawDataLabel": "Ham veri",
+  "rawDataHelper": "Boşlukla ayrılmış tam sayılar, örn. 9000 4500 560 560 ...",
+  "rawDataInvalid": "Ham veri, boşluk veya yeni satırlarla ayrılmış tam sayılar olmalıdır.",
+  "rawDataSafeguard": "Koruma: gönderilemeyen bir desenin kaydedilmesini önlemek için geçersiz tokenlar engellenir.",
+  "protocolLabel": "Protokol",
+  "protocolEncodingHelper": "Kodlama yalnızca uygulanmış olarak işaretlenen protokoller için vardır.",
+  "protocolFrequencyHelper": "İsteğe bağlı. Boşsa, varsa protokolün varsayılan frekansı kullanılır.",
+  "rawSignalInvalidWithFrequency": "Ham veri, boşluk veya yeni satırlarla ayrılmış tam sayılar olmalı ve frekans 15k-60k olmalıdır.",
+  "necTimingsNumeric": "Tüm NEC zamanlamaları sayısal olmalıdır.",
+  "frequencyRangeError": "Frekans 15k-60k Hz olmalıdır.",
+  "pasteTooltip": "Yapıştır",
+  "clearTooltip": "Temizle"
 }

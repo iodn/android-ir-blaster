@@ -66,29 +66,25 @@
   "remoteFailedToSend": "Не вдалося надіслати ІЧ: {error}",
   "@remoteFailedToSend": {
     "placeholders": {
-      "error": {
-      }
+      "error": {}
     }
   },
   "remoteFailedToStartLoop": "Не вдалося запустити цикл: {error}",
   "@remoteFailedToStartLoop": {
     "placeholders": {
-      "error": {
-      }
+      "error": {}
     }
   },
   "remoteLoopStoppedFailed": "Цикл зупинено (не вдалося надіслати): {error}",
   "@remoteLoopStoppedFailed": {
     "placeholders": {
-      "error": {
-      }
+      "error": {}
     }
   },
   "remoteLoopingHint": "Цикл \"{title}\". Натисніть «Зупинити» на верхній панелі, щоб зупинити.",
   "@remoteLoopingHint": {
     "placeholders": {
-      "title": {
-      }
+      "title": {}
     }
   },
   "remoteLoopStopped": "Цикл зупинено.",
@@ -96,23 +92,20 @@
   "remoteUpdatedNamed": "Оновлено \"{name}\".",
   "@remoteUpdatedNamed": {
     "placeholders": {
-      "name": {
-      }
+      "name": {}
     }
   },
   "remoteDeleteFailed": "Не вдалося видалити: {error}",
   "@remoteDeleteFailed": {
     "placeholders": {
-      "error": {
-      }
+      "error": {}
     }
   },
   "remoteNotFoundSavedList": "Пульт не знайдено в збереженому списку.",
   "remoteDeletedNamed": "Видалено \"{name}\".",
   "@remoteDeletedNamed": {
     "placeholders": {
-      "name": {
-      }
+      "name": {}
     }
   },
   "buttonFallbackTitle": "Кнопка",
@@ -121,8 +114,7 @@
   "failedToOpen": "Не вдалося відкрити: {error}",
   "@failedToOpen": {
     "placeholders": {
-      "error": {
-      }
+      "error": {}
     }
   },
   "cancel": "Скасувати",
@@ -160,8 +152,7 @@
   "localizationAutoUsing": "Авто: використовується {language}",
   "@localizationAutoUsing": {
     "placeholders": {
-      "language": {
-      }
+      "language": {}
     }
   },
   "localizationAutoDescription": "Застосунок використовує мову пристрою, якщо це можливо.",
@@ -170,8 +161,7 @@
   "useSystemLanguageEnabled": "Мова вашого пристрою: {language}",
   "@useSystemLanguageEnabled": {
     "placeholders": {
-      "language": {
-      }
+      "language": {}
     }
   },
   "useSystemLanguageDisabled": "Використовуйте мову, вибрану нижче, замість стандартної для пристрою.",
@@ -227,15 +217,13 @@
   "aboutAppNameWithCreator": "ІЧ-бластер - {creator}",
   "@aboutAppNameWithCreator": {
     "placeholders": {
-      "creator": {
-      }
+      "creator": {}
     }
   },
   "versionLabel": "Версія {version}",
   "@versionLabel": {
     "placeholders": {
-      "version": {
-      }
+      "version": {}
     }
   },
   "sourceCode": "Вихідний код",
@@ -255,8 +243,7 @@
   "byCreator": "від {creator}",
   "@byCreator": {
     "placeholders": {
-      "creator": {
-      }
+      "creator": {}
     }
   },
   "deviceControlsTitle": "Елементи керування пристроєм",
@@ -307,10 +294,8 @@
   "selectedTransmitterValue": "{effective} • Активний: {active}",
   "@selectedTransmitterValue": {
     "placeholders": {
-      "effective": {
-      },
-      "active": {
-      }
+      "effective": {},
+      "active": {}
     }
   },
   "refresh": "Оновити",
@@ -330,8 +315,7 @@
   "deleteRemoteMessage": "\"{name}\" буде остаточно видалено. Цю дію не можна скасувати.",
   "@deleteRemoteMessage": {
     "placeholders": {
-      "name": {
-      }
+      "name": {}
     }
   },
   "delete": "Видалити",
@@ -343,8 +327,7 @@
   "deletedRemoteUndoUnavailable": "Видалено \"{name}\". Цю дію не можна скасувати.",
   "@deletedRemoteUndoUnavailable": {
     "placeholders": {
-      "name": {
-      }
+      "name": {}
     }
   },
   "remoteLayoutSummary": "{count, plural, one{{count} кнопка} few{{count} кнопки} many{{count} кнопок} other{{count} кнопки}} · {layout}",
@@ -353,8 +336,7 @@
       "count": {
         "type": "int"
       },
-      "layout": {
-      }
+      "layout": {}
     }
   },
   "layoutComfort": "Комфорт",
@@ -372,10 +354,8 @@
   "remoteButtonCount": "{count} кнопк{plural}",
   "@remoteButtonCount": {
     "placeholders": {
-      "count": {
-      },
-      "plural": {
-      }
+      "count": {},
+      "plural": {}
     }
   },
   "noRemotesYet": "Пультів ще немає",
@@ -401,10 +381,8 @@
   "macroStepCount": "{count} крок{plural}",
   "@macroStepCount": {
     "placeholders": {
-      "count": {
-      },
-      "plural": {
-      }
+      "count": {},
+      "plural": {}
     }
   },
   "aboutTimedMacros": "Про тимчасові макроси",
@@ -420,8 +398,7 @@
   "deletedMacroNamed": "Видалено \"{name}\".",
   "@deletedMacroNamed": {
     "placeholders": {
-      "name": {
-      }
+      "name": {}
     }
   },
   "undo": "Скасувати",
@@ -450,15 +427,13 @@
   "remoteUpdatedNamedButton": "Оновлено \"{name}\".",
   "@remoteUpdatedNamedButton": {
     "placeholders": {
-      "name": {
-      }
+      "name": {}
     }
   },
   "buttonAddedNamed": "Додано \"{name}\".",
   "@buttonAddedNamed": {
     "placeholders": {
-      "name": {
-      }
+      "name": {}
     }
   },
   "buttonDuplicated": "Кнопка дублюється.",
@@ -477,8 +452,8 @@
   "addToDeviceControls": "Додати до елементів керування пристроєм",
   "deviceControlsButtonSubtitle": "Показує цю кнопку в елементах керування системним пристроєм",
   "removedFromDeviceControls": "Видалено з елементів керування пристроєм.",
-  "pinQuickTile": "Закріпити у вибраному Quick Tile",
-  "unpinQuickTile": "Відкріпити від вибраного Quick Tile",
+  "pinQuickTile": "Закріпити в обраному для швидких плиток",
+  "unpinQuickTile": "Відкріпити з обраного для швидких плиток",
   "quickTileButtonSubtitle": "Показує цю кнопку у верхній частині швидкого вибору плитки",
   "removedFromQuickTileFavorites": "Видалено з вибраного Quick Tile.",
   "pinnedToQuickTileFavorites": "Закріплено у вибраному Quick Tile.",
@@ -494,8 +469,7 @@
   "namedButtonRemovedMessage": "\"{name}\" буде видалено.",
   "@namedButtonRemovedMessage": {
     "placeholders": {
-      "name": {
-      }
+      "name": {}
     }
   },
   "remove": "видалити",
@@ -538,15 +512,13 @@
   "failedToLoadProtocols": "Не вдалося завантажити протоколи: {error}",
   "@failedToLoadProtocols": {
     "placeholders": {
-      "error": {
-      }
+      "error": {}
     }
   },
   "failedToLoadDatabaseKeys": "Не вдалося завантажити ключі бази даних: {error}",
   "@failedToLoadDatabaseKeys": {
     "placeholders": {
-      "error": {
-      }
+      "error": {}
     }
   },
   "presetPower": "Живлення",
@@ -580,8 +552,7 @@
   "remoteNumber": "Пульт #{id}",
   "@remoteNumber": {
     "placeholders": {
-      "id": {
-      }
+      "id": {}
     }
   },
   "newRemoteCreated": "Створено новий пульт.",
@@ -590,8 +561,7 @@
   "addedToRemoteNamed": "Додано до {name}.",
   "@addedToRemoteNamed": {
     "placeholders": {
-      "name": {
-      }
+      "name": {}
     }
   },
   "failedToAddToRemote": "Не вдалося додати на пульт.",
@@ -608,8 +578,7 @@
   "failedToSend": "Не вдалося надіслати: {error}",
   "@failedToSend": {
     "placeholders": {
-      "error": {
-      }
+      "error": {}
     }
   },
   "copiedProtocolCode": "Скопійовано (протокол:код).",
@@ -617,8 +586,7 @@
   "invalidCodeForProtocol": "Недійсний код для протоколу: {error}",
   "@invalidCodeForProtocol": {
     "placeholders": {
-      "error": {
-      }
+      "error": {}
     }
   },
   "copiedCurrentCandidate": "Скопійовано поточного кандидата.",
@@ -628,8 +596,7 @@
   "jumpedToCursorPaused": "Перейшов до курсору 0x{cursor}. Призупинено - натисніть Відновити, щоб продовжити.",
   "@jumpedToCursorPaused": {
     "placeholders": {
-      "cursor": {
-      }
+      "cursor": {}
     }
   },
   "irSignalTester": "Тестер ІЧ-сигналу",
@@ -639,15 +606,13 @@
   "sentNamed": "Надіслано \"{name}\".",
   "@sentNamed": {
     "placeholders": {
-      "name": {
-      }
+      "name": {}
     }
   },
   "sendFailed": "Не вдалося надіслати: {error}",
   "@sendFailed": {
     "placeholders": {
-      "error": {
-      }
+      "error": {}
     }
   },
   "noFavoritesYet": "Вибраних ще немає",
@@ -657,15 +622,13 @@
   "testSendFailed": "Помилка тестового надсилання: {error}",
   "@testSendFailed": {
     "placeholders": {
-      "error": {
-      }
+      "error": {}
     }
   },
   "removedNamed": "Видалено \"{name}\".",
   "@removedNamed": {
     "placeholders": {
-      "name": {
-      }
+      "name": {}
     }
   },
   "brand": "Бренд",
@@ -683,8 +646,7 @@
   "changeMappingForTile": "Змінити відображення для плитки {tileLabel}",
   "@changeMappingForTile": {
     "placeholders": {
-      "tileLabel": {
-      }
+      "tileLabel": {}
     }
   },
   "pickDifferentButton": "Виберіть іншу кнопку",
@@ -730,8 +692,7 @@
   "optionalRefinePresetKeys": "Додатково: уточніть попередньо встановлені клавіші {preset}",
   "@optionalRefinePresetKeys": {
     "placeholders": {
-      "preset": {
-      }
+      "preset": {}
     }
   },
   "selectBrandModelProtocolFirst": "Спочатку виберіть бренд, модель і протокол.",
@@ -756,8 +717,7 @@
   "noKeysFoundForSearch": "Не знайдено ключів для “{query}”.",
   "@noKeysFoundForSearch": {
     "placeholders": {
-      "query": {
-      }
+      "query": {}
     }
   },
   "skipDuplicates": "Пропустити дублікати",
@@ -785,8 +745,7 @@
   "protocolNamed": "Протокол: {name}",
   "@protocolNamed": {
     "placeholders": {
-      "name": {
-      }
+      "name": {}
     }
   },
   "rawSignal": "Сирий",
@@ -804,8 +763,7 @@
   "failedToExport": "Не вдалося експортувати: {error}",
   "@failedToExport": {
     "placeholders": {
-      "error": {
-      }
+      "error": {}
     }
   },
   "importedLegacyJsonBackup": "{count, plural, one{Імпортовано {count} пульт із застарілої резервної копії JSON. Макроси не змінено.} few{Імпортовано {count} пульти із застарілої резервної копії JSON. Макроси не змінено.} many{Імпортовано {count} пультів із застарілої резервної копії JSON. Макроси не змінено.} other{Імпортовано {count} пульта із застарілої резервної копії JSON. Макроси не змінено.}}",
@@ -874,8 +832,7 @@
   "bulkImportNoSupportedFilesSource": "Масове імпортування завершено: підтримуваних файлів не знайдено ({sourceLabel}).",
   "@bulkImportNoSupportedFilesSource": {
     "placeholders": {
-      "sourceLabel": {
-      }
+      "sourceLabel": {}
     }
   },
   "clearAction": "ясно",
@@ -892,16 +849,14 @@
   "failedToSendNamed": "Не вдалося надіслати: {name}",
   "@failedToSendNamed": {
     "placeholders": {
-      "name": {
-      }
+      "name": {}
     }
   },
   "buttonNotFound": "Кнопку не знайдено",
   "buttonNotFoundNamed": "Кнопку не знайдено: {name}",
   "@buttonNotFoundNamed": {
     "placeholders": {
-      "name": {
-      }
+      "name": {}
     }
   },
   "unknownButton": "Невідома кнопка",
@@ -968,8 +923,7 @@
   "secondsRemaining": "Залишилося {seconds}s",
   "@secondsRemaining": {
     "placeholders": {
-      "seconds": {
-      }
+      "seconds": {}
     }
   },
   "millisecondsShort": "{ms} мс",
@@ -986,8 +940,7 @@
   "finishedIn": "Завершено в {duration}",
   "@finishedIn": {
     "placeholders": {
-      "duration": {
-      }
+      "duration": {}
     }
   },
   "sequence": "Послідовність",
@@ -1031,10 +984,8 @@
   "secondsLong": "{seconds} секунда{plural}",
   "@secondsLong": {
     "placeholders": {
-      "seconds": {
-      },
-      "plural": {
-      }
+      "seconds": {},
+      "plural": {}
     }
   },
   "customDelay": "Спеціальна затримка",
@@ -1114,29 +1065,25 @@
   "irFinderBrandValue": "Бренд: {value}",
   "@irFinderBrandValue": {
     "placeholders": {
-      "value": {
-      }
+      "value": {}
     }
   },
   "irFinderModelValue": "Модель: {value}",
   "@irFinderModelValue": {
     "placeholders": {
-      "value": {
-      }
+      "value": {}
     }
   },
   "irFinderKeyValue": "Ключ: {value}",
   "@irFinderKeyValue": {
     "placeholders": {
-      "value": {
-      }
+      "value": {}
     }
   },
   "irFinderRemoteNumber": "Пульт #{value}",
   "@irFinderRemoteNumber": {
     "placeholders": {
-      "value": {
-      }
+      "value": {}
     }
   },
   "irFinderJumpOffsetHelper": "Введіть індекс на основі 0 у відфільтрованих упорядкованих результатах бази даних.",
@@ -1155,8 +1102,7 @@
   "irFinderLargeSearchSpaceBody": "Цей простір грубої сили дуже великий (можливості {human}). ІЧ-шукач все одно поважатиме ваші максимальні спроби та час відновлення, але пам’ятайте про спам із ІЧ-пристроїв.\n\nРекомендація: спочатку використовуйте режим бази даних і/або введіть відомі байти префікса, щоб зменшити простір.",
   "@irFinderLargeSearchSpaceBody": {
     "placeholders": {
-      "human": {
-      }
+      "human": {}
     }
   },
   "irFinderDatabaseSession": "Сеанс бази даних",
@@ -1165,26 +1111,21 @@
   "irFinderResumeBrandModel": "Бренд: {brand} · Модель: {model}",
   "@irFinderResumeBrandModel": {
     "placeholders": {
-      "brand": {
-      },
-      "model": {
-      }
+      "brand": {},
+      "model": {}
     }
   },
   "irFinderResumePrefix": "Префікс: {value}",
   "@irFinderResumePrefix": {
     "placeholders": {
-      "value": {
-      }
+      "value": {}
     }
   },
   "irFinderResumeProgress": "Прогрес: {progress} · Розпочато: {when}",
   "@irFinderResumeProgress": {
     "placeholders": {
-      "progress": {
-      },
-      "when": {
-      }
+      "progress": {},
+      "when": {}
     }
   },
   "irFinderApplyResume": "Подати заявку та відновити",
@@ -1193,8 +1134,7 @@
   "irFinderProtocolTitle": "Протокол: {name}",
   "@irFinderProtocolTitle": {
     "placeholders": {
-      "name": {
-      }
+      "name": {}
     }
   },
   "irFinderProtocolLabel": "ІЧ-протокол",
@@ -1215,8 +1155,7 @@
       "digits": {
         "type": "int"
       },
-      "example": {
-      }
+      "example": {}
     }
   },
   "irFinderKnownPrefixHelperPayloadMax": "Корисне навантаження: {digits} шістнадцяткова цифра(и) · Макс. префікс: {bytes} байт(и)",
@@ -1236,8 +1175,7 @@
       "digits": {
         "type": "int"
       },
-      "example": {
-      },
+      "example": {},
       "bytes": {
         "type": "int"
       }
@@ -1246,8 +1184,7 @@
   "irFinderKnownPrefixHelperExample": "Приклад: {example}",
   "@irFinderKnownPrefixHelperExample": {
     "placeholders": {
-      "example": {
-      }
+      "example": {}
     }
   },
   "irFinderKnownPrefixHelperFallback": "Введіть будь-які відомі перші байти, щоб зменшити простір пошуку.",
@@ -1255,8 +1192,7 @@
   "irFinderNormalizedPrefixValue": "Нормований префікс: {value}",
   "@irFinderNormalizedPrefixValue": {
     "placeholders": {
-      "value": {
-      }
+      "value": {}
     }
   },
   "irFinderNormalizedPrefix": "Нормований префікс",
@@ -1264,8 +1200,7 @@
   "irFinderAllLimit": "Усі ({value})",
   "@irFinderAllLimit": {
     "placeholders": {
-      "value": {
-      }
+      "value": {}
     }
   },
   "irFinderTestControls": "Тестовий контроль",
@@ -1280,8 +1215,7 @@
   "irFinderSearchSpace": "Простір пошуку: можливості {value} (після обмежень префікса).",
   "@irFinderSearchSpace": {
     "placeholders": {
-      "value": {
-      }
+      "value": {}
     }
   },
   "irFinderCooldownMs": "Перезарядка (мс)",
@@ -1290,8 +1224,7 @@
   "irFinderTestAllCombinationsHint": "Працює, доки не буде вичерпано простір пошуку. Ефективний ліміт: {value}",
   "@irFinderTestAllCombinationsHint": {
     "placeholders": {
-      "value": {
-      }
+      "value": {}
     }
   },
   "irFinderAttempts": "Спроби",
@@ -1314,8 +1247,7 @@
   "irFinderEffectiveLimitThisRun": "Ефективний ліміт цього запуску: {value}",
   "@irFinderEffectiveLimitThisRun": {
     "placeholders": {
-      "value": {
-      }
+      "value": {}
     }
   },
   "irFinderBruteforceTip": "Порада: спочатку використовуйте режим бази даних; brute-force найкраще з відомим префіксом (наприклад, перші 1–4 байти).",
@@ -1373,31 +1305,27 @@
   "irFinderLastAttemptedCode": "Код останньої спроби: {value}",
   "@irFinderLastAttemptedCode": {
     "placeholders": {
-      "value": {
-      }
+      "value": {}
     }
   },
   "irFinderStartTestingToSeeLastCode": "Почніть тестування, щоб побачити останній спробований код.",
   "irFinderFromDb": "З БД: {value}",
   "@irFinderFromDb": {
     "placeholders": {
-      "value": {
-      }
+      "value": {}
     }
   },
   "irFinderFromBruteforce": "З грубої сили (генерується кодувальником протоколу).",
   "irFinderSendError": "Помилка надсилання: {error}",
   "@irFinderSendError": {
     "placeholders": {
-      "error": {
-      }
+      "error": {}
     }
   },
   "irFinderSourceValue": "Джерело: {value}",
   "@irFinderSourceValue": {
     "placeholders": {
-      "value": {
-      }
+      "value": {}
     }
   },
   "irFinderResultsNote": "Результати підтримують тестування та копіювання негайно. Інтеграцію прямого додавання до пульта можна розширити далі в процесі редактора.",
@@ -1437,8 +1365,7 @@
   "universalPowerLastSent": "Востаннє надіслано: {value}",
   "@universalPowerLastSent": {
     "placeholders": {
-      "value": {
-      }
+      "value": {}
     }
   },
   "universalPowerNoCodesFound": "Не знайдено кодів живлення. Спробуйте розширити пошук.",
@@ -1460,8 +1387,7 @@
   "universalPowerProgress": "Прогрес: {value}",
   "@universalPowerProgress": {
     "placeholders": {
-      "value": {
-      }
+      "value": {}
     }
   },
   "universalPowerPausedInBackground": "Призупинено, оскільки програма працювала у фоновому режимі.",
@@ -2030,23 +1956,23 @@
   "@homeDeviceControlsSubtitle": {
     "description": "Subtitle for the compact device controls row when controls are configured."
   },
-  "homeDeviceControlsEmptySubtitle": "Налаштуйте кнопки живлення, вимкнення звуку та гучності в елементах керування пристроєм.",
+  "homeDeviceControlsEmptySubtitle": "Налаштуйте кнопки живлення, вимкнення звуку та гучності в керуванні пристроєм.",
   "@homeDeviceControlsEmptySubtitle": {
     "description": "Subtitle for the compact device controls row when no matching controls are configured."
   },
-  "showDeviceControlsOnHome": "Показати елементи швидкого керування на дому",
+  "showDeviceControlsOnHome": "Показувати швидке керування на головному екрані",
   "@showDeviceControlsOnHome": {
     "description": "Settings toggle title for showing the compact device controls row on the home surface."
   },
-  "showDeviceControlsOnHomeSubtitle": "Показати компактний рядок живлення, вимкнення звуку та гучності на головному екрані.",
+  "showDeviceControlsOnHomeSubtitle": "Показувати компактний рядок живлення, вимкнення звуку та гучності на головному екрані.",
   "@showDeviceControlsOnHomeSubtitle": {
     "description": "Settings toggle subtitle for showing the compact device controls row on the home surface."
   },
-  "homeDeviceControlsShown": "Елементи швидкого керування показані на головній сторінці.",
+  "homeDeviceControlsShown": "Швидке керування показано на головному екрані.",
   "@homeDeviceControlsShown": {
     "description": "Snackbar shown when the home quick controls row is enabled."
   },
-  "homeDeviceControlsHidden": "Елементи швидкого керування приховані з дому.",
+  "homeDeviceControlsHidden": "Швидке керування приховано з головного екрана.",
   "@homeDeviceControlsHidden": {
     "description": "Snackbar shown when the home quick controls row is disabled."
   },
@@ -2219,8 +2145,7 @@
   "learningModeLearnAnotherAction": "Дізнайтеся іншу кнопку",
   "@learningModeStatusCapturedBody": {
     "placeholders": {
-      "buttonName": {
-      }
+      "buttonName": {}
     }
   },
   "learningModeCaptureFailed": "Помилка запису.",
@@ -2265,29 +2190,25 @@
   "buttonColorSemantics": "Колір кнопки {colorName}",
   "@buttonColorSemantics": {
     "placeholders": {
-      "colorName": {
-      }
+      "colorName": {}
     }
   },
   "buttonColorSemanticsSelected": "Вибраний колір кнопки {colorName}",
   "@buttonColorSemanticsSelected": {
     "placeholders": {
-      "colorName": {
-      }
+      "colorName": {}
     }
   },
   "iconColorSemantics": "Колір значка {colorName}",
   "@iconColorSemantics": {
     "placeholders": {
-      "colorName": {
-      }
+      "colorName": {}
     }
   },
   "iconColorSemanticsSelected": "Вибраний колір значка {colorName}",
   "@iconColorSemanticsSelected": {
     "placeholders": {
-      "colorName": {
-      }
+      "colorName": {}
     }
   },
   "irWaveformTitle": "ІЧ сигнал",
@@ -2332,5 +2253,47 @@
   "irWaveformOffLabel": "ВИМКНЕНО",
   "@irWaveformOffLabel": {
     "description": "Legend label for inactive/silent sections in an IR waveform."
-  }
+  },
+  "quickSettingsTilesTitle": "Плитки швидких налаштувань",
+  "quickSettingsPowerTile": "Плитка живлення",
+  "quickSettingsMuteTile": "Плитка вимкнення звуку",
+  "quickSettingsVolumeUpTile": "Плитка гучність +",
+  "quickSettingsVolumeDownTile": "Плитка гучність -",
+  "quickSettingsNoTilesConfigured": "Плитки не налаштовано",
+  "quickSettingsEmptyHint": "Наступний крок: виберіть команду принаймні для однієї плитки, а потім додайте плитку в меню редагування швидких налаштувань Android.",
+  "quickSettingsSetPowerTile": "Налаштувати плитку живлення",
+  "quickSettingsConfiguredHint": "Виберіть, яку кнопку надсилає кожна плитка. Додайте плитки в меню редагування швидких налаштувань Android.",
+  "quickSettingsNotSet": "Не налаштовано",
+  "quickSettingsTileMappingSummary": "{title} · {subtitle}",
+  "quickSettingsPickButtonTooltip": "Вибрати кнопку",
+  "quickSettingsClearTooltip": "Очистити",
+  "homeWidgetUnsupportedLauncher": "Ваш лаунчер не підтримує додавання віджетів із застосунку. Додайте віджет ІЧ-кнопки через вибір віджетів на головному екрані.",
+  "homeWidgetButtonUnsupported": "Цю кнопку не можна використовувати як віджет головного екрана.",
+  "homeWidgetRequestSent": "Запит на віджет надіслано. Підтвердьте його у лаунчері.",
+  "homeWidgetRequestRejected": "Лаунчер відхилив запит на віджет.",
+  "homeWidgetSetupFailed": "Не вдалося налаштувати віджет головного екрана: {error}",
+  "addHomeWidget": "Додати віджет на головний екран",
+  "addHomeWidgetSubtitle": "Розмістіть цю кнопку на головному екрані.",
+  "buttonInfoType": "Тип: {type}",
+  "buttonInfoCodeRaw": "Код: сирий сигнал",
+  "buttonInfoCode": "Код: {code}",
+  "buttonInfoNoCode": "НЕМАЄ КОДУ",
+  "buttonInfoFrequency": "Частота: {frequency}",
+  "frequencyHzLabel": "Частота (Гц)",
+  "carrierFrequencyHelper": "Несуча частота, наприклад 38000",
+  "requiredFrequencyHelper": "Обов’язково. Приклад: 38000",
+  "validFrequencyError": "Введіть допустиму частоту (15k-60k).",
+  "resetToDefaultFrequency": "Скинути до 38000",
+  "rawDataLabel": "Сирі дані",
+  "rawDataHelper": "Цілі числа, розділені пробілами, напр. 9000 4500 560 560 ...",
+  "rawDataInvalid": "Сирі дані мають бути цілими числами, розділеними пробілами або новими рядками.",
+  "rawDataSafeguard": "Захист: недійсні токени блокуються, щоб не зберегти шаблон, який неможливо надіслати.",
+  "protocolLabel": "Протокол",
+  "protocolEncodingHelper": "Кодування реалізовано лише для протоколів, позначених як реалізовані.",
+  "protocolFrequencyHelper": "Необов’язково. Якщо порожньо, використовується стандартна частота протоколу, якщо доступна.",
+  "rawSignalInvalidWithFrequency": "Сирі дані мають бути цілими числами, розділеними пробілами або новими рядками, а частота має бути 15k-60k.",
+  "necTimingsNumeric": "Усі таймінги NEC мають бути числовими.",
+  "frequencyRangeError": "Частота має бути 15k-60k Гц.",
+  "pasteTooltip": "Вставити",
+  "clearTooltip": "Очистити"
 }

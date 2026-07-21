@@ -804,11 +804,11 @@ class AppLocalizationsMs extends AppLocalizations {
 
   @override
   String get forceInAppVibrationBlockedMasterWarning =>
-      'Android system vibration is disabled. Force in-app vibration cannot override it on this device.';
+      'Getaran sistem Android dilumpuhkan. Getaran paksa dalam aplikasi tidak boleh mengatasinya pada peranti ini.';
 
   @override
   String get forceInAppVibrationNoVibratorWarning =>
-      'This device reports no vibrator hardware, so in-app vibration cannot work.';
+      'Peranti ini tidak melaporkan perkakasan getaran, jadi getaran dalam aplikasi tidak boleh berfungsi.';
 
   @override
   String get intensity => 'Intensitas';
@@ -4419,28 +4419,31 @@ class AppLocalizationsMs extends AppLocalizations {
   String get remoteRemovedFromPinned => 'Remote removed from pinned.';
 
   @override
-  String get homeDeviceControlsTitle => 'Quick controls';
+  String get homeDeviceControlsTitle => 'Kawalan pantas';
 
   @override
   String get homeDeviceControlsSubtitle =>
-      'Power, mute, and volume without opening a remote.';
+      'Kuasa, senyap dan kelantangan tanpa membuka alat kawalan jauh.';
 
   @override
   String get homeDeviceControlsEmptySubtitle =>
-      'Set up power, mute, and volume buttons in Device Controls.';
+      'Sediakan butang kuasa, senyap dan kelantangan dalam Kawalan Peranti.';
 
   @override
-  String get showDeviceControlsOnHome => 'Show quick controls on home';
+  String get showDeviceControlsOnHome =>
+      'Tunjukkan kawalan pantas di laman utama';
 
   @override
   String get showDeviceControlsOnHomeSubtitle =>
-      'Show the compact Power, Mute, and Volume row on the main screen.';
+      'Tunjukkan baris ringkas Kuasa, Senyap dan Kelantangan pada skrin utama.';
 
   @override
-  String get homeDeviceControlsShown => 'Quick controls shown on home.';
+  String get homeDeviceControlsShown =>
+      'Kawalan pantas ditunjukkan di laman utama.';
 
   @override
-  String get homeDeviceControlsHidden => 'Quick controls hidden from home.';
+  String get homeDeviceControlsHidden =>
+      'Kawalan pantas disembunyikan daripada laman utama.';
 
   @override
   String get power => 'Power';
@@ -4675,4 +4678,152 @@ class AppLocalizationsMs extends AppLocalizations {
 
   @override
   String get irWaveformOffLabel => 'OFF';
+
+  @override
+  String get quickSettingsTilesTitle => 'Jubin Tetapan Pantas';
+
+  @override
+  String get quickSettingsPowerTile => 'Jubin kuasa';
+
+  @override
+  String get quickSettingsMuteTile => 'Jubin senyap';
+
+  @override
+  String get quickSettingsVolumeUpTile => 'Jubin kuatkan bunyi';
+
+  @override
+  String get quickSettingsVolumeDownTile => 'Jubin perlahankan bunyi';
+
+  @override
+  String get quickSettingsNoTilesConfigured => 'Tiada jubin dikonfigurasikan';
+
+  @override
+  String get quickSettingsEmptyHint =>
+      'Langkah seterusnya: pilih arahan untuk sekurang-kurangnya satu jubin, kemudian tambah jubin daripada menu edit Tetapan Pantas Android.';
+
+  @override
+  String get quickSettingsSetPowerTile => 'Tetapkan jubin kuasa';
+
+  @override
+  String get quickSettingsConfiguredHint =>
+      'Pilih butang yang dihantar oleh setiap jubin. Tambah jubin daripada menu edit Tetapan Pantas Android.';
+
+  @override
+  String get quickSettingsNotSet => 'Belum ditetapkan';
+
+  @override
+  String quickSettingsTileMappingSummary(String title, String subtitle) {
+    return '$title · $subtitle';
+  }
+
+  @override
+  String get quickSettingsPickButtonTooltip => 'Pilih butang';
+
+  @override
+  String get quickSettingsClearTooltip => 'Kosongkan';
+
+  @override
+  String get homeWidgetUnsupportedLauncher =>
+      'Pelancar anda tidak menyokong penambahan widget dari dalam aplikasi. Tambah widget Butang IR daripada pemilih widget skrin utama.';
+
+  @override
+  String get homeWidgetButtonUnsupported =>
+      'Butang ini tidak boleh digunakan sebagai widget skrin utama.';
+
+  @override
+  String get homeWidgetRequestSent =>
+      'Permintaan widget dihantar. Sahkan pada pelancar anda.';
+
+  @override
+  String get homeWidgetRequestRejected => 'Pelancar menolak permintaan widget.';
+
+  @override
+  String homeWidgetSetupFailed(String error) {
+    return 'Gagal menyediakan widget skrin utama: $error';
+  }
+
+  @override
+  String get addHomeWidget => 'Tambah widget skrin utama';
+
+  @override
+  String get addHomeWidgetSubtitle =>
+      'Letakkan butang ini pada skrin utama anda.';
+
+  @override
+  String buttonInfoType(String type) {
+    return 'Jenis: $type';
+  }
+
+  @override
+  String get buttonInfoCodeRaw => 'Kod: isyarat mentah';
+
+  @override
+  String buttonInfoCode(String code) {
+    return 'Kod: $code';
+  }
+
+  @override
+  String get buttonInfoNoCode => 'TIADA KOD';
+
+  @override
+  String buttonInfoFrequency(String frequency) {
+    return 'Frekuensi: $frequency';
+  }
+
+  @override
+  String get frequencyHzLabel => 'Frekuensi (Hz)';
+
+  @override
+  String get carrierFrequencyHelper => 'Frekuensi pembawa, cth. 38000';
+
+  @override
+  String get requiredFrequencyHelper => 'Wajib. Contoh: 38000';
+
+  @override
+  String get validFrequencyError => 'Masukkan frekuensi yang sah (15k-60k).';
+
+  @override
+  String get resetToDefaultFrequency => 'Tetapkan semula kepada 38000';
+
+  @override
+  String get rawDataLabel => 'Data mentah';
+
+  @override
+  String get rawDataHelper =>
+      'Integer dipisahkan ruang, cth. 9000 4500 560 560 ...';
+
+  @override
+  String get rawDataInvalid =>
+      'Data mentah mestilah integer yang dipisahkan ruang atau baris baharu.';
+
+  @override
+  String get rawDataSafeguard =>
+      'Perlindungan: token tidak sah disekat untuk mengelakkan corak yang tidak boleh dihantar disimpan.';
+
+  @override
+  String get protocolLabel => 'Protokol';
+
+  @override
+  String get protocolEncodingHelper =>
+      'Pengekodan hanya dilaksanakan untuk protokol yang ditanda sebagai dilaksanakan.';
+
+  @override
+  String get protocolFrequencyHelper =>
+      'Pilihan. Jika kosong, frekuensi lalai protokol digunakan jika tersedia.';
+
+  @override
+  String get rawSignalInvalidWithFrequency =>
+      'Data mentah mestilah integer yang dipisahkan ruang atau baris baharu, dan frekuensi mesti 15k-60k.';
+
+  @override
+  String get necTimingsNumeric => 'Semua pemasaan NEC mestilah nombor.';
+
+  @override
+  String get frequencyRangeError => 'Frekuensi mesti 15k-60k Hz.';
+
+  @override
+  String get pasteTooltip => 'Tampal';
+
+  @override
+  String get clearTooltip => 'Kosongkan';
 }

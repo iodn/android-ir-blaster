@@ -5,6 +5,7 @@ import android.content.Context
 import android.content.Intent
 import android.graphics.drawable.Icon
 import android.hardware.ConsumerIrManager
+import android.os.Build
 import android.os.Handler
 import android.os.Looper
 import android.service.quicksettings.Tile
@@ -43,12 +44,42 @@ abstract class BaseQuickTileService : TileService() {
             intent,
             PendingIntent.FLAG_UPDATE_CURRENT or PendingIntent.FLAG_IMMUTABLE
         )
-        try {
-            startActivityAndCollapse(pending)
+        launchActivityFromTile(intent, pending)
+    }
+
+    private fun openButtonInApp(mapping: Mapping) {
+        val intent = Intent(this, MainActivity::class.java).apply {
+            addFlags(Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_SINGLE_TOP)
+            putExtra(DeviceControlsService.EXTRA_CONTROL_BUTTON_ID, mapping.buttonId)
+        }
+        val pending = PendingIntent.getActivity(
+            this,
+            mapping.buttonId.hashCode(),
+            intent,
+            PendingIntent.FLAG_UPDATE_CURRENT or PendingIntent.FLAG_IMMUTABLE
+        )
+        if (launchActivityFromTile(intent, pending)) {
+            showToast("Opening app to send ${mapping.title}")
+        } else {
+            showToast("Internal IR transmitter unavailable.")
+        }
+    }
+
+    @Suppress("DEPRECATION")
+    private fun launchActivityFromTile(intent: Intent, pending: PendingIntent): Boolean {
+        return try {
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.UPSIDE_DOWN_CAKE) {
+                startActivityAndCollapse(pending)
+            } else {
+                startActivityAndCollapse(intent)
+            }
+            true
         } catch (_: Throwable) {
             try {
                 startActivity(intent)
+                true
             } catch (_: Throwable) {
+                false
             }
         }
     }
@@ -64,7 +95,9 @@ abstract class BaseQuickTileService : TileService() {
             val mgr = getSystemService(ConsumerIrManager::class.java)
             val ok = InternalIrTransmitter(mgr).transmitRaw(freq, pattern)
             if (!ok) {
-                showToast("Internal IR transmitter unavailable.")
+                Handler(Looper.getMainLooper()).post {
+                    openButtonInApp(mapping)
+                }
             }
         }.start()
     }

@@ -784,11 +784,11 @@ class AppLocalizationsKo extends AppLocalizations {
 
   @override
   String get forceInAppVibrationBlockedMasterWarning =>
-      'Android system vibration is disabled. Force in-app vibration cannot override it on this device.';
+      'Android 시스템 진동이 비활성화되어 있습니다. 이 기기에서는 앱 내 강제 진동으로 이를 무시할 수 없습니다.';
 
   @override
   String get forceInAppVibrationNoVibratorWarning =>
-      'This device reports no vibrator hardware, so in-app vibration cannot work.';
+      '이 기기는 진동 하드웨어를 보고하지 않으므로 앱 내 진동을 사용할 수 없습니다.';
 
   @override
   String get intensity => '강도';
@@ -4327,28 +4327,27 @@ class AppLocalizationsKo extends AppLocalizations {
   String get remoteRemovedFromPinned => 'Remote removed from pinned.';
 
   @override
-  String get homeDeviceControlsTitle => 'Quick controls';
+  String get homeDeviceControlsTitle => '빠른 제어';
 
   @override
-  String get homeDeviceControlsSubtitle =>
-      'Power, mute, and volume without opening a remote.';
+  String get homeDeviceControlsSubtitle => '리모컨을 열지 않고 전원, 음소거, 볼륨을 제어합니다.';
 
   @override
   String get homeDeviceControlsEmptySubtitle =>
-      'Set up power, mute, and volume buttons in Device Controls.';
+      '기기 제어에서 전원, 음소거, 볼륨 버튼을 설정하세요.';
 
   @override
-  String get showDeviceControlsOnHome => 'Show quick controls on home';
+  String get showDeviceControlsOnHome => '홈에 빠른 제어 표시';
 
   @override
   String get showDeviceControlsOnHomeSubtitle =>
-      'Show the compact Power, Mute, and Volume row on the main screen.';
+      '기본 화면에 전원, 음소거, 볼륨의 간단한 줄을 표시합니다.';
 
   @override
-  String get homeDeviceControlsShown => 'Quick controls shown on home.';
+  String get homeDeviceControlsShown => '홈에 빠른 제어가 표시됩니다.';
 
   @override
-  String get homeDeviceControlsHidden => 'Quick controls hidden from home.';
+  String get homeDeviceControlsHidden => '홈에서 빠른 제어가 숨겨졌습니다.';
 
   @override
   String get power => 'Power';
@@ -4576,4 +4575,145 @@ class AppLocalizationsKo extends AppLocalizations {
 
   @override
   String get irWaveformOffLabel => 'OFF';
+
+  @override
+  String get quickSettingsTilesTitle => '빠른 설정 타일';
+
+  @override
+  String get quickSettingsPowerTile => '전원 타일';
+
+  @override
+  String get quickSettingsMuteTile => '음소거 타일';
+
+  @override
+  String get quickSettingsVolumeUpTile => '볼륨 올리기 타일';
+
+  @override
+  String get quickSettingsVolumeDownTile => '볼륨 내리기 타일';
+
+  @override
+  String get quickSettingsNoTilesConfigured => '설정된 타일 없음';
+
+  @override
+  String get quickSettingsEmptyHint =>
+      '다음 단계: 하나 이상의 타일에 명령을 선택한 다음 Android 빠른 설정 편집 메뉴에서 타일을 추가하세요.';
+
+  @override
+  String get quickSettingsSetPowerTile => '전원 타일 설정';
+
+  @override
+  String get quickSettingsConfiguredHint =>
+      '각 타일이 보낼 버튼을 선택하세요. Android 빠른 설정 편집 메뉴에서 타일을 추가하세요.';
+
+  @override
+  String get quickSettingsNotSet => '설정 안 됨';
+
+  @override
+  String quickSettingsTileMappingSummary(String title, String subtitle) {
+    return '$title · $subtitle';
+  }
+
+  @override
+  String get quickSettingsPickButtonTooltip => '버튼 선택';
+
+  @override
+  String get quickSettingsClearTooltip => '지우기';
+
+  @override
+  String get homeWidgetUnsupportedLauncher =>
+      '사용 중인 런처는 앱 안에서 위젯 추가를 지원하지 않습니다. 홈 화면 위젯 선택기에서 IR 버튼 위젯을 추가하세요.';
+
+  @override
+  String get homeWidgetButtonUnsupported => '이 버튼은 홈 화면 위젯으로 사용할 수 없습니다.';
+
+  @override
+  String get homeWidgetRequestSent => '위젯 요청을 보냈습니다. 런처에서 확인하세요.';
+
+  @override
+  String get homeWidgetRequestRejected => '런처가 위젯 요청을 거부했습니다.';
+
+  @override
+  String homeWidgetSetupFailed(String error) {
+    return '홈 화면 위젯 설정 실패: $error';
+  }
+
+  @override
+  String get addHomeWidget => '홈 위젯 추가';
+
+  @override
+  String get addHomeWidgetSubtitle => '이 버튼을 홈 화면에 배치합니다.';
+
+  @override
+  String buttonInfoType(String type) {
+    return '유형: $type';
+  }
+
+  @override
+  String get buttonInfoCodeRaw => '코드: 원시 신호';
+
+  @override
+  String buttonInfoCode(String code) {
+    return '코드: $code';
+  }
+
+  @override
+  String get buttonInfoNoCode => '코드 없음';
+
+  @override
+  String buttonInfoFrequency(String frequency) {
+    return '주파수: $frequency';
+  }
+
+  @override
+  String get frequencyHzLabel => '주파수 (Hz)';
+
+  @override
+  String get carrierFrequencyHelper => '캐리어 주파수, 예: 38000';
+
+  @override
+  String get requiredFrequencyHelper => '필수. 예: 38000';
+
+  @override
+  String get validFrequencyError => '올바른 주파수를 입력하세요 (15k-60k).';
+
+  @override
+  String get resetToDefaultFrequency => '38000으로 재설정';
+
+  @override
+  String get rawDataLabel => '원시 데이터';
+
+  @override
+  String get rawDataHelper => '공백으로 구분된 정수, 예: 9000 4500 560 560 ...';
+
+  @override
+  String get rawDataInvalid => '원시 데이터는 공백 또는 새 줄로 구분된 정수여야 합니다.';
+
+  @override
+  String get rawDataSafeguard => '보호: 전송할 수 없는 패턴 저장을 막기 위해 잘못된 토큰은 차단됩니다.';
+
+  @override
+  String get protocolLabel => '프로토콜';
+
+  @override
+  String get protocolEncodingHelper => '인코딩은 구현됨으로 표시된 프로토콜에서만 사용할 수 있습니다.';
+
+  @override
+  String get protocolFrequencyHelper =>
+      '선택 사항. 비워 두면 가능한 경우 프로토콜 기본 주파수를 사용합니다.';
+
+  @override
+  String get rawSignalInvalidWithFrequency =>
+      '원시 데이터는 공백 또는 새 줄로 구분된 정수여야 하며 주파수는 15k-60k여야 합니다.';
+
+  @override
+  String get necTimingsNumeric => '모든 NEC 타이밍은 숫자여야 합니다.';
+
+  @override
+  String get frequencyRangeError => '주파수는 15k-60k Hz여야 합니다.';
+
+  @override
+  String get pasteTooltip => '붙여넣기';
+
+  @override
+  String get clearTooltip => '지우기';
 }

@@ -798,11 +798,11 @@ class AppLocalizationsTh extends AppLocalizations {
 
   @override
   String get forceInAppVibrationBlockedMasterWarning =>
-      'Android system vibration is disabled. Force in-app vibration cannot override it on this device.';
+      'การสั่นของระบบ Android ถูกปิดอยู่ การบังคับสั่นภายในแอปไม่สามารถข้ามข้อจำกัดนี้บนอุปกรณ์นี้ได้';
 
   @override
   String get forceInAppVibrationNoVibratorWarning =>
-      'This device reports no vibrator hardware, so in-app vibration cannot work.';
+      'อุปกรณ์นี้ไม่รายงานว่ามีฮาร์ดแวร์สั่น ดังนั้นการสั่นภายในแอปจึงไม่สามารถทำงานได้';
 
   @override
   String get intensity => 'ความเข้ม';
@@ -1448,14 +1448,14 @@ class AppLocalizationsTh extends AppLocalizations {
   String get removeFromDeviceControls => 'นำออกจากการควบคุมอุปกรณ์';
 
   @override
-  String get addToDeviceControls => 'เพิ่ม to อุปกรณ์ Controls';
+  String get addToDeviceControls => 'เพิ่มในการควบคุมอุปกรณ์';
 
   @override
   String get deviceControlsButtonSubtitle =>
       'แสดงปุ่มนี้ในการควบคุมอุปกรณ์ของระบบ';
 
   @override
-  String get removedFromDeviceControls => 'นำออกแล้ว from อุปกรณ์ Controls.';
+  String get removedFromDeviceControls => 'นำออกจากการควบคุมอุปกรณ์แล้ว';
 
   @override
   String get pinQuickTile => 'ปักหมุดไปยังรายการโปรดไทล์ด่วน';
@@ -1773,7 +1773,7 @@ class AppLocalizationsTh extends AppLocalizations {
 
   @override
   String get deviceControlsEmptyHint =>
-      'กดปุ่มบนรีโมตค้าง แล้วเลือก Add to Device Controls';
+      'กดปุ่มบนรีโมตค้างไว้ แล้วเลือก “เพิ่มไปยังการควบคุมอุปกรณ์”';
 
   @override
   String get sendTest => 'ส่งทดสอบ';
@@ -4398,28 +4398,28 @@ class AppLocalizationsTh extends AppLocalizations {
   String get remoteRemovedFromPinned => 'Remote removed from pinned.';
 
   @override
-  String get homeDeviceControlsTitle => 'Quick controls';
+  String get homeDeviceControlsTitle => 'การควบคุมด่วน';
 
   @override
   String get homeDeviceControlsSubtitle =>
-      'Power, mute, and volume without opening a remote.';
+      'เปิดปิด ปิดเสียง และปรับระดับเสียงโดยไม่ต้องเปิดรีโมต';
 
   @override
   String get homeDeviceControlsEmptySubtitle =>
-      'Set up power, mute, and volume buttons in Device Controls.';
+      'ตั้งค่าปุ่มเปิดปิด ปิดเสียง และระดับเสียงในส่วนควบคุมอุปกรณ์';
 
   @override
-  String get showDeviceControlsOnHome => 'Show quick controls on home';
+  String get showDeviceControlsOnHome => 'แสดงการควบคุมด่วนบนหน้าแรก';
 
   @override
   String get showDeviceControlsOnHomeSubtitle =>
-      'Show the compact Power, Mute, and Volume row on the main screen.';
+      'แสดงแถวเปิดปิด ปิดเสียง และระดับเสียงแบบกะทัดรัดบนหน้าจอหลัก';
 
   @override
-  String get homeDeviceControlsShown => 'Quick controls shown on home.';
+  String get homeDeviceControlsShown => 'แสดงการควบคุมด่วนบนหน้าแรกแล้ว';
 
   @override
-  String get homeDeviceControlsHidden => 'Quick controls hidden from home.';
+  String get homeDeviceControlsHidden => 'ซ่อนการควบคุมด่วนจากหน้าแรกแล้ว';
 
   @override
   String get power => 'Power';
@@ -4650,4 +4650,151 @@ class AppLocalizationsTh extends AppLocalizations {
 
   @override
   String get irWaveformOffLabel => 'OFF';
+
+  @override
+  String get quickSettingsTilesTitle => 'ไทล์การตั้งค่าด่วน';
+
+  @override
+  String get quickSettingsPowerTile => 'ไทล์เปิด/ปิด';
+
+  @override
+  String get quickSettingsMuteTile => 'ไทล์ปิดเสียง';
+
+  @override
+  String get quickSettingsVolumeUpTile => 'ไทล์เพิ่มเสียง';
+
+  @override
+  String get quickSettingsVolumeDownTile => 'ไทล์ลดเสียง';
+
+  @override
+  String get quickSettingsNoTilesConfigured => 'ยังไม่ได้ตั้งค่าไทล์';
+
+  @override
+  String get quickSettingsEmptyHint =>
+      'ขั้นต่อไป: เลือกคำสั่งอย่างน้อยหนึ่งไทล์ แล้วเพิ่มไทล์จากเมนูแก้ไขการตั้งค่าด่วนของ Android';
+
+  @override
+  String get quickSettingsSetPowerTile => 'ตั้งค่าไทล์เปิด/ปิด';
+
+  @override
+  String get quickSettingsConfiguredHint =>
+      'เลือกว่าปุ่มใดจะถูกส่งโดยแต่ละไทล์ เพิ่มไทล์จากเมนูแก้ไขการตั้งค่าด่วนของ Android';
+
+  @override
+  String get quickSettingsNotSet => 'ยังไม่ได้ตั้งค่า';
+
+  @override
+  String quickSettingsTileMappingSummary(String title, String subtitle) {
+    return '$title · $subtitle';
+  }
+
+  @override
+  String get quickSettingsPickButtonTooltip => 'เลือกปุ่ม';
+
+  @override
+  String get quickSettingsClearTooltip => 'ล้าง';
+
+  @override
+  String get homeWidgetUnsupportedLauncher =>
+      'ลอนเชอร์ของคุณไม่รองรับการเพิ่มวิดเจ็ตจากในแอป ให้เพิ่มวิดเจ็ตปุ่ม IR จากตัวเลือกวิดเจ็ตบนหน้าจอหลัก';
+
+  @override
+  String get homeWidgetButtonUnsupported =>
+      'ปุ่มนี้ไม่สามารถใช้เป็นวิดเจ็ตหน้าจอหลักได้';
+
+  @override
+  String get homeWidgetRequestSent =>
+      'ส่งคำขอวิดเจ็ตแล้ว โปรดยืนยันในลอนเชอร์ของคุณ';
+
+  @override
+  String get homeWidgetRequestRejected => 'ลอนเชอร์ปฏิเสธคำขอวิดเจ็ต';
+
+  @override
+  String homeWidgetSetupFailed(String error) {
+    return 'ตั้งค่าวิดเจ็ตหน้าจอหลักไม่สำเร็จ: $error';
+  }
+
+  @override
+  String get addHomeWidget => 'เพิ่มวิดเจ็ตหน้าจอหลัก';
+
+  @override
+  String get addHomeWidgetSubtitle => 'วางปุ่มนี้บนหน้าจอหลักของคุณ';
+
+  @override
+  String buttonInfoType(String type) {
+    return 'ประเภท: $type';
+  }
+
+  @override
+  String get buttonInfoCodeRaw => 'โค้ด: สัญญาณดิบ';
+
+  @override
+  String buttonInfoCode(String code) {
+    return 'โค้ด: $code';
+  }
+
+  @override
+  String get buttonInfoNoCode => 'ไม่มีโค้ด';
+
+  @override
+  String buttonInfoFrequency(String frequency) {
+    return 'ความถี่: $frequency';
+  }
+
+  @override
+  String get frequencyHzLabel => 'ความถี่ (Hz)';
+
+  @override
+  String get carrierFrequencyHelper => 'ความถี่พาหะ เช่น 38000';
+
+  @override
+  String get requiredFrequencyHelper => 'จำเป็น ตัวอย่าง: 38000';
+
+  @override
+  String get validFrequencyError => 'ป้อนความถี่ที่ถูกต้อง (15k-60k)';
+
+  @override
+  String get resetToDefaultFrequency => 'รีเซ็ตเป็น 38000';
+
+  @override
+  String get rawDataLabel => 'ข้อมูลดิบ';
+
+  @override
+  String get rawDataHelper =>
+      'จำนวนเต็มคั่นด้วยช่องว่าง เช่น 9000 4500 560 560 ...';
+
+  @override
+  String get rawDataInvalid =>
+      'ข้อมูลดิบต้องเป็นจำนวนเต็มที่คั่นด้วยช่องว่างหรือบรรทัดใหม่';
+
+  @override
+  String get rawDataSafeguard =>
+      'การป้องกัน: โทเค็นที่ไม่ถูกต้องจะถูกบล็อกเพื่อป้องกันการบันทึกรูปแบบที่ส่งไม่ได้';
+
+  @override
+  String get protocolLabel => 'โปรโตคอล';
+
+  @override
+  String get protocolEncodingHelper =>
+      'การเข้ารหัสใช้ได้เฉพาะโปรโตคอลที่ทำเครื่องหมายว่าใช้งานแล้ว';
+
+  @override
+  String get protocolFrequencyHelper =>
+      'ไม่บังคับ หากว่าง จะใช้ความถี่เริ่มต้นของโปรโตคอลเมื่อมี';
+
+  @override
+  String get rawSignalInvalidWithFrequency =>
+      'ข้อมูลดิบต้องเป็นจำนวนเต็มที่คั่นด้วยช่องว่างหรือบรรทัดใหม่ และความถี่ต้องเป็น 15k-60k';
+
+  @override
+  String get necTimingsNumeric => 'เวลาทั้งหมดของ NEC ต้องเป็นตัวเลข';
+
+  @override
+  String get frequencyRangeError => 'ความถี่ต้องเป็น 15k-60k Hz';
+
+  @override
+  String get pasteTooltip => 'วาง';
+
+  @override
+  String get clearTooltip => 'ล้าง';
 }

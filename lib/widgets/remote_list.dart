@@ -1,9 +1,13 @@
 import 'package:flutter/material.dart';
+import 'package:irblaster_controller/l10n/icon_picker_names.dart';
 import 'package:irblaster_controller/l10n/l10n.dart';
 import 'package:irblaster_controller/state/continue_context_prefs.dart';
 import 'package:irblaster_controller/state/haptics.dart';
+import 'package:irblaster_controller/state/quick_settings_prefs.dart';
 import 'package:irblaster_controller/state/remote_highlights_prefs.dart';
 import 'package:irblaster_controller/state/remotes_state.dart';
+import 'package:irblaster_controller/utils/button_label.dart';
+import 'package:irblaster_controller/utils/ir.dart';
 import 'package:irblaster_controller/utils/remote.dart';
 import 'package:irblaster_controller/widgets/global_search_delegate.dart';
 import 'package:irblaster_controller/widgets/remote_view.dart';
@@ -68,38 +72,36 @@ class _RemoteListState extends State<RemoteList> {
     });
   }
 
-  void _reassignIds() {
-    for (int i = 0; i < remotes.length; i++) {
-      remotes[i].id = i + 1;
-    }
-  }
-
   Remote? _findRemoteForContinue(LastRemoteContext ctx) {
+    if (ctx.remoteId > 0) {
+      try {
+        return remotes.firstWhere((r) => r.id == ctx.remoteId);
+      } catch (_) {}
+    }
+
     final String wantedName = ctx.remoteName.trim();
     if (wantedName.isNotEmpty) {
       try {
         return remotes.firstWhere((r) => r.name.trim() == wantedName);
       } catch (_) {}
     }
-    try {
-      return remotes.firstWhere((r) => r.id == ctx.remoteId);
-    } catch (_) {
-      return null;
-    }
+    return null;
   }
 
   Remote? _findRemoteByRef(RemoteHighlightRef ctx) {
+    if (ctx.remoteId > 0) {
+      try {
+        return remotes.firstWhere((r) => r.id == ctx.remoteId);
+      } catch (_) {}
+    }
+
     final String wantedName = ctx.remoteName.trim();
     if (wantedName.isNotEmpty) {
       try {
         return remotes.firstWhere((r) => r.name.trim() == wantedName);
       } catch (_) {}
     }
-    try {
-      return remotes.firstWhere((r) => r.id == ctx.remoteId);
-    } catch (_) {
-      return null;
-    }
+    return null;
   }
 
   List<Remote> _resolveHighlightRefs(
@@ -117,6 +119,49 @@ class _RemoteListState extends State<RemoteList> {
       if (out.length >= limit) break;
     }
     return out;
+  }
+
+  String _buttonTitle(IRButton button) {
+    return displayButtonLabel(
+      button,
+      fallback: context.l10n.unnamedButton,
+      iconFallback: context.l10n.iconFallback,
+      iconNameLocalizer: (name) => localizedIconPickerName(context.l10n, name),
+    );
+  }
+
+  Future<void> _syncQuickSettingsAfterRemoteEdit(
+    List<IRButton> before,
+    Remote after,
+  ) async {
+    final beforeIds = before.map((b) => b.id).toSet();
+    final afterIds = after.buttons.map((b) => b.id).toSet();
+
+    for (final removedId in beforeIds.difference(afterIds)) {
+      await QuickSettingsPrefs.removeButtonReferences(removedId);
+    }
+
+    for (final button in after.buttons) {
+      if (!beforeIds.contains(button.id)) continue;
+      try {
+        final preview = previewIRButton(button);
+        await QuickSettingsPrefs.refreshButtonReferences(
+          buttonId: button.id,
+          title: _buttonTitle(button),
+          subtitle: after.name,
+          frequencyHz: preview.frequencyHz,
+          pattern: preview.pattern,
+        );
+      } catch (_) {
+        await QuickSettingsPrefs.removeButtonReferences(button.id);
+      }
+    }
+  }
+
+  Future<void> _removeQuickSettingsForRemote(Remote remote) async {
+    for (final button in remote.buttons) {
+      await QuickSettingsPrefs.removeButtonReferences(button.id);
+    }
   }
 
   void _showContinueUnavailable() {
@@ -205,7 +250,8 @@ class _RemoteListState extends State<RemoteList> {
           onTap: () async {
             await Navigator.push(
               context,
-              MaterialPageRoute(builder: (context) => RemoteView(remote: remote)),
+              MaterialPageRoute(
+                  builder: (context) => RemoteView(remote: remote)),
             );
           },
         ),
@@ -306,7 +352,8 @@ class _RemoteListState extends State<RemoteList> {
   Future<void> _addRemote() async {
     if (_reorderMode) _setReorderMode(false);
     try {
-      final RemoteEditorDraft? setupDraft = await Navigator.push<RemoteEditorDraft?>(
+      final RemoteEditorDraft? setupDraft =
+          await Navigator.push<RemoteEditorDraft?>(
         context,
         MaterialPageRoute(builder: (context) => const RemoteSetupScreen()),
       );
@@ -320,7 +367,6 @@ class _RemoteListState extends State<RemoteList> {
       if (newRemote == null || !mounted) return;
       setState(() {
         remotes.add(newRemote);
-        _reassignIds();
       });
       await writeRemotelist(remotes);
       notifyRemotesChanged();
@@ -335,6 +381,7 @@ class _RemoteListState extends State<RemoteList> {
   Future<void> _editRemoteAt(int index) async {
     if (_reorderMode) _setReorderMode(false);
     final Remote remote = remotes[index];
+    final beforeButtons = List<IRButton>.from(remote.buttons);
     try {
       final Remote? editedRemote = await Navigator.push<Remote?>(
         context,
@@ -350,6 +397,7 @@ class _RemoteListState extends State<RemoteList> {
       });
       await writeRemotelist(remotes);
       notifyRemotesChanged();
+      await _syncQuickSettingsAfterRemoteEdit(beforeButtons, editedRemote);
       if (!mounted) return;
       Haptics.selectionClick();
     } catch (_) {}
@@ -361,9 +409,9 @@ class _RemoteListState extends State<RemoteList> {
     final confirmed = await _confirmDeleteRemote(context, remote);
     if (!confirmed) return;
     await RemoteHighlightsPrefs.removeForRemote(remote);
+    await _removeQuickSettingsForRemote(remote);
     setState(() {
       remotes.removeAt(index);
-      _reassignIds();
     });
     await writeRemotelist(remotes);
     notifyRemotesChanged();
@@ -671,7 +719,6 @@ class _RemoteListState extends State<RemoteList> {
                                     final Remote movedRemote =
                                         remotes.removeAt(oldIndex);
                                     remotes.insert(newIndex, movedRemote);
-                                    _reassignIds();
                                   });
                                   await writeRemotelist(remotes);
                                   notifyRemotesChanged();

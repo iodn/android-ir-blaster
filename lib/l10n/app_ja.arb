@@ -58,7 +58,7 @@
   "macrosNavLabel": "マクロ",
   "signalTesterNavLabel": "信号テスター",
   "settingsTitle": "設定",
-  "remoteNoIrEmitterTitle": "No IR emitter",
+  "remoteNoIrEmitterTitle": "IR送信機がありません",
   "remoteNoIrEmitterMessage": "この端末にはIR送信機がありません",
   "remoteNoIrEmitterNeedsEmitter": "このアプリの動作にはIR送信機が必要です",
   "remoteDismiss": "閉じる",
@@ -558,7 +558,7 @@
   "newRemoteCreated": "新しいリモコンを作成しました。",
   "failedToCreateRemote": "リモコンの作成に失敗しました。",
   "newRemoteEllipsis": "新しいリモコン…",
-  "addedToRemoteNamed": "Added to {name}.",
+  "addedToRemoteNamed": "{name}に追加しました。",
   "@addedToRemoteNamed": {
     "placeholders": {
       "name": {}
@@ -1862,8 +1862,8 @@
   "forceInAppVibrationTitle": "アプリ内の振動を強制する",
   "forceInAppVibrationSubtitle": "システムのタッチフィードバックがオフでもバイブレータを直接使用する",
   "forceInAppVibrationWarning": "高度なオプションです。Android のタッチフィードバックが全体で無効でも、アプリが振動する場合があります。",
-  "forceInAppVibrationBlockedMasterWarning": "Android system vibration is disabled. Force in-app vibration cannot override it on this device.",
-  "forceInAppVibrationNoVibratorWarning": "This device reports no vibrator hardware, so in-app vibration cannot work.",
+  "forceInAppVibrationBlockedMasterWarning": "Androidのシステム振動が無効です。この端末ではアプリ内の強制振動で上書きできません。",
+  "forceInAppVibrationNoVibratorWarning": "この端末は振動ハードウェアを報告していないため、アプリ内の振動は動作しません。",
   "remoteButtonCountLabel": "{count, plural, one{{count} button} other{{count} buttons}}",
   "@remoteButtonCountLabel": {
     "placeholders": {
@@ -1948,31 +1948,31 @@
   "@remoteRemovedFromPinned": {
     "description": "Snackbar shown after unpinning a remote."
   },
-  "homeDeviceControlsTitle": "Quick controls",
+  "homeDeviceControlsTitle": "クイック操作",
   "@homeDeviceControlsTitle": {
     "description": "Title for the compact device controls row on the home surface."
   },
-  "homeDeviceControlsSubtitle": "Power, mute, and volume without opening a remote.",
+  "homeDeviceControlsSubtitle": "リモコンを開かずに電源、ミュート、音量を操作します。",
   "@homeDeviceControlsSubtitle": {
     "description": "Subtitle for the compact device controls row when controls are configured."
   },
-  "homeDeviceControlsEmptySubtitle": "Set up power, mute, and volume buttons in Device Controls.",
+  "homeDeviceControlsEmptySubtitle": "デバイスコントロールで電源、ミュート、音量ボタンを設定してください。",
   "@homeDeviceControlsEmptySubtitle": {
     "description": "Subtitle for the compact device controls row when no matching controls are configured."
   },
-  "showDeviceControlsOnHome": "Show quick controls on home",
+  "showDeviceControlsOnHome": "ホームにクイック操作を表示",
   "@showDeviceControlsOnHome": {
     "description": "Settings toggle title for showing the compact device controls row on the home surface."
   },
-  "showDeviceControlsOnHomeSubtitle": "Show the compact Power, Mute, and Volume row on the main screen.",
+  "showDeviceControlsOnHomeSubtitle": "メイン画面に電源、ミュート、音量のコンパクトな行を表示します。",
   "@showDeviceControlsOnHomeSubtitle": {
     "description": "Settings toggle subtitle for showing the compact device controls row on the home surface."
   },
-  "homeDeviceControlsShown": "Quick controls shown on home.",
+  "homeDeviceControlsShown": "ホームにクイック操作を表示しました。",
   "@homeDeviceControlsShown": {
     "description": "Snackbar shown when the home quick controls row is enabled."
   },
-  "homeDeviceControlsHidden": "Quick controls hidden from home.",
+  "homeDeviceControlsHidden": "ホームからクイック操作を非表示にしました。",
   "@homeDeviceControlsHidden": {
     "description": "Snackbar shown when the home quick controls row is disabled."
   },
@@ -2253,5 +2253,47 @@
   "irWaveformOffLabel": "OFF",
   "@irWaveformOffLabel": {
     "description": "Legend label for inactive/silent sections in an IR waveform."
-  }
+  },
+  "quickSettingsTilesTitle": "クイック設定タイル",
+  "quickSettingsPowerTile": "電源タイル",
+  "quickSettingsMuteTile": "ミュートタイル",
+  "quickSettingsVolumeUpTile": "音量アップタイル",
+  "quickSettingsVolumeDownTile": "音量ダウンタイル",
+  "quickSettingsNoTilesConfigured": "タイルが設定されていません",
+  "quickSettingsEmptyHint": "次の手順: 少なくとも1つのタイルにコマンドを選び、Androidのクイック設定編集メニューからタイルを追加してください。",
+  "quickSettingsSetPowerTile": "電源タイルを設定",
+  "quickSettingsConfiguredHint": "各タイルが送信するボタンを選びます。Androidのクイック設定編集メニューからタイルを追加してください。",
+  "quickSettingsNotSet": "未設定",
+  "quickSettingsTileMappingSummary": "{title} · {subtitle}",
+  "quickSettingsPickButtonTooltip": "ボタンを選択",
+  "quickSettingsClearTooltip": "クリア",
+  "homeWidgetUnsupportedLauncher": "このランチャーはアプリ内からのウィジェット追加に対応していません。ホーム画面のウィジェット選択からIRボタンウィジェットを追加してください。",
+  "homeWidgetButtonUnsupported": "このボタンはホーム画面ウィジェットとして使用できません。",
+  "homeWidgetRequestSent": "ウィジェット要求を送信しました。ランチャーで確認してください。",
+  "homeWidgetRequestRejected": "ランチャーがウィジェット要求を拒否しました。",
+  "homeWidgetSetupFailed": "ホーム画面ウィジェットの設定に失敗しました: {error}",
+  "addHomeWidget": "ホームウィジェットを追加",
+  "addHomeWidgetSubtitle": "このボタンをホーム画面に配置します。",
+  "buttonInfoType": "種類: {type}",
+  "buttonInfoCodeRaw": "コード: 生信号",
+  "buttonInfoCode": "コード: {code}",
+  "buttonInfoNoCode": "コードなし",
+  "buttonInfoFrequency": "周波数: {frequency}",
+  "frequencyHzLabel": "周波数 (Hz)",
+  "carrierFrequencyHelper": "搬送波周波数 例: 38000",
+  "requiredFrequencyHelper": "必須。例: 38000",
+  "validFrequencyError": "有効な周波数を入力してください (15k-60k)。",
+  "resetToDefaultFrequency": "38000にリセット",
+  "rawDataLabel": "生データ",
+  "rawDataHelper": "スペース区切りの整数 例: 9000 4500 560 560 ...",
+  "rawDataInvalid": "生データはスペースまたは改行で区切られた整数である必要があります。",
+  "rawDataSafeguard": "保護: 送信できないパターンの保存を防ぐため、無効なトークンはブロックされます。",
+  "protocolLabel": "プロトコル",
+  "protocolEncodingHelper": "エンコードは実装済みとしてマークされたプロトコルでのみ利用できます。",
+  "protocolFrequencyHelper": "任意。空の場合、利用可能ならプロトコルの既定周波数を使用します。",
+  "rawSignalInvalidWithFrequency": "生データはスペースまたは改行で区切られた整数で、周波数は15k-60kである必要があります。",
+  "necTimingsNumeric": "すべてのNECタイミングは数値である必要があります。",
+  "frequencyRangeError": "周波数は15k-60k Hzである必要があります。",
+  "pasteTooltip": "貼り付け",
+  "clearTooltip": "クリア"
 }

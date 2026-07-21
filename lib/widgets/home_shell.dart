@@ -24,9 +24,6 @@ class _HomeShellState extends State<HomeShell> {
   static const String _hardwareEducationSeenKey =
       'home_hardware_education_seen_v2';
 
-  // Global capabilities listener for USB Audio auto-select
-  StreamSubscription<IrTransmitterCapabilities>? _capsEventsSub;
-
   int _index = 0;
 
   final List<Widget> _pages = const <Widget>[
@@ -46,6 +43,7 @@ class _HomeShellState extends State<HomeShell> {
 
   bool _startupSheetOpen = false;
   BuildContext? _startupSheetContext;
+  StateSetter? _startupSheetSetState;
 
   @override
   void initState() {
@@ -56,7 +54,6 @@ class _HomeShellState extends State<HomeShell> {
     continueContextsRevision.addListener(_handleShortcutInputsChanged);
     AppLocaleController.instance.addListener(_handleShortcutInputsChanged);
 
-    _capsEventsSub = IrTransmitterPlatform.capabilitiesEvents().listen(_onCaps);
     WidgetsBinding.instance.addPostFrameCallback((_) {
       if (!mounted) return;
       unawaited(AppShortcutController.instance.sync(context.l10n));
@@ -67,8 +64,6 @@ class _HomeShellState extends State<HomeShell> {
   void dispose() {
     continueContextsRevision.removeListener(_handleShortcutInputsChanged);
     AppLocaleController.instance.removeListener(_handleShortcutInputsChanged);
-    _capsEventsSub?.cancel();
-    _capsEventsSub = null;
 
     _capsSub?.cancel();
     _capsSub = null;
@@ -106,6 +101,7 @@ class _HomeShellState extends State<HomeShell> {
         setState(() {
           _caps = caps;
         });
+        _startupSheetSetState?.call(() {});
 
         final needsNotice = _needsHardwareNotice(caps);
 
@@ -227,27 +223,23 @@ class _HomeShellState extends State<HomeShell> {
     ];
   }
 
-  /// Missing handler you referenced in initState().
-  Future<void> _onCaps(IrTransmitterCapabilities caps) async {
-    if (!mounted) return;
-    setState(() {
-      // rebuild
-    });
-  }
-
   Future<void> _maybeShowStartupNotice(IrTransmitterCapabilities caps) async {
     if (_startupNoticeShown) return;
     if (_hardwareEducationSeen) return;
     if (!_needsHardwareNotice(caps)) return;
 
     _startupNoticeShown = true;
-    await _markHardwareEducationSeen();
     await _showHardwareExplainer(caps);
+    if (!mounted) return;
+    await _markHardwareEducationSeen();
   }
 
   Future<void> _showHardwareExplainer(IrTransmitterCapabilities caps) async {
+    if (!mounted) return;
+
     _startupSheetOpen = true;
     _startupSheetContext = null;
+    _startupSheetSetState = null;
 
     try {
       await showModalBottomSheet<void>(
@@ -258,238 +250,250 @@ class _HomeShellState extends State<HomeShell> {
         shape: const RoundedRectangleBorder(
           borderRadius: BorderRadius.vertical(top: Radius.circular(18)),
         ),
-        builder: (ctx) {
-          _startupSheetContext = ctx;
+        builder: (sheetContext) {
+          return StatefulBuilder(
+            builder: (ctx, setSheetState) {
+              _startupSheetContext = ctx;
+              _startupSheetSetState = setSheetState;
 
-          final liveCaps = _caps;
-          if (liveCaps != null && !_needsHardwareNotice(liveCaps)) {
-            _closeStartupSheetIfOpen();
-          }
+              final displayCaps = _caps ?? caps;
+              if (!_needsHardwareNotice(displayCaps)) {
+                _closeStartupSheetIfOpen();
+              }
 
-          final theme = Theme.of(ctx);
-          final cs = theme.colorScheme;
+              final theme = Theme.of(ctx);
+              final cs = theme.colorScheme;
 
-          final String headline = ctx.l10n.homeHardwareRequiredTitle;
-          final String message = _usbUnavailableMessage(ctx, caps);
+              final String headline = ctx.l10n.homeHardwareRequiredTitle;
+              final String message = _usbUnavailableMessage(ctx, displayCaps);
 
-          final List<_HardwareOption> options = <_HardwareOption>[
-            _HardwareOption(
-              icon: Icons.smartphone_rounded,
-              title: ctx.l10n.homeBuiltInIrOptionTitle,
-              subtitle: ctx.l10n.homeBuiltInIrOptionSubtitle,
-              badges: <String>[ctx.l10n.homeBuiltInIrUnavailable],
-            ),
-            _HardwareOption(
-              icon: Icons.usb_rounded,
-              title: ctx.l10n.homeUsbDongleRecommended,
-              subtitle: _usbOptionSubtitle(ctx, caps),
-              badges: _usbFamilyBadges(ctx),
-            ),
-            _HardwareOption(
-              icon: Icons.graphic_eq_rounded,
-              title: ctx.l10n.homeAudioAdapterAlternative,
-              subtitle: ctx.l10n.homeAudioAdapterDescription,
-              badges: <String>[ctx.l10n.homeAudioAccessoryLabel],
-            ),
-          ];
+              final List<_HardwareOption> options = <_HardwareOption>[
+                _HardwareOption(
+                  icon: Icons.smartphone_rounded,
+                  title: ctx.l10n.homeBuiltInIrOptionTitle,
+                  subtitle: ctx.l10n.homeBuiltInIrOptionSubtitle,
+                  badges: <String>[ctx.l10n.homeBuiltInIrUnavailable],
+                ),
+                _HardwareOption(
+                  icon: Icons.usb_rounded,
+                  title: ctx.l10n.homeUsbDongleRecommended,
+                  subtitle: _usbOptionSubtitle(ctx, displayCaps),
+                  badges: _usbFamilyBadges(ctx),
+                ),
+                _HardwareOption(
+                  icon: Icons.graphic_eq_rounded,
+                  title: ctx.l10n.homeAudioAdapterAlternative,
+                  subtitle: ctx.l10n.homeAudioAdapterDescription,
+                  badges: <String>[ctx.l10n.homeAudioAccessoryLabel],
+                ),
+              ];
 
-          return Padding(
-            padding: EdgeInsets.only(
-              left: 16,
-              right: 16,
-              top: 8,
-              bottom: 16 + MediaQuery.of(ctx).viewInsets.bottom,
-            ),
-            child: Column(
-              mainAxisSize: MainAxisSize.min,
-              children: [
-                Row(
+              return SingleChildScrollView(
+                padding: EdgeInsets.only(
+                  left: 16,
+                  right: 16,
+                  top: 8,
+                  bottom: 16 + MediaQuery.of(ctx).viewInsets.bottom,
+                ),
+                child: Column(
+                  mainAxisSize: MainAxisSize.min,
                   children: [
+                    Row(
+                      children: [
+                        Container(
+                          width: 44,
+                          height: 44,
+                          decoration: BoxDecoration(
+                            color: cs.errorContainer.withValues(alpha: 0.65),
+                            borderRadius: BorderRadius.circular(14),
+                            border: Border.all(
+                              color: cs.outlineVariant.withValues(alpha: 0.25),
+                            ),
+                          ),
+                          child: Icon(
+                            Icons.info_outline_rounded,
+                            color: cs.onErrorContainer,
+                          ),
+                        ),
+                        const SizedBox(width: 12),
+                        Expanded(
+                          child: Text(
+                            headline,
+                            style: theme.textTheme.titleLarge
+                                ?.copyWith(fontWeight: FontWeight.w900),
+                          ),
+                        ),
+                        IconButton(
+                          tooltip: ctx.l10n.close,
+                          onPressed: () => Navigator.of(ctx).pop(),
+                          icon: const Icon(Icons.close_rounded),
+                        ),
+                      ],
+                    ),
+                    const SizedBox(height: 12),
                     Container(
-                      width: 44,
-                      height: 44,
+                      width: double.infinity,
+                      padding: const EdgeInsets.all(14),
                       decoration: BoxDecoration(
-                        color: cs.errorContainer.withValues(alpha: 0.65),
+                        gradient: LinearGradient(
+                          colors: <Color>[
+                            cs.surfaceContainerHighest.withValues(alpha: 0.78),
+                            cs.surfaceContainerHigh.withValues(alpha: 0.64),
+                          ],
+                          begin: Alignment.topLeft,
+                          end: Alignment.bottomRight,
+                        ),
                         borderRadius: BorderRadius.circular(14),
                         border: Border.all(
-                          color: cs.outlineVariant.withValues(alpha: 0.25),
+                          color: cs.outlineVariant.withValues(alpha: 0.22),
                         ),
                       ),
-                      child: Icon(
-                        Icons.info_outline_rounded,
-                        color: cs.onErrorContainer,
-                      ),
-                    ),
-                    const SizedBox(width: 12),
-                    Expanded(
-                      child: Text(
-                        headline,
-                        style: theme.textTheme.titleLarge
-                            ?.copyWith(fontWeight: FontWeight.w900),
-                      ),
-                    ),
-                    IconButton(
-                      tooltip: ctx.l10n.close,
-                      onPressed: () => Navigator.of(ctx).pop(),
-                      icon: const Icon(Icons.close_rounded),
-                    ),
-                  ],
-                ),
-                const SizedBox(height: 12),
-                Container(
-                  width: double.infinity,
-                  padding: const EdgeInsets.all(14),
-                  decoration: BoxDecoration(
-                    gradient: LinearGradient(
-                      colors: <Color>[
-                        cs.surfaceContainerHighest.withValues(alpha: 0.78),
-                        cs.surfaceContainerHigh.withValues(alpha: 0.64),
-                      ],
-                      begin: Alignment.topLeft,
-                      end: Alignment.bottomRight,
-                    ),
-                    borderRadius: BorderRadius.circular(14),
-                    border: Border.all(
-                      color: cs.outlineVariant.withValues(alpha: 0.22),
-                    ),
-                  ),
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Text(
-                        message,
-                        style: theme.textTheme.bodyMedium?.copyWith(
-                          color: cs.onSurface.withValues(alpha: 0.9),
-                          fontWeight: FontWeight.w700,
-                        ),
-                      ),
-                      const SizedBox(height: 10),
-                      Text(
-                        ctx.l10n.homeHardwareRequiredBody,
-                        style: theme.textTheme.bodySmall?.copyWith(
-                          color: cs.onSurface.withValues(alpha: 0.74),
-                          fontWeight: FontWeight.w600,
-                        ),
-                      ),
-                      const SizedBox(height: 10),
-                      Row(
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
-                          Icon(
-                            Icons.check_circle_outline_rounded,
-                            size: 18,
-                            color: cs.primary,
-                          ),
-                          const SizedBox(width: 8),
-                          Expanded(
-                            child: Text(
-                              ctx.l10n.homeCanStillUseWithoutHardware,
-                              style: theme.textTheme.bodySmall?.copyWith(
-                                color: cs.onSurface.withValues(alpha: 0.82),
-                                fontWeight: FontWeight.w700,
-                              ),
+                          Text(
+                            message,
+                            style: theme.textTheme.bodyMedium?.copyWith(
+                              color: cs.onSurface.withValues(alpha: 0.9),
+                              fontWeight: FontWeight.w700,
                             ),
+                          ),
+                          const SizedBox(height: 10),
+                          Text(
+                            ctx.l10n.homeHardwareRequiredBody,
+                            style: theme.textTheme.bodySmall?.copyWith(
+                              color: cs.onSurface.withValues(alpha: 0.74),
+                              fontWeight: FontWeight.w600,
+                            ),
+                          ),
+                          const SizedBox(height: 10),
+                          Row(
+                            children: [
+                              Icon(
+                                Icons.check_circle_outline_rounded,
+                                size: 18,
+                                color: cs.primary,
+                              ),
+                              const SizedBox(width: 8),
+                              Expanded(
+                                child: Text(
+                                  ctx.l10n.homeCanStillUseWithoutHardware,
+                                  style: theme.textTheme.bodySmall?.copyWith(
+                                    color: cs.onSurface.withValues(alpha: 0.82),
+                                    fontWeight: FontWeight.w700,
+                                  ),
+                                ),
+                              ),
+                            ],
                           ),
                         ],
                       ),
-                    ],
-                  ),
-                ),
-                const SizedBox(height: 14),
-                Align(
-                  alignment: Alignment.centerLeft,
-                  child: Text(
-                    ctx.l10n.homeWaysToUseIrBlaster,
-                    style: theme.textTheme.titleSmall
-                        ?.copyWith(fontWeight: FontWeight.w900),
-                  ),
-                ),
-                const SizedBox(height: 8),
-                for (final opt in options) ...[
-                  _OptionCard(option: opt),
-                  const SizedBox(height: 10),
-                ],
-                Row(
-                  children: [
-                    Expanded(
-                      child: OutlinedButton.icon(
-                        onPressed: () {
-                          Navigator.of(ctx).pop();
-                          setState(() => _index = 3);
-                          Haptics.selectionClick();
-                        },
-                        icon: const Icon(Icons.tune_rounded),
-                        label: Text(ctx.l10n.openSettings),
+                    ),
+                    const SizedBox(height: 14),
+                    Align(
+                      alignment: Alignment.centerLeft,
+                      child: Text(
+                        ctx.l10n.homeWaysToUseIrBlaster,
+                        style: theme.textTheme.titleSmall
+                            ?.copyWith(fontWeight: FontWeight.w900),
                       ),
                     ),
-                    if (caps.hasUsb) ...[
-                      const SizedBox(width: 10),
-                      Expanded(
-                        child: FilledButton.icon(
-                          onPressed: _busy
-                              ? null
-                              : () async {
-                                  setState(() => _busy = true);
-                                  try {
-                                    final ok = await IrTransmitterPlatform
-                                        .usbScanAndRequest();
-                                    if (!mounted) return;
-
-                                    ScaffoldMessenger.of(context).showSnackBar(
-                                      SnackBar(
-                                        content: Text(
-                                          ok
-                                              ? context.l10n
-                                                  .homeUsbPermissionSentApprove
-                                              : context.l10n
-                                                  .homeUsbDongleNotDetected,
-                                        ),
-                                      ),
-                                    );
-                                  } catch (_) {
-                                    if (!mounted) return;
-                                    ScaffoldMessenger.of(context).showSnackBar(
-                                      SnackBar(
-                                        content: Text(
-                                          context.l10n
-                                              .homeUsbPermissionRequestFailed,
-                                        ),
-                                      ),
-                                    );
-                                  } finally {
-                                    if (mounted) {
-                                      setState(() => _busy = false);
-                                    }
-                                  }
-                                },
-                          icon: const Icon(Icons.usb_rounded),
-                          label: Text(_busy
-                              ? ctx.l10n.working
-                              : ctx.l10n.requestUsbPermission),
-                        ),
-                      ),
+                    const SizedBox(height: 8),
+                    for (final opt in options) ...[
+                      _OptionCard(option: opt),
+                      const SizedBox(height: 10),
                     ],
+                    Row(
+                      children: [
+                        Expanded(
+                          child: OutlinedButton.icon(
+                            onPressed: () {
+                              Navigator.of(ctx).pop();
+                              setState(() => _index = 3);
+                              Haptics.selectionClick();
+                            },
+                            icon: const Icon(Icons.tune_rounded),
+                            label: Text(ctx.l10n.openSettings),
+                          ),
+                        ),
+                        if (displayCaps.hasUsb) ...[
+                          const SizedBox(width: 10),
+                          Expanded(
+                            child: FilledButton.icon(
+                              onPressed: _busy
+                                  ? null
+                                  : () async {
+                                      setState(() => _busy = true);
+                                      setSheetState(() {});
+                                      try {
+                                        final ok = await IrTransmitterPlatform
+                                            .usbScanAndRequest();
+                                        if (!mounted) return;
+
+                                        ScaffoldMessenger.of(context)
+                                            .showSnackBar(
+                                          SnackBar(
+                                            content: Text(
+                                              ok
+                                                  ? context.l10n
+                                                      .homeUsbPermissionSentApprove
+                                                  : context.l10n
+                                                      .homeUsbDongleNotDetected,
+                                            ),
+                                          ),
+                                        );
+                                      } catch (_) {
+                                        if (!mounted) return;
+                                        ScaffoldMessenger.of(context)
+                                            .showSnackBar(
+                                          SnackBar(
+                                            content: Text(
+                                              context.l10n
+                                                  .homeUsbPermissionRequestFailed,
+                                            ),
+                                          ),
+                                        );
+                                      } finally {
+                                        if (mounted) {
+                                          setState(() => _busy = false);
+                                          if (_startupSheetOpen) {
+                                            setSheetState(() {});
+                                          }
+                                        }
+                                      }
+                                    },
+                              icon: const Icon(Icons.usb_rounded),
+                              label: Text(_busy
+                                  ? ctx.l10n.working
+                                  : ctx.l10n.requestUsbPermission),
+                            ),
+                          ),
+                        ],
+                      ],
+                    ),
+                    const SizedBox(height: 10),
+                    TextButton(
+                      onPressed: () => Navigator.of(ctx).pop(),
+                      child: Text(ctx.l10n.homeContinueWithoutHardware),
+                    ),
+                    Text(
+                      ctx.l10n.homeHardwareTip,
+                      style: theme.textTheme.bodySmall?.copyWith(
+                        color: cs.onSurface.withValues(alpha: 0.65),
+                        fontWeight: FontWeight.w600,
+                      ),
+                    ),
                   ],
                 ),
-                const SizedBox(height: 10),
-                TextButton(
-                  onPressed: () => Navigator.of(ctx).pop(),
-                  child: Text(ctx.l10n.homeContinueWithoutHardware),
-                ),
-                Text(
-                  ctx.l10n.homeHardwareTip,
-                  style: theme.textTheme.bodySmall?.copyWith(
-                    color: cs.onSurface.withValues(alpha: 0.65),
-                    fontWeight: FontWeight.w600,
-                  ),
-                ),
-              ],
-            ),
+              );
+            },
           );
         },
       );
     } finally {
       _startupSheetOpen = false;
       _startupSheetContext = null;
+      _startupSheetSetState = null;
     }
   }
 
@@ -698,12 +702,12 @@ class _OptionCard extends StatelessWidget {
                                 vertical: 6,
                               ),
                               decoration: BoxDecoration(
-                                color: cs.primaryContainer
-                                    .withValues(alpha: 0.55),
+                                color:
+                                    cs.primaryContainer.withValues(alpha: 0.55),
                                 borderRadius: BorderRadius.circular(999),
                                 border: Border.all(
-                                  color: cs.outlineVariant
-                                      .withValues(alpha: 0.18),
+                                  color:
+                                      cs.outlineVariant.withValues(alpha: 0.18),
                                 ),
                               ),
                               child: Text(

@@ -219,17 +219,19 @@ class AppShortcutController {
 
   Remote? _findRemote(LastRemoteContext? ctx) {
     if (ctx == null) return null;
+    if (ctx.remoteId > 0) {
+      try {
+        return remotes.firstWhere((r) => r.id == ctx.remoteId);
+      } catch (_) {}
+    }
+
     final wantedName = ctx.remoteName.trim();
     if (wantedName.isNotEmpty) {
       try {
         return remotes.firstWhere((r) => r.name.trim() == wantedName);
       } catch (_) {}
     }
-    try {
-      return remotes.firstWhere((r) => r.id == ctx.remoteId);
-    } catch (_) {
-      return null;
-    }
+    return null;
   }
 
   TimedMacro? _findMacro(LastMacroContext? ctx) {

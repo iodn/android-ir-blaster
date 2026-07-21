@@ -1862,8 +1862,8 @@
   "forceInAppVibrationTitle": "Принудительная вибрация в приложении",
   "forceInAppVibrationSubtitle": "Использовать вибромотор напрямую, даже если системный тактильный отклик отключён",
   "forceInAppVibrationWarning": "Расширенная опция. Приложение может вибрировать, даже если тактильный отклик Android глобально отключён.",
-  "forceInAppVibrationBlockedMasterWarning": "Android system vibration is disabled. Force in-app vibration cannot override it on this device.",
-  "forceInAppVibrationNoVibratorWarning": "This device reports no vibrator hardware, so in-app vibration cannot work.",
+  "forceInAppVibrationBlockedMasterWarning": "Системная вибрация Android отключена. Принудительная вибрация в приложении не может обойти это на данном устройстве.",
+  "forceInAppVibrationNoVibratorWarning": "Это устройство не сообщает о наличии вибромотора, поэтому вибрация в приложении не может работать.",
   "remoteButtonCountLabel": "{count, plural, one{{count} button} other{{count} buttons}}",
   "@remoteButtonCountLabel": {
     "placeholders": {
@@ -1948,31 +1948,31 @@
   "@remoteRemovedFromPinned": {
     "description": "Snackbar shown after unpinning a remote."
   },
-  "homeDeviceControlsTitle": "Quick controls",
+  "homeDeviceControlsTitle": "Быстрое управление",
   "@homeDeviceControlsTitle": {
     "description": "Title for the compact device controls row on the home surface."
   },
-  "homeDeviceControlsSubtitle": "Power, mute, and volume without opening a remote.",
+  "homeDeviceControlsSubtitle": "Питание, звук и громкость без открытия пульта.",
   "@homeDeviceControlsSubtitle": {
     "description": "Subtitle for the compact device controls row when controls are configured."
   },
-  "homeDeviceControlsEmptySubtitle": "Set up power, mute, and volume buttons in Device Controls.",
+  "homeDeviceControlsEmptySubtitle": "Настройте кнопки питания, звука и громкости в управлении устройством.",
   "@homeDeviceControlsEmptySubtitle": {
     "description": "Subtitle for the compact device controls row when no matching controls are configured."
   },
-  "showDeviceControlsOnHome": "Show quick controls on home",
+  "showDeviceControlsOnHome": "Показывать быстрое управление на главном экране",
   "@showDeviceControlsOnHome": {
     "description": "Settings toggle title for showing the compact device controls row on the home surface."
   },
-  "showDeviceControlsOnHomeSubtitle": "Show the compact Power, Mute, and Volume row on the main screen.",
+  "showDeviceControlsOnHomeSubtitle": "Показывать компактную строку питания, звука и громкости на главном экране.",
   "@showDeviceControlsOnHomeSubtitle": {
     "description": "Settings toggle subtitle for showing the compact device controls row on the home surface."
   },
-  "homeDeviceControlsShown": "Quick controls shown on home.",
+  "homeDeviceControlsShown": "Быстрое управление показано на главном экране.",
   "@homeDeviceControlsShown": {
     "description": "Snackbar shown when the home quick controls row is enabled."
   },
-  "homeDeviceControlsHidden": "Quick controls hidden from home.",
+  "homeDeviceControlsHidden": "Быстрое управление скрыто с главного экрана.",
   "@homeDeviceControlsHidden": {
     "description": "Snackbar shown when the home quick controls row is disabled."
   },
@@ -2253,5 +2253,47 @@
   "irWaveformOffLabel": "OFF",
   "@irWaveformOffLabel": {
     "description": "Legend label for inactive/silent sections in an IR waveform."
-  }
+  },
+  "quickSettingsTilesTitle": "Плитки быстрых настроек",
+  "quickSettingsPowerTile": "Плитка питания",
+  "quickSettingsMuteTile": "Плитка без звука",
+  "quickSettingsVolumeUpTile": "Плитка громкость +",
+  "quickSettingsVolumeDownTile": "Плитка громкость -",
+  "quickSettingsNoTilesConfigured": "Плитки не настроены",
+  "quickSettingsEmptyHint": "Следующий шаг: выберите команду хотя бы для одной плитки, затем добавьте плитку в меню редактирования быстрых настроек Android.",
+  "quickSettingsSetPowerTile": "Настроить плитку питания",
+  "quickSettingsConfiguredHint": "Выберите, какую кнопку отправляет каждая плитка. Добавьте плитки в меню редактирования быстрых настроек Android.",
+  "quickSettingsNotSet": "Не задано",
+  "quickSettingsTileMappingSummary": "{title} · {subtitle}",
+  "quickSettingsPickButtonTooltip": "Выбрать кнопку",
+  "quickSettingsClearTooltip": "Очистить",
+  "homeWidgetUnsupportedLauncher": "Ваш лаунчер не поддерживает добавление виджетов из приложения. Добавьте виджет ИК-кнопки через выбор виджетов на главном экране.",
+  "homeWidgetButtonUnsupported": "Эту кнопку нельзя использовать как виджет главного экрана.",
+  "homeWidgetRequestSent": "Запрос виджета отправлен. Подтвердите его в лаунчере.",
+  "homeWidgetRequestRejected": "Лаунчер отклонил запрос виджета.",
+  "homeWidgetSetupFailed": "Не удалось настроить виджет главного экрана: {error}",
+  "addHomeWidget": "Добавить виджет на главный экран",
+  "addHomeWidgetSubtitle": "Разместите эту кнопку на главном экране.",
+  "buttonInfoType": "Тип: {type}",
+  "buttonInfoCodeRaw": "Код: сырой сигнал",
+  "buttonInfoCode": "Код: {code}",
+  "buttonInfoNoCode": "НЕТ КОДА",
+  "buttonInfoFrequency": "Частота: {frequency}",
+  "frequencyHzLabel": "Частота (Гц)",
+  "carrierFrequencyHelper": "Несущая частота, например 38000",
+  "requiredFrequencyHelper": "Обязательно. Пример: 38000",
+  "validFrequencyError": "Введите допустимую частоту (15k-60k).",
+  "resetToDefaultFrequency": "Сбросить на 38000",
+  "rawDataLabel": "Сырые данные",
+  "rawDataHelper": "Целые числа через пробел, например 9000 4500 560 560 ...",
+  "rawDataInvalid": "Сырые данные должны быть целыми числами, разделенными пробелами или новыми строками.",
+  "rawDataSafeguard": "Защита: недопустимые токены блокируются, чтобы не сохранить неотправляемый шаблон.",
+  "protocolLabel": "Протокол",
+  "protocolEncodingHelper": "Кодирование реализовано только для протоколов, отмеченных как реализованные.",
+  "protocolFrequencyHelper": "Необязательно. Если пусто, используется частота протокола по умолчанию, если она доступна.",
+  "rawSignalInvalidWithFrequency": "Сырые данные должны быть целыми числами, разделенными пробелами или новыми строками, а частота должна быть 15k-60k.",
+  "necTimingsNumeric": "Все тайминги NEC должны быть числовыми.",
+  "frequencyRangeError": "Частота должна быть 15k-60k Гц.",
+  "pasteTooltip": "Вставить",
+  "clearTooltip": "Очистить"
 }

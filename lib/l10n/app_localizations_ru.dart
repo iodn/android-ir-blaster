@@ -811,11 +811,11 @@ class AppLocalizationsRu extends AppLocalizations {
 
   @override
   String get forceInAppVibrationBlockedMasterWarning =>
-      'Android system vibration is disabled. Force in-app vibration cannot override it on this device.';
+      'Системная вибрация Android отключена. Принудительная вибрация в приложении не может обойти это на данном устройстве.';
 
   @override
   String get forceInAppVibrationNoVibratorWarning =>
-      'This device reports no vibrator hardware, so in-app vibration cannot work.';
+      'Это устройство не сообщает о наличии вибромотора, поэтому вибрация в приложении не может работать.';
 
   @override
   String get intensity => 'Интенсивность';
@@ -4426,28 +4426,31 @@ class AppLocalizationsRu extends AppLocalizations {
   String get remoteRemovedFromPinned => 'Remote removed from pinned.';
 
   @override
-  String get homeDeviceControlsTitle => 'Quick controls';
+  String get homeDeviceControlsTitle => 'Быстрое управление';
 
   @override
   String get homeDeviceControlsSubtitle =>
-      'Power, mute, and volume without opening a remote.';
+      'Питание, звук и громкость без открытия пульта.';
 
   @override
   String get homeDeviceControlsEmptySubtitle =>
-      'Set up power, mute, and volume buttons in Device Controls.';
+      'Настройте кнопки питания, звука и громкости в управлении устройством.';
 
   @override
-  String get showDeviceControlsOnHome => 'Show quick controls on home';
+  String get showDeviceControlsOnHome =>
+      'Показывать быстрое управление на главном экране';
 
   @override
   String get showDeviceControlsOnHomeSubtitle =>
-      'Show the compact Power, Mute, and Volume row on the main screen.';
+      'Показывать компактную строку питания, звука и громкости на главном экране.';
 
   @override
-  String get homeDeviceControlsShown => 'Quick controls shown on home.';
+  String get homeDeviceControlsShown =>
+      'Быстрое управление показано на главном экране.';
 
   @override
-  String get homeDeviceControlsHidden => 'Quick controls hidden from home.';
+  String get homeDeviceControlsHidden =>
+      'Быстрое управление скрыто с главного экрана.';
 
   @override
   String get power => 'Power';
@@ -4679,4 +4682,152 @@ class AppLocalizationsRu extends AppLocalizations {
 
   @override
   String get irWaveformOffLabel => 'OFF';
+
+  @override
+  String get quickSettingsTilesTitle => 'Плитки быстрых настроек';
+
+  @override
+  String get quickSettingsPowerTile => 'Плитка питания';
+
+  @override
+  String get quickSettingsMuteTile => 'Плитка без звука';
+
+  @override
+  String get quickSettingsVolumeUpTile => 'Плитка громкость +';
+
+  @override
+  String get quickSettingsVolumeDownTile => 'Плитка громкость -';
+
+  @override
+  String get quickSettingsNoTilesConfigured => 'Плитки не настроены';
+
+  @override
+  String get quickSettingsEmptyHint =>
+      'Следующий шаг: выберите команду хотя бы для одной плитки, затем добавьте плитку в меню редактирования быстрых настроек Android.';
+
+  @override
+  String get quickSettingsSetPowerTile => 'Настроить плитку питания';
+
+  @override
+  String get quickSettingsConfiguredHint =>
+      'Выберите, какую кнопку отправляет каждая плитка. Добавьте плитки в меню редактирования быстрых настроек Android.';
+
+  @override
+  String get quickSettingsNotSet => 'Не задано';
+
+  @override
+  String quickSettingsTileMappingSummary(String title, String subtitle) {
+    return '$title · $subtitle';
+  }
+
+  @override
+  String get quickSettingsPickButtonTooltip => 'Выбрать кнопку';
+
+  @override
+  String get quickSettingsClearTooltip => 'Очистить';
+
+  @override
+  String get homeWidgetUnsupportedLauncher =>
+      'Ваш лаунчер не поддерживает добавление виджетов из приложения. Добавьте виджет ИК-кнопки через выбор виджетов на главном экране.';
+
+  @override
+  String get homeWidgetButtonUnsupported =>
+      'Эту кнопку нельзя использовать как виджет главного экрана.';
+
+  @override
+  String get homeWidgetRequestSent =>
+      'Запрос виджета отправлен. Подтвердите его в лаунчере.';
+
+  @override
+  String get homeWidgetRequestRejected => 'Лаунчер отклонил запрос виджета.';
+
+  @override
+  String homeWidgetSetupFailed(String error) {
+    return 'Не удалось настроить виджет главного экрана: $error';
+  }
+
+  @override
+  String get addHomeWidget => 'Добавить виджет на главный экран';
+
+  @override
+  String get addHomeWidgetSubtitle =>
+      'Разместите эту кнопку на главном экране.';
+
+  @override
+  String buttonInfoType(String type) {
+    return 'Тип: $type';
+  }
+
+  @override
+  String get buttonInfoCodeRaw => 'Код: сырой сигнал';
+
+  @override
+  String buttonInfoCode(String code) {
+    return 'Код: $code';
+  }
+
+  @override
+  String get buttonInfoNoCode => 'НЕТ КОДА';
+
+  @override
+  String buttonInfoFrequency(String frequency) {
+    return 'Частота: $frequency';
+  }
+
+  @override
+  String get frequencyHzLabel => 'Частота (Гц)';
+
+  @override
+  String get carrierFrequencyHelper => 'Несущая частота, например 38000';
+
+  @override
+  String get requiredFrequencyHelper => 'Обязательно. Пример: 38000';
+
+  @override
+  String get validFrequencyError => 'Введите допустимую частоту (15k-60k).';
+
+  @override
+  String get resetToDefaultFrequency => 'Сбросить на 38000';
+
+  @override
+  String get rawDataLabel => 'Сырые данные';
+
+  @override
+  String get rawDataHelper =>
+      'Целые числа через пробел, например 9000 4500 560 560 ...';
+
+  @override
+  String get rawDataInvalid =>
+      'Сырые данные должны быть целыми числами, разделенными пробелами или новыми строками.';
+
+  @override
+  String get rawDataSafeguard =>
+      'Защита: недопустимые токены блокируются, чтобы не сохранить неотправляемый шаблон.';
+
+  @override
+  String get protocolLabel => 'Протокол';
+
+  @override
+  String get protocolEncodingHelper =>
+      'Кодирование реализовано только для протоколов, отмеченных как реализованные.';
+
+  @override
+  String get protocolFrequencyHelper =>
+      'Необязательно. Если пусто, используется частота протокола по умолчанию, если она доступна.';
+
+  @override
+  String get rawSignalInvalidWithFrequency =>
+      'Сырые данные должны быть целыми числами, разделенными пробелами или новыми строками, а частота должна быть 15k-60k.';
+
+  @override
+  String get necTimingsNumeric => 'Все тайминги NEC должны быть числовыми.';
+
+  @override
+  String get frequencyRangeError => 'Частота должна быть 15k-60k Гц.';
+
+  @override
+  String get pasteTooltip => 'Вставить';
+
+  @override
+  String get clearTooltip => 'Очистить';
 }

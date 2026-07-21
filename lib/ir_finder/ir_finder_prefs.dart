@@ -22,7 +22,7 @@ class IrFinderPrefs {
       if (raw == null || raw.trim().isEmpty) return null;
       final map = jsonDecode(raw);
       if (map is! Map) return null;
-      return IrFinderSessionSnapshot.fromJson(Map<String, dynamic>.from(map as Map));
+      return IrFinderSessionSnapshot.fromJson(Map<String, dynamic>.from(map));
     } catch (_) {
       return null;
     }

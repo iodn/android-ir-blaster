@@ -147,9 +147,11 @@ class RemoteHighlightRef {
       };
 
   bool matches(Remote remote) {
+    if (remoteId > 0) return remote.id == remoteId;
+
     final wantedName = remoteName.trim();
     final actualName = remote.name.trim();
     if (wantedName.isNotEmpty && wantedName == actualName) return true;
-    return remote.id == remoteId;
+    return false;
   }
 }

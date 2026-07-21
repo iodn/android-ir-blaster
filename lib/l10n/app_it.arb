@@ -1862,8 +1862,8 @@
   "forceInAppVibrationTitle": "Forza la vibrazione nell'app",
   "forceInAppVibrationSubtitle": "Usa direttamente il vibratore anche se il feedback tattile di sistema è disattivato",
   "forceInAppVibrationWarning": "Opzione avanzata. L'app può vibrare anche quando il feedback tattile di Android è disattivato globalmente.",
-  "forceInAppVibrationBlockedMasterWarning": "Android system vibration is disabled. Force in-app vibration cannot override it on this device.",
-  "forceInAppVibrationNoVibratorWarning": "This device reports no vibrator hardware, so in-app vibration cannot work.",
+  "forceInAppVibrationBlockedMasterWarning": "La vibrazione di sistema Android è disattivata. La vibrazione forzata nell’app non può aggirarla su questo dispositivo.",
+  "forceInAppVibrationNoVibratorWarning": "Questo dispositivo non segnala hardware di vibrazione, quindi la vibrazione nell’app non può funzionare.",
   "remoteButtonCountLabel": "{count, plural, one{{count} button} other{{count} buttons}}",
   "@remoteButtonCountLabel": {
     "placeholders": {
@@ -1948,31 +1948,31 @@
   "@remoteRemovedFromPinned": {
     "description": "Snackbar shown after unpinning a remote."
   },
-  "homeDeviceControlsTitle": "Quick controls",
+  "homeDeviceControlsTitle": "Controlli rapidi",
   "@homeDeviceControlsTitle": {
     "description": "Title for the compact device controls row on the home surface."
   },
-  "homeDeviceControlsSubtitle": "Power, mute, and volume without opening a remote.",
+  "homeDeviceControlsSubtitle": "Accensione, muto e volume senza aprire un telecomando.",
   "@homeDeviceControlsSubtitle": {
     "description": "Subtitle for the compact device controls row when controls are configured."
   },
-  "homeDeviceControlsEmptySubtitle": "Set up power, mute, and volume buttons in Device Controls.",
+  "homeDeviceControlsEmptySubtitle": "Configura i pulsanti accensione, muto e volume nei controlli dispositivo.",
   "@homeDeviceControlsEmptySubtitle": {
     "description": "Subtitle for the compact device controls row when no matching controls are configured."
   },
-  "showDeviceControlsOnHome": "Show quick controls on home",
+  "showDeviceControlsOnHome": "Mostra i controlli rapidi nella home",
   "@showDeviceControlsOnHome": {
     "description": "Settings toggle title for showing the compact device controls row on the home surface."
   },
-  "showDeviceControlsOnHomeSubtitle": "Show the compact Power, Mute, and Volume row on the main screen.",
+  "showDeviceControlsOnHomeSubtitle": "Mostra la riga compatta Accensione, Muto e Volume nella schermata principale.",
   "@showDeviceControlsOnHomeSubtitle": {
     "description": "Settings toggle subtitle for showing the compact device controls row on the home surface."
   },
-  "homeDeviceControlsShown": "Quick controls shown on home.",
+  "homeDeviceControlsShown": "Controlli rapidi mostrati nella home.",
   "@homeDeviceControlsShown": {
     "description": "Snackbar shown when the home quick controls row is enabled."
   },
-  "homeDeviceControlsHidden": "Quick controls hidden from home.",
+  "homeDeviceControlsHidden": "Controlli rapidi nascosti dalla home.",
   "@homeDeviceControlsHidden": {
     "description": "Snackbar shown when the home quick controls row is disabled."
   },
@@ -2253,5 +2253,47 @@
   "irWaveformOffLabel": "OFF",
   "@irWaveformOffLabel": {
     "description": "Legend label for inactive/silent sections in an IR waveform."
-  }
+  },
+  "quickSettingsTilesTitle": "Riquadri Impostazioni rapide",
+  "quickSettingsPowerTile": "Riquadro accensione",
+  "quickSettingsMuteTile": "Riquadro muto",
+  "quickSettingsVolumeUpTile": "Riquadro volume +",
+  "quickSettingsVolumeDownTile": "Riquadro volume -",
+  "quickSettingsNoTilesConfigured": "Nessun riquadro configurato",
+  "quickSettingsEmptyHint": "Passaggio successivo: scegli un comando per almeno un riquadro, poi aggiungi il riquadro dal menu di modifica delle Impostazioni rapide di Android.",
+  "quickSettingsSetPowerTile": "Imposta riquadro accensione",
+  "quickSettingsConfiguredHint": "Scegli quale pulsante invia ogni riquadro. Aggiungi i riquadri dal menu di modifica delle Impostazioni rapide di Android.",
+  "quickSettingsNotSet": "Non impostato",
+  "quickSettingsTileMappingSummary": "{title} · {subtitle}",
+  "quickSettingsPickButtonTooltip": "Scegli pulsante",
+  "quickSettingsClearTooltip": "Cancella",
+  "homeWidgetUnsupportedLauncher": "Il launcher non supporta l’aggiunta di widget dall’app. Aggiungi il widget Pulsante IR dal selettore widget della schermata iniziale.",
+  "homeWidgetButtonUnsupported": "Questo pulsante non può essere usato come widget della schermata iniziale.",
+  "homeWidgetRequestSent": "Richiesta widget inviata. Confermala nel launcher.",
+  "homeWidgetRequestRejected": "Il launcher ha rifiutato la richiesta del widget.",
+  "homeWidgetSetupFailed": "Configurazione del widget della schermata iniziale non riuscita: {error}",
+  "addHomeWidget": "Aggiungi widget alla home",
+  "addHomeWidgetSubtitle": "Posiziona questo pulsante sulla schermata iniziale.",
+  "buttonInfoType": "Tipo: {type}",
+  "buttonInfoCodeRaw": "Codice: segnale grezzo",
+  "buttonInfoCode": "Codice: {code}",
+  "buttonInfoNoCode": "NESSUN CODICE",
+  "buttonInfoFrequency": "Frequenza: {frequency}",
+  "frequencyHzLabel": "Frequenza (Hz)",
+  "carrierFrequencyHelper": "Frequenza portante, es. 38000",
+  "requiredFrequencyHelper": "Obbligatorio. Esempio: 38000",
+  "validFrequencyError": "Inserisci una frequenza valida (15k-60k).",
+  "resetToDefaultFrequency": "Ripristina a 38000",
+  "rawDataLabel": "Dati grezzi",
+  "rawDataHelper": "Interi separati da spazi, es. 9000 4500 560 560 ...",
+  "rawDataInvalid": "I dati grezzi devono essere interi separati da spazi o nuove righe.",
+  "rawDataSafeguard": "Protezione: i token non validi vengono bloccati per evitare di salvare un pattern non inviabile.",
+  "protocolLabel": "Protocollo",
+  "protocolEncodingHelper": "La codifica è implementata solo per i protocolli contrassegnati come implementati.",
+  "protocolFrequencyHelper": "Opzionale. Se vuoto, viene usata la frequenza predefinita del protocollo quando disponibile.",
+  "rawSignalInvalidWithFrequency": "I dati grezzi devono essere interi separati da spazi o nuove righe e la frequenza deve essere 15k-60k.",
+  "necTimingsNumeric": "Tutti i timing NEC devono essere numerici.",
+  "frequencyRangeError": "La frequenza deve essere 15k-60k Hz.",
+  "pasteTooltip": "Incolla",
+  "clearTooltip": "Cancella"
 }

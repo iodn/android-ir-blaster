@@ -320,7 +320,7 @@
   },
   "delete": "Eliminar",
   "addToDeviceControlsTitle": "Adicionar a Controlos do dispositivo?",
-  "addToDeviceControlsDescription": "Acceso rápido en os controlos do sistema.",
+  "addToDeviceControlsDescription": "Acesso rápido nos controlos do sistema.",
   "skip": "Omitir",
   "add": "Adicionar",
   "addedToDeviceControls": "Adicionado aos Controlos do dispositivo.",
@@ -1862,8 +1862,8 @@
   "forceInAppVibrationTitle": "Forçar vibração na aplicação",
   "forceInAppVibrationSubtitle": "Usar o vibrador diretamente mesmo que o feedback tátil do sistema esteja desligado",
   "forceInAppVibrationWarning": "Opção avançada. A aplicação pode vibrar mesmo quando o feedback tátil do Android está desativado globalmente.",
-  "forceInAppVibrationBlockedMasterWarning": "Android system vibration is disabled. Force in-app vibration cannot override it on this device.",
-  "forceInAppVibrationNoVibratorWarning": "This device reports no vibrator hardware, so in-app vibration cannot work.",
+  "forceInAppVibrationBlockedMasterWarning": "A vibração do sistema Android está desativada. A vibração forçada na aplicação não a pode substituir neste dispositivo.",
+  "forceInAppVibrationNoVibratorWarning": "Este dispositivo não indica hardware de vibração, por isso a vibração na aplicação não pode funcionar.",
   "remoteButtonCountLabel": "{count, plural, one{{count} button} other{{count} buttons}}",
   "@remoteButtonCountLabel": {
     "placeholders": {
@@ -1948,31 +1948,31 @@
   "@remoteRemovedFromPinned": {
     "description": "Snackbar shown after unpinning a remote."
   },
-  "homeDeviceControlsTitle": "Quick controls",
+  "homeDeviceControlsTitle": "Controlos rápidos",
   "@homeDeviceControlsTitle": {
     "description": "Title for the compact device controls row on the home surface."
   },
-  "homeDeviceControlsSubtitle": "Power, mute, and volume without opening a remote.",
+  "homeDeviceControlsSubtitle": "Ligar, silenciar e volume sem abrir um comando.",
   "@homeDeviceControlsSubtitle": {
     "description": "Subtitle for the compact device controls row when controls are configured."
   },
-  "homeDeviceControlsEmptySubtitle": "Set up power, mute, and volume buttons in Device Controls.",
+  "homeDeviceControlsEmptySubtitle": "Configure botões de ligar, silenciar e volume nos Controlos do dispositivo.",
   "@homeDeviceControlsEmptySubtitle": {
     "description": "Subtitle for the compact device controls row when no matching controls are configured."
   },
-  "showDeviceControlsOnHome": "Show quick controls on home",
+  "showDeviceControlsOnHome": "Mostrar controlos rápidos no início",
   "@showDeviceControlsOnHome": {
     "description": "Settings toggle title for showing the compact device controls row on the home surface."
   },
-  "showDeviceControlsOnHomeSubtitle": "Show the compact Power, Mute, and Volume row on the main screen.",
+  "showDeviceControlsOnHomeSubtitle": "Mostra a linha compacta de Ligar, Silenciar e Volume no ecrã principal.",
   "@showDeviceControlsOnHomeSubtitle": {
     "description": "Settings toggle subtitle for showing the compact device controls row on the home surface."
   },
-  "homeDeviceControlsShown": "Quick controls shown on home.",
+  "homeDeviceControlsShown": "Controlos rápidos mostrados no início.",
   "@homeDeviceControlsShown": {
     "description": "Snackbar shown when the home quick controls row is enabled."
   },
-  "homeDeviceControlsHidden": "Quick controls hidden from home.",
+  "homeDeviceControlsHidden": "Controlos rápidos ocultos do início.",
   "@homeDeviceControlsHidden": {
     "description": "Snackbar shown when the home quick controls row is disabled."
   },
@@ -2253,5 +2253,47 @@
   "irWaveformOffLabel": "OFF",
   "@irWaveformOffLabel": {
     "description": "Legend label for inactive/silent sections in an IR waveform."
-  }
+  },
+  "quickSettingsTilesTitle": "Blocos das Definições rápidas",
+  "quickSettingsPowerTile": "Bloco de ligar",
+  "quickSettingsMuteTile": "Bloco de silêncio",
+  "quickSettingsVolumeUpTile": "Bloco de aumentar volume",
+  "quickSettingsVolumeDownTile": "Bloco de baixar volume",
+  "quickSettingsNoTilesConfigured": "Nenhum bloco configurado",
+  "quickSettingsEmptyHint": "Próximo passo: escolha um comando para pelo menos um bloco e depois adicione o bloco no menu de edição das Definições rápidas do Android.",
+  "quickSettingsSetPowerTile": "Configurar bloco de ligar",
+  "quickSettingsConfiguredHint": "Escolha qual botão cada bloco envia. Adicione os blocos no menu de edição das Definições rápidas do Android.",
+  "quickSettingsNotSet": "Não configurado",
+  "quickSettingsTileMappingSummary": "{title} · {subtitle}",
+  "quickSettingsPickButtonTooltip": "Escolher botão",
+  "quickSettingsClearTooltip": "Limpar",
+  "homeWidgetUnsupportedLauncher": "O seu iniciador não suporta adicionar widgets a partir da aplicação. Adicione o widget Botão IR no seletor de widgets do ecrã inicial.",
+  "homeWidgetButtonUnsupported": "Este botão não pode ser usado como widget do ecrã inicial.",
+  "homeWidgetRequestSent": "Pedido de widget enviado. Confirme no seu iniciador.",
+  "homeWidgetRequestRejected": "O iniciador rejeitou o pedido de widget.",
+  "homeWidgetSetupFailed": "Falha ao configurar o widget do ecrã inicial: {error}",
+  "addHomeWidget": "Adicionar widget ao ecrã inicial",
+  "addHomeWidgetSubtitle": "Coloque este botão no ecrã inicial.",
+  "buttonInfoType": "Tipo: {type}",
+  "buttonInfoCodeRaw": "Código: sinal bruto",
+  "buttonInfoCode": "Código: {code}",
+  "buttonInfoNoCode": "SEM CÓDIGO",
+  "buttonInfoFrequency": "Frequência: {frequency}",
+  "frequencyHzLabel": "Frequência (Hz)",
+  "carrierFrequencyHelper": "Frequência portadora, ex. 38000",
+  "requiredFrequencyHelper": "Obrigatório. Exemplo: 38000",
+  "validFrequencyError": "Introduza uma frequência válida (15k-60k).",
+  "resetToDefaultFrequency": "Repor para 38000",
+  "rawDataLabel": "Dados brutos",
+  "rawDataHelper": "Números inteiros separados por espaços, ex. 9000 4500 560 560 ...",
+  "rawDataInvalid": "Os dados brutos devem ser números inteiros separados por espaços ou novas linhas.",
+  "rawDataSafeguard": "Proteção: tokens inválidos são bloqueados para evitar guardar um padrão que não pode ser enviado.",
+  "protocolLabel": "Protocolo",
+  "protocolEncodingHelper": "A codificação só está implementada para protocolos marcados como implementados.",
+  "protocolFrequencyHelper": "Opcional. Se estiver vazio, é usada a frequência predefinida do protocolo quando disponível.",
+  "rawSignalInvalidWithFrequency": "Os dados brutos devem ser números inteiros separados por espaços ou novas linhas, e a frequência deve ser 15k-60k.",
+  "necTimingsNumeric": "Todos os tempos NEC devem ser numéricos.",
+  "frequencyRangeError": "A frequência deve ser 15k-60k Hz.",
+  "pasteTooltip": "Colar",
+  "clearTooltip": "Limpar"
 }

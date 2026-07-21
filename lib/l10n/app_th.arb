@@ -449,9 +449,9 @@
   "duplicate": "ทำซ้ำ",
   "duplicateButtonSubtitle": "สร้างสำเนาของปุ่มนี้",
   "removeFromDeviceControls": "นำออกจากการควบคุมอุปกรณ์",
-  "addToDeviceControls": "เพิ่ม to อุปกรณ์ Controls",
+  "addToDeviceControls": "เพิ่มในการควบคุมอุปกรณ์",
   "deviceControlsButtonSubtitle": "แสดงปุ่มนี้ในการควบคุมอุปกรณ์ของระบบ",
-  "removedFromDeviceControls": "นำออกแล้ว from อุปกรณ์ Controls.",
+  "removedFromDeviceControls": "นำออกจากการควบคุมอุปกรณ์แล้ว",
   "pinQuickTile": "ปักหมุดไปยังรายการโปรดไทล์ด่วน",
   "unpinQuickTile": "เอาออกจากรายการโปรดไทล์ด่วน",
   "quickTileButtonSubtitle": "แสดงปุ่มนี้ด้านบนของตัวเลือกไทล์ด่วน",
@@ -616,7 +616,7 @@
     }
   },
   "noFavoritesYet": "ยังไม่มีรายการโปรด",
-  "deviceControlsEmptyHint": "กดปุ่มบนรีโมตค้าง แล้วเลือก Add to Device Controls",
+  "deviceControlsEmptyHint": "กดปุ่มบนรีโมตค้างไว้ แล้วเลือก “เพิ่มไปยังการควบคุมอุปกรณ์”",
   "sendTest": "ส่งทดสอบ",
   "testSendCompleted": "ส่งทดสอบเสร็จแล้ว",
   "testSendFailed": "ส่งทดสอบไม่สำเร็จ: {error}",
@@ -1862,8 +1862,8 @@
   "forceInAppVibrationTitle": "บังคับการสั่นในแอป",
   "forceInAppVibrationSubtitle": "ใช้ตัวสั่นโดยตรงแม้ว่าการตอบสนองการสัมผัสของระบบจะปิดอยู่",
   "forceInAppVibrationWarning": "ตัวเลือกขั้นสูง แอปอาจสั่นได้แม้ว่าการตอบสนองการสัมผัสของ Android จะถูกปิดไว้ทั้งระบบ",
-  "forceInAppVibrationBlockedMasterWarning": "Android system vibration is disabled. Force in-app vibration cannot override it on this device.",
-  "forceInAppVibrationNoVibratorWarning": "This device reports no vibrator hardware, so in-app vibration cannot work.",
+  "forceInAppVibrationBlockedMasterWarning": "การสั่นของระบบ Android ถูกปิดอยู่ การบังคับสั่นภายในแอปไม่สามารถข้ามข้อจำกัดนี้บนอุปกรณ์นี้ได้",
+  "forceInAppVibrationNoVibratorWarning": "อุปกรณ์นี้ไม่รายงานว่ามีฮาร์ดแวร์สั่น ดังนั้นการสั่นภายในแอปจึงไม่สามารถทำงานได้",
   "remoteButtonCountLabel": "{count, plural, one{{count} button} other{{count} buttons}}",
   "@remoteButtonCountLabel": {
     "placeholders": {
@@ -1948,31 +1948,31 @@
   "@remoteRemovedFromPinned": {
     "description": "Snackbar shown after unpinning a remote."
   },
-  "homeDeviceControlsTitle": "Quick controls",
+  "homeDeviceControlsTitle": "การควบคุมด่วน",
   "@homeDeviceControlsTitle": {
     "description": "Title for the compact device controls row on the home surface."
   },
-  "homeDeviceControlsSubtitle": "Power, mute, and volume without opening a remote.",
+  "homeDeviceControlsSubtitle": "เปิดปิด ปิดเสียง และปรับระดับเสียงโดยไม่ต้องเปิดรีโมต",
   "@homeDeviceControlsSubtitle": {
     "description": "Subtitle for the compact device controls row when controls are configured."
   },
-  "homeDeviceControlsEmptySubtitle": "Set up power, mute, and volume buttons in Device Controls.",
+  "homeDeviceControlsEmptySubtitle": "ตั้งค่าปุ่มเปิดปิด ปิดเสียง และระดับเสียงในส่วนควบคุมอุปกรณ์",
   "@homeDeviceControlsEmptySubtitle": {
     "description": "Subtitle for the compact device controls row when no matching controls are configured."
   },
-  "showDeviceControlsOnHome": "Show quick controls on home",
+  "showDeviceControlsOnHome": "แสดงการควบคุมด่วนบนหน้าแรก",
   "@showDeviceControlsOnHome": {
     "description": "Settings toggle title for showing the compact device controls row on the home surface."
   },
-  "showDeviceControlsOnHomeSubtitle": "Show the compact Power, Mute, and Volume row on the main screen.",
+  "showDeviceControlsOnHomeSubtitle": "แสดงแถวเปิดปิด ปิดเสียง และระดับเสียงแบบกะทัดรัดบนหน้าจอหลัก",
   "@showDeviceControlsOnHomeSubtitle": {
     "description": "Settings toggle subtitle for showing the compact device controls row on the home surface."
   },
-  "homeDeviceControlsShown": "Quick controls shown on home.",
+  "homeDeviceControlsShown": "แสดงการควบคุมด่วนบนหน้าแรกแล้ว",
   "@homeDeviceControlsShown": {
     "description": "Snackbar shown when the home quick controls row is enabled."
   },
-  "homeDeviceControlsHidden": "Quick controls hidden from home.",
+  "homeDeviceControlsHidden": "ซ่อนการควบคุมด่วนจากหน้าแรกแล้ว",
   "@homeDeviceControlsHidden": {
     "description": "Snackbar shown when the home quick controls row is disabled."
   },
@@ -2253,5 +2253,47 @@
   "irWaveformOffLabel": "OFF",
   "@irWaveformOffLabel": {
     "description": "Legend label for inactive/silent sections in an IR waveform."
-  }
+  },
+  "quickSettingsTilesTitle": "ไทล์การตั้งค่าด่วน",
+  "quickSettingsPowerTile": "ไทล์เปิด/ปิด",
+  "quickSettingsMuteTile": "ไทล์ปิดเสียง",
+  "quickSettingsVolumeUpTile": "ไทล์เพิ่มเสียง",
+  "quickSettingsVolumeDownTile": "ไทล์ลดเสียง",
+  "quickSettingsNoTilesConfigured": "ยังไม่ได้ตั้งค่าไทล์",
+  "quickSettingsEmptyHint": "ขั้นต่อไป: เลือกคำสั่งอย่างน้อยหนึ่งไทล์ แล้วเพิ่มไทล์จากเมนูแก้ไขการตั้งค่าด่วนของ Android",
+  "quickSettingsSetPowerTile": "ตั้งค่าไทล์เปิด/ปิด",
+  "quickSettingsConfiguredHint": "เลือกว่าปุ่มใดจะถูกส่งโดยแต่ละไทล์ เพิ่มไทล์จากเมนูแก้ไขการตั้งค่าด่วนของ Android",
+  "quickSettingsNotSet": "ยังไม่ได้ตั้งค่า",
+  "quickSettingsTileMappingSummary": "{title} · {subtitle}",
+  "quickSettingsPickButtonTooltip": "เลือกปุ่ม",
+  "quickSettingsClearTooltip": "ล้าง",
+  "homeWidgetUnsupportedLauncher": "ลอนเชอร์ของคุณไม่รองรับการเพิ่มวิดเจ็ตจากในแอป ให้เพิ่มวิดเจ็ตปุ่ม IR จากตัวเลือกวิดเจ็ตบนหน้าจอหลัก",
+  "homeWidgetButtonUnsupported": "ปุ่มนี้ไม่สามารถใช้เป็นวิดเจ็ตหน้าจอหลักได้",
+  "homeWidgetRequestSent": "ส่งคำขอวิดเจ็ตแล้ว โปรดยืนยันในลอนเชอร์ของคุณ",
+  "homeWidgetRequestRejected": "ลอนเชอร์ปฏิเสธคำขอวิดเจ็ต",
+  "homeWidgetSetupFailed": "ตั้งค่าวิดเจ็ตหน้าจอหลักไม่สำเร็จ: {error}",
+  "addHomeWidget": "เพิ่มวิดเจ็ตหน้าจอหลัก",
+  "addHomeWidgetSubtitle": "วางปุ่มนี้บนหน้าจอหลักของคุณ",
+  "buttonInfoType": "ประเภท: {type}",
+  "buttonInfoCodeRaw": "โค้ด: สัญญาณดิบ",
+  "buttonInfoCode": "โค้ด: {code}",
+  "buttonInfoNoCode": "ไม่มีโค้ด",
+  "buttonInfoFrequency": "ความถี่: {frequency}",
+  "frequencyHzLabel": "ความถี่ (Hz)",
+  "carrierFrequencyHelper": "ความถี่พาหะ เช่น 38000",
+  "requiredFrequencyHelper": "จำเป็น ตัวอย่าง: 38000",
+  "validFrequencyError": "ป้อนความถี่ที่ถูกต้อง (15k-60k)",
+  "resetToDefaultFrequency": "รีเซ็ตเป็น 38000",
+  "rawDataLabel": "ข้อมูลดิบ",
+  "rawDataHelper": "จำนวนเต็มคั่นด้วยช่องว่าง เช่น 9000 4500 560 560 ...",
+  "rawDataInvalid": "ข้อมูลดิบต้องเป็นจำนวนเต็มที่คั่นด้วยช่องว่างหรือบรรทัดใหม่",
+  "rawDataSafeguard": "การป้องกัน: โทเค็นที่ไม่ถูกต้องจะถูกบล็อกเพื่อป้องกันการบันทึกรูปแบบที่ส่งไม่ได้",
+  "protocolLabel": "โปรโตคอล",
+  "protocolEncodingHelper": "การเข้ารหัสใช้ได้เฉพาะโปรโตคอลที่ทำเครื่องหมายว่าใช้งานแล้ว",
+  "protocolFrequencyHelper": "ไม่บังคับ หากว่าง จะใช้ความถี่เริ่มต้นของโปรโตคอลเมื่อมี",
+  "rawSignalInvalidWithFrequency": "ข้อมูลดิบต้องเป็นจำนวนเต็มที่คั่นด้วยช่องว่างหรือบรรทัดใหม่ และความถี่ต้องเป็น 15k-60k",
+  "necTimingsNumeric": "เวลาทั้งหมดของ NEC ต้องเป็นตัวเลข",
+  "frequencyRangeError": "ความถี่ต้องเป็น 15k-60k Hz",
+  "pasteTooltip": "วาง",
+  "clearTooltip": "ล้าง"
 }

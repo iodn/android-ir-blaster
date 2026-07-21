@@ -799,23 +799,23 @@ class AppLocalizationsPl extends AppLocalizations {
   String get hapticFeedbackSubtitle => 'Wibruj przy stuknięciach i akcjach';
 
   @override
-  String get forceInAppVibrationTitle => 'Force in-app vibration';
+  String get forceInAppVibrationTitle => 'Wymuś wibracje w aplikacji';
 
   @override
   String get forceInAppVibrationSubtitle =>
-      'Use the vibrator directly even if system touch feedback is off';
+      'Używaj wibratora bezpośrednio, nawet jeśli systemowe reakcje dotykowe są wyłączone';
 
   @override
   String get forceInAppVibrationWarning =>
-      'Advanced option. This can make the app vibrate even when Android touch feedback is disabled globally.';
+      'Opcja zaawansowana. Może sprawić, że aplikacja będzie wibrować, nawet gdy reakcje dotykowe Androida są globalnie wyłączone.';
 
   @override
   String get forceInAppVibrationBlockedMasterWarning =>
-      'Android system vibration is disabled. Force in-app vibration cannot override it on this device.';
+      'Wibracje systemu Android są wyłączone. Wymuszone wibracje w aplikacji nie mogą tego obejść na tym urządzeniu.';
 
   @override
   String get forceInAppVibrationNoVibratorWarning =>
-      'This device reports no vibrator hardware, so in-app vibration cannot work.';
+      'To urządzenie nie zgłasza sprzętu wibracyjnego, więc wibracje w aplikacji nie mogą działać.';
 
   @override
   String get intensity => 'Intensywność';
@@ -4509,28 +4509,31 @@ class AppLocalizationsPl extends AppLocalizations {
   String get remoteRemovedFromPinned => 'Remote removed from pinned.';
 
   @override
-  String get homeDeviceControlsTitle => 'Quick controls';
+  String get homeDeviceControlsTitle => 'Szybkie sterowanie';
 
   @override
   String get homeDeviceControlsSubtitle =>
-      'Power, mute, and volume without opening a remote.';
+      'Zasilanie, wyciszenie i głośność bez otwierania pilota.';
 
   @override
   String get homeDeviceControlsEmptySubtitle =>
-      'Set up power, mute, and volume buttons in Device Controls.';
+      'Skonfiguruj przyciski zasilania, wyciszenia i głośności w sterowaniu urządzeniem.';
 
   @override
-  String get showDeviceControlsOnHome => 'Show quick controls on home';
+  String get showDeviceControlsOnHome =>
+      'Pokaż szybkie sterowanie na ekranie głównym';
 
   @override
   String get showDeviceControlsOnHomeSubtitle =>
-      'Show the compact Power, Mute, and Volume row on the main screen.';
+      'Pokaż kompaktowy wiersz zasilania, wyciszenia i głośności na ekranie głównym.';
 
   @override
-  String get homeDeviceControlsShown => 'Quick controls shown on home.';
+  String get homeDeviceControlsShown =>
+      'Szybkie sterowanie pokazane na ekranie głównym.';
 
   @override
-  String get homeDeviceControlsHidden => 'Quick controls hidden from home.';
+  String get homeDeviceControlsHidden =>
+      'Szybkie sterowanie ukryte na ekranie głównym.';
 
   @override
   String get power => 'Power';
@@ -4765,4 +4768,151 @@ class AppLocalizationsPl extends AppLocalizations {
 
   @override
   String get irWaveformOffLabel => 'OFF';
+
+  @override
+  String get quickSettingsTilesTitle => 'Kafelki szybkich ustawień';
+
+  @override
+  String get quickSettingsPowerTile => 'Kafelek zasilania';
+
+  @override
+  String get quickSettingsMuteTile => 'Kafelek wyciszenia';
+
+  @override
+  String get quickSettingsVolumeUpTile => 'Kafelek głośniej';
+
+  @override
+  String get quickSettingsVolumeDownTile => 'Kafelek ciszej';
+
+  @override
+  String get quickSettingsNoTilesConfigured => 'Nie skonfigurowano kafelków';
+
+  @override
+  String get quickSettingsEmptyHint =>
+      'Następny krok: wybierz polecenie dla co najmniej jednego kafelka, a potem dodaj kafelek w menu edycji Szybkich ustawień Androida.';
+
+  @override
+  String get quickSettingsSetPowerTile => 'Ustaw kafelek zasilania';
+
+  @override
+  String get quickSettingsConfiguredHint =>
+      'Wybierz, który przycisk wysyła każdy kafelek. Dodaj kafelki w menu edycji Szybkich ustawień Androida.';
+
+  @override
+  String get quickSettingsNotSet => 'Nie ustawiono';
+
+  @override
+  String quickSettingsTileMappingSummary(String title, String subtitle) {
+    return '$title · $subtitle';
+  }
+
+  @override
+  String get quickSettingsPickButtonTooltip => 'Wybierz przycisk';
+
+  @override
+  String get quickSettingsClearTooltip => 'Wyczyść';
+
+  @override
+  String get homeWidgetUnsupportedLauncher =>
+      'Twój launcher nie obsługuje dodawania widżetów z aplikacji. Dodaj widżet przycisku IR z wybieraka widżetów ekranu głównego.';
+
+  @override
+  String get homeWidgetButtonUnsupported =>
+      'Tego przycisku nie można użyć jako widżetu ekranu głównego.';
+
+  @override
+  String get homeWidgetRequestSent =>
+      'Żądanie widżetu wysłane. Potwierdź je w launcherze.';
+
+  @override
+  String get homeWidgetRequestRejected => 'Launcher odrzucił żądanie widżetu.';
+
+  @override
+  String homeWidgetSetupFailed(String error) {
+    return 'Nie udało się skonfigurować widżetu ekranu głównego: $error';
+  }
+
+  @override
+  String get addHomeWidget => 'Dodaj widżet ekranu głównego';
+
+  @override
+  String get addHomeWidgetSubtitle => 'Umieść ten przycisk na ekranie głównym.';
+
+  @override
+  String buttonInfoType(String type) {
+    return 'Typ: $type';
+  }
+
+  @override
+  String get buttonInfoCodeRaw => 'Kod: sygnał surowy';
+
+  @override
+  String buttonInfoCode(String code) {
+    return 'Kod: $code';
+  }
+
+  @override
+  String get buttonInfoNoCode => 'BRAK KODU';
+
+  @override
+  String buttonInfoFrequency(String frequency) {
+    return 'Częstotliwość: $frequency';
+  }
+
+  @override
+  String get frequencyHzLabel => 'Częstotliwość (Hz)';
+
+  @override
+  String get carrierFrequencyHelper => 'Częstotliwość nośna, np. 38000';
+
+  @override
+  String get requiredFrequencyHelper => 'Wymagane. Przykład: 38000';
+
+  @override
+  String get validFrequencyError => 'Wpisz prawidłową częstotliwość (15k-60k).';
+
+  @override
+  String get resetToDefaultFrequency => 'Przywróć 38000';
+
+  @override
+  String get rawDataLabel => 'Dane surowe';
+
+  @override
+  String get rawDataHelper =>
+      'Liczby całkowite oddzielone spacjami, np. 9000 4500 560 560 ...';
+
+  @override
+  String get rawDataInvalid =>
+      'Dane surowe muszą być liczbami całkowitymi oddzielonymi spacjami lub nowymi liniami.';
+
+  @override
+  String get rawDataSafeguard =>
+      'Zabezpieczenie: nieprawidłowe tokeny są blokowane, aby nie zapisać wzorca, którego nie da się wysłać.';
+
+  @override
+  String get protocolLabel => 'Protokół';
+
+  @override
+  String get protocolEncodingHelper =>
+      'Kodowanie jest zaimplementowane tylko dla protokołów oznaczonych jako zaimplementowane.';
+
+  @override
+  String get protocolFrequencyHelper =>
+      'Opcjonalne. Jeśli puste, używana jest domyślna częstotliwość protokołu, jeśli jest dostępna.';
+
+  @override
+  String get rawSignalInvalidWithFrequency =>
+      'Dane surowe muszą być liczbami całkowitymi oddzielonymi spacjami lub nowymi liniami, a częstotliwość musi wynosić 15k-60k.';
+
+  @override
+  String get necTimingsNumeric => 'Wszystkie czasy NEC muszą być liczbami.';
+
+  @override
+  String get frequencyRangeError => 'Częstotliwość musi wynosić 15k-60k Hz.';
+
+  @override
+  String get pasteTooltip => 'Wklej';
+
+  @override
+  String get clearTooltip => 'Wyczyść';
 }

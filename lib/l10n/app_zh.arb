@@ -1862,8 +1862,8 @@
   "forceInAppVibrationTitle": "强制应用内振动",
   "forceInAppVibrationSubtitle": "即使系统触觉反馈已关闭，也直接使用振动器",
   "forceInAppVibrationWarning": "高级选项。即使 Android 全局触觉反馈已关闭，应用也可能振动。",
-  "forceInAppVibrationBlockedMasterWarning": "Android system vibration is disabled. Force in-app vibration cannot override it on this device.",
-  "forceInAppVibrationNoVibratorWarning": "This device reports no vibrator hardware, so in-app vibration cannot work.",
+  "forceInAppVibrationBlockedMasterWarning": "Android 系统振动已关闭。此设备上无法通过应用内强制振动覆盖该设置。",
+  "forceInAppVibrationNoVibratorWarning": "此设备未报告振动硬件，因此应用内振动无法工作。",
   "remoteButtonCountLabel": "{count, plural, one{{count} button} other{{count} buttons}}",
   "@remoteButtonCountLabel": {
     "placeholders": {
@@ -1948,31 +1948,31 @@
   "@remoteRemovedFromPinned": {
     "description": "Snackbar shown after unpinning a remote."
   },
-  "homeDeviceControlsTitle": "Quick controls",
+  "homeDeviceControlsTitle": "快捷控制",
   "@homeDeviceControlsTitle": {
     "description": "Title for the compact device controls row on the home surface."
   },
-  "homeDeviceControlsSubtitle": "Power, mute, and volume without opening a remote.",
+  "homeDeviceControlsSubtitle": "无需打开遥控器即可控制电源、静音和音量。",
   "@homeDeviceControlsSubtitle": {
     "description": "Subtitle for the compact device controls row when controls are configured."
   },
-  "homeDeviceControlsEmptySubtitle": "Set up power, mute, and volume buttons in Device Controls.",
+  "homeDeviceControlsEmptySubtitle": "请在设备控制中设置电源、静音和音量按钮。",
   "@homeDeviceControlsEmptySubtitle": {
     "description": "Subtitle for the compact device controls row when no matching controls are configured."
   },
-  "showDeviceControlsOnHome": "Show quick controls on home",
+  "showDeviceControlsOnHome": "在首页显示快捷控制",
   "@showDeviceControlsOnHome": {
     "description": "Settings toggle title for showing the compact device controls row on the home surface."
   },
-  "showDeviceControlsOnHomeSubtitle": "Show the compact Power, Mute, and Volume row on the main screen.",
+  "showDeviceControlsOnHomeSubtitle": "在主屏幕显示紧凑的电源、静音和音量控制行。",
   "@showDeviceControlsOnHomeSubtitle": {
     "description": "Settings toggle subtitle for showing the compact device controls row on the home surface."
   },
-  "homeDeviceControlsShown": "Quick controls shown on home.",
+  "homeDeviceControlsShown": "已在首页显示快捷控制。",
   "@homeDeviceControlsShown": {
     "description": "Snackbar shown when the home quick controls row is enabled."
   },
-  "homeDeviceControlsHidden": "Quick controls hidden from home.",
+  "homeDeviceControlsHidden": "已从首页隐藏快捷控制。",
   "@homeDeviceControlsHidden": {
     "description": "Snackbar shown when the home quick controls row is disabled."
   },
@@ -2253,5 +2253,47 @@
   "irWaveformOffLabel": "OFF",
   "@irWaveformOffLabel": {
     "description": "Legend label for inactive/silent sections in an IR waveform."
-  }
+  },
+  "quickSettingsTilesTitle": "快捷设置图块",
+  "quickSettingsPowerTile": "电源图块",
+  "quickSettingsMuteTile": "静音图块",
+  "quickSettingsVolumeUpTile": "音量加图块",
+  "quickSettingsVolumeDownTile": "音量减图块",
+  "quickSettingsNoTilesConfigured": "尚未配置图块",
+  "quickSettingsEmptyHint": "下一步：为至少一个图块选择命令，然后从 Android 快捷设置编辑菜单添加该图块。",
+  "quickSettingsSetPowerTile": "设置电源图块",
+  "quickSettingsConfiguredHint": "选择每个图块要发送的按钮。请从 Android 快捷设置编辑菜单添加图块。",
+  "quickSettingsNotSet": "未设置",
+  "quickSettingsTileMappingSummary": "{title} · {subtitle}",
+  "quickSettingsPickButtonTooltip": "选择按钮",
+  "quickSettingsClearTooltip": "清除",
+  "homeWidgetUnsupportedLauncher": "你的启动器不支持从应用内添加小组件。请从主屏幕小组件选择器添加 IR 按钮小组件。",
+  "homeWidgetButtonUnsupported": "此按钮不能用作主屏幕小组件。",
+  "homeWidgetRequestSent": "小组件请求已发送。请在启动器中确认。",
+  "homeWidgetRequestRejected": "启动器拒绝了小组件请求。",
+  "homeWidgetSetupFailed": "主屏幕小组件设置失败：{error}",
+  "addHomeWidget": "添加主屏幕小组件",
+  "addHomeWidgetSubtitle": "将此按钮放到主屏幕上。",
+  "buttonInfoType": "类型：{type}",
+  "buttonInfoCodeRaw": "代码：原始信号",
+  "buttonInfoCode": "代码：{code}",
+  "buttonInfoNoCode": "无代码",
+  "buttonInfoFrequency": "频率：{frequency}",
+  "frequencyHzLabel": "频率 (Hz)",
+  "carrierFrequencyHelper": "载波频率，例如 38000",
+  "requiredFrequencyHelper": "必填。示例：38000",
+  "validFrequencyError": "请输入有效频率 (15k-60k)。",
+  "resetToDefaultFrequency": "重置为 38000",
+  "rawDataLabel": "原始数据",
+  "rawDataHelper": "用空格分隔的整数，例如 9000 4500 560 560 ...",
+  "rawDataInvalid": "原始数据必须是用空格或换行分隔的整数。",
+  "rawDataSafeguard": "保护：无效标记会被阻止，避免保存无法发送的模式。",
+  "protocolLabel": "协议",
+  "protocolEncodingHelper": "只有标记为已实现的协议支持编码。",
+  "protocolFrequencyHelper": "可选。留空时会尽可能使用协议默认频率。",
+  "rawSignalInvalidWithFrequency": "原始数据必须是用空格或换行分隔的整数，且频率必须为 15k-60k。",
+  "necTimingsNumeric": "所有 NEC 时序都必须是数字。",
+  "frequencyRangeError": "频率必须为 15k-60k Hz。",
+  "pasteTooltip": "粘贴",
+  "clearTooltip": "清除"
 }

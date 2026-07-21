@@ -818,11 +818,11 @@ class AppLocalizationsDe extends AppLocalizations {
 
   @override
   String get forceInAppVibrationBlockedMasterWarning =>
-      'Android system vibration is disabled. Force in-app vibration cannot override it on this device.';
+      'Die Android-Systemvibration ist deaktiviert. Erzwungene In-App-Vibration kann dies auf diesem Gerät nicht umgehen.';
 
   @override
   String get forceInAppVibrationNoVibratorWarning =>
-      'This device reports no vibrator hardware, so in-app vibration cannot work.';
+      'Dieses Gerät meldet keine Vibrationshardware, daher kann die In-App-Vibration nicht funktionieren.';
 
   @override
   String get intensity => 'Intensität';
@@ -4458,28 +4458,31 @@ class AppLocalizationsDe extends AppLocalizations {
   String get remoteRemovedFromPinned => 'Remote removed from pinned.';
 
   @override
-  String get homeDeviceControlsTitle => 'Quick controls';
+  String get homeDeviceControlsTitle => 'Schnellsteuerung';
 
   @override
   String get homeDeviceControlsSubtitle =>
-      'Power, mute, and volume without opening a remote.';
+      'Ein/Aus, Stumm und Lautstärke, ohne eine Fernbedienung zu öffnen.';
 
   @override
   String get homeDeviceControlsEmptySubtitle =>
-      'Set up power, mute, and volume buttons in Device Controls.';
+      'Richte Ein/Aus-, Stumm- und Lautstärketasten in der Gerätesteuerung ein.';
 
   @override
-  String get showDeviceControlsOnHome => 'Show quick controls on home';
+  String get showDeviceControlsOnHome =>
+      'Schnellsteuerung auf der Startseite anzeigen';
 
   @override
   String get showDeviceControlsOnHomeSubtitle =>
-      'Show the compact Power, Mute, and Volume row on the main screen.';
+      'Zeigt die kompakte Zeile für Ein/Aus, Stumm und Lautstärke auf dem Hauptbildschirm.';
 
   @override
-  String get homeDeviceControlsShown => 'Quick controls shown on home.';
+  String get homeDeviceControlsShown =>
+      'Schnellsteuerung wird auf der Startseite angezeigt.';
 
   @override
-  String get homeDeviceControlsHidden => 'Quick controls hidden from home.';
+  String get homeDeviceControlsHidden =>
+      'Schnellsteuerung wurde von der Startseite ausgeblendet.';
 
   @override
   String get power => 'Power';
@@ -4715,4 +4718,154 @@ class AppLocalizationsDe extends AppLocalizations {
 
   @override
   String get irWaveformOffLabel => 'OFF';
+
+  @override
+  String get quickSettingsTilesTitle => 'Kacheln für Schnelleinstellungen';
+
+  @override
+  String get quickSettingsPowerTile => 'Ein/Aus-Kachel';
+
+  @override
+  String get quickSettingsMuteTile => 'Stumm-Kachel';
+
+  @override
+  String get quickSettingsVolumeUpTile => 'Lauter-Kachel';
+
+  @override
+  String get quickSettingsVolumeDownTile => 'Leiser-Kachel';
+
+  @override
+  String get quickSettingsNoTilesConfigured => 'Keine Kacheln konfiguriert';
+
+  @override
+  String get quickSettingsEmptyHint =>
+      'Nächster Schritt: Wählen Sie für mindestens eine Kachel einen Befehl aus und fügen Sie die Kachel dann im Bearbeitungsmenü der Android-Schnelleinstellungen hinzu.';
+
+  @override
+  String get quickSettingsSetPowerTile => 'Ein/Aus-Kachel festlegen';
+
+  @override
+  String get quickSettingsConfiguredHint =>
+      'Wählen Sie aus, welche Taste jede Kachel sendet. Fügen Sie Kacheln im Bearbeitungsmenü der Android-Schnelleinstellungen hinzu.';
+
+  @override
+  String get quickSettingsNotSet => 'Nicht festgelegt';
+
+  @override
+  String quickSettingsTileMappingSummary(String title, String subtitle) {
+    return '$title · $subtitle';
+  }
+
+  @override
+  String get quickSettingsPickButtonTooltip => 'Taste auswählen';
+
+  @override
+  String get quickSettingsClearTooltip => 'Löschen';
+
+  @override
+  String get homeWidgetUnsupportedLauncher =>
+      'Ihr Launcher unterstützt das Hinzufügen von Widgets aus der App nicht. Fügen Sie das IR-Tasten-Widget über die Widget-Auswahl des Startbildschirms hinzu.';
+
+  @override
+  String get homeWidgetButtonUnsupported =>
+      'Diese Taste kann nicht als Startbildschirm-Widget verwendet werden.';
+
+  @override
+  String get homeWidgetRequestSent =>
+      'Widget-Anfrage gesendet. Bestätigen Sie sie in Ihrem Launcher.';
+
+  @override
+  String get homeWidgetRequestRejected =>
+      'Der Launcher hat die Widget-Anfrage abgelehnt.';
+
+  @override
+  String homeWidgetSetupFailed(String error) {
+    return 'Einrichtung des Startbildschirm-Widgets fehlgeschlagen: $error';
+  }
+
+  @override
+  String get addHomeWidget => 'Startbildschirm-Widget hinzufügen';
+
+  @override
+  String get addHomeWidgetSubtitle =>
+      'Diese Taste auf dem Startbildschirm platzieren.';
+
+  @override
+  String buttonInfoType(String type) {
+    return 'Typ: $type';
+  }
+
+  @override
+  String get buttonInfoCodeRaw => 'Code: Rohsignal';
+
+  @override
+  String buttonInfoCode(String code) {
+    return 'Code: $code';
+  }
+
+  @override
+  String get buttonInfoNoCode => 'KEIN CODE';
+
+  @override
+  String buttonInfoFrequency(String frequency) {
+    return 'Frequenz: $frequency';
+  }
+
+  @override
+  String get frequencyHzLabel => 'Frequenz (Hz)';
+
+  @override
+  String get carrierFrequencyHelper => 'Trägerfrequenz, z. B. 38000';
+
+  @override
+  String get requiredFrequencyHelper => 'Erforderlich. Beispiel: 38000';
+
+  @override
+  String get validFrequencyError =>
+      'Geben Sie eine gültige Frequenz ein (15k-60k).';
+
+  @override
+  String get resetToDefaultFrequency => 'Auf 38000 zurücksetzen';
+
+  @override
+  String get rawDataLabel => 'Rohdaten';
+
+  @override
+  String get rawDataHelper =>
+      'Durch Leerzeichen getrennte Ganzzahlen, z. B. 9000 4500 560 560 ...';
+
+  @override
+  String get rawDataInvalid =>
+      'Rohdaten müssen Ganzzahlen sein, getrennt durch Leerzeichen oder Zeilenumbrüche.';
+
+  @override
+  String get rawDataSafeguard =>
+      'Schutz: Ungültige Einträge werden blockiert, damit kein nicht sendbares Muster gespeichert wird.';
+
+  @override
+  String get protocolLabel => 'Protokoll';
+
+  @override
+  String get protocolEncodingHelper =>
+      'Die Codierung ist nur für Protokolle implementiert, die als implementiert markiert sind.';
+
+  @override
+  String get protocolFrequencyHelper =>
+      'Optional. Wenn leer, wird nach Möglichkeit die Standardfrequenz des Protokolls verwendet.';
+
+  @override
+  String get rawSignalInvalidWithFrequency =>
+      'Rohdaten müssen Ganzzahlen sein, getrennt durch Leerzeichen oder Zeilenumbrüche, und die Frequenz muss 15k-60k betragen.';
+
+  @override
+  String get necTimingsNumeric => 'Alle NEC-Timings müssen numerisch sein.';
+
+  @override
+  String get frequencyRangeError => 'Die Frequenz muss 15k-60k Hz betragen.';
+
+  @override
+  String get pasteTooltip => 'Einfügen';
+
+  @override
+  String get clearTooltip => 'Löschen';
 }

@@ -81,7 +81,12 @@ Future<HomeButtonWidgetMapping?> buildHomeButtonWidgetMapping(
   }
   if (resolved == null) return null;
 
-  final IrPreview preview = previewIRButton(resolved);
+  final IrPreview preview;
+  try {
+    preview = previewIRButton(resolved);
+  } catch (_) {
+    return null;
+  }
   return HomeButtonWidgetMapping(
     buttonId: resolved.id,
     title: pick.title,

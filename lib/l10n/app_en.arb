@@ -2239,5 +2239,201 @@
   "irWaveformOffLabel": "OFF",
   "@irWaveformOffLabel": {
     "description": "Legend label for inactive/silent sections in an IR waveform."
+  },
+  "quickSettingsTilesTitle": "Quick Settings tiles",
+  "@quickSettingsTilesTitle": {
+    "description": "Title for the Quick Settings tile configuration screen."
+  },
+  "quickSettingsPowerTile": "Power tile",
+  "@quickSettingsPowerTile": {
+    "description": "Label for the power Quick Settings tile."
+  },
+  "quickSettingsMuteTile": "Mute tile",
+  "@quickSettingsMuteTile": {
+    "description": "Label for the mute Quick Settings tile."
+  },
+  "quickSettingsVolumeUpTile": "Volume Up tile",
+  "@quickSettingsVolumeUpTile": {
+    "description": "Label for the volume up Quick Settings tile."
+  },
+  "quickSettingsVolumeDownTile": "Volume Down tile",
+  "@quickSettingsVolumeDownTile": {
+    "description": "Label for the volume down Quick Settings tile."
+  },
+  "quickSettingsNoTilesConfigured": "No tiles configured",
+  "@quickSettingsNoTilesConfigured": {
+    "description": "Empty state title when no Quick Settings tiles are configured."
+  },
+  "quickSettingsEmptyHint": "What next: pick a command for at least one tile, then add the tile from Android Quick Settings edit menu.",
+  "@quickSettingsEmptyHint": {
+    "description": "Empty state hint explaining how to configure Quick Settings tiles."
+  },
+  "quickSettingsSetPowerTile": "Set Power tile",
+  "@quickSettingsSetPowerTile": {
+    "description": "CTA to configure the power Quick Settings tile."
+  },
+  "quickSettingsConfiguredHint": "Choose which button each tile sends. Add tiles from Android Quick Settings edit menu.",
+  "@quickSettingsConfiguredHint": {
+    "description": "Description for the Quick Settings tile configuration screen."
+  },
+  "quickSettingsNotSet": "Not set",
+  "@quickSettingsNotSet": {
+    "description": "Shown when a tile has no assigned button."
+  },
+  "quickSettingsTileMappingSummary": "{title} · {subtitle}",
+  "@quickSettingsTileMappingSummary": {
+    "description": "Summary of the button assigned to a Quick Settings tile.",
+    "placeholders": {
+      "title": {
+        "type": "String"
+      },
+      "subtitle": {
+        "type": "String"
+      }
+    }
+  },
+  "quickSettingsPickButtonTooltip": "Pick button",
+  "@quickSettingsPickButtonTooltip": {
+    "description": "Tooltip for picking a button for a Quick Settings tile."
+  },
+  "quickSettingsClearTooltip": "Clear",
+  "@quickSettingsClearTooltip": {
+    "description": "Tooltip for clearing a Quick Settings tile mapping."
+  },
+  "homeWidgetUnsupportedLauncher": "Your launcher does not support adding widgets from inside the app. Add the IR Button widget from the home screen widget picker.",
+  "@homeWidgetUnsupportedLauncher": {
+    "description": "Message shown when launcher does not support in-app widget pinning."
+  },
+  "homeWidgetButtonUnsupported": "This button cannot be used as a home widget.",
+  "@homeWidgetButtonUnsupported": {
+    "description": "Message shown when an IR button cannot be converted to a home widget."
+  },
+  "homeWidgetRequestSent": "Widget request sent. Confirm it on your launcher.",
+  "@homeWidgetRequestSent": {
+    "description": "Message shown after sending a widget pin request."
+  },
+  "homeWidgetRequestRejected": "The launcher rejected the widget request.",
+  "@homeWidgetRequestRejected": {
+    "description": "Message shown when launcher rejects a widget pin request."
+  },
+  "homeWidgetSetupFailed": "Home widget setup failed: {error}",
+  "@homeWidgetSetupFailed": {
+    "description": "Message shown when home widget setup fails.",
+    "placeholders": {
+      "error": {
+        "type": "String"
+      }
+    }
+  },
+  "addHomeWidget": "Add home widget",
+  "@addHomeWidget": {
+    "description": "Action title for adding a home screen widget."
+  },
+  "addHomeWidgetSubtitle": "Place this button on your home screen.",
+  "@addHomeWidgetSubtitle": {
+    "description": "Subtitle for adding a home screen widget action."
+  },
+  "buttonInfoType": "Type: {type}",
+  "@buttonInfoType": {
+    "description": "Button details line showing protocol/type.",
+    "placeholders": {
+      "type": {
+        "type": "String"
+      }
+    }
+  },
+  "buttonInfoCodeRaw": "Code: Raw signal",
+  "@buttonInfoCodeRaw": {
+    "description": "Button details line shown for raw IR signals."
+  },
+  "buttonInfoCode": "Code: {code}",
+  "@buttonInfoCode": {
+    "description": "Button details line showing code value.",
+    "placeholders": {
+      "code": {
+        "type": "String"
+      }
+    }
+  },
+  "buttonInfoNoCode": "NO CODE",
+  "@buttonInfoNoCode": {
+    "description": "Fallback when a button has no code."
+  },
+  "buttonInfoFrequency": "Frequency: {frequency}",
+  "@buttonInfoFrequency": {
+    "description": "Button details line showing carrier frequency.",
+    "placeholders": {
+      "frequency": {
+        "type": "String"
+      }
+    }
+  },
+  "frequencyHzLabel": "Frequency (Hz)",
+  "@frequencyHzLabel": {
+    "description": "Label for an IR carrier frequency input in Hertz."
+  },
+  "carrierFrequencyHelper": "Carrier frequency, e.g. 38000",
+  "@carrierFrequencyHelper": {
+    "description": "Helper text for carrier frequency input."
+  },
+  "requiredFrequencyHelper": "Required. Example: 38000",
+  "@requiredFrequencyHelper": {
+    "description": "Helper text for a required frequency input."
+  },
+  "validFrequencyError": "Enter a valid frequency (15k-60k).",
+  "@validFrequencyError": {
+    "description": "Validation message for out-of-range IR frequency."
+  },
+  "resetToDefaultFrequency": "Reset to 38000",
+  "@resetToDefaultFrequency": {
+    "description": "Tooltip to reset frequency to default value."
+  },
+  "rawDataLabel": "Raw data",
+  "@rawDataLabel": {
+    "description": "Label for raw IR timing data input."
+  },
+  "rawDataHelper": "Space-separated integers, e.g. 9000 4500 560 560 ...",
+  "@rawDataHelper": {
+    "description": "Helper text explaining raw timing format."
+  },
+  "rawDataInvalid": "Raw data must be integers separated by spaces or new lines.",
+  "@rawDataInvalid": {
+    "description": "Validation message for invalid raw timing data."
+  },
+  "rawDataSafeguard": "Safeguard: invalid tokens are blocked to prevent saving a non-sendable pattern.",
+  "@rawDataSafeguard": {
+    "description": "Explanation that invalid raw tokens are blocked."
+  },
+  "protocolLabel": "Protocol",
+  "@protocolLabel": {
+    "description": "Label for protocol selector."
+  },
+  "protocolEncodingHelper": "Encoding is implemented only for protocols marked as implemented.",
+  "@protocolEncodingHelper": {
+    "description": "Helper text explaining protocol encoding support."
+  },
+  "protocolFrequencyHelper": "Optional. If empty, protocol default is used where available.",
+  "@protocolFrequencyHelper": {
+    "description": "Helper text for optional protocol frequency."
+  },
+  "rawSignalInvalidWithFrequency": "Raw data must be integers separated by spaces or new lines, and frequency must be 15k-60k.",
+  "@rawSignalInvalidWithFrequency": {
+    "description": "Snackbar validation for raw data and frequency."
+  },
+  "necTimingsNumeric": "All NEC timings must be numeric.",
+  "@necTimingsNumeric": {
+    "description": "Snackbar validation for NEC timing fields."
+  },
+  "frequencyRangeError": "Frequency must be 15k-60k Hz.",
+  "@frequencyRangeError": {
+    "description": "Snackbar validation for IR frequency range."
+  },
+  "pasteTooltip": "Paste",
+  "@pasteTooltip": {
+    "description": "Tooltip for paste action."
+  },
+  "clearTooltip": "Clear",
+  "@clearTooltip": {
+    "description": "Tooltip for clear action."
   }
 }

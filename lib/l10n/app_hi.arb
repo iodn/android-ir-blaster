@@ -58,9 +58,9 @@
   "macrosNavLabel": "मैक्रो",
   "signalTesterNavLabel": "सिग्नल टेस्टर",
   "settingsTitle": "सेटिंग्स",
-  "remoteNoIrEmitterTitle": "कोई IR emitter नहीं",
-  "remoteNoIrEmitterMessage": "इस डिवाइस में IR emitter नहीं है",
-  "remoteNoIrEmitterNeedsEmitter": "इस ऐप को काम करने के लिए IR emitter चाहिए",
+  "remoteNoIrEmitterTitle": "कोई IR प्रेषक नहीं",
+  "remoteNoIrEmitterMessage": "इस डिवाइस में IR प्रेषक नहीं है",
+  "remoteNoIrEmitterNeedsEmitter": "इस ऐप को काम करने के लिए IR प्रेषक चाहिए",
   "remoteDismiss": "हटाएं",
   "remoteClose": "बंद करें",
   "remoteFailedToSend": "भेजें IR: {error} विफल",
@@ -319,8 +319,8 @@
     }
   },
   "delete": "हटाएं",
-  "addToDeviceControlsTitle": "जोड़ें तक डिवाइस नियंत्रण?",
-  "addToDeviceControlsDescription": "त्वरित access में the सिस्टम डिवाइस नियंत्रण.",
+  "addToDeviceControlsTitle": "डिवाइस नियंत्रण में जोड़ें?",
+  "addToDeviceControlsDescription": "सिस्टम डिवाइस नियंत्रण में त्वरित पहुंच।",
   "skip": "छोड़ें",
   "add": "जोड़ें",
   "addedToDeviceControls": "जोड़ा गया तक डिवाइस नियंत्रण.",
@@ -449,12 +449,12 @@
   "duplicate": "डुप्लिकेट",
   "duplicateButtonSubtitle": "इस बटन की कॉपी बनाएं",
   "removeFromDeviceControls": "से डिवाइस नियंत्रण हटाएं",
-  "addToDeviceControls": "जोड़ें तक डिवाइस नियंत्रण",
-  "deviceControlsButtonSubtitle": "दिखाता है यह बटन में the सिस्टम डिवाइस नियंत्रण",
-  "removedFromDeviceControls": "हटाया गया से डिवाइस नियंत्रण.",
-  "pinQuickTile": "Pin तक त्वरित Tile पसंदीदा",
-  "unpinQuickTile": "Unpin से त्वरित Tile पसंदीदा",
-  "quickTileButtonSubtitle": "दिखाता है यह बटन at the शीर्ष का the त्वरित tile चयनकर्ता",
+  "addToDeviceControls": "डिवाइस नियंत्रण में जोड़ें",
+  "deviceControlsButtonSubtitle": "इस बटन को सिस्टम डिवाइस नियंत्रण में दिखाता है",
+  "removedFromDeviceControls": "डिवाइस नियंत्रण से हटाया गया।",
+  "pinQuickTile": "त्वरित टाइल पसंदीदा में पिन करें",
+  "unpinQuickTile": "त्वरित टाइल पसंदीदा से अनपिन करें",
+  "quickTileButtonSubtitle": "इस बटन को त्वरित टाइल चयनकर्ता के ऊपर दिखाता है",
   "removedFromQuickTileFavorites": "हटाया गया से त्वरित Tile पसंदीदा.",
   "pinnedToQuickTileFavorites": "Pinned तक त्वरित Tile पसंदीदा.",
   "duplicateAndEdit": "डुप्लिकेट और संपादित करें",
@@ -1867,8 +1867,8 @@
   "forceInAppVibrationTitle": "ऐप के भीतर कंपन को बाध्य करें",
   "forceInAppVibrationSubtitle": "सिस्टम टच फ़ीडबैक बंद होने पर भी सीधे वाइब्रेटर का उपयोग करें",
   "forceInAppVibrationWarning": "उन्नत विकल्प। इससे ऐप तब भी कंपन कर सकता है जब Android का टच फ़ीडबैक वैश्विक रूप से बंद हो।",
-  "forceInAppVibrationBlockedMasterWarning": "Android system vibration is disabled. Force in-app vibration cannot override it on this device.",
-  "forceInAppVibrationNoVibratorWarning": "This device reports no vibrator hardware, so in-app vibration cannot work.",
+  "forceInAppVibrationBlockedMasterWarning": "Android सिस्टम वाइब्रेशन बंद है। इस डिवाइस पर ऐप के अंदर जबरन वाइब्रेशन इसे ओवरराइड नहीं कर सकता।",
+  "forceInAppVibrationNoVibratorWarning": "यह डिवाइस वाइब्रेशन हार्डवेयर रिपोर्ट नहीं करता, इसलिए ऐप के अंदर वाइब्रेशन काम नहीं कर सकता।",
   "remoteButtonCountLabel": "{count, plural, one{{count} button} other{{count} buttons}}",
   "@remoteButtonCountLabel": {
     "placeholders": {
@@ -1953,31 +1953,31 @@
   "@remoteRemovedFromPinned": {
     "description": "Snackbar shown after unpinning a remote."
   },
-  "homeDeviceControlsTitle": "Quick controls",
+  "homeDeviceControlsTitle": "त्वरित नियंत्रण",
   "@homeDeviceControlsTitle": {
     "description": "Title for the compact device controls row on the home surface."
   },
-  "homeDeviceControlsSubtitle": "Power, mute, and volume without opening a remote.",
+  "homeDeviceControlsSubtitle": "रिमोट खोले बिना पावर, म्यूट और वॉल्यूम।",
   "@homeDeviceControlsSubtitle": {
     "description": "Subtitle for the compact device controls row when controls are configured."
   },
-  "homeDeviceControlsEmptySubtitle": "Set up power, mute, and volume buttons in Device Controls.",
+  "homeDeviceControlsEmptySubtitle": "डिवाइस नियंत्रण में पावर, म्यूट और वॉल्यूम बटन सेट करें।",
   "@homeDeviceControlsEmptySubtitle": {
     "description": "Subtitle for the compact device controls row when no matching controls are configured."
   },
-  "showDeviceControlsOnHome": "Show quick controls on home",
+  "showDeviceControlsOnHome": "होम पर त्वरित नियंत्रण दिखाएं",
   "@showDeviceControlsOnHome": {
     "description": "Settings toggle title for showing the compact device controls row on the home surface."
   },
-  "showDeviceControlsOnHomeSubtitle": "Show the compact Power, Mute, and Volume row on the main screen.",
+  "showDeviceControlsOnHomeSubtitle": "मुख्य स्क्रीन पर पावर, म्यूट और वॉल्यूम की कॉम्पैक्ट पंक्ति दिखाएं।",
   "@showDeviceControlsOnHomeSubtitle": {
     "description": "Settings toggle subtitle for showing the compact device controls row on the home surface."
   },
-  "homeDeviceControlsShown": "Quick controls shown on home.",
+  "homeDeviceControlsShown": "होम पर त्वरित नियंत्रण दिखाए गए।",
   "@homeDeviceControlsShown": {
     "description": "Snackbar shown when the home quick controls row is enabled."
   },
-  "homeDeviceControlsHidden": "Quick controls hidden from home.",
+  "homeDeviceControlsHidden": "होम से त्वरित नियंत्रण छिपाए गए।",
   "@homeDeviceControlsHidden": {
     "description": "Snackbar shown when the home quick controls row is disabled."
   },
@@ -2253,5 +2253,47 @@
   "irWaveformOffLabel": "OFF",
   "@irWaveformOffLabel": {
     "description": "Legend label for inactive/silent sections in an IR waveform."
-  }
+  },
+  "quickSettingsTilesTitle": "त्वरित सेटिंग टाइलें",
+  "quickSettingsPowerTile": "पावर टाइल",
+  "quickSettingsMuteTile": "म्यूट टाइल",
+  "quickSettingsVolumeUpTile": "वॉल्यूम बढ़ाएं टाइल",
+  "quickSettingsVolumeDownTile": "वॉल्यूम घटाएं टाइल",
+  "quickSettingsNoTilesConfigured": "कोई टाइल कॉन्फ़िगर नहीं है",
+  "quickSettingsEmptyHint": "अगला कदम: कम से कम एक टाइल के लिए कमांड चुनें, फिर Android त्वरित सेटिंग्स के संपादन मेनू से टाइल जोड़ें।",
+  "quickSettingsSetPowerTile": "पावर टाइल सेट करें",
+  "quickSettingsConfiguredHint": "चुनें कि हर टाइल कौन सा बटन भेजेगी। Android त्वरित सेटिंग्स के संपादन मेनू से टाइल जोड़ें।",
+  "quickSettingsNotSet": "सेट नहीं",
+  "quickSettingsTileMappingSummary": "{title} · {subtitle}",
+  "quickSettingsPickButtonTooltip": "बटन चुनें",
+  "quickSettingsClearTooltip": "साफ़ करें",
+  "homeWidgetUnsupportedLauncher": "आपका लॉन्चर ऐप के अंदर से विजेट जोड़ने का समर्थन नहीं करता। होम स्क्रीन विजेट पिकर से IR Button विजेट जोड़ें।",
+  "homeWidgetButtonUnsupported": "इस बटन को होम स्क्रीन विजेट के रूप में इस्तेमाल नहीं किया जा सकता।",
+  "homeWidgetRequestSent": "विजेट अनुरोध भेजा गया। अपने लॉन्चर में पुष्टि करें।",
+  "homeWidgetRequestRejected": "लॉन्चर ने विजेट अनुरोध अस्वीकार कर दिया।",
+  "homeWidgetSetupFailed": "होम विजेट सेटअप विफल: {error}",
+  "addHomeWidget": "होम विजेट जोड़ें",
+  "addHomeWidgetSubtitle": "इस बटन को अपनी होम स्क्रीन पर रखें।",
+  "buttonInfoType": "प्रकार: {type}",
+  "buttonInfoCodeRaw": "कोड: रॉ सिग्नल",
+  "buttonInfoCode": "कोड: {code}",
+  "buttonInfoNoCode": "कोई कोड नहीं",
+  "buttonInfoFrequency": "फ़्रीक्वेंसी: {frequency}",
+  "frequencyHzLabel": "फ़्रीक्वेंसी (Hz)",
+  "carrierFrequencyHelper": "कैरियर फ़्रीक्वेंसी, जैसे 38000",
+  "requiredFrequencyHelper": "आवश्यक। उदाहरण: 38000",
+  "validFrequencyError": "मान्य फ़्रीक्वेंसी दर्ज करें (15k-60k)।",
+  "resetToDefaultFrequency": "38000 पर रीसेट करें",
+  "rawDataLabel": "रॉ डेटा",
+  "rawDataHelper": "स्पेस से अलग पूर्णांक, जैसे 9000 4500 560 560 ...",
+  "rawDataInvalid": "रॉ डेटा स्पेस या नई पंक्तियों से अलग किए गए पूर्णांक होने चाहिए।",
+  "rawDataSafeguard": "सुरक्षा: न भेजे जा सकने वाले पैटर्न को सहेजने से रोकने के लिए अमान्य टोकन ब्लॉक किए जाते हैं।",
+  "protocolLabel": "प्रोटोकॉल",
+  "protocolEncodingHelper": "एन्कोडिंग केवल implemented के रूप में चिह्नित प्रोटोकॉल के लिए उपलब्ध है।",
+  "protocolFrequencyHelper": "वैकल्पिक। खाली होने पर, उपलब्ध होने पर प्रोटोकॉल की डिफ़ॉल्ट फ़्रीक्वेंसी उपयोग होगी।",
+  "rawSignalInvalidWithFrequency": "रॉ डेटा स्पेस या नई पंक्तियों से अलग किए गए पूर्णांक होने चाहिए, और फ़्रीक्वेंसी 15k-60k होनी चाहिए।",
+  "necTimingsNumeric": "सभी NEC टाइमिंग संख्यात्मक होनी चाहिए।",
+  "frequencyRangeError": "फ़्रीक्वेंसी 15k-60k Hz होनी चाहिए।",
+  "pasteTooltip": "पेस्ट करें",
+  "clearTooltip": "साफ़ करें"
 }

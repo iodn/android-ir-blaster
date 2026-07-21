@@ -804,11 +804,11 @@ class AppLocalizationsVi extends AppLocalizations {
 
   @override
   String get forceInAppVibrationBlockedMasterWarning =>
-      'Android system vibration is disabled. Force in-app vibration cannot override it on this device.';
+      'Rung hệ thống Android đã bị tắt. Rung cưỡng bức trong ứng dụng không thể ghi đè điều này trên thiết bị này.';
 
   @override
   String get forceInAppVibrationNoVibratorWarning =>
-      'This device reports no vibrator hardware, so in-app vibration cannot work.';
+      'Thiết bị này không báo có phần cứng rung, nên rung trong ứng dụng không thể hoạt động.';
 
   @override
   String get intensity => 'Cường độ';
@@ -4408,28 +4408,31 @@ class AppLocalizationsVi extends AppLocalizations {
   String get remoteRemovedFromPinned => 'Remote removed from pinned.';
 
   @override
-  String get homeDeviceControlsTitle => 'Quick controls';
+  String get homeDeviceControlsTitle => 'Điều khiển nhanh';
 
   @override
   String get homeDeviceControlsSubtitle =>
-      'Power, mute, and volume without opening a remote.';
+      'Nguồn, tắt tiếng và âm lượng mà không cần mở điều khiển.';
 
   @override
   String get homeDeviceControlsEmptySubtitle =>
-      'Set up power, mute, and volume buttons in Device Controls.';
+      'Thiết lập nút nguồn, tắt tiếng và âm lượng trong Điều khiển thiết bị.';
 
   @override
-  String get showDeviceControlsOnHome => 'Show quick controls on home';
+  String get showDeviceControlsOnHome =>
+      'Hiển thị điều khiển nhanh trên màn hình chính';
 
   @override
   String get showDeviceControlsOnHomeSubtitle =>
-      'Show the compact Power, Mute, and Volume row on the main screen.';
+      'Hiển thị hàng Nguồn, Tắt tiếng và Âm lượng gọn trên màn hình chính.';
 
   @override
-  String get homeDeviceControlsShown => 'Quick controls shown on home.';
+  String get homeDeviceControlsShown =>
+      'Đã hiển thị điều khiển nhanh trên màn hình chính.';
 
   @override
-  String get homeDeviceControlsHidden => 'Quick controls hidden from home.';
+  String get homeDeviceControlsHidden =>
+      'Đã ẩn điều khiển nhanh khỏi màn hình chính.';
 
   @override
   String get power => 'Power';
@@ -4662,4 +4665,153 @@ class AppLocalizationsVi extends AppLocalizations {
 
   @override
   String get irWaveformOffLabel => 'OFF';
+
+  @override
+  String get quickSettingsTilesTitle => 'Ô Cài đặt nhanh';
+
+  @override
+  String get quickSettingsPowerTile => 'Ô nguồn';
+
+  @override
+  String get quickSettingsMuteTile => 'Ô tắt tiếng';
+
+  @override
+  String get quickSettingsVolumeUpTile => 'Ô tăng âm lượng';
+
+  @override
+  String get quickSettingsVolumeDownTile => 'Ô giảm âm lượng';
+
+  @override
+  String get quickSettingsNoTilesConfigured => 'Chưa cấu hình ô nào';
+
+  @override
+  String get quickSettingsEmptyHint =>
+      'Bước tiếp theo: chọn lệnh cho ít nhất một ô, rồi thêm ô từ menu chỉnh sửa Cài đặt nhanh của Android.';
+
+  @override
+  String get quickSettingsSetPowerTile => 'Đặt ô nguồn';
+
+  @override
+  String get quickSettingsConfiguredHint =>
+      'Chọn nút mà mỗi ô sẽ gửi. Thêm ô từ menu chỉnh sửa Cài đặt nhanh của Android.';
+
+  @override
+  String get quickSettingsNotSet => 'Chưa đặt';
+
+  @override
+  String quickSettingsTileMappingSummary(String title, String subtitle) {
+    return '$title · $subtitle';
+  }
+
+  @override
+  String get quickSettingsPickButtonTooltip => 'Chọn nút';
+
+  @override
+  String get quickSettingsClearTooltip => 'Xóa';
+
+  @override
+  String get homeWidgetUnsupportedLauncher =>
+      'Trình khởi chạy của bạn không hỗ trợ thêm tiện ích từ trong ứng dụng. Hãy thêm tiện ích Nút IR từ trình chọn tiện ích trên màn hình chính.';
+
+  @override
+  String get homeWidgetButtonUnsupported =>
+      'Không thể dùng nút này làm tiện ích màn hình chính.';
+
+  @override
+  String get homeWidgetRequestSent =>
+      'Đã gửi yêu cầu tiện ích. Hãy xác nhận trong trình khởi chạy của bạn.';
+
+  @override
+  String get homeWidgetRequestRejected =>
+      'Trình khởi chạy đã từ chối yêu cầu tiện ích.';
+
+  @override
+  String homeWidgetSetupFailed(String error) {
+    return 'Thiết lập tiện ích màn hình chính thất bại: $error';
+  }
+
+  @override
+  String get addHomeWidget => 'Thêm tiện ích màn hình chính';
+
+  @override
+  String get addHomeWidgetSubtitle =>
+      'Đặt nút này trên màn hình chính của bạn.';
+
+  @override
+  String buttonInfoType(String type) {
+    return 'Loại: $type';
+  }
+
+  @override
+  String get buttonInfoCodeRaw => 'Mã: tín hiệu thô';
+
+  @override
+  String buttonInfoCode(String code) {
+    return 'Mã: $code';
+  }
+
+  @override
+  String get buttonInfoNoCode => 'KHÔNG CÓ MÃ';
+
+  @override
+  String buttonInfoFrequency(String frequency) {
+    return 'Tần số: $frequency';
+  }
+
+  @override
+  String get frequencyHzLabel => 'Tần số (Hz)';
+
+  @override
+  String get carrierFrequencyHelper => 'Tần số sóng mang, ví dụ 38000';
+
+  @override
+  String get requiredFrequencyHelper => 'Bắt buộc. Ví dụ: 38000';
+
+  @override
+  String get validFrequencyError => 'Nhập tần số hợp lệ (15k-60k).';
+
+  @override
+  String get resetToDefaultFrequency => 'Đặt lại về 38000';
+
+  @override
+  String get rawDataLabel => 'Dữ liệu thô';
+
+  @override
+  String get rawDataHelper =>
+      'Các số nguyên cách nhau bằng dấu cách, ví dụ 9000 4500 560 560 ...';
+
+  @override
+  String get rawDataInvalid =>
+      'Dữ liệu thô phải là các số nguyên cách nhau bằng dấu cách hoặc dòng mới.';
+
+  @override
+  String get rawDataSafeguard =>
+      'Bảo vệ: token không hợp lệ bị chặn để tránh lưu mẫu không thể gửi.';
+
+  @override
+  String get protocolLabel => 'Giao thức';
+
+  @override
+  String get protocolEncodingHelper =>
+      'Mã hóa chỉ được triển khai cho các giao thức được đánh dấu là đã triển khai.';
+
+  @override
+  String get protocolFrequencyHelper =>
+      'Tùy chọn. Nếu để trống, tần số mặc định của giao thức sẽ được dùng khi có.';
+
+  @override
+  String get rawSignalInvalidWithFrequency =>
+      'Dữ liệu thô phải là các số nguyên cách nhau bằng dấu cách hoặc dòng mới, và tần số phải là 15k-60k.';
+
+  @override
+  String get necTimingsNumeric => 'Tất cả thời gian NEC phải là số.';
+
+  @override
+  String get frequencyRangeError => 'Tần số phải là 15k-60k Hz.';
+
+  @override
+  String get pasteTooltip => 'Dán';
+
+  @override
+  String get clearTooltip => 'Xóa';
 }

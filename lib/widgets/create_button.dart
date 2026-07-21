@@ -1,4 +1,5 @@
 // ./lib/widgets/create_button.dart
+import 'dart:async';
 import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
@@ -74,12 +75,14 @@ class _CreateButtonState extends State<CreateButton> {
 
   final TextEditingController _dbSearchCtl = TextEditingController();
   final ScrollController _dbScrollCtl = ScrollController();
+  Timer? _dbSearchDebounce;
 
   bool _dbInit = false;
   bool _dbMetaLoading = false;
   bool _dbLoading = false;
   bool _dbExhausted = false;
   int _dbOffset = 0;
+  int _dbLoadGeneration = 0;
   final List<IrDbKeyCandidate> _dbRows = <IrDbKeyCandidate>[];
   IrDbKeyCandidate? _dbSelected;
 
@@ -228,6 +231,7 @@ class _CreateButtonState extends State<CreateButton> {
 
   @override
   void dispose() {
+    _dbSearchDebounce?.cancel();
     _dbSearchCtl.dispose();
     _dbScrollCtl.dispose();
 
@@ -1497,8 +1501,10 @@ class _CreateButtonState extends State<CreateButton> {
   Future<void> _dbReloadKeys({required bool reset}) async {
     if (_dbBrand == null || _dbModel == null) return;
     if (_dbProtocol == null || _dbProtocol!.trim().isEmpty) return;
-    if (_dbLoading || _dbExhausted) return;
+    if (!reset && (_dbLoading || _dbExhausted)) return;
 
+    final int requestGeneration =
+        reset ? ++_dbLoadGeneration : _dbLoadGeneration;
     if (reset) {
       setState(() {
         _dbOffset = 0;
@@ -1514,6 +1520,7 @@ class _CreateButtonState extends State<CreateButton> {
       await _dbEnsureReady();
 
       final search = _dbEffectiveSearch();
+      final offset = reset ? 0 : _dbOffset;
 
       final rows = await IrBlasterDb.instance.fetchCandidateKeys(
         brand: _dbBrand!,
@@ -1523,21 +1530,39 @@ class _CreateButtonState extends State<CreateButton> {
         hexPrefixUpper: null,
         search: search,
         limit: 60,
-        offset: _dbOffset,
+        offset: offset,
       );
 
+      if (!mounted || requestGeneration != _dbLoadGeneration) return;
       setState(() {
         _dbRows.addAll(rows);
-        _dbOffset += rows.length;
+        _dbOffset = offset + rows.length;
         if (rows.isEmpty) _dbExhausted = true;
       });
     } catch (e) {
-      if (mounted) {
+      if (mounted && requestGeneration == _dbLoadGeneration) {
         _showSnack(context.l10n.failedToLoadDatabaseKeys(e.toString()));
       }
     } finally {
-      if (mounted) setState(() => _dbLoading = false);
+      if (mounted && requestGeneration == _dbLoadGeneration) {
+        setState(() => _dbLoading = false);
+      }
     }
+  }
+
+  void _queueDbSearchReload() {
+    _dbSearchDebounce?.cancel();
+    _dbSearchDebounce = Timer(const Duration(milliseconds: 280), () {
+      if (!mounted) return;
+      _dbReloadKeys(reset: true);
+    });
+  }
+
+  void _runDbSearchNow() {
+    _dbSearchDebounce?.cancel();
+    FocusManager.instance.primaryFocus?.unfocus();
+    if (_dbBrand == null || _dbModel == null || _dbProtocol == null) return;
+    _dbReloadKeys(reset: true);
   }
 
   Future<String?> _pickBrand(BuildContext context) async {
@@ -1548,137 +1573,162 @@ class _CreateButtonState extends State<CreateButton> {
     int offset = 0;
     final items = <String>[];
     bool alive = true;
+    final ctl = TextEditingController();
+    final scrollCtl = ScrollController();
+    Timer? searchDebounce;
+    bool attachedScrollListener = false;
+    bool loading = false;
+    bool exhausted = false;
+    int generation = 0;
 
-    await showModalBottomSheet<void>(
-      context: context,
-      isScrollControlled: true,
-      showDragHandle: true,
-      builder: (ctx) {
-        final ctl = TextEditingController();
-        final scrollCtl = ScrollController();
-        bool attachedScrollListener = false;
-        bool loading = false;
-        bool exhausted = false;
-
-        Future<void> load(StateSetter setModal, {required bool reset}) async {
-          if (!alive) return;
-          if (loading) return;
-
-          setModal(() => loading = true);
-
-          try {
-            if (reset) {
-              offset = 0;
-              exhausted = false;
-              items.clear();
-            }
-
-            final next = await IrBlasterDb.instance.listBrands(
-              search: ctl.text.trim(),
-              limit: 60,
-              offset: offset,
-            );
-
+    try {
+      await showModalBottomSheet<void>(
+        context: context,
+        isScrollControlled: true,
+        showDragHandle: true,
+        builder: (ctx) {
+          Future<void> load(StateSetter setModal, {required bool reset}) async {
             if (!alive) return;
+            if (!reset && loading) return;
 
-            items.addAll(next);
-            offset += next.length;
-            if (next.isEmpty) exhausted = true;
+            final requestGeneration = reset ? ++generation : generation;
+            setModal(() => loading = true);
 
-            setModal(() {});
-          } finally {
-            if (alive) {
-              setModal(() => loading = false);
+            try {
+              if (reset) {
+                offset = 0;
+                exhausted = false;
+                items.clear();
+                if (scrollCtl.hasClients) scrollCtl.jumpTo(0);
+              }
+
+              final next = await IrBlasterDb.instance.listBrands(
+                search: ctl.text.trim(),
+                limit: 60,
+                offset: offset,
+              );
+
+              if (!alive || requestGeneration != generation) return;
+
+              items.addAll(next);
+              offset += next.length;
+              if (next.isEmpty) exhausted = true;
+
+              setModal(() {});
+            } finally {
+              if (alive && requestGeneration == generation) {
+                setModal(() => loading = false);
+              }
             }
           }
-        }
 
-        void onScroll(StateSetter setModal) {
-          if (loading || exhausted) return;
-          if (scrollCtl.position.pixels >=
-              scrollCtl.position.maxScrollExtent - 240) {
-            load(setModal, reset: false);
-          }
-        }
-
-        return StatefulBuilder(
-          builder: (ctx2, setModal) {
-            if (!attachedScrollListener) {
-              attachedScrollListener = true;
-              scrollCtl.addListener(() => onScroll(setModal));
+          void queueSearch(StateSetter setModal) {
+            searchDebounce?.cancel();
+            searchDebounce = Timer(const Duration(milliseconds: 220), () {
+              if (!alive) return;
               load(setModal, reset: true);
-            }
+            });
+          }
 
-            return SafeArea(
-              child: Padding(
-                padding: const EdgeInsets.fromLTRB(16, 10, 16, 10),
-                child: Column(
-                  mainAxisSize: MainAxisSize.min,
-                  children: [
-                    Row(
-                      children: [
-                        Expanded(
-                          child: Text(
-                            context.l10n.selectBrand,
-                            style: Theme.of(ctx2).textTheme.titleLarge,
+          void onScroll(StateSetter setModal) {
+            if (loading || exhausted) return;
+            if (scrollCtl.position.pixels >=
+                scrollCtl.position.maxScrollExtent - 240) {
+              load(setModal, reset: false);
+            }
+          }
+
+          return StatefulBuilder(
+            builder: (ctx2, setModal) {
+              if (!attachedScrollListener) {
+                attachedScrollListener = true;
+                scrollCtl.addListener(() => onScroll(setModal));
+                load(setModal, reset: true);
+              }
+
+              return SafeArea(
+                child: Padding(
+                  padding: const EdgeInsets.fromLTRB(16, 10, 16, 10),
+                  child: Column(
+                    mainAxisSize: MainAxisSize.min,
+                    children: [
+                      Row(
+                        children: [
+                          Expanded(
+                            child: Text(
+                              context.l10n.selectBrand,
+                              style: Theme.of(ctx2).textTheme.titleLarge,
+                            ),
                           ),
-                        ),
-                        IconButton(
-                          onPressed: () {
-                            alive = false;
-                            Navigator.of(ctx2).pop();
-                          },
-                          icon: const Icon(Icons.close_rounded),
-                        ),
-                      ],
-                    ),
-                    const SizedBox(height: 8),
-                    TextField(
-                      controller: ctl,
-                      decoration: InputDecoration(
-                        hintText: context.l10n.searchBrand,
-                        prefixIcon: const Icon(Icons.search_rounded),
-                        border: const OutlineInputBorder(),
-                      ),
-                      onChanged: (_) => load(setModal, reset: true),
-                    ),
-                    const SizedBox(height: 8),
-                    Expanded(
-                      child: ListView.separated(
-                        controller: scrollCtl,
-                        itemCount: items.length + (loading ? 1 : 0),
-                        separatorBuilder: (_, __) => const Divider(height: 0),
-                        itemBuilder: (ctx3, i) {
-                          if (i >= items.length) {
-                            return const Padding(
-                              padding: EdgeInsets.all(14),
-                              child: Center(
-                                  child: CircularProgressIndicator(
-                                      strokeWidth: 2)),
-                            );
-                          }
-                          final b = items[i];
-                          return ListTile(
-                            title: Text(b),
-                            onTap: () {
-                              selected = b;
+                          IconButton(
+                            onPressed: () {
                               alive = false;
                               Navigator.of(ctx2).pop();
                             },
-                          );
-                        },
+                            icon: const Icon(Icons.close_rounded),
+                          ),
+                        ],
                       ),
-                    ),
-                  ],
+                      const SizedBox(height: 8),
+                      TextField(
+                        controller: ctl,
+                        decoration: InputDecoration(
+                          hintText: context.l10n.searchBrand,
+                          prefixIcon: const Icon(Icons.search_rounded),
+                          border: const OutlineInputBorder(),
+                        ),
+                        textInputAction: TextInputAction.search,
+                        onChanged: (_) => queueSearch(setModal),
+                        onSubmitted: (_) {
+                          searchDebounce?.cancel();
+                          FocusManager.instance.primaryFocus?.unfocus();
+                          load(setModal, reset: true);
+                        },
+                        onTapOutside: (_) =>
+                            FocusManager.instance.primaryFocus?.unfocus(),
+                      ),
+                      const SizedBox(height: 8),
+                      Expanded(
+                        child: ListView.separated(
+                          controller: scrollCtl,
+                          itemCount: items.length + (loading ? 1 : 0),
+                          separatorBuilder: (_, __) => const Divider(height: 0),
+                          itemBuilder: (ctx3, i) {
+                            if (i >= items.length) {
+                              return const Padding(
+                                padding: EdgeInsets.all(14),
+                                child: Center(
+                                    child: CircularProgressIndicator(
+                                        strokeWidth: 2)),
+                              );
+                            }
+                            final b = items[i];
+                            return ListTile(
+                              title: Text(b),
+                              onTap: () {
+                                selected = b;
+                                alive = false;
+                                Navigator.of(ctx2).pop();
+                              },
+                            );
+                          },
+                        ),
+                      ),
+                    ],
+                  ),
                 ),
-              ),
-            );
-          },
-        );
-      },
-    );
+              );
+            },
+          );
+        },
+      );
+    } finally {
+      alive = false;
+      searchDebounce?.cancel();
+      ctl.dispose();
+      scrollCtl.dispose();
+    }
 
-    alive = false;
     return selected;
   }
 
@@ -1691,138 +1741,163 @@ class _CreateButtonState extends State<CreateButton> {
     int offset = 0;
     final items = <String>[];
     bool alive = true;
+    final ctl = TextEditingController();
+    final scrollCtl = ScrollController();
+    Timer? searchDebounce;
+    bool attachedScrollListener = false;
+    bool loading = false;
+    bool exhausted = false;
+    int generation = 0;
 
-    await showModalBottomSheet<void>(
-      context: context,
-      isScrollControlled: true,
-      showDragHandle: true,
-      builder: (ctx) {
-        final ctl = TextEditingController();
-        final scrollCtl = ScrollController();
-        bool attachedScrollListener = false;
-        bool loading = false;
-        bool exhausted = false;
-
-        Future<void> load(StateSetter setModal, {required bool reset}) async {
-          if (!alive) return;
-          if (loading) return;
-
-          setModal(() => loading = true);
-
-          try {
-            if (reset) {
-              offset = 0;
-              exhausted = false;
-              items.clear();
-            }
-
-            final next = await IrBlasterDb.instance.listModelsDistinct(
-              brand: brand,
-              search: ctl.text.trim(),
-              limit: 60,
-              offset: offset,
-            );
-
+    try {
+      await showModalBottomSheet<void>(
+        context: context,
+        isScrollControlled: true,
+        showDragHandle: true,
+        builder: (ctx) {
+          Future<void> load(StateSetter setModal, {required bool reset}) async {
             if (!alive) return;
+            if (!reset && loading) return;
 
-            items.addAll(next);
-            offset += next.length;
-            if (next.isEmpty) exhausted = true;
+            final requestGeneration = reset ? ++generation : generation;
+            setModal(() => loading = true);
 
-            setModal(() {});
-          } finally {
-            if (alive) {
-              setModal(() => loading = false);
+            try {
+              if (reset) {
+                offset = 0;
+                exhausted = false;
+                items.clear();
+                if (scrollCtl.hasClients) scrollCtl.jumpTo(0);
+              }
+
+              final next = await IrBlasterDb.instance.listModelsDistinct(
+                brand: brand,
+                search: ctl.text.trim(),
+                limit: 60,
+                offset: offset,
+              );
+
+              if (!alive || requestGeneration != generation) return;
+
+              items.addAll(next);
+              offset += next.length;
+              if (next.isEmpty) exhausted = true;
+
+              setModal(() {});
+            } finally {
+              if (alive && requestGeneration == generation) {
+                setModal(() => loading = false);
+              }
             }
           }
-        }
 
-        void onScroll(StateSetter setModal) {
-          if (loading || exhausted) return;
-          if (scrollCtl.position.pixels >=
-              scrollCtl.position.maxScrollExtent - 240) {
-            load(setModal, reset: false);
-          }
-        }
-
-        return StatefulBuilder(
-          builder: (ctx2, setModal) {
-            if (!attachedScrollListener) {
-              attachedScrollListener = true;
-              scrollCtl.addListener(() => onScroll(setModal));
+          void queueSearch(StateSetter setModal) {
+            searchDebounce?.cancel();
+            searchDebounce = Timer(const Duration(milliseconds: 220), () {
+              if (!alive) return;
               load(setModal, reset: true);
-            }
+            });
+          }
 
-            return SafeArea(
-              child: Padding(
-                padding: const EdgeInsets.fromLTRB(16, 10, 16, 10),
-                child: Column(
-                  mainAxisSize: MainAxisSize.min,
-                  children: [
-                    Row(
-                      children: [
-                        Expanded(
-                          child: Text(
-                            context.l10n.selectModel,
-                            style: Theme.of(ctx2).textTheme.titleLarge,
+          void onScroll(StateSetter setModal) {
+            if (loading || exhausted) return;
+            if (scrollCtl.position.pixels >=
+                scrollCtl.position.maxScrollExtent - 240) {
+              load(setModal, reset: false);
+            }
+          }
+
+          return StatefulBuilder(
+            builder: (ctx2, setModal) {
+              if (!attachedScrollListener) {
+                attachedScrollListener = true;
+                scrollCtl.addListener(() => onScroll(setModal));
+                load(setModal, reset: true);
+              }
+
+              return SafeArea(
+                child: Padding(
+                  padding: const EdgeInsets.fromLTRB(16, 10, 16, 10),
+                  child: Column(
+                    mainAxisSize: MainAxisSize.min,
+                    children: [
+                      Row(
+                        children: [
+                          Expanded(
+                            child: Text(
+                              context.l10n.selectModel,
+                              style: Theme.of(ctx2).textTheme.titleLarge,
+                            ),
                           ),
-                        ),
-                        IconButton(
-                          onPressed: () {
-                            alive = false;
-                            Navigator.of(ctx2).pop();
-                          },
-                          icon: const Icon(Icons.close_rounded),
-                        ),
-                      ],
-                    ),
-                    const SizedBox(height: 8),
-                    TextField(
-                      controller: ctl,
-                      decoration: InputDecoration(
-                        hintText: context.l10n.searchModel,
-                        prefixIcon: const Icon(Icons.search_rounded),
-                        border: const OutlineInputBorder(),
-                      ),
-                      onChanged: (_) => load(setModal, reset: true),
-                    ),
-                    const SizedBox(height: 8),
-                    Expanded(
-                      child: ListView.separated(
-                        controller: scrollCtl,
-                        itemCount: items.length + (loading ? 1 : 0),
-                        separatorBuilder: (_, __) => const Divider(height: 0),
-                        itemBuilder: (ctx3, i) {
-                          if (i >= items.length) {
-                            return const Padding(
-                              padding: EdgeInsets.all(14),
-                              child: Center(
-                                  child: CircularProgressIndicator(
-                                      strokeWidth: 2)),
-                            );
-                          }
-                          final m = items[i];
-                          return ListTile(
-                            title: Text(m),
-                            onTap: () {
-                              selected = m;
+                          IconButton(
+                            onPressed: () {
                               alive = false;
                               Navigator.of(ctx2).pop();
                             },
-                          );
-                        },
+                            icon: const Icon(Icons.close_rounded),
+                          ),
+                        ],
                       ),
-                    ),
-                  ],
+                      const SizedBox(height: 8),
+                      TextField(
+                        controller: ctl,
+                        decoration: InputDecoration(
+                          hintText: context.l10n.searchModel,
+                          prefixIcon: const Icon(Icons.search_rounded),
+                          border: const OutlineInputBorder(),
+                        ),
+                        textInputAction: TextInputAction.search,
+                        onChanged: (_) => queueSearch(setModal),
+                        onSubmitted: (_) {
+                          searchDebounce?.cancel();
+                          FocusManager.instance.primaryFocus?.unfocus();
+                          load(setModal, reset: true);
+                        },
+                        onTapOutside: (_) =>
+                            FocusManager.instance.primaryFocus?.unfocus(),
+                      ),
+                      const SizedBox(height: 8),
+                      Expanded(
+                        child: ListView.separated(
+                          controller: scrollCtl,
+                          itemCount: items.length + (loading ? 1 : 0),
+                          separatorBuilder: (_, __) => const Divider(height: 0),
+                          itemBuilder: (ctx3, i) {
+                            if (i >= items.length) {
+                              return const Padding(
+                                padding: EdgeInsets.all(14),
+                                child: Center(
+                                    child: CircularProgressIndicator(
+                                        strokeWidth: 2)),
+                              );
+                            }
+                            final m = items[i];
+                            return ListTile(
+                              title: Text(m),
+                              onTap: () {
+                                selected = m;
+                                alive = false;
+                                Navigator.of(ctx2).pop();
+                              },
+                            );
+                          },
+                        ),
+                      ),
+                    ],
+                  ),
                 ),
-              ),
-            );
-          },
-        );
-      },
-    );
+              );
+            },
+          );
+        },
+      );
+    } finally {
+      alive = false;
+      searchDebounce?.cancel();
+      ctl.dispose();
+      scrollCtl.dispose();
+    }
 
-    alive = false;
     return selected;
   }
 
@@ -2168,14 +2243,14 @@ class _CreateButtonState extends State<CreateButton> {
               const SizedBox(width: 10),
               Expanded(
                 child: Text(
-                  'Quick presets',
+                  context.l10n.quickPresets,
                   style: theme.textTheme.titleSmall
                       ?.copyWith(fontWeight: FontWeight.w800),
                 ),
               ),
               if (!enabled)
                 Text(
-                  'Select device first',
+                  context.l10n.selectDeviceFirst,
                   style: theme.textTheme.bodySmall?.copyWith(
                     color: cs.onSurface.withValues(alpha: 0.65),
                     fontWeight: FontWeight.w600,
@@ -2221,11 +2296,12 @@ class _CreateButtonState extends State<CreateButton> {
 
     final String searchHint = canBrowseKeys
         ? (_dbSearchCtl.text.trim().isNotEmpty
-            ? 'Search by label or hex…'
+            ? context.l10n.searchByLabelOrHex
             : (_dbPreset == _DbPreset.all
-                ? 'Search by label or hex…'
-                : 'Optional: refine “${_dbPresetTitle(_dbPreset)}” keys…'))
-        : 'Select Brand + Model + Protocol first';
+                ? context.l10n.searchByLabelOrHex
+                : context.l10n
+                    .optionalRefinePresetKeys(_dbPresetTitle(_dbPreset))))
+        : context.l10n.selectBrandModelProtocolFirst;
 
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
@@ -2293,7 +2369,7 @@ class _CreateButtonState extends State<CreateButton> {
                 borderRadius: BorderRadius.circular(12),
               ),
               child: Text(
-                'No protocol found for this Brand/Model.',
+                context.l10n.noProtocolFoundForBrandModel,
                 style: theme.textTheme.bodySmall?.copyWith(
                   color: cs.onSecondaryContainer,
                   fontWeight: FontWeight.w600,
@@ -2314,10 +2390,10 @@ class _CreateButtonState extends State<CreateButton> {
                 if (v == null) return;
                 _dbSelectProtocol(v);
               },
-              decoration: const InputDecoration(
-                labelText: 'Protocol (auto detected)',
-                border: OutlineInputBorder(),
-                helperText: 'Auto-selected from the database for this device.',
+              decoration: InputDecoration(
+                labelText: context.l10n.protocolAutoDetected,
+                border: const OutlineInputBorder(),
+                helperText: context.l10n.protocolAutoDetectedHelper,
                 helperMaxLines: _kHelperMaxLines,
               ),
             ),
@@ -2329,6 +2405,7 @@ class _CreateButtonState extends State<CreateButton> {
         TextField(
           controller: _dbSearchCtl,
           enabled: canBrowseKeys,
+          textInputAction: TextInputAction.search,
           decoration: InputDecoration(
             hintText: searchHint,
             prefixIcon: const Icon(Icons.search_rounded),
@@ -2336,18 +2413,20 @@ class _CreateButtonState extends State<CreateButton> {
             suffixIcon: (!canBrowseKeys || _dbSearchCtl.text.trim().isEmpty)
                 ? null
                 : IconButton(
-                    tooltip: 'Clear',
+                    tooltip: context.l10n.clearAction,
                     onPressed: () {
                       setState(() => _dbSearchCtl.clear());
-                      _dbReloadKeys(reset: true);
+                      _runDbSearchNow();
                     },
                     icon: const Icon(Icons.clear),
                   ),
           ),
           onChanged: (_) {
             if (!canBrowseKeys) return;
-            _dbReloadKeys(reset: true);
+            _queueDbSearchReload();
           },
+          onSubmitted: (_) => _runDbSearchNow(),
+          onTapOutside: (_) => FocusManager.instance.primaryFocus?.unfocus(),
         ),
         const SizedBox(height: 10),
         Container(
@@ -2361,7 +2440,7 @@ class _CreateButtonState extends State<CreateButton> {
                   child: Padding(
                     padding: const EdgeInsets.all(14),
                     child: Text(
-                      'Select Brand and Model to load the device protocol and available keys.',
+                      context.l10n.selectBrandModelToLoadKeys,
                       textAlign: TextAlign.center,
                       style: theme.textTheme.bodySmall?.copyWith(
                         color: cs.onSurface.withValues(alpha: 0.7),
@@ -2378,8 +2457,9 @@ class _CreateButtonState extends State<CreateButton> {
                             padding: const EdgeInsets.all(14),
                             child: Text(
                               effectiveSearch.isEmpty
-                                  ? 'No keys found.'
-                                  : 'No keys found for “$effectiveSearch”.\nTry a different preset or search term.',
+                                  ? context.l10n.noKeysFound
+                                  : context.l10n
+                                      .noKeysFoundForSearch(effectiveSearch),
                               textAlign: TextAlign.center,
                               style: theme.textTheme.bodySmall?.copyWith(
                                 color: cs.onSurface.withValues(alpha: 0.7),
@@ -2433,7 +2513,7 @@ class _CreateButtonState extends State<CreateButton> {
                               title: Text(titleText),
                               subtitle: Text('$hexText · $protoText'),
                               trailing: IconButton(
-                                tooltip: 'Copy',
+                                tooltip: context.l10n.copyCode,
                                 icon: const Icon(Icons.copy_rounded),
                                 onPressed: () => Clipboard.setData(
                                   ClipboardData(text: '$protoText:$hexText'),
@@ -2615,16 +2695,16 @@ class _CreateButtonState extends State<CreateButton> {
             keyboardType: TextInputType.number,
             inputFormatters: [FilteringTextInputFormatter.digitsOnly],
             decoration: InputDecoration(
-              labelText: "Frequency (Hz)",
-              helperText: "Carrier frequency, e.g. 38000",
+              labelText: context.l10n.frequencyHzLabel,
+              helperText: context.l10n.carrierFrequencyHelper,
               helperMaxLines: _kHelperMaxLines,
               hintMaxLines: _kHintMaxLines,
               errorText: !_customNecLooksValid
-                  ? 'Enter a valid frequency (15k–60k).'
+                  ? context.l10n.validFrequencyError
                   : null,
               errorMaxLines: _kErrorMaxLines,
               suffixIcon: IconButton(
-                tooltip: 'Reset to 38000',
+                tooltip: context.l10n.resetToDefaultFrequency,
                 onPressed: () => setState(() =>
                     hexFreqController.text = kDefaultNecFrequencyHz.toString()),
                 icon: const Icon(Icons.restart_alt),
@@ -2705,16 +2785,16 @@ class _CreateButtonState extends State<CreateButton> {
           keyboardType: TextInputType.number,
           inputFormatters: [FilteringTextInputFormatter.digitsOnly],
           decoration: InputDecoration(
-            labelText: "Frequency (Hz)",
-            helperText: "Required. Example: 38000",
+            labelText: context.l10n.frequencyHzLabel,
+            helperText: context.l10n.requiredFrequencyHelper,
             helperMaxLines: _kHelperMaxLines,
             hintMaxLines: _kHintMaxLines,
             errorText: (_signalType == _SignalType.raw && !_rawLooksValid)
-                ? 'Enter a valid frequency (15k–60k).'
+                ? context.l10n.validFrequencyError
                 : null,
             errorMaxLines: _kErrorMaxLines,
             suffixIcon: IconButton(
-              tooltip: 'Reset to 38000',
+              tooltip: context.l10n.resetToDefaultFrequency,
               onPressed: () => setState(() => freqController.text = '38000'),
               icon: const Icon(Icons.restart_alt),
             ),
@@ -2725,16 +2805,16 @@ class _CreateButtonState extends State<CreateButton> {
           controller: rawDataController,
           maxLines: 4,
           decoration: InputDecoration(
-            labelText: "Raw data",
-            helperText: "Space-separated integers, e.g. 9000 4500 560 560 ...",
+            labelText: context.l10n.rawDataLabel,
+            helperText: context.l10n.rawDataHelper,
             helperMaxLines: _kHelperMaxLines,
             hintMaxLines: _kHintMaxLines,
             errorText: (_signalType == _SignalType.raw && !_rawLooksValid)
-                ? 'Raw data must be integers separated by spaces/newlines.'
+                ? context.l10n.rawDataInvalid
                 : null,
             errorMaxLines: _kErrorMaxLines,
             suffixIcon: IconButton(
-              tooltip: 'Paste',
+              tooltip: context.l10n.pasteTooltip,
               onPressed: () => _pasteInto(rawDataController),
               icon: const Icon(Icons.content_paste_outlined),
             ),
@@ -2742,7 +2822,7 @@ class _CreateButtonState extends State<CreateButton> {
         ),
         const SizedBox(height: 6),
         Text(
-          'Safeguard: invalid tokens are blocked to prevent saving a non-sendable pattern.',
+          context.l10n.rawDataSafeguard,
           style: theme.textTheme.bodySmall?.copyWith(
             color: theme.colorScheme.onSurface.withValues(alpha: 0.75),
           ),
@@ -2781,9 +2861,8 @@ class _CreateButtonState extends State<CreateButton> {
             });
           },
           decoration: InputDecoration(
-            labelText: 'Protocol',
-            helperText:
-                'Encoding is implemented only for protocols marked as implemented.',
+            labelText: context.l10n.protocolLabel,
+            helperText: context.l10n.protocolEncodingHelper,
             helperMaxLines: _kHelperMaxLines,
             hintMaxLines: _kHintMaxLines,
           ),
@@ -2794,18 +2873,17 @@ class _CreateButtonState extends State<CreateButton> {
           keyboardType: TextInputType.number,
           inputFormatters: [FilteringTextInputFormatter.digitsOnly],
           decoration: InputDecoration(
-            labelText: 'Frequency (Hz)',
-            helperText:
-                'Optional. If empty, protocol default is used where available.',
+            labelText: context.l10n.frequencyHzLabel,
+            helperText: context.l10n.protocolFrequencyHelper,
             helperMaxLines: _kHelperMaxLines,
             hintMaxLines: _kHintMaxLines,
-            errorText: (_signalType == _SignalType.protocol &&
-                    !_protocolLooksValid)
-                ? 'Fill required fields and ensure frequency is 15k–60k if set.'
-                : null,
+            errorText:
+                (_signalType == _SignalType.protocol && !_protocolLooksValid)
+                    ? context.l10n.protocolFieldsInvalid
+                    : null,
             errorMaxLines: _kErrorMaxLines,
             suffixIcon: IconButton(
-              tooltip: 'Clear',
+              tooltip: context.l10n.clearTooltip,
               onPressed: () => setState(() => protoFreqController.clear()),
               icon: const Icon(Icons.clear),
             ),
@@ -3037,13 +3115,13 @@ class _CreateButtonState extends State<CreateButton> {
         ].every((t) => int.tryParse(t.trim()) != null);
 
         if (!allNumeric) {
-          _showSnack("All NEC timings must be numeric.");
+          _showSnack(context.l10n.necTimingsNumeric);
           return;
         }
 
         final f = int.tryParse(hexFreqController.text.trim());
         if (f == null || f < kMinIrFrequencyHz || f > kMaxIrFrequencyHz) {
-          _showSnack("Frequency must be 15k–60k Hz.");
+          _showSnack(context.l10n.frequencyRangeError);
           return;
         }
       }
@@ -3097,8 +3175,7 @@ class _CreateButtonState extends State<CreateButton> {
 
     if (_signalType == _SignalType.raw) {
       if (!_rawLooksValid) {
-        _showSnack(
-            "Raw data must be integers separated by spaces/newlines, and frequency must be 15k–60k.");
+        _showSnack(context.l10n.rawSignalInvalidWithFrequency);
         return;
       }
 

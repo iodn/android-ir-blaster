@@ -1173,13 +1173,13 @@ class MainActivity : FlutterActivity() {
 
     private fun handleHasAnyEmitter(result: MethodChannel.Result) {
         val internal = internalAvailable()
+        val audioSelected = currentAudioModeOrNull() != null
         val usbPresent = try {
             usbDiscovery?.scanSupported()?.isNotEmpty() ?: false
         } catch (_: Throwable) {
             false
         }
-        val audioPresent = true
-        result.success(internal || usbPresent || audioPresent)
+        result.success(internal || usbPresent || audioSelected)
     }
 
     private fun handleTransmit(call: MethodCall, result: MethodChannel.Result) {

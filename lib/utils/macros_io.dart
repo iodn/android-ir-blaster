@@ -1,5 +1,6 @@
 import 'dart:convert';
 import 'dart:io';
+import 'dart:typed_data';
 
 import 'package:file_picker/file_picker.dart';
 import 'package:flutter/material.dart';
@@ -28,7 +29,8 @@ Future<File> _macrosFile() async {
 Future<void> writeMacrosList(List<TimedMacro> macros) async {
   final file = await _macrosFile();
   final tmp = File('${file.path}.tmp');
-  final payload = jsonEncode(macros.map((m) => m.copyWith(version: 1).toJson()).toList());
+  final payload =
+      jsonEncode(macros.map((m) => m.copyWith(version: 1).toJson()).toList());
   await tmp.writeAsString(payload, flush: true);
   try {
     if (await file.exists()) {
@@ -45,7 +47,10 @@ Future<List<TimedMacro>> readMacros() async {
     final contents = await file.readAsString();
     final decoded = jsonDecode(contents);
     if (decoded is! List) return <TimedMacro>[];
-    return decoded.whereType<Map>().map((e) => TimedMacro.fromJson(e.cast<String, dynamic>())).toList();
+    return decoded
+        .whereType<Map>()
+        .map((e) => TimedMacro.fromJson(e.cast<String, dynamic>()))
+        .toList();
   } catch (_) {
     return <TimedMacro>[];
   }
@@ -68,7 +73,8 @@ TimedMacro bindMacroToRemote(TimedMacro macro, Remote remote) {
     final key = normalizeButtonKey(ref ?? '');
     if (key.isEmpty) return null;
     try {
-      return remote.buttons.firstWhere((b) => normalizeButtonKey(b.image) == key);
+      return remote.buttons
+          .firstWhere((b) => normalizeButtonKey(b.image) == key);
     } catch (_) {
       return null;
     }
@@ -119,22 +125,21 @@ Future<void> exportMacrosToDownloads(
   }
 
   final mediaStore = MediaStore();
+  final timestamp = DateTime.now().millisecondsSinceEpoch;
+  final fileName = 'irblaster_macros_$timestamp.json';
+  final payload = {
+    'schema': 'irblaster.macros',
+    'version': 1,
+    'exportedAt': DateTime.now().toIso8601String(),
+    'macros': macros.map((m) => m.copyWith(version: 1).toJson()).toList(),
+  };
+  final jsonString = jsonEncode(payload);
 
-  try {
-    final timestamp = DateTime.now().millisecondsSinceEpoch;
-    final fileName = 'irblaster_macros_$timestamp.json';
-
-    final payload = {
-      'schema': 'irblaster.macros',
-      'version': 1,
-      'exportedAt': DateTime.now().toIso8601String(),
-      'macros': macros.map((m) => m.copyWith(version: 1).toJson()).toList(),
-    };
-
+  Future<void> doSave() async {
     final tempDir = await getTemporaryDirectory();
     final tempPath = '${tempDir.path}/$fileName';
     final tempFile = File(tempPath);
-    await tempFile.writeAsString(jsonEncode(payload), flush: true);
+    await tempFile.writeAsString(jsonString, flush: true);
 
     await mediaStore.saveFile(
       tempFilePath: tempPath,
@@ -150,7 +155,31 @@ Future<void> exportMacrosToDownloads(
     ScaffoldMessenger.of(context).showSnackBar(
       SnackBar(content: Text(context.l10n.macrosExportedToDownloads)),
     );
+  }
+
+  Future<bool> doPickerSave() async {
+    final savedPath = await FilePicker.platform.saveFile(
+      fileName: fileName,
+      type: FileType.custom,
+      allowedExtensions: const <String>['json'],
+      bytes: Uint8List.fromList(utf8.encode(jsonString)),
+    );
+    if (savedPath == null) return false;
+    if (!context.mounted) return true;
+    ScaffoldMessenger.of(context).showSnackBar(
+      SnackBar(content: Text(context.l10n.macrosExportedToDownloads)),
+    );
+    return true;
+  }
+
+  try {
+    await doSave();
   } catch (_) {
+    try {
+      final saved = await doPickerSave();
+      if (saved) return;
+    } catch (_) {}
+
     if (!context.mounted) return;
     ScaffoldMessenger.of(context).showSnackBar(
       SnackBar(content: Text(context.l10n.failedToExportMacros)),
@@ -225,7 +254,8 @@ Future<List<TimedMacro>?> importMacrosFromPicker(BuildContext context) async {
 List<TimedMacro> _regenerateMacroIds(List<TimedMacro> macros) {
   final uuid = const Uuid();
   return macros.map((m) {
-    final newSteps = m.steps.map((s) => s.copyWith(id: MacroStep.newId())).toList();
+    final newSteps =
+        m.steps.map((s) => s.copyWith(id: MacroStep.newId())).toList();
     return m.copyWith(
       id: uuid.v4(),
       steps: newSteps,

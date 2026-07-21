@@ -4722,4 +4722,152 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get irWaveformOffLabel => 'OFF';
+
+  @override
+  String get quickSettingsTilesTitle => 'Quick Settings tiles';
+
+  @override
+  String get quickSettingsPowerTile => 'Power tile';
+
+  @override
+  String get quickSettingsMuteTile => 'Mute tile';
+
+  @override
+  String get quickSettingsVolumeUpTile => 'Volume Up tile';
+
+  @override
+  String get quickSettingsVolumeDownTile => 'Volume Down tile';
+
+  @override
+  String get quickSettingsNoTilesConfigured => 'No tiles configured';
+
+  @override
+  String get quickSettingsEmptyHint =>
+      'What next: pick a command for at least one tile, then add the tile from Android Quick Settings edit menu.';
+
+  @override
+  String get quickSettingsSetPowerTile => 'Set Power tile';
+
+  @override
+  String get quickSettingsConfiguredHint =>
+      'Choose which button each tile sends. Add tiles from Android Quick Settings edit menu.';
+
+  @override
+  String get quickSettingsNotSet => 'Not set';
+
+  @override
+  String quickSettingsTileMappingSummary(String title, String subtitle) {
+    return '$title · $subtitle';
+  }
+
+  @override
+  String get quickSettingsPickButtonTooltip => 'Pick button';
+
+  @override
+  String get quickSettingsClearTooltip => 'Clear';
+
+  @override
+  String get homeWidgetUnsupportedLauncher =>
+      'Your launcher does not support adding widgets from inside the app. Add the IR Button widget from the home screen widget picker.';
+
+  @override
+  String get homeWidgetButtonUnsupported =>
+      'This button cannot be used as a home widget.';
+
+  @override
+  String get homeWidgetRequestSent =>
+      'Widget request sent. Confirm it on your launcher.';
+
+  @override
+  String get homeWidgetRequestRejected =>
+      'The launcher rejected the widget request.';
+
+  @override
+  String homeWidgetSetupFailed(String error) {
+    return 'Home widget setup failed: $error';
+  }
+
+  @override
+  String get addHomeWidget => 'Add home widget';
+
+  @override
+  String get addHomeWidgetSubtitle => 'Place this button on your home screen.';
+
+  @override
+  String buttonInfoType(String type) {
+    return 'Type: $type';
+  }
+
+  @override
+  String get buttonInfoCodeRaw => 'Code: Raw signal';
+
+  @override
+  String buttonInfoCode(String code) {
+    return 'Code: $code';
+  }
+
+  @override
+  String get buttonInfoNoCode => 'NO CODE';
+
+  @override
+  String buttonInfoFrequency(String frequency) {
+    return 'Frequency: $frequency';
+  }
+
+  @override
+  String get frequencyHzLabel => 'Frequency (Hz)';
+
+  @override
+  String get carrierFrequencyHelper => 'Carrier frequency, e.g. 38000';
+
+  @override
+  String get requiredFrequencyHelper => 'Required. Example: 38000';
+
+  @override
+  String get validFrequencyError => 'Enter a valid frequency (15k-60k).';
+
+  @override
+  String get resetToDefaultFrequency => 'Reset to 38000';
+
+  @override
+  String get rawDataLabel => 'Raw data';
+
+  @override
+  String get rawDataHelper =>
+      'Space-separated integers, e.g. 9000 4500 560 560 ...';
+
+  @override
+  String get rawDataInvalid =>
+      'Raw data must be integers separated by spaces or new lines.';
+
+  @override
+  String get rawDataSafeguard =>
+      'Safeguard: invalid tokens are blocked to prevent saving a non-sendable pattern.';
+
+  @override
+  String get protocolLabel => 'Protocol';
+
+  @override
+  String get protocolEncodingHelper =>
+      'Encoding is implemented only for protocols marked as implemented.';
+
+  @override
+  String get protocolFrequencyHelper =>
+      'Optional. If empty, protocol default is used where available.';
+
+  @override
+  String get rawSignalInvalidWithFrequency =>
+      'Raw data must be integers separated by spaces or new lines, and frequency must be 15k-60k.';
+
+  @override
+  String get necTimingsNumeric => 'All NEC timings must be numeric.';
+
+  @override
+  String get frequencyRangeError => 'Frequency must be 15k-60k Hz.';
+
+  @override
+  String get pasteTooltip => 'Paste';
+
+  @override
+  String get clearTooltip => 'Clear';
 }

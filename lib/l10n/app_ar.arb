@@ -58,9 +58,9 @@
   "macrosNavLabel": "الماكرو",
   "signalTesterNavLabel": "مختبر الإشارة",
   "settingsTitle": "الإعدادات",
-  "remoteNoIrEmitterTitle": "No IR emitter",
-  "remoteNoIrEmitterMessage": "هذا الجهاز لا يحتوي على مرسل IR.",
-  "remoteNoIrEmitterNeedsEmitter": "This app needs an IR emitter إلى function",
+  "remoteNoIrEmitterTitle": "لا يوجد مرسل IR",
+  "remoteNoIrEmitterMessage": "هذا الجهاز لا يحتوي على مرسل IR",
+  "remoteNoIrEmitterNeedsEmitter": "يحتاج هذا التطبيق إلى مرسل IR ليعمل",
   "remoteDismiss": "تجاهل",
   "remoteClose": "إغلاق",
   "remoteFailedToSend": "فشل إلى send IR: {error}",
@@ -248,11 +248,11 @@
   },
   "deviceControlsTitle": "الجهاز Controls",
   "deviceControlsSubtitle": "اعرض الأزرار المفضلة في صفحة عناصر تحكم النظام",
-  "manageFavorites": "Manage favorites",
+  "manageFavorites": "إدارة المفضلات",
   "manageFavoritesSubtitle": "اختر الأزرار التي تظهر في عناصر تحكم الجهاز",
   "quickSettingsTitle": "Quick الإعدادات",
   "quickSettingsSubtitle": "أضف مربعات لاختصارات الطاقة والصوت",
-  "configureTiles": "Configure tiles",
+  "configureTiles": "تكوين المربعات",
   "configureTilesSubtitle": "اربط المربعات بأزرار جهاز التحكم",
   "tvKillTitle": "TVKill",
   "tvKillSubtitle": "Universal power cycling for owned أجهزة",
@@ -319,8 +319,8 @@
     }
   },
   "delete": "حذف",
-  "addToDeviceControlsTitle": "إضافة إلى الجهاز Controls?",
-  "addToDeviceControlsDescription": "وصول سريع في عناصر تحكم جهاز النظام.",
+  "addToDeviceControlsTitle": "إضافة إلى عناصر تحكم الجهاز؟",
+  "addToDeviceControlsDescription": "وصول سريع من عناصر تحكم الجهاز في النظام.",
   "skip": "تخطي",
   "add": "إضافة",
   "addedToDeviceControls": "Added إلى الجهاز Controls.",
@@ -448,12 +448,12 @@
   "newButtonSubtitle": "أنشئ زراً جديداً بعد هذا الزر",
   "duplicate": "Duplicate",
   "duplicateButtonSubtitle": "أنشئ نسخة من هذا الزر",
-  "removeFromDeviceControls": "Remove من الجهاز Controls",
-  "addToDeviceControls": "إضافة إلى الجهاز Controls",
+  "removeFromDeviceControls": "إزالة من عناصر تحكم الجهاز",
+  "addToDeviceControls": "إضافة إلى عناصر تحكم الجهاز",
   "deviceControlsButtonSubtitle": "يعرض هذا الزر في عناصر تحكم جهاز النظام",
-  "removedFromDeviceControls": "Removed من الجهاز Controls.",
-  "pinQuickTile": "Pin إلى Quick Tile favorites",
-  "unpinQuickTile": "Unpin من Quick Tile favorites",
+  "removedFromDeviceControls": "تمت الإزالة من عناصر تحكم الجهاز.",
+  "pinQuickTile": "تثبيت في مفضلات المربعات السريعة",
+  "unpinQuickTile": "إلغاء التثبيت من مفضلات المربعات السريعة",
   "quickTileButtonSubtitle": "يعرض هذا الزر أعلى قائمة اختيار المربعات السريعة",
   "removedFromQuickTileFavorites": "Removed من Quick Tile favorites.",
   "pinnedToQuickTileFavorites": "Pinned إلى Quick Tile favorites.",
@@ -1867,8 +1867,8 @@
   "forceInAppVibrationTitle": "فرض الاهتزاز داخل التطبيق",
   "forceInAppVibrationSubtitle": "استخدام الهزاز مباشرة حتى إذا كان اللمس الارتدادي للنظام معطلاً",
   "forceInAppVibrationWarning": "خيار متقدم. قد يجعل التطبيق يهتز حتى عندما يكون اللمس الارتدادي في أندرويد معطلاً على مستوى النظام.",
-  "forceInAppVibrationBlockedMasterWarning": "Android system vibration is disabled. Force in-app vibration cannot override it on this device.",
-  "forceInAppVibrationNoVibratorWarning": "This device reports no vibrator hardware, so in-app vibration cannot work.",
+  "forceInAppVibrationBlockedMasterWarning": "تم تعطيل اهتزاز النظام في أندرويد. لا يمكن للاهتزاز داخل التطبيق تجاوزه على هذا الجهاز.",
+  "forceInAppVibrationNoVibratorWarning": "لا يبلّغ هذا الجهاز عن وجود محرك اهتزاز، لذلك لا يمكن أن يعمل الاهتزاز داخل التطبيق.",
   "remoteButtonCountLabel": "{count, plural, one{{count} button} other{{count} buttons}}",
   "@remoteButtonCountLabel": {
     "placeholders": {
@@ -1953,31 +1953,31 @@
   "@remoteRemovedFromPinned": {
     "description": "Snackbar shown after unpinning a remote."
   },
-  "homeDeviceControlsTitle": "Quick controls",
+  "homeDeviceControlsTitle": "عناصر تحكم سريعة",
   "@homeDeviceControlsTitle": {
     "description": "Title for the compact device controls row on the home surface."
   },
-  "homeDeviceControlsSubtitle": "Power, mute, and volume without opening a remote.",
+  "homeDeviceControlsSubtitle": "تشغيل وكتم صوت ومستوى صوت دون فتح جهاز تحكم.",
   "@homeDeviceControlsSubtitle": {
     "description": "Subtitle for the compact device controls row when controls are configured."
   },
-  "homeDeviceControlsEmptySubtitle": "Set up power, mute, and volume buttons in Device Controls.",
+  "homeDeviceControlsEmptySubtitle": "قم بإعداد أزرار التشغيل وكتم الصوت ومستوى الصوت في عناصر تحكم الجهاز.",
   "@homeDeviceControlsEmptySubtitle": {
     "description": "Subtitle for the compact device controls row when no matching controls are configured."
   },
-  "showDeviceControlsOnHome": "Show quick controls on home",
+  "showDeviceControlsOnHome": "إظهار عناصر التحكم السريعة في الشاشة الرئيسية",
   "@showDeviceControlsOnHome": {
     "description": "Settings toggle title for showing the compact device controls row on the home surface."
   },
-  "showDeviceControlsOnHomeSubtitle": "Show the compact Power, Mute, and Volume row on the main screen.",
+  "showDeviceControlsOnHomeSubtitle": "إظهار صف التشغيل وكتم الصوت ومستوى الصوت المختصر في الشاشة الرئيسية.",
   "@showDeviceControlsOnHomeSubtitle": {
     "description": "Settings toggle subtitle for showing the compact device controls row on the home surface."
   },
-  "homeDeviceControlsShown": "Quick controls shown on home.",
+  "homeDeviceControlsShown": "تم إظهار عناصر التحكم السريعة في الشاشة الرئيسية.",
   "@homeDeviceControlsShown": {
     "description": "Snackbar shown when the home quick controls row is enabled."
   },
-  "homeDeviceControlsHidden": "Quick controls hidden from home.",
+  "homeDeviceControlsHidden": "تم إخفاء عناصر التحكم السريعة من الشاشة الرئيسية.",
   "@homeDeviceControlsHidden": {
     "description": "Snackbar shown when the home quick controls row is disabled."
   },
@@ -2253,5 +2253,47 @@
   "irWaveformOffLabel": "OFF",
   "@irWaveformOffLabel": {
     "description": "Legend label for inactive/silent sections in an IR waveform."
-  }
+  },
+  "quickSettingsTilesTitle": "مربعات الإعدادات السريعة",
+  "quickSettingsPowerTile": "مربع التشغيل",
+  "quickSettingsMuteTile": "مربع كتم الصوت",
+  "quickSettingsVolumeUpTile": "مربع رفع الصوت",
+  "quickSettingsVolumeDownTile": "مربع خفض الصوت",
+  "quickSettingsNoTilesConfigured": "لا توجد مربعات مهيأة",
+  "quickSettingsEmptyHint": "الخطوة التالية: اختر أمرا لمربع واحد على الأقل، ثم أضف المربع من قائمة تحرير الإعدادات السريعة في Android.",
+  "quickSettingsSetPowerTile": "تعيين مربع التشغيل",
+  "quickSettingsConfiguredHint": "اختر الزر الذي يرسله كل مربع. أضف المربعات من قائمة تحرير الإعدادات السريعة في Android.",
+  "quickSettingsNotSet": "غير معين",
+  "quickSettingsTileMappingSummary": "{title} · {subtitle}",
+  "quickSettingsPickButtonTooltip": "اختيار زر",
+  "quickSettingsClearTooltip": "مسح",
+  "homeWidgetUnsupportedLauncher": "المشغل لديك لا يدعم إضافة الودجات من داخل التطبيق. أضف ودجة زر IR من منتقي ودجات الشاشة الرئيسية.",
+  "homeWidgetButtonUnsupported": "لا يمكن استخدام هذا الزر كودجة على الشاشة الرئيسية.",
+  "homeWidgetRequestSent": "تم إرسال طلب الودجة. أكده في المشغل.",
+  "homeWidgetRequestRejected": "رفض المشغل طلب الودجة.",
+  "homeWidgetSetupFailed": "فشل إعداد ودجة الشاشة الرئيسية: {error}",
+  "addHomeWidget": "إضافة ودجة للشاشة الرئيسية",
+  "addHomeWidgetSubtitle": "ضع هذا الزر على شاشتك الرئيسية.",
+  "buttonInfoType": "النوع: {type}",
+  "buttonInfoCodeRaw": "الرمز: إشارة خام",
+  "buttonInfoCode": "الرمز: {code}",
+  "buttonInfoNoCode": "لا يوجد رمز",
+  "buttonInfoFrequency": "التردد: {frequency}",
+  "frequencyHzLabel": "التردد (Hz)",
+  "carrierFrequencyHelper": "تردد الحامل، مثال 38000",
+  "requiredFrequencyHelper": "مطلوب. مثال: 38000",
+  "validFrequencyError": "أدخل ترددا صالحا (15k-60k).",
+  "resetToDefaultFrequency": "إعادة الضبط إلى 38000",
+  "rawDataLabel": "البيانات الخام",
+  "rawDataHelper": "أعداد صحيحة مفصولة بمسافات، مثال 9000 4500 560 560 ...",
+  "rawDataInvalid": "يجب أن تكون البيانات الخام أعدادا صحيحة مفصولة بمسافات أو أسطر جديدة.",
+  "rawDataSafeguard": "حماية: يتم حظر الرموز غير الصالحة لمنع حفظ نمط لا يمكن إرساله.",
+  "protocolLabel": "البروتوكول",
+  "protocolEncodingHelper": "الترميز متاح فقط للبروتوكولات المحددة كمنفذة.",
+  "protocolFrequencyHelper": "اختياري. إذا كان فارغا، يتم استخدام التردد الافتراضي للبروتوكول عند توفره.",
+  "rawSignalInvalidWithFrequency": "يجب أن تكون البيانات الخام أعدادا صحيحة مفصولة بمسافات أو أسطر جديدة، ويجب أن يكون التردد 15k-60k.",
+  "necTimingsNumeric": "يجب أن تكون كل توقيتات NEC رقمية.",
+  "frequencyRangeError": "يجب أن يكون التردد 15k-60k Hz.",
+  "pasteTooltip": "لصق",
+  "clearTooltip": "مسح"
 }

@@ -8521,6 +8521,258 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'OFF'**
   String get irWaveformOffLabel;
+
+  /// Title for the Quick Settings tile configuration screen.
+  ///
+  /// In en, this message translates to:
+  /// **'Quick Settings tiles'**
+  String get quickSettingsTilesTitle;
+
+  /// Label for the power Quick Settings tile.
+  ///
+  /// In en, this message translates to:
+  /// **'Power tile'**
+  String get quickSettingsPowerTile;
+
+  /// Label for the mute Quick Settings tile.
+  ///
+  /// In en, this message translates to:
+  /// **'Mute tile'**
+  String get quickSettingsMuteTile;
+
+  /// Label for the volume up Quick Settings tile.
+  ///
+  /// In en, this message translates to:
+  /// **'Volume Up tile'**
+  String get quickSettingsVolumeUpTile;
+
+  /// Label for the volume down Quick Settings tile.
+  ///
+  /// In en, this message translates to:
+  /// **'Volume Down tile'**
+  String get quickSettingsVolumeDownTile;
+
+  /// Empty state title when no Quick Settings tiles are configured.
+  ///
+  /// In en, this message translates to:
+  /// **'No tiles configured'**
+  String get quickSettingsNoTilesConfigured;
+
+  /// Empty state hint explaining how to configure Quick Settings tiles.
+  ///
+  /// In en, this message translates to:
+  /// **'What next: pick a command for at least one tile, then add the tile from Android Quick Settings edit menu.'**
+  String get quickSettingsEmptyHint;
+
+  /// CTA to configure the power Quick Settings tile.
+  ///
+  /// In en, this message translates to:
+  /// **'Set Power tile'**
+  String get quickSettingsSetPowerTile;
+
+  /// Description for the Quick Settings tile configuration screen.
+  ///
+  /// In en, this message translates to:
+  /// **'Choose which button each tile sends. Add tiles from Android Quick Settings edit menu.'**
+  String get quickSettingsConfiguredHint;
+
+  /// Shown when a tile has no assigned button.
+  ///
+  /// In en, this message translates to:
+  /// **'Not set'**
+  String get quickSettingsNotSet;
+
+  /// Summary of the button assigned to a Quick Settings tile.
+  ///
+  /// In en, this message translates to:
+  /// **'{title} · {subtitle}'**
+  String quickSettingsTileMappingSummary(String title, String subtitle);
+
+  /// Tooltip for picking a button for a Quick Settings tile.
+  ///
+  /// In en, this message translates to:
+  /// **'Pick button'**
+  String get quickSettingsPickButtonTooltip;
+
+  /// Tooltip for clearing a Quick Settings tile mapping.
+  ///
+  /// In en, this message translates to:
+  /// **'Clear'**
+  String get quickSettingsClearTooltip;
+
+  /// Message shown when launcher does not support in-app widget pinning.
+  ///
+  /// In en, this message translates to:
+  /// **'Your launcher does not support adding widgets from inside the app. Add the IR Button widget from the home screen widget picker.'**
+  String get homeWidgetUnsupportedLauncher;
+
+  /// Message shown when an IR button cannot be converted to a home widget.
+  ///
+  /// In en, this message translates to:
+  /// **'This button cannot be used as a home widget.'**
+  String get homeWidgetButtonUnsupported;
+
+  /// Message shown after sending a widget pin request.
+  ///
+  /// In en, this message translates to:
+  /// **'Widget request sent. Confirm it on your launcher.'**
+  String get homeWidgetRequestSent;
+
+  /// Message shown when launcher rejects a widget pin request.
+  ///
+  /// In en, this message translates to:
+  /// **'The launcher rejected the widget request.'**
+  String get homeWidgetRequestRejected;
+
+  /// Message shown when home widget setup fails.
+  ///
+  /// In en, this message translates to:
+  /// **'Home widget setup failed: {error}'**
+  String homeWidgetSetupFailed(String error);
+
+  /// Action title for adding a home screen widget.
+  ///
+  /// In en, this message translates to:
+  /// **'Add home widget'**
+  String get addHomeWidget;
+
+  /// Subtitle for adding a home screen widget action.
+  ///
+  /// In en, this message translates to:
+  /// **'Place this button on your home screen.'**
+  String get addHomeWidgetSubtitle;
+
+  /// Button details line showing protocol/type.
+  ///
+  /// In en, this message translates to:
+  /// **'Type: {type}'**
+  String buttonInfoType(String type);
+
+  /// Button details line shown for raw IR signals.
+  ///
+  /// In en, this message translates to:
+  /// **'Code: Raw signal'**
+  String get buttonInfoCodeRaw;
+
+  /// Button details line showing code value.
+  ///
+  /// In en, this message translates to:
+  /// **'Code: {code}'**
+  String buttonInfoCode(String code);
+
+  /// Fallback when a button has no code.
+  ///
+  /// In en, this message translates to:
+  /// **'NO CODE'**
+  String get buttonInfoNoCode;
+
+  /// Button details line showing carrier frequency.
+  ///
+  /// In en, this message translates to:
+  /// **'Frequency: {frequency}'**
+  String buttonInfoFrequency(String frequency);
+
+  /// Label for an IR carrier frequency input in Hertz.
+  ///
+  /// In en, this message translates to:
+  /// **'Frequency (Hz)'**
+  String get frequencyHzLabel;
+
+  /// Helper text for carrier frequency input.
+  ///
+  /// In en, this message translates to:
+  /// **'Carrier frequency, e.g. 38000'**
+  String get carrierFrequencyHelper;
+
+  /// Helper text for a required frequency input.
+  ///
+  /// In en, this message translates to:
+  /// **'Required. Example: 38000'**
+  String get requiredFrequencyHelper;
+
+  /// Validation message for out-of-range IR frequency.
+  ///
+  /// In en, this message translates to:
+  /// **'Enter a valid frequency (15k-60k).'**
+  String get validFrequencyError;
+
+  /// Tooltip to reset frequency to default value.
+  ///
+  /// In en, this message translates to:
+  /// **'Reset to 38000'**
+  String get resetToDefaultFrequency;
+
+  /// Label for raw IR timing data input.
+  ///
+  /// In en, this message translates to:
+  /// **'Raw data'**
+  String get rawDataLabel;
+
+  /// Helper text explaining raw timing format.
+  ///
+  /// In en, this message translates to:
+  /// **'Space-separated integers, e.g. 9000 4500 560 560 ...'**
+  String get rawDataHelper;
+
+  /// Validation message for invalid raw timing data.
+  ///
+  /// In en, this message translates to:
+  /// **'Raw data must be integers separated by spaces or new lines.'**
+  String get rawDataInvalid;
+
+  /// Explanation that invalid raw tokens are blocked.
+  ///
+  /// In en, this message translates to:
+  /// **'Safeguard: invalid tokens are blocked to prevent saving a non-sendable pattern.'**
+  String get rawDataSafeguard;
+
+  /// Label for protocol selector.
+  ///
+  /// In en, this message translates to:
+  /// **'Protocol'**
+  String get protocolLabel;
+
+  /// Helper text explaining protocol encoding support.
+  ///
+  /// In en, this message translates to:
+  /// **'Encoding is implemented only for protocols marked as implemented.'**
+  String get protocolEncodingHelper;
+
+  /// Helper text for optional protocol frequency.
+  ///
+  /// In en, this message translates to:
+  /// **'Optional. If empty, protocol default is used where available.'**
+  String get protocolFrequencyHelper;
+
+  /// Snackbar validation for raw data and frequency.
+  ///
+  /// In en, this message translates to:
+  /// **'Raw data must be integers separated by spaces or new lines, and frequency must be 15k-60k.'**
+  String get rawSignalInvalidWithFrequency;
+
+  /// Snackbar validation for NEC timing fields.
+  ///
+  /// In en, this message translates to:
+  /// **'All NEC timings must be numeric.'**
+  String get necTimingsNumeric;
+
+  /// Snackbar validation for IR frequency range.
+  ///
+  /// In en, this message translates to:
+  /// **'Frequency must be 15k-60k Hz.'**
+  String get frequencyRangeError;
+
+  /// Tooltip for paste action.
+  ///
+  /// In en, this message translates to:
+  /// **'Paste'**
+  String get pasteTooltip;
+
+  /// Tooltip for clear action.
+  ///
+  /// In en, this message translates to:
+  /// **'Clear'**
+  String get clearTooltip;
 }
 
 class _AppLocalizationsDelegate

@@ -99,7 +99,7 @@
 
         <receiver
             android:name=".IrButtonWidgetProvider"
-            android:exported="true">
+            android:exported="false">
             <intent-filter>
                 <action android:name="android.appwidget.action.APPWIDGET_UPDATE" />
                 <action android:name="org.nslabs.irblaster.widget.SEND_BUTTON" />

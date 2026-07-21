@@ -205,14 +205,14 @@ class AppLocalizationsHi extends AppLocalizations {
   String get settingsTitle => 'सेटिंग्स';
 
   @override
-  String get remoteNoIrEmitterTitle => 'कोई IR emitter नहीं';
+  String get remoteNoIrEmitterTitle => 'कोई IR प्रेषक नहीं';
 
   @override
-  String get remoteNoIrEmitterMessage => 'इस डिवाइस में IR emitter नहीं है';
+  String get remoteNoIrEmitterMessage => 'इस डिवाइस में IR प्रेषक नहीं है';
 
   @override
   String get remoteNoIrEmitterNeedsEmitter =>
-      'इस ऐप को काम करने के लिए IR emitter चाहिए';
+      'इस ऐप को काम करने के लिए IR प्रेषक चाहिए';
 
   @override
   String get remoteDismiss => 'हटाएं';
@@ -808,11 +808,11 @@ class AppLocalizationsHi extends AppLocalizations {
 
   @override
   String get forceInAppVibrationBlockedMasterWarning =>
-      'Android system vibration is disabled. Force in-app vibration cannot override it on this device.';
+      'Android सिस्टम वाइब्रेशन बंद है। इस डिवाइस पर ऐप के अंदर जबरन वाइब्रेशन इसे ओवरराइड नहीं कर सकता।';
 
   @override
   String get forceInAppVibrationNoVibratorWarning =>
-      'This device reports no vibrator hardware, so in-app vibration cannot work.';
+      'यह डिवाइस वाइब्रेशन हार्डवेयर रिपोर्ट नहीं करता, इसलिए ऐप के अंदर वाइब्रेशन काम नहीं कर सकता।';
 
   @override
   String get intensity => 'तीव्रता';
@@ -1168,11 +1168,11 @@ class AppLocalizationsHi extends AppLocalizations {
   String get delete => 'हटाएं';
 
   @override
-  String get addToDeviceControlsTitle => 'जोड़ें तक डिवाइस नियंत्रण?';
+  String get addToDeviceControlsTitle => 'डिवाइस नियंत्रण में जोड़ें?';
 
   @override
   String get addToDeviceControlsDescription =>
-      'त्वरित access में the सिस्टम डिवाइस नियंत्रण.';
+      'सिस्टम डिवाइस नियंत्रण में त्वरित पहुंच।';
 
   @override
   String get skip => 'छोड़ें';
@@ -1462,24 +1462,24 @@ class AppLocalizationsHi extends AppLocalizations {
   String get removeFromDeviceControls => 'से डिवाइस नियंत्रण हटाएं';
 
   @override
-  String get addToDeviceControls => 'जोड़ें तक डिवाइस नियंत्रण';
+  String get addToDeviceControls => 'डिवाइस नियंत्रण में जोड़ें';
 
   @override
   String get deviceControlsButtonSubtitle =>
-      'दिखाता है यह बटन में the सिस्टम डिवाइस नियंत्रण';
+      'इस बटन को सिस्टम डिवाइस नियंत्रण में दिखाता है';
 
   @override
-  String get removedFromDeviceControls => 'हटाया गया से डिवाइस नियंत्रण.';
+  String get removedFromDeviceControls => 'डिवाइस नियंत्रण से हटाया गया।';
 
   @override
-  String get pinQuickTile => 'Pin तक त्वरित Tile पसंदीदा';
+  String get pinQuickTile => 'त्वरित टाइल पसंदीदा में पिन करें';
 
   @override
-  String get unpinQuickTile => 'Unpin से त्वरित Tile पसंदीदा';
+  String get unpinQuickTile => 'त्वरित टाइल पसंदीदा से अनपिन करें';
 
   @override
   String get quickTileButtonSubtitle =>
-      'दिखाता है यह बटन at the शीर्ष का the त्वरित tile चयनकर्ता';
+      'इस बटन को त्वरित टाइल चयनकर्ता के ऊपर दिखाता है';
 
   @override
   String get removedFromQuickTileFavorites =>
@@ -4420,28 +4420,28 @@ class AppLocalizationsHi extends AppLocalizations {
   String get remoteRemovedFromPinned => 'Remote removed from pinned.';
 
   @override
-  String get homeDeviceControlsTitle => 'Quick controls';
+  String get homeDeviceControlsTitle => 'त्वरित नियंत्रण';
 
   @override
   String get homeDeviceControlsSubtitle =>
-      'Power, mute, and volume without opening a remote.';
+      'रिमोट खोले बिना पावर, म्यूट और वॉल्यूम।';
 
   @override
   String get homeDeviceControlsEmptySubtitle =>
-      'Set up power, mute, and volume buttons in Device Controls.';
+      'डिवाइस नियंत्रण में पावर, म्यूट और वॉल्यूम बटन सेट करें।';
 
   @override
-  String get showDeviceControlsOnHome => 'Show quick controls on home';
+  String get showDeviceControlsOnHome => 'होम पर त्वरित नियंत्रण दिखाएं';
 
   @override
   String get showDeviceControlsOnHomeSubtitle =>
-      'Show the compact Power, Mute, and Volume row on the main screen.';
+      'मुख्य स्क्रीन पर पावर, म्यूट और वॉल्यूम की कॉम्पैक्ट पंक्ति दिखाएं।';
 
   @override
-  String get homeDeviceControlsShown => 'Quick controls shown on home.';
+  String get homeDeviceControlsShown => 'होम पर त्वरित नियंत्रण दिखाए गए।';
 
   @override
-  String get homeDeviceControlsHidden => 'Quick controls hidden from home.';
+  String get homeDeviceControlsHidden => 'होम से त्वरित नियंत्रण छिपाए गए।';
 
   @override
   String get power => 'Power';
@@ -4674,4 +4674,152 @@ class AppLocalizationsHi extends AppLocalizations {
 
   @override
   String get irWaveformOffLabel => 'OFF';
+
+  @override
+  String get quickSettingsTilesTitle => 'त्वरित सेटिंग टाइलें';
+
+  @override
+  String get quickSettingsPowerTile => 'पावर टाइल';
+
+  @override
+  String get quickSettingsMuteTile => 'म्यूट टाइल';
+
+  @override
+  String get quickSettingsVolumeUpTile => 'वॉल्यूम बढ़ाएं टाइल';
+
+  @override
+  String get quickSettingsVolumeDownTile => 'वॉल्यूम घटाएं टाइल';
+
+  @override
+  String get quickSettingsNoTilesConfigured => 'कोई टाइल कॉन्फ़िगर नहीं है';
+
+  @override
+  String get quickSettingsEmptyHint =>
+      'अगला कदम: कम से कम एक टाइल के लिए कमांड चुनें, फिर Android त्वरित सेटिंग्स के संपादन मेनू से टाइल जोड़ें।';
+
+  @override
+  String get quickSettingsSetPowerTile => 'पावर टाइल सेट करें';
+
+  @override
+  String get quickSettingsConfiguredHint =>
+      'चुनें कि हर टाइल कौन सा बटन भेजेगी। Android त्वरित सेटिंग्स के संपादन मेनू से टाइल जोड़ें।';
+
+  @override
+  String get quickSettingsNotSet => 'सेट नहीं';
+
+  @override
+  String quickSettingsTileMappingSummary(String title, String subtitle) {
+    return '$title · $subtitle';
+  }
+
+  @override
+  String get quickSettingsPickButtonTooltip => 'बटन चुनें';
+
+  @override
+  String get quickSettingsClearTooltip => 'साफ़ करें';
+
+  @override
+  String get homeWidgetUnsupportedLauncher =>
+      'आपका लॉन्चर ऐप के अंदर से विजेट जोड़ने का समर्थन नहीं करता। होम स्क्रीन विजेट पिकर से IR Button विजेट जोड़ें।';
+
+  @override
+  String get homeWidgetButtonUnsupported =>
+      'इस बटन को होम स्क्रीन विजेट के रूप में इस्तेमाल नहीं किया जा सकता।';
+
+  @override
+  String get homeWidgetRequestSent =>
+      'विजेट अनुरोध भेजा गया। अपने लॉन्चर में पुष्टि करें।';
+
+  @override
+  String get homeWidgetRequestRejected =>
+      'लॉन्चर ने विजेट अनुरोध अस्वीकार कर दिया।';
+
+  @override
+  String homeWidgetSetupFailed(String error) {
+    return 'होम विजेट सेटअप विफल: $error';
+  }
+
+  @override
+  String get addHomeWidget => 'होम विजेट जोड़ें';
+
+  @override
+  String get addHomeWidgetSubtitle => 'इस बटन को अपनी होम स्क्रीन पर रखें।';
+
+  @override
+  String buttonInfoType(String type) {
+    return 'प्रकार: $type';
+  }
+
+  @override
+  String get buttonInfoCodeRaw => 'कोड: रॉ सिग्नल';
+
+  @override
+  String buttonInfoCode(String code) {
+    return 'कोड: $code';
+  }
+
+  @override
+  String get buttonInfoNoCode => 'कोई कोड नहीं';
+
+  @override
+  String buttonInfoFrequency(String frequency) {
+    return 'फ़्रीक्वेंसी: $frequency';
+  }
+
+  @override
+  String get frequencyHzLabel => 'फ़्रीक्वेंसी (Hz)';
+
+  @override
+  String get carrierFrequencyHelper => 'कैरियर फ़्रीक्वेंसी, जैसे 38000';
+
+  @override
+  String get requiredFrequencyHelper => 'आवश्यक। उदाहरण: 38000';
+
+  @override
+  String get validFrequencyError => 'मान्य फ़्रीक्वेंसी दर्ज करें (15k-60k)।';
+
+  @override
+  String get resetToDefaultFrequency => '38000 पर रीसेट करें';
+
+  @override
+  String get rawDataLabel => 'रॉ डेटा';
+
+  @override
+  String get rawDataHelper =>
+      'स्पेस से अलग पूर्णांक, जैसे 9000 4500 560 560 ...';
+
+  @override
+  String get rawDataInvalid =>
+      'रॉ डेटा स्पेस या नई पंक्तियों से अलग किए गए पूर्णांक होने चाहिए।';
+
+  @override
+  String get rawDataSafeguard =>
+      'सुरक्षा: न भेजे जा सकने वाले पैटर्न को सहेजने से रोकने के लिए अमान्य टोकन ब्लॉक किए जाते हैं।';
+
+  @override
+  String get protocolLabel => 'प्रोटोकॉल';
+
+  @override
+  String get protocolEncodingHelper =>
+      'एन्कोडिंग केवल implemented के रूप में चिह्नित प्रोटोकॉल के लिए उपलब्ध है।';
+
+  @override
+  String get protocolFrequencyHelper =>
+      'वैकल्पिक। खाली होने पर, उपलब्ध होने पर प्रोटोकॉल की डिफ़ॉल्ट फ़्रीक्वेंसी उपयोग होगी।';
+
+  @override
+  String get rawSignalInvalidWithFrequency =>
+      'रॉ डेटा स्पेस या नई पंक्तियों से अलग किए गए पूर्णांक होने चाहिए, और फ़्रीक्वेंसी 15k-60k होनी चाहिए।';
+
+  @override
+  String get necTimingsNumeric => 'सभी NEC टाइमिंग संख्यात्मक होनी चाहिए।';
+
+  @override
+  String get frequencyRangeError => 'फ़्रीक्वेंसी 15k-60k Hz होनी चाहिए।';
+
+  @override
+  String get pasteTooltip => 'पेस्ट करें';
+
+  @override
+  String get clearTooltip => 'साफ़ करें';
 }

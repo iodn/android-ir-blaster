@@ -810,23 +810,23 @@ class AppLocalizationsNl extends AppLocalizations {
   String get hapticFeedbackSubtitle => 'Trillen bij tikken en acties';
 
   @override
-  String get forceInAppVibrationTitle => 'Force in-app vibration';
+  String get forceInAppVibrationTitle => 'Trilling in de app forceren';
 
   @override
   String get forceInAppVibrationSubtitle =>
-      'Use the vibrator directly even if system touch feedback is off';
+      'Gebruik de vibrator rechtstreeks, zelfs als systeemaanraakfeedback uit staat';
 
   @override
   String get forceInAppVibrationWarning =>
-      'Advanced option. This can make the app vibrate even when Android touch feedback is disabled globally.';
+      'Geavanceerde optie. Hierdoor kan de app trillen, zelfs wanneer Android-aanraakfeedback globaal is uitgeschakeld.';
 
   @override
   String get forceInAppVibrationBlockedMasterWarning =>
-      'Android system vibration is disabled. Force in-app vibration cannot override it on this device.';
+      'Android-systeemtrilling is uitgeschakeld. Geforceerde trilling in de app kan dit op dit apparaat niet omzeilen.';
 
   @override
   String get forceInAppVibrationNoVibratorWarning =>
-      'This device reports no vibrator hardware, so in-app vibration cannot work.';
+      'Dit apparaat meldt geen trilhardware, dus trilling in de app kan niet werken.';
 
   @override
   String get intensity => 'Intensiteit';
@@ -1483,14 +1483,14 @@ class AppLocalizationsNl extends AppLocalizations {
   String get duplicateButtonSubtitle => 'Maak een kopie van deze knop';
 
   @override
-  String get removeFromDeviceControls => 'Verwijderen from Apparaatbediening';
+  String get removeFromDeviceControls => 'Verwijderen uit apparaatbediening';
 
   @override
-  String get addToDeviceControls => 'Toevoegen to Apparaatbediening';
+  String get addToDeviceControls => 'Toevoegen aan apparaatbediening';
 
   @override
   String get deviceControlsButtonSubtitle =>
-      'Shows this knop in the system apparaat controls';
+      'Toont deze knop in de systeem-apparaatbediening';
 
   @override
   String get removedFromDeviceControls => 'Verwijderd uit apparaatbediening.';
@@ -1499,11 +1499,11 @@ class AppLocalizationsNl extends AppLocalizations {
   String get pinQuickTile => 'Vastzetten aan favorieten van Snelle tegel';
 
   @override
-  String get unpinQuickTile => 'Unpin from Snelle tegel favorieten';
+  String get unpinQuickTile => 'Losmaken uit favorieten voor snelle tegels';
 
   @override
   String get quickTileButtonSubtitle =>
-      'Shows this knop at the top of the quick tile chooser';
+      'Toont deze knop bovenaan de snelle-tegelkiezer';
 
   @override
   String get removedFromQuickTileFavorites =>
@@ -1722,7 +1722,7 @@ class AppLocalizationsNl extends AppLocalizations {
 
   @override
   String get newRemoteCreatedFromLastHit =>
-      'New remote makend with one knop from last hit.';
+      'Nieuwe afstandsbediening gemaakt met één knop van de laatste treffer.';
 
   @override
   String get selectRemote => 'Selecteer remote';
@@ -1733,7 +1733,7 @@ class AppLocalizationsNl extends AppLocalizations {
   }
 
   @override
-  String get newRemoteCreated => 'New remote makend.';
+  String get newRemoteCreated => 'Nieuwe afstandsbediening gemaakt.';
 
   @override
   String get failedToCreateRemote => 'Afstandsbediening maken mislukt.';
@@ -4455,28 +4455,31 @@ class AppLocalizationsNl extends AppLocalizations {
   String get remoteRemovedFromPinned => 'Remote removed from pinned.';
 
   @override
-  String get homeDeviceControlsTitle => 'Quick controls';
+  String get homeDeviceControlsTitle => 'Snelle bediening';
 
   @override
   String get homeDeviceControlsSubtitle =>
-      'Power, mute, and volume without opening a remote.';
+      'Aan/uit, dempen en volume zonder een afstandsbediening te openen.';
 
   @override
   String get homeDeviceControlsEmptySubtitle =>
-      'Set up power, mute, and volume buttons in Device Controls.';
+      'Stel aan/uit-, demp- en volumeknoppen in bij Apparaatbediening.';
 
   @override
-  String get showDeviceControlsOnHome => 'Show quick controls on home';
+  String get showDeviceControlsOnHome =>
+      'Snelle bediening op startscherm tonen';
 
   @override
   String get showDeviceControlsOnHomeSubtitle =>
-      'Show the compact Power, Mute, and Volume row on the main screen.';
+      'Toon de compacte rij voor Aan/uit, Dempen en Volume op het hoofdscherm.';
 
   @override
-  String get homeDeviceControlsShown => 'Quick controls shown on home.';
+  String get homeDeviceControlsShown =>
+      'Snelle bediening wordt op het startscherm getoond.';
 
   @override
-  String get homeDeviceControlsHidden => 'Quick controls hidden from home.';
+  String get homeDeviceControlsHidden =>
+      'Snelle bediening is verborgen van het startscherm.';
 
   @override
   String get power => 'Power';
@@ -4710,4 +4713,152 @@ class AppLocalizationsNl extends AppLocalizations {
 
   @override
   String get irWaveformOffLabel => 'OFF';
+
+  @override
+  String get quickSettingsTilesTitle => 'Tegels voor snelle instellingen';
+
+  @override
+  String get quickSettingsPowerTile => 'Aan/uit-tegel';
+
+  @override
+  String get quickSettingsMuteTile => 'Dempen-tegel';
+
+  @override
+  String get quickSettingsVolumeUpTile => 'Volume omhoog-tegel';
+
+  @override
+  String get quickSettingsVolumeDownTile => 'Volume omlaag-tegel';
+
+  @override
+  String get quickSettingsNoTilesConfigured => 'Geen tegels ingesteld';
+
+  @override
+  String get quickSettingsEmptyHint =>
+      'Volgende stap: kies een opdracht voor minstens één tegel en voeg de tegel daarna toe via het bewerkingsmenu van Android Snelle instellingen.';
+
+  @override
+  String get quickSettingsSetPowerTile => 'Aan/uit-tegel instellen';
+
+  @override
+  String get quickSettingsConfiguredHint =>
+      'Kies welke knop elke tegel verstuurt. Voeg tegels toe via het bewerkingsmenu van Android Snelle instellingen.';
+
+  @override
+  String get quickSettingsNotSet => 'Niet ingesteld';
+
+  @override
+  String quickSettingsTileMappingSummary(String title, String subtitle) {
+    return '$title · $subtitle';
+  }
+
+  @override
+  String get quickSettingsPickButtonTooltip => 'Knop kiezen';
+
+  @override
+  String get quickSettingsClearTooltip => 'Wissen';
+
+  @override
+  String get homeWidgetUnsupportedLauncher =>
+      'Je launcher ondersteunt geen widgets toevoegen vanuit de app. Voeg de IR-knopwidget toe via de widgetkiezer op het startscherm.';
+
+  @override
+  String get homeWidgetButtonUnsupported =>
+      'Deze knop kan niet als startschermwidget worden gebruikt.';
+
+  @override
+  String get homeWidgetRequestSent =>
+      'Widgetverzoek verzonden. Bevestig het in je launcher.';
+
+  @override
+  String get homeWidgetRequestRejected =>
+      'De launcher heeft het widgetverzoek geweigerd.';
+
+  @override
+  String homeWidgetSetupFailed(String error) {
+    return 'Startschermwidget instellen mislukt: $error';
+  }
+
+  @override
+  String get addHomeWidget => 'Startschermwidget toevoegen';
+
+  @override
+  String get addHomeWidgetSubtitle => 'Plaats deze knop op je startscherm.';
+
+  @override
+  String buttonInfoType(String type) {
+    return 'Type: $type';
+  }
+
+  @override
+  String get buttonInfoCodeRaw => 'Code: ruw signaal';
+
+  @override
+  String buttonInfoCode(String code) {
+    return 'Code: $code';
+  }
+
+  @override
+  String get buttonInfoNoCode => 'GEEN CODE';
+
+  @override
+  String buttonInfoFrequency(String frequency) {
+    return 'Frequentie: $frequency';
+  }
+
+  @override
+  String get frequencyHzLabel => 'Frequentie (Hz)';
+
+  @override
+  String get carrierFrequencyHelper => 'Draaggolffrequentie, bijv. 38000';
+
+  @override
+  String get requiredFrequencyHelper => 'Vereist. Voorbeeld: 38000';
+
+  @override
+  String get validFrequencyError => 'Voer een geldige frequentie in (15k-60k).';
+
+  @override
+  String get resetToDefaultFrequency => 'Terugzetten naar 38000';
+
+  @override
+  String get rawDataLabel => 'Ruwe data';
+
+  @override
+  String get rawDataHelper =>
+      'Hele getallen gescheiden door spaties, bijv. 9000 4500 560 560 ...';
+
+  @override
+  String get rawDataInvalid =>
+      'Ruwe data moet bestaan uit hele getallen gescheiden door spaties of nieuwe regels.';
+
+  @override
+  String get rawDataSafeguard =>
+      'Beveiliging: ongeldige tokens worden geblokkeerd om te voorkomen dat een niet-verzendbaar patroon wordt opgeslagen.';
+
+  @override
+  String get protocolLabel => 'Protocol';
+
+  @override
+  String get protocolEncodingHelper =>
+      'Codering is alleen geïmplementeerd voor protocollen die als geïmplementeerd zijn gemarkeerd.';
+
+  @override
+  String get protocolFrequencyHelper =>
+      'Optioneel. Indien leeg wordt de standaardfrequentie van het protocol gebruikt wanneer beschikbaar.';
+
+  @override
+  String get rawSignalInvalidWithFrequency =>
+      'Ruwe data moet bestaan uit hele getallen gescheiden door spaties of nieuwe regels, en de frequentie moet 15k-60k zijn.';
+
+  @override
+  String get necTimingsNumeric => 'Alle NEC-timings moeten numeriek zijn.';
+
+  @override
+  String get frequencyRangeError => 'De frequentie moet 15k-60k Hz zijn.';
+
+  @override
+  String get pasteTooltip => 'Plakken';
+
+  @override
+  String get clearTooltip => 'Wissen';
 }

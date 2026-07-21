@@ -194,8 +194,8 @@
   "forceInAppVibrationTitle": "Forzar vibración en la app",
   "forceInAppVibrationSubtitle": "Usar el vibrador directamente aunque la respuesta táctil del sistema esté desactivada",
   "forceInAppVibrationWarning": "Opción avanzada. La app puede vibrar aunque la respuesta táctil de Android esté desactivada globalmente.",
-  "forceInAppVibrationBlockedMasterWarning": "Android system vibration is disabled. Force in-app vibration cannot override it on this device.",
-  "forceInAppVibrationNoVibratorWarning": "This device reports no vibrator hardware, so in-app vibration cannot work.",
+  "forceInAppVibrationBlockedMasterWarning": "La vibración del sistema Android está desactivada. La vibración forzada en la app no puede anularla en este dispositivo.",
+  "forceInAppVibrationNoVibratorWarning": "Este dispositivo no informa hardware de vibración, por lo que la vibración en la app no puede funcionar.",
   "intensity": "Intensidad",
   "intensityLight": "Claro",
   "intensityMedium": "Media",
@@ -1948,31 +1948,31 @@
   "@remoteRemovedFromPinned": {
     "description": "Snackbar shown after unpinning a remote."
   },
-  "homeDeviceControlsTitle": "Quick controls",
+  "homeDeviceControlsTitle": "Controles rápidos",
   "@homeDeviceControlsTitle": {
     "description": "Title for the compact device controls row on the home surface."
   },
-  "homeDeviceControlsSubtitle": "Power, mute, and volume without opening a remote.",
+  "homeDeviceControlsSubtitle": "Encendido, silencio y volumen sin abrir un mando.",
   "@homeDeviceControlsSubtitle": {
     "description": "Subtitle for the compact device controls row when controls are configured."
   },
-  "homeDeviceControlsEmptySubtitle": "Set up power, mute, and volume buttons in Device Controls.",
+  "homeDeviceControlsEmptySubtitle": "Configura botones de encendido, silencio y volumen en Controles del dispositivo.",
   "@homeDeviceControlsEmptySubtitle": {
     "description": "Subtitle for the compact device controls row when no matching controls are configured."
   },
-  "showDeviceControlsOnHome": "Show quick controls on home",
+  "showDeviceControlsOnHome": "Mostrar controles rápidos en inicio",
   "@showDeviceControlsOnHome": {
     "description": "Settings toggle title for showing the compact device controls row on the home surface."
   },
-  "showDeviceControlsOnHomeSubtitle": "Show the compact Power, Mute, and Volume row on the main screen.",
+  "showDeviceControlsOnHomeSubtitle": "Muestra la fila compacta de encendido, silencio y volumen en la pantalla principal.",
   "@showDeviceControlsOnHomeSubtitle": {
     "description": "Settings toggle subtitle for showing the compact device controls row on the home surface."
   },
-  "homeDeviceControlsShown": "Quick controls shown on home.",
+  "homeDeviceControlsShown": "Controles rápidos mostrados en inicio.",
   "@homeDeviceControlsShown": {
     "description": "Snackbar shown when the home quick controls row is enabled."
   },
-  "homeDeviceControlsHidden": "Quick controls hidden from home.",
+  "homeDeviceControlsHidden": "Controles rápidos ocultos de inicio.",
   "@homeDeviceControlsHidden": {
     "description": "Snackbar shown when the home quick controls row is disabled."
   },
@@ -2253,5 +2253,47 @@
   "irWaveformOffLabel": "OFF",
   "@irWaveformOffLabel": {
     "description": "Legend label for inactive/silent sections in an IR waveform."
-  }
+  },
+  "quickSettingsTilesTitle": "Tiles de ajustes rápidos",
+  "quickSettingsPowerTile": "Tile de encendido",
+  "quickSettingsMuteTile": "Tile de silencio",
+  "quickSettingsVolumeUpTile": "Tile de subir volumen",
+  "quickSettingsVolumeDownTile": "Tile de bajar volumen",
+  "quickSettingsNoTilesConfigured": "No hay tiles configurados",
+  "quickSettingsEmptyHint": "Siguiente paso: elige un comando para al menos un tile y luego añade el tile desde el menú de edición de Ajustes rápidos de Android.",
+  "quickSettingsSetPowerTile": "Configurar tile de encendido",
+  "quickSettingsConfiguredHint": "Elige qué botón envía cada tile. Añade los tiles desde el menú de edición de Ajustes rápidos de Android.",
+  "quickSettingsNotSet": "Sin configurar",
+  "quickSettingsTileMappingSummary": "{title} · {subtitle}",
+  "quickSettingsPickButtonTooltip": "Elegir botón",
+  "quickSettingsClearTooltip": "Borrar",
+  "homeWidgetUnsupportedLauncher": "Tu lanzador no permite añadir widgets desde la app. Añade el widget de botón IR desde el selector de widgets de la pantalla de inicio.",
+  "homeWidgetButtonUnsupported": "Este botón no se puede usar como widget de inicio.",
+  "homeWidgetRequestSent": "Solicitud de widget enviada. Confírmala en tu lanzador.",
+  "homeWidgetRequestRejected": "El lanzador rechazó la solicitud de widget.",
+  "homeWidgetSetupFailed": "No se pudo configurar el widget de inicio: {error}",
+  "addHomeWidget": "Añadir widget de inicio",
+  "addHomeWidgetSubtitle": "Coloca este botón en tu pantalla de inicio.",
+  "buttonInfoType": "Tipo: {type}",
+  "buttonInfoCodeRaw": "Código: señal sin procesar",
+  "buttonInfoCode": "Código: {code}",
+  "buttonInfoNoCode": "SIN CÓDIGO",
+  "buttonInfoFrequency": "Frecuencia: {frequency}",
+  "frequencyHzLabel": "Frecuencia (Hz)",
+  "carrierFrequencyHelper": "Frecuencia portadora, p. ej. 38000",
+  "requiredFrequencyHelper": "Obligatorio. Ejemplo: 38000",
+  "validFrequencyError": "Introduce una frecuencia válida (15k-60k).",
+  "resetToDefaultFrequency": "Restablecer a 38000",
+  "rawDataLabel": "Datos sin procesar",
+  "rawDataHelper": "Enteros separados por espacios, p. ej. 9000 4500 560 560 ...",
+  "rawDataInvalid": "Los datos sin procesar deben ser enteros separados por espacios o saltos de línea.",
+  "rawDataSafeguard": "Protección: los tokens no válidos se bloquean para evitar guardar un patrón que no se pueda enviar.",
+  "protocolLabel": "Protocolo",
+  "protocolEncodingHelper": "La codificación solo está implementada para protocolos marcados como implementados.",
+  "protocolFrequencyHelper": "Opcional. Si está vacío, se usa la frecuencia predeterminada del protocolo cuando exista.",
+  "rawSignalInvalidWithFrequency": "Los datos sin procesar deben ser enteros separados por espacios o saltos de línea, y la frecuencia debe estar entre 15k y 60k.",
+  "necTimingsNumeric": "Todos los tiempos NEC deben ser numéricos.",
+  "frequencyRangeError": "La frecuencia debe estar entre 15k y 60k Hz.",
+  "pasteTooltip": "Pegar",
+  "clearTooltip": "Borrar"
 }

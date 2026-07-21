@@ -211,12 +211,11 @@ class AppLocalizationsFil extends AppLocalizations {
   String get remoteNoIrEmitterTitle => 'Walang IR emitter';
 
   @override
-  String get remoteNoIrEmitterMessage =>
-      'Ang device does not have an IR emitter';
+  String get remoteNoIrEmitterMessage => 'Walang IR emitter ang device na ito';
 
   @override
   String get remoteNoIrEmitterNeedsEmitter =>
-      'Ang app needs an IR emitter to function';
+      'Kailangan ng app na ito ng IR emitter para gumana';
 
   @override
   String get remoteDismiss => 'Isara';
@@ -801,23 +800,23 @@ class AppLocalizationsFil extends AppLocalizations {
   String get hapticFeedbackSubtitle => 'Vibrate on taps at actions';
 
   @override
-  String get forceInAppVibrationTitle => 'Force in-app vibration';
+  String get forceInAppVibrationTitle => 'Pilitin ang vibration sa app';
 
   @override
   String get forceInAppVibrationSubtitle =>
-      'Use the vibrator directly even if system touch feedback is off';
+      'Direktang gamitin ang vibrator kahit naka-off ang system touch feedback';
 
   @override
   String get forceInAppVibrationWarning =>
-      'Advanced option. This can make the app vibrate even when Android touch feedback is disabled globally.';
+      'Advanced na opsyon. Maaari nitong paganahin ang vibration ng app kahit naka-disable ang Android touch feedback sa buong system.';
 
   @override
   String get forceInAppVibrationBlockedMasterWarning =>
-      'Android system vibration is disabled. Force in-app vibration cannot override it on this device.';
+      'Naka-disable ang vibration ng Android system. Hindi ito ma-o-override ng sapilitang in-app vibration sa device na ito.';
 
   @override
   String get forceInAppVibrationNoVibratorWarning =>
-      'This device reports no vibrator hardware, so in-app vibration cannot work.';
+      'Walang vibration hardware na iniulat ang device na ito, kaya hindi gagana ang in-app vibration.';
 
   @override
   String get intensity => 'Intensity';
@@ -953,28 +952,28 @@ class AppLocalizationsFil extends AppLocalizations {
   }
 
   @override
-  String get deviceControlsTitle => 'Device Controls';
+  String get deviceControlsTitle => 'Mga Control ng Device';
 
   @override
   String get deviceControlsSubtitle =>
-      'Show favorite mga button in the system controls page';
+      'Ipakita ang mga paboritong button sa page ng system controls';
 
   @override
-  String get manageFavorites => 'Manage favorites';
+  String get manageFavorites => 'Pamahalaan ang mga paborito';
 
   @override
   String get manageFavoritesSubtitle =>
-      'Piliin kung aling mga button ang lalabas sa device controls';
+      'Piliin kung aling mga button ang lalabas sa mga control ng device';
 
   @override
-  String get quickSettingsTitle => 'Quick Settings';
+  String get quickSettingsTitle => 'Mabilisang Setting';
 
   @override
   String get quickSettingsSubtitle =>
       'Add tiles para sa power at volume shortcuts';
 
   @override
-  String get configureTiles => 'Configure tiles';
+  String get configureTiles => 'I-configure ang mga tile';
 
   @override
   String get configureTilesSubtitle =>
@@ -996,7 +995,7 @@ class AppLocalizationsFil extends AppLocalizations {
 
   @override
   String get failedToLoadTransmitterSettings =>
-      'Nabigo to load transmitter settings.';
+      'Nabigong i-load ang mga setting ng transmitter.';
 
   @override
   String get usbStatusReady => 'USB dongle is connected at ready to send IR.';
@@ -1053,13 +1052,14 @@ class AppLocalizationsFil extends AppLocalizations {
 
   @override
   String get failedToUpdateAutoSwitch =>
-      'Nabigo to update auto-switch setting.';
+      'Nabigong i-update ang setting ng auto-switch.';
 
   @override
-  String get failedToSwitchTransmitter => 'Nabigo to switch transmitter.';
+  String get failedToSwitchTransmitter => 'Nabigong lumipat ng transmitter.';
 
   @override
-  String get deviceHasNoInternalIr => 'Ang device has no built-in IR emitter.';
+  String get deviceHasNoInternalIr =>
+      'Walang built-in IR emitter ang device na ito.';
 
   @override
   String get audioModeEnabledMessage =>
@@ -1077,7 +1077,8 @@ class AppLocalizationsFil extends AppLocalizations {
   String get usbAlreadyReady => 'USB dongle is already initialized at ready.';
 
   @override
-  String get failedToRequestUsbPermission => 'Nabigo to hiling USB pahintulot.';
+  String get failedToRequestUsbPermission =>
+      'Nabigong humiling ng pahintulot sa USB.';
 
   @override
   String get transmitterHelpInternal =>
@@ -1109,7 +1110,7 @@ class AppLocalizationsFil extends AppLocalizations {
 
   @override
   String get failedToLoadTransmitterCapabilities =>
-      'Nabigo to load transmitter capabilities.';
+      'Nabigong i-load ang kakayahan ng transmitter.';
 
   @override
   String get selectedTransmitter => 'Selected transmitter';
@@ -1152,7 +1153,7 @@ class AppLocalizationsFil extends AppLocalizations {
       'Won\'t suggest opening on USB attach.';
 
   @override
-  String get failedToUpdateSetting => 'Nabigo to update setting.';
+  String get failedToUpdateSetting => 'Nabigong i-update ang setting.';
 
   @override
   String get unnamedButton => 'Button na walang pangalan';
@@ -1176,11 +1177,11 @@ class AppLocalizationsFil extends AppLocalizations {
   String get delete => 'Burahin';
 
   @override
-  String get addToDeviceControlsTitle => 'Add to Device Controls?';
+  String get addToDeviceControlsTitle => 'Idagdag sa Mga Kontrol ng Device?';
 
   @override
   String get addToDeviceControlsDescription =>
-      'Quick access in the system device controls.';
+      'Mabilis na access sa mga kontrol ng device ng system.';
 
   @override
   String get skip => 'Skip';
@@ -1189,7 +1190,7 @@ class AppLocalizationsFil extends AppLocalizations {
   String get add => 'Add';
 
   @override
-  String get addedToDeviceControls => 'Added to Device Controls.';
+  String get addedToDeviceControls => 'Naidagdag sa Mga Control ng Device.';
 
   @override
   String deletedRemoteUndoUnavailable(Object name) {
@@ -1371,7 +1372,7 @@ class AppLocalizationsFil extends AppLocalizations {
   String get undo => 'Undo';
 
   @override
-  String get failedToRestoreMacro => 'Nabigo to restore macro.';
+  String get failedToRestoreMacro => 'Nabigong ibalik ang macro.';
 
   @override
   String get deleteMacroTitle => 'Delete macro?';
@@ -1470,40 +1471,41 @@ class AppLocalizationsFil extends AppLocalizations {
   String get duplicateButtonSubtitle => 'Gumawa ng kopya ng button na ito';
 
   @override
-  String get removeFromDeviceControls => 'Remove from Device Controls';
+  String get removeFromDeviceControls => 'Alisin sa Mga Kontrol ng Device';
 
   @override
-  String get addToDeviceControls => 'Add to Device Controls';
+  String get addToDeviceControls => 'Idagdag sa Mga Kontrol ng Device';
 
   @override
   String get deviceControlsButtonSubtitle =>
-      'Ipinapakita ang button na ito sa system device controls';
+      'Ipinapakita ang button na ito sa mga kontrol ng device ng system';
 
   @override
-  String get removedFromDeviceControls => 'Removed from Device Controls.';
+  String get removedFromDeviceControls => 'Inalis sa Mga Kontrol ng Device.';
 
   @override
-  String get pinQuickTile => 'Pin to Quick Tile favorites';
+  String get pinQuickTile => 'I-pin sa mga paboritong mabilisang tile';
 
   @override
-  String get unpinQuickTile => 'Unpin from Quick Tile favorites';
+  String get unpinQuickTile => 'Alisin sa mga paboritong mabilisang tile';
 
   @override
   String get quickTileButtonSubtitle =>
-      'Ipinapakita ang button na ito sa itaas ng quick tile chooser';
+      'Ipinapakita ang button na ito sa itaas ng tagapili ng mabilisang tile';
 
   @override
   String get removedFromQuickTileFavorites =>
-      'Removed from Quick Tile favorites.';
+      'Inalis sa mga paboritong Quick Tile.';
 
   @override
-  String get pinnedToQuickTileFavorites => 'Pinned to Quick Tile favorites.';
+  String get pinnedToQuickTileFavorites =>
+      'Na-pin sa mga paboritong mabilisang tile.';
 
   @override
   String get duplicateAndEdit => 'Duplicate at edit';
 
   @override
-  String get duplicateAndEditSubtitle => 'Create a copy at edit it immediately';
+  String get duplicateAndEditSubtitle => 'Gumawa ng kopya at i-edit agad ito';
 
   @override
   String get done => 'Tapos';
@@ -1553,7 +1555,7 @@ class AppLocalizationsFil extends AppLocalizations {
 
   @override
   String get duplicateAndEditButtonSubtitle =>
-      'Create a copy at edit it immediately';
+      'Gumawa ng kopya at i-edit agad ito';
 
   @override
   String get undoAvailableInNextSnackbar =>
@@ -1717,21 +1719,21 @@ class AppLocalizationsFil extends AppLocalizations {
   }
 
   @override
-  String get newRemoteCreated => 'New remote created.';
+  String get newRemoteCreated => 'Nagawa ang bagong remote.';
 
   @override
-  String get failedToCreateRemote => 'Nabigo to create remote.';
+  String get failedToCreateRemote => 'Nabigong gumawa ng remote.';
 
   @override
-  String get newRemoteEllipsis => 'New remote…';
+  String get newRemoteEllipsis => 'Bagong remote…';
 
   @override
   String addedToRemoteNamed(Object name) {
-    return 'Added to $name.';
+    return 'Naidagdag sa $name.';
   }
 
   @override
-  String get failedToAddToRemote => 'Nabigo to add to remote.';
+  String get failedToAddToRemote => 'Nabigong idagdag sa remote.';
 
   @override
   String get newRemoteDefaultName => 'New Remote';
@@ -1805,7 +1807,7 @@ class AppLocalizationsFil extends AppLocalizations {
 
   @override
   String get deviceControlsEmptyHint =>
-      'Pindutin nang matagal ang button ng remote at piliin ang “Add to Device Controls”.';
+      'Pindutin nang matagal ang button ng remote at piliin ang “Idagdag sa Mga Control ng Device”.';
 
   @override
   String get sendTest => 'Send test';
@@ -1874,7 +1876,7 @@ class AppLocalizationsFil extends AppLocalizations {
   String get invalidMacroFileFormat => 'Invalid macro file format.';
 
   @override
-  String get failedToParseMacroFile => 'Nabigo to parse macro file.';
+  String get failedToParseMacroFile => 'Nabigong i-parse ang macro file.';
 
   @override
   String get deviceCodeLabel => 'Device Code';
@@ -2010,10 +2012,10 @@ class AppLocalizationsFil extends AppLocalizations {
   String get macrosExportedToDownloads => 'Macros exported to Downloads.';
 
   @override
-  String get failedToExportMacros => 'Nabigo to export mga macro.';
+  String get failedToExportMacros => 'Nabigong i-export ang mga macro.';
 
   @override
-  String get failedToReadFile => 'Nabigo to read file.';
+  String get failedToReadFile => 'Nabigong basahin ang file.';
 
   @override
   String get importFromExistingRemotesTitle => 'Import from Existing Remotes';
@@ -4430,28 +4432,31 @@ class AppLocalizationsFil extends AppLocalizations {
   String get remoteRemovedFromPinned => 'Remote removed from pinned.';
 
   @override
-  String get homeDeviceControlsTitle => 'Quick controls';
+  String get homeDeviceControlsTitle => 'Mabilis na kontrol';
 
   @override
   String get homeDeviceControlsSubtitle =>
-      'Power, mute, and volume without opening a remote.';
+      'Power, mute, at volume nang hindi nagbubukas ng remote.';
 
   @override
   String get homeDeviceControlsEmptySubtitle =>
-      'Set up power, mute, and volume buttons in Device Controls.';
+      'I-set up ang power, mute, at volume buttons sa Mga Control ng Device.';
 
   @override
-  String get showDeviceControlsOnHome => 'Show quick controls on home';
+  String get showDeviceControlsOnHome =>
+      'Ipakita ang mabilis na kontrol sa home';
 
   @override
   String get showDeviceControlsOnHomeSubtitle =>
-      'Show the compact Power, Mute, and Volume row on the main screen.';
+      'Ipakita ang compact na hilera ng Power, Mute, at Volume sa pangunahing screen.';
 
   @override
-  String get homeDeviceControlsShown => 'Quick controls shown on home.';
+  String get homeDeviceControlsShown =>
+      'Ipinakita ang mabilis na kontrol sa home.';
 
   @override
-  String get homeDeviceControlsHidden => 'Quick controls hidden from home.';
+  String get homeDeviceControlsHidden =>
+      'Itinago ang mabilis na kontrol mula sa home.';
 
   @override
   String get power => 'Power';
@@ -4683,4 +4688,153 @@ class AppLocalizationsFil extends AppLocalizations {
 
   @override
   String get irWaveformOffLabel => 'OFF';
+
+  @override
+  String get quickSettingsTilesTitle => 'Mga tile ng Quick Settings';
+
+  @override
+  String get quickSettingsPowerTile => 'Power tile';
+
+  @override
+  String get quickSettingsMuteTile => 'Mute tile';
+
+  @override
+  String get quickSettingsVolumeUpTile => 'Volume Up tile';
+
+  @override
+  String get quickSettingsVolumeDownTile => 'Volume Down tile';
+
+  @override
+  String get quickSettingsNoTilesConfigured => 'Walang naka-configure na tile';
+
+  @override
+  String get quickSettingsEmptyHint =>
+      'Susunod: pumili ng command para sa kahit isang tile, pagkatapos idagdag ang tile mula sa edit menu ng Android Quick Settings.';
+
+  @override
+  String get quickSettingsSetPowerTile => 'I-set ang Power tile';
+
+  @override
+  String get quickSettingsConfiguredHint =>
+      'Piliin kung aling button ang ipapadala ng bawat tile. Idagdag ang mga tile mula sa edit menu ng Android Quick Settings.';
+
+  @override
+  String get quickSettingsNotSet => 'Hindi naka-set';
+
+  @override
+  String quickSettingsTileMappingSummary(String title, String subtitle) {
+    return '$title · $subtitle';
+  }
+
+  @override
+  String get quickSettingsPickButtonTooltip => 'Pumili ng button';
+
+  @override
+  String get quickSettingsClearTooltip => 'I-clear';
+
+  @override
+  String get homeWidgetUnsupportedLauncher =>
+      'Hindi sinusuportahan ng launcher mo ang pagdagdag ng widget mula sa app. Idagdag ang IR Button widget mula sa widget picker ng home screen.';
+
+  @override
+  String get homeWidgetButtonUnsupported =>
+      'Hindi magagamit ang button na ito bilang home screen widget.';
+
+  @override
+  String get homeWidgetRequestSent =>
+      'Naipadala ang kahilingan sa widget. Kumpirmahin ito sa iyong launcher.';
+
+  @override
+  String get homeWidgetRequestRejected =>
+      'Tinanggihan ng launcher ang kahilingan sa widget.';
+
+  @override
+  String homeWidgetSetupFailed(String error) {
+    return 'Nabigo ang pag-setup ng home widget: $error';
+  }
+
+  @override
+  String get addHomeWidget => 'Magdagdag ng home widget';
+
+  @override
+  String get addHomeWidgetSubtitle =>
+      'Ilagay ang button na ito sa iyong home screen.';
+
+  @override
+  String buttonInfoType(String type) {
+    return 'Uri: $type';
+  }
+
+  @override
+  String get buttonInfoCodeRaw => 'Code: raw signal';
+
+  @override
+  String buttonInfoCode(String code) {
+    return 'Code: $code';
+  }
+
+  @override
+  String get buttonInfoNoCode => 'WALANG CODE';
+
+  @override
+  String buttonInfoFrequency(String frequency) {
+    return 'Frequency: $frequency';
+  }
+
+  @override
+  String get frequencyHzLabel => 'Frequency (Hz)';
+
+  @override
+  String get carrierFrequencyHelper => 'Carrier frequency, hal. 38000';
+
+  @override
+  String get requiredFrequencyHelper => 'Kailangan. Halimbawa: 38000';
+
+  @override
+  String get validFrequencyError => 'Maglagay ng valid na frequency (15k-60k).';
+
+  @override
+  String get resetToDefaultFrequency => 'I-reset sa 38000';
+
+  @override
+  String get rawDataLabel => 'Raw data';
+
+  @override
+  String get rawDataHelper =>
+      'Mga integer na pinaghihiwalay ng space, hal. 9000 4500 560 560 ...';
+
+  @override
+  String get rawDataInvalid =>
+      'Ang raw data ay dapat mga integer na pinaghihiwalay ng space o bagong linya.';
+
+  @override
+  String get rawDataSafeguard =>
+      'Proteksyon: bina-block ang invalid tokens para hindi ma-save ang pattern na hindi maipapadala.';
+
+  @override
+  String get protocolLabel => 'Protocol';
+
+  @override
+  String get protocolEncodingHelper =>
+      'Ang encoding ay para lang sa mga protocol na markadong implemented.';
+
+  @override
+  String get protocolFrequencyHelper =>
+      'Opsyonal. Kapag blanko, gagamitin ang default frequency ng protocol kung available.';
+
+  @override
+  String get rawSignalInvalidWithFrequency =>
+      'Ang raw data ay dapat mga integer na pinaghihiwalay ng space o bagong linya, at ang frequency ay dapat 15k-60k.';
+
+  @override
+  String get necTimingsNumeric => 'Lahat ng NEC timings ay dapat numeric.';
+
+  @override
+  String get frequencyRangeError => 'Ang frequency ay dapat 15k-60k Hz.';
+
+  @override
+  String get pasteTooltip => 'I-paste';
+
+  @override
+  String get clearTooltip => 'I-clear';
 }

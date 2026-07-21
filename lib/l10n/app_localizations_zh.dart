@@ -758,11 +758,10 @@ class AppLocalizationsZh extends AppLocalizations {
 
   @override
   String get forceInAppVibrationBlockedMasterWarning =>
-      'Android system vibration is disabled. Force in-app vibration cannot override it on this device.';
+      'Android 系统振动已关闭。此设备上无法通过应用内强制振动覆盖该设置。';
 
   @override
-  String get forceInAppVibrationNoVibratorWarning =>
-      'This device reports no vibrator hardware, so in-app vibration cannot work.';
+  String get forceInAppVibrationNoVibratorWarning => '此设备未报告振动硬件，因此应用内振动无法工作。';
 
   @override
   String get intensity => '强度';
@@ -4262,28 +4261,25 @@ class AppLocalizationsZh extends AppLocalizations {
   String get remoteRemovedFromPinned => 'Remote removed from pinned.';
 
   @override
-  String get homeDeviceControlsTitle => 'Quick controls';
+  String get homeDeviceControlsTitle => '快捷控制';
 
   @override
-  String get homeDeviceControlsSubtitle =>
-      'Power, mute, and volume without opening a remote.';
+  String get homeDeviceControlsSubtitle => '无需打开遥控器即可控制电源、静音和音量。';
 
   @override
-  String get homeDeviceControlsEmptySubtitle =>
-      'Set up power, mute, and volume buttons in Device Controls.';
+  String get homeDeviceControlsEmptySubtitle => '请在设备控制中设置电源、静音和音量按钮。';
 
   @override
-  String get showDeviceControlsOnHome => 'Show quick controls on home';
+  String get showDeviceControlsOnHome => '在首页显示快捷控制';
 
   @override
-  String get showDeviceControlsOnHomeSubtitle =>
-      'Show the compact Power, Mute, and Volume row on the main screen.';
+  String get showDeviceControlsOnHomeSubtitle => '在主屏幕显示紧凑的电源、静音和音量控制行。';
 
   @override
-  String get homeDeviceControlsShown => 'Quick controls shown on home.';
+  String get homeDeviceControlsShown => '已在首页显示快捷控制。';
 
   @override
-  String get homeDeviceControlsHidden => 'Quick controls hidden from home.';
+  String get homeDeviceControlsHidden => '已从首页隐藏快捷控制。';
 
   @override
   String get power => 'Power';
@@ -4510,4 +4506,144 @@ class AppLocalizationsZh extends AppLocalizations {
 
   @override
   String get irWaveformOffLabel => 'OFF';
+
+  @override
+  String get quickSettingsTilesTitle => '快捷设置图块';
+
+  @override
+  String get quickSettingsPowerTile => '电源图块';
+
+  @override
+  String get quickSettingsMuteTile => '静音图块';
+
+  @override
+  String get quickSettingsVolumeUpTile => '音量加图块';
+
+  @override
+  String get quickSettingsVolumeDownTile => '音量减图块';
+
+  @override
+  String get quickSettingsNoTilesConfigured => '尚未配置图块';
+
+  @override
+  String get quickSettingsEmptyHint =>
+      '下一步：为至少一个图块选择命令，然后从 Android 快捷设置编辑菜单添加该图块。';
+
+  @override
+  String get quickSettingsSetPowerTile => '设置电源图块';
+
+  @override
+  String get quickSettingsConfiguredHint =>
+      '选择每个图块要发送的按钮。请从 Android 快捷设置编辑菜单添加图块。';
+
+  @override
+  String get quickSettingsNotSet => '未设置';
+
+  @override
+  String quickSettingsTileMappingSummary(String title, String subtitle) {
+    return '$title · $subtitle';
+  }
+
+  @override
+  String get quickSettingsPickButtonTooltip => '选择按钮';
+
+  @override
+  String get quickSettingsClearTooltip => '清除';
+
+  @override
+  String get homeWidgetUnsupportedLauncher =>
+      '你的启动器不支持从应用内添加小组件。请从主屏幕小组件选择器添加 IR 按钮小组件。';
+
+  @override
+  String get homeWidgetButtonUnsupported => '此按钮不能用作主屏幕小组件。';
+
+  @override
+  String get homeWidgetRequestSent => '小组件请求已发送。请在启动器中确认。';
+
+  @override
+  String get homeWidgetRequestRejected => '启动器拒绝了小组件请求。';
+
+  @override
+  String homeWidgetSetupFailed(String error) {
+    return '主屏幕小组件设置失败：$error';
+  }
+
+  @override
+  String get addHomeWidget => '添加主屏幕小组件';
+
+  @override
+  String get addHomeWidgetSubtitle => '将此按钮放到主屏幕上。';
+
+  @override
+  String buttonInfoType(String type) {
+    return '类型：$type';
+  }
+
+  @override
+  String get buttonInfoCodeRaw => '代码：原始信号';
+
+  @override
+  String buttonInfoCode(String code) {
+    return '代码：$code';
+  }
+
+  @override
+  String get buttonInfoNoCode => '无代码';
+
+  @override
+  String buttonInfoFrequency(String frequency) {
+    return '频率：$frequency';
+  }
+
+  @override
+  String get frequencyHzLabel => '频率 (Hz)';
+
+  @override
+  String get carrierFrequencyHelper => '载波频率，例如 38000';
+
+  @override
+  String get requiredFrequencyHelper => '必填。示例：38000';
+
+  @override
+  String get validFrequencyError => '请输入有效频率 (15k-60k)。';
+
+  @override
+  String get resetToDefaultFrequency => '重置为 38000';
+
+  @override
+  String get rawDataLabel => '原始数据';
+
+  @override
+  String get rawDataHelper => '用空格分隔的整数，例如 9000 4500 560 560 ...';
+
+  @override
+  String get rawDataInvalid => '原始数据必须是用空格或换行分隔的整数。';
+
+  @override
+  String get rawDataSafeguard => '保护：无效标记会被阻止，避免保存无法发送的模式。';
+
+  @override
+  String get protocolLabel => '协议';
+
+  @override
+  String get protocolEncodingHelper => '只有标记为已实现的协议支持编码。';
+
+  @override
+  String get protocolFrequencyHelper => '可选。留空时会尽可能使用协议默认频率。';
+
+  @override
+  String get rawSignalInvalidWithFrequency =>
+      '原始数据必须是用空格或换行分隔的整数，且频率必须为 15k-60k。';
+
+  @override
+  String get necTimingsNumeric => '所有 NEC 时序都必须是数字。';
+
+  @override
+  String get frequencyRangeError => '频率必须为 15k-60k Hz。';
+
+  @override
+  String get pasteTooltip => '粘贴';
+
+  @override
+  String get clearTooltip => '清除';
 }

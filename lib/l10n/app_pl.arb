@@ -1861,11 +1861,11 @@
   "demoRemoteName": "Demo pilot",
   "protocolFieldsInvalid": "Fill required protokół fields i ensure częstotliwość jest 15k–60k if set.",
   "unknownProtocolSelected": "Wybrano nieznany protokół.",
-  "forceInAppVibrationTitle": "Force in-app vibration",
-  "forceInAppVibrationSubtitle": "Use the vibrator directly even if system touch feedback is off",
-  "forceInAppVibrationWarning": "Advanced option. This can make the app vibrate even when Android touch feedback is disabled globally.",
-  "forceInAppVibrationBlockedMasterWarning": "Android system vibration is disabled. Force in-app vibration cannot override it on this device.",
-  "forceInAppVibrationNoVibratorWarning": "This device reports no vibrator hardware, so in-app vibration cannot work.",
+  "forceInAppVibrationTitle": "Wymuś wibracje w aplikacji",
+  "forceInAppVibrationSubtitle": "Używaj wibratora bezpośrednio, nawet jeśli systemowe reakcje dotykowe są wyłączone",
+  "forceInAppVibrationWarning": "Opcja zaawansowana. Może sprawić, że aplikacja będzie wibrować, nawet gdy reakcje dotykowe Androida są globalnie wyłączone.",
+  "forceInAppVibrationBlockedMasterWarning": "Wibracje systemu Android są wyłączone. Wymuszone wibracje w aplikacji nie mogą tego obejść na tym urządzeniu.",
+  "forceInAppVibrationNoVibratorWarning": "To urządzenie nie zgłasza sprzętu wibracyjnego, więc wibracje w aplikacji nie mogą działać.",
   "remoteButtonCountLabel": "{count, plural, one{{count} przycisk} few{{count} przyciski} many{{count} przycisków} other{{count} przycisków}}",
   "@remoteButtonCountLabel": {
     "placeholders": {
@@ -1950,31 +1950,31 @@
   "@remoteRemovedFromPinned": {
     "description": "Snackbar shown after unpinning a remote."
   },
-  "homeDeviceControlsTitle": "Quick controls",
+  "homeDeviceControlsTitle": "Szybkie sterowanie",
   "@homeDeviceControlsTitle": {
     "description": "Title for the compact device controls row on the home surface."
   },
-  "homeDeviceControlsSubtitle": "Power, mute, and volume without opening a remote.",
+  "homeDeviceControlsSubtitle": "Zasilanie, wyciszenie i głośność bez otwierania pilota.",
   "@homeDeviceControlsSubtitle": {
     "description": "Subtitle for the compact device controls row when controls are configured."
   },
-  "homeDeviceControlsEmptySubtitle": "Set up power, mute, and volume buttons in Device Controls.",
+  "homeDeviceControlsEmptySubtitle": "Skonfiguruj przyciski zasilania, wyciszenia i głośności w sterowaniu urządzeniem.",
   "@homeDeviceControlsEmptySubtitle": {
     "description": "Subtitle for the compact device controls row when no matching controls are configured."
   },
-  "showDeviceControlsOnHome": "Show quick controls on home",
+  "showDeviceControlsOnHome": "Pokaż szybkie sterowanie na ekranie głównym",
   "@showDeviceControlsOnHome": {
     "description": "Settings toggle title for showing the compact device controls row on the home surface."
   },
-  "showDeviceControlsOnHomeSubtitle": "Show the compact Power, Mute, and Volume row on the main screen.",
+  "showDeviceControlsOnHomeSubtitle": "Pokaż kompaktowy wiersz zasilania, wyciszenia i głośności na ekranie głównym.",
   "@showDeviceControlsOnHomeSubtitle": {
     "description": "Settings toggle subtitle for showing the compact device controls row on the home surface."
   },
-  "homeDeviceControlsShown": "Quick controls shown on home.",
+  "homeDeviceControlsShown": "Szybkie sterowanie pokazane na ekranie głównym.",
   "@homeDeviceControlsShown": {
     "description": "Snackbar shown when the home quick controls row is enabled."
   },
-  "homeDeviceControlsHidden": "Quick controls hidden from home.",
+  "homeDeviceControlsHidden": "Szybkie sterowanie ukryte na ekranie głównym.",
   "@homeDeviceControlsHidden": {
     "description": "Snackbar shown when the home quick controls row is disabled."
   },
@@ -2255,5 +2255,47 @@
   "irWaveformOffLabel": "OFF",
   "@irWaveformOffLabel": {
     "description": "Legend label for inactive/silent sections in an IR waveform."
-  }
+  },
+  "quickSettingsTilesTitle": "Kafelki szybkich ustawień",
+  "quickSettingsPowerTile": "Kafelek zasilania",
+  "quickSettingsMuteTile": "Kafelek wyciszenia",
+  "quickSettingsVolumeUpTile": "Kafelek głośniej",
+  "quickSettingsVolumeDownTile": "Kafelek ciszej",
+  "quickSettingsNoTilesConfigured": "Nie skonfigurowano kafelków",
+  "quickSettingsEmptyHint": "Następny krok: wybierz polecenie dla co najmniej jednego kafelka, a potem dodaj kafelek w menu edycji Szybkich ustawień Androida.",
+  "quickSettingsSetPowerTile": "Ustaw kafelek zasilania",
+  "quickSettingsConfiguredHint": "Wybierz, który przycisk wysyła każdy kafelek. Dodaj kafelki w menu edycji Szybkich ustawień Androida.",
+  "quickSettingsNotSet": "Nie ustawiono",
+  "quickSettingsTileMappingSummary": "{title} · {subtitle}",
+  "quickSettingsPickButtonTooltip": "Wybierz przycisk",
+  "quickSettingsClearTooltip": "Wyczyść",
+  "homeWidgetUnsupportedLauncher": "Twój launcher nie obsługuje dodawania widżetów z aplikacji. Dodaj widżet przycisku IR z wybieraka widżetów ekranu głównego.",
+  "homeWidgetButtonUnsupported": "Tego przycisku nie można użyć jako widżetu ekranu głównego.",
+  "homeWidgetRequestSent": "Żądanie widżetu wysłane. Potwierdź je w launcherze.",
+  "homeWidgetRequestRejected": "Launcher odrzucił żądanie widżetu.",
+  "homeWidgetSetupFailed": "Nie udało się skonfigurować widżetu ekranu głównego: {error}",
+  "addHomeWidget": "Dodaj widżet ekranu głównego",
+  "addHomeWidgetSubtitle": "Umieść ten przycisk na ekranie głównym.",
+  "buttonInfoType": "Typ: {type}",
+  "buttonInfoCodeRaw": "Kod: sygnał surowy",
+  "buttonInfoCode": "Kod: {code}",
+  "buttonInfoNoCode": "BRAK KODU",
+  "buttonInfoFrequency": "Częstotliwość: {frequency}",
+  "frequencyHzLabel": "Częstotliwość (Hz)",
+  "carrierFrequencyHelper": "Częstotliwość nośna, np. 38000",
+  "requiredFrequencyHelper": "Wymagane. Przykład: 38000",
+  "validFrequencyError": "Wpisz prawidłową częstotliwość (15k-60k).",
+  "resetToDefaultFrequency": "Przywróć 38000",
+  "rawDataLabel": "Dane surowe",
+  "rawDataHelper": "Liczby całkowite oddzielone spacjami, np. 9000 4500 560 560 ...",
+  "rawDataInvalid": "Dane surowe muszą być liczbami całkowitymi oddzielonymi spacjami lub nowymi liniami.",
+  "rawDataSafeguard": "Zabezpieczenie: nieprawidłowe tokeny są blokowane, aby nie zapisać wzorca, którego nie da się wysłać.",
+  "protocolLabel": "Protokół",
+  "protocolEncodingHelper": "Kodowanie jest zaimplementowane tylko dla protokołów oznaczonych jako zaimplementowane.",
+  "protocolFrequencyHelper": "Opcjonalne. Jeśli puste, używana jest domyślna częstotliwość protokołu, jeśli jest dostępna.",
+  "rawSignalInvalidWithFrequency": "Dane surowe muszą być liczbami całkowitymi oddzielonymi spacjami lub nowymi liniami, a częstotliwość musi wynosić 15k-60k.",
+  "necTimingsNumeric": "Wszystkie czasy NEC muszą być liczbami.",
+  "frequencyRangeError": "Częstotliwość musi wynosić 15k-60k Hz.",
+  "pasteTooltip": "Wklej",
+  "clearTooltip": "Wyczyść"
 }

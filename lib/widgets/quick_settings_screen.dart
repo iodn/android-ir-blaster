@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:irblaster_controller/l10n/l10n.dart';
 import 'package:irblaster_controller/state/quick_settings_prefs.dart';
 import 'package:irblaster_controller/utils/remote.dart';
 import 'package:irblaster_controller/widgets/quick_tile_chooser.dart';
@@ -34,13 +35,13 @@ class _QuickSettingsScreenState extends State<QuickSettingsScreen> {
   String _tileLabel(QuickTileType t) {
     switch (t) {
       case QuickTileType.power:
-        return 'Power tile';
+        return context.l10n.quickSettingsPowerTile;
       case QuickTileType.mute:
-        return 'Mute tile';
+        return context.l10n.quickSettingsMuteTile;
       case QuickTileType.volumeUp:
-        return 'Volume Up tile';
+        return context.l10n.quickSettingsVolumeUpTile;
       case QuickTileType.volumeDown:
-        return 'Volume Down tile';
+        return context.l10n.quickSettingsVolumeDownTile;
     }
   }
 
@@ -51,7 +52,7 @@ class _QuickSettingsScreenState extends State<QuickSettingsScreen> {
     if (mapping == null) {
       if (!mounted) return;
       ScaffoldMessenger.of(context).showSnackBar(
-        const SnackBar(content: Text('Button not found in remotes.')),
+        SnackBar(content: Text(context.l10n.buttonNotFoundInRemotes)),
       );
       return;
     }
@@ -71,6 +72,7 @@ class _QuickSettingsScreenState extends State<QuickSettingsScreen> {
     if (mapping == null) {
       final pick = await pickButtonForTile(context);
       if (pick == null) return;
+      if (!mounted) return;
       await sendButtonPick(context, pick);
       return;
     }
@@ -78,7 +80,8 @@ class _QuickSettingsScreenState extends State<QuickSettingsScreen> {
       context,
       QuickTilePick(
         remote: Remote(buttons: const [], name: mapping.subtitle),
-        button: IRButton(id: mapping.buttonId, image: mapping.title, isImage: false),
+        button: IRButton(
+            id: mapping.buttonId, image: mapping.title, isImage: false),
         title: mapping.title,
       ),
     );
@@ -90,7 +93,7 @@ class _QuickSettingsScreenState extends State<QuickSettingsScreen> {
     final cs = theme.colorScheme;
 
     return Scaffold(
-      appBar: AppBar(title: const Text('Quick Settings tiles')),
+      appBar: AppBar(title: Text(context.l10n.quickSettingsTilesTitle)),
       body: _loading
           ? const Center(child: CircularProgressIndicator())
           : ListView(
@@ -109,7 +112,7 @@ class _QuickSettingsScreenState extends State<QuickSettingsScreen> {
                               Icon(Icons.tune_rounded, color: cs.primary),
                               const SizedBox(width: 8),
                               Text(
-                                'No tiles configured',
+                                context.l10n.quickSettingsNoTilesConfigured,
                                 style: theme.textTheme.titleMedium?.copyWith(
                                   fontWeight: FontWeight.w900,
                                 ),
@@ -118,7 +121,7 @@ class _QuickSettingsScreenState extends State<QuickSettingsScreen> {
                           ),
                           const SizedBox(height: 8),
                           Text(
-                            'What next: pick a command for at least one tile, then add the tile from Android Quick Settings edit menu.',
+                            context.l10n.quickSettingsEmptyHint,
                             style: theme.textTheme.bodyMedium?.copyWith(
                               color: cs.onSurfaceVariant,
                             ),
@@ -127,7 +130,7 @@ class _QuickSettingsScreenState extends State<QuickSettingsScreen> {
                           FilledButton.icon(
                             onPressed: () => _pickMapping(QuickTileType.power),
                             icon: const Icon(Icons.add_rounded),
-                            label: const Text('Set Power tile'),
+                            label: Text(context.l10n.quickSettingsSetPowerTile),
                           ),
                         ],
                       ),
@@ -136,8 +139,9 @@ class _QuickSettingsScreenState extends State<QuickSettingsScreen> {
                   const SizedBox(height: 8),
                 ],
                 Text(
-                  'Choose which button each tile sends. Add tiles from Android Quick Settings edit menu.',
-                  style: theme.textTheme.bodyMedium?.copyWith(color: cs.onSurfaceVariant),
+                  context.l10n.quickSettingsConfiguredHint,
+                  style: theme.textTheme.bodyMedium
+                      ?.copyWith(color: cs.onSurfaceVariant),
                 ),
                 const SizedBox(height: 12),
                 ...QuickTileType.values.map((t) {
@@ -148,26 +152,31 @@ class _QuickSettingsScreenState extends State<QuickSettingsScreen> {
                       leading: Icon(_iconFor(t), color: cs.primary),
                       title: Text(_tileLabel(t)),
                       subtitle: Text(mapping == null
-                          ? 'Not set'
-                          : '${mapping.title} · ${mapping.subtitle}'),
+                          ? context.l10n.quickSettingsNotSet
+                          : context.l10n.quickSettingsTileMappingSummary(
+                              mapping.title,
+                              mapping.subtitle,
+                            )),
                       trailing: Wrap(
                         spacing: 4,
                         children: [
                           IconButton(
-                            tooltip: 'Send test',
+                            tooltip: context.l10n.sendTest,
                             onPressed: () async {
                               await _sendTest(t);
                             },
                             icon: const Icon(Icons.play_arrow_rounded),
                           ),
                           IconButton(
-                            tooltip: 'Pick button',
+                            tooltip:
+                                context.l10n.quickSettingsPickButtonTooltip,
                             onPressed: () => _pickMapping(t),
                             icon: const Icon(Icons.edit_rounded),
                           ),
                           IconButton(
-                            tooltip: 'Clear',
-                            onPressed: mapping == null ? null : () => _clearMapping(t),
+                            tooltip: context.l10n.quickSettingsClearTooltip,
+                            onPressed:
+                                mapping == null ? null : () => _clearMapping(t),
                             icon: Icon(Icons.delete_outline, color: cs.error),
                           ),
                         ],

@@ -1508,10 +1508,10 @@ class AppLocalizationsUk extends AppLocalizations {
       'Видалено з елементів керування пристроєм.';
 
   @override
-  String get pinQuickTile => 'Закріпити у вибраному Quick Tile';
+  String get pinQuickTile => 'Закріпити в обраному для швидких плиток';
 
   @override
-  String get unpinQuickTile => 'Відкріпити від вибраного Quick Tile';
+  String get unpinQuickTile => 'Відкріпити з обраного для швидких плиток';
 
   @override
   String get quickTileButtonSubtitle =>
@@ -4537,23 +4537,23 @@ class AppLocalizationsUk extends AppLocalizations {
 
   @override
   String get homeDeviceControlsEmptySubtitle =>
-      'Налаштуйте кнопки живлення, вимкнення звуку та гучності в елементах керування пристроєм.';
+      'Налаштуйте кнопки живлення, вимкнення звуку та гучності в керуванні пристроєм.';
 
   @override
   String get showDeviceControlsOnHome =>
-      'Показати елементи швидкого керування на дому';
+      'Показувати швидке керування на головному екрані';
 
   @override
   String get showDeviceControlsOnHomeSubtitle =>
-      'Показати компактний рядок живлення, вимкнення звуку та гучності на головному екрані.';
+      'Показувати компактний рядок живлення, вимкнення звуку та гучності на головному екрані.';
 
   @override
   String get homeDeviceControlsShown =>
-      'Елементи швидкого керування показані на головній сторінці.';
+      'Швидке керування показано на головному екрані.';
 
   @override
   String get homeDeviceControlsHidden =>
-      'Елементи швидкого керування приховані з дому.';
+      'Швидке керування приховано з головного екрана.';
 
   @override
   String get power => 'Живлення';
@@ -4789,4 +4789,152 @@ class AppLocalizationsUk extends AppLocalizations {
 
   @override
   String get irWaveformOffLabel => 'ВИМКНЕНО';
+
+  @override
+  String get quickSettingsTilesTitle => 'Плитки швидких налаштувань';
+
+  @override
+  String get quickSettingsPowerTile => 'Плитка живлення';
+
+  @override
+  String get quickSettingsMuteTile => 'Плитка вимкнення звуку';
+
+  @override
+  String get quickSettingsVolumeUpTile => 'Плитка гучність +';
+
+  @override
+  String get quickSettingsVolumeDownTile => 'Плитка гучність -';
+
+  @override
+  String get quickSettingsNoTilesConfigured => 'Плитки не налаштовано';
+
+  @override
+  String get quickSettingsEmptyHint =>
+      'Наступний крок: виберіть команду принаймні для однієї плитки, а потім додайте плитку в меню редагування швидких налаштувань Android.';
+
+  @override
+  String get quickSettingsSetPowerTile => 'Налаштувати плитку живлення';
+
+  @override
+  String get quickSettingsConfiguredHint =>
+      'Виберіть, яку кнопку надсилає кожна плитка. Додайте плитки в меню редагування швидких налаштувань Android.';
+
+  @override
+  String get quickSettingsNotSet => 'Не налаштовано';
+
+  @override
+  String quickSettingsTileMappingSummary(String title, String subtitle) {
+    return '$title · $subtitle';
+  }
+
+  @override
+  String get quickSettingsPickButtonTooltip => 'Вибрати кнопку';
+
+  @override
+  String get quickSettingsClearTooltip => 'Очистити';
+
+  @override
+  String get homeWidgetUnsupportedLauncher =>
+      'Ваш лаунчер не підтримує додавання віджетів із застосунку. Додайте віджет ІЧ-кнопки через вибір віджетів на головному екрані.';
+
+  @override
+  String get homeWidgetButtonUnsupported =>
+      'Цю кнопку не можна використовувати як віджет головного екрана.';
+
+  @override
+  String get homeWidgetRequestSent =>
+      'Запит на віджет надіслано. Підтвердьте його у лаунчері.';
+
+  @override
+  String get homeWidgetRequestRejected => 'Лаунчер відхилив запит на віджет.';
+
+  @override
+  String homeWidgetSetupFailed(String error) {
+    return 'Не вдалося налаштувати віджет головного екрана: $error';
+  }
+
+  @override
+  String get addHomeWidget => 'Додати віджет на головний екран';
+
+  @override
+  String get addHomeWidgetSubtitle =>
+      'Розмістіть цю кнопку на головному екрані.';
+
+  @override
+  String buttonInfoType(String type) {
+    return 'Тип: $type';
+  }
+
+  @override
+  String get buttonInfoCodeRaw => 'Код: сирий сигнал';
+
+  @override
+  String buttonInfoCode(String code) {
+    return 'Код: $code';
+  }
+
+  @override
+  String get buttonInfoNoCode => 'НЕМАЄ КОДУ';
+
+  @override
+  String buttonInfoFrequency(String frequency) {
+    return 'Частота: $frequency';
+  }
+
+  @override
+  String get frequencyHzLabel => 'Частота (Гц)';
+
+  @override
+  String get carrierFrequencyHelper => 'Несуча частота, наприклад 38000';
+
+  @override
+  String get requiredFrequencyHelper => 'Обов’язково. Приклад: 38000';
+
+  @override
+  String get validFrequencyError => 'Введіть допустиму частоту (15k-60k).';
+
+  @override
+  String get resetToDefaultFrequency => 'Скинути до 38000';
+
+  @override
+  String get rawDataLabel => 'Сирі дані';
+
+  @override
+  String get rawDataHelper =>
+      'Цілі числа, розділені пробілами, напр. 9000 4500 560 560 ...';
+
+  @override
+  String get rawDataInvalid =>
+      'Сирі дані мають бути цілими числами, розділеними пробілами або новими рядками.';
+
+  @override
+  String get rawDataSafeguard =>
+      'Захист: недійсні токени блокуються, щоб не зберегти шаблон, який неможливо надіслати.';
+
+  @override
+  String get protocolLabel => 'Протокол';
+
+  @override
+  String get protocolEncodingHelper =>
+      'Кодування реалізовано лише для протоколів, позначених як реалізовані.';
+
+  @override
+  String get protocolFrequencyHelper =>
+      'Необов’язково. Якщо порожньо, використовується стандартна частота протоколу, якщо доступна.';
+
+  @override
+  String get rawSignalInvalidWithFrequency =>
+      'Сирі дані мають бути цілими числами, розділеними пробілами або новими рядками, а частота має бути 15k-60k.';
+
+  @override
+  String get necTimingsNumeric => 'Усі таймінги NEC мають бути числовими.';
+
+  @override
+  String get frequencyRangeError => 'Частота має бути 15k-60k Гц.';
+
+  @override
+  String get pasteTooltip => 'Вставити';
+
+  @override
+  String get clearTooltip => 'Очистити';
 }

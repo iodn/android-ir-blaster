@@ -154,6 +154,7 @@ class _DbBulkImportSheetState extends State<DbBulkImportSheet> {
         brand: _dbBrand!,
         model: _dbModel!,
       );
+      if (!mounted) return;
       setState(() {
         _dbProtocols = prots;
         _dbProtocol = prots.isNotEmpty ? prots.first : null;
@@ -368,106 +369,112 @@ class _DbBulkImportSheetState extends State<DbBulkImportSheet> {
       });
     }
 
-    await showModalBottomSheet<void>(
-      context: context,
-      isScrollControlled: true,
-      showDragHandle: true,
-      builder: (ctx) {
-        void onScroll(StateSetter setModal) {
-          if (loading || exhausted) return;
-          if (scrollCtl.position.pixels >=
-              scrollCtl.position.maxScrollExtent - 240) {
-            load(setModal, reset: false);
-          }
-        }
-
-        return StatefulBuilder(
-          builder: (ctx2, setModal) {
-            if (!attachedScrollListener) {
-              attachedScrollListener = true;
-              scrollCtl.addListener(() => onScroll(setModal));
-              load(setModal, reset: true);
+    try {
+      await showModalBottomSheet<void>(
+        context: context,
+        isScrollControlled: true,
+        showDragHandle: true,
+        builder: (ctx) {
+          void onScroll(StateSetter setModal) {
+            if (loading || exhausted) return;
+            if (scrollCtl.position.pixels >=
+                scrollCtl.position.maxScrollExtent - 240) {
+              load(setModal, reset: false);
             }
+          }
 
-            return SafeArea(
-              child: Padding(
-                padding: const EdgeInsets.fromLTRB(16, 10, 16, 10),
-                child: Column(
-                  mainAxisSize: MainAxisSize.min,
-                  children: [
-                    Row(
-                      children: [
-                        Expanded(
-                          child: Text(context.l10n.selectBrand,
-                              style: Theme.of(ctx2).textTheme.titleLarge),
-                        ),
-                        IconButton(
-                          onPressed: () {
-                            alive = false;
-                            Navigator.of(ctx2).pop();
-                          },
-                          icon: const Icon(Icons.close_rounded),
-                        ),
-                      ],
-                    ),
-                    const SizedBox(height: 8),
-                    TextField(
-                      controller: ctl,
-                      decoration: InputDecoration(
-                        hintText: context.l10n.searchBrand,
-                        prefixIcon: Icon(Icons.search_rounded),
-                        border: OutlineInputBorder(),
-                      ),
-                      textInputAction: TextInputAction.search,
-                      onChanged: (_) => queueSearch(setModal),
-                      onSubmitted: (_) {
-                        searchDebounce?.cancel();
-                        FocusManager.instance.primaryFocus?.unfocus();
-                        load(setModal, reset: true);
-                      },
-                      onTapOutside: (_) =>
-                          FocusManager.instance.primaryFocus?.unfocus(),
-                    ),
-                    const SizedBox(height: 8),
-                    Expanded(
-                      child: ListView.separated(
-                        controller: scrollCtl,
-                        itemCount: items.length + (loading ? 1 : 0),
-                        separatorBuilder: (_, __) => const Divider(height: 0),
-                        itemBuilder: (ctx3, i) {
-                          if (i >= items.length) {
-                            return const Padding(
-                              padding: EdgeInsets.all(14),
-                              child: Center(
-                                  child: CircularProgressIndicator(
-                                      strokeWidth: 2)),
-                            );
-                          }
-                          final b = items[i];
-                          return ListTile(
-                            title: Text(b),
-                            onTap: () {
-                              selected = b;
+          return StatefulBuilder(
+            builder: (ctx2, setModal) {
+              if (!attachedScrollListener) {
+                attachedScrollListener = true;
+                scrollCtl.addListener(() => onScroll(setModal));
+                load(setModal, reset: true);
+              }
+
+              return SafeArea(
+                child: Padding(
+                  padding: const EdgeInsets.fromLTRB(16, 10, 16, 10),
+                  child: Column(
+                    mainAxisSize: MainAxisSize.min,
+                    children: [
+                      Row(
+                        children: [
+                          Expanded(
+                            child: Text(
+                              context.l10n.selectBrand,
+                              style: Theme.of(ctx2).textTheme.titleLarge,
+                            ),
+                          ),
+                          IconButton(
+                            onPressed: () {
                               alive = false;
                               Navigator.of(ctx2).pop();
                             },
-                          );
-                        },
+                            icon: const Icon(Icons.close_rounded),
+                          ),
+                        ],
                       ),
-                    ),
-                  ],
+                      const SizedBox(height: 8),
+                      TextField(
+                        controller: ctl,
+                        decoration: InputDecoration(
+                          hintText: context.l10n.searchBrand,
+                          prefixIcon: const Icon(Icons.search_rounded),
+                          border: const OutlineInputBorder(),
+                        ),
+                        textInputAction: TextInputAction.search,
+                        onChanged: (_) => queueSearch(setModal),
+                        onSubmitted: (_) {
+                          searchDebounce?.cancel();
+                          FocusManager.instance.primaryFocus?.unfocus();
+                          load(setModal, reset: true);
+                        },
+                        onTapOutside: (_) =>
+                            FocusManager.instance.primaryFocus?.unfocus(),
+                      ),
+                      const SizedBox(height: 8),
+                      Expanded(
+                        child: ListView.separated(
+                          controller: scrollCtl,
+                          itemCount: items.length + (loading ? 1 : 0),
+                          separatorBuilder: (_, __) => const Divider(height: 0),
+                          itemBuilder: (ctx3, i) {
+                            if (i >= items.length) {
+                              return const Padding(
+                                padding: EdgeInsets.all(14),
+                                child: Center(
+                                  child: CircularProgressIndicator(
+                                    strokeWidth: 2,
+                                  ),
+                                ),
+                              );
+                            }
+                            final b = items[i];
+                            return ListTile(
+                              title: Text(b),
+                              onTap: () {
+                                selected = b;
+                                alive = false;
+                                Navigator.of(ctx2).pop();
+                              },
+                            );
+                          },
+                        ),
+                      ),
+                    ],
+                  ),
                 ),
-              ),
-            );
-          },
-        );
-      },
-    );
-
-    alive = false;
-    searchDebounce?.cancel();
-    ctl.dispose();
-    scrollCtl.dispose();
+              );
+            },
+          );
+        },
+      );
+    } finally {
+      alive = false;
+      searchDebounce?.cancel();
+      ctl.dispose();
+      scrollCtl.dispose();
+    }
     return selected;
   }
 
@@ -532,106 +539,112 @@ class _DbBulkImportSheetState extends State<DbBulkImportSheet> {
       });
     }
 
-    await showModalBottomSheet<void>(
-      context: context,
-      isScrollControlled: true,
-      showDragHandle: true,
-      builder: (ctx) {
-        void onScroll(StateSetter setModal) {
-          if (loading || exhausted) return;
-          if (scrollCtl.position.pixels >=
-              scrollCtl.position.maxScrollExtent - 240) {
-            load(setModal, reset: false);
-          }
-        }
-
-        return StatefulBuilder(
-          builder: (ctx2, setModal) {
-            if (!attachedScrollListener) {
-              attachedScrollListener = true;
-              scrollCtl.addListener(() => onScroll(setModal));
-              load(setModal, reset: true);
+    try {
+      await showModalBottomSheet<void>(
+        context: context,
+        isScrollControlled: true,
+        showDragHandle: true,
+        builder: (ctx) {
+          void onScroll(StateSetter setModal) {
+            if (loading || exhausted) return;
+            if (scrollCtl.position.pixels >=
+                scrollCtl.position.maxScrollExtent - 240) {
+              load(setModal, reset: false);
             }
+          }
 
-            return SafeArea(
-              child: Padding(
-                padding: const EdgeInsets.fromLTRB(16, 10, 16, 10),
-                child: Column(
-                  mainAxisSize: MainAxisSize.min,
-                  children: [
-                    Row(
-                      children: [
-                        Expanded(
-                          child: Text(context.l10n.selectModel,
-                              style: Theme.of(ctx2).textTheme.titleLarge),
-                        ),
-                        IconButton(
-                          onPressed: () {
-                            alive = false;
-                            Navigator.of(ctx2).pop();
-                          },
-                          icon: const Icon(Icons.close_rounded),
-                        ),
-                      ],
-                    ),
-                    const SizedBox(height: 8),
-                    TextField(
-                      controller: ctl,
-                      decoration: InputDecoration(
-                        hintText: context.l10n.searchModel,
-                        prefixIcon: Icon(Icons.search_rounded),
-                        border: OutlineInputBorder(),
-                      ),
-                      textInputAction: TextInputAction.search,
-                      onChanged: (_) => queueSearch(setModal),
-                      onSubmitted: (_) {
-                        searchDebounce?.cancel();
-                        FocusManager.instance.primaryFocus?.unfocus();
-                        load(setModal, reset: true);
-                      },
-                      onTapOutside: (_) =>
-                          FocusManager.instance.primaryFocus?.unfocus(),
-                    ),
-                    const SizedBox(height: 8),
-                    Expanded(
-                      child: ListView.separated(
-                        controller: scrollCtl,
-                        itemCount: items.length + (loading ? 1 : 0),
-                        separatorBuilder: (_, __) => const Divider(height: 0),
-                        itemBuilder: (ctx3, i) {
-                          if (i >= items.length) {
-                            return const Padding(
-                              padding: EdgeInsets.all(14),
-                              child: Center(
-                                  child: CircularProgressIndicator(
-                                      strokeWidth: 2)),
-                            );
-                          }
-                          final m = items[i];
-                          return ListTile(
-                            title: Text(m),
-                            onTap: () {
-                              selected = m;
+          return StatefulBuilder(
+            builder: (ctx2, setModal) {
+              if (!attachedScrollListener) {
+                attachedScrollListener = true;
+                scrollCtl.addListener(() => onScroll(setModal));
+                load(setModal, reset: true);
+              }
+
+              return SafeArea(
+                child: Padding(
+                  padding: const EdgeInsets.fromLTRB(16, 10, 16, 10),
+                  child: Column(
+                    mainAxisSize: MainAxisSize.min,
+                    children: [
+                      Row(
+                        children: [
+                          Expanded(
+                            child: Text(
+                              context.l10n.selectModel,
+                              style: Theme.of(ctx2).textTheme.titleLarge,
+                            ),
+                          ),
+                          IconButton(
+                            onPressed: () {
                               alive = false;
                               Navigator.of(ctx2).pop();
                             },
-                          );
-                        },
+                            icon: const Icon(Icons.close_rounded),
+                          ),
+                        ],
                       ),
-                    ),
-                  ],
+                      const SizedBox(height: 8),
+                      TextField(
+                        controller: ctl,
+                        decoration: InputDecoration(
+                          hintText: context.l10n.searchModel,
+                          prefixIcon: const Icon(Icons.search_rounded),
+                          border: const OutlineInputBorder(),
+                        ),
+                        textInputAction: TextInputAction.search,
+                        onChanged: (_) => queueSearch(setModal),
+                        onSubmitted: (_) {
+                          searchDebounce?.cancel();
+                          FocusManager.instance.primaryFocus?.unfocus();
+                          load(setModal, reset: true);
+                        },
+                        onTapOutside: (_) =>
+                            FocusManager.instance.primaryFocus?.unfocus(),
+                      ),
+                      const SizedBox(height: 8),
+                      Expanded(
+                        child: ListView.separated(
+                          controller: scrollCtl,
+                          itemCount: items.length + (loading ? 1 : 0),
+                          separatorBuilder: (_, __) => const Divider(height: 0),
+                          itemBuilder: (ctx3, i) {
+                            if (i >= items.length) {
+                              return const Padding(
+                                padding: EdgeInsets.all(14),
+                                child: Center(
+                                  child: CircularProgressIndicator(
+                                    strokeWidth: 2,
+                                  ),
+                                ),
+                              );
+                            }
+                            final m = items[i];
+                            return ListTile(
+                              title: Text(m),
+                              onTap: () {
+                                selected = m;
+                                alive = false;
+                                Navigator.of(ctx2).pop();
+                              },
+                            );
+                          },
+                        ),
+                      ),
+                    ],
+                  ),
                 ),
-              ),
-            );
-          },
-        );
-      },
-    );
-
-    alive = false;
-    searchDebounce?.cancel();
-    ctl.dispose();
-    scrollCtl.dispose();
+              );
+            },
+          );
+        },
+      );
+    } finally {
+      alive = false;
+      searchDebounce?.cancel();
+      ctl.dispose();
+      scrollCtl.dispose();
+    }
     return selected;
   }
 

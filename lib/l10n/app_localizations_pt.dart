@@ -814,11 +814,11 @@ class AppLocalizationsPt extends AppLocalizations {
 
   @override
   String get forceInAppVibrationBlockedMasterWarning =>
-      'Android system vibration is disabled. Force in-app vibration cannot override it on this device.';
+      'A vibração do sistema Android está desativada. A vibração forçada na aplicação não a pode substituir neste dispositivo.';
 
   @override
   String get forceInAppVibrationNoVibratorWarning =>
-      'This device reports no vibrator hardware, so in-app vibration cannot work.';
+      'Este dispositivo não indica hardware de vibração, por isso a vibração na aplicação não pode funcionar.';
 
   @override
   String get intensity => 'Intensidad';
@@ -1183,7 +1183,7 @@ class AppLocalizationsPt extends AppLocalizations {
 
   @override
   String get addToDeviceControlsDescription =>
-      'Acceso rápido en os controlos do sistema.';
+      'Acesso rápido nos controlos do sistema.';
 
   @override
   String get skip => 'Omitir';
@@ -4452,28 +4452,29 @@ class AppLocalizationsPt extends AppLocalizations {
   String get remoteRemovedFromPinned => 'Remote removed from pinned.';
 
   @override
-  String get homeDeviceControlsTitle => 'Quick controls';
+  String get homeDeviceControlsTitle => 'Controlos rápidos';
 
   @override
   String get homeDeviceControlsSubtitle =>
-      'Power, mute, and volume without opening a remote.';
+      'Ligar, silenciar e volume sem abrir um comando.';
 
   @override
   String get homeDeviceControlsEmptySubtitle =>
-      'Set up power, mute, and volume buttons in Device Controls.';
+      'Configure botões de ligar, silenciar e volume nos Controlos do dispositivo.';
 
   @override
-  String get showDeviceControlsOnHome => 'Show quick controls on home';
+  String get showDeviceControlsOnHome => 'Mostrar controlos rápidos no início';
 
   @override
   String get showDeviceControlsOnHomeSubtitle =>
-      'Show the compact Power, Mute, and Volume row on the main screen.';
+      'Mostra a linha compacta de Ligar, Silenciar e Volume no ecrã principal.';
 
   @override
-  String get homeDeviceControlsShown => 'Quick controls shown on home.';
+  String get homeDeviceControlsShown =>
+      'Controlos rápidos mostrados no início.';
 
   @override
-  String get homeDeviceControlsHidden => 'Quick controls hidden from home.';
+  String get homeDeviceControlsHidden => 'Controlos rápidos ocultos do início.';
 
   @override
   String get power => 'Power';
@@ -4706,6 +4707,155 @@ class AppLocalizationsPt extends AppLocalizations {
 
   @override
   String get irWaveformOffLabel => 'OFF';
+
+  @override
+  String get quickSettingsTilesTitle => 'Blocos das Definições rápidas';
+
+  @override
+  String get quickSettingsPowerTile => 'Bloco de ligar';
+
+  @override
+  String get quickSettingsMuteTile => 'Bloco de silêncio';
+
+  @override
+  String get quickSettingsVolumeUpTile => 'Bloco de aumentar volume';
+
+  @override
+  String get quickSettingsVolumeDownTile => 'Bloco de baixar volume';
+
+  @override
+  String get quickSettingsNoTilesConfigured => 'Nenhum bloco configurado';
+
+  @override
+  String get quickSettingsEmptyHint =>
+      'Próximo passo: escolha um comando para pelo menos um bloco e depois adicione o bloco no menu de edição das Definições rápidas do Android.';
+
+  @override
+  String get quickSettingsSetPowerTile => 'Configurar bloco de ligar';
+
+  @override
+  String get quickSettingsConfiguredHint =>
+      'Escolha qual botão cada bloco envia. Adicione os blocos no menu de edição das Definições rápidas do Android.';
+
+  @override
+  String get quickSettingsNotSet => 'Não configurado';
+
+  @override
+  String quickSettingsTileMappingSummary(String title, String subtitle) {
+    return '$title · $subtitle';
+  }
+
+  @override
+  String get quickSettingsPickButtonTooltip => 'Escolher botão';
+
+  @override
+  String get quickSettingsClearTooltip => 'Limpar';
+
+  @override
+  String get homeWidgetUnsupportedLauncher =>
+      'O seu iniciador não suporta adicionar widgets a partir da aplicação. Adicione o widget Botão IR no seletor de widgets do ecrã inicial.';
+
+  @override
+  String get homeWidgetButtonUnsupported =>
+      'Este botão não pode ser usado como widget do ecrã inicial.';
+
+  @override
+  String get homeWidgetRequestSent =>
+      'Pedido de widget enviado. Confirme no seu iniciador.';
+
+  @override
+  String get homeWidgetRequestRejected =>
+      'O iniciador rejeitou o pedido de widget.';
+
+  @override
+  String homeWidgetSetupFailed(String error) {
+    return 'Falha ao configurar o widget do ecrã inicial: $error';
+  }
+
+  @override
+  String get addHomeWidget => 'Adicionar widget ao ecrã inicial';
+
+  @override
+  String get addHomeWidgetSubtitle => 'Coloque este botão no ecrã inicial.';
+
+  @override
+  String buttonInfoType(String type) {
+    return 'Tipo: $type';
+  }
+
+  @override
+  String get buttonInfoCodeRaw => 'Código: sinal bruto';
+
+  @override
+  String buttonInfoCode(String code) {
+    return 'Código: $code';
+  }
+
+  @override
+  String get buttonInfoNoCode => 'SEM CÓDIGO';
+
+  @override
+  String buttonInfoFrequency(String frequency) {
+    return 'Frequência: $frequency';
+  }
+
+  @override
+  String get frequencyHzLabel => 'Frequência (Hz)';
+
+  @override
+  String get carrierFrequencyHelper => 'Frequência portadora, ex. 38000';
+
+  @override
+  String get requiredFrequencyHelper => 'Obrigatório. Exemplo: 38000';
+
+  @override
+  String get validFrequencyError =>
+      'Introduza uma frequência válida (15k-60k).';
+
+  @override
+  String get resetToDefaultFrequency => 'Repor para 38000';
+
+  @override
+  String get rawDataLabel => 'Dados brutos';
+
+  @override
+  String get rawDataHelper =>
+      'Números inteiros separados por espaços, ex. 9000 4500 560 560 ...';
+
+  @override
+  String get rawDataInvalid =>
+      'Os dados brutos devem ser números inteiros separados por espaços ou novas linhas.';
+
+  @override
+  String get rawDataSafeguard =>
+      'Proteção: tokens inválidos são bloqueados para evitar guardar um padrão que não pode ser enviado.';
+
+  @override
+  String get protocolLabel => 'Protocolo';
+
+  @override
+  String get protocolEncodingHelper =>
+      'A codificação só está implementada para protocolos marcados como implementados.';
+
+  @override
+  String get protocolFrequencyHelper =>
+      'Opcional. Se estiver vazio, é usada a frequência predefinida do protocolo quando disponível.';
+
+  @override
+  String get rawSignalInvalidWithFrequency =>
+      'Os dados brutos devem ser números inteiros separados por espaços ou novas linhas, e a frequência deve ser 15k-60k.';
+
+  @override
+  String get necTimingsNumeric => 'Todos os tempos NEC devem ser numéricos.';
+
+  @override
+  String get frequencyRangeError => 'A frequência deve ser 15k-60k Hz.';
+
+  @override
+  String get pasteTooltip => 'Colar';
+
+  @override
+  String get clearTooltip => 'Limpar';
 }
 
 /// The translations for Portuguese, as used in Brazil (`pt_BR`).
@@ -5519,11 +5669,11 @@ class AppLocalizationsPtBr extends AppLocalizationsPt {
 
   @override
   String get forceInAppVibrationBlockedMasterWarning =>
-      'Android system vibration is disabled. Force in-app vibration cannot override it on this device.';
+      'A vibração do sistema Android está desativada. A vibração forçada no app não pode substituí-la neste dispositivo.';
 
   @override
   String get forceInAppVibrationNoVibratorWarning =>
-      'This device reports no vibrator hardware, so in-app vibration cannot work.';
+      'Este dispositivo não informa hardware de vibração, então a vibração no app não pode funcionar.';
 
   @override
   String get intensity => 'Intensidad';
@@ -5889,7 +6039,7 @@ class AppLocalizationsPtBr extends AppLocalizationsPt {
 
   @override
   String get addToDeviceControlsDescription =>
-      'Acceso rápido en os controles do sistema.';
+      'Acesso rápido nos controles do sistema.';
 
   @override
   String get skip => 'Omitir';
@@ -9160,28 +9310,31 @@ class AppLocalizationsPtBr extends AppLocalizationsPt {
   String get remoteRemovedFromPinned => 'Remote removed from pinned.';
 
   @override
-  String get homeDeviceControlsTitle => 'Quick controls';
+  String get homeDeviceControlsTitle => 'Controles rápidos';
 
   @override
   String get homeDeviceControlsSubtitle =>
-      'Power, mute, and volume without opening a remote.';
+      'Liga/desliga, mudo e volume sem abrir um controle remoto.';
 
   @override
   String get homeDeviceControlsEmptySubtitle =>
-      'Set up power, mute, and volume buttons in Device Controls.';
+      'Configure botões de liga/desliga, mudo e volume nos Controles do dispositivo.';
 
   @override
-  String get showDeviceControlsOnHome => 'Show quick controls on home';
+  String get showDeviceControlsOnHome =>
+      'Mostrar controles rápidos na tela inicial';
 
   @override
   String get showDeviceControlsOnHomeSubtitle =>
-      'Show the compact Power, Mute, and Volume row on the main screen.';
+      'Mostra a linha compacta de Liga/desliga, Mudo e Volume na tela principal.';
 
   @override
-  String get homeDeviceControlsShown => 'Quick controls shown on home.';
+  String get homeDeviceControlsShown =>
+      'Controles rápidos exibidos na tela inicial.';
 
   @override
-  String get homeDeviceControlsHidden => 'Quick controls hidden from home.';
+  String get homeDeviceControlsHidden =>
+      'Controles rápidos ocultados da tela inicial.';
 
   @override
   String get power => 'Power';
@@ -9414,4 +9567,152 @@ class AppLocalizationsPtBr extends AppLocalizationsPt {
 
   @override
   String get irWaveformOffLabel => 'OFF';
+
+  @override
+  String get quickSettingsTilesTitle => 'Blocos das Configurações rápidas';
+
+  @override
+  String get quickSettingsPowerTile => 'Bloco de ligar';
+
+  @override
+  String get quickSettingsMuteTile => 'Bloco de mudo';
+
+  @override
+  String get quickSettingsVolumeUpTile => 'Bloco de aumentar volume';
+
+  @override
+  String get quickSettingsVolumeDownTile => 'Bloco de diminuir volume';
+
+  @override
+  String get quickSettingsNoTilesConfigured => 'Nenhum bloco configurado';
+
+  @override
+  String get quickSettingsEmptyHint =>
+      'Próximo passo: escolha um comando para pelo menos um bloco e depois adicione o bloco no menu de edição das Configurações rápidas do Android.';
+
+  @override
+  String get quickSettingsSetPowerTile => 'Configurar bloco de ligar';
+
+  @override
+  String get quickSettingsConfiguredHint =>
+      'Escolha qual botão cada bloco envia. Adicione os blocos no menu de edição das Configurações rápidas do Android.';
+
+  @override
+  String get quickSettingsNotSet => 'Não configurado';
+
+  @override
+  String quickSettingsTileMappingSummary(String title, String subtitle) {
+    return '$title · $subtitle';
+  }
+
+  @override
+  String get quickSettingsPickButtonTooltip => 'Escolher botão';
+
+  @override
+  String get quickSettingsClearTooltip => 'Limpar';
+
+  @override
+  String get homeWidgetUnsupportedLauncher =>
+      'Seu launcher não permite adicionar widgets pelo app. Adicione o widget Botão IR pelo seletor de widgets da tela inicial.';
+
+  @override
+  String get homeWidgetButtonUnsupported =>
+      'Este botão não pode ser usado como widget da tela inicial.';
+
+  @override
+  String get homeWidgetRequestSent =>
+      'Solicitação de widget enviada. Confirme no seu launcher.';
+
+  @override
+  String get homeWidgetRequestRejected =>
+      'O launcher rejeitou a solicitação do widget.';
+
+  @override
+  String homeWidgetSetupFailed(String error) {
+    return 'Falha ao configurar o widget da tela inicial: $error';
+  }
+
+  @override
+  String get addHomeWidget => 'Adicionar widget à tela inicial';
+
+  @override
+  String get addHomeWidgetSubtitle => 'Coloque este botão na sua tela inicial.';
+
+  @override
+  String buttonInfoType(String type) {
+    return 'Tipo: $type';
+  }
+
+  @override
+  String get buttonInfoCodeRaw => 'Código: sinal bruto';
+
+  @override
+  String buttonInfoCode(String code) {
+    return 'Código: $code';
+  }
+
+  @override
+  String get buttonInfoNoCode => 'SEM CÓDIGO';
+
+  @override
+  String buttonInfoFrequency(String frequency) {
+    return 'Frequência: $frequency';
+  }
+
+  @override
+  String get frequencyHzLabel => 'Frequência (Hz)';
+
+  @override
+  String get carrierFrequencyHelper => 'Frequência portadora, ex. 38000';
+
+  @override
+  String get requiredFrequencyHelper => 'Obrigatório. Exemplo: 38000';
+
+  @override
+  String get validFrequencyError => 'Insira uma frequência válida (15k-60k).';
+
+  @override
+  String get resetToDefaultFrequency => 'Redefinir para 38000';
+
+  @override
+  String get rawDataLabel => 'Dados brutos';
+
+  @override
+  String get rawDataHelper =>
+      'Números inteiros separados por espaços, ex. 9000 4500 560 560 ...';
+
+  @override
+  String get rawDataInvalid =>
+      'Os dados brutos devem ser números inteiros separados por espaços ou novas linhas.';
+
+  @override
+  String get rawDataSafeguard =>
+      'Proteção: tokens inválidos são bloqueados para evitar salvar um padrão que não pode ser enviado.';
+
+  @override
+  String get protocolLabel => 'Protocolo';
+
+  @override
+  String get protocolEncodingHelper =>
+      'A codificação só está implementada para protocolos marcados como implementados.';
+
+  @override
+  String get protocolFrequencyHelper =>
+      'Opcional. Se vazio, a frequência padrão do protocolo é usada quando disponível.';
+
+  @override
+  String get rawSignalInvalidWithFrequency =>
+      'Os dados brutos devem ser números inteiros separados por espaços ou novas linhas, e a frequência deve ser 15k-60k.';
+
+  @override
+  String get necTimingsNumeric => 'Todos os tempos NEC devem ser numéricos.';
+
+  @override
+  String get frequencyRangeError => 'A frequência deve ser 15k-60k Hz.';
+
+  @override
+  String get pasteTooltip => 'Colar';
+
+  @override
+  String get clearTooltip => 'Limpar';
 }

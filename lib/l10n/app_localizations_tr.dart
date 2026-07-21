@@ -204,7 +204,7 @@ class AppLocalizationsTr extends AppLocalizations {
   String get settingsTitle => 'Ayarlar';
 
   @override
-  String get remoteNoIrEmitterTitle => 'No IR emitter';
+  String get remoteNoIrEmitterTitle => 'IR verici yok';
 
   @override
   String get remoteNoIrEmitterMessage => 'Bu cihazda IR verici yok';
@@ -807,11 +807,11 @@ class AppLocalizationsTr extends AppLocalizations {
 
   @override
   String get forceInAppVibrationBlockedMasterWarning =>
-      'Android system vibration is disabled. Force in-app vibration cannot override it on this device.';
+      'Android sistem titreşimi devre dışı. Uygulama içi zorunlu titreşim bu cihazda bunu geçersiz kılamaz.';
 
   @override
   String get forceInAppVibrationNoVibratorWarning =>
-      'This device reports no vibrator hardware, so in-app vibration cannot work.';
+      'Bu cihaz titreşim donanımı bildirmiyor, bu yüzden uygulama içi titreşim çalışamaz.';
 
   @override
   String get intensity => 'Intensity';
@@ -953,7 +953,7 @@ class AppLocalizationsTr extends AppLocalizations {
       'Favori düğmeleri sistem kontrolleri sayfasında göster';
 
   @override
-  String get manageFavorites => 'Manage favorites';
+  String get manageFavorites => 'Favorileri yönet';
 
   @override
   String get manageFavoritesSubtitle =>
@@ -967,7 +967,7 @@ class AppLocalizationsTr extends AppLocalizations {
       'Güç ve ses kısayolları için döşemeler ekleyin';
 
   @override
-  String get configureTiles => 'Configure tiles';
+  String get configureTiles => 'Kutucukları yapılandır';
 
   @override
   String get configureTilesSubtitle => 'Döşemeleri kumanda düğmelerine eşleyin';
@@ -1166,7 +1166,7 @@ class AppLocalizationsTr extends AppLocalizations {
   String get delete => 'Sil';
 
   @override
-  String get addToDeviceControlsTitle => 'Ekle to Cihaz Kontrolleri?';
+  String get addToDeviceControlsTitle => 'Cihaz Kontrollerine eklensin mi?';
 
   @override
   String get addToDeviceControlsDescription =>
@@ -1461,7 +1461,7 @@ class AppLocalizationsTr extends AppLocalizations {
   String get removeFromDeviceControls => 'Cihaz Kontrollerinden Kaldır';
 
   @override
-  String get addToDeviceControls => 'Ekle to Cihaz Kontrolleri';
+  String get addToDeviceControls => 'Cihaz Kontrollerine ekle';
 
   @override
   String get deviceControlsButtonSubtitle =>
@@ -1471,7 +1471,7 @@ class AppLocalizationsTr extends AppLocalizations {
   String get removedFromDeviceControls => 'Cihaz Kontrollerinden kaldırıldı.';
 
   @override
-  String get pinQuickTile => 'Pin to Hızlı Döşeme favorites';
+  String get pinQuickTile => 'Hızlı Döşeme favorilerine sabitle';
 
   @override
   String get unpinQuickTile => 'Hızlı Döşeme favorilerinden kaldır';
@@ -1485,7 +1485,8 @@ class AppLocalizationsTr extends AppLocalizations {
       'Hızlı Döşeme favorilerinden kaldırıldı.';
 
   @override
-  String get pinnedToQuickTileFavorites => 'Pinned to Hızlı Döşeme favorites.';
+  String get pinnedToQuickTileFavorites =>
+      'Hızlı kutucuk favorilerine sabitlendi.';
 
   @override
   String get duplicateAndEdit => 'Çoğalt ve düzenle';
@@ -4419,28 +4420,30 @@ class AppLocalizationsTr extends AppLocalizations {
   String get remoteRemovedFromPinned => 'Remote removed from pinned.';
 
   @override
-  String get homeDeviceControlsTitle => 'Quick controls';
+  String get homeDeviceControlsTitle => 'Hızlı kontroller';
 
   @override
   String get homeDeviceControlsSubtitle =>
-      'Power, mute, and volume without opening a remote.';
+      'Kumanda açmadan güç, sessiz ve ses düzeyi.';
 
   @override
   String get homeDeviceControlsEmptySubtitle =>
-      'Set up power, mute, and volume buttons in Device Controls.';
+      'Cihaz Kontrolleri içinde güç, sessiz ve ses düğmelerini ayarlayın.';
 
   @override
-  String get showDeviceControlsOnHome => 'Show quick controls on home';
+  String get showDeviceControlsOnHome => 'Hızlı kontrolleri ana ekranda göster';
 
   @override
   String get showDeviceControlsOnHomeSubtitle =>
-      'Show the compact Power, Mute, and Volume row on the main screen.';
+      'Ana ekranda kompakt Güç, Sessiz ve Ses satırını gösterir.';
 
   @override
-  String get homeDeviceControlsShown => 'Quick controls shown on home.';
+  String get homeDeviceControlsShown =>
+      'Hızlı kontroller ana ekranda gösteriliyor.';
 
   @override
-  String get homeDeviceControlsHidden => 'Quick controls hidden from home.';
+  String get homeDeviceControlsHidden =>
+      'Hızlı kontroller ana ekrandan gizlendi.';
 
   @override
   String get power => 'Power';
@@ -4673,4 +4676,151 @@ class AppLocalizationsTr extends AppLocalizations {
 
   @override
   String get irWaveformOffLabel => 'OFF';
+
+  @override
+  String get quickSettingsTilesTitle => 'Hızlı Ayarlar kutucukları';
+
+  @override
+  String get quickSettingsPowerTile => 'Güç kutucuğu';
+
+  @override
+  String get quickSettingsMuteTile => 'Sessiz kutucuğu';
+
+  @override
+  String get quickSettingsVolumeUpTile => 'Ses artırma kutucuğu';
+
+  @override
+  String get quickSettingsVolumeDownTile => 'Ses azaltma kutucuğu';
+
+  @override
+  String get quickSettingsNoTilesConfigured => 'Yapılandırılmış kutucuk yok';
+
+  @override
+  String get quickSettingsEmptyHint =>
+      'Sonraki adım: en az bir kutucuk için komut seçin, ardından kutucuğu Android Hızlı Ayarlar düzenleme menüsünden ekleyin.';
+
+  @override
+  String get quickSettingsSetPowerTile => 'Güç kutucuğunu ayarla';
+
+  @override
+  String get quickSettingsConfiguredHint =>
+      'Her kutucuğun hangi düğmeyi göndereceğini seçin. Kutucukları Android Hızlı Ayarlar düzenleme menüsünden ekleyin.';
+
+  @override
+  String get quickSettingsNotSet => 'Ayarlanmadı';
+
+  @override
+  String quickSettingsTileMappingSummary(String title, String subtitle) {
+    return '$title · $subtitle';
+  }
+
+  @override
+  String get quickSettingsPickButtonTooltip => 'Düğme seç';
+
+  @override
+  String get quickSettingsClearTooltip => 'Temizle';
+
+  @override
+  String get homeWidgetUnsupportedLauncher =>
+      'Başlatıcınız uygulama içinden widget eklemeyi desteklemiyor. IR Düğmesi widget’ını ana ekran widget seçicisinden ekleyin.';
+
+  @override
+  String get homeWidgetButtonUnsupported =>
+      'Bu düğme ana ekran widget’ı olarak kullanılamaz.';
+
+  @override
+  String get homeWidgetRequestSent =>
+      'Widget isteği gönderildi. Başlatıcınızda onaylayın.';
+
+  @override
+  String get homeWidgetRequestRejected => 'Başlatıcı widget isteğini reddetti.';
+
+  @override
+  String homeWidgetSetupFailed(String error) {
+    return 'Ana ekran widget kurulumu başarısız: $error';
+  }
+
+  @override
+  String get addHomeWidget => 'Ana ekran widget’ı ekle';
+
+  @override
+  String get addHomeWidgetSubtitle => 'Bu düğmeyi ana ekranınıza yerleştirin.';
+
+  @override
+  String buttonInfoType(String type) {
+    return 'Tür: $type';
+  }
+
+  @override
+  String get buttonInfoCodeRaw => 'Kod: ham sinyal';
+
+  @override
+  String buttonInfoCode(String code) {
+    return 'Kod: $code';
+  }
+
+  @override
+  String get buttonInfoNoCode => 'KOD YOK';
+
+  @override
+  String buttonInfoFrequency(String frequency) {
+    return 'Frekans: $frequency';
+  }
+
+  @override
+  String get frequencyHzLabel => 'Frekans (Hz)';
+
+  @override
+  String get carrierFrequencyHelper => 'Taşıyıcı frekans, örn. 38000';
+
+  @override
+  String get requiredFrequencyHelper => 'Gerekli. Örnek: 38000';
+
+  @override
+  String get validFrequencyError => 'Geçerli bir frekans girin (15k-60k).';
+
+  @override
+  String get resetToDefaultFrequency => '38000 olarak sıfırla';
+
+  @override
+  String get rawDataLabel => 'Ham veri';
+
+  @override
+  String get rawDataHelper =>
+      'Boşlukla ayrılmış tam sayılar, örn. 9000 4500 560 560 ...';
+
+  @override
+  String get rawDataInvalid =>
+      'Ham veri, boşluk veya yeni satırlarla ayrılmış tam sayılar olmalıdır.';
+
+  @override
+  String get rawDataSafeguard =>
+      'Koruma: gönderilemeyen bir desenin kaydedilmesini önlemek için geçersiz tokenlar engellenir.';
+
+  @override
+  String get protocolLabel => 'Protokol';
+
+  @override
+  String get protocolEncodingHelper =>
+      'Kodlama yalnızca uygulanmış olarak işaretlenen protokoller için vardır.';
+
+  @override
+  String get protocolFrequencyHelper =>
+      'İsteğe bağlı. Boşsa, varsa protokolün varsayılan frekansı kullanılır.';
+
+  @override
+  String get rawSignalInvalidWithFrequency =>
+      'Ham veri, boşluk veya yeni satırlarla ayrılmış tam sayılar olmalı ve frekans 15k-60k olmalıdır.';
+
+  @override
+  String get necTimingsNumeric => 'Tüm NEC zamanlamaları sayısal olmalıdır.';
+
+  @override
+  String get frequencyRangeError => 'Frekans 15k-60k Hz olmalıdır.';
+
+  @override
+  String get pasteTooltip => 'Yapıştır';
+
+  @override
+  String get clearTooltip => 'Temizle';
 }

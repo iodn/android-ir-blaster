@@ -201,14 +201,14 @@ class AppLocalizationsAr extends AppLocalizations {
   String get settingsTitle => 'الإعدادات';
 
   @override
-  String get remoteNoIrEmitterTitle => 'No IR emitter';
+  String get remoteNoIrEmitterTitle => 'لا يوجد مرسل IR';
 
   @override
-  String get remoteNoIrEmitterMessage => 'هذا الجهاز لا يحتوي على مرسل IR.';
+  String get remoteNoIrEmitterMessage => 'هذا الجهاز لا يحتوي على مرسل IR';
 
   @override
   String get remoteNoIrEmitterNeedsEmitter =>
-      'This app needs an IR emitter إلى function';
+      'يحتاج هذا التطبيق إلى مرسل IR ليعمل';
 
   @override
   String get remoteDismiss => 'تجاهل';
@@ -798,11 +798,11 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String get forceInAppVibrationBlockedMasterWarning =>
-      'Android system vibration is disabled. Force in-app vibration cannot override it on this device.';
+      'تم تعطيل اهتزاز النظام في أندرويد. لا يمكن للاهتزاز داخل التطبيق تجاوزه على هذا الجهاز.';
 
   @override
   String get forceInAppVibrationNoVibratorWarning =>
-      'This device reports no vibrator hardware, so in-app vibration cannot work.';
+      'لا يبلّغ هذا الجهاز عن وجود محرك اهتزاز، لذلك لا يمكن أن يعمل الاهتزاز داخل التطبيق.';
 
   @override
   String get intensity => 'Intensity';
@@ -943,7 +943,7 @@ class AppLocalizationsAr extends AppLocalizations {
       'اعرض الأزرار المفضلة في صفحة عناصر تحكم النظام';
 
   @override
-  String get manageFavorites => 'Manage favorites';
+  String get manageFavorites => 'إدارة المفضلات';
 
   @override
   String get manageFavoritesSubtitle =>
@@ -956,7 +956,7 @@ class AppLocalizationsAr extends AppLocalizations {
   String get quickSettingsSubtitle => 'أضف مربعات لاختصارات الطاقة والصوت';
 
   @override
-  String get configureTiles => 'Configure tiles';
+  String get configureTiles => 'تكوين المربعات';
 
   @override
   String get configureTilesSubtitle => 'اربط المربعات بأزرار جهاز التحكم';
@@ -1152,11 +1152,11 @@ class AppLocalizationsAr extends AppLocalizations {
   String get delete => 'حذف';
 
   @override
-  String get addToDeviceControlsTitle => 'إضافة إلى الجهاز Controls?';
+  String get addToDeviceControlsTitle => 'إضافة إلى عناصر تحكم الجهاز؟';
 
   @override
   String get addToDeviceControlsDescription =>
-      'وصول سريع في عناصر تحكم جهاز النظام.';
+      'وصول سريع من عناصر تحكم الجهاز في النظام.';
 
   @override
   String get skip => 'تخطي';
@@ -1441,23 +1441,23 @@ class AppLocalizationsAr extends AppLocalizations {
   String get duplicateButtonSubtitle => 'أنشئ نسخة من هذا الزر';
 
   @override
-  String get removeFromDeviceControls => 'Remove من الجهاز Controls';
+  String get removeFromDeviceControls => 'إزالة من عناصر تحكم الجهاز';
 
   @override
-  String get addToDeviceControls => 'إضافة إلى الجهاز Controls';
+  String get addToDeviceControls => 'إضافة إلى عناصر تحكم الجهاز';
 
   @override
   String get deviceControlsButtonSubtitle =>
       'يعرض هذا الزر في عناصر تحكم جهاز النظام';
 
   @override
-  String get removedFromDeviceControls => 'Removed من الجهاز Controls.';
+  String get removedFromDeviceControls => 'تمت الإزالة من عناصر تحكم الجهاز.';
 
   @override
-  String get pinQuickTile => 'Pin إلى Quick Tile favorites';
+  String get pinQuickTile => 'تثبيت في مفضلات المربعات السريعة';
 
   @override
-  String get unpinQuickTile => 'Unpin من Quick Tile favorites';
+  String get unpinQuickTile => 'إلغاء التثبيت من مفضلات المربعات السريعة';
 
   @override
   String get quickTileButtonSubtitle =>
@@ -4394,28 +4394,31 @@ class AppLocalizationsAr extends AppLocalizations {
   String get remoteRemovedFromPinned => 'Remote removed from pinned.';
 
   @override
-  String get homeDeviceControlsTitle => 'Quick controls';
+  String get homeDeviceControlsTitle => 'عناصر تحكم سريعة';
 
   @override
   String get homeDeviceControlsSubtitle =>
-      'Power, mute, and volume without opening a remote.';
+      'تشغيل وكتم صوت ومستوى صوت دون فتح جهاز تحكم.';
 
   @override
   String get homeDeviceControlsEmptySubtitle =>
-      'Set up power, mute, and volume buttons in Device Controls.';
+      'قم بإعداد أزرار التشغيل وكتم الصوت ومستوى الصوت في عناصر تحكم الجهاز.';
 
   @override
-  String get showDeviceControlsOnHome => 'Show quick controls on home';
+  String get showDeviceControlsOnHome =>
+      'إظهار عناصر التحكم السريعة في الشاشة الرئيسية';
 
   @override
   String get showDeviceControlsOnHomeSubtitle =>
-      'Show the compact Power, Mute, and Volume row on the main screen.';
+      'إظهار صف التشغيل وكتم الصوت ومستوى الصوت المختصر في الشاشة الرئيسية.';
 
   @override
-  String get homeDeviceControlsShown => 'Quick controls shown on home.';
+  String get homeDeviceControlsShown =>
+      'تم إظهار عناصر التحكم السريعة في الشاشة الرئيسية.';
 
   @override
-  String get homeDeviceControlsHidden => 'Quick controls hidden from home.';
+  String get homeDeviceControlsHidden =>
+      'تم إخفاء عناصر التحكم السريعة من الشاشة الرئيسية.';
 
   @override
   String get power => 'Power';
@@ -4647,6 +4650,152 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String get irWaveformOffLabel => 'OFF';
+
+  @override
+  String get quickSettingsTilesTitle => 'مربعات الإعدادات السريعة';
+
+  @override
+  String get quickSettingsPowerTile => 'مربع التشغيل';
+
+  @override
+  String get quickSettingsMuteTile => 'مربع كتم الصوت';
+
+  @override
+  String get quickSettingsVolumeUpTile => 'مربع رفع الصوت';
+
+  @override
+  String get quickSettingsVolumeDownTile => 'مربع خفض الصوت';
+
+  @override
+  String get quickSettingsNoTilesConfigured => 'لا توجد مربعات مهيأة';
+
+  @override
+  String get quickSettingsEmptyHint =>
+      'الخطوة التالية: اختر أمرا لمربع واحد على الأقل، ثم أضف المربع من قائمة تحرير الإعدادات السريعة في Android.';
+
+  @override
+  String get quickSettingsSetPowerTile => 'تعيين مربع التشغيل';
+
+  @override
+  String get quickSettingsConfiguredHint =>
+      'اختر الزر الذي يرسله كل مربع. أضف المربعات من قائمة تحرير الإعدادات السريعة في Android.';
+
+  @override
+  String get quickSettingsNotSet => 'غير معين';
+
+  @override
+  String quickSettingsTileMappingSummary(String title, String subtitle) {
+    return '$title · $subtitle';
+  }
+
+  @override
+  String get quickSettingsPickButtonTooltip => 'اختيار زر';
+
+  @override
+  String get quickSettingsClearTooltip => 'مسح';
+
+  @override
+  String get homeWidgetUnsupportedLauncher =>
+      'المشغل لديك لا يدعم إضافة الودجات من داخل التطبيق. أضف ودجة زر IR من منتقي ودجات الشاشة الرئيسية.';
+
+  @override
+  String get homeWidgetButtonUnsupported =>
+      'لا يمكن استخدام هذا الزر كودجة على الشاشة الرئيسية.';
+
+  @override
+  String get homeWidgetRequestSent => 'تم إرسال طلب الودجة. أكده في المشغل.';
+
+  @override
+  String get homeWidgetRequestRejected => 'رفض المشغل طلب الودجة.';
+
+  @override
+  String homeWidgetSetupFailed(String error) {
+    return 'فشل إعداد ودجة الشاشة الرئيسية: $error';
+  }
+
+  @override
+  String get addHomeWidget => 'إضافة ودجة للشاشة الرئيسية';
+
+  @override
+  String get addHomeWidgetSubtitle => 'ضع هذا الزر على شاشتك الرئيسية.';
+
+  @override
+  String buttonInfoType(String type) {
+    return 'النوع: $type';
+  }
+
+  @override
+  String get buttonInfoCodeRaw => 'الرمز: إشارة خام';
+
+  @override
+  String buttonInfoCode(String code) {
+    return 'الرمز: $code';
+  }
+
+  @override
+  String get buttonInfoNoCode => 'لا يوجد رمز';
+
+  @override
+  String buttonInfoFrequency(String frequency) {
+    return 'التردد: $frequency';
+  }
+
+  @override
+  String get frequencyHzLabel => 'التردد (Hz)';
+
+  @override
+  String get carrierFrequencyHelper => 'تردد الحامل، مثال 38000';
+
+  @override
+  String get requiredFrequencyHelper => 'مطلوب. مثال: 38000';
+
+  @override
+  String get validFrequencyError => 'أدخل ترددا صالحا (15k-60k).';
+
+  @override
+  String get resetToDefaultFrequency => 'إعادة الضبط إلى 38000';
+
+  @override
+  String get rawDataLabel => 'البيانات الخام';
+
+  @override
+  String get rawDataHelper =>
+      'أعداد صحيحة مفصولة بمسافات، مثال 9000 4500 560 560 ...';
+
+  @override
+  String get rawDataInvalid =>
+      'يجب أن تكون البيانات الخام أعدادا صحيحة مفصولة بمسافات أو أسطر جديدة.';
+
+  @override
+  String get rawDataSafeguard =>
+      'حماية: يتم حظر الرموز غير الصالحة لمنع حفظ نمط لا يمكن إرساله.';
+
+  @override
+  String get protocolLabel => 'البروتوكول';
+
+  @override
+  String get protocolEncodingHelper =>
+      'الترميز متاح فقط للبروتوكولات المحددة كمنفذة.';
+
+  @override
+  String get protocolFrequencyHelper =>
+      'اختياري. إذا كان فارغا، يتم استخدام التردد الافتراضي للبروتوكول عند توفره.';
+
+  @override
+  String get rawSignalInvalidWithFrequency =>
+      'يجب أن تكون البيانات الخام أعدادا صحيحة مفصولة بمسافات أو أسطر جديدة، ويجب أن يكون التردد 15k-60k.';
+
+  @override
+  String get necTimingsNumeric => 'يجب أن تكون كل توقيتات NEC رقمية.';
+
+  @override
+  String get frequencyRangeError => 'يجب أن يكون التردد 15k-60k Hz.';
+
+  @override
+  String get pasteTooltip => 'لصق';
+
+  @override
+  String get clearTooltip => 'مسح';
 }
 
 /// The translations for Arabic, as used in Egypt (`ar_EG`).
@@ -4846,14 +4995,14 @@ class AppLocalizationsArEg extends AppLocalizationsAr {
   String get settingsTitle => 'الإعدادات';
 
   @override
-  String get remoteNoIrEmitterTitle => 'No IR emitter';
+  String get remoteNoIrEmitterTitle => 'لا يوجد مرسل IR';
 
   @override
-  String get remoteNoIrEmitterMessage => 'هذا الجهاز لا يحتوي على مرسل IR.';
+  String get remoteNoIrEmitterMessage => 'هذا الجهاز لا يحتوي على مرسل IR';
 
   @override
   String get remoteNoIrEmitterNeedsEmitter =>
-      'This app needs an IR emitter إلى function';
+      'يحتاج هذا التطبيق إلى مرسل IR ليعمل';
 
   @override
   String get remoteDismiss => 'تجاهل';
@@ -5443,11 +5592,11 @@ class AppLocalizationsArEg extends AppLocalizationsAr {
 
   @override
   String get forceInAppVibrationBlockedMasterWarning =>
-      'Android system vibration is disabled. Force in-app vibration cannot override it on this device.';
+      'تم تعطيل اهتزاز النظام في أندرويد. لا يمكن للاهتزاز داخل التطبيق تجاوزه على هذا الجهاز.';
 
   @override
   String get forceInAppVibrationNoVibratorWarning =>
-      'This device reports no vibrator hardware, so in-app vibration cannot work.';
+      'الجهاز ده لا يبلّغ عن وجود محرك اهتزاز، لذلك لا يمكن أن يعمل الاهتزاز داخل التطبيق.';
 
   @override
   String get intensity => 'Intensity';
@@ -5588,7 +5737,7 @@ class AppLocalizationsArEg extends AppLocalizationsAr {
       'اعرض الأزرار المفضلة في صفحة عناصر تحكم النظام';
 
   @override
-  String get manageFavorites => 'Manage favorites';
+  String get manageFavorites => 'إدارة المفضلات';
 
   @override
   String get manageFavoritesSubtitle =>
@@ -5601,7 +5750,7 @@ class AppLocalizationsArEg extends AppLocalizationsAr {
   String get quickSettingsSubtitle => 'أضف مربعات لاختصارات الطاقة والصوت';
 
   @override
-  String get configureTiles => 'Configure tiles';
+  String get configureTiles => 'تكوين المربعات';
 
   @override
   String get configureTilesSubtitle => 'اربط المربعات بأزرار جهاز التحكم';
@@ -5797,11 +5946,11 @@ class AppLocalizationsArEg extends AppLocalizationsAr {
   String get delete => 'حذف';
 
   @override
-  String get addToDeviceControlsTitle => 'إضافة إلى الجهاز Controls?';
+  String get addToDeviceControlsTitle => 'إضافة إلى عناصر تحكم الجهاز؟';
 
   @override
   String get addToDeviceControlsDescription =>
-      'وصول سريع في عناصر تحكم جهاز النظام.';
+      'وصول سريع من عناصر تحكم الجهاز في النظام.';
 
   @override
   String get skip => 'تخطي';
@@ -6086,23 +6235,23 @@ class AppLocalizationsArEg extends AppLocalizationsAr {
   String get duplicateButtonSubtitle => 'أنشئ نسخة من هذا الزر';
 
   @override
-  String get removeFromDeviceControls => 'Remove من الجهاز Controls';
+  String get removeFromDeviceControls => 'إزالة من عناصر تحكم الجهاز';
 
   @override
-  String get addToDeviceControls => 'إضافة إلى الجهاز Controls';
+  String get addToDeviceControls => 'إضافة إلى عناصر تحكم الجهاز';
 
   @override
   String get deviceControlsButtonSubtitle =>
       'يعرض هذا الزر في عناصر تحكم جهاز النظام';
 
   @override
-  String get removedFromDeviceControls => 'Removed من الجهاز Controls.';
+  String get removedFromDeviceControls => 'تمت الإزالة من عناصر تحكم الجهاز.';
 
   @override
-  String get pinQuickTile => 'Pin إلى Quick Tile favorites';
+  String get pinQuickTile => 'تثبيت في مفضلات المربعات السريعة';
 
   @override
-  String get unpinQuickTile => 'Unpin من Quick Tile favorites';
+  String get unpinQuickTile => 'إلغاء التثبيت من مفضلات المربعات السريعة';
 
   @override
   String get quickTileButtonSubtitle =>
@@ -9039,28 +9188,31 @@ class AppLocalizationsArEg extends AppLocalizationsAr {
   String get remoteRemovedFromPinned => 'Remote removed from pinned.';
 
   @override
-  String get homeDeviceControlsTitle => 'Quick controls';
+  String get homeDeviceControlsTitle => 'عناصر تحكم سريعة';
 
   @override
   String get homeDeviceControlsSubtitle =>
-      'Power, mute, and volume without opening a remote.';
+      'تشغيل وكتم صوت ومستوى صوت دون فتح جهاز تحكم.';
 
   @override
   String get homeDeviceControlsEmptySubtitle =>
-      'Set up power, mute, and volume buttons in Device Controls.';
+      'قم بإعداد أزرار التشغيل وكتم الصوت ومستوى الصوت في عناصر تحكم الجهاز.';
 
   @override
-  String get showDeviceControlsOnHome => 'Show quick controls on home';
+  String get showDeviceControlsOnHome =>
+      'إظهار عناصر التحكم السريعة في الشاشة الرئيسية';
 
   @override
   String get showDeviceControlsOnHomeSubtitle =>
-      'Show the compact Power, Mute, and Volume row on the main screen.';
+      'إظهار صف التشغيل وكتم الصوت ومستوى الصوت المختصر في الشاشة الرئيسية.';
 
   @override
-  String get homeDeviceControlsShown => 'Quick controls shown on home.';
+  String get homeDeviceControlsShown =>
+      'تم إظهار عناصر التحكم السريعة في الشاشة الرئيسية.';
 
   @override
-  String get homeDeviceControlsHidden => 'Quick controls hidden from home.';
+  String get homeDeviceControlsHidden =>
+      'تم إخفاء عناصر التحكم السريعة من الشاشة الرئيسية.';
 
   @override
   String get power => 'Power';
@@ -9292,4 +9444,150 @@ class AppLocalizationsArEg extends AppLocalizationsAr {
 
   @override
   String get irWaveformOffLabel => 'OFF';
+
+  @override
+  String get quickSettingsTilesTitle => 'مربعات الإعدادات السريعة';
+
+  @override
+  String get quickSettingsPowerTile => 'مربع التشغيل';
+
+  @override
+  String get quickSettingsMuteTile => 'مربع كتم الصوت';
+
+  @override
+  String get quickSettingsVolumeUpTile => 'مربع رفع الصوت';
+
+  @override
+  String get quickSettingsVolumeDownTile => 'مربع خفض الصوت';
+
+  @override
+  String get quickSettingsNoTilesConfigured => 'لا توجد مربعات مهيأة';
+
+  @override
+  String get quickSettingsEmptyHint =>
+      'الخطوة التالية: اختار أمر لمربع واحد على الأقل، وبعدها ضيف المربع من قائمة تعديل الإعدادات السريعة في Android.';
+
+  @override
+  String get quickSettingsSetPowerTile => 'تعيين مربع التشغيل';
+
+  @override
+  String get quickSettingsConfiguredHint =>
+      'اختار الزر اللي كل مربع هيبعته. ضيف المربعات من قائمة تعديل الإعدادات السريعة في Android.';
+
+  @override
+  String get quickSettingsNotSet => 'غير معين';
+
+  @override
+  String quickSettingsTileMappingSummary(String title, String subtitle) {
+    return '$title · $subtitle';
+  }
+
+  @override
+  String get quickSettingsPickButtonTooltip => 'اختيار زر';
+
+  @override
+  String get quickSettingsClearTooltip => 'مسح';
+
+  @override
+  String get homeWidgetUnsupportedLauncher =>
+      'اللانشر عندك لا يدعم إضافة الودجات من داخل التطبيق. ضيف ودجة زر IR من منتقي ودجات الشاشة الرئيسية.';
+
+  @override
+  String get homeWidgetButtonUnsupported =>
+      'لا يمكن استخدام هذا الزر كودجة على الشاشة الرئيسية.';
+
+  @override
+  String get homeWidgetRequestSent => 'تم إرسال طلب الودجة. أكده في اللانشر.';
+
+  @override
+  String get homeWidgetRequestRejected => 'اللانشر رفض طلب الودجة.';
+
+  @override
+  String homeWidgetSetupFailed(String error) {
+    return 'فشل إعداد ودجة الشاشة الرئيسية: $error';
+  }
+
+  @override
+  String get addHomeWidget => 'إضافة ودجة للشاشة الرئيسية';
+
+  @override
+  String get addHomeWidgetSubtitle => 'ضع هذا الزر على شاشتك الرئيسية.';
+
+  @override
+  String buttonInfoType(String type) {
+    return 'النوع: $type';
+  }
+
+  @override
+  String get buttonInfoCodeRaw => 'الرمز: إشارة خام';
+
+  @override
+  String buttonInfoCode(String code) {
+    return 'الرمز: $code';
+  }
+
+  @override
+  String get buttonInfoNoCode => 'لا يوجد رمز';
+
+  @override
+  String buttonInfoFrequency(String frequency) {
+    return 'التردد: $frequency';
+  }
+
+  @override
+  String get frequencyHzLabel => 'التردد (Hz)';
+
+  @override
+  String get carrierFrequencyHelper => 'تردد الحامل، مثال 38000';
+
+  @override
+  String get requiredFrequencyHelper => 'مطلوب. مثال: 38000';
+
+  @override
+  String get validFrequencyError => 'أدخل تردد صالح (15k-60k).';
+
+  @override
+  String get resetToDefaultFrequency => 'إعادة الضبط إلى 38000';
+
+  @override
+  String get rawDataLabel => 'البيانات الخام';
+
+  @override
+  String get rawDataHelper =>
+      'أرقام صحيحة مفصولة بمسافات، مثال 9000 4500 560 560 ...';
+
+  @override
+  String get rawDataInvalid =>
+      'البيانات الخام لازم تكون أرقام صحيحة مفصولة بمسافات أو أسطر جديدة.';
+
+  @override
+  String get rawDataSafeguard =>
+      'حماية: يتم حظر القيم غير الصالحة لمنع حفظ نمط لا يمكن إرساله.';
+
+  @override
+  String get protocolLabel => 'البروتوكول';
+
+  @override
+  String get protocolEncodingHelper =>
+      'الترميز متاح فقط للبروتوكولات المحددة كمنفذة.';
+
+  @override
+  String get protocolFrequencyHelper =>
+      'اختياري. لو فاضي، سيتم استخدام التردد الافتراضي للبروتوكول عند توفره.';
+
+  @override
+  String get rawSignalInvalidWithFrequency =>
+      'البيانات الخام لازم تكون أرقام صحيحة مفصولة بمسافات أو أسطر جديدة، والتردد لازم يكون 15k-60k.';
+
+  @override
+  String get necTimingsNumeric => 'كل توقيتات NEC لازم تكون أرقام.';
+
+  @override
+  String get frequencyRangeError => 'التردد لازم يكون 15k-60k Hz.';
+
+  @override
+  String get pasteTooltip => 'لصق';
+
+  @override
+  String get clearTooltip => 'مسح';
 }

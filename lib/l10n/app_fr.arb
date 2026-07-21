@@ -194,8 +194,8 @@
   "forceInAppVibrationTitle": "Forcer la vibration dans l’appli",
   "forceInAppVibrationSubtitle": "Utiliser directement le vibreur même si le retour tactile système est désactivé",
   "forceInAppVibrationWarning": "Option avancée. L’application peut vibrer même si le retour tactile Android est désactivé globalement.",
-  "forceInAppVibrationBlockedMasterWarning": "Android system vibration is disabled. Force in-app vibration cannot override it on this device.",
-  "forceInAppVibrationNoVibratorWarning": "This device reports no vibrator hardware, so in-app vibration cannot work.",
+  "forceInAppVibrationBlockedMasterWarning": "La vibration système Android est désactivée. La vibration forcée dans l’application ne peut pas la contourner sur cet appareil.",
+  "forceInAppVibrationNoVibratorWarning": "Cet appareil ne signale aucun matériel de vibration, la vibration dans l’application ne peut donc pas fonctionner.",
   "intensity": "Intensité",
   "intensityLight": "Léger",
   "intensityMedium": "Moyen",
@@ -1948,31 +1948,31 @@
   "@remoteRemovedFromPinned": {
     "description": "Snackbar shown after unpinning a remote."
   },
-  "homeDeviceControlsTitle": "Quick controls",
+  "homeDeviceControlsTitle": "Contrôles rapides",
   "@homeDeviceControlsTitle": {
     "description": "Title for the compact device controls row on the home surface."
   },
-  "homeDeviceControlsSubtitle": "Power, mute, and volume without opening a remote.",
+  "homeDeviceControlsSubtitle": "Marche, silence et volume sans ouvrir de télécommande.",
   "@homeDeviceControlsSubtitle": {
     "description": "Subtitle for the compact device controls row when controls are configured."
   },
-  "homeDeviceControlsEmptySubtitle": "Set up power, mute, and volume buttons in Device Controls.",
+  "homeDeviceControlsEmptySubtitle": "Configurez les boutons marche, silence et volume dans les contrôles de l’appareil.",
   "@homeDeviceControlsEmptySubtitle": {
     "description": "Subtitle for the compact device controls row when no matching controls are configured."
   },
-  "showDeviceControlsOnHome": "Show quick controls on home",
+  "showDeviceControlsOnHome": "Afficher les contrôles rapides sur l’accueil",
   "@showDeviceControlsOnHome": {
     "description": "Settings toggle title for showing the compact device controls row on the home surface."
   },
-  "showDeviceControlsOnHomeSubtitle": "Show the compact Power, Mute, and Volume row on the main screen.",
+  "showDeviceControlsOnHomeSubtitle": "Affiche la ligne compacte Marche, Silence et Volume sur l’écran principal.",
   "@showDeviceControlsOnHomeSubtitle": {
     "description": "Settings toggle subtitle for showing the compact device controls row on the home surface."
   },
-  "homeDeviceControlsShown": "Quick controls shown on home.",
+  "homeDeviceControlsShown": "Contrôles rapides affichés sur l’accueil.",
   "@homeDeviceControlsShown": {
     "description": "Snackbar shown when the home quick controls row is enabled."
   },
-  "homeDeviceControlsHidden": "Quick controls hidden from home.",
+  "homeDeviceControlsHidden": "Contrôles rapides masqués de l’accueil.",
   "@homeDeviceControlsHidden": {
     "description": "Snackbar shown when the home quick controls row is disabled."
   },
@@ -2253,5 +2253,47 @@
   "irWaveformOffLabel": "OFF",
   "@irWaveformOffLabel": {
     "description": "Legend label for inactive/silent sections in an IR waveform."
-  }
+  },
+  "quickSettingsTilesTitle": "Tuiles des réglages rapides",
+  "quickSettingsPowerTile": "Tuile alimentation",
+  "quickSettingsMuteTile": "Tuile muet",
+  "quickSettingsVolumeUpTile": "Tuile volume +",
+  "quickSettingsVolumeDownTile": "Tuile volume -",
+  "quickSettingsNoTilesConfigured": "Aucune tuile configurée",
+  "quickSettingsEmptyHint": "Étape suivante : choisissez une commande pour au moins une tuile, puis ajoutez la tuile depuis le menu de modification des réglages rapides Android.",
+  "quickSettingsSetPowerTile": "Configurer la tuile alimentation",
+  "quickSettingsConfiguredHint": "Choisissez le bouton envoyé par chaque tuile. Ajoutez les tuiles depuis le menu de modification des réglages rapides Android.",
+  "quickSettingsNotSet": "Non configuré",
+  "quickSettingsTileMappingSummary": "{title} · {subtitle}",
+  "quickSettingsPickButtonTooltip": "Choisir un bouton",
+  "quickSettingsClearTooltip": "Effacer",
+  "homeWidgetUnsupportedLauncher": "Votre lanceur ne permet pas d’ajouter des widgets depuis l’application. Ajoutez le widget Bouton IR depuis le sélecteur de widgets de l’écran d’accueil.",
+  "homeWidgetButtonUnsupported": "Ce bouton ne peut pas être utilisé comme widget d’accueil.",
+  "homeWidgetRequestSent": "Demande de widget envoyée. Confirmez-la dans votre lanceur.",
+  "homeWidgetRequestRejected": "Le lanceur a refusé la demande de widget.",
+  "homeWidgetSetupFailed": "Échec de la configuration du widget d’accueil : {error}",
+  "addHomeWidget": "Ajouter un widget d’accueil",
+  "addHomeWidgetSubtitle": "Placez ce bouton sur votre écran d’accueil.",
+  "buttonInfoType": "Type : {type}",
+  "buttonInfoCodeRaw": "Code : signal brut",
+  "buttonInfoCode": "Code : {code}",
+  "buttonInfoNoCode": "AUCUN CODE",
+  "buttonInfoFrequency": "Fréquence : {frequency}",
+  "frequencyHzLabel": "Fréquence (Hz)",
+  "carrierFrequencyHelper": "Fréquence porteuse, p. ex. 38000",
+  "requiredFrequencyHelper": "Obligatoire. Exemple : 38000",
+  "validFrequencyError": "Saisissez une fréquence valide (15k-60k).",
+  "resetToDefaultFrequency": "Réinitialiser à 38000",
+  "rawDataLabel": "Données brutes",
+  "rawDataHelper": "Entiers séparés par des espaces, p. ex. 9000 4500 560 560 ...",
+  "rawDataInvalid": "Les données brutes doivent être des entiers séparés par des espaces ou des retours à la ligne.",
+  "rawDataSafeguard": "Protection : les jetons invalides sont bloqués pour éviter d’enregistrer un motif impossible à envoyer.",
+  "protocolLabel": "Protocole",
+  "protocolEncodingHelper": "L’encodage est disponible uniquement pour les protocoles marqués comme implémentés.",
+  "protocolFrequencyHelper": "Facultatif. Si vide, la fréquence par défaut du protocole est utilisée si disponible.",
+  "rawSignalInvalidWithFrequency": "Les données brutes doivent être des entiers séparés par des espaces ou des retours à la ligne, et la fréquence doit être comprise entre 15k et 60k.",
+  "necTimingsNumeric": "Tous les timings NEC doivent être numériques.",
+  "frequencyRangeError": "La fréquence doit être comprise entre 15k et 60k Hz.",
+  "pasteTooltip": "Coller",
+  "clearTooltip": "Effacer"
 }

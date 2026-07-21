@@ -196,7 +196,7 @@ class AppLocalizationsJa extends AppLocalizations {
   String get settingsTitle => '設定';
 
   @override
-  String get remoteNoIrEmitterTitle => 'No IR emitter';
+  String get remoteNoIrEmitterTitle => 'IR送信機がありません';
 
   @override
   String get remoteNoIrEmitterMessage => 'この端末にはIR送信機がありません';
@@ -778,11 +778,11 @@ class AppLocalizationsJa extends AppLocalizations {
 
   @override
   String get forceInAppVibrationBlockedMasterWarning =>
-      'Android system vibration is disabled. Force in-app vibration cannot override it on this device.';
+      'Androidのシステム振動が無効です。この端末ではアプリ内の強制振動で上書きできません。';
 
   @override
   String get forceInAppVibrationNoVibratorWarning =>
-      'This device reports no vibrator hardware, so in-app vibration cannot work.';
+      'この端末は振動ハードウェアを報告していないため、アプリ内の振動は動作しません。';
 
   @override
   String get intensity => '強さ';
@@ -1640,7 +1640,7 @@ class AppLocalizationsJa extends AppLocalizations {
 
   @override
   String addedToRemoteNamed(Object name) {
-    return 'Added to $name.';
+    return '$nameに追加しました。';
   }
 
   @override
@@ -4315,28 +4315,27 @@ class AppLocalizationsJa extends AppLocalizations {
   String get remoteRemovedFromPinned => 'Remote removed from pinned.';
 
   @override
-  String get homeDeviceControlsTitle => 'Quick controls';
+  String get homeDeviceControlsTitle => 'クイック操作';
 
   @override
-  String get homeDeviceControlsSubtitle =>
-      'Power, mute, and volume without opening a remote.';
+  String get homeDeviceControlsSubtitle => 'リモコンを開かずに電源、ミュート、音量を操作します。';
 
   @override
   String get homeDeviceControlsEmptySubtitle =>
-      'Set up power, mute, and volume buttons in Device Controls.';
+      'デバイスコントロールで電源、ミュート、音量ボタンを設定してください。';
 
   @override
-  String get showDeviceControlsOnHome => 'Show quick controls on home';
+  String get showDeviceControlsOnHome => 'ホームにクイック操作を表示';
 
   @override
   String get showDeviceControlsOnHomeSubtitle =>
-      'Show the compact Power, Mute, and Volume row on the main screen.';
+      'メイン画面に電源、ミュート、音量のコンパクトな行を表示します。';
 
   @override
-  String get homeDeviceControlsShown => 'Quick controls shown on home.';
+  String get homeDeviceControlsShown => 'ホームにクイック操作を表示しました。';
 
   @override
-  String get homeDeviceControlsHidden => 'Quick controls hidden from home.';
+  String get homeDeviceControlsHidden => 'ホームからクイック操作を非表示にしました。';
 
   @override
   String get power => 'Power';
@@ -4563,4 +4562,144 @@ class AppLocalizationsJa extends AppLocalizations {
 
   @override
   String get irWaveformOffLabel => 'OFF';
+
+  @override
+  String get quickSettingsTilesTitle => 'クイック設定タイル';
+
+  @override
+  String get quickSettingsPowerTile => '電源タイル';
+
+  @override
+  String get quickSettingsMuteTile => 'ミュートタイル';
+
+  @override
+  String get quickSettingsVolumeUpTile => '音量アップタイル';
+
+  @override
+  String get quickSettingsVolumeDownTile => '音量ダウンタイル';
+
+  @override
+  String get quickSettingsNoTilesConfigured => 'タイルが設定されていません';
+
+  @override
+  String get quickSettingsEmptyHint =>
+      '次の手順: 少なくとも1つのタイルにコマンドを選び、Androidのクイック設定編集メニューからタイルを追加してください。';
+
+  @override
+  String get quickSettingsSetPowerTile => '電源タイルを設定';
+
+  @override
+  String get quickSettingsConfiguredHint =>
+      '各タイルが送信するボタンを選びます。Androidのクイック設定編集メニューからタイルを追加してください。';
+
+  @override
+  String get quickSettingsNotSet => '未設定';
+
+  @override
+  String quickSettingsTileMappingSummary(String title, String subtitle) {
+    return '$title · $subtitle';
+  }
+
+  @override
+  String get quickSettingsPickButtonTooltip => 'ボタンを選択';
+
+  @override
+  String get quickSettingsClearTooltip => 'クリア';
+
+  @override
+  String get homeWidgetUnsupportedLauncher =>
+      'このランチャーはアプリ内からのウィジェット追加に対応していません。ホーム画面のウィジェット選択からIRボタンウィジェットを追加してください。';
+
+  @override
+  String get homeWidgetButtonUnsupported => 'このボタンはホーム画面ウィジェットとして使用できません。';
+
+  @override
+  String get homeWidgetRequestSent => 'ウィジェット要求を送信しました。ランチャーで確認してください。';
+
+  @override
+  String get homeWidgetRequestRejected => 'ランチャーがウィジェット要求を拒否しました。';
+
+  @override
+  String homeWidgetSetupFailed(String error) {
+    return 'ホーム画面ウィジェットの設定に失敗しました: $error';
+  }
+
+  @override
+  String get addHomeWidget => 'ホームウィジェットを追加';
+
+  @override
+  String get addHomeWidgetSubtitle => 'このボタンをホーム画面に配置します。';
+
+  @override
+  String buttonInfoType(String type) {
+    return '種類: $type';
+  }
+
+  @override
+  String get buttonInfoCodeRaw => 'コード: 生信号';
+
+  @override
+  String buttonInfoCode(String code) {
+    return 'コード: $code';
+  }
+
+  @override
+  String get buttonInfoNoCode => 'コードなし';
+
+  @override
+  String buttonInfoFrequency(String frequency) {
+    return '周波数: $frequency';
+  }
+
+  @override
+  String get frequencyHzLabel => '周波数 (Hz)';
+
+  @override
+  String get carrierFrequencyHelper => '搬送波周波数 例: 38000';
+
+  @override
+  String get requiredFrequencyHelper => '必須。例: 38000';
+
+  @override
+  String get validFrequencyError => '有効な周波数を入力してください (15k-60k)。';
+
+  @override
+  String get resetToDefaultFrequency => '38000にリセット';
+
+  @override
+  String get rawDataLabel => '生データ';
+
+  @override
+  String get rawDataHelper => 'スペース区切りの整数 例: 9000 4500 560 560 ...';
+
+  @override
+  String get rawDataInvalid => '生データはスペースまたは改行で区切られた整数である必要があります。';
+
+  @override
+  String get rawDataSafeguard => '保護: 送信できないパターンの保存を防ぐため、無効なトークンはブロックされます。';
+
+  @override
+  String get protocolLabel => 'プロトコル';
+
+  @override
+  String get protocolEncodingHelper => 'エンコードは実装済みとしてマークされたプロトコルでのみ利用できます。';
+
+  @override
+  String get protocolFrequencyHelper => '任意。空の場合、利用可能ならプロトコルの既定周波数を使用します。';
+
+  @override
+  String get rawSignalInvalidWithFrequency =>
+      '生データはスペースまたは改行で区切られた整数で、周波数は15k-60kである必要があります。';
+
+  @override
+  String get necTimingsNumeric => 'すべてのNECタイミングは数値である必要があります。';
+
+  @override
+  String get frequencyRangeError => '周波数は15k-60k Hzである必要があります。';
+
+  @override
+  String get pasteTooltip => '貼り付け';
+
+  @override
+  String get clearTooltip => 'クリア';
 }

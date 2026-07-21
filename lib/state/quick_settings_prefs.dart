@@ -10,7 +10,8 @@ class QuickSettingsPrefs {
   static const String _favoritesKey = 'quick_settings_favorites_v1';
   static const String _tileKeyPrefix = 'quick_settings_tile_';
 
-  static String _keyForTile(QuickTileType type) => '$_tileKeyPrefix${type.name}';
+  static String _keyForTile(QuickTileType type) =>
+      '$_tileKeyPrefix${type.name}';
 
   static Future<QuickTileMapping?> loadMapping(QuickTileType type) async {
     final prefs = await SharedPreferences.getInstance();
@@ -25,7 +26,8 @@ class QuickSettingsPrefs {
     }
   }
 
-  static Future<void> saveMapping(QuickTileType type, QuickTileMapping? mapping) async {
+  static Future<void> saveMapping(
+      QuickTileType type, QuickTileMapping? mapping) async {
     final prefs = await SharedPreferences.getInstance();
     final key = _keyForTile(type);
     if (mapping == null) {
@@ -97,6 +99,55 @@ class QuickSettingsPrefs {
     items.removeWhere((e) => e.buttonId == buttonId);
     await saveFavorites(items);
   }
+
+  static Future<void> refreshButtonReferences({
+    required String buttonId,
+    required String title,
+    required String subtitle,
+    required int frequencyHz,
+    required List<int> pattern,
+  }) async {
+    final cleanId = buttonId.trim();
+    if (cleanId.isEmpty) return;
+
+    for (final type in QuickTileType.values) {
+      final mapping = await loadMapping(type);
+      if (mapping?.buttonId != cleanId) continue;
+      await saveMapping(
+        type,
+        mapping!.copyWith(
+          title: title,
+          subtitle: subtitle,
+          frequencyHz: frequencyHz,
+          pattern: pattern,
+        ),
+      );
+    }
+
+    final favorites = await loadFavorites();
+    var changedFavorites = false;
+    for (var i = 0; i < favorites.length; i++) {
+      if (favorites[i].buttonId != cleanId) continue;
+      favorites[i] = favorites[i].copyWith(title: title, subtitle: subtitle);
+      changedFavorites = true;
+    }
+    if (changedFavorites) {
+      await saveFavorites(favorites);
+    }
+  }
+
+  static Future<void> removeButtonReferences(String buttonId) async {
+    final cleanId = buttonId.trim();
+    if (cleanId.isEmpty) return;
+
+    for (final type in QuickTileType.values) {
+      final mapping = await loadMapping(type);
+      if (mapping?.buttonId == cleanId) {
+        await saveMapping(type, null);
+      }
+    }
+    await removeFavorite(cleanId);
+  }
 }
 
 class QuickTileMapping {
@@ -121,6 +172,21 @@ class QuickTileMapping {
         'frequencyHz': frequencyHz,
         'pattern': pattern,
       };
+
+  QuickTileMapping copyWith({
+    String? title,
+    String? subtitle,
+    int? frequencyHz,
+    List<int>? pattern,
+  }) {
+    return QuickTileMapping(
+      buttonId: buttonId,
+      title: title ?? this.title,
+      subtitle: subtitle ?? this.subtitle,
+      frequencyHz: frequencyHz ?? this.frequencyHz,
+      pattern: pattern ?? this.pattern,
+    );
+  }
 
   factory QuickTileMapping.fromJson(Map<String, dynamic> json) {
     final rawPattern = json['pattern'];
@@ -158,6 +224,17 @@ class QuickTileFavorite {
         'title': title,
         'subtitle': subtitle,
       };
+
+  QuickTileFavorite copyWith({
+    String? title,
+    String? subtitle,
+  }) {
+    return QuickTileFavorite(
+      buttonId: buttonId,
+      title: title ?? this.title,
+      subtitle: subtitle ?? this.subtitle,
+    );
+  }
 
   factory QuickTileFavorite.fromJson(Map<String, dynamic> json) {
     return QuickTileFavorite(

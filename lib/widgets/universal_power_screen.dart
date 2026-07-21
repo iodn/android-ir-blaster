@@ -154,7 +154,9 @@ class _UniversalPowerScreenState extends State<UniversalPowerScreen>
   bool _hasTransmitter() {
     final caps = _caps;
     if (caps == null) return true;
-    return caps.hasInternal || caps.usbReady || caps.hasAudio;
+    final audioSelected = caps.currentType == IrTransmitterType.audio1Led ||
+        caps.currentType == IrTransmitterType.audio2Led;
+    return caps.hasInternal || caps.usbReady || audioSelected;
   }
 
   Future<void> _startRun() async {
