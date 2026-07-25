@@ -1,0 +1,2 @@
+Add settings option to show/hide protocol tag and hex code from the buttons.
+Fix playing back learned replays bricks functionality 
