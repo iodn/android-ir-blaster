@@ -162,6 +162,34 @@ command: 17 00 00 00
     });
   });
 
+  test('Flipper Samsung32 imports as Samsung32 instead of legacy NEC', () {
+    const input = '''
+Filetype: IR signals file
+Version: 1
+#
+name: Power
+type: parsed
+protocol: Samsung32
+address: 0B 00 00 00
+command: 0A 00 00 00
+''';
+    final preview = analyzeImportedText(
+      input,
+      filename: 'samsung.ir',
+      fallbackRemoteName: fallbackRemoteName,
+      fallbackButtonLabel: fallbackButtonLabel,
+    );
+
+    final button = preview.remotes.single.buttons.single;
+    expect(button.code, isNull);
+    expect(button.protocol, 'samsung32');
+    expect(button.protocolParams, <String, dynamic>{
+      'address': '0B',
+      'command': '0A',
+    });
+    expect(previewIRButton(button).pattern.take(2), <int>[4500, 4500]);
+  });
+
   test('Flipper NEC42 imports all 42 bits instead of truncating to NEC2', () {
     const input = '''
 Filetype: IR signals file

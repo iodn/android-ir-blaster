@@ -1184,6 +1184,25 @@ Remote? _parseFlipperIrFile(
             },
           ),
         );
+      } else if (mappedProtocol == 'samsung32') {
+        final String addrHex = addressMatch.group(1)!.toUpperCase();
+        final String cmdHex = commandMatch.group(1)!.toUpperCase();
+
+        buttons.add(
+          IRButton(
+            id: uuid.v4(),
+            code: null,
+            rawData: null,
+            frequency: 38000,
+            image: name,
+            isImage: false,
+            protocol: 'samsung32',
+            protocolParams: <String, dynamic>{
+              'address': addrHex,
+              'command': cmdHex,
+            },
+          ),
+        );
       } else if (mappedProtocol == 'pioneer') {
         final String addrHex = int.parse(addressMatch.group(1)!, radix: 16)
             .toRadixString(16)
