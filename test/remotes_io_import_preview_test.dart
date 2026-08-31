@@ -139,6 +139,63 @@ end remote
     });
   });
 
+  test('Flipper NEC42 imports all 42 bits instead of truncating to NEC2', () {
+    const input = '''
+Filetype: IR signals file
+Version: 1
+#
+name: Power
+type: parsed
+protocol: NEC42
+address: AA 0A 00 00
+command: 55 00 00 00
+''';
+    final preview = analyzeImportedText(
+      input,
+      filename: 'nec42.ir',
+      fallbackRemoteName: fallbackRemoteName,
+      fallbackButtonLabel: fallbackButtonLabel,
+    );
+    final button = preview.remotes.single.buttons.single;
+    final signal = previewIRButton(button);
+
+    expect(button.protocol, isNull);
+    expect(button.rawData, isNotNull);
+    expect(signal.frequencyHz, 38000);
+    expect(signal.pattern.take(2), <int>[9000, 4500]);
+    expect(
+      _decodeNecPayload(signal.pattern, bitCount: 42),
+      _packNec42(address: 0x0AAA, command: 0x55),
+    );
+    expect(signal.pattern.reduce((a, b) => a + b), 110000);
+  });
+
+  test('Flipper NEC42ext preserves its 26-bit address and 16-bit command', () {
+    const input = '''
+Filetype: IR signals file
+Version: 1
+#
+name: Power
+type: parsed
+protocol: NEC42ext
+address: AA AA AA 02
+command: 55 55 00 00
+''';
+    final preview = analyzeImportedText(
+      input,
+      filename: 'nec42ext.ir',
+      fallbackRemoteName: fallbackRemoteName,
+      fallbackButtonLabel: fallbackButtonLabel,
+    );
+    final signal = previewIRButton(preview.remotes.single.buttons.single);
+
+    expect(
+      _decodeNecPayload(signal.pattern, bitCount: 42),
+      (0x02AAAAAA & 0x3FFFFFF) | (0x5555 << 26),
+    );
+    expect(signal.pattern.reduce((a, b) => a + b), 110000);
+  });
+
   test('preview parser accepts IRPlus XML variants and builds a usable remote',
       () {
     for (final filename in ['tv.xml', 'tv.irplus']) {
@@ -204,4 +261,19 @@ end remote
     expect(preview.isSupported, isFalse);
     expect(preview.formatLabel, 'LIRC config');
   });
+}
+
+int _decodeNecPayload(List<int> pattern, {required int bitCount}) {
+  int value = 0;
+  for (int i = 0; i < bitCount; i++) {
+    if (pattern[3 + (i * 2)] > 1000) value |= 1 << i;
+  }
+  return value;
+}
+
+int _packNec42({required int address, required int command}) {
+  return (address & 0x1FFF) |
+      (((~address) & 0x1FFF) << 13) |
+      ((command & 0xFF) << 26) |
+      (((~command) & 0xFF) << 34);
 }

@@ -991,8 +991,6 @@ String? _mapFlipperProtocol(String? name) {
       return 'kaseikyo';
     case 'nec':
       return 'nec';
-    case 'nec42':
-      return 'nec2';
     case 'necext':
       return 'nec';
     case 'nrc17':
@@ -1046,6 +1044,30 @@ Remote? _parseFlipperIrFile(
       final nameMatch = RegExp(r'name:\s*(.+)').firstMatch(block);
       if (nameMatch == null) continue;
       final String name = nameMatch.group(1)!.trim();
+
+      final String normalizedProtocol =
+          protocolName?.trim().toLowerCase() ?? '';
+      if (normalizedProtocol == 'nec42' || normalizedProtocol == 'nec42ext') {
+        final int? address = _readFlipperUint32(block, 'address');
+        final int? command = _readFlipperUint32(block, 'command');
+        if (address == null || command == null) continue;
+
+        buttons.add(
+          IRButton(
+            id: uuid.v4(),
+            code: null,
+            rawData: _encodeFlipperNec42Raw(
+              address: address,
+              command: command,
+              extended: normalizedProtocol == 'nec42ext',
+            ),
+            frequency: 38000,
+            image: name,
+            isImage: false,
+          ),
+        );
+        continue;
+      }
 
       if (mappedProtocol == 'kaseikyo') {
         final String? fullAddr = RegExp(
@@ -1337,6 +1359,46 @@ String _convertToLircHex(RegExpMatch addressMatch, RegExpMatch commandMatch) {
           "${lircAddr.toRadixString(16).padLeft(2, '0')}"
           "${lircAddrInv.toRadixString(16).padLeft(2, '0')}"
       .toUpperCase();
+}
+
+int? _readFlipperUint32(String block, String field) {
+  final match = RegExp(
+    '$field:\\s*(([0-9A-Fa-f]{2}\\s+){3}[0-9A-Fa-f]{2})',
+  ).firstMatch(block);
+  if (match == null) return null;
+
+  final bytes = match
+      .group(1)!
+      .trim()
+      .split(RegExp(r'\s+'))
+      .map((value) => int.parse(value, radix: 16))
+      .toList(growable: false);
+  return bytes[0] | (bytes[1] << 8) | (bytes[2] << 16) | (bytes[3] << 24);
+}
+
+String _encodeFlipperNec42Raw({
+  required int address,
+  required int command,
+  required bool extended,
+}) {
+  // Matches Flipper's NEC encoder packing before its common LSB-first encoder.
+  final int payload = extended
+      ? (address & 0x3FFFFFF) | ((command & 0xFFFF) << 26)
+      : (address & 0x1FFF) |
+          (((~address) & 0x1FFF) << 13) |
+          ((command & 0xFF) << 26) |
+          (((~command) & 0xFF) << 34);
+
+  final pattern = <int>[9000, 4500];
+  for (int i = 0; i < 42; i++) {
+    pattern
+      ..add(560)
+      ..add(((payload >> i) & 1) == 0 ? 560 : 1690);
+  }
+  pattern.add(560);
+  final int used = pattern.fold(0, (sum, duration) => sum + duration);
+  pattern.add(110000 - used);
+  return pattern.join(' ');
 }
 
 class _ProntoParsed {
