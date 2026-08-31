@@ -4810,4 +4810,66 @@ class AppLocalizationsTh extends AppLocalizations {
 
   @override
   String get clearTooltip => 'ล้าง';
+
+  @override
+  String irFinderResumeMask(Object value) {
+    return 'มาสก์: $value';
+  }
+
+  @override
+  String get irFinderKnownMaskLabel => 'มาสก์รหัสที่ทราบ (ไม่บังคับ)';
+
+  @override
+  String get irFinderKnownMaskHint => '00FFXXFF, FFXXFF หรือ 0xA1XX';
+
+  @override
+  String irFinderKnownMaskHelper(int digits, Object example) {
+    return 'เพย์โหลด $digits หลัก ใช้ X แทนหลักที่ไม่ทราบ ส่วนหลักท้ายที่ละไว้จะเป็น X ตัวอย่าง: $example';
+  }
+
+  @override
+  String get irFinderKnownMaskInvalidCharacters =>
+      'ใช้เฉพาะเลขฐานสิบหก ตัวแทน X ช่องว่าง ทวิภาค ขีดกลาง หรือขีดล่าง';
+
+  @override
+  String irFinderKnownMaskTooLong(int digits) {
+    return 'มาสก์ยาวกว่าเพย์โหลด $digits หลักของโปรโตคอลนี้';
+  }
+
+  @override
+  String irFinderNormalizedMaskValue(Object value) {
+    return 'มาสก์ที่ปรับรูปแบบแล้ว: $value';
+  }
+
+  @override
+  String get irFinderNormalizedMask => 'มาสก์ที่ปรับรูปแบบแล้ว';
+
+  @override
+  String get irFinderNormalizedMaskAllUnknown => 'ไม่ทราบทุกหลัก';
+
+  @override
+  String get irFinderSearchOrder => 'ลำดับการค้นหา';
+
+  @override
+  String get irFinderSmartOrder => 'อัจฉริยะ';
+
+  @override
+  String get irFinderSequentialOrder => 'เรียงลำดับ';
+
+  @override
+  String get irFinderSmartOrderHint =>
+      'อิงตามโปรโตคอล: ทดสอบค่าต่ำที่พบบ่อยก่อน แล้วกระจายไปยังช่องคำสั่งและอุปกรณ์ พร้อมข้ามบิตที่ตัวเข้ารหัสไม่ใช้';
+
+  @override
+  String get irFinderSequentialOrderHint =>
+      'โหมดเข้ากันได้: ทดสอบหลักตัวแทนตามลำดับเลขฐานสิบหกจากน้อยไปมาก';
+
+  @override
+  String irFinderSmartMeaningfulBits(int bits) {
+    return 'โหมดอัจฉริยะเปลี่ยนบิตที่มีความหมาย $bits บิตสำหรับมาสก์นี้';
+  }
+
+  @override
+  String get irFinderBruteforceMaskTip =>
+      'เคล็ดลับ: แทนทุกหลักที่ไม่ทราบด้วย X การกำหนดหลักที่ทราบในตำแหน่งใดก็ได้ช่วยลดการค้นหาได้มาก';
 }

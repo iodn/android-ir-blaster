@@ -4837,4 +4837,66 @@ class AppLocalizationsTr extends AppLocalizations {
 
   @override
   String get clearTooltip => 'Temizle';
+
+  @override
+  String irFinderResumeMask(Object value) {
+    return 'Maske: $value';
+  }
+
+  @override
+  String get irFinderKnownMaskLabel => 'Bilinen kod maskesi (isteğe bağlı)';
+
+  @override
+  String get irFinderKnownMaskHint => '00FFXXFF, FFXXFF veya 0xA1XX';
+
+  @override
+  String irFinderKnownMaskHelper(int digits, Object example) {
+    return '$digits basamaklı yük. Bilinmeyen basamaklar için X kullanın; atlanan sondaki basamaklar X olur. Örnek: $example';
+  }
+
+  @override
+  String get irFinderKnownMaskInvalidCharacters =>
+      'Yalnızca onaltılık basamaklar, X jokerleri, boşluk, iki nokta, tire veya alt çizgi kullanın.';
+
+  @override
+  String irFinderKnownMaskTooLong(int digits) {
+    return 'Maske, bu protokolün $digits basamaklı yükünden daha uzun.';
+  }
+
+  @override
+  String irFinderNormalizedMaskValue(Object value) {
+    return 'Normalleştirilmiş maske: $value';
+  }
+
+  @override
+  String get irFinderNormalizedMask => 'Normalleştirilmiş maske';
+
+  @override
+  String get irFinderNormalizedMaskAllUnknown => 'Tüm basamaklar bilinmiyor';
+
+  @override
+  String get irFinderSearchOrder => 'Arama sırası';
+
+  @override
+  String get irFinderSmartOrder => 'Akıllı';
+
+  @override
+  String get irFinderSequentialOrder => 'Sıralı';
+
+  @override
+  String get irFinderSmartOrderHint =>
+      'Protokole göre: önce yaygın düşük değerleri dener, ardından komut ve cihaz alanlarına yayılır ve kodlayıcının yok saydığı bitleri atlar.';
+
+  @override
+  String get irFinderSequentialOrderHint =>
+      'Uyumluluk modu: joker basamakları artan onaltılık sırada dener.';
+
+  @override
+  String irFinderSmartMeaningfulBits(int bits) {
+    return 'Akıllı mod bu maske için $bits anlamlı biti değiştirir.';
+  }
+
+  @override
+  String get irFinderBruteforceMaskTip =>
+      'İpucu: bilinmeyen her basamağı X ile değiştirin. Kodun herhangi bir yerindeki bilinen basamaklar aramayı önemli ölçüde azaltır.';
 }

@@ -2299,5 +2299,21 @@
   "necTimingsNumeric": "Semua pemasaan NEC mestilah nombor.",
   "frequencyRangeError": "Frekuensi mesti 15k-60k Hz.",
   "pasteTooltip": "Tampal",
-  "clearTooltip": "Kosongkan"
+  "clearTooltip": "Kosongkan",
+  "irFinderResumeMask": "Topeng: {value}",
+  "irFinderKnownMaskLabel": "Topeng kod diketahui (pilihan)",
+  "irFinderKnownMaskHint": "00FFXXFF, FFXXFF atau 0xA1XX",
+  "irFinderKnownMaskHelper": "Payload {digits} digit. Gunakan X untuk digit yang tidak diketahui; digit hujung yang ditinggalkan menjadi X. Contoh: {example}",
+  "irFinderKnownMaskInvalidCharacters": "Gunakan digit heksadesimal, kad bebas X, ruang, titik bertindih, sengkang atau garis bawah sahaja.",
+  "irFinderKnownMaskTooLong": "Topeng lebih panjang daripada payload {digits} digit protokol ini.",
+  "irFinderNormalizedMaskValue": "Topeng dinormalkan: {value}",
+  "irFinderNormalizedMask": "Topeng dinormalkan",
+  "irFinderNormalizedMaskAllUnknown": "Semua digit tidak diketahui",
+  "irFinderSearchOrder": "Urutan carian",
+  "irFinderSmartOrder": "Pintar",
+  "irFinderSequentialOrder": "Berurutan",
+  "irFinderSmartOrderHint": "Mengikut protokol: menguji nilai rendah lazim dahulu, kemudian menyebar ke medan arahan dan peranti sambil melangkau bit yang diabaikan pengekod.",
+  "irFinderSequentialOrderHint": "Mod keserasian: menguji digit kad bebas dalam urutan heksadesimal menaik.",
+  "irFinderSmartMeaningfulBits": "Mod pintar mengubah {bits} bit bermakna untuk topeng ini.",
+  "irFinderBruteforceMaskTip": "Petua: gantikan setiap digit yang tidak diketahui dengan X. Menetapkan digit diketahui di mana-mana kedudukan boleh mengurangkan carian dengan banyak."
 }

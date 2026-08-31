@@ -4658,4 +4658,64 @@ class AppLocalizationsZh extends AppLocalizations {
 
   @override
   String get clearTooltip => '清除';
+
+  @override
+  String irFinderResumeMask(Object value) {
+    return '掩码：$value';
+  }
+
+  @override
+  String get irFinderKnownMaskLabel => '已知代码掩码（可选）';
+
+  @override
+  String get irFinderKnownMaskHint => '00FFXXFF、FFXXFF 或 0xA1XX';
+
+  @override
+  String irFinderKnownMaskHelper(int digits, Object example) {
+    return '$digits 位载荷。未知位请使用 X；省略的末尾位也会视为 X。示例：$example';
+  }
+
+  @override
+  String get irFinderKnownMaskInvalidCharacters =>
+      '只能使用十六进制数字、X 通配符、空格、冒号、连字符或下划线。';
+
+  @override
+  String irFinderKnownMaskTooLong(int digits) {
+    return '掩码超过此协议的 $digits 位载荷。';
+  }
+
+  @override
+  String irFinderNormalizedMaskValue(Object value) {
+    return '标准化掩码：$value';
+  }
+
+  @override
+  String get irFinderNormalizedMask => '标准化掩码';
+
+  @override
+  String get irFinderNormalizedMaskAllUnknown => '所有位均未知';
+
+  @override
+  String get irFinderSearchOrder => '搜索顺序';
+
+  @override
+  String get irFinderSmartOrder => '智能';
+
+  @override
+  String get irFinderSequentialOrder => '顺序';
+
+  @override
+  String get irFinderSmartOrderHint => '按协议搜索：先测试常见低值，再分散到命令和设备字段，并跳过编码器忽略的位。';
+
+  @override
+  String get irFinderSequentialOrderHint => '兼容模式：按十六进制升序测试通配位。';
+
+  @override
+  String irFinderSmartMeaningfulBits(int bits) {
+    return '智能模式会改变此掩码中的 $bits 个有效位。';
+  }
+
+  @override
+  String get irFinderBruteforceMaskTip =>
+      '提示：将每个未知位替换为 X。固定代码中任意位置的已知位都能显著缩小搜索范围。';
 }

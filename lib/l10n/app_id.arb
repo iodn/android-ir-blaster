@@ -2299,5 +2299,21 @@
   "necTimingsNumeric": "Semua timing NEC harus berupa angka.",
   "frequencyRangeError": "Frekuensi harus 15k-60k Hz.",
   "pasteTooltip": "Tempel",
-  "clearTooltip": "Hapus"
+  "clearTooltip": "Hapus",
+  "irFinderResumeMask": "Mask: {value}",
+  "irFinderKnownMaskLabel": "Mask kode yang diketahui (opsional)",
+  "irFinderKnownMaskHint": "00FFXXFF, FFXXFF, atau 0xA1XX",
+  "irFinderKnownMaskHelper": "Payload {digits} digit. Gunakan X untuk digit yang tidak diketahui; digit akhir yang dihilangkan menjadi X. Contoh: {example}",
+  "irFinderKnownMaskInvalidCharacters": "Gunakan hanya digit heksadesimal, wildcard X, spasi, titik dua, tanda hubung, atau garis bawah.",
+  "irFinderKnownMaskTooLong": "Mask lebih panjang dari payload {digits} digit protokol ini.",
+  "irFinderNormalizedMaskValue": "Mask ternormalisasi: {value}",
+  "irFinderNormalizedMask": "Mask ternormalisasi",
+  "irFinderNormalizedMaskAllUnknown": "Semua digit tidak diketahui",
+  "irFinderSearchOrder": "Urutan pencarian",
+  "irFinderSmartOrder": "Cerdas",
+  "irFinderSequentialOrder": "Berurutan",
+  "irFinderSmartOrderHint": "Sesuai protokol: menguji nilai rendah umum lebih dulu, lalu menyebar ke bidang perintah dan perangkat sambil melewati bit yang diabaikan encoder.",
+  "irFinderSequentialOrderHint": "Mode kompatibilitas: menguji digit wildcard dalam urutan heksadesimal menaik.",
+  "irFinderSmartMeaningfulBits": "Mode cerdas memvariasikan {bits} bit bermakna untuk mask ini.",
+  "irFinderBruteforceMaskTip": "Tips: ganti setiap digit yang tidak diketahui dengan X. Menetapkan digit yang diketahui di posisi mana pun dapat sangat mengurangi pencarian."
 }

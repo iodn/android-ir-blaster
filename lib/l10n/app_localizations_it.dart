@@ -4871,4 +4871,67 @@ class AppLocalizationsIt extends AppLocalizations {
 
   @override
   String get clearTooltip => 'Cancella';
+
+  @override
+  String irFinderResumeMask(Object value) {
+    return 'Maschera: $value';
+  }
+
+  @override
+  String get irFinderKnownMaskLabel => 'Maschera codice nota (facoltativa)';
+
+  @override
+  String get irFinderKnownMaskHint => '00FFXXFF, FFXXFF o 0xA1XX';
+
+  @override
+  String irFinderKnownMaskHelper(int digits, Object example) {
+    return 'Payload di $digits cifre. Usa X per le cifre sconosciute; le cifre finali omesse diventano X. Esempio: $example';
+  }
+
+  @override
+  String get irFinderKnownMaskInvalidCharacters =>
+      'Usa solo cifre esadecimali, caratteri jolly X, spazi, due punti, trattini o trattini bassi.';
+
+  @override
+  String irFinderKnownMaskTooLong(int digits) {
+    return 'La maschera supera il payload di $digits cifre di questo protocollo.';
+  }
+
+  @override
+  String irFinderNormalizedMaskValue(Object value) {
+    return 'Maschera normalizzata: $value';
+  }
+
+  @override
+  String get irFinderNormalizedMask => 'Maschera normalizzata';
+
+  @override
+  String get irFinderNormalizedMaskAllUnknown =>
+      'Tutte le cifre sono sconosciute';
+
+  @override
+  String get irFinderSearchOrder => 'Ordine di ricerca';
+
+  @override
+  String get irFinderSmartOrder => 'Intelligente';
+
+  @override
+  String get irFinderSequentialOrder => 'Sequenziale';
+
+  @override
+  String get irFinderSmartOrderHint =>
+      'In base al protocollo: prova prima i valori bassi comuni, poi distribuisce i campi comando e dispositivo ignorando i bit non usati.';
+
+  @override
+  String get irFinderSequentialOrderHint =>
+      'Modalità compatibile: prova le cifre jolly in ordine esadecimale crescente.';
+
+  @override
+  String irFinderSmartMeaningfulBits(int bits) {
+    return 'La modalità intelligente varia $bits bit significativi per questa maschera.';
+  }
+
+  @override
+  String get irFinderBruteforceMaskTip =>
+      'Suggerimento: sostituisci ogni cifra sconosciuta con X. Fissare cifre note in qualsiasi posizione riduce molto la ricerca.';
 }

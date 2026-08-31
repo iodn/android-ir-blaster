@@ -4853,4 +4853,67 @@ class AppLocalizationsFil extends AppLocalizations {
 
   @override
   String get clearTooltip => 'I-clear';
+
+  @override
+  String irFinderResumeMask(Object value) {
+    return 'Mask: $value';
+  }
+
+  @override
+  String get irFinderKnownMaskLabel => 'Kilalang code mask (opsyonal)';
+
+  @override
+  String get irFinderKnownMaskHint => '00FFXXFF, FFXXFF, o 0xA1XX';
+
+  @override
+  String irFinderKnownMaskHelper(int digits, Object example) {
+    return '$digits-digit na payload. Gumamit ng X para sa hindi kilalang digit; ang nilaktawang hulihang digit ay magiging X. Halimbawa: $example';
+  }
+
+  @override
+  String get irFinderKnownMaskInvalidCharacters =>
+      'Hex digit, X wildcard, espasyo, colon, gitling, o underscore lang ang gamitin.';
+
+  @override
+  String irFinderKnownMaskTooLong(int digits) {
+    return 'Mas mahaba ang mask kaysa sa $digits-digit na payload ng protocol na ito.';
+  }
+
+  @override
+  String irFinderNormalizedMaskValue(Object value) {
+    return 'Na-normalize na mask: $value';
+  }
+
+  @override
+  String get irFinderNormalizedMask => 'Na-normalize na mask';
+
+  @override
+  String get irFinderNormalizedMaskAllUnknown =>
+      'Hindi kilala ang lahat ng digit';
+
+  @override
+  String get irFinderSearchOrder => 'Ayos ng paghahanap';
+
+  @override
+  String get irFinderSmartOrder => 'Matalino';
+
+  @override
+  String get irFinderSequentialOrder => 'Sunod-sunod';
+
+  @override
+  String get irFinderSmartOrderHint =>
+      'Ayon sa protocol: inuuna ang karaniwang mababang value, saka ikinakalat ang command at device field at nilalaktawan ang hindi ginagamit na bit.';
+
+  @override
+  String get irFinderSequentialOrderHint =>
+      'Compatibility mode: sinusubok ang wildcard digit sa pataas na hexadecimal na ayos.';
+
+  @override
+  String irFinderSmartMeaningfulBits(int bits) {
+    return 'Binabago ng matalinong mode ang $bits makabuluhang bit para sa mask na ito.';
+  }
+
+  @override
+  String get irFinderBruteforceMaskTip =>
+      'Tip: palitan ng X ang bawat hindi kilalang digit. Malaking napapaliit ng mga kilalang digit sa anumang posisyon ang paghahanap.';
 }

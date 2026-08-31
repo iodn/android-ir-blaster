@@ -4872,6 +4872,69 @@ class AppLocalizationsPt extends AppLocalizations {
 
   @override
   String get clearTooltip => 'Limpar';
+
+  @override
+  String irFinderResumeMask(Object value) {
+    return 'Máscara: $value';
+  }
+
+  @override
+  String get irFinderKnownMaskLabel => 'Máscara de código conhecida (opcional)';
+
+  @override
+  String get irFinderKnownMaskHint => '00FFXXFF, FFXXFF ou 0xA1XX';
+
+  @override
+  String irFinderKnownMaskHelper(int digits, Object example) {
+    return 'Carga de $digits dígitos. Use X para dígitos desconhecidos; os dígitos finais omitidos tornam-se X. Exemplo: $example';
+  }
+
+  @override
+  String get irFinderKnownMaskInvalidCharacters =>
+      'Use apenas dígitos hexadecimais, curingas X, espaços, dois-pontos, hífenes ou sublinhados.';
+
+  @override
+  String irFinderKnownMaskTooLong(int digits) {
+    return 'A máscara excede a carga de $digits dígitos deste protocolo.';
+  }
+
+  @override
+  String irFinderNormalizedMaskValue(Object value) {
+    return 'Máscara normalizada: $value';
+  }
+
+  @override
+  String get irFinderNormalizedMask => 'Máscara normalizada';
+
+  @override
+  String get irFinderNormalizedMaskAllUnknown =>
+      'Todos os dígitos são desconhecidos';
+
+  @override
+  String get irFinderSearchOrder => 'Ordem de pesquisa';
+
+  @override
+  String get irFinderSmartOrder => 'Inteligente';
+
+  @override
+  String get irFinderSequentialOrder => 'Sequencial';
+
+  @override
+  String get irFinderSmartOrderHint =>
+      'Conforme o protocolo: testa primeiro valores baixos comuns, depois distribui pelos campos de comando e dispositivo e ignora bits não usados.';
+
+  @override
+  String get irFinderSequentialOrderHint =>
+      'Modo de compatibilidade: testa os curingas por ordem hexadecimal crescente.';
+
+  @override
+  String irFinderSmartMeaningfulBits(int bits) {
+    return 'O modo inteligente varia $bits bit(s) significativos para esta máscara.';
+  }
+
+  @override
+  String get irFinderBruteforceMaskTip =>
+      'Dica: substitua cada dígito desconhecido por X. Fixar dígitos conhecidos em qualquer posição reduz bastante a pesquisa.';
 }
 
 /// The translations for Portuguese, as used in Brazil (`pt_BR`).
@@ -9747,4 +9810,67 @@ class AppLocalizationsPtBr extends AppLocalizationsPt {
 
   @override
   String get clearTooltip => 'Limpar';
+
+  @override
+  String irFinderResumeMask(Object value) {
+    return 'Máscara: $value';
+  }
+
+  @override
+  String get irFinderKnownMaskLabel => 'Máscara de código conhecida (opcional)';
+
+  @override
+  String get irFinderKnownMaskHint => '00FFXXFF, FFXXFF ou 0xA1XX';
+
+  @override
+  String irFinderKnownMaskHelper(int digits, Object example) {
+    return 'Carga de $digits dígitos. Use X nos dígitos desconhecidos; os dígitos finais omitidos viram X. Exemplo: $example';
+  }
+
+  @override
+  String get irFinderKnownMaskInvalidCharacters =>
+      'Use somente dígitos hexadecimais, curingas X, espaços, dois-pontos, hífens ou sublinhados.';
+
+  @override
+  String irFinderKnownMaskTooLong(int digits) {
+    return 'A máscara é maior que a carga de $digits dígitos deste protocolo.';
+  }
+
+  @override
+  String irFinderNormalizedMaskValue(Object value) {
+    return 'Máscara normalizada: $value';
+  }
+
+  @override
+  String get irFinderNormalizedMask => 'Máscara normalizada';
+
+  @override
+  String get irFinderNormalizedMaskAllUnknown =>
+      'Todos os dígitos são desconhecidos';
+
+  @override
+  String get irFinderSearchOrder => 'Ordem de busca';
+
+  @override
+  String get irFinderSmartOrder => 'Inteligente';
+
+  @override
+  String get irFinderSequentialOrder => 'Sequencial';
+
+  @override
+  String get irFinderSmartOrderHint =>
+      'Conforme o protocolo: testa primeiro valores baixos comuns, depois distribui pelos campos de comando e dispositivo e ignora bits não usados.';
+
+  @override
+  String get irFinderSequentialOrderHint =>
+      'Modo de compatibilidade: testa os curingas em ordem hexadecimal crescente.';
+
+  @override
+  String irFinderSmartMeaningfulBits(int bits) {
+    return 'O modo inteligente varia $bits bit(s) significativos para esta máscara.';
+  }
+
+  @override
+  String get irFinderBruteforceMaskTip =>
+      'Dica: substitua cada dígito desconhecido por X. Fixar dígitos conhecidos em qualquer posição reduz bastante a busca.';
 }

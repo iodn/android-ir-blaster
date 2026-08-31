@@ -2299,5 +2299,21 @@
   "necTimingsNumeric": "Alle NEC-timings moeten numeriek zijn.",
   "frequencyRangeError": "De frequentie moet 15k-60k Hz zijn.",
   "pasteTooltip": "Plakken",
-  "clearTooltip": "Wissen"
+  "clearTooltip": "Wissen",
+  "irFinderResumeMask": "Masker: {value}",
+  "irFinderKnownMaskLabel": "Bekend codemasker (optioneel)",
+  "irFinderKnownMaskHint": "00FFXXFF, FFXXFF of 0xA1XX",
+  "irFinderKnownMaskHelper": "Payload van {digits} cijfers. Gebruik X voor onbekende cijfers; weggelaten eindcijfers worden X. Voorbeeld: {example}",
+  "irFinderKnownMaskInvalidCharacters": "Gebruik alleen hex-cijfers, X-jokers, spaties, dubbele punten, streepjes of underscores.",
+  "irFinderKnownMaskTooLong": "Het masker is langer dan de payload van {digits} cijfers van dit protocol.",
+  "irFinderNormalizedMaskValue": "Genormaliseerd masker: {value}",
+  "irFinderNormalizedMask": "Genormaliseerd masker",
+  "irFinderNormalizedMaskAllUnknown": "Alle cijfers onbekend",
+  "irFinderSearchOrder": "Zoekvolgorde",
+  "irFinderSmartOrder": "Slim",
+  "irFinderSequentialOrder": "Opeenvolgend",
+  "irFinderSmartOrderHint": "Protocolbewust: test eerst veelvoorkomende lage waarden, spreidt daarna over opdracht- en apparaatvelden en slaat genegeerde bits over.",
+  "irFinderSequentialOrderHint": "Compatibiliteitsmodus: test jokercijfers in oplopende hexadecimale volgorde.",
+  "irFinderSmartMeaningfulBits": "De slimme modus varieert {bits} betekenisvolle bit(s) voor dit masker.",
+  "irFinderBruteforceMaskTip": "Tip: vervang elk onbekend cijfer door X. Bekende cijfers op elke positie kunnen de zoekruimte sterk verkleinen."
 }

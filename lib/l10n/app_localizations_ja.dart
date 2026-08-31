@@ -4714,4 +4714,65 @@ class AppLocalizationsJa extends AppLocalizations {
 
   @override
   String get clearTooltip => 'クリア';
+
+  @override
+  String irFinderResumeMask(Object value) {
+    return 'マスク: $value';
+  }
+
+  @override
+  String get irFinderKnownMaskLabel => '既知のコードマスク（任意）';
+
+  @override
+  String get irFinderKnownMaskHint => '00FFXXFF、FFXXFF、または 0xA1XX';
+
+  @override
+  String irFinderKnownMaskHelper(int digits, Object example) {
+    return '$digits 桁のペイロードです。不明な桁には X を使用します。省略した末尾の桁も X になります。例: $example';
+  }
+
+  @override
+  String get irFinderKnownMaskInvalidCharacters =>
+      '16進数、ワイルドカード X、空白、コロン、ハイフン、アンダースコアのみ使用できます。';
+
+  @override
+  String irFinderKnownMaskTooLong(int digits) {
+    return 'マスクがこのプロトコルの $digits 桁のペイロードを超えています。';
+  }
+
+  @override
+  String irFinderNormalizedMaskValue(Object value) {
+    return '正規化マスク: $value';
+  }
+
+  @override
+  String get irFinderNormalizedMask => '正規化マスク';
+
+  @override
+  String get irFinderNormalizedMaskAllUnknown => 'すべての桁が不明';
+
+  @override
+  String get irFinderSearchOrder => '検索順序';
+
+  @override
+  String get irFinderSmartOrder => 'スマート';
+
+  @override
+  String get irFinderSequentialOrder => '連番';
+
+  @override
+  String get irFinderSmartOrderHint =>
+      'プロトコル対応: よく使われる小さい値を先に試し、その後コマンドとデバイスの範囲へ分散し、未使用ビットを省きます。';
+
+  @override
+  String get irFinderSequentialOrderHint => '互換モード: ワイルドカードの桁を16進数の昇順で試します。';
+
+  @override
+  String irFinderSmartMeaningfulBits(int bits) {
+    return 'スマートモードでは、このマスクの有効な $bits ビットを変化させます。';
+  }
+
+  @override
+  String get irFinderBruteforceMaskTip =>
+      'ヒント: 不明な桁は X に置き換えてください。コード内の既知の桁を固定すると、検索範囲を大幅に減らせます。';
 }

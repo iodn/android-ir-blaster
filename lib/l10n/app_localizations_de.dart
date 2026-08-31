@@ -4883,4 +4883,66 @@ class AppLocalizationsDe extends AppLocalizations {
 
   @override
   String get clearTooltip => 'Löschen';
+
+  @override
+  String irFinderResumeMask(Object value) {
+    return 'Maske: $value';
+  }
+
+  @override
+  String get irFinderKnownMaskLabel => 'Bekannte Codemaske (optional)';
+
+  @override
+  String get irFinderKnownMaskHint => '00FFXXFF, FFXXFF oder 0xA1XX';
+
+  @override
+  String irFinderKnownMaskHelper(int digits, Object example) {
+    return 'Nutzlast mit $digits Stellen. X steht für unbekannte Stellen; ausgelassene Endstellen werden zu X. Beispiel: $example';
+  }
+
+  @override
+  String get irFinderKnownMaskInvalidCharacters =>
+      'Nur Hex-Ziffern, X-Platzhalter, Leerzeichen, Doppelpunkte, Bindestriche oder Unterstriche verwenden.';
+
+  @override
+  String irFinderKnownMaskTooLong(int digits) {
+    return 'Die Maske ist länger als die $digits-stellige Nutzlast dieses Protokolls.';
+  }
+
+  @override
+  String irFinderNormalizedMaskValue(Object value) {
+    return 'Normalisierte Maske: $value';
+  }
+
+  @override
+  String get irFinderNormalizedMask => 'Normalisierte Maske';
+
+  @override
+  String get irFinderNormalizedMaskAllUnknown => 'Alle Stellen unbekannt';
+
+  @override
+  String get irFinderSearchOrder => 'Suchreihenfolge';
+
+  @override
+  String get irFinderSmartOrder => 'Intelligent';
+
+  @override
+  String get irFinderSequentialOrder => 'Fortlaufend';
+
+  @override
+  String get irFinderSmartOrderHint =>
+      'Protokollbewusst: prüft zuerst häufige kleine Werte, verteilt danach Befehls- und Gerätefelder und überspringt ignorierte Bits.';
+
+  @override
+  String get irFinderSequentialOrderHint =>
+      'Kompatibilitätsmodus: prüft Platzhalter in aufsteigender hexadezimaler Reihenfolge.';
+
+  @override
+  String irFinderSmartMeaningfulBits(int bits) {
+    return 'Der intelligente Modus variiert für diese Maske $bits relevante Bit(s).';
+  }
+
+  @override
+  String get irFinderBruteforceMaskTip =>
+      'Tipp: Unbekannte Stellen durch X ersetzen. Bekannte Stellen an jeder Position verkleinern den Suchraum deutlich.';
 }

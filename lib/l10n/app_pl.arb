@@ -2301,5 +2301,21 @@
   "necTimingsNumeric": "Wszystkie czasy NEC muszą być liczbami.",
   "frequencyRangeError": "Częstotliwość musi wynosić 15k-60k Hz.",
   "pasteTooltip": "Wklej",
-  "clearTooltip": "Wyczyść"
+  "clearTooltip": "Wyczyść",
+  "irFinderResumeMask": "Maska: {value}",
+  "irFinderKnownMaskLabel": "Znana maska kodu (opcjonalnie)",
+  "irFinderKnownMaskHint": "00FFXXFF, FFXXFF lub 0xA1XX",
+  "irFinderKnownMaskHelper": "Ładunek {digits}-cyfrowy. Użyj X dla nieznanych cyfr; pominięte końcowe cyfry stają się X. Przykład: {example}",
+  "irFinderKnownMaskInvalidCharacters": "Używaj tylko cyfr szesnastkowych, symboli X, spacji, dwukropków, myślników lub podkreśleń.",
+  "irFinderKnownMaskTooLong": "Maska jest dłuższa niż {digits}-cyfrowy ładunek tego protokołu.",
+  "irFinderNormalizedMaskValue": "Znormalizowana maska: {value}",
+  "irFinderNormalizedMask": "Znormalizowana maska",
+  "irFinderNormalizedMaskAllUnknown": "Wszystkie cyfry są nieznane",
+  "irFinderSearchOrder": "Kolejność wyszukiwania",
+  "irFinderSmartOrder": "Inteligentna",
+  "irFinderSequentialOrder": "Sekwencyjna",
+  "irFinderSmartOrderHint": "Uwzględnia protokół: najpierw sprawdza typowe małe wartości, potem rozkłada pola polecenia i urządzenia, pomijając nieużywane bity.",
+  "irFinderSequentialOrderHint": "Tryb zgodności: sprawdza symbole wieloznaczne w rosnącej kolejności szesnastkowej.",
+  "irFinderSmartMeaningfulBits": "Tryb inteligentny zmienia {bits} istotnych bitów dla tej maski.",
+  "irFinderBruteforceMaskTip": "Wskazówka: zastąp każdą nieznaną cyfrę przez X. Ustalenie znanych cyfr w dowolnym miejscu znacznie ogranicza wyszukiwanie."
 }

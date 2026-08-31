@@ -4931,4 +4931,66 @@ class AppLocalizationsPl extends AppLocalizations {
 
   @override
   String get clearTooltip => 'Wyczyść';
+
+  @override
+  String irFinderResumeMask(Object value) {
+    return 'Maska: $value';
+  }
+
+  @override
+  String get irFinderKnownMaskLabel => 'Znana maska kodu (opcjonalnie)';
+
+  @override
+  String get irFinderKnownMaskHint => '00FFXXFF, FFXXFF lub 0xA1XX';
+
+  @override
+  String irFinderKnownMaskHelper(int digits, Object example) {
+    return 'Ładunek $digits-cyfrowy. Użyj X dla nieznanych cyfr; pominięte końcowe cyfry stają się X. Przykład: $example';
+  }
+
+  @override
+  String get irFinderKnownMaskInvalidCharacters =>
+      'Używaj tylko cyfr szesnastkowych, symboli X, spacji, dwukropków, myślników lub podkreśleń.';
+
+  @override
+  String irFinderKnownMaskTooLong(int digits) {
+    return 'Maska jest dłuższa niż $digits-cyfrowy ładunek tego protokołu.';
+  }
+
+  @override
+  String irFinderNormalizedMaskValue(Object value) {
+    return 'Znormalizowana maska: $value';
+  }
+
+  @override
+  String get irFinderNormalizedMask => 'Znormalizowana maska';
+
+  @override
+  String get irFinderNormalizedMaskAllUnknown => 'Wszystkie cyfry są nieznane';
+
+  @override
+  String get irFinderSearchOrder => 'Kolejność wyszukiwania';
+
+  @override
+  String get irFinderSmartOrder => 'Inteligentna';
+
+  @override
+  String get irFinderSequentialOrder => 'Sekwencyjna';
+
+  @override
+  String get irFinderSmartOrderHint =>
+      'Uwzględnia protokół: najpierw sprawdza typowe małe wartości, potem rozkłada pola polecenia i urządzenia, pomijając nieużywane bity.';
+
+  @override
+  String get irFinderSequentialOrderHint =>
+      'Tryb zgodności: sprawdza symbole wieloznaczne w rosnącej kolejności szesnastkowej.';
+
+  @override
+  String irFinderSmartMeaningfulBits(int bits) {
+    return 'Tryb inteligentny zmienia $bits istotnych bitów dla tej maski.';
+  }
+
+  @override
+  String get irFinderBruteforceMaskTip =>
+      'Wskazówka: zastąp każdą nieznaną cyfrę przez X. Ustalenie znanych cyfr w dowolnym miejscu znacznie ogranicza wyszukiwanie.';
 }

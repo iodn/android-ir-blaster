@@ -2299,5 +2299,21 @@
   "necTimingsNumeric": "เวลาทั้งหมดของ NEC ต้องเป็นตัวเลข",
   "frequencyRangeError": "ความถี่ต้องเป็น 15k-60k Hz",
   "pasteTooltip": "วาง",
-  "clearTooltip": "ล้าง"
+  "clearTooltip": "ล้าง",
+  "irFinderResumeMask": "มาสก์: {value}",
+  "irFinderKnownMaskLabel": "มาสก์รหัสที่ทราบ (ไม่บังคับ)",
+  "irFinderKnownMaskHint": "00FFXXFF, FFXXFF หรือ 0xA1XX",
+  "irFinderKnownMaskHelper": "เพย์โหลด {digits} หลัก ใช้ X แทนหลักที่ไม่ทราบ ส่วนหลักท้ายที่ละไว้จะเป็น X ตัวอย่าง: {example}",
+  "irFinderKnownMaskInvalidCharacters": "ใช้เฉพาะเลขฐานสิบหก ตัวแทน X ช่องว่าง ทวิภาค ขีดกลาง หรือขีดล่าง",
+  "irFinderKnownMaskTooLong": "มาสก์ยาวกว่าเพย์โหลด {digits} หลักของโปรโตคอลนี้",
+  "irFinderNormalizedMaskValue": "มาสก์ที่ปรับรูปแบบแล้ว: {value}",
+  "irFinderNormalizedMask": "มาสก์ที่ปรับรูปแบบแล้ว",
+  "irFinderNormalizedMaskAllUnknown": "ไม่ทราบทุกหลัก",
+  "irFinderSearchOrder": "ลำดับการค้นหา",
+  "irFinderSmartOrder": "อัจฉริยะ",
+  "irFinderSequentialOrder": "เรียงลำดับ",
+  "irFinderSmartOrderHint": "อิงตามโปรโตคอล: ทดสอบค่าต่ำที่พบบ่อยก่อน แล้วกระจายไปยังช่องคำสั่งและอุปกรณ์ พร้อมข้ามบิตที่ตัวเข้ารหัสไม่ใช้",
+  "irFinderSequentialOrderHint": "โหมดเข้ากันได้: ทดสอบหลักตัวแทนตามลำดับเลขฐานสิบหกจากน้อยไปมาก",
+  "irFinderSmartMeaningfulBits": "โหมดอัจฉริยะเปลี่ยนบิตที่มีความหมาย {bits} บิตสำหรับมาสก์นี้",
+  "irFinderBruteforceMaskTip": "เคล็ดลับ: แทนทุกหลักที่ไม่ทราบด้วย X การกำหนดหลักที่ทราบในตำแหน่งใดก็ได้ช่วยลดการค้นหาได้มาก"
 }

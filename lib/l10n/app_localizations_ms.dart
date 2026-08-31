@@ -4840,4 +4840,66 @@ class AppLocalizationsMs extends AppLocalizations {
 
   @override
   String get clearTooltip => 'Kosongkan';
+
+  @override
+  String irFinderResumeMask(Object value) {
+    return 'Topeng: $value';
+  }
+
+  @override
+  String get irFinderKnownMaskLabel => 'Topeng kod diketahui (pilihan)';
+
+  @override
+  String get irFinderKnownMaskHint => '00FFXXFF, FFXXFF atau 0xA1XX';
+
+  @override
+  String irFinderKnownMaskHelper(int digits, Object example) {
+    return 'Payload $digits digit. Gunakan X untuk digit yang tidak diketahui; digit hujung yang ditinggalkan menjadi X. Contoh: $example';
+  }
+
+  @override
+  String get irFinderKnownMaskInvalidCharacters =>
+      'Gunakan digit heksadesimal, kad bebas X, ruang, titik bertindih, sengkang atau garis bawah sahaja.';
+
+  @override
+  String irFinderKnownMaskTooLong(int digits) {
+    return 'Topeng lebih panjang daripada payload $digits digit protokol ini.';
+  }
+
+  @override
+  String irFinderNormalizedMaskValue(Object value) {
+    return 'Topeng dinormalkan: $value';
+  }
+
+  @override
+  String get irFinderNormalizedMask => 'Topeng dinormalkan';
+
+  @override
+  String get irFinderNormalizedMaskAllUnknown => 'Semua digit tidak diketahui';
+
+  @override
+  String get irFinderSearchOrder => 'Urutan carian';
+
+  @override
+  String get irFinderSmartOrder => 'Pintar';
+
+  @override
+  String get irFinderSequentialOrder => 'Berurutan';
+
+  @override
+  String get irFinderSmartOrderHint =>
+      'Mengikut protokol: menguji nilai rendah lazim dahulu, kemudian menyebar ke medan arahan dan peranti sambil melangkau bit yang diabaikan pengekod.';
+
+  @override
+  String get irFinderSequentialOrderHint =>
+      'Mod keserasian: menguji digit kad bebas dalam urutan heksadesimal menaik.';
+
+  @override
+  String irFinderSmartMeaningfulBits(int bits) {
+    return 'Mod pintar mengubah $bits bit bermakna untuk topeng ini.';
+  }
+
+  @override
+  String get irFinderBruteforceMaskTip =>
+      'Petua: gantikan setiap digit yang tidak diketahui dengan X. Menetapkan digit diketahui di mana-mana kedudukan boleh mengurangkan carian dengan banyak.';
 }

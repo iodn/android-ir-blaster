@@ -2299,5 +2299,21 @@
   "necTimingsNumeric": "Tất cả thời gian NEC phải là số.",
   "frequencyRangeError": "Tần số phải là 15k-60k Hz.",
   "pasteTooltip": "Dán",
-  "clearTooltip": "Xóa"
+  "clearTooltip": "Xóa",
+  "irFinderResumeMask": "Mặt nạ: {value}",
+  "irFinderKnownMaskLabel": "Mặt nạ mã đã biết (không bắt buộc)",
+  "irFinderKnownMaskHint": "00FFXXFF, FFXXFF hoặc 0xA1XX",
+  "irFinderKnownMaskHelper": "Dữ liệu {digits} chữ số. Dùng X cho chữ số chưa biết; các chữ số cuối bị bỏ qua sẽ thành X. Ví dụ: {example}",
+  "irFinderKnownMaskInvalidCharacters": "Chỉ dùng chữ số thập lục phân, ký tự đại diện X, khoảng trắng, dấu hai chấm, gạch ngang hoặc gạch dưới.",
+  "irFinderKnownMaskTooLong": "Mặt nạ dài hơn dữ liệu {digits} chữ số của giao thức này.",
+  "irFinderNormalizedMaskValue": "Mặt nạ đã chuẩn hóa: {value}",
+  "irFinderNormalizedMask": "Mặt nạ đã chuẩn hóa",
+  "irFinderNormalizedMaskAllUnknown": "Tất cả chữ số đều chưa biết",
+  "irFinderSearchOrder": "Thứ tự tìm kiếm",
+  "irFinderSmartOrder": "Thông minh",
+  "irFinderSequentialOrder": "Tuần tự",
+  "irFinderSmartOrderHint": "Theo giao thức: thử các giá trị thấp phổ biến trước, sau đó phân bổ qua trường lệnh và thiết bị, đồng thời bỏ qua bit bộ mã hóa không dùng.",
+  "irFinderSequentialOrderHint": "Chế độ tương thích: thử các chữ số đại diện theo thứ tự thập lục phân tăng dần.",
+  "irFinderSmartMeaningfulBits": "Chế độ thông minh thay đổi {bits} bit có ý nghĩa cho mặt nạ này.",
+  "irFinderBruteforceMaskTip": "Mẹo: thay mọi chữ số chưa biết bằng X. Cố định chữ số đã biết ở bất kỳ vị trí nào có thể giảm đáng kể phạm vi tìm kiếm."
 }

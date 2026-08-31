@@ -4728,4 +4728,66 @@ class AppLocalizationsKo extends AppLocalizations {
 
   @override
   String get clearTooltip => '지우기';
+
+  @override
+  String irFinderResumeMask(Object value) {
+    return '마스크: $value';
+  }
+
+  @override
+  String get irFinderKnownMaskLabel => '알려진 코드 마스크(선택 사항)';
+
+  @override
+  String get irFinderKnownMaskHint => '00FFXXFF, FFXXFF 또는 0xA1XX';
+
+  @override
+  String irFinderKnownMaskHelper(int digits, Object example) {
+    return '$digits자리 페이로드입니다. 모르는 자리는 X를 사용하며 생략한 뒤쪽 자리도 X가 됩니다. 예: $example';
+  }
+
+  @override
+  String get irFinderKnownMaskInvalidCharacters =>
+      '16진수, X 와일드카드, 공백, 콜론, 하이픈 또는 밑줄만 사용하세요.';
+
+  @override
+  String irFinderKnownMaskTooLong(int digits) {
+    return '마스크가 이 프로토콜의 $digits자리 페이로드보다 깁니다.';
+  }
+
+  @override
+  String irFinderNormalizedMaskValue(Object value) {
+    return '정규화된 마스크: $value';
+  }
+
+  @override
+  String get irFinderNormalizedMask => '정규화된 마스크';
+
+  @override
+  String get irFinderNormalizedMaskAllUnknown => '모든 자리를 알 수 없음';
+
+  @override
+  String get irFinderSearchOrder => '검색 순서';
+
+  @override
+  String get irFinderSmartOrder => '스마트';
+
+  @override
+  String get irFinderSequentialOrder => '순차';
+
+  @override
+  String get irFinderSmartOrderHint =>
+      '프로토콜 인식: 일반적인 작은 값을 먼저 시험한 뒤 명령 및 장치 필드로 분산하며 인코더가 무시하는 비트는 건너뜁니다.';
+
+  @override
+  String get irFinderSequentialOrderHint =>
+      '호환 모드: 와일드카드 자리를 16진수 오름차순으로 시험합니다.';
+
+  @override
+  String irFinderSmartMeaningfulBits(int bits) {
+    return '스마트 모드는 이 마스크의 유효한 $bits비트를 변경합니다.';
+  }
+
+  @override
+  String get irFinderBruteforceMaskTip =>
+      '팁: 모르는 자리를 모두 X로 바꾸세요. 코드 어디서든 알려진 자리를 고정하면 검색 범위를 크게 줄일 수 있습니다.';
 }

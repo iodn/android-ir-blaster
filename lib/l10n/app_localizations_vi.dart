@@ -4827,4 +4827,66 @@ class AppLocalizationsVi extends AppLocalizations {
 
   @override
   String get clearTooltip => 'Xóa';
+
+  @override
+  String irFinderResumeMask(Object value) {
+    return 'Mặt nạ: $value';
+  }
+
+  @override
+  String get irFinderKnownMaskLabel => 'Mặt nạ mã đã biết (không bắt buộc)';
+
+  @override
+  String get irFinderKnownMaskHint => '00FFXXFF, FFXXFF hoặc 0xA1XX';
+
+  @override
+  String irFinderKnownMaskHelper(int digits, Object example) {
+    return 'Dữ liệu $digits chữ số. Dùng X cho chữ số chưa biết; các chữ số cuối bị bỏ qua sẽ thành X. Ví dụ: $example';
+  }
+
+  @override
+  String get irFinderKnownMaskInvalidCharacters =>
+      'Chỉ dùng chữ số thập lục phân, ký tự đại diện X, khoảng trắng, dấu hai chấm, gạch ngang hoặc gạch dưới.';
+
+  @override
+  String irFinderKnownMaskTooLong(int digits) {
+    return 'Mặt nạ dài hơn dữ liệu $digits chữ số của giao thức này.';
+  }
+
+  @override
+  String irFinderNormalizedMaskValue(Object value) {
+    return 'Mặt nạ đã chuẩn hóa: $value';
+  }
+
+  @override
+  String get irFinderNormalizedMask => 'Mặt nạ đã chuẩn hóa';
+
+  @override
+  String get irFinderNormalizedMaskAllUnknown => 'Tất cả chữ số đều chưa biết';
+
+  @override
+  String get irFinderSearchOrder => 'Thứ tự tìm kiếm';
+
+  @override
+  String get irFinderSmartOrder => 'Thông minh';
+
+  @override
+  String get irFinderSequentialOrder => 'Tuần tự';
+
+  @override
+  String get irFinderSmartOrderHint =>
+      'Theo giao thức: thử các giá trị thấp phổ biến trước, sau đó phân bổ qua trường lệnh và thiết bị, đồng thời bỏ qua bit bộ mã hóa không dùng.';
+
+  @override
+  String get irFinderSequentialOrderHint =>
+      'Chế độ tương thích: thử các chữ số đại diện theo thứ tự thập lục phân tăng dần.';
+
+  @override
+  String irFinderSmartMeaningfulBits(int bits) {
+    return 'Chế độ thông minh thay đổi $bits bit có ý nghĩa cho mặt nạ này.';
+  }
+
+  @override
+  String get irFinderBruteforceMaskTip =>
+      'Mẹo: thay mọi chữ số chưa biết bằng X. Cố định chữ số đã biết ở bất kỳ vị trí nào có thể giảm đáng kể phạm vi tìm kiếm.';
 }

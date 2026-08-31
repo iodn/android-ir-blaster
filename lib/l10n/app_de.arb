@@ -2285,5 +2285,21 @@
   "necTimingsNumeric": "Alle NEC-Timings müssen numerisch sein.",
   "frequencyRangeError": "Die Frequenz muss 15k-60k Hz betragen.",
   "pasteTooltip": "Einfügen",
-  "clearTooltip": "Löschen"
+  "clearTooltip": "Löschen",
+  "irFinderResumeMask": "Maske: {value}",
+  "irFinderKnownMaskLabel": "Bekannte Codemaske (optional)",
+  "irFinderKnownMaskHint": "00FFXXFF, FFXXFF oder 0xA1XX",
+  "irFinderKnownMaskHelper": "Nutzlast mit {digits} Stellen. X steht für unbekannte Stellen; ausgelassene Endstellen werden zu X. Beispiel: {example}",
+  "irFinderKnownMaskInvalidCharacters": "Nur Hex-Ziffern, X-Platzhalter, Leerzeichen, Doppelpunkte, Bindestriche oder Unterstriche verwenden.",
+  "irFinderKnownMaskTooLong": "Die Maske ist länger als die {digits}-stellige Nutzlast dieses Protokolls.",
+  "irFinderNormalizedMaskValue": "Normalisierte Maske: {value}",
+  "irFinderNormalizedMask": "Normalisierte Maske",
+  "irFinderNormalizedMaskAllUnknown": "Alle Stellen unbekannt",
+  "irFinderSearchOrder": "Suchreihenfolge",
+  "irFinderSmartOrder": "Intelligent",
+  "irFinderSequentialOrder": "Fortlaufend",
+  "irFinderSmartOrderHint": "Protokollbewusst: prüft zuerst häufige kleine Werte, verteilt danach Befehls- und Gerätefelder und überspringt ignorierte Bits.",
+  "irFinderSequentialOrderHint": "Kompatibilitätsmodus: prüft Platzhalter in aufsteigender hexadezimaler Reihenfolge.",
+  "irFinderSmartMeaningfulBits": "Der intelligente Modus variiert für diese Maske {bits} relevante Bit(s).",
+  "irFinderBruteforceMaskTip": "Tipp: Unbekannte Stellen durch X ersetzen. Bekannte Stellen an jeder Position verkleinern den Suchraum deutlich."
 }

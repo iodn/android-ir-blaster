@@ -4843,4 +4843,66 @@ class AppLocalizationsRu extends AppLocalizations {
 
   @override
   String get clearTooltip => 'Очистить';
+
+  @override
+  String irFinderResumeMask(Object value) {
+    return 'Маска: $value';
+  }
+
+  @override
+  String get irFinderKnownMaskLabel => 'Известная маска кода (необязательно)';
+
+  @override
+  String get irFinderKnownMaskHint => '00FFXXFF, FFXXFF или 0xA1XX';
+
+  @override
+  String irFinderKnownMaskHelper(int digits, Object example) {
+    return 'Полезная нагрузка из $digits цифр. Используйте X для неизвестных цифр; пропущенные конечные цифры станут X. Пример: $example';
+  }
+
+  @override
+  String get irFinderKnownMaskInvalidCharacters =>
+      'Используйте только шестнадцатеричные цифры, X, пробелы, двоеточия, дефисы или подчёркивания.';
+
+  @override
+  String irFinderKnownMaskTooLong(int digits) {
+    return 'Маска длиннее $digits-значной нагрузки этого протокола.';
+  }
+
+  @override
+  String irFinderNormalizedMaskValue(Object value) {
+    return 'Нормализованная маска: $value';
+  }
+
+  @override
+  String get irFinderNormalizedMask => 'Нормализованная маска';
+
+  @override
+  String get irFinderNormalizedMaskAllUnknown => 'Все цифры неизвестны';
+
+  @override
+  String get irFinderSearchOrder => 'Порядок поиска';
+
+  @override
+  String get irFinderSmartOrder => 'Умный';
+
+  @override
+  String get irFinderSequentialOrder => 'Последовательный';
+
+  @override
+  String get irFinderSmartOrderHint =>
+      'С учётом протокола: сначала проверяет типичные малые значения, затем распределяет поля команд и устройств, пропуская неиспользуемые биты.';
+
+  @override
+  String get irFinderSequentialOrderHint =>
+      'Режим совместимости: проверяет подстановочные цифры по возрастанию шестнадцатеричного значения.';
+
+  @override
+  String irFinderSmartMeaningfulBits(int bits) {
+    return 'Умный режим изменяет $bits значимых бит для этой маски.';
+  }
+
+  @override
+  String get irFinderBruteforceMaskTip =>
+      'Совет: замените каждую неизвестную цифру на X. Известные цифры в любой позиции значительно сокращают поиск.';
 }

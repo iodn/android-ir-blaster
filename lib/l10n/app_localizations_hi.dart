@@ -4835,4 +4835,66 @@ class AppLocalizationsHi extends AppLocalizations {
 
   @override
   String get clearTooltip => 'साफ़ करें';
+
+  @override
+  String irFinderResumeMask(Object value) {
+    return 'मास्क: $value';
+  }
+
+  @override
+  String get irFinderKnownMaskLabel => 'ज्ञात कोड मास्क (वैकल्पिक)';
+
+  @override
+  String get irFinderKnownMaskHint => '00FFXXFF, FFXXFF, या 0xA1XX';
+
+  @override
+  String irFinderKnownMaskHelper(int digits, Object example) {
+    return '$digits-अंकीय पेलोड। अज्ञात अंकों के लिए X उपयोग करें; छोड़े गए अंतिम अंक X माने जाएंगे। उदाहरण: $example';
+  }
+
+  @override
+  String get irFinderKnownMaskInvalidCharacters =>
+      'केवल हेक्स अंक, X वाइल्डकार्ड, स्पेस, कोलन, डैश या अंडरस्कोर उपयोग करें।';
+
+  @override
+  String irFinderKnownMaskTooLong(int digits) {
+    return 'मास्क इस प्रोटोकॉल के $digits-अंकीय पेलोड से लंबा है।';
+  }
+
+  @override
+  String irFinderNormalizedMaskValue(Object value) {
+    return 'सामान्यीकृत मास्क: $value';
+  }
+
+  @override
+  String get irFinderNormalizedMask => 'सामान्यीकृत मास्क';
+
+  @override
+  String get irFinderNormalizedMaskAllUnknown => 'सभी अंक अज्ञात हैं';
+
+  @override
+  String get irFinderSearchOrder => 'खोज क्रम';
+
+  @override
+  String get irFinderSmartOrder => 'स्मार्ट';
+
+  @override
+  String get irFinderSequentialOrder => 'क्रमिक';
+
+  @override
+  String get irFinderSmartOrderHint =>
+      'प्रोटोकॉल के अनुसार: पहले सामान्य छोटे मान, फिर कमांड और डिवाइस फ़ील्ड में फैलाव, और एन्कोडर द्वारा अनदेखे बिट छोड़ता है।';
+
+  @override
+  String get irFinderSequentialOrderHint =>
+      'संगतता मोड: वाइल्डकार्ड अंकों को बढ़ते हेक्स क्रम में जाँचता है।';
+
+  @override
+  String irFinderSmartMeaningfulBits(int bits) {
+    return 'स्मार्ट मोड इस मास्क के $bits सार्थक बिट बदलता है।';
+  }
+
+  @override
+  String get irFinderBruteforceMaskTip =>
+      'सुझाव: हर अज्ञात अंक को X से बदलें। कोड में कहीं भी ज्ञात अंक तय करने से खोज बहुत घट सकती है।';
 }

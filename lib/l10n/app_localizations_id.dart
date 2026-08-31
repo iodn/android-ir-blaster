@@ -4841,4 +4841,66 @@ class AppLocalizationsId extends AppLocalizations {
 
   @override
   String get clearTooltip => 'Hapus';
+
+  @override
+  String irFinderResumeMask(Object value) {
+    return 'Mask: $value';
+  }
+
+  @override
+  String get irFinderKnownMaskLabel => 'Mask kode yang diketahui (opsional)';
+
+  @override
+  String get irFinderKnownMaskHint => '00FFXXFF, FFXXFF, atau 0xA1XX';
+
+  @override
+  String irFinderKnownMaskHelper(int digits, Object example) {
+    return 'Payload $digits digit. Gunakan X untuk digit yang tidak diketahui; digit akhir yang dihilangkan menjadi X. Contoh: $example';
+  }
+
+  @override
+  String get irFinderKnownMaskInvalidCharacters =>
+      'Gunakan hanya digit heksadesimal, wildcard X, spasi, titik dua, tanda hubung, atau garis bawah.';
+
+  @override
+  String irFinderKnownMaskTooLong(int digits) {
+    return 'Mask lebih panjang dari payload $digits digit protokol ini.';
+  }
+
+  @override
+  String irFinderNormalizedMaskValue(Object value) {
+    return 'Mask ternormalisasi: $value';
+  }
+
+  @override
+  String get irFinderNormalizedMask => 'Mask ternormalisasi';
+
+  @override
+  String get irFinderNormalizedMaskAllUnknown => 'Semua digit tidak diketahui';
+
+  @override
+  String get irFinderSearchOrder => 'Urutan pencarian';
+
+  @override
+  String get irFinderSmartOrder => 'Cerdas';
+
+  @override
+  String get irFinderSequentialOrder => 'Berurutan';
+
+  @override
+  String get irFinderSmartOrderHint =>
+      'Sesuai protokol: menguji nilai rendah umum lebih dulu, lalu menyebar ke bidang perintah dan perangkat sambil melewati bit yang diabaikan encoder.';
+
+  @override
+  String get irFinderSequentialOrderHint =>
+      'Mode kompatibilitas: menguji digit wildcard dalam urutan heksadesimal menaik.';
+
+  @override
+  String irFinderSmartMeaningfulBits(int bits) {
+    return 'Mode cerdas memvariasikan $bits bit bermakna untuk mask ini.';
+  }
+
+  @override
+  String get irFinderBruteforceMaskTip =>
+      'Tips: ganti setiap digit yang tidak diketahui dengan X. Menetapkan digit yang diketahui di posisi mana pun dapat sangat mengurangi pencarian.';
 }

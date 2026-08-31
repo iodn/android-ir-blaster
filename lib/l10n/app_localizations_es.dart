@@ -4870,4 +4870,67 @@ class AppLocalizationsEs extends AppLocalizations {
 
   @override
   String get clearTooltip => 'Borrar';
+
+  @override
+  String irFinderResumeMask(Object value) {
+    return 'Máscara: $value';
+  }
+
+  @override
+  String get irFinderKnownMaskLabel => 'Máscara de código conocida (opcional)';
+
+  @override
+  String get irFinderKnownMaskHint => '00FFXXFF, FFXXFF o 0xA1XX';
+
+  @override
+  String irFinderKnownMaskHelper(int digits, Object example) {
+    return 'Carga de $digits dígitos. Usa X para los dígitos desconocidos; los dígitos finales omitidos se convierten en X. Ejemplo: $example';
+  }
+
+  @override
+  String get irFinderKnownMaskInvalidCharacters =>
+      'Usa solo dígitos hexadecimales, comodines X, espacios, dos puntos, guiones o guiones bajos.';
+
+  @override
+  String irFinderKnownMaskTooLong(int digits) {
+    return 'La máscara supera la carga de $digits dígitos de este protocolo.';
+  }
+
+  @override
+  String irFinderNormalizedMaskValue(Object value) {
+    return 'Máscara normalizada: $value';
+  }
+
+  @override
+  String get irFinderNormalizedMask => 'Máscara normalizada';
+
+  @override
+  String get irFinderNormalizedMaskAllUnknown =>
+      'Todos los dígitos son desconocidos';
+
+  @override
+  String get irFinderSearchOrder => 'Orden de búsqueda';
+
+  @override
+  String get irFinderSmartOrder => 'Inteligente';
+
+  @override
+  String get irFinderSequentialOrder => 'Secuencial';
+
+  @override
+  String get irFinderSmartOrderHint =>
+      'Según el protocolo: prueba primero valores bajos comunes, después distribuye los campos de comando y dispositivo y omite bits ignorados.';
+
+  @override
+  String get irFinderSequentialOrderHint =>
+      'Modo compatible: prueba los comodines en orden hexadecimal ascendente.';
+
+  @override
+  String irFinderSmartMeaningfulBits(int bits) {
+    return 'El modo inteligente varía $bits bit(s) significativos para esta máscara.';
+  }
+
+  @override
+  String get irFinderBruteforceMaskTip =>
+      'Consejo: sustituye cada dígito desconocido por X. Fijar dígitos conocidos en cualquier posición reduce mucho la búsqueda.';
 }

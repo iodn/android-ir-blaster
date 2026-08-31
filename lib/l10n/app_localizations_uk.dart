@@ -4950,4 +4950,66 @@ class AppLocalizationsUk extends AppLocalizations {
 
   @override
   String get clearTooltip => 'Очистити';
+
+  @override
+  String irFinderResumeMask(Object value) {
+    return 'Маска: $value';
+  }
+
+  @override
+  String get irFinderKnownMaskLabel => 'Відома маска коду (необов’язково)';
+
+  @override
+  String get irFinderKnownMaskHint => '00FFXXFF, FFXXFF або 0xA1XX';
+
+  @override
+  String irFinderKnownMaskHelper(int digits, Object example) {
+    return 'Корисне навантаження з $digits цифр. Використовуйте X для невідомих цифр; пропущені кінцеві цифри стануть X. Приклад: $example';
+  }
+
+  @override
+  String get irFinderKnownMaskInvalidCharacters =>
+      'Використовуйте лише шістнадцяткові цифри, X, пробіли, двокрапки, дефіси або підкреслення.';
+
+  @override
+  String irFinderKnownMaskTooLong(int digits) {
+    return 'Маска довша за $digits-значне навантаження цього протоколу.';
+  }
+
+  @override
+  String irFinderNormalizedMaskValue(Object value) {
+    return 'Нормалізована маска: $value';
+  }
+
+  @override
+  String get irFinderNormalizedMask => 'Нормалізована маска';
+
+  @override
+  String get irFinderNormalizedMaskAllUnknown => 'Усі цифри невідомі';
+
+  @override
+  String get irFinderSearchOrder => 'Порядок пошуку';
+
+  @override
+  String get irFinderSmartOrder => 'Розумний';
+
+  @override
+  String get irFinderSequentialOrder => 'Послідовний';
+
+  @override
+  String get irFinderSmartOrderHint =>
+      'З урахуванням протоколу: спочатку перевіряє типові малі значення, потім розподіляє поля команд і пристроїв, пропускаючи невикористані біти.';
+
+  @override
+  String get irFinderSequentialOrderHint =>
+      'Режим сумісності: перевіряє підстановні цифри за зростанням шістнадцяткового значення.';
+
+  @override
+  String irFinderSmartMeaningfulBits(int bits) {
+    return 'Розумний режим змінює $bits значущих бітів для цієї маски.';
+  }
+
+  @override
+  String get irFinderBruteforceMaskTip =>
+      'Порада: замініть кожну невідому цифру на X. Відомі цифри в будь-якій позиції значно скорочують пошук.';
 }

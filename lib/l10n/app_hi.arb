@@ -2299,5 +2299,21 @@
   "necTimingsNumeric": "सभी NEC टाइमिंग संख्यात्मक होनी चाहिए।",
   "frequencyRangeError": "फ़्रीक्वेंसी 15k-60k Hz होनी चाहिए।",
   "pasteTooltip": "पेस्ट करें",
-  "clearTooltip": "साफ़ करें"
+  "clearTooltip": "साफ़ करें",
+  "irFinderResumeMask": "मास्क: {value}",
+  "irFinderKnownMaskLabel": "ज्ञात कोड मास्क (वैकल्पिक)",
+  "irFinderKnownMaskHint": "00FFXXFF, FFXXFF, या 0xA1XX",
+  "irFinderKnownMaskHelper": "{digits}-अंकीय पेलोड। अज्ञात अंकों के लिए X उपयोग करें; छोड़े गए अंतिम अंक X माने जाएंगे। उदाहरण: {example}",
+  "irFinderKnownMaskInvalidCharacters": "केवल हेक्स अंक, X वाइल्डकार्ड, स्पेस, कोलन, डैश या अंडरस्कोर उपयोग करें।",
+  "irFinderKnownMaskTooLong": "मास्क इस प्रोटोकॉल के {digits}-अंकीय पेलोड से लंबा है।",
+  "irFinderNormalizedMaskValue": "सामान्यीकृत मास्क: {value}",
+  "irFinderNormalizedMask": "सामान्यीकृत मास्क",
+  "irFinderNormalizedMaskAllUnknown": "सभी अंक अज्ञात हैं",
+  "irFinderSearchOrder": "खोज क्रम",
+  "irFinderSmartOrder": "स्मार्ट",
+  "irFinderSequentialOrder": "क्रमिक",
+  "irFinderSmartOrderHint": "प्रोटोकॉल के अनुसार: पहले सामान्य छोटे मान, फिर कमांड और डिवाइस फ़ील्ड में फैलाव, और एन्कोडर द्वारा अनदेखे बिट छोड़ता है।",
+  "irFinderSequentialOrderHint": "संगतता मोड: वाइल्डकार्ड अंकों को बढ़ते हेक्स क्रम में जाँचता है।",
+  "irFinderSmartMeaningfulBits": "स्मार्ट मोड इस मास्क के {bits} सार्थक बिट बदलता है।",
+  "irFinderBruteforceMaskTip": "सुझाव: हर अज्ञात अंक को X से बदलें। कोड में कहीं भी ज्ञात अंक तय करने से खोज बहुत घट सकती है।"
 }

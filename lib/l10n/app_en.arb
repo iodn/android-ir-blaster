@@ -2451,5 +2451,26 @@
   "clearTooltip": "Clear",
   "@clearTooltip": {
     "description": "Tooltip for clear action."
-  }
+  },
+  "irFinderResumeMask": "Mask: {value}",
+  "@irFinderResumeMask": {"placeholders":{"value":{}}},
+  "irFinderKnownMaskLabel": "Known code mask (optional)",
+  "irFinderKnownMaskHint": "00FFXXFF, FFXXFF, or 0xA1XX",
+  "irFinderKnownMaskHelper": "{digits}-digit payload. Use X for unknown digits; omitted trailing digits become X. Example: {example}",
+  "@irFinderKnownMaskHelper": {"placeholders":{"digits":{"type":"int"},"example":{}}},
+  "irFinderKnownMaskInvalidCharacters": "Use only hex digits, X wildcards, spaces, colons, dashes, or underscores.",
+  "irFinderKnownMaskTooLong": "The mask is longer than this protocol's {digits}-digit payload.",
+  "@irFinderKnownMaskTooLong": {"placeholders":{"digits":{"type":"int"}}},
+  "irFinderNormalizedMaskValue": "Normalized mask: {value}",
+  "@irFinderNormalizedMaskValue": {"placeholders":{"value":{}}},
+  "irFinderNormalizedMask": "Normalized mask",
+  "irFinderNormalizedMaskAllUnknown": "All digits unknown",
+  "irFinderSearchOrder": "Search order",
+  "irFinderSmartOrder": "Smart",
+  "irFinderSequentialOrder": "Sequential",
+  "irFinderSmartOrderHint": "Protocol-aware: tests common low values first, then spreads across command and device fields while skipping bits the encoder ignores.",
+  "irFinderSequentialOrderHint": "Compatibility mode: tests wildcard digits in ascending hexadecimal order.",
+  "irFinderSmartMeaningfulBits": "Smart mode varies {bits} meaningful bit(s) for this mask.",
+  "@irFinderSmartMeaningfulBits": {"placeholders":{"bits":{"type":"int"}}},
+  "irFinderBruteforceMaskTip": "Tip: replace every unknown digit with X. Fixing known digits anywhere in the code can reduce the search dramatically."
 }

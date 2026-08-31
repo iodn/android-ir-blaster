@@ -8797,6 +8797,102 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Clear'**
   String get clearTooltip;
+
+  /// No description provided for @irFinderResumeMask.
+  ///
+  /// In en, this message translates to:
+  /// **'Mask: {value}'**
+  String irFinderResumeMask(Object value);
+
+  /// No description provided for @irFinderKnownMaskLabel.
+  ///
+  /// In en, this message translates to:
+  /// **'Known code mask (optional)'**
+  String get irFinderKnownMaskLabel;
+
+  /// No description provided for @irFinderKnownMaskHint.
+  ///
+  /// In en, this message translates to:
+  /// **'00FFXXFF, FFXXFF, or 0xA1XX'**
+  String get irFinderKnownMaskHint;
+
+  /// No description provided for @irFinderKnownMaskHelper.
+  ///
+  /// In en, this message translates to:
+  /// **'{digits}-digit payload. Use X for unknown digits; omitted trailing digits become X. Example: {example}'**
+  String irFinderKnownMaskHelper(int digits, Object example);
+
+  /// No description provided for @irFinderKnownMaskInvalidCharacters.
+  ///
+  /// In en, this message translates to:
+  /// **'Use only hex digits, X wildcards, spaces, colons, dashes, or underscores.'**
+  String get irFinderKnownMaskInvalidCharacters;
+
+  /// No description provided for @irFinderKnownMaskTooLong.
+  ///
+  /// In en, this message translates to:
+  /// **'The mask is longer than this protocol\'s {digits}-digit payload.'**
+  String irFinderKnownMaskTooLong(int digits);
+
+  /// No description provided for @irFinderNormalizedMaskValue.
+  ///
+  /// In en, this message translates to:
+  /// **'Normalized mask: {value}'**
+  String irFinderNormalizedMaskValue(Object value);
+
+  /// No description provided for @irFinderNormalizedMask.
+  ///
+  /// In en, this message translates to:
+  /// **'Normalized mask'**
+  String get irFinderNormalizedMask;
+
+  /// No description provided for @irFinderNormalizedMaskAllUnknown.
+  ///
+  /// In en, this message translates to:
+  /// **'All digits unknown'**
+  String get irFinderNormalizedMaskAllUnknown;
+
+  /// No description provided for @irFinderSearchOrder.
+  ///
+  /// In en, this message translates to:
+  /// **'Search order'**
+  String get irFinderSearchOrder;
+
+  /// No description provided for @irFinderSmartOrder.
+  ///
+  /// In en, this message translates to:
+  /// **'Smart'**
+  String get irFinderSmartOrder;
+
+  /// No description provided for @irFinderSequentialOrder.
+  ///
+  /// In en, this message translates to:
+  /// **'Sequential'**
+  String get irFinderSequentialOrder;
+
+  /// No description provided for @irFinderSmartOrderHint.
+  ///
+  /// In en, this message translates to:
+  /// **'Protocol-aware: tests common low values first, then spreads across command and device fields while skipping bits the encoder ignores.'**
+  String get irFinderSmartOrderHint;
+
+  /// No description provided for @irFinderSequentialOrderHint.
+  ///
+  /// In en, this message translates to:
+  /// **'Compatibility mode: tests wildcard digits in ascending hexadecimal order.'**
+  String get irFinderSequentialOrderHint;
+
+  /// No description provided for @irFinderSmartMeaningfulBits.
+  ///
+  /// In en, this message translates to:
+  /// **'Smart mode varies {bits} meaningful bit(s) for this mask.'**
+  String irFinderSmartMeaningfulBits(int bits);
+
+  /// No description provided for @irFinderBruteforceMaskTip.
+  ///
+  /// In en, this message translates to:
+  /// **'Tip: replace every unknown digit with X. Fixing known digits anywhere in the code can reduce the search dramatically.'**
+  String get irFinderBruteforceMaskTip;
 }
 
 class _AppLocalizationsDelegate

@@ -4876,4 +4876,66 @@ class AppLocalizationsNl extends AppLocalizations {
 
   @override
   String get clearTooltip => 'Wissen';
+
+  @override
+  String irFinderResumeMask(Object value) {
+    return 'Masker: $value';
+  }
+
+  @override
+  String get irFinderKnownMaskLabel => 'Bekend codemasker (optioneel)';
+
+  @override
+  String get irFinderKnownMaskHint => '00FFXXFF, FFXXFF of 0xA1XX';
+
+  @override
+  String irFinderKnownMaskHelper(int digits, Object example) {
+    return 'Payload van $digits cijfers. Gebruik X voor onbekende cijfers; weggelaten eindcijfers worden X. Voorbeeld: $example';
+  }
+
+  @override
+  String get irFinderKnownMaskInvalidCharacters =>
+      'Gebruik alleen hex-cijfers, X-jokers, spaties, dubbele punten, streepjes of underscores.';
+
+  @override
+  String irFinderKnownMaskTooLong(int digits) {
+    return 'Het masker is langer dan de payload van $digits cijfers van dit protocol.';
+  }
+
+  @override
+  String irFinderNormalizedMaskValue(Object value) {
+    return 'Genormaliseerd masker: $value';
+  }
+
+  @override
+  String get irFinderNormalizedMask => 'Genormaliseerd masker';
+
+  @override
+  String get irFinderNormalizedMaskAllUnknown => 'Alle cijfers onbekend';
+
+  @override
+  String get irFinderSearchOrder => 'Zoekvolgorde';
+
+  @override
+  String get irFinderSmartOrder => 'Slim';
+
+  @override
+  String get irFinderSequentialOrder => 'Opeenvolgend';
+
+  @override
+  String get irFinderSmartOrderHint =>
+      'Protocolbewust: test eerst veelvoorkomende lage waarden, spreidt daarna over opdracht- en apparaatvelden en slaat genegeerde bits over.';
+
+  @override
+  String get irFinderSequentialOrderHint =>
+      'Compatibiliteitsmodus: test jokercijfers in oplopende hexadecimale volgorde.';
+
+  @override
+  String irFinderSmartMeaningfulBits(int bits) {
+    return 'De slimme modus varieert $bits betekenisvolle bit(s) voor dit masker.';
+  }
+
+  @override
+  String get irFinderBruteforceMaskTip =>
+      'Tip: vervang elk onbekend cijfer door X. Bekende cijfers op elke positie kunnen de zoekruimte sterk verkleinen.';
 }

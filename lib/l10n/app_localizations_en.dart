@@ -4883,4 +4883,66 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get clearTooltip => 'Clear';
+
+  @override
+  String irFinderResumeMask(Object value) {
+    return 'Mask: $value';
+  }
+
+  @override
+  String get irFinderKnownMaskLabel => 'Known code mask (optional)';
+
+  @override
+  String get irFinderKnownMaskHint => '00FFXXFF, FFXXFF, or 0xA1XX';
+
+  @override
+  String irFinderKnownMaskHelper(int digits, Object example) {
+    return '$digits-digit payload. Use X for unknown digits; omitted trailing digits become X. Example: $example';
+  }
+
+  @override
+  String get irFinderKnownMaskInvalidCharacters =>
+      'Use only hex digits, X wildcards, spaces, colons, dashes, or underscores.';
+
+  @override
+  String irFinderKnownMaskTooLong(int digits) {
+    return 'The mask is longer than this protocol\'s $digits-digit payload.';
+  }
+
+  @override
+  String irFinderNormalizedMaskValue(Object value) {
+    return 'Normalized mask: $value';
+  }
+
+  @override
+  String get irFinderNormalizedMask => 'Normalized mask';
+
+  @override
+  String get irFinderNormalizedMaskAllUnknown => 'All digits unknown';
+
+  @override
+  String get irFinderSearchOrder => 'Search order';
+
+  @override
+  String get irFinderSmartOrder => 'Smart';
+
+  @override
+  String get irFinderSequentialOrder => 'Sequential';
+
+  @override
+  String get irFinderSmartOrderHint =>
+      'Protocol-aware: tests common low values first, then spreads across command and device fields while skipping bits the encoder ignores.';
+
+  @override
+  String get irFinderSequentialOrderHint =>
+      'Compatibility mode: tests wildcard digits in ascending hexadecimal order.';
+
+  @override
+  String irFinderSmartMeaningfulBits(int bits) {
+    return 'Smart mode varies $bits meaningful bit(s) for this mask.';
+  }
+
+  @override
+  String get irFinderBruteforceMaskTip =>
+      'Tip: replace every unknown digit with X. Fixing known digits anywhere in the code can reduce the search dramatically.';
 }

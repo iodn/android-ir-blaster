@@ -16,9 +16,8 @@ class IrPrefixParseResult {
     required this.normalizedHex,
   });
 
-  const IrPrefixParseResult.empty(String raw)
-      : raw = raw,
-        ok = true,
+  const IrPrefixParseResult.empty(this.raw)
+      : ok = true,
         error = null,
         bytes = const <int>[],
         normalizedHex = '';
@@ -67,6 +66,16 @@ class IrPrefix {
 
     if (trimmed.isEmpty) {
       return IrPrefixParseResult.empty(raw);
+    }
+
+    if (RegExp(r'[xX?]').hasMatch(trimmed)) {
+      return IrPrefixParseResult(
+        raw: raw,
+        ok: false,
+        error: 'Wildcards are available only in brute-force mode.',
+        bytes: const <int>[],
+        normalizedHex: '',
+      );
     }
 
     final String cleaned = trimmed

@@ -3,9 +3,12 @@ import 'dart:async';
 import 'package:flutter/foundation.dart';
 import 'package:irblaster_controller/ir_finder/ir_finder_models.dart';
 import 'package:irblaster_controller/ir_finder/ir_finder_prefs.dart';
+import 'package:irblaster_controller/ir_finder/ir_finder_search.dart';
 
-typedef IrFinderCandidateFetcher = Future<IrFinderCandidate?> Function(IrFinderRunController controller);
-typedef IrFinderCandidateSender = Future<void> Function(IrFinderCandidate candidate);
+typedef IrFinderCandidateFetcher = Future<IrFinderCandidate?> Function(
+    IrFinderRunController controller);
+typedef IrFinderCandidateSender = Future<void> Function(
+    IrFinderCandidate candidate);
 
 class IrFinderRunController extends ChangeNotifier {
   final IrFinderCandidateFetcher fetchCandidate;
@@ -23,6 +26,7 @@ class IrFinderRunController extends ChangeNotifier {
 
   int bruteMaxAttempts = 200;
   bool bruteAllCombinations = false;
+  IrFinderSearchStrategy bruteStrategy = IrFinderSearchStrategy.smart;
 
   String prefixRaw = '';
   String kaseikyoVendor = '2002';
@@ -62,6 +66,7 @@ class IrFinderRunController extends ChangeNotifier {
     required int maxKeysToTest,
     required int bruteMaxAttempts,
     required bool bruteAllCombinations,
+    required IrFinderSearchStrategy bruteStrategy,
     required String prefixRaw,
     required String kaseikyoVendor,
     required bool onlySelectedProtocol,
@@ -75,6 +80,7 @@ class IrFinderRunController extends ChangeNotifier {
     this.maxKeysToTest = maxKeysToTest.clamp(1, 2147483647);
     this.bruteMaxAttempts = bruteMaxAttempts.clamp(1, 2147483647);
     this.bruteAllCombinations = bruteAllCombinations;
+    this.bruteStrategy = bruteStrategy;
     this.prefixRaw = prefixRaw;
     this.kaseikyoVendor = kaseikyoVendor.toUpperCase();
     this.onlySelectedProtocol = onlySelectedProtocol;
@@ -97,7 +103,7 @@ class IrFinderRunController extends ChangeNotifier {
     this.bruteCursor = bruteCursor < BigInt.zero ? BigInt.zero : bruteCursor;
     this.startedAt = startedAt;
     this.paused = paused;
-    this.running = true;
+    running = true;
     _cancelTimer();
     _schedulePersist();
     notifyListeners();
@@ -191,7 +197,7 @@ class IrFinderRunController extends ChangeNotifier {
 
   IrFinderSessionSnapshot snapshot() {
     return IrFinderSessionSnapshot(
-      v: 1,
+      v: 2,
       mode: mode,
       protocolId: protocolId,
       brand: brand,
@@ -200,6 +206,7 @@ class IrFinderRunController extends ChangeNotifier {
       maxKeysToTest: maxKeysToTest,
       bruteMaxAttempts: bruteMaxAttempts,
       bruteAllCombinations: bruteAllCombinations,
+      bruteStrategy: bruteStrategy,
       prefixRaw: prefixRaw,
       kaseikyoVendor: kaseikyoVendor,
       onlySelectedProtocol: onlySelectedProtocol,
@@ -273,7 +280,8 @@ class IrFinderRunController extends ChangeNotifier {
           return;
         }
         if (_nullCandidateSkips >= 25) {
-          lastError ??= 'Database candidate missing repeatedly. The DB may have changed; restart recommended.';
+          lastError ??=
+              'Database candidate missing repeatedly. The DB may have changed; restart recommended.';
           await stop(clearPersistedSession: false);
           return;
         }

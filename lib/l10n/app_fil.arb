@@ -2299,5 +2299,21 @@
   "necTimingsNumeric": "Lahat ng NEC timings ay dapat numeric.",
   "frequencyRangeError": "Ang frequency ay dapat 15k-60k Hz.",
   "pasteTooltip": "I-paste",
-  "clearTooltip": "I-clear"
+  "clearTooltip": "I-clear",
+  "irFinderResumeMask": "Mask: {value}",
+  "irFinderKnownMaskLabel": "Kilalang code mask (opsyonal)",
+  "irFinderKnownMaskHint": "00FFXXFF, FFXXFF, o 0xA1XX",
+  "irFinderKnownMaskHelper": "{digits}-digit na payload. Gumamit ng X para sa hindi kilalang digit; ang nilaktawang hulihang digit ay magiging X. Halimbawa: {example}",
+  "irFinderKnownMaskInvalidCharacters": "Hex digit, X wildcard, espasyo, colon, gitling, o underscore lang ang gamitin.",
+  "irFinderKnownMaskTooLong": "Mas mahaba ang mask kaysa sa {digits}-digit na payload ng protocol na ito.",
+  "irFinderNormalizedMaskValue": "Na-normalize na mask: {value}",
+  "irFinderNormalizedMask": "Na-normalize na mask",
+  "irFinderNormalizedMaskAllUnknown": "Hindi kilala ang lahat ng digit",
+  "irFinderSearchOrder": "Ayos ng paghahanap",
+  "irFinderSmartOrder": "Matalino",
+  "irFinderSequentialOrder": "Sunod-sunod",
+  "irFinderSmartOrderHint": "Ayon sa protocol: inuuna ang karaniwang mababang value, saka ikinakalat ang command at device field at nilalaktawan ang hindi ginagamit na bit.",
+  "irFinderSequentialOrderHint": "Compatibility mode: sinusubok ang wildcard digit sa pataas na hexadecimal na ayos.",
+  "irFinderSmartMeaningfulBits": "Binabago ng matalinong mode ang {bits} makabuluhang bit para sa mask na ito.",
+  "irFinderBruteforceMaskTip": "Tip: palitan ng X ang bawat hindi kilalang digit. Malaking napapaliit ng mga kilalang digit sa anumang posisyon ang paghahanap."
 }

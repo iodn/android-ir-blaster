@@ -4809,6 +4809,68 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String get clearTooltip => 'مسح';
+
+  @override
+  String irFinderResumeMask(Object value) {
+    return 'القناع: $value';
+  }
+
+  @override
+  String get irFinderKnownMaskLabel => 'قناع الرمز المعروف (اختياري)';
+
+  @override
+  String get irFinderKnownMaskHint => '00FFXXFF أو FFXXFF أو 0xA1XX';
+
+  @override
+  String irFinderKnownMaskHelper(int digits, Object example) {
+    return 'حمولة من $digits خانات. استخدم X للخانات المجهولة، وتُعامل الخانات النهائية المحذوفة كـ X. مثال: $example';
+  }
+
+  @override
+  String get irFinderKnownMaskInvalidCharacters =>
+      'استخدم أرقام hex وبدائل X والمسافات والنقطتين والشرطات والشرطات السفلية فقط.';
+
+  @override
+  String irFinderKnownMaskTooLong(int digits) {
+    return 'القناع أطول من حمولة هذا البروتوكول المكونة من $digits خانات.';
+  }
+
+  @override
+  String irFinderNormalizedMaskValue(Object value) {
+    return 'القناع الموحّد: $value';
+  }
+
+  @override
+  String get irFinderNormalizedMask => 'القناع الموحّد';
+
+  @override
+  String get irFinderNormalizedMaskAllUnknown => 'كل الخانات مجهولة';
+
+  @override
+  String get irFinderSearchOrder => 'ترتيب البحث';
+
+  @override
+  String get irFinderSmartOrder => 'ذكي';
+
+  @override
+  String get irFinderSequentialOrder => 'تسلسلي';
+
+  @override
+  String get irFinderSmartOrderHint =>
+      'يراعي البروتوكول: يختبر القيم المنخفضة الشائعة أولاً، ثم يوزع البحث على حقول الأوامر والجهاز ويتجاوز البتات التي يتجاهلها المُرمّز.';
+
+  @override
+  String get irFinderSequentialOrderHint =>
+      'وضع التوافق: يختبر خانات البدل بترتيب hex تصاعدي.';
+
+  @override
+  String irFinderSmartMeaningfulBits(int bits) {
+    return 'يغيّر الوضع الذكي $bits بتات ذات معنى لهذا القناع.';
+  }
+
+  @override
+  String get irFinderBruteforceMaskTip =>
+      'نصيحة: استبدل كل خانة مجهولة بـ X. تثبيت الخانات المعروفة في أي موضع يقلل البحث بشكل كبير.';
 }
 
 /// The translations for Arabic, as used in Egypt (`ar_EG`).
@@ -9616,4 +9678,66 @@ class AppLocalizationsArEg extends AppLocalizationsAr {
 
   @override
   String get clearTooltip => 'مسح';
+
+  @override
+  String irFinderResumeMask(Object value) {
+    return 'القناع: $value';
+  }
+
+  @override
+  String get irFinderKnownMaskLabel => 'قناع الرمز المعروف (اختياري)';
+
+  @override
+  String get irFinderKnownMaskHint => '00FFXXFF أو FFXXFF أو 0xA1XX';
+
+  @override
+  String irFinderKnownMaskHelper(int digits, Object example) {
+    return 'حمولة من $digits خانات. استخدم X للخانات المجهولة، وتُعامل الخانات النهائية المحذوفة كـ X. مثال: $example';
+  }
+
+  @override
+  String get irFinderKnownMaskInvalidCharacters =>
+      'استخدم أرقام hex وبدائل X والمسافات والنقطتين والشرطات والشرطات السفلية فقط.';
+
+  @override
+  String irFinderKnownMaskTooLong(int digits) {
+    return 'القناع أطول من حمولة هذا البروتوكول المكونة من $digits خانات.';
+  }
+
+  @override
+  String irFinderNormalizedMaskValue(Object value) {
+    return 'القناع الموحّد: $value';
+  }
+
+  @override
+  String get irFinderNormalizedMask => 'القناع الموحّد';
+
+  @override
+  String get irFinderNormalizedMaskAllUnknown => 'كل الخانات مجهولة';
+
+  @override
+  String get irFinderSearchOrder => 'ترتيب البحث';
+
+  @override
+  String get irFinderSmartOrder => 'ذكي';
+
+  @override
+  String get irFinderSequentialOrder => 'تسلسلي';
+
+  @override
+  String get irFinderSmartOrderHint =>
+      'يراعي البروتوكول: يختبر القيم المنخفضة الشائعة أولاً، ثم يوزع البحث على حقول الأوامر والجهاز ويتجاوز البتات التي يتجاهلها المُرمّز.';
+
+  @override
+  String get irFinderSequentialOrderHint =>
+      'وضع التوافق: يختبر خانات البدل بترتيب hex تصاعدي.';
+
+  @override
+  String irFinderSmartMeaningfulBits(int bits) {
+    return 'يغيّر الوضع الذكي $bits بتات ذات معنى لهذا القناع.';
+  }
+
+  @override
+  String get irFinderBruteforceMaskTip =>
+      'نصيحة: استبدل كل خانة مجهولة بـ X. تثبيت الخانات المعروفة في أي موضع يقلل البحث بشكل كبير.';
 }

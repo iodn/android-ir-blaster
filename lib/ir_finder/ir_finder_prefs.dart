@@ -1,6 +1,7 @@
 import 'dart:convert';
 
 import 'package:irblaster_controller/ir_finder/ir_finder_models.dart';
+import 'package:irblaster_controller/ir_finder/ir_finder_search.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 class IrFinderPrefs {
@@ -49,6 +50,7 @@ class IrFinderSessionSnapshot {
 
   final int bruteMaxAttempts;
   final bool bruteAllCombinations;
+  final IrFinderSearchStrategy bruteStrategy;
 
   final String prefixRaw;
   final String kaseikyoVendor;
@@ -74,6 +76,7 @@ class IrFinderSessionSnapshot {
     required this.maxKeysToTest,
     required this.bruteMaxAttempts,
     required this.bruteAllCombinations,
+    required this.bruteStrategy,
     required this.prefixRaw,
     required this.kaseikyoVendor,
     required this.onlySelectedProtocol,
@@ -85,8 +88,9 @@ class IrFinderSessionSnapshot {
     required this.paused,
   });
 
-  DateTime? get startedAt =>
-      startedAtMs <= 0 ? null : DateTime.fromMillisecondsSinceEpoch(startedAtMs);
+  DateTime? get startedAt => startedAtMs <= 0
+      ? null
+      : DateTime.fromMillisecondsSinceEpoch(startedAtMs);
 
   Map<String, dynamic> toJson() {
     return <String, dynamic>{
@@ -99,6 +103,7 @@ class IrFinderSessionSnapshot {
       'maxKeysToTest': maxKeysToTest,
       'bruteMaxAttempts': bruteMaxAttempts,
       'bruteAllCombinations': bruteAllCombinations,
+      'bruteStrategy': bruteStrategy.name,
       'prefixRaw': prefixRaw,
       'kaseikyoVendor': kaseikyoVendor,
       'onlySelectedProtocol': onlySelectedProtocol,
@@ -112,11 +117,13 @@ class IrFinderSessionSnapshot {
   }
 
   static IrFinderSessionSnapshot fromJson(Map<String, dynamic> j) {
-    final String modeRaw = (j['mode'] as String?)?.trim().toLowerCase() ?? 'bruteforce';
+    final String modeRaw =
+        (j['mode'] as String?)?.trim().toLowerCase() ?? 'bruteforce';
     final IrFinderMode mode =
         modeRaw == 'database' ? IrFinderMode.database : IrFinderMode.bruteforce;
 
-    final String protocolId = (j['protocolId'] as String?)?.trim().toLowerCase() ?? 'nec';
+    final String protocolId =
+        (j['protocolId'] as String?)?.trim().toLowerCase() ?? 'nec';
 
     return IrFinderSessionSnapshot(
       v: (j['v'] as int?) ?? 1,
@@ -126,16 +133,24 @@ class IrFinderSessionSnapshot {
       model: (j['model'] as String?)?.trim(),
       delayMs: ((j['delayMs'] as int?) ?? 500).clamp(250, 20000),
       maxKeysToTest: ((j['maxKeysToTest'] as int?) ?? 200).clamp(1, 2147483647),
-      bruteMaxAttempts: ((j['bruteMaxAttempts'] as int?) ?? 200).clamp(1, 2147483647),
+      bruteMaxAttempts:
+          ((j['bruteMaxAttempts'] as int?) ?? 200).clamp(1, 2147483647),
       bruteAllCombinations: (j['bruteAllCombinations'] as bool?) ?? false,
+      bruteStrategy: j.containsKey('bruteStrategy')
+          ? IrFinderSearchStrategyParsing.fromName(
+              j['bruteStrategy'] as String?,
+            )
+          : IrFinderSearchStrategy.sequential,
       prefixRaw: (j['prefixRaw'] as String?) ?? '',
-      kaseikyoVendor: ((j['kaseikyoVendor'] as String?) ?? '2002').toUpperCase(),
+      kaseikyoVendor:
+          ((j['kaseikyoVendor'] as String?) ?? '2002').toUpperCase(),
       onlySelectedProtocol: (j['onlySelectedProtocol'] as bool?) ?? true,
       quickWinsFirst: (j['quickWinsFirst'] as bool?) ?? true,
       attempted: ((j['attempted'] as int?) ?? 0).clamp(0, 2147483647),
       currentOffset: ((j['currentOffset'] as int?) ?? 0).clamp(0, 2147483647),
       bruteCursorHex: ((j['bruteCursorHex'] as String?) ?? '0').trim(),
-      startedAtMs: ((j['startedAtMs'] as int?) ?? 0).clamp(0, 9223372036854775807),
+      startedAtMs:
+          ((j['startedAtMs'] as int?) ?? 0).clamp(0, 9223372036854775807),
       paused: (j['paused'] as bool?) ?? true,
     );
   }

@@ -2299,5 +2299,21 @@
   "necTimingsNumeric": "모든 NEC 타이밍은 숫자여야 합니다.",
   "frequencyRangeError": "주파수는 15k-60k Hz여야 합니다.",
   "pasteTooltip": "붙여넣기",
-  "clearTooltip": "지우기"
+  "clearTooltip": "지우기",
+  "irFinderResumeMask": "마스크: {value}",
+  "irFinderKnownMaskLabel": "알려진 코드 마스크(선택 사항)",
+  "irFinderKnownMaskHint": "00FFXXFF, FFXXFF 또는 0xA1XX",
+  "irFinderKnownMaskHelper": "{digits}자리 페이로드입니다. 모르는 자리는 X를 사용하며 생략한 뒤쪽 자리도 X가 됩니다. 예: {example}",
+  "irFinderKnownMaskInvalidCharacters": "16진수, X 와일드카드, 공백, 콜론, 하이픈 또는 밑줄만 사용하세요.",
+  "irFinderKnownMaskTooLong": "마스크가 이 프로토콜의 {digits}자리 페이로드보다 깁니다.",
+  "irFinderNormalizedMaskValue": "정규화된 마스크: {value}",
+  "irFinderNormalizedMask": "정규화된 마스크",
+  "irFinderNormalizedMaskAllUnknown": "모든 자리를 알 수 없음",
+  "irFinderSearchOrder": "검색 순서",
+  "irFinderSmartOrder": "스마트",
+  "irFinderSequentialOrder": "순차",
+  "irFinderSmartOrderHint": "프로토콜 인식: 일반적인 작은 값을 먼저 시험한 뒤 명령 및 장치 필드로 분산하며 인코더가 무시하는 비트는 건너뜁니다.",
+  "irFinderSequentialOrderHint": "호환 모드: 와일드카드 자리를 16진수 오름차순으로 시험합니다.",
+  "irFinderSmartMeaningfulBits": "스마트 모드는 이 마스크의 유효한 {bits}비트를 변경합니다.",
+  "irFinderBruteforceMaskTip": "팁: 모르는 자리를 모두 X로 바꾸세요. 코드 어디서든 알려진 자리를 고정하면 검색 범위를 크게 줄일 수 있습니다."
 }

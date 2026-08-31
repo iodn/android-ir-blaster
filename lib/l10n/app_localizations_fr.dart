@@ -4883,4 +4883,67 @@ class AppLocalizationsFr extends AppLocalizations {
 
   @override
   String get clearTooltip => 'Effacer';
+
+  @override
+  String irFinderResumeMask(Object value) {
+    return 'Masque : $value';
+  }
+
+  @override
+  String get irFinderKnownMaskLabel => 'Masque de code connu (facultatif)';
+
+  @override
+  String get irFinderKnownMaskHint => '00FFXXFF, FFXXFF ou 0xA1XX';
+
+  @override
+  String irFinderKnownMaskHelper(int digits, Object example) {
+    return 'Charge de $digits chiffres. Utilisez X pour les chiffres inconnus ; les chiffres finaux omis deviennent X. Exemple : $example';
+  }
+
+  @override
+  String get irFinderKnownMaskInvalidCharacters =>
+      'Utilisez uniquement des chiffres hexadécimaux, des jokers X, des espaces, deux-points, tirets ou traits de soulignement.';
+
+  @override
+  String irFinderKnownMaskTooLong(int digits) {
+    return 'Le masque dépasse la charge de $digits chiffres de ce protocole.';
+  }
+
+  @override
+  String irFinderNormalizedMaskValue(Object value) {
+    return 'Masque normalisé : $value';
+  }
+
+  @override
+  String get irFinderNormalizedMask => 'Masque normalisé';
+
+  @override
+  String get irFinderNormalizedMaskAllUnknown =>
+      'Tous les chiffres sont inconnus';
+
+  @override
+  String get irFinderSearchOrder => 'Ordre de recherche';
+
+  @override
+  String get irFinderSmartOrder => 'Intelligent';
+
+  @override
+  String get irFinderSequentialOrder => 'Séquentiel';
+
+  @override
+  String get irFinderSmartOrderHint =>
+      'Adapté au protocole : teste d’abord les petites valeurs courantes, puis répartit les champs de commande et d’appareil en ignorant les bits inutilisés.';
+
+  @override
+  String get irFinderSequentialOrderHint =>
+      'Mode compatible : teste les jokers dans l’ordre hexadécimal croissant.';
+
+  @override
+  String irFinderSmartMeaningfulBits(int bits) {
+    return 'Le mode intelligent fait varier $bits bit(s) significatif(s) pour ce masque.';
+  }
+
+  @override
+  String get irFinderBruteforceMaskTip =>
+      'Astuce : remplacez chaque chiffre inconnu par X. Fixer des chiffres connus à toute position réduit fortement la recherche.';
 }

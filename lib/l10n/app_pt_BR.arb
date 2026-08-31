@@ -2299,5 +2299,21 @@
   "necTimingsNumeric": "Todos os tempos NEC devem ser numéricos.",
   "frequencyRangeError": "A frequência deve ser 15k-60k Hz.",
   "pasteTooltip": "Colar",
-  "clearTooltip": "Limpar"
+  "clearTooltip": "Limpar",
+  "irFinderResumeMask": "Máscara: {value}",
+  "irFinderKnownMaskLabel": "Máscara de código conhecida (opcional)",
+  "irFinderKnownMaskHint": "00FFXXFF, FFXXFF ou 0xA1XX",
+  "irFinderKnownMaskHelper": "Carga de {digits} dígitos. Use X nos dígitos desconhecidos; os dígitos finais omitidos viram X. Exemplo: {example}",
+  "irFinderKnownMaskInvalidCharacters": "Use somente dígitos hexadecimais, curingas X, espaços, dois-pontos, hífens ou sublinhados.",
+  "irFinderKnownMaskTooLong": "A máscara é maior que a carga de {digits} dígitos deste protocolo.",
+  "irFinderNormalizedMaskValue": "Máscara normalizada: {value}",
+  "irFinderNormalizedMask": "Máscara normalizada",
+  "irFinderNormalizedMaskAllUnknown": "Todos os dígitos são desconhecidos",
+  "irFinderSearchOrder": "Ordem de busca",
+  "irFinderSmartOrder": "Inteligente",
+  "irFinderSequentialOrder": "Sequencial",
+  "irFinderSmartOrderHint": "Conforme o protocolo: testa primeiro valores baixos comuns, depois distribui pelos campos de comando e dispositivo e ignora bits não usados.",
+  "irFinderSequentialOrderHint": "Modo de compatibilidade: testa os curingas em ordem hexadecimal crescente.",
+  "irFinderSmartMeaningfulBits": "O modo inteligente varia {bits} bit(s) significativos para esta máscara.",
+  "irFinderBruteforceMaskTip": "Dica: substitua cada dígito desconhecido por X. Fixar dígitos conhecidos em qualquer posição reduz bastante a busca."
 }

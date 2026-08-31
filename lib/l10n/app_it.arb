@@ -2299,5 +2299,21 @@
   "necTimingsNumeric": "Tutti i timing NEC devono essere numerici.",
   "frequencyRangeError": "La frequenza deve essere 15k-60k Hz.",
   "pasteTooltip": "Incolla",
-  "clearTooltip": "Cancella"
+  "clearTooltip": "Cancella",
+  "irFinderResumeMask": "Maschera: {value}",
+  "irFinderKnownMaskLabel": "Maschera codice nota (facoltativa)",
+  "irFinderKnownMaskHint": "00FFXXFF, FFXXFF o 0xA1XX",
+  "irFinderKnownMaskHelper": "Payload di {digits} cifre. Usa X per le cifre sconosciute; le cifre finali omesse diventano X. Esempio: {example}",
+  "irFinderKnownMaskInvalidCharacters": "Usa solo cifre esadecimali, caratteri jolly X, spazi, due punti, trattini o trattini bassi.",
+  "irFinderKnownMaskTooLong": "La maschera supera il payload di {digits} cifre di questo protocollo.",
+  "irFinderNormalizedMaskValue": "Maschera normalizzata: {value}",
+  "irFinderNormalizedMask": "Maschera normalizzata",
+  "irFinderNormalizedMaskAllUnknown": "Tutte le cifre sono sconosciute",
+  "irFinderSearchOrder": "Ordine di ricerca",
+  "irFinderSmartOrder": "Intelligente",
+  "irFinderSequentialOrder": "Sequenziale",
+  "irFinderSmartOrderHint": "In base al protocollo: prova prima i valori bassi comuni, poi distribuisce i campi comando e dispositivo ignorando i bit non usati.",
+  "irFinderSequentialOrderHint": "Modalità compatibile: prova le cifre jolly in ordine esadecimale crescente.",
+  "irFinderSmartMeaningfulBits": "La modalità intelligente varia {bits} bit significativi per questa maschera.",
+  "irFinderBruteforceMaskTip": "Suggerimento: sostituisci ogni cifra sconosciuta con X. Fissare cifre note in qualsiasi posizione riduce molto la ricerca."
 }

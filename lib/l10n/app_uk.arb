@@ -2299,5 +2299,21 @@
   "necTimingsNumeric": "Усі таймінги NEC мають бути числовими.",
   "frequencyRangeError": "Частота має бути 15k-60k Гц.",
   "pasteTooltip": "Вставити",
-  "clearTooltip": "Очистити"
+  "clearTooltip": "Очистити",
+  "irFinderResumeMask": "Маска: {value}",
+  "irFinderKnownMaskLabel": "Відома маска коду (необов’язково)",
+  "irFinderKnownMaskHint": "00FFXXFF, FFXXFF або 0xA1XX",
+  "irFinderKnownMaskHelper": "Корисне навантаження з {digits} цифр. Використовуйте X для невідомих цифр; пропущені кінцеві цифри стануть X. Приклад: {example}",
+  "irFinderKnownMaskInvalidCharacters": "Використовуйте лише шістнадцяткові цифри, X, пробіли, двокрапки, дефіси або підкреслення.",
+  "irFinderKnownMaskTooLong": "Маска довша за {digits}-значне навантаження цього протоколу.",
+  "irFinderNormalizedMaskValue": "Нормалізована маска: {value}",
+  "irFinderNormalizedMask": "Нормалізована маска",
+  "irFinderNormalizedMaskAllUnknown": "Усі цифри невідомі",
+  "irFinderSearchOrder": "Порядок пошуку",
+  "irFinderSmartOrder": "Розумний",
+  "irFinderSequentialOrder": "Послідовний",
+  "irFinderSmartOrderHint": "З урахуванням протоколу: спочатку перевіряє типові малі значення, потім розподіляє поля команд і пристроїв, пропускаючи невикористані біти.",
+  "irFinderSequentialOrderHint": "Режим сумісності: перевіряє підстановні цифри за зростанням шістнадцяткового значення.",
+  "irFinderSmartMeaningfulBits": "Розумний режим змінює {bits} значущих бітів для цієї маски.",
+  "irFinderBruteforceMaskTip": "Порада: замініть кожну невідому цифру на X. Відомі цифри в будь-якій позиції значно скорочують пошук."
 }

@@ -2299,5 +2299,21 @@
   "necTimingsNumeric": "يجب أن تكون كل توقيتات NEC رقمية.",
   "frequencyRangeError": "يجب أن يكون التردد 15k-60k Hz.",
   "pasteTooltip": "لصق",
-  "clearTooltip": "مسح"
+  "clearTooltip": "مسح",
+  "irFinderResumeMask": "القناع: {value}",
+  "irFinderKnownMaskLabel": "قناع الرمز المعروف (اختياري)",
+  "irFinderKnownMaskHint": "00FFXXFF أو FFXXFF أو 0xA1XX",
+  "irFinderKnownMaskHelper": "حمولة من {digits} خانات. استخدم X للخانات المجهولة، وتُعامل الخانات النهائية المحذوفة كـ X. مثال: {example}",
+  "irFinderKnownMaskInvalidCharacters": "استخدم أرقام hex وبدائل X والمسافات والنقطتين والشرطات والشرطات السفلية فقط.",
+  "irFinderKnownMaskTooLong": "القناع أطول من حمولة هذا البروتوكول المكونة من {digits} خانات.",
+  "irFinderNormalizedMaskValue": "القناع الموحّد: {value}",
+  "irFinderNormalizedMask": "القناع الموحّد",
+  "irFinderNormalizedMaskAllUnknown": "كل الخانات مجهولة",
+  "irFinderSearchOrder": "ترتيب البحث",
+  "irFinderSmartOrder": "ذكي",
+  "irFinderSequentialOrder": "تسلسلي",
+  "irFinderSmartOrderHint": "يراعي البروتوكول: يختبر القيم المنخفضة الشائعة أولاً، ثم يوزع البحث على حقول الأوامر والجهاز ويتجاوز البتات التي يتجاهلها المُرمّز.",
+  "irFinderSequentialOrderHint": "وضع التوافق: يختبر خانات البدل بترتيب hex تصاعدي.",
+  "irFinderSmartMeaningfulBits": "يغيّر الوضع الذكي {bits} بتات ذات معنى لهذا القناع.",
+  "irFinderBruteforceMaskTip": "نصيحة: استبدل كل خانة مجهولة بـ X. تثبيت الخانات المعروفة في أي موضع يقلل البحث بشكل كبير."
 }

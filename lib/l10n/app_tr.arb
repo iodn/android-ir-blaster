@@ -2299,5 +2299,21 @@
   "necTimingsNumeric": "Tüm NEC zamanlamaları sayısal olmalıdır.",
   "frequencyRangeError": "Frekans 15k-60k Hz olmalıdır.",
   "pasteTooltip": "Yapıştır",
-  "clearTooltip": "Temizle"
+  "clearTooltip": "Temizle",
+  "irFinderResumeMask": "Maske: {value}",
+  "irFinderKnownMaskLabel": "Bilinen kod maskesi (isteğe bağlı)",
+  "irFinderKnownMaskHint": "00FFXXFF, FFXXFF veya 0xA1XX",
+  "irFinderKnownMaskHelper": "{digits} basamaklı yük. Bilinmeyen basamaklar için X kullanın; atlanan sondaki basamaklar X olur. Örnek: {example}",
+  "irFinderKnownMaskInvalidCharacters": "Yalnızca onaltılık basamaklar, X jokerleri, boşluk, iki nokta, tire veya alt çizgi kullanın.",
+  "irFinderKnownMaskTooLong": "Maske, bu protokolün {digits} basamaklı yükünden daha uzun.",
+  "irFinderNormalizedMaskValue": "Normalleştirilmiş maske: {value}",
+  "irFinderNormalizedMask": "Normalleştirilmiş maske",
+  "irFinderNormalizedMaskAllUnknown": "Tüm basamaklar bilinmiyor",
+  "irFinderSearchOrder": "Arama sırası",
+  "irFinderSmartOrder": "Akıllı",
+  "irFinderSequentialOrder": "Sıralı",
+  "irFinderSmartOrderHint": "Protokole göre: önce yaygın düşük değerleri dener, ardından komut ve cihaz alanlarına yayılır ve kodlayıcının yok saydığı bitleri atlar.",
+  "irFinderSequentialOrderHint": "Uyumluluk modu: joker basamakları artan onaltılık sırada dener.",
+  "irFinderSmartMeaningfulBits": "Akıllı mod bu maske için {bits} anlamlı biti değiştirir.",
+  "irFinderBruteforceMaskTip": "İpucu: bilinmeyen her basamağı X ile değiştirin. Kodun herhangi bir yerindeki bilinen basamaklar aramayı önemli ölçüde azaltır."
 }

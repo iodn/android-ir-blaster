@@ -2,6 +2,7 @@ import 'dart:math';
 
 import 'package:irblaster_controller/ir/ir_protocol_registry.dart';
 import 'package:irblaster_controller/ir/ir_protocol_types.dart';
+import 'package:irblaster_controller/ir_finder/ir_finder_search.dart';
 
 enum IrFinderMode { bruteforce, database }
 
@@ -164,53 +165,14 @@ class IrFinderBruteSpec {
 
   static IrFinderBruteSpec? forProtocol(String protocolId) {
     final String id = protocolId.trim().toLowerCase();
-    switch (id) {
-      case 'nec':
-      case 'nec2':
-      case 'necx1':
-      case 'necx2':
-        return const IrFinderBruteSpec(
-          protocolId: 'nec',
-          totalHexDigits: 8,
-          displayName: 'NEC (32-bit)',
-        );
-      case 'rc5':
-        return const IrFinderBruteSpec(
-          protocolId: 'rc5',
-          totalHexDigits: 3,
-          displayName: 'RC5',
-        );
-      case 'rc6':
-        return const IrFinderBruteSpec(
-          protocolId: 'rc6',
-          totalHexDigits: 4,
-          displayName: 'RC6',
-        );
-      case 'nrc17':
-        return const IrFinderBruteSpec(
-          protocolId: 'nrc17',
-          totalHexDigits: 4,
-          displayName: 'Nokia NRC17',
-        );
-      case 'kaseikyo':
-        return const IrFinderBruteSpec(
-          protocolId: 'kaseikyo',
-          totalHexDigits: 6, // use command+address as 3 bytes
-          displayName: 'Kaseikyo (Panasonic)',
-        );
-      case 'xsat':
-        return const IrFinderBruteSpec(
-          protocolId: 'xsat',
-          totalHexDigits: 4,
-          displayName: 'XSAT (Mitsubishi)',
-        );
-      default:
-        return IrFinderBruteSpec(
-          protocolId: id,
-          totalHexDigits: 8,
-          displayName: id.toUpperCase(),
-        );
-    }
+    final IrFinderProtocolSearchProfile? profile =
+        IrFinderSearchProfiles.forProtocol(id);
+    if (profile == null) return null;
+    return IrFinderBruteSpec(
+      protocolId: id,
+      totalHexDigits: profile.totalHexDigits,
+      displayName: IrProtocolRegistry.displayName(id),
+    );
   }
 
   /// Legacy helper (kept permissive).
