@@ -1979,6 +1979,28 @@ IRButton? _buildProtocolButtonFromLircCode({
   if (protocolId == null) return null;
 
   if (protocolId == 'rc5') {
+    if (codeBits == 13) {
+      final int frame = value.toInt();
+      final int field = (frame >> 12) & 1;
+      final int address = (frame >> 6) & 0x1F;
+      final int command = (frame & 0x3F) | (field == 0 ? 0x40 : 0);
+      return IRButton(
+        id: id,
+        code: null,
+        rawData: null,
+        frequency: frequency,
+        image: label,
+        isImage: false,
+        protocol: 'rc5',
+        protocolParams: <String, dynamic>{
+          'address':
+              address.toRadixString(16).padLeft(2, '0').toUpperCase(),
+          'command':
+              command.toRadixString(16).padLeft(2, '0').toUpperCase(),
+        },
+      );
+    }
+
     final String hex = _lircRc5PayloadHex(value: value, codeBits: codeBits);
     return IRButton(
       id: id,

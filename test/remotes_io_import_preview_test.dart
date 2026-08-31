@@ -355,6 +355,35 @@ data: 9000 4500 560 560
     }
   });
 
+  test('LIRC RC5 imports its field bit as the seventh command bit', () {
+    const input = '''
+begin remote
+  name Extended_RC5
+  bits 13
+  flags RC5|CONST_LENGTH
+  one 889 889
+  zero 889 889
+  gap 114000
+  begin codes
+    KEY_EXTENDED 0x0140
+  end codes
+end remote
+''';
+    final preview = analyzeImportedText(
+      input,
+      filename: 'extended.lircd.conf',
+      fallbackRemoteName: fallbackRemoteName,
+      fallbackButtonLabel: fallbackButtonLabel,
+    );
+
+    final button = preview.remotes.single.buttons.single;
+    expect(button.protocol, 'rc5');
+    expect(button.protocolParams, <String, dynamic>{
+      'address': '05',
+      'command': '40',
+    });
+  });
+
   test('preview rejects config-like files that are not valid LIRC remotes', () {
     final preview = analyzeImportedText(
       'not a real config',
