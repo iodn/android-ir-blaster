@@ -5,9 +5,8 @@ const IrProtocolDefinition sharpProtocolDefinition = IrProtocolDefinition(
   displayName: 'Sharp',
   description:
       'Sharp: 38 kHz. Input hex length=4 packed as address(5 bits) + command(8 bits). '
-      'Address and command are sent LSB-first. The second 13-bit message repeats the '
-      'same address and inverts the command bits. Tail blocks encode the documented '
-      'expansion/check bits and frame gap.',
+      'Address and command are sent LSB-first in normal, inverted-command, and normal '
+      'frames. Tail blocks encode the documented expansion/check bits and frame gap.',
   implemented: true,
   defaultFrequencyHz: 38000,
   fields: <IrFieldDef>[
@@ -76,6 +75,8 @@ class SharpProtocolEncoder implements IrProtocolEncoder {
     out.addAll(d);
     _appendSharpBits(out, second13);
     out.addAll(e);
+    _appendSharpBits(out, first13);
+    out.addAll(d);
 
     return IrEncodeResult(frequencyHz: defaultFrequencyHz, pattern: out);
   }
