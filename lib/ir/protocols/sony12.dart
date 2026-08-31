@@ -5,6 +5,7 @@ const IrProtocolDefinition sony12ProtocolDefinition = IrProtocolDefinition(
   displayName: 'SONY12',
   description:
       'Sony SIRC 12-bit.\n'
+      'The complete packed frame is 3 hex digits.\n'
       'Packed as cmd(7 LSB) + addr(5) << 7. Bit order: LSB-first.\n'
       'Timings: 2400/600 header, 0=600/600, 1=1200/600.\n'
       'Frame padded to 45000us.',
@@ -18,7 +19,7 @@ const IrProtocolDefinition sony12ProtocolDefinition = IrProtocolDefinition(
       required: true,
       maxLength: 2,
       hint: 'e.g., 1A',
-      helperText: 'Address, only low 5 bits used.',
+      helperText: 'Address portion (00-1F) of the packed 12-bit code.',
       maxLines: 1,
     ),
     IrFieldDef(
@@ -28,7 +29,7 @@ const IrProtocolDefinition sony12ProtocolDefinition = IrProtocolDefinition(
       required: true,
       maxLength: 2,
       hint: 'e.g., 15',
-      helperText: 'Command, only low 7 bits used.',
+      helperText: 'Command portion (00-7F), not the full 3-digit code.',
       maxLines: 1,
     ),
   ],

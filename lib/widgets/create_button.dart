@@ -2936,6 +2936,17 @@ class _CreateButtonState extends State<CreateButton> {
           ),
           const SizedBox(height: 12),
         ],
+        if (_selectedProtocolId == IrProtocolIds.sony12) ...[
+          SizedBox(
+            width: double.infinity,
+            child: OutlinedButton.icon(
+              onPressed: _enterPackedSony12Code,
+              icon: const Icon(Icons.input_rounded),
+              label: Text(context.l10n.editButtonCodeTitle),
+            ),
+          ),
+          const SizedBox(height: 12),
+        ],
         if (def != null) ...[
           for (final field in def.fields) ...[
             _buildProtocolField(field),
@@ -2944,6 +2955,79 @@ class _CreateButtonState extends State<CreateButton> {
         ],
       ],
     );
+  }
+
+  Future<void> _enterPackedSony12Code() async {
+    final address = int.tryParse(
+      _protoControllers['address']?.text.trim() ?? '',
+      radix: 16,
+    );
+    final command = int.tryParse(
+      _protoControllers['command']?.text.trim() ?? '',
+      radix: 16,
+    );
+    final initialCode = address == null || command == null
+        ? ''
+        : (((address & 0x1F) << 7) | (command & 0x7F))
+            .toRadixString(16)
+            .toUpperCase()
+            .padLeft(3, '0');
+    final controller = TextEditingController(text: initialCode);
+    final formKey = GlobalKey<FormState>();
+
+    final packedCode = await showDialog<String>(
+      context: context,
+      builder: (dialogContext) => AlertDialog(
+        title: Text(context.l10n.editButtonCodeTitle),
+        content: Form(
+          key: formKey,
+          child: TextFormField(
+            controller: controller,
+            autofocus: true,
+            maxLength: 3,
+            textCapitalization: TextCapitalization.characters,
+            inputFormatters: <TextInputFormatter>[
+              FilteringTextInputFormatter.allow(RegExp(r'[0-9a-fA-F]')),
+            ],
+            decoration: const InputDecoration(
+              labelText: 'SONY12',
+              hintText: 'A90',
+            ),
+            validator: (value) {
+              final text = value?.trim() ?? '';
+              final parsed = int.tryParse(text, radix: 16);
+              if (text.isEmpty || parsed == null || parsed > 0xFFF) {
+                return context.l10n.invalidCodeForProtocol('SONY12');
+              }
+              return null;
+            },
+            onFieldSubmitted: (_) {
+              if (formKey.currentState?.validate() ?? false) {
+                Navigator.pop(dialogContext, controller.text.trim());
+              }
+            },
+          ),
+        ),
+        actions: [
+          TextButton(
+            onPressed: () => Navigator.pop(dialogContext),
+            child: Text(context.l10n.cancel),
+          ),
+          FilledButton(
+            onPressed: () {
+              if (formKey.currentState?.validate() ?? false) {
+                Navigator.pop(dialogContext, controller.text.trim());
+              }
+            },
+            child: Text(context.l10n.saveAction),
+          ),
+        ],
+      ),
+    );
+    controller.dispose();
+
+    if (!mounted || packedCode == null) return;
+    setState(() => _fillProtocolFieldsFromDbHex(packedCode));
   }
 
   Widget _buildProtocolField(IrFieldDef field) {
