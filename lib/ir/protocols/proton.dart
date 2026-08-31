@@ -3,9 +3,8 @@ import '../ir_protocol_types.dart';
 const IrProtocolDefinition protonProtocolDefinition = IrProtocolDefinition(
   id: 'proton',
   displayName: 'Proton',
-  description:
-      'Proton: 4-hex-digit code (16 bits). Carrier 38.5kHz. '
-      'Header 8000/4000; sends last 8 bits, separator 500/8000, then first 8 bits. '
+  description: 'Proton: 4-hex-digit code (16 bits). Carrier 38.5kHz. '
+      'Header 8000/4000; sends last 8 bits, separator 500/4000, then first 8 bits. '
       'Frame padded to 63000us.',
   implemented: true,
   defaultFrequencyHz: 38500,
@@ -41,7 +40,7 @@ class ProtonProtocolEncoder implements IrProtocolEncoder {
   static const int bitMark = 0x1F4; // 500
   static const int zeroSpace = 0x1F4; // 500
   static const int oneSpace = 0x5DC; // 1500
-  static const int sepSpace = 0x1F40; // 8000
+  static const int sepSpace = 0x0FA0; // 4000
   static const int frameTargetUs = 0xF618; // 63000
 
   @override
