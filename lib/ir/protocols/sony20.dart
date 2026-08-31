@@ -56,8 +56,10 @@ class Sony20ProtocolEncoder implements IrProtocolEncoder {
 
   @override
   IrEncodeResult encode(Map<String, dynamic> params) {
-    final int addr = _readHexInt(params['address'], name: 'SONY20 address') & 0x1FFF;
-    final int cmd = _readHexInt(params['command'], name: 'SONY20 command') & 0x7F;
+    final int addr =
+        _readHexInt(params['address'], name: 'SONY20 address', max: 0x1FFF);
+    final int cmd =
+        _readHexInt(params['command'], name: 'SONY20 command', max: 0x7F);
 
     final int data = (cmd & 0x7F) | ((addr & 0x1FFF) << 7);
     const int bits = 20;
@@ -92,11 +94,13 @@ class Sony20ProtocolEncoder implements IrProtocolEncoder {
   }
 }
 
-int _readHexInt(dynamic v, {required String name}) {
+int _readHexInt(dynamic v, {required String name, required int max}) {
   if (v is! String) throw ArgumentError('$name must be a hex string');
   final String s = v.trim();
   if (s.isEmpty || s.length > 8) throw ArgumentError('$name invalid hex');
-  return int.parse(s, radix: 16);
+  final int value = int.parse(s, radix: 16);
+  if (value > max) throw ArgumentError('$name out of range');
+  return value;
 }
 
 int _sum(List<int> xs) {

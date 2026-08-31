@@ -1,5 +1,7 @@
 import 'package:flutter_test/flutter_test.dart';
 import 'package:irblaster_controller/ir/protocols/sony12.dart';
+import 'package:irblaster_controller/ir/protocols/sony15.dart';
+import 'package:irblaster_controller/ir/protocols/sony20.dart';
 
 void main() {
   test('Sony12 packs a 7-bit command and 5-bit address into 12 LSB-first bits',
@@ -38,5 +40,29 @@ void main() {
     expect(command.maxLength, 2);
     expect(address.label, contains('5-bit'));
     expect(command.label, contains('7-bit'));
+  });
+
+  test('Sony encoders reject values wider than their protocol fields', () {
+    expect(
+      () => const Sony12ProtocolEncoder().encode(<String, dynamic>{
+        'address': '20',
+        'command': '00',
+      }),
+      throwsArgumentError,
+    );
+    expect(
+      () => const Sony15ProtocolEncoder().encode(<String, dynamic>{
+        'address': '00',
+        'command': '80',
+      }),
+      throwsArgumentError,
+    );
+    expect(
+      () => const Sony20ProtocolEncoder().encode(<String, dynamic>{
+        'address': '2000',
+        'command': '00',
+      }),
+      throwsArgumentError,
+    );
   });
 }
