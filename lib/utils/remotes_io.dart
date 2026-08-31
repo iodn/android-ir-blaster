@@ -889,7 +889,8 @@ List<Remote> _parseSupportedFileToRemotes(
       extLower == 'irplus' ||
       nameLower.endsWith('.xml') ||
       nameLower.endsWith('.irplus');
-  final bool isConfLike = extLower == 'conf' ||
+  final bool isConfLike =
+      extLower == 'conf' ||
       extLower == 'cfg' ||
       extLower == 'lirc' ||
       extLower == 'lrc';
@@ -967,7 +968,8 @@ String _sanitizeRemoteNameFromFilename(String filename,
   );
 
   base = base.replaceAll(
-    RegExp(r'\.(json|ir|xml|irplus|conf|cfg|lirc|lrc)$', caseSensitive: false),
+    RegExp(r'\.(json|ir|xml|irplus|conf|cfg|lirc|lrc)$',
+        caseSensitive: false),
     '',
   );
 

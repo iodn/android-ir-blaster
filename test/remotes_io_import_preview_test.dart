@@ -93,8 +93,7 @@ end remote
     }
   }
 
-  test('preview parser accepts Flipper IR files and builds a usable remote',
-      () {
+  test('preview parser accepts Flipper IR files and builds a usable remote', () {
     final preview = analyzeImportedText(
       flipperIr,
       filename: 'tv.ir',
