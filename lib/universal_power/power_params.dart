@@ -13,7 +13,7 @@ const Map<String, String> _protocolExampleHex = <String, String>{
   'nrc17': '5C61',
   'pioneer': '1A2B',
   'proton': '0000',
-  'rc5': '0000',
+  'rc5': '800',
   'rc6': '800F',
   'rca_38': 'F00',
   'rcc0082': '000',
@@ -104,12 +104,12 @@ Map<String, dynamic> buildParamsForProtocol({
   }
 
   if (pid == 'rc5') {
-    if (fitted.length != 4) {
-      throw ArgumentError('RC5 code must be 4 hex digits');
-    }
+    final int data = int.parse(fitted, radix: 16) & 0xFFF;
+    final int command = (data & 0x3F) | (((data >> 11) & 1) == 0 ? 0x40 : 0);
     return <String, dynamic>{
-      'address': fitted.substring(0, 2),
-      'command': fitted.substring(2, 4),
+      'address':
+          ((data >> 6) & 0x1F).toRadixString(16).toUpperCase().padLeft(2, '0'),
+      'command': command.toRadixString(16).toUpperCase().padLeft(2, '0'),
     };
   }
 
