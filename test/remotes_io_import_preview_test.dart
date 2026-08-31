@@ -363,6 +363,27 @@ data: 9000 4500 560 560
     expect(previewIRButton(button).frequencyHz, 36000);
   });
 
+  test('IRPlus RC6 imports a complete 21-bit mode 0 frame', () {
+    const input = '''
+<irplus>
+  <device format="WINLIRC_RC6" bits="21" frequency="36000">
+    <button label="Power">0xEFBF3</button>
+  </device>
+</irplus>
+''';
+    final preview = analyzeImportedText(
+      input,
+      filename: 'full-rc6.xml',
+      fallbackRemoteName: fallbackRemoteName,
+      fallbackButtonLabel: fallbackButtonLabel,
+    );
+
+    final button = preview.remotes.single.buttons.single;
+    expect(button.protocol, 'rc6');
+    expect(button.protocolParams, <String, dynamic>{'hex': 'FBF3'});
+    expect(previewIRButton(button).frequencyHz, 36000);
+  });
+
   test('preview parser accepts JSON backups and builds usable remotes', () {
     final preview = analyzeImportedText(
       jsonBackup,

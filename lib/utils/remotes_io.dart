@@ -1566,6 +1566,25 @@ Remote? _parseIrplusXml(
         continue;
       }
 
+      if (protoFromFormat == 'rc6' && singleHexMatch != null) {
+        final int? frameBits =
+            int.tryParse((device.getAttribute('bits') ?? '').trim());
+        if (frameBits == 21) {
+          final IRButton? mapped = _buildProtocolButtonFromLircCode(
+            id: uuid.v4(),
+            label: label,
+            frequency: int.tryParse(
+                    (device.getAttribute('frequency') ?? '').trim()) ??
+                36000,
+            protocolId: 'rc6',
+            value: BigInt.parse(singleHexMatch.group(1)!, radix: 16),
+            codeBits: frameBits,
+          );
+          if (mapped != null) buttons.add(mapped);
+        }
+        continue;
+      }
+
       final pairMatch =
           RegExp(r'^0x([0-9A-Fa-f]+)\s+0x([0-9A-Fa-f]+)$').firstMatch(payload);
       if (pairMatch != null) {
