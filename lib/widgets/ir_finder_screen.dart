@@ -683,10 +683,6 @@ class _IrFinderScreenState extends State<IrFinderScreen>
     return out.toString().toUpperCase();
   }
 
-  static String _bytesToSpacedHex(List<String> bytes2) {
-    return bytes2.map((e) => e.toUpperCase()).join(' ');
-  }
-
   String _fitHexDigitsForProtocol(String protocolId, String codeHexAny) {
     final String pid = protocolId.trim().toLowerCase();
     final int want = _totalHexDigitsForProtocol(pid);
@@ -700,174 +696,17 @@ class _IrFinderScreenState extends State<IrFinderScreen>
     return s;
   }
 
-  static Map<String, dynamic> _buildKaseikyoParams({
-    required String codeHexAny,
-    required String vendorAny,
-  }) {
-    final String vendor =
-        _normalizeHexDigitsOnlyUpper(vendorAny).padLeft(4, '0');
-    if (!RegExp(r'^[0-9A-F]{4}$').hasMatch(vendor)) {
-      throw ArgumentError('Kaseikyo vendor must be 4 hex digits');
-    }
-
-    final String vMsb = vendor.substring(0, 2);
-    final String vLsb = vendor.substring(2, 4);
-
-    final String code = _normalizeHexDigitsOnlyUpper(codeHexAny);
-
-    if (code.length == 16) {
-      final List<String> addr = <String>[
-        code.substring(0, 2),
-        code.substring(2, 4),
-        code.substring(4, 6),
-        code.substring(6, 8),
-      ];
-      final List<String> cmd = <String>[
-        code.substring(8, 10),
-        code.substring(10, 12),
-        code.substring(12, 14),
-        code.substring(14, 16),
-      ];
-      return <String, dynamic>{
-        'address': _bytesToSpacedHex(addr),
-        'command': _bytesToSpacedHex(cmd),
-      };
-    }
-
-    if (code.length == 8) {
-      final String b0 = code.substring(0, 2);
-      final String cmd0 = code.substring(2, 4);
-      final String cmd1 = code.substring(4, 6);
-      final String idByte = code.substring(6, 8);
-      final String addr = _bytesToSpacedHex(<String>[b0, vLsb, vMsb, idByte]);
-      final String cmd = _bytesToSpacedHex(<String>[cmd0, cmd1, '00', '00']);
-      return <String, dynamic>{
-        'address': addr,
-        'command': cmd,
-      };
-    }
-
-    if (code.length == 6) {
-      final String b0 = code.substring(0, 2);
-      final String cmd0 = code.substring(2, 4);
-      final String cmd1 = code.substring(4, 6);
-      final String addr = _bytesToSpacedHex(<String>[b0, vLsb, vMsb, '00']);
-      final String cmd = _bytesToSpacedHex(<String>[cmd0, cmd1, '00', '00']);
-      return <String, dynamic>{
-        'address': addr,
-        'command': cmd,
-      };
-    }
-
-    throw ArgumentError('Kaseikyo brute code must be 6, 8, or 16 hex digits');
-  }
-
   Map<String, dynamic> _buildParamsForProtocol({
     required String protocolId,
     required String codeHex,
   }) {
     final String pid = protocolId.trim().toLowerCase();
     final String fitted = _fitHexDigitsForProtocol(pid, codeHex);
-
-    if (pid == 'kaseikyo') {
-      return _buildKaseikyoParams(
-          codeHexAny: fitted, vendorAny: _kaseikyoVendor);
-    }
-
-    if (pid == 'pioneer') {
-      if (fitted.length != 4) {
-        throw ArgumentError('Pioneer brute code must be 4 hex digits');
-      }
-      return <String, dynamic>{
-        'address': fitted.substring(0, 2),
-        'command': fitted.substring(2, 4),
-      };
-    }
-
-    if (pid == 'rca_38') {
-      if (fitted.length != 3) {
-        throw ArgumentError('RCA brute code must be 3 hex digits');
-      }
-      return <String, dynamic>{
-        'address': fitted.substring(0, 1),
-        'command': fitted.substring(1, 3),
-      };
-    }
-
-    if (pid == 'rc5') {
-      if (fitted.length != 4) {
-        throw ArgumentError('RC5 brute code must be 4 hex digits');
-      }
-      return <String, dynamic>{
-        'address': fitted.substring(0, 2),
-        'command': fitted.substring(2, 4),
-      };
-    }
-
-    if (pid == 'thomson7') {
-      try {
-        final def = _definitionFor(pid);
-        if (def.fields.isNotEmpty) {
-          final f = def.fields.first;
-          if (f.type == IrFieldType.intDecimal) {
-            return <String, dynamic>{
-              f.id: int.parse(fitted.isEmpty ? '0' : fitted, radix: 16),
-            };
-          }
-          if (f.type == IrFieldType.string) {
-            return <String, dynamic>{f.id: fitted};
-          }
-        }
-      } catch (_) {}
-      return <String, dynamic>{
-        'code': int.parse(fitted.isEmpty ? '0' : fitted, radix: 16),
-      };
-    }
-
-    if (pid == 'xsat') {
-      if (fitted.length != 4) {
-        throw ArgumentError('XSAT brute code must be 4 hex digits');
-      }
-      return <String, dynamic>{
-        'address': fitted.substring(0, 2),
-        'command': fitted.substring(2, 4),
-      };
-    }
-
-    try {
-      final def = _definitionFor(pid);
-      if (def.fields.isEmpty) {
-        return <String, dynamic>{'hex': fitted};
-      }
-
-      if (def.fields.length == 1) {
-        final f = def.fields.first;
-        if (f.type == IrFieldType.intDecimal) {
-          return <String, dynamic>{
-            f.id: int.parse(fitted.isEmpty ? '0' : fitted, radix: 16),
-          };
-        }
-        return <String, dynamic>{f.id: fitted};
-      }
-
-      final Map<String, IrFieldDef> byId = <String, IrFieldDef>{
-        for (final f in def.fields) f.id: f,
-      };
-
-      if (byId.containsKey('address') && byId.containsKey('command')) {
-        final int digits = fitted.length;
-        if (digits >= 4) {
-          return <String, dynamic>{
-            'address': fitted.substring(0, 2),
-            'command': fitted.substring(2, 4),
-          };
-        }
-      }
-
-      return <String, dynamic>{def.fields.first.id: fitted};
-    } catch (_) {
-      return <String, dynamic>{'hex': fitted};
-    }
+    return IrFinderParams.buildParamsForProtocol(
+      pid,
+      fitted,
+      kaseikyoVendor: _kaseikyoVendor,
+    );
   }
 
   bool _isValidKaseikyoVendor() {

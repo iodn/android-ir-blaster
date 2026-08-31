@@ -277,71 +277,115 @@ class IrFinderParams {
   static String _cleanHex(String s) =>
       s.replaceAll(RegExp(r'[^0-9a-fA-F]'), '').toUpperCase();
 
-  static String _pickPrimaryFieldId(IrProtocolDefinition def) {
-    final fields = def.fields;
-
-    String? findById(Set<String> ids) {
-      for (final f in fields) {
-        final id = f.id.trim().toLowerCase();
-        if (ids.contains(id)) return f.id;
-      }
-      return null;
-    }
-
-    final String? direct = findById(<String>{
-      'hex',
-      'code',
-      'hexcode',
-      'data',
-      'value',
-      'command',
-      'payload',
-    });
-    if (direct != null) return direct;
-
-    for (final f in fields) {
-      if (f.type == IrFieldType.string) return f.id;
-    }
-
-    if (fields.isNotEmpty) return fields.first.id;
-
-    return 'hex';
-  }
-
   static Map<String, dynamic> buildParamsForProtocol(
     String protocolId,
-    String codeHex,
-    {String? kaseikyoVendor}
-  ) {
+    String codeHex, {
+    String? kaseikyoVendor,
+  }) {
     final id = protocolId.trim().toLowerCase();
     final String cleaned = _cleanHex(codeHex).toUpperCase();
+    if (cleaned.isEmpty) {
+      throw ArgumentError('$protocolId code must contain hexadecimal digits');
+    }
 
-    // Special handling for structured protocols that are not single-field hex
     if (id == 'kaseikyo') {
-      // Finder uses 6 hex (24 bits): AAA (address12) + CC (command8) + V (vendor nibble, ignored)
-      final String six = cleaned.padLeft(6, '0').substring(cleaned.length > 6 ? cleaned.length - 6 : 0);
-      final String addr = six.substring(0, 3);
-      final String cmd = six.substring(3, 5);
-      // Vendor selection comes from Finder (default Panasonic 2002)
-      final String vendor = (kaseikyoVendor != null && kaseikyoVendor.trim().isNotEmpty)
-          ? kaseikyoVendor.trim().toUpperCase()
-          : '2002';
+      return _buildKaseikyoParams(cleaned, kaseikyoVendor ?? '2002');
+    }
+
+    if (id == 'sony12' || id == 'sony15' || id == 'sony20') {
+      final int bits = id == 'sony12' ? 12 : (id == 'sony15' ? 15 : 20);
+      final int addressBits = id == 'sony12' ? 5 : (id == 'sony15' ? 8 : 13);
+      final int data = int.parse(cleaned, radix: 16) & ((1 << bits) - 1);
+      final int command = data & 0x7F;
+      final int address = (data >> 7) & ((1 << addressBits) - 1);
       return <String, dynamic>{
-        'protocolId': 'kaseikyo',
-        'vendor': vendor,
-        'address': addr,
-        'command': cmd,
+        'address': address
+            .toRadixString(16)
+            .toUpperCase()
+            .padLeft((addressBits + 3) ~/ 4, '0'),
+        'command': command.toRadixString(16).toUpperCase().padLeft(2, '0'),
+      };
+    }
+
+    if (id == 'rca_38') {
+      final String code = cleaned.padLeft(3, '0');
+      return <String, dynamic>{
+        'address': code.substring(code.length - 3, code.length - 2),
+        'command': code.substring(code.length - 2),
+      };
+    }
+
+    if (id == 'pioneer' || id == 'rc5' || id == 'samsung32' || id == 'xsat') {
+      final String code = cleaned.padLeft(4, '0');
+      return <String, dynamic>{
+        'address': code.substring(code.length - 4, code.length - 2),
+        'command': code.substring(code.length - 2),
       };
     }
 
     final enc = IrProtocolRegistry.encoderFor(protocolId);
     final def = enc.definition;
+    if (def.fields.length != 1) {
+      throw ArgumentError(
+          '$protocolId does not have a supported tester layout');
+    }
 
-    final String key = _pickPrimaryFieldId(def);
+    final field = def.fields.single;
+    if (field.type == IrFieldType.intDecimal ||
+        field.type == IrFieldType.intHex) {
+      return <String, dynamic>{field.id: int.parse(cleaned, radix: 16)};
+    }
 
-    return <String, dynamic>{
-      'protocolId': protocolId,
-      key: cleaned,
-    };
+    return <String, dynamic>{field.id: cleaned};
+  }
+
+  static Map<String, dynamic> _buildKaseikyoParams(
+    String cleaned,
+    String vendorInput,
+  ) {
+    final String vendor = _cleanHex(vendorInput).padLeft(4, '0');
+    if (vendor.length != 4) {
+      throw ArgumentError('Kaseikyo vendor must be 4 hex digits');
+    }
+    final String vendorMsb = vendor.substring(0, 2);
+    final String vendorLsb = vendor.substring(2, 4);
+
+    String spaced(Iterable<String> bytes) => bytes.join(' ');
+
+    if (cleaned.length == 16) {
+      return <String, dynamic>{
+        'address': spaced(<String>[
+          cleaned.substring(0, 2),
+          cleaned.substring(2, 4),
+          cleaned.substring(4, 6),
+          cleaned.substring(6, 8),
+        ]),
+        'command': spaced(<String>[
+          cleaned.substring(8, 10),
+          cleaned.substring(10, 12),
+          cleaned.substring(12, 14),
+          cleaned.substring(14, 16),
+        ]),
+      };
+    }
+
+    if (cleaned.length == 8 || cleaned.length == 6) {
+      return <String, dynamic>{
+        'address': spaced(<String>[
+          cleaned.substring(0, 2),
+          vendorLsb,
+          vendorMsb,
+          cleaned.length == 8 ? cleaned.substring(6, 8) : '00',
+        ]),
+        'command': spaced(<String>[
+          cleaned.substring(2, 4),
+          cleaned.substring(4, 6),
+          '00',
+          '00',
+        ]),
+      };
+    }
+
+    throw ArgumentError('Kaseikyo tester code must be 6, 8, or 16 hex digits');
   }
 }
