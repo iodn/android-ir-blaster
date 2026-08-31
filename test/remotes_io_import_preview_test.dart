@@ -247,6 +247,36 @@ command: 55 55 00 00
     expect(signal.pattern.reduce((a, b) => a + b), 110000);
   });
 
+  test('unsupported parsed Flipper protocols are not fabricated as NEC', () {
+    const input = '''
+Filetype: IR signals file
+Version: 1
+#
+name: Unsupported
+type: parsed
+protocol: UnknownProtocol
+address: 12 34 00 00
+command: 56 78 00 00
+#
+name: Learned
+type: raw
+frequency: 38000
+duty_cycle: 0.330000
+data: 9000 4500 560 560
+''';
+    final preview = analyzeImportedText(
+      input,
+      filename: 'mixed.ir',
+      fallbackRemoteName: fallbackRemoteName,
+      fallbackButtonLabel: fallbackButtonLabel,
+    );
+
+    expect(preview.isSupported, isTrue);
+    expect(preview.remotes.single.buttons, hasLength(1));
+    expect(preview.remotes.single.buttons.single.image, 'Learned');
+    expect(preview.remotes.single.buttons.single.rawData, '9000 4500 560 560');
+  });
+
   test('preview parser accepts IRPlus XML variants and builds a usable remote',
       () {
     for (final filename in ['tv.xml', 'tv.irplus']) {

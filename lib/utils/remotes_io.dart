@@ -1311,22 +1311,7 @@ Remote? _parseFlipperIrFile(
           ),
         );
       } else {
-        final String hexCode = _convertToLircHex(
-          addressMatch,
-          commandMatch,
-          completeNecInverses: true,
-        );
-
-        buttons.add(
-          IRButton(
-            id: uuid.v4(),
-            code: int.parse(hexCode, radix: 16),
-            rawData: null,
-            frequency: null,
-            image: name,
-            isImage: false,
-          ),
-        );
+        continue;
       }
 
       continue;
