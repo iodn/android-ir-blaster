@@ -415,6 +415,34 @@ end remote
     });
   });
 
+  test('LIRC RC6 includes fixed pre-data in its mode 0 payload', () {
+    const input = '''
+begin remote
+  name Split_RC6
+  bits 8
+  flags RC6|CONST_LENGTH
+  one 444 444
+  zero 444 444
+  pre_data_bits 13
+  pre_data 0xEFB
+  gap 108000
+  begin codes
+    KEY_POWER 0xF3
+  end codes
+end remote
+''';
+    final preview = analyzeImportedText(
+      input,
+      filename: 'split-rc6.lircd.conf',
+      fallbackRemoteName: fallbackRemoteName,
+      fallbackButtonLabel: fallbackButtonLabel,
+    );
+
+    final button = preview.remotes.single.buttons.single;
+    expect(button.protocol, 'rc6');
+    expect(button.protocolParams, <String, dynamic>{'hex': 'FBF3'});
+  });
+
   test('preview rejects config-like files that are not valid LIRC remotes', () {
     final preview = analyzeImportedText(
       'not a real config',

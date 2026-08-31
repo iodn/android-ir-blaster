@@ -1848,14 +1848,17 @@ Remote? _parseLircConfig(
         );
         BigInt mappedValue = c.value;
         int? mappedBits = bits;
-        if (inferredProto == 'rc5' && bits != null && bits > 0) {
+        final int? joinedFrameBits = inferredProto == 'rc5'
+            ? 13
+            : (inferredProto == 'rc6' ? 21 : null);
+        if (joinedFrameBits != null && bits != null && bits > 0) {
           final int fixedPreBits = preBits ?? 0;
           final int fixedPostBits = postBits ?? 0;
           final int totalBits = fixedPreBits + bits + fixedPostBits;
           final bool hasFixedData =
               (fixedPreBits == 0 || preData != null) &&
                   (fixedPostBits == 0 || postData != null);
-          if (totalBits == 13 && hasFixedData) {
+          if (totalBits == joinedFrameBits && hasFixedData) {
             final BigInt codeMask = (BigInt.one << bits) - BigInt.one;
             mappedValue = c.value & codeMask;
             if (fixedPreBits > 0) {
@@ -1869,7 +1872,7 @@ Remote? _parseLircConfig(
               mappedValue =
                   (mappedValue << fixedPostBits) | (postData! & postMask);
             }
-            mappedBits = 13;
+            mappedBits = joinedFrameBits;
           }
         }
         final IRButton? mapped = _buildProtocolButtonFromLircCode(
