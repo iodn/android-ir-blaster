@@ -1569,16 +1569,17 @@ Remote? _parseIrplusXml(
       final pairMatch =
           RegExp(r'^0x([0-9A-Fa-f]+)\s+0x([0-9A-Fa-f]+)$').firstMatch(payload);
       if (pairMatch != null) {
-        if (protoFromFormat == 'rc5') {
+        if (protoFromFormat == 'rc5' || protoFromFormat == 'rc6') {
           final int? codeBits =
               int.tryParse((device.getAttribute('bits') ?? '').trim());
           final int? fixedBits =
               int.tryParse((device.getAttribute('pre-bits') ?? '').trim());
+          final int frameBits = protoFromFormat == 'rc5' ? 13 : 21;
           if (codeBits != null &&
               codeBits > 0 &&
               fixedBits != null &&
               fixedBits > 0 &&
-              codeBits + fixedBits == 13) {
+              codeBits + fixedBits == frameBits) {
             final BigInt fixed =
                 BigInt.parse(pairMatch.group(1)!, radix: 16) &
                     ((BigInt.one << fixedBits) - BigInt.one);
@@ -1588,10 +1589,14 @@ Remote? _parseIrplusXml(
             final IRButton? mapped = _buildProtocolButtonFromLircCode(
               id: uuid.v4(),
               label: label,
-              frequency: 36000,
-              protocolId: 'rc5',
+              frequency: protoFromFormat == 'rc5'
+                  ? 36000
+                  : (int.tryParse(
+                          (device.getAttribute('frequency') ?? '').trim()) ??
+                      36000),
+              protocolId: protoFromFormat,
               value: (fixed << codeBits) | code,
-              codeBits: 13,
+              codeBits: frameBits,
             );
             if (mapped != null) buttons.add(mapped);
           }

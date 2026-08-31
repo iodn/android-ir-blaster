@@ -342,6 +342,27 @@ data: 9000 4500 560 560
     expect(previewIRButton(button).frequencyHz, 36000);
   });
 
+  test('IRPlus RC6 joins mode 0 pre-data and button data', () {
+    const input = '''
+<irplus>
+  <device format="WINLIRC_RC6" bits="8" pre-bits="13" frequency="36000">
+    <button label="Power">0xEFB 0xF3</button>
+  </device>
+</irplus>
+''';
+    final preview = analyzeImportedText(
+      input,
+      filename: 'split-rc6.xml',
+      fallbackRemoteName: fallbackRemoteName,
+      fallbackButtonLabel: fallbackButtonLabel,
+    );
+
+    final button = preview.remotes.single.buttons.single;
+    expect(button.protocol, 'rc6');
+    expect(button.protocolParams, <String, dynamic>{'hex': 'FBF3'});
+    expect(previewIRButton(button).frequencyHz, 36000);
+  });
+
   test('preview parser accepts JSON backups and builds usable remotes', () {
     final preview = analyzeImportedText(
       jsonBackup,
