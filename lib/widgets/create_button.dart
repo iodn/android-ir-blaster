@@ -392,16 +392,27 @@ class _CreateButtonState extends State<CreateButton> {
     if (def == null) return false;
 
     for (final field in def.fields) {
-      if (!field.required) continue;
       final c = _protoControllers[field.id];
-      if (c == null) return false;
+      if (c == null) {
+        if (field.required) return false;
+        continue;
+      }
       final t = c.text.trim();
-      if (t.isEmpty) return false;
+      if (t.isEmpty) {
+        if (field.required) return false;
+        continue;
+      }
 
       if (field.type == IrFieldType.intDecimal) {
-        if (int.tryParse(t) == null) return false;
+        final int? value = int.tryParse(t);
+        if (value == null) return false;
+        if (field.min != null && value < field.min!) return false;
+        if (field.max != null && value > field.max!) return false;
       } else if (field.type == IrFieldType.intHex) {
-        if (int.tryParse(t, radix: 16) == null) return false;
+        final int? value = int.tryParse(t, radix: 16);
+        if (value == null) return false;
+        if (field.min != null && value < field.min!) return false;
+        if (field.max != null && value > field.max!) return false;
       } else if (field.type == IrFieldType.choice) {
         if (!field.options.contains(t)) return false;
       }
