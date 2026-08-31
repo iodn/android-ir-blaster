@@ -294,6 +294,30 @@ data: 9000 4500 560 560
     }
   });
 
+  test('IRPlus RC5 imports its 13-bit button payload', () {
+    const input = '''
+<irplus>
+  <device manufacturer="Hitachi" model="RC-49141" format="WINLIRC_RC5" bits="13" pre-bits="13">
+    <button label="Power">0x10CC</button>
+  </device>
+</irplus>
+''';
+    final preview = analyzeImportedText(
+      input,
+      filename: 'hitachi.xml',
+      fallbackRemoteName: fallbackRemoteName,
+      fallbackButtonLabel: fallbackButtonLabel,
+    );
+
+    final button = preview.remotes.single.buttons.single;
+    expect(button.protocol, 'rc5');
+    expect(button.protocolParams, <String, dynamic>{
+      'address': '03',
+      'command': '0C',
+    });
+    expect(previewIRButton(button).frequencyHz, 36000);
+  });
+
   test('preview parser accepts JSON backups and builds usable remotes', () {
     final preview = analyzeImportedText(
       jsonBackup,

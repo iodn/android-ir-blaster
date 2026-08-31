@@ -1534,6 +1534,38 @@ Remote? _parseIrplusXml(
         continue;
       }
 
+      final singleHexMatch =
+          RegExp(r'^0x([0-9A-Fa-f]+)$').firstMatch(payload);
+      if (protoFromFormat == 'rc5' && singleHexMatch != null) {
+        final int frame = int.parse(singleHexMatch.group(1)!, radix: 16);
+        final int field = (frame >> 12) & 1;
+        final int address = (frame >> 6) & 0x1F;
+        final int command = (frame & 0x3F) | (field == 0 ? 0x40 : 0);
+
+        buttons.add(
+          IRButton(
+            id: uuid.v4(),
+            code: null,
+            rawData: null,
+            frequency: 36000,
+            image: label,
+            isImage: false,
+            protocol: 'rc5',
+            protocolParams: <String, dynamic>{
+              'address': address
+                  .toRadixString(16)
+                  .padLeft(2, '0')
+                  .toUpperCase(),
+              'command': command
+                  .toRadixString(16)
+                  .padLeft(2, '0')
+                  .toUpperCase(),
+            },
+          ),
+        );
+        continue;
+      }
+
       final pairMatch =
           RegExp(r'^0x([0-9A-Fa-f]+)\s+0x([0-9A-Fa-f]+)$').firstMatch(payload);
       if (pairMatch != null) {
