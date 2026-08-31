@@ -370,7 +370,10 @@ IrPreview previewIRButton(IRButton button) {
   if (button.protocol != null && button.protocol!.trim().isNotEmpty) {
     final id = button.protocol!.trim();
     final enc = IrProtocolRegistry.encoderFor(id);
-    final params = button.protocolParams ?? <String, dynamic>{};
+    final params = <String, dynamic>{
+      ...?button.protocolParams,
+      '_preview': true,
+    };
     final res = enc.encode(params);
     final int freq = (button.frequency != null && button.frequency! > 0)
         ? button.frequency!
@@ -397,7 +400,7 @@ IrPreview previewIRButton(IRButton button) {
   throw StateError('IRButton has neither raw data nor hex code to preview');
 }
 
-Future<void> sendIR(IRButton button) async {
+Future<void> sendIR(IRButton button, {bool repeat = false}) async {
   if (button.protocol != null && button.protocol!.trim().isNotEmpty) {
     final id = button.protocol!.trim();
     if (id == IrProtocolIds.tiqiaaLearned ||
@@ -476,7 +479,10 @@ Future<void> sendIR(IRButton button) async {
   if (button.protocol != null && button.protocol!.trim().isNotEmpty) {
     final id = button.protocol!.trim();
     final enc = IrProtocolRegistry.encoderFor(id);
-    final params = button.protocolParams ?? <String, dynamic>{};
+    final params = <String, dynamic>{
+      ...?button.protocolParams,
+      if (repeat) '_repeat': true,
+    };
     final res = enc.encode(params);
     final int freq = (button.frequency != null && button.frequency! > 0)
         ? button.frequency!

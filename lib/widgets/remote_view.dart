@@ -301,7 +301,7 @@ class RemoteViewState extends State<RemoteView> {
 
       _loopSending = true;
       try {
-        await sendIR(b);
+        await sendIR(b, repeat: true);
       } catch (e) {
         _stopLoop(silent: true);
         if (!mounted) return;

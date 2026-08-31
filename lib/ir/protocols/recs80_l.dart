@@ -4,8 +4,8 @@ const IrProtocolDefinition recs80LProtocolDefinition = IrProtocolDefinition(
   id: 'recs80_l',
   displayName: 'RECS80_L',
   description:
-      'RECS80_L: 33.3 kHz. Hex length=3. Maintains a static toggle '
-      'that flips on each encode. Same bit string as RECS80. '
+      'RECS80_L: 33.3 kHz. Hex length=3. Maintains a toggle that changes '
+      'on each new press and stays constant during repeats. Same bit string as RECS80. '
       'Bit1: 180/8460. Bit0: 180/5580. End: 180 + (138000 - sum(out)).',
   implemented: true,
   defaultFrequencyHz: 33300,
@@ -16,7 +16,7 @@ const IrProtocolDefinition recs80LProtocolDefinition = IrProtocolDefinition(
       type: IrFieldType.string,
       required: true,
       helperText:
-          'Exactly 3 hex characters (0–9, A–F). Toggle flips each send. Fixed total frame length.',
+          'Exactly 3 hex characters (0–9, A–F). Toggle changes per press. Fixed total frame length.',
       maxLines: 1,
     ),
   ],
@@ -44,6 +44,7 @@ class Recs80LProtocolEncoder implements IrProtocolEncoder {
   static const int frameTotal = 0x21B10; // 138000
 
   static bool _toggle = false;
+  static int? _lastPayload;
 
   @override
   IrEncodeResult encode(Map<String, dynamic> params) {
@@ -54,8 +55,8 @@ class Recs80LProtocolEncoder implements IrProtocolEncoder {
     final String hex = h.trim();
     _validateHex3(hex);
 
-    // t.b(): flip toggle then call a()
-    _toggle = !_toggle;
+    final int payload = int.parse(hex, radix: 16);
+    final bool toggle = _resolveToggle(params, payload);
 
     final String n0 = _nibbleBits(hex[0]);
     final String n1 = _nibbleBits(hex[1]);
@@ -66,12 +67,7 @@ class Recs80LProtocolEncoder implements IrProtocolEncoder {
     final String partC = n1; // all 4
     final String partD = n2.substring(0, 1); // take(1)
 
-    final String bits = '1' +
-        (_toggle ? '1' : '0') +
-        partA +
-        partB +
-        partC +
-        partD;
+    final String bits = '1${toggle ? '1' : '0'}$partA$partB$partC$partD';
 
     final List<int> out = <int>[];
     for (int i = 0; i < bits.length; i++) {
@@ -87,6 +83,16 @@ class Recs80LProtocolEncoder implements IrProtocolEncoder {
     out.add(remaining > 0 ? remaining : 0);
 
     return IrEncodeResult(frequencyHz: defaultFrequencyHz, pattern: out);
+  }
+
+  bool _resolveToggle(Map<String, dynamic> params, int payload) {
+    final bool isRepeat =
+        params['_repeat'] == true && _lastPayload == payload;
+    final bool resolved = isRepeat ? _toggle : !_toggle;
+    if (params['_preview'] == true) return resolved;
+    _toggle = resolved;
+    _lastPayload = payload;
+    return resolved;
   }
 
   int _sum(List<int> xs) {

@@ -51,15 +51,10 @@ class Rc5ProtocolEncoder implements IrProtocolEncoder {
   // Timings
   static const int unit = 0x379; // 889us
   static const int frameTargetUs = 0x1BD50; // 114000us
-  static const int repeatWindowMs = 180;
-
   // RC5 toggle changes on a new press, but stays constant while the same key is
-  // repeating. The app-level encoder is stateless, so we approximate that
-  // behavior here by keeping the same toggle for rapid repeats of the same
-  // payload and flipping it for a new press.
+  // repeating.
   static bool _toggleFlag = false;
   static int? _lastPayload;
-  static DateTime? _lastEncodeAt;
 
   @override
   IrEncodeResult encode(Map<String, dynamic> params) {
@@ -119,38 +114,43 @@ class Rc5ProtocolEncoder implements IrProtocolEncoder {
   bool _resolveToggle(Map<String, dynamic> params, int payload) {
     final dynamic rawToggle = params['toggle'];
     if (rawToggle is bool) {
-      _rememberToggleState(rawToggle, payload);
+      if (params['_preview'] != true) {
+        _rememberToggleState(rawToggle, payload);
+      }
       return rawToggle;
     }
     if (rawToggle is String) {
       final String s = rawToggle.trim().toLowerCase();
       if (s == '0' || s == 'false') {
-        _rememberToggleState(false, payload);
+        if (params['_preview'] != true) {
+          _rememberToggleState(false, payload);
+        }
         return false;
       }
       if (s == '1' || s == 'true') {
-        _rememberToggleState(true, payload);
+        if (params['_preview'] != true) {
+          _rememberToggleState(true, payload);
+        }
         return true;
       }
       throw ArgumentError('RC5 toggle must be 0/1 or true/false');
     }
 
-    final DateTime now = DateTime.now();
-    final bool isRepeat = Rc5ProtocolEncoder._lastPayload == payload &&
-        Rc5ProtocolEncoder._lastEncodeAt != null &&
-        now.difference(Rc5ProtocolEncoder._lastEncodeAt!).inMilliseconds <=
-            Rc5ProtocolEncoder.repeatWindowMs;
-    if (!isRepeat) {
-      Rc5ProtocolEncoder._toggleFlag = !Rc5ProtocolEncoder._toggleFlag;
+    final bool isRepeat = params['_repeat'] == true &&
+        Rc5ProtocolEncoder._lastPayload == payload;
+    final bool resolved = isRepeat
+        ? Rc5ProtocolEncoder._toggleFlag
+        : !Rc5ProtocolEncoder._toggleFlag;
+    if (params['_preview'] == true) {
+      return resolved;
     }
-    _rememberToggleState(Rc5ProtocolEncoder._toggleFlag, payload, now: now);
-    return Rc5ProtocolEncoder._toggleFlag;
+    _rememberToggleState(resolved, payload);
+    return resolved;
   }
 
-  void _rememberToggleState(bool toggle, int payload, {DateTime? now}) {
+  void _rememberToggleState(bool toggle, int payload) {
     Rc5ProtocolEncoder._toggleFlag = toggle;
     Rc5ProtocolEncoder._lastPayload = payload;
-    Rc5ProtocolEncoder._lastEncodeAt = now ?? DateTime.now();
   }
 }
 

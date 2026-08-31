@@ -45,11 +45,10 @@ class Thomson7ProtocolEncoder implements IrProtocolEncoder {
   static const int maskF7F = 0x0F7F;
 
   static bool _toggle = false;
+  static int? _lastPayload;
 
   @override
   IrEncodeResult encode(Map<String, dynamic> params) {
-    _toggle = !_toggle;
-
     final dynamic v = params['code'];
     if (v is! int) {
       throw ArgumentError('code must be an int');
@@ -57,6 +56,7 @@ class Thomson7ProtocolEncoder implements IrProtocolEncoder {
 
     final int raw = v & 0xFFF;
     final int masked = raw & maskF7F;
+    final bool toggle = _resolveToggle(params, masked);
 
     final String bin12 = masked.toRadixString(2).padLeft(12, '0');
     final String last4 = bin12.substring(12 - 4); // last 4 bits
@@ -81,7 +81,7 @@ class Thomson7ProtocolEncoder implements IrProtocolEncoder {
     // toggle-controlled mid-bit:
     // if true -> append ZERO else append ONE
     seq.add(mark);
-    seq.add(_toggle ? zeroSpace : oneSpace);
+    seq.add(toggle ? zeroSpace : oneSpace);
 
     // first7
     for (int i = 0; i < first7.length; i++) {
@@ -103,6 +103,16 @@ class Thomson7ProtocolEncoder implements IrProtocolEncoder {
     out.addAll(seq);
 
     return IrEncodeResult(frequencyHz: carrierHz, pattern: out);
+  }
+
+  bool _resolveToggle(Map<String, dynamic> params, int payload) {
+    final bool isRepeat =
+        params['_repeat'] == true && _lastPayload == payload;
+    final bool resolved = isRepeat ? _toggle : !_toggle;
+    if (params['_preview'] == true) return resolved;
+    _toggle = resolved;
+    _lastPayload = payload;
+    return resolved;
   }
 
   int _sum(List<int> xs) {

@@ -34,14 +34,10 @@ class Rc6ProtocolEncoder implements IrProtocolEncoder {
   IrProtocolDefinition get definition => rc6ProtocolDefinition;
 
   static const int defaultFrequencyHz = 36000;
-  static const int repeatWindowMs = 180;
-
   // RC6 toggle changes on a new press, but stays constant while the same key
-  // is repeating. The encoder is otherwise stateless, so we approximate that
-  // behavior by preserving the toggle for rapid repeats of the same payload.
+  // is repeating.
   static bool _toggleFlag = false;
   static int? _lastPayload;
-  static DateTime? _lastEncodeAt;
 
   @override
   IrEncodeResult encode(Map<String, dynamic> params) {
@@ -112,38 +108,43 @@ class Rc6ProtocolEncoder implements IrProtocolEncoder {
   bool _resolveToggle(Map<String, dynamic> params, int payload) {
     final dynamic rawToggle = params['toggle'];
     if (rawToggle is bool) {
-      _rememberToggleState(rawToggle, payload);
+      if (params['_preview'] != true) {
+        _rememberToggleState(rawToggle, payload);
+      }
       return rawToggle;
     }
     if (rawToggle is String) {
       final String s = rawToggle.trim().toLowerCase();
       if (s == '0' || s == 'false') {
-        _rememberToggleState(false, payload);
+        if (params['_preview'] != true) {
+          _rememberToggleState(false, payload);
+        }
         return false;
       }
       if (s == '1' || s == 'true') {
-        _rememberToggleState(true, payload);
+        if (params['_preview'] != true) {
+          _rememberToggleState(true, payload);
+        }
         return true;
       }
       throw ArgumentError('RC6 toggle must be 0/1 or true/false');
     }
 
-    final DateTime now = DateTime.now();
-    final bool isRepeat = Rc6ProtocolEncoder._lastPayload == payload &&
-        Rc6ProtocolEncoder._lastEncodeAt != null &&
-        now.difference(Rc6ProtocolEncoder._lastEncodeAt!).inMilliseconds <=
-            Rc6ProtocolEncoder.repeatWindowMs;
-    if (!isRepeat) {
-      Rc6ProtocolEncoder._toggleFlag = !Rc6ProtocolEncoder._toggleFlag;
+    final bool isRepeat = params['_repeat'] == true &&
+        Rc6ProtocolEncoder._lastPayload == payload;
+    final bool resolved = isRepeat
+        ? Rc6ProtocolEncoder._toggleFlag
+        : !Rc6ProtocolEncoder._toggleFlag;
+    if (params['_preview'] == true) {
+      return resolved;
     }
-    _rememberToggleState(Rc6ProtocolEncoder._toggleFlag, payload, now: now);
-    return Rc6ProtocolEncoder._toggleFlag;
+    _rememberToggleState(resolved, payload);
+    return resolved;
   }
 
-  void _rememberToggleState(bool toggle, int payload, {DateTime? now}) {
+  void _rememberToggleState(bool toggle, int payload) {
     Rc6ProtocolEncoder._toggleFlag = toggle;
     Rc6ProtocolEncoder._lastPayload = payload;
-    Rc6ProtocolEncoder._lastEncodeAt = now ?? DateTime.now();
   }
 }
 
