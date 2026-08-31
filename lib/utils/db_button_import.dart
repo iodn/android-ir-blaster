@@ -224,9 +224,10 @@ Map<String, String> _deriveProtocolFieldTextFromHex(String protocolId, String he
   }
 
   if (protocolId == IrProtocolIds.rc5 && addrId != null && cmdId != null) {
-    final int packed = int.parse(hex, radix: 16) & 0x7FF;
+    final int packed = int.parse(hex, radix: 16) & 0xFFF;
     final int addr = (packed >> 6) & 0x1F;
-    final int cmd = packed & 0x3F;
+    final int fieldBit = (packed >> 11) & 1;
+    final int cmd = (packed & 0x3F) | (fieldBit == 0 ? 0x40 : 0);
     return <String, String>{
       addrId: addr.toRadixString(16).toUpperCase().padLeft(2, '0'),
       cmdId: cmd.toRadixString(16).toUpperCase().padLeft(2, '0'),

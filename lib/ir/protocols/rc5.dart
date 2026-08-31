@@ -3,9 +3,8 @@ import '../ir_protocol_types.dart';
 const IrProtocolDefinition rc5ProtocolDefinition = IrProtocolDefinition(
   id: 'rc5',
   displayName: 'RC5',
-  description:
-      'RC5: bi-phase coding, unit=889us, carrier=36kHz. '
-      'Input: address(5 bits) + command(6 bits). Builds fixed start bits, toggle bit, and the 11-bit payload (MSB-first). '
+  description: 'RC5: bi-phase coding, unit=889us, carrier=36kHz. '
+      'Input: address(5 bits) + command(7 bits). Builds the start/field bits, toggle bit, and payload (MSB-first). '
       'Frame gap padded to 114000us.',
   implemented: true,
   defaultFrequencyHz: 36000,
@@ -24,14 +23,14 @@ const IrProtocolDefinition rc5ProtocolDefinition = IrProtocolDefinition(
     ),
     IrFieldDef(
       id: 'command',
-      label: 'Command (6 bits)',
+      label: 'Command (7 bits)',
       type: IrFieldType.intHex,
       required: true,
       min: 0x00,
-      max: 0x3F,
+      max: 0x7F,
       maxLength: 2,
       hint: 'e.g., 0C',
-      helperText: 'RC5 command (00..3F).',
+      helperText: 'RC5 command (00..7F).',
       maxLines: 1,
     ),
   ],
@@ -64,14 +63,13 @@ class Rc5ProtocolEncoder implements IrProtocolEncoder {
 
   @override
   IrEncodeResult encode(Map<String, dynamic> params) {
-    final int payload = _readPackedPayload(params);
-    final bool toggle = _resolveToggle(params, payload);
+    final int packed = _readPackedFrameData(params);
+    final bool toggle = _resolveToggle(params, packed);
 
-    final String leader = '11';
+    final String fieldAndPayload = packed.toRadixString(2).padLeft(12, '0');
     final String toggleBit = toggle ? '1' : '0';
-    final String payload11 = payload.toRadixString(2).padLeft(11, '0');
-
-    final String bits = leader + toggleBit + payload11; // 14 bits total
+    final String bits =
+        '1${fieldAndPayload[0]}$toggleBit${fieldAndPayload.substring(1)}';
 
     final List<bool> halfLevels = <bool>[];
     for (int i = 0; i < bits.length; i++) {
@@ -156,13 +154,16 @@ class Rc5ProtocolEncoder implements IrProtocolEncoder {
   }
 }
 
-int _readPackedPayload(Map<String, dynamic> params) {
+int _readPackedFrameData(Map<String, dynamic> params) {
   final dynamic addressRaw = params['address'];
   final dynamic commandRaw = params['command'];
   if (addressRaw != null || commandRaw != null) {
-    final int address = _readHexField(addressRaw, max: 0x1F, name: 'RC5 address');
-    final int command = _readHexField(commandRaw, max: 0x3F, name: 'RC5 command');
-    return ((address & 0x1F) << 6) | (command & 0x3F);
+    final int address =
+        _readHexField(addressRaw, max: 0x1F, name: 'RC5 address');
+    final int command =
+        _readHexField(commandRaw, max: 0x7F, name: 'RC5 command');
+    final int fieldBit = command < 0x40 ? 1 : 0;
+    return (fieldBit << 11) | ((address & 0x1F) << 6) | (command & 0x3F);
   }
 
   final dynamic h = params['hex'];
@@ -171,7 +172,9 @@ int _readPackedPayload(Map<String, dynamic> params) {
   }
   final String hex = h.trim();
   _validateHexMaxLen(hex, 3, protocolName: 'RC5');
-  return (hex.isEmpty ? 0 : int.parse(hex, radix: 16)) & 0x7FF;
+  // Legacy payloads contain only address(5) + command(6). Preserve their
+  // historical RC5 field bit so existing saved buttons emit unchanged frames.
+  return 0x800 | ((hex.isEmpty ? 0 : int.parse(hex, radix: 16)) & 0x7FF);
 }
 
 int _readHexField(dynamic raw, {required int max, required String name}) {
@@ -189,7 +192,8 @@ int _readHexField(dynamic raw, {required int max, required String name}) {
   throw ArgumentError('$name must be hex');
 }
 
-void _validateHexMaxLen(String hex, int maxLen, {required String protocolName}) {
+void _validateHexMaxLen(String hex, int maxLen,
+    {required String protocolName}) {
   if (hex.length > maxLen) {
     // matches Kotlin message for RC5 specifically
     if (protocolName == 'RC5') {
