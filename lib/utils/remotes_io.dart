@@ -1846,13 +1846,39 @@ Remote? _parseLircConfig(
           zero: zero,
           codeBits: bits,
         );
+        BigInt mappedValue = c.value;
+        int? mappedBits = bits;
+        if (inferredProto == 'rc5' && bits != null && bits > 0) {
+          final int fixedPreBits = preBits ?? 0;
+          final int fixedPostBits = postBits ?? 0;
+          final int totalBits = fixedPreBits + bits + fixedPostBits;
+          final bool hasFixedData =
+              (fixedPreBits == 0 || preData != null) &&
+                  (fixedPostBits == 0 || postData != null);
+          if (totalBits == 13 && hasFixedData) {
+            final BigInt codeMask = (BigInt.one << bits) - BigInt.one;
+            mappedValue = c.value & codeMask;
+            if (fixedPreBits > 0) {
+              final BigInt preMask =
+                  (BigInt.one << fixedPreBits) - BigInt.one;
+              mappedValue = ((preData! & preMask) << bits) | mappedValue;
+            }
+            if (fixedPostBits > 0) {
+              final BigInt postMask =
+                  (BigInt.one << fixedPostBits) - BigInt.one;
+              mappedValue =
+                  (mappedValue << fixedPostBits) | (postData! & postMask);
+            }
+            mappedBits = 13;
+          }
+        }
         final IRButton? mapped = _buildProtocolButtonFromLircCode(
           id: uuid.v4(),
           label: label,
           frequency: frequency,
           protocolId: inferredProto,
-          value: c.value,
-          codeBits: bits,
+          value: mappedValue,
+          codeBits: mappedBits,
         );
         if (mapped != null) {
           buttons.add(mapped);

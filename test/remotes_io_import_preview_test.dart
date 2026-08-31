@@ -384,6 +384,37 @@ end remote
     });
   });
 
+  test('LIRC RC5 includes fixed pre-data when rebuilding the frame', () {
+    const input = '''
+begin remote
+  name Split_RC5
+  bits 6
+  flags RC5|CONST_LENGTH
+  one 889 889
+  zero 889 889
+  pre_data_bits 7
+  pre_data 0x45
+  gap 114000
+  begin codes
+    KEY_POWER 0x0C
+  end codes
+end remote
+''';
+    final preview = analyzeImportedText(
+      input,
+      filename: 'split-rc5.lircd.conf',
+      fallbackRemoteName: fallbackRemoteName,
+      fallbackButtonLabel: fallbackButtonLabel,
+    );
+
+    final button = preview.remotes.single.buttons.single;
+    expect(button.protocol, 'rc5');
+    expect(button.protocolParams, <String, dynamic>{
+      'address': '05',
+      'command': '0C',
+    });
+  });
+
   test('preview rejects config-like files that are not valid LIRC remotes', () {
     final preview = analyzeImportedText(
       'not a real config',
