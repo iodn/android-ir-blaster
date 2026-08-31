@@ -189,6 +189,8 @@
   "irTransmitterSubtitle": "Elige qué hardware envía comandos IR",
   "interactionTitle": "Interacción",
   "interactionSubtitle": "Respuesta táctil y diseño del mando",
+  "autoOpenLastRemoteTitle": "Abrir el último mando al iniciar",
+  "autoOpenLastRemoteSubtitle": "Abre el mando usado más recientemente al iniciar la aplicación. Si no está disponible, se muestra la lista de mandos.",
   "hapticFeedbackTitle": "Respuesta háptica",
   "hapticFeedbackSubtitle": "Vibrar al tocar y al ejecutar acciones",
   "forceInAppVibrationTitle": "Forzar vibración en la app",

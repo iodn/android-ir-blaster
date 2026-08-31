@@ -189,6 +189,8 @@
   "irTransmitterSubtitle": "Выберите, какое оборудование отправляет ИК-команды",
   "interactionTitle": "Взаимодействие",
   "interactionSubtitle": "Отклик на касания и раскладка пульта",
+  "autoOpenLastRemoteTitle": "Открывать последний пульт при запуске",
+  "autoOpenLastRemoteSubtitle": "При запуске приложения открывает последний использованный пульт. Если он недоступен, показывается список пультов.",
   "hapticFeedbackTitle": "Тактильный отклик",
   "hapticFeedbackSubtitle": "Вибрация при нажатиях и действиях",
   "intensity": "Интенсивность",

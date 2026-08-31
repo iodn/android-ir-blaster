@@ -789,6 +789,14 @@ class AppLocalizationsId extends AppLocalizations {
   String get interactionSubtitle => 'Umpan balik sentuh dan tata letak remote';
 
   @override
+  String get autoOpenLastRemoteTitle =>
+      'Buka remote terakhir saat aplikasi dimulai';
+
+  @override
+  String get autoOpenLastRemoteSubtitle =>
+      'Membuka remote yang terakhir digunakan saat aplikasi dimulai. Jika tidak tersedia, daftar remote akan ditampilkan.';
+
+  @override
   String get hapticFeedbackTitle => 'Umpan balik haptik';
 
   @override

@@ -189,6 +189,8 @@
   "irTransmitterSubtitle": "Виберіть, яке обладнання надсилає ІЧ-команди",
   "interactionTitle": "Взаємодія",
   "interactionSubtitle": "Тактильний відгук і компонування пульта",
+  "autoOpenLastRemoteTitle": "Відкривати останній пульт під час запуску",
+  "autoOpenLastRemoteSubtitle": "Під час запуску застосунку відкриває останній використаний пульт. Якщо він недоступний, відображається список пультів.",
   "hapticFeedbackTitle": "Тактильний зворотний зв'язок",
   "hapticFeedbackSubtitle": "Вібрувати під час натискань і дій",
   "intensity": "Інтенсивність",

@@ -189,6 +189,8 @@
   "irTransmitterSubtitle": "Scegli l'hardware che invia i comandi IR",
   "interactionTitle": "Interazione",
   "interactionSubtitle": "Feedback tocco e layout telecomando",
+  "autoOpenLastRemoteTitle": "Apri l’ultimo telecomando all’avvio",
+  "autoOpenLastRemoteSubtitle": "Apre il telecomando usato più di recente all’avvio dell’app. Se non è disponibile, viene mostrato l’elenco dei telecomandi.",
   "hapticFeedbackTitle": "Feedback aptico",
   "hapticFeedbackSubtitle": "Vibra su tocchi e azioni",
   "intensity": "Intensità",

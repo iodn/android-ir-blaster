@@ -800,6 +800,14 @@ class AppLocalizationsDe extends AppLocalizations {
       'Berührungsfeedback und Fernbedienungslayout';
 
   @override
+  String get autoOpenLastRemoteTitle =>
+      'Zuletzt verwendete Fernbedienung beim Start öffnen';
+
+  @override
+  String get autoOpenLastRemoteSubtitle =>
+      'Öffnet beim App-Start die zuletzt verwendete Fernbedienung. Ist sie nicht verfügbar, wird die Fernbedienungsliste angezeigt.';
+
+  @override
   String get hapticFeedbackTitle => 'Haptisches Feedback';
 
   @override

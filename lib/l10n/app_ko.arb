@@ -189,6 +189,8 @@
   "irTransmitterSubtitle": "IR 명령을 보낼 하드웨어를 선택하세요",
   "interactionTitle": "상호작용",
   "interactionSubtitle": "터치 피드백과 리모컨 레이아웃",
+  "autoOpenLastRemoteTitle": "시작할 때 마지막 리모컨 열기",
+  "autoOpenLastRemoteSubtitle": "앱을 시작할 때 가장 최근에 사용한 리모컨을 엽니다. 사용할 수 없으면 리모컨 목록을 표시합니다.",
   "hapticFeedbackTitle": "햅틱 피드백",
   "hapticFeedbackSubtitle": "탭과 동작 시 진동",
   "intensity": "강도",

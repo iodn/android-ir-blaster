@@ -158,13 +158,14 @@ Future<void> exportMacrosToDownloads(
   }
 
   Future<bool> doPickerSave() async {
-    final savedPath = await FilePicker.platform.saveFile(
+    final savedUri = await FilePicker.saveFile(
       fileName: fileName,
       type: FileType.custom,
       allowedExtensions: const <String>['json'],
+      mimeType: 'application/json',
       bytes: Uint8List.fromList(utf8.encode(jsonString)),
     );
-    if (savedPath == null) return false;
+    if (savedUri == null) return false;
     if (!context.mounted) return true;
     ScaffoldMessenger.of(context).showSnackBar(
       SnackBar(content: Text(context.l10n.macrosExportedToDownloads)),
@@ -188,15 +189,11 @@ Future<void> exportMacrosToDownloads(
 }
 
 Future<List<TimedMacro>?> importMacrosFromPicker(BuildContext context) async {
-  final result = await FilePicker.platform.pickFiles(
+  final pf = await FilePicker.pickFile(
     type: FileType.custom,
     allowedExtensions: const <String>['json'],
-    withData: false,
-    withReadStream: false,
   );
-  if (result == null || result.files.isEmpty) return null;
-
-  final pf = result.files.single;
+  if (pf == null) return null;
   final path = pf.path;
   if (path == null || path.isEmpty) {
     if (!context.mounted) return null;

@@ -283,6 +283,8 @@
   "backAction": "Back",
   "interactionTitle": "Interaction",
   "interactionSubtitle": "Touch feedback and remote layout",
+  "autoOpenLastRemoteTitle": "Open last remote at startup",
+  "autoOpenLastRemoteSubtitle": "Open the most recently used remote when the app starts. The remote list is shown if it is unavailable.",
   "hapticFeedbackTitle": "Haptic feedback",
   "hapticFeedbackSubtitle": "Vibrate on taps and actions",
   "forceInAppVibrationTitle": "Force in-app vibration",

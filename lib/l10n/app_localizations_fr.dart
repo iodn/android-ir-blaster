@@ -799,6 +799,14 @@ class AppLocalizationsFr extends AppLocalizations {
   String get interactionSubtitle => 'Retour tactile et disposition';
 
   @override
+  String get autoOpenLastRemoteTitle =>
+      'Ouvrir la dernière télécommande au démarrage';
+
+  @override
+  String get autoOpenLastRemoteSubtitle =>
+      'Ouvre la télécommande utilisée le plus récemment au démarrage de l’application. La liste des télécommandes s’affiche si elle n’est plus disponible.';
+
+  @override
   String get hapticFeedbackTitle => 'Retour haptique';
 
   @override

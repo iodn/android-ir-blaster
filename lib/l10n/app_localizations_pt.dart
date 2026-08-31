@@ -796,6 +796,13 @@ class AppLocalizationsPt extends AppLocalizations {
   String get interactionSubtitle => 'Resposta tátil e disposição do comando';
 
   @override
+  String get autoOpenLastRemoteTitle => 'Abrir o último comando ao iniciar';
+
+  @override
+  String get autoOpenLastRemoteSubtitle =>
+      'Abre o comando utilizado mais recentemente ao iniciar a aplicação. Se não estiver disponível, é apresentada a lista de comandos.';
+
+  @override
   String get hapticFeedbackTitle => 'Respuesta háptica';
 
   @override
@@ -5728,6 +5735,13 @@ class AppLocalizationsPtBr extends AppLocalizationsPt {
 
   @override
   String get interactionSubtitle => 'Resposta tátil e layout do controle';
+
+  @override
+  String get autoOpenLastRemoteTitle => 'Abrir o último controle ao iniciar';
+
+  @override
+  String get autoOpenLastRemoteSubtitle =>
+      'Abre o controle usado mais recentemente quando o app inicia. Se ele não estiver disponível, a lista de controles será exibida.';
 
   @override
   String get hapticFeedbackTitle => 'Respuesta háptica';

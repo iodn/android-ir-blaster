@@ -189,6 +189,8 @@
   "irTransmitterSubtitle": "IR送信に使うハードを選択",
   "interactionTitle": "操作",
   "interactionSubtitle": "触覚フィードバックとレイアウト",
+  "autoOpenLastRemoteTitle": "起動時に最後のリモコンを開く",
+  "autoOpenLastRemoteSubtitle": "アプリの起動時に最後に使用したリモコンを開きます。利用できない場合はリモコン一覧を表示します。",
   "hapticFeedbackTitle": "触覚フィードバック",
   "hapticFeedbackSubtitle": "タップや操作で振動",
   "intensity": "強さ",

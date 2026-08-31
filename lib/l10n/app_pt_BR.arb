@@ -189,6 +189,8 @@
   "irTransmitterSubtitle": "Escolha que hardware envia controles IR",
   "interactionTitle": "Interacción",
   "interactionSubtitle": "Resposta tátil e layout do controle",
+  "autoOpenLastRemoteTitle": "Abrir o último controle ao iniciar",
+  "autoOpenLastRemoteSubtitle": "Abre o controle usado mais recentemente quando o app inicia. Se ele não estiver disponível, a lista de controles será exibida.",
   "hapticFeedbackTitle": "Respuesta háptica",
   "hapticFeedbackSubtitle": "Vibrar ao tocar e ao executar ações",
   "intensity": "Intensidad",

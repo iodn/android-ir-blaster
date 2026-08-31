@@ -189,6 +189,8 @@
   "irTransmitterSubtitle": "Choisissez le matériel qui envoie les commandes IR",
   "interactionTitle": "Interaction",
   "interactionSubtitle": "Retour tactile et disposition",
+  "autoOpenLastRemoteTitle": "Ouvrir la dernière télécommande au démarrage",
+  "autoOpenLastRemoteSubtitle": "Ouvre la télécommande utilisée le plus récemment au démarrage de l’application. La liste des télécommandes s’affiche si elle n’est plus disponible.",
   "hapticFeedbackTitle": "Retour haptique",
   "hapticFeedbackSubtitle": "Vibrer aux touches et actions",
   "forceInAppVibrationTitle": "Forcer la vibration dans l’appli",

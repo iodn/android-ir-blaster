@@ -189,6 +189,8 @@
   "irTransmitterSubtitle": "Wähle, welche Hardware IR-Befehle sendet",
   "interactionTitle": "Interaktion",
   "interactionSubtitle": "Berührungsfeedback und Fernbedienungslayout",
+  "autoOpenLastRemoteTitle": "Zuletzt verwendete Fernbedienung beim Start öffnen",
+  "autoOpenLastRemoteSubtitle": "Öffnet beim App-Start die zuletzt verwendete Fernbedienung. Ist sie nicht verfügbar, wird die Fernbedienungsliste angezeigt.",
   "hapticFeedbackTitle": "Haptisches Feedback",
   "hapticFeedbackSubtitle": "Bei Tippen und Aktionen vibrieren",
   "intensity": "Intensität",

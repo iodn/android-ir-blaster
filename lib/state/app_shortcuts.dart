@@ -7,6 +7,7 @@ import 'package:irblaster_controller/models/timed_macro.dart';
 import 'package:irblaster_controller/state/continue_context_prefs.dart';
 import 'package:irblaster_controller/state/macros_state.dart';
 import 'package:irblaster_controller/state/remotes_state.dart';
+import 'package:irblaster_controller/state/startup_prefs.dart';
 import 'package:irblaster_controller/utils/macros_io.dart';
 import 'package:irblaster_controller/utils/remote.dart';
 import 'package:irblaster_controller/widgets/ir_finder_screen.dart';
@@ -19,7 +20,8 @@ class AppShortcutController {
   AppShortcutController._();
 
   static final AppShortcutController instance = AppShortcutController._();
-  static const MethodChannel _channel = MethodChannel('org.nslabs/app_shortcuts');
+  static const MethodChannel _channel =
+      MethodChannel('org.nslabs/app_shortcuts');
 
   GlobalKey<NavigatorState>? _navigatorKey;
   String? _pendingAction;
@@ -35,6 +37,7 @@ class AppShortcutController {
         if (call.method != 'openShortcut') return;
         final action = _readAction(call.arguments);
         if (action == null) return;
+        StartupPrefsController.instance.suppressAutoOpenForCurrentLaunch();
         _pendingAction = action;
         _scheduleDispatch();
       });
@@ -42,6 +45,7 @@ class AppShortcutController {
         final initial =
             await _channel.invokeMethod<String>('consumeInitialShortcutAction');
         if (initial != null && initial.trim().isNotEmpty) {
+          StartupPrefsController.instance.suppressAutoOpenForCurrentLaunch();
           _pendingAction = initial.trim();
         }
       } catch (_) {}

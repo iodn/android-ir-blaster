@@ -767,6 +767,13 @@ class AppLocalizationsKo extends AppLocalizations {
   String get interactionSubtitle => '터치 피드백과 리모컨 레이아웃';
 
   @override
+  String get autoOpenLastRemoteTitle => '시작할 때 마지막 리모컨 열기';
+
+  @override
+  String get autoOpenLastRemoteSubtitle =>
+      '앱을 시작할 때 가장 최근에 사용한 리모컨을 엽니다. 사용할 수 없으면 리모컨 목록을 표시합니다.';
+
+  @override
   String get hapticFeedbackTitle => '햅틱 피드백';
 
   @override

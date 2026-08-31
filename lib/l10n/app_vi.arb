@@ -189,6 +189,8 @@
   "irTransmitterSubtitle": "Chọn phần cứng gửi lệnh IR",
   "interactionTitle": "Tương tác",
   "interactionSubtitle": "Phản hồi chạm và bố cục điều khiển",
+  "autoOpenLastRemoteTitle": "Mở điều khiển gần nhất khi khởi động",
+  "autoOpenLastRemoteSubtitle": "Mở điều khiển được dùng gần đây nhất khi ứng dụng khởi động. Nếu không còn khả dụng, danh sách điều khiển sẽ được hiển thị.",
   "hapticFeedbackTitle": "Phản hồi rung",
   "hapticFeedbackSubtitle": "Rung khi chạm và thao tác",
   "intensity": "Cường độ",

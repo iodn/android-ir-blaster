@@ -13,6 +13,7 @@ import 'package:irblaster_controller/state/dynamic_color.dart';
 import 'package:irblaster_controller/state/macros_state.dart';
 import 'package:irblaster_controller/state/remote_display_prefs.dart';
 import 'package:irblaster_controller/state/remotes_state.dart';
+import 'package:irblaster_controller/state/startup_prefs.dart';
 import 'package:irblaster_controller/utils/ir_transmitter_platform.dart';
 import 'package:irblaster_controller/utils/macros_io.dart';
 import 'package:irblaster_controller/utils/remote.dart';
@@ -1014,6 +1015,7 @@ class SettingsScreen extends StatelessWidget {
   Widget _buildInteractionSection(BuildContext context) {
     final orientationCtrl = RemoteOrientationController.instance;
     final displayCtrl = RemoteDisplayController.instance;
+    final startupCtrl = StartupPrefsController.instance;
     final cs = Theme.of(context).colorScheme;
     unawaited(HapticsController.instance.refreshDiagnostics(notify: false));
 
@@ -1025,6 +1027,19 @@ class SettingsScreen extends StatelessWidget {
         leading: Icon(Icons.vibration_rounded, color: cs.primary),
         child: Column(
           children: [
+            AnimatedBuilder(
+              animation: startupCtrl,
+              builder: (context, _) {
+                return SwitchListTile.adaptive(
+                  secondary: const Icon(Icons.history_rounded),
+                  title: Text(context.l10n.autoOpenLastRemoteTitle),
+                  subtitle: Text(context.l10n.autoOpenLastRemoteSubtitle),
+                  value: startupCtrl.autoOpenLastRemote,
+                  onChanged: startupCtrl.setAutoOpenLastRemote,
+                );
+              },
+            ),
+            const Divider(height: 1),
             AnimatedBuilder(
               animation: HapticsController.instance,
               builder: (context, _) {

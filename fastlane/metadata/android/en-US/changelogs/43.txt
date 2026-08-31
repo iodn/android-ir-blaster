@@ -1,0 +1,5 @@
+Add a smarter IR Code Finder that can locate working codes faster.
+Add an option to automatically open the last used remote when the app starts.
+Improve signal accuracy and compatibility across many IR protocols and Universal Power commands.
+Fix importing codes from Flipper, IRPlus, LIRC, and the built-in database.
+Improve Android screen layout, file handling, memory use, and release performance.

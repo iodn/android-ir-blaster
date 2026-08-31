@@ -189,6 +189,8 @@
   "irTransmitterSubtitle": "Kies welke hardware IR-opdrachten verzendt",
   "interactionTitle": "Interactie",
   "interactionSubtitle": "Aanraakfeedback en lay-out van afstandsbediening",
+  "autoOpenLastRemoteTitle": "Laatst gebruikte afstandsbediening openen bij opstarten",
+  "autoOpenLastRemoteSubtitle": "Opent de laatst gebruikte afstandsbediening wanneer de app start. Als deze niet beschikbaar is, wordt de lijst met afstandsbedieningen getoond.",
   "hapticFeedbackTitle": "Haptische feedback",
   "hapticFeedbackSubtitle": "Trillen bij tikken en acties",
   "intensity": "Intensiteit",

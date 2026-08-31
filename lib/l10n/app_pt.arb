@@ -189,6 +189,8 @@
   "irTransmitterSubtitle": "Escolha que hardware envia comandos IR",
   "interactionTitle": "Interacción",
   "interactionSubtitle": "Resposta tátil e disposição do comando",
+  "autoOpenLastRemoteTitle": "Abrir o último comando ao iniciar",
+  "autoOpenLastRemoteSubtitle": "Abre o comando utilizado mais recentemente ao iniciar a aplicação. Se não estiver disponível, é apresentada a lista de comandos.",
   "hapticFeedbackTitle": "Respuesta háptica",
   "hapticFeedbackSubtitle": "Vibrar ao tocar e ao executar ações",
   "intensity": "Intensidad",

@@ -6,10 +6,14 @@ import 'package:irblaster_controller/state/app_locale.dart';
 import 'package:irblaster_controller/state/app_shortcuts.dart';
 import 'package:irblaster_controller/state/continue_context_prefs.dart';
 import 'package:irblaster_controller/state/haptics.dart';
+import 'package:irblaster_controller/state/remotes_state.dart';
+import 'package:irblaster_controller/state/startup_prefs.dart';
 import 'package:irblaster_controller/utils/ir_transmitter_platform.dart';
+import 'package:irblaster_controller/utils/remote.dart';
 import 'package:irblaster_controller/widgets/ir_finder_screen.dart';
 import 'package:irblaster_controller/widgets/macros_tab.dart';
 import 'package:irblaster_controller/widgets/remote_list.dart';
+import 'package:irblaster_controller/widgets/remote_view.dart';
 import 'package:irblaster_controller/widgets/settings_screen.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
@@ -40,6 +44,7 @@ class _HomeShellState extends State<HomeShell> {
   bool _hardwareEducationSeen = false;
   bool _bannerDismissed = false;
   bool _busy = false;
+  bool _startupAutoOpenChecked = false;
 
   bool _startupSheetOpen = false;
   BuildContext? _startupSheetContext;
@@ -57,7 +62,47 @@ class _HomeShellState extends State<HomeShell> {
     WidgetsBinding.instance.addPostFrameCallback((_) {
       if (!mounted) return;
       unawaited(AppShortcutController.instance.sync(context.l10n));
+      unawaited(_maybeAutoOpenLastRemote());
     });
+  }
+
+  Future<void> _maybeAutoOpenLastRemote() async {
+    if (_startupAutoOpenChecked) return;
+    _startupAutoOpenChecked = true;
+
+    final startupPrefs = StartupPrefsController.instance;
+    if (!startupPrefs.shouldAutoOpenLastRemote) return;
+
+    final snapshot = await ContinueContextsPrefs.load();
+    if (!mounted || !startupPrefs.shouldAutoOpenLastRemote) return;
+
+    final remote = _findLastRemote(snapshot.remote);
+    if (remote == null) return;
+
+    await WidgetsBinding.instance.endOfFrame;
+    if (!mounted || !startupPrefs.shouldAutoOpenLastRemote) return;
+    if (ModalRoute.of(context)?.isCurrent != true) return;
+
+    await Navigator.of(context).push<void>(
+      MaterialPageRoute<void>(builder: (_) => RemoteView(remote: remote)),
+    );
+  }
+
+  Remote? _findLastRemote(LastRemoteContext? lastRemote) {
+    if (lastRemote == null) return null;
+    if (lastRemote.remoteId > 0) {
+      try {
+        return remotes.firstWhere((remote) => remote.id == lastRemote.remoteId);
+      } catch (_) {}
+    }
+
+    final name = lastRemote.remoteName.trim();
+    if (name.isEmpty) return null;
+    try {
+      return remotes.firstWhere((remote) => remote.name.trim() == name);
+    } catch (_) {
+      return null;
+    }
   }
 
   @override

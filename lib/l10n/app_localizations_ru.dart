@@ -793,6 +793,13 @@ class AppLocalizationsRu extends AppLocalizations {
   String get interactionSubtitle => 'Отклик на касания и раскладка пульта';
 
   @override
+  String get autoOpenLastRemoteTitle => 'Открывать последний пульт при запуске';
+
+  @override
+  String get autoOpenLastRemoteSubtitle =>
+      'При запуске приложения открывает последний использованный пульт. Если он недоступен, показывается список пультов.';
+
+  @override
   String get hapticFeedbackTitle => 'Тактильный отклик';
 
   @override

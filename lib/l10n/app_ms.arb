@@ -189,6 +189,8 @@
   "irTransmitterSubtitle": "Pilih peranti yang menghantar arahan IR",
   "interactionTitle": "Interaksi",
   "interactionSubtitle": "Umpan balik sentuh dan tata letak remote",
+  "autoOpenLastRemoteTitle": "Buka alat kawalan terakhir semasa permulaan",
+  "autoOpenLastRemoteSubtitle": "Membuka alat kawalan yang paling baru digunakan apabila aplikasi bermula. Jika tidak tersedia, senarai alat kawalan akan dipaparkan.",
   "hapticFeedbackTitle": "Umpan balik haptik",
   "hapticFeedbackSubtitle": "Getar saat sentuh dan aksi",
   "intensity": "Intensitas",

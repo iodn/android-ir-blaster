@@ -790,6 +790,13 @@ class AppLocalizationsHi extends AppLocalizations {
   String get interactionSubtitle => 'स्पर्श प्रतिक्रिया और रिमोट लेआउट';
 
   @override
+  String get autoOpenLastRemoteTitle => 'शुरू होने पर पिछला रिमोट खोलें';
+
+  @override
+  String get autoOpenLastRemoteSubtitle =>
+      'ऐप शुरू होने पर सबसे हाल में इस्तेमाल किया गया रिमोट खोलता है। उपलब्ध न होने पर रिमोट सूची दिखाई जाती है।';
+
+  @override
   String get hapticFeedbackTitle => 'हैप्टिक फीडबैक';
 
   @override

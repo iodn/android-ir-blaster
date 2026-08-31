@@ -189,6 +189,8 @@
   "irTransmitterSubtitle": "Wybierz sprzęt wysyłający komendy IR",
   "interactionTitle": "Interakcja",
   "interactionSubtitle": "Informacja dotykowa i układ pilota",
+  "autoOpenLastRemoteTitle": "Otwieraj ostatniego pilota przy uruchamianiu",
+  "autoOpenLastRemoteSubtitle": "Po uruchomieniu aplikacji otwiera ostatnio używanego pilota. Jeśli jest niedostępny, wyświetla listę pilotów.",
   "hapticFeedbackTitle": "Informacja haptyczna",
   "hapticFeedbackSubtitle": "Wibruj przy stuknięciach i akcjach",
   "intensity": "Intensywność",

@@ -189,6 +189,8 @@
   "irTransmitterSubtitle": "เลือกวิธีส่งสัญญาณ IR",
   "interactionTitle": "การโต้ตอบ",
   "interactionSubtitle": "การตอบสนองเมื่อแตะและเลย์เอาต์รีโมต",
+  "autoOpenLastRemoteTitle": "เปิดรีโมตล่าสุดเมื่อเริ่มแอป",
+  "autoOpenLastRemoteSubtitle": "เปิดรีโมตที่ใช้ล่าสุดเมื่อเริ่มแอป หากรีโมตนั้นไม่พร้อมใช้งาน จะแสดงรายการรีโมตแทน",
   "hapticFeedbackTitle": "การสั่นตอบสนอง",
   "hapticFeedbackSubtitle": "สั่นเมื่อแตะและเมื่อทำงาน",
   "intensity": "ความเข้ม",

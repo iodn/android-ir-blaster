@@ -761,6 +761,13 @@ class AppLocalizationsJa extends AppLocalizations {
   String get interactionSubtitle => '触覚フィードバックとレイアウト';
 
   @override
+  String get autoOpenLastRemoteTitle => '起動時に最後のリモコンを開く';
+
+  @override
+  String get autoOpenLastRemoteSubtitle =>
+      'アプリの起動時に最後に使用したリモコンを開きます。利用できない場合はリモコン一覧を表示します。';
+
+  @override
   String get hapticFeedbackTitle => '触覚フィードバック';
 
   @override

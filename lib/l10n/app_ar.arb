@@ -189,6 +189,8 @@
   "irTransmitterSubtitle": "اختر التي hardware sends IR commands",
   "interactionTitle": "Interaction",
   "interactionSubtitle": "استجابة اللمس وتخطيط جهاز التحكم",
+  "autoOpenLastRemoteTitle": "فتح آخر جهاز تحكم عند بدء التشغيل",
+  "autoOpenLastRemoteSubtitle": "يفتح آخر جهاز تحكم تم استخدامه عند بدء التطبيق. إذا لم يعد متاحًا، فستظهر قائمة أجهزة التحكم.",
   "hapticFeedbackTitle": "Haptic feedback",
   "hapticFeedbackSubtitle": "اهتزاز عند اللمس والإجراءات",
   "intensity": "Intensity",

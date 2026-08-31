@@ -189,6 +189,8 @@
   "irTransmitterSubtitle": "Choose which donanım sends IR commands",
   "interactionTitle": "Interaction",
   "interactionSubtitle": "Dokunma geri bildirimi ve kumanda düzeni",
+  "autoOpenLastRemoteTitle": "Başlangıçta son kumandayı aç",
+  "autoOpenLastRemoteSubtitle": "Uygulama başladığında en son kullanılan kumandayı açar. Kullanılamıyorsa kumanda listesi gösterilir.",
   "hapticFeedbackTitle": "Haptic feedback",
   "hapticFeedbackSubtitle": "Dokunuşlarda ve eylemlerde titreşim",
   "intensity": "Intensity",

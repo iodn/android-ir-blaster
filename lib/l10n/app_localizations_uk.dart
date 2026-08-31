@@ -794,6 +794,14 @@ class AppLocalizationsUk extends AppLocalizations {
   String get interactionSubtitle => 'Тактильний відгук і компонування пульта';
 
   @override
+  String get autoOpenLastRemoteTitle =>
+      'Відкривати останній пульт під час запуску';
+
+  @override
+  String get autoOpenLastRemoteSubtitle =>
+      'Під час запуску застосунку відкриває останній використаний пульт. Якщо він недоступний, відображається список пультів.';
+
+  @override
   String get hapticFeedbackTitle => 'Тактильний зворотний зв\'язок';
 
   @override

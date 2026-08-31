@@ -189,6 +189,8 @@
   "irTransmitterSubtitle": "चुनें कौन सा हार्डवेयर भेजता है IR कमांड",
   "interactionTitle": "इंटरैक्शन",
   "interactionSubtitle": "स्पर्श प्रतिक्रिया और रिमोट लेआउट",
+  "autoOpenLastRemoteTitle": "शुरू होने पर पिछला रिमोट खोलें",
+  "autoOpenLastRemoteSubtitle": "ऐप शुरू होने पर सबसे हाल में इस्तेमाल किया गया रिमोट खोलता है। उपलब्ध न होने पर रिमोट सूची दिखाई जाती है।",
   "hapticFeedbackTitle": "हैप्टिक फीडबैक",
   "hapticFeedbackSubtitle": "टैप और क्रियाओं पर कंपन करें",
   "intensity": "तीव्रता",

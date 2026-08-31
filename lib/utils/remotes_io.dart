@@ -296,13 +296,14 @@ Future<void> exportRemotesToDownloads(
   }
 
   Future<bool> doPickerSave() async {
-    final savedPath = await FilePicker.platform.saveFile(
+    final savedUri = await FilePicker.saveFile(
       fileName: fileName,
       type: FileType.custom,
       allowedExtensions: const <String>['json'],
+      mimeType: 'application/json',
       bytes: Uint8List.fromList(utf8.encode(jsonString)),
     );
-    if (savedPath == null) return false;
+    if (savedUri == null) return false;
     if (!context.mounted) return true;
     ScaffoldMessenger.of(context).showSnackBar(
       SnackBar(content: Text(context.l10n.backupExportedToDownloads)),
@@ -341,7 +342,7 @@ Future<ImportResult?> importRemotesFromPicker(
   required List<Remote> current,
 }) async {
   final l10n = context.l10n;
-  final FilePickerResult? result = await FilePicker.platform.pickFiles(
+  final PlatformFile? pf = await FilePicker.pickFile(
     type: FileType.custom,
     allowedExtensions: const <String>[
       'json',
@@ -353,13 +354,8 @@ Future<ImportResult?> importRemotesFromPicker(
       'lirc',
       'lrc',
     ],
-    withData: false,
-    withReadStream: false,
   );
-
-  if (result == null || result.files.isEmpty) return null;
-
-  final pf = result.files.single;
+  if (pf == null) return null;
   final String? contents = await _readPlatformFileText(pf);
 
   if (contents == null) {
@@ -580,7 +576,7 @@ Future<ImportResult?> importRemotesFromFolderPicker(
 }) async {
   final l10n = context.l10n;
   if (Platform.isAndroid) {
-    final FilePickerResult? res = await FilePicker.platform.pickFiles(
+    final List<PlatformFile> files = await FilePicker.pickFiles(
       type: FileType.custom,
       allowedExtensions: const <String>[
         'json',
@@ -592,23 +588,20 @@ Future<ImportResult?> importRemotesFromFolderPicker(
         'lirc',
         'lrc',
       ],
-      allowMultiple: true,
-      withData: false,
-      withReadStream: false,
     );
 
-    if (res == null || res.files.isEmpty) return null;
+    if (files.isEmpty) return null;
     if (!context.mounted) return null;
 
     return _bulkImportFromPlatformFiles(
       context,
       current: current,
-      files: res.files,
+      files: files,
       sourceLabel: l10n.selectedFilesLabel,
     );
   }
 
-  final String? dirPath = await FilePicker.platform.getDirectoryPath();
+  final String? dirPath = await FilePicker.getDirectoryPath();
   if (dirPath == null || dirPath.trim().isEmpty) return null;
 
   final Directory dir = Directory(dirPath);
@@ -889,8 +882,7 @@ List<Remote> _parseSupportedFileToRemotes(
       extLower == 'irplus' ||
       nameLower.endsWith('.xml') ||
       nameLower.endsWith('.irplus');
-  final bool isConfLike =
-      extLower == 'conf' ||
+  final bool isConfLike = extLower == 'conf' ||
       extLower == 'cfg' ||
       extLower == 'lirc' ||
       extLower == 'lrc';
@@ -968,8 +960,7 @@ String _sanitizeRemoteNameFromFilename(String filename,
   );
 
   base = base.replaceAll(
-    RegExp(r'\.(json|ir|xml|irplus|conf|cfg|lirc|lrc)$',
-        caseSensitive: false),
+    RegExp(r'\.(json|ir|xml|irplus|conf|cfg|lirc|lrc)$', caseSensitive: false),
     '',
   );
 
@@ -1534,8 +1525,7 @@ Remote? _parseIrplusXml(
         continue;
       }
 
-      final singleHexMatch =
-          RegExp(r'^0x([0-9A-Fa-f]+)$').firstMatch(payload);
+      final singleHexMatch = RegExp(r'^0x([0-9A-Fa-f]+)$').firstMatch(payload);
       if (protoFromFormat == 'rc5' && singleHexMatch != null) {
         final int frame = int.parse(singleHexMatch.group(1)!, radix: 16);
         final int field = (frame >> 12) & 1;
@@ -1552,14 +1542,10 @@ Remote? _parseIrplusXml(
             isImage: false,
             protocol: 'rc5',
             protocolParams: <String, dynamic>{
-              'address': address
-                  .toRadixString(16)
-                  .padLeft(2, '0')
-                  .toUpperCase(),
-              'command': command
-                  .toRadixString(16)
-                  .padLeft(2, '0')
-                  .toUpperCase(),
+              'address':
+                  address.toRadixString(16).padLeft(2, '0').toUpperCase(),
+              'command':
+                  command.toRadixString(16).padLeft(2, '0').toUpperCase(),
             },
           ),
         );
@@ -1573,9 +1559,9 @@ Remote? _parseIrplusXml(
           final IRButton? mapped = _buildProtocolButtonFromLircCode(
             id: uuid.v4(),
             label: label,
-            frequency: int.tryParse(
-                    (device.getAttribute('frequency') ?? '').trim()) ??
-                36000,
+            frequency:
+                int.tryParse((device.getAttribute('frequency') ?? '').trim()) ??
+                    36000,
             protocolId: 'rc6',
             value: BigInt.parse(singleHexMatch.group(1)!, radix: 16),
             codeBits: frameBits,
@@ -1599,12 +1585,10 @@ Remote? _parseIrplusXml(
               fixedBits != null &&
               fixedBits > 0 &&
               codeBits + fixedBits == frameBits) {
-            final BigInt fixed =
-                BigInt.parse(pairMatch.group(1)!, radix: 16) &
-                    ((BigInt.one << fixedBits) - BigInt.one);
-            final BigInt code =
-                BigInt.parse(pairMatch.group(2)!, radix: 16) &
-                    ((BigInt.one << codeBits) - BigInt.one);
+            final BigInt fixed = BigInt.parse(pairMatch.group(1)!, radix: 16) &
+                ((BigInt.one << fixedBits) - BigInt.one);
+            final BigInt code = BigInt.parse(pairMatch.group(2)!, radix: 16) &
+                ((BigInt.one << codeBits) - BigInt.one);
             final IRButton? mapped = _buildProtocolButtonFromLircCode(
               id: uuid.v4(),
               label: label,
@@ -1901,22 +1885,19 @@ Remote? _parseLircConfig(
         );
         BigInt mappedValue = c.value;
         int? mappedBits = bits;
-        final int? joinedFrameBits = inferredProto == 'rc5'
-            ? 13
-            : (inferredProto == 'rc6' ? 21 : null);
+        final int? joinedFrameBits =
+            inferredProto == 'rc5' ? 13 : (inferredProto == 'rc6' ? 21 : null);
         if (joinedFrameBits != null && bits != null && bits > 0) {
           final int fixedPreBits = preBits ?? 0;
           final int fixedPostBits = postBits ?? 0;
           final int totalBits = fixedPreBits + bits + fixedPostBits;
-          final bool hasFixedData =
-              (fixedPreBits == 0 || preData != null) &&
-                  (fixedPostBits == 0 || postData != null);
+          final bool hasFixedData = (fixedPreBits == 0 || preData != null) &&
+              (fixedPostBits == 0 || postData != null);
           if (totalBits == joinedFrameBits && hasFixedData) {
             final BigInt codeMask = (BigInt.one << bits) - BigInt.one;
             mappedValue = c.value & codeMask;
             if (fixedPreBits > 0) {
-              final BigInt preMask =
-                  (BigInt.one << fixedPreBits) - BigInt.one;
+              final BigInt preMask = (BigInt.one << fixedPreBits) - BigInt.one;
               mappedValue = ((preData! & preMask) << bits) | mappedValue;
             }
             if (fixedPostBits > 0) {
@@ -2075,10 +2056,8 @@ IRButton? _buildProtocolButtonFromLircCode({
         isImage: false,
         protocol: 'rc5',
         protocolParams: <String, dynamic>{
-          'address':
-              address.toRadixString(16).padLeft(2, '0').toUpperCase(),
-          'command':
-              command.toRadixString(16).padLeft(2, '0').toUpperCase(),
+          'address': address.toRadixString(16).padLeft(2, '0').toUpperCase(),
+          'command': command.toRadixString(16).padLeft(2, '0').toUpperCase(),
         },
       );
     }

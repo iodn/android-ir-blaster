@@ -31,6 +31,7 @@ import android.view.HapticFeedbackConstants
 import androidx.annotation.NonNull
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
+import androidx.core.view.WindowCompat
 import io.flutter.embedding.android.FlutterActivity
 import io.flutter.embedding.engine.FlutterEngine
 import io.flutter.plugin.common.EventChannel
@@ -904,6 +905,7 @@ class MainActivity : FlutterActivity() {
     }
 
     override fun onCreate(savedInstanceState: android.os.Bundle?) {
+        WindowCompat.enableEdgeToEdge(window)
         super.onCreate(savedInstanceState)
         handleControlIntent(intent)
         handleQuickTileIntent(intent)

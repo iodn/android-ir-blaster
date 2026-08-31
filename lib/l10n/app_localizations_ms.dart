@@ -786,6 +786,14 @@ class AppLocalizationsMs extends AppLocalizations {
   String get interactionSubtitle => 'Umpan balik sentuh dan tata letak remote';
 
   @override
+  String get autoOpenLastRemoteTitle =>
+      'Buka alat kawalan terakhir semasa permulaan';
+
+  @override
+  String get autoOpenLastRemoteSubtitle =>
+      'Membuka alat kawalan yang paling baru digunakan apabila aplikasi bermula. Jika tidak tersedia, senarai alat kawalan akan dipaparkan.';
+
+  @override
   String get hapticFeedbackTitle => 'Umpan balik haptik';
 
   @override

@@ -189,6 +189,8 @@
   "irTransmitterSubtitle": "Piliin ang which hardware sends IR commands",
   "interactionTitle": "Interaction",
   "interactionSubtitle": "Touch feedback at remote layout",
+  "autoOpenLastRemoteTitle": "Buksan ang huling remote sa pagsisimula",
+  "autoOpenLastRemoteSubtitle": "Binubuksan ang pinakahuling ginamit na remote kapag nagsimula ang app. Kung hindi ito available, ipapakita ang listahan ng mga remote.",
   "hapticFeedbackTitle": "Haptic feedback",
   "hapticFeedbackSubtitle": "Vibrate on taps at actions",
   "intensity": "Intensity",

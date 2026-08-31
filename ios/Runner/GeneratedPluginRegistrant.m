@@ -6,10 +6,10 @@
 
 #import "GeneratedPluginRegistrant.h"
 
-#if __has_include(<file_picker/FilePickerPlugin.h>)
-#import <file_picker/FilePickerPlugin.h>
+#if __has_include(<file_picker_darwin/FilePickerPlugin.h>)
+#import <file_picker_darwin/FilePickerPlugin.h>
 #else
-@import file_picker;
+@import file_picker_darwin;
 #endif
 
 #if __has_include(<file_selector_ios/FileSelectorPlugin.h>)

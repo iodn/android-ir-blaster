@@ -1506,6 +1506,18 @@ abstract class AppLocalizations {
   /// **'Touch feedback and remote layout'**
   String get interactionSubtitle;
 
+  /// No description provided for @autoOpenLastRemoteTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Open last remote at startup'**
+  String get autoOpenLastRemoteTitle;
+
+  /// No description provided for @autoOpenLastRemoteSubtitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Open the most recently used remote when the app starts. The remote list is shown if it is unavailable.'**
+  String get autoOpenLastRemoteSubtitle;
+
   /// No description provided for @hapticFeedbackTitle.
   ///
   /// In en, this message translates to:

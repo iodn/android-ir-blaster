@@ -189,6 +189,8 @@
   "irTransmitterSubtitle": "选择用于发送红外命令的硬件",
   "interactionTitle": "交互",
   "interactionSubtitle": "触控反馈与遥控器布局",
+  "autoOpenLastRemoteTitle": "启动时打开上次使用的遥控器",
+  "autoOpenLastRemoteSubtitle": "应用启动时打开最近使用的遥控器。如果该遥控器不可用，则显示遥控器列表。",
   "hapticFeedbackTitle": "触觉反馈",
   "hapticFeedbackSubtitle": "点击和操作时振动",
   "intensity": "强度",

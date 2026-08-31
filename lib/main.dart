@@ -11,6 +11,7 @@ import 'package:irblaster_controller/state/dynamic_color.dart';
 import 'package:irblaster_controller/state/haptics.dart';
 import 'package:irblaster_controller/state/orientation_pref.dart';
 import 'package:irblaster_controller/state/remote_display_prefs.dart';
+import 'package:irblaster_controller/state/startup_prefs.dart';
 import 'package:irblaster_controller/state/transmitter_prefs.dart';
 import 'package:irblaster_controller/state/remotes_state.dart';
 import 'package:irblaster_controller/state/macros_state.dart';
@@ -47,6 +48,7 @@ Future<void> main() async {
       HapticsController.instance.load(),
       RemoteOrientationController.instance.load(),
       RemoteDisplayController.instance.load(),
+      StartupPrefsController.instance.load(),
       TransmitterPrefs.instance.load(),
       // lazy import to avoid circulars; we refer by string to keep tool happy
     ]);
@@ -81,6 +83,7 @@ void _initControlChannel() {
       if (raw is String) buttonId = raw;
     }
     if (buttonId == null || buttonId.trim().isEmpty) return;
+    StartupPrefsController.instance.suppressAutoOpenForCurrentLaunch();
     await _sendButtonById(buttonId.trim());
   });
 
@@ -92,6 +95,7 @@ void _initControlChannel() {
       final raw = args['tileKey'];
       if (raw is String) key = raw;
     }
+    StartupPrefsController.instance.suppressAutoOpenForCurrentLaunch();
     await _openQuickTileChooser(key);
   });
 
@@ -105,6 +109,7 @@ void _initControlChannel() {
       if (raw is String) id = int.tryParse(raw);
     }
     if (id == null || id <= 0) return;
+    StartupPrefsController.instance.suppressAutoOpenForCurrentLaunch();
     await _configureHomeButtonWidget(id);
   });
 }

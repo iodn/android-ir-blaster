@@ -804,6 +804,13 @@ class AppLocalizationsIt extends AppLocalizations {
   String get interactionSubtitle => 'Feedback tocco e layout telecomando';
 
   @override
+  String get autoOpenLastRemoteTitle => 'Apri l’ultimo telecomando all’avvio';
+
+  @override
+  String get autoOpenLastRemoteSubtitle =>
+      'Apre il telecomando usato più di recente all’avvio dell’app. Se non è disponibile, viene mostrato l’elenco dei telecomandi.';
+
+  @override
   String get hapticFeedbackTitle => 'Feedback aptico';
 
   @override
