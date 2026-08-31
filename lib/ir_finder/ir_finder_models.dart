@@ -175,7 +175,7 @@ class IrFinderBruteSpec {
       case 'rc5':
         return const IrFinderBruteSpec(
           protocolId: 'rc5',
-          totalHexDigits: 4,
+          totalHexDigits: 3,
           displayName: 'RC5',
         );
       case 'rc6':
@@ -315,7 +315,19 @@ class IrFinderParams {
       };
     }
 
-    if (id == 'pioneer' || id == 'rc5' || id == 'samsung32' || id == 'xsat') {
+    if (id == 'rc5') {
+      final int data = int.parse(cleaned, radix: 16) & 0xFFF;
+      final int command = (data & 0x3F) | (((data >> 11) & 1) == 0 ? 0x40 : 0);
+      return <String, dynamic>{
+        'address': ((data >> 6) & 0x1F)
+            .toRadixString(16)
+            .toUpperCase()
+            .padLeft(2, '0'),
+        'command': command.toRadixString(16).toUpperCase().padLeft(2, '0'),
+      };
+    }
+
+    if (id == 'pioneer' || id == 'samsung32' || id == 'xsat') {
       final String code = cleaned.padLeft(4, '0');
       return <String, dynamic>{
         'address': code.substring(code.length - 4, code.length - 2),

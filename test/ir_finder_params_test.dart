@@ -16,6 +16,21 @@ void main() {
     );
   });
 
+  test('Signal Tester unpacks a 12-bit RC5 code into protocol fields', () {
+    expect(
+      IrFinderBruteSpec.forProtocol('rc5')!.totalHexDigits,
+      3,
+    );
+    expect(
+      IrFinderParams.buildParamsForProtocol('rc5', '81A'),
+      <String, dynamic>{'address': '00', 'command': '1A'},
+    );
+    expect(
+      IrFinderParams.buildParamsForProtocol('rc5', '054'),
+      <String, dynamic>{'address': '01', 'command': '54'},
+    );
+  });
+
   test('Signal Tester builds encodable parameters for every protocol option',
       () {
     const examples = <String, String>{
@@ -30,7 +45,7 @@ void main() {
       'nrc17': '5C61',
       'pioneer': '1A2B',
       'proton': '0000',
-      'rc5': '0000',
+      'rc5': '800',
       'rc6': '800F',
       'rca_38': 'F00',
       'rcc0082': '000',

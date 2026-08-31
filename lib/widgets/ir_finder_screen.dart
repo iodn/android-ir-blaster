@@ -355,7 +355,7 @@ class _IrFinderScreenState extends State<IrFinderScreen>
     'nrc17': '5C61',
     'pioneer': '1A2B',
     'proton': '0000',
-    'rc5': '0000',
+    'rc5': '800',
     'rc6': '800F',
     'rca_38': 'F00',
     'rcc0082': '000',
