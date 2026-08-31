@@ -6,7 +6,7 @@ const IrProtocolDefinition denonProtocolDefinition = IrProtocolDefinition(
   description:
       'Denon: 4-hex-digit code. Carrier 38kHz. '
       'Builds 13-bit field from 4 nibbles (last bit of 4th nibble only), '
-      'expands to 26 bits and encodes as: first13 + preamble + second13 + postamble.',
+      'then sends normal, inverted-command, and normal frames.',
   implemented: true,
   defaultFrequencyHz: 38000,
   fields: <IrFieldDef>[
@@ -82,9 +82,10 @@ class DenonProtocolEncoder implements IrProtocolEncoder {
     final String first5 = bits13.substring(0, 5);
     final String next8 = bits13.substring(5, 13);
 
-    // bits26 = first5 + next8 + first5 + next8.uppercase()
-    // Uppercasing has no effect on '0'/'1', but we preserve the structure.
-    final String bits26 = first5 + next8 + first5 + next8.toUpperCase();
+    final String invertedNext8 =
+        next8.split('').map((bit) => bit == '0' ? '1' : '0').join();
+    final String normalBits = first5 + next8;
+    final String invertedBits = first5 + invertedNext8;
 
     List<int> encodeBits(String bits) {
       final List<int> out = <int>[];
@@ -96,14 +97,13 @@ class DenonProtocolEncoder implements IrProtocolEncoder {
       return out;
     }
 
-    final List<int> first13Enc = encodeBits(bits26.substring(0, 13));
-    final List<int> second13Enc = encodeBits(bits26.substring(13, 26));
-
     final List<int> total = <int>[];
-    total.addAll(first13Enc);
+    total.addAll(encodeBits(normalBits));
     total.addAll(pre);
-    total.addAll(second13Enc);
+    total.addAll(encodeBits(invertedBits));
     total.addAll(post);
+    total.addAll(encodeBits(normalBits));
+    total.addAll(pre);
 
     return IrEncodeResult(
       frequencyHz: defaultFrequencyHz,
