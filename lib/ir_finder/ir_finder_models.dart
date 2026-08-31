@@ -327,6 +327,15 @@ class IrFinderParams {
       };
     }
 
+    if (id == 'pioneer' && cleaned.length == 8) {
+      return <String, dynamic>{
+        'address': cleaned.substring(0, 2),
+        'command': cleaned.substring(2, 4),
+        'secondaryAddress': cleaned.substring(4, 6),
+        'secondaryCommand': cleaned.substring(6, 8),
+      };
+    }
+
     if (id == 'pioneer' || id == 'samsung32' || id == 'xsat') {
       final String code = cleaned.padLeft(4, '0');
       return <String, dynamic>{

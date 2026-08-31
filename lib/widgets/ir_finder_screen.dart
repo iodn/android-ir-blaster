@@ -687,6 +687,7 @@ class _IrFinderScreenState extends State<IrFinderScreen>
     final String pid = protocolId.trim().toLowerCase();
     final int want = _totalHexDigitsForProtocol(pid);
     String s = _normalizeHexDigitsOnlyUpper(codeHexAny);
+    if (pid == 'pioneer' && s.length == 8) return s;
     if (want <= 0) return s;
     if (s.length > want) {
       s = s.substring(s.length - want);

@@ -31,6 +31,18 @@ void main() {
     );
   });
 
+  test('Signal Tester preserves Pioneer two-part database codes', () {
+    expect(
+      IrFinderParams.buildParamsForProtocol('pioneer', 'A57AA5E0'),
+      <String, dynamic>{
+        'address': 'A5',
+        'command': '7A',
+        'secondaryAddress': 'A5',
+        'secondaryCommand': 'E0',
+      },
+    );
+  });
+
   test('Signal Tester builds encodable parameters for every protocol option',
       () {
     const examples = <String, String>{
