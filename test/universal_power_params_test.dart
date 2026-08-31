@@ -20,4 +20,27 @@ void main() {
       isNotEmpty,
     );
   });
+
+  test('Universal Power preserves a two-part Pioneer database code', () {
+    expect(totalHexDigitsForProtocol('pioneer'), 8);
+
+    final params = buildParamsForProtocol(
+      protocolId: 'pioneer',
+      codeHex: 'A57AA5E0',
+    );
+
+    expect(
+      params,
+      <String, dynamic>{
+        'address': 'A5',
+        'command': '7A',
+        'secondaryAddress': 'A5',
+        'secondaryCommand': 'E0',
+      },
+    );
+    expect(
+      IrProtocolRegistry.encoderFor('pioneer').encode(params).pattern,
+      isNotEmpty,
+    );
+  });
 }

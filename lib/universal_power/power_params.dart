@@ -11,7 +11,7 @@ const Map<String, String> _protocolExampleHex = <String, String>{
   'necx1': '000008F7',
   'necx2': '000C08F7',
   'nrc17': '5C61',
-  'pioneer': '1A2B',
+  'pioneer': '1A2B3C4D',
   'proton': '0000',
   'rc5': '800',
   'rc6': '800F',
@@ -84,12 +84,14 @@ Map<String, dynamic> buildParamsForProtocol({
   }
 
   if (pid == 'pioneer') {
-    if (fitted.length != 4) {
-      throw ArgumentError('Pioneer code must be 4 hex digits');
+    if (fitted.length != 8) {
+      throw ArgumentError('Pioneer code must be 8 hex digits');
     }
     return <String, dynamic>{
       'address': fitted.substring(0, 2),
       'command': fitted.substring(2, 4),
+      'secondaryAddress': fitted.substring(4, 6),
+      'secondaryCommand': fitted.substring(6, 8),
     };
   }
 
