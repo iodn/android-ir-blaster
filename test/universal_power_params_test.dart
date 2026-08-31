@@ -75,4 +75,22 @@ void main() {
       );
     }
   });
+
+  test('Universal Power keeps the Samsung32 address and command bytes', () {
+    expect(totalHexDigitsForProtocol('samsung32'), 4);
+
+    final params = buildParamsForProtocol(
+      protocolId: 'samsung32',
+      codeHex: 'A57A',
+    );
+
+    expect(
+      params,
+      <String, dynamic>{'address': 'A5', 'command': '7A'},
+    );
+    expect(
+      IrProtocolRegistry.encoderFor('samsung32').encode(params).pattern,
+      isNotEmpty,
+    );
+  });
 }
