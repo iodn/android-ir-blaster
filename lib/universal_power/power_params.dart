@@ -83,6 +83,21 @@ Map<String, dynamic> buildParamsForProtocol({
     return _buildKaseikyoParams(codeHexAny: fitted, vendorAny: kaseikyoVendor);
   }
 
+  if (pid == 'sony12' || pid == 'sony15' || pid == 'sony20') {
+    final int bits = pid == 'sony12' ? 12 : (pid == 'sony15' ? 15 : 20);
+    final int addressBits = pid == 'sony12' ? 5 : (pid == 'sony15' ? 8 : 13);
+    final int data = int.parse(fitted, radix: 16) & ((1 << bits) - 1);
+    final int command = data & 0x7F;
+    final int address = (data >> 7) & ((1 << addressBits) - 1);
+    return <String, dynamic>{
+      'address': address
+          .toRadixString(16)
+          .toUpperCase()
+          .padLeft((addressBits + 3) ~/ 4, '0'),
+      'command': command.toRadixString(16).toUpperCase().padLeft(2, '0'),
+    };
+  }
+
   if (pid == 'pioneer') {
     if (fitted.length != 8) {
       throw ArgumentError('Pioneer code must be 8 hex digits');

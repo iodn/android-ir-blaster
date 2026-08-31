@@ -43,4 +43,36 @@ void main() {
       isNotEmpty,
     );
   });
+
+  test('Universal Power unpacks packed Sony database codes', () {
+    expect(
+      buildParamsForProtocol(protocolId: 'sony12', codeHex: 'A90'),
+      <String, dynamic>{'address': '15', 'command': '10'},
+    );
+    expect(
+      buildParamsForProtocol(protocolId: 'sony15', codeHex: '6D35'),
+      <String, dynamic>{'address': 'DA', 'command': '35'},
+    );
+    expect(
+      buildParamsForProtocol(protocolId: 'sony20', codeHex: 'C1011'),
+      <String, dynamic>{'address': '1820', 'command': '11'},
+    );
+
+    for (final protocol in <String>['sony12', 'sony15', 'sony20']) {
+      final code = <String, String>{
+        'sony12': 'A90',
+        'sony15': '6D35',
+        'sony20': 'C1011',
+      }[protocol]!;
+      final params = buildParamsForProtocol(
+        protocolId: protocol,
+        codeHex: code,
+      );
+      expect(
+        IrProtocolRegistry.encoderFor(protocol).encode(params).pattern,
+        isNotEmpty,
+        reason: protocol,
+      );
+    }
+  });
 }
