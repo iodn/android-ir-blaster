@@ -318,6 +318,30 @@ data: 9000 4500 560 560
     expect(previewIRButton(button).frequencyHz, 36000);
   });
 
+  test('IRPlus RC5 joins converter pre-data and button data', () {
+    const input = '''
+<irplus>
+  <device format="WINLIRC_RC5" bits="6" pre-bits="7">
+    <button label="Power">0x45 0x0C</button>
+  </device>
+</irplus>
+''';
+    final preview = analyzeImportedText(
+      input,
+      filename: 'split-rc5.xml',
+      fallbackRemoteName: fallbackRemoteName,
+      fallbackButtonLabel: fallbackButtonLabel,
+    );
+
+    final button = preview.remotes.single.buttons.single;
+    expect(button.protocol, 'rc5');
+    expect(button.protocolParams, <String, dynamic>{
+      'address': '05',
+      'command': '0C',
+    });
+    expect(previewIRButton(button).frequencyHz, 36000);
+  });
+
   test('preview parser accepts JSON backups and builds usable remotes', () {
     final preview = analyzeImportedText(
       jsonBackup,

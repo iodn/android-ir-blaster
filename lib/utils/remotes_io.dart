@@ -1569,6 +1569,35 @@ Remote? _parseIrplusXml(
       final pairMatch =
           RegExp(r'^0x([0-9A-Fa-f]+)\s+0x([0-9A-Fa-f]+)$').firstMatch(payload);
       if (pairMatch != null) {
+        if (protoFromFormat == 'rc5') {
+          final int? codeBits =
+              int.tryParse((device.getAttribute('bits') ?? '').trim());
+          final int? fixedBits =
+              int.tryParse((device.getAttribute('pre-bits') ?? '').trim());
+          if (codeBits != null &&
+              codeBits > 0 &&
+              fixedBits != null &&
+              fixedBits > 0 &&
+              codeBits + fixedBits == 13) {
+            final BigInt fixed =
+                BigInt.parse(pairMatch.group(1)!, radix: 16) &
+                    ((BigInt.one << fixedBits) - BigInt.one);
+            final BigInt code =
+                BigInt.parse(pairMatch.group(2)!, radix: 16) &
+                    ((BigInt.one << codeBits) - BigInt.one);
+            final IRButton? mapped = _buildProtocolButtonFromLircCode(
+              id: uuid.v4(),
+              label: label,
+              frequency: 36000,
+              protocolId: 'rc5',
+              value: (fixed << codeBits) | code,
+              codeBits: 13,
+            );
+            if (mapped != null) buttons.add(mapped);
+          }
+          continue;
+        }
+
         final int addr16 = int.parse(pairMatch.group(1)!, radix: 16) & 0xFFFF;
         final int cmd16 = int.parse(pairMatch.group(2)!, radix: 16) & 0xFFFF;
         final String lircHex = _lircHexFromAddrCmdExplicit(addr16, cmd16);
