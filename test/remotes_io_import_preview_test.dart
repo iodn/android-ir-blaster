@@ -122,6 +122,29 @@ end remote
     expect(previewIRButton(button).pattern.take(2), <int>[9000, 4500]);
   });
 
+  test('Flipper NECext preserves zero high bytes as 16-bit field data', () {
+    const input = '''
+Filetype: IR signals file
+Version: 1
+#
+name: Power
+type: parsed
+protocol: NECext
+address: 50 00 00 00
+command: 17 00 00 00
+''';
+    final preview = analyzeImportedText(
+      input,
+      filename: 'extended_zero_bytes.ir',
+      fallbackRemoteName: fallbackRemoteName,
+      fallbackButtonLabel: fallbackButtonLabel,
+    );
+
+    final button = preview.remotes.single.buttons.single;
+    expect(button.protocol, 'nec');
+    expect(button.protocolParams?['hex'], '0A00E800');
+  });
+
   test('Flipper RC5X preserves the seventh command bit', () {
     final preview = analyzeImportedText(
       flipperRc5x,

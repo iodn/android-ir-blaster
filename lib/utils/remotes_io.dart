@@ -1273,7 +1273,11 @@ Remote? _parseFlipperIrFile(
           (mappedProtocol == 'nec' ||
               mappedProtocol == 'nec2' ||
               mappedProtocol == 'necx1')) {
-        final String hexCode = _convertToLircHex(addressMatch, commandMatch);
+        final String hexCode = _convertToLircHex(
+          addressMatch,
+          commandMatch,
+          completeNecInverses: normalizedProtocol == 'nec',
+        );
 
         buttons.add(
           IRButton(
@@ -1288,7 +1292,11 @@ Remote? _parseFlipperIrFile(
           ),
         );
       } else {
-        final String hexCode = _convertToLircHex(addressMatch, commandMatch);
+        final String hexCode = _convertToLircHex(
+          addressMatch,
+          commandMatch,
+          completeNecInverses: true,
+        );
 
         buttons.add(
           IRButton(
@@ -1340,19 +1348,25 @@ Remote? _parseFlipperIrFile(
   );
 }
 
-String _convertToLircHex(RegExpMatch addressMatch, RegExpMatch commandMatch) {
+String _convertToLircHex(
+  RegExpMatch addressMatch,
+  RegExpMatch commandMatch, {
+  required bool completeNecInverses,
+}) {
   final int addrByte1 = int.parse(addressMatch.group(1)!, radix: 16);
   final int addrByte2 = int.parse(addressMatch.group(2)!, radix: 16);
   final int cmdByte1 = int.parse(commandMatch.group(1)!, radix: 16);
   final int cmdByte2 = int.parse(commandMatch.group(2)!, radix: 16);
 
   final int lircCmd = _bitReverse(addrByte1);
-  final int lircCmdInv =
-      (addrByte2 == 0) ? (0xFF - lircCmd) : _bitReverse(addrByte2);
+  final int lircCmdInv = completeNecInverses && addrByte2 == 0
+      ? 0xFF - lircCmd
+      : _bitReverse(addrByte2);
 
   final int lircAddr = _bitReverse(cmdByte1);
-  final int lircAddrInv =
-      (cmdByte2 == 0) ? (0xFF - lircAddr) : _bitReverse(cmdByte2);
+  final int lircAddrInv = completeNecInverses && cmdByte2 == 0
+      ? 0xFF - lircAddr
+      : _bitReverse(cmdByte2);
 
   return "${lircCmd.toRadixString(16).padLeft(2, '0')}"
           "${lircCmdInv.toRadixString(16).padLeft(2, '0')}"
