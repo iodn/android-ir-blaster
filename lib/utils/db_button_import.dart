@@ -234,6 +234,15 @@ Map<String, String> _deriveProtocolFieldTextFromHex(String protocolId, String he
     };
   }
 
+  if (protocolId == IrProtocolIds.pioneer && hex.length == 8) {
+    return <String, String>{
+      'address': hex.substring(0, 2),
+      'command': hex.substring(2, 4),
+      'secondaryAddress': hex.substring(4, 6),
+      'secondaryCommand': hex.substring(6, 8),
+    };
+  }
+
   if ((protocolId == IrProtocolIds.sony12 ||
           protocolId == IrProtocolIds.sony15 ||
           protocolId == IrProtocolIds.sony20) &&
