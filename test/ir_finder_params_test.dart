@@ -3,6 +3,13 @@ import 'package:irblaster_controller/ir/ir_protocol_registry.dart';
 import 'package:irblaster_controller/ir_finder/ir_finder_models.dart';
 
 void main() {
+  test('F12 editor limits input to its 12-bit payload', () {
+    expect(
+      IrProtocolRegistry.definitionFor('f12_relaxed')!.fields.single.maxLength,
+      3,
+    );
+  });
+
   test('Signal Tester unpacks a complete Sony12 code into protocol fields', () {
     final params = IrFinderParams.buildParamsForProtocol('sony12', 'A90');
 

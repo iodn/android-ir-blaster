@@ -14,10 +14,9 @@ const IrProtocolDefinition f12RelaxedProtocolDefinition = IrProtocolDefinition(
       label: 'Code (hex)',
       type: IrFieldType.string,
       required: true,
-      maxLength: 32,
+      maxLength: 3,
       hint: 'e.g., ABC',
-      helperText:
-          'Hex string (0-9, A-F). Entire value is parsed; first 12 bits are used.',
+      helperText: 'Up to 3 hex digits (0-9, A-F).',
       maxLines: 1,
     ),
   ],
