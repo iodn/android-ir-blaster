@@ -5,8 +5,8 @@ const IrProtocolDefinition nrc17ProtocolDefinition = IrProtocolDefinition(
   displayName: 'Nokia NRC17',
   description:
       'NRC17: 38 kHz. Input hex length=4 packed as command(8 bits) + address(4 bits) + subcode(4 bits). '
-      'Sends one NRC17 frame: pre-pulse 500/2500, then start bit 1, then command/address/subcode LSB-first '
-      'with fixed 1 ms bi-phase bit cells (1 => burst first half, 0 => burst second half).',
+      'Sends synchronization, command, and termination frames with fixed 1 ms bi-phase bit cells '
+      '(1 => burst first half, 0 => burst second half).',
   implemented: true,
   defaultFrequencyHz: 38000,
   fields: <IrFieldDef>[
@@ -51,10 +51,11 @@ class Nrc17ProtocolEncoder implements IrProtocolEncoder {
     final int address = int.parse(hex.substring(2, 3), radix: 16) & 0x0F;
     final int subcode = int.parse(hex.substring(3, 4), radix: 16) & 0x0F;
 
-    final String bits = '1' +
-        _bitsLsbFirst(command, 8) +
-        _bitsLsbFirst(address, 4) +
-        _bitsLsbFirst(subcode, 4);
+    final int device = address | (subcode << 4);
+    final String commandBits =
+        '1${_bitsLsbFirst(command, 8)}${_bitsLsbFirst(device, 8)}';
+    final String syncBits =
+        '1${_bitsLsbFirst(0xFE, 8)}${_bitsLsbFirst(0xFF, 8)}';
 
     final List<int> pattern = <int>[];
     bool lastWasMark = false;
@@ -69,14 +70,20 @@ class Nrc17ProtocolEncoder implements IrProtocolEncoder {
       lastWasMark = isMark;
     }
 
-    addSegment(true, preMark);
-    addSegment(false, preSpace);
-
-    for (int i = 0; i < bits.length; i++) {
-      final bool one = bits.codeUnitAt(i) == 0x31; // '1'
-      addSegment(one, halfBit);
-      addSegment(!one, halfBit);
+    void appendFrame(String bits, int trailingSpace) {
+      addSegment(true, preMark);
+      addSegment(false, preSpace);
+      for (int i = 0; i < bits.length; i++) {
+        final bool one = bits.codeUnitAt(i) == 0x31; // '1'
+        addSegment(one, halfBit);
+        addSegment(!one, halfBit);
+      }
+      addSegment(false, trailingSpace);
     }
+
+    appendFrame(syncBits, 14000);
+    appendFrame(commandBits, 110000);
+    appendFrame(syncBits, 100000);
 
     return IrEncodeResult(
       frequencyHz: defaultFrequencyHz,
