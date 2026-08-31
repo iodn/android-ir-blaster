@@ -14,10 +14,9 @@ const IrProtocolDefinition rc6ProtocolDefinition = IrProtocolDefinition(
       label: 'Code (hex)',
       type: IrFieldType.string,
       required: true,
-      maxLength: 32,
+      maxLength: 4,
       hint: 'e.g., 800F',
-      helperText:
-          'Hex string (0-9, A-F). The last 4 hex digits are used as the 16-bit payload.',
+      helperText: 'Up to 4 hex digits (0-9, A-F).',
       maxLines: 1,
     ),
   ],

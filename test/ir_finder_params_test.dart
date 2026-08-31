@@ -10,6 +10,13 @@ void main() {
     );
   });
 
+  test('RC6 mode 0 editor limits input to its 16-bit payload', () {
+    expect(
+      IrProtocolRegistry.definitionFor('rc6')!.fields.single.maxLength,
+      4,
+    );
+  });
+
   test('Signal Tester unpacks a complete Sony12 code into protocol fields', () {
     final params = IrFinderParams.buildParamsForProtocol('sony12', 'A90');
 
