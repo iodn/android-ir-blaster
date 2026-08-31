@@ -29,6 +29,17 @@ address: EE 87 00 00
 command: 5D A0 00 00
 ''';
 
+  const flipperRc5x = '''
+Filetype: IR signals file
+Version: 1
+#
+name: Extended command
+type: parsed
+protocol: RC5X
+address: 05 00 00 00
+command: 40 00 00 00
+''';
+
   const irplusXml = '''
 <irplus>
   <device manufacturer="Test" model="Remote" format="NEC">
@@ -82,7 +93,8 @@ end remote
     }
   }
 
-  test('preview parser accepts Flipper IR files and builds a usable remote', () {
+  test('preview parser accepts Flipper IR files and builds a usable remote',
+      () {
     final preview = analyzeImportedText(
       flipperIr,
       filename: 'tv.ir',
@@ -109,6 +121,23 @@ end remote
     expect(button.protocol, 'nec');
     expect(button.protocolParams?['hex'], '77E1BA05');
     expect(previewIRButton(button).pattern.take(2), <int>[9000, 4500]);
+  });
+
+  test('Flipper RC5X preserves the seventh command bit', () {
+    final preview = analyzeImportedText(
+      flipperRc5x,
+      filename: 'extended_rc5.ir',
+      fallbackRemoteName: fallbackRemoteName,
+      fallbackButtonLabel: fallbackButtonLabel,
+    );
+
+    expect(preview.isSupported, isTrue);
+    final button = preview.remotes.single.buttons.single;
+    expect(button.protocol, 'rc5');
+    expect(button.protocolParams, <String, dynamic>{
+      'address': '05',
+      'command': '40',
+    });
   });
 
   test('preview parser accepts IRPlus XML variants and builds a usable remote',

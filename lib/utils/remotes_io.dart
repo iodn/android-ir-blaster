@@ -889,8 +889,7 @@ List<Remote> _parseSupportedFileToRemotes(
       extLower == 'irplus' ||
       nameLower.endsWith('.xml') ||
       nameLower.endsWith('.irplus');
-  final bool isConfLike =
-      extLower == 'conf' ||
+  final bool isConfLike = extLower == 'conf' ||
       extLower == 'cfg' ||
       extLower == 'lirc' ||
       extLower == 'lrc';
@@ -968,8 +967,7 @@ String _sanitizeRemoteNameFromFilename(String filename,
   );
 
   base = base.replaceAll(
-    RegExp(r'\.(json|ir|xml|irplus|conf|cfg|lirc|lrc)$',
-        caseSensitive: false),
+    RegExp(r'\.(json|ir|xml|irplus|conf|cfg|lirc|lrc)$', caseSensitive: false),
     '',
   );
 
@@ -1103,9 +1101,7 @@ Remote? _parseFlipperIrFile(
 
       if (mappedProtocol != null && mappedProtocol == 'rc5') {
         final int addr = int.parse(addressMatch.group(1)!, radix: 16) & 0x1F;
-        final int cmd = int.parse(commandMatch.group(1)!, radix: 16) & 0x3F;
-        final int value = (addr << 6) | cmd;
-        final String hex = value.toRadixString(16).toUpperCase();
+        final int cmd = int.parse(commandMatch.group(1)!, radix: 16) & 0x7F;
 
         buttons.add(
           IRButton(
@@ -1116,7 +1112,10 @@ Remote? _parseFlipperIrFile(
             image: name,
             isImage: false,
             protocol: 'rc5',
-            protocolParams: <String, dynamic>{'hex': hex},
+            protocolParams: <String, dynamic>{
+              'address': addr.toRadixString(16).toUpperCase().padLeft(2, '0'),
+              'command': cmd.toRadixString(16).toUpperCase().padLeft(2, '0'),
+            },
           ),
         );
       } else if (mappedProtocol == 'rc6') {
