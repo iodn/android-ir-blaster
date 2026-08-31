@@ -994,7 +994,7 @@ String? _mapFlipperProtocol(String? name) {
     case 'nec42':
       return 'nec2';
     case 'necext':
-      return 'necx1';
+      return 'nec';
     case 'nrc17':
       return 'nrc17';
     case 'pioneer':

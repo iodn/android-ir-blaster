@@ -1,4 +1,5 @@
 import 'package:flutter_test/flutter_test.dart';
+import 'package:irblaster_controller/utils/ir.dart';
 import 'package:irblaster_controller/utils/remote.dart';
 import 'package:irblaster_controller/utils/remotes_io.dart';
 
@@ -15,6 +16,17 @@ type: parsed
 protocol: NEC
 address: 00 FF
 command: 20 DF
+''';
+
+  const flipperNecExt = '''
+Filetype: IR signals file
+Version: 1
+#
+name: Power
+type: parsed
+protocol: NECext
+address: EE 87 00 00
+command: 5D A0 00 00
 ''';
 
   const irplusXml = '''
@@ -82,6 +94,21 @@ end remote
     expect(preview.formatLabel, 'Flipper .ir');
     expect(preview.remotes, hasLength(1));
     expectRemoteIsUsable(preview.remotes.single);
+  });
+
+  test('Flipper NECext imports with the NEC 9000/4500 preamble', () {
+    final preview = analyzeImportedText(
+      flipperNecExt,
+      filename: 'extended.ir',
+      fallbackRemoteName: fallbackRemoteName,
+      fallbackButtonLabel: fallbackButtonLabel,
+    );
+
+    expect(preview.isSupported, isTrue);
+    final button = preview.remotes.single.buttons.single;
+    expect(button.protocol, 'nec');
+    expect(button.protocolParams?['hex'], '77E1BA05');
+    expect(previewIRButton(button).pattern.take(2), <int>[9000, 4500]);
   });
 
   test('preview parser accepts IRPlus XML variants and builds a usable remote',
