@@ -157,6 +157,36 @@ List<int> buildNecPatternLSBFirst(int code32,
   return pattern;
 }
 
+List<int> buildNecPatternLsbPerByte(int code32,
+    {NECParams params = NECParams.defaults}) {
+  final int nec = code32 & 0xFFFFFFFF;
+  final List<int> pattern = [params.headerMark, params.headerSpace];
+  for (int byteShift = 24; byteShift >= 0; byteShift -= 8) {
+    for (int bitIndex = 0; bitIndex < 8; bitIndex++) {
+      final int bit = (nec >> (byteShift + bitIndex)) & 0x1;
+      pattern.add(params.bitMark);
+      pattern.add(bit == 0 ? params.zeroSpace : params.oneSpace);
+    }
+  }
+  pattern.add(params.trailerMark);
+  return pattern;
+}
+
+List<int> _buildCustomNecPattern(
+  int code32, {
+  required String? bitOrder,
+  required NECParams params,
+}) {
+  switch (bitOrder?.trim().toLowerCase()) {
+    case 'lsb':
+      return buildNecPatternLSBFirst(code32, params: params);
+    case 'true_lsb':
+      return buildNecPatternLsbPerByte(code32, params: params);
+    default:
+      return buildNecPatternFromStoredCodeMSBFirst(code32, params: params);
+  }
+}
+
 void _reportFlutterError(String where, Object error, StackTrace stack) {
   FlutterError.reportError(
     FlutterErrorDetails(
@@ -311,12 +341,11 @@ IrPreview previewIRButton(IRButton button) {
     if (isNecConfigString(button.rawData)) {
       if (button.code != null) {
         final params = parseNecParamsFromString(button.rawData!);
-        final useLsb =
-            (button.necBitOrder ?? 'msb').toLowerCase().trim() == 'lsb';
-        final pattern = useLsb
-            ? buildNecPatternLSBFirst(button.code!, params: params)
-            : buildNecPatternFromStoredCodeMSBFirst(button.code!,
-                params: params);
+        final pattern = _buildCustomNecPattern(
+          button.code!,
+          bitOrder: button.necBitOrder,
+          params: params,
+        );
         _validatePattern(pattern, where: 'previewNecCustom');
         _validateFrequency(button.frequency!);
         return IrPreview(
@@ -421,12 +450,11 @@ Future<void> sendIR(IRButton button) async {
     if (isNecConfigString(button.rawData)) {
       if (button.code != null) {
         final params = parseNecParamsFromString(button.rawData!);
-        final useLsb =
-            (button.necBitOrder ?? 'msb').toLowerCase().trim() == 'lsb';
-        final pattern = useLsb
-            ? buildNecPatternLSBFirst(button.code!, params: params)
-            : buildNecPatternFromStoredCodeMSBFirst(button.code!,
-                params: params);
+        final pattern = _buildCustomNecPattern(
+          button.code!,
+          bitOrder: button.necBitOrder,
+          params: params,
+        );
         await transmitRaw(button.frequency ?? kDefaultNecFrequencyHz, pattern);
         return;
       } else {

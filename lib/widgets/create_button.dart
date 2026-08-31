@@ -21,7 +21,40 @@ enum _LabelType { image, text, icon }
 
 enum _SignalType { hex, raw, protocol }
 
-enum _NecBitOrder { msb, lsb }
+enum _NecBitOrder { msb, byteSwap, trueLsb }
+
+_NecBitOrder _decodeNecBitOrder(String? value) {
+  switch (value?.trim().toLowerCase()) {
+    case 'lsb':
+      return _NecBitOrder.byteSwap;
+    case 'true_lsb':
+      return _NecBitOrder.trueLsb;
+    default:
+      return _NecBitOrder.msb;
+  }
+}
+
+String _encodeNecBitOrder(_NecBitOrder value) {
+  switch (value) {
+    case _NecBitOrder.byteSwap:
+      return 'lsb';
+    case _NecBitOrder.trueLsb:
+      return 'true_lsb';
+    case _NecBitOrder.msb:
+      return 'msb';
+  }
+}
+
+String _necBitOrderLabel(_NecBitOrder value) {
+  switch (value) {
+    case _NecBitOrder.byteSwap:
+      return 'Byte Swap';
+    case _NecBitOrder.trueLsb:
+      return 'True LSB (Bit Reversal)';
+    case _NecBitOrder.msb:
+      return 'MSB (compat)';
+  }
+}
 
 enum _DbPreset { power, volume, channel, navigation, all }
 
@@ -208,9 +241,7 @@ class _CreateButtonState extends State<CreateButton> {
         zeroSpaceCtrl.text = params.zeroSpace.toString();
         oneSpaceCtrl.text = params.oneSpace.toString();
         trailerMarkCtrl.text = params.trailerMark.toString();
-        _necBitOrder = ((b.necBitOrder ?? 'msb').toLowerCase() == 'lsb')
-            ? _NecBitOrder.lsb
-            : _NecBitOrder.msb;
+        _necBitOrder = _decodeNecBitOrder(b.necBitOrder);
       } else if (hasRaw) {
         _signalType = _SignalType.raw;
         rawDataController.text = b.rawData!;
@@ -1218,8 +1249,9 @@ class _CreateButtonState extends State<CreateButton> {
       chips.add(_chip('HEX / NEC', icon: Icons.numbers));
       if (useCustomNec) {
         chips.add(_chip('Custom timings', icon: Icons.tune));
-        chips.add(_chip(_necBitOrder == _NecBitOrder.lsb ? 'LSB' : 'MSB',
-            icon: Icons.swap_horiz));
+        chips.add(
+          _chip(_necBitOrderLabel(_necBitOrder), icon: Icons.swap_horiz),
+        );
         final f = int.tryParse(hexFreqController.text.trim());
         if (f != null && f > 0) {
           chips.add(_chip('${(f / 1000).round()} kHz', icon: Icons.waves));
@@ -1282,7 +1314,7 @@ class _CreateButtonState extends State<CreateButton> {
             "NEC:h=$hMark,$hSpace;b=$bMark,$zSpace,$oSpace;t=$tMark";
         freqForNec = int.tryParse(hexFreqController.text.trim()) ??
             kDefaultNecFrequencyHz;
-        bitOrder = (_necBitOrder == _NecBitOrder.lsb) ? 'lsb' : 'msb';
+        bitOrder = _encodeNecBitOrder(_necBitOrder);
       }
 
       return IRButton(
@@ -2624,19 +2656,6 @@ class _CreateButtonState extends State<CreateButton> {
   Widget _buildNecAdvancedSection() {
     final theme = Theme.of(context);
 
-    final bitOrderSegments = <ButtonSegment<_NecBitOrder>>[
-      const ButtonSegment(
-        value: _NecBitOrder.msb,
-        label: Text('MSB'),
-        icon: Icon(Icons.check_circle_outline),
-      ),
-      const ButtonSegment(
-        value: _NecBitOrder.lsb,
-        label: Text('LSB'),
-        icon: Icon(Icons.swap_horiz),
-      ),
-    ];
-
     return ExpansionTile(
       initiallyExpanded: useCustomNec,
       title: const Text('Advanced (optional)'),
@@ -2683,10 +2702,18 @@ class _CreateButtonState extends State<CreateButton> {
           const SizedBox(height: 6),
           Align(
             alignment: Alignment.centerLeft,
-            child: SegmentedButton<_NecBitOrder>(
-              segments: bitOrderSegments,
-              selected: {_necBitOrder},
-              onSelectionChanged: (s) => setState(() => _necBitOrder = s.first),
+            child: Wrap(
+              spacing: 8,
+              runSpacing: 8,
+              children: _NecBitOrder.values.map((value) {
+                return ChoiceChip(
+                  label: Text(_necBitOrderLabel(value)),
+                  selected: _necBitOrder == value,
+                  onSelected: (selected) {
+                    if (selected) setState(() => _necBitOrder = value);
+                  },
+                );
+              }).toList(growable: false),
             ),
           ),
           const SizedBox(height: 12),
@@ -2717,7 +2744,7 @@ class _CreateButtonState extends State<CreateButton> {
           Align(
             alignment: Alignment.centerLeft,
             child: Text(
-              "MSB mode is kept for compatibility with existing stored codes. Switch to LSB if your stored hex is in natural order for your device.",
+              'MSB keeps existing behavior. Byte Swap preserves the previous LSB option. True LSB reverses bits within each byte for standard NEC receivers.',
               style: theme.textTheme.bodySmall?.copyWith(
                 color: theme.colorScheme.onSurface.withValues(alpha: 0.75),
               ),
@@ -3148,7 +3175,7 @@ class _CreateButtonState extends State<CreateButton> {
             "NEC:h=$hMark,$hSpace;b=$bMark,$zSpace,$oSpace;t=$tMark";
         freqForNec = int.tryParse(hexFreqController.text.trim()) ??
             kDefaultNecFrequencyHz;
-        bitOrder = (_necBitOrder == _NecBitOrder.lsb) ? 'lsb' : 'msb';
+        bitOrder = _encodeNecBitOrder(_necBitOrder);
       }
 
       final button = IRButton(

@@ -330,7 +330,12 @@ class _RemoteStudioScreenState extends State<RemoteStudioScreen> {
 
     if (isNecCustom) {
       chips.add(_pill(context, context.l10n.necProtocolShort, icon: Icons.numbers));
-      chips.add(_pill(context, (button.necBitOrder ?? 'msb').toUpperCase(), icon: Icons.swap_horiz));
+      final bitOrderLabel = switch (button.necBitOrder?.trim().toLowerCase()) {
+        'lsb' => 'BYTE SWAP',
+        'true_lsb' => 'TRUE LSB',
+        _ => 'MSB',
+      };
+      chips.add(_pill(context, bitOrderLabel, icon: Icons.swap_horiz));
       if (button.frequency != null && button.frequency! > 0) {
         chips.add(
           _pill(
