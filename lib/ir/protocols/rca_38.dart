@@ -6,9 +6,9 @@ const IrProtocolDefinition rca38ProtocolDefinition = IrProtocolDefinition(
   description:
       'Payload = addr(4) + cmd(8) + ~addr(4) + ~cmd(8) = 24 bits.\n'
       'Bit order: MSB-first.\n'
-      'Timings: 4000/4000, mark 500, space0 1000, space1 2000, gap 8000. Carrier 56kHz.',
+      'Timings: 3680/3680, mark 460, space0 920, space1 1840, gap 7360. Carrier 38.7kHz.',
   implemented: true,
-  defaultFrequencyHz: 56000,
+  defaultFrequencyHz: 38700,
   fields: <IrFieldDef>[
     IrFieldDef(
       id: 'address',
@@ -43,13 +43,13 @@ class Rca38ProtocolEncoder implements IrProtocolEncoder {
   @override
   IrProtocolDefinition get definition => rca38ProtocolDefinition;
 
-  static const int defaultFrequencyHz = 56000;
-  static const int preMark = 4000;
-  static const int preSpace = 4000;
-  static const int mark = 500;
-  static const int space0 = 1000;
-  static const int space1 = 2000;
-  static const int gap = 8000;
+  static const int defaultFrequencyHz = 38700;
+  static const int preMark = 3680;
+  static const int preSpace = 3680;
+  static const int mark = 460;
+  static const int space0 = 920;
+  static const int space1 = 1840;
+  static const int gap = 7360;
 
   @override
   IrEncodeResult encode(Map<String, dynamic> params) {
@@ -59,11 +59,10 @@ class Rca38ProtocolEncoder implements IrProtocolEncoder {
     final int invAddr4 = (~addr4) & 0x0F;
     final int invCmd = (~cmd) & 0xFF;
 
-    // data = addr(4) | cmd(8)<<4 | invAddr(4)<<12 | invCmd(8)<<16
-    final int data = (addr4 & 0x0F) |
-        ((cmd & 0xFF) << 4) |
-        ((invAddr4 & 0x0F) << 12) |
-        ((invCmd & 0xFF) << 16);
+    final int data = ((addr4 & 0x0F) << 20) |
+        ((cmd & 0xFF) << 12) |
+        ((invAddr4 & 0x0F) << 8) |
+        (invCmd & 0xFF);
 
     final List<int> out = <int>[];
 
