@@ -60,6 +60,7 @@ class IrFinderHit {
   final String? dbModel;
   final String? dbLabel;
   final int? dbRemoteId;
+  final Map<String, dynamic>? protocolParams;
 
   const IrFinderHit({
     required this.savedAt,
@@ -71,6 +72,7 @@ class IrFinderHit {
     this.dbModel,
     this.dbLabel,
     this.dbRemoteId,
+    this.protocolParams,
   });
 
   /// Backward-compat aliases
@@ -276,6 +278,21 @@ class IrFinderBruteSpec {
 class IrFinderParams {
   static String _cleanHex(String s) =>
       s.replaceAll(RegExp(r'[^0-9a-fA-F]'), '').toUpperCase();
+
+  static Map<String, dynamic> paramsForHit(
+    IrFinderHit hit, {
+    String? kaseikyoVendor,
+  }) {
+    final stored = hit.protocolParams;
+    if (stored != null && stored.isNotEmpty) {
+      return Map<String, dynamic>.from(stored);
+    }
+    return buildParamsForProtocol(
+      hit.protocolId,
+      hit.code,
+      kaseikyoVendor: kaseikyoVendor,
+    );
+  }
 
   static Map<String, dynamic> buildParamsForProtocol(
     String protocolId,

@@ -47,6 +47,41 @@ void main() {
     expect(IrFinderBruteSpec.forProtocol('rc6')!.totalHexDigits, 4);
   });
 
+  test('Saved Signal Tester hits retain their tested protocol parameters', () {
+    const params = <String, dynamic>{
+      'address': '80 02 20 00',
+      'command': 'D0 03 00 00',
+    };
+    final hit = IrFinderHit(
+      savedAt: DateTime(2026),
+      protocolId: 'kaseikyo',
+      protocolName: 'Kaseikyo',
+      code: '80D003',
+      source: IrFinderSource.bruteforce,
+      protocolParams: params,
+    );
+
+    expect(
+      IrFinderParams.paramsForHit(hit, kaseikyoVendor: 'FFFF'),
+      params,
+    );
+  });
+
+  test('Older Signal Tester hits rebuild structured protocol parameters', () {
+    final hit = IrFinderHit(
+      savedAt: DateTime(2026),
+      protocolId: 'sony12',
+      protocolName: 'SONY12',
+      code: 'A90',
+      source: IrFinderSource.bruteforce,
+    );
+
+    expect(
+      IrFinderParams.paramsForHit(hit),
+      <String, dynamic>{'address': '15', 'command': '10'},
+    );
+  });
+
   test('Signal Tester builds encodable parameters for every protocol option',
       () {
     const examples = <String, String>{

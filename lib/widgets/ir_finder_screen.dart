@@ -55,6 +55,7 @@ class _IrFinderScreenState extends State<IrFinderScreen>
                 'dbModel': h.dbModel,
                 'dbLabel': h.dbLabel,
                 'dbRemoteId': h.dbRemoteId,
+                'protocolParams': h.protocolParams,
               })
           .toList();
       await f.writeAsString(const JsonEncoder.withIndent('  ').convert(payload),
@@ -94,6 +95,9 @@ class _IrFinderScreenState extends State<IrFinderScreen>
           dbRemoteId: (m['dbRemoteId'] is int)
               ? m['dbRemoteId'] as int
               : int.tryParse('${m['dbRemoteId']}'),
+          protocolParams: m['protocolParams'] is Map
+              ? Map<String, dynamic>.from(m['protocolParams'] as Map)
+              : null,
         );
       }).toList();
       if (loaded.isEmpty) return;
@@ -192,6 +196,10 @@ class _IrFinderScreenState extends State<IrFinderScreen>
   Future<bool> _appendHitToRemote(Remote remote, IrFinderHit hit) async {
     try {
       final uuid = const Uuid();
+      final params = IrFinderParams.paramsForHit(
+        hit,
+        kaseikyoVendor: _kaseikyoVendor,
+      );
       final IRButton btn = IRButton(
         id: uuid.v4(),
         code: null,
@@ -200,7 +208,7 @@ class _IrFinderScreenState extends State<IrFinderScreen>
         image: hit.dbLabel ?? hit.code,
         isImage: false,
         protocol: hit.protocolId,
-        protocolParams: <String, dynamic>{'hex': hit.code},
+        protocolParams: params,
       );
       remote.buttons.add(btn);
       await writeRemotelist(remotes);
@@ -215,6 +223,10 @@ class _IrFinderScreenState extends State<IrFinderScreen>
       BuildContext context, IrFinderHit hit) async {
     try {
       final uuid = const Uuid();
+      final params = IrFinderParams.paramsForHit(
+        hit,
+        kaseikyoVendor: _kaseikyoVendor,
+      );
       final Remote r = Remote(
         name: hit.dbBrand ?? context.l10n.newRemoteDefaultName,
         buttons: <IRButton>[
@@ -226,7 +238,7 @@ class _IrFinderScreenState extends State<IrFinderScreen>
             image: hit.dbLabel ?? hit.code,
             isImage: false,
             protocol: hit.protocolId,
-            protocolParams: <String, dynamic>{'hex': hit.code},
+            protocolParams: params,
           )
         ],
         useNewStyle: true,
@@ -1015,6 +1027,9 @@ class _IrFinderScreenState extends State<IrFinderScreen>
       dbModel: c.dbModel,
       dbRemoteId: c.dbRemoteId,
       dbLabel: c.dbLabel,
+      protocolParams: c.params is Map
+          ? Map<String, dynamic>.from(c.params as Map)
+          : null,
     );
 
     setState(() {
@@ -1034,8 +1049,10 @@ class _IrFinderScreenState extends State<IrFinderScreen>
   Future<void> _testHit(IrFinderHit h) async {
     Map<String, dynamic> params;
     try {
-      params =
-          _buildParamsForProtocol(protocolId: h.protocolId, codeHex: h.code);
+      params = IrFinderParams.paramsForHit(
+        h,
+        kaseikyoVendor: _kaseikyoVendor,
+      );
     } catch (e) {
       if (!mounted) return;
       ScaffoldMessenger.of(context).showSnackBar(
