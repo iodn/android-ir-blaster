@@ -43,6 +43,10 @@ void main() {
     );
   });
 
+  test('Signal Tester defines RC6 mode 0 as a 16-bit payload', () {
+    expect(IrFinderBruteSpec.forProtocol('rc6')!.totalHexDigits, 4);
+  });
+
   test('Signal Tester builds encodable parameters for every protocol option',
       () {
     const examples = <String, String>{

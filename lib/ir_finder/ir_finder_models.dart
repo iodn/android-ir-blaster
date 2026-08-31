@@ -181,7 +181,7 @@ class IrFinderBruteSpec {
       case 'rc6':
         return const IrFinderBruteSpec(
           protocolId: 'rc6',
-          totalHexDigits: 8,
+          totalHexDigits: 4,
           displayName: 'RC6',
         );
       case 'nrc17':
