@@ -5,6 +5,7 @@ import 'protocols/raw_signal.dart';
 import 'protocols/denon.dart';
 import 'protocols/f12_relaxed.dart';
 import 'protocols/jvc.dart';
+import 'protocols/marantz.dart';
 import 'protocols/nec2.dart';
 import 'protocols/necx1.dart';
 import 'protocols/necx2.dart';
@@ -12,6 +13,7 @@ import 'protocols/nrc17.dart';
 import 'protocols/pioneer.dart';
 import 'protocols/proton.dart';
 import 'protocols/rc5.dart';
+import 'protocols/rc5x.dart';
 import 'protocols/rc6.dart';
 import 'protocols/rca_38.dart';
 import 'protocols/rcc0082.dart';
@@ -40,6 +42,7 @@ class IrProtocolIds {
   static const String denon = 'denon';
   static const String f12Relaxed = 'f12_relaxed';
   static const String jvc = 'jvc';
+  static const String marantz = 'marantz';
   static const String nec = 'nec';
   static const String nec2 = 'nec2';
   static const String necx1 = 'necx1';
@@ -48,6 +51,7 @@ class IrProtocolIds {
   static const String pioneer = 'pioneer';
   static const String proton = 'proton';
   static const String rc5 = 'rc5';
+  static const String rc5x = 'rc5x';
   static const String rc6 = 'rc6';
   static const String rca38 = 'rca_38';
   static const String rcc0082 = 'rcc0082';
@@ -55,7 +59,7 @@ class IrProtocolIds {
   static const String rec80 = 'rec80';
   static const String recs80 = 'recs80';
   static const String recs80L = 'recs80_l';
-    static const String samsung32 = 'samsung32';
+  static const String samsung32 = 'samsung32';
   static const String samsung36 = 'samsung36';
   static const String sharp = 'sharp';
   static const String sony12 = 'sony12';
@@ -78,6 +82,7 @@ class IrProtocolRegistry {
     denonProtocolDefinition.id: denonProtocolDefinition,
     f12RelaxedProtocolDefinition.id: f12RelaxedProtocolDefinition,
     jvcProtocolDefinition.id: jvcProtocolDefinition,
+    marantzProtocolDefinition.id: marantzProtocolDefinition,
     nec2ProtocolDefinition.id: nec2ProtocolDefinition,
     necx1ProtocolDefinition.id: necx1ProtocolDefinition,
     necx2ProtocolDefinition.id: necx2ProtocolDefinition,
@@ -85,6 +90,7 @@ class IrProtocolRegistry {
     pioneerProtocolDefinition.id: pioneerProtocolDefinition,
     protonProtocolDefinition.id: protonProtocolDefinition,
     rc5ProtocolDefinition.id: rc5ProtocolDefinition,
+    rc5xProtocolDefinition.id: rc5xProtocolDefinition,
     rc6ProtocolDefinition.id: rc6ProtocolDefinition,
     rca38ProtocolDefinition.id: rca38ProtocolDefinition,
     rcc0082ProtocolDefinition.id: rcc0082ProtocolDefinition,
@@ -115,6 +121,8 @@ class IrProtocolRegistry {
     F12RelaxedProtocolEncoder.protocolId: const F12RelaxedProtocolEncoder(),
     JvcProtocolEncoder.protocolId: const JvcProtocolEncoder(),
 
+    MarantzProtocolEncoder.protocolId: const MarantzProtocolEncoder(),
+
     NecProtocolEncoder.protocolId: const NecProtocolEncoder(),
     Nec2ProtocolEncoder.protocolId: const Nec2ProtocolEncoder(),
     Necx1ProtocolEncoder.protocolId: const Necx1ProtocolEncoder(),
@@ -124,6 +132,7 @@ class IrProtocolRegistry {
     PioneerProtocolEncoder.protocolId: const PioneerProtocolEncoder(),
     ProtonProtocolEncoder.protocolId: const ProtonProtocolEncoder(),
     Rc5ProtocolEncoder.protocolId: const Rc5ProtocolEncoder(),
+    Rc5xProtocolEncoder.protocolId: const Rc5xProtocolEncoder(),
     Rc6ProtocolEncoder.protocolId: const Rc6ProtocolEncoder(),
     Rca38ProtocolEncoder.protocolId: const Rca38ProtocolEncoder(),
 
