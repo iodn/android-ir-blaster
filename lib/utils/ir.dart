@@ -248,6 +248,9 @@ Future<void> transmit(int code) async {
   _validatePattern(pattern, where: 'hexPattern');
   try {
     await platform.invokeMethod("transmit", {"list": pattern});
+  } on PlatformException {
+    // Let the caller display hardware failures without creating crash reports.
+    rethrow;
   } catch (e, st) {
     _reportFlutterError('transmit()', e, st);
     rethrow;
@@ -260,6 +263,8 @@ Future<void> transmitRaw(int frequency, List<int> pattern) async {
   try {
     await platform
         .invokeMethod("transmitRaw", {"frequency": frequency, "list": pattern});
+  } on PlatformException {
+    rethrow;
   } catch (e, st) {
     _reportFlutterError('transmitRaw()', e, st);
     rethrow;
@@ -274,6 +279,8 @@ Future<void> transmitRawCycles(int frequency, List<int> pattern) async {
       "transmitRawCycles",
       {"frequency": frequency, "list": pattern},
     );
+  } on PlatformException {
+    rethrow;
   } catch (e, st) {
     _reportFlutterError('transmitRawCycles()', e, st);
     rethrow;

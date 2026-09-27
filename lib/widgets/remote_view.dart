@@ -285,7 +285,11 @@ class RemoteViewState extends State<RemoteView> {
   }
 
   Future<void> _handleButtonPress(IRButton button) async {
-    await _sendOnce(button);
+    try {
+      await _sendOnce(button);
+    } on PlatformException {
+      // _sendOnce already displays the failure. A tap has no awaiting caller.
+    }
   }
 
   void _startLoop(IRButton button) {
