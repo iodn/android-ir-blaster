@@ -5232,4 +5232,12 @@ class AppLocalizationsEn extends AppLocalizations {
   String updatesDownloadConfirm(String size) {
     return 'Download $size MB from GitHub? Installation requires your confirmation.';
   }
+
+  @override
+  String get macroWidgetInfo =>
+      'Automatic widgets save a copy of the commands. Recreate the widget after editing the macro. Tap again or use Stop in the notification to cancel. Macros with manual steps open the app.';
+
+  @override
+  String get macroWidgetUnavailable =>
+      'This macro cannot be used as a widget. Check its remote, buttons and signal data.';
 }

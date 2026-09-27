@@ -5193,4 +5193,12 @@ class AppLocalizationsRu extends AppLocalizations {
   String updatesDownloadConfirm(String size) {
     return 'Скачать $size МБ с GitHub? Для установки потребуется ваше подтверждение.';
   }
+
+  @override
+  String get macroWidgetInfo =>
+      'Автоматические виджеты сохраняют копию команд. После изменения макроса создайте виджет заново. Для отмены нажмите ещё раз или выберите «Остановить» в уведомлении. Макросы с ручными шагами открывают приложение.';
+
+  @override
+  String get macroWidgetUnavailable =>
+      'Этот макрос нельзя использовать как виджет. Проверьте его пульт, кнопки и данные сигнала.';
 }

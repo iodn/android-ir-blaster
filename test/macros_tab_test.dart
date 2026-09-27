@@ -95,9 +95,45 @@ void main() {
         .widgetList<PopupMenuItem<String>>(find.byType(PopupMenuItem<String>))
         .map((item) => item.value)
         .toList();
-    expect(values, ['run', 'edit', 'duplicate', 'share', 'delete']);
+    expect(values, ['run', 'edit', 'duplicate', 'share', 'widget', 'delete']);
     await tester.pumpWidget(const SizedBox());
     await tester.pumpAndSettle();
+  });
+
+  testWidgets('macro widget pinning requires confirmation and includes the sequence',
+      (tester) async {
+    final calls = <MethodCall>[];
+    TestDefaultBinaryMessengerBinding.instance.defaultBinaryMessenger
+        .setMockMethodCallHandler(
+            const MethodChannel('flutter.baseflow.com/permissions/methods'),
+            (_) async => {17: 1});
+    TestDefaultBinaryMessengerBinding.instance.defaultBinaryMessenger
+        .setMockMethodCallHandler(
+            const MethodChannel('org.nslabs/irtransmitter_home_widget'), (call) async {
+      calls.add(call);
+      return true;
+    });
+    await tester.runAsync(() async {
+      await writeRemotelist(remotes);
+      await writeMacrosList(macros);
+    });
+    await open(tester);
+    await action(tester, 'Add home widget');
+    for (var i = 0; i < 100 && find.byType(AlertDialog).evaluate().isEmpty; i++) {
+      await tester.runAsync(() => Future<void>.delayed(const Duration(milliseconds: 20)));
+      await tester.pump();
+    }
+    await tester.pumpAndSettle();
+    expect(find.byType(AlertDialog), findsOneWidget);
+    expect(calls.map((c) => c.method), ['isPinSupported']);
+    await tester.tap(find.widgetWithText(FilledButton, 'Add home widget'));
+    await settleSave(tester);
+    final mapping = calls.last.arguments as Map;
+    expect(calls.last.method, 'pinButtonWidget');
+    expect(mapping['macroId'], original.id);
+    expect(mapping['steps'], [{'delayMs': 500}]);
+    expect(mapping['manual'], false);
+    expect(mapping['labels']['stop'], 'Stop');
   });
 
   testWidgets('failed duplicate leaves list unchanged and allows retry',

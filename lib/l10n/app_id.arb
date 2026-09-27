@@ -2397,5 +2397,7 @@
   "updatesNoAsset": "Tidak ada APK terverifikasi untuk perangkat ini. Lihat catatan rilis.",
   "updatesReleaseNotes": "Catatan rilis",
   "updatesChannel": "Sumber pembaruan: {source}",
-  "updatesDownloadConfirm": "Unduh {size} MB dari GitHub? Penginstalan memerlukan konfirmasi Anda."
+  "updatesDownloadConfirm": "Unduh {size} MB dari GitHub? Penginstalan memerlukan konfirmasi Anda.",
+  "macroWidgetInfo": "Widget otomatis menyimpan salinan perintah. Buat ulang widget setelah mengedit makro. Ketuk lagi atau gunakan Hentikan di notifikasi untuk membatalkan. Makro dengan langkah manual akan membuka aplikasi.",
+  "macroWidgetUnavailable": "Makro ini tidak dapat digunakan sebagai widget. Periksa remote, tombol, dan data sinyalnya."
 }

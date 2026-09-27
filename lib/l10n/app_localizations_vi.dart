@@ -5177,4 +5177,12 @@ class AppLocalizationsVi extends AppLocalizations {
   String updatesDownloadConfirm(String size) {
     return 'Tải $size MB từ GitHub? Việc cài đặt cần bạn xác nhận.';
   }
+
+  @override
+  String get macroWidgetInfo =>
+      'Tiện ích tự động lưu một bản sao các lệnh. Hãy tạo lại tiện ích sau khi chỉnh sửa macro. Nhấn lại hoặc dùng Dừng trong thông báo để hủy. Macro có bước thủ công sẽ mở ứng dụng.';
+
+  @override
+  String get macroWidgetUnavailable =>
+      'Không thể dùng macro này làm tiện ích. Hãy kiểm tra điều khiển, các nút và dữ liệu tín hiệu.';
 }

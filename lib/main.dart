@@ -30,6 +30,8 @@ import 'utils/crash_reporting.dart';
 import 'widgets/crash_report_dialog.dart';
 import 'sharing/share_receiver.dart';
 import 'updates/update_controller.dart';
+import 'widgets/home_widget_picker.dart';
+import 'widgets/macro_run_screen.dart';
 
 void main() {
   runZonedGuarded(_startApp, (error, stack) {
@@ -106,6 +108,11 @@ void _initControlChannel() {
   });
 
   _homeWidgetChannel.setMethodCallHandler((call) async {
+    if (call.method == 'openMacro') {
+      final id = call.arguments;
+      if (id is String) await _openWidgetMacro(id);
+      return;
+    }
     if (call.method != 'configureWidget') return;
     final args = call.arguments;
     int? id;
@@ -191,16 +198,10 @@ Future<void> _configureHomeButtonWidget(int appWidgetId) async {
     });
     return;
   }
-  final pick = await pickButtonForTile(ctx);
-  if (!ctx.mounted || pick == null) return;
   try {
-    final mapping = await buildHomeButtonWidgetMapping(pick);
+    final mapping = await pickHomeWidget(ctx);
     if (!ctx.mounted) return;
     if (mapping == null) {
-      ScaffoldMessenger.of(ctx).showSnackBar(
-        const SnackBar(
-            content: Text('This button cannot be used as a widget.')),
-      );
       return;
     }
     final ok = await HomeButtonWidgetPrefs.saveWidgetMapping(
@@ -220,6 +221,32 @@ Future<void> _configureHomeButtonWidget(int appWidgetId) async {
     ScaffoldMessenger.of(ctx).showSnackBar(
       SnackBar(content: Text('Home widget setup failed: $e')),
     );
+  }
+}
+
+bool _widgetMacroOpen = false;
+Future<void> _openWidgetMacro(String id) async {
+  StartupPrefsController.instance.suppressAutoOpenForCurrentLaunch();
+  if (_widgetMacroOpen) return;
+  _widgetMacroOpen = true;
+  try {
+    final saved = (await readMacros()).where((m) => m.id == id).toList();
+    final available = await readRemotes();
+    final ctx = _navKey.currentState?.overlay?.context;
+    if (ctx == null || !ctx.mounted) return;
+    final owners = saved.length == 1
+        ? available.where((r) => r.name == saved.single.remoteName).toList()
+        : <Remote>[];
+    if (owners.length != 1) {
+      ScaffoldMessenger.of(ctx).showSnackBar(
+          SnackBar(content: Text(ctx.l10n.macroWidgetUnavailable)));
+      return;
+    }
+    await Navigator.of(ctx).push(MaterialPageRoute(builder: (_) => MacroRunScreen(
+        macro: bindMacroToRemote(saved.single, owners.single),
+        remote: owners.single, autoStart: true)));
+  } finally {
+    _widgetMacroOpen = false;
   }
 }
 
@@ -352,6 +379,15 @@ class _BootstrapScreenState extends State<_BootstrapScreen> {
       },
     );
     notifyMacrosChanged();
+    try {
+      final id = await _homeWidgetChannel.invokeMethod<String>('macroReady');
+      if (id != null) {
+        StartupPrefsController.instance.suppressAutoOpenForCurrentLaunch();
+        WidgetsBinding.instance.addPostFrameCallback((_) => unawaited(_openWidgetMacro(id)));
+      }
+    } on MissingPluginException {
+      // Widget integration is Android-only.
+    }
     await ShareReceiver.instance.ready();
     AppShortcutController.instance.markBootstrapReady();
     unawaited(UpdateController.instance.initialize());

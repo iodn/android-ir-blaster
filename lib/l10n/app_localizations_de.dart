@@ -5235,4 +5235,12 @@ class AppLocalizationsDe extends AppLocalizations {
   String updatesDownloadConfirm(String size) {
     return '$size MB von GitHub herunterladen? Die Installation erfordert deine Bestätigung.';
   }
+
+  @override
+  String get macroWidgetInfo =>
+      'Automatische Widgets speichern eine Kopie der Befehle. Erstelle das Widget nach Änderungen am Makro neu. Zum Abbrechen erneut antippen oder Stopp in der Benachrichtigung wählen. Makros mit manuellen Schritten öffnen die App.';
+
+  @override
+  String get macroWidgetUnavailable =>
+      'Dieses Makro kann nicht als Widget verwendet werden. Prüfe Fernbedienung, Tasten und Signaldaten.';
 }

@@ -5065,4 +5065,12 @@ class AppLocalizationsKo extends AppLocalizations {
   String updatesDownloadConfirm(String size) {
     return 'GitHub에서 $size MB를 다운로드할까요? 설치하려면 확인이 필요합니다.';
   }
+
+  @override
+  String get macroWidgetInfo =>
+      '자동 실행 위젯은 명령의 사본을 저장합니다. 매크로를 수정한 후에는 위젯을 다시 만드세요. 다시 탭하거나 알림의 중지를 눌러 취소할 수 있습니다. 수동 단계가 있는 매크로는 앱을 엽니다.';
+
+  @override
+  String get macroWidgetUnavailable =>
+      '이 매크로는 위젯으로 사용할 수 없습니다. 리모컨, 버튼 및 신호 데이터를 확인하세요.';
 }

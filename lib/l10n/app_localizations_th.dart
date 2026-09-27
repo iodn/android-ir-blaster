@@ -5157,4 +5157,12 @@ class AppLocalizationsTh extends AppLocalizations {
   String updatesDownloadConfirm(String size) {
     return 'ดาวน์โหลด $size MB จาก GitHub หรือไม่? การติดตั้งต้องได้รับการยืนยันจากคุณ';
   }
+
+  @override
+  String get macroWidgetInfo =>
+      'วิดเจ็ตอัตโนมัติจะบันทึกสำเนาคำสั่งไว้ โปรดสร้างวิดเจ็ตใหม่หลังจากแก้ไขมาโคร แตะอีกครั้งหรือใช้หยุดในการแจ้งเตือนเพื่อยกเลิก มาโครที่มีขั้นตอนแบบทำเองจะเปิดแอป';
+
+  @override
+  String get macroWidgetUnavailable =>
+      'ไม่สามารถใช้มาโครนี้เป็นวิดเจ็ตได้ โปรดตรวจสอบรีโมต ปุ่ม และข้อมูลสัญญาณ';
 }

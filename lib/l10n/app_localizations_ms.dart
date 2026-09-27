@@ -5190,4 +5190,12 @@ class AppLocalizationsMs extends AppLocalizations {
   String updatesDownloadConfirm(String size) {
     return 'Muat turun $size MB daripada GitHub? Pemasangan memerlukan pengesahan anda.';
   }
+
+  @override
+  String get macroWidgetInfo =>
+      'Widget automatik menyimpan salinan arahan. Cipta semula widget selepas menyunting makro. Ketik sekali lagi atau gunakan Henti dalam pemberitahuan untuk membatalkan. Makro dengan langkah manual akan membuka aplikasi.';
+
+  @override
+  String get macroWidgetUnavailable =>
+      'Makro ini tidak boleh digunakan sebagai widget. Semak alat kawalan jauh, butang dan data isyaratnya.';
 }

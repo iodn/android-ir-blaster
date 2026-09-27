@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import '../sharing/sharing_screen.dart';
+import 'home_widget_picker.dart';
 import 'package:irblaster_controller/models/timed_macro.dart';
 import 'package:irblaster_controller/l10n/l10n.dart';
 import 'package:irblaster_controller/state/macros_state.dart';
@@ -371,6 +372,7 @@ class _MacrosTabState extends State<MacrosTab> {
                     tooltip: context.l10n.actions,
                     onSelected: (v) {
                       if (v == 'share') showShare(context, macros: [macro]);
+                      if (v == 'widget') pinMacroWidget(context, macro);
                       if (v == 'run') _runMacro(macro);
                       if (v == 'edit') _editMacro(i);
                       if (v == 'duplicate') _duplicateMacro(i);
@@ -407,6 +409,14 @@ class _MacrosTabState extends State<MacrosTab> {
                           contentPadding: EdgeInsets.zero,
                           leading: const Icon(Icons.share_outlined),
                           title: Text(context.l10n.shareTitle),
+                        ),
+                      ),
+                      PopupMenuItem(
+                        value: 'widget',
+                        child: ListTile(
+                          contentPadding: EdgeInsets.zero,
+                          leading: const Icon(Icons.widgets_outlined),
+                          title: Text(context.l10n.addHomeWidget),
                         ),
                       ),
                       PopupMenuDivider(),

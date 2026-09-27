@@ -5206,4 +5206,12 @@ class AppLocalizationsFil extends AppLocalizations {
   String updatesDownloadConfirm(String size) {
     return 'I-download ang $size MB mula sa GitHub? Kailangan ang iyong kumpirmasyon para sa pag-install.';
   }
+
+  @override
+  String get macroWidgetInfo =>
+      'Nagse-save ang mga awtomatikong widget ng kopya ng mga command. Gawin muli ang widget pagkatapos i-edit ang macro. I-tap muli o gamitin ang Ihinto sa notification para kanselahin. Binubuksan ng mga macro na may manwal na hakbang ang app.';
+
+  @override
+  String get macroWidgetUnavailable =>
+      'Hindi magagamit ang macro na ito bilang widget. Suriin ang remote, mga button at signal data nito.';
 }

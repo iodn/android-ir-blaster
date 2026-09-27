@@ -5223,6 +5223,14 @@ class AppLocalizationsPt extends AppLocalizations {
   String updatesDownloadConfirm(String size) {
     return 'Transferir $size MB do GitHub? A instalação requer a sua confirmação.';
   }
+
+  @override
+  String get macroWidgetInfo =>
+      'Os widgets automáticos guardam uma cópia dos comandos. Volte a criar o widget depois de editar a macro. Toque novamente ou use Parar na notificação para cancelar. As macros com passos manuais abrem a aplicação.';
+
+  @override
+  String get macroWidgetUnavailable =>
+      'Esta macro não pode ser usada como widget. Verifique o comando, os botões e os dados do sinal.';
 }
 
 /// The translations for Portuguese, as used in Brazil (`pt_BR`).
@@ -10448,4 +10456,12 @@ class AppLocalizationsPtBr extends AppLocalizationsPt {
   String updatesDownloadConfirm(String size) {
     return 'Baixar $size MB do GitHub? A instalação exige sua confirmação.';
   }
+
+  @override
+  String get macroWidgetInfo =>
+      'Os widgets automáticos salvam uma cópia dos comandos. Crie o widget novamente depois de editar a macro. Toque de novo ou use Parar na notificação para cancelar. Macros com etapas manuais abrem o aplicativo.';
+
+  @override
+  String get macroWidgetUnavailable =>
+      'Esta macro não pode ser usada como widget. Verifique o controle remoto, os botões e os dados do sinal.';
 }

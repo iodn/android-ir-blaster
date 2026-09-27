@@ -2397,5 +2397,7 @@
   "updatesNoAsset": "Não está disponível um APK verificado para este dispositivo. Consulte as notas da versão.",
   "updatesReleaseNotes": "Notas da versão",
   "updatesChannel": "Origem das atualizações: {source}",
-  "updatesDownloadConfirm": "Transferir {size} MB do GitHub? A instalação requer a sua confirmação."
+  "updatesDownloadConfirm": "Transferir {size} MB do GitHub? A instalação requer a sua confirmação.",
+  "macroWidgetInfo": "Os widgets automáticos guardam uma cópia dos comandos. Volte a criar o widget depois de editar a macro. Toque novamente ou use Parar na notificação para cancelar. As macros com passos manuais abrem a aplicação.",
+  "macroWidgetUnavailable": "Esta macro não pode ser usada como widget. Verifique o comando, os botões e os dados do sinal."
 }

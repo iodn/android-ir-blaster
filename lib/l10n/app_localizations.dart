@@ -9385,6 +9385,18 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Download {size} MB from GitHub? Installation requires your confirmation.'**
   String updatesDownloadConfirm(String size);
+
+  /// No description provided for @macroWidgetInfo.
+  ///
+  /// In en, this message translates to:
+  /// **'Automatic widgets save a copy of the commands. Recreate the widget after editing the macro. Tap again or use Stop in the notification to cancel. Macros with manual steps open the app.'**
+  String get macroWidgetInfo;
+
+  /// No description provided for @macroWidgetUnavailable.
+  ///
+  /// In en, this message translates to:
+  /// **'This macro cannot be used as a widget. Check its remote, buttons and signal data.'**
+  String get macroWidgetUnavailable;
 }
 
 class _AppLocalizationsDelegate

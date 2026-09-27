@@ -2397,5 +2397,7 @@
   "updatesNoAsset": "Walang beripikadong APK para sa device na ito. Tingnan ang mga tala ng release.",
   "updatesReleaseNotes": "Mga tala ng release",
   "updatesChannel": "Pinagmulan ng update: {source}",
-  "updatesDownloadConfirm": "I-download ang {size} MB mula sa GitHub? Kailangan ang iyong kumpirmasyon para sa pag-install."
+  "updatesDownloadConfirm": "I-download ang {size} MB mula sa GitHub? Kailangan ang iyong kumpirmasyon para sa pag-install.",
+  "macroWidgetInfo": "Nagse-save ang mga awtomatikong widget ng kopya ng mga command. Gawin muli ang widget pagkatapos i-edit ang macro. I-tap muli o gamitin ang Ihinto sa notification para kanselahin. Binubuksan ng mga macro na may manwal na hakbang ang app.",
+  "macroWidgetUnavailable": "Hindi magagamit ang macro na ito bilang widget. Suriin ang remote, mga button at signal data nito."
 }

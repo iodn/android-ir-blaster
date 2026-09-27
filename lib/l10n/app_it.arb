@@ -2397,5 +2397,7 @@
   "updatesNoAsset": "Nessun APK verificato disponibile per questo dispositivo. Consulta le note di versione.",
   "updatesReleaseNotes": "Note di versione",
   "updatesChannel": "Fonte degli aggiornamenti: {source}",
-  "updatesDownloadConfirm": "Scaricare {size} MB da GitHub? L’installazione richiede la tua conferma."
+  "updatesDownloadConfirm": "Scaricare {size} MB da GitHub? L’installazione richiede la tua conferma.",
+  "macroWidgetInfo": "I widget automatici salvano una copia dei comandi. Ricrea il widget dopo aver modificato la macro. Tocca di nuovo o usa Interrompi nella notifica per annullare. Le macro con passaggi manuali aprono l’app.",
+  "macroWidgetUnavailable": "Questa macro non può essere usata come widget. Controlla il telecomando, i pulsanti e i dati del segnale."
 }

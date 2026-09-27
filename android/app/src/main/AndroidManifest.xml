@@ -35,6 +35,10 @@
     <!-- Removed by the Play build overlay together with the APK installer. -->
     <uses-permission android:name="android.permission.REQUEST_INSTALL_PACKAGES" />
     <uses-permission android:name="android.permission.CAMERA" />
+    <uses-permission android:name="android.permission.FOREGROUND_SERVICE" />
+    <uses-permission android:name="android.permission.FOREGROUND_SERVICE_CONNECTED_DEVICE" />
+    <uses-permission android:name="android.permission.WAKE_LOCK" />
+    <uses-permission android:name="android.permission.POST_NOTIFICATIONS" />
     <uses-feature android:name="android.hardware.camera" android:required="false" />
     <uses-feature android:name="android.hardware.camera.autofocus" android:required="false" />
     <uses-permission android:name="android.permission.TRANSMIT_IR" />
@@ -92,6 +96,11 @@
                 <data android:scheme="content" />
             </intent-filter>
         </activity>
+
+        <activity-alias android:name=".MacroWidgetAlias"
+            android:exported="false" android:targetActivity=".MainActivity" />
+        <service android:name=".IrMacroWidgetService" android:exported="false"
+            android:foregroundServiceType="connectedDevice" />
 
         <provider android:name=".updates.UpdateFileProvider"
             android:authorities="${applicationId}.updates"
