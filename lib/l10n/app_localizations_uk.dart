@@ -5146,4 +5146,73 @@ class AppLocalizationsUk extends AppLocalizations {
   @override
   String get crashReportActionFailed =>
       'Не вдалося виконати дію. Звіт збережено. Спробуйте скопіювати його або поділитися ним.';
+
+  @override
+  String get shareTitle => 'Поділитися й отримати';
+
+  @override
+  String get shareReceive => 'Отримати';
+
+  @override
+  String get shareScan => 'Сканувати QR-код';
+
+  @override
+  String get shareOpenFile => 'Відкрити отриманий файл';
+
+  @override
+  String get shareSelect => 'Виберіть, чим поділитися';
+
+  @override
+  String get shareSend => 'Передати на інший пристрій';
+
+  @override
+  String get shareQr => 'Показати QR-код';
+
+  @override
+  String get shareQrHint =>
+      'На іншому телефоні відкрийте IR Blaster > Пульти > Поділитися й отримати > Сканувати QR-код.';
+
+  @override
+  String get shareTooLarge =>
+      'Забагато даних для читабельного QR-коду. Скористайтеся передаванням на інший пристрій.';
+
+  @override
+  String get sharePreview => 'Перевірити отримані дані';
+
+  @override
+  String get sharePrivacy =>
+      'Обліковий запис і сервер не потрібні. Нічого не надсилається й не випромінюється автоматично. Пристрою-одержувачу потрібен сумісний ІЧ-передавач.';
+
+  @override
+  String get shareHardwareWarning =>
+      'Деякі вивчені сигнали потребують початкового обладнання й можуть не працювати на іншому пристрої.';
+
+  @override
+  String get shareMacroInfo =>
+      'Макроси містять пов’язані пульти та кнопки. Імпорт створює копії; нічого не перезаписується й не запускається автоматично.';
+
+  @override
+  String get shareAdd => 'Додати копії';
+
+  @override
+  String get shareAdded => 'Отримані дані додано.';
+
+  @override
+  String get shareDestination => 'Додати кнопку до';
+
+  @override
+  String get shareCamera =>
+      'Дозвольте доступ до камери для сканування QR-кодів або відкрийте отриманий файл.';
+
+  @override
+  String get shareInvalid =>
+      'Ці дані пошкоджені, завеликі або використовують непідтримувану версію.';
+
+  @override
+  String get sharePrepareFailed =>
+      'Не вдалося підготувати дані. Перевірте відсутні зображення, кнопки макросів або розмір добірки.';
+
+  @override
+  String get shareFailed =>
+      'Не вдалося завершити передавання чи збереження. Наявні елементи не замінено.';
 }

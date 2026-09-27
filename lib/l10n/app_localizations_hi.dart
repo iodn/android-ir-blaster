@@ -5028,4 +5028,73 @@ class AppLocalizationsHi extends AppLocalizations {
   @override
   String get crashReportActionFailed =>
       'यह कार्रवाई पूरी नहीं हो सकी। रिपोर्ट अभी भी सुरक्षित है। उसे कॉपी या साझा करने की कोशिश करें।';
+
+  @override
+  String get shareTitle => 'साझा करें और प्राप्त करें';
+
+  @override
+  String get shareReceive => 'प्राप्त करें';
+
+  @override
+  String get shareScan => 'QR कोड स्कैन करें';
+
+  @override
+  String get shareOpenFile => 'साझा की गई फ़ाइल खोलें';
+
+  @override
+  String get shareSelect => 'चुनें कि क्या साझा करना है';
+
+  @override
+  String get shareSend => 'दूसरे डिवाइस के साथ साझा करें';
+
+  @override
+  String get shareQr => 'QR कोड दिखाएँ';
+
+  @override
+  String get shareQrHint =>
+      'दूसरे फ़ोन पर IR Blaster > रिमोट > साझा करें और प्राप्त करें > QR कोड स्कैन करें खोलें।';
+
+  @override
+  String get shareTooLarge =>
+      'पढ़ने योग्य QR कोड के लिए डेटा बहुत अधिक है। दूसरे डिवाइस के साथ साझा करें।';
+
+  @override
+  String get sharePreview => 'साझा किए गए आइटम देखें';
+
+  @override
+  String get sharePrivacy =>
+      'खाते या सर्वर की आवश्यकता नहीं है। डेटा या सिग्नल अपने आप नहीं भेजे जाते। प्राप्त करने वाले डिवाइस को संगत IR एमिटर चाहिए।';
+
+  @override
+  String get shareHardwareWarning =>
+      'कुछ सीखे गए सिग्नल के लिए मूल हार्डवेयर आवश्यक है और वे दूसरे डिवाइस पर नहीं चल सकते।';
+
+  @override
+  String get shareMacroInfo =>
+      'मैक्रो में संबंधित रिमोट और बटन शामिल हैं। आयात नई प्रतियाँ बनाता है; कुछ भी बदला या अपने आप चलाया नहीं जाता।';
+
+  @override
+  String get shareAdd => 'प्रतियाँ जोड़ें';
+
+  @override
+  String get shareAdded => 'साझा किए गए आइटम जोड़े गए।';
+
+  @override
+  String get shareDestination => 'बटन इसमें जोड़ें';
+
+  @override
+  String get shareCamera =>
+      'QR कोड स्कैन करने के लिए कैमरे की अनुमति दें या साझा फ़ाइल खोलें।';
+
+  @override
+  String get shareInvalid =>
+      'यह डेटा अमान्य, बहुत बड़ा या असमर्थित संस्करण का है।';
+
+  @override
+  String get sharePrepareFailed =>
+      'साझा करने की तैयारी नहीं हो सकी। गायब चित्रों, मैक्रो बटनों या बहुत बड़े संग्रह की जाँच करें।';
+
+  @override
+  String get shareFailed =>
+      'साझा करना या सहेजना पूरा नहीं हुआ। मौजूदा आइटम नहीं बदले गए।';
 }

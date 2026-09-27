@@ -4899,4 +4899,69 @@ class AppLocalizationsJa extends AppLocalizations {
   @override
   String get crashReportActionFailed =>
       '操作を完了できませんでした。レポートは保存されています。コピーまたは共有をお試しください。';
+
+  @override
+  String get shareTitle => '共有と受信';
+
+  @override
+  String get shareReceive => '受信';
+
+  @override
+  String get shareScan => 'QRコードを読み取る';
+
+  @override
+  String get shareOpenFile => '共有ファイルを開く';
+
+  @override
+  String get shareSelect => '共有する項目を選択';
+
+  @override
+  String get shareSend => '別の端末と共有';
+
+  @override
+  String get shareQr => 'QRコードを表示';
+
+  @override
+  String get shareQrHint =>
+      'もう一方の端末で IR Blaster > リモコン > 共有と受信 > QRコードを読み取る を開いてください。';
+
+  @override
+  String get shareTooLarge => '読み取りやすいQRコードにするにはデータが多すぎます。端末間の共有を使ってください。';
+
+  @override
+  String get sharePreview => '共有された項目を確認';
+
+  @override
+  String get sharePrivacy =>
+      'アカウントやサーバーは不要です。データや信号が自動送信されることはありません。受信側にも対応するIR送信機が必要です。';
+
+  @override
+  String get shareHardwareWarning =>
+      '一部の学習信号には元のハードウェアが必要で、別の端末では動作しない場合があります。';
+
+  @override
+  String get shareMacroInfo =>
+      'マクロには関連するリモコンとボタンが含まれます。新しいコピーとして取り込まれ、上書きや自動実行はされません。';
+
+  @override
+  String get shareAdd => 'コピーを追加';
+
+  @override
+  String get shareAdded => '共有された項目を追加しました。';
+
+  @override
+  String get shareDestination => 'ボタンの追加先';
+
+  @override
+  String get shareCamera => 'QRコードを読み取るにはカメラを許可してください。共有ファイルを開くこともできます。';
+
+  @override
+  String get shareInvalid => '共有データが無効、大きすぎる、または未対応のバージョンです。';
+
+  @override
+  String get sharePrepareFailed =>
+      '共有を準備できません。画像やマクロのボタンが欠けていないか、選択したデータが大きすぎないか確認してください。';
+
+  @override
+  String get shareFailed => '共有または保存を完了できませんでした。既存の項目は置き換えられていません。';
 }

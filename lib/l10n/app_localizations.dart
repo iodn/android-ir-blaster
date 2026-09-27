@@ -9121,6 +9121,126 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Could not complete this action. The report is still saved. Try copying or sharing it instead.'**
   String get crashReportActionFailed;
+
+  /// No description provided for @shareTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Share and receive'**
+  String get shareTitle;
+
+  /// No description provided for @shareReceive.
+  ///
+  /// In en, this message translates to:
+  /// **'Receive'**
+  String get shareReceive;
+
+  /// No description provided for @shareScan.
+  ///
+  /// In en, this message translates to:
+  /// **'Scan QR code'**
+  String get shareScan;
+
+  /// No description provided for @shareOpenFile.
+  ///
+  /// In en, this message translates to:
+  /// **'Open shared file'**
+  String get shareOpenFile;
+
+  /// No description provided for @shareSelect.
+  ///
+  /// In en, this message translates to:
+  /// **'Choose what to share'**
+  String get shareSelect;
+
+  /// No description provided for @shareSend.
+  ///
+  /// In en, this message translates to:
+  /// **'Share with another device'**
+  String get shareSend;
+
+  /// No description provided for @shareQr.
+  ///
+  /// In en, this message translates to:
+  /// **'Show QR code'**
+  String get shareQr;
+
+  /// No description provided for @shareQrHint.
+  ///
+  /// In en, this message translates to:
+  /// **'On the other phone, open IR Blaster > Remotes > Share and receive > Scan QR code.'**
+  String get shareQrHint;
+
+  /// No description provided for @shareTooLarge.
+  ///
+  /// In en, this message translates to:
+  /// **'Too much data for a readable QR code. Use device sharing instead.'**
+  String get shareTooLarge;
+
+  /// No description provided for @sharePreview.
+  ///
+  /// In en, this message translates to:
+  /// **'Review shared items'**
+  String get sharePreview;
+
+  /// No description provided for @sharePrivacy.
+  ///
+  /// In en, this message translates to:
+  /// **'No account or server is needed. Nothing is sent or transmitted automatically. The receiving device still needs a compatible IR emitter.'**
+  String get sharePrivacy;
+
+  /// No description provided for @shareHardwareWarning.
+  ///
+  /// In en, this message translates to:
+  /// **'Some learned signals require the original hardware and may not work on another device.'**
+  String get shareHardwareWarning;
+
+  /// No description provided for @shareMacroInfo.
+  ///
+  /// In en, this message translates to:
+  /// **'Macros include their associated remotes and buttons. Imports create new copies; nothing is overwritten or run automatically.'**
+  String get shareMacroInfo;
+
+  /// No description provided for @shareAdd.
+  ///
+  /// In en, this message translates to:
+  /// **'Add copies'**
+  String get shareAdd;
+
+  /// No description provided for @shareAdded.
+  ///
+  /// In en, this message translates to:
+  /// **'Shared items added.'**
+  String get shareAdded;
+
+  /// No description provided for @shareDestination.
+  ///
+  /// In en, this message translates to:
+  /// **'Add button to'**
+  String get shareDestination;
+
+  /// No description provided for @shareCamera.
+  ///
+  /// In en, this message translates to:
+  /// **'Allow camera access to scan QR codes, or open a shared file instead.'**
+  String get shareCamera;
+
+  /// No description provided for @shareInvalid.
+  ///
+  /// In en, this message translates to:
+  /// **'This share is invalid, too large, or uses an unsupported version.'**
+  String get shareInvalid;
+
+  /// No description provided for @sharePrepareFailed.
+  ///
+  /// In en, this message translates to:
+  /// **'Could not prepare this share. Check for missing images, missing macro buttons, or a collection that is too large.'**
+  String get sharePrepareFailed;
+
+  /// No description provided for @shareFailed.
+  ///
+  /// In en, this message translates to:
+  /// **'Could not complete sharing or saving. Your existing items have not been replaced.'**
+  String get shareFailed;
 }
 
 class _AppLocalizationsDelegate

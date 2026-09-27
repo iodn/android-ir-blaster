@@ -2,6 +2,7 @@ import 'dart:async';
 import 'dart:math' as math;
 
 import 'package:flutter/material.dart';
+import '../sharing/sharing_screen.dart';
 import 'package:flutter/services.dart';
 import 'package:irblaster_controller/ir/ir_protocol_registry.dart';
 import 'package:irblaster_controller/l10n/l10n.dart';
@@ -1300,6 +1301,19 @@ class _LearningModeScreenState extends State<LearningModeScreen>
                     prefixIcon: const Icon(Icons.label_outline_rounded),
                   ),
                   onChanged: (_) => setState(() {}),
+                ),
+                Align(
+                  alignment: Alignment.centerLeft,
+                  child: TextButton.icon(
+                    icon: const Icon(Icons.share_outlined),
+                    label: Text(context.l10n.shareTitle),
+                    onPressed: _busy ? null : () {
+                      _stopReplayLoop();
+                      final name = _buttonNameCtrl.text.trim().isEmpty
+                          ? context.l10n.buttonFallbackTitle : _buttonNameCtrl.text.trim();
+                      showShare(context, button: _buildSavedButton(signal, name), buttonName: name);
+                    },
+                  ),
                 ),
                 const SizedBox(height: 16),
                 SegmentedButton<_LearningSaveTarget>(

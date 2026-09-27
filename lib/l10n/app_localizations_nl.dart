@@ -5070,4 +5070,73 @@ class AppLocalizationsNl extends AppLocalizations {
   @override
   String get crashReportActionFailed =>
       'Deze actie kon niet worden voltooid. Het rapport is nog opgeslagen. Probeer het te kopiëren of te delen.';
+
+  @override
+  String get shareTitle => 'Delen en ontvangen';
+
+  @override
+  String get shareReceive => 'Ontvangen';
+
+  @override
+  String get shareScan => 'QR-code scannen';
+
+  @override
+  String get shareOpenFile => 'Gedeeld bestand openen';
+
+  @override
+  String get shareSelect => 'Kies wat je wilt delen';
+
+  @override
+  String get shareSend => 'Delen met een ander apparaat';
+
+  @override
+  String get shareQr => 'QR-code tonen';
+
+  @override
+  String get shareQrHint =>
+      'Open op de andere telefoon IR Blaster > Afstandsbedieningen > Delen en ontvangen > QR-code scannen.';
+
+  @override
+  String get shareTooLarge =>
+      'Te veel gegevens voor een leesbare QR-code. Deel met een ander apparaat.';
+
+  @override
+  String get sharePreview => 'Gedeelde items controleren';
+
+  @override
+  String get sharePrivacy =>
+      'Geen account of server nodig. Niets wordt automatisch verzonden of uitgezonden. Het ontvangende apparaat heeft een geschikte IR-zender nodig.';
+
+  @override
+  String get shareHardwareWarning =>
+      'Sommige geleerde signalen vereisen de oorspronkelijke hardware en werken mogelijk niet op een ander apparaat.';
+
+  @override
+  String get shareMacroInfo =>
+      'Macro’s bevatten de bijbehorende afstandsbedieningen en knoppen. Importeren maakt nieuwe kopieën; niets wordt overschreven of automatisch uitgevoerd.';
+
+  @override
+  String get shareAdd => 'Kopieën toevoegen';
+
+  @override
+  String get shareAdded => 'Gedeelde items toegevoegd.';
+
+  @override
+  String get shareDestination => 'Knop toevoegen aan';
+
+  @override
+  String get shareCamera =>
+      'Sta cameratoegang toe om QR-codes te scannen of open een gedeeld bestand.';
+
+  @override
+  String get shareInvalid =>
+      'Deze gedeelde gegevens zijn ongeldig, te groot of gebruiken een niet-ondersteunde versie.';
+
+  @override
+  String get sharePrepareFailed =>
+      'Delen kon niet worden voorbereid. Controleer ontbrekende afbeeldingen, macroknoppen of een te grote selectie.';
+
+  @override
+  String get shareFailed =>
+      'Delen of opslaan is niet gelukt. Je bestaande items zijn niet vervangen.';
 }

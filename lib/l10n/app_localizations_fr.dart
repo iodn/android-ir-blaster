@@ -5081,4 +5081,73 @@ class AppLocalizationsFr extends AppLocalizations {
   @override
   String get crashReportActionFailed =>
       'Impossible de terminer cette action. Le rapport est conservé. Essayez de le copier ou de le partager.';
+
+  @override
+  String get shareTitle => 'Partager et recevoir';
+
+  @override
+  String get shareReceive => 'Recevoir';
+
+  @override
+  String get shareScan => 'Scanner un code QR';
+
+  @override
+  String get shareOpenFile => 'Ouvrir un fichier partagé';
+
+  @override
+  String get shareSelect => 'Choisir les éléments à partager';
+
+  @override
+  String get shareSend => 'Partager avec un autre appareil';
+
+  @override
+  String get shareQr => 'Afficher le code QR';
+
+  @override
+  String get shareQrHint =>
+      'Sur l’autre téléphone, ouvrez IR Blaster > Télécommandes > Partager et recevoir > Scanner un code QR.';
+
+  @override
+  String get shareTooLarge =>
+      'Trop de données pour un code QR lisible. Utilisez le partage entre appareils.';
+
+  @override
+  String get sharePreview => 'Vérifier les éléments partagés';
+
+  @override
+  String get sharePrivacy =>
+      'Aucun compte ni serveur requis. Rien n’est envoyé ni émis automatiquement. L’appareil destinataire doit disposer d’un émetteur IR compatible.';
+
+  @override
+  String get shareHardwareWarning =>
+      'Certains signaux appris nécessitent le matériel d’origine et peuvent ne pas fonctionner sur un autre appareil.';
+
+  @override
+  String get shareMacroInfo =>
+      'Les macros incluent leurs télécommandes et boutons associés. L’import crée des copies, sans écraser ni exécuter quoi que ce soit automatiquement.';
+
+  @override
+  String get shareAdd => 'Ajouter des copies';
+
+  @override
+  String get shareAdded => 'Éléments partagés ajoutés.';
+
+  @override
+  String get shareDestination => 'Ajouter le bouton à';
+
+  @override
+  String get shareCamera =>
+      'Autorisez la caméra pour scanner les codes QR, ou ouvrez un fichier partagé.';
+
+  @override
+  String get shareInvalid =>
+      'Ce partage est invalide, trop volumineux ou utilise une version non prise en charge.';
+
+  @override
+  String get sharePrepareFailed =>
+      'Impossible de préparer ce partage. Vérifiez les images ou boutons de macro manquants et la taille de la sélection.';
+
+  @override
+  String get shareFailed =>
+      'Impossible de terminer le partage ou l’enregistrement. Vos éléments existants n’ont pas été remplacés.';
 }

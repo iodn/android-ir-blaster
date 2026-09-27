@@ -5079,4 +5079,73 @@ class AppLocalizationsDe extends AppLocalizations {
   @override
   String get crashReportActionFailed =>
       'Diese Aktion konnte nicht abgeschlossen werden. Der Bericht bleibt gespeichert. Versuche, ihn zu kopieren oder zu teilen.';
+
+  @override
+  String get shareTitle => 'Teilen und empfangen';
+
+  @override
+  String get shareReceive => 'Empfangen';
+
+  @override
+  String get shareScan => 'QR-Code scannen';
+
+  @override
+  String get shareOpenFile => 'Geteilte Datei öffnen';
+
+  @override
+  String get shareSelect => 'Inhalte zum Teilen auswählen';
+
+  @override
+  String get shareSend => 'Mit anderem Gerät teilen';
+
+  @override
+  String get shareQr => 'QR-Code anzeigen';
+
+  @override
+  String get shareQrHint =>
+      'Öffne auf dem anderen Handy IR Blaster > Fernbedienungen > Teilen und empfangen > QR-Code scannen.';
+
+  @override
+  String get shareTooLarge =>
+      'Zu viele Daten für einen gut lesbaren QR-Code. Verwende stattdessen die Gerätefreigabe.';
+
+  @override
+  String get sharePreview => 'Geteilte Inhalte prüfen';
+
+  @override
+  String get sharePrivacy =>
+      'Kein Konto oder Server erforderlich. Nichts wird automatisch gesendet oder ausgestrahlt. Das Zielgerät benötigt weiterhin einen kompatiblen IR-Sender.';
+
+  @override
+  String get shareHardwareWarning =>
+      'Manche gelernten Signale benötigen die ursprüngliche Hardware und funktionieren möglicherweise nicht auf anderen Geräten.';
+
+  @override
+  String get shareMacroInfo =>
+      'Makros enthalten ihre zugehörigen Fernbedienungen und Tasten. Beim Import entstehen neue Kopien; nichts wird überschrieben oder automatisch ausgeführt.';
+
+  @override
+  String get shareAdd => 'Kopien hinzufügen';
+
+  @override
+  String get shareAdded => 'Geteilte Inhalte hinzugefügt.';
+
+  @override
+  String get shareDestination => 'Taste hinzufügen zu';
+
+  @override
+  String get shareCamera =>
+      'Erlaube den Kamerazugriff zum Scannen von QR-Codes oder öffne eine geteilte Datei.';
+
+  @override
+  String get shareInvalid =>
+      'Diese Freigabe ist ungültig, zu groß oder verwendet eine nicht unterstützte Version.';
+
+  @override
+  String get sharePrepareFailed =>
+      'Freigabe konnte nicht vorbereitet werden. Prüfe fehlende Bilder, fehlende Makrotasten oder eine zu große Auswahl.';
+
+  @override
+  String get shareFailed =>
+      'Teilen oder Speichern fehlgeschlagen. Deine vorhandenen Inhalte wurden nicht ersetzt.';
 }

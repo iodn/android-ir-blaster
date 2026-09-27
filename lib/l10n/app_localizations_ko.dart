@@ -4915,4 +4915,69 @@ class AppLocalizationsKo extends AppLocalizations {
   @override
   String get crashReportActionFailed =>
       '작업을 완료할 수 없습니다. 보고서는 저장되어 있습니다. 복사하거나 공유해 보세요.';
+
+  @override
+  String get shareTitle => '공유 및 받기';
+
+  @override
+  String get shareReceive => '받기';
+
+  @override
+  String get shareScan => 'QR 코드 스캔';
+
+  @override
+  String get shareOpenFile => '공유 파일 열기';
+
+  @override
+  String get shareSelect => '공유할 항목 선택';
+
+  @override
+  String get shareSend => '다른 기기와 공유';
+
+  @override
+  String get shareQr => 'QR 코드 표시';
+
+  @override
+  String get shareQrHint =>
+      '다른 휴대전화에서 IR Blaster > 리모컨 > 공유 및 받기 > QR 코드 스캔을 여세요.';
+
+  @override
+  String get shareTooLarge => '읽기 쉬운 QR 코드에 담기에는 데이터가 너무 많습니다. 기기 공유를 사용하세요.';
+
+  @override
+  String get sharePreview => '공유 항목 확인';
+
+  @override
+  String get sharePrivacy =>
+      '계정이나 서버가 필요 없습니다. 데이터나 신호는 자동으로 전송되지 않습니다. 받는 기기에도 호환 IR 송신기가 필요합니다.';
+
+  @override
+  String get shareHardwareWarning =>
+      '일부 학습 신호는 원래 하드웨어가 필요하며 다른 기기에서 작동하지 않을 수 있습니다.';
+
+  @override
+  String get shareMacroInfo =>
+      '매크로에는 연결된 리모컨과 버튼이 포함됩니다. 새 복사본으로 가져오며 덮어쓰거나 자동 실행하지 않습니다.';
+
+  @override
+  String get shareAdd => '복사본 추가';
+
+  @override
+  String get shareAdded => '공유 항목을 추가했습니다.';
+
+  @override
+  String get shareDestination => '버튼 추가 위치';
+
+  @override
+  String get shareCamera => 'QR 코드를 스캔하려면 카메라를 허용하거나 공유 파일을 여세요.';
+
+  @override
+  String get shareInvalid => '공유 데이터가 잘못되었거나 너무 크거나 지원하지 않는 버전입니다.';
+
+  @override
+  String get sharePrepareFailed =>
+      '공유를 준비할 수 없습니다. 누락된 이미지나 매크로 버튼이 있는지, 선택한 데이터가 너무 큰지 확인하세요.';
+
+  @override
+  String get shareFailed => '공유 또는 저장을 완료할 수 없습니다. 기존 항목은 바뀌지 않았습니다.';
 }

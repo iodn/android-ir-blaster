@@ -5050,4 +5050,73 @@ class AppLocalizationsFil extends AppLocalizations {
   @override
   String get crashReportActionFailed =>
       'Hindi makumpleto ang aksyon. Naka-save pa rin ang ulat. Subukang kopyahin o ibahagi ito.';
+
+  @override
+  String get shareTitle => 'Ibahagi at tumanggap';
+
+  @override
+  String get shareReceive => 'Tumanggap';
+
+  @override
+  String get shareScan => 'I-scan ang QR code';
+
+  @override
+  String get shareOpenFile => 'Buksan ang ibinahaging file';
+
+  @override
+  String get shareSelect => 'Piliin ang ibabahagi';
+
+  @override
+  String get shareSend => 'Ibahagi sa ibang device';
+
+  @override
+  String get shareQr => 'Ipakita ang QR code';
+
+  @override
+  String get shareQrHint =>
+      'Sa kabilang telepono, buksan ang IR Blaster > Mga remote > Ibahagi at tumanggap > I-scan ang QR code.';
+
+  @override
+  String get shareTooLarge =>
+      'Masyadong maraming datos para sa malinaw na QR code. Gamitin ang pagbabahagi sa ibang device.';
+
+  @override
+  String get sharePreview => 'Suriin ang ibinahaging mga item';
+
+  @override
+  String get sharePrivacy =>
+      'Hindi kailangan ng account o server. Walang datos o signal na awtomatikong ipinapadala. Kailangan pa rin ng katugmang IR emitter sa tatanggap na device.';
+
+  @override
+  String get shareHardwareWarning =>
+      'Kailangan ng ilang natutunang signal ang orihinal na hardware at maaaring hindi gumana sa ibang device.';
+
+  @override
+  String get shareMacroInfo =>
+      'Kasama sa mga macro ang kaugnay na remote at mga button. Gumagawa ng bagong kopya ang pag-import; walang pinapalitan o awtomatikong pinapatakbo.';
+
+  @override
+  String get shareAdd => 'Magdagdag ng mga kopya';
+
+  @override
+  String get shareAdded => 'Naidagdag ang ibinahaging mga item.';
+
+  @override
+  String get shareDestination => 'Idagdag ang button sa';
+
+  @override
+  String get shareCamera =>
+      'Payagan ang camera para mag-scan ng QR code o magbukas ng ibinahaging file.';
+
+  @override
+  String get shareInvalid =>
+      'Hindi wasto, masyadong malaki, o hindi suportado ang bersyon ng datos na ito.';
+
+  @override
+  String get sharePrepareFailed =>
+      'Hindi maihanda ang pagbabahagi. Suriin ang nawawalang larawan, mga button ng macro, o napakalaking pagpili.';
+
+  @override
+  String get shareFailed =>
+      'Hindi makumpleto ang pagbabahagi o pag-save. Hindi napalitan ang dati mong mga item.';
 }

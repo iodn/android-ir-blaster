@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import '../sharing/sharing_screen.dart';
 import 'package:irblaster_controller/models/timed_macro.dart';
 import 'package:irblaster_controller/l10n/l10n.dart';
 import 'package:irblaster_controller/state/macros_state.dart';
@@ -29,6 +30,12 @@ class _MacrosTabState extends State<MacrosTab> {
             appBar: AppBar(
               title: Text(context.l10n.macrosTitle),
               actions: [
+                IconButton(
+                  tooltip: context.l10n.shareTitle,
+                  icon: const Icon(Icons.ios_share),
+                  onPressed: () => Navigator.of(context).push<void>(
+                    MaterialPageRoute(builder: (_) => const SharingScreen())),
+                ),
                 if (macros.isNotEmpty)
                   IconButton(
                     tooltip: context.l10n.help,
@@ -363,12 +370,20 @@ class _MacrosTabState extends State<MacrosTab> {
                   PopupMenuButton<String>(
                     tooltip: context.l10n.actions,
                     onSelected: (v) {
+                      if (v == 'share') showShare(context, macros: [macro]);
                       if (v == 'run') _runMacro(macro);
                       if (v == 'edit') _editMacro(i);
                       if (v == 'duplicate') _duplicateMacro(i);
                       if (v == 'delete') _deleteMacro(i);
                     },
                     itemBuilder: (ctx) => [
+                      PopupMenuItem(
+                        value: 'share',
+                        child: ListTile(
+                          leading: const Icon(Icons.share_outlined),
+                          title: Text(context.l10n.shareTitle),
+                        ),
+                      ),
                       PopupMenuItem(
                         value: 'run',
                         child: ListTile(

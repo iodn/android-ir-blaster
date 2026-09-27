@@ -5034,4 +5034,73 @@ class AppLocalizationsMs extends AppLocalizations {
   @override
   String get crashReportActionFailed =>
       'Tindakan ini tidak dapat diselesaikan. Laporan masih disimpan. Cuba salin atau kongsikannya.';
+
+  @override
+  String get shareTitle => 'Kongsi dan terima';
+
+  @override
+  String get shareReceive => 'Terima';
+
+  @override
+  String get shareScan => 'Imbas kod QR';
+
+  @override
+  String get shareOpenFile => 'Buka fail dikongsi';
+
+  @override
+  String get shareSelect => 'Pilih perkara untuk dikongsi';
+
+  @override
+  String get shareSend => 'Kongsi dengan peranti lain';
+
+  @override
+  String get shareQr => 'Papar kod QR';
+
+  @override
+  String get shareQrHint =>
+      'Pada telefon lain, buka IR Blaster > Alat kawalan > Kongsi dan terima > Imbas kod QR.';
+
+  @override
+  String get shareTooLarge =>
+      'Terlalu banyak data untuk QR yang jelas. Gunakan perkongsian dengan peranti lain.';
+
+  @override
+  String get sharePreview => 'Semak item dikongsi';
+
+  @override
+  String get sharePrivacy =>
+      'Tiada akaun atau pelayan diperlukan. Tiada data atau isyarat dihantar secara automatik. Peranti penerima masih memerlukan pemancar IR yang serasi.';
+
+  @override
+  String get shareHardwareWarning =>
+      'Sesetengah isyarat dipelajari memerlukan perkakasan asal dan mungkin tidak berfungsi pada peranti lain.';
+
+  @override
+  String get shareMacroInfo =>
+      'Makro menyertakan alat kawalan dan butang berkaitan. Import menghasilkan salinan baharu; tiada apa-apa ditulis ganti atau dijalankan secara automatik.';
+
+  @override
+  String get shareAdd => 'Tambah salinan';
+
+  @override
+  String get shareAdded => 'Item dikongsi ditambah.';
+
+  @override
+  String get shareDestination => 'Tambah butang ke';
+
+  @override
+  String get shareCamera =>
+      'Benarkan kamera untuk mengimbas kod QR atau buka fail dikongsi.';
+
+  @override
+  String get shareInvalid =>
+      'Data ini tidak sah, terlalu besar atau menggunakan versi tidak disokong.';
+
+  @override
+  String get sharePrepareFailed =>
+      'Tidak dapat menyediakan perkongsian. Semak imej, butang makro yang hilang atau pilihan yang terlalu besar.';
+
+  @override
+  String get shareFailed =>
+      'Tidak dapat menyelesaikan perkongsian atau penyimpanan. Item sedia ada tidak diganti.';
 }

@@ -28,6 +28,7 @@ import 'package:irblaster_controller/state/home_button_widget_prefs.dart';
 import 'package:media_store_plus/media_store_plus.dart';
 import 'utils/crash_reporting.dart';
 import 'widgets/crash_report_dialog.dart';
+import 'sharing/share_receiver.dart';
 
 void main() {
   runZonedGuarded(_startApp, (error, stack) {
@@ -45,6 +46,7 @@ Future<void> _startApp() async {
     return true;
   };
   _initControlChannel();
+  ShareReceiver.instance.initialize(_navKey);
   await AppShortcutController.instance.initialize(_navKey);
   try {
     await AppThemeController.instance.load();
@@ -349,6 +351,7 @@ class _BootstrapScreenState extends State<_BootstrapScreen> {
       },
     );
     notifyMacrosChanged();
+    await ShareReceiver.instance.ready();
     AppShortcutController.instance.markBootstrapReady();
   }
 

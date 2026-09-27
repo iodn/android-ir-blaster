@@ -4838,4 +4838,64 @@ class AppLocalizationsZh extends AppLocalizations {
 
   @override
   String get crashReportActionFailed => '无法完成此操作。报告仍已保存，请尝试复制或分享。';
+
+  @override
+  String get shareTitle => '分享与接收';
+
+  @override
+  String get shareReceive => '接收';
+
+  @override
+  String get shareScan => '扫描二维码';
+
+  @override
+  String get shareOpenFile => '打开分享文件';
+
+  @override
+  String get shareSelect => '选择要分享的内容';
+
+  @override
+  String get shareSend => '分享给其他设备';
+
+  @override
+  String get shareQr => '显示二维码';
+
+  @override
+  String get shareQrHint => '在另一部手机上打开 IR Blaster > 遥控器 > 分享与接收 > 扫描二维码。';
+
+  @override
+  String get shareTooLarge => '数据过多，无法生成易于扫描的二维码。请改用设备分享。';
+
+  @override
+  String get sharePreview => '查看分享内容';
+
+  @override
+  String get sharePrivacy => '无需账户或服务器。不会自动发送数据或红外信号。接收设备仍需兼容的红外发射器。';
+
+  @override
+  String get shareHardwareWarning => '部分学习信号需要原来的硬件，可能无法在其他设备上使用。';
+
+  @override
+  String get shareMacroInfo => '宏包含关联的遥控器和按钮。导入时会创建新副本，不会覆盖或自动运行任何内容。';
+
+  @override
+  String get shareAdd => '添加副本';
+
+  @override
+  String get shareAdded => '已添加分享内容。';
+
+  @override
+  String get shareDestination => '将按钮添加到';
+
+  @override
+  String get shareCamera => '请允许使用相机扫描二维码，或打开分享文件。';
+
+  @override
+  String get shareInvalid => '分享数据无效、过大或使用了不支持的版本。';
+
+  @override
+  String get sharePrepareFailed => '无法准备分享。请检查是否缺少图片或宏按钮，或所选内容是否过大。';
+
+  @override
+  String get shareFailed => '无法完成分享或保存。现有内容未被替换。';
 }

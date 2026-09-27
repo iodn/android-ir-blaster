@@ -5003,4 +5003,72 @@ class AppLocalizationsTh extends AppLocalizations {
   @override
   String get crashReportActionFailed =>
       'ดำเนินการไม่สำเร็จ รายงานยังถูกเก็บไว้ ลองคัดลอกหรือแชร์แทน';
+
+  @override
+  String get shareTitle => 'แชร์และรับ';
+
+  @override
+  String get shareReceive => 'รับ';
+
+  @override
+  String get shareScan => 'สแกนคิวอาร์โค้ด';
+
+  @override
+  String get shareOpenFile => 'เปิดไฟล์ที่แชร์';
+
+  @override
+  String get shareSelect => 'เลือกสิ่งที่จะแชร์';
+
+  @override
+  String get shareSend => 'แชร์กับอุปกรณ์อื่น';
+
+  @override
+  String get shareQr => 'แสดงคิวอาร์โค้ด';
+
+  @override
+  String get shareQrHint =>
+      'บนโทรศัพท์อีกเครื่อง เปิด IR Blaster > รีโมต > แชร์และรับ > สแกนคิวอาร์โค้ด';
+
+  @override
+  String get shareTooLarge =>
+      'ข้อมูลมากเกินไปสำหรับคิวอาร์โค้ดที่อ่านง่าย โปรดใช้การแชร์กับอุปกรณ์อื่น';
+
+  @override
+  String get sharePreview => 'ตรวจสอบรายการที่แชร์';
+
+  @override
+  String get sharePrivacy =>
+      'ไม่ต้องมีบัญชีหรือเซิร์ฟเวอร์ ไม่มีการส่งข้อมูลหรือสัญญาณอัตโนมัติ อุปกรณ์ที่รับยังต้องมีตัวส่ง IR ที่รองรับ';
+
+  @override
+  String get shareHardwareWarning =>
+      'สัญญาณที่เรียนรู้บางชนิดต้องใช้ฮาร์ดแวร์เดิม และอาจใช้กับอุปกรณ์อื่นไม่ได้';
+
+  @override
+  String get shareMacroInfo =>
+      'มาโครรวมรีโมตและปุ่มที่เกี่ยวข้อง การนำเข้าจะสร้างสำเนาใหม่ ไม่เขียนทับหรือเรียกใช้อัตโนมัติ';
+
+  @override
+  String get shareAdd => 'เพิ่มสำเนา';
+
+  @override
+  String get shareAdded => 'เพิ่มรายการที่แชร์แล้ว';
+
+  @override
+  String get shareDestination => 'เพิ่มปุ่มไปยัง';
+
+  @override
+  String get shareCamera =>
+      'อนุญาตกล้องเพื่อสแกนคิวอาร์โค้ด หรือเปิดไฟล์ที่แชร์';
+
+  @override
+  String get shareInvalid =>
+      'ข้อมูลไม่ถูกต้อง ใหญ่เกินไป หรือใช้เวอร์ชันที่ไม่รองรับ';
+
+  @override
+  String get sharePrepareFailed =>
+      'เตรียมการแชร์ไม่สำเร็จ โปรดตรวจสอบรูปภาพหรือปุ่มมาโครที่หายไป หรือรายการที่ใหญ่เกินไป';
+
+  @override
+  String get shareFailed => 'แชร์หรือบันทึกไม่สำเร็จ รายการเดิมไม่ได้ถูกแทนที่';
 }

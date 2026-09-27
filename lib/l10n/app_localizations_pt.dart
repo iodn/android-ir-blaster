@@ -5068,6 +5068,75 @@ class AppLocalizationsPt extends AppLocalizations {
   @override
   String get crashReportActionFailed =>
       'Não foi possível concluir esta ação. O relatório continua guardado. Tente copiá-lo ou partilhá-lo.';
+
+  @override
+  String get shareTitle => 'Partilhar e receber';
+
+  @override
+  String get shareReceive => 'Receber';
+
+  @override
+  String get shareScan => 'Ler código QR';
+
+  @override
+  String get shareOpenFile => 'Abrir ficheiro partilhado';
+
+  @override
+  String get shareSelect => 'Escolher o que partilhar';
+
+  @override
+  String get shareSend => 'Partilhar com outro dispositivo';
+
+  @override
+  String get shareQr => 'Mostrar código QR';
+
+  @override
+  String get shareQrHint =>
+      'No outro telemóvel, abra IR Blaster > Comandos > Partilhar e receber > Ler código QR.';
+
+  @override
+  String get shareTooLarge =>
+      'Demasiados dados para um QR legível. Utilize a partilha com outro dispositivo.';
+
+  @override
+  String get sharePreview => 'Rever itens partilhados';
+
+  @override
+  String get sharePrivacy =>
+      'Não é necessária conta nem servidor. Nada é enviado ou emitido automaticamente. O dispositivo recetor precisa de um emissor IR compatível.';
+
+  @override
+  String get shareHardwareWarning =>
+      'Alguns sinais aprendidos exigem o equipamento original e podem não funcionar noutro dispositivo.';
+
+  @override
+  String get shareMacroInfo =>
+      'As macros incluem os comandos e botões associados. A importação cria cópias; nada é substituído ou executado automaticamente.';
+
+  @override
+  String get shareAdd => 'Adicionar cópias';
+
+  @override
+  String get shareAdded => 'Itens partilhados adicionados.';
+
+  @override
+  String get shareDestination => 'Adicionar botão a';
+
+  @override
+  String get shareCamera =>
+      'Permita o acesso à câmara para ler códigos QR ou abra um ficheiro partilhado.';
+
+  @override
+  String get shareInvalid =>
+      'Esta partilha é inválida, demasiado grande ou usa uma versão não suportada.';
+
+  @override
+  String get sharePrepareFailed =>
+      'Não foi possível preparar a partilha. Verifique imagens ou botões de macros em falta e o tamanho da seleção.';
+
+  @override
+  String get shareFailed =>
+      'Não foi possível concluir a partilha ou gravação. Os itens existentes não foram substituídos.';
 }
 
 /// The translations for Portuguese, as used in Brazil (`pt_BR`).
@@ -10138,4 +10207,73 @@ class AppLocalizationsPtBr extends AppLocalizationsPt {
   @override
   String get crashReportActionFailed =>
       'Não foi possível concluir esta ação. O relatório continua salvo. Tente copiá-lo ou compartilhá-lo.';
+
+  @override
+  String get shareTitle => 'Compartilhar e receber';
+
+  @override
+  String get shareReceive => 'Receber';
+
+  @override
+  String get shareScan => 'Escanear código QR';
+
+  @override
+  String get shareOpenFile => 'Abrir arquivo compartilhado';
+
+  @override
+  String get shareSelect => 'Escolher o que compartilhar';
+
+  @override
+  String get shareSend => 'Compartilhar com outro dispositivo';
+
+  @override
+  String get shareQr => 'Mostrar código QR';
+
+  @override
+  String get shareQrHint =>
+      'No outro celular, abra IR Blaster > Controles > Compartilhar e receber > Escanear código QR.';
+
+  @override
+  String get shareTooLarge =>
+      'Dados demais para um QR legível. Use o compartilhamento com outro dispositivo.';
+
+  @override
+  String get sharePreview => 'Revisar itens compartilhados';
+
+  @override
+  String get sharePrivacy =>
+      'Não é preciso conta nem servidor. Nada é enviado ou transmitido automaticamente. O dispositivo receptor precisa de um emissor IR compatível.';
+
+  @override
+  String get shareHardwareWarning =>
+      'Alguns sinais aprendidos exigem o hardware original e podem não funcionar em outro dispositivo.';
+
+  @override
+  String get shareMacroInfo =>
+      'As macros incluem os controles e botões associados. A importação cria cópias; nada é substituído ou executado automaticamente.';
+
+  @override
+  String get shareAdd => 'Adicionar cópias';
+
+  @override
+  String get shareAdded => 'Itens compartilhados adicionados.';
+
+  @override
+  String get shareDestination => 'Adicionar botão a';
+
+  @override
+  String get shareCamera =>
+      'Permita o acesso à câmera para escanear códigos QR ou abra um arquivo compartilhado.';
+
+  @override
+  String get shareInvalid =>
+      'Este compartilhamento é inválido, grande demais ou usa uma versão não compatível.';
+
+  @override
+  String get sharePrepareFailed =>
+      'Não foi possível preparar o compartilhamento. Verifique imagens ou botões de macros ausentes e o tamanho da seleção.';
+
+  @override
+  String get shareFailed =>
+      'Não foi possível concluir o compartilhamento ou salvamento. Os itens existentes não foram substituídos.';
 }

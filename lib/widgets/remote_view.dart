@@ -2,6 +2,7 @@ import 'dart:async';
 import 'dart:io';
 
 import 'package:flutter/material.dart';
+import '../sharing/sharing_screen.dart';
 import 'package:flutter/services.dart';
 import 'package:irblaster_controller/ir/ir_protocol_registry.dart';
 import 'package:irblaster_controller/l10n/l10n.dart';
@@ -1008,6 +1009,15 @@ class RemoteViewState extends State<RemoteView> {
                     const SizedBox(height: 12),
                     const Divider(height: 0),
                     ListTile(
+                      leading: const Icon(Icons.share_outlined),
+                      title: Text(context.l10n.shareTitle),
+                      onTap: () {
+                        if (_isLooping) _stopLoop(silent: true);
+                        Navigator.of(ctx).pop();
+                        showShare(context, remotes: [_remote]);
+                      },
+                    ),
+                    ListTile(
                       contentPadding: EdgeInsets.zero,
                       leading: Icon(
                         pinned
@@ -1424,6 +1434,15 @@ class RemoteViewState extends State<RemoteView> {
                       onSendOnce: () => _sendOnce(b),
                       onStartLoop: () => _startLoop(b),
                       onStopLoop: () => _stopLoop(silent: false),
+                    ),
+                    ListTile(
+                      leading: const Icon(Icons.share_outlined),
+                      title: Text(context.l10n.shareTitle),
+                      onTap: () {
+                        if (_isLooping) _stopLoop(silent: true);
+                        Navigator.of(ctx).pop();
+                        showShare(context, button: b, buttonName: label);
+                      },
                     ),
                     if (!isRaw && displayHex != null) ...[
                       const SizedBox(height: 10),

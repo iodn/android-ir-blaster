@@ -5022,4 +5022,73 @@ class AppLocalizationsVi extends AppLocalizations {
   @override
   String get crashReportActionFailed =>
       'Không thể hoàn tất thao tác. Báo cáo vẫn được lưu. Hãy thử sao chép hoặc chia sẻ.';
+
+  @override
+  String get shareTitle => 'Chia sẻ và nhận';
+
+  @override
+  String get shareReceive => 'Nhận';
+
+  @override
+  String get shareScan => 'Quét mã QR';
+
+  @override
+  String get shareOpenFile => 'Mở tệp được chia sẻ';
+
+  @override
+  String get shareSelect => 'Chọn nội dung chia sẻ';
+
+  @override
+  String get shareSend => 'Chia sẻ với thiết bị khác';
+
+  @override
+  String get shareQr => 'Hiện mã QR';
+
+  @override
+  String get shareQrHint =>
+      'Trên điện thoại kia, mở IR Blaster > Điều khiển > Chia sẻ và nhận > Quét mã QR.';
+
+  @override
+  String get shareTooLarge =>
+      'Quá nhiều dữ liệu để có mã QR dễ đọc. Hãy chia sẻ với thiết bị khác.';
+
+  @override
+  String get sharePreview => 'Xem nội dung được chia sẻ';
+
+  @override
+  String get sharePrivacy =>
+      'Không cần tài khoản hay máy chủ. Không tự động gửi dữ liệu hay phát tín hiệu. Thiết bị nhận vẫn cần bộ phát IR tương thích.';
+
+  @override
+  String get shareHardwareWarning =>
+      'Một số tín hiệu đã học cần phần cứng gốc và có thể không hoạt động trên thiết bị khác.';
+
+  @override
+  String get shareMacroInfo =>
+      'Macro bao gồm điều khiển và nút liên quan. Nhập sẽ tạo bản sao mới; không ghi đè hay tự động chạy bất cứ thứ gì.';
+
+  @override
+  String get shareAdd => 'Thêm bản sao';
+
+  @override
+  String get shareAdded => 'Đã thêm nội dung được chia sẻ.';
+
+  @override
+  String get shareDestination => 'Thêm nút vào';
+
+  @override
+  String get shareCamera =>
+      'Cho phép dùng camera để quét mã QR hoặc mở tệp được chia sẻ.';
+
+  @override
+  String get shareInvalid =>
+      'Dữ liệu không hợp lệ, quá lớn hoặc dùng phiên bản không được hỗ trợ.';
+
+  @override
+  String get sharePrepareFailed =>
+      'Không thể chuẩn bị chia sẻ. Kiểm tra hình ảnh, nút macro bị thiếu hoặc lựa chọn quá lớn.';
+
+  @override
+  String get shareFailed =>
+      'Không thể hoàn tất chia sẻ hoặc lưu. Các mục hiện có không bị thay thế.';
 }

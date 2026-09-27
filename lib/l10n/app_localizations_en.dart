@@ -5077,4 +5077,73 @@ class AppLocalizationsEn extends AppLocalizations {
   @override
   String get crashReportActionFailed =>
       'Could not complete this action. The report is still saved. Try copying or sharing it instead.';
+
+  @override
+  String get shareTitle => 'Share and receive';
+
+  @override
+  String get shareReceive => 'Receive';
+
+  @override
+  String get shareScan => 'Scan QR code';
+
+  @override
+  String get shareOpenFile => 'Open shared file';
+
+  @override
+  String get shareSelect => 'Choose what to share';
+
+  @override
+  String get shareSend => 'Share with another device';
+
+  @override
+  String get shareQr => 'Show QR code';
+
+  @override
+  String get shareQrHint =>
+      'On the other phone, open IR Blaster > Remotes > Share and receive > Scan QR code.';
+
+  @override
+  String get shareTooLarge =>
+      'Too much data for a readable QR code. Use device sharing instead.';
+
+  @override
+  String get sharePreview => 'Review shared items';
+
+  @override
+  String get sharePrivacy =>
+      'No account or server is needed. Nothing is sent or transmitted automatically. The receiving device still needs a compatible IR emitter.';
+
+  @override
+  String get shareHardwareWarning =>
+      'Some learned signals require the original hardware and may not work on another device.';
+
+  @override
+  String get shareMacroInfo =>
+      'Macros include their associated remotes and buttons. Imports create new copies; nothing is overwritten or run automatically.';
+
+  @override
+  String get shareAdd => 'Add copies';
+
+  @override
+  String get shareAdded => 'Shared items added.';
+
+  @override
+  String get shareDestination => 'Add button to';
+
+  @override
+  String get shareCamera =>
+      'Allow camera access to scan QR codes, or open a shared file instead.';
+
+  @override
+  String get shareInvalid =>
+      'This share is invalid, too large, or uses an unsupported version.';
+
+  @override
+  String get sharePrepareFailed =>
+      'Could not prepare this share. Check for missing images, missing macro buttons, or a collection that is too large.';
+
+  @override
+  String get shareFailed =>
+      'Could not complete sharing or saving. Your existing items have not been replaced.';
 }

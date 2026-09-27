@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import '../sharing/sharing_screen.dart';
 import 'package:irblaster_controller/l10n/icon_picker_names.dart';
 import 'package:irblaster_controller/l10n/l10n.dart';
 import 'package:irblaster_controller/state/continue_context_prefs.dart';
@@ -493,6 +494,14 @@ class _RemoteListState extends State<RemoteList> {
                     const SizedBox(height: 12),
                     const Divider(height: 0),
                     ListTile(
+                      leading: const Icon(Icons.share_outlined),
+                      title: Text(context.l10n.shareTitle),
+                      onTap: () {
+                        Navigator.of(ctx).pop();
+                        showShare(context, remotes: [remote]);
+                      },
+                    ),
+                    ListTile(
                       contentPadding: EdgeInsets.zero,
                       leading: const Icon(Icons.play_arrow_rounded),
                       title: Text(context.l10n.open),
@@ -619,6 +628,13 @@ class _RemoteListState extends State<RemoteList> {
             appBar: AppBar(
               title: Text(context.l10n.remotesNavLabel),
               actions: [
+                if (!_reorderMode)
+                  IconButton(
+                    tooltip: context.l10n.shareTitle,
+                    icon: const Icon(Icons.ios_share),
+                    onPressed: () => Navigator.of(context).push<void>(
+                      MaterialPageRoute(builder: (_) => const SharingScreen())),
+                  ),
                 if (!_reorderMode)
                   IconButton(
                     tooltip: context.l10n.globalSearchTitle,

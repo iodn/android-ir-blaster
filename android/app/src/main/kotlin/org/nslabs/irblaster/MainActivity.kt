@@ -46,6 +46,7 @@ import org.nslabs.ir_blaster.BaseQuickTileService
 import java.util.UUID
 
 class MainActivity : FlutterActivity() {
+    private var remoteSharing: RemoteSharing? = null
     private enum class TxType { INTERNAL, USB, AUDIO_1_LED, AUDIO_2_LED }
     private enum class UsbAvailabilityState { NO_DEVICE, PERMISSION_REQUIRED, PERMISSION_DENIED, PERMISSION_GRANTED, OPEN_FAILED, READY }
     private data class UsbAcquireResult(val transmitter: UsbIrTransmitter?, val state: UsbAvailabilityState)
@@ -439,6 +440,8 @@ class MainActivity : FlutterActivity() {
 
     override fun configureFlutterEngine(@NonNull flutterEngine: FlutterEngine) {
         super.configureFlutterEngine(flutterEngine)
+        remoteSharing = RemoteSharing(this,
+            MethodChannel(flutterEngine.dartExecutor.binaryMessenger, "org.nslabs/remote_sharing"))
 
         val reports = (application as CrashReportingApplication).crashReports
         reports.startSession()
@@ -926,8 +929,14 @@ class MainActivity : FlutterActivity() {
         }
     }
 
+    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+        if (remoteSharing?.onResult(requestCode, resultCode, data) == true) return
+        super.onActivityResult(requestCode, resultCode, data)
+    }
+
     override fun onNewIntent(intent: Intent) {
         super.onNewIntent(intent)
+        remoteSharing?.receive(intent)
         handleControlIntent(intent)
         handleQuickTileIntent(intent)
         handleHomeWidgetIntent(intent)
@@ -937,6 +946,7 @@ class MainActivity : FlutterActivity() {
     override fun onCreate(savedInstanceState: android.os.Bundle?) {
         WindowCompat.enableEdgeToEdge(window)
         super.onCreate(savedInstanceState)
+        if (savedInstanceState == null) remoteSharing?.receive(intent)
         handleControlIntent(intent)
         handleQuickTileIntent(intent)
         handleHomeWidgetIntent(intent)
@@ -1012,6 +1022,8 @@ class MainActivity : FlutterActivity() {
     }
 
     override fun onDestroy() {
+        remoteSharing?.close()
+        remoteSharing = null
         try {
             applicationContext.unregisterReceiver(usbReceiver)
         } catch (_: Throwable) {

@@ -5003,6 +5003,75 @@ class AppLocalizationsAr extends AppLocalizations {
   @override
   String get crashReportActionFailed =>
       'تعذر إكمال الإجراء. ما زال التقرير محفوظًا. جرّب نسخه أو مشاركته.';
+
+  @override
+  String get shareTitle => 'المشاركة والاستلام';
+
+  @override
+  String get shareReceive => 'استلام';
+
+  @override
+  String get shareScan => 'مسح رمز QR';
+
+  @override
+  String get shareOpenFile => 'فتح ملف مشترك';
+
+  @override
+  String get shareSelect => 'اختر ما تريد مشاركته';
+
+  @override
+  String get shareSend => 'المشاركة مع جهاز آخر';
+
+  @override
+  String get shareQr => 'عرض رمز QR';
+
+  @override
+  String get shareQrHint =>
+      'على الهاتف الآخر، افتح IR Blaster > أجهزة التحكم > المشاركة والاستلام > مسح رمز QR.';
+
+  @override
+  String get shareTooLarge =>
+      'البيانات كثيرة جدًا لرمز QR واضح. استخدم المشاركة مع جهاز آخر.';
+
+  @override
+  String get sharePreview => 'مراجعة العناصر المشتركة';
+
+  @override
+  String get sharePrivacy =>
+      'لا حاجة لحساب أو خادم. لا تُرسل بيانات أو إشارات تلقائيًا. يحتاج الجهاز المستلم إلى مرسل أشعة تحت الحمراء متوافق.';
+
+  @override
+  String get shareHardwareWarning =>
+      'تتطلب بعض الإشارات المتعلمة العتاد الأصلي وقد لا تعمل على جهاز آخر.';
+
+  @override
+  String get shareMacroInfo =>
+      'تتضمن الماكرو أجهزة التحكم والأزرار المرتبطة بها. ينشئ الاستيراد نسخًا جديدة دون استبدال أي شيء أو تشغيله تلقائيًا.';
+
+  @override
+  String get shareAdd => 'إضافة نسخ';
+
+  @override
+  String get shareAdded => 'تمت إضافة العناصر المشتركة.';
+
+  @override
+  String get shareDestination => 'إضافة الزر إلى';
+
+  @override
+  String get shareCamera =>
+      'اسمح بالوصول إلى الكاميرا لمسح رموز QR أو افتح ملفًا مشتركًا.';
+
+  @override
+  String get shareInvalid =>
+      'هذه البيانات غير صالحة أو كبيرة جدًا أو تستخدم إصدارًا غير مدعوم.';
+
+  @override
+  String get sharePrepareFailed =>
+      'تعذر إعداد المشاركة. تحقق من الصور أو أزرار الماكرو المفقودة أو حجم المجموعة.';
+
+  @override
+  String get shareFailed =>
+      'تعذر إكمال المشاركة أو الحفظ. لم تُستبدل عناصرك الحالية.';
 }
 
 /// The translations for Arabic, as used in Egypt (`ar_EG`).
@@ -10004,4 +10073,73 @@ class AppLocalizationsArEg extends AppLocalizationsAr {
   @override
   String get crashReportActionFailed =>
       'مش قادرين نكمل الإجراء. التقرير لسه محفوظ. جرّب تنسخه أو تشاركه.';
+
+  @override
+  String get shareTitle => 'مشاركة واستلام';
+
+  @override
+  String get shareReceive => 'استلام';
+
+  @override
+  String get shareScan => 'امسح رمز QR';
+
+  @override
+  String get shareOpenFile => 'افتح ملف مشترك';
+
+  @override
+  String get shareSelect => 'اختار اللي عايز تشاركه';
+
+  @override
+  String get shareSend => 'شارك مع جهاز تاني';
+
+  @override
+  String get shareQr => 'اعرض رمز QR';
+
+  @override
+  String get shareQrHint =>
+      'على الموبايل التاني، افتح IR Blaster > أجهزة التحكم > مشاركة واستلام > امسح رمز QR.';
+
+  @override
+  String get shareTooLarge =>
+      'البيانات كتير على رمز QR واضح. استخدم المشاركة مع جهاز تاني.';
+
+  @override
+  String get sharePreview => 'راجع العناصر المشتركة';
+
+  @override
+  String get sharePrivacy =>
+      'مش محتاج حساب ولا سيرفر. مفيش بيانات أو إشارات بتتبعت تلقائيًا. الجهاز اللي بيستقبل محتاج مرسل أشعة تحت الحمراء متوافق.';
+
+  @override
+  String get shareHardwareWarning =>
+      'بعض الإشارات المتعلّمة محتاجة الجهاز الأصلي وممكن متشتغلش على جهاز تاني.';
+
+  @override
+  String get shareMacroInfo =>
+      'الماكرو بتشمل أجهزة التحكم والأزرار المرتبطة بيها. الاستيراد بيعمل نسخ جديدة من غير استبدال أو تشغيل تلقائي.';
+
+  @override
+  String get shareAdd => 'ضيف نسخ';
+
+  @override
+  String get shareAdded => 'تمت إضافة العناصر المشتركة.';
+
+  @override
+  String get shareDestination => 'ضيف الزر إلى';
+
+  @override
+  String get shareCamera =>
+      'اسمح باستخدام الكاميرا لمسح رموز QR أو افتح ملف مشترك.';
+
+  @override
+  String get shareInvalid =>
+      'البيانات دي مش صالحة أو كبيرة جدًا أو بتستخدم إصدار مش مدعوم.';
+
+  @override
+  String get sharePrepareFailed =>
+      'مش قادرين نجهز المشاركة. راجع الصور أو أزرار الماكرو الناقصة أو حجم المجموعة.';
+
+  @override
+  String get shareFailed =>
+      'مش قادرين نكمل المشاركة أو الحفظ. عناصرك الموجودة متغيرتش.';
 }

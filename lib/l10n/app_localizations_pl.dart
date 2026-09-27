@@ -5127,4 +5127,73 @@ class AppLocalizationsPl extends AppLocalizations {
   @override
   String get crashReportActionFailed =>
       'Nie udało się ukończyć działania. Raport pozostaje zapisany. Spróbuj go skopiować lub udostępnić.';
+
+  @override
+  String get shareTitle => 'Udostępnianie i odbieranie';
+
+  @override
+  String get shareReceive => 'Odbierz';
+
+  @override
+  String get shareScan => 'Skanuj kod QR';
+
+  @override
+  String get shareOpenFile => 'Otwórz udostępniony plik';
+
+  @override
+  String get shareSelect => 'Wybierz, co udostępnić';
+
+  @override
+  String get shareSend => 'Udostępnij innemu urządzeniu';
+
+  @override
+  String get shareQr => 'Pokaż kod QR';
+
+  @override
+  String get shareQrHint =>
+      'Na drugim telefonie otwórz IR Blaster > Piloty > Udostępnianie i odbieranie > Skanuj kod QR.';
+
+  @override
+  String get shareTooLarge =>
+      'Za dużo danych na czytelny kod QR. Udostępnij plik innemu urządzeniu.';
+
+  @override
+  String get sharePreview => 'Sprawdź udostępnione elementy';
+
+  @override
+  String get sharePrivacy =>
+      'Konto ani serwer nie są potrzebne. Nic nie jest wysyłane ani nadawane automatycznie. Urządzenie odbierające potrzebuje zgodnego nadajnika IR.';
+
+  @override
+  String get shareHardwareWarning =>
+      'Niektóre nauczone sygnały wymagają oryginalnego sprzętu i mogą nie działać na innym urządzeniu.';
+
+  @override
+  String get shareMacroInfo =>
+      'Makra zawierają powiązane piloty i przyciski. Import tworzy kopie; nic nie jest nadpisywane ani uruchamiane automatycznie.';
+
+  @override
+  String get shareAdd => 'Dodaj kopie';
+
+  @override
+  String get shareAdded => 'Dodano udostępnione elementy.';
+
+  @override
+  String get shareDestination => 'Dodaj przycisk do';
+
+  @override
+  String get shareCamera =>
+      'Zezwól na dostęp do aparatu, aby skanować kody QR, lub otwórz udostępniony plik.';
+
+  @override
+  String get shareInvalid =>
+      'Te dane są nieprawidłowe, za duże lub używają nieobsługiwanej wersji.';
+
+  @override
+  String get sharePrepareFailed =>
+      'Nie udało się przygotować udostępniania. Sprawdź brakujące obrazy, przyciski makr lub rozmiar wyboru.';
+
+  @override
+  String get shareFailed =>
+      'Nie udało się udostępnić lub zapisać. Istniejące elementy nie zostały zastąpione.';
 }

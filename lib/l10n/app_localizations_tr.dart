@@ -5031,4 +5031,73 @@ class AppLocalizationsTr extends AppLocalizations {
   @override
   String get crashReportActionFailed =>
       'Bu işlem tamamlanamadı. Rapor hâlâ kayıtlı. Kopyalamayı veya paylaşmayı deneyin.';
+
+  @override
+  String get shareTitle => 'Paylaş ve al';
+
+  @override
+  String get shareReceive => 'Al';
+
+  @override
+  String get shareScan => 'QR kodu tara';
+
+  @override
+  String get shareOpenFile => 'Paylaşılan dosyayı aç';
+
+  @override
+  String get shareSelect => 'Paylaşılacakları seç';
+
+  @override
+  String get shareSend => 'Başka cihazla paylaş';
+
+  @override
+  String get shareQr => 'QR kodunu göster';
+
+  @override
+  String get shareQrHint =>
+      'Diğer telefonda IR Blaster > Kumandalar > Paylaş ve al > QR kodu tara yolunu açın.';
+
+  @override
+  String get shareTooLarge =>
+      'Okunabilir QR kodu için çok fazla veri var. Cihazla paylaşmayı kullanın.';
+
+  @override
+  String get sharePreview => 'Paylaşılan öğeleri incele';
+
+  @override
+  String get sharePrivacy =>
+      'Hesap veya sunucu gerekmez. Hiçbir veri veya sinyal otomatik gönderilmez. Alıcı cihazda uyumlu bir IR vericisi gerekir.';
+
+  @override
+  String get shareHardwareWarning =>
+      'Bazı öğrenilen sinyaller orijinal donanımı gerektirir ve başka cihazda çalışmayabilir.';
+
+  @override
+  String get shareMacroInfo =>
+      'Makrolar ilişkili kumandaları ve düğmeleri içerir. İçe aktarma yeni kopyalar oluşturur; hiçbir şeyin üzerine yazılmaz veya otomatik çalıştırılmaz.';
+
+  @override
+  String get shareAdd => 'Kopyaları ekle';
+
+  @override
+  String get shareAdded => 'Paylaşılan öğeler eklendi.';
+
+  @override
+  String get shareDestination => 'Düğmenin ekleneceği kumanda';
+
+  @override
+  String get shareCamera =>
+      'QR kodlarını taramak için kamera erişimine izin verin veya paylaşılan bir dosyayı açın.';
+
+  @override
+  String get shareInvalid =>
+      'Bu paylaşım geçersiz, çok büyük veya desteklenmeyen bir sürüm kullanıyor.';
+
+  @override
+  String get sharePrepareFailed =>
+      'Paylaşım hazırlanamadı. Eksik resimleri, makro düğmelerini veya çok büyük bir seçimi kontrol edin.';
+
+  @override
+  String get shareFailed =>
+      'Paylaşım veya kayıt tamamlanamadı. Mevcut öğeleriniz değiştirilmedi.';
 }

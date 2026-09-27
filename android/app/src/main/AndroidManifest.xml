@@ -32,6 +32,9 @@
 
     <!-- IR transmission permission -->
     <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.CAMERA" />
+    <uses-feature android:name="android.hardware.camera" android:required="false" />
+    <uses-feature android:name="android.hardware.camera.autofocus" android:required="false" />
     <uses-permission android:name="android.permission.TRANSMIT_IR" />
     <uses-permission android:name="android.permission.VIBRATE" />
     <uses-permission android:name="android.permission.RECORD_AUDIO" />
@@ -73,7 +76,30 @@
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.SEND" />
+                <category android:name="android.intent.category.DEFAULT" />
+                <data android:mimeType="application/vnd.org.nslabs.irblaster.share+json" />
+                <data android:mimeType="application/json" />
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
+                <category android:name="android.intent.category.DEFAULT" />
+                <data android:mimeType="application/vnd.org.nslabs.irblaster.share+json" />
+                <data android:mimeType="application/json" />
+                <data android:scheme="content" />
+            </intent-filter>
         </activity>
+
+        <activity android:name=".RemoteQrScannerActivity" android:exported="false"
+            android:theme="@android:style/Theme.Material.NoActionBar"
+            android:configChanges="orientation|screenSize" />
+        <provider android:name="androidx.core.content.FileProvider"
+            android:authorities="${applicationId}.remote_shares"
+            android:exported="false" android:grantUriPermissions="true">
+            <meta-data android:name="android.support.FILE_PROVIDER_PATHS"
+                android:resource="@xml/remote_share_paths" />
+        </provider>
 
        <!-- Alias used only to receive USB attach when the user enables the setting -->
        <activity-alias
