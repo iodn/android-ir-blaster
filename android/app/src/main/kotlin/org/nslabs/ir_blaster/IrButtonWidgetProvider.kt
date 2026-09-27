@@ -6,10 +6,13 @@ import android.appwidget.AppWidgetProvider
 import android.content.Context
 import android.content.Intent
 import android.hardware.ConsumerIrManager
+import android.hardware.usb.UsbManager
 import android.os.Handler
 import android.os.Looper
+import android.os.SystemClock
 import android.widget.RemoteViews
 import android.widget.Toast
+import java.util.concurrent.atomic.AtomicBoolean
 
 class IrButtonWidgetProvider : AppWidgetProvider() {
     override fun onUpdate(context: Context, manager: AppWidgetManager, appWidgetIds: IntArray) {
@@ -26,28 +29,39 @@ class IrButtonWidgetProvider : AppWidgetProvider() {
             updateWidget(context, AppWidgetManager.getInstance(context), appWidgetId)
             return
         }
-        Thread {
-            val mgr = context.getSystemService(ConsumerIrManager::class.java)
-            val ok = InternalIrTransmitter(mgr).transmitRaw(mapping.frequencyHz, mapping.pattern)
-            if (ok) {
-                showToast(context, "Sent ${mapping.title}")
-            } else {
-                // USB and audio transmitters live in Flutter/MainActivity. If internal IR
-                // is unavailable, fall back to the same button-id dispatch used by
-                // Device Controls instead of silently failing the widget tap.
+        if (!busy.compareAndSet(false, true)) {
+            showToast(context, "${mapping.title}: ${AutomationResult.BUSY.name}")
+            if (isOrderedBroadcast) setResultCode(AutomationResult.BUSY.code)
+            return
+        }
+        val appContext = context.applicationContext
+        val ordered = isOrderedBroadcast
+        val deadlineMs = SystemClock.uptimeMillis() + 7000L
+        val pending = goAsync()
+        fun report(outcome: AutomationResult) {
+            if (ordered) pending.setResultCode(outcome.code)
+            showToast(appContext, if (outcome == AutomationResult.SENT) "Sent ${mapping.title}"
+                else "${mapping.title}: ${outcome.name}")
+        }
+        try {
+            Thread({
                 try {
-                    context.startActivity(
-                        Intent(context, MainActivity::class.java).apply {
-                            addFlags(Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_SINGLE_TOP)
-                            putExtra(EXTRA_CONTROL_BUTTON_ID, mapping.buttonId)
-                        },
+                    val request = AutomationIrRequest.parse(
+                        mapping.frequencyHz, mapping.pattern, selectedEmitter(appContext).name,
                     )
-                    showToast(context, "Opening app to send ${mapping.title}")
-                } catch (_: Throwable) {
-                    showToast(context, "Internal IR transmitter unavailable.")
+                    report(AutomationTransmitter(appContext).transmit(request, deadlineMs))
+                } catch (_: RuntimeException) {
+                    report(AutomationResult.TRANSMIT_FAILED)
+                } finally {
+                    busy.set(false)
+                    pending.finish()
                 }
-            }
-        }.start()
+            }, "ir-home-widget").start()
+        } catch (_: RuntimeException) {
+            busy.set(false)
+            report(AutomationResult.TRANSMIT_FAILED)
+            pending.finish()
+        }
     }
 
     override fun onDeleted(context: Context, appWidgetIds: IntArray) {
@@ -57,7 +71,18 @@ class IrButtonWidgetProvider : AppWidgetProvider() {
     companion object {
         const val ACTION_SEND = "org.nslabs.irblaster.widget.SEND_BUTTON"
         const val EXTRA_CONFIGURE_WIDGET_ID = "home_widget_configure_id"
-        private const val EXTRA_CONTROL_BUTTON_ID = "control_button_id"
+        private val busy = AtomicBoolean(false)
+
+        private fun selectedEmitter(context: Context): AutomationEmitter {
+            val prefs = context.getSharedPreferences("ir_blaster_prefs", Context.MODE_PRIVATE)
+            val selected = AutomationEmitter.valueOf(prefs.getString("tx_type", "INTERNAL") ?: "INTERNAL")
+            if (selected == AutomationEmitter.AUDIO_1_LED || selected == AutomationEmitter.AUDIO_2_LED) return selected
+            val internalAvailable = context.getSystemService(ConsumerIrManager::class.java)?.hasIrEmitter() == true
+            if (!prefs.getBoolean("auto_switch", internalAvailable)) return selected
+            val usb = context.getSystemService(UsbManager::class.java)
+            val permittedUsb = usb != null && UsbDiscoveryManager(context, usb).scanSupported().any { usb.hasPermission(it) }
+            return if (permittedUsb) AutomationEmitter.USB else AutomationEmitter.INTERNAL
+        }
 
         fun updateWidget(context: Context, manager: AppWidgetManager, appWidgetId: Int) {
             if (appWidgetId == AppWidgetManager.INVALID_APPWIDGET_ID) return
