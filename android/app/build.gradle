@@ -87,6 +87,19 @@ android {
 
     buildTypes {
         release {
+            // Keep plugin libraries aligned with the Flutter engine's target ABIs.
+            // Otherwise a single-ABI APK can install on an incompatible device.
+            if (project.findProperty('split-per-abi') != 'true') {
+                def platformAbis = [
+                    'android-arm': 'armeabi-v7a',
+                    'android-arm64': 'arm64-v8a',
+                    'android-x64': 'x86_64',
+                ]
+                def targets = (project.findProperty('target-platform') ?:
+                    'android-arm,android-arm64,android-x64').split(',')
+                ndk.abiFilters.clear()
+                ndk.abiFilters.addAll(targets.collect { platformAbis[it] })
+            }
             if (hasReleaseKeystore) {
                 signingConfig signingConfigs.release
             }

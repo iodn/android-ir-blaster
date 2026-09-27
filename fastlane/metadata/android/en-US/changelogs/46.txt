@@ -1,0 +1,5 @@
+- Send commands from home-screen widgets without opening the app.
+- Share remotes, learned buttons and macros using QR codes or files.
+- Review crash reports on next launch and choose whether to share them. Nothing is sent automatically.
+- Add optional update checks, disabled by default, with updates suited to GitHub, F-Droid and Google Play installations.
+- Translate the new screens into all supported languages.
