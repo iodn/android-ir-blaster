@@ -66,6 +66,17 @@ class RemoteViewState extends State<RemoteView> {
   Timer? _loopTimer;
   IRButton? _loopButton;
   bool _loopSending = false;
+  int _loopGeneration = 0;
+  final _signalRevision = ValueNotifier<int>(0);
+  IRButton? _lastSignalButton;
+  IrPreview? _lastSignal;
+
+  void _recordSignal(IRButton button, IrPreview signal) {
+    if (!mounted) return;
+    _lastSignalButton = button;
+    _lastSignal = signal;
+    _signalRevision.value++;
+  }
 
   bool get _isLooping => _loopTimer != null;
   bool _isLoopingThis(IRButton b) => _isLooping && identical(_loopButton, b);
@@ -152,6 +163,7 @@ class RemoteViewState extends State<RemoteView> {
     _loopTimer = null;
     _loopButton = null;
     _loopSending = false;
+    _signalRevision.dispose();
     super.dispose();
   }
 
@@ -267,7 +279,7 @@ class RemoteViewState extends State<RemoteView> {
   Future<void> _sendOnce(IRButton button, {bool silent = false}) async {
     if (!silent) await Haptics.lightImpact();
     try {
-      await sendIR(button);
+      await sendIR(button, onEncoded: (signal) => _recordSignal(button, signal));
       showLastActionForButton(
         button: button,
         title: _buttonTitle(button),
@@ -294,19 +306,24 @@ class RemoteViewState extends State<RemoteView> {
 
   void _startLoop(IRButton button) {
     _stopLoop(silent: true);
+    final generation = _loopGeneration;
 
     setState(() {
       _loopButton = button;
-      _loopSending = false;
+      _loopSending = true;
     });
+    _signalRevision.value++;
 
     _sendOnce(button, silent: true).catchError((e) {
+      if (!mounted || generation != _loopGeneration) return;
       _stopLoop(silent: true);
       if (!mounted) return;
       ScaffoldMessenger.of(context).showSnackBar(
         SnackBar(
             content: Text(context.l10n.remoteFailedToStartLoop(e.toString()))),
       );
+    }).whenComplete(() {
+      if (generation == _loopGeneration) _loopSending = false;
     });
 
     _loopTimer = Timer.periodic(_kLoopInterval, (_) async {
@@ -316,8 +333,10 @@ class RemoteViewState extends State<RemoteView> {
 
       _loopSending = true;
       try {
-        await sendIR(b, repeat: true);
+        await sendIR(b,
+            repeat: true, onEncoded: (signal) => _recordSignal(b, signal));
       } catch (e) {
+        if (!mounted || generation != _loopGeneration) return;
         _stopLoop(silent: true);
         if (!mounted) return;
         ScaffoldMessenger.of(context).showSnackBar(
@@ -326,7 +345,7 @@ class RemoteViewState extends State<RemoteView> {
                   Text(context.l10n.remoteLoopStoppedFailed(e.toString()))),
         );
       } finally {
-        _loopSending = false;
+        if (generation == _loopGeneration) _loopSending = false;
       }
     });
 
@@ -343,6 +362,7 @@ class RemoteViewState extends State<RemoteView> {
   }
 
   void _stopLoop({bool silent = false}) {
+    _loopGeneration++;
     _loopTimer?.cancel();
     _loopTimer = null;
 
@@ -351,6 +371,7 @@ class RemoteViewState extends State<RemoteView> {
       _loopButton = null;
       _loopSending = false;
     });
+    _signalRevision.value++;
 
     if (!silent && hadLoop && mounted) {
       ScaffoldMessenger.of(context).hideCurrentSnackBar();
@@ -1432,13 +1453,18 @@ class RemoteViewState extends State<RemoteView> {
                       ),
                     ),
                     const SizedBox(height: 12),
-                    _InteractiveIrSignalPanel(
-                      preview: preview,
-                      previewError: previewError,
-                      initiallyLooping: loopingThis,
-                      onSendOnce: () => _sendOnce(b),
-                      onStartLoop: () => _startLoop(b),
-                      onStopLoop: () => _stopLoop(silent: false),
+                    ValueListenableBuilder<int>(
+                      valueListenable: _signalRevision,
+                      builder: (context, _, child) => _InteractiveIrSignalPanel(
+                        preview: identical(_lastSignalButton, b)
+                            ? _lastSignal
+                            : preview,
+                        previewError: previewError,
+                        initiallyLooping: _isLoopingThis(b),
+                        onSendOnce: () => _sendOnce(b),
+                        onStartLoop: () => _startLoop(b),
+                        onStopLoop: () => _stopLoop(silent: false),
+                      ),
                     ),
                     if (!isRaw && displayHex != null) ...[
                       const SizedBox(height: 10),
@@ -2119,8 +2145,13 @@ class _InteractiveIrSignalPanelState extends State<_InteractiveIrSignalPanel>
     super.didUpdateWidget(oldWidget);
     if (oldWidget.preview?.pattern != widget.preview?.pattern) {
       _playhead.duration = _visualDuration;
+    }
+    if (_looping != widget.initiallyLooping) {
+      _looping = widget.initiallyLooping;
       if (_looping) {
         _playhead.repeat();
+      } else {
+        _playhead.stop();
       }
     }
   }
@@ -2143,12 +2174,13 @@ class _InteractiveIrSignalPanelState extends State<_InteractiveIrSignalPanel>
   }
 
   Future<void> _sendOnce() async {
-    if (_sending) return;
+    if (_sending || _looping) return;
     _sentPulseTimer?.cancel();
     setState(() {
       _sending = true;
       _sentPulse = false;
     });
+    var succeeded = false;
     try {
       _playhead
         ..stop()
@@ -2156,15 +2188,16 @@ class _InteractiveIrSignalPanelState extends State<_InteractiveIrSignalPanel>
       final animation = _playhead.forward(from: 0);
       await Future.wait<void>([
         widget.onSendOnce(),
-        animation,
-      ]);
+        animation.orCancel,
+      ], eagerError: true);
+      succeeded = true;
     } catch (_) {
       // The caller already surfaces transmit errors.
     } finally {
       if (mounted) {
         setState(() {
           _sending = false;
-          _sentPulse = true;
+          _sentPulse = succeeded;
         });
         if (!_looping) {
           _playhead.stop();
@@ -2178,6 +2211,9 @@ class _InteractiveIrSignalPanelState extends State<_InteractiveIrSignalPanel>
   }
 
   void _toggleLoop() {
+    if (_sending) return;
+    _sentPulseTimer?.cancel();
+    _sentPulse = false;
     if (_looping) {
       widget.onStopLoop();
       _playhead.stop();
@@ -2234,7 +2270,7 @@ class _InteractiveIrSignalPanelState extends State<_InteractiveIrSignalPanel>
               children: [
                 Expanded(
                   child: FilledButton.icon(
-                    onPressed: _sending ? null : _sendOnce,
+                    onPressed: _sending || _looping ? null : _sendOnce,
                     icon: _sending
                         ? SizedBox(
                             width: 18,
@@ -2257,7 +2293,7 @@ class _InteractiveIrSignalPanelState extends State<_InteractiveIrSignalPanel>
                             foregroundColor: cs.onErrorContainer,
                           )
                         : null,
-                    onPressed: _toggleLoop,
+                    onPressed: _sending ? null : _toggleLoop,
                     icon: Icon(
                       _looping ? Icons.stop_rounded : Icons.loop_rounded,
                     ),
@@ -2356,7 +2392,7 @@ class _InteractiveIrSignalPanelState extends State<_InteractiveIrSignalPanel>
               children: [
                 Expanded(
                   child: FilledButton.icon(
-                    onPressed: _sending ? null : _sendOnce,
+                    onPressed: _sending || _looping ? null : _sendOnce,
                     icon: _sending
                         ? SizedBox(
                             width: 18,
@@ -2379,7 +2415,7 @@ class _InteractiveIrSignalPanelState extends State<_InteractiveIrSignalPanel>
                             foregroundColor: cs.onErrorContainer,
                           )
                         : null,
-                    onPressed: _toggleLoop,
+                    onPressed: _sending ? null : _toggleLoop,
                     icon: Icon(
                       _looping ? Icons.stop_rounded : Icons.loop_rounded,
                     ),

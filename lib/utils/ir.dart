@@ -407,7 +407,22 @@ IrPreview previewIRButton(IRButton button) {
   throw StateError('IRButton has neither raw data nor hex code to preview');
 }
 
-Future<void> sendIR(IRButton button, {bool repeat = false}) async {
+Future<void> sendIR(
+  IRButton button, {
+  bool repeat = false,
+  void Function(IrPreview signal)? onEncoded,
+}) async {
+  // Observe the actual encoding, rather than encoding again (toggle protocols).
+  Future<void> sendRaw(int frequency, List<int> pattern) async {
+    _validateFrequency(frequency);
+    _validatePattern(pattern, where: 'sendIR');
+    onEncoded?.call(IrPreview(
+      frequencyHz: frequency,
+      pattern: List<int>.unmodifiable(pattern),
+      mode: 'transmission',
+    ));
+    await transmitRaw(frequency, pattern);
+  }
   if (button.protocol != null && button.protocol!.trim().isNotEmpty) {
     final id = button.protocol!.trim();
     if (id == IrProtocolIds.tiqiaaLearned ||
@@ -423,7 +438,7 @@ Future<void> sendIR(IRButton button, {bool repeat = false}) async {
         final freq = rawFreq > 0
             ? rawFreq.clamp(kMinIrFrequencyHz, kMaxIrFrequencyHz)
             : kDefaultNecFrequencyHz;
-        await transmitRaw(
+        await sendRaw(
           freq,
           _parseRawPattern(rawPreview, where: 'learned raw preview'),
         );
@@ -465,7 +480,7 @@ Future<void> sendIR(IRButton button, {bool repeat = false}) async {
           bitOrder: button.necBitOrder,
           params: params,
         );
-        await transmitRaw(button.frequency ?? kDefaultNecFrequencyHz, pattern);
+        await sendRaw(button.frequency ?? kDefaultNecFrequencyHz, pattern);
         return;
       } else {
         throw StateError('Custom NEC timings provided but hex code is missing');
@@ -473,12 +488,17 @@ Future<void> sendIR(IRButton button, {bool repeat = false}) async {
     }
 
     final pattern = _parseRawPattern(button.rawData!, where: 'raw data');
-    await transmitRaw(button.frequency!, pattern);
+    await sendRaw(button.frequency!, pattern);
     return;
   }
 
   if (button.code != null &&
       (button.protocol == null || button.protocol!.trim().isEmpty)) {
+    onEncoded?.call(IrPreview(
+      frequencyHz: kDefaultNecFrequencyHz,
+      pattern: List<int>.unmodifiable(convertNECtoList(button.code!)),
+      mode: 'legacy_nec_default',
+    ));
     await transmit(button.code!);
     return;
   }
@@ -494,7 +514,7 @@ Future<void> sendIR(IRButton button, {bool repeat = false}) async {
     final int freq = (button.frequency != null && button.frequency! > 0)
         ? button.frequency!
         : res.frequencyHz;
-    await transmitRaw(freq, res.pattern);
+    await sendRaw(freq, res.pattern);
     return;
   }
 
