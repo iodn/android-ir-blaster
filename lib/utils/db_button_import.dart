@@ -3,6 +3,7 @@ import 'package:irblaster_controller/ir/ir_protocol_types.dart';
 import 'package:irblaster_controller/ir_finder/ir_finder_models.dart';
 import 'package:irblaster_controller/utils/remote.dart';
 import 'package:uuid/uuid.dart';
+import '../ir/protocols/marantz.dart';
 
 IRButton? buildButtonFromDbRow(IrDbKeyCandidate row, {String unnamedLabel = ''}) {
   final String label = _deriveLabel(row, unnamedLabel: unnamedLabel);
@@ -200,6 +201,7 @@ Map<String, String> _deriveProtocolFieldTextFromHex(String protocolId, String he
 
   final hex = _cleanHex(hexInput);
   if (hex.isEmpty) return const <String, String>{};
+  if (protocolId == IrProtocolIds.marantz) return marantzParamsFromHex(hex);
 
   String? addrId;
   String? cmdId;

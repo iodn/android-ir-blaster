@@ -1,6 +1,7 @@
 // ./lib/widgets/create_button.dart
 import 'dart:async';
 import 'dart:io';
+import '../ir/protocols/marantz.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:irblaster_controller/ir/ir_protocol_registry.dart';
@@ -579,6 +580,7 @@ class _CreateButtonState extends State<CreateButton> {
 
     final hex = _cleanHex(hexInput);
     if (hex.isEmpty) return const <String, String>{};
+    if (protocolId == IrProtocolIds.marantz) return marantzParamsFromHex(hex);
 
     String? addrId;
     String? cmdId;

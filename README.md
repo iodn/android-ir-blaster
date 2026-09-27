@@ -217,10 +217,11 @@ The Signal Tester is designed to help discover unknown working IR commands.
 
 | Protocol | Input format | Carrier (Hz) | Frame structure / timing summary | Notes |
 |---|---|---:|---|---|
-| Raw Signal | pattern (µs), optional frequencyHz | 10,000–100,000 (default 38,000) | Alternating mark/space durations starting with mark; tokens can be decimal/hex; comments supported; auto-append 45ms trailing space if odd length | Max 4096 entries, positive durations only; strict parsing and bounds |
 | Denon | 4 hex > 13-bit frame | 38,000 | Send the normal 13-bit frame, an inverted-command frame, then the normal frame again; mark=280, spaces 860/1720, gap=43,560µs | Strict 4 hex digits; canonical Denon repeat sequence |
 | F12_relaxed | up to 3 hex > 12 bits | 38,000 | Map 0 > [422,1266], 1 > [1266,422]; adjust the final slot to make the frame total 54,000µs | Values are left-padded to 12 bits |
 | JVC | 4 hex (16 packed wire-order bits) | 38,000 | Preamble 8400/4200; each bit mark=525, space=525 (0) or 1575 (1); trailing 525 + 21000 gap | Strict 4 hex digits; packed codes already contain LSB-first address/command bits |
+| Kaseikyo (Panasonic) | address (4 bytes) + command (4 bytes) | 37,000 | Header 3456/1728; 48-bit frame sent LSB-first per byte; includes vendor parity, genre, 10-bit command, ID, and XOR; bit mark=432, spaces 432/1296 | Each field accepts 8 compact hex digits or four space-separated bytes |
+| Marantz | address (5-bit), command (7-bit), extension (6-bit), hexadecimal | 36,000 | RC5x bi-phase encoding; 889 us half-bits; 3556 us pause after address; inverted command bit 6 in the field bit; frame padded to 114 ms | Finder/import packed format: (address << 13) + (command << 6) + extension, 5 hex digits; previews do not change the toggle; explicit repeats preserve it |
 | NEC | up to 8 hex (left-padded) > 32 bits | 38,222 | Preamble 9000/4500; bit mark=562 + space 562 (0) or 1687 (1); trailing mark 562; pad final gap to 108,800µs | Preserves legacy MSB and byte-swap modes; True LSB sends each byte LSB-first |
 | NEC2 | up to 8 hex (left-padded) > 32 bits | 38,222 | Same construction as NEC in this implementation | Accepts 1–8 hex; normalized to 8 |
 | NECx1 | up to 8 hex (left-padded) > 32 bits | 38,400 | Preamble 4500/4500; bit mark=562 + space 562/1687; trailing 562; pad to 108,800µs | Optional helper for toggle frame |
@@ -228,6 +229,7 @@ The Signal Tester is designed to help discover unknown working IR commands.
 | NRC17 | 4 hex (CCAS) | 38,000 | Synchronization frame, command frame, and termination frame; command(8) + address(4) + subcode(4) are sent LSB-first in 1ms bi-phase cells | Packed as command(2 hex) + address(1 hex) + subcode(1 hex) |
 | Pioneer | address + command (1 byte each), optional secondary pair | 40,000 | Preamble 8500/4225; payload address + ~address + command + ~command, LSB-first per byte; mark=500, spaces 500/1500, gap=26,000µs | Primary frame repeats unless a secondary address and command define a two-part command |
 | Proton | 4 hex (16 bits) | 38,500 | Header 8000/4000; send first 8 bits; separator 500/4000; then last 8 bits; final 500; pad to 63,000µs | Packed on-air bytes, address then command; bit mark=500; 0=500; 1=1500; strict 4 hex |
+| Raw Signal | pattern (µs), optional frequencyHz | 10,000–100,000 (default 38,000) | Alternating mark/space durations starting with mark; tokens can be decimal/hex; comments supported; auto-append 45ms trailing space if odd length | Max 4096 entries, positive durations only; strict parsing and bounds |
 | RC5 | address (5-bit) + command (7-bit) | 36,000 | RC5 bi-phase coding, unit ≈889µs; start bit, field bit, toggle, address(5), and command(6 low bits) MSB-first; rapid same-key repeats keep the toggle, new presses flip it; frame gap padded to 114,000µs | Supports commands 00–7F; legacy packed 3-hex payloads remain compatible |
 | RC6 | hex (last 4 hex used > 16-bit payload) | 36,000 | Leader 2664/888; `1 = mark/space`, `0 = space/mark`; Mode 0 layout is start `1` + mode `000` + double-width toggle + 16-bit payload (addr+cmd) MSB-first using `T=444`; includes the required 6t trailing silence | Uses last 4 hex digits as payload; rapid same-key repeats keep the same toggle, new presses flip it |
 | RCA_38 | address (1 hex) + command (2 hex) | 38,700 | Preamble 3680/3680; payload = address(4) + command(8) + ~address(4) + ~command(8), sent MSB-first; bit mark=460 and space=920 (0) or 1840 (1); trailer 460/7360 | 24-bit RCA frame |
@@ -244,7 +246,6 @@ The Signal Tester is designed to help discover unknown working IR commands.
 | SONY20 | address (13-bit) + command (7-bit) | 40,000 | Same timings and bit order as SONY12 with a 20-bit payload; pad to 45,000µs | Frame sent three times; packed imports use 5 hex digits |
 | Thomson7 | 3 hex (packed wire frame, int) | 33,000 | Address(4) + internal toggle + command(7), preserving wire order; 0=[460,2000]; 1=[460,4600]; append 460; pad to 80,000µs; duplicate frame | Toggle maintained; hex int input with min/max |
 | XSAT (Mitsubishi) | address + command (1 byte each) | 38,000 | Header 8000/4000; address(8) then command(8), both LSB-first; each bit mark=526 + space=474 (0) or 1474 (1); inserts 4000µs separator between address and command; trailing gap sized for ~60ms repeat cadence | Packed imports are split into address and command fields |
-| Kaseikyo (Panasonic) | address (4 bytes) + command (4 bytes) | 37,000 | Header 3456/1728; 48-bit frame sent LSB-first per byte; includes vendor parity, genre, 10-bit command, ID, and XOR; bit mark=432, spaces 432/1296 | Each field accepts 8 compact hex digits or four space-separated bytes |
 
 
 Notes:

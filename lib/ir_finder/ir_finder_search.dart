@@ -136,15 +136,16 @@ class IrFinderSearchProfiles {
   IrFinderSearchProfiles._();
 
   static const List<String> protocolIds = <String>[
+    'denon',
+    'f12_relaxed',
+    'jvc',
+    'kaseikyo',
+    'marantz',
     'nec',
     'nec2',
     'necx1',
     'necx2',
     'nrc17',
-    'denon',
-    'f12_relaxed',
-    'jvc',
-    'kaseikyo',
     'pioneer',
     'proton',
     'rc5',
@@ -199,6 +200,15 @@ class IrFinderSearchProfiles {
       smartGroups: <IrFinderSearchBitGroup>[
         _group(<int>[..._bits(8, 8), 0, 1]),
         _group(_bits(16, 8)),
+      ],
+    ),
+    'marantz': IrFinderProtocolSearchProfile(
+      protocolId: 'marantz',
+      totalHexDigits: 5,
+      smartGroups: <IrFinderSearchBitGroup>[
+        _group(_bits(0, 6)),
+        _group(_bits(6, 7)),
+        _group(_bits(13, 5)),
       ],
     ),
     'nec': _twoWordProfile('nec', totalHexDigits: 8),

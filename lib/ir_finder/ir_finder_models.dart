@@ -1,4 +1,5 @@
 import 'dart:math';
+import '../ir/protocols/marantz.dart';
 
 import 'package:irblaster_controller/ir/ir_protocol_registry.dart';
 import 'package:irblaster_controller/ir/ir_protocol_types.dart';
@@ -270,6 +271,8 @@ class IrFinderParams {
     if (id == 'kaseikyo') {
       return _buildKaseikyoParams(cleaned, kaseikyoVendor ?? '2002');
     }
+
+    if (id == 'marantz') return marantzParamsFromHex(cleaned);
 
     if (id == 'sony12' || id == 'sony15' || id == 'sony20') {
       final int bits = id == 'sony12' ? 12 : (id == 'sony15' ? 15 : 20);

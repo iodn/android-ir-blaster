@@ -1,11 +1,13 @@
 import 'package:irblaster_controller/ir/ir_protocol_registry.dart';
 import 'package:irblaster_controller/ir/ir_protocol_types.dart';
+import '../ir/protocols/marantz.dart';
 
 const Map<String, String> _protocolExampleHex = <String, String>{
   'denon': '0000',
   'f12_relaxed': '100',
   'jvc': '0000',
   'kaseikyo': '80D003',
+  'marantz': '23D89',
   'nec': '000000FF',
   'nec2': '000800FF',
   'necx1': '000008F7',
@@ -78,6 +80,7 @@ Map<String, dynamic> buildParamsForProtocol({
 }) {
   final String pid = protocolId.trim().toLowerCase();
   final String fitted = fitHexDigitsForProtocol(pid, codeHex);
+  if (pid == 'marantz') return marantzParamsFromHex(fitted);
 
   if (pid == 'kaseikyo') {
     return _buildKaseikyoParams(codeHexAny: fitted, vendorAny: kaseikyoVendor);

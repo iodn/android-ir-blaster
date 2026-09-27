@@ -1,12 +1,12 @@
 # Protocol wire-format audit
 
-The regression suite covers all 28 implemented encoders, the 23 protocols in
+The regression suite covers all 29 implemented encoders, the 23 protocols in
 the bundled database, and every bit declared meaningful by the smart finder.
 This is a software wire-format check, **not a guarantee of hardware compatibility**.
 
 ## Reference vectors
 
-26 vectors were rendered independently with
+27 vectors were rendered independently with
 [IrpTransmogrifier 1.2.14](https://github.com/bengtmartensson/IrpTransmogrifier/releases/tag/Version-1.2.14)
 and its bundled `IrpProtocols.xml` (SHA-256
 `9f3903e2111b1e8f56740fd656aa26beda8e7771de35a761a7377f999e8f0221`).
@@ -27,6 +27,7 @@ RAW is tested as a passthrough contract, not as a decoded protocol.
 | --- | --- |
 | Denon, Sharp | Corresponding IRP, including normal/inverted/normal frames |
 | F12_relaxed, JVC | Corresponding IRP |
+| Marantz | RC5x: D=address, S=command, F=extension; four boundary/reference cases in `marantz_vectors.json` |
 | NEC, NEC2, NECx1, NECx2 | NEC1, NEC2, NECx1, NECx2 respectively |
 | NRC17 | NRC17 sync, command and terminator |
 | Pioneer, Proton | Corresponding IRP |
@@ -45,6 +46,12 @@ RAW is tested as a passthrough contract, not as a decoded protocol.
 | RAW | Exact durations/carrier; odd trailing mark receives a space |
 
 ## Confirmed corrections
+
+Marantz was implemented independently of PR #61 using the RC5x IRP definition
+and [Arduino-IRremote's protocol documentation](https://github.com/Arduino-IRremote/Arduino-IRremote/blob/master/src/ir_RC5_RC6.hpp).
+It is distinct from the 7-bit-command RC5 variant also called RC5X by Flipper;
+that existing import mapping is unchanged. No Marantz hardware was available
+for end-to-end appliance verification.
 
 - Denon: take the 13th wire bit, not a trailing padding bit.
 - JVC: do not reverse the already wire-ordered database bytes a second time.

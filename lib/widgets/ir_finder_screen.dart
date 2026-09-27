@@ -368,6 +368,7 @@ class _IrFinderScreenState extends State<IrFinderScreen>
     'f12_relaxed': '100',
     'jvc': '0000',
     'kaseikyo': '80D003',
+    'marantz': '23D89',
     'nec': '000000FF',
     'nec2': '000800FF',
     'necx1': '000008F7',

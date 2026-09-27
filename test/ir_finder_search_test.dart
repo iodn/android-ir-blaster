@@ -15,6 +15,7 @@ void main() {
     'f12_relaxed',
     'jvc',
     'kaseikyo',
+    'marantz',
     'pioneer',
     'proton',
     'rc5',
