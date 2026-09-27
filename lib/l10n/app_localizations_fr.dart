@@ -5150,4 +5150,90 @@ class AppLocalizationsFr extends AppLocalizations {
   @override
   String get shareFailed =>
       'Impossible de terminer le partage ou l’enregistrement. Vos éléments existants n’ont pas été remplacés.';
+
+  @override
+  String get updatesTitle => 'Mises à jour';
+
+  @override
+  String get updatesAutomatic => 'Vérification automatique des mises à jour';
+
+  @override
+  String get updatesPrivacyGithub =>
+      'Désactivée par défaut. Si activée, contacte GitHub une fois par jour pendant l’utilisation de l’application. Aucun téléchargement automatique.';
+
+  @override
+  String get updatesPrivacyPlay =>
+      'Désactivée par défaut. Si activée, contacte Google Play une fois par jour pendant l’utilisation de l’application. Aucun téléchargement automatique.';
+
+  @override
+  String get updatesUnknown => 'Inconnue';
+
+  @override
+  String get updatesChooseSource => 'Choisir la source des mises à jour';
+
+  @override
+  String get updatesCheck => 'Vérifier maintenant';
+
+  @override
+  String get updatesNever => 'Aucune vérification effectuée';
+
+  @override
+  String updatesLastChecked(String date) {
+    return 'Dernière vérification : $date';
+  }
+
+  @override
+  String updatesAvailable(String version) {
+    return 'Nouvelle version : $version';
+  }
+
+  @override
+  String get updatesCurrent => 'Aucune version plus récente trouvée.';
+
+  @override
+  String get updatesFailed =>
+      'Échec de la mise à jour. Vérifiez votre connexion et réessayez. Les APK incompatibles sont bloqués ; aucune donnée de l’application n’est supprimée.';
+
+  @override
+  String get updatesFdroidNote =>
+      'GitHub peut annoncer une version avant sa compilation par F-Droid. Effectuez la mise à jour via F-Droid pour conserver une signature compatible et vos données.';
+
+  @override
+  String get updatesOpenFdroid => 'Ouvrir F-Droid';
+
+  @override
+  String get updatesOpenPlay => 'Ouvrir Google Play';
+
+  @override
+  String get updatesDownload => 'Télécharger la mise à jour';
+
+  @override
+  String get updatesInstall => 'Installer la mise à jour';
+
+  @override
+  String get updatesAllowInstall => 'Autoriser l’installation';
+
+  @override
+  String get updatesInstallHint =>
+      'Android peut demander l’autorisation d’installer depuis cette application. Revenez ici, puis appuyez sur Installer la mise à jour. Vos télécommandes et macros sont conservées.';
+
+  @override
+  String get updatesReady => 'Mise à jour téléchargée et prête à installer.';
+
+  @override
+  String get updatesNoAsset =>
+      'Aucun APK vérifié n’est disponible pour cet appareil. Consultez les notes de version.';
+
+  @override
+  String get updatesReleaseNotes => 'Notes de version';
+
+  @override
+  String updatesChannel(String source) {
+    return 'Source des mises à jour : $source';
+  }
+
+  @override
+  String updatesDownloadConfirm(String size) {
+    return 'Télécharger $size Mo depuis GitHub ? L’installation nécessite votre confirmation.';
+  }
 }

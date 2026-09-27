@@ -5107,4 +5107,90 @@ class AppLocalizationsRu extends AppLocalizations {
   @override
   String get shareFailed =>
       'Не удалось завершить передачу или сохранение. Существующие элементы не заменены.';
+
+  @override
+  String get updatesTitle => 'Обновления приложения';
+
+  @override
+  String get updatesAutomatic => 'Автоматическая проверка обновлений';
+
+  @override
+  String get updatesPrivacyGithub =>
+      'По умолчанию выключена. При включении приложение обращается к GitHub раз в день во время использования. Автоматической загрузки нет.';
+
+  @override
+  String get updatesPrivacyPlay =>
+      'По умолчанию выключена. При включении приложение обращается к Google Play раз в день во время использования. Автоматической загрузки нет.';
+
+  @override
+  String get updatesUnknown => 'Неизвестен';
+
+  @override
+  String get updatesChooseSource => 'Выберите источник обновлений';
+
+  @override
+  String get updatesCheck => 'Проверить сейчас';
+
+  @override
+  String get updatesNever => 'Проверка ещё не выполнялась';
+
+  @override
+  String updatesLastChecked(String date) {
+    return 'Последняя проверка: $date';
+  }
+
+  @override
+  String updatesAvailable(String version) {
+    return 'Новая версия: $version';
+  }
+
+  @override
+  String get updatesCurrent => 'Более новая версия не найдена.';
+
+  @override
+  String get updatesFailed =>
+      'Не удалось обновить. Проверьте соединение и повторите попытку. Несовместимые APK блокируются; данные приложения не удаляются.';
+
+  @override
+  String get updatesFdroidNote =>
+      'Версия может появиться на GitHub раньше, чем F-Droid её соберёт. Обновляйте через F-Droid, чтобы сохранить совместимую подпись и свои данные.';
+
+  @override
+  String get updatesOpenFdroid => 'Открыть F-Droid';
+
+  @override
+  String get updatesOpenPlay => 'Открыть Google Play';
+
+  @override
+  String get updatesDownload => 'Скачать обновление';
+
+  @override
+  String get updatesInstall => 'Установить обновление';
+
+  @override
+  String get updatesAllowInstall => 'Разрешить установку';
+
+  @override
+  String get updatesInstallHint =>
+      'Android может запросить разрешение на установку из этого приложения. Затем вернитесь сюда и нажмите «Установить обновление». Пульты и макросы сохранятся.';
+
+  @override
+  String get updatesReady => 'Обновление загружено и готово к установке.';
+
+  @override
+  String get updatesNoAsset =>
+      'Для этого устройства нет проверенного APK. См. примечания к выпуску.';
+
+  @override
+  String get updatesReleaseNotes => 'Примечания к выпуску';
+
+  @override
+  String updatesChannel(String source) {
+    return 'Источник обновлений: $source';
+  }
+
+  @override
+  String updatesDownloadConfirm(String size) {
+    return 'Скачать $size МБ с GitHub? Для установки потребуется ваше подтверждение.';
+  }
 }

@@ -9241,6 +9241,150 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Could not complete sharing or saving. Your existing items have not been replaced.'**
   String get shareFailed;
+
+  /// No description provided for @updatesTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'App updates'**
+  String get updatesTitle;
+
+  /// No description provided for @updatesAutomatic.
+  ///
+  /// In en, this message translates to:
+  /// **'Automatic update checks'**
+  String get updatesAutomatic;
+
+  /// No description provided for @updatesPrivacyGithub.
+  ///
+  /// In en, this message translates to:
+  /// **'Off by default. When enabled, contacts GitHub once a day while you use the app. No automatic downloads.'**
+  String get updatesPrivacyGithub;
+
+  /// No description provided for @updatesPrivacyPlay.
+  ///
+  /// In en, this message translates to:
+  /// **'Off by default. When enabled, contacts Google Play once a day while you use the app. No automatic downloads.'**
+  String get updatesPrivacyPlay;
+
+  /// No description provided for @updatesUnknown.
+  ///
+  /// In en, this message translates to:
+  /// **'Unknown'**
+  String get updatesUnknown;
+
+  /// No description provided for @updatesChooseSource.
+  ///
+  /// In en, this message translates to:
+  /// **'Choose update source'**
+  String get updatesChooseSource;
+
+  /// No description provided for @updatesCheck.
+  ///
+  /// In en, this message translates to:
+  /// **'Check now'**
+  String get updatesCheck;
+
+  /// No description provided for @updatesNever.
+  ///
+  /// In en, this message translates to:
+  /// **'Not checked yet'**
+  String get updatesNever;
+
+  /// No description provided for @updatesLastChecked.
+  ///
+  /// In en, this message translates to:
+  /// **'Last checked: {date}'**
+  String updatesLastChecked(String date);
+
+  /// No description provided for @updatesAvailable.
+  ///
+  /// In en, this message translates to:
+  /// **'New release: {version}'**
+  String updatesAvailable(String version);
+
+  /// No description provided for @updatesCurrent.
+  ///
+  /// In en, this message translates to:
+  /// **'No newer release found.'**
+  String get updatesCurrent;
+
+  /// No description provided for @updatesFailed.
+  ///
+  /// In en, this message translates to:
+  /// **'Update failed. Check your connection and retry. Incompatible APKs are blocked; no app data is deleted.'**
+  String get updatesFailed;
+
+  /// No description provided for @updatesFdroidNote.
+  ///
+  /// In en, this message translates to:
+  /// **'GitHub may announce a release before F-Droid has rebuilt it. Update through F-Droid to keep the matching signature and your data.'**
+  String get updatesFdroidNote;
+
+  /// No description provided for @updatesOpenFdroid.
+  ///
+  /// In en, this message translates to:
+  /// **'Open F-Droid'**
+  String get updatesOpenFdroid;
+
+  /// No description provided for @updatesOpenPlay.
+  ///
+  /// In en, this message translates to:
+  /// **'Open Google Play'**
+  String get updatesOpenPlay;
+
+  /// No description provided for @updatesDownload.
+  ///
+  /// In en, this message translates to:
+  /// **'Download update'**
+  String get updatesDownload;
+
+  /// No description provided for @updatesInstall.
+  ///
+  /// In en, this message translates to:
+  /// **'Install update'**
+  String get updatesInstall;
+
+  /// No description provided for @updatesAllowInstall.
+  ///
+  /// In en, this message translates to:
+  /// **'Allow installation'**
+  String get updatesAllowInstall;
+
+  /// No description provided for @updatesInstallHint.
+  ///
+  /// In en, this message translates to:
+  /// **'Android may ask you to allow installation from this app. Return here, then tap Install update. Your remotes and macros are kept.'**
+  String get updatesInstallHint;
+
+  /// No description provided for @updatesReady.
+  ///
+  /// In en, this message translates to:
+  /// **'Update downloaded and ready to install.'**
+  String get updatesReady;
+
+  /// No description provided for @updatesNoAsset.
+  ///
+  /// In en, this message translates to:
+  /// **'No verified APK is available for this device. See the release notes.'**
+  String get updatesNoAsset;
+
+  /// No description provided for @updatesReleaseNotes.
+  ///
+  /// In en, this message translates to:
+  /// **'Release notes'**
+  String get updatesReleaseNotes;
+
+  /// No description provided for @updatesChannel.
+  ///
+  /// In en, this message translates to:
+  /// **'Update source: {source}'**
+  String updatesChannel(String source);
+
+  /// No description provided for @updatesDownloadConfirm.
+  ///
+  /// In en, this message translates to:
+  /// **'Download {size} MB from GitHub? Installation requires your confirmation.'**
+  String updatesDownloadConfirm(String size);
 }
 
 class _AppLocalizationsDelegate

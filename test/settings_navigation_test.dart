@@ -72,7 +72,12 @@ void main() {
       (tester) async {
     await tester.pumpWidget(settings());
     await tester.pumpAndSettle();
-    expect(find.byType(ListTile), findsNWidgets(6));
+    // The overview is lazy: off-screen categories are not all built at once.
+    expect(find.byType(ListTile), findsWidgets);
+    final l10n =
+        AppLocalizations.of(tester.element(find.byType(SettingsScreen)))!;
+    await tester.scrollUntilVisible(find.text(l10n.updatesTitle), 200);
+    expect(find.text(l10n.updatesTitle), findsOneWidget);
     expect(find.byType(SectionCard), findsNothing);
     expect(find.byType(SwitchListTile), findsNothing);
     expect(nativeCalls, isEmpty);

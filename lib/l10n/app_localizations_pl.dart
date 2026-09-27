@@ -5196,4 +5196,90 @@ class AppLocalizationsPl extends AppLocalizations {
   @override
   String get shareFailed =>
       'Nie udało się udostępnić lub zapisać. Istniejące elementy nie zostały zastąpione.';
+
+  @override
+  String get updatesTitle => 'Aktualizacje aplikacji';
+
+  @override
+  String get updatesAutomatic => 'Automatyczne sprawdzanie aktualizacji';
+
+  @override
+  String get updatesPrivacyGithub =>
+      'Domyślnie wyłączone. Po włączeniu łączy się z GitHub raz dziennie podczas używania aplikacji. Bez automatycznego pobierania.';
+
+  @override
+  String get updatesPrivacyPlay =>
+      'Domyślnie wyłączone. Po włączeniu łączy się z Google Play raz dziennie podczas używania aplikacji. Bez automatycznego pobierania.';
+
+  @override
+  String get updatesUnknown => 'Nieznane';
+
+  @override
+  String get updatesChooseSource => 'Wybierz źródło aktualizacji';
+
+  @override
+  String get updatesCheck => 'Sprawdź teraz';
+
+  @override
+  String get updatesNever => 'Jeszcze nie sprawdzono';
+
+  @override
+  String updatesLastChecked(String date) {
+    return 'Ostatnie sprawdzenie: $date';
+  }
+
+  @override
+  String updatesAvailable(String version) {
+    return 'Nowa wersja: $version';
+  }
+
+  @override
+  String get updatesCurrent => 'Nie znaleziono nowszej wersji.';
+
+  @override
+  String get updatesFailed =>
+      'Aktualizacja nie powiodła się. Sprawdź połączenie i spróbuj ponownie. Niezgodne pliki APK są blokowane; dane aplikacji nie są usuwane.';
+
+  @override
+  String get updatesFdroidNote =>
+      'GitHub może ogłosić wersję, zanim F-Droid ją zbuduje. Aktualizuj przez F-Droid, aby zachować zgodny podpis i swoje dane.';
+
+  @override
+  String get updatesOpenFdroid => 'Otwórz F-Droid';
+
+  @override
+  String get updatesOpenPlay => 'Otwórz Google Play';
+
+  @override
+  String get updatesDownload => 'Pobierz aktualizację';
+
+  @override
+  String get updatesInstall => 'Zainstaluj aktualizację';
+
+  @override
+  String get updatesAllowInstall => 'Zezwól na instalację';
+
+  @override
+  String get updatesInstallHint =>
+      'Android może poprosić o zgodę na instalowanie z tej aplikacji. Wróć tutaj i wybierz Zainstaluj aktualizację. Piloty i makra zostaną zachowane.';
+
+  @override
+  String get updatesReady => 'Aktualizacja pobrana i gotowa do instalacji.';
+
+  @override
+  String get updatesNoAsset =>
+      'Brak zweryfikowanego APK dla tego urządzenia. Zobacz informacje o wydaniu.';
+
+  @override
+  String get updatesReleaseNotes => 'Informacje o wydaniu';
+
+  @override
+  String updatesChannel(String source) {
+    return 'Źródło aktualizacji: $source';
+  }
+
+  @override
+  String updatesDownloadConfirm(String size) {
+    return 'Pobrać $size MB z GitHub? Instalacja wymaga Twojego potwierdzenia.';
+  }
 }

@@ -29,6 +29,7 @@ import 'package:media_store_plus/media_store_plus.dart';
 import 'utils/crash_reporting.dart';
 import 'widgets/crash_report_dialog.dart';
 import 'sharing/share_receiver.dart';
+import 'updates/update_controller.dart';
 
 void main() {
   runZonedGuarded(_startApp, (error, stack) {
@@ -353,6 +354,7 @@ class _BootstrapScreenState extends State<_BootstrapScreen> {
     notifyMacrosChanged();
     await ShareReceiver.instance.ready();
     AppShortcutController.instance.markBootstrapReady();
+    unawaited(UpdateController.instance.initialize());
   }
 
   bool _crashReportChecked = false;

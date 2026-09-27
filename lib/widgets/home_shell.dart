@@ -1,4 +1,5 @@
 import 'dart:async';
+import '../updates/update_screen.dart';
 
 import 'package:flutter/material.dart';
 import 'package:irblaster_controller/l10n/l10n.dart';
@@ -661,8 +662,8 @@ class _HomeShellState extends State<HomeShell> {
             label: context.l10n.signalTesterNavLabel,
           ),
           NavigationDestination(
-            icon: Icon(Icons.settings_outlined),
-            selectedIcon: Icon(Icons.settings),
+            icon: UpdateBadge(child: Icon(Icons.settings_outlined)),
+            selectedIcon: UpdateBadge(child: Icon(Icons.settings)),
             label: context.l10n.settingsNavLabel,
           ),
         ],

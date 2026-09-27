@@ -6,6 +6,17 @@ plugins {
 
 import java.util.Properties
 
+def dartDefines = [:]
+(project.findProperty('dart-defines') ?: '').split(',').findAll { it }.each {
+    def pair = new String(it.decodeBase64(), 'UTF-8').split('=', 2)
+    if (pair.length == 2) dartDefines[pair[0]] = pair[1]
+}
+def playUpdates = dartDefines['IRBLASTER_DISTRIBUTION'] == 'play' ||
+    dartDefines['IRBLASTER_HIDE_DONATIONS'] == 'true'
+if (gradle.startParameter.taskNames.any { it.toLowerCase().contains('bundle') } && !playUpdates) {
+    throw new GradleException('Play bundles require --dart-define=IRBLASTER_DISTRIBUTION=play')
+}
+
 def localProperties = new Properties()
 def localPropertiesFile = rootProject.file('local.properties')
 if (localPropertiesFile.exists()) {
@@ -41,8 +52,17 @@ android {
 
     sourceSets {
         main.java.srcDirs += 'src/main/kotlin'
+        main.java.srcDirs += playUpdates ? 'src/playUpdates/kotlin' : 'src/directUpdates/kotlin'
+        if (!playUpdates) main.res.srcDirs += 'src/directUpdates/res'
+        if (!playUpdates) test.java.srcDirs += 'src/testDirectUpdates/kotlin'
         // Exercise the production receiver declarations in Robolectric tests.
         test.manifest.srcFile 'src/main/AndroidManifest.xml'
+    }
+
+    sourceSets.configureEach {
+        if (playUpdates && name in ['debug', 'profile', 'release']) {
+            manifest.srcFile 'src/playUpdates/AndroidManifest.xml'
+        }
     }
 
     defaultConfig {
@@ -104,3 +124,6 @@ dependencies {
 flutter {
     source '../..'
 }
+
+// F-Droid can remove this entire directory before scanning/building.
+if (playUpdates) apply from: 'src/playUpdates/dependencies.gradle'

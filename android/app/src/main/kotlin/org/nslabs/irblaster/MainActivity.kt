@@ -46,6 +46,7 @@ import org.nslabs.ir_blaster.BaseQuickTileService
 import java.util.UUID
 
 class MainActivity : FlutterActivity() {
+    private var appUpdates: org.nslabs.ir_blaster.updates.AppUpdates? = null
     private var remoteSharing: RemoteSharing? = null
     private enum class TxType { INTERNAL, USB, AUDIO_1_LED, AUDIO_2_LED }
     private enum class UsbAvailabilityState { NO_DEVICE, PERMISSION_REQUIRED, PERMISSION_DENIED, PERMISSION_GRANTED, OPEN_FAILED, READY }
@@ -440,6 +441,8 @@ class MainActivity : FlutterActivity() {
 
     override fun configureFlutterEngine(@NonNull flutterEngine: FlutterEngine) {
         super.configureFlutterEngine(flutterEngine)
+        appUpdates = org.nslabs.ir_blaster.updates.AppUpdates(this,
+            MethodChannel(flutterEngine.dartExecutor.binaryMessenger, "org.nslabs/app_updates"))
         remoteSharing = RemoteSharing(this,
             MethodChannel(flutterEngine.dartExecutor.binaryMessenger, "org.nslabs/remote_sharing"))
 
@@ -1022,6 +1025,8 @@ class MainActivity : FlutterActivity() {
     }
 
     override fun onDestroy() {
+        appUpdates?.close()
+        appUpdates = null
         remoteSharing?.close()
         remoteSharing = null
         try {

@@ -1,4 +1,5 @@
 import 'dart:async';
+import '../updates/update_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:irblaster_controller/config/build_flags.dart';
 import 'package:irblaster_controller/l10n/app_localizations.dart';
@@ -526,6 +527,7 @@ class SettingsScreen extends StatelessWidget {
                   subtitle: context.l10n.backupSubtitle,
                   sections: (ctx) => [_buildRemotesSection(ctx)],
                 ),
+                const UpdateSettingsTile(),
                 _categoryTile(
                   context,
                   icon: Icons.info_outline_rounded,

@@ -5139,4 +5139,90 @@ class AppLocalizationsNl extends AppLocalizations {
   @override
   String get shareFailed =>
       'Delen of opslaan is niet gelukt. Je bestaande items zijn niet vervangen.';
+
+  @override
+  String get updatesTitle => 'App-updates';
+
+  @override
+  String get updatesAutomatic => 'Automatisch op updates controleren';
+
+  @override
+  String get updatesPrivacyGithub =>
+      'Standaard uitgeschakeld. Indien ingeschakeld, maakt de app tijdens gebruik eenmaal per dag verbinding met GitHub. Geen automatische downloads.';
+
+  @override
+  String get updatesPrivacyPlay =>
+      'Standaard uitgeschakeld. Indien ingeschakeld, maakt de app tijdens gebruik eenmaal per dag verbinding met Google Play. Geen automatische downloads.';
+
+  @override
+  String get updatesUnknown => 'Onbekend';
+
+  @override
+  String get updatesChooseSource => 'Updatebron kiezen';
+
+  @override
+  String get updatesCheck => 'Nu controleren';
+
+  @override
+  String get updatesNever => 'Nog niet gecontroleerd';
+
+  @override
+  String updatesLastChecked(String date) {
+    return 'Laatst gecontroleerd: $date';
+  }
+
+  @override
+  String updatesAvailable(String version) {
+    return 'Nieuwe versie: $version';
+  }
+
+  @override
+  String get updatesCurrent => 'Geen nieuwere versie gevonden.';
+
+  @override
+  String get updatesFailed =>
+      'Update mislukt. Controleer je verbinding en probeer opnieuw. Incompatibele APK’s worden geblokkeerd; er worden geen appgegevens verwijderd.';
+
+  @override
+  String get updatesFdroidNote =>
+      'GitHub kan een versie aankondigen voordat F-Droid deze heeft gebouwd. Werk bij via F-Droid om een compatibele handtekening en je gegevens te behouden.';
+
+  @override
+  String get updatesOpenFdroid => 'F-Droid openen';
+
+  @override
+  String get updatesOpenPlay => 'Google Play openen';
+
+  @override
+  String get updatesDownload => 'Update downloaden';
+
+  @override
+  String get updatesInstall => 'Update installeren';
+
+  @override
+  String get updatesAllowInstall => 'Installatie toestaan';
+
+  @override
+  String get updatesInstallHint =>
+      'Android kan toestemming vragen om vanuit deze app te installeren. Ga daarna hier terug en tik op Update installeren. Je afstandsbedieningen en macro’s blijven behouden.';
+
+  @override
+  String get updatesReady => 'Update gedownload en klaar voor installatie.';
+
+  @override
+  String get updatesNoAsset =>
+      'Er is geen geverifieerde APK voor dit apparaat. Bekijk de releaseopmerkingen.';
+
+  @override
+  String get updatesReleaseNotes => 'Releaseopmerkingen';
+
+  @override
+  String updatesChannel(String source) {
+    return 'Updatebron: $source';
+  }
+
+  @override
+  String updatesDownloadConfirm(String size) {
+    return '$size MB downloaden van GitHub? Installatie vereist jouw bevestiging.';
+  }
 }

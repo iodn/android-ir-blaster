@@ -5103,4 +5103,91 @@ class AppLocalizationsMs extends AppLocalizations {
   @override
   String get shareFailed =>
       'Tidak dapat menyelesaikan perkongsian atau penyimpanan. Item sedia ada tidak diganti.';
+
+  @override
+  String get updatesTitle => 'Kemas kini aplikasi';
+
+  @override
+  String get updatesAutomatic => 'Semak kemas kini secara automatik';
+
+  @override
+  String get updatesPrivacyGithub =>
+      'Dimatikan secara lalai. Apabila dihidupkan, menghubungi GitHub sekali sehari semasa anda menggunakan aplikasi. Tiada muat turun automatik.';
+
+  @override
+  String get updatesPrivacyPlay =>
+      'Dimatikan secara lalai. Apabila dihidupkan, menghubungi Google Play sekali sehari semasa anda menggunakan aplikasi. Tiada muat turun automatik.';
+
+  @override
+  String get updatesUnknown => 'Tidak diketahui';
+
+  @override
+  String get updatesChooseSource => 'Pilih sumber kemas kini';
+
+  @override
+  String get updatesCheck => 'Semak sekarang';
+
+  @override
+  String get updatesNever => 'Belum disemak';
+
+  @override
+  String updatesLastChecked(String date) {
+    return 'Semakan terakhir: $date';
+  }
+
+  @override
+  String updatesAvailable(String version) {
+    return 'Versi baharu: $version';
+  }
+
+  @override
+  String get updatesCurrent => 'Tiada versi lebih baharu ditemui.';
+
+  @override
+  String get updatesFailed =>
+      'Kemas kini gagal. Semak sambungan dan cuba lagi. APK yang tidak serasi disekat; tiada data aplikasi dipadamkan.';
+
+  @override
+  String get updatesFdroidNote =>
+      'GitHub mungkin mengumumkan versi sebelum F-Droid selesai membinanya. Kemas kini melalui F-Droid untuk mengekalkan tandatangan yang serasi dan data anda.';
+
+  @override
+  String get updatesOpenFdroid => 'Buka F-Droid';
+
+  @override
+  String get updatesOpenPlay => 'Buka Google Play';
+
+  @override
+  String get updatesDownload => 'Muat turun kemas kini';
+
+  @override
+  String get updatesInstall => 'Pasang kemas kini';
+
+  @override
+  String get updatesAllowInstall => 'Benarkan pemasangan';
+
+  @override
+  String get updatesInstallHint =>
+      'Android mungkin meminta kebenaran untuk memasang daripada aplikasi ini. Kembali ke sini, kemudian ketik Pasang kemas kini. Alat kawalan jauh dan makro anda dikekalkan.';
+
+  @override
+  String get updatesReady =>
+      'Kemas kini telah dimuat turun dan sedia untuk dipasang.';
+
+  @override
+  String get updatesNoAsset =>
+      'Tiada APK yang disahkan tersedia untuk peranti ini. Lihat nota keluaran.';
+
+  @override
+  String get updatesReleaseNotes => 'Nota keluaran';
+
+  @override
+  String updatesChannel(String source) {
+    return 'Sumber kemas kini: $source';
+  }
+
+  @override
+  String updatesDownloadConfirm(String size) {
+    return 'Muat turun $size MB daripada GitHub? Pemasangan memerlukan pengesahan anda.';
+  }
 }

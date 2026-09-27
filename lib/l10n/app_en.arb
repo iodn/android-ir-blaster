@@ -2531,5 +2531,57 @@
   "shareCamera": "Allow camera access to scan QR codes, or open a shared file instead.",
   "shareInvalid": "This share is invalid, too large, or uses an unsupported version.",
   "sharePrepareFailed": "Could not prepare this share. Check for missing images, missing macro buttons, or a collection that is too large.",
-  "shareFailed": "Could not complete sharing or saving. Your existing items have not been replaced."
+  "shareFailed": "Could not complete sharing or saving. Your existing items have not been replaced.",
+  "updatesTitle": "App updates",
+  "updatesAutomatic": "Automatic update checks",
+  "updatesPrivacyGithub": "Off by default. When enabled, contacts GitHub once a day while you use the app. No automatic downloads.",
+  "updatesPrivacyPlay": "Off by default. When enabled, contacts Google Play once a day while you use the app. No automatic downloads.",
+  "updatesUnknown": "Unknown",
+  "updatesChooseSource": "Choose update source",
+  "updatesCheck": "Check now",
+  "updatesNever": "Not checked yet",
+  "updatesLastChecked": "Last checked: {date}",
+  "updatesAvailable": "New release: {version}",
+  "updatesCurrent": "No newer release found.",
+  "updatesFailed": "Update failed. Check your connection and retry. Incompatible APKs are blocked; no app data is deleted.",
+  "updatesFdroidNote": "GitHub may announce a release before F-Droid has rebuilt it. Update through F-Droid to keep the matching signature and your data.",
+  "updatesOpenFdroid": "Open F-Droid",
+  "updatesOpenPlay": "Open Google Play",
+  "updatesDownload": "Download update",
+  "updatesInstall": "Install update",
+  "updatesAllowInstall": "Allow installation",
+  "updatesInstallHint": "Android may ask you to allow installation from this app. Return here, then tap Install update. Your remotes and macros are kept.",
+  "updatesReady": "Update downloaded and ready to install.",
+  "updatesNoAsset": "No verified APK is available for this device. See the release notes.",
+  "updatesReleaseNotes": "Release notes",
+  "updatesChannel": "Update source: {source}",
+  "updatesDownloadConfirm": "Download {size} MB from GitHub? Installation requires your confirmation.",
+  "@updatesLastChecked": {
+    "placeholders": {
+      "date": {
+        "type": "String"
+      }
+    }
+  },
+  "@updatesAvailable": {
+    "placeholders": {
+      "version": {
+        "type": "String"
+      }
+    }
+  },
+  "@updatesChannel": {
+    "placeholders": {
+      "source": {
+        "type": "String"
+      }
+    }
+  },
+  "@updatesDownloadConfirm": {
+    "placeholders": {
+      "size": {
+        "type": "String"
+      }
+    }
+  }
 }

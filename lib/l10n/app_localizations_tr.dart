@@ -5100,4 +5100,90 @@ class AppLocalizationsTr extends AppLocalizations {
   @override
   String get shareFailed =>
       'Paylaşım veya kayıt tamamlanamadı. Mevcut öğeleriniz değiştirilmedi.';
+
+  @override
+  String get updatesTitle => 'Uygulama güncellemeleri';
+
+  @override
+  String get updatesAutomatic => 'Güncellemeleri otomatik denetle';
+
+  @override
+  String get updatesPrivacyGithub =>
+      'Varsayılan olarak kapalıdır. Açıldığında, uygulamayı kullanırken günde bir kez GitHub’a bağlanır. Otomatik indirme yapılmaz.';
+
+  @override
+  String get updatesPrivacyPlay =>
+      'Varsayılan olarak kapalıdır. Açıldığında, uygulamayı kullanırken günde bir kez Google Play’e bağlanır. Otomatik indirme yapılmaz.';
+
+  @override
+  String get updatesUnknown => 'Bilinmiyor';
+
+  @override
+  String get updatesChooseSource => 'Güncelleme kaynağını seç';
+
+  @override
+  String get updatesCheck => 'Şimdi denetle';
+
+  @override
+  String get updatesNever => 'Henüz denetlenmedi';
+
+  @override
+  String updatesLastChecked(String date) {
+    return 'Son denetleme: $date';
+  }
+
+  @override
+  String updatesAvailable(String version) {
+    return 'Yeni sürüm: $version';
+  }
+
+  @override
+  String get updatesCurrent => 'Daha yeni bir sürüm bulunamadı.';
+
+  @override
+  String get updatesFailed =>
+      'Güncelleme başarısız. Bağlantınızı kontrol edip tekrar deneyin. Uyumsuz APK’lar engellenir; uygulama verileri silinmez.';
+
+  @override
+  String get updatesFdroidNote =>
+      'GitHub, F-Droid derlemesi hazır olmadan bir sürüm duyurabilir. Uyumlu imzayı ve verilerinizi korumak için F-Droid üzerinden güncelleyin.';
+
+  @override
+  String get updatesOpenFdroid => 'F-Droid’i aç';
+
+  @override
+  String get updatesOpenPlay => 'Google Play’i aç';
+
+  @override
+  String get updatesDownload => 'Güncellemeyi indir';
+
+  @override
+  String get updatesInstall => 'Güncellemeyi yükle';
+
+  @override
+  String get updatesAllowInstall => 'Yüklemeye izin ver';
+
+  @override
+  String get updatesInstallHint =>
+      'Android bu uygulamadan yükleme izni isteyebilir. Buraya dönüp Güncellemeyi yükle’ye dokunun. Kumandalarınız ve makrolarınız korunur.';
+
+  @override
+  String get updatesReady => 'Güncelleme indirildi ve yüklemeye hazır.';
+
+  @override
+  String get updatesNoAsset =>
+      'Bu cihaz için doğrulanmış bir APK yok. Sürüm notlarına bakın.';
+
+  @override
+  String get updatesReleaseNotes => 'Sürüm notları';
+
+  @override
+  String updatesChannel(String source) {
+    return 'Güncelleme kaynağı: $source';
+  }
+
+  @override
+  String updatesDownloadConfirm(String size) {
+    return 'GitHub’dan $size MB indirilsin mi? Yükleme için onayınız gerekir.';
+  }
 }

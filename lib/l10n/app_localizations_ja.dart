@@ -4964,4 +4964,89 @@ class AppLocalizationsJa extends AppLocalizations {
 
   @override
   String get shareFailed => '共有または保存を完了できませんでした。既存の項目は置き換えられていません。';
+
+  @override
+  String get updatesTitle => 'アプリの更新';
+
+  @override
+  String get updatesAutomatic => '更新を自動確認';
+
+  @override
+  String get updatesPrivacyGithub =>
+      '初期設定では無効です。有効にすると、アプリの使用中に1日1回GitHubへ接続して確認します。自動ダウンロードは行いません。';
+
+  @override
+  String get updatesPrivacyPlay =>
+      '初期設定では無効です。有効にすると、アプリの使用中に1日1回Google Playへ接続して確認します。自動ダウンロードは行いません。';
+
+  @override
+  String get updatesUnknown => '不明';
+
+  @override
+  String get updatesChooseSource => '更新元を選択';
+
+  @override
+  String get updatesCheck => '今すぐ確認';
+
+  @override
+  String get updatesNever => 'まだ確認していません';
+
+  @override
+  String updatesLastChecked(String date) {
+    return '最終確認：$date';
+  }
+
+  @override
+  String updatesAvailable(String version) {
+    return '新しいバージョン：$version';
+  }
+
+  @override
+  String get updatesCurrent => '新しいバージョンは見つかりませんでした。';
+
+  @override
+  String get updatesFailed =>
+      '更新に失敗しました。接続を確認して再試行してください。互換性のないAPKは拒否され、アプリのデータは削除されません。';
+
+  @override
+  String get updatesFdroidNote =>
+      'GitHubでの公開後、F-Droidでのビルドに時間がかかる場合があります。署名の互換性とデータを維持するため、F-Droid経由で更新してください。';
+
+  @override
+  String get updatesOpenFdroid => 'F-Droidを開く';
+
+  @override
+  String get updatesOpenPlay => 'Google Playを開く';
+
+  @override
+  String get updatesDownload => '更新をダウンロード';
+
+  @override
+  String get updatesInstall => '更新をインストール';
+
+  @override
+  String get updatesAllowInstall => 'インストールを許可';
+
+  @override
+  String get updatesInstallHint =>
+      'Androidでこのアプリからのインストール許可を求められる場合があります。許可後にこの画面へ戻り、更新をインストールをタップしてください。リモコンとマクロは保持されます。';
+
+  @override
+  String get updatesReady => 'ダウンロード完了。更新をインストールできます。';
+
+  @override
+  String get updatesNoAsset => 'この端末向けの検証済みAPKはありません。リリースノートを確認してください。';
+
+  @override
+  String get updatesReleaseNotes => 'リリースノート';
+
+  @override
+  String updatesChannel(String source) {
+    return '更新元：$source';
+  }
+
+  @override
+  String updatesDownloadConfirm(String size) {
+    return 'GitHubから$size MBをダウンロードしますか？インストールには確認が必要です。';
+  }
 }

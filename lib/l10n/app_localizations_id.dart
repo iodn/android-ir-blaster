@@ -5104,4 +5104,90 @@ class AppLocalizationsId extends AppLocalizations {
   @override
   String get shareFailed =>
       'Tidak dapat menyelesaikan berbagi atau menyimpan. Item yang ada tidak diganti.';
+
+  @override
+  String get updatesTitle => 'Pembaruan aplikasi';
+
+  @override
+  String get updatesAutomatic => 'Periksa pembaruan otomatis';
+
+  @override
+  String get updatesPrivacyGithub =>
+      'Nonaktif secara default. Jika diaktifkan, menghubungi GitHub sekali sehari saat Anda menggunakan aplikasi. Tidak mengunduh otomatis.';
+
+  @override
+  String get updatesPrivacyPlay =>
+      'Nonaktif secara default. Jika diaktifkan, menghubungi Google Play sekali sehari saat Anda menggunakan aplikasi. Tidak mengunduh otomatis.';
+
+  @override
+  String get updatesUnknown => 'Tidak diketahui';
+
+  @override
+  String get updatesChooseSource => 'Pilih sumber pembaruan';
+
+  @override
+  String get updatesCheck => 'Periksa sekarang';
+
+  @override
+  String get updatesNever => 'Belum diperiksa';
+
+  @override
+  String updatesLastChecked(String date) {
+    return 'Terakhir diperiksa: $date';
+  }
+
+  @override
+  String updatesAvailable(String version) {
+    return 'Versi baru: $version';
+  }
+
+  @override
+  String get updatesCurrent => 'Tidak ditemukan versi yang lebih baru.';
+
+  @override
+  String get updatesFailed =>
+      'Pembaruan gagal. Periksa koneksi dan coba lagi. APK yang tidak kompatibel diblokir; data aplikasi tidak dihapus.';
+
+  @override
+  String get updatesFdroidNote =>
+      'GitHub mungkin merilis versi sebelum F-Droid selesai membangunnya. Perbarui melalui F-Droid agar tanda tangan tetap kompatibel dan data Anda tetap tersimpan.';
+
+  @override
+  String get updatesOpenFdroid => 'Buka F-Droid';
+
+  @override
+  String get updatesOpenPlay => 'Buka Google Play';
+
+  @override
+  String get updatesDownload => 'Unduh pembaruan';
+
+  @override
+  String get updatesInstall => 'Instal pembaruan';
+
+  @override
+  String get updatesAllowInstall => 'Izinkan penginstalan';
+
+  @override
+  String get updatesInstallHint =>
+      'Android mungkin meminta izin untuk menginstal dari aplikasi ini. Kembali ke sini, lalu ketuk Instal pembaruan. Remote dan makro Anda tetap tersimpan.';
+
+  @override
+  String get updatesReady => 'Pembaruan telah diunduh dan siap diinstal.';
+
+  @override
+  String get updatesNoAsset =>
+      'Tidak ada APK terverifikasi untuk perangkat ini. Lihat catatan rilis.';
+
+  @override
+  String get updatesReleaseNotes => 'Catatan rilis';
+
+  @override
+  String updatesChannel(String source) {
+    return 'Sumber pembaruan: $source';
+  }
+
+  @override
+  String updatesDownloadConfirm(String size) {
+    return 'Unduh $size MB dari GitHub? Penginstalan memerlukan konfirmasi Anda.';
+  }
 }

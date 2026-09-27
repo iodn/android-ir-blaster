@@ -4980,4 +4980,89 @@ class AppLocalizationsKo extends AppLocalizations {
 
   @override
   String get shareFailed => '공유 또는 저장을 완료할 수 없습니다. 기존 항목은 바뀌지 않았습니다.';
+
+  @override
+  String get updatesTitle => '앱 업데이트';
+
+  @override
+  String get updatesAutomatic => '업데이트 자동 확인';
+
+  @override
+  String get updatesPrivacyGithub =>
+      '기본적으로 꺼져 있습니다. 켜면 앱을 사용하는 동안 하루에 한 번 GitHub에 연결하여 확인합니다. 자동으로 다운로드하지 않습니다.';
+
+  @override
+  String get updatesPrivacyPlay =>
+      '기본적으로 꺼져 있습니다. 켜면 앱을 사용하는 동안 하루에 한 번 Google Play에 연결하여 확인합니다. 자동으로 다운로드하지 않습니다.';
+
+  @override
+  String get updatesUnknown => '알 수 없음';
+
+  @override
+  String get updatesChooseSource => '업데이트 출처 선택';
+
+  @override
+  String get updatesCheck => '지금 확인';
+
+  @override
+  String get updatesNever => '아직 확인하지 않음';
+
+  @override
+  String updatesLastChecked(String date) {
+    return '마지막 확인: $date';
+  }
+
+  @override
+  String updatesAvailable(String version) {
+    return '새 버전: $version';
+  }
+
+  @override
+  String get updatesCurrent => '더 최신 버전을 찾지 못했습니다.';
+
+  @override
+  String get updatesFailed =>
+      '업데이트에 실패했습니다. 연결을 확인하고 다시 시도하세요. 호환되지 않는 APK는 차단되며 앱 데이터는 삭제되지 않습니다.';
+
+  @override
+  String get updatesFdroidNote =>
+      'F-Droid가 빌드하기 전에 GitHub에 새 버전이 공개될 수 있습니다. 서명 호환성과 데이터를 유지하려면 F-Droid를 통해 업데이트하세요.';
+
+  @override
+  String get updatesOpenFdroid => 'F-Droid 열기';
+
+  @override
+  String get updatesOpenPlay => 'Google Play 열기';
+
+  @override
+  String get updatesDownload => '업데이트 다운로드';
+
+  @override
+  String get updatesInstall => '업데이트 설치';
+
+  @override
+  String get updatesAllowInstall => '설치 허용';
+
+  @override
+  String get updatesInstallHint =>
+      'Android가 이 앱의 설치 권한을 요청할 수 있습니다. 허용한 후 여기로 돌아와 업데이트 설치를 누르세요. 리모컨과 매크로는 유지됩니다.';
+
+  @override
+  String get updatesReady => '업데이트 다운로드가 완료되어 설치할 수 있습니다.';
+
+  @override
+  String get updatesNoAsset => '이 기기에 사용할 수 있는 검증된 APK가 없습니다. 릴리스 노트를 확인하세요.';
+
+  @override
+  String get updatesReleaseNotes => '릴리스 노트';
+
+  @override
+  String updatesChannel(String source) {
+    return '업데이트 출처: $source';
+  }
+
+  @override
+  String updatesDownloadConfirm(String size) {
+    return 'GitHub에서 $size MB를 다운로드할까요? 설치하려면 확인이 필요합니다.';
+  }
 }

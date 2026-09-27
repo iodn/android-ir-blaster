@@ -5072,6 +5072,92 @@ class AppLocalizationsAr extends AppLocalizations {
   @override
   String get shareFailed =>
       'تعذر إكمال المشاركة أو الحفظ. لم تُستبدل عناصرك الحالية.';
+
+  @override
+  String get updatesTitle => 'تحديثات التطبيق';
+
+  @override
+  String get updatesAutomatic => 'التحقق التلقائي من التحديثات';
+
+  @override
+  String get updatesPrivacyGithub =>
+      'معطّل افتراضيًا. عند تفعيله، يتصل التطبيق بـ GitHub مرة يوميًا أثناء استخدامه. لا يتم التنزيل تلقائيًا.';
+
+  @override
+  String get updatesPrivacyPlay =>
+      'معطّل افتراضيًا. عند تفعيله، يتصل التطبيق بـ Google Play مرة يوميًا أثناء استخدامه. لا يتم التنزيل تلقائيًا.';
+
+  @override
+  String get updatesUnknown => 'غير معروف';
+
+  @override
+  String get updatesChooseSource => 'اختر مصدر التحديثات';
+
+  @override
+  String get updatesCheck => 'التحقق الآن';
+
+  @override
+  String get updatesNever => 'لم يتم التحقق بعد';
+
+  @override
+  String updatesLastChecked(String date) {
+    return 'آخر تحقق: $date';
+  }
+
+  @override
+  String updatesAvailable(String version) {
+    return 'إصدار جديد: $version';
+  }
+
+  @override
+  String get updatesCurrent => 'لم يتم العثور على إصدار أحدث.';
+
+  @override
+  String get updatesFailed =>
+      'فشل التحديث. تحقق من الاتصال وحاول مجددًا. تُحظر ملفات APK غير المتوافقة ولا تُحذف بيانات التطبيق.';
+
+  @override
+  String get updatesFdroidNote =>
+      'قد يُعلن GitHub عن إصدار قبل أن يُكمل F-Droid بناءه. حدّث عبر F-Droid للحفاظ على توافق التوقيع وبياناتك.';
+
+  @override
+  String get updatesOpenFdroid => 'فتح F-Droid';
+
+  @override
+  String get updatesOpenPlay => 'فتح Google Play';
+
+  @override
+  String get updatesDownload => 'تنزيل التحديث';
+
+  @override
+  String get updatesInstall => 'تثبيت التحديث';
+
+  @override
+  String get updatesAllowInstall => 'السماح بالتثبيت';
+
+  @override
+  String get updatesInstallHint =>
+      'قد يطلب Android السماح بالتثبيت من هذا التطبيق. عد إلى هنا ثم اضغط على تثبيت التحديث. ستُحفظ أجهزة التحكم ووحدات الماكرو.';
+
+  @override
+  String get updatesReady => 'تم تنزيل التحديث وهو جاهز للتثبيت.';
+
+  @override
+  String get updatesNoAsset =>
+      'لا يتوفر ملف APK تم التحقق منه لهذا الجهاز. راجع ملاحظات الإصدار.';
+
+  @override
+  String get updatesReleaseNotes => 'ملاحظات الإصدار';
+
+  @override
+  String updatesChannel(String source) {
+    return 'مصدر التحديثات: $source';
+  }
+
+  @override
+  String updatesDownloadConfirm(String size) {
+    return 'هل تريد تنزيل $size ميغابايت من GitHub؟ يتطلب التثبيت تأكيدك.';
+  }
 }
 
 /// The translations for Arabic, as used in Egypt (`ar_EG`).
@@ -10142,4 +10228,90 @@ class AppLocalizationsArEg extends AppLocalizationsAr {
   @override
   String get shareFailed =>
       'مش قادرين نكمل المشاركة أو الحفظ. عناصرك الموجودة متغيرتش.';
+
+  @override
+  String get updatesTitle => 'تحديثات التطبيق';
+
+  @override
+  String get updatesAutomatic => 'التحقق التلقائي من التحديثات';
+
+  @override
+  String get updatesPrivacyGithub =>
+      'معطّل افتراضيًا. عند تفعيله، يتصل التطبيق بـ GitHub مرة يوميًا أثناء استخدامه. لا يتم التنزيل تلقائيًا.';
+
+  @override
+  String get updatesPrivacyPlay =>
+      'معطّل افتراضيًا. عند تفعيله، يتصل التطبيق بـ Google Play مرة يوميًا أثناء استخدامه. لا يتم التنزيل تلقائيًا.';
+
+  @override
+  String get updatesUnknown => 'غير معروف';
+
+  @override
+  String get updatesChooseSource => 'اختر مصدر التحديثات';
+
+  @override
+  String get updatesCheck => 'التحقق الآن';
+
+  @override
+  String get updatesNever => 'لم يتم التحقق بعد';
+
+  @override
+  String updatesLastChecked(String date) {
+    return 'آخر تحقق: $date';
+  }
+
+  @override
+  String updatesAvailable(String version) {
+    return 'إصدار جديد: $version';
+  }
+
+  @override
+  String get updatesCurrent => 'لم يتم العثور على إصدار أحدث.';
+
+  @override
+  String get updatesFailed =>
+      'فشل التحديث. تحقق من الاتصال وحاول مجددًا. تُحظر ملفات APK غير المتوافقة ولا تُحذف بيانات التطبيق.';
+
+  @override
+  String get updatesFdroidNote =>
+      'قد يُعلن GitHub عن إصدار قبل أن يُكمل F-Droid بناءه. حدّث عبر F-Droid للحفاظ على توافق التوقيع وبياناتك.';
+
+  @override
+  String get updatesOpenFdroid => 'فتح F-Droid';
+
+  @override
+  String get updatesOpenPlay => 'فتح Google Play';
+
+  @override
+  String get updatesDownload => 'تنزيل التحديث';
+
+  @override
+  String get updatesInstall => 'تثبيت التحديث';
+
+  @override
+  String get updatesAllowInstall => 'السماح بالتثبيت';
+
+  @override
+  String get updatesInstallHint =>
+      'قد يطلب Android السماح بالتثبيت من هذا التطبيق. عد إلى هنا ثم اضغط على تثبيت التحديث. ستُحفظ أجهزة التحكم ووحدات الماكرو.';
+
+  @override
+  String get updatesReady => 'تم تنزيل التحديث وهو جاهز للتثبيت.';
+
+  @override
+  String get updatesNoAsset =>
+      'لا يتوفر ملف APK تم التحقق منه لهذا الجهاز. راجع ملاحظات الإصدار.';
+
+  @override
+  String get updatesReleaseNotes => 'ملاحظات الإصدار';
+
+  @override
+  String updatesChannel(String source) {
+    return 'مصدر التحديثات: $source';
+  }
+
+  @override
+  String updatesDownloadConfirm(String size) {
+    return 'هل تريد تنزيل $size ميغابايت من GitHub؟ يتطلب التثبيت تأكيدك.';
+  }
 }

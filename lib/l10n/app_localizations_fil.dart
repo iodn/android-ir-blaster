@@ -5119,4 +5119,91 @@ class AppLocalizationsFil extends AppLocalizations {
   @override
   String get shareFailed =>
       'Hindi makumpleto ang pagbabahagi o pag-save. Hindi napalitan ang dati mong mga item.';
+
+  @override
+  String get updatesTitle => 'Mga update ng app';
+
+  @override
+  String get updatesAutomatic => 'Awtomatikong tingnan ang mga update';
+
+  @override
+  String get updatesPrivacyGithub =>
+      'Naka-off bilang default. Kapag naka-on, kumokonekta sa GitHub isang beses bawat araw habang ginagamit mo ang app. Walang awtomatikong pag-download.';
+
+  @override
+  String get updatesPrivacyPlay =>
+      'Naka-off bilang default. Kapag naka-on, kumokonekta sa Google Play isang beses bawat araw habang ginagamit mo ang app. Walang awtomatikong pag-download.';
+
+  @override
+  String get updatesUnknown => 'Hindi alam';
+
+  @override
+  String get updatesChooseSource => 'Piliin ang pinagmulan ng update';
+
+  @override
+  String get updatesCheck => 'Tingnan ngayon';
+
+  @override
+  String get updatesNever => 'Hindi pa nasusuri';
+
+  @override
+  String updatesLastChecked(String date) {
+    return 'Huling pagsusuri: $date';
+  }
+
+  @override
+  String updatesAvailable(String version) {
+    return 'Bagong bersyon: $version';
+  }
+
+  @override
+  String get updatesCurrent => 'Walang nahanap na mas bagong bersyon.';
+
+  @override
+  String get updatesFailed =>
+      'Nabigo ang update. Suriin ang koneksyon at subukan muli. Hinaharang ang mga hindi tugmang APK; walang data ng app na binubura.';
+
+  @override
+  String get updatesFdroidNote =>
+      'Maaaring maglabas ng bersyon ang GitHub bago ito mabuo ng F-Droid. Mag-update sa F-Droid upang mapanatili ang tugmang lagda at ang iyong data.';
+
+  @override
+  String get updatesOpenFdroid => 'Buksan ang F-Droid';
+
+  @override
+  String get updatesOpenPlay => 'Buksan ang Google Play';
+
+  @override
+  String get updatesDownload => 'I-download ang update';
+
+  @override
+  String get updatesInstall => 'I-install ang update';
+
+  @override
+  String get updatesAllowInstall => 'Payagan ang pag-install';
+
+  @override
+  String get updatesInstallHint =>
+      'Maaaring humingi ang Android ng pahintulot na mag-install mula sa app na ito. Bumalik dito at pindutin ang I-install ang update. Mananatili ang iyong mga remote at macro.';
+
+  @override
+  String get updatesReady =>
+      'Na-download na ang update at handa nang i-install.';
+
+  @override
+  String get updatesNoAsset =>
+      'Walang beripikadong APK para sa device na ito. Tingnan ang mga tala ng release.';
+
+  @override
+  String get updatesReleaseNotes => 'Mga tala ng release';
+
+  @override
+  String updatesChannel(String source) {
+    return 'Pinagmulan ng update: $source';
+  }
+
+  @override
+  String updatesDownloadConfirm(String size) {
+    return 'I-download ang $size MB mula sa GitHub? Kailangan ang iyong kumpirmasyon para sa pag-install.';
+  }
 }

@@ -5097,4 +5097,91 @@ class AppLocalizationsHi extends AppLocalizations {
   @override
   String get shareFailed =>
       'साझा करना या सहेजना पूरा नहीं हुआ। मौजूदा आइटम नहीं बदले गए।';
+
+  @override
+  String get updatesTitle => 'ऐप अपडेट';
+
+  @override
+  String get updatesAutomatic => 'अपने-आप अपडेट जाँचें';
+
+  @override
+  String get updatesPrivacyGithub =>
+      'डिफ़ॉल्ट रूप से बंद है। चालू करने पर ऐप इस्तेमाल करते समय दिन में एक बार GitHub से संपर्क किया जाता है। अपने-आप डाउनलोड नहीं होता।';
+
+  @override
+  String get updatesPrivacyPlay =>
+      'डिफ़ॉल्ट रूप से बंद है। चालू करने पर ऐप इस्तेमाल करते समय दिन में एक बार Google Play से संपर्क किया जाता है। अपने-आप डाउनलोड नहीं होता।';
+
+  @override
+  String get updatesUnknown => 'अज्ञात';
+
+  @override
+  String get updatesChooseSource => 'अपडेट का स्रोत चुनें';
+
+  @override
+  String get updatesCheck => 'अभी जाँचें';
+
+  @override
+  String get updatesNever => 'अभी तक जाँच नहीं हुई';
+
+  @override
+  String updatesLastChecked(String date) {
+    return 'पिछली जाँच: $date';
+  }
+
+  @override
+  String updatesAvailable(String version) {
+    return 'नया संस्करण: $version';
+  }
+
+  @override
+  String get updatesCurrent => 'कोई नया संस्करण नहीं मिला।';
+
+  @override
+  String get updatesFailed =>
+      'अपडेट विफल रहा। अपना कनेक्शन जाँचें और फिर कोशिश करें। असंगत APK रोके जाते हैं; ऐप का कोई डेटा नहीं मिटाया जाता।';
+
+  @override
+  String get updatesFdroidNote =>
+      'F-Droid के बिल्ड तैयार करने से पहले GitHub पर नया संस्करण आ सकता है। संगत हस्ताक्षर और अपना डेटा बनाए रखने के लिए F-Droid से अपडेट करें।';
+
+  @override
+  String get updatesOpenFdroid => 'F-Droid खोलें';
+
+  @override
+  String get updatesOpenPlay => 'Google Play खोलें';
+
+  @override
+  String get updatesDownload => 'अपडेट डाउनलोड करें';
+
+  @override
+  String get updatesInstall => 'अपडेट इंस्टॉल करें';
+
+  @override
+  String get updatesAllowInstall => 'इंस्टॉल करने की अनुमति दें';
+
+  @override
+  String get updatesInstallHint =>
+      'Android इस ऐप से इंस्टॉल करने की अनुमति माँग सकता है। अनुमति देने के बाद यहाँ लौटें और अपडेट इंस्टॉल करें पर टैप करें। आपके रिमोट और मैक्रो सुरक्षित रहते हैं।';
+
+  @override
+  String get updatesReady =>
+      'अपडेट डाउनलोड हो गया है और इंस्टॉल करने के लिए तैयार है।';
+
+  @override
+  String get updatesNoAsset =>
+      'इस डिवाइस के लिए सत्यापित APK उपलब्ध नहीं है। रिलीज़ नोट्स देखें।';
+
+  @override
+  String get updatesReleaseNotes => 'रिलीज़ नोट्स';
+
+  @override
+  String updatesChannel(String source) {
+    return 'अपडेट का स्रोत: $source';
+  }
+
+  @override
+  String updatesDownloadConfirm(String size) {
+    return 'GitHub से $size MB डाउनलोड करें? इंस्टॉल करने के लिए आपकी पुष्टि आवश्यक है।';
+  }
 }

@@ -5146,4 +5146,90 @@ class AppLocalizationsEn extends AppLocalizations {
   @override
   String get shareFailed =>
       'Could not complete sharing or saving. Your existing items have not been replaced.';
+
+  @override
+  String get updatesTitle => 'App updates';
+
+  @override
+  String get updatesAutomatic => 'Automatic update checks';
+
+  @override
+  String get updatesPrivacyGithub =>
+      'Off by default. When enabled, contacts GitHub once a day while you use the app. No automatic downloads.';
+
+  @override
+  String get updatesPrivacyPlay =>
+      'Off by default. When enabled, contacts Google Play once a day while you use the app. No automatic downloads.';
+
+  @override
+  String get updatesUnknown => 'Unknown';
+
+  @override
+  String get updatesChooseSource => 'Choose update source';
+
+  @override
+  String get updatesCheck => 'Check now';
+
+  @override
+  String get updatesNever => 'Not checked yet';
+
+  @override
+  String updatesLastChecked(String date) {
+    return 'Last checked: $date';
+  }
+
+  @override
+  String updatesAvailable(String version) {
+    return 'New release: $version';
+  }
+
+  @override
+  String get updatesCurrent => 'No newer release found.';
+
+  @override
+  String get updatesFailed =>
+      'Update failed. Check your connection and retry. Incompatible APKs are blocked; no app data is deleted.';
+
+  @override
+  String get updatesFdroidNote =>
+      'GitHub may announce a release before F-Droid has rebuilt it. Update through F-Droid to keep the matching signature and your data.';
+
+  @override
+  String get updatesOpenFdroid => 'Open F-Droid';
+
+  @override
+  String get updatesOpenPlay => 'Open Google Play';
+
+  @override
+  String get updatesDownload => 'Download update';
+
+  @override
+  String get updatesInstall => 'Install update';
+
+  @override
+  String get updatesAllowInstall => 'Allow installation';
+
+  @override
+  String get updatesInstallHint =>
+      'Android may ask you to allow installation from this app. Return here, then tap Install update. Your remotes and macros are kept.';
+
+  @override
+  String get updatesReady => 'Update downloaded and ready to install.';
+
+  @override
+  String get updatesNoAsset =>
+      'No verified APK is available for this device. See the release notes.';
+
+  @override
+  String get updatesReleaseNotes => 'Release notes';
+
+  @override
+  String updatesChannel(String source) {
+    return 'Update source: $source';
+  }
+
+  @override
+  String updatesDownloadConfirm(String size) {
+    return 'Download $size MB from GitHub? Installation requires your confirmation.';
+  }
 }

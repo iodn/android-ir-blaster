@@ -5071,4 +5071,90 @@ class AppLocalizationsTh extends AppLocalizations {
 
   @override
   String get shareFailed => 'แชร์หรือบันทึกไม่สำเร็จ รายการเดิมไม่ได้ถูกแทนที่';
+
+  @override
+  String get updatesTitle => 'การอัปเดตแอป';
+
+  @override
+  String get updatesAutomatic => 'ตรวจหาการอัปเดตอัตโนมัติ';
+
+  @override
+  String get updatesPrivacyGithub =>
+      'ปิดไว้เป็นค่าเริ่มต้น เมื่อเปิด จะติดต่อ GitHub วันละครั้งขณะใช้งานแอป ไม่มีการดาวน์โหลดอัตโนมัติ';
+
+  @override
+  String get updatesPrivacyPlay =>
+      'ปิดไว้เป็นค่าเริ่มต้น เมื่อเปิด จะติดต่อ Google Play วันละครั้งขณะใช้งานแอป ไม่มีการดาวน์โหลดอัตโนมัติ';
+
+  @override
+  String get updatesUnknown => 'ไม่ทราบ';
+
+  @override
+  String get updatesChooseSource => 'เลือกแหล่งอัปเดต';
+
+  @override
+  String get updatesCheck => 'ตรวจสอบตอนนี้';
+
+  @override
+  String get updatesNever => 'ยังไม่ได้ตรวจสอบ';
+
+  @override
+  String updatesLastChecked(String date) {
+    return 'ตรวจสอบล่าสุด: $date';
+  }
+
+  @override
+  String updatesAvailable(String version) {
+    return 'เวอร์ชันใหม่: $version';
+  }
+
+  @override
+  String get updatesCurrent => 'ไม่พบเวอร์ชันที่ใหม่กว่า';
+
+  @override
+  String get updatesFailed =>
+      'อัปเดตไม่สำเร็จ ตรวจสอบการเชื่อมต่อแล้วลองอีกครั้ง APK ที่เข้ากันไม่ได้จะถูกบล็อก โดยไม่ลบข้อมูลแอป';
+
+  @override
+  String get updatesFdroidNote =>
+      'GitHub อาจประกาศเวอร์ชันใหม่ก่อนที่ F-Droid จะสร้างเสร็จ โปรดอัปเดตผ่าน F-Droid เพื่อให้ลายเซ็นเข้ากันได้และรักษาข้อมูลของคุณ';
+
+  @override
+  String get updatesOpenFdroid => 'เปิด F-Droid';
+
+  @override
+  String get updatesOpenPlay => 'เปิด Google Play';
+
+  @override
+  String get updatesDownload => 'ดาวน์โหลดอัปเดต';
+
+  @override
+  String get updatesInstall => 'ติดตั้งอัปเดต';
+
+  @override
+  String get updatesAllowInstall => 'อนุญาตการติดตั้ง';
+
+  @override
+  String get updatesInstallHint =>
+      'Android อาจขออนุญาตติดตั้งจากแอปนี้ จากนั้นกลับมาที่นี่แล้วแตะติดตั้งอัปเดต รีโมตและมาโครของคุณจะยังคงอยู่';
+
+  @override
+  String get updatesReady => 'ดาวน์โหลดอัปเดตแล้ว พร้อมติดตั้ง';
+
+  @override
+  String get updatesNoAsset =>
+      'ไม่มี APK ที่ผ่านการตรวจสอบสำหรับอุปกรณ์นี้ โปรดดูบันทึกประจำรุ่น';
+
+  @override
+  String get updatesReleaseNotes => 'บันทึกประจำรุ่น';
+
+  @override
+  String updatesChannel(String source) {
+    return 'แหล่งอัปเดต: $source';
+  }
+
+  @override
+  String updatesDownloadConfirm(String size) {
+    return 'ดาวน์โหลด $size MB จาก GitHub หรือไม่? การติดตั้งต้องได้รับการยืนยันจากคุณ';
+  }
 }

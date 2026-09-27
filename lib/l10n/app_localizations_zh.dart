@@ -4898,4 +4898,87 @@ class AppLocalizationsZh extends AppLocalizations {
 
   @override
   String get shareFailed => '无法完成分享或保存。现有内容未被替换。';
+
+  @override
+  String get updatesTitle => '应用更新';
+
+  @override
+  String get updatesAutomatic => '自动检查更新';
+
+  @override
+  String get updatesPrivacyGithub => '默认关闭。启用后，在使用应用期间每天连接 GitHub 检查一次。不会自动下载。';
+
+  @override
+  String get updatesPrivacyPlay =>
+      '默认关闭。启用后，在使用应用期间每天连接 Google Play 检查一次。不会自动下载。';
+
+  @override
+  String get updatesUnknown => '未知';
+
+  @override
+  String get updatesChooseSource => '选择更新来源';
+
+  @override
+  String get updatesCheck => '立即检查';
+
+  @override
+  String get updatesNever => '尚未检查';
+
+  @override
+  String updatesLastChecked(String date) {
+    return '上次检查：$date';
+  }
+
+  @override
+  String updatesAvailable(String version) {
+    return '新版本：$version';
+  }
+
+  @override
+  String get updatesCurrent => '未找到更新的版本。';
+
+  @override
+  String get updatesFailed => '更新失败。请检查网络连接后重试。不兼容的 APK 会被阻止，不会删除应用数据。';
+
+  @override
+  String get updatesFdroidNote =>
+      'GitHub 可能先发布新版本，之后 F-Droid 才完成构建。请通过 F-Droid 更新，以保持签名兼容并保留数据。';
+
+  @override
+  String get updatesOpenFdroid => '打开 F-Droid';
+
+  @override
+  String get updatesOpenPlay => '打开 Google Play';
+
+  @override
+  String get updatesDownload => '下载更新';
+
+  @override
+  String get updatesInstall => '安装更新';
+
+  @override
+  String get updatesAllowInstall => '允许安装';
+
+  @override
+  String get updatesInstallHint =>
+      'Android 可能要求允许从此应用安装。授权后返回此处，点击安装更新。遥控器和宏将被保留。';
+
+  @override
+  String get updatesReady => '更新已下载，可以安装。';
+
+  @override
+  String get updatesNoAsset => '没有适用于此设备的已验证 APK。请查看发行说明。';
+
+  @override
+  String get updatesReleaseNotes => '发行说明';
+
+  @override
+  String updatesChannel(String source) {
+    return '更新来源：$source';
+  }
+
+  @override
+  String updatesDownloadConfirm(String size) {
+    return '从 GitHub 下载 $size MB？安装需要您确认。';
+  }
 }

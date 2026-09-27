@@ -5091,4 +5091,90 @@ class AppLocalizationsVi extends AppLocalizations {
   @override
   String get shareFailed =>
       'Không thể hoàn tất chia sẻ hoặc lưu. Các mục hiện có không bị thay thế.';
+
+  @override
+  String get updatesTitle => 'Cập nhật ứng dụng';
+
+  @override
+  String get updatesAutomatic => 'Tự động kiểm tra cập nhật';
+
+  @override
+  String get updatesPrivacyGithub =>
+      'Mặc định tắt. Khi bật, ứng dụng kết nối GitHub mỗi ngày một lần trong lúc bạn sử dụng. Không tự động tải xuống.';
+
+  @override
+  String get updatesPrivacyPlay =>
+      'Mặc định tắt. Khi bật, ứng dụng kết nối Google Play mỗi ngày một lần trong lúc bạn sử dụng. Không tự động tải xuống.';
+
+  @override
+  String get updatesUnknown => 'Không xác định';
+
+  @override
+  String get updatesChooseSource => 'Chọn nguồn cập nhật';
+
+  @override
+  String get updatesCheck => 'Kiểm tra ngay';
+
+  @override
+  String get updatesNever => 'Chưa kiểm tra';
+
+  @override
+  String updatesLastChecked(String date) {
+    return 'Lần kiểm tra gần nhất: $date';
+  }
+
+  @override
+  String updatesAvailable(String version) {
+    return 'Phiên bản mới: $version';
+  }
+
+  @override
+  String get updatesCurrent => 'Không tìm thấy phiên bản mới hơn.';
+
+  @override
+  String get updatesFailed =>
+      'Cập nhật thất bại. Hãy kiểm tra kết nối và thử lại. APK không tương thích bị chặn; dữ liệu ứng dụng không bị xóa.';
+
+  @override
+  String get updatesFdroidNote =>
+      'GitHub có thể công bố phiên bản trước khi F-Droid hoàn tất bản dựng. Hãy cập nhật qua F-Droid để giữ chữ ký tương thích và dữ liệu của bạn.';
+
+  @override
+  String get updatesOpenFdroid => 'Mở F-Droid';
+
+  @override
+  String get updatesOpenPlay => 'Mở Google Play';
+
+  @override
+  String get updatesDownload => 'Tải bản cập nhật';
+
+  @override
+  String get updatesInstall => 'Cài đặt bản cập nhật';
+
+  @override
+  String get updatesAllowInstall => 'Cho phép cài đặt';
+
+  @override
+  String get updatesInstallHint =>
+      'Android có thể yêu cầu cho phép cài đặt từ ứng dụng này. Quay lại đây rồi nhấn Cài đặt bản cập nhật. Điều khiển và macro của bạn được giữ lại.';
+
+  @override
+  String get updatesReady => 'Đã tải bản cập nhật, sẵn sàng cài đặt.';
+
+  @override
+  String get updatesNoAsset =>
+      'Không có APK đã xác minh cho thiết bị này. Hãy xem ghi chú phát hành.';
+
+  @override
+  String get updatesReleaseNotes => 'Ghi chú phát hành';
+
+  @override
+  String updatesChannel(String source) {
+    return 'Nguồn cập nhật: $source';
+  }
+
+  @override
+  String updatesDownloadConfirm(String size) {
+    return 'Tải $size MB từ GitHub? Việc cài đặt cần bạn xác nhận.';
+  }
 }
