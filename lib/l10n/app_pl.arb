@@ -2346,5 +2346,14 @@
   "dbBrandSearchHelp": "Zacznij od marki, np. Sony lub TCL. Następnie wybierz model urządzenia lub pilota.",
   "dbModelSearchHelp": "Wyszukaj model podany na urządzeniu lub pilocie. Spacje i łączniki nie muszą się zgadzać.",
   "irFinderDatabaseSearchHint": "Zacznij od wyboru marki w trybie bazy danych, aby sprawdzić znane kody bez powtórzeń. Inteligentne przeszukiwanie nadaje priorytet wybranym możliwościom, ale nie wykrywa reakcji urządzenia. Zapisz trafienie, gdy zauważysz reakcję.",
-  "irFinderClearSearchToJump": "Wyczyść wyszukiwanie, aby przejść do pozycji testowania."
+  "irFinderClearSearchToJump": "Wyczyść wyszukiwanie, aby przejść do pozycji testowania.",
+  "crashReportTitle": "Poprzednio wystąpił problem",
+  "crashReportExplanation": "Lokalny raport zawiera szczegóły techniczne aplikacji, urządzenia i błędu. Nic nie jest wysyłane automatycznie. Przed udostępnieniem sprawdź, czy nie ma danych wrażliwych. Udostępnienie zachowuje raport; Nie wysyłaj usuwa go; Nie teraz zachowuje go do następnego uruchomienia.",
+  "crashReportDetails": "Przejrzyj raport",
+  "crashReportShare": "Udostępnij raport",
+  "crashReportEmail": "Napisz do pomocy",
+  "crashReportCopied": "Raport skopiowany.",
+  "crashReportDontSend": "Nie wysyłaj",
+  "crashReportNotNow": "Nie teraz",
+  "crashReportActionFailed": "Nie udało się ukończyć działania. Raport pozostaje zapisany. Spróbuj go skopiować lub udostępnić."
 }

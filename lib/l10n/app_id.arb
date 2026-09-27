@@ -2344,5 +2344,14 @@
   "dbBrandSearchHelp": "Mulai dengan merek, seperti Sony atau TCL. Lalu pilih model perangkat atau remote.",
   "dbModelSearchHelp": "Cari model yang tercetak pada perangkat atau remote. Spasi dan tanda hubung tidak harus sama.",
   "irFinderDatabaseSearchHint": "Mulai dengan memilih merek dalam mode Database untuk menguji kode yang dikenal tanpa duplikat. Brute force cerdas memprioritaskan dugaan, tetapi tidak dapat mendeteksi respons perangkat. Simpan kode yang berhasil saat Anda melihat respons.",
-  "irFinderClearSearchToJump": "Hapus pencarian untuk melompat ke posisi pengujian."
+  "irFinderClearSearchToJump": "Hapus pencarian untuk melompat ke posisi pengujian.",
+  "crashReportTitle": "Terjadi masalah sebelumnya",
+  "crashReportExplanation": "Laporan lokal berisi detail teknis aplikasi, perangkat, dan kesalahan. Tidak ada yang dikirim otomatis. Periksa informasi sensitif sebelum berbagi. Berbagi tetap menyimpan laporan; Jangan kirim menghapusnya; Nanti menyimpannya hingga aplikasi dibuka kembali.",
+  "crashReportDetails": "Tinjau laporan",
+  "crashReportShare": "Bagikan laporan",
+  "crashReportEmail": "Email dukungan",
+  "crashReportCopied": "Laporan disalin.",
+  "crashReportDontSend": "Jangan kirim",
+  "crashReportNotNow": "Nanti",
+  "crashReportActionFailed": "Tindakan ini tidak dapat diselesaikan. Laporan masih tersimpan. Coba salin atau bagikan."
 }

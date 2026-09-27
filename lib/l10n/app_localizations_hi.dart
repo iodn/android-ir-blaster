@@ -4999,4 +4999,33 @@ class AppLocalizationsHi extends AppLocalizations {
   @override
   String get irFinderClearSearchToJump =>
       'परीक्षण की किसी स्थिति पर जाने के लिए खोज साफ़ करें।';
+
+  @override
+  String get crashReportTitle => 'पिछली बार एक समस्या हुई थी';
+
+  @override
+  String get crashReportExplanation =>
+      'स्थानीय त्रुटि रिपोर्ट में ऐप, डिवाइस और त्रुटि की तकनीकी जानकारी है। कुछ भी अपने आप नहीं भेजा जाता। साझा करने से पहले संवेदनशील जानकारी जाँचें। साझा करने पर रिपोर्ट बनी रहती है; न भेजें उसे मिटाता है; अभी नहीं उसे अगले लॉन्च तक रखता है।';
+
+  @override
+  String get crashReportDetails => 'रिपोर्ट देखें';
+
+  @override
+  String get crashReportShare => 'रिपोर्ट साझा करें';
+
+  @override
+  String get crashReportEmail => 'सहायता को ईमेल करें';
+
+  @override
+  String get crashReportCopied => 'रिपोर्ट कॉपी हो गई।';
+
+  @override
+  String get crashReportDontSend => 'न भेजें';
+
+  @override
+  String get crashReportNotNow => 'अभी नहीं';
+
+  @override
+  String get crashReportActionFailed =>
+      'यह कार्रवाई पूरी नहीं हो सकी। रिपोर्ट अभी भी सुरक्षित है। उसे कॉपी या साझा करने की कोशिश करें।';
 }

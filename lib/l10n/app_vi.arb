@@ -2344,5 +2344,14 @@
   "dbBrandSearchHelp": "Bắt đầu với thương hiệu, như Sony hoặc TCL. Sau đó chọn mẫu thiết bị hoặc điều khiển.",
   "dbModelSearchHelp": "Tìm mã mẫu in trên thiết bị hoặc điều khiển. Khoảng trắng và dấu gạch nối không cần trùng khớp.",
   "irFinderDatabaseSearchHint": "Bắt đầu bằng cách chọn thương hiệu trong chế độ Cơ sở dữ liệu để thử các mã đã biết mà không lặp lại. Dò mã thông minh ưu tiên các phỏng đoán nhưng không thể phát hiện phản hồi của thiết bị. Lưu mã thành công khi bạn thấy thiết bị phản hồi.",
-  "irFinderClearSearchToJump": "Xóa nội dung tìm kiếm để chuyển đến vị trí thử mã."
+  "irFinderClearSearchToJump": "Xóa nội dung tìm kiếm để chuyển đến vị trí thử mã.",
+  "crashReportTitle": "Đã xảy ra sự cố ở lần trước",
+  "crashReportExplanation": "Báo cáo cục bộ chứa thông tin kỹ thuật về ứng dụng, thiết bị và lỗi. Không có gì được gửi tự động. Hãy kiểm tra thông tin nhạy cảm trước khi chia sẻ. Chia sẻ vẫn giữ báo cáo; Không gửi sẽ xóa; Để sau giữ đến lần mở tiếp theo.",
+  "crashReportDetails": "Xem báo cáo",
+  "crashReportShare": "Chia sẻ báo cáo",
+  "crashReportEmail": "Email hỗ trợ",
+  "crashReportCopied": "Đã sao chép báo cáo.",
+  "crashReportDontSend": "Không gửi",
+  "crashReportNotNow": "Để sau",
+  "crashReportActionFailed": "Không thể hoàn tất thao tác. Báo cáo vẫn được lưu. Hãy thử sao chép hoặc chia sẻ."
 }

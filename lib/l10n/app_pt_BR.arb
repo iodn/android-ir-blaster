@@ -2344,5 +2344,14 @@
   "dbBrandSearchHelp": "Comece pela marca, como Sony ou TCL. Depois escolha um modelo de aparelho ou controle remoto.",
   "dbModelSearchHelp": "Busque o modelo indicado no aparelho ou controle remoto. Espaços e hífens não precisam ser iguais.",
   "irFinderDatabaseSearchHint": "Comece por uma marca no modo Banco de dados para testar códigos conhecidos sem duplicatas. A força bruta inteligente prioriza algumas possibilidades, mas não detecta a resposta do aparelho. Salve um acerto quando observar uma resposta.",
-  "irFinderClearSearchToJump": "Limpe a busca para ir a uma posição do teste."
+  "irFinderClearSearchToJump": "Limpe a busca para ir a uma posição do teste.",
+  "crashReportTitle": "Ocorreu um problema anteriormente",
+  "crashReportExplanation": "Um relatório local contém detalhes técnicos do aplicativo, do dispositivo e do erro. Nada é enviado automaticamente. Verifique se há informações sensíveis antes de compartilhar. Compartilhar mantém o relatório; Não enviar o exclui; Agora não o guarda para a próxima abertura.",
+  "crashReportDetails": "Revisar relatório",
+  "crashReportShare": "Compartilhar relatório",
+  "crashReportEmail": "Contatar por e-mail",
+  "crashReportCopied": "Relatório copiado.",
+  "crashReportDontSend": "Não enviar",
+  "crashReportNotNow": "Agora não",
+  "crashReportActionFailed": "Não foi possível concluir esta ação. O relatório continua salvo. Tente copiá-lo ou compartilhá-lo."
 }

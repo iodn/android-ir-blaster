@@ -5006,4 +5006,33 @@ class AppLocalizationsId extends AppLocalizations {
   @override
   String get irFinderClearSearchToJump =>
       'Hapus pencarian untuk melompat ke posisi pengujian.';
+
+  @override
+  String get crashReportTitle => 'Terjadi masalah sebelumnya';
+
+  @override
+  String get crashReportExplanation =>
+      'Laporan lokal berisi detail teknis aplikasi, perangkat, dan kesalahan. Tidak ada yang dikirim otomatis. Periksa informasi sensitif sebelum berbagi. Berbagi tetap menyimpan laporan; Jangan kirim menghapusnya; Nanti menyimpannya hingga aplikasi dibuka kembali.';
+
+  @override
+  String get crashReportDetails => 'Tinjau laporan';
+
+  @override
+  String get crashReportShare => 'Bagikan laporan';
+
+  @override
+  String get crashReportEmail => 'Email dukungan';
+
+  @override
+  String get crashReportCopied => 'Laporan disalin.';
+
+  @override
+  String get crashReportDontSend => 'Jangan kirim';
+
+  @override
+  String get crashReportNotNow => 'Nanti';
+
+  @override
+  String get crashReportActionFailed =>
+      'Tindakan ini tidak dapat diselesaikan. Laporan masih tersimpan. Coba salin atau bagikan.';
 }

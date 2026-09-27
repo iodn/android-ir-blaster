@@ -5039,6 +5039,35 @@ class AppLocalizationsPt extends AppLocalizations {
   @override
   String get irFinderClearSearchToJump =>
       'Limpe a pesquisa para saltar para uma posição do teste.';
+
+  @override
+  String get crashReportTitle => 'Ocorreu um problema anteriormente';
+
+  @override
+  String get crashReportExplanation =>
+      'Um relatório local contém detalhes técnicos da aplicação, do dispositivo e do erro. Nada é enviado automaticamente. Verifique se contém informações sensíveis antes de partilhar. Partilhar mantém o relatório; Não enviar elimina-o; Agora não guarda-o para o próximo arranque.';
+
+  @override
+  String get crashReportDetails => 'Rever relatório';
+
+  @override
+  String get crashReportShare => 'Partilhar relatório';
+
+  @override
+  String get crashReportEmail => 'Contactar por email';
+
+  @override
+  String get crashReportCopied => 'Relatório copiado.';
+
+  @override
+  String get crashReportDontSend => 'Não enviar';
+
+  @override
+  String get crashReportNotNow => 'Agora não';
+
+  @override
+  String get crashReportActionFailed =>
+      'Não foi possível concluir esta ação. O relatório continua guardado. Tente copiá-lo ou partilhá-lo.';
 }
 
 /// The translations for Portuguese, as used in Brazil (`pt_BR`).
@@ -10080,4 +10109,33 @@ class AppLocalizationsPtBr extends AppLocalizationsPt {
   @override
   String get irFinderClearSearchToJump =>
       'Limpe a busca para ir a uma posição do teste.';
+
+  @override
+  String get crashReportTitle => 'Ocorreu um problema anteriormente';
+
+  @override
+  String get crashReportExplanation =>
+      'Um relatório local contém detalhes técnicos do aplicativo, do dispositivo e do erro. Nada é enviado automaticamente. Verifique se há informações sensíveis antes de compartilhar. Compartilhar mantém o relatório; Não enviar o exclui; Agora não o guarda para a próxima abertura.';
+
+  @override
+  String get crashReportDetails => 'Revisar relatório';
+
+  @override
+  String get crashReportShare => 'Compartilhar relatório';
+
+  @override
+  String get crashReportEmail => 'Contatar por e-mail';
+
+  @override
+  String get crashReportCopied => 'Relatório copiado.';
+
+  @override
+  String get crashReportDontSend => 'Não enviar';
+
+  @override
+  String get crashReportNotNow => 'Agora não';
+
+  @override
+  String get crashReportActionFailed =>
+      'Não foi possível concluir esta ação. O relatório continua salvo. Tente copiá-lo ou compartilhá-lo.';
 }

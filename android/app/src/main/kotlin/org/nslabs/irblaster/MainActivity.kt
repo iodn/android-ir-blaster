@@ -440,6 +440,36 @@ class MainActivity : FlutterActivity() {
     override fun configureFlutterEngine(@NonNull flutterEngine: FlutterEngine) {
         super.configureFlutterEngine(flutterEngine)
 
+        val reports = (application as CrashReportingApplication).crashReports
+        reports.startSession()
+        MethodChannel(flutterEngine.dartExecutor.binaryMessenger, "org.nslabs/crash_reports")
+            .setMethodCallHandler { call, result ->
+                try {
+                    when (call.method) {
+                        "previous" -> result.success(reports.takePrevious())
+                        "record" -> {
+                            reports.record("Flutter", call.argument<String>("trace").orEmpty())
+                            result.success(null)
+                        }
+                        "discard" -> {
+                            reports.discard(call.argument<String>("id").orEmpty())
+                            result.success(null)
+                        }
+                        "email" -> {
+                            startActivity(crashReportEmailIntent(
+                                call.argument<String>("address").orEmpty(),
+                                call.argument<String>("subject").orEmpty(),
+                                call.argument<String>("text").orEmpty(),
+                            ))
+                            result.success(null)
+                        }
+                        else -> result.notImplemented()
+                    }
+                } catch (e: Exception) {
+                    result.error("CRASH_REPORT_FAILED", e.message, null)
+                }
+            }
+
         irManager = applicationContext.getSystemService(Context.CONSUMER_IR_SERVICE) as? ConsumerIrManager
         internalTx = InternalIrTransmitter(irManager)
 

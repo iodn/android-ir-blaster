@@ -4886,4 +4886,33 @@ class AppLocalizationsKo extends AppLocalizations {
 
   @override
   String get irFinderClearSearchToJump => '테스트 위치로 이동하려면 검색을 지우세요.';
+
+  @override
+  String get crashReportTitle => '이전 실행 중 문제가 발생했습니다';
+
+  @override
+  String get crashReportExplanation =>
+      '기기에 저장된 오류 보고서에는 앱, 기기, 오류에 대한 기술 정보가 포함됩니다. 자동으로 전송되지 않습니다. 공유 전에 민감한 정보를 확인하세요. 공유해도 보고서는 유지됩니다. 보내지 않음은 삭제하고 나중에는 다음 실행까지 보관합니다.';
+
+  @override
+  String get crashReportDetails => '보고서 확인';
+
+  @override
+  String get crashReportShare => '보고서 공유';
+
+  @override
+  String get crashReportEmail => '지원팀에 이메일';
+
+  @override
+  String get crashReportCopied => '보고서를 복사했습니다.';
+
+  @override
+  String get crashReportDontSend => '보내지 않음';
+
+  @override
+  String get crashReportNotNow => '나중에';
+
+  @override
+  String get crashReportActionFailed =>
+      '작업을 완료할 수 없습니다. 보고서는 저장되어 있습니다. 복사하거나 공유해 보세요.';
 }

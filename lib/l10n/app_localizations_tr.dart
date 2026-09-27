@@ -5002,4 +5002,33 @@ class AppLocalizationsTr extends AppLocalizations {
   @override
   String get irFinderClearSearchToJump =>
       'Bir test konumuna atlamak için aramayı temizleyin.';
+
+  @override
+  String get crashReportTitle => 'Önceki kullanımda bir sorun oluştu';
+
+  @override
+  String get crashReportExplanation =>
+      'Yerel hata raporu uygulama, cihaz ve hata hakkında teknik ayrıntılar içerir. Hiçbir şey otomatik gönderilmez. Paylaşmadan önce hassas bilgileri kontrol edin. Paylaşmak raporu saklar; Gönderme siler; Şimdi değil sonraki açılışa kadar saklar.';
+
+  @override
+  String get crashReportDetails => 'Raporu incele';
+
+  @override
+  String get crashReportShare => 'Raporu paylaş';
+
+  @override
+  String get crashReportEmail => 'Desteğe e-posta gönder';
+
+  @override
+  String get crashReportCopied => 'Rapor kopyalandı.';
+
+  @override
+  String get crashReportDontSend => 'Gönderme';
+
+  @override
+  String get crashReportNotNow => 'Şimdi değil';
+
+  @override
+  String get crashReportActionFailed =>
+      'Bu işlem tamamlanamadı. Rapor hâlâ kayıtlı. Kopyalamayı veya paylaşmayı deneyin.';
 }

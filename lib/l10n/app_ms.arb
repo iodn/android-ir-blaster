@@ -2344,5 +2344,14 @@
   "dbBrandSearchHelp": "Mulakan dengan jenama, seperti Sony atau TCL. Kemudian pilih model peranti atau alat kawalan jauh.",
   "dbModelSearchHelp": "Cari model yang tertera pada peranti atau alat kawalan jauh. Ruang dan tanda sempang tidak perlu sepadan.",
   "irFinderDatabaseSearchHint": "Mulakan dengan memilih jenama dalam mod Pangkalan data untuk menguji kod yang diketahui tanpa pendua. Carian cuba semua pintar mengutamakan tekaan, tetapi tidak dapat mengesan respons peranti. Simpan kod yang berjaya apabila anda melihat respons.",
-  "irFinderClearSearchToJump": "Kosongkan carian untuk melompat ke kedudukan ujian."
+  "irFinderClearSearchToJump": "Kosongkan carian untuk melompat ke kedudukan ujian.",
+  "crashReportTitle": "Masalah berlaku sebelum ini",
+  "crashReportExplanation": "Laporan setempat mengandungi butiran teknikal aplikasi, peranti dan ralat. Tiada apa-apa dihantar secara automatik. Semak maklumat sensitif sebelum berkongsi. Perkongsian mengekalkan laporan; Jangan hantar memadamkannya; Bukan sekarang menyimpannya hingga pelancaran seterusnya.",
+  "crashReportDetails": "Semak laporan",
+  "crashReportShare": "Kongsi laporan",
+  "crashReportEmail": "E-mel sokongan",
+  "crashReportCopied": "Laporan disalin.",
+  "crashReportDontSend": "Jangan hantar",
+  "crashReportNotNow": "Bukan sekarang",
+  "crashReportActionFailed": "Tindakan ini tidak dapat diselesaikan. Laporan masih disimpan. Cuba salin atau kongsikannya."
 }

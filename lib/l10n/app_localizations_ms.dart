@@ -5005,4 +5005,33 @@ class AppLocalizationsMs extends AppLocalizations {
   @override
   String get irFinderClearSearchToJump =>
       'Kosongkan carian untuk melompat ke kedudukan ujian.';
+
+  @override
+  String get crashReportTitle => 'Masalah berlaku sebelum ini';
+
+  @override
+  String get crashReportExplanation =>
+      'Laporan setempat mengandungi butiran teknikal aplikasi, peranti dan ralat. Tiada apa-apa dihantar secara automatik. Semak maklumat sensitif sebelum berkongsi. Perkongsian mengekalkan laporan; Jangan hantar memadamkannya; Bukan sekarang menyimpannya hingga pelancaran seterusnya.';
+
+  @override
+  String get crashReportDetails => 'Semak laporan';
+
+  @override
+  String get crashReportShare => 'Kongsi laporan';
+
+  @override
+  String get crashReportEmail => 'E-mel sokongan';
+
+  @override
+  String get crashReportCopied => 'Laporan disalin.';
+
+  @override
+  String get crashReportDontSend => 'Jangan hantar';
+
+  @override
+  String get crashReportNotNow => 'Bukan sekarang';
+
+  @override
+  String get crashReportActionFailed =>
+      'Tindakan ini tidak dapat diselesaikan. Laporan masih disimpan. Cuba salin atau kongsikannya.';
 }

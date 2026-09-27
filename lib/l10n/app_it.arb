@@ -2344,5 +2344,14 @@
   "dbBrandSearchHelp": "Inizia dalla marca, ad esempio Sony o TCL. Poi scegli un modello di dispositivo o telecomando.",
   "dbModelSearchHelp": "Cerca il modello indicato sul dispositivo o sul telecomando. Spazi e trattini non devono necessariamente corrispondere.",
   "irFinderDatabaseSearchHint": "Inizia da una marca in modalità Database per provare codici noti senza duplicati. La ricerca intelligente a forza bruta dà priorità ad alcune ipotesi, ma non rileva la risposta del dispositivo. Salva un risultato quando il dispositivo risponde.",
-  "irFinderClearSearchToJump": "Cancella la ricerca per passare a una posizione del test."
+  "irFinderClearSearchToJump": "Cancella la ricerca per passare a una posizione del test.",
+  "crashReportTitle": "Si è verificato un problema in precedenza",
+  "crashReportExplanation": "Un rapporto locale contiene dettagli tecnici su app, dispositivo ed errore. Nulla viene inviato automaticamente. Controlla le informazioni sensibili prima di condividerlo. La condivisione conserva il rapporto; Non inviare lo elimina; Non ora lo conserva per il prossimo avvio.",
+  "crashReportDetails": "Esamina rapporto",
+  "crashReportShare": "Condividi rapporto",
+  "crashReportEmail": "Contatta via email",
+  "crashReportCopied": "Rapporto copiato.",
+  "crashReportDontSend": "Non inviare",
+  "crashReportNotNow": "Non ora",
+  "crashReportActionFailed": "Impossibile completare questa azione. Il rapporto è ancora salvato. Prova a copiarlo o condividerlo."
 }

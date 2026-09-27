@@ -2344,5 +2344,14 @@
   "dbBrandSearchHelp": "Begin met het merk, zoals Sony of TCL. Kies daarna een apparaat- of afstandsbedieningsmodel.",
   "dbModelSearchHelp": "Zoek het model dat op je apparaat of afstandsbediening staat. Spaties en koppeltekens hoeven niet overeen te komen.",
   "irFinderDatabaseSearchHint": "Kies eerst een merk in de databasemodus om bekende codes zonder duplicaten te testen. Slimme brute force geeft voorrang aan bepaalde mogelijkheden, maar kan geen reactie van het apparaat detecteren. Sla een treffer op wanneer je een reactie ziet.",
-  "irFinderClearSearchToJump": "Wis de zoekopdracht om naar een testpositie te springen."
+  "irFinderClearSearchToJump": "Wis de zoekopdracht om naar een testpositie te springen.",
+  "crashReportTitle": "De vorige keer is een probleem opgetreden",
+  "crashReportExplanation": "Een lokaal foutrapport bevat technische gegevens over de app, het apparaat en de fout. Er wordt niets automatisch verzonden. Controleer op gevoelige informatie voordat je deelt. Delen bewaart het rapport; Niet verzenden verwijdert het; Niet nu bewaart het voor de volgende start.",
+  "crashReportDetails": "Rapport bekijken",
+  "crashReportShare": "Rapport delen",
+  "crashReportEmail": "Support e-mailen",
+  "crashReportCopied": "Rapport gekopieerd.",
+  "crashReportDontSend": "Niet verzenden",
+  "crashReportNotNow": "Niet nu",
+  "crashReportActionFailed": "Deze actie kon niet worden voltooid. Het rapport is nog opgeslagen. Probeer het te kopiëren of te delen."
 }

@@ -2344,5 +2344,14 @@
   "dbBrandSearchHelp": "先选择品牌，例如 Sony 或 TCL，然后选择设备或遥控器型号。",
   "dbModelSearchHelp": "搜索设备或遥控器上标注的型号。空格和连字符无需完全一致。",
   "irFinderDatabaseSearchHint": "先在数据库模式中选择品牌，测试已知代码并跳过重复项。智能穷举仅对候选代码排序，无法检测设备响应。观察到响应时，请保存命中结果。",
-  "irFinderClearSearchToJump": "清除搜索后才能跳转到测试位置。"
+  "irFinderClearSearchToJump": "清除搜索后才能跳转到测试位置。",
+  "crashReportTitle": "上次运行时出现了问题",
+  "crashReportExplanation": "本地错误报告包含应用、设备和错误的技术信息，不会自动发送。分享前请检查是否有敏感信息。分享后报告仍会保留；选择“不发送”将删除报告；选择“暂不处理”将保留到下次启动。",
+  "crashReportDetails": "查看报告",
+  "crashReportShare": "分享报告",
+  "crashReportEmail": "邮件联系支持",
+  "crashReportCopied": "报告已复制。",
+  "crashReportDontSend": "不发送",
+  "crashReportNotNow": "暂不处理",
+  "crashReportActionFailed": "无法完成此操作。报告仍已保存，请尝试复制或分享。"
 }

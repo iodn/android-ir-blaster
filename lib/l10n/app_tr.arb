@@ -2344,5 +2344,14 @@
   "dbBrandSearchHelp": "Önce Sony veya TCL gibi bir marka seçin. Ardından cihaz veya kumanda modelini seçin.",
   "dbModelSearchHelp": "Cihazınızın veya kumandanızın üzerinde yazan modeli arayın. Boşlukların ve kısa çizgilerin eşleşmesi gerekmez.",
   "irFinderDatabaseSearchHint": "Bilinen kodları tekrarlamadan denemek için Veritabanı modunda bir marka seçerek başlayın. Akıllı kaba kuvvet tahminleri önceliklendirir, ancak cihazın tepkisini algılayamaz. Bir tepki gördüğünüzde başarılı kodu kaydedin.",
-  "irFinderClearSearchToJump": "Bir test konumuna atlamak için aramayı temizleyin."
+  "irFinderClearSearchToJump": "Bir test konumuna atlamak için aramayı temizleyin.",
+  "crashReportTitle": "Önceki kullanımda bir sorun oluştu",
+  "crashReportExplanation": "Yerel hata raporu uygulama, cihaz ve hata hakkında teknik ayrıntılar içerir. Hiçbir şey otomatik gönderilmez. Paylaşmadan önce hassas bilgileri kontrol edin. Paylaşmak raporu saklar; Gönderme siler; Şimdi değil sonraki açılışa kadar saklar.",
+  "crashReportDetails": "Raporu incele",
+  "crashReportShare": "Raporu paylaş",
+  "crashReportEmail": "Desteğe e-posta gönder",
+  "crashReportCopied": "Rapor kopyalandı.",
+  "crashReportDontSend": "Gönderme",
+  "crashReportNotNow": "Şimdi değil",
+  "crashReportActionFailed": "Bu işlem tamamlanamadı. Rapor hâlâ kayıtlı. Kopyalamayı veya paylaşmayı deneyin."
 }

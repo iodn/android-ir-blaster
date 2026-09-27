@@ -2502,5 +2502,14 @@
   "dbBrandSearchHelp": "Start with the brand, such as Sony or TCL. Then choose a device or remote model.",
   "dbModelSearchHelp": "Search the model printed on your device or remote. Spaces and hyphens do not need to match.",
   "irFinderDatabaseSearchHint": "Start with a brand in Database mode to test known codes without duplicates. Smart brute force prioritizes guesses; it cannot detect a device response. Save a hit when you see a response.",
-  "irFinderClearSearchToJump": "Clear the search to jump to a scan position."
+  "irFinderClearSearchToJump": "Clear the search to jump to a scan position.",
+  "crashReportTitle": "A problem occurred last time",
+  "crashReportExplanation": "A local error report contains technical details about the app, device and error. Nothing is sent automatically. Review it for sensitive information before sharing. Sharing keeps the report; Don’t send deletes it; Not now keeps it for next launch.",
+  "crashReportDetails": "Review report",
+  "crashReportShare": "Share report",
+  "crashReportEmail": "Email support",
+  "crashReportCopied": "Report copied.",
+  "crashReportDontSend": "Don’t send",
+  "crashReportNotNow": "Not now",
+  "crashReportActionFailed": "Could not complete this action. The report is still saved. Try copying or sharing it instead."
 }

@@ -5098,4 +5098,33 @@ class AppLocalizationsPl extends AppLocalizations {
   @override
   String get irFinderClearSearchToJump =>
       'Wyczyść wyszukiwanie, aby przejść do pozycji testowania.';
+
+  @override
+  String get crashReportTitle => 'Poprzednio wystąpił problem';
+
+  @override
+  String get crashReportExplanation =>
+      'Lokalny raport zawiera szczegóły techniczne aplikacji, urządzenia i błędu. Nic nie jest wysyłane automatycznie. Przed udostępnieniem sprawdź, czy nie ma danych wrażliwych. Udostępnienie zachowuje raport; Nie wysyłaj usuwa go; Nie teraz zachowuje go do następnego uruchomienia.';
+
+  @override
+  String get crashReportDetails => 'Przejrzyj raport';
+
+  @override
+  String get crashReportShare => 'Udostępnij raport';
+
+  @override
+  String get crashReportEmail => 'Napisz do pomocy';
+
+  @override
+  String get crashReportCopied => 'Raport skopiowany.';
+
+  @override
+  String get crashReportDontSend => 'Nie wysyłaj';
+
+  @override
+  String get crashReportNotNow => 'Nie teraz';
+
+  @override
+  String get crashReportActionFailed =>
+      'Nie udało się ukończyć działania. Raport pozostaje zapisany. Spróbuj go skopiować lub udostępnić.';
 }

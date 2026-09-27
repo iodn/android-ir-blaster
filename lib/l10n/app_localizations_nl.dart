@@ -5041,4 +5041,33 @@ class AppLocalizationsNl extends AppLocalizations {
   @override
   String get irFinderClearSearchToJump =>
       'Wis de zoekopdracht om naar een testpositie te springen.';
+
+  @override
+  String get crashReportTitle => 'De vorige keer is een probleem opgetreden';
+
+  @override
+  String get crashReportExplanation =>
+      'Een lokaal foutrapport bevat technische gegevens over de app, het apparaat en de fout. Er wordt niets automatisch verzonden. Controleer op gevoelige informatie voordat je deelt. Delen bewaart het rapport; Niet verzenden verwijdert het; Niet nu bewaart het voor de volgende start.';
+
+  @override
+  String get crashReportDetails => 'Rapport bekijken';
+
+  @override
+  String get crashReportShare => 'Rapport delen';
+
+  @override
+  String get crashReportEmail => 'Support e-mailen';
+
+  @override
+  String get crashReportCopied => 'Rapport gekopieerd.';
+
+  @override
+  String get crashReportDontSend => 'Niet verzenden';
+
+  @override
+  String get crashReportNotNow => 'Niet nu';
+
+  @override
+  String get crashReportActionFailed =>
+      'Deze actie kon niet worden voltooid. Het rapport is nog opgeslagen. Probeer het te kopiëren of te delen.';
 }

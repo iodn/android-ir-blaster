@@ -5009,4 +5009,33 @@ class AppLocalizationsRu extends AppLocalizations {
   @override
   String get irFinderClearSearchToJump =>
       'Очистите поиск, чтобы перейти к позиции тестирования.';
+
+  @override
+  String get crashReportTitle => 'В прошлый раз произошла ошибка';
+
+  @override
+  String get crashReportExplanation =>
+      'Локальный отчёт содержит технические сведения о приложении, устройстве и ошибке. Ничего не отправляется автоматически. Перед отправкой проверьте наличие конфиденциальных данных. Отправка сохраняет отчёт; «Не отправлять» удаляет его; «Не сейчас» оставляет до следующего запуска.';
+
+  @override
+  String get crashReportDetails => 'Просмотреть отчёт';
+
+  @override
+  String get crashReportShare => 'Поделиться отчётом';
+
+  @override
+  String get crashReportEmail => 'Написать в поддержку';
+
+  @override
+  String get crashReportCopied => 'Отчёт скопирован.';
+
+  @override
+  String get crashReportDontSend => 'Не отправлять';
+
+  @override
+  String get crashReportNotNow => 'Не сейчас';
+
+  @override
+  String get crashReportActionFailed =>
+      'Не удалось выполнить действие. Отчёт сохранён. Попробуйте скопировать его или поделиться им.';
 }

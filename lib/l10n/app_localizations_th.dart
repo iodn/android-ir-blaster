@@ -4974,4 +4974,33 @@ class AppLocalizationsTh extends AppLocalizations {
   @override
   String get irFinderClearSearchToJump =>
       'ล้างการค้นหาเพื่อข้ามไปยังตำแหน่งทดสอบ';
+
+  @override
+  String get crashReportTitle => 'เกิดปัญหาในการใช้งานครั้งก่อน';
+
+  @override
+  String get crashReportExplanation =>
+      'รายงานในเครื่องมีรายละเอียดทางเทคนิคของแอป อุปกรณ์ และข้อผิดพลาด ไม่มีการส่งข้อมูลอัตโนมัติ โปรดตรวจสอบข้อมูลที่ละเอียดอ่อนก่อนแชร์ การแชร์จะเก็บรายงานไว้ ไม่ส่งจะลบรายงาน และไว้ทีหลังจะเก็บไว้จนเปิดแอปครั้งถัดไป';
+
+  @override
+  String get crashReportDetails => 'ตรวจสอบรายงาน';
+
+  @override
+  String get crashReportShare => 'แชร์รายงาน';
+
+  @override
+  String get crashReportEmail => 'อีเมลถึงฝ่ายสนับสนุน';
+
+  @override
+  String get crashReportCopied => 'คัดลอกรายงานแล้ว';
+
+  @override
+  String get crashReportDontSend => 'ไม่ส่ง';
+
+  @override
+  String get crashReportNotNow => 'ไว้ทีหลัง';
+
+  @override
+  String get crashReportActionFailed =>
+      'ดำเนินการไม่สำเร็จ รายงานยังถูกเก็บไว้ ลองคัดลอกหรือแชร์แทน';
 }

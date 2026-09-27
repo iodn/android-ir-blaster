@@ -4974,6 +4974,35 @@ class AppLocalizationsAr extends AppLocalizations {
   @override
   String get irFinderClearSearchToJump =>
       'امسح البحث للانتقال إلى موضع في الاختبار.';
+
+  @override
+  String get crashReportTitle => 'حدثت مشكلة في المرة السابقة';
+
+  @override
+  String get crashReportExplanation =>
+      'يحتوي تقرير محلي على تفاصيل تقنية عن التطبيق والجهاز والخطأ. لا يُرسل أي شيء تلقائيًا. راجع المعلومات الحساسة قبل المشاركة. المشاركة تُبقي التقرير؛ عدم الإرسال يحذفه؛ ليس الآن يحتفظ به حتى التشغيل التالي.';
+
+  @override
+  String get crashReportDetails => 'مراجعة التقرير';
+
+  @override
+  String get crashReportShare => 'مشاركة التقرير';
+
+  @override
+  String get crashReportEmail => 'مراسلة الدعم';
+
+  @override
+  String get crashReportCopied => 'تم نسخ التقرير.';
+
+  @override
+  String get crashReportDontSend => 'عدم الإرسال';
+
+  @override
+  String get crashReportNotNow => 'ليس الآن';
+
+  @override
+  String get crashReportActionFailed =>
+      'تعذر إكمال الإجراء. ما زال التقرير محفوظًا. جرّب نسخه أو مشاركته.';
 }
 
 /// The translations for Arabic, as used in Egypt (`ar_EG`).
@@ -9946,4 +9975,33 @@ class AppLocalizationsArEg extends AppLocalizationsAr {
   @override
   String get irFinderClearSearchToJump =>
       'امسح البحث عشان تنتقل لموضع في الاختبار.';
+
+  @override
+  String get crashReportTitle => 'حصلت مشكلة في المرة اللي فاتت';
+
+  @override
+  String get crashReportExplanation =>
+      'التقرير المحلي فيه تفاصيل تقنية عن التطبيق والجهاز والخطأ. مفيش حاجة بتتبعت تلقائيًا. راجع أي معلومات حساسة قبل المشاركة. المشاركة بتحتفظ بالتقرير؛ عدم الإرسال بيمسحه؛ مش دلوقتي بيحتفظ بيه لحد التشغيل الجاي.';
+
+  @override
+  String get crashReportDetails => 'راجع التقرير';
+
+  @override
+  String get crashReportShare => 'شارك التقرير';
+
+  @override
+  String get crashReportEmail => 'راسل الدعم';
+
+  @override
+  String get crashReportCopied => 'تم نسخ التقرير.';
+
+  @override
+  String get crashReportDontSend => 'عدم الإرسال';
+
+  @override
+  String get crashReportNotNow => 'مش دلوقتي';
+
+  @override
+  String get crashReportActionFailed =>
+      'مش قادرين نكمل الإجراء. التقرير لسه محفوظ. جرّب تنسخه أو تشاركه.';
 }

@@ -9067,6 +9067,60 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Clear the search to jump to a scan position.'**
   String get irFinderClearSearchToJump;
+
+  /// No description provided for @crashReportTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'A problem occurred last time'**
+  String get crashReportTitle;
+
+  /// No description provided for @crashReportExplanation.
+  ///
+  /// In en, this message translates to:
+  /// **'A local error report contains technical details about the app, device and error. Nothing is sent automatically. Review it for sensitive information before sharing. Sharing keeps the report; Don’t send deletes it; Not now keeps it for next launch.'**
+  String get crashReportExplanation;
+
+  /// No description provided for @crashReportDetails.
+  ///
+  /// In en, this message translates to:
+  /// **'Review report'**
+  String get crashReportDetails;
+
+  /// No description provided for @crashReportShare.
+  ///
+  /// In en, this message translates to:
+  /// **'Share report'**
+  String get crashReportShare;
+
+  /// No description provided for @crashReportEmail.
+  ///
+  /// In en, this message translates to:
+  /// **'Email support'**
+  String get crashReportEmail;
+
+  /// No description provided for @crashReportCopied.
+  ///
+  /// In en, this message translates to:
+  /// **'Report copied.'**
+  String get crashReportCopied;
+
+  /// No description provided for @crashReportDontSend.
+  ///
+  /// In en, this message translates to:
+  /// **'Don’t send'**
+  String get crashReportDontSend;
+
+  /// No description provided for @crashReportNotNow.
+  ///
+  /// In en, this message translates to:
+  /// **'Not now'**
+  String get crashReportNotNow;
+
+  /// No description provided for @crashReportActionFailed.
+  ///
+  /// In en, this message translates to:
+  /// **'Could not complete this action. The report is still saved. Try copying or sharing it instead.'**
+  String get crashReportActionFailed;
 }
 
 class _AppLocalizationsDelegate

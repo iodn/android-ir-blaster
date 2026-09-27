@@ -4810,4 +4810,32 @@ class AppLocalizationsZh extends AppLocalizations {
 
   @override
   String get irFinderClearSearchToJump => '清除搜索后才能跳转到测试位置。';
+
+  @override
+  String get crashReportTitle => '上次运行时出现了问题';
+
+  @override
+  String get crashReportExplanation =>
+      '本地错误报告包含应用、设备和错误的技术信息，不会自动发送。分享前请检查是否有敏感信息。分享后报告仍会保留；选择“不发送”将删除报告；选择“暂不处理”将保留到下次启动。';
+
+  @override
+  String get crashReportDetails => '查看报告';
+
+  @override
+  String get crashReportShare => '分享报告';
+
+  @override
+  String get crashReportEmail => '邮件联系支持';
+
+  @override
+  String get crashReportCopied => '报告已复制。';
+
+  @override
+  String get crashReportDontSend => '不发送';
+
+  @override
+  String get crashReportNotNow => '暂不处理';
+
+  @override
+  String get crashReportActionFailed => '无法完成此操作。报告仍已保存，请尝试复制或分享。';
 }

@@ -47,7 +47,7 @@
 
     <application
         android:label="IR Blaster Remote"
-        android:name="${applicationName}"
+        android:name=".CrashReportingApplication"
         android:icon="@mipmap/ic_launcher"
         android:enableOnBackInvokedCallback="true">
 

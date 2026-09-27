@@ -26,19 +26,26 @@ import 'package:irblaster_controller/widgets/quick_tile_chooser.dart';
 import 'package:irblaster_controller/state/quick_settings_prefs.dart';
 import 'package:irblaster_controller/state/home_button_widget_prefs.dart';
 import 'package:media_store_plus/media_store_plus.dart';
+import 'utils/crash_reporting.dart';
+import 'widgets/crash_report_dialog.dart';
 
-Future<void> main() async {
+void main() {
+  runZonedGuarded(_startApp, (error, stack) {
+    debugPrint('Zone error: $error\n$stack');
+    unawaited(CrashReporting.record(error, stack));
+  });
+}
+
+Future<void> _startApp() async {
   WidgetsFlutterBinding.ensureInitialized();
-  _initControlChannel();
-  await AppShortcutController.instance.initialize(_navKey);
-  FlutterError.onError = (details) {
-    FlutterError.presentError(details);
-    debugPrint('FlutterError: ${details.exception}\n${details.stack}');
-  };
+  FlutterError.onError = CrashReporting.frameworkError;
   PlatformDispatcher.instance.onError = (error, stack) {
     debugPrint('Uncaught platform error: $error\n$stack');
+    unawaited(CrashReporting.record(error, stack));
     return true;
   };
+  _initControlChannel();
+  await AppShortcutController.instance.initialize(_navKey);
   try {
     await AppThemeController.instance.load();
     await AppLocaleController.instance.load();
@@ -55,11 +62,7 @@ Future<void> main() async {
   } catch (e, st) {
     debugPrint('Failed to load theme preference: $e\n$st');
   }
-  runZonedGuarded(() {
-    runApp(const _App());
-  }, (error, stack) {
-    debugPrint('Zone error: $error\n$stack');
-  });
+  runApp(const _App());
 }
 
 final GlobalKey<NavigatorState> _navKey = GlobalKey<NavigatorState>();
@@ -301,6 +304,11 @@ class _BootstrapScreenState extends State<_BootstrapScreen> {
   late Future<void> _future = _bootstrap();
 
   Future<void> _bootstrap() async {
+    await WidgetsBinding.instance.endOfFrame;
+    if (mounted && !_crashReportChecked) {
+      _crashReportChecked = true;
+      await showPreviousCrashReport(context);
+    }
     final supportedLocales = AppLocalizations.supportedLocales.toList();
     final systemLocale = WidgetsBinding.instance.platformDispatcher.locale;
     final bootstrapLocale = AppLocaleController.instance.resolveActiveLocale(
@@ -343,6 +351,8 @@ class _BootstrapScreenState extends State<_BootstrapScreen> {
     notifyMacrosChanged();
     AppShortcutController.instance.markBootstrapReady();
   }
+
+  bool _crashReportChecked = false;
 
   @override
   Widget build(BuildContext context) {

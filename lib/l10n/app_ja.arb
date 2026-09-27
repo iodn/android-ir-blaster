@@ -2344,5 +2344,14 @@
   "dbBrandSearchHelp": "まず Sony や TCL などのメーカーを選び、次に機器やリモコンの型番を選んでください。",
   "dbModelSearchHelp": "機器やリモコンに記載された型番で検索できます。スペースやハイフンの有無は問いません。",
   "irFinderDatabaseSearchHint": "まずデータベースモードでメーカーを選び、既知のコードを重複なくテストしてください。スマート総当たりは候補に優先順位を付けますが、機器の反応は検出できません。反応を確認したらヒットを保存してください。",
-  "irFinderClearSearchToJump": "テスト位置に移動するには検索をクリアしてください。"
+  "irFinderClearSearchToJump": "テスト位置に移動するには検索をクリアしてください。",
+  "crashReportTitle": "前回の使用中に問題が発生しました",
+  "crashReportExplanation": "端末内のエラーレポートには、アプリ・端末・エラーの技術情報が含まれます。自動送信はされません。共有前に機密情報がないか確認してください。共有してもレポートは残ります。「送信しない」で削除、「後で」で次回起動時まで保存します。",
+  "crashReportDetails": "レポートを確認",
+  "crashReportShare": "レポートを共有",
+  "crashReportEmail": "サポートにメール",
+  "crashReportCopied": "レポートをコピーしました。",
+  "crashReportDontSend": "送信しない",
+  "crashReportNotNow": "後で",
+  "crashReportActionFailed": "操作を完了できませんでした。レポートは保存されています。コピーまたは共有をお試しください。"
 }

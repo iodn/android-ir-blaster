@@ -5048,4 +5048,33 @@ class AppLocalizationsEn extends AppLocalizations {
   @override
   String get irFinderClearSearchToJump =>
       'Clear the search to jump to a scan position.';
+
+  @override
+  String get crashReportTitle => 'A problem occurred last time';
+
+  @override
+  String get crashReportExplanation =>
+      'A local error report contains technical details about the app, device and error. Nothing is sent automatically. Review it for sensitive information before sharing. Sharing keeps the report; Don’t send deletes it; Not now keeps it for next launch.';
+
+  @override
+  String get crashReportDetails => 'Review report';
+
+  @override
+  String get crashReportShare => 'Share report';
+
+  @override
+  String get crashReportEmail => 'Email support';
+
+  @override
+  String get crashReportCopied => 'Report copied.';
+
+  @override
+  String get crashReportDontSend => 'Don’t send';
+
+  @override
+  String get crashReportNotNow => 'Not now';
+
+  @override
+  String get crashReportActionFailed =>
+      'Could not complete this action. The report is still saved. Try copying or sharing it instead.';
 }

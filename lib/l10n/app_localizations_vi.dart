@@ -4993,4 +4993,33 @@ class AppLocalizationsVi extends AppLocalizations {
   @override
   String get irFinderClearSearchToJump =>
       'Xóa nội dung tìm kiếm để chuyển đến vị trí thử mã.';
+
+  @override
+  String get crashReportTitle => 'Đã xảy ra sự cố ở lần trước';
+
+  @override
+  String get crashReportExplanation =>
+      'Báo cáo cục bộ chứa thông tin kỹ thuật về ứng dụng, thiết bị và lỗi. Không có gì được gửi tự động. Hãy kiểm tra thông tin nhạy cảm trước khi chia sẻ. Chia sẻ vẫn giữ báo cáo; Không gửi sẽ xóa; Để sau giữ đến lần mở tiếp theo.';
+
+  @override
+  String get crashReportDetails => 'Xem báo cáo';
+
+  @override
+  String get crashReportShare => 'Chia sẻ báo cáo';
+
+  @override
+  String get crashReportEmail => 'Email hỗ trợ';
+
+  @override
+  String get crashReportCopied => 'Đã sao chép báo cáo.';
+
+  @override
+  String get crashReportDontSend => 'Không gửi';
+
+  @override
+  String get crashReportNotNow => 'Để sau';
+
+  @override
+  String get crashReportActionFailed =>
+      'Không thể hoàn tất thao tác. Báo cáo vẫn được lưu. Hãy thử sao chép hoặc chia sẻ.';
 }

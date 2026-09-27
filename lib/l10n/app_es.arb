@@ -2344,5 +2344,14 @@
   "dbBrandSearchHelp": "Empieza por la marca, como Sony o TCL. Después elige un modelo de dispositivo o mando.",
   "dbModelSearchHelp": "Busca el modelo que aparece en tu dispositivo o mando. Los espacios y guiones no tienen que coincidir.",
   "irFinderDatabaseSearchHint": "Empieza por una marca en el modo Base de datos para probar códigos conocidos sin duplicados. La fuerza bruta inteligente prioriza posibilidades, pero no detecta la respuesta del dispositivo. Guarda un acierto cuando veas una respuesta.",
-  "irFinderClearSearchToJump": "Borra la búsqueda para saltar a una posición de prueba."
+  "irFinderClearSearchToJump": "Borra la búsqueda para saltar a una posición de prueba.",
+  "crashReportTitle": "Se produjo un problema anteriormente",
+  "crashReportExplanation": "Un informe local contiene detalles técnicos de la aplicación, el dispositivo y el error. No se envía nada automáticamente. Revisa si contiene información sensible antes de compartirlo. Compartir conserva el informe; No enviar lo elimina; Ahora no lo guarda para el próximo inicio.",
+  "crashReportDetails": "Revisar informe",
+  "crashReportShare": "Compartir informe",
+  "crashReportEmail": "Contactar por correo",
+  "crashReportCopied": "Informe copiado.",
+  "crashReportDontSend": "No enviar",
+  "crashReportNotNow": "Ahora no",
+  "crashReportActionFailed": "No se pudo completar esta acción. El informe sigue guardado. Intenta copiarlo o compartirlo."
 }

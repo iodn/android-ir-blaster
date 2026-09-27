@@ -4870,4 +4870,33 @@ class AppLocalizationsJa extends AppLocalizations {
 
   @override
   String get irFinderClearSearchToJump => 'テスト位置に移動するには検索をクリアしてください。';
+
+  @override
+  String get crashReportTitle => '前回の使用中に問題が発生しました';
+
+  @override
+  String get crashReportExplanation =>
+      '端末内のエラーレポートには、アプリ・端末・エラーの技術情報が含まれます。自動送信はされません。共有前に機密情報がないか確認してください。共有してもレポートは残ります。「送信しない」で削除、「後で」で次回起動時まで保存します。';
+
+  @override
+  String get crashReportDetails => 'レポートを確認';
+
+  @override
+  String get crashReportShare => 'レポートを共有';
+
+  @override
+  String get crashReportEmail => 'サポートにメール';
+
+  @override
+  String get crashReportCopied => 'レポートをコピーしました。';
+
+  @override
+  String get crashReportDontSend => '送信しない';
+
+  @override
+  String get crashReportNotNow => '後で';
+
+  @override
+  String get crashReportActionFailed =>
+      '操作を完了できませんでした。レポートは保存されています。コピーまたは共有をお試しください。';
 }

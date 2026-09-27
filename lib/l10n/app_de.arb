@@ -2330,5 +2330,14 @@
   "dbBrandSearchHelp": "Wähle zuerst die Marke, etwa Sony oder TCL. Wähle dann ein Geräte- oder Fernbedienungsmodell.",
   "dbModelSearchHelp": "Suche nach der Modellnummer auf deinem Gerät oder deiner Fernbedienung. Leerzeichen und Bindestriche müssen nicht übereinstimmen.",
   "irFinderDatabaseSearchHint": "Wähle zuerst eine Marke im Datenbankmodus, um bekannte Codes ohne Duplikate zu testen. Die intelligente Brute-Force-Suche priorisiert Vermutungen, erkennt aber keine Gerätereaktion. Speichere einen Treffer, wenn das Gerät reagiert.",
-  "irFinderClearSearchToJump": "Lösche die Suche, um zu einer Testposition zu springen."
+  "irFinderClearSearchToJump": "Lösche die Suche, um zu einer Testposition zu springen.",
+  "crashReportTitle": "Beim letzten Mal trat ein Problem auf",
+  "crashReportExplanation": "Ein lokaler Fehlerbericht enthält technische Angaben zu App, Gerät und Fehler. Nichts wird automatisch gesendet. Prüfe vor dem Teilen auf sensible Informationen. Teilen behält den Bericht; Nicht senden löscht ihn; Nicht jetzt bewahrt ihn für den nächsten Start auf.",
+  "crashReportDetails": "Bericht ansehen",
+  "crashReportShare": "Bericht teilen",
+  "crashReportEmail": "Support per E-Mail",
+  "crashReportCopied": "Bericht kopiert.",
+  "crashReportDontSend": "Nicht senden",
+  "crashReportNotNow": "Nicht jetzt",
+  "crashReportActionFailed": "Diese Aktion konnte nicht abgeschlossen werden. Der Bericht bleibt gespeichert. Versuche, ihn zu kopieren oder zu teilen."
 }

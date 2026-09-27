@@ -5036,4 +5036,33 @@ class AppLocalizationsIt extends AppLocalizations {
   @override
   String get irFinderClearSearchToJump =>
       'Cancella la ricerca per passare a una posizione del test.';
+
+  @override
+  String get crashReportTitle => 'Si è verificato un problema in precedenza';
+
+  @override
+  String get crashReportExplanation =>
+      'Un rapporto locale contiene dettagli tecnici su app, dispositivo ed errore. Nulla viene inviato automaticamente. Controlla le informazioni sensibili prima di condividerlo. La condivisione conserva il rapporto; Non inviare lo elimina; Non ora lo conserva per il prossimo avvio.';
+
+  @override
+  String get crashReportDetails => 'Esamina rapporto';
+
+  @override
+  String get crashReportShare => 'Condividi rapporto';
+
+  @override
+  String get crashReportEmail => 'Contatta via email';
+
+  @override
+  String get crashReportCopied => 'Rapporto copiato.';
+
+  @override
+  String get crashReportDontSend => 'Non inviare';
+
+  @override
+  String get crashReportNotNow => 'Non ora';
+
+  @override
+  String get crashReportActionFailed =>
+      'Impossibile completare questa azione. Il rapporto è ancora salvato. Prova a copiarlo o condividerlo.';
 }

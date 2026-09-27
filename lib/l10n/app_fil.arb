@@ -2344,5 +2344,14 @@
   "dbBrandSearchHelp": "Magsimula sa brand, gaya ng Sony o TCL. Pagkatapos, pumili ng modelo ng device o remote.",
   "dbModelSearchHelp": "Hanapin ang modelong nakasulat sa device o remote. Hindi kailangang magkatugma ang mga espasyo at gitling.",
   "irFinderDatabaseSearchHint": "Magsimula sa pagpili ng brand sa Database mode para subukan ang mga kilalang code nang walang pag-uulit. Inuuna ng smart brute force ang ilang hula, pero hindi nito matutukoy ang tugon ng device. I-save ang matagumpay na code kapag may nakita kang tugon.",
-  "irFinderClearSearchToJump": "I-clear ang paghahanap para lumipat sa isang posisyon ng pagsubok."
+  "irFinderClearSearchToJump": "I-clear ang paghahanap para lumipat sa isang posisyon ng pagsubok.",
+  "crashReportTitle": "Nagkaroon ng problema noong huling paggamit",
+  "crashReportExplanation": "May teknikal na detalye ng app, device at error ang lokal na ulat. Walang awtomatikong ipinapadala. Suriin muna kung may sensitibong impormasyon bago ibahagi. Mananatili ang ulat kapag ibinahagi; buburahin ito ng Huwag ipadala; itatabi ito ng Mamaya na hanggang sa susunod na pagbukas.",
+  "crashReportDetails": "Suriin ang ulat",
+  "crashReportShare": "Ibahagi ang ulat",
+  "crashReportEmail": "I-email ang suporta",
+  "crashReportCopied": "Nakopya ang ulat.",
+  "crashReportDontSend": "Huwag ipadala",
+  "crashReportNotNow": "Mamaya na",
+  "crashReportActionFailed": "Hindi makumpleto ang aksyon. Naka-save pa rin ang ulat. Subukang kopyahin o ibahagi ito."
 }

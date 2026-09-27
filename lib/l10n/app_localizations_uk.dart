@@ -5117,4 +5117,33 @@ class AppLocalizationsUk extends AppLocalizations {
   @override
   String get irFinderClearSearchToJump =>
       'Очистьте пошук, щоб перейти до позиції тестування.';
+
+  @override
+  String get crashReportTitle => 'Минулого разу сталася помилка';
+
+  @override
+  String get crashReportExplanation =>
+      'Локальний звіт містить технічні відомості про застосунок, пристрій і помилку. Нічого не надсилається автоматично. Перед поширенням перевірте наявність конфіденційних даних. Поширення зберігає звіт; «Не надсилати» видаляє його; «Не зараз» залишає до наступного запуску.';
+
+  @override
+  String get crashReportDetails => 'Переглянути звіт';
+
+  @override
+  String get crashReportShare => 'Поділитися звітом';
+
+  @override
+  String get crashReportEmail => 'Написати в підтримку';
+
+  @override
+  String get crashReportCopied => 'Звіт скопійовано.';
+
+  @override
+  String get crashReportDontSend => 'Не надсилати';
+
+  @override
+  String get crashReportNotNow => 'Не зараз';
+
+  @override
+  String get crashReportActionFailed =>
+      'Не вдалося виконати дію. Звіт збережено. Спробуйте скопіювати його або поділитися ним.';
 }

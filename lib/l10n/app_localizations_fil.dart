@@ -5021,4 +5021,33 @@ class AppLocalizationsFil extends AppLocalizations {
   @override
   String get irFinderClearSearchToJump =>
       'I-clear ang paghahanap para lumipat sa isang posisyon ng pagsubok.';
+
+  @override
+  String get crashReportTitle => 'Nagkaroon ng problema noong huling paggamit';
+
+  @override
+  String get crashReportExplanation =>
+      'May teknikal na detalye ng app, device at error ang lokal na ulat. Walang awtomatikong ipinapadala. Suriin muna kung may sensitibong impormasyon bago ibahagi. Mananatili ang ulat kapag ibinahagi; buburahin ito ng Huwag ipadala; itatabi ito ng Mamaya na hanggang sa susunod na pagbukas.';
+
+  @override
+  String get crashReportDetails => 'Suriin ang ulat';
+
+  @override
+  String get crashReportShare => 'Ibahagi ang ulat';
+
+  @override
+  String get crashReportEmail => 'I-email ang suporta';
+
+  @override
+  String get crashReportCopied => 'Nakopya ang ulat.';
+
+  @override
+  String get crashReportDontSend => 'Huwag ipadala';
+
+  @override
+  String get crashReportNotNow => 'Mamaya na';
+
+  @override
+  String get crashReportActionFailed =>
+      'Hindi makumpleto ang aksyon. Naka-save pa rin ang ulat. Subukang kopyahin o ibahagi ito.';
 }
