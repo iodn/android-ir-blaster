@@ -494,14 +494,6 @@ class _RemoteListState extends State<RemoteList> {
                     const SizedBox(height: 12),
                     const Divider(height: 0),
                     ListTile(
-                      leading: const Icon(Icons.share_outlined),
-                      title: Text(context.l10n.shareTitle),
-                      onTap: () {
-                        Navigator.of(ctx).pop();
-                        showShare(context, remotes: [remote]);
-                      },
-                    ),
-                    ListTile(
                       contentPadding: EdgeInsets.zero,
                       leading: const Icon(Icons.play_arrow_rounded),
                       title: Text(context.l10n.open),
@@ -535,6 +527,15 @@ class _RemoteListState extends State<RemoteList> {
                       onTap: () async {
                         Navigator.of(ctx).pop();
                         await _togglePinnedRemote(remote);
+                      },
+                    ),
+                    ListTile(
+                      contentPadding: EdgeInsets.zero,
+                      leading: const Icon(Icons.share_outlined),
+                      title: Text(context.l10n.shareTitle),
+                      onTap: () {
+                        Navigator.of(ctx).pop();
+                        showShare(context, remotes: [remote]);
                       },
                     ),
                     const Divider(height: 0),

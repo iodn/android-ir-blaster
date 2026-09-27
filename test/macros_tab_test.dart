@@ -87,6 +87,19 @@ void main() {
     await tester.pumpAndSettle();
   });
 
+  testWidgets('sharing follows duplicate in macro actions', (tester) async {
+    await open(tester);
+    await tester.tap(find.byType(PopupMenuButton<String>).first);
+    await tester.pumpAndSettle();
+    final values = tester
+        .widgetList<PopupMenuItem<String>>(find.byType(PopupMenuItem<String>))
+        .map((item) => item.value)
+        .toList();
+    expect(values, ['run', 'edit', 'duplicate', 'share', 'delete']);
+    await tester.pumpWidget(const SizedBox());
+    await tester.pumpAndSettle();
+  });
+
   testWidgets('failed duplicate leaves list unchanged and allows retry',
       (tester) async {
     await tester.runAsync(() async {

@@ -378,13 +378,6 @@ class _MacrosTabState extends State<MacrosTab> {
                     },
                     itemBuilder: (ctx) => [
                       PopupMenuItem(
-                        value: 'share',
-                        child: ListTile(
-                          leading: const Icon(Icons.share_outlined),
-                          title: Text(context.l10n.shareTitle),
-                        ),
-                      ),
-                      PopupMenuItem(
                         value: 'run',
                         child: ListTile(
                           contentPadding: EdgeInsets.zero,
@@ -406,6 +399,14 @@ class _MacrosTabState extends State<MacrosTab> {
                           contentPadding: EdgeInsets.zero,
                           leading: Icon(Icons.content_copy_rounded),
                           title: Text(context.l10n.duplicate),
+                        ),
+                      ),
+                      PopupMenuItem(
+                        value: 'share',
+                        child: ListTile(
+                          contentPadding: EdgeInsets.zero,
+                          leading: const Icon(Icons.share_outlined),
+                          title: Text(context.l10n.shareTitle),
                         ),
                       ),
                       PopupMenuDivider(),

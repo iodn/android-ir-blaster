@@ -14,6 +14,8 @@ import 'package:irblaster_controller/widgets/remote_studio_screen.dart';
 import 'package:irblaster_controller/widgets/remote_setup_screen.dart';
 import 'package:irblaster_controller/widgets/remote_editor/remote_settings_sheet.dart';
 import 'package:irblaster_controller/widgets/remote_view.dart';
+import 'package:irblaster_controller/widgets/remote_list.dart';
+import 'package:irblaster_controller/state/remotes_state.dart' as state;
 import 'package:shared_preferences/shared_preferences.dart';
 
 const power = IRButton(id: 'power', image: 'Power', isImage: false, code: 123);
@@ -171,8 +173,45 @@ void main() {
     await tester.longPress(find.byKey(const ValueKey('power')));
     await tester.pumpAndSettle();
     expect(find.byType(BottomSheet), findsOneWidget);
+    final labels = tester
+        .widgetList<ListTile>(find.descendant(
+            of: find.byType(BottomSheet), matching: find.byType(ListTile)))
+        .map((tile) => (tile.title as Text?)?.data)
+        .toList();
+    final l = AppLocalizations.of(tester.element(find.byType(RemoteView)))!;
+    expect(labels.indexOf(l.shareTitle), labels.indexOf(l.addHomeWidget) + 1);
     expect(sends.length, 1);
     clearLastAction();
+  });
+
+  testWidgets('remote list and remote screen place sharing after pin',
+      (tester) async {
+    final previous = state.remotes;
+    state.remotes = [remote()];
+    addTearDown(() => state.remotes = previous);
+    for (final screen in [
+      const RemoteList(),
+      RemoteView(remote: state.remotes.single)
+    ]) {
+      await tester.pumpWidget(app(screen));
+      await tester.pumpAndSettle();
+      if (screen is RemoteList) {
+        await tester.longPress(find.text('TV').first);
+      } else {
+        await tester.tap(find.byIcon(Icons.more_vert_rounded));
+      }
+      await tester.pumpAndSettle();
+      final l = AppLocalizations.of(tester.element(find.byType(BottomSheet)))!;
+      final labels = tester
+          .widgetList<ListTile>(find.descendant(
+              of: find.byType(BottomSheet), matching: find.byType(ListTile)))
+          .map((tile) => (tile.title as Text?)?.data)
+          .toList();
+      expect(labels.indexOf(l.pinRemote), greaterThanOrEqualTo(0));
+      expect(labels.indexOf(l.shareTitle), labels.indexOf(l.pinRemote) + 1);
+      await tester.pumpWidget(const SizedBox());
+      await tester.pumpAndSettle();
+    }
   });
 
   testWidgets('columns and shapes are independent with a live preview',
