@@ -40,6 +40,7 @@ void main() {
         home: UpdateScreen(controller: controller),
       ));
       await tester.pumpAndSettle();
+      expect(find.byIcon(Icons.verified_user_outlined), findsNothing);
       final l = AppLocalizations.of(tester.element(find.byType(UpdateScreen)))!;
       await tester.scrollUntilVisible(find.byType(SwitchListTile), 150);
       expect(tester.widget<SwitchListTile>(find.byType(SwitchListTile)).value,

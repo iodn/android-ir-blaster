@@ -78,6 +78,14 @@ void main() {
         AppLocalizations.of(tester.element(find.byType(SettingsScreen)))!;
     await tester.scrollUntilVisible(find.text(l10n.updatesTitle), 200);
     expect(find.text(l10n.updatesTitle), findsOneWidget);
+    Card categoryCard(String title) => tester.widget<Card>(
+        find.ancestor(of: find.text(title), matching: find.byType(Card)).first);
+    final updates = categoryCard(l10n.updatesTitle);
+    final backup = categoryCard(l10n.backupTitle);
+    expect(updates.margin, backup.margin);
+    expect(updates.shape, backup.shape);
+    expect(updates.color, backup.color);
+    expect(updates.elevation, backup.elevation);
     expect(find.byType(SectionCard), findsNothing);
     expect(find.byType(SwitchListTile), findsNothing);
     expect(nativeCalls, isEmpty);

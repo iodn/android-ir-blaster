@@ -527,7 +527,17 @@ class SettingsScreen extends StatelessWidget {
                   subtitle: context.l10n.backupSubtitle,
                   sections: (ctx) => [_buildRemotesSection(ctx)],
                 ),
-                const UpdateSettingsTile(),
+                _categoryTile(
+                  context,
+                  icon: Icons.system_update_outlined,
+                  leading: UpdateBadge(
+                    child: Icon(Icons.system_update_outlined,
+                        color: Theme.of(context).colorScheme.primary),
+                  ),
+                  title: (l10n) => l10n.updatesTitle,
+                  subtitle: context.l10n.updatesAutomatic,
+                  pageBuilder: (_) => const UpdateScreen(),
+                ),
                 _categoryTile(
                   context,
                   icon: Icons.info_outline_rounded,
@@ -551,8 +561,11 @@ class SettingsScreen extends StatelessWidget {
     required IconData icon,
     required String Function(AppLocalizations) title,
     required String subtitle,
-    required List<Widget> Function(BuildContext) sections,
+    List<Widget> Function(BuildContext)? sections,
+    WidgetBuilder? pageBuilder,
+    Widget? leading,
   }) {
+    assert(sections != null || pageBuilder != null);
     final cs = Theme.of(context).colorScheme;
     return Card(
       elevation: 0,
@@ -565,31 +578,32 @@ class SettingsScreen extends StatelessWidget {
       ),
       child: ListTile(
         contentPadding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
-        leading: Icon(icon, color: cs.primary),
+        leading: leading ?? Icon(icon, color: cs.primary),
         title: Text(title(context.l10n)),
         subtitle: Text(subtitle),
         trailing: const Icon(Icons.chevron_right_rounded),
         onTap: () => Navigator.of(context).push(
           MaterialPageRoute<void>(
-            builder: (ctx) => Scaffold(
-              appBar: AppBar(title: Text(title(ctx.l10n))),
-              body: SafeArea(
-                child: Center(
-                  child: ConstrainedBox(
-                    constraints: const BoxConstraints(maxWidth: 760),
-                    child: ListView(
-                      padding: const EdgeInsets.symmetric(vertical: 12),
-                      children: [
-                        for (final section in sections(ctx)) ...[
-                          section,
-                          const SizedBox(height: 10),
-                        ],
-                      ],
+            builder: pageBuilder ??
+                (ctx) => Scaffold(
+                      appBar: AppBar(title: Text(title(ctx.l10n))),
+                      body: SafeArea(
+                        child: Center(
+                          child: ConstrainedBox(
+                            constraints: const BoxConstraints(maxWidth: 760),
+                            child: ListView(
+                              padding: const EdgeInsets.symmetric(vertical: 12),
+                              children: [
+                                for (final section in sections!(ctx)) ...[
+                                  section,
+                                  const SizedBox(height: 10),
+                                ],
+                              ],
+                            ),
+                          ),
+                        ),
+                      ),
                     ),
-                  ),
-                ),
-              ),
-            ),
           ),
         ),
       ),

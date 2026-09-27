@@ -14,19 +14,6 @@ class UpdateBadge extends StatelessWidget {
           isLabelVisible: UpdateController.instance.available, child: child));
 }
 
-class UpdateSettingsTile extends StatelessWidget {
-  const UpdateSettingsTile({super.key});
-  @override
-  Widget build(BuildContext context) => Card(
-          child: ListTile(
-        leading: const UpdateBadge(child: Icon(Icons.system_update_outlined)),
-        title: Text(context.l10n.updatesTitle),
-        trailing: const Icon(Icons.chevron_right),
-        onTap: () => Navigator.of(context).push<void>(
-            MaterialPageRoute(builder: (_) => const UpdateScreen())),
-      ));
-}
-
 class UpdateScreen extends StatefulWidget {
   const UpdateScreen({super.key, this.controller});
   final UpdateController? controller;
@@ -128,13 +115,6 @@ class _UpdateScreenState extends State<UpdateScreen> {
                               child: Column(
                                   crossAxisAlignment: CrossAxisAlignment.start,
                                   children: [
-                                    Icon(
-                                        c.available
-                                            ? Icons.system_update
-                                            : Icons.verified_user_outlined,
-                                        color: colors.primary,
-                                        size: 40),
-                                    const SizedBox(height: 12),
                                     Text(l.versionLabel(c.version),
                                         style: Theme.of(context)
                                             .textTheme
