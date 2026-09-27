@@ -89,6 +89,13 @@ Future<SharePackage> prepareShare(
     final buttons = <IRButton>[];
     for (final b in remote.buttons) {
       var image = b.image;
+      // Older remotes can store a bundled image's name without its asset path.
+      // Canonicalize only known assets, and only in the outgoing copy.
+      if (b.isImage &&
+          b.iconCodePoint == null &&
+          defaultImages.contains('assets/$image.png')) {
+        image = 'assets/$image.png';
+      }
       if (b.isImage &&
           b.iconCodePoint == null &&
           !defaultImages.contains(image)) {

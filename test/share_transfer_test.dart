@@ -85,6 +85,52 @@ void main() {
     }
   });
 
+  test('legacy built-in image names share in remotes, buttons and macros',
+      () async {
+    final buttons = [
+      for (final asset in defaultImages)
+        b.copyWith(
+            id: asset,
+            image: asset.substring(7, asset.length - 4),
+            isImage: true),
+    ];
+    final remote = Remote(
+        name: 'Legacy Comfort',
+        buttons: buttons,
+        useNewStyle: true,
+        gridLayout: RemoteGridLayout(
+            columns: 6, cells: [null, ...buttons.map((b) => b.id), null]));
+    final macro = TimedMacro(
+        id: 'macro',
+        name: 'Power',
+        remoteName: remote.name,
+        steps: [
+          MacroStep(
+              id: 'step',
+              type: MacroStepType.send,
+              buttonId: buttons.first.id)
+        ]);
+    for (final package in [
+      await prepareShare(remotes: [remote]),
+      await prepareShare(macros: [macro], available: [remote]),
+    ]) {
+      expect(package.images, isEmpty);
+      expect(package.remotes.single.buttons.map((b) => b.image), defaultImages);
+      expect(package.remotes.single.gridLayout!.cells, remote.gridLayout!.cells);
+      for (var i = 0; i < buttons.length; i++) {
+        expect(package.remotes.single.buttons[i].toJson(),
+            buttons[i].copyWith(image: defaultImages[i]).toJson());
+      }
+      await importShare(package);
+      expect(state.remotes.last.buttons.map((b) => b.image), defaultImages);
+    }
+    final single = await prepareShare(button: buttons.first);
+    expect(single.remotes.single.buttons.single.image, defaultImages.first);
+    expect(buttons.first.image, 'ON');
+    final text = await prepareShare(button: b.copyWith(image: 'ON'));
+    expect(text.remotes.single.buttons.single.image, 'ON');
+  });
+
   test('legacy blank and padded protocol identifiers share like they replay',
       () async {
     for (final protocol in ['', '   ', ' nec ']) {
