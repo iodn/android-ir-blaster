@@ -5201,4 +5201,11 @@ class AppLocalizationsRu extends AppLocalizations {
   @override
   String get macroWidgetUnavailable =>
       'Этот макрос нельзя использовать как виджет. Проверьте его пульт, кнопки и данные сигнала.';
+
+  @override
+  String get copyAutomationCommand => 'Копировать команду автоматизации';
+
+  @override
+  String get macroAutomationUnavailable =>
+      'Этот макрос нельзя запустить через автоматизацию. Проверьте его пульт и кнопки и удалите ручные шаги.';
 }

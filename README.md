@@ -348,6 +348,56 @@ manufacturer battery restrictions can also affect background delivery.
 See [Android broadcasts](https://developer.android.com/develop/background-work/background-tasks/broadcasts)
 and [ConsumerIrManager](https://developer.android.com/reference/android/hardware/ConsumerIrManager).
 
+### Run a Saved Macro
+
+Enable **Allow automation broadcasts**, then open a macro's menu and choose
+**Copy automation command**. Use that command with ADB, or configure Tasker /
+MacroDroid to send an explicit broadcast with these fields:
+
+| Field | Value |
+| --- | --- |
+| Action | `org.irblaster.RUN_MACRO` |
+| Package | `org.nslabs.ir_blaster` |
+| Receiver | `org.nslabs.ir_blaster.IrAutomationReceiver` |
+| `macro_id` | The saved macro ID from the copied command (string, up to 512 characters) |
+| `emitter` | Optional: `INTERNAL` (default), `USB`, `AUDIO_1_LED`, or `AUDIO_2_LED` |
+
+```sh
+adb shell am broadcast \
+  -n org.nslabs.ir_blaster/.IrAutomationReceiver \
+  -a org.irblaster.RUN_MACRO \
+  --es macro_id 'YOUR_MACRO_ID' \
+  --es emitter INTERNAL
+```
+
+Automatic macros run without opening the app, using a foreground service and a
+notification with **Stop**. Allow notifications to see that control. Disabling
+automation broadcasts also cancels the remaining steps; a signal already in
+progress cannot be recalled. The first failed send stops the sequence. Repeated
+requests do not cancel or queue another run. Macros containing manual steps are
+rejected rather than opening the app unexpectedly.
+
+The app prepares native commands on startup and after saving macros or remotes.
+Source-file checks prevent outdated commands from running after edits or
+deletions. If the cache is unavailable, open the app or use **Copy automation
+command** again. Existing widget snapshots are not changed by this API.
+
+Ordered broadcasts return `0 / START_REQUESTED` when the service launch is
+requested, **not when the macro finishes or the appliance receives it**. Codes
+`1`, `2`, and `3` still mean disabled, invalid request, and busy. Code `15` means
+`MACRO_NOT_FOUND`, `MACROS_NOT_READY`, `UNSUPPORTED_MACRO`, or
+`MANUAL_STEPS_UNSUPPORTED`; inspect the result text. Code `16 /
+BACKGROUND_RESTRICTED` means Android prevented the service launch. Other startup
+failures use `5 / MACRO_START_FAILED`. The service rechecks the saved data and
+opt-in before running. Once running, completion or hardware failure is shown by
+the service, not a second broadcast reply.
+
+**Android limitation:** on Android 12+, a background automation trigger may not
+be allowed to start a foreground service. This API does not bypass that restriction,
+open an activity, or retry later. Use a user-triggered action or a macro widget
+when background launches are blocked. See
+[Android's foreground-service restrictions](https://developer.android.com/develop/background-work/services/fgs/restrictions-bg-start).
+
 ## Developer Notes
 
 ### Technical/architectural

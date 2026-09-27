@@ -3,6 +3,7 @@ package org.nslabs.ir_blaster
 import android.app.*
 import android.appwidget.AppWidgetManager
 import android.content.Intent
+import android.content.Context
 import android.content.pm.ServiceInfo
 import android.os.*
 import android.widget.Toast
@@ -39,6 +40,8 @@ class IrMacroWidgetService : Service() {
     override fun onBind(intent: Intent?) = null
 
     override fun onStartCommand(intent: Intent?, flags: Int, startId: Int): Int {
+        val automation = intent?.action == IrAutomationReceiver.ACTION_RUN_MACRO
+        if (automation) automationPending.set(false)
         if (intent?.action == ACTION_STOP) {
             cancelled.set(true)
             worker?.interrupt()
@@ -48,13 +51,25 @@ class IrMacroWidgetService : Service() {
         val id = intent?.getIntExtra(AppWidgetManager.EXTRA_APPWIDGET_ID,
             AppWidgetManager.INVALID_APPWIDGET_ID) ?: AppWidgetManager.INVALID_APPWIDGET_ID
         if (worker != null) {
-            if (id == widgetId) {
+            if (!automation && id == widgetId) {
                 cancelled.set(true)
                 worker?.interrupt()
             }
             return START_NOT_STICKY
         }
-        val mapping = IrButtonWidgetStore.loadMapping(this, id)
+        val prefs = getSharedPreferences("FlutterSharedPreferences", Context.MODE_PRIVATE)
+        val mapping = if (automation) {
+            try {
+                if (!prefs.getBoolean(IrAutomationReceiver.PREF_ENABLED, false)) {
+                    stopSelf()
+                    return START_NOT_STICKY
+                }
+                AutomationMacroStore.load(this, intent!!.getStringExtra("macro_id") ?: "")
+            } catch (_: MacroRequestException) {
+                stopSelf()
+                return START_NOT_STICKY
+            }
+        } else IrButtonWidgetStore.loadMapping(this, id)
         if (mapping?.macroId == null || mapping.manual) {
             stopSelf()
             return START_NOT_STICKY
@@ -95,10 +110,22 @@ class IrMacroWidgetService : Service() {
                 wake = getSystemService(PowerManager::class.java)
                     .newWakeLock(PowerManager.PARTIAL_WAKE_LOCK, "$packageName:macro-widget")
                 wake.acquire(mapping.steps.sumOf { it.delayMs ?: 7000L } + 10000L)
-                val emitter = IrButtonWidgetProvider.selectedEmitter(this)
+                val emitter = if (automation) AutomationEmitter.valueOf(intent!!.getStringExtra("emitter") ?: "INTERNAL")
+                    else IrButtonWidgetProvider.selectedEmitter(this)
                 val transmitter = AutomationTransmitter(applicationContext)
-                result = executeWidgetMacro(mapping.steps, emitter, { cancelled.get() },
-                    { transmitter.transmit(it, SystemClock.uptimeMillis() + 7000L) })
+                fun shouldStop(): Boolean = cancelled.get() || (automation &&
+                    !prefs.getBoolean(IrAutomationReceiver.PREF_ENABLED, false))
+                result = executeWidgetMacro(mapping.steps, emitter, { shouldStop() },
+                    { transmitter.transmit(it, SystemClock.uptimeMillis() + 7000L) },
+                    { delay ->
+                        val until = SystemClock.elapsedRealtime() + delay
+                        do {
+                            if (shouldStop()) throw InterruptedException()
+                            val remaining = until - SystemClock.elapsedRealtime()
+                            if (remaining <= 0) break
+                            Thread.sleep(minOf(remaining, 100L))
+                        } while (true)
+                    })
             } catch (_: InterruptedException) {
                 result = null
             } catch (_: RuntimeException) {
@@ -132,6 +159,7 @@ class IrMacroWidgetService : Service() {
     }
 
     companion object {
+        internal val automationPending = AtomicBoolean(false)
         private const val CHANNEL = "ir_macro_widgets"
         private const val NOTIFICATION_ID = 7301
         private const val ACTION_STOP = "org.nslabs.irblaster.widget.STOP_MACRO"

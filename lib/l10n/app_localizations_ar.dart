@@ -5166,6 +5166,13 @@ class AppLocalizationsAr extends AppLocalizations {
   @override
   String get macroWidgetUnavailable =>
       'لا يمكن استخدام هذا الماكرو كأداة. تحقق من جهاز التحكم والأزرار وبيانات الإشارة.';
+
+  @override
+  String get copyAutomationCommand => 'نسخ أمر الأتمتة';
+
+  @override
+  String get macroAutomationUnavailable =>
+      'لا يمكن تشغيل هذا الماكرو عبر الأتمتة. تحقّق من جهاز التحكم وأزراره، وأزل الخطوات اليدوية.';
 }
 
 /// The translations for Arabic, as used in Egypt (`ar_EG`).
@@ -10330,4 +10337,11 @@ class AppLocalizationsArEg extends AppLocalizationsAr {
   @override
   String get macroWidgetUnavailable =>
       'لا يمكن استخدام هذا الماكرو كأداة. تحقق من جهاز التحكم والأزرار وبيانات الإشارة.';
+
+  @override
+  String get copyAutomationCommand => 'نسخ أمر الأتمتة';
+
+  @override
+  String get macroAutomationUnavailable =>
+      'لا يمكن تشغيل هذا الماكرو عبر الأتمتة. تحقّق من جهاز التحكم وأزراره، وأزل الخطوات اليدوية.';
 }

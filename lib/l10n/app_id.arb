@@ -2399,5 +2399,7 @@
   "updatesChannel": "Sumber pembaruan: {source}",
   "updatesDownloadConfirm": "Unduh {size} MB dari GitHub? Penginstalan memerlukan konfirmasi Anda.",
   "macroWidgetInfo": "Widget otomatis menyimpan salinan perintah. Buat ulang widget setelah mengedit makro. Ketuk lagi atau gunakan Hentikan di notifikasi untuk membatalkan. Makro dengan langkah manual akan membuka aplikasi.",
-  "macroWidgetUnavailable": "Makro ini tidak dapat digunakan sebagai widget. Periksa remote, tombol, dan data sinyalnya."
+  "macroWidgetUnavailable": "Makro ini tidak dapat digunakan sebagai widget. Periksa remote, tombol, dan data sinyalnya.",
+  "copyAutomationCommand": "Salin perintah otomatisasi",
+  "macroAutomationUnavailable": "Makro ini tidak dapat dijalankan melalui otomatisasi. Periksa remote dan tombolnya, lalu hapus langkah manual."
 }

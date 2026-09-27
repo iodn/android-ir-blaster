@@ -5309,4 +5309,11 @@ class AppLocalizationsUk extends AppLocalizations {
   @override
   String get macroWidgetUnavailable =>
       'Цей макрос не можна використовувати як віджет. Перевірте його пульт, кнопки та дані сигналу.';
+
+  @override
+  String get copyAutomationCommand => 'Копіювати команду автоматизації';
+
+  @override
+  String get macroAutomationUnavailable =>
+      'Цей макрос не можна запустити через автоматизацію. Перевірте його пульт і кнопки та видаліть ручні кроки.';
 }

@@ -5229,4 +5229,11 @@ class AppLocalizationsIt extends AppLocalizations {
   @override
   String get macroWidgetUnavailable =>
       'Questa macro non può essere usata come widget. Controlla il telecomando, i pulsanti e i dati del segnale.';
+
+  @override
+  String get copyAutomationCommand => 'Copia comando di automazione';
+
+  @override
+  String get macroAutomationUnavailable =>
+      'Questa macro non può essere eseguita tramite automazione. Controlla il telecomando e i suoi pulsanti e rimuovi i passaggi manuali.';
 }

@@ -5185,4 +5185,11 @@ class AppLocalizationsVi extends AppLocalizations {
   @override
   String get macroWidgetUnavailable =>
       'Không thể dùng macro này làm tiện ích. Hãy kiểm tra điều khiển, các nút và dữ liệu tín hiệu.';
+
+  @override
+  String get copyAutomationCommand => 'Sao chép lệnh tự động hóa';
+
+  @override
+  String get macroAutomationUnavailable =>
+      'Không thể chạy macro này qua tự động hóa. Hãy kiểm tra điều khiển và các nút, rồi xóa các bước thủ công.';
 }

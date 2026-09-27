@@ -31,6 +31,7 @@ import 'widgets/crash_report_dialog.dart';
 import 'sharing/share_receiver.dart';
 import 'updates/update_controller.dart';
 import 'widgets/home_widget_picker.dart';
+import 'state/automation_macro_cache.dart';
 import 'widgets/macro_run_screen.dart';
 
 void main() {
@@ -379,6 +380,7 @@ class _BootstrapScreenState extends State<_BootstrapScreen> {
       },
     );
     notifyMacrosChanged();
+    await AutomationMacroCache.initialize(bootstrapL10n);
     try {
       final id = await _homeWidgetChannel.invokeMethod<String>('macroReady');
       if (id != null) {

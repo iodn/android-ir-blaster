@@ -5165,4 +5165,11 @@ class AppLocalizationsTh extends AppLocalizations {
   @override
   String get macroWidgetUnavailable =>
       'ไม่สามารถใช้มาโครนี้เป็นวิดเจ็ตได้ โปรดตรวจสอบรีโมต ปุ่ม และข้อมูลสัญญาณ';
+
+  @override
+  String get copyAutomationCommand => 'คัดลอกคำสั่งอัตโนมัติ';
+
+  @override
+  String get macroAutomationUnavailable =>
+      'ไม่สามารถเรียกใช้แมโครนี้ผ่านระบบอัตโนมัติได้ ตรวจสอบรีโมตและปุ่ม แล้วนำขั้นตอนที่ต้องทำด้วยตนเองออก';
 }

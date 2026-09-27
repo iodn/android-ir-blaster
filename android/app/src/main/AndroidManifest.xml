@@ -139,6 +139,7 @@
             android:exported="true">
             <intent-filter>
                 <action android:name="org.irblaster.TRANSMIT" />
+                <action android:name="org.irblaster.RUN_MACRO" />
             </intent-filter>
         </receiver>
 

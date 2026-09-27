@@ -4988,4 +4988,10 @@ class AppLocalizationsZh extends AppLocalizations {
 
   @override
   String get macroWidgetUnavailable => '此宏无法用作小组件。请检查其遥控器、按钮和信号数据。';
+
+  @override
+  String get copyAutomationCommand => '复制自动化命令';
+
+  @override
+  String get macroAutomationUnavailable => '此宏无法通过自动化运行。请检查其遥控器和按钮，并移除手动步骤。';
 }

@@ -2399,5 +2399,7 @@
   "updatesChannel": "更新来源：{source}",
   "updatesDownloadConfirm": "从 GitHub 下载 {size} MB？安装需要您确认。",
   "macroWidgetInfo": "自动运行的小组件会保存命令副本。编辑宏后，请重新创建小组件。再次点击或使用通知中的停止即可取消。包含手动步骤的宏会打开应用。",
-  "macroWidgetUnavailable": "此宏无法用作小组件。请检查其遥控器、按钮和信号数据。"
+  "macroWidgetUnavailable": "此宏无法用作小组件。请检查其遥控器、按钮和信号数据。",
+  "copyAutomationCommand": "复制自动化命令",
+  "macroAutomationUnavailable": "此宏无法通过自动化运行。请检查其遥控器和按钮，并移除手动步骤。"
 }

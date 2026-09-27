@@ -5198,4 +5198,11 @@ class AppLocalizationsId extends AppLocalizations {
   @override
   String get macroWidgetUnavailable =>
       'Makro ini tidak dapat digunakan sebagai widget. Periksa remote, tombol, dan data sinyalnya.';
+
+  @override
+  String get copyAutomationCommand => 'Salin perintah otomatisasi';
+
+  @override
+  String get macroAutomationUnavailable =>
+      'Makro ini tidak dapat dijalankan melalui otomatisasi. Periksa remote dan tombolnya, lalu hapus langkah manual.';
 }

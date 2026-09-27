@@ -579,6 +579,14 @@ class MainActivity : FlutterActivity() {
                     result.success(pendingWidgetMacroId)
                     pendingWidgetMacroId = null
                 }
+                "cacheAutomationMacros" -> {
+                    Thread({
+                        val saved = try {
+                            AutomationMacroStore.save(this, call.arguments as Map<*, *>)
+                        } catch (_: Exception) { false }
+                        runOnUiThread { result.success(saved) }
+                    }, "ir-automation-cache").start()
+                }
                 else -> result.notImplemented()
             }
         }

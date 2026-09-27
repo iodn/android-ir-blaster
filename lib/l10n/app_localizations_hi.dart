@@ -5192,4 +5192,11 @@ class AppLocalizationsHi extends AppLocalizations {
   @override
   String get macroWidgetUnavailable =>
       'इस मैक्रो को विजेट के रूप में इस्तेमाल नहीं किया जा सकता। इसका रिमोट, बटन और सिग्नल डेटा जाँचें।';
+
+  @override
+  String get copyAutomationCommand => 'ऑटोमेशन कमांड कॉपी करें';
+
+  @override
+  String get macroAutomationUnavailable =>
+      'यह मैक्रो ऑटोमेशन से नहीं चल सकता। इसके रिमोट और बटन जाँचें और मैन्युअल चरण हटाएँ।';
 }

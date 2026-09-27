@@ -2399,5 +2399,7 @@
   "updatesChannel": "Fonte de atualizações: {source}",
   "updatesDownloadConfirm": "Baixar {size} MB do GitHub? A instalação exige sua confirmação.",
   "macroWidgetInfo": "Os widgets automáticos salvam uma cópia dos comandos. Crie o widget novamente depois de editar a macro. Toque de novo ou use Parar na notificação para cancelar. Macros com etapas manuais abrem o aplicativo.",
-  "macroWidgetUnavailable": "Esta macro não pode ser usada como widget. Verifique o controle remoto, os botões e os dados do sinal."
+  "macroWidgetUnavailable": "Esta macro não pode ser usada como widget. Verifique o controle remoto, os botões e os dados do sinal.",
+  "copyAutomationCommand": "Copiar comando de automação",
+  "macroAutomationUnavailable": "Esta macro não pode ser executada por automação. Verifique o controle remoto e seus botões e remova as etapas manuais."
 }

@@ -5073,4 +5073,11 @@ class AppLocalizationsKo extends AppLocalizations {
   @override
   String get macroWidgetUnavailable =>
       '이 매크로는 위젯으로 사용할 수 없습니다. 리모컨, 버튼 및 신호 데이터를 확인하세요.';
+
+  @override
+  String get copyAutomationCommand => '자동화 명령 복사';
+
+  @override
+  String get macroAutomationUnavailable =>
+      '이 매크로는 자동화로 실행할 수 없습니다. 리모컨과 버튼을 확인하고 수동 단계를 제거하세요.';
 }

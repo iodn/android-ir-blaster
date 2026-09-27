@@ -5057,4 +5057,11 @@ class AppLocalizationsJa extends AppLocalizations {
   @override
   String get macroWidgetUnavailable =>
       'このマクロはウィジェットとして使用できません。リモコン、ボタン、信号データを確認してください。';
+
+  @override
+  String get copyAutomationCommand => '自動化コマンドをコピー';
+
+  @override
+  String get macroAutomationUnavailable =>
+      'このマクロは自動化で実行できません。リモコンとボタンを確認し、手動操作のステップを削除してください。';
 }

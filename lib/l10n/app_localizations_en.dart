@@ -5240,4 +5240,11 @@ class AppLocalizationsEn extends AppLocalizations {
   @override
   String get macroWidgetUnavailable =>
       'This macro cannot be used as a widget. Check its remote, buttons and signal data.';
+
+  @override
+  String get copyAutomationCommand => 'Copy automation command';
+
+  @override
+  String get macroAutomationUnavailable =>
+      'This macro cannot run through automation. Check its remote and buttons, and remove manual steps.';
 }

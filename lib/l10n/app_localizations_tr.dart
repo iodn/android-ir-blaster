@@ -5194,4 +5194,11 @@ class AppLocalizationsTr extends AppLocalizations {
   @override
   String get macroWidgetUnavailable =>
       'Bu makro widget olarak kullanılamaz. Uzaktan kumandasını, düğmelerini ve sinyal verilerini kontrol edin.';
+
+  @override
+  String get copyAutomationCommand => 'Otomasyon komutunu kopyala';
+
+  @override
+  String get macroAutomationUnavailable =>
+      'Bu makro otomasyonla çalıştırılamaz. Kumandasını ve düğmelerini kontrol edin ve elle yapılan adımları kaldırın.';
 }

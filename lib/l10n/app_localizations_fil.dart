@@ -5214,4 +5214,11 @@ class AppLocalizationsFil extends AppLocalizations {
   @override
   String get macroWidgetUnavailable =>
       'Hindi magagamit ang macro na ito bilang widget. Suriin ang remote, mga button at signal data nito.';
+
+  @override
+  String get copyAutomationCommand => 'Kopyahin ang command sa automation';
+
+  @override
+  String get macroAutomationUnavailable =>
+      'Hindi mapapatakbo ang macro na ito sa automation. Suriin ang remote at mga button nito, at alisin ang mga manu-manong hakbang.';
 }

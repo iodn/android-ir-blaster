@@ -1,5 +1,6 @@
 import 'dart:convert';
 import 'dart:io';
+import '../state/automation_macro_cache.dart';
 
 import 'package:image_picker/image_picker.dart';
 import 'package:path_provider/path_provider.dart';
@@ -181,10 +182,12 @@ Future<File> get _remotesFile async {
 
 Future<File> writeRemotelist(List<Remote> remotes) async {
   final file = await _remotesFile;
-  return file.writeAsString(
+  await file.writeAsString(
     jsonEncode(remotes.map((remote) => remote.toJson()).toList()),
     flush: true,
   );
+  await AutomationMacroCache.refresh();
+  return file;
 }
 
 Future<List<Remote>> readRemotes() async {

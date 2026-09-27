@@ -5231,6 +5231,13 @@ class AppLocalizationsPt extends AppLocalizations {
   @override
   String get macroWidgetUnavailable =>
       'Esta macro não pode ser usada como widget. Verifique o comando, os botões e os dados do sinal.';
+
+  @override
+  String get copyAutomationCommand => 'Copiar comando de automatização';
+
+  @override
+  String get macroAutomationUnavailable =>
+      'Esta macro não pode ser executada por automatização. Verifique o comando e os seus botões e remova os passos manuais.';
 }
 
 /// The translations for Portuguese, as used in Brazil (`pt_BR`).
@@ -10464,4 +10471,11 @@ class AppLocalizationsPtBr extends AppLocalizationsPt {
   @override
   String get macroWidgetUnavailable =>
       'Esta macro não pode ser usada como widget. Verifique o controle remoto, os botões e os dados do sinal.';
+
+  @override
+  String get copyAutomationCommand => 'Copiar comando de automação';
+
+  @override
+  String get macroAutomationUnavailable =>
+      'Esta macro não pode ser executada por automação. Verifique o controle remoto e seus botões e remova as etapas manuais.';
 }

@@ -5233,4 +5233,11 @@ class AppLocalizationsNl extends AppLocalizations {
   @override
   String get macroWidgetUnavailable =>
       'Deze macro kan niet als widget worden gebruikt. Controleer de afstandsbediening, knoppen en signaalgegevens.';
+
+  @override
+  String get copyAutomationCommand => 'Automatiseringsopdracht kopiëren';
+
+  @override
+  String get macroAutomationUnavailable =>
+      'Deze macro kan niet via automatisering worden uitgevoerd. Controleer de afstandsbediening en knoppen en verwijder handmatige stappen.';
 }

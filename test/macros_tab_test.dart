@@ -95,7 +95,7 @@ void main() {
         .widgetList<PopupMenuItem<String>>(find.byType(PopupMenuItem<String>))
         .map((item) => item.value)
         .toList();
-    expect(values, ['run', 'edit', 'duplicate', 'share', 'widget', 'delete']);
+    expect(values, ['run', 'edit', 'duplicate', 'share', 'widget', 'automation', 'delete']);
     await tester.pumpWidget(const SizedBox());
     await tester.pumpAndSettle();
   });
@@ -183,4 +183,39 @@ void main() {
       await tester.pumpAndSettle();
     });
   }
+
+  testWidgets('copy automation command prepares cache without enabling broadcasts', (tester) async {
+    final calls = <MethodCall>[];
+    final messenger = TestDefaultBinaryMessengerBinding.instance.defaultBinaryMessenger;
+    messenger.setMockMethodCallHandler(
+        const MethodChannel('org.nslabs/irtransmitter_home_widget'), (call) async {
+      calls.add(call);
+      return true;
+    });
+    messenger.setMockMethodCallHandler(
+        const MethodChannel('flutter.baseflow.com/permissions/methods'), (_) async => {17: 1});
+    String? copied;
+    messenger.setMockMethodCallHandler(SystemChannels.platform, (call) async {
+      if (call.method == 'Clipboard.setData') copied = (call.arguments as Map)['text'];
+      return null;
+    });
+    await tester.runAsync(() async {
+      await writeRemotelist(remotes);
+      await writeMacrosList(macros);
+    });
+    await open(tester);
+    await action(tester, 'Copy automation command');
+    for (var i = 0; i < 100 && find.byType(AlertDialog).evaluate().isEmpty; i++) {
+      await tester.runAsync(() => Future<void>.delayed(const Duration(milliseconds: 20)));
+      await tester.pump();
+    }
+    await tester.pumpAndSettle();
+    expect(find.byType(AlertDialog), findsOneWidget);
+    expect(calls.last.method, 'cacheAutomationMacros');
+    await tester.tap(find.widgetWithText(FilledButton, 'Copy'));
+    await tester.pumpAndSettle();
+    expect(copied, contains('org.irblaster.RUN_MACRO --es macro_id original --es emitter INTERNAL'));
+    expect((await SharedPreferences.getInstance()).getBool('automation_broadcasts_enabled_v1'), isNot(true));
+    messenger.setMockMethodCallHandler(SystemChannels.platform, null);
+  });
 }

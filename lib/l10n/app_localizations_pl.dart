@@ -5290,4 +5290,11 @@ class AppLocalizationsPl extends AppLocalizations {
   @override
   String get macroWidgetUnavailable =>
       'Tego makra nie można użyć jako widżetu. Sprawdź jego pilot, przyciski i dane sygnału.';
+
+  @override
+  String get copyAutomationCommand => 'Kopiuj polecenie automatyzacji';
+
+  @override
+  String get macroAutomationUnavailable =>
+      'Nie można uruchomić tego makra przez automatyzację. Sprawdź jego pilota i przyciski oraz usuń kroki ręczne.';
 }

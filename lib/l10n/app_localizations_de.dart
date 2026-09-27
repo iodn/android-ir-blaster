@@ -5243,4 +5243,11 @@ class AppLocalizationsDe extends AppLocalizations {
   @override
   String get macroWidgetUnavailable =>
       'Dieses Makro kann nicht als Widget verwendet werden. Prüfe Fernbedienung, Tasten und Signaldaten.';
+
+  @override
+  String get copyAutomationCommand => 'Automatisierungsbefehl kopieren';
+
+  @override
+  String get macroAutomationUnavailable =>
+      'Dieses Makro kann nicht per Automatisierung ausgeführt werden. Prüfe die Fernbedienung und ihre Tasten und entferne manuelle Schritte.';
 }
