@@ -1,4 +1,5 @@
-import 'dart:io';
+import 'dart:convert';
+import 'dart:typed_data';
 import 'package:file_picker/file_picker.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
@@ -35,7 +36,8 @@ Future<void> showReceivedShare(BuildContext context, String? text) =>
             prepare: () => compute(SharePackage.decode, text ?? ''))));
 
 class SharingScreen extends StatefulWidget {
-  const SharingScreen({super.key});
+  const SharingScreen({super.key, this.receiveOnly = false});
+  final bool receiveOnly;
   @override
   State<SharingScreen> createState() => _SharingScreenState();
 }
@@ -75,17 +77,16 @@ class _SharingScreenState extends State<SharingScreen> {
         text = await remoteSharingChannel.invokeMethod<String>('scan',
             {'prompt': context.l10n.shareScan, 'cancel': context.l10n.cancel});
       } else {
-        final selection = await FilePicker.pickFiles(type: FileType.any);
-        if (selection.isEmpty) return;
-        final file = selection.single;
-        if (file.path == null) {
-          throw const FormatException();
+        final file = await FilePicker.pickFile(type: FileType.any);
+        if (file == null) return;
+        final bytes = BytesBuilder(copy: false);
+        await for (final chunk in file.readAsByteStream()) {
+          if (bytes.length + chunk.length > SharePackage.maxBytes) {
+            throw const FormatException('Transfer too large');
+          }
+          bytes.add(chunk);
         }
-        final source = File(file.path!);
-        if (await source.length() > SharePackage.maxBytes) {
-          throw const FormatException();
-        }
-        text = await source.readAsString();
+        text = utf8.decode(bytes.takeBytes());
       }
       if (mounted && text != null) await showReceivedShare(context, text);
     } catch (_) {
@@ -100,7 +101,10 @@ class _SharingScreenState extends State<SharingScreen> {
 
   @override
   Widget build(BuildContext context) => Scaffold(
-        appBar: AppBar(title: Text(context.l10n.shareTitle)),
+        appBar: AppBar(
+            title: Text(widget.receiveOnly
+                ? context.l10n.shareReceive
+                : context.l10n.shareTitle)),
         body: SafeArea(
             child: Center(
                 child: ConstrainedBox(
@@ -120,56 +124,61 @@ class _SharingScreenState extends State<SharingScreen> {
                             title: Text(context.l10n.shareOpenFile),
                             onTap: _busy ? null : () => _receive(false)),
                       ])),
-                      const SizedBox(height: 20),
-                      Text(context.l10n.shareSelect,
-                          style: Theme.of(context).textTheme.titleLarge),
-                      Text(context.l10n.shareMacroInfo),
-                      const SizedBox(height: 12),
-                      Text(context.l10n.remotesNavLabel,
-                          style: Theme.of(context).textTheme.titleMedium),
-                      for (final r in state.remotes)
-                        CheckboxListTile(
-                            title: Text(r.name),
-                            subtitle: Text(context.l10n
-                                .remoteButtonCountSummary(r.buttons.length)),
-                            value: _remotes.contains(r),
-                            onChanged: _busy
-                                ? null
-                                : (v) => setState(() {
-                                      if (v == true) {
-                                        _remotes.add(r);
-                                      } else {
-                                        _remotes.remove(r);
-                                      }
-                                    })),
-                      Text(context.l10n.macrosTitle,
-                          style: Theme.of(context).textTheme.titleMedium),
-                      for (final m in macro_state.macros)
-                        CheckboxListTile(
-                            title: Text(m.name),
-                            subtitle: Text(m.remoteName),
-                            value: _macros.contains(m),
-                            onChanged: _busy
-                                ? null
-                                : (v) => setState(() {
-                                      if (v == true) {
-                                        _macros.add(m);
-                                      } else {
-                                        _macros.remove(m);
-                                      }
-                                    })),
+                      if (!widget.receiveOnly) ...[
+                        const SizedBox(height: 20),
+                        Text(context.l10n.shareSelect,
+                            style: Theme.of(context).textTheme.titleLarge),
+                        Text(context.l10n.shareMacroInfo),
+                        const SizedBox(height: 12),
+                        Text(context.l10n.remotesNavLabel,
+                            style: Theme.of(context).textTheme.titleMedium),
+                        for (final r in state.remotes)
+                          CheckboxListTile(
+                              title: Text(r.name),
+                              subtitle: Text(context.l10n
+                                  .remoteButtonCountSummary(r.buttons.length)),
+                              value: _remotes.contains(r),
+                              onChanged: _busy
+                                  ? null
+                                  : (v) => setState(() {
+                                        if (v == true) {
+                                          _remotes.add(r);
+                                        } else {
+                                          _remotes.remove(r);
+                                        }
+                                      })),
+                        Text(context.l10n.macrosTitle,
+                            style: Theme.of(context).textTheme.titleMedium),
+                        for (final m in macro_state.macros)
+                          CheckboxListTile(
+                              title: Text(m.name),
+                              subtitle: Text(m.remoteName),
+                              value: _macros.contains(m),
+                              onChanged: _busy
+                                  ? null
+                                  : (v) => setState(() {
+                                        if (v == true) {
+                                          _macros.add(m);
+                                        } else {
+                                          _macros.remove(m);
+                                        }
+                                      })),
+                      ],
                     ])))),
-        bottomNavigationBar: SafeArea(
-            child: Padding(
-                padding: const EdgeInsets.all(16),
-                child: FilledButton.icon(
-                    icon: const Icon(Icons.share_outlined),
-                    label: Text(context.l10n.shareSend),
-                    onPressed: _busy || (_remotes.isEmpty && _macros.isEmpty)
-                        ? null
-                        : () => showShare(context,
-                            remotes: _remotes.toList(),
-                            macros: _macros.toList())))),
+        bottomNavigationBar: widget.receiveOnly
+            ? null
+            : SafeArea(
+                child: Padding(
+                    padding: const EdgeInsets.all(16),
+                    child: FilledButton.icon(
+                        icon: const Icon(Icons.share_outlined),
+                        label: Text(context.l10n.shareSend),
+                        onPressed:
+                            _busy || (_remotes.isEmpty && _macros.isEmpty)
+                                ? null
+                                : () => showShare(context,
+                                    remotes: _remotes.toList(),
+                                    macros: _macros.toList())))),
       );
 }
 
@@ -237,7 +246,19 @@ class _ShareScreenState extends State<ShareScreen> {
         appBar: AppBar(
             title: Text(widget.receiving
                 ? context.l10n.sharePreview
-                : context.l10n.shareTitle)),
+                : context.l10n.shareTitle),
+            actions: [
+              if (!widget.receiving)
+                TextButton.icon(
+                    icon: const Icon(Icons.move_to_inbox_outlined),
+                    label: Text(context.l10n.shareReceive),
+                    onPressed: _busy
+                        ? null
+                        : () => Navigator.of(context).push<void>(
+                            MaterialPageRoute(
+                                builder: (_) =>
+                                    const SharingScreen(receiveOnly: true)))),
+            ]),
         body: FutureBuilder<SharePackage>(
             future: _package,
             builder: (context, snapshot) {
