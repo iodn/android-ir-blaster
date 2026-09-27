@@ -105,6 +105,12 @@ void main() {
       (v) => v['remotes'][0]['buttons'].add(v['remotes'][0]['buttons'][0]),
       (v) => v['remotes'][0]['buttons'][0]['id'] = ' ',
       (v) => v['remotes'][0]['buttons'][0]['iconCodePoint'] = -1,
+      (v) {
+        final button = v['remotes'][0]['buttons'][0];
+        button['rawData'] = null;
+        button['code'] = null;
+        button['protocol'] = ' ';
+      },
       (v) =>
           v['remotes'][0]['buttons'][0]['protocolParams'] = {'rawPreview': 42},
     ]) {
@@ -146,7 +152,7 @@ void main() {
           id: 'b',
           image: 'Power',
           isImage: false,
-          protocol: 'lge_ir_learned',
+          protocol: ' lge_ir_learned ',
           protocolParams: {'rawPreview': '123', 'opaqueFrameBase64': 'AQID'})
     ]);
     expect(

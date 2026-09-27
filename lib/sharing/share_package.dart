@@ -30,8 +30,8 @@ class SharePackage {
       this.images = const {}});
 
   bool get hardwareSpecific => remotes.any((r) => r.buttons.any((b) =>
-      b.protocol == IrProtocolIds.lgeIrLearned ||
-      (b.protocol?.endsWith('_learned') == true &&
+      b.protocol?.trim() == IrProtocolIds.lgeIrLearned ||
+      (b.protocol?.trim().endsWith('_learned') == true &&
           (b.protocolParams?['rawPreview'] as String? ?? '').isEmpty)));
 
   String encode() => jsonEncode({
@@ -123,6 +123,8 @@ class SharePackage {
           throw const FormatException('Invalid buttons');
         }
         final b = IRButton.fromJson(Map<String, dynamic>.from(item));
+        // Replay treats blank protocol IDs as legacy signals and trims IDs.
+        final protocol = b.protocol?.trim() ?? '';
         if (b.id.isEmpty ||
             b.id.length > 200 ||
             b.image.length > 500 ||
@@ -133,9 +135,9 @@ class SharePackage {
             (b.rawData?.length ?? 0) > 200000 ||
             (b.frequency != null &&
                 (b.frequency! < 15000 || b.frequency! > 60000)) ||
-            (b.protocol != null &&
-                IrProtocolRegistry.definitionFor(b.protocol) == null) ||
-            (b.rawData == null && b.code == null && b.protocol == null)) {
+            (protocol.isNotEmpty &&
+                IrProtocolRegistry.definitionFor(protocol) == null) ||
+            (b.rawData == null && b.code == null && protocol.isEmpty)) {
           throw const FormatException('Invalid signal');
         }
         if (b.isImage &&
