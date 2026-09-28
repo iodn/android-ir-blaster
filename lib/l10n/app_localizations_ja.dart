@@ -5049,19 +5049,4 @@ class AppLocalizationsJa extends AppLocalizations {
   String updatesDownloadConfirm(String size) {
     return 'GitHubから$size MBをダウンロードしますか？インストールには確認が必要です。';
   }
-
-  @override
-  String get macroWidgetInfo =>
-      '自動実行ウィジェットにはコマンドのコピーが保存されます。マクロを編集した後はウィジェットを作り直してください。もう一度タップするか、通知の停止を押すと中止できます。手動操作を含むマクロはアプリで開きます。';
-
-  @override
-  String get macroWidgetUnavailable =>
-      'このマクロはウィジェットとして使用できません。リモコン、ボタン、信号データを確認してください。';
-
-  @override
-  String get copyAutomationCommand => '自動化コマンドをコピー';
-
-  @override
-  String get macroAutomationUnavailable =>
-      'このマクロは自動化で実行できません。リモコンとボタンを確認し、手動操作のステップを削除してください。';
 }

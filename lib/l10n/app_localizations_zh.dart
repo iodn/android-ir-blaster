@@ -4981,17 +4981,4 @@ class AppLocalizationsZh extends AppLocalizations {
   String updatesDownloadConfirm(String size) {
     return '从 GitHub 下载 $size MB？安装需要您确认。';
   }
-
-  @override
-  String get macroWidgetInfo =>
-      '自动运行的小组件会保存命令副本。编辑宏后，请重新创建小组件。再次点击或使用通知中的停止即可取消。包含手动步骤的宏会打开应用。';
-
-  @override
-  String get macroWidgetUnavailable => '此宏无法用作小组件。请检查其遥控器、按钮和信号数据。';
-
-  @override
-  String get copyAutomationCommand => '复制自动化命令';
-
-  @override
-  String get macroAutomationUnavailable => '此宏无法通过自动化运行。请检查其遥控器和按钮，并移除手动步骤。';
 }

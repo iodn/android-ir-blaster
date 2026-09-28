@@ -1,10 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
-import 'package:permission_handler/permission_handler.dart';
-import '../state/automation_macro_cache.dart';
-import '../state/home_button_widget_prefs.dart';
 import '../sharing/sharing_screen.dart';
-import 'home_widget_picker.dart';
 import 'package:irblaster_controller/models/timed_macro.dart';
 import 'package:irblaster_controller/l10n/l10n.dart';
 import 'package:irblaster_controller/state/macros_state.dart';
@@ -23,53 +18,6 @@ class MacrosTab extends StatefulWidget {
 
 class _MacrosTabState extends State<MacrosTab> {
   bool _saving = false;
-
-  Future<void> _showAutomationCommand(TimedMacro macro) async {
-    try {
-      final saved = (await readMacros()).where((m) => m.id == macro.id).toList();
-      final available = await readRemotes();
-      if (!mounted) return;
-      if (macro.id.length > 512 || saved.length != 1 ||
-          buildHomeMacroWidgetMapping(saved.single, available, const {}).manual ||
-          !await AutomationMacroCache.initialize(context.l10n)) {
-        throw const FormatException('Unavailable automation macro');
-      }
-      if (!mounted) return;
-      final command = macroAutomationCommand(macro.id);
-      await showDialog<void>(context: context, builder: (ctx) => AlertDialog(
-        scrollable: true,
-        title: Text(ctx.l10n.copyAutomationCommand),
-        content: Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
-          Text(ctx.l10n.automationBroadcastsTitle, style: Theme.of(ctx).textTheme.titleSmall),
-          const SizedBox(height: 8),
-          Text(ctx.l10n.automationBroadcastsSubtitle),
-          const SizedBox(height: 16),
-          SelectableText(command),
-        ]),
-        actions: [
-          TextButton(onPressed: () => Navigator.pop(ctx), child: Text(ctx.l10n.cancel)),
-          FilledButton.icon(icon: const Icon(Icons.copy), label: Text(ctx.l10n.copy),
-            onPressed: () async {
-              try {
-                await Permission.notification.request();
-                await Clipboard.setData(ClipboardData(text: command));
-                if (ctx.mounted) Navigator.pop(ctx);
-              } catch (_) {
-                if (ctx.mounted) {
-                  ScaffoldMessenger.of(ctx).showSnackBar(
-                      SnackBar(content: Text(ctx.l10n.error)));
-                }
-              }
-            }),
-        ],
-      ));
-    } catch (_) {
-      if (mounted) {
-        ScaffoldMessenger.of(context).showSnackBar(
-            SnackBar(content: Text(context.l10n.macroAutomationUnavailable)));
-      }
-    }
-  }
 
   @override
   Widget build(BuildContext context) {
@@ -423,8 +371,6 @@ class _MacrosTabState extends State<MacrosTab> {
                     tooltip: context.l10n.actions,
                     onSelected: (v) {
                       if (v == 'share') showShare(context, macros: [macro]);
-                      if (v == 'widget') pinMacroWidget(context, macro);
-                      if (v == 'automation') _showAutomationCommand(macro);
                       if (v == 'run') _runMacro(macro);
                       if (v == 'edit') _editMacro(i);
                       if (v == 'duplicate') _duplicateMacro(i);
@@ -463,23 +409,7 @@ class _MacrosTabState extends State<MacrosTab> {
                           title: Text(context.l10n.shareTitle),
                         ),
                       ),
-                      PopupMenuItem(
-                        value: 'widget',
-                        child: ListTile(
-                          contentPadding: EdgeInsets.zero,
-                          leading: const Icon(Icons.widgets_outlined),
-                          title: Text(context.l10n.addHomeWidget),
-                        ),
-                      ),
                       PopupMenuDivider(),
-                      PopupMenuItem(
-                        value: 'automation',
-                        child: ListTile(
-                          contentPadding: EdgeInsets.zero,
-                          leading: const Icon(Icons.code),
-                          title: Text(context.l10n.copyAutomationCommand),
-                        ),
-                      ),
                       PopupMenuItem(
                         value: 'delete',
                         child: ListTile(

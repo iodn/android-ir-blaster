@@ -95,8 +95,6 @@ class MainActivity : FlutterActivity() {
     private var pendingQuickTileChooserKey: String? = null
     private var homeWidgetChannel: MethodChannel? = null
     private var pendingHomeWidgetConfigureId: Int? = null
-    private var pendingWidgetMacroId: String? = null
-    private var widgetMacroReady = false
     private var shortcutsChannel: MethodChannel? = null
     private var pendingShortcutAction: String? = null
 
@@ -574,19 +572,6 @@ class MainActivity : FlutterActivity() {
                 "isPinSupported" -> handleIsWidgetPinSupported(result)
                 "pinButtonWidget" -> handlePinButtonWidget(call, result)
                 "saveWidgetMapping" -> handleSaveWidgetMapping(call, result)
-                "macroReady" -> {
-                    widgetMacroReady = true
-                    result.success(pendingWidgetMacroId)
-                    pendingWidgetMacroId = null
-                }
-                "cacheAutomationMacros" -> {
-                    Thread({
-                        val saved = try {
-                            AutomationMacroStore.save(this, call.arguments as Map<*, *>)
-                        } catch (_: Exception) { false }
-                        runOnUiThread { result.success(saved) }
-                    }, "ir-automation-cache").start()
-                }
                 else -> result.notImplemented()
             }
         }
@@ -1001,16 +986,6 @@ class MainActivity : FlutterActivity() {
     }
 
     private fun handleHomeWidgetIntent(intent: Intent?) {
-        if (intent?.component?.className == "$packageName.MacroWidgetAlias") {
-            val widgetId = intent.getIntExtra(IrMacroWidgetService.EXTRA_MACRO_WIDGET_ID, -1)
-            intent.removeExtra(IrMacroWidgetService.EXTRA_MACRO_WIDGET_ID)
-            val mapping = IrButtonWidgetStore.loadMapping(this, widgetId)
-            if (mapping?.manual == true && mapping.macroId != null) {
-                if (widgetMacroReady) homeWidgetChannel?.invokeMethod("openMacro", mapping.macroId)
-                else pendingWidgetMacroId = mapping.macroId
-            }
-            return
-        }
         val id = intent?.getIntExtra(
             IrButtonWidgetProvider.EXTRA_CONFIGURE_WIDGET_ID,
             AppWidgetManager.INVALID_APPWIDGET_ID,

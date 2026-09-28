@@ -2383,9 +2383,5 @@
   "updatesNoAsset": "Für dieses Gerät ist keine geprüfte APK verfügbar. Siehe Versionshinweise.",
   "updatesReleaseNotes": "Versionshinweise",
   "updatesChannel": "Update-Quelle: {source}",
-  "updatesDownloadConfirm": "{size} MB von GitHub herunterladen? Die Installation erfordert deine Bestätigung.",
-  "macroWidgetInfo": "Automatische Widgets speichern eine Kopie der Befehle. Erstelle das Widget nach Änderungen am Makro neu. Zum Abbrechen erneut antippen oder Stopp in der Benachrichtigung wählen. Makros mit manuellen Schritten öffnen die App.",
-  "macroWidgetUnavailable": "Dieses Makro kann nicht als Widget verwendet werden. Prüfe Fernbedienung, Tasten und Signaldaten.",
-  "copyAutomationCommand": "Automatisierungsbefehl kopieren",
-  "macroAutomationUnavailable": "Dieses Makro kann nicht per Automatisierung ausgeführt werden. Prüfe die Fernbedienung und ihre Tasten und entferne manuelle Schritte."
+  "updatesDownloadConfirm": "{size} MB von GitHub herunterladen? Die Installation erfordert deine Bestätigung."
 }

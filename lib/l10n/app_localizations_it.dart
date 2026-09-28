@@ -5221,19 +5221,4 @@ class AppLocalizationsIt extends AppLocalizations {
   String updatesDownloadConfirm(String size) {
     return 'Scaricare $size MB da GitHub? L’installazione richiede la tua conferma.';
   }
-
-  @override
-  String get macroWidgetInfo =>
-      'I widget automatici salvano una copia dei comandi. Ricrea il widget dopo aver modificato la macro. Tocca di nuovo o usa Interrompi nella notifica per annullare. Le macro con passaggi manuali aprono l’app.';
-
-  @override
-  String get macroWidgetUnavailable =>
-      'Questa macro non può essere usata come widget. Controlla il telecomando, i pulsanti e i dati del segnale.';
-
-  @override
-  String get copyAutomationCommand => 'Copia comando di automazione';
-
-  @override
-  String get macroAutomationUnavailable =>
-      'Questa macro non può essere eseguita tramite automazione. Controlla il telecomando e i suoi pulsanti e rimuovi i passaggi manuali.';
 }

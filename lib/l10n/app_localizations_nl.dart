@@ -5225,19 +5225,4 @@ class AppLocalizationsNl extends AppLocalizations {
   String updatesDownloadConfirm(String size) {
     return '$size MB downloaden van GitHub? Installatie vereist jouw bevestiging.';
   }
-
-  @override
-  String get macroWidgetInfo =>
-      'Automatische widgets bewaren een kopie van de opdrachten. Maak de widget opnieuw nadat je de macro hebt gewijzigd. Tik opnieuw of kies Stoppen in de melding om te annuleren. Macro’s met handmatige stappen openen de app.';
-
-  @override
-  String get macroWidgetUnavailable =>
-      'Deze macro kan niet als widget worden gebruikt. Controleer de afstandsbediening, knoppen en signaalgegevens.';
-
-  @override
-  String get copyAutomationCommand => 'Automatiseringsopdracht kopiëren';
-
-  @override
-  String get macroAutomationUnavailable =>
-      'Deze macro kan niet via automatisering worden uitgevoerd. Controleer de afstandsbediening en knoppen en verwijder handmatige stappen.';
 }

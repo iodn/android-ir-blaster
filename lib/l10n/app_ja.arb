@@ -2397,9 +2397,5 @@
   "updatesNoAsset": "この端末向けの検証済みAPKはありません。リリースノートを確認してください。",
   "updatesReleaseNotes": "リリースノート",
   "updatesChannel": "更新元：{source}",
-  "updatesDownloadConfirm": "GitHubから{size} MBをダウンロードしますか？インストールには確認が必要です。",
-  "macroWidgetInfo": "自動実行ウィジェットにはコマンドのコピーが保存されます。マクロを編集した後はウィジェットを作り直してください。もう一度タップするか、通知の停止を押すと中止できます。手動操作を含むマクロはアプリで開きます。",
-  "macroWidgetUnavailable": "このマクロはウィジェットとして使用できません。リモコン、ボタン、信号データを確認してください。",
-  "copyAutomationCommand": "自動化コマンドをコピー",
-  "macroAutomationUnavailable": "このマクロは自動化で実行できません。リモコンとボタンを確認し、手動操作のステップを削除してください。"
+  "updatesDownloadConfirm": "GitHubから{size} MBをダウンロードしますか？インストールには確認が必要です。"
 }

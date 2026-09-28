@@ -2397,9 +2397,5 @@
   "updatesNoAsset": "Er is geen geverifieerde APK voor dit apparaat. Bekijk de releaseopmerkingen.",
   "updatesReleaseNotes": "Releaseopmerkingen",
   "updatesChannel": "Updatebron: {source}",
-  "updatesDownloadConfirm": "{size} MB downloaden van GitHub? Installatie vereist jouw bevestiging.",
-  "macroWidgetInfo": "Automatische widgets bewaren een kopie van de opdrachten. Maak de widget opnieuw nadat je de macro hebt gewijzigd. Tik opnieuw of kies Stoppen in de melding om te annuleren. Macro’s met handmatige stappen openen de app.",
-  "macroWidgetUnavailable": "Deze macro kan niet als widget worden gebruikt. Controleer de afstandsbediening, knoppen en signaalgegevens.",
-  "copyAutomationCommand": "Automatiseringsopdracht kopiëren",
-  "macroAutomationUnavailable": "Deze macro kan niet via automatisering worden uitgevoerd. Controleer de afstandsbediening en knoppen en verwijder handmatige stappen."
+  "updatesDownloadConfirm": "{size} MB downloaden van GitHub? Installatie vereist jouw bevestiging."
 }

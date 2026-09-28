@@ -8,7 +8,6 @@ import android.content.Intent
 import android.hardware.ConsumerIrManager
 import android.hardware.usb.UsbManager
 import android.os.Handler
-import android.os.Build
 import android.os.Looper
 import android.os.SystemClock
 import android.widget.RemoteViews
@@ -22,6 +21,13 @@ class IrButtonWidgetProvider : AppWidgetProvider() {
 
     override fun onReceive(context: Context, intent: Intent) {
         super.onReceive(context, intent)
+        if (intent.action == Intent.ACTION_MY_PACKAGE_REPLACED) {
+            // Replace stale macro service intents with the normal button chooser.
+            val manager = AppWidgetManager.getInstance(context)
+            onUpdate(context, manager, manager.getAppWidgetIds(
+                android.content.ComponentName(context, IrButtonWidgetProvider::class.java)))
+            return
+        }
         if (intent.action != ACTION_SEND) return
         val appWidgetId = intent.getIntExtra(AppWidgetManager.EXTRA_APPWIDGET_ID, AppWidgetManager.INVALID_APPWIDGET_ID)
         val mapping = IrButtonWidgetStore.loadMapping(context, appWidgetId)
@@ -30,7 +36,6 @@ class IrButtonWidgetProvider : AppWidgetProvider() {
             updateWidget(context, AppWidgetManager.getInstance(context), appWidgetId)
             return
         }
-        if (mapping.macroId != null) return
         if (!busy.compareAndSet(false, true)) {
             showToast(context, "${mapping.title}: ${AutomationResult.BUSY.name}")
             if (isOrderedBroadcast) setResultCode(AutomationResult.BUSY.code)
@@ -73,9 +78,9 @@ class IrButtonWidgetProvider : AppWidgetProvider() {
     companion object {
         const val ACTION_SEND = "org.nslabs.irblaster.widget.SEND_BUTTON"
         const val EXTRA_CONFIGURE_WIDGET_ID = "home_widget_configure_id"
-        internal val busy = AtomicBoolean(false)
+        private val busy = AtomicBoolean(false)
 
-        internal fun selectedEmitter(context: Context): AutomationEmitter {
+        private fun selectedEmitter(context: Context): AutomationEmitter {
             val prefs = context.getSharedPreferences("ir_blaster_prefs", Context.MODE_PRIVATE)
             val selected = AutomationEmitter.valueOf(prefs.getString("tx_type", "INTERNAL") ?: "INTERNAL")
             if (selected == AutomationEmitter.AUDIO_1_LED || selected == AutomationEmitter.AUDIO_2_LED) return selected
@@ -110,23 +115,6 @@ class IrButtonWidgetProvider : AppWidgetProvider() {
                 views.setTextViewText(R.id.ir_button_widget_title, mapping.title.ifBlank { "IR Button" })
                 views.setTextViewText(R.id.ir_button_widget_subtitle, mapping.subtitle.ifBlank { "Tap to send" })
                 views.setImageViewResource(R.id.ir_button_widget_icon, iconForTitle(mapping.title))
-                if (mapping.macroId != null) {
-                    views.setImageViewResource(R.id.ir_button_widget_icon, R.drawable.ic_widget_macro)
-                    val intent = if (mapping.manual) Intent().setClassName(context, "${context.packageName}.MacroWidgetAlias")
-                        .putExtra(IrMacroWidgetService.EXTRA_MACRO_WIDGET_ID, appWidgetId)
-                        .addFlags(Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_SINGLE_TOP)
-                    else Intent(context, IrMacroWidgetService::class.java)
-                        .putExtra(AppWidgetManager.EXTRA_APPWIDGET_ID, appWidgetId)
-                    val flags = PendingIntent.FLAG_UPDATE_CURRENT or PendingIntent.FLAG_IMMUTABLE
-                    val pending = when {
-                        mapping.manual -> PendingIntent.getActivity(context, appWidgetId, intent, flags)
-                        Build.VERSION.SDK_INT >= 26 -> PendingIntent.getForegroundService(context, appWidgetId, intent, flags)
-                        else -> PendingIntent.getService(context, appWidgetId, intent, flags)
-                    }
-                    views.setOnClickPendingIntent(R.id.ir_button_widget_root, pending)
-                    manager.updateAppWidget(appWidgetId, views)
-                    return
-                }
                 views.setOnClickPendingIntent(
                     R.id.ir_button_widget_root,
                     PendingIntent.getBroadcast(

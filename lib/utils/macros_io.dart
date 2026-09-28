@@ -1,7 +1,6 @@
 import 'dart:convert';
 import 'dart:io';
 import 'dart:typed_data';
-import '../state/automation_macro_cache.dart';
 
 import 'package:file_picker/file_picker.dart';
 import 'package:flutter/material.dart';
@@ -38,7 +37,6 @@ Future<void> writeMacrosList(List<TimedMacro> macros) {
     final tmp = File('${file.path}.tmp');
     await tmp.writeAsString(payload, flush: true);
     await tmp.rename(file.path);
-    await AutomationMacroCache.refresh();
   });
   // A failed save must not block later saves, but still reaches its caller.
   late final Future<void> queued;

@@ -2397,9 +2397,5 @@
   "updatesNoAsset": "Không có APK đã xác minh cho thiết bị này. Hãy xem ghi chú phát hành.",
   "updatesReleaseNotes": "Ghi chú phát hành",
   "updatesChannel": "Nguồn cập nhật: {source}",
-  "updatesDownloadConfirm": "Tải {size} MB từ GitHub? Việc cài đặt cần bạn xác nhận.",
-  "macroWidgetInfo": "Tiện ích tự động lưu một bản sao các lệnh. Hãy tạo lại tiện ích sau khi chỉnh sửa macro. Nhấn lại hoặc dùng Dừng trong thông báo để hủy. Macro có bước thủ công sẽ mở ứng dụng.",
-  "macroWidgetUnavailable": "Không thể dùng macro này làm tiện ích. Hãy kiểm tra điều khiển, các nút và dữ liệu tín hiệu.",
-  "copyAutomationCommand": "Sao chép lệnh tự động hóa",
-  "macroAutomationUnavailable": "Không thể chạy macro này qua tự động hóa. Hãy kiểm tra điều khiển và các nút, rồi xóa các bước thủ công."
+  "updatesDownloadConfirm": "Tải {size} MB từ GitHub? Việc cài đặt cần bạn xác nhận."
 }

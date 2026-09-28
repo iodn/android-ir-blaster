@@ -208,6 +208,40 @@ class IrButtonWidgetProviderTest {
         assertEquals(id, chooser.getIntExtra(IrButtonWidgetProvider.EXTRA_CONFIGURE_WIDGET_ID, -1))
     }
 
+    @Test fun upgradeTurnsOldMacroWidgetIntoButtonChooser() {
+        val widgets = shadowOf(AppWidgetManager.getInstance(context))
+        val id = widgets.createWidget(IrButtonWidgetProvider::class.java, R.layout.ir_button_widget)
+        val oldMacro = org.json.JSONObject()
+            .put("buttonId", "macro-id").put("macroId", "macro-id")
+            .put("title", "Bedtime").put("frequencyHz", 0)
+            .put("pattern", org.json.JSONArray()).put("steps", org.json.JSONArray())
+        context.getSharedPreferences("ir_button_widgets", Context.MODE_PRIVATE).edit()
+            .putString("mappings_v1", org.json.JSONObject().put(id.toString(), oldMacro).toString()).commit()
+        assertNull(IrButtonWidgetStore.loadMapping(context, id))
+        IrButtonWidgetProvider().onReceive(context, Intent(Intent.ACTION_MY_PACKAGE_REPLACED))
+        widgets.getViewFor(id).findViewById<android.view.View>(R.id.ir_button_widget_root).performClick()
+        val chooser = shadowOf(context).nextStartedActivity
+        assertEquals(MainActivity::class.java.name, chooser.component?.className)
+        assertEquals(id, chooser.getIntExtra(IrButtonWidgetProvider.EXTRA_CONFIGURE_WIDGET_ID, -1))
+        assertEquals(0, RecordingIrManager.calls.get())
+        assertNull(shadowOf(context).nextStartedService)
+    }
+
+    @Test fun mergedManifestHasNoForegroundServicePermissionsOrMacroService() {
+        val info = context.packageManager.getPackageInfo(context.packageName,
+            android.content.pm.PackageManager.GET_PERMISSIONS or android.content.pm.PackageManager.GET_SERVICES)
+        assertFalse(info.requestedPermissions.orEmpty().any { it.contains("FOREGROUND_SERVICE") })
+        assertFalse(info.services.orEmpty().any {
+            it.name.endsWith("IrMacroWidgetService") || it.name.endsWith("SystemForegroundService")
+        })
+        val receiver = IrAutomationReceiver()
+        context.getSharedPreferences("FlutterSharedPreferences", Context.MODE_PRIVATE).edit()
+            .putBoolean(IrAutomationReceiver.PREF_ENABLED, true).commit()
+        receiver.onReceive(context, Intent("org.irblaster.RUN_MACRO").putExtra("macro_id", "old"))
+        assertNull(shadowOf(context).nextStartedService)
+        assertEquals(0, RecordingIrManager.calls.get())
+    }
+
     @Test fun actualConfiguredWidgetClickSendsWithoutAnActivity() {
         val manager = AppWidgetManager.getInstance(context)
         val widgets = shadowOf(manager)

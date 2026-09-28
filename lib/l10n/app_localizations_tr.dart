@@ -5186,19 +5186,4 @@ class AppLocalizationsTr extends AppLocalizations {
   String updatesDownloadConfirm(String size) {
     return 'GitHub’dan $size MB indirilsin mi? Yükleme için onayınız gerekir.';
   }
-
-  @override
-  String get macroWidgetInfo =>
-      'Otomatik widget’lar komutların bir kopyasını kaydeder. Makroyu düzenledikten sonra widget’ı yeniden oluşturun. İptal etmek için tekrar dokunun veya bildirimdeki Durdur seçeneğini kullanın. Manuel adımlar içeren makrolar uygulamayı açar.';
-
-  @override
-  String get macroWidgetUnavailable =>
-      'Bu makro widget olarak kullanılamaz. Uzaktan kumandasını, düğmelerini ve sinyal verilerini kontrol edin.';
-
-  @override
-  String get copyAutomationCommand => 'Otomasyon komutunu kopyala';
-
-  @override
-  String get macroAutomationUnavailable =>
-      'Bu makro otomasyonla çalıştırılamaz. Kumandasını ve düğmelerini kontrol edin ve elle yapılan adımları kaldırın.';
 }

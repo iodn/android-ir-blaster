@@ -5190,19 +5190,4 @@ class AppLocalizationsId extends AppLocalizations {
   String updatesDownloadConfirm(String size) {
     return 'Unduh $size MB dari GitHub? Penginstalan memerlukan konfirmasi Anda.';
   }
-
-  @override
-  String get macroWidgetInfo =>
-      'Widget otomatis menyimpan salinan perintah. Buat ulang widget setelah mengedit makro. Ketuk lagi atau gunakan Hentikan di notifikasi untuk membatalkan. Makro dengan langkah manual akan membuka aplikasi.';
-
-  @override
-  String get macroWidgetUnavailable =>
-      'Makro ini tidak dapat digunakan sebagai widget. Periksa remote, tombol, dan data sinyalnya.';
-
-  @override
-  String get copyAutomationCommand => 'Salin perintah otomatisasi';
-
-  @override
-  String get macroAutomationUnavailable =>
-      'Makro ini tidak dapat dijalankan melalui otomatisasi. Periksa remote dan tombolnya, lalu hapus langkah manual.';
 }

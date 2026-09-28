@@ -2399,9 +2399,5 @@
   "updatesNoAsset": "Brak zweryfikowanego APK dla tego urządzenia. Zobacz informacje o wydaniu.",
   "updatesReleaseNotes": "Informacje o wydaniu",
   "updatesChannel": "Źródło aktualizacji: {source}",
-  "updatesDownloadConfirm": "Pobrać {size} MB z GitHub? Instalacja wymaga Twojego potwierdzenia.",
-  "macroWidgetInfo": "Automatyczne widżety zapisują kopię poleceń. Po edycji makra utwórz widżet ponownie. Aby anulować, dotknij go ponownie lub wybierz Zatrzymaj w powiadomieniu. Makra z krokami ręcznymi otwierają aplikację.",
-  "macroWidgetUnavailable": "Tego makra nie można użyć jako widżetu. Sprawdź jego pilot, przyciski i dane sygnału.",
-  "copyAutomationCommand": "Kopiuj polecenie automatyzacji",
-  "macroAutomationUnavailable": "Nie można uruchomić tego makra przez automatyzację. Sprawdź jego pilota i przyciski oraz usuń kroki ręczne."
+  "updatesDownloadConfirm": "Pobrać {size} MB z GitHub? Instalacja wymaga Twojego potwierdzenia."
 }

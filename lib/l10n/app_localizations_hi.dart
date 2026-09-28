@@ -5184,19 +5184,4 @@ class AppLocalizationsHi extends AppLocalizations {
   String updatesDownloadConfirm(String size) {
     return 'GitHub से $size MB डाउनलोड करें? इंस्टॉल करने के लिए आपकी पुष्टि आवश्यक है।';
   }
-
-  @override
-  String get macroWidgetInfo =>
-      'स्वचालित विजेट कमांड की एक प्रति सहेजते हैं। मैक्रो बदलने के बाद विजेट फिर से बनाएँ। रद्द करने के लिए दोबारा टैप करें या सूचना में रोकें चुनें। मैन्युअल चरणों वाले मैक्रो ऐप खोलते हैं।';
-
-  @override
-  String get macroWidgetUnavailable =>
-      'इस मैक्रो को विजेट के रूप में इस्तेमाल नहीं किया जा सकता। इसका रिमोट, बटन और सिग्नल डेटा जाँचें।';
-
-  @override
-  String get copyAutomationCommand => 'ऑटोमेशन कमांड कॉपी करें';
-
-  @override
-  String get macroAutomationUnavailable =>
-      'यह मैक्रो ऑटोमेशन से नहीं चल सकता। इसके रिमोट और बटन जाँचें और मैन्युअल चरण हटाएँ।';
 }

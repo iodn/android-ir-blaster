@@ -5158,21 +5158,6 @@ class AppLocalizationsAr extends AppLocalizations {
   String updatesDownloadConfirm(String size) {
     return 'هل تريد تنزيل $size ميغابايت من GitHub؟ يتطلب التثبيت تأكيدك.';
   }
-
-  @override
-  String get macroWidgetInfo =>
-      'تحفظ الأدوات التلقائية نسخة من الأوامر. أعد إنشاء الأداة بعد تعديل الماكرو. للإلغاء، اضغط مجددًا أو استخدم إيقاف في الإشعار. تفتح وحدات الماكرو ذات الخطوات اليدوية التطبيق.';
-
-  @override
-  String get macroWidgetUnavailable =>
-      'لا يمكن استخدام هذا الماكرو كأداة. تحقق من جهاز التحكم والأزرار وبيانات الإشارة.';
-
-  @override
-  String get copyAutomationCommand => 'نسخ أمر الأتمتة';
-
-  @override
-  String get macroAutomationUnavailable =>
-      'لا يمكن تشغيل هذا الماكرو عبر الأتمتة. تحقّق من جهاز التحكم وأزراره، وأزل الخطوات اليدوية.';
 }
 
 /// The translations for Arabic, as used in Egypt (`ar_EG`).
@@ -10329,19 +10314,4 @@ class AppLocalizationsArEg extends AppLocalizationsAr {
   String updatesDownloadConfirm(String size) {
     return 'هل تريد تنزيل $size ميغابايت من GitHub؟ يتطلب التثبيت تأكيدك.';
   }
-
-  @override
-  String get macroWidgetInfo =>
-      'تحفظ الأدوات التلقائية نسخة من الأوامر. أعد إنشاء الأداة بعد تعديل الماكرو. للإلغاء، اضغط مجددًا أو استخدم إيقاف في الإشعار. تفتح وحدات الماكرو ذات الخطوات اليدوية التطبيق.';
-
-  @override
-  String get macroWidgetUnavailable =>
-      'لا يمكن استخدام هذا الماكرو كأداة. تحقق من جهاز التحكم والأزرار وبيانات الإشارة.';
-
-  @override
-  String get copyAutomationCommand => 'نسخ أمر الأتمتة';
-
-  @override
-  String get macroAutomationUnavailable =>
-      'لا يمكن تشغيل هذا الماكرو عبر الأتمتة. تحقّق من جهاز التحكم وأزراره، وأزل الخطوات اليدوية.';
 }

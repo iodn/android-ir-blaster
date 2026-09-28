@@ -1,6 +1,10 @@
 <!-- android/app/src/main/AndroidManifest.xml -->
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     package="org.nslabs.ir_blaster">
+
+    <!-- WorkManager is transitive; this app does not run foreground workers. -->
+    <uses-permission android:name="android.permission.FOREGROUND_SERVICE" tools:node="remove" />
 
     <!-- Declare which external ACTION_* intents your app will use -->
     <queries>
@@ -35,10 +39,6 @@
     <!-- Removed by the Play build overlay together with the APK installer. -->
     <uses-permission android:name="android.permission.REQUEST_INSTALL_PACKAGES" />
     <uses-permission android:name="android.permission.CAMERA" />
-    <uses-permission android:name="android.permission.FOREGROUND_SERVICE" />
-    <uses-permission android:name="android.permission.FOREGROUND_SERVICE_CONNECTED_DEVICE" />
-    <uses-permission android:name="android.permission.WAKE_LOCK" />
-    <uses-permission android:name="android.permission.POST_NOTIFICATIONS" />
     <uses-feature android:name="android.hardware.camera" android:required="false" />
     <uses-feature android:name="android.hardware.camera.autofocus" android:required="false" />
     <uses-permission android:name="android.permission.TRANSMIT_IR" />
@@ -97,11 +97,6 @@
             </intent-filter>
         </activity>
 
-        <activity-alias android:name=".MacroWidgetAlias"
-            android:exported="false" android:targetActivity=".MainActivity" />
-        <service android:name=".IrMacroWidgetService" android:exported="false"
-            android:foregroundServiceType="connectedDevice" />
-
         <provider android:name=".updates.UpdateFileProvider"
             android:authorities="${applicationId}.updates"
             android:exported="false" android:grantUriPermissions="true">
@@ -139,7 +134,6 @@
             android:exported="true">
             <intent-filter>
                 <action android:name="org.irblaster.TRANSMIT" />
-                <action android:name="org.irblaster.RUN_MACRO" />
             </intent-filter>
         </receiver>
 
@@ -156,6 +150,7 @@
             android:exported="false">
             <intent-filter>
                 <action android:name="android.appwidget.action.APPWIDGET_UPDATE" />
+                <action android:name="android.intent.action.MY_PACKAGE_REPLACED" />
                 <action android:name="org.nslabs.irblaster.widget.SEND_BUTTON" />
             </intent-filter>
             <meta-data
@@ -166,6 +161,8 @@
         <receiver
             android:name=".IrButtonWidgetPinnedReceiver"
             android:exported="false" />
+
+        <service android:name="androidx.work.impl.foreground.SystemForegroundService" tools:node="remove" />
 
         <service
             android:name=".DeviceControlsService"

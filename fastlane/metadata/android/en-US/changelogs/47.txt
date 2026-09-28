@@ -1,8 +1,6 @@
-- Run macros from home-screen widgets.
-- Trigger saved macros from Android automation apps.
+- Remove background macro widgets and macro automation; in-app macros remain available.
 - Add Marantz protocol support, including Code Finder.
 - Keep protocol choices in alphabetical order.
 - Match live waveforms to transmitted commands and stop animation on loop errors.
 - Fix false Sent confirmations and overlapping initial loop sends.
 - Handle missing IR hardware without unnecessary crash reports.
-- Translate new macro widget and automation controls.

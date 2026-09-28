@@ -5282,19 +5282,4 @@ class AppLocalizationsPl extends AppLocalizations {
   String updatesDownloadConfirm(String size) {
     return 'Pobrać $size MB z GitHub? Instalacja wymaga Twojego potwierdzenia.';
   }
-
-  @override
-  String get macroWidgetInfo =>
-      'Automatyczne widżety zapisują kopię poleceń. Po edycji makra utwórz widżet ponownie. Aby anulować, dotknij go ponownie lub wybierz Zatrzymaj w powiadomieniu. Makra z krokami ręcznymi otwierają aplikację.';
-
-  @override
-  String get macroWidgetUnavailable =>
-      'Tego makra nie można użyć jako widżetu. Sprawdź jego pilot, przyciski i dane sygnału.';
-
-  @override
-  String get copyAutomationCommand => 'Kopiuj polecenie automatyzacji';
-
-  @override
-  String get macroAutomationUnavailable =>
-      'Nie można uruchomić tego makra przez automatyzację. Sprawdź jego pilota i przyciski oraz usuń kroki ręczne.';
 }

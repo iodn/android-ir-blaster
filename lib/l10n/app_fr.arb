@@ -2397,9 +2397,5 @@
   "updatesNoAsset": "Aucun APK vérifié n’est disponible pour cet appareil. Consultez les notes de version.",
   "updatesReleaseNotes": "Notes de version",
   "updatesChannel": "Source des mises à jour : {source}",
-  "updatesDownloadConfirm": "Télécharger {size} Mo depuis GitHub ? L’installation nécessite votre confirmation.",
-  "macroWidgetInfo": "Les widgets automatiques enregistrent une copie des commandes. Recréez le widget après avoir modifié la macro. Touchez-le à nouveau ou utilisez Arrêter dans la notification pour annuler. Les macros avec des étapes manuelles ouvrent l’application.",
-  "macroWidgetUnavailable": "Cette macro ne peut pas être utilisée comme widget. Vérifiez sa télécommande, ses boutons et les données des signaux.",
-  "copyAutomationCommand": "Copier la commande d’automatisation",
-  "macroAutomationUnavailable": "Cette macro ne peut pas être exécutée par automatisation. Vérifiez sa télécommande et ses boutons, et retirez les étapes manuelles."
+  "updatesDownloadConfirm": "Télécharger {size} Mo depuis GitHub ? L’installation nécessite votre confirmation."
 }

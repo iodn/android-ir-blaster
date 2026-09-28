@@ -2397,9 +2397,5 @@
   "updatesNoAsset": "Bu cihaz için doğrulanmış bir APK yok. Sürüm notlarına bakın.",
   "updatesReleaseNotes": "Sürüm notları",
   "updatesChannel": "Güncelleme kaynağı: {source}",
-  "updatesDownloadConfirm": "GitHub’dan {size} MB indirilsin mi? Yükleme için onayınız gerekir.",
-  "macroWidgetInfo": "Otomatik widget’lar komutların bir kopyasını kaydeder. Makroyu düzenledikten sonra widget’ı yeniden oluşturun. İptal etmek için tekrar dokunun veya bildirimdeki Durdur seçeneğini kullanın. Manuel adımlar içeren makrolar uygulamayı açar.",
-  "macroWidgetUnavailable": "Bu makro widget olarak kullanılamaz. Uzaktan kumandasını, düğmelerini ve sinyal verilerini kontrol edin.",
-  "copyAutomationCommand": "Otomasyon komutunu kopyala",
-  "macroAutomationUnavailable": "Bu makro otomasyonla çalıştırılamaz. Kumandasını ve düğmelerini kontrol edin ve elle yapılan adımları kaldırın."
+  "updatesDownloadConfirm": "GitHub’dan {size} MB indirilsin mi? Yükleme için onayınız gerekir."
 }

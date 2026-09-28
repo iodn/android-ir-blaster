@@ -5206,19 +5206,4 @@ class AppLocalizationsFil extends AppLocalizations {
   String updatesDownloadConfirm(String size) {
     return 'I-download ang $size MB mula sa GitHub? Kailangan ang iyong kumpirmasyon para sa pag-install.';
   }
-
-  @override
-  String get macroWidgetInfo =>
-      'Nagse-save ang mga awtomatikong widget ng kopya ng mga command. Gawin muli ang widget pagkatapos i-edit ang macro. I-tap muli o gamitin ang Ihinto sa notification para kanselahin. Binubuksan ng mga macro na may manwal na hakbang ang app.';
-
-  @override
-  String get macroWidgetUnavailable =>
-      'Hindi magagamit ang macro na ito bilang widget. Suriin ang remote, mga button at signal data nito.';
-
-  @override
-  String get copyAutomationCommand => 'Kopyahin ang command sa automation';
-
-  @override
-  String get macroAutomationUnavailable =>
-      'Hindi mapapatakbo ang macro na ito sa automation. Suriin ang remote at mga button nito, at alisin ang mga manu-manong hakbang.';
 }

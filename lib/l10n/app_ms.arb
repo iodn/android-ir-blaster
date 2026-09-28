@@ -2397,9 +2397,5 @@
   "updatesNoAsset": "Tiada APK yang disahkan tersedia untuk peranti ini. Lihat nota keluaran.",
   "updatesReleaseNotes": "Nota keluaran",
   "updatesChannel": "Sumber kemas kini: {source}",
-  "updatesDownloadConfirm": "Muat turun {size} MB daripada GitHub? Pemasangan memerlukan pengesahan anda.",
-  "macroWidgetInfo": "Widget automatik menyimpan salinan arahan. Cipta semula widget selepas menyunting makro. Ketik sekali lagi atau gunakan Henti dalam pemberitahuan untuk membatalkan. Makro dengan langkah manual akan membuka aplikasi.",
-  "macroWidgetUnavailable": "Makro ini tidak boleh digunakan sebagai widget. Semak alat kawalan jauh, butang dan data isyaratnya.",
-  "copyAutomationCommand": "Salin arahan automasi",
-  "macroAutomationUnavailable": "Makro ini tidak boleh dijalankan melalui automasi. Semak alat kawalan jauh dan butangnya, serta buang langkah manual."
+  "updatesDownloadConfirm": "Muat turun {size} MB daripada GitHub? Pemasangan memerlukan pengesahan anda."
 }
