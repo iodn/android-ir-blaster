@@ -53,6 +53,9 @@ class TiqiaaUsbLearner private constructor(
     private val notifyLock = Object()
     private val parsedQueue = ConcurrentLinkedQueue<ParsedFrame>()
     private val readerStarted = AtomicBoolean(false)
+    private var inboundEnvelope = 0
+    private var inboundCount = 0
+    private var inboundNextIndex = 0
     @Volatile private var closed: Boolean = false
     @Volatile private var currentState: Int = 0
 
@@ -384,6 +387,7 @@ class TiqiaaUsbLearner private constructor(
                     false
                 }
                 if (!queued) {
+                    aggregateLen = 0
                     SystemClock.sleep(20)
                     continue
                 }
@@ -391,14 +395,15 @@ class TiqiaaUsbLearner private constructor(
                     connection.requestWait()
                 } catch (t: Throwable) {
                     Log.w(tag, "requestWait failed: ${t.message}")
+                    aggregateLen = 0
                     SystemClock.sleep(20)
                     continue
                 }
                 if (completed == null || completed != request) {
+                    aggregateLen = 0
                     continue
                 }
-                val data = packet.array()
-                val nextLen = processInboundPacket(data, aggregate, aggregateLen)
+                val nextLen = processInboundPacket(packet.array(), aggregate, aggregateLen, packet.position())
                 if (nextLen >= 0) {
                     aggregateLen = nextLen
                 } else {
@@ -415,19 +420,33 @@ class TiqiaaUsbLearner private constructor(
         }
     }
 
-    private fun processInboundPacket(data: ByteArray, aggregate: ByteArray, aggregateLen: Int): Int {
-        if (data.size < 5) return aggregateLen
-        if (data[0].toInt() != 1) return aggregateLen
+    private fun processInboundPacket(data: ByteArray, aggregate: ByteArray, aggregateLen: Int, receivedLength: Int): Int {
+        if (receivedLength < 5 || receivedLength > data.size) return 0
+        if (data[0].toInt() != 1) return 0
 
         val chunkLen = (data[1].toInt() and 0xFF) - 3
-        if (chunkLen < 0 || chunkLen > MAX_CHUNK || 5 + chunkLen > data.size) {
-            return aggregateLen
+        if (chunkLen <= 0 || chunkLen > MAX_CHUNK || 5 + chunkLen > receivedLength) {
+            return 0
         }
 
-        if (aggregateLen + chunkLen > aggregate.size) return 0
-        System.arraycopy(data, 5, aggregate, aggregateLen, chunkLen)
-        val finalChunk = chunkLen < MAX_CHUNK || data[3] == data[4]
-        val newLen = aggregateLen + chunkLen
+        val envelope = data[2].toInt() and 0xFF
+        val count = data[3].toInt() and 0xFF
+        val index = data[4].toInt() and 0xFF
+        if (count == 0 || index !in 1..count) return 0
+        val offset = if (index == 1) {
+            inboundEnvelope = envelope
+            inboundCount = count
+            0
+        } else {
+            if (aggregateLen == 0 || envelope != inboundEnvelope ||
+                count != inboundCount || index != inboundNextIndex) return 0
+            aggregateLen
+        }
+        if (offset + chunkLen > aggregate.size) return 0
+        System.arraycopy(data, 5, aggregate, offset, chunkLen)
+        inboundNextIndex = index + 1
+        val finalChunk = index == count
+        val newLen = offset + chunkLen
         Log.i(tag, "recv chunk len=$chunkLen final=$finalChunk seq=${data[3].toInt() and 0xFF}/${data[4].toInt() and 0xFF}")
         return if (finalChunk) -newLen else newLen
     }
@@ -444,55 +463,27 @@ class TiqiaaUsbLearner private constructor(
     }
 
     private fun parseFrame(frame: ByteArray): ParsedFrame? {
-        var i = 0
-        while (i <= frame.size - 7) {
-            if (frame[i] == 'S'.code.toByte() && frame[i + 1] == 'T'.code.toByte()) {
-                val cmd = frame[i + 3]
-                val meta = frame[i + 4].toInt() and 0xFF
-                var j = i + 5
-                while (j < frame.size - 1) {
-                    if (frame[j] == 'E'.code.toByte() && frame[j + 1] == 'N'.code.toByte()) {
-                        val payload = if (j > i + 5) frame.copyOfRange(i + 5, j) else ByteArray(0)
-                        when (cmd.toInt().toChar()) {
-                            'D' -> {
-                                val whole = frame.copyOfRange(i, j + 2)
-                                return ParsedFrame(
-                                    type = 5,
-                                    status = 2,
-                                    payload = whole,
-                                    quality = 0,
-                                    meta = meta,
-                                )
-                            }
-                            'L', 'S', 'R', 'H', 'O', 'C', 'B' -> {
-                                val type = when (cmd.toInt().toChar()) {
-                                    'L' -> 0
-                                    'S' -> 1
-                                    'R' -> 2
-                                    'H' -> 3
-                                    'O' -> 4
-                                    'C' -> 6
-                                    'B' -> 8
-                                    else -> -1
-                                }
-                                if (type >= 0) {
-                                    val status = (meta shr 3) and 0x3
-                                    return ParsedFrame(type, status, payload, 0, meta)
-                                }
-                            }
-                            'V' -> {
-                                val status = (meta shr 3) and 0x3
-                                return ParsedFrame(7, status, payload, 0, meta)
-                            }
-                        }
-                        break
-                    }
-                    j++
-                }
-            }
-            i++
+        if (frame.size < 7 || frame[0] != 'S'.code.toByte() || frame[1] != 'T'.code.toByte() ||
+            frame[frame.size - 2] != 'E'.code.toByte() || frame.last() != 'N'.code.toByte()) return null
+        // Fragment counts delimit the frame; EN can also occur inside binary timing data.
+        val meta = frame[4].toInt() and 0xFF
+        val type = when (frame[3].toInt().toChar()) {
+            'L' -> 0
+            'S' -> 1
+            'R' -> 2
+            'H' -> 3
+            'O' -> 4
+            'D' -> 5
+            'C' -> 6
+            'V' -> 7
+            'B' -> 8
+            else -> return null
         }
-        return null
+        if (type == 5) {
+            if (decodePreviewPattern(frame).isEmpty()) return null
+            return ParsedFrame(type, 2, frame.copyOf(), 0, meta)
+        }
+        return ParsedFrame(type, (meta shr 3) and 0x3, frame.copyOfRange(5, frame.size - 2), 0, meta)
     }
 
     private fun decodePreviewPattern(frame: ByteArray): IntArray {
@@ -501,12 +492,15 @@ class TiqiaaUsbLearner private constructor(
         if (bodyEndExclusive <= 5) return IntArray(0)
 
         val out = ArrayList<Int>(64)
-        var currentPolarity = (frame[5].toInt() and 0x80) != 0
-        var units = frame[5].toInt() and 0x7F
-        for (i in 6 until bodyEndExclusive) {
+        var currentPolarity = true
+        var units = 0
+        for (i in 5 until bodyEndExclusive) {
             val b = frame[i].toInt() and 0xFF
             val polarity = (b and 0x80) != 0
             val value = b and 0x7F
+            // A zero-duration byte must not create a mark/space transition.
+            if (value == 0) continue
+            if (units == 0 && out.isEmpty() && !polarity) return IntArray(0)
             if (polarity == currentPolarity) {
                 units += value
             } else {
