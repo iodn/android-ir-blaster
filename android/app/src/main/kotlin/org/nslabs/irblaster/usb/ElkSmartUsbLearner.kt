@@ -39,6 +39,7 @@ class ElkSmartUsbLearner private constructor(
 
     private val tag = "ElkSmartUsbLearner"
     private val closed = AtomicBoolean(false)
+    private val cancelled = AtomicBoolean(false)
 
     companion object {
         private val AUTHORIZE = byteArrayOf(0xFC.toByte(), 0xFC.toByte(), 0xFC.toByte(), 0xFC.toByte())
@@ -112,16 +113,17 @@ class ElkSmartUsbLearner private constructor(
 
     fun learn(timeoutMs: Int, cancelCheck: () -> Boolean): LearnedSignal? {
         if (closed.get()) return null
+        val deadline = SystemClock.uptimeMillis() + timeoutMs.coerceAtLeast(1000).toLong()
         try {
-            flushInput()
-            if (!authorize()) return null
+            if (!flushInput(deadline, cancelCheck)) return null
+            if (!authorize(deadline, cancelCheck)) return null
+            if (shouldStop(deadline, cancelCheck)) return null
             if (!sendControl(START_LEARN)) return null
 
-            val deadline = SystemClock.uptimeMillis() + timeoutMs.coerceAtLeast(1000).toLong()
-            while (!closed.get() && !cancelCheck() && SystemClock.uptimeMillis() < deadline) {
+            while (!shouldStop(deadline, cancelCheck)) {
                 val packet = readPacket((deadline - SystemClock.uptimeMillis()).coerceAtLeast(1).toInt().coerceAtMost(300))
                     ?: continue
-                val learned = parseLearnPacket(packet)
+                val learned = parseLearnPacket(packet, deadline, cancelCheck)
                 if (learned != null) return learned
             }
             return null
@@ -134,6 +136,7 @@ class ElkSmartUsbLearner private constructor(
     }
 
     override fun cancel() {
+        cancelled.set(true)
         if (closed.get()) return
         try {
             sendControl(STOP_LEARN)
@@ -154,12 +157,14 @@ class ElkSmartUsbLearner private constructor(
         deviceLease.close()
     }
 
-    private fun authorize(): Boolean {
+    private fun authorize(sessionDeadline: Long, cancelCheck: () -> Boolean): Boolean {
         repeat(AUTHORIZE_RETRY_COUNT) { attempt ->
+            if (shouldStop(sessionDeadline, cancelCheck)) return false
             if (!sendControl(AUTHORIZE)) return false
-            val deadline = SystemClock.uptimeMillis() + 500L
-            while (!closed.get() && SystemClock.uptimeMillis() < deadline) {
-                val packet = readPacket(120) ?: continue
+            val deadline = minOf(sessionDeadline, SystemClock.uptimeMillis() + 500L)
+            while (!shouldStop(deadline, cancelCheck)) {
+                val packet = readPacket((deadline - SystemClock.uptimeMillis()).coerceIn(1, 120).toInt()) ?: continue
+                if (shouldStop(deadline, cancelCheck)) return false
                 if (packet.size == 6 && packet.hasPrefix(0xFC)) {
                     Log.i(
                         tag,
@@ -170,7 +175,7 @@ class ElkSmartUsbLearner private constructor(
                 }
             }
             Log.w(tag, "authorize attempt ${attempt + 1} timed out")
-            flushInput()
+            if (!flushInput(sessionDeadline, cancelCheck)) return false
         }
         Log.w(tag, "authorize timeout")
         return false
@@ -186,16 +191,22 @@ class ElkSmartUsbLearner private constructor(
         return rc == bytes.size
     }
 
-    private fun flushInput() {
+    private fun shouldStop(deadline: Long, cancelCheck: () -> Boolean): Boolean =
+        closed.get() || cancelled.get() || cancelCheck() || SystemClock.uptimeMillis() >= deadline
+
+    private fun flushInput(sessionDeadline: Long, cancelCheck: () -> Boolean): Boolean {
         val buf = ByteArray(maxOf(inEndpoint.maxPacketSize, 64))
-        while (true) {
+        val deadline = minOf(sessionDeadline, SystemClock.uptimeMillis() + 250L)
+        while (!shouldStop(deadline, cancelCheck)) {
             val rc = try {
-                connection.bulkTransfer(inEndpoint, buf, buf.size, 15)
+                connection.bulkTransfer(inEndpoint, buf, buf.size,
+                    (deadline - SystemClock.uptimeMillis()).coerceIn(1, 15).toInt())
             } catch (_: Throwable) {
                 -1
             }
-            if (rc <= 0) break
+            if (rc <= 0) return !shouldStop(sessionDeadline, cancelCheck)
         }
+        return false
     }
 
     private fun readPacket(timeoutMs: Int): ByteArray? {
@@ -210,35 +221,38 @@ class ElkSmartUsbLearner private constructor(
         return buf.copyOf(rc)
     }
 
-    private fun parseLearnPacket(firstPacket: ByteArray): LearnedSignal? {
+    private fun parseLearnPacket(firstPacket: ByteArray, deadline: Long, cancelCheck: () -> Boolean): LearnedSignal? {
+        if (shouldStop(deadline, cancelCheck)) return null
         if (firstPacket.size <= 7 || !firstPacket.hasPrefix(0xFE)) return null
         val expected = ((firstPacket[4].toInt() and 0xFF) shl 8) or (firstPacket[5].toInt() and 0xFF)
         if (expected <= 0) return null
 
         val payload = ArrayList<Byte>(expected)
         appendBytes(payload, firstPacket, 6)
-        while (payload.size < expected && !closed.get()) {
-            val next = readPacket(250) ?: break
+        while (payload.size < expected && !shouldStop(deadline, cancelCheck)) {
+            val next = readPacket((deadline - SystemClock.uptimeMillis()).coerceIn(1, 250).toInt()) ?: break
             appendBytes(payload, next, 0)
         }
+        if (shouldStop(deadline, cancelCheck)) return null
         if (payload.size != expected) {
             Log.w(tag, "learn payload incomplete expected=$expected actual=${payload.size}")
             return null
         }
 
-        val opaque = decodeLearnPayload(payload)
+        val opaque = decodeLearnPayload(payload) ?: return null
         val pattern = decodeOpaqueFrameToPattern(opaque)
         if (pattern.isEmpty()) return null
         return LearnedSignal(pattern, opaque)
     }
 
-    private fun decodeLearnPayload(payload: List<Byte>): ByteArray {
+    private fun decodeLearnPayload(payload: List<Byte>): ByteArray? {
         val out = ArrayList<Byte>(payload.size * 4)
         var carry = 0
         for (byte in payload) {
             val value = byte.toInt() and 0xFF
             if (value < 0xFF) {
                 val decoded = value * 0x10 + carry
+                if (decoded == 0) return null
                 out.add((decoded and 0xFF).toByte())
                 out.add(((decoded ushr 8) and 0xFF).toByte())
                 out.add(((decoded ushr 16) and 0xFF).toByte())
@@ -248,6 +262,7 @@ class ElkSmartUsbLearner private constructor(
                 carry += 0xFF0
             }
         }
+        if (carry != 0) return null
         return out.toByteArray()
     }
 
