@@ -215,13 +215,13 @@ void main() {
     expect(sends, hasLength(1));
     expect(find.text('Macro Completed'), findsOneWidget);
   });
-  testWidgets('native send failure stops the macro and preserves its error',
+  testWidgets('native send failure stops the macro without an unhandled error',
       (tester) async {
     onSend = (_) async => throw PlatformException(code: 'USB_DISCONNECTED');
     await open(tester, [send, send]);
     await start(tester);
-    expect(tester.takeException(), isA<PlatformException>());
     await tester.pumpAndSettle();
+    expect(tester.takeException(), isNull);
     expect(sends, hasLength(1));
     expect(find.textContaining('Failed to send'), findsOneWidget);
     expect(find.text('Macro Completed'), findsNothing);
