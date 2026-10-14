@@ -49,6 +49,14 @@ class CodeTestState extends State<CodeTest> {
   Timer? timer;
 
   @override
+  void dispose() {
+    timer?.cancel();
+    timer = null;
+    isBruteforcing = false;
+    super.dispose();
+  }
+
+  @override
   void initState() {
     if (widget.code != null) {
       deviceCodeString =
