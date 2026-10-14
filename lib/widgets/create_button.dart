@@ -134,6 +134,7 @@ class _CreateButtonState extends State<CreateButton> {
 
   Widget? _imagePreview;
   String? _imagePath;
+  bool _pickingGalleryImage = false;
 
   IconData? _selectedIcon;
   Color? _selectedColor;
@@ -895,15 +896,23 @@ class _CreateButtonState extends State<CreateButton> {
   }
 
   Future<void> _pickImageFromGallery() async {
-    final value = await getImage();
-    if (!mounted) return;
-    if (value == null) return;
-
-    final fimg = File(value);
-    setState(() {
-      _imagePath = value;
-      _imagePreview = Image.file(fimg, fit: BoxFit.contain);
-    });
+    if (_pickingGalleryImage) return;
+    setState(() => _pickingGalleryImage = true);
+    try {
+      final value = await getImage();
+      if (!mounted || value == null) return;
+      setState(() {
+        _imagePath = value;
+        _imagePreview = Image.file(File(value), fit: BoxFit.contain);
+      });
+    } on Exception catch (error) {
+      if (!mounted) return;
+      ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+        content: Text(context.l10n.failedToOpen(error.toString())),
+      ));
+    } finally {
+      if (mounted) setState(() => _pickingGalleryImage = false);
+    }
   }
 
   Future<void> _pickImageFromAssets() async {
@@ -3259,15 +3268,27 @@ class _CreateButtonState extends State<CreateButton> {
                           children: [
                             Expanded(
                               child: FilledButton.icon(
-                                onPressed: _pickImageFromGallery,
-                                icon: const Icon(Icons.photo_library_outlined),
+                                onPressed: _pickingGalleryImage
+                                    ? null
+                                    : _pickImageFromGallery,
+                                icon: _pickingGalleryImage
+                                    ? const SizedBox(
+                                        width: 18,
+                                        height: 18,
+                                        child: CircularProgressIndicator(
+                                          strokeWidth: 2,
+                                        ),
+                                      )
+                                    : const Icon(Icons.photo_library_outlined),
                                 label: Text(context.l10n.gallery),
                               ),
                             ),
                             const SizedBox(width: 12),
                             Expanded(
                               child: FilledButton.tonalIcon(
-                                onPressed: _pickImageFromAssets,
+                                onPressed: _pickingGalleryImage
+                                    ? null
+                                    : _pickImageFromAssets,
                                 icon: const Icon(Icons.grid_view_outlined),
                                 label: Text(context.l10n.builtIn),
                               ),
@@ -3279,7 +3300,8 @@ class _CreateButtonState extends State<CreateButton> {
                           Align(
                             alignment: Alignment.centerRight,
                             child: TextButton.icon(
-                              onPressed: _clearImage,
+                              onPressed:
+                                  _pickingGalleryImage ? null : _clearImage,
                               icon: const Icon(Icons.delete_outline),
                               label: Text(context.l10n.removeImage),
                             ),

@@ -399,13 +399,22 @@ List<Remote> writeDefaultRemotes({String demoRemoteName = ''}) {
   return defaults;
 }
 
-Future<String?> getImage() async {
-  final picker = ImagePicker();
-  final XFile? image = await picker.pickImage(source: ImageSource.gallery);
-  if (image == null) return null;
+bool _galleryPickerActive = false;
 
-  final dir = await _localPath;
-  final filePath = '$dir/${image.name}';
-  await image.saveTo(filePath);
-  return filePath;
+Future<String?> getImage() async {
+  // The native picker is shared, including across editor instances.
+  if (_galleryPickerActive) return null;
+  _galleryPickerActive = true;
+  try {
+    final picker = ImagePicker();
+    final XFile? image = await picker.pickImage(source: ImageSource.gallery);
+    if (image == null) return null;
+
+    final dir = await _localPath;
+    final filePath = '$dir/${image.name}';
+    await image.saveTo(filePath);
+    return filePath;
+  } finally {
+    _galleryPickerActive = false;
+  }
 }
