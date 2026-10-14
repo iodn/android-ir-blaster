@@ -64,6 +64,10 @@ class MainActivity : FlutterActivity() {
     private var usbManager: UsbManager? = null
     private var usbDiscovery: UsbDiscoveryManager? = null
     private var usbTransmitter: UsbIrTransmitter? = null
+        set(value) {
+            field = value
+            if (value != null) usbIdleCleanup.connectionChanged()
+        }
     @Volatile private var usbLearner: UsbLearnerSession? = null
     @Volatile private var usbLearningCancelRequested: Boolean = false
     private var usbState: UsbAvailabilityState = UsbAvailabilityState.NO_DEVICE
@@ -86,6 +90,20 @@ class MainActivity : FlutterActivity() {
     }
 
     private val mainHandler = Handler(Looper.getMainLooper())
+
+    private val usbIdleCleanup: UsbIdleCleanup = UsbIdleCleanup(mainHandler) {
+        val tx = usbTransmitter
+        if (tx == null) {
+            true
+        } else if (tx.closeIfIdle(minIdleMs = 1000L)) {
+            usbTransmitter = null
+            refreshUsbStateSnapshot()
+            emitTxStatus("usb_idle")
+            true
+        } else {
+            false
+        }
+    }
 
     private var txEventSink: EventChannel.EventSink? = null
     private var lastEmittedSnapshot: String? = null
@@ -1024,7 +1042,18 @@ class MainActivity : FlutterActivity() {
         ch.invokeMethod("openShortcut", mapOf("action" to action))
     }
 
+    override fun onStart() {
+        super.onStart()
+        usbIdleCleanup.onStart()
+    }
+
+    override fun onStop() {
+        usbIdleCleanup.onStop()
+        super.onStop()
+    }
+
     override fun onDestroy() {
+        usbIdleCleanup.destroy()
         appUpdates?.close()
         appUpdates = null
         remoteSharing?.close()
@@ -1181,14 +1210,30 @@ class MainActivity : FlutterActivity() {
         usbLearner?.closeSafely()
         usbLearner = null
 
-        try {
-            openUsbIfPermitted()?.let { usbTransmitter = it }
+        // Keep the handshake off the UI thread; publish ownership alongside lifecycle cleanup.
+        val opened = try {
+            val dev = usbDiscovery?.scanSupported()?.firstOrNull()
+            if (dev != null && usbManager?.hasPermission(dev) == true) {
+                usbDiscovery?.openTransmitter(dev)
+            } else null
         } catch (_: Throwable) {
+            null
         }
+        runOnUiThread {
+            if (isDestroyed) {
+                opened?.closeSafely()
+                return@runOnUiThread
+            }
+            if (usbTransmitter == null) {
+                opened?.let { usbTransmitter = it }
+            } else {
+                opened?.closeSafely()
+            }
 
-        refreshUsbStateSnapshot()
-        emitTxStatus(reason)
-        emitTxStatusDelayed("${reason}_delayed", 250L)
+            refreshUsbStateSnapshot()
+            emitTxStatus(reason)
+            emitTxStatusDelayed("${reason}_delayed", 250L)
+        }
     }
 
     private fun getOrOpenUsbTransmitterOrRequest(): UsbIrTransmitter? {

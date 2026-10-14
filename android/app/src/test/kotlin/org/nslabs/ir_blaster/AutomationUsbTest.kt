@@ -109,6 +109,67 @@ class AutomationUsbTest {
         assertFalse(UsbDeviceAccess.isOwned(device.deviceName))
     }
 
+    @Test fun idleCleanupPreservesWidgetLeaseThenAllowsColdSend() {
+        val device = attach(elk = true)
+        val tx = requireNotNull(discovery.openTransmitter(device))
+        toClose += { tx.close() }
+        val borrowed = requireNotNull(UsbDeviceAccess.borrow(device.deviceName))
+        toClose += { borrowed.close() }
+        assertFalse(tx.closeIfIdle())
+        assertEquals(0, RecordingUsbConnection.closes.get())
+        assertEquals(true, borrowed.transmit(38000, request.pattern, SystemClock.uptimeMillis() + 7000))
+        borrowed.close()
+        assertTrue(tx.closeIfIdle())
+        assertFalse(UsbDeviceAccess.isOwned(device.deviceName))
+        assertTrue(manager.hasPermission(device))
+        assertEquals(AutomationResult.SENT, send())
+    }
+
+    @Test fun idleCleanupCannotInterruptManualTransmission() {
+        val device = attach(elk = true)
+        val tx = requireNotNull(discovery.openTransmitter(device))
+        toClose += { tx.close() }
+        RecordingUsbConnection.release = CountDownLatch(1)
+        RecordingUsbConnection.started = CountDownLatch(1)
+        var sent = false
+        val thread = Thread { sent = tx.transmitRaw(38000, request.pattern) }.also { it.start() }
+        try {
+            assertTrue(RecordingUsbConnection.started.await(3, TimeUnit.SECONDS))
+            assertFalse(tx.closeIfIdle())
+            assertEquals(0, RecordingUsbConnection.closes.get())
+        } finally {
+            RecordingUsbConnection.release.countDown()
+            thread.join(3000)
+        }
+        assertTrue(sent)
+        assertTrue(tx.closeIfIdle())
+    }
+
+    @Test fun recentCommandsKeepConnectionUntilQuietPeriodExpires() {
+        val device = attach(elk = true)
+        val tx = requireNotNull(discovery.openTransmitter(device))
+        toClose += { tx.close() }
+        assertTrue(tx.transmitRaw(38000, request.pattern))
+        assertFalse(tx.closeIfIdle(minIdleMs = 1000L))
+        SystemClock.sleep(1000L)
+        assertTrue(tx.transmitRaw(38000, request.pattern))
+        assertFalse(tx.closeIfIdle(minIdleMs = 1000L))
+        SystemClock.sleep(1000L)
+        assertTrue(tx.closeIfIdle(minIdleMs = 1000L))
+    }
+
+    @Test fun idleCleanupWaitsForResponseReader() {
+        val device = attach(elk = true)
+        val tx = requireNotNull(discovery.openTransmitter(device))
+        toClose += { tx.close() }
+        val reader = kotlinx.coroutines.Job()
+        setField(tx, "readerJob", reader)
+        assertFalse(tx.closeIfIdle())
+        assertEquals(0, RecordingUsbConnection.closes.get())
+        reader.cancel()
+        assertTrue(tx.closeIfIdle())
+    }
+
     @Test fun neitherLearnerCanBeDisruptedByAutomation() {
         for (elk in listOf(false, true)) {
             val device = attach(elk = elk)

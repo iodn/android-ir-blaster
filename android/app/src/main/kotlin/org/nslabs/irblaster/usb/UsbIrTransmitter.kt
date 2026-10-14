@@ -33,6 +33,7 @@ class UsbIrTransmitter private constructor(
     private var readerJob: Job? = null
 
     private val txLock = ReentrantLock()
+    private var lastActivityMs = SystemClock.uptimeMillis()
     private val lifetimeLock = Any()
     private var borrowers = 0
     private var closeRequested = false
@@ -136,6 +137,7 @@ class UsbIrTransmitter private constructor(
 
             return true
         } finally {
+            lastActivityMs = SystemClock.uptimeMillis()
             txLock.unlock()
         }
     }
@@ -145,6 +147,22 @@ class UsbIrTransmitter private constructor(
             closeRequested = true
             // A borrowed automation handle keeps the connection alive through its send.
             if (borrowers == 0) closeConnection()
+        }
+    }
+
+    // Background cleanup must not interrupt a send, its response reader, or a widget lease.
+    internal fun closeIfIdle(minIdleMs: Long = 0L): Boolean {
+        if (!txLock.tryLock()) return false
+        try {
+            return synchronized(lifetimeLock) {
+                if (borrowers != 0 || readerJob?.isActive == true ||
+                    SystemClock.uptimeMillis() - lastActivityMs < minIdleMs) return@synchronized false
+                closeRequested = true
+                closeConnection()
+                true
+            }
+        } finally {
+            txLock.unlock()
         }
     }
 
