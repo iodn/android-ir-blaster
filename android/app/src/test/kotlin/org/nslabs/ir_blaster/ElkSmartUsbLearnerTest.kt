@@ -47,6 +47,14 @@ class ElkSmartUsbLearnerTest {
         assertNull(capture(0xff, 0xff))
     }
 
+    @Test fun replyAtAttemptDeadlineDoesNotSuppressAuthorizationRetry() {
+        ElkLearningConnection.firstIdentifyNoiseMs = 500L
+        ElkLearningConnection.packets.add(frame(6, 0x23, 0x23, 0x23, 0x23, 0x23, 0x23))
+        val signal = requireNotNull(learner.learn(3000) { false })
+        assertArrayEquals(IntArray(6) { 560 }, signal.rawPatternUs)
+        assertEquals(2, ElkLearningConnection.writes.count { it == 0xfc })
+    }
+
     @Test fun preservesValidExtensionIncludingZeroTerminator() {
         val signal = requireNotNull(capture(0xff, 0, 0xff, 0xff, 0x23, 0x23))
         assertArrayEquals(intArrayOf(4080, 8720, 560), signal.rawPatternUs)
@@ -133,6 +141,17 @@ class ElkLearningConnection {
             return length
         }
         if (identify) {
+            if (firstIdentifyNoiseMs > 0) {
+                val elapsed = minOf(firstIdentifyNoiseMs, timeout.toLong())
+                SystemClock.sleep(elapsed)
+                firstIdentifyNoiseMs -= elapsed
+                if (firstIdentifyNoiseMs == 0L) {
+                    identify = false
+                    buffer[0] = 0
+                    return 1
+                }
+                return -1
+            }
             identify = false
             byteArrayOf(-4, -4, -4, -4, 2, -86).copyInto(buffer)
             return 6
@@ -163,6 +182,7 @@ class ElkLearningConnection {
         var captureReads = 0
         var captureReadDelayMs = 0L
         var onCaptureRead: (() -> Unit)? = null
+        var firstIdentifyNoiseMs = 0L
 
         fun reset() {
             packets.clear()
@@ -172,6 +192,7 @@ class ElkLearningConnection {
             captureReads = 0
             captureReadDelayMs = 0L
             onCaptureRead = null
+            firstIdentifyNoiseMs = 0L
         }
     }
 }

@@ -164,7 +164,7 @@ class ElkSmartUsbLearner private constructor(
             val deadline = minOf(sessionDeadline, SystemClock.uptimeMillis() + 500L)
             while (!shouldStop(deadline, cancelCheck)) {
                 val packet = readPacket((deadline - SystemClock.uptimeMillis()).coerceIn(1, 120).toInt()) ?: continue
-                if (shouldStop(deadline, cancelCheck)) return false
+                if (shouldStop(sessionDeadline, cancelCheck)) return false
                 if (packet.size == 6 && packet.hasPrefix(0xFC)) {
                     Log.i(
                         tag,
