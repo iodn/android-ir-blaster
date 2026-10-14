@@ -428,16 +428,18 @@ class _RemoteStudioScreenState extends State<RemoteStudioScreen> {
   }
 
   Future<void> _renameRemoteInline() async {
-    final controller = TextEditingController(text: _draft.name);
+    var name = _draft.name;
     final result = await showDialog<String>(
       context: context,
       builder: (dialogContext) => AlertDialog(
         title: Text(context.l10n.remoteName),
-        content: TextField(
-          controller: controller,
+        content: TextFormField(
+          initialValue: name,
+          onChanged: (value) => name = value,
           textInputAction: TextInputAction.done,
           autofocus: true,
-          onSubmitted: (value) => Navigator.of(dialogContext).pop(value.trim()),
+          onFieldSubmitted: (value) =>
+              Navigator.of(dialogContext).pop(value.trim()),
           decoration: InputDecoration(
             hintText: context.l10n.remoteNameHint,
           ),
@@ -448,14 +450,12 @@ class _RemoteStudioScreenState extends State<RemoteStudioScreen> {
             child: Text(context.l10n.cancel),
           ),
           FilledButton(
-            onPressed: () =>
-                Navigator.of(dialogContext).pop(controller.text.trim()),
+            onPressed: () => Navigator.of(dialogContext).pop(name.trim()),
             child: Text(context.l10n.done),
           ),
         ],
       ),
     );
-    controller.dispose();
     if (result == null || !mounted) return;
     setState(() {
       _draft.updateName(result.isEmpty ? context.l10n.untitledRemote : result);

@@ -53,6 +53,24 @@ void main() {
 
   tearDown(clearLastAction);
 
+  testWidgets('inline rename survives rebuild while dialog closes',
+      (tester) async {
+    await tester.pumpWidget(app(RemoteStudioScreen(
+        initialDraft: RemoteEditorDraft.fromRemote(remote()))));
+    await tester.pumpAndSettle();
+    await tester.tap(find.text('TV'));
+    await tester.pumpAndSettle();
+    await tester.enterText(find.byType(TextField), 'Living room');
+    await tester.tap(find.text('Done'));
+    await tester.pump();
+    tester.view.viewInsets = const FakeViewPadding(bottom: 100);
+    addTearDown(tester.view.resetViewInsets);
+    await tester.pump();
+    await tester.pumpAndSettle();
+    expect(tester.takeException(), isNull);
+    expect(find.text('Living room'), findsOneWidget);
+  });
+
   testWidgets('tap to move, drag to swap, empty rows and Undo', (tester) async {
     final original = remote();
     await tester.pumpWidget(app(RemoteStudioScreen(
