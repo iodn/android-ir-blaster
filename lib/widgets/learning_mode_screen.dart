@@ -45,6 +45,9 @@ class _LearningModeScreenState extends State<LearningModeScreen>
   IrTransmitterType? _preferredType;
   LearnedUsbSignal? _capturedSignal;
   bool _busy = false;
+  int _usbLearningGeneration = 0;
+  bool _usbListening = false;
+  bool _usbCancelPending = false;
   String? _errorText;
   _LearningCaptureState _captureState = _LearningCaptureState.idle;
   _LearningSaveTarget _saveTarget = _LearningSaveTarget.existingRemote;
@@ -79,6 +82,10 @@ class _LearningModeScreenState extends State<LearningModeScreen>
 
   @override
   void dispose() {
+    _usbLearningGeneration++;
+    if (_usbListening && !_usbCancelPending) {
+      unawaited(IrTransmitterPlatform.cancelUsbLearning().catchError((_) => false));
+    }
     _capsSub?.cancel();
     _replayLoopTimer?.cancel();
     _buttonNameCtrl.dispose();
@@ -281,6 +288,9 @@ class _LearningModeScreenState extends State<LearningModeScreen>
 
   Future<void> _startListening() async {
     if (!_hardwareReady || _busy) return;
+    final usb = !_huaweiInternalSelected && !_lgInternalSelected;
+    final generation = usb ? ++_usbLearningGeneration : null;
+    if (usb) _usbListening = true;
     setState(() {
       _busy = true;
       _errorText = null;
@@ -289,6 +299,7 @@ class _LearningModeScreenState extends State<LearningModeScreen>
     });
     _pulseController.repeat(reverse: true);
     await Haptics.mediumImpact();
+    if (!mounted || (usb && generation != _usbLearningGeneration)) return;
 
     try {
       final learned = _huaweiInternalSelected
@@ -296,7 +307,7 @@ class _LearningModeScreenState extends State<LearningModeScreen>
           : _lgInternalSelected
               ? await IrTransmitterPlatform.learnLgSignal(timeoutMs: 30000)
               : await IrTransmitterPlatform.learnUsbSignal(timeoutMs: 30000);
-      if (!mounted) return;
+      if (!mounted || (usb && generation != _usbLearningGeneration)) return;
       _pulseController.stop();
       _pulseController.reset();
       if (learned == null) {
@@ -331,7 +342,7 @@ class _LearningModeScreenState extends State<LearningModeScreen>
       });
       await Haptics.selectionClick();
     } catch (e) {
-      if (!mounted) return;
+      if (!mounted || (usb && generation != _usbLearningGeneration)) return;
       _pulseController.stop();
       _pulseController.reset();
       final message = e is PlatformException
@@ -345,6 +356,8 @@ class _LearningModeScreenState extends State<LearningModeScreen>
       ScaffoldMessenger.of(context)
         ..hideCurrentSnackBar()
         ..showSnackBar(SnackBar(content: Text(message)));
+    } finally {
+      if (usb && generation == _usbLearningGeneration) _usbListening = false;
     }
   }
 
@@ -421,9 +434,17 @@ class _LearningModeScreenState extends State<LearningModeScreen>
   }
 
   Future<void> _stopListening() async {
+    if (_usbCancelPending) return;
+    final usb = _usbListening;
+    if (usb) {
+      _usbLearningGeneration++;
+      _usbCancelPending = true;
+    }
     setState(() => _busy = true);
     try {
-      if (_huaweiInternalSelected) {
+      if (usb) {
+        await IrTransmitterPlatform.cancelUsbLearning();
+      } else if (_huaweiInternalSelected) {
         await IrTransmitterPlatform.cancelHuaweiLearning();
       } else if (_lgInternalSelected) {
         await IrTransmitterPlatform.cancelLgLearning();
@@ -435,6 +456,10 @@ class _LearningModeScreenState extends State<LearningModeScreen>
     _pulseController.stop();
     _pulseController.reset();
     setState(() {
+      if (usb) {
+        _usbListening = false;
+        _usbCancelPending = false;
+      }
       _busy = false;
       _captureState = _LearningCaptureState.idle;
     });
@@ -1176,7 +1201,9 @@ class _LearningModeScreenState extends State<LearningModeScreen>
               )
             else
               OutlinedButton.icon(
-                onPressed: _busy ? null : _stopListening,
+                onPressed: _usbListening
+                    ? (_usbCancelPending ? null : _stopListening)
+                    : (_busy ? null : _stopListening),
                 icon: const Icon(Icons.stop_circle_outlined),
                 label: Text(context.l10n.cancel),
               ),

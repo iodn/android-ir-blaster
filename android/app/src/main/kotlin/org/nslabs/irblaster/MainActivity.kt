@@ -20,6 +20,7 @@ import android.media.AudioManager
 import android.os.Build
 import android.os.Handler
 import android.os.Looper
+import android.os.SystemClock
 import android.os.VibrationEffect
 import android.os.VibrationAttributes
 import android.os.Vibrator
@@ -68,8 +69,12 @@ class MainActivity : FlutterActivity() {
             field = value
             if (value != null) usbIdleCleanup.connectionChanged()
         }
-    @Volatile private var usbLearner: UsbLearnerSession? = null
-    @Volatile private var usbLearningCancelRequested: Boolean = false
+    internal class UsbLearningOperation {
+        @Volatile var cancelled = false
+        val cancellationResults = mutableListOf<MethodChannel.Result>()
+    }
+    @Volatile private var usbLearningOperation: UsbLearningOperation? = null
+    @Volatile private var usbActivityDestroyed = false
     private var usbState: UsbAvailabilityState = UsbAvailabilityState.NO_DEVICE
     private var usbStateMessage: String? = null
 
@@ -234,7 +239,7 @@ class MainActivity : FlutterActivity() {
     }
 
     private fun acquireUsbTransmitter(requestPermissionIfNeeded: Boolean): UsbAcquireResult {
-        if (usbLearner != null) {
+        if (usbLearningOperation != null) {
             setUsbState(UsbAvailabilityState.OPEN_FAILED, "USB dongle is busy in learning mode.")
             return UsbAcquireResult(null, UsbAvailabilityState.OPEN_FAILED)
         }
@@ -398,6 +403,7 @@ class MainActivity : FlutterActivity() {
                         "USB detached vid=0x${dev.vendorId.toString(16)} pid=0x${dev.productId.toString(16)}"
                     )
                     if (UsbDeviceFilter.hasKnownVidPid(dev)) {
+                        usbLearningOperation?.cancelled = true
                         usbTransmitter?.closeSafely()
                         usbTransmitter = null
                     }
@@ -1053,6 +1059,8 @@ class MainActivity : FlutterActivity() {
     }
 
     override fun onDestroy() {
+        usbActivityDestroyed = true
+        usbLearningOperation?.cancelled = true
         usbIdleCleanup.destroy()
         appUpdates?.close()
         appUpdates = null
@@ -1068,8 +1076,7 @@ class MainActivity : FlutterActivity() {
         }
         txEventSink = null
         homeWidgetChannel = null
-        usbLearner?.closeSafely()
-        usbLearner = null
+        // The USB worker owns protocol shutdown and closes its local handle.
         audioLearner?.cancel()
         audioLearner = null
         huaweiLearner?.cancel()
@@ -1112,6 +1119,7 @@ class MainActivity : FlutterActivity() {
     }
 
     private fun openUsbDevice(device: UsbDevice): UsbIrTransmitter? {
+        if (usbLearningOperation != null || usbActivityDestroyed) return null
         // Repeated attach/permission events must not try to claim our own active session.
         usbTransmitter?.let { if (it.device == device) return it }
         val disc = usbDiscovery ?: return null
@@ -1185,6 +1193,7 @@ class MainActivity : FlutterActivity() {
     }
 
     private fun beginUsbLearningSession(predicate: (UsbDevice) -> Boolean): UsbDevice? {
+        if (usbLearningOperation != null || usbActivityDestroyed) return null
         val disc = usbDiscovery ?: return null
         val mgr = usbManager ?: return null
         val dev = try {
@@ -1196,8 +1205,7 @@ class MainActivity : FlutterActivity() {
             return null
         }
 
-        usbLearner?.closeSafely()
-        usbLearner = null
+        usbLearningOperation = UsbLearningOperation()
         usbTransmitter?.closeSafely()
         usbTransmitter = null
         refreshUsbStateSnapshot()
@@ -1206,22 +1214,23 @@ class MainActivity : FlutterActivity() {
         return dev
     }
 
-    private fun endUsbLearningSession(reason: String) {
-        usbLearner?.closeSafely()
-        usbLearner = null
-
+    private fun endUsbLearningSession(operation: UsbLearningOperation, reason: String, complete: () -> Unit) {
         // Keep the handshake off the UI thread; publish ownership alongside lifecycle cleanup.
         val opened = try {
             val dev = usbDiscovery?.scanSupported()?.firstOrNull()
-            if (dev != null && usbManager?.hasPermission(dev) == true) {
-                usbDiscovery?.openTransmitter(dev)
+            if (!usbActivityDestroyed && usbLearningOperation === operation &&
+                dev != null && usbManager?.hasPermission(dev) == true) {
+                usbDiscovery?.openTransmitter(dev, deadlineMs = SystemClock.uptimeMillis() + 3000L)
             } else null
         } catch (_: Throwable) {
             null
         }
         runOnUiThread {
-            if (isDestroyed) {
+            if (usbActivityDestroyed || usbLearningOperation !== operation) {
                 opened?.closeSafely()
+                if (usbLearningOperation === operation) usbLearningOperation = null
+                operation.cancellationResults.forEach { it.success(true) }
+                operation.cancellationResults.clear()
                 return@runOnUiThread
             }
             if (usbTransmitter == null) {
@@ -1233,6 +1242,10 @@ class MainActivity : FlutterActivity() {
             refreshUsbStateSnapshot()
             emitTxStatus(reason)
             emitTxStatusDelayed("${reason}_delayed", 250L)
+            usbLearningOperation = null
+            complete()
+            operation.cancellationResults.forEach { it.success(true) }
+            operation.cancellationResults.clear()
         }
     }
 
@@ -1538,7 +1551,7 @@ class MainActivity : FlutterActivity() {
             result.error("LEARN_UNSUPPORTED", "Learning Mode supports compatible USB IR dongles only.", null)
             return
         }
-        if (usbLearner != null) {
+        if (usbLearningOperation != null) {
             result.error("LEARN_BUSY", "USB learning is already active", null)
             return
         }
@@ -1573,51 +1586,43 @@ class MainActivity : FlutterActivity() {
             result.error("LEARN_OPEN_FAILED", "The USB IR dongle could not be prepared for learning", null)
             return
         }
-        usbLearningCancelRequested = false
+        val operation = checkNotNull(usbLearningOperation)
 
         Thread {
             var learner: UsbLearnerSession? = null
+            var learned: Map<String, Any?>? = null
+            var failure: Throwable? = null
             try {
-                val learned: Map<String, Any?>? = when {
+                learned = when {
+                    operation.cancelled -> null
                     UsbDeviceFilter.isTiqiaaTviewFamily(sessionDevice) -> {
                         val tiqiaaLearner = openTiqiaaLearnerDevice(sessionDevice)
                         learner = tiqiaaLearner
-                        tiqiaaLearner?.learn(timeoutMs) { usbLearningCancelRequested }?.toWireMap()
+                        if (operation.cancelled) null else
+                            tiqiaaLearner?.learn(timeoutMs) { operation.cancelled }?.toWireMap()
                     }
                     UsbDeviceFilter.isElkSmart(sessionDevice) -> {
                         val elkLearner = openElkSmartLearnerDevice(sessionDevice)
                         learner = elkLearner
-                        elkLearner?.learn(timeoutMs) { usbLearningCancelRequested }?.toWireMap()
+                        if (operation.cancelled) null else
+                            elkLearner?.learn(timeoutMs) { operation.cancelled }?.toWireMap()
                     }
                     else -> null
                 }
-
-                if (learner == null) {
-                    runOnUiThread {
-                        result.error("LEARN_OPEN_FAILED", "The USB IR dongle could not be opened for learning", null)
-                    }
-                    return@Thread
-                }
-
-                usbLearner = learner
-                runOnUiThread {
-                    if (usbLearningCancelRequested) {
-                        result.success(null)
-                    } else if (learned != null) {
-                        result.success(learned)
-                    } else {
-                        result.error("LEARN_TIMEOUT", "No IR signal was captured before the listening window expired", null)
-                    }
-                }
             } catch (t: Throwable) {
                 Log.w(TAG, "learnUsbSignal failed: ${t.message}", t)
-                runOnUiThread {
-                    result.error("LEARN_FAILED", t.message ?: "USB learning failed", null)
-                }
+                failure = t
             } finally {
-                usbLearningCancelRequested = false
                 learner?.closeSafely()
-                endUsbLearningSession("usb_learning_finished")
+                endUsbLearningSession(operation, "usb_learning_finished") {
+                    when {
+                        operation.cancelled -> result.success(null)
+                        failure != null -> result.error("LEARN_FAILED", failure?.message ?: "USB learning failed", null)
+                        learner == null -> result.error("LEARN_OPEN_FAILED", "The USB IR dongle could not be opened for learning", null)
+                        learned != null -> result.success(learned)
+                        else -> result.error("LEARN_TIMEOUT", "No IR signal was captured before the listening window expired", null)
+                    }
+                }
             }
         }.start()
     }
@@ -1671,8 +1676,9 @@ class MainActivity : FlutterActivity() {
     }
 
     private fun handleCancelUsbLearning(result: MethodChannel.Result) {
-        usbLearningCancelRequested = true
-        usbLearner?.cancel()
+        val operation = usbLearningOperation
+        // Let the worker leave its read loop and shut down the protocol serially.
+        operation?.cancelled = true
         audioLearningCancelRequested = true
         audioLearner?.cancel()
         // Also cancel any concurrent internal-hardware learning sessions so a
@@ -1681,7 +1687,8 @@ class MainActivity : FlutterActivity() {
         huaweiLearner?.cancel()
         lgLearningCancelRequested = true
         lgLearner?.cancel()
-        result.success(true)
+        if (operation == null) result.success(true)
+        else operation.cancellationResults.add(result)
     }
 
     private fun handleLearnHuaweiSignal(call: MethodCall, result: MethodChannel.Result) {
@@ -1850,6 +1857,11 @@ class MainActivity : FlutterActivity() {
             return
         }
 
+        if (usbLearningOperation != null) {
+            result.error("LEARN_BUSY", "USB learning or replay is already active", null)
+            return
+        }
+
         val disc = usbDiscovery
         val mgr = usbManager
         if (disc == null || mgr == null) {
@@ -1882,25 +1894,27 @@ class MainActivity : FlutterActivity() {
             result.error("LEARNED_REPLAY_FAILED", "The USB IR dongle could not be prepared for replay", null)
             return
         }
+        val operation = checkNotNull(usbLearningOperation)
 
         Thread {
             var learner: UsbLearnerSession? = null
+            var ok = false
+            var failure: Throwable? = null
             try {
-                val ok = when (family) {
+                ok = if (operation.cancelled) false else when (family) {
                     "tiqiaa" -> {
                         val tiqiaaLearner = openTiqiaaLearnerDevice(sessionDevice)
                         learner = tiqiaaLearner
-                        usbLearner = tiqiaaLearner
-                        tiqiaaLearner?.replayOpaqueFrame(frame) == true
+                        !operation.cancelled && tiqiaaLearner?.replayOpaqueFrame(frame) == true
                     }
                     "elksmart" -> {
                         val pattern = ElkSmartUsbLearner.decodeOpaqueFrameToPattern(frame)
                         if (pattern.isEmpty()) {
                             false
                         } else {
-                            val tx = openUsbDevice(sessionDevice)
+                            val tx = usbDiscovery?.openTransmitter(sessionDevice, deadlineMs = SystemClock.uptimeMillis() + 3000L)
                             try {
-                                tx?.transmitRaw(38000, pattern) == true
+                                !operation.cancelled && tx?.transmitRaw(38000, pattern) == true
                             } finally {
                                 tx?.closeSafely()
                             }
@@ -1908,21 +1922,19 @@ class MainActivity : FlutterActivity() {
                     }
                     else -> false
                 }
-                runOnUiThread {
-                    if (ok) {
-                        result.success(true)
-                    } else {
-                        result.error("LEARNED_REPLAY_FAILED", "The learned signal could not be replayed", null)
-                    }
-                }
             } catch (t: Throwable) {
                 Log.w(TAG, "replayLearnedUsbSignal failed: ${t.message}", t)
-                runOnUiThread {
-                    result.error("LEARNED_REPLAY_FAILED", t.message ?: "Replay failed", null)
-                }
+                failure = t
             } finally {
                 learner?.closeSafely()
-                endUsbLearningSession("usb_learning_replay_finished")
+                endUsbLearningSession(operation, "usb_learning_replay_finished") {
+                    when {
+                        operation.cancelled -> result.success(false)
+                        failure != null -> result.error("LEARNED_REPLAY_FAILED", failure?.message ?: "Replay failed", null)
+                        ok -> result.success(true)
+                        else -> result.error("LEARNED_REPLAY_FAILED", "The learned signal could not be replayed", null)
+                    }
+                }
             }
         }.start()
     }
