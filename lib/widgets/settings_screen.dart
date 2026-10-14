@@ -156,11 +156,7 @@ class SettingsScreen extends StatelessWidget {
     final result = await importRemotesFromPicker(context, current: remotes);
     if (result == null) return;
 
-    final isFailure = result.message.toLowerCase().contains('failed') ||
-        result.message.toLowerCase().contains('unsupported') ||
-        result.message.toLowerCase().contains('invalid');
-
-    if (result.remotes.isEmpty && isFailure) {
+    if (!result.success) {
       if (!context.mounted) return;
       ScaffoldMessenger.of(context)
           .showSnackBar(SnackBar(content: Text(result.message)));
@@ -188,11 +184,7 @@ class SettingsScreen extends StatelessWidget {
         await importRemotesFromFolderPicker(context, current: remotes);
     if (result == null) return;
 
-    final isFailure = result.message.toLowerCase().contains('failed') ||
-        result.message.toLowerCase().contains('unsupported') ||
-        result.message.toLowerCase().contains('invalid');
-
-    if (result.remotes.isEmpty && isFailure) {
+    if (!result.success) {
       if (!context.mounted) return;
       ScaffoldMessenger.of(context)
           .showSnackBar(SnackBar(content: Text(result.message)));

@@ -19,11 +19,13 @@ class ImportResult {
   final List<Remote> remotes;
   final List<TimedMacro>? macros;
   final String message;
+  final bool success;
 
   const ImportResult({
     required this.remotes,
     required this.macros,
     required this.message,
+    this.success = true,
   });
 }
 
@@ -372,6 +374,7 @@ Future<ImportResult?> importRemotesFromPicker(
     return ImportResult(
       remotes: <Remote>[],
       macros: null,
+      success: false,
       message: l10n.importFailedInvalidUnreadableFile,
     );
   }
@@ -384,6 +387,7 @@ Future<ImportResult?> importRemotesFromPicker(
     return ImportResult(
       remotes: <Remote>[],
       macros: null,
+      success: false,
       message: l10n.unsupportedFileTypeSelected,
     );
   }
@@ -421,6 +425,7 @@ Future<ImportResult?> importRemotesFromPicker(
           return ImportResult(
             remotes: <Remote>[],
             macros: null,
+            success: false,
             message: l10n.importFailedRemotesMustBeList,
           );
         }
@@ -428,6 +433,7 @@ Future<ImportResult?> importRemotesFromPicker(
           return ImportResult(
             remotes: <Remote>[],
             macros: null,
+            success: false,
             message: l10n.importFailedMacrosMustBeList,
           );
         }
@@ -465,6 +471,7 @@ Future<ImportResult?> importRemotesFromPicker(
           return ImportResult(
             remotes: <Remote>[],
             macros: null,
+            success: false,
             message: l10n.importFailedInvalidBackupFormat,
           );
         }
@@ -484,6 +491,7 @@ Future<ImportResult?> importRemotesFromPicker(
       return ImportResult(
         remotes: <Remote>[],
         macros: null,
+        success: false,
         message: l10n.importFailedInvalidBackupFormat,
       );
     }
@@ -498,6 +506,7 @@ Future<ImportResult?> importRemotesFromPicker(
         return ImportResult(
           remotes: <Remote>[],
           macros: null,
+          success: false,
           message: l10n.importFailedNoValidButtonsInIr,
         );
       }
@@ -523,6 +532,7 @@ Future<ImportResult?> importRemotesFromPicker(
         return ImportResult(
           remotes: <Remote>[],
           macros: null,
+          success: false,
           message: l10n.importFailedInvalidIrplus,
         );
       }
@@ -552,6 +562,7 @@ Future<ImportResult?> importRemotesFromPicker(
         return ImportResult(
           remotes: <Remote>[],
           macros: null,
+          success: false,
           message: l10n.importFailedInvalidLirc,
         );
       }
@@ -568,12 +579,14 @@ Future<ImportResult?> importRemotesFromPicker(
     return ImportResult(
       remotes: <Remote>[],
       macros: null,
+      success: false,
       message: l10n.unsupportedFileTypeSelected,
     );
   } catch (_) {
     return ImportResult(
       remotes: <Remote>[],
       macros: null,
+      success: false,
       message: l10n.importFailedInvalidUnreadableFile,
     );
   }
@@ -609,6 +622,7 @@ Future<ImportResult?> importRemotesFromFolderPicker(
     return ImportResult(
       remotes: current,
       macros: null,
+      success: false,
       message: l10n.folderNotFoundOrInaccessible,
     );
   }
@@ -702,6 +716,7 @@ Future<ImportResult?> importRemotesFromFolderPicker(
       return ImportResult(
         remotes: current,
         macros: null,
+        success: false,
         message: l10n.storagePermissionDenied,
       );
     }
@@ -710,6 +725,7 @@ Future<ImportResult?> importRemotesFromFolderPicker(
       return ImportResult(
         remotes: current,
         macros: null,
+        success: false,
         message: l10n.storagePermissionDenied,
       );
     }
@@ -720,6 +736,7 @@ Future<ImportResult?> importRemotesFromFolderPicker(
       return ImportResult(
         remotes: current,
         macros: null,
+        success: false,
         message: l10n.bulkImportFailedReadFolder,
       );
     }

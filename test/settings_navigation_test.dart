@@ -1,9 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:file_picker/file_picker.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:irblaster_controller/config/build_flags.dart';
 import 'package:irblaster_controller/l10n/app_localizations.dart';
 import 'package:irblaster_controller/state/startup_prefs.dart';
+import 'package:irblaster_controller/state/remotes_state.dart' as state;
+import 'package:irblaster_controller/utils/remote.dart';
 import 'package:irblaster_controller/widgets/settings/widgets/section_card.dart';
 import 'package:irblaster_controller/widgets/settings_screen.dart';
 import 'package:package_info_plus/package_info_plus.dart';
@@ -65,6 +68,29 @@ void main() {
       const MethodChannel('org.nslabs/irtransmitter_events'),
       (_) async => null,
     );
+  });
+
+  testWidgets('failed Japanese backup import preserves existing remotes',
+      (tester) async {
+    final previous = state.remotes;
+    final picker = FilePickerPlatform.instance;
+    addTearDown(() {
+      state.remotes = previous;
+      FilePickerPlatform.instance = picker;
+    });
+    final original = Remote(id: 100, name: 'TV', buttons: []);
+    state.remotes = [original];
+    FilePickerPlatform.instance = _UnreadableBackupPicker();
+    await tester.pumpWidget(settings(locale: const Locale('ja')));
+    await tester.pumpAndSettle();
+    final l10n =
+        AppLocalizations.of(tester.element(find.byType(SettingsScreen)))!;
+    await openCategory(tester, l10n.backupTitle);
+    await tester.tap(find.text(l10n.importBackup));
+    await tester.pumpAndSettle();
+    expect(state.remotes, [original]);
+    expect(find.text(l10n.importFailedInvalidUnreadableFile), findsOneWidget);
+    expect(tester.takeException(), isNull);
   });
 
   testWidgets(
@@ -198,4 +224,29 @@ void main() {
       }
     });
   }
+}
+
+class _UnreadableBackupPicker extends FilePickerPlatform {
+  @override
+  Future<PlatformFile?> pickFile({
+    String? dialogTitle,
+    String? initialDirectory,
+    FileType type = FileType.any,
+    List<String>? allowedExtensions,
+    Function(FilePickerStatus)? onFileLoading,
+    int compressionQuality = 0,
+    AndroidOptions androidOptions = const AndroidOptions(),
+    DarwinOptions darwinOptions = const DarwinOptions(),
+    WindowsOptions windowsOptions = const WindowsOptions(),
+    LinuxOptions linuxOptions = const LinuxOptions(),
+    WebOptions webOptions = const WebOptions(),
+  }) async =>
+      _UnreadableBackup();
+}
+
+final class _UnreadableBackup extends PlatformFile {
+  @override
+  String? get path => null;
+  @override
+  dynamic noSuchMethod(Invocation invocation) => super.noSuchMethod(invocation);
 }
