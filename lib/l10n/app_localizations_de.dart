@@ -486,7 +486,7 @@ class AppLocalizationsDe extends AppLocalizations {
 
   @override
   String get learningModeEntrySubtitle =>
-      'Erfassen Sie Schritt für Schritt eine Taste von einer physischen Fernbedienung';
+      'Das IR-Signal einer Fernbedienungstaste übernehmen.';
 
   @override
   String get learningModeTitle => 'Lernmodus';
@@ -561,7 +561,7 @@ class AppLocalizationsDe extends AppLocalizations {
 
   @override
   String get learningModeHardwarePermissionBody =>
-      'Ein USB-Dongle ist vorhanden, aber die Android-Berechtigung blockiert ihn immer noch. Erteilen Sie vor dem Lernen die USB-Berechtigung im Senderbereich.';
+      'Erlauben Sie den Zugriff auf den USB-Dongle und starten Sie dann den Lernvorgang.';
 
   @override
   String get learningModeHardwareSetupBody =>
@@ -569,10 +569,10 @@ class AppLocalizationsDe extends AppLocalizations {
 
   @override
   String get learningModeHardwareNoReceiverBody =>
-      'Derzeit ist keine kompatible Receiver-Hardware verfügbar. Der Lernmodus ist für unterstützte externe Dongles mit Empfangsfunktion vorgesehen.';
+      'Schließen Sie zum Lernen von Signalen einen kompatiblen IR-Empfänger an.';
 
   @override
-  String get learningModeRefreshHardware => 'Hardwarestatus aktualisieren';
+  String get learningModeRefreshHardware => 'Empfänger prüfen';
 
   @override
   String get learningModeHardwareTipTitle => 'Beste Platzierung';
@@ -684,7 +684,7 @@ class AppLocalizationsDe extends AppLocalizations {
 
   @override
   String get learningModeStatusListeningBody =>
-      'Drücken Sie jetzt die Original-Fernbedienungstaste. Sobald die Erfassung verkabelt ist, wird dieser Zustand auf das nächste saubere Signal fixiert.';
+      'Richten Sie die Originalfernbedienung auf den Empfänger und drücken Sie die Taste einmal.';
 
   @override
   String learningModeStatusCapturedBody(Object buttonName) {
@@ -692,8 +692,7 @@ class AppLocalizationsDe extends AppLocalizations {
   }
 
   @override
-  String get learningModeConnectReceiverTitle =>
-      'Schließen Sie einen kompatiblen Lerndongle an';
+  String get learningModeConnectReceiverTitle => 'IR-Empfänger anschließen';
 
   @override
   String get learningModeConnectReceiverBody =>
@@ -711,7 +710,7 @@ class AppLocalizationsDe extends AppLocalizations {
 
   @override
   String get learningModeReadyToListenBody =>
-      'Dies ist die Hauptfangfläche. Beginnen Sie erst mit dem Hören, wenn die Originalfernbedienung ausgerichtet und stabil ist.';
+      'Richten Sie die Originalfernbedienung auf den Empfänger und starten Sie die Aufnahme.';
 
   @override
   String get learningModeListeningNowTitle => 'Jetzt zuhören';
@@ -725,7 +724,7 @@ class AppLocalizationsDe extends AppLocalizations {
       'Vorschau des erfassten Signals';
 
   @override
-  String get learningModeCapturedSummary => 'Vorschau des gelernten Signals';
+  String get learningModeCapturedSummary => 'Erfasstes Signal';
 
   @override
   String get learningModeResultActionsTitle => 'Testen und speichern';
@@ -746,8 +745,7 @@ class AppLocalizationsDe extends AppLocalizations {
       'Save ist noch nicht verkabelt. Der nächste Schritt besteht darin, diesen Bildschirm mit der Schaltfläche „Erstellen“ und vorhandenen Fernbedienungen zu verbinden.';
 
   @override
-  String get learningModeLearnAnotherAction =>
-      'Lernen Sie eine weitere Schaltfläche';
+  String get learningModeLearnAnotherAction => 'Weitere Taste lernen';
 
   @override
   String get learningModeStepReviewTitle => 'Überprüfen und speichern';
@@ -770,7 +768,7 @@ class AppLocalizationsDe extends AppLocalizations {
       'Die entschlüsselten Protokolldetails werden hier angezeigt, sobald der Empfänger einen sauberen Tastendruck erfasst.';
 
   @override
-  String get learningModeRawPreviewTitle => 'Roher Fallback';
+  String get learningModeRawPreviewTitle => 'Rohdaten';
 
   @override
   String get learningModeRawPreviewBody =>

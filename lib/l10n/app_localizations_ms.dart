@@ -480,7 +480,7 @@ class AppLocalizationsMs extends AppLocalizations {
 
   @override
   String get learningModeEntrySubtitle =>
-      'Tangkap butang dari jarak jauh fizikal langkah demi langkah';
+      'Salin isyarat IR daripada butang alat kawalan jauh anda.';
 
   @override
   String get learningModeTitle => 'Mod Pembelajaran';
@@ -552,7 +552,7 @@ class AppLocalizationsMs extends AppLocalizations {
 
   @override
   String get learningModeHardwarePermissionBody =>
-      'Dongle USB ada, tetapi kebenaran Android masih menyekatnya. Berikan kebenaran USB di bahagian pemancar sebelum belajar.';
+      'Benarkan akses kepada penyesuai USB, kemudian mulakan pembelajaran isyarat.';
 
   @override
   String get learningModeHardwareSetupBody =>
@@ -560,10 +560,10 @@ class AppLocalizationsMs extends AppLocalizations {
 
   @override
   String get learningModeHardwareNoReceiverBody =>
-      'Tiada perkakasan penerima yang serasi tersedia pada masa ini. Mod pembelajaran bertujuan untuk dongle luaran yang disokong dengan keupayaan menerima.';
+      'Sambungkan penerima IR yang serasi untuk mempelajari isyarat.';
 
   @override
-  String get learningModeRefreshHardware => 'Muat semula status perkakasan';
+  String get learningModeRefreshHardware => 'Semak penerima';
 
   @override
   String get learningModeHardwareTipTitle => 'Penempatan terbaik';
@@ -672,7 +672,7 @@ class AppLocalizationsMs extends AppLocalizations {
 
   @override
   String get learningModeStatusListeningBody =>
-      'Tekan butang jauh asal sekarang. Setelah tangkapan disambungkan, keadaan ini akan terkunci pada isyarat bersih seterusnya.';
+      'Halakan alat kawalan jauh asal ke penerima dan tekan butang sekali.';
 
   @override
   String learningModeStatusCapturedBody(Object buttonName) {
@@ -680,8 +680,7 @@ class AppLocalizationsMs extends AppLocalizations {
   }
 
   @override
-  String get learningModeConnectReceiverTitle =>
-      'Sambungkan dongle pembelajaran yang serasi';
+  String get learningModeConnectReceiverTitle => 'Sambungkan penerima IR';
 
   @override
   String get learningModeConnectReceiverBody =>
@@ -699,7 +698,7 @@ class AppLocalizationsMs extends AppLocalizations {
 
   @override
   String get learningModeReadyToListenBody =>
-      'Ini adalah permukaan tangkapan utama. Mula mendengar hanya apabila alat kawalan jauh asal dihalakan dan stabil.';
+      'Halakan alat kawalan jauh asal ke penerima, kemudian mulakan penerimaan isyarat.';
 
   @override
   String get learningModeListeningNowTitle => 'Mendengar sekarang';
@@ -713,7 +712,7 @@ class AppLocalizationsMs extends AppLocalizations {
       'Pratonton isyarat yang ditangkap';
 
   @override
-  String get learningModeCapturedSummary => 'Pratonton isyarat yang dipelajari';
+  String get learningModeCapturedSummary => 'Isyarat diterima';
 
   @override
   String get learningModeResultActionsTitle => 'Uji dan simpan';
@@ -734,7 +733,7 @@ class AppLocalizationsMs extends AppLocalizations {
       'Simpan belum berwayar lagi. Langkah seterusnya ialah menyambungkan skrin ini kepada Buat Butang dan alat kawalan jauh sedia ada.';
 
   @override
-  String get learningModeLearnAnotherAction => 'Ketahui butang lain';
+  String get learningModeLearnAnotherAction => 'Pelajari butang lain';
 
   @override
   String get learningModeStepReviewTitle => 'Semak dan simpan';
@@ -757,7 +756,7 @@ class AppLocalizationsMs extends AppLocalizations {
       'Butiran protokol yang dinyahkod akan dipaparkan di sini sebaik sahaja penerima menangkap butang tekan bersih.';
 
   @override
-  String get learningModeRawPreviewTitle => 'Sandaran mentah';
+  String get learningModeRawPreviewTitle => 'Data mentah';
 
   @override
   String get learningModeRawPreviewBody =>

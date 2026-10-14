@@ -487,7 +487,7 @@ class AppLocalizationsFil extends AppLocalizations {
 
   @override
   String get learningModeEntrySubtitle =>
-      'Kumuha ng button mula sa isang pisikal na remote na hakbang-hakbang';
+      'Kopyahin ang IR signal ng isang button sa remote mo.';
 
   @override
   String get learningModeTitle => 'Mode ng Pag-aaral';
@@ -560,7 +560,7 @@ class AppLocalizationsFil extends AppLocalizations {
 
   @override
   String get learningModeHardwarePermissionBody =>
-      'Mayroong USB dongle, ngunit hinaharangan pa rin ito ng pahintulot ng Android. Magbigay ng pahintulot sa USB sa seksyon ng transmitter bago matuto.';
+      'Payagan ang access sa USB dongle, saka simulan ang pagkuha ng signal.';
 
   @override
   String get learningModeHardwareSetupBody =>
@@ -568,10 +568,10 @@ class AppLocalizationsFil extends AppLocalizations {
 
   @override
   String get learningModeHardwareNoReceiverBody =>
-      'Walang katugmang hardware ng receiver ang kasalukuyang magagamit. Ang mode ng pag-aaral ay inilaan para sa mga sinusuportahang panlabas na dongle na may kakayahang tumanggap.';
+      'Magkonekta ng katugmang IR receiver para makopya ang mga signal.';
 
   @override
-  String get learningModeRefreshHardware => 'I-refresh ang status ng hardware';
+  String get learningModeRefreshHardware => 'Suriin ang receiver';
 
   @override
   String get learningModeHardwareTipTitle => 'Pinakamahusay na pagkakalagay';
@@ -680,7 +680,7 @@ class AppLocalizationsFil extends AppLocalizations {
 
   @override
   String get learningModeStatusListeningBody =>
-      'Pindutin ang orihinal na remote button ngayon. Kapag na-wire na ang pag-capture, magla-lock ang estado na ito sa susunod na malinis na signal.';
+      'Itutok ang orihinal na remote sa receiver at pindutin nang isang beses ang button.';
 
   @override
   String learningModeStatusCapturedBody(Object buttonName) {
@@ -688,8 +688,7 @@ class AppLocalizationsFil extends AppLocalizations {
   }
 
   @override
-  String get learningModeConnectReceiverTitle =>
-      'Ikonekta ang isang katugmang dongle sa pag-aaral';
+  String get learningModeConnectReceiverTitle => 'Ikonekta ang IR receiver';
 
   @override
   String get learningModeConnectReceiverBody =>
@@ -707,7 +706,7 @@ class AppLocalizationsFil extends AppLocalizations {
 
   @override
   String get learningModeReadyToListenBody =>
-      'Ito ang pangunahing ibabaw ng pagkuha. Magsimulang makinig lamang kapag ang orihinal na remote ay nakatutok at steady.';
+      'Itutok ang orihinal na remote sa receiver, saka simulan ang pagkuha ng signal.';
 
   @override
   String get learningModeListeningNowTitle => 'Nakikinig ngayon';
@@ -721,7 +720,7 @@ class AppLocalizationsFil extends AppLocalizations {
       'I-preview ang nakuhang signal';
 
   @override
-  String get learningModeCapturedSummary => 'Natutunan ang preview ng signal';
+  String get learningModeCapturedSummary => 'Nakuhang signal';
 
   @override
   String get learningModeResultActionsTitle => 'Subukan at i-save';
@@ -742,7 +741,7 @@ class AppLocalizationsFil extends AppLocalizations {
       'Ang pag-save ay hindi pa naka-wire. Ang susunod na hakbang ay pagkonekta sa screen na ito sa Create Button at mga umiiral nang remote.';
 
   @override
-  String get learningModeLearnAnotherAction => 'Matuto ng isa pang button';
+  String get learningModeLearnAnotherAction => 'Kopyahin ang isa pang signal';
 
   @override
   String get learningModeStepReviewTitle => 'Suriin at i-save';
@@ -765,7 +764,7 @@ class AppLocalizationsFil extends AppLocalizations {
       'Lalabas dito ang mga detalye ng decoded protocol sa sandaling makuha ng receiver ang isang malinis na pagpindot sa pindutan.';
 
   @override
-  String get learningModeRawPreviewTitle => 'Raw fallback';
+  String get learningModeRawPreviewTitle => 'Raw data';
 
   @override
   String get learningModeRawPreviewBody =>

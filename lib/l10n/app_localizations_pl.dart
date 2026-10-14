@@ -485,7 +485,7 @@ class AppLocalizationsPl extends AppLocalizations {
 
   @override
   String get learningModeEntrySubtitle =>
-      'Przechwyć przycisk z fizycznego pilota krok po kroku';
+      'Skopiuj sygnał IR przycisku z pilota.';
 
   @override
   String get learningModeTitle => 'Tryb uczenia się';
@@ -557,7 +557,7 @@ class AppLocalizationsPl extends AppLocalizations {
 
   @override
   String get learningModeHardwarePermissionBody =>
-      'Klucz USB jest obecny, ale uprawnienia Androida nadal go blokują. Przed rozpoczęciem nauki udziel zezwolenia na USB w sekcji nadajnika.';
+      'Zezwól na dostęp do adaptera USB, aby rozpocząć naukę sygnału.';
 
   @override
   String get learningModeHardwareSetupBody =>
@@ -565,10 +565,10 @@ class AppLocalizationsPl extends AppLocalizations {
 
   @override
   String get learningModeHardwareNoReceiverBody =>
-      'Obecnie nie jest dostępny żaden kompatybilny odbiornik. Tryb uczenia się jest przeznaczony dla obsługiwanych zewnętrznych kluczy sprzętowych z możliwością odbioru.';
+      'Podłącz zgodny odbiornik IR, aby kopiować sygnały z pilota.';
 
   @override
-  String get learningModeRefreshHardware => 'Odśwież stan sprzętu';
+  String get learningModeRefreshHardware => 'Sprawdź odbiornik';
 
   @override
   String get learningModeHardwareTipTitle => 'Najlepsze miejsce';
@@ -679,7 +679,7 @@ class AppLocalizationsPl extends AppLocalizations {
 
   @override
   String get learningModeStatusListeningBody =>
-      'Naciśnij teraz oryginalny przycisk pilota. Po podłączeniu przechwytywania stan ten zostanie zablokowany na następnym czystym sygnale.';
+      'Skieruj oryginalny pilot na odbiornik i naciśnij przycisk jeden raz.';
 
   @override
   String learningModeStatusCapturedBody(Object buttonName) {
@@ -687,8 +687,7 @@ class AppLocalizationsPl extends AppLocalizations {
   }
 
   @override
-  String get learningModeConnectReceiverTitle =>
-      'Podłącz kompatybilny klucz sprzętowy do nauki';
+  String get learningModeConnectReceiverTitle => 'Podłącz odbiornik IR';
 
   @override
   String get learningModeConnectReceiverBody =>
@@ -706,7 +705,7 @@ class AppLocalizationsPl extends AppLocalizations {
 
   @override
   String get learningModeReadyToListenBody =>
-      'To jest główna powierzchnia przechwytywania. Rozpocznij słuchanie tylko wtedy, gdy oryginalny pilot jest wycelowany i stabilnie.';
+      'Skieruj oryginalny pilot na odbiornik, a następnie rozpocznij odbiór.';
 
   @override
   String get learningModeListeningNowTitle => 'Słucham teraz';
@@ -720,7 +719,7 @@ class AppLocalizationsPl extends AppLocalizations {
       'Podgląd przechwyconego sygnału';
 
   @override
-  String get learningModeCapturedSummary => 'Wyuczony podgląd sygnału';
+  String get learningModeCapturedSummary => 'Odebrany sygnał';
 
   @override
   String get learningModeResultActionsTitle => 'Testuj i zapisuj';
@@ -741,7 +740,7 @@ class AppLocalizationsPl extends AppLocalizations {
       'Zapis nie jest jeszcze podłączony. Następnym krokiem jest podłączenie tego ekranu do przycisku Utwórz i istniejących pilotów.';
 
   @override
-  String get learningModeLearnAnotherAction => 'Naucz się kolejnego przycisku';
+  String get learningModeLearnAnotherAction => 'Naucz kolejny przycisk';
 
   @override
   String get learningModeStepReviewTitle => 'Przejrzyj i zapisz';
@@ -764,7 +763,7 @@ class AppLocalizationsPl extends AppLocalizations {
       'Zdekodowane szczegóły protokołu pojawią się tutaj, gdy odbiornik przechwyci czyste naciśnięcie przycisku.';
 
   @override
-  String get learningModeRawPreviewTitle => 'Surowy powrót';
+  String get learningModeRawPreviewTitle => 'Dane surowe';
 
   @override
   String get learningModeRawPreviewBody =>

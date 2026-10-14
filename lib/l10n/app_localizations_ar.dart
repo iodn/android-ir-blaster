@@ -475,7 +475,7 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String get learningModeEntrySubtitle =>
-      'التقط زرًا من جهاز التحكم عن بعد الفعلي خطوة بخطوة';
+      'انسخ إشارة الأشعة تحت الحمراء لأحد أزرار جهاز التحكم.';
 
   @override
   String get learningModeTitle => 'وضع التعلم';
@@ -547,7 +547,7 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String get learningModeHardwarePermissionBody =>
-      'يوجد دونجل USB، لكن إذن Android لا يزال يمنعه. امنح إذن USB في قسم جهاز الإرسال قبل التعلم.';
+      'اسمح بالوصول إلى محوّل USB، ثم ابدأ تعلّم الإشارة.';
 
   @override
   String get learningModeHardwareSetupBody =>
@@ -555,10 +555,10 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String get learningModeHardwareNoReceiverBody =>
-      'لا يتوفر حاليًا أي جهاز استقبال متوافق. وضع التعلم مخصص لأجهزة الدونجل الخارجية المدعومة ذات القدرة على الاستقبال.';
+      'وصّل مستقبل أشعة تحت الحمراء متوافقًا لتعلّم إشارات جهاز التحكم.';
 
   @override
-  String get learningModeRefreshHardware => 'تحديث حالة الأجهزة';
+  String get learningModeRefreshHardware => 'فحص المستقبل';
 
   @override
   String get learningModeHardwareTipTitle => 'أفضل موضع';
@@ -667,7 +667,7 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String get learningModeStatusListeningBody =>
-      'اضغط على الزر البعيد الأصلي الآن. بمجرد توصيل الالتقاط، سيتم تثبيت هذه الحالة على الإشارة النظيفة التالية.';
+      'وجّه جهاز التحكم الأصلي نحو المستقبل واضغط على الزر مرة واحدة.';
 
   @override
   String learningModeStatusCapturedBody(Object buttonName) {
@@ -675,8 +675,7 @@ class AppLocalizationsAr extends AppLocalizations {
   }
 
   @override
-  String get learningModeConnectReceiverTitle =>
-      'قم بتوصيل دونجل تعليمي متوافق';
+  String get learningModeConnectReceiverTitle => 'وصّل مستقبل أشعة تحت الحمراء';
 
   @override
   String get learningModeConnectReceiverBody =>
@@ -694,7 +693,7 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String get learningModeReadyToListenBody =>
-      'هذا هو سطح الالتقاط الرئيسي. ابدأ الاستماع فقط عندما يكون جهاز التحكم عن بعد الأصلي موجهًا وثابتًا.';
+      'وجّه جهاز التحكم الأصلي نحو المستقبل، ثم ابدأ استقبال الإشارة.';
 
   @override
   String get learningModeListeningNowTitle => 'الاستماع الآن';
@@ -707,7 +706,7 @@ class AppLocalizationsAr extends AppLocalizations {
   String get learningModePreviewCaptureAction => 'معاينة الإشارة الملتقطة';
 
   @override
-  String get learningModeCapturedSummary => 'معاينة الإشارة المستفادة';
+  String get learningModeCapturedSummary => 'الإشارة المستقبلة';
 
   @override
   String get learningModeResultActionsTitle => 'اختبار وحفظ';
@@ -728,7 +727,7 @@ class AppLocalizationsAr extends AppLocalizations {
       'الحفظ ليس سلكيًا بعد. الخطوة التالية هي توصيل هذه الشاشة بـ \"إنشاء زر\" وأجهزة التحكم عن بعد الموجودة.';
 
   @override
-  String get learningModeLearnAnotherAction => 'تعلم زر آخر';
+  String get learningModeLearnAnotherAction => 'تعلّم زر آخر';
 
   @override
   String get learningModeStepReviewTitle => 'مراجعة وحفظ';
@@ -751,7 +750,7 @@ class AppLocalizationsAr extends AppLocalizations {
       'ستظهر هنا تفاصيل البروتوكول الذي تم فك تشفيره بمجرد أن يلتقط جهاز الاستقبال ضغطة زر نظيفة.';
 
   @override
-  String get learningModeRawPreviewTitle => 'احتياطي الخام';
+  String get learningModeRawPreviewTitle => 'البيانات الخام';
 
   @override
   String get learningModeRawPreviewBody =>
@@ -5631,7 +5630,7 @@ class AppLocalizationsArEg extends AppLocalizationsAr {
 
   @override
   String get learningModeEntrySubtitle =>
-      'التقط زرًا من جهاز التحكم عن بعد الفعلي خطوة بخطوة';
+      'انسخ إشارة الأشعة تحت الحمراء لزر من الريموت.';
 
   @override
   String get learningModeTitle => 'وضع التعلم';
@@ -5703,7 +5702,7 @@ class AppLocalizationsArEg extends AppLocalizationsAr {
 
   @override
   String get learningModeHardwarePermissionBody =>
-      'يوجد دونجل USB، لكن إذن Android لا يزال يمنعه. امنح إذن USB في قسم جهاز الإرسال قبل التعلم.';
+      'اسمح بالوصول لمحوّل USB، وبعدها ابدأ تعلّم الإشارة.';
 
   @override
   String get learningModeHardwareSetupBody =>
@@ -5711,10 +5710,10 @@ class AppLocalizationsArEg extends AppLocalizationsAr {
 
   @override
   String get learningModeHardwareNoReceiverBody =>
-      'لا يتوفر حاليًا أي جهاز استقبال متوافق. وضع التعلم مخصص لأجهزة الدونجل الخارجية المدعومة ذات القدرة على الاستقبال.';
+      'وصّل مستقبل أشعة تحت الحمراء متوافق علشان تتعلّم إشارات الريموت.';
 
   @override
-  String get learningModeRefreshHardware => 'تحديث حالة الأجهزة';
+  String get learningModeRefreshHardware => 'فحص المستقبل';
 
   @override
   String get learningModeHardwareTipTitle => 'أفضل موضع';
@@ -5823,7 +5822,7 @@ class AppLocalizationsArEg extends AppLocalizationsAr {
 
   @override
   String get learningModeStatusListeningBody =>
-      'اضغط على الزر البعيد الأصلي الآن. بمجرد توصيل الالتقاط، سيتم تثبيت هذه الحالة على الإشارة النظيفة التالية.';
+      'وجّه الريموت الأصلي ناحية المستقبل واضغط على الزر مرة واحدة.';
 
   @override
   String learningModeStatusCapturedBody(Object buttonName) {
@@ -5831,8 +5830,7 @@ class AppLocalizationsArEg extends AppLocalizationsAr {
   }
 
   @override
-  String get learningModeConnectReceiverTitle =>
-      'قم بتوصيل دونجل تعليمي متوافق';
+  String get learningModeConnectReceiverTitle => 'وصّل مستقبل أشعة تحت الحمراء';
 
   @override
   String get learningModeConnectReceiverBody =>
@@ -5850,7 +5848,7 @@ class AppLocalizationsArEg extends AppLocalizationsAr {
 
   @override
   String get learningModeReadyToListenBody =>
-      'هذا هو سطح الالتقاط الرئيسي. ابدأ الاستماع فقط عندما يكون جهاز التحكم عن بعد الأصلي موجهًا وثابتًا.';
+      'وجّه الريموت الأصلي ناحية المستقبل، وبعدها ابدأ استقبال الإشارة.';
 
   @override
   String get learningModeListeningNowTitle => 'الاستماع الآن';
@@ -5863,7 +5861,7 @@ class AppLocalizationsArEg extends AppLocalizationsAr {
   String get learningModePreviewCaptureAction => 'معاينة الإشارة الملتقطة';
 
   @override
-  String get learningModeCapturedSummary => 'معاينة الإشارة المستفادة';
+  String get learningModeCapturedSummary => 'الإشارة المستقبلة';
 
   @override
   String get learningModeResultActionsTitle => 'اختبار وحفظ';
@@ -5884,7 +5882,7 @@ class AppLocalizationsArEg extends AppLocalizationsAr {
       'الحفظ ليس سلكيًا بعد. الخطوة التالية هي توصيل هذه الشاشة بـ \"إنشاء زر\" وأجهزة التحكم عن بعد الموجودة.';
 
   @override
-  String get learningModeLearnAnotherAction => 'تعلم زر آخر';
+  String get learningModeLearnAnotherAction => 'تعلّم زر تاني';
 
   @override
   String get learningModeStepReviewTitle => 'مراجعة وحفظ';
@@ -5907,7 +5905,7 @@ class AppLocalizationsArEg extends AppLocalizationsAr {
       'ستظهر هنا تفاصيل البروتوكول الذي تم فك تشفيره بمجرد أن يلتقط جهاز الاستقبال ضغطة زر نظيفة.';
 
   @override
-  String get learningModeRawPreviewTitle => 'احتياطي الخام';
+  String get learningModeRawPreviewTitle => 'البيانات الخام';
 
   @override
   String get learningModeRawPreviewBody =>

@@ -484,7 +484,7 @@ class AppLocalizationsHi extends AppLocalizations {
 
   @override
   String get learningModeEntrySubtitle =>
-      'भौतिक रिमोट से चरण दर चरण एक बटन कैप्चर करें';
+      'अपने रिमोट के किसी बटन का IR सिग्नल कॉपी करें।';
 
   @override
   String get learningModeTitle => 'सीखने का तरीका';
@@ -555,7 +555,7 @@ class AppLocalizationsHi extends AppLocalizations {
 
   @override
   String get learningModeHardwarePermissionBody =>
-      'एक यूएसबी डोंगल मौजूद है, लेकिन एंड्रॉइड अनुमति अभी भी इसे रोक रही है। सीखने से पहले ट्रांसमीटर अनुभाग में USB की अनुमति दें।';
+      'USB अडैप्टर के इस्तेमाल की अनुमति दें, फिर सिग्नल सीखना शुरू करें।';
 
   @override
   String get learningModeHardwareSetupBody =>
@@ -563,10 +563,10 @@ class AppLocalizationsHi extends AppLocalizations {
 
   @override
   String get learningModeHardwareNoReceiverBody =>
-      'वर्तमान में कोई संगत रिसीवर हार्डवेयर उपलब्ध नहीं है। लर्निंग मोड प्राप्त क्षमता वाले समर्थित बाहरी डोंगल के लिए अभिप्रेत है।';
+      'सिग्नल सीखने के लिए समर्थित IR रिसीवर जोड़ें।';
 
   @override
-  String get learningModeRefreshHardware => 'हार्डवेयर स्थिति ताज़ा करें';
+  String get learningModeRefreshHardware => 'रिसीवर जाँचें';
 
   @override
   String get learningModeHardwareTipTitle => 'सर्वोत्तम प्लेसमेंट';
@@ -676,7 +676,7 @@ class AppLocalizationsHi extends AppLocalizations {
 
   @override
   String get learningModeStatusListeningBody =>
-      'अब मूल रिमोट बटन दबाएँ। एक बार कैप्चर वायर्ड हो जाने पर, यह स्थिति अगले क्लीन सिग्नल पर लॉक हो जाएगी।';
+      'मूल रिमोट को रिसीवर की ओर करके बटन एक बार दबाएँ।';
 
   @override
   String learningModeStatusCapturedBody(Object buttonName) {
@@ -684,8 +684,7 @@ class AppLocalizationsHi extends AppLocalizations {
   }
 
   @override
-  String get learningModeConnectReceiverTitle =>
-      'एक संगत शिक्षण डोंगल कनेक्ट करें';
+  String get learningModeConnectReceiverTitle => 'IR रिसीवर जोड़ें';
 
   @override
   String get learningModeConnectReceiverBody =>
@@ -703,7 +702,7 @@ class AppLocalizationsHi extends AppLocalizations {
 
   @override
   String get learningModeReadyToListenBody =>
-      'यह मुख्य कैप्चर सतह है. केवल तभी सुनना शुरू करें जब मूल रिमोट लक्षित और स्थिर हो।';
+      'मूल रिमोट को रिसीवर की ओर करें, फिर सिग्नल लेना शुरू करें।';
 
   @override
   String get learningModeListeningNowTitle => 'अब सुन रहा हूँ';
@@ -717,7 +716,7 @@ class AppLocalizationsHi extends AppLocalizations {
       'कैप्चर किए गए सिग्नल का पूर्वावलोकन करें';
 
   @override
-  String get learningModeCapturedSummary => 'सिग्नल पूर्वावलोकन सीखा';
+  String get learningModeCapturedSummary => 'मिला हुआ सिग्नल';
 
   @override
   String get learningModeResultActionsTitle => 'परीक्षण करें और सहेजें';
@@ -738,7 +737,7 @@ class AppLocalizationsHi extends AppLocalizations {
       'सेव अभी तक वायर्ड नहीं है. अगला चरण इस स्क्रीन को क्रिएट बटन और मौजूदा रिमोट से कनेक्ट करना है।';
 
   @override
-  String get learningModeLearnAnotherAction => 'एक और बटन जानें';
+  String get learningModeLearnAnotherAction => 'दूसरे बटन का सिग्नल लें';
 
   @override
   String get learningModeStepReviewTitle => 'समीक्षा करें और सहेजें';
@@ -761,7 +760,7 @@ class AppLocalizationsHi extends AppLocalizations {
       'एक बार रिसीवर द्वारा क्लीन बटन दबाए जाने पर डिकोड किए गए प्रोटोकॉल विवरण यहां दिखाई देंगे।';
 
   @override
-  String get learningModeRawPreviewTitle => 'कच्चा फ़ॉलबैक';
+  String get learningModeRawPreviewTitle => 'रॉ डेटा';
 
   @override
   String get learningModeRawPreviewBody =>

@@ -466,7 +466,7 @@ class AppLocalizationsKo extends AppLocalizations {
   String get learningModeEntryTitle => '학습 모드';
 
   @override
-  String get learningModeEntrySubtitle => '단계별로 물리적 리모컨의 버튼 캡처';
+  String get learningModeEntrySubtitle => '리모컨 버튼의 적외선 신호를 복사합니다.';
 
   @override
   String get learningModeTitle => '학습 모드';
@@ -537,7 +537,7 @@ class AppLocalizationsKo extends AppLocalizations {
 
   @override
   String get learningModeHardwarePermissionBody =>
-      'USB 동글이 있지만 Android 권한이 여전히 이를 차단하고 있습니다. 학습하기 전에 송신기 섹션에서 USB 권한을 부여하세요.';
+      'USB 어댑터에 대한 접근을 허용한 뒤 학습을 시작하세요.';
 
   @override
   String get learningModeHardwareSetupBody =>
@@ -545,10 +545,10 @@ class AppLocalizationsKo extends AppLocalizations {
 
   @override
   String get learningModeHardwareNoReceiverBody =>
-      '현재 호환 가능한 수신기 하드웨어가 없습니다. 학습 모드는 수신 기능이 있는 지원되는 외부 동글용입니다.';
+      '신호를 학습하려면 호환되는 적외선 수신기를 연결하세요.';
 
   @override
-  String get learningModeRefreshHardware => '하드웨어 상태 새로 고침';
+  String get learningModeRefreshHardware => '수신기 확인';
 
   @override
   String get learningModeHardwareTipTitle => '최고의 배치';
@@ -655,7 +655,7 @@ class AppLocalizationsKo extends AppLocalizations {
 
   @override
   String get learningModeStatusListeningBody =>
-      '이제 원래의 리모컨 버튼을 누르세요. 캡처가 연결되면 이 상태는 다음 깨끗한 신호에 고정됩니다.';
+      '기존 리모컨을 수신기로 향하게 하고 버튼을 한 번 누르세요.';
 
   @override
   String learningModeStatusCapturedBody(Object buttonName) {
@@ -663,7 +663,7 @@ class AppLocalizationsKo extends AppLocalizations {
   }
 
   @override
-  String get learningModeConnectReceiverTitle => '호환되는 학습 동글을 연결하세요';
+  String get learningModeConnectReceiverTitle => '적외선 수신기 연결';
 
   @override
   String get learningModeConnectReceiverBody =>
@@ -681,7 +681,7 @@ class AppLocalizationsKo extends AppLocalizations {
 
   @override
   String get learningModeReadyToListenBody =>
-      '이것이 주요 캡처 표면입니다. 원래 리모콘이 조준되고 안정된 경우에만 청취를 시작하십시오.';
+      '기존 리모컨을 수신기로 향하게 한 뒤 신호 수신을 시작하세요.';
 
   @override
   String get learningModeListeningNowTitle => '지금 듣고 있어요';
@@ -694,7 +694,7 @@ class AppLocalizationsKo extends AppLocalizations {
   String get learningModePreviewCaptureAction => '캡처된 신호 미리보기';
 
   @override
-  String get learningModeCapturedSummary => '학습된 신호 미리보기';
+  String get learningModeCapturedSummary => '수신한 신호';
 
   @override
   String get learningModeResultActionsTitle => '테스트 및 저장';
@@ -715,7 +715,7 @@ class AppLocalizationsKo extends AppLocalizations {
       '저장이 아직 연결되지 않았습니다. 다음 단계는 이 화면을 Create Button 및 기존 리모컨에 연결하는 것입니다.';
 
   @override
-  String get learningModeLearnAnotherAction => '다른 버튼 알아보기';
+  String get learningModeLearnAnotherAction => '다른 버튼 학습';
 
   @override
   String get learningModeStepReviewTitle => '검토 및 저장';
@@ -738,7 +738,7 @@ class AppLocalizationsKo extends AppLocalizations {
       '수신기가 깨끗한 버튼 누르기를 캡처하면 디코딩된 프로토콜 세부 정보가 여기에 표시됩니다.';
 
   @override
-  String get learningModeRawPreviewTitle => '원시 대체';
+  String get learningModeRawPreviewTitle => '원시 데이터';
 
   @override
   String get learningModeRawPreviewBody =>

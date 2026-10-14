@@ -487,7 +487,7 @@ class AppLocalizationsUk extends AppLocalizations {
 
   @override
   String get learningModeEntrySubtitle =>
-      'Крок за кроком зніміть кнопку з фізичного пульта';
+      'Скопіюйте ІЧ-сигнал кнопки з пульта.';
 
   @override
   String get learningModeTitle => 'Режим навчання';
@@ -559,7 +559,7 @@ class AppLocalizationsUk extends AppLocalizations {
 
   @override
   String get learningModeHardwarePermissionBody =>
-      'USB-адаптер є, але дозвіл Android усе ще блокує його. Надайте дозвіл USB у розділі передавача перед навчанням.';
+      'Дозвольте доступ до USB-адаптера, а потім почніть навчання.';
 
   @override
   String get learningModeHardwareSetupBody =>
@@ -567,10 +567,10 @@ class AppLocalizationsUk extends AppLocalizations {
 
   @override
   String get learningModeHardwareNoReceiverBody =>
-      'Наразі немає сумісного апаратного забезпечення приймача. Режим навчання призначений для підтримуваних зовнішніх ключів із можливістю отримання.';
+      'Підключіть сумісний ІЧ-приймач, щоб копіювати сигнали з пульта.';
 
   @override
-  String get learningModeRefreshHardware => 'Оновити стан обладнання';
+  String get learningModeRefreshHardware => 'Перевірити приймач';
 
   @override
   String get learningModeHardwareTipTitle => 'Найкраще розміщення';
@@ -678,7 +678,7 @@ class AppLocalizationsUk extends AppLocalizations {
 
   @override
   String get learningModeStatusListeningBody =>
-      'Натисніть кнопку на оригінальному пульті. Наступний чистий сигнал буде захоплено.';
+      'Спрямуйте оригінальний пульт на приймач і натисніть кнопку один раз.';
 
   @override
   String learningModeStatusCapturedBody(Object buttonName) {
@@ -686,8 +686,7 @@ class AppLocalizationsUk extends AppLocalizations {
   }
 
   @override
-  String get learningModeConnectReceiverTitle =>
-      'Підключіть сумісний навчальний ключ';
+  String get learningModeConnectReceiverTitle => 'Підключіть ІЧ-приймач';
 
   @override
   String get learningModeConnectReceiverBody =>
@@ -705,7 +704,7 @@ class AppLocalizationsUk extends AppLocalizations {
 
   @override
   String get learningModeReadyToListenBody =>
-      'Це основна поверхня захоплення. Починайте прослуховувати лише тоді, коли оригінальний пульт спрямований і стабільний.';
+      'Спрямуйте оригінальний пульт на приймач, а потім почніть приймання сигналу.';
 
   @override
   String get learningModeListeningNowTitle => 'Зараз слухаю';
@@ -719,8 +718,7 @@ class AppLocalizationsUk extends AppLocalizations {
       'Попередній перегляд захопленого сигналу';
 
   @override
-  String get learningModeCapturedSummary =>
-      'Вивчений попередній перегляд сигналу';
+  String get learningModeCapturedSummary => 'Отриманий сигнал';
 
   @override
   String get learningModeResultActionsTitle => 'Перевірте та збережіть';
@@ -741,7 +739,7 @@ class AppLocalizationsUk extends AppLocalizations {
       'Зберегти ще не підключено. Наступним кроком буде підключення цього екрана до кнопки «Створити» та наявних пультів.';
 
   @override
-  String get learningModeLearnAnotherAction => 'Дізнайтеся іншу кнопку';
+  String get learningModeLearnAnotherAction => 'Навчити ще одну кнопку';
 
   @override
   String get learningModeStepReviewTitle => 'Перегляньте та збережіть';
@@ -765,7 +763,7 @@ class AppLocalizationsUk extends AppLocalizations {
       'Розшифровані відомості про протокол з’являться тут, коли приймач зафіксує чисте натискання кнопки.';
 
   @override
-  String get learningModeRawPreviewTitle => 'Необроблений запасний варіант';
+  String get learningModeRawPreviewTitle => 'Необроблені дані';
 
   @override
   String get learningModeRawPreviewBody =>

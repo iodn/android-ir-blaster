@@ -481,7 +481,7 @@ class AppLocalizationsId extends AppLocalizations {
 
   @override
   String get learningModeEntrySubtitle =>
-      'Tangkap tombol dari jarak jauh fisik selangkah demi selangkah';
+      'Salin sinyal IR dari tombol pada remote Anda.';
 
   @override
   String get learningModeTitle => 'Modus Pembelajaran';
@@ -555,7 +555,7 @@ class AppLocalizationsId extends AppLocalizations {
 
   @override
   String get learningModeHardwarePermissionBody =>
-      'Dongle USB ada, namun izin Android masih memblokirnya. Berikan izin USB di bagian pemancar sebelum belajar.';
+      'Izinkan akses ke adaptor USB, lalu mulai mempelajari sinyal.';
 
   @override
   String get learningModeHardwareSetupBody =>
@@ -563,10 +563,10 @@ class AppLocalizationsId extends AppLocalizations {
 
   @override
   String get learningModeHardwareNoReceiverBody =>
-      'Saat ini tidak ada perangkat keras receiver yang kompatibel yang tersedia. Mode pembelajaran ditujukan untuk dongle eksternal yang didukung dengan kemampuan menerima.';
+      'Hubungkan penerima IR yang kompatibel untuk mempelajari sinyal.';
 
   @override
-  String get learningModeRefreshHardware => 'Segarkan status perangkat keras';
+  String get learningModeRefreshHardware => 'Periksa penerima';
 
   @override
   String get learningModeHardwareTipTitle => 'Penempatan terbaik';
@@ -675,7 +675,7 @@ class AppLocalizationsId extends AppLocalizations {
 
   @override
   String get learningModeStatusListeningBody =>
-      'Tekan tombol remote asli sekarang. Setelah penangkapan dilakukan, status ini akan mengunci sinyal bersih berikutnya.';
+      'Arahkan remote asli ke penerima, lalu tekan tombol sekali.';
 
   @override
   String learningModeStatusCapturedBody(Object buttonName) {
@@ -683,8 +683,7 @@ class AppLocalizationsId extends AppLocalizations {
   }
 
   @override
-  String get learningModeConnectReceiverTitle =>
-      'Hubungkan dongle pembelajaran yang kompatibel';
+  String get learningModeConnectReceiverTitle => 'Hubungkan penerima IR';
 
   @override
   String get learningModeConnectReceiverBody =>
@@ -702,7 +701,7 @@ class AppLocalizationsId extends AppLocalizations {
 
   @override
   String get learningModeReadyToListenBody =>
-      'Ini adalah permukaan tangkapan utama. Mulailah mendengarkan hanya ketika remote asli diarahkan dan stabil.';
+      'Arahkan remote asli ke penerima, lalu mulai menerima sinyal.';
 
   @override
   String get learningModeListeningNowTitle => 'Mendengarkan sekarang';
@@ -716,7 +715,7 @@ class AppLocalizationsId extends AppLocalizations {
       'Pratinjau sinyal yang ditangkap';
 
   @override
-  String get learningModeCapturedSummary => 'Pratinjau sinyal yang dipelajari';
+  String get learningModeCapturedSummary => 'Sinyal diterima';
 
   @override
   String get learningModeResultActionsTitle => 'Uji dan simpan';
@@ -760,7 +759,7 @@ class AppLocalizationsId extends AppLocalizations {
       'Detail protokol yang didekodekan akan muncul di sini setelah penerima menangkap penekanan tombol bersih.';
 
   @override
-  String get learningModeRawPreviewTitle => 'Penggantian mentah';
+  String get learningModeRawPreviewTitle => 'Data mentah';
 
   @override
   String get learningModeRawPreviewBody =>

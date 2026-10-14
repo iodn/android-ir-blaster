@@ -969,7 +969,7 @@ abstract class AppLocalizations {
   /// No description provided for @learningModeEntrySubtitle.
   ///
   /// In en, this message translates to:
-  /// **'Capture a button from a physical remote step by step'**
+  /// **'Copy a button\'s IR signal from your remote.'**
   String get learningModeEntrySubtitle;
 
   /// No description provided for @learningModeTitle.
@@ -1101,7 +1101,7 @@ abstract class AppLocalizations {
   /// No description provided for @learningModeHardwarePermissionBody.
   ///
   /// In en, this message translates to:
-  /// **'A USB dongle is present, but Android permission is still blocking it. Grant USB permission in the transmitter section before learning.'**
+  /// **'Allow access to the USB dongle, then start learning.'**
   String get learningModeHardwarePermissionBody;
 
   /// No description provided for @learningModeHardwareSetupBody.
@@ -1113,13 +1113,13 @@ abstract class AppLocalizations {
   /// No description provided for @learningModeHardwareNoReceiverBody.
   ///
   /// In en, this message translates to:
-  /// **'No compatible receiver hardware is currently available. Learning mode is intended for supported external dongles with receive capability.'**
+  /// **'Connect a compatible IR receiver to learn signals.'**
   String get learningModeHardwareNoReceiverBody;
 
   /// No description provided for @learningModeRefreshHardware.
   ///
   /// In en, this message translates to:
-  /// **'Refresh hardware status'**
+  /// **'Check receiver'**
   String get learningModeRefreshHardware;
 
   /// No description provided for @learningModeHardwareTipTitle.
@@ -1311,7 +1311,7 @@ abstract class AppLocalizations {
   /// No description provided for @learningModeStatusListeningBody.
   ///
   /// In en, this message translates to:
-  /// **'Press the original remote button now. Once capture is wired, this state will lock onto the next clean signal.'**
+  /// **'Point the original remote at the receiver and press the button once.'**
   String get learningModeStatusListeningBody;
 
   /// No description provided for @learningModeStatusCapturedBody.
@@ -1323,7 +1323,7 @@ abstract class AppLocalizations {
   /// No description provided for @learningModeConnectReceiverTitle.
   ///
   /// In en, this message translates to:
-  /// **'Connect a compatible learning dongle'**
+  /// **'Connect an IR receiver'**
   String get learningModeConnectReceiverTitle;
 
   /// No description provided for @learningModeConnectReceiverBody.
@@ -1353,7 +1353,7 @@ abstract class AppLocalizations {
   /// No description provided for @learningModeReadyToListenBody.
   ///
   /// In en, this message translates to:
-  /// **'This is the main capture surface. Start listening only when the original remote is aimed and steady.'**
+  /// **'Point the original remote at the receiver, then start listening.'**
   String get learningModeReadyToListenBody;
 
   /// No description provided for @learningModeListeningNowTitle.
@@ -1377,7 +1377,7 @@ abstract class AppLocalizations {
   /// No description provided for @learningModeCapturedSummary.
   ///
   /// In en, this message translates to:
-  /// **'Learned signal preview'**
+  /// **'Captured signal'**
   String get learningModeCapturedSummary;
 
   /// No description provided for @learningModeResultActionsTitle.
@@ -1455,7 +1455,7 @@ abstract class AppLocalizations {
   /// No description provided for @learningModeRawPreviewTitle.
   ///
   /// In en, this message translates to:
-  /// **'Raw fallback'**
+  /// **'Raw data'**
   String get learningModeRawPreviewTitle;
 
   /// No description provided for @learningModeRawPreviewBody.

@@ -475,7 +475,7 @@ class AppLocalizationsTh extends AppLocalizations {
 
   @override
   String get learningModeEntrySubtitle =>
-      'จับปุ่มจากระยะไกลทางกายภาพทีละขั้นตอน';
+      'คัดลอกสัญญาณ IR ของปุ่มจากรีโมทของคุณ';
 
   @override
   String get learningModeTitle => 'โหมดการเรียนรู้';
@@ -547,7 +547,7 @@ class AppLocalizationsTh extends AppLocalizations {
 
   @override
   String get learningModeHardwarePermissionBody =>
-      'มีดองเกิล USB อยู่ แต่สิทธิ์ของ Android ยังคงบล็อกอยู่ ให้สิทธิ์ USB ในส่วนเครื่องส่งสัญญาณก่อนที่จะเรียนรู้';
+      'อนุญาตให้เข้าถึงอะแดปเตอร์ USB แล้วเริ่มเรียนรู้สัญญาณ';
 
   @override
   String get learningModeHardwareSetupBody =>
@@ -555,10 +555,10 @@ class AppLocalizationsTh extends AppLocalizations {
 
   @override
   String get learningModeHardwareNoReceiverBody =>
-      'ขณะนี้ไม่มีฮาร์ดแวร์ตัวรับที่เข้ากันได้ โหมดการเรียนรู้มีไว้สำหรับดองเกิลภายนอกที่รองรับพร้อมความสามารถในการรับ';
+      'เชื่อมต่อตัวรับ IR ที่รองรับเพื่อเรียนรู้สัญญาณ';
 
   @override
-  String get learningModeRefreshHardware => 'รีเฟรชสถานะฮาร์ดแวร์';
+  String get learningModeRefreshHardware => 'ตรวจสอบตัวรับ';
 
   @override
   String get learningModeHardwareTipTitle => 'ตำแหน่งที่ดีที่สุด';
@@ -667,7 +667,7 @@ class AppLocalizationsTh extends AppLocalizations {
 
   @override
   String get learningModeStatusListeningBody =>
-      'กดปุ่มรีโมทเดิมได้เลย เมื่อการจับถูกต่อสาย สถานะนี้จะล็อคเข้าสู่สัญญาณสะอาดถัดไป';
+      'หันรีโมทเดิมไปทางตัวรับ แล้วกดปุ่มหนึ่งครั้ง';
 
   @override
   String learningModeStatusCapturedBody(Object buttonName) {
@@ -675,8 +675,7 @@ class AppLocalizationsTh extends AppLocalizations {
   }
 
   @override
-  String get learningModeConnectReceiverTitle =>
-      'เชื่อมต่อดองเกิลการเรียนรู้ที่เข้ากันได้';
+  String get learningModeConnectReceiverTitle => 'เชื่อมต่อตัวรับ IR';
 
   @override
   String get learningModeConnectReceiverBody =>
@@ -694,7 +693,7 @@ class AppLocalizationsTh extends AppLocalizations {
 
   @override
   String get learningModeReadyToListenBody =>
-      'นี่คือพื้นผิวการจับหลัก เริ่มฟังเฉพาะเมื่อรีโมทเดิมเล็งและมั่นคงเท่านั้น';
+      'หันรีโมทเดิมไปทางตัวรับ แล้วเริ่มรับสัญญาณ';
 
   @override
   String get learningModeListeningNowTitle => 'กำลังฟังอยู่ครับ';
@@ -707,7 +706,7 @@ class AppLocalizationsTh extends AppLocalizations {
   String get learningModePreviewCaptureAction => 'ดูตัวอย่างสัญญาณที่จับได้';
 
   @override
-  String get learningModeCapturedSummary => 'เรียนรู้ตัวอย่างสัญญาณ';
+  String get learningModeCapturedSummary => 'สัญญาณที่รับได้';
 
   @override
   String get learningModeResultActionsTitle => 'ทดสอบและบันทึก';
@@ -751,7 +750,7 @@ class AppLocalizationsTh extends AppLocalizations {
       'รายละเอียดโปรโตคอลที่ถอดรหัสจะปรากฏที่นี่เมื่อผู้รับจับการกดปุ่มที่สะอาด';
 
   @override
-  String get learningModeRawPreviewTitle => 'ทางเลือกดิบ';
+  String get learningModeRawPreviewTitle => 'ข้อมูลดิบ';
 
   @override
   String get learningModeRawPreviewBody =>

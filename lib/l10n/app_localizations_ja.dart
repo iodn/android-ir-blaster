@@ -459,7 +459,7 @@ class AppLocalizationsJa extends AppLocalizations {
   String get learningModeEntryTitle => '学習モード';
 
   @override
-  String get learningModeEntrySubtitle => '物理リモコンからボタンを段階的にキャプチャする';
+  String get learningModeEntrySubtitle => 'お使いのリモコンからボタンの赤外線信号をコピーします。';
 
   @override
   String get learningModeTitle => '学習モード';
@@ -530,7 +530,7 @@ class AppLocalizationsJa extends AppLocalizations {
 
   @override
   String get learningModeHardwarePermissionBody =>
-      'USB ドングルは存在しますが、Android の権限によりまだブロックされています。学習する前に送信機セクションで USB 許可を与えてください。';
+      'USBアダプターへのアクセスを許可してから、学習を開始してください。';
 
   @override
   String get learningModeHardwareSetupBody =>
@@ -538,10 +538,10 @@ class AppLocalizationsJa extends AppLocalizations {
 
   @override
   String get learningModeHardwareNoReceiverBody =>
-      '現在、互換性のある受信機ハードウェアは入手できません。学習モードは、受信機能を備えたサポートされている外部ドングルを対象としています。';
+      '信号を学習するには、対応する赤外線受信機を接続してください。';
 
   @override
-  String get learningModeRefreshHardware => 'ハードウェアステータスを更新する';
+  String get learningModeRefreshHardware => '受信機を確認';
 
   @override
   String get learningModeHardwareTipTitle => '最適な配置';
@@ -648,8 +648,7 @@ class AppLocalizationsJa extends AppLocalizations {
       'ボタンに名前を付け、元のリモコンを受信機に向けて、準備ができたら聞き始めてください。';
 
   @override
-  String get learningModeStatusListeningBody =>
-      '今すぐ元のリモコンのボタンを押してください。キャプチャが配線されると、この状態は次のクリーン信号にロックされます。';
+  String get learningModeStatusListeningBody => '元のリモコンを受信機に向け、ボタンを1回押してください。';
 
   @override
   String learningModeStatusCapturedBody(Object buttonName) {
@@ -657,7 +656,7 @@ class AppLocalizationsJa extends AppLocalizations {
   }
 
   @override
-  String get learningModeConnectReceiverTitle => '互換性のある学習ドングルを接続する';
+  String get learningModeConnectReceiverTitle => '赤外線受信機を接続';
 
   @override
   String get learningModeConnectReceiverBody =>
@@ -674,8 +673,7 @@ class AppLocalizationsJa extends AppLocalizations {
   String get learningModeReadyToListenTitle => '聞く準備ができています';
 
   @override
-  String get learningModeReadyToListenBody =>
-      'これがメインのキャプチャ面です。元のリモコンがしっかりと向けられている場合にのみ、聞き始めてください。';
+  String get learningModeReadyToListenBody => '元のリモコンを受信機に向けてから、受信を開始してください。';
 
   @override
   String get learningModeListeningNowTitle => '今聞いています';
@@ -688,7 +686,7 @@ class AppLocalizationsJa extends AppLocalizations {
   String get learningModePreviewCaptureAction => 'キャプチャされた信号をプレビューする';
 
   @override
-  String get learningModeCapturedSummary => '学習された信号のプレビュー';
+  String get learningModeCapturedSummary => '受信した信号';
 
   @override
   String get learningModeResultActionsTitle => 'テストして保存する';
@@ -709,7 +707,7 @@ class AppLocalizationsJa extends AppLocalizations {
       '保存はまだ接続されていません。次のステップでは、この画面を作成ボタンと既存のリモコンに接続します。';
 
   @override
-  String get learningModeLearnAnotherAction => '別のボタンを学習する';
+  String get learningModeLearnAnotherAction => '別のボタンを学習';
 
   @override
   String get learningModeStepReviewTitle => '確認して保存する';
@@ -732,7 +730,7 @@ class AppLocalizationsJa extends AppLocalizations {
       '受信機がボタンを正常に押すと、デコードされたプロトコルの詳細がここに表示されます。';
 
   @override
-  String get learningModeRawPreviewTitle => '生のフォールバック';
+  String get learningModeRawPreviewTitle => '生データ';
 
   @override
   String get learningModeRawPreviewBody =>

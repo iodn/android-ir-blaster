@@ -487,7 +487,7 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get learningModeEntrySubtitle =>
-      'Capture a button from a physical remote step by step';
+      'Copy a button\'s IR signal from your remote.';
 
   @override
   String get learningModeTitle => 'Learning Mode';
@@ -558,7 +558,7 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get learningModeHardwarePermissionBody =>
-      'A USB dongle is present, but Android permission is still blocking it. Grant USB permission in the transmitter section before learning.';
+      'Allow access to the USB dongle, then start learning.';
 
   @override
   String get learningModeHardwareSetupBody =>
@@ -566,10 +566,10 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get learningModeHardwareNoReceiverBody =>
-      'No compatible receiver hardware is currently available. Learning mode is intended for supported external dongles with receive capability.';
+      'Connect a compatible IR receiver to learn signals.';
 
   @override
-  String get learningModeRefreshHardware => 'Refresh hardware status';
+  String get learningModeRefreshHardware => 'Check receiver';
 
   @override
   String get learningModeHardwareTipTitle => 'Best placement';
@@ -677,7 +677,7 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get learningModeStatusListeningBody =>
-      'Press the original remote button now. Once capture is wired, this state will lock onto the next clean signal.';
+      'Point the original remote at the receiver and press the button once.';
 
   @override
   String learningModeStatusCapturedBody(Object buttonName) {
@@ -685,8 +685,7 @@ class AppLocalizationsEn extends AppLocalizations {
   }
 
   @override
-  String get learningModeConnectReceiverTitle =>
-      'Connect a compatible learning dongle';
+  String get learningModeConnectReceiverTitle => 'Connect an IR receiver';
 
   @override
   String get learningModeConnectReceiverBody =>
@@ -704,7 +703,7 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get learningModeReadyToListenBody =>
-      'This is the main capture surface. Start listening only when the original remote is aimed and steady.';
+      'Point the original remote at the receiver, then start listening.';
 
   @override
   String get learningModeListeningNowTitle => 'Listening now';
@@ -717,7 +716,7 @@ class AppLocalizationsEn extends AppLocalizations {
   String get learningModePreviewCaptureAction => 'Preview captured signal';
 
   @override
-  String get learningModeCapturedSummary => 'Learned signal preview';
+  String get learningModeCapturedSummary => 'Captured signal';
 
   @override
   String get learningModeResultActionsTitle => 'Test and save';
@@ -761,7 +760,7 @@ class AppLocalizationsEn extends AppLocalizations {
       'Decoded protocol details will appear here once the receiver captures a clean button press.';
 
   @override
-  String get learningModeRawPreviewTitle => 'Raw fallback';
+  String get learningModeRawPreviewTitle => 'Raw data';
 
   @override
   String get learningModeRawPreviewBody =>

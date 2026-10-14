@@ -491,7 +491,7 @@ class AppLocalizationsNl extends AppLocalizations {
 
   @override
   String get learningModeEntrySubtitle =>
-      'Leg stap voor stap een knop van een fysieke afstandsbediening vast';
+      'Neem het IR-signaal van een afstandsbedieningsknop over.';
 
   @override
   String get learningModeTitle => 'Leermodus';
@@ -566,7 +566,7 @@ class AppLocalizationsNl extends AppLocalizations {
 
   @override
   String get learningModeHardwarePermissionBody =>
-      'Er is een USB-dongle aanwezig, maar Android-toestemming blokkeert deze nog steeds. Verleen USB-toestemming in het zendergedeelte voordat u gaat leren.';
+      'Geef toegang tot de USB-dongle en start daarna het aanleren.';
 
   @override
   String get learningModeHardwareSetupBody =>
@@ -574,10 +574,10 @@ class AppLocalizationsNl extends AppLocalizations {
 
   @override
   String get learningModeHardwareNoReceiverBody =>
-      'Er is momenteel geen compatibele ontvangerhardware beschikbaar. De leermodus is bedoeld voor ondersteunde externe dongles met ontvangstmogelijkheid.';
+      'Sluit een geschikte IR-ontvanger aan om signalen aan te leren.';
 
   @override
-  String get learningModeRefreshHardware => 'Hardwarestatus vernieuwen';
+  String get learningModeRefreshHardware => 'Ontvanger controleren';
 
   @override
   String get learningModeHardwareTipTitle => 'Beste plaatsing';
@@ -688,7 +688,7 @@ class AppLocalizationsNl extends AppLocalizations {
 
   @override
   String get learningModeStatusListeningBody =>
-      'Druk nu op de originele afstandsbedieningsknop. Zodra de opname is bedraad, wordt deze status gekoppeld aan het volgende schone signaal.';
+      'Richt de originele afstandsbediening op de ontvanger en druk één keer op de knop.';
 
   @override
   String learningModeStatusCapturedBody(Object buttonName) {
@@ -696,8 +696,7 @@ class AppLocalizationsNl extends AppLocalizations {
   }
 
   @override
-  String get learningModeConnectReceiverTitle =>
-      'Sluit een compatibele leerdongle aan';
+  String get learningModeConnectReceiverTitle => 'Sluit een IR-ontvanger aan';
 
   @override
   String get learningModeConnectReceiverBody =>
@@ -715,7 +714,7 @@ class AppLocalizationsNl extends AppLocalizations {
 
   @override
   String get learningModeReadyToListenBody =>
-      'Dit is het belangrijkste vangoppervlak. Begin pas met luisteren als de originele afstandsbediening gericht en stabiel is.';
+      'Richt de originele afstandsbediening op de ontvanger en start de opname.';
 
   @override
   String get learningModeListeningNowTitle => 'Ik ben nu aan het luisteren';
@@ -729,7 +728,7 @@ class AppLocalizationsNl extends AppLocalizations {
       'Bekijk een voorbeeld van het vastgelegde signaal';
 
   @override
-  String get learningModeCapturedSummary => 'Voorbeeld van geleerd signaal';
+  String get learningModeCapturedSummary => 'Opgenomen signaal';
 
   @override
   String get learningModeResultActionsTitle => 'Testen en opslaan';
@@ -750,7 +749,7 @@ class AppLocalizationsNl extends AppLocalizations {
       'Opslaan is nog niet bedraad. De volgende stap is het verbinden van dit scherm met Create Button en bestaande afstandsbedieningen.';
 
   @override
-  String get learningModeLearnAnotherAction => 'Leer nog een knop';
+  String get learningModeLearnAnotherAction => 'Nog een knop aanleren';
 
   @override
   String get learningModeStepReviewTitle => 'Bekijk en bewaar';
@@ -773,7 +772,7 @@ class AppLocalizationsNl extends AppLocalizations {
       'Gedecodeerde protocoldetails verschijnen hier zodra de ontvanger een schone druk op de knop vastlegt.';
 
   @override
-  String get learningModeRawPreviewTitle => 'Ruwe terugval';
+  String get learningModeRawPreviewTitle => 'Ruwe gegevens';
 
   @override
   String get learningModeRawPreviewBody =>

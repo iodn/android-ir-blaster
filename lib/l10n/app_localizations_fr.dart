@@ -488,7 +488,7 @@ class AppLocalizationsFr extends AppLocalizations {
 
   @override
   String get learningModeEntrySubtitle =>
-      'Capturez un bouton depuis une télécommande physique étape par étape';
+      'Copiez le signal d\'une touche de votre télécommande.';
 
   @override
   String get learningModeTitle => 'Mode d\'apprentissage';
@@ -562,7 +562,7 @@ class AppLocalizationsFr extends AppLocalizations {
 
   @override
   String get learningModeHardwarePermissionBody =>
-      'Un dongle USB est présent, mais l\'autorisation Android le bloque toujours. Accordez l\'autorisation USB dans la section émetteur avant d\'apprendre.';
+      'Autorisez l\'accès au dongle USB, puis lancez l\'apprentissage.';
 
   @override
   String get learningModeHardwareSetupBody =>
@@ -570,10 +570,10 @@ class AppLocalizationsFr extends AppLocalizations {
 
   @override
   String get learningModeHardwareNoReceiverBody =>
-      'Aucun matériel de récepteur compatible n’est actuellement disponible. Le mode d\'apprentissage est destiné aux dongles externes pris en charge avec capacité de réception.';
+      'Pour apprendre des signaux, connectez un récepteur infrarouge compatible.';
 
   @override
-  String get learningModeRefreshHardware => 'Actualiser l\'état du matériel';
+  String get learningModeRefreshHardware => 'Vérifier le récepteur';
 
   @override
   String get learningModeHardwareTipTitle => 'Meilleur placement';
@@ -686,7 +686,7 @@ class AppLocalizationsFr extends AppLocalizations {
 
   @override
   String get learningModeStatusListeningBody =>
-      'Appuyez maintenant sur le bouton de la télécommande d\'origine. Une fois la capture câblée, cet état se verrouillera sur le prochain signal propre.';
+      'Pointez la télécommande d\'origine vers le récepteur et appuyez une fois sur la touche.';
 
   @override
   String learningModeStatusCapturedBody(Object buttonName) {
@@ -694,8 +694,7 @@ class AppLocalizationsFr extends AppLocalizations {
   }
 
   @override
-  String get learningModeConnectReceiverTitle =>
-      'Connectez un dongle d\'apprentissage compatible';
+  String get learningModeConnectReceiverTitle => 'Connecter un récepteur IR';
 
   @override
   String get learningModeConnectReceiverBody =>
@@ -713,7 +712,7 @@ class AppLocalizationsFr extends AppLocalizations {
 
   @override
   String get learningModeReadyToListenBody =>
-      'C\'est la principale surface de capture. Commencez à écouter uniquement lorsque la télécommande d\'origine est orientée et stable.';
+      'Pointez la télécommande d\'origine vers le récepteur, puis lancez l\'écoute.';
 
   @override
   String get learningModeListeningNowTitle => 'En écoute maintenant';
@@ -726,7 +725,7 @@ class AppLocalizationsFr extends AppLocalizations {
   String get learningModePreviewCaptureAction => 'Aperçu du signal capturé';
 
   @override
-  String get learningModeCapturedSummary => 'Aperçu du signal appris';
+  String get learningModeCapturedSummary => 'Signal capturé';
 
   @override
   String get learningModeResultActionsTitle => 'Testez et enregistrez';
@@ -747,7 +746,7 @@ class AppLocalizationsFr extends AppLocalizations {
       'La sauvegarde n\'est pas encore câblée. L\'étape suivante consiste à connecter cet écran au bouton Créer et aux télécommandes existantes.';
 
   @override
-  String get learningModeLearnAnotherAction => 'Apprendre un autre bouton';
+  String get learningModeLearnAnotherAction => 'Apprendre une autre touche';
 
   @override
   String get learningModeStepReviewTitle => 'Vérifier et enregistrer';
@@ -770,7 +769,7 @@ class AppLocalizationsFr extends AppLocalizations {
       'Les détails du protocole décodés apparaîtront ici une fois que le récepteur aura capturé une pression nette sur un bouton.';
 
   @override
-  String get learningModeRawPreviewTitle => 'Repli brut';
+  String get learningModeRawPreviewTitle => 'Données brutes';
 
   @override
   String get learningModeRawPreviewBody =>

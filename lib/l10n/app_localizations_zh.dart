@@ -454,7 +454,7 @@ class AppLocalizationsZh extends AppLocalizations {
   String get learningModeEntryTitle => '学习模式';
 
   @override
-  String get learningModeEntrySubtitle => '逐步从物理遥控器捕获按钮';
+  String get learningModeEntrySubtitle => '复制实体遥控器上某个按键的红外信号。';
 
   @override
   String get learningModeTitle => '学习模式';
@@ -522,19 +522,17 @@ class AppLocalizationsZh extends AppLocalizations {
       'USB IR 适配器已连接并初始化。连接捕获接线后，这是开始学习流程的正确位置。';
 
   @override
-  String get learningModeHardwarePermissionBody =>
-      '存在 USB 加密狗，但 Android 权限仍然阻止它。学习前请在发射器部分授予 USB 权限。';
+  String get learningModeHardwarePermissionBody => '请允许访问 USB 适配器，然后开始学习信号。';
 
   @override
   String get learningModeHardwareSetupBody =>
       '加密狗已被部分检测到，但仍需要设置或重新连接才能可靠地开始学习。';
 
   @override
-  String get learningModeHardwareNoReceiverBody =>
-      '当前没有可用的兼容接收器硬件。学习模式适用于受支持的具有接收功能的外部加密狗。';
+  String get learningModeHardwareNoReceiverBody => '请连接兼容的红外接收器，以学习遥控信号。';
 
   @override
-  String get learningModeRefreshHardware => '刷新硬件状态';
+  String get learningModeRefreshHardware => '检查接收器';
 
   @override
   String get learningModeHardwareTipTitle => '最佳安置';
@@ -634,8 +632,7 @@ class AppLocalizationsZh extends AppLocalizations {
   String get learningModeStatusReadyBody => '为按钮命名，将原始遥控器指向接收器，准备好后开始收听。';
 
   @override
-  String get learningModeStatusListeningBody =>
-      '现在按原来的遥控按钮。连接捕获后，此状态将锁定下一个干净信号。';
+  String get learningModeStatusListeningBody => '将原遥控器对准接收器，然后按一下要学习的按键。';
 
   @override
   String learningModeStatusCapturedBody(Object buttonName) {
@@ -643,7 +640,7 @@ class AppLocalizationsZh extends AppLocalizations {
   }
 
   @override
-  String get learningModeConnectReceiverTitle => '连接兼容的学习加密狗';
+  String get learningModeConnectReceiverTitle => '连接红外接收器';
 
   @override
   String get learningModeConnectReceiverBody =>
@@ -659,7 +656,7 @@ class AppLocalizationsZh extends AppLocalizations {
   String get learningModeReadyToListenTitle => '准备好聆听';
 
   @override
-  String get learningModeReadyToListenBody => '这是主要的捕获表面。仅当原始遥控器瞄准并稳定时才开始收听。';
+  String get learningModeReadyToListenBody => '将原遥控器对准接收器，再开始接收信号。';
 
   @override
   String get learningModeListeningNowTitle => '现在听';
@@ -672,7 +669,7 @@ class AppLocalizationsZh extends AppLocalizations {
   String get learningModePreviewCaptureAction => '预览捕获的信号';
 
   @override
-  String get learningModeCapturedSummary => '学习信号预览';
+  String get learningModeCapturedSummary => '已接收的信号';
 
   @override
   String get learningModeResultActionsTitle => '测试并保存';
@@ -692,7 +689,7 @@ class AppLocalizationsZh extends AppLocalizations {
       '保存尚未连线。下一步是将此屏幕连接到 Create Button 和现有遥控器。';
 
   @override
-  String get learningModeLearnAnotherAction => '了解另一个按钮';
+  String get learningModeLearnAnotherAction => '学习其他按键';
 
   @override
   String get learningModeStepReviewTitle => '查看并保存';
@@ -714,7 +711,7 @@ class AppLocalizationsZh extends AppLocalizations {
       '一旦接收器捕获到一次干净的按钮按下，解码的协议详细信息将出现在此处。';
 
   @override
-  String get learningModeRawPreviewTitle => '原始回退';
+  String get learningModeRawPreviewTitle => '原始数据';
 
   @override
   String get learningModeRawPreviewBody => '如果解码不完整，原始时序捕获仍可在此处进行查看和保存。';

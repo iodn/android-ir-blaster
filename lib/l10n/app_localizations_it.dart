@@ -488,7 +488,7 @@ class AppLocalizationsIt extends AppLocalizations {
 
   @override
   String get learningModeEntrySubtitle =>
-      'Cattura un pulsante da un telecomando fisico passo dopo passo';
+      'Copia il segnale IR di un tasto del telecomando.';
 
   @override
   String get learningModeTitle => 'Modalità di apprendimento';
@@ -565,7 +565,7 @@ class AppLocalizationsIt extends AppLocalizations {
 
   @override
   String get learningModeHardwarePermissionBody =>
-      'È presente un dongle USB, ma l\'autorizzazione Android lo blocca ancora. Concedere l\'autorizzazione USB nella sezione del trasmettitore prima dell\'apprendimento.';
+      'Consenti l\'accesso all\'adattatore USB, poi avvia l\'apprendimento.';
 
   @override
   String get learningModeHardwareSetupBody =>
@@ -573,10 +573,10 @@ class AppLocalizationsIt extends AppLocalizations {
 
   @override
   String get learningModeHardwareNoReceiverBody =>
-      'Nessun hardware del ricevitore compatibile è attualmente disponibile. La modalità di apprendimento è destinata ai dongle esterni supportati con funzionalità di ricezione.';
+      'Collega un ricevitore IR compatibile per apprendere i segnali.';
 
   @override
-  String get learningModeRefreshHardware => 'Aggiorna lo stato dell\'hardware';
+  String get learningModeRefreshHardware => 'Verifica ricevitore';
 
   @override
   String get learningModeHardwareTipTitle => 'Miglior posizionamento';
@@ -690,7 +690,7 @@ class AppLocalizationsIt extends AppLocalizations {
 
   @override
   String get learningModeStatusListeningBody =>
-      'Premi ora il pulsante del telecomando originale. Una volta cablata l\'acquisizione, questo stato si bloccherà sul successivo segnale pulito.';
+      'Punta il telecomando originale verso il ricevitore e premi il tasto una volta.';
 
   @override
   String learningModeStatusCapturedBody(Object buttonName) {
@@ -698,8 +698,7 @@ class AppLocalizationsIt extends AppLocalizations {
   }
 
   @override
-  String get learningModeConnectReceiverTitle =>
-      'Collega un dongle didattico compatibile';
+  String get learningModeConnectReceiverTitle => 'Collega un ricevitore IR';
 
   @override
   String get learningModeConnectReceiverBody =>
@@ -717,7 +716,7 @@ class AppLocalizationsIt extends AppLocalizations {
 
   @override
   String get learningModeReadyToListenBody =>
-      'Questa è la superficie di cattura principale. Inizia ad ascoltare solo quando il telecomando originale è puntato e fermo.';
+      'Punta il telecomando originale verso il ricevitore, poi avvia l\'acquisizione.';
 
   @override
   String get learningModeListeningNowTitle => 'Ascolto adesso';
@@ -731,7 +730,7 @@ class AppLocalizationsIt extends AppLocalizations {
       'Anteprima del segnale catturato';
 
   @override
-  String get learningModeCapturedSummary => 'Anteprima del segnale appreso';
+  String get learningModeCapturedSummary => 'Segnale acquisito';
 
   @override
   String get learningModeResultActionsTitle => 'Prova e salva';
@@ -752,7 +751,7 @@ class AppLocalizationsIt extends AppLocalizations {
       'Il salvataggio non è stato ancora cablato. Il passaggio successivo è connettere questa schermata al pulsante Crea e ai telecomandi esistenti.';
 
   @override
-  String get learningModeLearnAnotherAction => 'Impara un altro pulsante';
+  String get learningModeLearnAnotherAction => 'Apprendi un altro tasto';
 
   @override
   String get learningModeStepReviewTitle => 'Rivedi e salva';
@@ -775,7 +774,7 @@ class AppLocalizationsIt extends AppLocalizations {
       'I dettagli del protocollo decodificato verranno visualizzati qui una volta che il ricevitore acquisisce la pressione di un pulsante pulito.';
 
   @override
-  String get learningModeRawPreviewTitle => 'Ripiego crudo';
+  String get learningModeRawPreviewTitle => 'Dati grezzi';
 
   @override
   String get learningModeRawPreviewBody =>

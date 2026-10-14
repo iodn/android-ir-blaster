@@ -486,7 +486,7 @@ class AppLocalizationsEs extends AppLocalizations {
 
   @override
   String get learningModeEntrySubtitle =>
-      'Capturar un botón desde un mando físico paso a paso';
+      'Copia la señal IR de un botón de tu mando.';
 
   @override
   String get learningModeTitle => 'Modo de aprendizaje';
@@ -559,7 +559,7 @@ class AppLocalizationsEs extends AppLocalizations {
 
   @override
   String get learningModeHardwarePermissionBody =>
-      'Hay una llave USB, pero el permiso de Android aún la bloquea. Conceda permiso USB en la sección del transmisor antes de aprender.';
+      'Permite el acceso al adaptador USB para empezar el aprendizaje.';
 
   @override
   String get learningModeHardwareSetupBody =>
@@ -567,10 +567,10 @@ class AppLocalizationsEs extends AppLocalizations {
 
   @override
   String get learningModeHardwareNoReceiverBody =>
-      'Actualmente no hay hardware receptor compatible disponible. El modo de aprendizaje está pensado para dongles externos compatibles con capacidad de recepción.';
+      'Conecta un receptor IR compatible para aprender señales.';
 
   @override
-  String get learningModeRefreshHardware => 'Actualizar el estado del hardware';
+  String get learningModeRefreshHardware => 'Comprobar receptor';
 
   @override
   String get learningModeHardwareTipTitle => 'Mejor ubicación';
@@ -682,7 +682,7 @@ class AppLocalizationsEs extends AppLocalizations {
 
   @override
   String get learningModeStatusListeningBody =>
-      'Presione el botón del control remoto original ahora. Una vez conectada la captura, este estado se fijará en la siguiente señal limpia.';
+      'Apunta el mando original al receptor y pulsa el botón una vez.';
 
   @override
   String learningModeStatusCapturedBody(Object buttonName) {
@@ -690,8 +690,7 @@ class AppLocalizationsEs extends AppLocalizations {
   }
 
   @override
-  String get learningModeConnectReceiverTitle =>
-      'Conecte un dongle de aprendizaje compatible';
+  String get learningModeConnectReceiverTitle => 'Conecta un receptor IR';
 
   @override
   String get learningModeConnectReceiverBody =>
@@ -709,7 +708,7 @@ class AppLocalizationsEs extends AppLocalizations {
 
   @override
   String get learningModeReadyToListenBody =>
-      'Esta es la principal superficie de captura. Comience a escuchar solo cuando el control remoto original esté apuntado y fijo.';
+      'Apunta el mando original al receptor e inicia la captura.';
 
   @override
   String get learningModeListeningNowTitle => 'Escuchando ahora';
@@ -723,8 +722,7 @@ class AppLocalizationsEs extends AppLocalizations {
       'Vista previa de la señal capturada';
 
   @override
-  String get learningModeCapturedSummary =>
-      'Vista previa de la señal aprendida';
+  String get learningModeCapturedSummary => 'Señal capturada';
 
   @override
   String get learningModeResultActionsTitle => 'Probar y guardar';
@@ -745,7 +743,7 @@ class AppLocalizationsEs extends AppLocalizations {
       'Save aún no está conectado. El siguiente paso es conectar esta pantalla al botón Crear y a los controles remotos existentes.';
 
   @override
-  String get learningModeLearnAnotherAction => 'Aprende otro botón';
+  String get learningModeLearnAnotherAction => 'Aprender otro botón';
 
   @override
   String get learningModeStepReviewTitle => 'Revisar y guardar';
@@ -768,7 +766,7 @@ class AppLocalizationsEs extends AppLocalizations {
       'Los detalles del protocolo decodificado aparecerán aquí una vez que el receptor capture una pulsación limpia del botón.';
 
   @override
-  String get learningModeRawPreviewTitle => 'Respaldo crudo';
+  String get learningModeRawPreviewTitle => 'Datos sin procesar';
 
   @override
   String get learningModeRawPreviewBody =>
