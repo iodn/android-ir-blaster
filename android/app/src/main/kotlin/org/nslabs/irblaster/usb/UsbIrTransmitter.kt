@@ -122,7 +122,7 @@ class UsbIrTransmitter private constructor(
             }
 
             for (frame in frames) {
-                val ok = sendFrame(frame, requireFullWrite = automation) ?: return false
+                val ok = sendFrame(frame) ?: return false
                 if (!ok) return false
                 val d = protocol.interFrameDelayMs
                 if (d > 0) SystemClock.sleep(d)
@@ -185,7 +185,7 @@ class UsbIrTransmitter private constructor(
         onClosed?.invoke()
     }
 
-    private fun sendFrame(frame: ByteArray, requireFullWrite: Boolean = false): Boolean? {
+    private fun sendFrame(frame: ByteArray): Boolean? {
         if (closed) return null
         val rc = try {
             connection.bulkTransfer(outEndpoint, frame, frame.size, 400)
@@ -193,7 +193,7 @@ class UsbIrTransmitter private constructor(
             Log.e(TAG, "bulkTransfer(out) exception: ${t.message}", t)
             return false
         }
-        if (rc <= 0 || (requireFullWrite && rc != frame.size)) {
+        if (rc <= 0 || rc != frame.size) {
             Log.w(TAG, "bulkTransfer(out) failed rc=$rc len=${frame.size}")
             return false
         }

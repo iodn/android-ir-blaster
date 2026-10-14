@@ -214,6 +214,22 @@ class AutomationUsbTest {
         assertEquals(before + 1, RecordingUsbConnection.writes.size)
     }
 
+    @Test fun manualReplayRejectsShortWritesAndCanSendAgain() {
+        for (elk in listOf(false, true)) {
+            val device = attach(elk = elk)
+            val tx = requireNotNull(discovery.openTransmitter(device))
+            toClose += { tx.close() }
+            val before = RecordingUsbConnection.writes.size
+            RecordingUsbConnection.shortWrites = true
+            assertFalse(tx.transmitRaw(38000, request.pattern))
+            assertEquals(before + 1, RecordingUsbConnection.writes.size)
+            RecordingUsbConnection.shortWrites = false
+            assertTrue(tx.transmitRaw(38000, request.pattern))
+            tx.close()
+            shadowOf(manager).removeUsbDevice(device)
+        }
+    }
+
     @Test fun noisyHandshakeCannotKeepBroadcastAliveIndefinitely() {
         val device = attach()
         RecordingUsbConnection.continuousInput = true
