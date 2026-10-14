@@ -2667,7 +2667,7 @@ class _CreateButtonState extends State<CreateButton> {
             .toRadixString(16)
             .toUpperCase()
             .padLeft(3, '0');
-    final controller = TextEditingController(text: initialCode);
+    var code = initialCode;
     final formKey = GlobalKey<FormState>();
 
     final packedCode = await showDialog<String>(
@@ -2677,7 +2677,8 @@ class _CreateButtonState extends State<CreateButton> {
         content: Form(
           key: formKey,
           child: TextFormField(
-            controller: controller,
+            initialValue: initialCode,
+            onChanged: (value) => code = value,
             autofocus: true,
             maxLength: 3,
             textCapitalization: TextCapitalization.characters,
@@ -2698,7 +2699,7 @@ class _CreateButtonState extends State<CreateButton> {
             },
             onFieldSubmitted: (_) {
               if (formKey.currentState?.validate() ?? false) {
-                Navigator.pop(dialogContext, controller.text.trim());
+                Navigator.pop(dialogContext, code.trim());
               }
             },
           ),
@@ -2711,7 +2712,7 @@ class _CreateButtonState extends State<CreateButton> {
           FilledButton(
             onPressed: () {
               if (formKey.currentState?.validate() ?? false) {
-                Navigator.pop(dialogContext, controller.text.trim());
+                Navigator.pop(dialogContext, code.trim());
               }
             },
             child: Text(context.l10n.saveAction),
@@ -2719,7 +2720,6 @@ class _CreateButtonState extends State<CreateButton> {
         ],
       ),
     );
-    controller.dispose();
 
     if (!mounted || packedCode == null) return;
     setState(() => _fillProtocolFieldsFromDbHex(packedCode));
