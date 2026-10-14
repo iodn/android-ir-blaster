@@ -179,12 +179,24 @@ Future<File> get _remotesFile async {
   return File('$path/remotes.json');
 }
 
-Future<File> writeRemotelist(List<Remote> remotes) async {
-  final file = await _remotesFile;
-  return file.writeAsString(
-    jsonEncode(remotes.map((remote) => remote.toJson()).toList()),
-    flush: true,
-  );
+Future<void>? _pendingRemoteWrite;
+
+Future<File> writeRemotelist(List<Remote> remotes) {
+  // Snapshot before awaiting; callers may mutate remotes during a queued save.
+  final payload = jsonEncode(remotes.map((remote) => remote.toJson()).toList());
+  final write = (_pendingRemoteWrite ?? Future<void>.value()).then((_) async {
+    final file = await _remotesFile;
+    final tmp = File('${file.path}.tmp');
+    await tmp.writeAsString(payload, flush: true);
+    return tmp.rename(file.path);
+  });
+  // Keep errors visible to the caller without blocking subsequent saves.
+  late final Future<void> queued;
+  queued = write.then<void>((_) {}, onError: (Object _) {}).whenComplete(() {
+    if (identical(_pendingRemoteWrite, queued)) _pendingRemoteWrite = null;
+  });
+  _pendingRemoteWrite = queued;
+  return write;
 }
 
 Future<List<Remote>> readRemotes() async {
