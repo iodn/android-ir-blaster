@@ -268,11 +268,9 @@ class ElkSmartUsbProtocolFormatter : UsbWireProtocol {
             bitString.append(codeBySymbol[b.toInt() and 0xFF] ?: "")
         }
 
-        var tailBits = bitString.length % 8
-        if (tailBits > 0) {
-            repeat(8 - tailBits) { bitString.append('0') }
-        }
-        out.write(tailBits and 0xFF)
+        val paddingBits = (8 - bitString.length % 8) % 8
+        repeat(paddingBits) { bitString.append('0') }
+        out.write(paddingBits)
 
         var i = 0
         while (i < bitString.length) {
