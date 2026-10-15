@@ -27,7 +27,7 @@ class AppLocalizationsJa extends AppLocalizations {
   String get quickTilePower => '電源';
 
   @override
-  String get quickTileMute => 'ミュート';
+  String get quickTileMute => '消音';
 
   @override
   String get quickTileVolumeUp => '音量 +';

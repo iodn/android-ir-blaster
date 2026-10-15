@@ -27,7 +27,7 @@ class AppLocalizationsUk extends AppLocalizations {
   String get quickTilePower => 'Живлення';
 
   @override
-  String get quickTileMute => 'Вимкнути звук';
+  String get quickTileMute => 'Без звуку';
 
   @override
   String get quickTileVolumeUp => 'Гучн. +';
@@ -1845,7 +1845,7 @@ class AppLocalizationsUk extends AppLocalizations {
   String get stop => 'Стоп';
 
   @override
-  String get selectButton => 'Кнопка вибору';
+  String get selectButton => 'Виберіть кнопку';
 
   @override
   String get buttonNotFoundInRemotes => 'Кнопка не знайдена в пультах.';

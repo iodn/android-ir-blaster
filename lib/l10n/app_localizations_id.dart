@@ -27,13 +27,13 @@ class AppLocalizationsId extends AppLocalizations {
   String get quickTilePower => 'Daya';
 
   @override
-  String get quickTileMute => 'Bisu';
+  String get quickTileMute => 'Senyapkan';
 
   @override
-  String get quickTileVolumeUp => 'Vol +';
+  String get quickTileVolumeUp => 'Volume +';
 
   @override
-  String get quickTileVolumeDown => 'Vol -';
+  String get quickTileVolumeDown => 'Volume -';
 
   @override
   String get homeUsbPermissionRequiredMessage =>

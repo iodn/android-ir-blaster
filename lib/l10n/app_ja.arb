@@ -6,7 +6,7 @@
   "failedToStart": "開始に失敗しました",
   "retry": "再試行",
   "quickTilePower": "電源",
-  "quickTileMute": "ミュート",
+  "quickTileMute": "消音",
   "quickTileVolumeUp": "音量 +",
   "quickTileVolumeDown": "音量 -",
   "homeUsbPermissionRequiredMessage": "USB赤外線アダプターを検出しました。コマンドを送るには、USBへのアクセスを許可してください。",

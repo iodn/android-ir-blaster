@@ -24,10 +24,10 @@ class AppLocalizationsEs extends AppLocalizations {
   String get retry => 'Reintentar';
 
   @override
-  String get quickTilePower => 'Enc.';
+  String get quickTilePower => 'Encender/apagar';
 
   @override
-  String get quickTileMute => 'Sil.';
+  String get quickTileMute => 'Silenciar';
 
   @override
   String get quickTileVolumeUp => 'Vol +';
@@ -1749,7 +1749,7 @@ class AppLocalizationsEs extends AppLocalizations {
       'Se creó un mando nuevo con un botón del último acierto.';
 
   @override
-  String get selectRemote => 'Seleccionar mando';
+  String get selectRemote => 'Elegir mando';
 
   @override
   String remoteNumber(Object id) {
@@ -1824,7 +1824,7 @@ class AppLocalizationsEs extends AppLocalizations {
   String get stop => 'Detener';
 
   @override
-  String get selectButton => 'Seleccionar botón';
+  String get selectButton => 'Elegir botón';
 
   @override
   String get buttonNotFoundInRemotes =>

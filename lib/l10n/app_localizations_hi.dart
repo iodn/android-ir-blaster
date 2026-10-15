@@ -24,16 +24,16 @@ class AppLocalizationsHi extends AppLocalizations {
   String get retry => 'फिर से प्रयास करें';
 
   @override
-  String get quickTilePower => 'पावर';
+  String get quickTilePower => 'चालू/बंद';
 
   @override
-  String get quickTileMute => 'म्यूट';
+  String get quickTileMute => 'आवाज़ बंद';
 
   @override
-  String get quickTileVolumeUp => 'Vol +';
+  String get quickTileVolumeUp => 'आवाज़ +';
 
   @override
-  String get quickTileVolumeDown => 'Vol -';
+  String get quickTileVolumeDown => 'आवाज़ -';
 
   @override
   String get homeUsbPermissionRequiredMessage =>
@@ -1706,7 +1706,7 @@ class AppLocalizationsHi extends AppLocalizations {
       'नया रिमोट बनाया गया के साथ एक बटन से अंतिम hit.';
 
   @override
-  String get selectRemote => 'चुनें रिमोट';
+  String get selectRemote => 'रिमोट चुनें';
 
   @override
   String remoteNumber(Object id) {
@@ -1781,7 +1781,7 @@ class AppLocalizationsHi extends AppLocalizations {
   String get stop => 'रोकें';
 
   @override
-  String get selectButton => 'चुनें बटन';
+  String get selectButton => 'बटन चुनें';
 
   @override
   String get buttonNotFoundInRemotes => 'बटन नहीं मिला में रिमोट.';

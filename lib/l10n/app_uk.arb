@@ -6,7 +6,7 @@
   "failedToStart": "Не вдалося запустити",
   "retry": "Повторити",
   "quickTilePower": "Живлення",
-  "quickTileMute": "Вимкнути звук",
+  "quickTileMute": "Без звуку",
   "quickTileVolumeUp": "Гучн. +",
   "quickTileVolumeDown": "Гучн. -",
   "homeUsbPermissionRequiredMessage": "Виявлено ІЧ USB-адаптер. Надайте доступ до USB, щоб надсилати команди.",
@@ -607,7 +607,7 @@
   },
   "irSignalTester": "Тестер ІЧ-сигналу",
   "stop": "Стоп",
-  "selectButton": "Кнопка вибору",
+  "selectButton": "Виберіть кнопку",
   "buttonNotFoundInRemotes": "Кнопка не знайдена в пультах.",
   "sentNamed": "Надіслано \"{name}\".",
   "@sentNamed": {

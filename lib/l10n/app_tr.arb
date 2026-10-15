@@ -5,7 +5,7 @@
   "unknownError": "Bilinmeyen hata",
   "failedToStart": "Başlatılamadı",
   "retry": "Yeniden dene",
-  "quickTilePower": "Güç",
+  "quickTilePower": "Aç/kapat",
   "quickTileMute": "Sessiz",
   "quickTileVolumeUp": "Ses +",
   "quickTileVolumeDown": "Ses -",
@@ -554,7 +554,7 @@
   "requiredEnterButtonLabel": "Required: enter a düğme label.",
   "defaultColorName": "Varsayılan",
   "newRemoteCreatedFromLastHit": "Son eşleşmeden bir düğmeyle yeni kumanda oluşturuldu.",
-  "selectRemote": "Seç kumanda",
+  "selectRemote": "Kumanda seçin",
   "remoteNumber": "Kumanda #{id}",
   "@remoteNumber": {
     "placeholders": {
@@ -607,7 +607,7 @@
   },
   "irSignalTester": "IR Sinyal Testi",
   "stop": "Durdur",
-  "selectButton": "Seç düğme",
+  "selectButton": "Düğme seçin",
   "buttonNotFoundInRemotes": "Düğme kumandalarda bulunamadı.",
   "sentNamed": "Sent \"{name}\".",
   "@sentNamed": {

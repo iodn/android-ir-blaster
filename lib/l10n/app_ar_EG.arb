@@ -5,8 +5,8 @@
   "unknownError": "خطأ غير معروف",
   "failedToStart": "تعذر البدء",
   "retry": "إعادة المحاولة",
-  "quickTilePower": "تشغيل",
-  "quickTileMute": "كتم",
+  "quickTilePower": "تشغيل/إيقاف",
+  "quickTileMute": "كتم الصوت",
   "quickTileVolumeUp": "الصوت +",
   "quickTileVolumeDown": "الصوت -",
   "homeUsbPermissionRequiredMessage": "لقينا محوّل IR USB. اسمح بالوصول للـ USB عشان تبعت أوامر.",
@@ -554,7 +554,7 @@
   "requiredEnterButtonLabel": "مطلوب: أدخل تسمية للزر.",
   "defaultColorName": "افتراضي",
   "newRemoteCreatedFromLastHit": "تم إنشاء جهاز تحكم جديد مع زر واحد من آخر إصابة.",
-  "selectRemote": "اختر جهاز تحكم",
+  "selectRemote": "اختار جهاز تحكم",
   "remoteNumber": "جهاز التحكم #{id}",
   "@remoteNumber": {
     "placeholders": {
@@ -607,7 +607,7 @@
   },
   "irSignalTester": "IR إشارة Tester",
   "stop": "إيقاف",
-  "selectButton": "اختر زر",
+  "selectButton": "اختار زر",
   "buttonNotFoundInRemotes": "زر not موجود in remotes.",
   "sentNamed": "Sent \"{name}\".",
   "@sentNamed": {

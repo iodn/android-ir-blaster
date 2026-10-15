@@ -7,8 +7,8 @@
   "retry": "Opnieuw",
   "quickTilePower": "Aan/uit",
   "quickTileMute": "Dempen",
-  "quickTileVolumeUp": "Vol +",
-  "quickTileVolumeDown": "Vol -",
+  "quickTileVolumeUp": "Volume +",
+  "quickTileVolumeDown": "Volume -",
   "homeUsbPermissionRequiredMessage": "USB-IR-adapter gevonden. Sta USB-toegang toe om opdrachten te verzenden.",
   "homeUsbPermissionDeniedMessage": "USB-toegang is geweigerd. Vraag opnieuw toestemming en sta toegang toe om opdrachten te verzenden.",
   "homeUsbPermissionGrantedMessage": "USB-toegang is toegestaan, maar de adapter is nog niet klaar.",
@@ -554,7 +554,7 @@
   "requiredEnterButtonLabel": "Vereist voer een knoplabel in.",
   "defaultColorName": "Standaard",
   "newRemoteCreatedFromLastHit": "Nieuwe afstandsbediening gemaakt met één knop van de laatste treffer.",
-  "selectRemote": "Selecteer remote",
+  "selectRemote": "Kies een afstandsbediening",
   "remoteNumber": "Afstandsbediening #{id}",
   "@remoteNumber": {
     "placeholders": {
@@ -607,7 +607,7 @@
   },
   "irSignalTester": "IR-signaaltester",
   "stop": "Stop",
-  "selectButton": "Selecteer knop",
+  "selectButton": "Kies een knop",
   "buttonNotFoundInRemotes": "Knop not found in remotes.",
   "sentNamed": "\"{name}\" verzonden.",
   "@sentNamed": {

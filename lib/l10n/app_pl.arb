@@ -556,7 +556,7 @@
   "requiredEnterButtonLabel": "Required: enter a przycisk etykieta.",
   "defaultColorName": "Domyślny",
   "newRemoteCreatedFromLastHit": "New pilot created z one przycisk from last hit.",
-  "selectRemote": "Select pilot",
+  "selectRemote": "Wybierz pilot",
   "remoteNumber": "Pilot nr {id}",
   "@remoteNumber": {
     "placeholders": {
@@ -609,7 +609,7 @@
   },
   "irSignalTester": "IR Signal Tester",
   "stop": "stop",
-  "selectButton": "Select przycisk",
+  "selectButton": "Wybierz przycisk",
   "buttonNotFoundInRemotes": "przycisk nie znaleziono in piloty.",
   "sentNamed": "Sent \"{name}\".",
   "@sentNamed": {

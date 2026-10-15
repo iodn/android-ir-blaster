@@ -30,10 +30,10 @@ class AppLocalizationsKo extends AppLocalizations {
   String get quickTileMute => '음소거';
 
   @override
-  String get quickTileVolumeUp => '볼륨 +';
+  String get quickTileVolumeUp => '음량 +';
 
   @override
-  String get quickTileVolumeDown => '볼륨 -';
+  String get quickTileVolumeDown => '음량 -';
 
   @override
   String get homeUsbPermissionRequiredMessage =>
@@ -1638,7 +1638,7 @@ class AppLocalizationsKo extends AppLocalizations {
       '마지막 적중 결과로 새 리모컨을 버튼 1개와 함께 만들었습니다.';
 
   @override
-  String get selectRemote => '선택 리모컨';
+  String get selectRemote => '리모컨 선택';
 
   @override
   String remoteNumber(Object id) {
@@ -1713,7 +1713,7 @@ class AppLocalizationsKo extends AppLocalizations {
   String get stop => '중지';
 
   @override
-  String get selectButton => '선택 버튼';
+  String get selectButton => '버튼 선택';
 
   @override
   String get buttonNotFoundInRemotes => '버튼 않음 찾을 수 없음 리모컨.';

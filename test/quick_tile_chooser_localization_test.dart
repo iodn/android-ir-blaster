@@ -27,6 +27,19 @@ void main() {
       addTearDown(tester.view.resetPhysicalSize);
       addTearDown(tester.view.resetDevicePixelRatio);
       final l10n = await AppLocalizations.delegate.load(locale);
+      void expectReadableHeading(String value) {
+        final text = find.text(value);
+        expect(text, findsOneWidget);
+        final paragraph = tester.renderObject<RenderParagraph>(text);
+        expect(paragraph.didExceedMaxLines, isFalse);
+        expect(paragraph.getMaxIntrinsicHeight(paragraph.size.width),
+            lessThanOrEqualTo(paragraph.size.height + 0.1));
+        final rect = tester.getRect(text);
+        expect(rect.left, greaterThanOrEqualTo(0));
+        expect(rect.right, lessThanOrEqualTo(320));
+        expect(find.byTooltip(l10n.close).hitTestable(), findsOneWidget);
+      }
+
       final labels = {
         'power': l10n.quickTilePower,
         'mute': l10n.quickTileMute,
@@ -82,6 +95,7 @@ void main() {
         final browse = find.text(l10n.browseAllRemotesEllipsis);
         await tester.tap(browse);
         await tester.pumpAndSettle();
+        expectReadableHeading(l10n.selectRemote);
         final count = find.text(l10n.remoteButtonCountLabel(1));
         final paragraph = tester.renderObject<RenderParagraph>(count);
         expect(paragraph.didExceedMaxLines, isFalse);
@@ -89,6 +103,7 @@ void main() {
             lessThanOrEqualTo(paragraph.size.height + 0.1));
         await tester.tap(find.text('TV'));
         await tester.pumpAndSettle();
+        expectReadableHeading(l10n.selectButton);
         await tester.tap(find.text('Power'));
         await tester.pumpAndSettle();
         expect(picked?.button.id, button.id);

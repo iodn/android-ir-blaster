@@ -30,10 +30,10 @@ class AppLocalizationsDe extends AppLocalizations {
   String get quickTileMute => 'Stumm';
 
   @override
-  String get quickTileVolumeUp => 'Laut +';
+  String get quickTileVolumeUp => 'Lautstärke +';
 
   @override
-  String get quickTileVolumeDown => 'Laut -';
+  String get quickTileVolumeDown => 'Lautstärke -';
 
   @override
   String get homeUsbPermissionRequiredMessage =>

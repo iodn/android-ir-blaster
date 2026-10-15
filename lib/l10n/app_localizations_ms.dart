@@ -24,16 +24,16 @@ class AppLocalizationsMs extends AppLocalizations {
   String get retry => 'Cuba lagi';
 
   @override
-  String get quickTilePower => 'Daya';
+  String get quickTilePower => 'Hidup/mati';
 
   @override
-  String get quickTileMute => 'Senyap';
+  String get quickTileMute => 'Senyapkan';
 
   @override
-  String get quickTileVolumeUp => 'Vol +';
+  String get quickTileVolumeUp => 'Volum +';
 
   @override
-  String get quickTileVolumeDown => 'Vol -';
+  String get quickTileVolumeDown => 'Volum -';
 
   @override
   String get homeUsbPermissionRequiredMessage =>
@@ -1713,7 +1713,7 @@ class AppLocalizationsMs extends AppLocalizations {
       'Remote baru dibuat dengan satu butang dari hasil terakhir.';
 
   @override
-  String get selectRemote => 'Pilih remote';
+  String get selectRemote => 'Pilih alat kawalan jauh';
 
   @override
   String remoteNumber(Object id) {

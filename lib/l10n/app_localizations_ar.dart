@@ -24,10 +24,10 @@ class AppLocalizationsAr extends AppLocalizations {
   String get retry => 'إعادة المحاولة';
 
   @override
-  String get quickTilePower => 'تشغيل';
+  String get quickTilePower => 'تشغيل/إيقاف';
 
   @override
-  String get quickTileMute => 'كتم';
+  String get quickTileMute => 'كتم الصوت';
 
   @override
   String get quickTileVolumeUp => 'الصوت +';
@@ -1806,7 +1806,7 @@ class AppLocalizationsAr extends AppLocalizations {
   String get stop => 'إيقاف';
 
   @override
-  String get selectButton => 'اختر زر';
+  String get selectButton => 'اختر زرًا';
 
   @override
   String get buttonNotFoundInRemotes => 'زر not موجود in remotes.';
@@ -5296,10 +5296,10 @@ class AppLocalizationsArEg extends AppLocalizationsAr {
   String get retry => 'إعادة المحاولة';
 
   @override
-  String get quickTilePower => 'تشغيل';
+  String get quickTilePower => 'تشغيل/إيقاف';
 
   @override
-  String get quickTileMute => 'كتم';
+  String get quickTileMute => 'كتم الصوت';
 
   @override
   String get quickTileVolumeUp => 'الصوت +';
@@ -7002,7 +7002,7 @@ class AppLocalizationsArEg extends AppLocalizationsAr {
       'تم إنشاء جهاز تحكم جديد مع زر واحد من آخر إصابة.';
 
   @override
-  String get selectRemote => 'اختر جهاز تحكم';
+  String get selectRemote => 'اختار جهاز تحكم';
 
   @override
   String remoteNumber(Object id) {
@@ -7077,7 +7077,7 @@ class AppLocalizationsArEg extends AppLocalizationsAr {
   String get stop => 'إيقاف';
 
   @override
-  String get selectButton => 'اختر زر';
+  String get selectButton => 'اختار زر';
 
   @override
   String get buttonNotFoundInRemotes => 'زر not موجود in remotes.';

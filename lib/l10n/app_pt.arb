@@ -5,8 +5,8 @@
   "unknownError": "Erro desconhecido",
   "failedToStart": "Falha ao iniciar",
   "retry": "Tentar novamente",
-  "quickTilePower": "Ligar",
-  "quickTileMute": "Mudo",
+  "quickTilePower": "Ligar/desligar",
+  "quickTileMute": "Silenciar",
   "quickTileVolumeUp": "Vol +",
   "quickTileVolumeDown": "Vol -",
   "homeUsbPermissionRequiredMessage": "Adaptador IR USB detetado. Autorize o acesso USB para enviar comandos.",
@@ -554,7 +554,7 @@
   "requiredEnterButtonLabel": "Obrigatório: introduza uma etiqueta.",
   "defaultColorName": "Predeterminado",
   "newRemoteCreatedFromLastHit": "Foi criado um comando novo com um botão do último acerto.",
-  "selectRemote": "Selecionar comando",
+  "selectRemote": "Escolher comando",
   "remoteNumber": "Comando n.º {id}",
   "@remoteNumber": {
     "placeholders": {
@@ -607,7 +607,7 @@
   },
   "irSignalTester": "Probador de sinal IR",
   "stop": "Parar",
-  "selectButton": "Selecionar botão",
+  "selectButton": "Escolher botão",
   "buttonNotFoundInRemotes": "Botão não encontrado nos comandos.",
   "sentNamed": "Foi enviado \"{name}\".",
   "@sentNamed": {

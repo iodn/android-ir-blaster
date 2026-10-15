@@ -24,10 +24,10 @@ class AppLocalizationsPt extends AppLocalizations {
   String get retry => 'Tentar novamente';
 
   @override
-  String get quickTilePower => 'Ligar';
+  String get quickTilePower => 'Ligar/desligar';
 
   @override
-  String get quickTileMute => 'Mudo';
+  String get quickTileMute => 'Silenciar';
 
   @override
   String get quickTileVolumeUp => 'Vol +';
@@ -1754,7 +1754,7 @@ class AppLocalizationsPt extends AppLocalizations {
       'Foi criado um comando novo com um botão do último acerto.';
 
   @override
-  String get selectRemote => 'Selecionar comando';
+  String get selectRemote => 'Escolher comando';
 
   @override
   String remoteNumber(Object id) {
@@ -1829,7 +1829,7 @@ class AppLocalizationsPt extends AppLocalizations {
   String get stop => 'Parar';
 
   @override
-  String get selectButton => 'Selecionar botão';
+  String get selectButton => 'Escolher botão';
 
   @override
   String get buttonNotFoundInRemotes => 'Botão não encontrado nos comandos.';
@@ -5346,10 +5346,10 @@ class AppLocalizationsPtBr extends AppLocalizationsPt {
   String get retry => 'Tentar novamente';
 
   @override
-  String get quickTilePower => 'Ligar';
+  String get quickTilePower => 'Ligar/desligar';
 
   @override
-  String get quickTileMute => 'Mudo';
+  String get quickTileMute => 'Silenciar';
 
   @override
   String get quickTileVolumeUp => 'Vol +';
@@ -7075,7 +7075,7 @@ class AppLocalizationsPtBr extends AppLocalizationsPt {
       'Foi criado um novo controle com um botão do último acerto.';
 
   @override
-  String get selectRemote => 'Selecionar controle';
+  String get selectRemote => 'Escolher controle';
 
   @override
   String remoteNumber(Object id) {
@@ -7150,7 +7150,7 @@ class AppLocalizationsPtBr extends AppLocalizationsPt {
   String get stop => 'parar';
 
   @override
-  String get selectButton => 'Selecionar botão';
+  String get selectButton => 'Escolher botão';
 
   @override
   String get buttonNotFoundInRemotes => 'Botão não encontrado nos controles.';

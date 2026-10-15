@@ -24,7 +24,7 @@ class AppLocalizationsTr extends AppLocalizations {
   String get retry => 'Yeniden dene';
 
   @override
-  String get quickTilePower => 'Güç';
+  String get quickTilePower => 'Aç/kapat';
 
   @override
   String get quickTileMute => 'Sessiz';
@@ -1715,7 +1715,7 @@ class AppLocalizationsTr extends AppLocalizations {
       'Son eşleşmeden bir düğmeyle yeni kumanda oluşturuldu.';
 
   @override
-  String get selectRemote => 'Seç kumanda';
+  String get selectRemote => 'Kumanda seçin';
 
   @override
   String remoteNumber(Object id) {
@@ -1790,7 +1790,7 @@ class AppLocalizationsTr extends AppLocalizations {
   String get stop => 'Durdur';
 
   @override
-  String get selectButton => 'Seç düğme';
+  String get selectButton => 'Düğme seçin';
 
   @override
   String get buttonNotFoundInRemotes => 'Düğme kumandalarda bulunamadı.';

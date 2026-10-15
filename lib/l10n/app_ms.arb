@@ -5,10 +5,10 @@
   "unknownError": "Ralat tidak diketahui",
   "failedToStart": "Gagal bermula",
   "retry": "Cuba lagi",
-  "quickTilePower": "Daya",
-  "quickTileMute": "Senyap",
-  "quickTileVolumeUp": "Vol +",
-  "quickTileVolumeDown": "Vol -",
+  "quickTilePower": "Hidup/mati",
+  "quickTileMute": "Senyapkan",
+  "quickTileVolumeUp": "Volum +",
+  "quickTileVolumeDown": "Volum -",
   "homeUsbPermissionRequiredMessage": "Penyesuai IR USB dikesan. Benarkan akses USB untuk menghantar arahan.",
   "homeUsbPermissionDeniedMessage": "Akses USB ditolak. Minta kebenaran sekali lagi dan benarkan akses untuk menghantar arahan.",
   "homeUsbPermissionGrantedMessage": "Akses USB dibenarkan, tetapi penyesuai belum sedia.",
@@ -554,7 +554,7 @@
   "requiredEnterButtonLabel": "Wajib: masukkan label butang.",
   "defaultColorName": "Lalai",
   "newRemoteCreatedFromLastHit": "Remote baru dibuat dengan satu butang dari hasil terakhir.",
-  "selectRemote": "Pilih remote",
+  "selectRemote": "Pilih alat kawalan jauh",
   "remoteNumber": "Remote #{id}",
   "@remoteNumber": {
     "placeholders": {

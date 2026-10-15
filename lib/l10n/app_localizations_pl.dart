@@ -1766,7 +1766,7 @@ class AppLocalizationsPl extends AppLocalizations {
       'New pilot created z one przycisk from last hit.';
 
   @override
-  String get selectRemote => 'Select pilot';
+  String get selectRemote => 'Wybierz pilot';
 
   @override
   String remoteNumber(Object id) {
@@ -1841,7 +1841,7 @@ class AppLocalizationsPl extends AppLocalizations {
   String get stop => 'stop';
 
   @override
-  String get selectButton => 'Select przycisk';
+  String get selectButton => 'Wybierz przycisk';
 
   @override
   String get buttonNotFoundInRemotes => 'przycisk nie znaleziono in piloty.';

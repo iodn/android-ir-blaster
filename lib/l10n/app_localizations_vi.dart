@@ -30,10 +30,10 @@ class AppLocalizationsVi extends AppLocalizations {
   String get quickTileMute => 'Tắt tiếng';
 
   @override
-  String get quickTileVolumeUp => 'Âm +';
+  String get quickTileVolumeUp => 'Âm lượng +';
 
   @override
-  String get quickTileVolumeDown => 'Âm -';
+  String get quickTileVolumeDown => 'Âm lượng -';
 
   @override
   String get homeUsbPermissionRequiredMessage =>

@@ -27,7 +27,7 @@ class AppLocalizationsIt extends AppLocalizations {
   String get quickTilePower => 'Accensione';
 
   @override
-  String get quickTileMute => 'Muto';
+  String get quickTileMute => 'Silenzia';
 
   @override
   String get quickTileVolumeUp => 'Vol +';
@@ -1756,7 +1756,7 @@ class AppLocalizationsIt extends AppLocalizations {
       'Nuovo telecomando creato con un pulsante dall\'ultimo hit.';
 
   @override
-  String get selectRemote => 'Seleziona telecomando';
+  String get selectRemote => 'Scegli telecomando';
 
   @override
   String remoteNumber(Object id) {
@@ -1831,7 +1831,7 @@ class AppLocalizationsIt extends AppLocalizations {
   String get stop => 'Stop';
 
   @override
-  String get selectButton => 'Seleziona pulsante';
+  String get selectButton => 'Scegli pulsante';
 
   @override
   String get buttonNotFoundInRemotes => 'Pulsante non trovato nei telecomandi.';

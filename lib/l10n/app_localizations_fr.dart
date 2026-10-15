@@ -24,10 +24,10 @@ class AppLocalizationsFr extends AppLocalizations {
   String get retry => 'Réessayer';
 
   @override
-  String get quickTilePower => 'Power';
+  String get quickTilePower => 'Marche/arrêt';
 
   @override
-  String get quickTileMute => 'Muet';
+  String get quickTileMute => 'Couper le son';
 
   @override
   String get quickTileVolumeUp => 'Vol +';

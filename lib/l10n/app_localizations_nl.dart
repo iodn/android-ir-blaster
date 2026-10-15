@@ -30,10 +30,10 @@ class AppLocalizationsNl extends AppLocalizations {
   String get quickTileMute => 'Dempen';
 
   @override
-  String get quickTileVolumeUp => 'Vol +';
+  String get quickTileVolumeUp => 'Volume +';
 
   @override
-  String get quickTileVolumeDown => 'Vol -';
+  String get quickTileVolumeDown => 'Volume -';
 
   @override
   String get homeUsbPermissionRequiredMessage =>
@@ -1763,7 +1763,7 @@ class AppLocalizationsNl extends AppLocalizations {
       'Nieuwe afstandsbediening gemaakt met één knop van de laatste treffer.';
 
   @override
-  String get selectRemote => 'Selecteer remote';
+  String get selectRemote => 'Kies een afstandsbediening';
 
   @override
   String remoteNumber(Object id) {
@@ -1838,7 +1838,7 @@ class AppLocalizationsNl extends AppLocalizations {
   String get stop => 'Stop';
 
   @override
-  String get selectButton => 'Selecteer knop';
+  String get selectButton => 'Kies een knop';
 
   @override
   String get buttonNotFoundInRemotes => 'Knop not found in remotes.';

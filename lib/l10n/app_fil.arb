@@ -6,7 +6,7 @@
   "failedToStart": "Hindi nagsimula",
   "retry": "Subukan muli",
   "quickTilePower": "Power",
-  "quickTileMute": "Mute",
+  "quickTileMute": "I-mute",
   "quickTileVolumeUp": "Lakasan",
   "quickTileVolumeDown": "Hinaan",
   "homeUsbPermissionRequiredMessage": "May nakitang USB IR adapter. Payagan ang USB access para makapagpadala ng command.",
@@ -554,7 +554,7 @@
   "requiredEnterButtonLabel": "Kailangan: maglagay ng label ng button.",
   "defaultColorName": "Default",
   "newRemoteCreatedFromLastHit": "Nakagawa ng bagong remote na may isang button mula sa huling hit.",
-  "selectRemote": "Select remote",
+  "selectRemote": "Pumili ng remote",
   "remoteNumber": "Remote #{id}",
   "@remoteNumber": {
     "placeholders": {
@@ -607,7 +607,7 @@
   },
   "irSignalTester": "IR Signal Tester",
   "stop": "Ihinto",
-  "selectButton": "Select button",
+  "selectButton": "Pumili ng pindutan",
   "buttonNotFoundInRemotes": "Hindi nahanap ang button sa mga remote.",
   "sentNamed": "Sent \"{name}\".",
   "@sentNamed": {

@@ -24,16 +24,16 @@ class AppLocalizationsTh extends AppLocalizations {
   String get retry => 'ลองอีกครั้ง';
 
   @override
-  String get quickTilePower => 'Power';
+  String get quickTilePower => 'เปิด/ปิด';
 
   @override
   String get quickTileMute => 'ปิดเสียง';
 
   @override
-  String get quickTileVolumeUp => 'Vol +';
+  String get quickTileVolumeUp => 'เสียง +';
 
   @override
-  String get quickTileVolumeDown => 'Vol -';
+  String get quickTileVolumeDown => 'เสียง -';
 
   @override
   String get homeUsbPermissionRequiredMessage =>

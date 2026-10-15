@@ -5,10 +5,10 @@
   "unknownError": "अज्ञात त्रुटि",
   "failedToStart": "प्रारंभ नहीं हुआ",
   "retry": "फिर से प्रयास करें",
-  "quickTilePower": "पावर",
-  "quickTileMute": "म्यूट",
-  "quickTileVolumeUp": "Vol +",
-  "quickTileVolumeDown": "Vol -",
+  "quickTilePower": "चालू/बंद",
+  "quickTileMute": "आवाज़ बंद",
+  "quickTileVolumeUp": "आवाज़ +",
+  "quickTileVolumeDown": "आवाज़ -",
   "homeUsbPermissionRequiredMessage": "USB IR अडैप्टर मिला। कमांड भेजने के लिए USB ऐक्सेस की अनुमति दें।",
   "homeUsbPermissionDeniedMessage": "USB ऐक्सेस की अनुमति नहीं मिली। कमांड भेजने के लिए फिर से अनुमति माँगें और उसे स्वीकार करें।",
   "homeUsbPermissionGrantedMessage": "USB ऐक्सेस की अनुमति है, लेकिन अडैप्टर अभी तैयार नहीं है।",
@@ -554,7 +554,7 @@
   "requiredEnterButtonLabel": "आवश्यक: दर्ज करें a बटन लेबल.",
   "defaultColorName": "डिफ़ॉल्ट",
   "newRemoteCreatedFromLastHit": "नया रिमोट बनाया गया के साथ एक बटन से अंतिम hit.",
-  "selectRemote": "चुनें रिमोट",
+  "selectRemote": "रिमोट चुनें",
   "remoteNumber": "रिमोट #{id}",
   "@remoteNumber": {
     "placeholders": {
@@ -607,7 +607,7 @@
   },
   "irSignalTester": "IR सिग्नल टेस्टर",
   "stop": "रोकें",
-  "selectButton": "चुनें बटन",
+  "selectButton": "बटन चुनें",
   "buttonNotFoundInRemotes": "बटन नहीं मिला में रिमोट.",
   "sentNamed": "भेजा गया \"{name}\".",
   "@sentNamed": {

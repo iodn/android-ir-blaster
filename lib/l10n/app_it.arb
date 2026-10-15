@@ -6,7 +6,7 @@
   "failedToStart": "Avvio non riuscito",
   "retry": "Riprova",
   "quickTilePower": "Accensione",
-  "quickTileMute": "Muto",
+  "quickTileMute": "Silenzia",
   "quickTileVolumeUp": "Vol +",
   "quickTileVolumeDown": "Vol -",
   "homeUsbPermissionRequiredMessage": "Adattatore IR USB rilevato. Consenti l’accesso USB per inviare comandi.",
@@ -554,7 +554,7 @@
   "requiredEnterButtonLabel": "Obbligatorio. inserisci un'etichetta pulsante.",
   "defaultColorName": "Predefinito",
   "newRemoteCreatedFromLastHit": "Nuovo telecomando creato con un pulsante dall'ultimo hit.",
-  "selectRemote": "Seleziona telecomando",
+  "selectRemote": "Scegli telecomando",
   "remoteNumber": "Telecomando #{id}",
   "@remoteNumber": {
     "placeholders": {
@@ -607,7 +607,7 @@
   },
   "irSignalTester": "Tester segnale IR",
   "stop": "Stop",
-  "selectButton": "Seleziona pulsante",
+  "selectButton": "Scegli pulsante",
   "buttonNotFoundInRemotes": "Pulsante non trovato nei telecomandi.",
   "sentNamed": "Inviato \"{name}\".",
   "@sentNamed": {

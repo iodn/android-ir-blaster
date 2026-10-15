@@ -27,7 +27,7 @@ class AppLocalizationsFil extends AppLocalizations {
   String get quickTilePower => 'Power';
 
   @override
-  String get quickTileMute => 'Mute';
+  String get quickTileMute => 'I-mute';
 
   @override
   String get quickTileVolumeUp => 'Lakasan';
@@ -1729,7 +1729,7 @@ class AppLocalizationsFil extends AppLocalizations {
       'Nakagawa ng bagong remote na may isang button mula sa huling hit.';
 
   @override
-  String get selectRemote => 'Select remote';
+  String get selectRemote => 'Pumili ng remote';
 
   @override
   String remoteNumber(Object id) {
@@ -1804,7 +1804,7 @@ class AppLocalizationsFil extends AppLocalizations {
   String get stop => 'Ihinto';
 
   @override
-  String get selectButton => 'Select button';
+  String get selectButton => 'Pumili ng pindutan';
 
   @override
   String get buttonNotFoundInRemotes =>
