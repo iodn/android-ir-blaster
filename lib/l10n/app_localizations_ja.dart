@@ -1774,18 +1774,18 @@ class AppLocalizationsJa extends AppLocalizations {
   String get noMatchingCommands => '一致するコマンドがありません';
 
   @override
-  String get quickTileFavoritesTitle => 'クイックタイルお気に入り';
+  String get quickTileFavoritesTitle => 'お気に入りのボタン';
 
   @override
   String changeMappingForTile(Object tileLabel) {
-    return 'Change mapping for $tileLabel tile';
+    return '「$tileLabel」タイルのボタンを変更';
   }
 
   @override
   String get pickDifferentButton => '別のボタンを選択';
 
   @override
-  String get browseAllRemotesEllipsis => 'すべてのリモコンを見る…';
+  String get browseAllRemotesEllipsis => 'リモコンを探す';
 
   @override
   String get invalidMacroFileFormat => '無効なマクロファイル形式です。';

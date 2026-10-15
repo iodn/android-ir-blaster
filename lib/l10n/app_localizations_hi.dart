@@ -1853,18 +1853,18 @@ class AppLocalizationsHi extends AppLocalizations {
   String get noMatchingCommands => 'कोई कमांड नहीं मिली';
 
   @override
-  String get quickTileFavoritesTitle => 'त्वरित tile पसंदीदा';
+  String get quickTileFavoritesTitle => 'पसंदीदा बटन';
 
   @override
   String changeMappingForTile(Object tileLabel) {
-    return '$tileLabel टाइल के लिए मैपिंग बदलें';
+    return '“$tileLabel” टाइल का बटन बदलें';
   }
 
   @override
-  String get pickDifferentButton => 'कोई दूसरा बटन चुनें';
+  String get pickDifferentButton => 'दूसरा बटन चुनें';
 
   @override
-  String get browseAllRemotesEllipsis => 'ब्राउज़ करें सभी रिमोट…';
+  String get browseAllRemotesEllipsis => 'रिमोट देखें';
 
   @override
   String get invalidMacroFileFormat => 'अमान्य मैक्रो फ़ाइल format.';

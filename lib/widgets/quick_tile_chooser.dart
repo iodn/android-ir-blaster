@@ -27,7 +27,7 @@ Future<QuickTilePick?> pickButtonForTile(
 
   final Object favResult = await _pickFavorite(
     context,
-    tileLabel: _tileLabelForKey(tileKey),
+    tileLabel: _tileLabelForKey(context, tileKey),
   );
   if (!context.mounted) return null;
   if (favResult == _FavoritePickResult.cancelled) return null;
@@ -406,16 +406,16 @@ class _FavoritePickerSheet extends StatelessWidget {
   }
 }
 
-String? _tileLabelForKey(String? key) {
+String? _tileLabelForKey(BuildContext context, String? key) {
   switch ((key ?? '').trim()) {
     case 'power':
-      return 'Power';
+      return context.l10n.quickTilePower;
     case 'mute':
-      return 'Mute';
+      return context.l10n.quickTileMute;
     case 'volumeUp':
-      return 'Vol +';
+      return context.l10n.quickTileVolumeUp;
     case 'volumeDown':
-      return 'Vol -';
+      return context.l10n.quickTileVolumeDown;
     default:
       return null;
   }

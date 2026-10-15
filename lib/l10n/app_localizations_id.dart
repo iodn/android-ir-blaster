@@ -1858,18 +1858,18 @@ class AppLocalizationsId extends AppLocalizations {
   String get noMatchingCommands => 'Tidak ada perintah yang cocok';
 
   @override
-  String get quickTileFavoritesTitle => 'Cepat tile favorit';
+  String get quickTileFavoritesTitle => 'Tombol favorit';
 
   @override
   String changeMappingForTile(Object tileLabel) {
-    return 'Ubah pemetaan untuk tile $tileLabel';
+    return 'Ganti tombol untuk ubin “$tileLabel”';
   }
 
   @override
   String get pickDifferentButton => 'Pilih tombol lain';
 
   @override
-  String get browseAllRemotesEllipsis => 'Browse semua remote…';
+  String get browseAllRemotesEllipsis => 'Jelajahi remote';
 
   @override
   String get invalidMacroFileFormat => 'Invalid makro file format.';

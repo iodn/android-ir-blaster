@@ -1732,18 +1732,18 @@ class AppLocalizationsZh extends AppLocalizations {
   String get noMatchingCommands => '未找到匹配的命令';
 
   @override
-  String get quickTileFavoritesTitle => '快捷磁贴收藏';
+  String get quickTileFavoritesTitle => '收藏的按钮';
 
   @override
   String changeMappingForTile(Object tileLabel) {
-    return '更改 $tileLabel 磁贴映射';
+    return '更改“$tileLabel”快捷设置的按钮';
   }
 
   @override
   String get pickDifferentButton => '选择其他按钮';
 
   @override
-  String get browseAllRemotesEllipsis => '浏览所有遥控器…';
+  String get browseAllRemotesEllipsis => '浏览遥控器';
 
   @override
   String get invalidMacroFileFormat => '宏文件格式无效。';

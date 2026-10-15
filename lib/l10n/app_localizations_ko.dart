@@ -1784,18 +1784,18 @@ class AppLocalizationsKo extends AppLocalizations {
   String get noMatchingCommands => '일치하는 명령이 없습니다';
 
   @override
-  String get quickTileFavoritesTitle => '빠른 타일 즐겨찾기';
+  String get quickTileFavoritesTitle => '즐겨찾는 버튼';
 
   @override
   String changeMappingForTile(Object tileLabel) {
-    return '$tileLabel 타일의 매핑 변경';
+    return '‘$tileLabel’ 타일의 버튼 변경';
   }
 
   @override
   String get pickDifferentButton => '다른 버튼 선택';
 
   @override
-  String get browseAllRemotesEllipsis => '찾아보기 모든 리모컨…';
+  String get browseAllRemotesEllipsis => '리모컨 찾아보기';
 
   @override
   String get invalidMacroFileFormat => '잘못된 매크로 파일 형식입니다.';

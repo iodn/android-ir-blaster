@@ -658,15 +658,15 @@
   "emDash": "—",
   "searchCommands": "Befehle suchen",
   "noMatchingCommands": "Keine passenden Befehle",
-  "quickTileFavoritesTitle": "Schnellkachel-Favoriten",
-  "changeMappingForTile": "Zuordnung für Kachel {tileLabel} ändern",
+  "quickTileFavoritesTitle": "Bevorzugte Tasten",
+  "changeMappingForTile": "Taste für Kachel „{tileLabel}“ ändern",
   "@changeMappingForTile": {
     "placeholders": {
       "tileLabel": {}
     }
   },
   "pickDifferentButton": "Andere Taste wählen",
-  "browseAllRemotesEllipsis": "Alle Fernbedienungen durchsuchen…",
+  "browseAllRemotesEllipsis": "Fernbedienungen durchsuchen",
   "invalidMacroFileFormat": "Ungültiges Makro-Dateiformat.",
   "failedToParseMacroFile": "Makro-Datei konnte nicht gelesen werden.",
   "deviceCodeLabel": "Gerätecode",

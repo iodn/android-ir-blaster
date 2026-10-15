@@ -648,15 +648,15 @@
   "emDash": "—",
   "searchCommands": "Cari perintah",
   "noMatchingCommands": "Tidak ada perintah yang cocok",
-  "quickTileFavoritesTitle": "Cepat tile favorit",
-  "changeMappingForTile": "Ubah pemetaan untuk tile {tileLabel}",
+  "quickTileFavoritesTitle": "Tombol favorit",
+  "changeMappingForTile": "Ganti tombol untuk ubin “{tileLabel}”",
   "@changeMappingForTile": {
     "placeholders": {
       "tileLabel": {}
     }
   },
   "pickDifferentButton": "Pilih tombol lain",
-  "browseAllRemotesEllipsis": "Browse semua remote…",
+  "browseAllRemotesEllipsis": "Jelajahi remote",
   "invalidMacroFileFormat": "Invalid makro file format.",
   "failedToParseMacroFile": "Gagal parse makro file.",
   "deviceCodeLabel": "Perangkat Kode",

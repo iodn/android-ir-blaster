@@ -1862,18 +1862,18 @@ class AppLocalizationsTr extends AppLocalizations {
   String get noMatchingCommands => 'Eşleşen komut bulunamadı';
 
   @override
-  String get quickTileFavoritesTitle => 'Hızlı döşeme favorileri';
+  String get quickTileFavoritesTitle => 'Favori düğmeler';
 
   @override
   String changeMappingForTile(Object tileLabel) {
-    return '$tileLabel döşemesi için eşlemeyi değiştir';
+    return '“$tileLabel” kutucuğunun düğmesini değiştir';
   }
 
   @override
-  String get pickDifferentButton => 'Pick a different düğme';
+  String get pickDifferentButton => 'Başka bir düğme seçin';
 
   @override
-  String get browseAllRemotesEllipsis => 'Tüm kumandalara göz at…';
+  String get browseAllRemotesEllipsis => 'Kumandalara göz at';
 
   @override
   String get invalidMacroFileFormat => 'Geçersiz makro dosya biçimi.';

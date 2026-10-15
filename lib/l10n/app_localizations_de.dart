@@ -1911,18 +1911,18 @@ class AppLocalizationsDe extends AppLocalizations {
   String get noMatchingCommands => 'Keine passenden Befehle';
 
   @override
-  String get quickTileFavoritesTitle => 'Schnellkachel-Favoriten';
+  String get quickTileFavoritesTitle => 'Bevorzugte Tasten';
 
   @override
   String changeMappingForTile(Object tileLabel) {
-    return 'Zuordnung für Kachel $tileLabel ändern';
+    return 'Taste für Kachel „$tileLabel“ ändern';
   }
 
   @override
   String get pickDifferentButton => 'Andere Taste wählen';
 
   @override
-  String get browseAllRemotesEllipsis => 'Alle Fernbedienungen durchsuchen…';
+  String get browseAllRemotesEllipsis => 'Fernbedienungen durchsuchen';
 
   @override
   String get invalidMacroFileFormat => 'Ungültiges Makro-Dateiformat.';

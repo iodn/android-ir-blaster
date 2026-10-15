@@ -1901,18 +1901,18 @@ class AppLocalizationsPt extends AppLocalizations {
   String get noMatchingCommands => 'Nenhum comando encontrado';
 
   @override
-  String get quickTileFavoritesTitle => 'Favoritos dos mosaicos rápidos';
+  String get quickTileFavoritesTitle => 'Botões favoritos';
 
   @override
   String changeMappingForTile(Object tileLabel) {
-    return 'Cambiar asignación do mosaico $tileLabel';
+    return 'Alterar botão do mosaico «$tileLabel»';
   }
 
   @override
-  String get pickDifferentButton => 'Escolha um botão diferente';
+  String get pickDifferentButton => 'Escolha outro botão';
 
   @override
-  String get browseAllRemotesEllipsis => 'Explorar todos os comandos…';
+  String get browseAllRemotesEllipsis => 'Explorar comandos';
 
   @override
   String get invalidMacroFileFormat =>
@@ -7222,18 +7222,18 @@ class AppLocalizationsPtBr extends AppLocalizationsPt {
   String get noMatchingCommands => 'Nenhum comando encontrado';
 
   @override
-  String get quickTileFavoritesTitle => 'Favoritos dos blocos rápidos';
+  String get quickTileFavoritesTitle => 'Botões favoritos';
 
   @override
   String changeMappingForTile(Object tileLabel) {
-    return 'Cambiar asignación do mosaico $tileLabel';
+    return 'Alterar botão do bloco “$tileLabel”';
   }
 
   @override
-  String get pickDifferentButton => 'Escolha um botão diferente';
+  String get pickDifferentButton => 'Escolha outro botão';
 
   @override
-  String get browseAllRemotesEllipsis => 'Explorar todos os controles…';
+  String get browseAllRemotesEllipsis => 'Explorar controles';
 
   @override
   String get invalidMacroFileFormat =>

@@ -648,15 +648,15 @@
   "emDash": "—",
   "searchCommands": "कमांड खोजें",
   "noMatchingCommands": "कोई कमांड नहीं मिली",
-  "quickTileFavoritesTitle": "त्वरित tile पसंदीदा",
-  "changeMappingForTile": "{tileLabel} टाइल के लिए मैपिंग बदलें",
+  "quickTileFavoritesTitle": "पसंदीदा बटन",
+  "changeMappingForTile": "“{tileLabel}” टाइल का बटन बदलें",
   "@changeMappingForTile": {
     "placeholders": {
       "tileLabel": {}
     }
   },
-  "pickDifferentButton": "कोई दूसरा बटन चुनें",
-  "browseAllRemotesEllipsis": "ब्राउज़ करें सभी रिमोट…",
+  "pickDifferentButton": "दूसरा बटन चुनें",
+  "browseAllRemotesEllipsis": "रिमोट देखें",
   "invalidMacroFileFormat": "अमान्य मैक्रो फ़ाइल format.",
   "failedToParseMacroFile": "parse मैक्रो फ़ाइल. विफल",
   "deviceCodeLabel": "डिवाइस कोड",

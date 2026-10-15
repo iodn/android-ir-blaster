@@ -1901,18 +1901,18 @@ class AppLocalizationsFr extends AppLocalizations {
   String get noMatchingCommands => 'Aucune commande trouvée';
 
   @override
-  String get quickTileFavoritesTitle => 'Favoris de tuiles rapides';
+  String get quickTileFavoritesTitle => 'Boutons favoris';
 
   @override
   String changeMappingForTile(Object tileLabel) {
-    return 'Changer le mapping de la tuile $tileLabel';
+    return 'Changer le bouton de la tuile « $tileLabel »';
   }
 
   @override
   String get pickDifferentButton => 'Choisir un autre bouton';
 
   @override
-  String get browseAllRemotesEllipsis => 'Parcourir toutes les télécommandes…';
+  String get browseAllRemotesEllipsis => 'Parcourir les télécommandes';
 
   @override
   String get invalidMacroFileFormat => 'Format de fichier macro invalide.';

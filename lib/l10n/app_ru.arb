@@ -648,15 +648,15 @@
   "emDash": "—",
   "searchCommands": "Поиск команд",
   "noMatchingCommands": "Команды не найдены",
-  "quickTileFavoritesTitle": "Избр. быстрых плиток",
-  "changeMappingForTile": "Изменить назначение для плитки {tileLabel}",
+  "quickTileFavoritesTitle": "Избранные кнопки",
+  "changeMappingForTile": "Изменить кнопку плитки «{tileLabel}»",
   "@changeMappingForTile": {
     "placeholders": {
       "tileLabel": {}
     }
   },
   "pickDifferentButton": "Выберите другую кнопку",
-  "browseAllRemotesEllipsis": "Просмотреть все пульты…",
+  "browseAllRemotesEllipsis": "Посмотреть пульты",
   "invalidMacroFileFormat": "Неверный формат файла макроса.",
   "failedToParseMacroFile": "Не удалось разобрать файл макроса.",
   "deviceCodeLabel": "Код устройства",

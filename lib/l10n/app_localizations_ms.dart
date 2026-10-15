@@ -1860,18 +1860,18 @@ class AppLocalizationsMs extends AppLocalizations {
   String get noMatchingCommands => 'Tiada arahan yang sepadan';
 
   @override
-  String get quickTileFavoritesTitle => 'Cepat jubin kegemaran';
+  String get quickTileFavoritesTitle => 'Butang kegemaran';
 
   @override
   String changeMappingForTile(Object tileLabel) {
-    return 'Ubah pemetaan untuk jubin $tileLabel';
+    return 'Tukar butang untuk jubin “$tileLabel”';
   }
 
   @override
   String get pickDifferentButton => 'Pilih butang lain';
 
   @override
-  String get browseAllRemotesEllipsis => 'Browse semua remote…';
+  String get browseAllRemotesEllipsis => 'Lihat alat kawalan jauh';
 
   @override
   String get invalidMacroFileFormat => 'Insah makro file format.';

@@ -1897,18 +1897,18 @@ class AppLocalizationsEs extends AppLocalizations {
   String get noMatchingCommands => 'No se encontraron comandos';
 
   @override
-  String get quickTileFavoritesTitle => 'Favoritos de mosaicos';
+  String get quickTileFavoritesTitle => 'Botones favoritos';
 
   @override
   String changeMappingForTile(Object tileLabel) {
-    return 'Cambiar asignación del mosaico $tileLabel';
+    return 'Cambiar botón del acceso «$tileLabel»';
   }
 
   @override
-  String get pickDifferentButton => 'Elige un botón distinto';
+  String get pickDifferentButton => 'Elige otro botón';
 
   @override
-  String get browseAllRemotesEllipsis => 'Explorar todos los mandos…';
+  String get browseAllRemotesEllipsis => 'Explorar mandos';
 
   @override
   String get invalidMacroFileFormat => 'Formato de archivo de macro no válido.';

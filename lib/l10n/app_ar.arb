@@ -648,15 +648,15 @@
   "emDash": "—",
   "searchCommands": "البحث عن أمر",
   "noMatchingCommands": "لا توجد أوامر مطابقة",
-  "quickTileFavoritesTitle": "Quick tile favorites",
-  "changeMappingForTile": "Change mapping for {tileLabel} tile",
+  "quickTileFavoritesTitle": "الأزرار المفضلة",
+  "changeMappingForTile": "تغيير زر مربع «{tileLabel}»",
   "@changeMappingForTile": {
     "placeholders": {
       "tileLabel": {}
     }
   },
-  "pickDifferentButton": "اختر زراً آخر",
-  "browseAllRemotesEllipsis": "Browse all remotes…",
+  "pickDifferentButton": "اختر زرًا آخر",
+  "browseAllRemotesEllipsis": "تصفح أجهزة التحكم",
   "invalidMacroFileFormat": "تنسيق ملف الماكرو غير صالح.",
   "failedToParseMacroFile": "فشل تحليل ملف الماكرو.",
   "deviceCodeLabel": "الجهاز Code",

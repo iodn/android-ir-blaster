@@ -648,15 +648,15 @@
   "emDash": "-",
   "searchCommands": "Cerca comandi",
   "noMatchingCommands": "Nessun comando trovato",
-  "quickTileFavoritesTitle": "Preferiti riquadro rapido",
-  "changeMappingForTile": "Cambia mappatura riquadro {tileLabel}",
+  "quickTileFavoritesTitle": "Pulsanti preferiti",
+  "changeMappingForTile": "Cambia pulsante del riquadro «{tileLabel}»",
   "@changeMappingForTile": {
     "placeholders": {
       "tileLabel": {}
     }
   },
-  "pickDifferentButton": "Scegli un pulsante diverso",
-  "browseAllRemotesEllipsis": "Sfoglia tutti i telecomandi…",
+  "pickDifferentButton": "Scegli un altro pulsante",
+  "browseAllRemotesEllipsis": "Sfoglia i telecomandi",
   "invalidMacroFileFormat": "Formato file macro non valido.",
   "failedToParseMacroFile": "Analisi file macro fallita.",
   "deviceCodeLabel": "Codice dispositivo",

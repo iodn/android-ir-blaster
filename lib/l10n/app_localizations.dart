@@ -3375,25 +3375,25 @@ abstract class AppLocalizations {
   /// No description provided for @quickTileFavoritesTitle.
   ///
   /// In en, this message translates to:
-  /// **'Quick tile favorites'**
+  /// **'Favorite buttons'**
   String get quickTileFavoritesTitle;
 
   /// No description provided for @changeMappingForTile.
   ///
   /// In en, this message translates to:
-  /// **'Change mapping for {tileLabel} tile'**
+  /// **'Change button for “{tileLabel}” tile'**
   String changeMappingForTile(Object tileLabel);
 
   /// No description provided for @pickDifferentButton.
   ///
   /// In en, this message translates to:
-  /// **'Pick a different button'**
+  /// **'Choose another button'**
   String get pickDifferentButton;
 
   /// No description provided for @browseAllRemotesEllipsis.
   ///
   /// In en, this message translates to:
-  /// **'Browse all remotes…'**
+  /// **'Browse remotes'**
   String get browseAllRemotesEllipsis;
 
   /// No description provided for @invalidMacroFileFormat.

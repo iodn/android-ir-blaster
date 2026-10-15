@@ -648,15 +648,15 @@
   "emDash": "—",
   "searchCommands": "Maghanap ng command",
   "noMatchingCommands": "Walang command na tumutugma",
-  "quickTileFavoritesTitle": "Quick tile favorites",
-  "changeMappingForTile": "Change mapping para sa {tileLabel} tile",
+  "quickTileFavoritesTitle": "Mga paboritong pindutan",
+  "changeMappingForTile": "Palitan ang pindutan ng tile na “{tileLabel}”",
   "@changeMappingForTile": {
     "placeholders": {
       "tileLabel": {}
     }
   },
-  "pickDifferentButton": "Pick a different button",
-  "browseAllRemotesEllipsis": "Browse all mga remote…",
+  "pickDifferentButton": "Pumili ng ibang pindutan",
+  "browseAllRemotesEllipsis": "Tingnan ang mga remote",
   "invalidMacroFileFormat": "Invalid macro file format.",
   "failedToParseMacroFile": "Nabigong i-parse ang macro file.",
   "deviceCodeLabel": "Device Code",

@@ -648,15 +648,15 @@
   "emDash": "—",
   "searchCommands": "명령 검색",
   "noMatchingCommands": "일치하는 명령이 없습니다",
-  "quickTileFavoritesTitle": "빠른 타일 즐겨찾기",
-  "changeMappingForTile": "{tileLabel} 타일의 매핑 변경",
+  "quickTileFavoritesTitle": "즐겨찾는 버튼",
+  "changeMappingForTile": "‘{tileLabel}’ 타일의 버튼 변경",
   "@changeMappingForTile": {
     "placeholders": {
       "tileLabel": {}
     }
   },
   "pickDifferentButton": "다른 버튼 선택",
-  "browseAllRemotesEllipsis": "찾아보기 모든 리모컨…",
+  "browseAllRemotesEllipsis": "리모컨 찾아보기",
   "invalidMacroFileFormat": "잘못된 매크로 파일 형식입니다.",
   "failedToParseMacroFile": "매크로 파일을 구문 분석하지 못했습니다.",
   "deviceCodeLabel": "기기 코드",

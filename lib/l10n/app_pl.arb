@@ -650,15 +650,15 @@
   "emDash": "—",
   "searchCommands": "Szukaj poleceń",
   "noMatchingCommands": "Nie znaleziono poleceń",
-  "quickTileFavoritesTitle": "Quick kafelek ulubione",
-  "changeMappingForTile": "Change mapping dla {tileLabel} kafelek",
+  "quickTileFavoritesTitle": "Ulubione przyciski",
+  "changeMappingForTile": "Zmień przycisk kafelka „{tileLabel}”",
   "@changeMappingForTile": {
     "placeholders": {
       "tileLabel": {}
     }
   },
-  "pickDifferentButton": "Pick a different przycisk",
-  "browseAllRemotesEllipsis": "Browse wszystkie piloty…",
+  "pickDifferentButton": "Wybierz inny przycisk",
+  "browseAllRemotesEllipsis": "Przeglądaj piloty",
   "invalidMacroFileFormat": "Invalid makro plik format.",
   "failedToParseMacroFile": "nieudane do parse makro plik.",
   "deviceCodeLabel": "urządzenie kod",

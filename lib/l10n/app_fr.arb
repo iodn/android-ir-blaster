@@ -653,15 +653,15 @@
   "emDash": "-",
   "searchCommands": "Rechercher une commande",
   "noMatchingCommands": "Aucune commande trouvée",
-  "quickTileFavoritesTitle": "Favoris de tuiles rapides",
-  "changeMappingForTile": "Changer le mapping de la tuile {tileLabel}",
+  "quickTileFavoritesTitle": "Boutons favoris",
+  "changeMappingForTile": "Changer le bouton de la tuile « {tileLabel} »",
   "@changeMappingForTile": {
     "placeholders": {
       "tileLabel": {}
     }
   },
   "pickDifferentButton": "Choisir un autre bouton",
-  "browseAllRemotesEllipsis": "Parcourir toutes les télécommandes…",
+  "browseAllRemotesEllipsis": "Parcourir les télécommandes",
   "invalidMacroFileFormat": "Format de fichier macro invalide.",
   "failedToParseMacroFile": "Échec de l'analyse du fichier macro.",
   "deviceCodeLabel": "Code appareil",

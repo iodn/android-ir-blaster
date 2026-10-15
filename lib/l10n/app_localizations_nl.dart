@@ -1910,18 +1910,18 @@ class AppLocalizationsNl extends AppLocalizations {
   String get noMatchingCommands => 'Geen opdrachten gevonden';
 
   @override
-  String get quickTileFavoritesTitle => 'Quick tile favorieten';
+  String get quickTileFavoritesTitle => 'Favoriete knoppen';
 
   @override
   String changeMappingForTile(Object tileLabel) {
-    return 'Wijzig koppeling voor tegel $tileLabel';
+    return 'Knop voor tegel ‘$tileLabel’ wijzigen';
   }
 
   @override
-  String get pickDifferentButton => 'Pick a different knop';
+  String get pickDifferentButton => 'Kies een andere knop';
 
   @override
-  String get browseAllRemotesEllipsis => 'Bladeren all remotes…';
+  String get browseAllRemotesEllipsis => 'Afstandsbedieningen bekijken';
 
   @override
   String get invalidMacroFileFormat => 'Ongeldig macrobestandsformaat.';

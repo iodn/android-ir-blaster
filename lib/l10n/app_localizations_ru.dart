@@ -1889,18 +1889,18 @@ class AppLocalizationsRu extends AppLocalizations {
   String get noMatchingCommands => 'Команды не найдены';
 
   @override
-  String get quickTileFavoritesTitle => 'Избр. быстрых плиток';
+  String get quickTileFavoritesTitle => 'Избранные кнопки';
 
   @override
   String changeMappingForTile(Object tileLabel) {
-    return 'Изменить назначение для плитки $tileLabel';
+    return 'Изменить кнопку плитки «$tileLabel»';
   }
 
   @override
   String get pickDifferentButton => 'Выберите другую кнопку';
 
   @override
-  String get browseAllRemotesEllipsis => 'Просмотреть все пульты…';
+  String get browseAllRemotesEllipsis => 'Посмотреть пульты';
 
   @override
   String get invalidMacroFileFormat => 'Неверный формат файла макроса.';

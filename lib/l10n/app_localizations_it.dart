@@ -1903,18 +1903,18 @@ class AppLocalizationsIt extends AppLocalizations {
   String get noMatchingCommands => 'Nessun comando trovato';
 
   @override
-  String get quickTileFavoritesTitle => 'Preferiti riquadro rapido';
+  String get quickTileFavoritesTitle => 'Pulsanti preferiti';
 
   @override
   String changeMappingForTile(Object tileLabel) {
-    return 'Cambia mappatura riquadro $tileLabel';
+    return 'Cambia pulsante del riquadro «$tileLabel»';
   }
 
   @override
-  String get pickDifferentButton => 'Scegli un pulsante diverso';
+  String get pickDifferentButton => 'Scegli un altro pulsante';
 
   @override
-  String get browseAllRemotesEllipsis => 'Sfoglia tutti i telecomandi…';
+  String get browseAllRemotesEllipsis => 'Sfoglia i telecomandi';
 
   @override
   String get invalidMacroFileFormat => 'Formato file macro non valido.';

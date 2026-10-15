@@ -648,15 +648,15 @@
   "emDash": "-",
   "searchCommands": "搜索命令",
   "noMatchingCommands": "未找到匹配的命令",
-  "quickTileFavoritesTitle": "快捷磁贴收藏",
-  "changeMappingForTile": "更改 {tileLabel} 磁贴映射",
+  "quickTileFavoritesTitle": "收藏的按钮",
+  "changeMappingForTile": "更改“{tileLabel}”快捷设置的按钮",
   "@changeMappingForTile": {
     "placeholders": {
       "tileLabel": {}
     }
   },
   "pickDifferentButton": "选择其他按钮",
-  "browseAllRemotesEllipsis": "浏览所有遥控器…",
+  "browseAllRemotesEllipsis": "浏览遥控器",
   "invalidMacroFileFormat": "宏文件格式无效。",
   "failedToParseMacroFile": "解析宏文件失败。",
   "deviceCodeLabel": "设备代码",

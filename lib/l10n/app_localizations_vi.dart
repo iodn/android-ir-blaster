@@ -1846,18 +1846,18 @@ class AppLocalizationsVi extends AppLocalizations {
   String get noMatchingCommands => 'Không tìm thấy lệnh phù hợp';
 
   @override
-  String get quickTileFavoritesTitle => 'Yêu thích ô nhanh';
+  String get quickTileFavoritesTitle => 'Nút yêu thích';
 
   @override
   String changeMappingForTile(Object tileLabel) {
-    return 'Đổi ánh xạ cho ô $tileLabel';
+    return 'Đổi nút cho ô “$tileLabel”';
   }
 
   @override
   String get pickDifferentButton => 'Chọn nút khác';
 
   @override
-  String get browseAllRemotesEllipsis => 'Duyệt mọi điều khiển…';
+  String get browseAllRemotesEllipsis => 'Xem các điều khiển';
 
   @override
   String get invalidMacroFileFormat => 'Định dạng tệp macro không hợp lệ.';

@@ -648,15 +648,15 @@
   "emDash": "—",
   "searchCommands": "Komut arayın",
   "noMatchingCommands": "Eşleşen komut bulunamadı",
-  "quickTileFavoritesTitle": "Hızlı döşeme favorileri",
-  "changeMappingForTile": "{tileLabel} döşemesi için eşlemeyi değiştir",
+  "quickTileFavoritesTitle": "Favori düğmeler",
+  "changeMappingForTile": "“{tileLabel}” kutucuğunun düğmesini değiştir",
   "@changeMappingForTile": {
     "placeholders": {
       "tileLabel": {}
     }
   },
-  "pickDifferentButton": "Pick a different düğme",
-  "browseAllRemotesEllipsis": "Tüm kumandalara göz at…",
+  "pickDifferentButton": "Başka bir düğme seçin",
+  "browseAllRemotesEllipsis": "Kumandalara göz at",
   "invalidMacroFileFormat": "Geçersiz makro dosya biçimi.",
   "failedToParseMacroFile": "Makro dosyası ayrıştırılamadı.",
   "deviceCodeLabel": "Cihaz Kodu",

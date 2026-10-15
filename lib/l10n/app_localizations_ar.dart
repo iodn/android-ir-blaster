@@ -1878,18 +1878,18 @@ class AppLocalizationsAr extends AppLocalizations {
   String get noMatchingCommands => 'لا توجد أوامر مطابقة';
 
   @override
-  String get quickTileFavoritesTitle => 'Quick tile favorites';
+  String get quickTileFavoritesTitle => 'الأزرار المفضلة';
 
   @override
   String changeMappingForTile(Object tileLabel) {
-    return 'Change mapping for $tileLabel tile';
+    return 'تغيير زر مربع «$tileLabel»';
   }
 
   @override
-  String get pickDifferentButton => 'اختر زراً آخر';
+  String get pickDifferentButton => 'اختر زرًا آخر';
 
   @override
-  String get browseAllRemotesEllipsis => 'Browse all remotes…';
+  String get browseAllRemotesEllipsis => 'تصفح أجهزة التحكم';
 
   @override
   String get invalidMacroFileFormat => 'تنسيق ملف الماكرو غير صالح.';
@@ -7149,18 +7149,18 @@ class AppLocalizationsArEg extends AppLocalizationsAr {
   String get noMatchingCommands => 'مفيش أوامر مطابقة';
 
   @override
-  String get quickTileFavoritesTitle => 'Quick tile favorites';
+  String get quickTileFavoritesTitle => 'الأزرار المفضلة';
 
   @override
   String changeMappingForTile(Object tileLabel) {
-    return 'Change mapping for $tileLabel tile';
+    return 'تغيير زر مربع «$tileLabel»';
   }
 
   @override
-  String get pickDifferentButton => 'اختر زراً آخر';
+  String get pickDifferentButton => 'اختار زر تاني';
 
   @override
-  String get browseAllRemotesEllipsis => 'Browse all remotes…';
+  String get browseAllRemotesEllipsis => 'تصفح أجهزة التحكم';
 
   @override
   String get invalidMacroFileFormat => 'تنسيق ملف الماكرو غير صالح.';

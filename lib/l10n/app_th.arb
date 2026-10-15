@@ -648,15 +648,15 @@
   "emDash": "—",
   "searchCommands": "ค้นหาคำสั่ง",
   "noMatchingCommands": "ไม่พบคำสั่งที่ตรงกัน",
-  "quickTileFavoritesTitle": "รายการโปรดไทล์ด่วน",
-  "changeMappingForTile": "เปลี่ยนการแมปสำหรับไทล์ {tileLabel}",
+  "quickTileFavoritesTitle": "ปุ่มโปรด",
+  "changeMappingForTile": "เปลี่ยนปุ่มของไทล์ “{tileLabel}”",
   "@changeMappingForTile": {
     "placeholders": {
       "tileLabel": {}
     }
   },
   "pickDifferentButton": "เลือกปุ่มอื่น",
-  "browseAllRemotesEllipsis": "ดูรีโมตทั้งหมด…",
+  "browseAllRemotesEllipsis": "ดูรีโมตทั้งหมด",
   "invalidMacroFileFormat": "Invalid แมโคร ไฟล์ format.",
   "failedToParseMacroFile": "ไม่สำเร็จในการparse แมโคร ไฟล์.",
   "deviceCodeLabel": "รหัสอุปกรณ์",

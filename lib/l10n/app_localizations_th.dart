@@ -1836,18 +1836,18 @@ class AppLocalizationsTh extends AppLocalizations {
   String get noMatchingCommands => 'ไม่พบคำสั่งที่ตรงกัน';
 
   @override
-  String get quickTileFavoritesTitle => 'รายการโปรดไทล์ด่วน';
+  String get quickTileFavoritesTitle => 'ปุ่มโปรด';
 
   @override
   String changeMappingForTile(Object tileLabel) {
-    return 'เปลี่ยนการแมปสำหรับไทล์ $tileLabel';
+    return 'เปลี่ยนปุ่มของไทล์ “$tileLabel”';
   }
 
   @override
   String get pickDifferentButton => 'เลือกปุ่มอื่น';
 
   @override
-  String get browseAllRemotesEllipsis => 'ดูรีโมตทั้งหมด…';
+  String get browseAllRemotesEllipsis => 'ดูรีโมตทั้งหมด';
 
   @override
   String get invalidMacroFileFormat => 'Invalid แมโคร ไฟล์ format.';

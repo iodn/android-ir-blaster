@@ -1877,18 +1877,18 @@ class AppLocalizationsFil extends AppLocalizations {
   String get noMatchingCommands => 'Walang command na tumutugma';
 
   @override
-  String get quickTileFavoritesTitle => 'Quick tile favorites';
+  String get quickTileFavoritesTitle => 'Mga paboritong pindutan';
 
   @override
   String changeMappingForTile(Object tileLabel) {
-    return 'Change mapping para sa $tileLabel tile';
+    return 'Palitan ang pindutan ng tile na “$tileLabel”';
   }
 
   @override
-  String get pickDifferentButton => 'Pick a different button';
+  String get pickDifferentButton => 'Pumili ng ibang pindutan';
 
   @override
-  String get browseAllRemotesEllipsis => 'Browse all mga remote…';
+  String get browseAllRemotesEllipsis => 'Tingnan ang mga remote';
 
   @override
   String get invalidMacroFileFormat => 'Invalid macro file format.';

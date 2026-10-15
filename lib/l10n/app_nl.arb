@@ -648,15 +648,15 @@
   "emDash": "—",
   "searchCommands": "Opdrachten zoeken",
   "noMatchingCommands": "Geen opdrachten gevonden",
-  "quickTileFavoritesTitle": "Quick tile favorieten",
-  "changeMappingForTile": "Wijzig koppeling voor tegel {tileLabel}",
+  "quickTileFavoritesTitle": "Favoriete knoppen",
+  "changeMappingForTile": "Knop voor tegel ‘{tileLabel}’ wijzigen",
   "@changeMappingForTile": {
     "placeholders": {
       "tileLabel": {}
     }
   },
-  "pickDifferentButton": "Pick a different knop",
-  "browseAllRemotesEllipsis": "Bladeren all remotes…",
+  "pickDifferentButton": "Kies een andere knop",
+  "browseAllRemotesEllipsis": "Afstandsbedieningen bekijken",
   "invalidMacroFileFormat": "Ongeldig macrobestandsformaat.",
   "failedToParseMacroFile": "Macrobestand parseren mislukt.",
   "deviceCodeLabel": "Apparaat Code",

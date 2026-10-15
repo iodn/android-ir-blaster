@@ -1913,18 +1913,18 @@ class AppLocalizationsPl extends AppLocalizations {
   String get noMatchingCommands => 'Nie znaleziono poleceń';
 
   @override
-  String get quickTileFavoritesTitle => 'Quick kafelek ulubione';
+  String get quickTileFavoritesTitle => 'Ulubione przyciski';
 
   @override
   String changeMappingForTile(Object tileLabel) {
-    return 'Change mapping dla $tileLabel kafelek';
+    return 'Zmień przycisk kafelka „$tileLabel”';
   }
 
   @override
-  String get pickDifferentButton => 'Pick a different przycisk';
+  String get pickDifferentButton => 'Wybierz inny przycisk';
 
   @override
-  String get browseAllRemotesEllipsis => 'Browse wszystkie piloty…';
+  String get browseAllRemotesEllipsis => 'Przeglądaj piloty';
 
   @override
   String get invalidMacroFileFormat => 'Invalid makro plik format.';

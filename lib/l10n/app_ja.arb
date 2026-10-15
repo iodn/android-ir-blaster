@@ -648,15 +648,15 @@
   "emDash": "—",
   "searchCommands": "コマンドを検索",
   "noMatchingCommands": "一致するコマンドがありません",
-  "quickTileFavoritesTitle": "クイックタイルお気に入り",
-  "changeMappingForTile": "Change mapping for {tileLabel} tile",
+  "quickTileFavoritesTitle": "お気に入りのボタン",
+  "changeMappingForTile": "「{tileLabel}」タイルのボタンを変更",
   "@changeMappingForTile": {
     "placeholders": {
       "tileLabel": {}
     }
   },
   "pickDifferentButton": "別のボタンを選択",
-  "browseAllRemotesEllipsis": "すべてのリモコンを見る…",
+  "browseAllRemotesEllipsis": "リモコンを探す",
   "invalidMacroFileFormat": "無効なマクロファイル形式です。",
   "failedToParseMacroFile": "マクロファイルの解析に失敗しました。",
   "deviceCodeLabel": "デバイスコード",

@@ -769,15 +769,15 @@
   "emDash": "-",
   "searchCommands": "Search commands",
   "noMatchingCommands": "No matching commands",
-  "quickTileFavoritesTitle": "Quick tile favorites",
-  "changeMappingForTile": "Change mapping for {tileLabel} tile",
+  "quickTileFavoritesTitle": "Favorite buttons",
+  "changeMappingForTile": "Change button for “{tileLabel}” tile",
   "@changeMappingForTile": {
     "placeholders": {
       "tileLabel": {}
     }
   },
-  "pickDifferentButton": "Pick a different button",
-  "browseAllRemotesEllipsis": "Browse all remotes…",
+  "pickDifferentButton": "Choose another button",
+  "browseAllRemotesEllipsis": "Browse remotes",
   "invalidMacroFileFormat": "Invalid macro file format.",
   "failedToParseMacroFile": "Failed to parse macro file.",
   "deviceCodeLabel": "Device Code",

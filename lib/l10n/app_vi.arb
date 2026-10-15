@@ -648,15 +648,15 @@
   "emDash": "—",
   "searchCommands": "Tìm lệnh",
   "noMatchingCommands": "Không tìm thấy lệnh phù hợp",
-  "quickTileFavoritesTitle": "Yêu thích ô nhanh",
-  "changeMappingForTile": "Đổi ánh xạ cho ô {tileLabel}",
+  "quickTileFavoritesTitle": "Nút yêu thích",
+  "changeMappingForTile": "Đổi nút cho ô “{tileLabel}”",
   "@changeMappingForTile": {
     "placeholders": {
       "tileLabel": {}
     }
   },
   "pickDifferentButton": "Chọn nút khác",
-  "browseAllRemotesEllipsis": "Duyệt mọi điều khiển…",
+  "browseAllRemotesEllipsis": "Xem các điều khiển",
   "invalidMacroFileFormat": "Định dạng tệp macro không hợp lệ.",
   "failedToParseMacroFile": "Phân tích tệp macro thất bại.",
   "deviceCodeLabel": "Mã thiết bị",

@@ -648,15 +648,15 @@
   "emDash": "-",
   "searchCommands": "Buscar comandos",
   "noMatchingCommands": "Nenhum comando encontrado",
-  "quickTileFavoritesTitle": "Favoritos dos blocos rápidos",
-  "changeMappingForTile": "Cambiar asignación do mosaico {tileLabel}",
+  "quickTileFavoritesTitle": "Botões favoritos",
+  "changeMappingForTile": "Alterar botão do bloco “{tileLabel}”",
   "@changeMappingForTile": {
     "placeholders": {
       "tileLabel": {}
     }
   },
-  "pickDifferentButton": "Escolha um botão diferente",
-  "browseAllRemotesEllipsis": "Explorar todos os controles…",
+  "pickDifferentButton": "Escolha outro botão",
+  "browseAllRemotesEllipsis": "Explorar controles",
   "invalidMacroFileFormat": "Formato de arquivo de macro não válido.",
   "failedToParseMacroFile": "Não se pudo analizar o arquivo de macro.",
   "deviceCodeLabel": "Código de dispositivo",
