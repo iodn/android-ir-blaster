@@ -1979,11 +1979,11 @@
   "@showDeviceControlsOnHomeSubtitle": {
     "description": "Settings toggle subtitle for showing the compact device controls row on the home surface."
   },
-  "homeDeviceControlsShown": "Hızlı kontroller ana ekranda gösteriliyor.",
+  "homeDeviceControlsShown": "Hızlı kontroller uygulamada gösteriliyor.",
   "@homeDeviceControlsShown": {
     "description": "Snackbar shown when the home quick controls row is enabled."
   },
-  "homeDeviceControlsHidden": "Hızlı kontroller ana ekrandan gizlendi.",
+  "homeDeviceControlsHidden": "Hızlı kontroller uygulamada gizlendi.",
   "@homeDeviceControlsHidden": {
     "description": "Snackbar shown when the home quick controls row is disabled."
   },
@@ -2273,11 +2273,11 @@
   "quickSettingsTileMappingSummary": "{title} · {subtitle}",
   "quickSettingsPickButtonTooltip": "Düğme seç",
   "quickSettingsClearTooltip": "Temizle",
-  "homeWidgetUnsupportedLauncher": "Başlatıcınız uygulama içinden widget eklemeyi desteklemiyor. IR Düğmesi widget’ını ana ekran widget seçicisinden ekleyin.",
-  "homeWidgetButtonUnsupported": "Bu düğme ana ekran widget’ı olarak kullanılamaz.",
-  "homeWidgetRequestSent": "Widget isteği gönderildi. Başlatıcınızda onaylayın.",
-  "homeWidgetRequestRejected": "Başlatıcı widget isteğini reddetti.",
-  "homeWidgetSetupFailed": "Ana ekran widget kurulumu başarısız: {error}",
+  "homeWidgetUnsupportedLauncher": "IR Blaster widget’ını ana ekranın widget menüsünden ekleyin.",
+  "homeWidgetButtonUnsupported": "Bu düğme ana ekrana widget olarak eklenemez.",
+  "homeWidgetRequestSent": "Widget ekleme isteği gönderildi. Ana ekranda onay istenirse onaylayın.",
+  "homeWidgetRequestRejected": "Widget ekleme isteği gönderilemedi. Ana ekrandan eklemeyi deneyin.",
+  "homeWidgetSetupFailed": "Widget ayarlanamadı: {error}",
   "addHomeWidget": "Ana ekran widget’ı ekle",
   "addHomeWidgetSubtitle": "Bu düğmeyi ana ekranınıza yerleştirin.",
   "buttonInfoType": "Tür: {type}",

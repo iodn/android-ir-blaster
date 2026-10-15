@@ -4499,11 +4499,11 @@ class AppLocalizationsFr extends AppLocalizations {
 
   @override
   String get homeDeviceControlsShown =>
-      'Contrôles rapides affichés sur l’accueil.';
+      'Commandes rapides affichées dans l’application.';
 
   @override
   String get homeDeviceControlsHidden =>
-      'Contrôles rapides masqués de l’accueil.';
+      'Commandes rapides masquées dans l’application.';
 
   @override
   String get power => 'Power';
@@ -4782,23 +4782,23 @@ class AppLocalizationsFr extends AppLocalizations {
 
   @override
   String get homeWidgetUnsupportedLauncher =>
-      'Votre lanceur ne permet pas d’ajouter des widgets depuis l’application. Ajoutez le widget Bouton IR depuis le sélecteur de widgets de l’écran d’accueil.';
+      'Ajoutez plutôt le widget IR Blaster depuis le menu des widgets de l’écran d’accueil.';
 
   @override
   String get homeWidgetButtonUnsupported =>
-      'Ce bouton ne peut pas être utilisé comme widget d’accueil.';
+      'Ce bouton ne peut pas être ajouté comme widget sur l’écran d’accueil.';
 
   @override
   String get homeWidgetRequestSent =>
-      'Demande de widget envoyée. Confirmez-la dans votre lanceur.';
+      'Ajout du widget demandé. Confirmez sur l’écran d’accueil si nécessaire.';
 
   @override
   String get homeWidgetRequestRejected =>
-      'Le lanceur a refusé la demande de widget.';
+      'Impossible de demander l’ajout du widget. Essayez depuis l’écran d’accueil.';
 
   @override
   String homeWidgetSetupFailed(String error) {
-    return 'Échec de la configuration du widget d’accueil : $error';
+    return 'Impossible de configurer le widget : $error';
   }
 
   @override

@@ -1974,11 +1974,11 @@
   "@showDeviceControlsOnHomeSubtitle": {
     "description": "Settings toggle subtitle for showing the compact device controls row on the home surface."
   },
-  "homeDeviceControlsShown": "Controlli rapidi mostrati nella home.",
+  "homeDeviceControlsShown": "Controlli rapidi visibili nell’app.",
   "@homeDeviceControlsShown": {
     "description": "Snackbar shown when the home quick controls row is enabled."
   },
-  "homeDeviceControlsHidden": "Controlli rapidi nascosti dalla home.",
+  "homeDeviceControlsHidden": "Controlli rapidi nascosti nell’app.",
   "@homeDeviceControlsHidden": {
     "description": "Snackbar shown when the home quick controls row is disabled."
   },
@@ -2273,11 +2273,11 @@
   "quickSettingsTileMappingSummary": "{title} · {subtitle}",
   "quickSettingsPickButtonTooltip": "Scegli pulsante",
   "quickSettingsClearTooltip": "Cancella",
-  "homeWidgetUnsupportedLauncher": "Il launcher non supporta l’aggiunta di widget dall’app. Aggiungi il widget Pulsante IR dal selettore widget della schermata iniziale.",
-  "homeWidgetButtonUnsupported": "Questo pulsante non può essere usato come widget della schermata iniziale.",
-  "homeWidgetRequestSent": "Richiesta widget inviata. Confermala nel launcher.",
-  "homeWidgetRequestRejected": "Il launcher ha rifiutato la richiesta del widget.",
-  "homeWidgetSetupFailed": "Configurazione del widget della schermata iniziale non riuscita: {error}",
+  "homeWidgetUnsupportedLauncher": "Aggiungi il widget IR Blaster dal menu dei widget della schermata iniziale.",
+  "homeWidgetButtonUnsupported": "Questo pulsante non può essere aggiunto come widget alla schermata iniziale.",
+  "homeWidgetRequestSent": "Aggiunta del widget richiesta. Conferma nella schermata iniziale, se richiesto.",
+  "homeWidgetRequestRejected": "Impossibile richiedere il widget. Prova ad aggiungerlo dalla schermata iniziale.",
+  "homeWidgetSetupFailed": "Impossibile configurare il widget: {error}",
   "addHomeWidget": "Aggiungi widget alla home",
   "addHomeWidgetSubtitle": "Posiziona questo pulsante sulla schermata iniziale.",
   "buttonInfoType": "Tipo: {type}",

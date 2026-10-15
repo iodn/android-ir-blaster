@@ -1974,11 +1974,11 @@
   "@showDeviceControlsOnHomeSubtitle": {
     "description": "Settings toggle subtitle for showing the compact device controls row on the home surface."
   },
-  "homeDeviceControlsShown": "Controles rápidos exibidos na tela inicial.",
+  "homeDeviceControlsShown": "Controles rápidos visíveis no app.",
   "@homeDeviceControlsShown": {
     "description": "Snackbar shown when the home quick controls row is enabled."
   },
-  "homeDeviceControlsHidden": "Controles rápidos ocultados da tela inicial.",
+  "homeDeviceControlsHidden": "Controles rápidos ocultos no app.",
   "@homeDeviceControlsHidden": {
     "description": "Snackbar shown when the home quick controls row is disabled."
   },
@@ -2273,11 +2273,11 @@
   "quickSettingsTileMappingSummary": "{title} · {subtitle}",
   "quickSettingsPickButtonTooltip": "Escolher botão",
   "quickSettingsClearTooltip": "Limpar",
-  "homeWidgetUnsupportedLauncher": "Seu launcher não permite adicionar widgets pelo app. Adicione o widget Botão IR pelo seletor de widgets da tela inicial.",
-  "homeWidgetButtonUnsupported": "Este botão não pode ser usado como widget da tela inicial.",
-  "homeWidgetRequestSent": "Solicitação de widget enviada. Confirme no seu launcher.",
-  "homeWidgetRequestRejected": "O launcher rejeitou a solicitação do widget.",
-  "homeWidgetSetupFailed": "Falha ao configurar o widget da tela inicial: {error}",
+  "homeWidgetUnsupportedLauncher": "Adicione o widget do IR Blaster pelo menu de widgets da tela inicial.",
+  "homeWidgetButtonUnsupported": "Este botão não pode ser adicionado como widget à tela inicial.",
+  "homeWidgetRequestSent": "A adição do widget foi solicitada. Confirme na tela inicial, se necessário.",
+  "homeWidgetRequestRejected": "Não foi possível solicitar o widget. Tente adicioná-lo pela tela inicial.",
+  "homeWidgetSetupFailed": "Não foi possível configurar o widget: {error}",
   "addHomeWidget": "Adicionar widget à tela inicial",
   "addHomeWidgetSubtitle": "Coloque este botão na sua tela inicial.",
   "buttonInfoType": "Tipo: {type}",

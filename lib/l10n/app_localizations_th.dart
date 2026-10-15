@@ -4438,10 +4438,10 @@ class AppLocalizationsTh extends AppLocalizations {
       'แสดงแถวเปิดปิด ปิดเสียง และระดับเสียงแบบกะทัดรัดบนหน้าจอหลัก';
 
   @override
-  String get homeDeviceControlsShown => 'แสดงการควบคุมด่วนบนหน้าแรกแล้ว';
+  String get homeDeviceControlsShown => 'แสดงการควบคุมด่วนในแอปแล้ว';
 
   @override
-  String get homeDeviceControlsHidden => 'ซ่อนการควบคุมด่วนจากหน้าแรกแล้ว';
+  String get homeDeviceControlsHidden => 'ซ่อนการควบคุมด่วนในแอปแล้ว';
 
   @override
   String get power => 'Power';
@@ -4718,22 +4718,23 @@ class AppLocalizationsTh extends AppLocalizations {
 
   @override
   String get homeWidgetUnsupportedLauncher =>
-      'ลอนเชอร์ของคุณไม่รองรับการเพิ่มวิดเจ็ตจากในแอป ให้เพิ่มวิดเจ็ตปุ่ม IR จากตัวเลือกวิดเจ็ตบนหน้าจอหลัก';
+      'ให้เพิ่มวิดเจ็ต IR Blaster จากเมนูวิดเจ็ตบนหน้าจอหลักแทน';
 
   @override
   String get homeWidgetButtonUnsupported =>
-      'ปุ่มนี้ไม่สามารถใช้เป็นวิดเจ็ตหน้าจอหลักได้';
+      'ไม่สามารถเพิ่มปุ่มนี้เป็นวิดเจ็ตบนหน้าจอหลักได้';
 
   @override
   String get homeWidgetRequestSent =>
-      'ส่งคำขอวิดเจ็ตแล้ว โปรดยืนยันในลอนเชอร์ของคุณ';
+      'ส่งคำขอเพิ่มวิดเจ็ตแล้ว หากมีข้อความถามบนหน้าจอหลัก ให้ยืนยันการเพิ่ม';
 
   @override
-  String get homeWidgetRequestRejected => 'ลอนเชอร์ปฏิเสธคำขอวิดเจ็ต';
+  String get homeWidgetRequestRejected =>
+      'ส่งคำขอเพิ่มวิดเจ็ตไม่สำเร็จ ลองเพิ่มจากหน้าจอหลัก';
 
   @override
   String homeWidgetSetupFailed(String error) {
-    return 'ตั้งค่าวิดเจ็ตหน้าจอหลักไม่สำเร็จ: $error';
+    return 'ตั้งค่าวิดเจ็ตไม่สำเร็จ: $error';
   }
 
   @override

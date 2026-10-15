@@ -2071,11 +2071,11 @@
   "@showDeviceControlsOnHomeSubtitle": {
     "description": "Settings toggle subtitle for showing the compact device controls row on the home surface."
   },
-  "homeDeviceControlsShown": "Quick controls shown on home.",
+  "homeDeviceControlsShown": "Quick controls shown in the app.",
   "@homeDeviceControlsShown": {
     "description": "Snackbar shown when the home quick controls row is enabled."
   },
-  "homeDeviceControlsHidden": "Quick controls hidden from home.",
+  "homeDeviceControlsHidden": "Quick controls hidden in the app.",
   "@homeDeviceControlsHidden": {
     "description": "Snackbar shown when the home quick controls row is disabled."
   },
@@ -2318,23 +2318,23 @@
   "@quickSettingsClearTooltip": {
     "description": "Tooltip for clearing a Quick Settings tile mapping."
   },
-  "homeWidgetUnsupportedLauncher": "Your launcher does not support adding widgets from inside the app. Add the IR Button widget from the home screen widget picker.",
+  "homeWidgetUnsupportedLauncher": "Add the IR Blaster widget from your home screen's widget menu instead.",
   "@homeWidgetUnsupportedLauncher": {
     "description": "Message shown when launcher does not support in-app widget pinning."
   },
-  "homeWidgetButtonUnsupported": "This button cannot be used as a home widget.",
+  "homeWidgetButtonUnsupported": "This button cannot be added as a home screen widget.",
   "@homeWidgetButtonUnsupported": {
     "description": "Message shown when an IR button cannot be converted to a home widget."
   },
-  "homeWidgetRequestSent": "Widget request sent. Confirm it on your launcher.",
+  "homeWidgetRequestSent": "Widget requested. Confirm on your home screen if prompted.",
   "@homeWidgetRequestSent": {
     "description": "Message shown after sending a widget pin request."
   },
-  "homeWidgetRequestRejected": "The launcher rejected the widget request.",
+  "homeWidgetRequestRejected": "Could not request a widget. Try adding it from your home screen.",
   "@homeWidgetRequestRejected": {
     "description": "Message shown when launcher rejects a widget pin request."
   },
-  "homeWidgetSetupFailed": "Home widget setup failed: {error}",
+  "homeWidgetSetupFailed": "Could not set up the widget: {error}",
   "@homeWidgetSetupFailed": {
     "description": "Message shown when home widget setup fails.",
     "placeholders": {

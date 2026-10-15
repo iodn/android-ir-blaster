@@ -4494,12 +4494,11 @@ class AppLocalizationsNl extends AppLocalizations {
       'Toon de compacte rij voor Aan/uit, Dempen en Volume op het hoofdscherm.';
 
   @override
-  String get homeDeviceControlsShown =>
-      'Snelle bediening wordt op het startscherm getoond.';
+  String get homeDeviceControlsShown => 'Snelle bediening zichtbaar in de app.';
 
   @override
   String get homeDeviceControlsHidden =>
-      'Snelle bediening is verborgen van het startscherm.';
+      'Snelle bediening verborgen in de app.';
 
   @override
   String get power => 'Power';
@@ -4779,23 +4778,23 @@ class AppLocalizationsNl extends AppLocalizations {
 
   @override
   String get homeWidgetUnsupportedLauncher =>
-      'Je launcher ondersteunt geen widgets toevoegen vanuit de app. Voeg de IR-knopwidget toe via de widgetkiezer op het startscherm.';
+      'Voeg de IR Blaster-widget toe via het widgetmenu van je startscherm.';
 
   @override
   String get homeWidgetButtonUnsupported =>
-      'Deze knop kan niet als startschermwidget worden gebruikt.';
+      'Deze knop kan niet als widget aan het startscherm worden toegevoegd.';
 
   @override
   String get homeWidgetRequestSent =>
-      'Widgetverzoek verzonden. Bevestig het in je launcher.';
+      'Widget aangevraagd. Bevestig het toevoegen op je startscherm als daarom wordt gevraagd.';
 
   @override
   String get homeWidgetRequestRejected =>
-      'De launcher heeft het widgetverzoek geweigerd.';
+      'Widget aanvragen mislukt. Probeer de widget via je startscherm toe te voegen.';
 
   @override
   String homeWidgetSetupFailed(String error) {
-    return 'Startschermwidget instellen mislukt: $error';
+    return 'Widget instellen mislukt: $error';
   }
 
   @override

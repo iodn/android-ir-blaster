@@ -4462,11 +4462,11 @@ class AppLocalizationsRu extends AppLocalizations {
 
   @override
   String get homeDeviceControlsShown =>
-      'Быстрое управление показано на главном экране.';
+      'Быстрое управление показано в приложении.';
 
   @override
   String get homeDeviceControlsHidden =>
-      'Быстрое управление скрыто с главного экрана.';
+      'Быстрое управление скрыто в приложении.';
 
   @override
   String get power => 'Power';
@@ -4744,22 +4744,23 @@ class AppLocalizationsRu extends AppLocalizations {
 
   @override
   String get homeWidgetUnsupportedLauncher =>
-      'Ваш лаунчер не поддерживает добавление виджетов из приложения. Добавьте виджет ИК-кнопки через выбор виджетов на главном экране.';
+      'Добавьте виджет IR Blaster через меню виджетов на главном экране телефона.';
 
   @override
   String get homeWidgetButtonUnsupported =>
-      'Эту кнопку нельзя использовать как виджет главного экрана.';
+      'Эту кнопку нельзя добавить на главный экран как виджет.';
 
   @override
   String get homeWidgetRequestSent =>
-      'Запрос виджета отправлен. Подтвердите его в лаунчере.';
+      'Запрос на добавление виджета отправлен. Подтвердите его на главном экране, если появится запрос.';
 
   @override
-  String get homeWidgetRequestRejected => 'Лаунчер отклонил запрос виджета.';
+  String get homeWidgetRequestRejected =>
+      'Не удалось запросить добавление виджета. Попробуйте добавить его с главного экрана.';
 
   @override
   String homeWidgetSetupFailed(String error) {
-    return 'Не удалось настроить виджет главного экрана: $error';
+    return 'Не удалось настроить виджет: $error';
   }
 
   @override

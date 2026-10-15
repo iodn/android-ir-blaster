@@ -1960,11 +1960,11 @@
   "@showDeviceControlsOnHomeSubtitle": {
     "description": "Settings toggle subtitle for showing the compact device controls row on the home surface."
   },
-  "homeDeviceControlsShown": "Schnellsteuerung wird auf der Startseite angezeigt.",
+  "homeDeviceControlsShown": "Schnellsteuerung in der App eingeblendet.",
   "@homeDeviceControlsShown": {
     "description": "Snackbar shown when the home quick controls row is enabled."
   },
-  "homeDeviceControlsHidden": "Schnellsteuerung wurde von der Startseite ausgeblendet.",
+  "homeDeviceControlsHidden": "Schnellsteuerung in der App ausgeblendet.",
   "@homeDeviceControlsHidden": {
     "description": "Snackbar shown when the home quick controls row is disabled."
   },
@@ -2259,11 +2259,11 @@
   "quickSettingsTileMappingSummary": "{title} · {subtitle}",
   "quickSettingsPickButtonTooltip": "Taste auswählen",
   "quickSettingsClearTooltip": "Löschen",
-  "homeWidgetUnsupportedLauncher": "Ihr Launcher unterstützt das Hinzufügen von Widgets aus der App nicht. Fügen Sie das IR-Tasten-Widget über die Widget-Auswahl des Startbildschirms hinzu.",
-  "homeWidgetButtonUnsupported": "Diese Taste kann nicht als Startbildschirm-Widget verwendet werden.",
-  "homeWidgetRequestSent": "Widget-Anfrage gesendet. Bestätigen Sie sie in Ihrem Launcher.",
-  "homeWidgetRequestRejected": "Der Launcher hat die Widget-Anfrage abgelehnt.",
-  "homeWidgetSetupFailed": "Einrichtung des Startbildschirm-Widgets fehlgeschlagen: {error}",
+  "homeWidgetUnsupportedLauncher": "Füge das IR-Blaster-Widget stattdessen über die Widget-Auswahl deines Startbildschirms hinzu.",
+  "homeWidgetButtonUnsupported": "Diese Taste lässt sich nicht als Startbildschirm-Widget hinzufügen.",
+  "homeWidgetRequestSent": "Widget angefordert. Bestätige das Hinzufügen auf dem Startbildschirm, falls du dazu aufgefordert wirst.",
+  "homeWidgetRequestRejected": "Widget konnte nicht angefordert werden. Versuche es über die Widget-Auswahl des Startbildschirms.",
+  "homeWidgetSetupFailed": "Widget konnte nicht eingerichtet werden: {error}",
   "addHomeWidget": "Startbildschirm-Widget hinzufügen",
   "addHomeWidgetSubtitle": "Diese Taste auf dem Startbildschirm platzieren.",
   "buttonInfoType": "Typ: {type}",

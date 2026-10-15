@@ -4462,11 +4462,12 @@ class AppLocalizationsId extends AppLocalizations {
       'Tampilkan baris ringkas Daya, Bisu, dan Volume di layar utama.';
 
   @override
-  String get homeDeviceControlsShown => 'Kontrol cepat ditampilkan di beranda.';
+  String get homeDeviceControlsShown =>
+      'Kontrol cepat ditampilkan di aplikasi.';
 
   @override
   String get homeDeviceControlsHidden =>
-      'Kontrol cepat disembunyikan dari beranda.';
+      'Kontrol cepat disembunyikan di aplikasi.';
 
   @override
   String get power => 'Power';
@@ -4745,22 +4746,23 @@ class AppLocalizationsId extends AppLocalizations {
 
   @override
   String get homeWidgetUnsupportedLauncher =>
-      'Launcher Anda tidak mendukung penambahan widget dari dalam aplikasi. Tambahkan widget Tombol IR dari pemilih widget layar utama.';
+      'Tambahkan widget IR Blaster melalui menu widget di layar utama.';
 
   @override
   String get homeWidgetButtonUnsupported =>
-      'Tombol ini tidak dapat digunakan sebagai widget layar utama.';
+      'Tombol ini tidak bisa ditambahkan sebagai widget di layar utama.';
 
   @override
   String get homeWidgetRequestSent =>
-      'Permintaan widget dikirim. Konfirmasi di launcher Anda.';
+      'Penambahan widget diminta. Konfirmasikan di layar utama jika diminta.';
 
   @override
-  String get homeWidgetRequestRejected => 'Launcher menolak permintaan widget.';
+  String get homeWidgetRequestRejected =>
+      'Tidak dapat meminta penambahan widget. Coba tambahkan dari layar utama.';
 
   @override
   String homeWidgetSetupFailed(String error) {
-    return 'Gagal menyiapkan widget layar utama: $error';
+    return 'Tidak dapat menyiapkan widget: $error';
   }
 
   @override

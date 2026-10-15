@@ -1976,11 +1976,11 @@
   "@showDeviceControlsOnHomeSubtitle": {
     "description": "Settings toggle subtitle for showing the compact device controls row on the home surface."
   },
-  "homeDeviceControlsShown": "Szybkie sterowanie pokazane na ekranie głównym.",
+  "homeDeviceControlsShown": "Szybkie sterowanie jest widoczne w aplikacji.",
   "@homeDeviceControlsShown": {
     "description": "Snackbar shown when the home quick controls row is enabled."
   },
-  "homeDeviceControlsHidden": "Szybkie sterowanie ukryte na ekranie głównym.",
+  "homeDeviceControlsHidden": "Szybkie sterowanie jest ukryte w aplikacji.",
   "@homeDeviceControlsHidden": {
     "description": "Snackbar shown when the home quick controls row is disabled."
   },
@@ -2275,11 +2275,11 @@
   "quickSettingsTileMappingSummary": "{title} · {subtitle}",
   "quickSettingsPickButtonTooltip": "Wybierz przycisk",
   "quickSettingsClearTooltip": "Wyczyść",
-  "homeWidgetUnsupportedLauncher": "Twój launcher nie obsługuje dodawania widżetów z aplikacji. Dodaj widżet przycisku IR z wybieraka widżetów ekranu głównego.",
-  "homeWidgetButtonUnsupported": "Tego przycisku nie można użyć jako widżetu ekranu głównego.",
-  "homeWidgetRequestSent": "Żądanie widżetu wysłane. Potwierdź je w launcherze.",
-  "homeWidgetRequestRejected": "Launcher odrzucił żądanie widżetu.",
-  "homeWidgetSetupFailed": "Nie udało się skonfigurować widżetu ekranu głównego: {error}",
+  "homeWidgetUnsupportedLauncher": "Dodaj widżet IR Blaster z menu widżetów na ekranie głównym telefonu.",
+  "homeWidgetButtonUnsupported": "Tego przycisku nie można dodać jako widżetu na ekranie głównym.",
+  "homeWidgetRequestSent": "Wysłano prośbę o dodanie widżetu. Potwierdź na ekranie głównym, jeśli pojawi się taka prośba.",
+  "homeWidgetRequestRejected": "Nie udało się rozpocząć dodawania widżetu. Spróbuj dodać go z ekranu głównego.",
+  "homeWidgetSetupFailed": "Nie udało się skonfigurować widżetu: {error}",
   "addHomeWidget": "Dodaj widżet ekranu głównego",
   "addHomeWidgetSubtitle": "Umieść ten przycisk na ekranie głównym.",
   "buttonInfoType": "Typ: {type}",

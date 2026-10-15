@@ -1974,11 +1974,11 @@
   "@showDeviceControlsOnHomeSubtitle": {
     "description": "Settings toggle subtitle for showing the compact device controls row on the home surface."
   },
-  "homeDeviceControlsShown": "Швидке керування показано на головному екрані.",
+  "homeDeviceControlsShown": "Швидке керування показано в застосунку.",
   "@homeDeviceControlsShown": {
     "description": "Snackbar shown when the home quick controls row is enabled."
   },
-  "homeDeviceControlsHidden": "Швидке керування приховано з головного екрана.",
+  "homeDeviceControlsHidden": "Швидке керування приховано в застосунку.",
   "@homeDeviceControlsHidden": {
     "description": "Snackbar shown when the home quick controls row is disabled."
   },
@@ -2273,11 +2273,11 @@
   "quickSettingsTileMappingSummary": "{title} · {subtitle}",
   "quickSettingsPickButtonTooltip": "Вибрати кнопку",
   "quickSettingsClearTooltip": "Очистити",
-  "homeWidgetUnsupportedLauncher": "Ваш лаунчер не підтримує додавання віджетів із застосунку. Додайте віджет ІЧ-кнопки через вибір віджетів на головному екрані.",
-  "homeWidgetButtonUnsupported": "Цю кнопку не можна використовувати як віджет головного екрана.",
-  "homeWidgetRequestSent": "Запит на віджет надіслано. Підтвердьте його у лаунчері.",
-  "homeWidgetRequestRejected": "Лаунчер відхилив запит на віджет.",
-  "homeWidgetSetupFailed": "Не вдалося налаштувати віджет головного екрана: {error}",
+  "homeWidgetUnsupportedLauncher": "Додайте віджет IR Blaster через меню віджетів на головному екрані телефона.",
+  "homeWidgetButtonUnsupported": "Цю кнопку не можна додати на головний екран як віджет.",
+  "homeWidgetRequestSent": "Запит на додавання віджета надіслано. Підтвердьте його на головному екрані, якщо з’явиться запит.",
+  "homeWidgetRequestRejected": "Не вдалося надіслати запит на додавання віджета. Спробуйте додати його з головного екрана.",
+  "homeWidgetSetupFailed": "Не вдалося налаштувати віджет: {error}",
   "addHomeWidget": "Додати віджет на головний екран",
   "addHomeWidgetSubtitle": "Розмістіть цю кнопку на головному екрані.",
   "buttonInfoType": "Тип: {type}",

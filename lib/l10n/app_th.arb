@@ -1974,11 +1974,11 @@
   "@showDeviceControlsOnHomeSubtitle": {
     "description": "Settings toggle subtitle for showing the compact device controls row on the home surface."
   },
-  "homeDeviceControlsShown": "แสดงการควบคุมด่วนบนหน้าแรกแล้ว",
+  "homeDeviceControlsShown": "แสดงการควบคุมด่วนในแอปแล้ว",
   "@homeDeviceControlsShown": {
     "description": "Snackbar shown when the home quick controls row is enabled."
   },
-  "homeDeviceControlsHidden": "ซ่อนการควบคุมด่วนจากหน้าแรกแล้ว",
+  "homeDeviceControlsHidden": "ซ่อนการควบคุมด่วนในแอปแล้ว",
   "@homeDeviceControlsHidden": {
     "description": "Snackbar shown when the home quick controls row is disabled."
   },
@@ -2273,11 +2273,11 @@
   "quickSettingsTileMappingSummary": "{title} · {subtitle}",
   "quickSettingsPickButtonTooltip": "เลือกปุ่ม",
   "quickSettingsClearTooltip": "ล้าง",
-  "homeWidgetUnsupportedLauncher": "ลอนเชอร์ของคุณไม่รองรับการเพิ่มวิดเจ็ตจากในแอป ให้เพิ่มวิดเจ็ตปุ่ม IR จากตัวเลือกวิดเจ็ตบนหน้าจอหลัก",
-  "homeWidgetButtonUnsupported": "ปุ่มนี้ไม่สามารถใช้เป็นวิดเจ็ตหน้าจอหลักได้",
-  "homeWidgetRequestSent": "ส่งคำขอวิดเจ็ตแล้ว โปรดยืนยันในลอนเชอร์ของคุณ",
-  "homeWidgetRequestRejected": "ลอนเชอร์ปฏิเสธคำขอวิดเจ็ต",
-  "homeWidgetSetupFailed": "ตั้งค่าวิดเจ็ตหน้าจอหลักไม่สำเร็จ: {error}",
+  "homeWidgetUnsupportedLauncher": "ให้เพิ่มวิดเจ็ต IR Blaster จากเมนูวิดเจ็ตบนหน้าจอหลักแทน",
+  "homeWidgetButtonUnsupported": "ไม่สามารถเพิ่มปุ่มนี้เป็นวิดเจ็ตบนหน้าจอหลักได้",
+  "homeWidgetRequestSent": "ส่งคำขอเพิ่มวิดเจ็ตแล้ว หากมีข้อความถามบนหน้าจอหลัก ให้ยืนยันการเพิ่ม",
+  "homeWidgetRequestRejected": "ส่งคำขอเพิ่มวิดเจ็ตไม่สำเร็จ ลองเพิ่มจากหน้าจอหลัก",
+  "homeWidgetSetupFailed": "ตั้งค่าวิดเจ็ตไม่สำเร็จ: {error}",
   "addHomeWidget": "เพิ่มวิดเจ็ตหน้าจอหลัก",
   "addHomeWidgetSubtitle": "วางปุ่มนี้บนหน้าจอหลักของคุณ",
   "buttonInfoType": "ประเภท: {type}",

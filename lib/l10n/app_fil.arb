@@ -1979,11 +1979,11 @@
   "@showDeviceControlsOnHomeSubtitle": {
     "description": "Settings toggle subtitle for showing the compact device controls row on the home surface."
   },
-  "homeDeviceControlsShown": "Ipinakita ang mabilis na kontrol sa home.",
+  "homeDeviceControlsShown": "Makikita na ang mga mabilisang kontrol sa app.",
   "@homeDeviceControlsShown": {
     "description": "Snackbar shown when the home quick controls row is enabled."
   },
-  "homeDeviceControlsHidden": "Itinago ang mabilis na kontrol mula sa home.",
+  "homeDeviceControlsHidden": "Nakatago na ang mga mabilisang kontrol sa app.",
   "@homeDeviceControlsHidden": {
     "description": "Snackbar shown when the home quick controls row is disabled."
   },
@@ -2273,11 +2273,11 @@
   "quickSettingsTileMappingSummary": "{title} · {subtitle}",
   "quickSettingsPickButtonTooltip": "Pumili ng button",
   "quickSettingsClearTooltip": "I-clear",
-  "homeWidgetUnsupportedLauncher": "Hindi sinusuportahan ng launcher mo ang pagdagdag ng widget mula sa app. Idagdag ang IR Button widget mula sa widget picker ng home screen.",
-  "homeWidgetButtonUnsupported": "Hindi magagamit ang button na ito bilang home screen widget.",
-  "homeWidgetRequestSent": "Naipadala ang kahilingan sa widget. Kumpirmahin ito sa iyong launcher.",
-  "homeWidgetRequestRejected": "Tinanggihan ng launcher ang kahilingan sa widget.",
-  "homeWidgetSetupFailed": "Nabigo ang pag-setup ng home widget: {error}",
+  "homeWidgetUnsupportedLauncher": "Idagdag na lang ang IR Blaster widget mula sa menu ng mga widget sa home screen.",
+  "homeWidgetButtonUnsupported": "Hindi maidaragdag ang button na ito bilang widget sa home screen.",
+  "homeWidgetRequestSent": "Hiniling nang idagdag ang widget. Kumpirmahin sa home screen kung hihingin.",
+  "homeWidgetRequestRejected": "Hindi maidagdag ang widget mula sa app. Subukang idagdag ito mula sa home screen.",
+  "homeWidgetSetupFailed": "Hindi ma-set up ang widget: {error}",
   "addHomeWidget": "Magdagdag ng home widget",
   "addHomeWidgetSubtitle": "Ilagay ang button na ito sa iyong home screen.",
   "buttonInfoType": "Uri: {type}",

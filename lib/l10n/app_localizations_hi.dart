@@ -4457,10 +4457,10 @@ class AppLocalizationsHi extends AppLocalizations {
       'मुख्य स्क्रीन पर पावर, म्यूट और वॉल्यूम की कॉम्पैक्ट पंक्ति दिखाएं।';
 
   @override
-  String get homeDeviceControlsShown => 'होम पर त्वरित नियंत्रण दिखाए गए।';
+  String get homeDeviceControlsShown => 'ऐप में त्वरित नियंत्रण दिखाए गए।';
 
   @override
-  String get homeDeviceControlsHidden => 'होम से त्वरित नियंत्रण छिपाए गए।';
+  String get homeDeviceControlsHidden => 'ऐप में त्वरित नियंत्रण छिपाए गए।';
 
   @override
   String get power => 'Power';
@@ -4738,23 +4738,23 @@ class AppLocalizationsHi extends AppLocalizations {
 
   @override
   String get homeWidgetUnsupportedLauncher =>
-      'आपका लॉन्चर ऐप के अंदर से विजेट जोड़ने का समर्थन नहीं करता। होम स्क्रीन विजेट पिकर से IR Button विजेट जोड़ें।';
+      'इसके बजाय होम स्क्रीन के विजेट मेन्यू से IR Blaster विजेट जोड़ें।';
 
   @override
   String get homeWidgetButtonUnsupported =>
-      'इस बटन को होम स्क्रीन विजेट के रूप में इस्तेमाल नहीं किया जा सकता।';
+      'इस बटन को होम स्क्रीन पर विजेट के रूप में नहीं जोड़ा जा सकता।';
 
   @override
   String get homeWidgetRequestSent =>
-      'विजेट अनुरोध भेजा गया। अपने लॉन्चर में पुष्टि करें।';
+      'विजेट जोड़ने का अनुरोध भेज दिया गया। होम स्क्रीन पर पुष्टि माँगी जाए, तो पुष्टि करें।';
 
   @override
   String get homeWidgetRequestRejected =>
-      'लॉन्चर ने विजेट अनुरोध अस्वीकार कर दिया।';
+      'विजेट जोड़ने का अनुरोध नहीं भेजा जा सका। इसे होम स्क्रीन से जोड़कर देखें।';
 
   @override
   String homeWidgetSetupFailed(String error) {
-    return 'होम विजेट सेटअप विफल: $error';
+    return 'विजेट सेट अप नहीं हो सका: $error';
   }
 
   @override

@@ -4487,11 +4487,10 @@ class AppLocalizationsEs extends AppLocalizations {
       'Muestra la fila compacta de encendido, silencio y volumen en la pantalla principal.';
 
   @override
-  String get homeDeviceControlsShown =>
-      'Controles rápidos mostrados en inicio.';
+  String get homeDeviceControlsShown => 'Controles rápidos visibles en la app.';
 
   @override
-  String get homeDeviceControlsHidden => 'Controles rápidos ocultos de inicio.';
+  String get homeDeviceControlsHidden => 'Controles rápidos ocultos en la app.';
 
   @override
   String get power => 'Power';
@@ -4770,23 +4769,23 @@ class AppLocalizationsEs extends AppLocalizations {
 
   @override
   String get homeWidgetUnsupportedLauncher =>
-      'Tu lanzador no permite añadir widgets desde la app. Añade el widget de botón IR desde el selector de widgets de la pantalla de inicio.';
+      'Añade el widget de IR Blaster desde el menú de widgets de la pantalla de inicio.';
 
   @override
   String get homeWidgetButtonUnsupported =>
-      'Este botón no se puede usar como widget de inicio.';
+      'Este botón no se puede añadir como widget a la pantalla de inicio.';
 
   @override
   String get homeWidgetRequestSent =>
-      'Solicitud de widget enviada. Confírmala en tu lanzador.';
+      'Se ha solicitado añadir el widget. Confirma en la pantalla de inicio si se te pide.';
 
   @override
   String get homeWidgetRequestRejected =>
-      'El lanzador rechazó la solicitud de widget.';
+      'No se pudo solicitar el widget. Intenta añadirlo desde la pantalla de inicio.';
 
   @override
   String homeWidgetSetupFailed(String error) {
-    return 'No se pudo configurar el widget de inicio: $error';
+    return 'No se pudo configurar el widget: $error';
   }
 
   @override

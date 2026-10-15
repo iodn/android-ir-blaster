@@ -1974,11 +1974,11 @@
   "@showDeviceControlsOnHomeSubtitle": {
     "description": "Settings toggle subtitle for showing the compact device controls row on the home surface."
   },
-  "homeDeviceControlsShown": "Đã hiển thị điều khiển nhanh trên màn hình chính.",
+  "homeDeviceControlsShown": "Đã hiện điều khiển nhanh trong ứng dụng.",
   "@homeDeviceControlsShown": {
     "description": "Snackbar shown when the home quick controls row is enabled."
   },
-  "homeDeviceControlsHidden": "Đã ẩn điều khiển nhanh khỏi màn hình chính.",
+  "homeDeviceControlsHidden": "Đã ẩn điều khiển nhanh trong ứng dụng.",
   "@homeDeviceControlsHidden": {
     "description": "Snackbar shown when the home quick controls row is disabled."
   },
@@ -2273,11 +2273,11 @@
   "quickSettingsTileMappingSummary": "{title} · {subtitle}",
   "quickSettingsPickButtonTooltip": "Chọn nút",
   "quickSettingsClearTooltip": "Xóa",
-  "homeWidgetUnsupportedLauncher": "Trình khởi chạy của bạn không hỗ trợ thêm tiện ích từ trong ứng dụng. Hãy thêm tiện ích Nút IR từ trình chọn tiện ích trên màn hình chính.",
-  "homeWidgetButtonUnsupported": "Không thể dùng nút này làm tiện ích màn hình chính.",
-  "homeWidgetRequestSent": "Đã gửi yêu cầu tiện ích. Hãy xác nhận trong trình khởi chạy của bạn.",
-  "homeWidgetRequestRejected": "Trình khởi chạy đã từ chối yêu cầu tiện ích.",
-  "homeWidgetSetupFailed": "Thiết lập tiện ích màn hình chính thất bại: {error}",
+  "homeWidgetUnsupportedLauncher": "Hãy thêm tiện ích IR Blaster từ menu tiện ích trên màn hình chính.",
+  "homeWidgetButtonUnsupported": "Không thể thêm nút này làm tiện ích trên màn hình chính.",
+  "homeWidgetRequestSent": "Đã yêu cầu thêm tiện ích. Hãy xác nhận trên màn hình chính nếu được hỏi.",
+  "homeWidgetRequestRejected": "Không thể yêu cầu thêm tiện ích. Hãy thử thêm từ màn hình chính.",
+  "homeWidgetSetupFailed": "Không thể thiết lập tiện ích: {error}",
   "addHomeWidget": "Thêm tiện ích màn hình chính",
   "addHomeWidgetSubtitle": "Đặt nút này trên màn hình chính của bạn.",
   "buttonInfoType": "Loại: {type}",

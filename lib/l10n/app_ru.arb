@@ -1974,11 +1974,11 @@
   "@showDeviceControlsOnHomeSubtitle": {
     "description": "Settings toggle subtitle for showing the compact device controls row on the home surface."
   },
-  "homeDeviceControlsShown": "Быстрое управление показано на главном экране.",
+  "homeDeviceControlsShown": "Быстрое управление показано в приложении.",
   "@homeDeviceControlsShown": {
     "description": "Snackbar shown when the home quick controls row is enabled."
   },
-  "homeDeviceControlsHidden": "Быстрое управление скрыто с главного экрана.",
+  "homeDeviceControlsHidden": "Быстрое управление скрыто в приложении.",
   "@homeDeviceControlsHidden": {
     "description": "Snackbar shown when the home quick controls row is disabled."
   },
@@ -2273,11 +2273,11 @@
   "quickSettingsTileMappingSummary": "{title} · {subtitle}",
   "quickSettingsPickButtonTooltip": "Выбрать кнопку",
   "quickSettingsClearTooltip": "Очистить",
-  "homeWidgetUnsupportedLauncher": "Ваш лаунчер не поддерживает добавление виджетов из приложения. Добавьте виджет ИК-кнопки через выбор виджетов на главном экране.",
-  "homeWidgetButtonUnsupported": "Эту кнопку нельзя использовать как виджет главного экрана.",
-  "homeWidgetRequestSent": "Запрос виджета отправлен. Подтвердите его в лаунчере.",
-  "homeWidgetRequestRejected": "Лаунчер отклонил запрос виджета.",
-  "homeWidgetSetupFailed": "Не удалось настроить виджет главного экрана: {error}",
+  "homeWidgetUnsupportedLauncher": "Добавьте виджет IR Blaster через меню виджетов на главном экране телефона.",
+  "homeWidgetButtonUnsupported": "Эту кнопку нельзя добавить на главный экран как виджет.",
+  "homeWidgetRequestSent": "Запрос на добавление виджета отправлен. Подтвердите его на главном экране, если появится запрос.",
+  "homeWidgetRequestRejected": "Не удалось запросить добавление виджета. Попробуйте добавить его с главного экрана.",
+  "homeWidgetSetupFailed": "Не удалось настроить виджет: {error}",
   "addHomeWidget": "Добавить виджет на главный экран",
   "addHomeWidgetSubtitle": "Разместите эту кнопку на главном экране.",
   "buttonInfoType": "Тип: {type}",

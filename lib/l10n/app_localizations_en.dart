@@ -4502,10 +4502,10 @@ class AppLocalizationsEn extends AppLocalizations {
       'Show the compact Power, Mute, and Volume row on the main screen.';
 
   @override
-  String get homeDeviceControlsShown => 'Quick controls shown on home.';
+  String get homeDeviceControlsShown => 'Quick controls shown in the app.';
 
   @override
-  String get homeDeviceControlsHidden => 'Quick controls hidden from home.';
+  String get homeDeviceControlsHidden => 'Quick controls hidden in the app.';
 
   @override
   String get power => 'Power';
@@ -4782,23 +4782,23 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get homeWidgetUnsupportedLauncher =>
-      'Your launcher does not support adding widgets from inside the app. Add the IR Button widget from the home screen widget picker.';
+      'Add the IR Blaster widget from your home screen\'s widget menu instead.';
 
   @override
   String get homeWidgetButtonUnsupported =>
-      'This button cannot be used as a home widget.';
+      'This button cannot be added as a home screen widget.';
 
   @override
   String get homeWidgetRequestSent =>
-      'Widget request sent. Confirm it on your launcher.';
+      'Widget requested. Confirm on your home screen if prompted.';
 
   @override
   String get homeWidgetRequestRejected =>
-      'The launcher rejected the widget request.';
+      'Could not request a widget. Try adding it from your home screen.';
 
   @override
   String homeWidgetSetupFailed(String error) {
-    return 'Home widget setup failed: $error';
+    return 'Could not set up the widget: $error';
   }
 
   @override

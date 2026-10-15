@@ -4358,10 +4358,10 @@ class AppLocalizationsKo extends AppLocalizations {
       '기본 화면에 전원, 음소거, 볼륨의 간단한 줄을 표시합니다.';
 
   @override
-  String get homeDeviceControlsShown => '홈에 빠른 제어가 표시됩니다.';
+  String get homeDeviceControlsShown => '앱에 빠른 제어를 표시했습니다.';
 
   @override
-  String get homeDeviceControlsHidden => '홈에서 빠른 제어가 숨겨졌습니다.';
+  String get homeDeviceControlsHidden => '앱에서 빠른 제어를 숨겼습니다.';
 
   @override
   String get power => 'Power';
@@ -4635,20 +4635,21 @@ class AppLocalizationsKo extends AppLocalizations {
 
   @override
   String get homeWidgetUnsupportedLauncher =>
-      '사용 중인 런처는 앱 안에서 위젯 추가를 지원하지 않습니다. 홈 화면 위젯 선택기에서 IR 버튼 위젯을 추가하세요.';
+      '홈 화면의 위젯 메뉴에서 IR Blaster 위젯을 추가해 주세요.';
 
   @override
-  String get homeWidgetButtonUnsupported => '이 버튼은 홈 화면 위젯으로 사용할 수 없습니다.';
+  String get homeWidgetButtonUnsupported => '이 버튼은 홈 화면 위젯으로 추가할 수 없습니다.';
 
   @override
-  String get homeWidgetRequestSent => '위젯 요청을 보냈습니다. 런처에서 확인하세요.';
+  String get homeWidgetRequestSent =>
+      '위젯 추가를 요청했습니다. 홈 화면에 확인 메시지가 표시되면 승인해 주세요.';
 
   @override
-  String get homeWidgetRequestRejected => '런처가 위젯 요청을 거부했습니다.';
+  String get homeWidgetRequestRejected => '위젯 추가를 요청할 수 없습니다. 홈 화면에서 추가해 보세요.';
 
   @override
   String homeWidgetSetupFailed(String error) {
-    return '홈 화면 위젯 설정 실패: $error';
+    return '위젯을 설정할 수 없습니다: $error';
   }
 
   @override

@@ -4284,10 +4284,10 @@ class AppLocalizationsZh extends AppLocalizations {
   String get showDeviceControlsOnHomeSubtitle => '在主屏幕显示紧凑的电源、静音和音量控制行。';
 
   @override
-  String get homeDeviceControlsShown => '已在首页显示快捷控制。';
+  String get homeDeviceControlsShown => '已在应用内显示快捷控制。';
 
   @override
-  String get homeDeviceControlsHidden => '已从首页隐藏快捷控制。';
+  String get homeDeviceControlsHidden => '已在应用内隐藏快捷控制。';
 
   @override
   String get power => 'Power';
@@ -4560,20 +4560,20 @@ class AppLocalizationsZh extends AppLocalizations {
 
   @override
   String get homeWidgetUnsupportedLauncher =>
-      '你的启动器不支持从应用内添加小组件。请从主屏幕小组件选择器添加 IR 按钮小组件。';
+      '请改用手机主屏幕的小组件菜单添加 IR Blaster 小组件。';
 
   @override
-  String get homeWidgetButtonUnsupported => '此按钮不能用作主屏幕小组件。';
+  String get homeWidgetButtonUnsupported => '此按钮无法添加为主屏幕小组件。';
 
   @override
-  String get homeWidgetRequestSent => '小组件请求已发送。请在启动器中确认。';
+  String get homeWidgetRequestSent => '已请求添加小组件。如主屏幕出现提示，请确认添加。';
 
   @override
-  String get homeWidgetRequestRejected => '启动器拒绝了小组件请求。';
+  String get homeWidgetRequestRejected => '无法请求添加小组件，请尝试从手机主屏幕添加。';
 
   @override
   String homeWidgetSetupFailed(String error) {
-    return '主屏幕小组件设置失败：$error';
+    return '无法设置小组件：$error';
   }
 
   @override

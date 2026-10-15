@@ -4473,11 +4473,11 @@ class AppLocalizationsFil extends AppLocalizations {
 
   @override
   String get homeDeviceControlsShown =>
-      'Ipinakita ang mabilis na kontrol sa home.';
+      'Makikita na ang mga mabilisang kontrol sa app.';
 
   @override
   String get homeDeviceControlsHidden =>
-      'Itinago ang mabilis na kontrol mula sa home.';
+      'Nakatago na ang mga mabilisang kontrol sa app.';
 
   @override
   String get power => 'Power';
@@ -4754,23 +4754,23 @@ class AppLocalizationsFil extends AppLocalizations {
 
   @override
   String get homeWidgetUnsupportedLauncher =>
-      'Hindi sinusuportahan ng launcher mo ang pagdagdag ng widget mula sa app. Idagdag ang IR Button widget mula sa widget picker ng home screen.';
+      'Idagdag na lang ang IR Blaster widget mula sa menu ng mga widget sa home screen.';
 
   @override
   String get homeWidgetButtonUnsupported =>
-      'Hindi magagamit ang button na ito bilang home screen widget.';
+      'Hindi maidaragdag ang button na ito bilang widget sa home screen.';
 
   @override
   String get homeWidgetRequestSent =>
-      'Naipadala ang kahilingan sa widget. Kumpirmahin ito sa iyong launcher.';
+      'Hiniling nang idagdag ang widget. Kumpirmahin sa home screen kung hihingin.';
 
   @override
   String get homeWidgetRequestRejected =>
-      'Tinanggihan ng launcher ang kahilingan sa widget.';
+      'Hindi maidagdag ang widget mula sa app. Subukang idagdag ito mula sa home screen.';
 
   @override
   String homeWidgetSetupFailed(String error) {
-    return 'Nabigo ang pag-setup ng home widget: $error';
+    return 'Hindi ma-set up ang widget: $error';
   }
 
   @override

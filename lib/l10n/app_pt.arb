@@ -1974,11 +1974,11 @@
   "@showDeviceControlsOnHomeSubtitle": {
     "description": "Settings toggle subtitle for showing the compact device controls row on the home surface."
   },
-  "homeDeviceControlsShown": "Controlos rápidos mostrados no início.",
+  "homeDeviceControlsShown": "Controlos rápidos visíveis na aplicação.",
   "@homeDeviceControlsShown": {
     "description": "Snackbar shown when the home quick controls row is enabled."
   },
-  "homeDeviceControlsHidden": "Controlos rápidos ocultos do início.",
+  "homeDeviceControlsHidden": "Controlos rápidos ocultos na aplicação.",
   "@homeDeviceControlsHidden": {
     "description": "Snackbar shown when the home quick controls row is disabled."
   },
@@ -2273,11 +2273,11 @@
   "quickSettingsTileMappingSummary": "{title} · {subtitle}",
   "quickSettingsPickButtonTooltip": "Escolher botão",
   "quickSettingsClearTooltip": "Limpar",
-  "homeWidgetUnsupportedLauncher": "O seu iniciador não suporta adicionar widgets a partir da aplicação. Adicione o widget Botão IR no seletor de widgets do ecrã inicial.",
-  "homeWidgetButtonUnsupported": "Este botão não pode ser usado como widget do ecrã inicial.",
-  "homeWidgetRequestSent": "Pedido de widget enviado. Confirme no seu iniciador.",
-  "homeWidgetRequestRejected": "O iniciador rejeitou o pedido de widget.",
-  "homeWidgetSetupFailed": "Falha ao configurar o widget do ecrã inicial: {error}",
+  "homeWidgetUnsupportedLauncher": "Adicione o widget IR Blaster através do menu de widgets do ecrã inicial.",
+  "homeWidgetButtonUnsupported": "Este botão não pode ser adicionado como widget ao ecrã inicial.",
+  "homeWidgetRequestSent": "Pedido de adição enviado. Confirme no ecrã inicial, se necessário.",
+  "homeWidgetRequestRejected": "Não foi possível iniciar a adição do widget. Experimente adicioná-lo a partir do ecrã inicial.",
+  "homeWidgetSetupFailed": "Não foi possível configurar o widget: {error}",
   "addHomeWidget": "Adicionar widget ao ecrã inicial",
   "addHomeWidgetSubtitle": "Coloque este botão no ecrã inicial.",
   "buttonInfoType": "Tipo: {type}",

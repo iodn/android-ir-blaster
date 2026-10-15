@@ -1979,11 +1979,11 @@
   "@showDeviceControlsOnHomeSubtitle": {
     "description": "Settings toggle subtitle for showing the compact device controls row on the home surface."
   },
-  "homeDeviceControlsShown": "होम पर त्वरित नियंत्रण दिखाए गए।",
+  "homeDeviceControlsShown": "ऐप में त्वरित नियंत्रण दिखाए गए।",
   "@homeDeviceControlsShown": {
     "description": "Snackbar shown when the home quick controls row is enabled."
   },
-  "homeDeviceControlsHidden": "होम से त्वरित नियंत्रण छिपाए गए।",
+  "homeDeviceControlsHidden": "ऐप में त्वरित नियंत्रण छिपाए गए।",
   "@homeDeviceControlsHidden": {
     "description": "Snackbar shown when the home quick controls row is disabled."
   },
@@ -2273,11 +2273,11 @@
   "quickSettingsTileMappingSummary": "{title} · {subtitle}",
   "quickSettingsPickButtonTooltip": "बटन चुनें",
   "quickSettingsClearTooltip": "साफ़ करें",
-  "homeWidgetUnsupportedLauncher": "आपका लॉन्चर ऐप के अंदर से विजेट जोड़ने का समर्थन नहीं करता। होम स्क्रीन विजेट पिकर से IR Button विजेट जोड़ें।",
-  "homeWidgetButtonUnsupported": "इस बटन को होम स्क्रीन विजेट के रूप में इस्तेमाल नहीं किया जा सकता।",
-  "homeWidgetRequestSent": "विजेट अनुरोध भेजा गया। अपने लॉन्चर में पुष्टि करें।",
-  "homeWidgetRequestRejected": "लॉन्चर ने विजेट अनुरोध अस्वीकार कर दिया।",
-  "homeWidgetSetupFailed": "होम विजेट सेटअप विफल: {error}",
+  "homeWidgetUnsupportedLauncher": "इसके बजाय होम स्क्रीन के विजेट मेन्यू से IR Blaster विजेट जोड़ें।",
+  "homeWidgetButtonUnsupported": "इस बटन को होम स्क्रीन पर विजेट के रूप में नहीं जोड़ा जा सकता।",
+  "homeWidgetRequestSent": "विजेट जोड़ने का अनुरोध भेज दिया गया। होम स्क्रीन पर पुष्टि माँगी जाए, तो पुष्टि करें।",
+  "homeWidgetRequestRejected": "विजेट जोड़ने का अनुरोध नहीं भेजा जा सका। इसे होम स्क्रीन से जोड़कर देखें।",
+  "homeWidgetSetupFailed": "विजेट सेट अप नहीं हो सका: {error}",
   "addHomeWidget": "होम विजेट जोड़ें",
   "addHomeWidgetSubtitle": "इस बटन को अपनी होम स्क्रीन पर रखें।",
   "buttonInfoType": "प्रकार: {type}",

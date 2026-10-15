@@ -4346,10 +4346,10 @@ class AppLocalizationsJa extends AppLocalizations {
       'メイン画面に電源、ミュート、音量のコンパクトな行を表示します。';
 
   @override
-  String get homeDeviceControlsShown => 'ホームにクイック操作を表示しました。';
+  String get homeDeviceControlsShown => 'アプリ内のクイック操作を表示しました。';
 
   @override
-  String get homeDeviceControlsHidden => 'ホームからクイック操作を非表示にしました。';
+  String get homeDeviceControlsHidden => 'アプリ内のクイック操作を非表示にしました。';
 
   @override
   String get power => 'Power';
@@ -4622,20 +4622,22 @@ class AppLocalizationsJa extends AppLocalizations {
 
   @override
   String get homeWidgetUnsupportedLauncher =>
-      'このランチャーはアプリ内からのウィジェット追加に対応していません。ホーム画面のウィジェット選択からIRボタンウィジェットを追加してください。';
+      'ホーム画面のウィジェット一覧からIR Blasterを追加してください。';
 
   @override
-  String get homeWidgetButtonUnsupported => 'このボタンはホーム画面ウィジェットとして使用できません。';
+  String get homeWidgetButtonUnsupported => 'このボタンはホーム画面にウィジェットとして追加できません。';
 
   @override
-  String get homeWidgetRequestSent => 'ウィジェット要求を送信しました。ランチャーで確認してください。';
+  String get homeWidgetRequestSent =>
+      'ウィジェットの追加をリクエストしました。ホーム画面で確認を求められた場合は許可してください。';
 
   @override
-  String get homeWidgetRequestRejected => 'ランチャーがウィジェット要求を拒否しました。';
+  String get homeWidgetRequestRejected =>
+      'ウィジェットの追加をリクエストできませんでした。ホーム画面から追加してください。';
 
   @override
   String homeWidgetSetupFailed(String error) {
-    return 'ホーム画面ウィジェットの設定に失敗しました: $error';
+    return 'ウィジェットを設定できませんでした：$error';
   }
 
   @override

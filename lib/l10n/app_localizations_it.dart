@@ -4486,11 +4486,10 @@ class AppLocalizationsIt extends AppLocalizations {
       'Mostra la riga compatta Accensione, Muto e Volume nella schermata principale.';
 
   @override
-  String get homeDeviceControlsShown => 'Controlli rapidi mostrati nella home.';
+  String get homeDeviceControlsShown => 'Controlli rapidi visibili nell’app.';
 
   @override
-  String get homeDeviceControlsHidden =>
-      'Controlli rapidi nascosti dalla home.';
+  String get homeDeviceControlsHidden => 'Controlli rapidi nascosti nell’app.';
 
   @override
   String get power => 'Power';
@@ -4769,23 +4768,23 @@ class AppLocalizationsIt extends AppLocalizations {
 
   @override
   String get homeWidgetUnsupportedLauncher =>
-      'Il launcher non supporta l’aggiunta di widget dall’app. Aggiungi il widget Pulsante IR dal selettore widget della schermata iniziale.';
+      'Aggiungi il widget IR Blaster dal menu dei widget della schermata iniziale.';
 
   @override
   String get homeWidgetButtonUnsupported =>
-      'Questo pulsante non può essere usato come widget della schermata iniziale.';
+      'Questo pulsante non può essere aggiunto come widget alla schermata iniziale.';
 
   @override
   String get homeWidgetRequestSent =>
-      'Richiesta widget inviata. Confermala nel launcher.';
+      'Aggiunta del widget richiesta. Conferma nella schermata iniziale, se richiesto.';
 
   @override
   String get homeWidgetRequestRejected =>
-      'Il launcher ha rifiutato la richiesta del widget.';
+      'Impossibile richiedere il widget. Prova ad aggiungerlo dalla schermata iniziale.';
 
   @override
   String homeWidgetSetupFailed(String error) {
-    return 'Configurazione del widget della schermata iniziale non riuscita: $error';
+    return 'Impossibile configurare il widget: $error';
   }
 
   @override

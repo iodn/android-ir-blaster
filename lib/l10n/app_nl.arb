@@ -1974,11 +1974,11 @@
   "@showDeviceControlsOnHomeSubtitle": {
     "description": "Settings toggle subtitle for showing the compact device controls row on the home surface."
   },
-  "homeDeviceControlsShown": "Snelle bediening wordt op het startscherm getoond.",
+  "homeDeviceControlsShown": "Snelle bediening zichtbaar in de app.",
   "@homeDeviceControlsShown": {
     "description": "Snackbar shown when the home quick controls row is enabled."
   },
-  "homeDeviceControlsHidden": "Snelle bediening is verborgen van het startscherm.",
+  "homeDeviceControlsHidden": "Snelle bediening verborgen in de app.",
   "@homeDeviceControlsHidden": {
     "description": "Snackbar shown when the home quick controls row is disabled."
   },
@@ -2273,11 +2273,11 @@
   "quickSettingsTileMappingSummary": "{title} · {subtitle}",
   "quickSettingsPickButtonTooltip": "Knop kiezen",
   "quickSettingsClearTooltip": "Wissen",
-  "homeWidgetUnsupportedLauncher": "Je launcher ondersteunt geen widgets toevoegen vanuit de app. Voeg de IR-knopwidget toe via de widgetkiezer op het startscherm.",
-  "homeWidgetButtonUnsupported": "Deze knop kan niet als startschermwidget worden gebruikt.",
-  "homeWidgetRequestSent": "Widgetverzoek verzonden. Bevestig het in je launcher.",
-  "homeWidgetRequestRejected": "De launcher heeft het widgetverzoek geweigerd.",
-  "homeWidgetSetupFailed": "Startschermwidget instellen mislukt: {error}",
+  "homeWidgetUnsupportedLauncher": "Voeg de IR Blaster-widget toe via het widgetmenu van je startscherm.",
+  "homeWidgetButtonUnsupported": "Deze knop kan niet als widget aan het startscherm worden toegevoegd.",
+  "homeWidgetRequestSent": "Widget aangevraagd. Bevestig het toevoegen op je startscherm als daarom wordt gevraagd.",
+  "homeWidgetRequestRejected": "Widget aanvragen mislukt. Probeer de widget via je startscherm toe te voegen.",
+  "homeWidgetSetupFailed": "Widget instellen mislukt: {error}",
   "addHomeWidget": "Startschermwidget toevoegen",
   "addHomeWidgetSubtitle": "Plaats deze knop op je startscherm.",
   "buttonInfoType": "Type: {type}",

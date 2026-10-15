@@ -4498,11 +4498,11 @@ class AppLocalizationsDe extends AppLocalizations {
 
   @override
   String get homeDeviceControlsShown =>
-      'Schnellsteuerung wird auf der Startseite angezeigt.';
+      'Schnellsteuerung in der App eingeblendet.';
 
   @override
   String get homeDeviceControlsHidden =>
-      'Schnellsteuerung wurde von der Startseite ausgeblendet.';
+      'Schnellsteuerung in der App ausgeblendet.';
 
   @override
   String get power => 'Power';
@@ -4781,23 +4781,23 @@ class AppLocalizationsDe extends AppLocalizations {
 
   @override
   String get homeWidgetUnsupportedLauncher =>
-      'Ihr Launcher unterstützt das Hinzufügen von Widgets aus der App nicht. Fügen Sie das IR-Tasten-Widget über die Widget-Auswahl des Startbildschirms hinzu.';
+      'Füge das IR-Blaster-Widget stattdessen über die Widget-Auswahl deines Startbildschirms hinzu.';
 
   @override
   String get homeWidgetButtonUnsupported =>
-      'Diese Taste kann nicht als Startbildschirm-Widget verwendet werden.';
+      'Diese Taste lässt sich nicht als Startbildschirm-Widget hinzufügen.';
 
   @override
   String get homeWidgetRequestSent =>
-      'Widget-Anfrage gesendet. Bestätigen Sie sie in Ihrem Launcher.';
+      'Widget angefordert. Bestätige das Hinzufügen auf dem Startbildschirm, falls du dazu aufgefordert wirst.';
 
   @override
   String get homeWidgetRequestRejected =>
-      'Der Launcher hat die Widget-Anfrage abgelehnt.';
+      'Widget konnte nicht angefordert werden. Versuche es über die Widget-Auswahl des Startbildschirms.';
 
   @override
   String homeWidgetSetupFailed(String error) {
-    return 'Einrichtung des Startbildschirm-Widgets fehlgeschlagen: $error';
+    return 'Widget konnte nicht eingerichtet werden: $error';
   }
 
   @override

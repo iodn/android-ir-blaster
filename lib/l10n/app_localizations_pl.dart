@@ -4551,11 +4551,11 @@ class AppLocalizationsPl extends AppLocalizations {
 
   @override
   String get homeDeviceControlsShown =>
-      'Szybkie sterowanie pokazane na ekranie głównym.';
+      'Szybkie sterowanie jest widoczne w aplikacji.';
 
   @override
   String get homeDeviceControlsHidden =>
-      'Szybkie sterowanie ukryte na ekranie głównym.';
+      'Szybkie sterowanie jest ukryte w aplikacji.';
 
   @override
   String get power => 'Power';
@@ -4834,22 +4834,23 @@ class AppLocalizationsPl extends AppLocalizations {
 
   @override
   String get homeWidgetUnsupportedLauncher =>
-      'Twój launcher nie obsługuje dodawania widżetów z aplikacji. Dodaj widżet przycisku IR z wybieraka widżetów ekranu głównego.';
+      'Dodaj widżet IR Blaster z menu widżetów na ekranie głównym telefonu.';
 
   @override
   String get homeWidgetButtonUnsupported =>
-      'Tego przycisku nie można użyć jako widżetu ekranu głównego.';
+      'Tego przycisku nie można dodać jako widżetu na ekranie głównym.';
 
   @override
   String get homeWidgetRequestSent =>
-      'Żądanie widżetu wysłane. Potwierdź je w launcherze.';
+      'Wysłano prośbę o dodanie widżetu. Potwierdź na ekranie głównym, jeśli pojawi się taka prośba.';
 
   @override
-  String get homeWidgetRequestRejected => 'Launcher odrzucił żądanie widżetu.';
+  String get homeWidgetRequestRejected =>
+      'Nie udało się rozpocząć dodawania widżetu. Spróbuj dodać go z ekranu głównego.';
 
   @override
   String homeWidgetSetupFailed(String error) {
-    return 'Nie udało się skonfigurować widżetu ekranu głównego: $error';
+    return 'Nie udało się skonfigurować widżetu: $error';
   }
 
   @override

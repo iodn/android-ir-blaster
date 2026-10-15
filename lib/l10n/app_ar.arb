@@ -1979,11 +1979,11 @@
   "@showDeviceControlsOnHomeSubtitle": {
     "description": "Settings toggle subtitle for showing the compact device controls row on the home surface."
   },
-  "homeDeviceControlsShown": "تم إظهار عناصر التحكم السريعة في الشاشة الرئيسية.",
+  "homeDeviceControlsShown": "تم إظهار عناصر التحكم السريعة في التطبيق.",
   "@homeDeviceControlsShown": {
     "description": "Snackbar shown when the home quick controls row is enabled."
   },
-  "homeDeviceControlsHidden": "تم إخفاء عناصر التحكم السريعة من الشاشة الرئيسية.",
+  "homeDeviceControlsHidden": "تم إخفاء عناصر التحكم السريعة في التطبيق.",
   "@homeDeviceControlsHidden": {
     "description": "Snackbar shown when the home quick controls row is disabled."
   },
@@ -2273,11 +2273,11 @@
   "quickSettingsTileMappingSummary": "{title} · {subtitle}",
   "quickSettingsPickButtonTooltip": "اختيار زر",
   "quickSettingsClearTooltip": "مسح",
-  "homeWidgetUnsupportedLauncher": "المشغل لديك لا يدعم إضافة الودجات من داخل التطبيق. أضف ودجة زر IR من منتقي ودجات الشاشة الرئيسية.",
-  "homeWidgetButtonUnsupported": "لا يمكن استخدام هذا الزر كودجة على الشاشة الرئيسية.",
-  "homeWidgetRequestSent": "تم إرسال طلب الودجة. أكده في المشغل.",
-  "homeWidgetRequestRejected": "رفض المشغل طلب الودجة.",
-  "homeWidgetSetupFailed": "فشل إعداد ودجة الشاشة الرئيسية: {error}",
+  "homeWidgetUnsupportedLauncher": "أضف أداة IR Blaster من قائمة الأدوات على الشاشة الرئيسية بدلاً من ذلك.",
+  "homeWidgetButtonUnsupported": "لا يمكن إضافة هذا الزر كأداة على الشاشة الرئيسية.",
+  "homeWidgetRequestSent": "تم طلب إضافة الأداة. أكّد الإضافة على الشاشة الرئيسية إذا طُلب منك ذلك.",
+  "homeWidgetRequestRejected": "تعذّر طلب إضافة الأداة. جرّب إضافتها من الشاشة الرئيسية.",
+  "homeWidgetSetupFailed": "تعذّر إعداد الأداة: {error}",
   "addHomeWidget": "إضافة ودجة للشاشة الرئيسية",
   "addHomeWidgetSubtitle": "ضع هذا الزر على شاشتك الرئيسية.",
   "buttonInfoType": "النوع: {type}",

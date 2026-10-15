@@ -4566,11 +4566,11 @@ class AppLocalizationsUk extends AppLocalizations {
 
   @override
   String get homeDeviceControlsShown =>
-      'Швидке керування показано на головному екрані.';
+      'Швидке керування показано в застосунку.';
 
   @override
   String get homeDeviceControlsHidden =>
-      'Швидке керування приховано з головного екрана.';
+      'Швидке керування приховано в застосунку.';
 
   @override
   String get power => 'Живлення';
@@ -4852,22 +4852,23 @@ class AppLocalizationsUk extends AppLocalizations {
 
   @override
   String get homeWidgetUnsupportedLauncher =>
-      'Ваш лаунчер не підтримує додавання віджетів із застосунку. Додайте віджет ІЧ-кнопки через вибір віджетів на головному екрані.';
+      'Додайте віджет IR Blaster через меню віджетів на головному екрані телефона.';
 
   @override
   String get homeWidgetButtonUnsupported =>
-      'Цю кнопку не можна використовувати як віджет головного екрана.';
+      'Цю кнопку не можна додати на головний екран як віджет.';
 
   @override
   String get homeWidgetRequestSent =>
-      'Запит на віджет надіслано. Підтвердьте його у лаунчері.';
+      'Запит на додавання віджета надіслано. Підтвердьте його на головному екрані, якщо з’явиться запит.';
 
   @override
-  String get homeWidgetRequestRejected => 'Лаунчер відхилив запит на віджет.';
+  String get homeWidgetRequestRejected =>
+      'Не вдалося надіслати запит на додавання віджета. Спробуйте додати його з головного екрана.';
 
   @override
   String homeWidgetSetupFailed(String error) {
-    return 'Не вдалося налаштувати віджет головного екрана: $error';
+    return 'Не вдалося налаштувати віджет: $error';
   }
 
   @override

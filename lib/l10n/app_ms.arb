@@ -1974,11 +1974,11 @@
   "@showDeviceControlsOnHomeSubtitle": {
     "description": "Settings toggle subtitle for showing the compact device controls row on the home surface."
   },
-  "homeDeviceControlsShown": "Kawalan pantas ditunjukkan di laman utama.",
+  "homeDeviceControlsShown": "Kawalan pantas dipaparkan dalam aplikasi.",
   "@homeDeviceControlsShown": {
     "description": "Snackbar shown when the home quick controls row is enabled."
   },
-  "homeDeviceControlsHidden": "Kawalan pantas disembunyikan daripada laman utama.",
+  "homeDeviceControlsHidden": "Kawalan pantas disembunyikan dalam aplikasi.",
   "@homeDeviceControlsHidden": {
     "description": "Snackbar shown when the home quick controls row is disabled."
   },
@@ -2273,11 +2273,11 @@
   "quickSettingsTileMappingSummary": "{title} · {subtitle}",
   "quickSettingsPickButtonTooltip": "Pilih butang",
   "quickSettingsClearTooltip": "Kosongkan",
-  "homeWidgetUnsupportedLauncher": "Pelancar anda tidak menyokong penambahan widget dari dalam aplikasi. Tambah widget Butang IR daripada pemilih widget skrin utama.",
-  "homeWidgetButtonUnsupported": "Butang ini tidak boleh digunakan sebagai widget skrin utama.",
-  "homeWidgetRequestSent": "Permintaan widget dihantar. Sahkan pada pelancar anda.",
-  "homeWidgetRequestRejected": "Pelancar menolak permintaan widget.",
-  "homeWidgetSetupFailed": "Gagal menyediakan widget skrin utama: {error}",
+  "homeWidgetUnsupportedLauncher": "Tambah widget IR Blaster melalui menu widget pada skrin utama.",
+  "homeWidgetButtonUnsupported": "Butang ini tidak boleh ditambah sebagai widget skrin utama.",
+  "homeWidgetRequestSent": "Penambahan widget diminta. Sahkan pada skrin utama jika diminta.",
+  "homeWidgetRequestRejected": "Tidak dapat meminta penambahan widget. Cuba tambah melalui skrin utama.",
+  "homeWidgetSetupFailed": "Tidak dapat menyediakan widget: {error}",
   "addHomeWidget": "Tambah widget skrin utama",
   "addHomeWidgetSubtitle": "Letakkan butang ini pada skrin utama anda.",
   "buttonInfoType": "Jenis: {type}",

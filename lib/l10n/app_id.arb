@@ -1974,11 +1974,11 @@
   "@showDeviceControlsOnHomeSubtitle": {
     "description": "Settings toggle subtitle for showing the compact device controls row on the home surface."
   },
-  "homeDeviceControlsShown": "Kontrol cepat ditampilkan di beranda.",
+  "homeDeviceControlsShown": "Kontrol cepat ditampilkan di aplikasi.",
   "@homeDeviceControlsShown": {
     "description": "Snackbar shown when the home quick controls row is enabled."
   },
-  "homeDeviceControlsHidden": "Kontrol cepat disembunyikan dari beranda.",
+  "homeDeviceControlsHidden": "Kontrol cepat disembunyikan di aplikasi.",
   "@homeDeviceControlsHidden": {
     "description": "Snackbar shown when the home quick controls row is disabled."
   },
@@ -2273,11 +2273,11 @@
   "quickSettingsTileMappingSummary": "{title} · {subtitle}",
   "quickSettingsPickButtonTooltip": "Pilih tombol",
   "quickSettingsClearTooltip": "Hapus",
-  "homeWidgetUnsupportedLauncher": "Launcher Anda tidak mendukung penambahan widget dari dalam aplikasi. Tambahkan widget Tombol IR dari pemilih widget layar utama.",
-  "homeWidgetButtonUnsupported": "Tombol ini tidak dapat digunakan sebagai widget layar utama.",
-  "homeWidgetRequestSent": "Permintaan widget dikirim. Konfirmasi di launcher Anda.",
-  "homeWidgetRequestRejected": "Launcher menolak permintaan widget.",
-  "homeWidgetSetupFailed": "Gagal menyiapkan widget layar utama: {error}",
+  "homeWidgetUnsupportedLauncher": "Tambahkan widget IR Blaster melalui menu widget di layar utama.",
+  "homeWidgetButtonUnsupported": "Tombol ini tidak bisa ditambahkan sebagai widget di layar utama.",
+  "homeWidgetRequestSent": "Penambahan widget diminta. Konfirmasikan di layar utama jika diminta.",
+  "homeWidgetRequestRejected": "Tidak dapat meminta penambahan widget. Coba tambahkan dari layar utama.",
+  "homeWidgetSetupFailed": "Tidak dapat menyiapkan widget: {error}",
   "addHomeWidget": "Tambahkan widget layar utama",
   "addHomeWidgetSubtitle": "Tempatkan tombol ini di layar utama Anda.",
   "buttonInfoType": "Tipe: {type}",

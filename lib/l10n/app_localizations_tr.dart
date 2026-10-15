@@ -4461,11 +4461,11 @@ class AppLocalizationsTr extends AppLocalizations {
 
   @override
   String get homeDeviceControlsShown =>
-      'Hızlı kontroller ana ekranda gösteriliyor.';
+      'Hızlı kontroller uygulamada gösteriliyor.';
 
   @override
   String get homeDeviceControlsHidden =>
-      'Hızlı kontroller ana ekrandan gizlendi.';
+      'Hızlı kontroller uygulamada gizlendi.';
 
   @override
   String get power => 'Power';
@@ -4742,22 +4742,23 @@ class AppLocalizationsTr extends AppLocalizations {
 
   @override
   String get homeWidgetUnsupportedLauncher =>
-      'Başlatıcınız uygulama içinden widget eklemeyi desteklemiyor. IR Düğmesi widget’ını ana ekran widget seçicisinden ekleyin.';
+      'IR Blaster widget’ını ana ekranın widget menüsünden ekleyin.';
 
   @override
   String get homeWidgetButtonUnsupported =>
-      'Bu düğme ana ekran widget’ı olarak kullanılamaz.';
+      'Bu düğme ana ekrana widget olarak eklenemez.';
 
   @override
   String get homeWidgetRequestSent =>
-      'Widget isteği gönderildi. Başlatıcınızda onaylayın.';
+      'Widget ekleme isteği gönderildi. Ana ekranda onay istenirse onaylayın.';
 
   @override
-  String get homeWidgetRequestRejected => 'Başlatıcı widget isteğini reddetti.';
+  String get homeWidgetRequestRejected =>
+      'Widget ekleme isteği gönderilemedi. Ana ekrandan eklemeyi deneyin.';
 
   @override
   String homeWidgetSetupFailed(String error) {
-    return 'Ana ekran widget kurulumu başarısız: $error';
+    return 'Widget ayarlanamadı: $error';
   }
 
   @override

@@ -4492,10 +4492,11 @@ class AppLocalizationsPt extends AppLocalizations {
 
   @override
   String get homeDeviceControlsShown =>
-      'Controlos rápidos mostrados no início.';
+      'Controlos rápidos visíveis na aplicação.';
 
   @override
-  String get homeDeviceControlsHidden => 'Controlos rápidos ocultos do início.';
+  String get homeDeviceControlsHidden =>
+      'Controlos rápidos ocultos na aplicação.';
 
   @override
   String get power => 'Power';
@@ -4774,23 +4775,23 @@ class AppLocalizationsPt extends AppLocalizations {
 
   @override
   String get homeWidgetUnsupportedLauncher =>
-      'O seu iniciador não suporta adicionar widgets a partir da aplicação. Adicione o widget Botão IR no seletor de widgets do ecrã inicial.';
+      'Adicione o widget IR Blaster através do menu de widgets do ecrã inicial.';
 
   @override
   String get homeWidgetButtonUnsupported =>
-      'Este botão não pode ser usado como widget do ecrã inicial.';
+      'Este botão não pode ser adicionado como widget ao ecrã inicial.';
 
   @override
   String get homeWidgetRequestSent =>
-      'Pedido de widget enviado. Confirme no seu iniciador.';
+      'Pedido de adição enviado. Confirme no ecrã inicial, se necessário.';
 
   @override
   String get homeWidgetRequestRejected =>
-      'O iniciador rejeitou o pedido de widget.';
+      'Não foi possível iniciar a adição do widget. Experimente adicioná-lo a partir do ecrã inicial.';
 
   @override
   String homeWidgetSetupFailed(String error) {
-    return 'Falha ao configurar o widget do ecrã inicial: $error';
+    return 'Não foi possível configurar o widget: $error';
   }
 
   @override
@@ -9775,12 +9776,10 @@ class AppLocalizationsPtBr extends AppLocalizationsPt {
       'Mostra a linha compacta de Liga/desliga, Mudo e Volume na tela principal.';
 
   @override
-  String get homeDeviceControlsShown =>
-      'Controles rápidos exibidos na tela inicial.';
+  String get homeDeviceControlsShown => 'Controles rápidos visíveis no app.';
 
   @override
-  String get homeDeviceControlsHidden =>
-      'Controles rápidos ocultados da tela inicial.';
+  String get homeDeviceControlsHidden => 'Controles rápidos ocultos no app.';
 
   @override
   String get power => 'Power';
@@ -10058,23 +10057,23 @@ class AppLocalizationsPtBr extends AppLocalizationsPt {
 
   @override
   String get homeWidgetUnsupportedLauncher =>
-      'Seu launcher não permite adicionar widgets pelo app. Adicione o widget Botão IR pelo seletor de widgets da tela inicial.';
+      'Adicione o widget do IR Blaster pelo menu de widgets da tela inicial.';
 
   @override
   String get homeWidgetButtonUnsupported =>
-      'Este botão não pode ser usado como widget da tela inicial.';
+      'Este botão não pode ser adicionado como widget à tela inicial.';
 
   @override
   String get homeWidgetRequestSent =>
-      'Solicitação de widget enviada. Confirme no seu launcher.';
+      'A adição do widget foi solicitada. Confirme na tela inicial, se necessário.';
 
   @override
   String get homeWidgetRequestRejected =>
-      'O launcher rejeitou a solicitação do widget.';
+      'Não foi possível solicitar o widget. Tente adicioná-lo pela tela inicial.';
 
   @override
   String homeWidgetSetupFailed(String error) {
-    return 'Falha ao configurar o widget da tela inicial: $error';
+    return 'Não foi possível configurar o widget: $error';
   }
 
   @override

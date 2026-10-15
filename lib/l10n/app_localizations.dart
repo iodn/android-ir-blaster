@@ -8159,13 +8159,13 @@ abstract class AppLocalizations {
   /// Snackbar shown when the home quick controls row is enabled.
   ///
   /// In en, this message translates to:
-  /// **'Quick controls shown on home.'**
+  /// **'Quick controls shown in the app.'**
   String get homeDeviceControlsShown;
 
   /// Snackbar shown when the home quick controls row is disabled.
   ///
   /// In en, this message translates to:
-  /// **'Quick controls hidden from home.'**
+  /// **'Quick controls hidden in the app.'**
   String get homeDeviceControlsHidden;
 
   /// Short label for the power control.
@@ -8639,31 +8639,31 @@ abstract class AppLocalizations {
   /// Message shown when launcher does not support in-app widget pinning.
   ///
   /// In en, this message translates to:
-  /// **'Your launcher does not support adding widgets from inside the app. Add the IR Button widget from the home screen widget picker.'**
+  /// **'Add the IR Blaster widget from your home screen\'s widget menu instead.'**
   String get homeWidgetUnsupportedLauncher;
 
   /// Message shown when an IR button cannot be converted to a home widget.
   ///
   /// In en, this message translates to:
-  /// **'This button cannot be used as a home widget.'**
+  /// **'This button cannot be added as a home screen widget.'**
   String get homeWidgetButtonUnsupported;
 
   /// Message shown after sending a widget pin request.
   ///
   /// In en, this message translates to:
-  /// **'Widget request sent. Confirm it on your launcher.'**
+  /// **'Widget requested. Confirm on your home screen if prompted.'**
   String get homeWidgetRequestSent;
 
   /// Message shown when launcher rejects a widget pin request.
   ///
   /// In en, this message translates to:
-  /// **'The launcher rejected the widget request.'**
+  /// **'Could not request a widget. Try adding it from your home screen.'**
   String get homeWidgetRequestRejected;
 
   /// Message shown when home widget setup fails.
   ///
   /// In en, this message translates to:
-  /// **'Home widget setup failed: {error}'**
+  /// **'Could not set up the widget: {error}'**
   String homeWidgetSetupFailed(String error);
 
   /// Action title for adding a home screen widget.

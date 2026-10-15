@@ -1974,11 +1974,11 @@
   "@showDeviceControlsOnHomeSubtitle": {
     "description": "Settings toggle subtitle for showing the compact device controls row on the home surface."
   },
-  "homeDeviceControlsShown": "Controles rápidos mostrados en inicio.",
+  "homeDeviceControlsShown": "Controles rápidos visibles en la app.",
   "@homeDeviceControlsShown": {
     "description": "Snackbar shown when the home quick controls row is enabled."
   },
-  "homeDeviceControlsHidden": "Controles rápidos ocultos de inicio.",
+  "homeDeviceControlsHidden": "Controles rápidos ocultos en la app.",
   "@homeDeviceControlsHidden": {
     "description": "Snackbar shown when the home quick controls row is disabled."
   },
@@ -2273,11 +2273,11 @@
   "quickSettingsTileMappingSummary": "{title} · {subtitle}",
   "quickSettingsPickButtonTooltip": "Elegir botón",
   "quickSettingsClearTooltip": "Borrar",
-  "homeWidgetUnsupportedLauncher": "Tu lanzador no permite añadir widgets desde la app. Añade el widget de botón IR desde el selector de widgets de la pantalla de inicio.",
-  "homeWidgetButtonUnsupported": "Este botón no se puede usar como widget de inicio.",
-  "homeWidgetRequestSent": "Solicitud de widget enviada. Confírmala en tu lanzador.",
-  "homeWidgetRequestRejected": "El lanzador rechazó la solicitud de widget.",
-  "homeWidgetSetupFailed": "No se pudo configurar el widget de inicio: {error}",
+  "homeWidgetUnsupportedLauncher": "Añade el widget de IR Blaster desde el menú de widgets de la pantalla de inicio.",
+  "homeWidgetButtonUnsupported": "Este botón no se puede añadir como widget a la pantalla de inicio.",
+  "homeWidgetRequestSent": "Se ha solicitado añadir el widget. Confirma en la pantalla de inicio si se te pide.",
+  "homeWidgetRequestRejected": "No se pudo solicitar el widget. Intenta añadirlo desde la pantalla de inicio.",
+  "homeWidgetSetupFailed": "No se pudo configurar el widget: {error}",
   "addHomeWidget": "Añadir widget de inicio",
   "addHomeWidgetSubtitle": "Coloca este botón en tu pantalla de inicio.",
   "buttonInfoType": "Tipo: {type}",

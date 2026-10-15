@@ -4448,11 +4448,11 @@ class AppLocalizationsVi extends AppLocalizations {
 
   @override
   String get homeDeviceControlsShown =>
-      'Đã hiển thị điều khiển nhanh trên màn hình chính.';
+      'Đã hiện điều khiển nhanh trong ứng dụng.';
 
   @override
   String get homeDeviceControlsHidden =>
-      'Đã ẩn điều khiển nhanh khỏi màn hình chính.';
+      'Đã ẩn điều khiển nhanh trong ứng dụng.';
 
   @override
   String get power => 'Power';
@@ -4729,23 +4729,23 @@ class AppLocalizationsVi extends AppLocalizations {
 
   @override
   String get homeWidgetUnsupportedLauncher =>
-      'Trình khởi chạy của bạn không hỗ trợ thêm tiện ích từ trong ứng dụng. Hãy thêm tiện ích Nút IR từ trình chọn tiện ích trên màn hình chính.';
+      'Hãy thêm tiện ích IR Blaster từ menu tiện ích trên màn hình chính.';
 
   @override
   String get homeWidgetButtonUnsupported =>
-      'Không thể dùng nút này làm tiện ích màn hình chính.';
+      'Không thể thêm nút này làm tiện ích trên màn hình chính.';
 
   @override
   String get homeWidgetRequestSent =>
-      'Đã gửi yêu cầu tiện ích. Hãy xác nhận trong trình khởi chạy của bạn.';
+      'Đã yêu cầu thêm tiện ích. Hãy xác nhận trên màn hình chính nếu được hỏi.';
 
   @override
   String get homeWidgetRequestRejected =>
-      'Trình khởi chạy đã từ chối yêu cầu tiện ích.';
+      'Không thể yêu cầu thêm tiện ích. Hãy thử thêm từ màn hình chính.';
 
   @override
   String homeWidgetSetupFailed(String error) {
-    return 'Thiết lập tiện ích màn hình chính thất bại: $error';
+    return 'Không thể thiết lập tiện ích: $error';
   }
 
   @override

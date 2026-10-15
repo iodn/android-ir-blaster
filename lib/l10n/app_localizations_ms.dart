@@ -4463,11 +4463,11 @@ class AppLocalizationsMs extends AppLocalizations {
 
   @override
   String get homeDeviceControlsShown =>
-      'Kawalan pantas ditunjukkan di laman utama.';
+      'Kawalan pantas dipaparkan dalam aplikasi.';
 
   @override
   String get homeDeviceControlsHidden =>
-      'Kawalan pantas disembunyikan daripada laman utama.';
+      'Kawalan pantas disembunyikan dalam aplikasi.';
 
   @override
   String get power => 'Power';
@@ -4746,22 +4746,23 @@ class AppLocalizationsMs extends AppLocalizations {
 
   @override
   String get homeWidgetUnsupportedLauncher =>
-      'Pelancar anda tidak menyokong penambahan widget dari dalam aplikasi. Tambah widget Butang IR daripada pemilih widget skrin utama.';
+      'Tambah widget IR Blaster melalui menu widget pada skrin utama.';
 
   @override
   String get homeWidgetButtonUnsupported =>
-      'Butang ini tidak boleh digunakan sebagai widget skrin utama.';
+      'Butang ini tidak boleh ditambah sebagai widget skrin utama.';
 
   @override
   String get homeWidgetRequestSent =>
-      'Permintaan widget dihantar. Sahkan pada pelancar anda.';
+      'Penambahan widget diminta. Sahkan pada skrin utama jika diminta.';
 
   @override
-  String get homeWidgetRequestRejected => 'Pelancar menolak permintaan widget.';
+  String get homeWidgetRequestRejected =>
+      'Tidak dapat meminta penambahan widget. Cuba tambah melalui skrin utama.';
 
   @override
   String homeWidgetSetupFailed(String error) {
-    return 'Gagal menyediakan widget skrin utama: $error';
+    return 'Tidak dapat menyediakan widget: $error';
   }
 
   @override

@@ -1974,11 +1974,11 @@
   "@showDeviceControlsOnHomeSubtitle": {
     "description": "Settings toggle subtitle for showing the compact device controls row on the home surface."
   },
-  "homeDeviceControlsShown": "ホームにクイック操作を表示しました。",
+  "homeDeviceControlsShown": "アプリ内のクイック操作を表示しました。",
   "@homeDeviceControlsShown": {
     "description": "Snackbar shown when the home quick controls row is enabled."
   },
-  "homeDeviceControlsHidden": "ホームからクイック操作を非表示にしました。",
+  "homeDeviceControlsHidden": "アプリ内のクイック操作を非表示にしました。",
   "@homeDeviceControlsHidden": {
     "description": "Snackbar shown when the home quick controls row is disabled."
   },
@@ -2273,11 +2273,11 @@
   "quickSettingsTileMappingSummary": "{title} · {subtitle}",
   "quickSettingsPickButtonTooltip": "ボタンを選択",
   "quickSettingsClearTooltip": "クリア",
-  "homeWidgetUnsupportedLauncher": "このランチャーはアプリ内からのウィジェット追加に対応していません。ホーム画面のウィジェット選択からIRボタンウィジェットを追加してください。",
-  "homeWidgetButtonUnsupported": "このボタンはホーム画面ウィジェットとして使用できません。",
-  "homeWidgetRequestSent": "ウィジェット要求を送信しました。ランチャーで確認してください。",
-  "homeWidgetRequestRejected": "ランチャーがウィジェット要求を拒否しました。",
-  "homeWidgetSetupFailed": "ホーム画面ウィジェットの設定に失敗しました: {error}",
+  "homeWidgetUnsupportedLauncher": "ホーム画面のウィジェット一覧からIR Blasterを追加してください。",
+  "homeWidgetButtonUnsupported": "このボタンはホーム画面にウィジェットとして追加できません。",
+  "homeWidgetRequestSent": "ウィジェットの追加をリクエストしました。ホーム画面で確認を求められた場合は許可してください。",
+  "homeWidgetRequestRejected": "ウィジェットの追加をリクエストできませんでした。ホーム画面から追加してください。",
+  "homeWidgetSetupFailed": "ウィジェットを設定できませんでした：{error}",
   "addHomeWidget": "ホームウィジェットを追加",
   "addHomeWidgetSubtitle": "このボタンをホーム画面に配置します。",
   "buttonInfoType": "種類: {type}",

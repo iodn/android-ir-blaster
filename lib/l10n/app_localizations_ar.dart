@@ -4435,11 +4435,11 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String get homeDeviceControlsShown =>
-      'تم إظهار عناصر التحكم السريعة في الشاشة الرئيسية.';
+      'تم إظهار عناصر التحكم السريعة في التطبيق.';
 
   @override
   String get homeDeviceControlsHidden =>
-      'تم إخفاء عناصر التحكم السريعة من الشاشة الرئيسية.';
+      'تم إخفاء عناصر التحكم السريعة في التطبيق.';
 
   @override
   String get power => 'Power';
@@ -4715,21 +4715,23 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String get homeWidgetUnsupportedLauncher =>
-      'المشغل لديك لا يدعم إضافة الودجات من داخل التطبيق. أضف ودجة زر IR من منتقي ودجات الشاشة الرئيسية.';
+      'أضف أداة IR Blaster من قائمة الأدوات على الشاشة الرئيسية بدلاً من ذلك.';
 
   @override
   String get homeWidgetButtonUnsupported =>
-      'لا يمكن استخدام هذا الزر كودجة على الشاشة الرئيسية.';
+      'لا يمكن إضافة هذا الزر كأداة على الشاشة الرئيسية.';
 
   @override
-  String get homeWidgetRequestSent => 'تم إرسال طلب الودجة. أكده في المشغل.';
+  String get homeWidgetRequestSent =>
+      'تم طلب إضافة الأداة. أكّد الإضافة على الشاشة الرئيسية إذا طُلب منك ذلك.';
 
   @override
-  String get homeWidgetRequestRejected => 'رفض المشغل طلب الودجة.';
+  String get homeWidgetRequestRejected =>
+      'تعذّر طلب إضافة الأداة. جرّب إضافتها من الشاشة الرئيسية.';
 
   @override
   String homeWidgetSetupFailed(String error) {
-    return 'فشل إعداد ودجة الشاشة الرئيسية: $error';
+    return 'تعذّر إعداد الأداة: $error';
   }
 
   @override
@@ -9648,12 +9650,11 @@ class AppLocalizationsArEg extends AppLocalizationsAr {
       'إظهار صف التشغيل وكتم الصوت ومستوى الصوت المختصر في الشاشة الرئيسية.';
 
   @override
-  String get homeDeviceControlsShown =>
-      'تم إظهار عناصر التحكم السريعة في الشاشة الرئيسية.';
+  String get homeDeviceControlsShown => 'عناصر التحكم السريعة ظهرت في التطبيق.';
 
   @override
   String get homeDeviceControlsHidden =>
-      'تم إخفاء عناصر التحكم السريعة من الشاشة الرئيسية.';
+      'عناصر التحكم السريعة اتخفت في التطبيق.';
 
   @override
   String get power => 'Power';
@@ -9929,21 +9930,23 @@ class AppLocalizationsArEg extends AppLocalizationsAr {
 
   @override
   String get homeWidgetUnsupportedLauncher =>
-      'اللانشر عندك لا يدعم إضافة الودجات من داخل التطبيق. ضيف ودجة زر IR من منتقي ودجات الشاشة الرئيسية.';
+      'بدل كده، ضيف أداة IR Blaster من قائمة الأدوات في الشاشة الرئيسية.';
 
   @override
   String get homeWidgetButtonUnsupported =>
-      'لا يمكن استخدام هذا الزر كودجة على الشاشة الرئيسية.';
+      'مينفعش تضيف الزر ده كأداة في الشاشة الرئيسية.';
 
   @override
-  String get homeWidgetRequestSent => 'تم إرسال طلب الودجة. أكده في اللانشر.';
+  String get homeWidgetRequestSent =>
+      'طلب إضافة الأداة اتبعت. أكّد الإضافة في الشاشة الرئيسية لو ظهر لك طلب.';
 
   @override
-  String get homeWidgetRequestRejected => 'اللانشر رفض طلب الودجة.';
+  String get homeWidgetRequestRejected =>
+      'مقدرناش نطلب إضافة الأداة. جرّب تضيفها من الشاشة الرئيسية.';
 
   @override
   String homeWidgetSetupFailed(String error) {
-    return 'فشل إعداد ودجة الشاشة الرئيسية: $error';
+    return 'مقدرناش نجهّز الأداة: $error';
   }
 
   @override

@@ -1974,11 +1974,11 @@
   "@showDeviceControlsOnHomeSubtitle": {
     "description": "Settings toggle subtitle for showing the compact device controls row on the home surface."
   },
-  "homeDeviceControlsShown": "Contrôles rapides affichés sur l’accueil.",
+  "homeDeviceControlsShown": "Commandes rapides affichées dans l’application.",
   "@homeDeviceControlsShown": {
     "description": "Snackbar shown when the home quick controls row is enabled."
   },
-  "homeDeviceControlsHidden": "Contrôles rapides masqués de l’accueil.",
+  "homeDeviceControlsHidden": "Commandes rapides masquées dans l’application.",
   "@homeDeviceControlsHidden": {
     "description": "Snackbar shown when the home quick controls row is disabled."
   },
@@ -2273,11 +2273,11 @@
   "quickSettingsTileMappingSummary": "{title} · {subtitle}",
   "quickSettingsPickButtonTooltip": "Choisir un bouton",
   "quickSettingsClearTooltip": "Effacer",
-  "homeWidgetUnsupportedLauncher": "Votre lanceur ne permet pas d’ajouter des widgets depuis l’application. Ajoutez le widget Bouton IR depuis le sélecteur de widgets de l’écran d’accueil.",
-  "homeWidgetButtonUnsupported": "Ce bouton ne peut pas être utilisé comme widget d’accueil.",
-  "homeWidgetRequestSent": "Demande de widget envoyée. Confirmez-la dans votre lanceur.",
-  "homeWidgetRequestRejected": "Le lanceur a refusé la demande de widget.",
-  "homeWidgetSetupFailed": "Échec de la configuration du widget d’accueil : {error}",
+  "homeWidgetUnsupportedLauncher": "Ajoutez plutôt le widget IR Blaster depuis le menu des widgets de l’écran d’accueil.",
+  "homeWidgetButtonUnsupported": "Ce bouton ne peut pas être ajouté comme widget sur l’écran d’accueil.",
+  "homeWidgetRequestSent": "Ajout du widget demandé. Confirmez sur l’écran d’accueil si nécessaire.",
+  "homeWidgetRequestRejected": "Impossible de demander l’ajout du widget. Essayez depuis l’écran d’accueil.",
+  "homeWidgetSetupFailed": "Impossible de configurer le widget : {error}",
   "addHomeWidget": "Ajouter un widget d’accueil",
   "addHomeWidgetSubtitle": "Placez ce bouton sur votre écran d’accueil.",
   "buttonInfoType": "Type : {type}",
