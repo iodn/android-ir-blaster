@@ -41,10 +41,22 @@ void main() {
   });
 
   Future<void> settleSave(WidgetTester tester) async {
-    for (var i = 0; i < 10; i++) {
+    final deadline = DateTime.now().add(const Duration(seconds: 10));
+    while (true) {
       await tester.runAsync(
           () => Future<void>.delayed(const Duration(milliseconds: 10)));
       await tester.pump();
+      final saving = tester
+          .widget<AbsorbPointer>(find
+              .descendant(
+                of: find.byType(MacrosTab),
+                matching: find.byType(AbsorbPointer),
+              )
+              .first)
+          .absorbing;
+      if (!saving) break;
+      expect(DateTime.now().isBefore(deadline), isTrue,
+          reason: 'Macro save did not finish within 10 seconds');
     }
     await tester.pumpAndSettle();
   }
