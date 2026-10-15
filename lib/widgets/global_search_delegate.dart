@@ -18,6 +18,7 @@ class GlobalSearchDelegate extends SearchDelegate<void> {
     return <Widget>[
       if (query.isNotEmpty)
         IconButton(
+          tooltip: context.l10n.clearAction,
           onPressed: () => query = '',
           icon: const Icon(Icons.clear_rounded),
         ),
@@ -27,6 +28,7 @@ class GlobalSearchDelegate extends SearchDelegate<void> {
   @override
   Widget? buildLeading(BuildContext context) {
     return IconButton(
+      tooltip: MaterialLocalizations.of(context).backButtonTooltip,
       onPressed: () => close(context, null),
       icon: const Icon(Icons.arrow_back_rounded),
     );
@@ -42,7 +44,7 @@ class GlobalSearchDelegate extends SearchDelegate<void> {
     final items = _collectResults(context, query);
     if (items.isEmpty) {
       return Center(
-        child: Padding(
+        child: SingleChildScrollView(
           padding: const EdgeInsets.all(24),
           child: Column(
             mainAxisSize: MainAxisSize.min,

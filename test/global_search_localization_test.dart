@@ -30,6 +30,7 @@ void main() {
       tester.view.devicePixelRatio = 1;
       addTearDown(tester.view.resetPhysicalSize);
       addTearDown(tester.view.resetDevicePixelRatio);
+      addTearDown(tester.view.resetViewInsets);
       await tester.pumpWidget(MaterialApp(
         locale: locale,
         supportedLocales: AppLocalizations.supportedLocales,
@@ -85,6 +86,29 @@ void main() {
       expect(paragraph.didExceedMaxLines, isFalse);
       expect(paragraph.getMaxIntrinsicHeight(paragraph.size.width),
           lessThanOrEqualTo(paragraph.size.height + 0.1));
+      tester.view.physicalSize = const Size(640, 320);
+      tester.view.viewInsets = const FakeViewPadding(bottom: 180);
+      await tester.pumpAndSettle();
+      await tester.ensureVisible(text);
+      await tester.pumpAndSettle();
+      final emptyBounds = tester.getRect(text);
+      expect(emptyBounds.top, greaterThanOrEqualTo(56));
+      await Scrollable.ensureVisible(tester.element(text), alignment: 1);
+      await tester.pumpAndSettle();
+      expect(tester.getRect(text).bottom, lessThanOrEqualTo(140));
+      final clear = find.byTooltip(l10n.clearAction);
+      expect(clear.hitTestable(), findsOneWidget);
+      await tester.tap(clear);
+      await tester.pumpAndSettle();
+      expect(tester.widget<TextField>(find.byType(TextField)).controller!.text,
+          isEmpty);
+      expect(find.text(l10n.globalSearchNoResults), findsNothing);
+      final backLabel =
+          MaterialLocalizations.of(tester.element(find.byType(TextField)))
+              .backButtonTooltip;
+      await tester.tap(find.byTooltip(backLabel));
+      await tester.pumpAndSettle();
+      expect(find.text('Open'), findsOneWidget);
       await tester.pumpWidget(const SizedBox());
       await tester.pumpAndSettle();
     });
