@@ -16,7 +16,17 @@ void main() {
       const events = MethodChannel('org.nslabs/irtransmitter_events');
       messenger.setMockMethodCallHandler(events, (_) async => null);
       messenger.setMockMethodCallHandler(channel, (call) async {
+        if (call.method == 'performHaptic') return true;
         if (call.method == 'getPreferredTransmitterType') return 'USB';
+        if (call.method == 'learnUsbSignal') {
+          return {
+            'family': 'elksmart',
+            'frequencyHz': 38000,
+            'rawPatternUs': [9000, 4500, 560, 560, 560, 560],
+            'opaqueFrameBase64': 'AAAAAAAAAAAAAAAA',
+            'displayPreview': 'RAW',
+          };
+        }
         if (call.method == 'getTransmitterCapabilities') {
           return {
             'hasUsb': true,
@@ -58,6 +68,21 @@ void main() {
       await tester.ensureVisible(start);
       await tester.pumpAndSettle();
       expect(tester.widget<FilledButton>(start).onPressed, isNotNull);
+      expect(tester.takeException(), isNull);
+      await tester.tap(start);
+      await tester.pumpAndSettle();
+      expect(find.text(l10n.learningModeCapturedSummary), findsWidgets);
+      final rawTab = find.widgetWithText(Tab, l10n.learningModeRawPreviewTitle);
+      await tester.ensureVisible(rawTab);
+      await tester.pumpAndSettle();
+      await tester.tap(rawTab);
+      await tester.pumpAndSettle();
+      expect(find.widgetWithText(FilledButton, l10n.copyCode), findsOneWidget);
+      final save =
+          find.widgetWithText(FilledButton, l10n.learningModeSaveCapture);
+      await tester.ensureVisible(save);
+      await tester.pumpAndSettle();
+      expect(tester.widget<FilledButton>(save).onPressed, isNotNull);
       expect(tester.takeException(), isNull);
       await tester.pumpWidget(const SizedBox());
       await tester.pumpAndSettle();
