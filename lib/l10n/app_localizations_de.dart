@@ -1228,7 +1228,13 @@ class AppLocalizationsDe extends AppLocalizations {
 
   @override
   String remoteLayoutSummary(int count, Object layout) {
-    return '$count Taste(n) · $layout';
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: '$count Tasten',
+      one: '$count Taste',
+    );
+    return '$_temp0 · $layout';
   }
 
   @override
@@ -1437,10 +1443,10 @@ class AppLocalizationsDe extends AppLocalizations {
   String get remoteOrientationNormalTooltip => 'Fernbedienung um 180° drehen';
 
   @override
-  String get stopLoop => 'Schleife stoppen';
+  String get stopLoop => 'Wiederholung stoppen';
 
   @override
-  String get reorderButtons => 'Tasten sortieren';
+  String get reorderButtons => 'Tasten anordnen';
 
   @override
   String get remoteReorderHint =>

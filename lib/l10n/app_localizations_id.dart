@@ -1407,10 +1407,10 @@ class AppLocalizationsId extends AppLocalizations {
   String get remoteOrientationNormalTooltip => 'Putar remote 180°';
 
   @override
-  String get stopLoop => 'Hentikan loop';
+  String get stopLoop => 'Hentikan pengulangan';
 
   @override
-  String get reorderButtons => 'Reorder tombol';
+  String get reorderButtons => 'Susun ulang tombol';
 
   @override
   String get remoteReorderHint =>

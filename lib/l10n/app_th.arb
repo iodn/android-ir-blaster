@@ -422,7 +422,7 @@
   },
   "remoteOrientationFlippedTooltip": "กลับสู่แนวเดิม",
   "remoteOrientationNormalTooltip": "หมุนรีโมต 180°",
-  "stopLoop": "หยุด loop",
+  "stopLoop": "หยุดส่งซ้ำ",
   "reorderButtons": "จัดลำดับปุ่ม",
   "remoteReorderHint": "กดปุ่มค้างไว้ แล้วลากไปยังตำแหน่งใหม่",
   "manageRemote": "จัดการรีโมต",

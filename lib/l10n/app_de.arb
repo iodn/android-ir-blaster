@@ -336,7 +336,7 @@
       "name": {}
     }
   },
-  "remoteLayoutSummary": "{count} Taste(n) · {layout}",
+  "remoteLayoutSummary": "{count, plural, one{{count} Taste} other{{count} Tasten}} · {layout}",
   "@remoteLayoutSummary": {
     "placeholders": {
       "count": {
@@ -432,8 +432,8 @@
   },
   "remoteOrientationFlippedTooltip": "Ursprüngliche Ausrichtung wiederherstellen",
   "remoteOrientationNormalTooltip": "Fernbedienung um 180° drehen",
-  "stopLoop": "Schleife stoppen",
-  "reorderButtons": "Tasten sortieren",
+  "stopLoop": "Wiederholung stoppen",
+  "reorderButtons": "Tasten anordnen",
   "remoteReorderHint": "Halte eine Taste gedrückt und ziehe sie an die gewünschte Stelle.",
   "manageRemote": "Fernbedienung verwalten",
   "remoteNoButtons": "Noch keine Tasten",

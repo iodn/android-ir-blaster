@@ -1406,10 +1406,10 @@ class AppLocalizationsMs extends AppLocalizations {
   String get remoteOrientationNormalTooltip => 'Putar alat kawalan jauh 180°';
 
   @override
-  String get stopLoop => 'Hentikan loop';
+  String get stopLoop => 'Hentikan ulangan';
 
   @override
-  String get reorderButtons => 'Reorder butang';
+  String get reorderButtons => 'Susun semula butang';
 
   @override
   String get remoteReorderHint =>

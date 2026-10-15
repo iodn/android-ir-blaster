@@ -336,7 +336,7 @@
       "name": {}
     }
   },
-  "remoteLayoutSummary": "{count} кноп. · {layout}",
+  "remoteLayoutSummary": "{count, plural, one{{count} кнопка} few{{count} кнопки} many{{count} кнопок} other{{count} кнопки}} · {layout}",
   "@remoteLayoutSummary": {
     "placeholders": {
       "count": {
@@ -422,7 +422,7 @@
   },
   "remoteOrientationFlippedTooltip": "Вернуть исходную ориентацию",
   "remoteOrientationNormalTooltip": "Повернуть пульт на 180°",
-  "stopLoop": "Остановить цикл",
+  "stopLoop": "Остановить повторение",
   "reorderButtons": "Изменить порядок кнопок",
   "remoteReorderHint": "Нажмите и удерживайте кнопку, затем перетащите её на новое место.",
   "manageRemote": "Управление пультом",

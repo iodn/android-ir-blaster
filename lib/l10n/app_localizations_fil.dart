@@ -1221,7 +1221,7 @@ class AppLocalizationsFil extends AppLocalizations {
 
   @override
   String remoteLayoutSummary(int count, Object layout) {
-    return '$count button(s) · $layout';
+    return '$count pindutan · $layout';
   }
 
   @override
@@ -1417,10 +1417,10 @@ class AppLocalizationsFil extends AppLocalizations {
   String get remoteOrientationNormalTooltip => 'Iikot ang remote nang 180°';
 
   @override
-  String get stopLoop => 'Stop loop';
+  String get stopLoop => 'Ihinto ang pag-uulit';
 
   @override
-  String get reorderButtons => 'Reorder mga button';
+  String get reorderButtons => 'Ayusin ang mga pindutan';
 
   @override
   String get remoteReorderHint =>

@@ -1439,7 +1439,7 @@ class AppLocalizationsPl extends AppLocalizations {
   String get remoteOrientationNormalTooltip => 'Obróć pilot o 180°';
 
   @override
-  String get stopLoop => 'Zatrzymaj pętlę';
+  String get stopLoop => 'Zatrzymaj powtarzanie';
 
   @override
   String get reorderButtons => 'Zmień kolejność przycisków';

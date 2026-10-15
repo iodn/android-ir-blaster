@@ -1222,7 +1222,13 @@ class AppLocalizationsEs extends AppLocalizations {
 
   @override
   String remoteLayoutSummary(int count, Object layout) {
-    return '$count botón(es) · $layout';
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: '$count botones',
+      one: '$count botón',
+    );
+    return '$_temp0 · $layout';
   }
 
   @override
@@ -1430,7 +1436,7 @@ class AppLocalizationsEs extends AppLocalizations {
   String get remoteOrientationNormalTooltip => 'Girar el mando 180°';
 
   @override
-  String get stopLoop => 'Detener bucle';
+  String get stopLoop => 'Detener repetición';
 
   @override
   String get reorderButtons => 'Reordenar botones';

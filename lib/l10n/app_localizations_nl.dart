@@ -1233,7 +1233,13 @@ class AppLocalizationsNl extends AppLocalizations {
 
   @override
   String remoteLayoutSummary(int count, Object layout) {
-    return '$count knop(pen) · $layout';
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: '$count knoppen',
+      one: '$count knop',
+    );
+    return '$_temp0 · $layout';
   }
 
   @override
@@ -1441,10 +1447,10 @@ class AppLocalizationsNl extends AppLocalizations {
   String get remoteOrientationNormalTooltip => 'Afstandsbediening 180° draaien';
 
   @override
-  String get stopLoop => 'Lus stoppen';
+  String get stopLoop => 'Herhaling stoppen';
 
   @override
-  String get reorderButtons => 'Reorder knoppen';
+  String get reorderButtons => 'Knoppen rangschikken';
 
   @override
   String get remoteReorderHint =>

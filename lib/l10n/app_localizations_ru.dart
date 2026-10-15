@@ -1209,7 +1209,15 @@ class AppLocalizationsRu extends AppLocalizations {
 
   @override
   String remoteLayoutSummary(int count, Object layout) {
-    return '$count кноп. · $layout';
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: '$count кнопки',
+      many: '$count кнопок',
+      few: '$count кнопки',
+      one: '$count кнопка',
+    );
+    return '$_temp0 · $layout';
   }
 
   @override
@@ -1420,7 +1428,7 @@ class AppLocalizationsRu extends AppLocalizations {
   String get remoteOrientationNormalTooltip => 'Повернуть пульт на 180°';
 
   @override
-  String get stopLoop => 'Остановить цикл';
+  String get stopLoop => 'Остановить повторение';
 
   @override
   String get reorderButtons => 'Изменить порядок кнопок';

@@ -336,7 +336,7 @@
       "name": {}
     }
   },
-  "remoteLayoutSummary": "{count} pulsante/i · {layout}",
+  "remoteLayoutSummary": "{count, plural, one{{count} pulsante} other{{count} pulsanti}} · {layout}",
   "@remoteLayoutSummary": {
     "placeholders": {
       "count": {
@@ -422,7 +422,7 @@
   },
   "remoteOrientationFlippedTooltip": "Ripristina l’orientamento originale",
   "remoteOrientationNormalTooltip": "Ruota il telecomando di 180°",
-  "stopLoop": "Ferma loop",
+  "stopLoop": "Interrompi ripetizione",
   "reorderButtons": "Riordina pulsanti",
   "remoteReorderHint": "Tieni premuto un pulsante e trascinalo nella posizione desiderata.",
   "manageRemote": "Gestisci telecomando",

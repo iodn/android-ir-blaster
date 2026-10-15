@@ -1162,7 +1162,7 @@ class AppLocalizationsKo extends AppLocalizations {
 
   @override
   String remoteLayoutSummary(int count, Object layout) {
-    return '$count 버튼(의) · $layout';
+    return '버튼 $count개 · $layout';
   }
 
   @override

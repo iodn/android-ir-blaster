@@ -1211,7 +1211,7 @@ class AppLocalizationsTr extends AppLocalizations {
 
   @override
   String remoteLayoutSummary(int count, Object layout) {
-    return '$count düğme(s) · $layout';
+    return '$count düğme · $layout';
   }
 
   @override
@@ -1406,7 +1406,7 @@ class AppLocalizationsTr extends AppLocalizations {
   String get remoteOrientationNormalTooltip => 'Kumandayı 180° döndür';
 
   @override
-  String get stopLoop => 'Durdur döngü';
+  String get stopLoop => 'Tekrarlamayı durdur';
 
   @override
   String get reorderButtons => 'Düğmeleri yeniden sırala';

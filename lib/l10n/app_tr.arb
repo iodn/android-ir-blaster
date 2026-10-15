@@ -336,7 +336,7 @@
       "name": {}
     }
   },
-  "remoteLayoutSummary": "{count} düğme(s) · {layout}",
+  "remoteLayoutSummary": "{count} düğme · {layout}",
   "@remoteLayoutSummary": {
     "placeholders": {
       "count": {
@@ -422,7 +422,7 @@
   },
   "remoteOrientationFlippedTooltip": "Önceki yöne döndür",
   "remoteOrientationNormalTooltip": "Kumandayı 180° döndür",
-  "stopLoop": "Durdur döngü",
+  "stopLoop": "Tekrarlamayı durdur",
   "reorderButtons": "Düğmeleri yeniden sırala",
   "remoteReorderHint": "Bir düğmeyi basılı tutup yeni konumuna sürükleyin.",
   "manageRemote": "Kumandayı yönet",

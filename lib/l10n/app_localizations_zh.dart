@@ -1117,7 +1117,7 @@ class AppLocalizationsZh extends AppLocalizations {
 
   @override
   String remoteLayoutSummary(int count, Object layout) {
-    return '$count 按钮(s) · $layout';
+    return '$count 个按钮 · $layout';
   }
 
   @override
@@ -1302,7 +1302,7 @@ class AppLocalizationsZh extends AppLocalizations {
   String get stopLoop => '停止循环';
 
   @override
-  String get reorderButtons => '重排按钮';
+  String get reorderButtons => '重新排列按钮';
 
   @override
   String get remoteReorderHint => '长按按钮，然后拖动到新位置。';

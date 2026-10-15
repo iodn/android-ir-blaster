@@ -422,7 +422,7 @@
   },
   "remoteOrientationFlippedTooltip": "Відновити початкову орієнтацію",
   "remoteOrientationNormalTooltip": "Повернути пульт на 180°",
-  "stopLoop": "Зупинити цикл",
+  "stopLoop": "Зупинити повторення",
   "reorderButtons": "Змінити порядок кнопок",
   "remoteReorderHint": "Натисніть і утримуйте кнопку, а потім перетягніть її на нове місце.",
   "manageRemote": "Керувати пультом",

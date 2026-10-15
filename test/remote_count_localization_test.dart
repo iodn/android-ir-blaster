@@ -29,6 +29,14 @@ void main() {
       final l10n = await AppLocalizations.delegate.load(locale);
       for (var i = 0; i < counts.length; i++) {
         final label = l10n.remoteButtonCountSummary(counts[i]);
+        for (final layout in [
+          l10n.layoutCompact,
+          l10n.layoutComfort,
+          l10n.layoutCustom
+        ]) {
+          expect(
+              l10n.remoteLayoutSummary(counts[i], layout), '$label · $layout');
+        }
         expect(label, isNot(contains('(s)')));
         expect(label, isNot(contains('(es)')));
         if (expected.containsKey(locale.toString())) {

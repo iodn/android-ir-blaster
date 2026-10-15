@@ -1441,7 +1441,7 @@ class AppLocalizationsUk extends AppLocalizations {
   String get remoteOrientationNormalTooltip => 'Повернути пульт на 180°';
 
   @override
-  String get stopLoop => 'Зупинити цикл';
+  String get stopLoop => 'Зупинити повторення';
 
   @override
   String get reorderButtons => 'Змінити порядок кнопок';

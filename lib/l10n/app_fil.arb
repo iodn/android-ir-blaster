@@ -336,7 +336,7 @@
       "name": {}
     }
   },
-  "remoteLayoutSummary": "{count} button(s) · {layout}",
+  "remoteLayoutSummary": "{count} pindutan · {layout}",
   "@remoteLayoutSummary": {
     "placeholders": {
       "count": {
@@ -422,8 +422,8 @@
   },
   "remoteOrientationFlippedTooltip": "Ibalik ang dating oryentasyon",
   "remoteOrientationNormalTooltip": "Iikot ang remote nang 180°",
-  "stopLoop": "Stop loop",
-  "reorderButtons": "Reorder mga button",
+  "stopLoop": "Ihinto ang pag-uulit",
+  "reorderButtons": "Ayusin ang mga pindutan",
   "remoteReorderHint": "Pindutin nang matagal ang isang pindutan, saka i-drag ito sa bagong puwesto.",
   "manageRemote": "Pamahalaan ang remote",
   "remoteNoButtons": "Wala pang pindutan",

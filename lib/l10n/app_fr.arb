@@ -341,7 +341,7 @@
       "name": {}
     }
   },
-  "remoteLayoutSummary": "{count} bouton(s) · {layout}",
+  "remoteLayoutSummary": "{count, plural, one{{count} bouton} other{{count} boutons}} · {layout}",
   "@remoteLayoutSummary": {
     "placeholders": {
       "count": {
@@ -427,7 +427,7 @@
   },
   "remoteOrientationFlippedTooltip": "Rétablir l’orientation initiale",
   "remoteOrientationNormalTooltip": "Tourner la télécommande à 180°",
-  "stopLoop": "Arrêter la boucle",
+  "stopLoop": "Arrêter la répétition",
   "reorderButtons": "Réorganiser les boutons",
   "remoteReorderHint": "Maintenez un bouton appuyé, puis faites-le glisser à l’endroit souhaité.",
   "manageRemote": "Gérer la télécommande",

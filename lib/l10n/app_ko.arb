@@ -336,7 +336,7 @@
       "name": {}
     }
   },
-  "remoteLayoutSummary": "{count} 버튼(의) · {layout}",
+  "remoteLayoutSummary": "버튼 {count}개 · {layout}",
   "@remoteLayoutSummary": {
     "placeholders": {
       "count": {

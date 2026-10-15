@@ -1404,10 +1404,10 @@ class AppLocalizationsHi extends AppLocalizations {
   String get remoteOrientationNormalTooltip => 'रिमोट को 180° घुमाएँ';
 
   @override
-  String get stopLoop => 'रोकें लूप';
+  String get stopLoop => 'दोहराना रोकें';
 
   @override
-  String get reorderButtons => 'पुन:क्रमित करें बटन';
+  String get reorderButtons => 'बटनों का क्रम बदलें';
 
   @override
   String get remoteReorderHint =>

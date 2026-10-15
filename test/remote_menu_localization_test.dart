@@ -5,6 +5,7 @@ import 'package:flutter_test/flutter_test.dart';
 import 'package:irblaster_controller/l10n/app_localizations.dart';
 import 'package:irblaster_controller/state/remote_highlights_prefs.dart';
 import 'package:irblaster_controller/utils/remote.dart';
+import 'package:irblaster_controller/utils/remote_grid_layout.dart';
 import 'package:irblaster_controller/widgets/remote_view.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
@@ -52,6 +53,20 @@ void main() {
         expect(rect.right, lessThanOrEqualTo(320));
       }
 
+      for (final layout in [
+        l10n.layoutCompact,
+        l10n.layoutComfort,
+        l10n.layoutCustom
+      ]) {
+        remote.useNewStyle = layout == l10n.layoutComfort;
+        remote.gridLayout =
+            layout == l10n.layoutCustom ? RemoteGridLayout(columns: 3) : null;
+        await tester.tap(find.byTooltip(l10n.manageRemote));
+        await tester.pumpAndSettle();
+        await readable(l10n.remoteLayoutSummary(remote.buttons.length, layout));
+        Navigator.of(tester.element(find.byType(BottomSheet))).pop();
+        await tester.pumpAndSettle();
+      }
       for (final pinned in [false, true]) {
         await tester.tap(find.byTooltip(l10n.manageRemote));
         await tester.pumpAndSettle();

@@ -336,7 +336,7 @@
       "name": {}
     }
   },
-  "remoteLayoutSummary": "{count} زر · {layout}",
+  "remoteLayoutSummary": "{count, plural, zero{لا أزرار} one{زر واحد} two{زران} few{{count} أزرار} many{{count} زرًا} other{{count} زر}} · {layout}",
   "@remoteLayoutSummary": {
     "placeholders": {
       "count": {
@@ -422,8 +422,8 @@
   },
   "remoteOrientationFlippedTooltip": "إعادة الاتجاه الأصلي",
   "remoteOrientationNormalTooltip": "تدوير جهاز التحكم 180°",
-  "stopLoop": "إيقاف loop",
-  "reorderButtons": "Reorder أزرار",
+  "stopLoop": "إيقاف التكرار",
+  "reorderButtons": "ترتيب الأزرار",
   "remoteReorderHint": "اضغط مطولًا على زر واسحبه لتغيير موضعه.",
   "manageRemote": "إدارة جهاز التحكم",
   "remoteNoButtons": "لا توجد أزرار بعد",

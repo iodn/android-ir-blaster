@@ -1224,7 +1224,13 @@ class AppLocalizationsPt extends AppLocalizations {
 
   @override
   String remoteLayoutSummary(int count, Object layout) {
-    return '$count botão(es) · $layout';
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: '$count botões',
+      one: '$count botão',
+    );
+    return '$_temp0 · $layout';
   }
 
   @override
@@ -1432,7 +1438,7 @@ class AppLocalizationsPt extends AppLocalizations {
   String get remoteOrientationNormalTooltip => 'Rodar o comando 180°';
 
   @override
-  String get stopLoop => 'Parar ciclo';
+  String get stopLoop => 'Parar repetição';
 
   @override
   String get reorderButtons => 'Reordenar botões';
@@ -6540,7 +6546,13 @@ class AppLocalizationsPtBr extends AppLocalizationsPt {
 
   @override
   String remoteLayoutSummary(int count, Object layout) {
-    return '$count botão(es) · $layout';
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: '$count botões',
+      one: '$count botão',
+    );
+    return '$_temp0 · $layout';
   }
 
   @override
@@ -6748,7 +6760,7 @@ class AppLocalizationsPtBr extends AppLocalizationsPt {
   String get remoteOrientationNormalTooltip => 'Girar o controle em 180°';
 
   @override
-  String get stopLoop => 'parar ciclo';
+  String get stopLoop => 'Parar repetição';
 
   @override
   String get reorderButtons => 'Reordenar botões';

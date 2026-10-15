@@ -1394,7 +1394,7 @@ class AppLocalizationsTh extends AppLocalizations {
   String get remoteOrientationNormalTooltip => 'หมุนรีโมต 180°';
 
   @override
-  String get stopLoop => 'หยุด loop';
+  String get stopLoop => 'หยุดส่งซ้ำ';
 
   @override
   String get reorderButtons => 'จัดลำดับปุ่ม';

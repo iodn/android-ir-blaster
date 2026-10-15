@@ -1196,7 +1196,17 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String remoteLayoutSummary(int count, Object layout) {
-    return '$count زر · $layout';
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: '$count زر',
+      many: '$count زرًا',
+      few: '$count أزرار',
+      two: 'زران',
+      one: 'زر واحد',
+      zero: 'لا أزرار',
+    );
+    return '$_temp0 · $layout';
   }
 
   @override
@@ -1410,10 +1420,10 @@ class AppLocalizationsAr extends AppLocalizations {
   String get remoteOrientationNormalTooltip => 'تدوير جهاز التحكم 180°';
 
   @override
-  String get stopLoop => 'إيقاف loop';
+  String get stopLoop => 'إيقاف التكرار';
 
   @override
-  String get reorderButtons => 'Reorder أزرار';
+  String get reorderButtons => 'ترتيب الأزرار';
 
   @override
   String get remoteReorderHint => 'اضغط مطولًا على زر واسحبه لتغيير موضعه.';
@@ -6451,7 +6461,17 @@ class AppLocalizationsArEg extends AppLocalizationsAr {
 
   @override
   String remoteLayoutSummary(int count, Object layout) {
-    return '$count زر · $layout';
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: '$count زر',
+      many: '$count زرًا',
+      few: '$count أزرار',
+      two: 'زران',
+      one: 'زر واحد',
+      zero: 'لا أزرار',
+    );
+    return '$_temp0 · $layout';
   }
 
   @override
@@ -6665,10 +6685,10 @@ class AppLocalizationsArEg extends AppLocalizationsAr {
   String get remoteOrientationNormalTooltip => 'تدوير جهاز التحكم 180°';
 
   @override
-  String get stopLoop => 'إيقاف loop';
+  String get stopLoop => 'إيقاف التكرار';
 
   @override
-  String get reorderButtons => 'Reorder أزرار';
+  String get reorderButtons => 'ترتيب الأزرار';
 
   @override
   String get remoteReorderHint => 'اضغط مطولًا على زر واسحبه لتغيير موضعه.';

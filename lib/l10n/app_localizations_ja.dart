@@ -1154,7 +1154,7 @@ class AppLocalizationsJa extends AppLocalizations {
 
   @override
   String remoteLayoutSummary(int count, Object layout) {
-    return '$count個のボタン ・ $layout';
+    return 'ボタン$count個 · $layout';
   }
 
   @override
@@ -1338,7 +1338,7 @@ class AppLocalizationsJa extends AppLocalizations {
   String get remoteOrientationNormalTooltip => 'リモコンを180°回転';
 
   @override
-  String get stopLoop => 'ループ停止';
+  String get stopLoop => '繰り返しを停止';
 
   @override
   String get reorderButtons => 'ボタンを並べ替え';

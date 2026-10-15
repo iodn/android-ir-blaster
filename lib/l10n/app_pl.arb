@@ -424,7 +424,7 @@
   },
   "remoteOrientationFlippedTooltip": "Przywróć pierwotną orientację",
   "remoteOrientationNormalTooltip": "Obróć pilot o 180°",
-  "stopLoop": "Zatrzymaj pętlę",
+  "stopLoop": "Zatrzymaj powtarzanie",
   "reorderButtons": "Zmień kolejność przycisków",
   "remoteReorderHint": "Przytrzymaj przycisk i przeciągnij go w nowe miejsce.",
   "manageRemote": "Zarządzaj pilotem",

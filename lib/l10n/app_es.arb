@@ -341,7 +341,7 @@
       "name": {}
     }
   },
-  "remoteLayoutSummary": "{count} botón(es) · {layout}",
+  "remoteLayoutSummary": "{count, plural, one{{count} botón} other{{count} botones}} · {layout}",
   "@remoteLayoutSummary": {
     "placeholders": {
       "count": {
@@ -427,7 +427,7 @@
   },
   "remoteOrientationFlippedTooltip": "Restaurar la orientación original",
   "remoteOrientationNormalTooltip": "Girar el mando 180°",
-  "stopLoop": "Detener bucle",
+  "stopLoop": "Detener repetición",
   "reorderButtons": "Reordenar botones",
   "remoteReorderHint": "Mantén pulsado un botón y arrástralo a otra posición.",
   "manageRemote": "Gestionar mando",
