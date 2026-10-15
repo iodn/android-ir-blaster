@@ -1282,7 +1282,7 @@ class AppLocalizationsEn extends AppLocalizations {
   String get help => 'Help';
 
   @override
-  String get createMacro => 'Create Macro';
+  String get createMacro => 'Create macro';
 
   @override
   String get timedMacrosTitle => 'Timed Macros';
@@ -1362,7 +1362,7 @@ class AppLocalizationsEn extends AppLocalizations {
       'Waits for a specified duration (e.g., 1000ms) before the next step.';
 
   @override
-  String get manualContinue => 'Manual Continue';
+  String get manualContinue => 'Wait for confirmation';
 
   @override
   String get manualContinueDescription =>
@@ -2335,10 +2335,10 @@ class AppLocalizationsEn extends AppLocalizations {
   String get unnamedRemote => 'Unnamed Remote';
 
   @override
-  String get enterMacroName => 'Enter a macro name';
+  String get enterMacroName => 'Enter a name for the macro.';
 
   @override
-  String get addAtLeastOneStep => 'Add at least one step';
+  String get addAtLeastOneStep => 'Add at least one step.';
 
   @override
   String get fixInvalidSteps => 'Fix invalid steps';
@@ -2399,10 +2399,10 @@ class AppLocalizationsEn extends AppLocalizations {
   String get remote => 'Remote';
 
   @override
-  String get macroName => 'Macro Name';
+  String get macroName => 'Macro name';
 
   @override
-  String get macroNameHint => 'e.g., i-cybie Advanced Mode';
+  String get macroNameHint => 'e.g. Movie night';
 
   @override
   String stepsTitleCount(int count) {
@@ -2414,10 +2414,10 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get addCommandsAndDelaysHint =>
-      'Add commands and delays below to build your sequence';
+      'Add commands, delays, or pauses for confirmation. They run in the order shown.';
 
   @override
-  String get addStep => 'Add Step';
+  String get addStep => 'Add step';
 
   @override
   String get reorderStepsHint =>
@@ -2444,7 +2444,7 @@ class AppLocalizationsEn extends AppLocalizations {
   String get sendIrCommand => 'Send IR command';
 
   @override
-  String get waitForUserConfirmation => 'Wait for user confirmation';
+  String get waitForUserConfirmation => 'Pauses until you continue the macro.';
 
   @override
   String get notImplemented => 'Not implemented';
@@ -2486,7 +2486,7 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get unsavedMacroChangesMessage =>
-      'Discard your macro changes and leave this screen?';
+      'Discard your changes to this macro? They will not be saved.';
 
   @override
   String get stopMacroBeforeLeaving =>

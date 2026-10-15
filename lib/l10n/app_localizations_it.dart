@@ -1369,14 +1369,14 @@ class AppLocalizationsIt extends AppLocalizations {
       'Trasmette un comando IR dal tuo telecomando.';
 
   @override
-  String get delay => 'Ritardo';
+  String get delay => 'Attesa';
 
   @override
   String get delayDescription =>
       'Attende una durata specificata, per esempio 1000 ms, prima del passaggio successivo.';
 
   @override
-  String get manualContinue => 'Continua manualmente';
+  String get manualContinue => 'Attendi conferma';
 
   @override
   String get manualContinueDescription =>
@@ -2314,10 +2314,10 @@ class AppLocalizationsIt extends AppLocalizations {
   String get unnamedRemote => 'Telecomando senza nome';
 
   @override
-  String get enterMacroName => 'Inserisci nome macro';
+  String get enterMacroName => 'Inserisci un nome per la macro.';
 
   @override
-  String get addAtLeastOneStep => 'Aggiungi almeno un passaggio';
+  String get addAtLeastOneStep => 'Aggiungi almeno un passaggio.';
 
   @override
   String get fixInvalidSteps => 'Correggi i passaggi non validi';
@@ -2379,10 +2379,10 @@ class AppLocalizationsIt extends AppLocalizations {
   String get remote => 'Telecomando';
 
   @override
-  String get macroName => 'Nome macro';
+  String get macroName => 'Nome della macro';
 
   @override
-  String get macroNameHint => 'es. Modalità avanzata i-cybie';
+  String get macroNameHint => 'es. Serata cinema';
 
   @override
   String stepsTitleCount(int count) {
@@ -2394,7 +2394,7 @@ class AppLocalizationsIt extends AppLocalizations {
 
   @override
   String get addCommandsAndDelaysHint =>
-      'Aggiungi sotto comandi e ritardi per costruire la sequenza';
+      'Aggiungi comandi, attese o pause per la conferma. I passaggi vengono eseguiti nell’ordine mostrato.';
 
   @override
   String get addStep => 'Aggiungi passaggio';
@@ -2424,7 +2424,8 @@ class AppLocalizationsIt extends AppLocalizations {
   String get sendIrCommand => 'Invia comando IR';
 
   @override
-  String get waitForUserConfirmation => 'Attendi conferma utente';
+  String get waitForUserConfirmation =>
+      'Mette in pausa la macro finché non scegli di continuare.';
 
   @override
   String get notImplemented => 'Non implementato';
@@ -2466,7 +2467,7 @@ class AppLocalizationsIt extends AppLocalizations {
 
   @override
   String get unsavedMacroChangesMessage =>
-      'Discard your macro changes and leave this screen?';
+      'Scartare le modifiche a questa macro? Non verranno salvate.';
 
   @override
   String get stopMacroBeforeLeaving =>

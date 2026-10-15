@@ -395,9 +395,9 @@
   "aboutTimedMacrosDescription": "Getimede macro's laten je reeksen IR-opdrachten automatiseren met precieze vertragingen tussen elke stap.",
   "sendCommand": "Opdracht verzenden",
   "sendCommandDescription": "Verzendt een IR-opdracht vanaf je afstandsbediening.",
-  "delay": "Vertraging",
+  "delay": "Wachttijd",
   "delayDescription": "Wacht een opgegeven duur bijvoorbeeld 1000ms vóór de volgende stap.",
-  "manualContinue": "Manual Doorgaan",
+  "manualContinue": "Wacht op bevestiging",
   "manualContinueDescription": "Pauzes execution until you tap Doorgaan (useful for variable-length animations).",
   "gotIt": "Begrepen",
   "failedToSaveMacros": "Macro's opslaan mislukt.",
@@ -962,8 +962,8 @@
   "startMacro": "Macro starten",
   "continueAction": "Doorgaan",
   "unnamedRemote": "Unnamed Afstandsbediening",
-  "enterMacroName": "Voer een macronaam in",
-  "addAtLeastOneStep": "Toevoegen at least one step",
+  "enterMacroName": "Voer een naam voor de macro in.",
+  "addAtLeastOneStep": "Voeg minstens één stap toe.",
   "fixInvalidSteps": "Herstel ongeldige stappen",
   "unknownCommand": "Onbekend Command",
   "unnamedCommand": "Naamloze opdracht",
@@ -1002,7 +1002,7 @@
   "ok": "OK",
   "remote": "Afstandsbediening",
   "macroName": "Macronaam",
-  "macroNameHint": "bijv. i-cybie geavanceerde modus",
+  "macroNameHint": "bijv. Filmavond",
   "stepsTitleCount": "Stappen ({count})",
   "@stepsTitleCount": {
     "placeholders": {
@@ -1011,9 +1011,9 @@
       }
     }
   },
-  "noStepsYet": "Geen steps yet",
-  "addCommandsAndDelaysHint": "Voeg hieronder opdrachten en vertragingen toe om je reeks op te bouwen",
-  "addStep": "Toevoegen Step",
+  "noStepsYet": "Nog geen stappen",
+  "addCommandsAndDelaysHint": "Voeg opdrachten, wachttijden of pauzes voor bevestiging toe. Ze worden in de getoonde volgorde uitgevoerd.",
+  "addStep": "Stap toevoegen",
   "reorderStepsHint": "Tip: Drag the handle to reorder steps. Tap a step to bewerken it.",
   "reorderStep": "Stap {index} verplaatsen",
   "@reorderStep": {
@@ -1034,7 +1034,7 @@
   },
   "invalidStepTapToFix": "Ongeldige stap tik om te herstellen",
   "sendIrCommand": "IR-opdracht verzenden",
-  "waitForUserConfirmation": "Wachten op bevestiging van gebruiker",
+  "waitForUserConfirmation": "Pauzeert totdat je de macro laat doorgaan.",
   "notImplemented": "Niet geïmplementeerd",
   "frequencyKhz": "{value} kHz",
   "@frequencyKhz": {
@@ -2057,7 +2057,7 @@
   },
   "continueEditing": "Verder bewerken",
   "unsavedChangesTitle": "Niet-opgeslagen wijzigingen",
-  "unsavedMacroChangesMessage": "Discard your macro changes and leave this screen?",
+  "unsavedMacroChangesMessage": "Wijzigingen aan deze macro verwerpen? Ze worden niet opgeslagen.",
   "stopMacroBeforeLeaving": "Stop the macro before leaving this screen.",
   "stopTestingBeforeLeaving": "Stop testing before leaving this screen.",
   "learningModeEntryTitle": "Leermodus",

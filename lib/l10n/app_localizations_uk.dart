@@ -1374,14 +1374,14 @@ class AppLocalizationsUk extends AppLocalizations {
   String get sendCommandDescription => 'Передає ІЧ-команду з пульта.';
 
   @override
-  String get delay => 'Затримка';
+  String get delay => 'Час очікування';
 
   @override
   String get delayDescription =>
       'Очікує певний час (наприклад, 1000 мс) перед наступним кроком.';
 
   @override
-  String get manualContinue => 'Продовжити вручну';
+  String get manualContinue => 'Чекати підтвердження';
 
   @override
   String get manualContinueDescription =>
@@ -2382,10 +2382,10 @@ class AppLocalizationsUk extends AppLocalizations {
   String get unnamedRemote => 'Пульт без назви';
 
   @override
-  String get enterMacroName => 'Введіть назву макросу';
+  String get enterMacroName => 'Введіть назву макросу.';
 
   @override
-  String get addAtLeastOneStep => 'Додайте хоча б один крок';
+  String get addAtLeastOneStep => 'Додайте хоча б один крок.';
 
   @override
   String get fixInvalidSteps => 'Виправте недійсні кроки';
@@ -2450,7 +2450,7 @@ class AppLocalizationsUk extends AppLocalizations {
   String get macroName => 'Назва макросу';
 
   @override
-  String get macroNameHint => 'наприклад, розширений режим i-cybie';
+  String get macroNameHint => 'наприклад, Кіновечір';
 
   @override
   String stepsTitleCount(int count) {
@@ -2458,11 +2458,11 @@ class AppLocalizationsUk extends AppLocalizations {
   }
 
   @override
-  String get noStepsYet => 'Ще немає кроків';
+  String get noStepsYet => 'Кроків ще немає';
 
   @override
   String get addCommandsAndDelaysHint =>
-      'Додайте команди та затримки нижче, щоб створити послідовність';
+      'Додайте команди, час очікування або паузи для підтвердження. Кроки виконуються в показаному порядку.';
 
   @override
   String get addStep => 'Додати крок';
@@ -2493,7 +2493,8 @@ class AppLocalizationsUk extends AppLocalizations {
   String get sendIrCommand => 'Надіслати ІЧ-команду';
 
   @override
-  String get waitForUserConfirmation => 'Дочекайтеся підтвердження користувача';
+  String get waitForUserConfirmation =>
+      'Призупиняє макрос, доки ви не продовжите його виконання.';
 
   @override
   String get notImplemented => 'Не реалізовано';
@@ -2535,7 +2536,7 @@ class AppLocalizationsUk extends AppLocalizations {
 
   @override
   String get unsavedMacroChangesMessage =>
-      'Скасувати зміни макросу та залишити цей екран?';
+      'Відкинути зміни цього макросу? Їх не буде збережено.';
 
   @override
   String get stopMacroBeforeLeaving =>

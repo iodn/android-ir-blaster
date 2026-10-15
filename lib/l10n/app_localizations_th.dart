@@ -1271,7 +1271,7 @@ class AppLocalizationsTh extends AppLocalizations {
   String get help => 'Help';
 
   @override
-  String get createMacro => 'สร้างแมโคร';
+  String get createMacro => 'สร้างมาโคร';
 
   @override
   String get timedMacrosTitle => 'Timed แมโครs';
@@ -1344,13 +1344,13 @@ class AppLocalizationsTh extends AppLocalizations {
       'Transmits an IR command from your remote.';
 
   @override
-  String get delay => 'หน่วงเวลา';
+  String get delay => 'เวลารอ';
 
   @override
   String get delayDescription => 'รอตามเวลาที่กำหนด เช่น 1000ms ก่อนขั้นถัดไป';
 
   @override
-  String get manualContinue => 'ทำต่อด้วยตนเอง';
+  String get manualContinue => 'รอการยืนยัน';
 
   @override
   String get manualContinueDescription =>
@@ -2269,7 +2269,7 @@ class AppLocalizationsTh extends AppLocalizations {
   String get unnamedRemote => 'รีโมตไม่มีชื่อ';
 
   @override
-  String get enterMacroName => 'ใส่ชื่อแมโคร';
+  String get enterMacroName => 'กรอกชื่อมาโคร';
 
   @override
   String get addAtLeastOneStep => 'เพิ่มอย่างน้อยหนึ่งขั้นตอน';
@@ -2333,10 +2333,10 @@ class AppLocalizationsTh extends AppLocalizations {
   String get remote => 'รีโมต';
 
   @override
-  String get macroName => 'ชื่อแมโคร';
+  String get macroName => 'ชื่อมาโคร';
 
   @override
-  String get macroNameHint => 'เช่น i-cybie Advanced Mode';
+  String get macroNameHint => 'เช่น คืนดูหนัง';
 
   @override
   String stepsTitleCount(int count) {
@@ -2348,7 +2348,7 @@ class AppLocalizationsTh extends AppLocalizations {
 
   @override
   String get addCommandsAndDelaysHint =>
-      'เพิ่มคำสั่งและช่วงหน่วงด้านล่างเพื่อสร้างลำดับของคุณ';
+      'เพิ่มคำสั่ง เวลารอ หรือการหยุดรอการยืนยัน ขั้นตอนจะทำงานตามลำดับที่แสดง';
 
   @override
   String get addStep => 'เพิ่มขั้นตอน';
@@ -2375,10 +2375,11 @@ class AppLocalizationsTh extends AppLocalizations {
   String get invalidStepTapToFix => 'ขั้นตอนไม่ถูกต้อง แตะเพื่อแก้ไข';
 
   @override
-  String get sendIrCommand => 'ส่งคำสั่ง IR';
+  String get sendIrCommand => 'ส่งคำสั่งอินฟราเรด';
 
   @override
-  String get waitForUserConfirmation => 'รอการยืนยันจากผู้ใช้';
+  String get waitForUserConfirmation =>
+      'หยุดชั่วคราวจนกว่าคุณจะเลือกให้มาโครทำงานต่อ';
 
   @override
   String get notImplemented => 'ยังไม่รองรับ';
@@ -2420,7 +2421,7 @@ class AppLocalizationsTh extends AppLocalizations {
 
   @override
   String get unsavedMacroChangesMessage =>
-      'Discard your macro changes and leave this screen?';
+      'ละทิ้งการเปลี่ยนแปลงของมาโครนี้หรือไม่? การเปลี่ยนแปลงจะไม่ถูกบันทึก';
 
   @override
   String get stopMacroBeforeLeaving =>

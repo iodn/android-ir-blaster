@@ -1292,7 +1292,7 @@ class AppLocalizationsFil extends AppLocalizations {
   String get help => 'Help';
 
   @override
-  String get createMacro => 'Create Macro';
+  String get createMacro => 'Gumawa ng macro';
 
   @override
   String get timedMacrosTitle => 'Timed Macros';
@@ -1365,14 +1365,14 @@ class AppLocalizationsFil extends AppLocalizations {
       'Transmits an IR command from iyong remote.';
 
   @override
-  String get delay => 'Delay';
+  String get delay => 'Maghintay';
 
   @override
   String get delayDescription =>
       'Waits para sa a specified duration (e.g., 1000ms) before the next hakbang.';
 
   @override
-  String get manualContinue => 'Manual Continue';
+  String get manualContinue => 'Hintayin ang kumpirmasyon';
 
   @override
   String get manualContinueDescription =>
@@ -2307,10 +2307,10 @@ class AppLocalizationsFil extends AppLocalizations {
   String get unnamedRemote => 'Remote na walang pangalan';
 
   @override
-  String get enterMacroName => 'Enter a macro pangalan';
+  String get enterMacroName => 'Maglagay ng pangalan ng macro.';
 
   @override
-  String get addAtLeastOneStep => 'Add at least one hakbang';
+  String get addAtLeastOneStep => 'Magdagdag ng kahit isang hakbang.';
 
   @override
   String get fixInvalidSteps => 'Fix hindi wasto mga hakbang';
@@ -2371,10 +2371,10 @@ class AppLocalizationsFil extends AppLocalizations {
   String get remote => 'Remote';
 
   @override
-  String get macroName => 'Macro Pangalan';
+  String get macroName => 'Pangalan ng macro';
 
   @override
-  String get macroNameHint => 'e.g., i-cybie Advanced Mode';
+  String get macroNameHint => 'hal. Panonood ng pelikula';
 
   @override
   String stepsTitleCount(int count) {
@@ -2382,14 +2382,14 @@ class AppLocalizationsFil extends AppLocalizations {
   }
 
   @override
-  String get noStepsYet => 'Walang mga hakbang yet';
+  String get noStepsYet => 'Wala pang mga hakbang';
 
   @override
   String get addCommandsAndDelaysHint =>
-      'Add commands at delays below to build iyong sequence';
+      'Magdagdag ng mga utos, oras ng paghihintay, o paghinto para sa kumpirmasyon. Susundin ang pagkakasunod na ipinapakita.';
 
   @override
-  String get addStep => 'Add Hakbang';
+  String get addStep => 'Magdagdag ng hakbang';
 
   @override
   String get reorderStepsHint =>
@@ -2413,10 +2413,11 @@ class AppLocalizationsFil extends AppLocalizations {
   String get invalidStepTapToFix => 'Invalid hakbang — tapikin to fix';
 
   @override
-  String get sendIrCommand => 'Send IR command';
+  String get sendIrCommand => 'Magpadala ng IR command';
 
   @override
-  String get waitForUserConfirmation => 'Maghintay para sa user confirmation';
+  String get waitForUserConfirmation =>
+      'Hihinto muna hanggang piliin mong ituloy ang macro.';
 
   @override
   String get notImplemented => 'Not implemented';
@@ -2458,7 +2459,7 @@ class AppLocalizationsFil extends AppLocalizations {
 
   @override
   String get unsavedMacroChangesMessage =>
-      'Discard your macro changes and leave this screen?';
+      'Alisin ang mga pagbabago sa macro na ito? Hindi mase-save ang mga ito.';
 
   @override
   String get stopMacroBeforeLeaving =>

@@ -1279,7 +1279,7 @@ class AppLocalizationsHi extends AppLocalizations {
   String get help => 'मदद';
 
   @override
-  String get createMacro => 'बनाएं मैक्रो';
+  String get createMacro => 'मैक्रो बनाएं';
 
   @override
   String get timedMacrosTitle => 'समयबद्ध मैक्रो';
@@ -1351,14 +1351,14 @@ class AppLocalizationsHi extends AppLocalizations {
   String get sendCommandDescription => 'भेजता है an IR कमांड से आपकी रिमोट.';
 
   @override
-  String get delay => 'विलंब';
+  String get delay => 'इंतज़ार';
 
   @override
   String get delayDescription =>
       'Waits के लिए a निर्दिष्ट अवधि (e.g., 1000ms) पहले the अगला चरण.';
 
   @override
-  String get manualContinue => 'मैनुअल जारी रखें';
+  String get manualContinue => 'पुष्टि का इंतज़ार';
 
   @override
   String get manualContinueDescription =>
@@ -2284,10 +2284,10 @@ class AppLocalizationsHi extends AppLocalizations {
   String get unnamedRemote => 'बिना नाम का रिमोट';
 
   @override
-  String get enterMacroName => 'दर्ज करें a मैक्रो नाम';
+  String get enterMacroName => 'मैक्रो का नाम दर्ज करें।';
 
   @override
-  String get addAtLeastOneStep => 'जोड़ें at least एक चरण';
+  String get addAtLeastOneStep => 'कम से कम एक चरण जोड़ें।';
 
   @override
   String get fixInvalidSteps => 'Fix अमान्य चरण';
@@ -2348,10 +2348,10 @@ class AppLocalizationsHi extends AppLocalizations {
   String get remote => 'रिमोट';
 
   @override
-  String get macroName => 'मैक्रो नाम';
+  String get macroName => 'मैक्रो का नाम';
 
   @override
-  String get macroNameHint => 'e.g., i-cybie Advanced मोड';
+  String get macroNameHint => 'जैसे: मूवी नाइट';
 
   @override
   String stepsTitleCount(int count) {
@@ -2359,14 +2359,14 @@ class AppLocalizationsHi extends AppLocalizations {
   }
 
   @override
-  String get noStepsYet => 'अभी कोई चरण नहीं';
+  String get noStepsYet => 'अभी कोई चरण नहीं है';
 
   @override
   String get addCommandsAndDelaysHint =>
-      'जोड़ें कमांड और विलंब नीचे तक build आपकी sequence';
+      'कमांड, इंतज़ार का समय या पुष्टि के लिए विराम जोड़ें। चरण दिखाए गए क्रम में चलेंगे।';
 
   @override
-  String get addStep => 'जोड़ें चरण';
+  String get addStep => 'चरण जोड़ें';
 
   @override
   String get reorderStepsHint =>
@@ -2393,7 +2393,8 @@ class AppLocalizationsHi extends AppLocalizations {
   String get sendIrCommand => 'IR कमांड भेजें';
 
   @override
-  String get waitForUserConfirmation => 'उपयोगकर्ता पुष्टि की प्रतीक्षा करें';
+  String get waitForUserConfirmation =>
+      'जब तक आप मैक्रो आगे नहीं बढ़ाते, यह रुका रहता है।';
 
   @override
   String get notImplemented => 'अभी लागू नहीं';
@@ -2435,7 +2436,7 @@ class AppLocalizationsHi extends AppLocalizations {
 
   @override
   String get unsavedMacroChangesMessage =>
-      'Discard your macro changes and leave this screen?';
+      'इस मैक्रो के बदलाव छोड़ दें? ये बदलाव सहेजे नहीं जाएंगे।';
 
   @override
   String get stopMacroBeforeLeaving =>

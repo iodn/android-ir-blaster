@@ -395,9 +395,9 @@
   "aboutTimedMacrosDescription": "As macros temporizadas permitem automatizar sequências de comandos IR com atrasos precisos entre cada passo.",
   "sendCommand": "Enviar controle",
   "sendCommandDescription": "Transmite um comando IR do seu controle.",
-  "delay": "Pausa",
+  "delay": "Espera",
   "delayDescription": "Espera uma duración indicada (p. ej. 1000 ms) antes do seguinte passo.",
-  "manualContinue": "Continuación manual",
+  "manualContinue": "Aguardar confirmação",
   "manualContinueDescription": "Pausa a execução até você tocar em Continuar (útil para animações de duração variável).",
   "gotIt": "Entendido",
   "failedToSaveMacros": "Falha ao salvar macros.",
@@ -962,8 +962,8 @@
   "startMacro": "Iniciar Macro",
   "continueAction": "Continuar",
   "unnamedRemote": "Unnamed controle",
-  "enterMacroName": "Digite um nome para a macro",
-  "addAtLeastOneStep": "Adicione pelo menos um passo",
+  "enterMacroName": "Digite um nome para a macro.",
+  "addAtLeastOneStep": "Adicione pelo menos uma etapa.",
   "fixInvalidSteps": "Corrige os passos não válidos",
   "unknownCommand": "Comando desconhecido",
   "unnamedCommand": "controle sem nome",
@@ -1001,8 +1001,8 @@
   "enterValidPositiveNumber": "Digite um número positivo válido",
   "ok": "OK",
   "remote": "Controle",
-  "macroName": "Nome de a macro",
-  "macroNameHint": "e.g., i-cybie Advanced Modo",
+  "macroName": "Nome da macro",
+  "macroNameHint": "ex. Noite de cinema",
   "stepsTitleCount": "Passos ({count})",
   "@stepsTitleCount": {
     "placeholders": {
@@ -1011,9 +1011,9 @@
       }
     }
   },
-  "noStepsYet": "Ainda não há passos",
-  "addCommandsAndDelaysHint": "Adicione baixo controles e pausas para criar o seu secuencia",
-  "addStep": "Adicionar passo",
+  "noStepsYet": "Ainda não há etapas",
+  "addCommandsAndDelaysHint": "Adicione comandos, tempos de espera ou pausas para confirmação. As etapas são executadas na ordem exibida.",
+  "addStep": "Adicionar etapa",
   "reorderStepsHint": "Dica: arraste a alça para reordenar os passos. Toque em um passo para editá-lo.",
   "reorderStep": "Reordenar passo {index}",
   "@reorderStep": {
@@ -1033,8 +1033,8 @@
     }
   },
   "invalidStepTapToFix": "Passo inválido - toque para corrigir",
-  "sendIrCommand": "Enviar controle IR",
-  "waitForUserConfirmation": "Asalvar confirmación do usuario",
+  "sendIrCommand": "Enviar comando IR",
+  "waitForUserConfirmation": "Pausa até você decidir continuar a macro.",
   "notImplemented": "Não implementado",
   "frequencyKhz": "{value} kHz",
   "@frequencyKhz": {
@@ -2057,7 +2057,7 @@
   },
   "continueEditing": "Continuar editando",
   "unsavedChangesTitle": "Alterações não salvas",
-  "unsavedMacroChangesMessage": "Discard your macro changes and leave this screen?",
+  "unsavedMacroChangesMessage": "Descartar as alterações desta macro? Elas não serão salvas.",
   "stopMacroBeforeLeaving": "Stop the macro before leaving this screen.",
   "stopTestingBeforeLeaving": "Stop testing before leaving this screen.",
   "learningModeEntryTitle": "Aprendizado IR",

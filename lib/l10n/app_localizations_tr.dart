@@ -1281,7 +1281,7 @@ class AppLocalizationsTr extends AppLocalizations {
   String get help => 'Help';
 
   @override
-  String get createMacro => 'Create Macro';
+  String get createMacro => 'Makro oluştur';
 
   @override
   String get timedMacrosTitle => 'Timed Makrolar';
@@ -1353,14 +1353,14 @@ class AppLocalizationsTr extends AppLocalizations {
   String get sendCommandDescription => 'Kumandanızdan bir IR komutu gönderir.';
 
   @override
-  String get delay => 'Delay';
+  String get delay => 'Bekleme süresi';
 
   @override
   String get delayDescription =>
       'Bir sonraki adımdan önce belirtilen süre kadar bekler (örn. 1000 ms).';
 
   @override
-  String get manualContinue => 'Elle Devam Et';
+  String get manualContinue => 'Onay bekle';
 
   @override
   String get manualContinueDescription =>
@@ -2290,10 +2290,10 @@ class AppLocalizationsTr extends AppLocalizations {
   String get unnamedRemote => 'Unnamed Kumanda';
 
   @override
-  String get enterMacroName => 'Girin a macro name';
+  String get enterMacroName => 'Makro için bir ad girin.';
 
   @override
-  String get addAtLeastOneStep => 'En az bir adım ekleyin';
+  String get addAtLeastOneStep => 'En az bir adım ekleyin.';
 
   @override
   String get fixInvalidSteps => 'Fix geçersiz steps';
@@ -2353,10 +2353,10 @@ class AppLocalizationsTr extends AppLocalizations {
   String get remote => 'Kumanda';
 
   @override
-  String get macroName => 'Macro Ad';
+  String get macroName => 'Makro adı';
 
   @override
-  String get macroNameHint => 'ör. i-cybie Gelişmiş Mod';
+  String get macroNameHint => 'örn. Film gecesi';
 
   @override
   String stepsTitleCount(int count) {
@@ -2364,11 +2364,11 @@ class AppLocalizationsTr extends AppLocalizations {
   }
 
   @override
-  String get noStepsYet => 'No steps yet';
+  String get noStepsYet => 'Henüz adım yok';
 
   @override
   String get addCommandsAndDelaysHint =>
-      'Dizinizi oluşturmak için aşağıya komutlar ve gecikmeler ekleyin';
+      'Komut, bekleme süresi veya onay bekleme adımı ekleyin. Adımlar gösterilen sırayla çalışır.';
 
   @override
   String get addStep => 'Adım ekle';
@@ -2395,10 +2395,11 @@ class AppLocalizationsTr extends AppLocalizations {
   String get invalidStepTapToFix => 'Geçersiz adım — düzeltmek için dokunun';
 
   @override
-  String get sendIrCommand => 'IR komutu gönder';
+  String get sendIrCommand => 'Kızılötesi komut gönder';
 
   @override
-  String get waitForUserConfirmation => 'Kullanıcı onayı bekle';
+  String get waitForUserConfirmation =>
+      'Siz devam ettirene kadar makroyu duraklatır.';
 
   @override
   String get notImplemented => 'Henüz uygulanmadı';
@@ -2440,7 +2441,7 @@ class AppLocalizationsTr extends AppLocalizations {
 
   @override
   String get unsavedMacroChangesMessage =>
-      'Discard your macro changes and leave this screen?';
+      'Bu makrodaki değişiklikler silinsin mi? Değişiklikler kaydedilmeyecek.';
 
   @override
   String get stopMacroBeforeLeaving =>

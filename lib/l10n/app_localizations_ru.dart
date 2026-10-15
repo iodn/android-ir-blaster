@@ -1352,14 +1352,14 @@ class AppLocalizationsRu extends AppLocalizations {
   String get sendCommandDescription => 'Отправляет ИК-команду с вашего пульта.';
 
   @override
-  String get delay => 'Задержка';
+  String get delay => 'Время ожидания';
 
   @override
   String get delayDescription =>
       'Ждёт указанное время, например 1000 мс, перед следующим шагом.';
 
   @override
-  String get manualContinue => 'Ручное продолжение';
+  String get manualContinue => 'Ждать подтверждения';
 
   @override
   String get manualContinueDescription =>
@@ -2292,10 +2292,10 @@ class AppLocalizationsRu extends AppLocalizations {
   String get unnamedRemote => 'Безымянный пульт';
 
   @override
-  String get enterMacroName => 'Введите имя макроса';
+  String get enterMacroName => 'Введите название макроса.';
 
   @override
-  String get addAtLeastOneStep => 'Добавьте хотя бы один шаг';
+  String get addAtLeastOneStep => 'Добавьте хотя бы один шаг.';
 
   @override
   String get fixInvalidSteps => 'Исправьте неверные шаги';
@@ -2357,10 +2357,10 @@ class AppLocalizationsRu extends AppLocalizations {
   String get remote => 'Пульт';
 
   @override
-  String get macroName => 'Имя макроса';
+  String get macroName => 'Название макроса';
 
   @override
-  String get macroNameHint => 'напр., i-cybie Advanced Mode';
+  String get macroNameHint => 'например, Киновечер';
 
   @override
   String stepsTitleCount(int count) {
@@ -2368,11 +2368,11 @@ class AppLocalizationsRu extends AppLocalizations {
   }
 
   @override
-  String get noStepsYet => 'Шагов пока нет';
+  String get noStepsYet => 'Пока нет шагов';
 
   @override
   String get addCommandsAndDelaysHint =>
-      'Ниже добавьте команды и задержки, чтобы собрать последовательность';
+      'Добавьте команды, время ожидания или паузы для подтверждения. Шаги выполняются в указанном порядке.';
 
   @override
   String get addStep => 'Добавить шаг';
@@ -2402,7 +2402,8 @@ class AppLocalizationsRu extends AppLocalizations {
   String get sendIrCommand => 'Отправить ИК-команду';
 
   @override
-  String get waitForUserConfirmation => 'Ждать подтверждения пользователя';
+  String get waitForUserConfirmation =>
+      'Приостанавливает макрос, пока вы не продолжите его выполнение.';
 
   @override
   String get notImplemented => 'Не реализовано';
@@ -2444,7 +2445,7 @@ class AppLocalizationsRu extends AppLocalizations {
 
   @override
   String get unsavedMacroChangesMessage =>
-      'Discard your macro changes and leave this screen?';
+      'Отменить изменения этого макроса? Они не будут сохранены.';
 
   @override
   String get stopMacroBeforeLeaving =>

@@ -1230,7 +1230,7 @@ class AppLocalizationsKo extends AppLocalizations {
   String get help => '도움말';
 
   @override
-  String get createMacro => '생성 매크로';
+  String get createMacro => '매크로 만들기';
 
   @override
   String get timedMacrosTitle => '시간 지정 매크로';
@@ -1301,13 +1301,13 @@ class AppLocalizationsKo extends AppLocalizations {
   String get sendCommandDescription => '리모컨의 IR 명령을 전송합니다.';
 
   @override
-  String get delay => '지연';
+  String get delay => '시간 대기';
 
   @override
   String get delayDescription => '다음 단계 전 지정한 시간(예: 1000ms)만큼 기다립니다.';
 
   @override
-  String get manualContinue => '수동 계속';
+  String get manualContinue => '확인 대기';
 
   @override
   String get manualContinueDescription =>
@@ -2207,10 +2207,10 @@ class AppLocalizationsKo extends AppLocalizations {
   String get unnamedRemote => '이름 없음 리모컨';
 
   @override
-  String get enterMacroName => '입력 매크로 이름';
+  String get enterMacroName => '매크로 이름을 입력하세요.';
 
   @override
-  String get addAtLeastOneStep => '최소 한 단계를 추가하세요';
+  String get addAtLeastOneStep => '단계를 하나 이상 추가하세요.';
 
   @override
   String get fixInvalidSteps => '잘못된 단계 수정';
@@ -2273,7 +2273,7 @@ class AppLocalizationsKo extends AppLocalizations {
   String get macroName => '매크로 이름';
 
   @override
-  String get macroNameHint => '예: i-cybie Advanced Mode';
+  String get macroNameHint => '예: 영화 감상';
 
   @override
   String stepsTitleCount(int count) {
@@ -2281,13 +2281,14 @@ class AppLocalizationsKo extends AppLocalizations {
   }
 
   @override
-  String get noStepsYet => '없음 단계 아직';
+  String get noStepsYet => '아직 단계가 없습니다';
 
   @override
-  String get addCommandsAndDelaysHint => '시퀀스를 만들려면 아래에 명령과 지연을 추가하세요';
+  String get addCommandsAndDelaysHint =>
+      '명령, 대기 시간 또는 확인 대기를 추가하세요. 표시된 순서대로 실행됩니다.';
 
   @override
-  String get addStep => '추가 단계';
+  String get addStep => '단계 추가';
 
   @override
   String get reorderStepsHint => '팁: 드래그 핸들로 단계 순서를 바꾸세요. 단계를 탭해 편집할 수도 있습니다';
@@ -2309,10 +2310,10 @@ class AppLocalizationsKo extends AppLocalizations {
   String get invalidStepTapToFix => '잘못된 단계 — 탭하여 수정';
 
   @override
-  String get sendIrCommand => 'IR 명령 전송';
+  String get sendIrCommand => '적외선 명령 전송';
 
   @override
-  String get waitForUserConfirmation => '사용자 확인 대기';
+  String get waitForUserConfirmation => '매크로를 계속 실행할 때까지 일시 정지합니다.';
 
   @override
   String get notImplemented => '아직 구현되지 않음';
@@ -2354,7 +2355,7 @@ class AppLocalizationsKo extends AppLocalizations {
 
   @override
   String get unsavedMacroChangesMessage =>
-      'Discard your macro changes and leave this screen?';
+      '이 매크로의 변경 사항을 버릴까요? 변경 사항은 저장되지 않습니다.';
 
   @override
   String get stopMacroBeforeLeaving =>

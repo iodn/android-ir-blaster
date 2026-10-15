@@ -397,9 +397,9 @@
   "aboutTimedMacrosDescription": "Makra czasowe pozwalają automatyzować sekwencje komend IR z precyzyjnymi opóźnieniami między krokami.",
   "sendCommand": "Wyślij komendę",
   "sendCommandDescription": "Wysyła komendę IR z twojego pilota.",
-  "delay": "Opóźnienie",
+  "delay": "Czas oczekiwania",
   "delayDescription": "Czeka określony czas (np. 1000 ms) przed następnym krokiem.",
-  "manualContinue": "Ręczne kontynuowanie",
+  "manualContinue": "Czekaj na potwierdzenie",
   "manualContinueDescription": "Wstrzymuje wykonanie, dopóki nie stukniesz Kontynuuj (przydatne przy animacjach o zmiennej długości).",
   "gotIt": "Rozumiem",
   "failedToSaveMacros": "Nie udało się zapisać makr.",
@@ -964,8 +964,8 @@
   "startMacro": "Uruchom makro",
   "continueAction": "Dalej",
   "unnamedRemote": "Pilot bez nazwy",
-  "enterMacroName": "Wpisz nazwę makra",
-  "addAtLeastOneStep": "Dodaj co najmniej jeden krok",
+  "enterMacroName": "Wpisz nazwę makra.",
+  "addAtLeastOneStep": "Dodaj co najmniej jeden krok.",
   "fixInvalidSteps": "Popraw błędne kroki",
   "unknownCommand": "Nieznana komenda",
   "unnamedCommand": "Komenda bez nazwy",
@@ -1004,7 +1004,7 @@
   "ok": "OK",
   "remote": "Pilot",
   "macroName": "Nazwa makra",
-  "macroNameHint": "np. i-cybie Advanced Mode",
+  "macroNameHint": "np. Wieczór filmowy",
   "stepsTitleCount": "kroki ({count})",
   "@stepsTitleCount": {
     "placeholders": {
@@ -1013,8 +1013,8 @@
       }
     }
   },
-  "noStepsYet": "Brak kroków",
-  "addCommandsAndDelaysHint": "Dodaj poniżej komendy i opóźnienia, aby zbudować sekwencję",
+  "noStepsYet": "Jeszcze nie ma kroków",
+  "addCommandsAndDelaysHint": "Dodaj polecenia, czas oczekiwania lub pauzy na potwierdzenie. Kroki wykonają się w pokazanej kolejności.",
   "addStep": "Dodaj krok",
   "reorderStepsHint": "Wskazówka: przeciągnij uchwyt, aby zmienić kolejność kroków. Stuknij krok, aby go edytować.",
   "reorderStep": "Zmień kolejność kroku {index}",
@@ -1035,8 +1035,8 @@
     }
   },
   "invalidStepTapToFix": "Nieprawidłowy krok — stuknij, aby poprawić",
-  "sendIrCommand": "Wyślij komendę IR",
-  "waitForUserConfirmation": "Czekaj na potwierdzenie użytkownika",
+  "sendIrCommand": "Wyślij polecenie IR",
+  "waitForUserConfirmation": "Wstrzymuje makro, aż zdecydujesz się je kontynuować.",
   "notImplemented": "Niezaimplementowano",
   "frequencyKhz": "{value} kHz",
   "@frequencyKhz": {
@@ -2059,7 +2059,7 @@
   },
   "continueEditing": "Edytuj dalej",
   "unsavedChangesTitle": "Niezapisane zmiany",
-  "unsavedMacroChangesMessage": "Discard your macro changes and leave this screen?",
+  "unsavedMacroChangesMessage": "Odrzucić zmiany w tym makrze? Nie zostaną zapisane.",
   "stopMacroBeforeLeaving": "Stop the macro before leaving this screen.",
   "stopTestingBeforeLeaving": "Stop testing before leaving this screen.",
   "learningModeEntryTitle": "Tryb uczenia",

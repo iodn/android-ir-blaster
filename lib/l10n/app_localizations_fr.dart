@@ -1372,7 +1372,7 @@ class AppLocalizationsFr extends AppLocalizations {
       'Attend une durée donnée (ex. 1000 ms) avant l\'étape suivante.';
 
   @override
-  String get manualContinue => 'Continuer manuellement';
+  String get manualContinue => 'Attendre la confirmation';
 
   @override
   String get manualContinueDescription =>
@@ -2315,10 +2315,10 @@ class AppLocalizationsFr extends AppLocalizations {
   String get unnamedRemote => 'Télécommande sans nom';
 
   @override
-  String get enterMacroName => 'Entrez un nom de macro';
+  String get enterMacroName => 'Saisissez un nom pour la macro.';
 
   @override
-  String get addAtLeastOneStep => 'Ajoutez au moins une étape';
+  String get addAtLeastOneStep => 'Ajoutez au moins une étape.';
 
   @override
   String get fixInvalidSteps => 'Corrigez les étapes invalides';
@@ -2384,7 +2384,7 @@ class AppLocalizationsFr extends AppLocalizations {
   String get macroName => 'Nom de la macro';
 
   @override
-  String get macroNameHint => 'ex. mode avancé i-cybie';
+  String get macroNameHint => 'ex. Soirée cinéma';
 
   @override
   String stepsTitleCount(int count) {
@@ -2396,7 +2396,7 @@ class AppLocalizationsFr extends AppLocalizations {
 
   @override
   String get addCommandsAndDelaysHint =>
-      'Ajoutez des commandes et des délais ci-dessous pour construire votre séquence';
+      'Ajoutez des commandes, des délais ou des pauses pour confirmation. Les étapes s’exécutent dans l’ordre affiché.';
 
   @override
   String get addStep => 'Ajouter une étape';
@@ -2427,7 +2427,7 @@ class AppLocalizationsFr extends AppLocalizations {
 
   @override
   String get waitForUserConfirmation =>
-      'Attendre la confirmation de l’utilisateur';
+      'Met la macro en pause jusqu’à ce que vous la poursuiviez.';
 
   @override
   String get notImplemented => 'Non implémenté';
@@ -2469,7 +2469,7 @@ class AppLocalizationsFr extends AppLocalizations {
 
   @override
   String get unsavedMacroChangesMessage =>
-      'Discard your macro changes and leave this screen?';
+      'Abandonner les modifications de cette macro ? Elles ne seront pas enregistrées.';
 
   @override
   String get stopMacroBeforeLeaving =>

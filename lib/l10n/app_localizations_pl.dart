@@ -1372,14 +1372,14 @@ class AppLocalizationsPl extends AppLocalizations {
   String get sendCommandDescription => 'Wysyła komendę IR z twojego pilota.';
 
   @override
-  String get delay => 'Opóźnienie';
+  String get delay => 'Czas oczekiwania';
 
   @override
   String get delayDescription =>
       'Czeka określony czas (np. 1000 ms) przed następnym krokiem.';
 
   @override
-  String get manualContinue => 'Ręczne kontynuowanie';
+  String get manualContinue => 'Czekaj na potwierdzenie';
 
   @override
   String get manualContinueDescription =>
@@ -2374,10 +2374,10 @@ class AppLocalizationsPl extends AppLocalizations {
   String get unnamedRemote => 'Pilot bez nazwy';
 
   @override
-  String get enterMacroName => 'Wpisz nazwę makra';
+  String get enterMacroName => 'Wpisz nazwę makra.';
 
   @override
-  String get addAtLeastOneStep => 'Dodaj co najmniej jeden krok';
+  String get addAtLeastOneStep => 'Dodaj co najmniej jeden krok.';
 
   @override
   String get fixInvalidSteps => 'Popraw błędne kroki';
@@ -2441,7 +2441,7 @@ class AppLocalizationsPl extends AppLocalizations {
   String get macroName => 'Nazwa makra';
 
   @override
-  String get macroNameHint => 'np. i-cybie Advanced Mode';
+  String get macroNameHint => 'np. Wieczór filmowy';
 
   @override
   String stepsTitleCount(int count) {
@@ -2449,11 +2449,11 @@ class AppLocalizationsPl extends AppLocalizations {
   }
 
   @override
-  String get noStepsYet => 'Brak kroków';
+  String get noStepsYet => 'Jeszcze nie ma kroków';
 
   @override
   String get addCommandsAndDelaysHint =>
-      'Dodaj poniżej komendy i opóźnienia, aby zbudować sekwencję';
+      'Dodaj polecenia, czas oczekiwania lub pauzy na potwierdzenie. Kroki wykonają się w pokazanej kolejności.';
 
   @override
   String get addStep => 'Dodaj krok';
@@ -2481,10 +2481,11 @@ class AppLocalizationsPl extends AppLocalizations {
       'Nieprawidłowy krok — stuknij, aby poprawić';
 
   @override
-  String get sendIrCommand => 'Wyślij komendę IR';
+  String get sendIrCommand => 'Wyślij polecenie IR';
 
   @override
-  String get waitForUserConfirmation => 'Czekaj na potwierdzenie użytkownika';
+  String get waitForUserConfirmation =>
+      'Wstrzymuje makro, aż zdecydujesz się je kontynuować.';
 
   @override
   String get notImplemented => 'Niezaimplementowano';
@@ -2526,7 +2527,7 @@ class AppLocalizationsPl extends AppLocalizations {
 
   @override
   String get unsavedMacroChangesMessage =>
-      'Discard your macro changes and leave this screen?';
+      'Odrzucić zmiany w tym makrze? Nie zostaną zapisane.';
 
   @override
   String get stopMacroBeforeLeaving =>

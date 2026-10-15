@@ -1343,7 +1343,7 @@ class AppLocalizationsAr extends AppLocalizations {
       'ينتظر مدة محددة، مثل 1000ms، قبل الخطوة التالية.';
 
   @override
-  String get manualContinue => 'يدوي متابعة';
+  String get manualContinue => 'انتظار التأكيد';
 
   @override
   String get manualContinueDescription =>
@@ -2270,10 +2270,10 @@ class AppLocalizationsAr extends AppLocalizations {
   String get unnamedRemote => 'Unnamed جهاز التحكم';
 
   @override
-  String get enterMacroName => 'أدخل اسم الماكرو';
+  String get enterMacroName => 'أدخل اسماً للماكرو.';
 
   @override
-  String get addAtLeastOneStep => 'أضف خطوة واحدة على الأقل';
+  String get addAtLeastOneStep => 'أضف خطوة واحدة على الأقل.';
 
   @override
   String get fixInvalidSteps => 'أصلح الخطوات غير الصالحة';
@@ -2336,7 +2336,7 @@ class AppLocalizationsAr extends AppLocalizations {
   String get macroName => 'اسم الماكرو';
 
   @override
-  String get macroNameHint => 'مثال، وضع i-cybie المتقدم';
+  String get macroNameHint => 'مثلاً: سهرة سينما';
 
   @override
   String stepsTitleCount(int count) {
@@ -2348,7 +2348,7 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String get addCommandsAndDelaysHint =>
-      'أضف الأوامر وفترات التأخير أدناه لبناء التسلسل';
+      'أضف أوامر أو فترات انتظار أو توقفاً للتأكيد. تُنفّذ الخطوات بالترتيب المعروض.';
 
   @override
   String get addStep => 'إضافة خطوة';
@@ -2374,10 +2374,11 @@ class AppLocalizationsAr extends AppLocalizations {
   String get invalidStepTapToFix => 'خطوة غير صالحة، اضغط لإصلاحها';
 
   @override
-  String get sendIrCommand => 'إرسال IR command';
+  String get sendIrCommand => 'إرسال أمر بالأشعة تحت الحمراء';
 
   @override
-  String get waitForUserConfirmation => 'Wait for user confirmation';
+  String get waitForUserConfirmation =>
+      'يتوقف الماكرو مؤقتاً حتى تختار المتابعة.';
 
   @override
   String get notImplemented => 'Not implemented';
@@ -2419,7 +2420,7 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String get unsavedMacroChangesMessage =>
-      'Discard your macro changes and leave this screen?';
+      'هل تريد تجاهل تغييرات هذا الماكرو؟ لن تُحفظ هذه التغييرات.';
 
   @override
   String get stopMacroBeforeLeaving =>
@@ -6560,7 +6561,7 @@ class AppLocalizationsArEg extends AppLocalizationsAr {
       'ينتظر مدة محددة، مثل 1000ms، قبل الخطوة التالية.';
 
   @override
-  String get manualContinue => 'يدوي متابعة';
+  String get manualContinue => 'انتظار التأكيد';
 
   @override
   String get manualContinueDescription =>
@@ -7487,10 +7488,10 @@ class AppLocalizationsArEg extends AppLocalizationsAr {
   String get unnamedRemote => 'Unnamed جهاز التحكم';
 
   @override
-  String get enterMacroName => 'أدخل اسم الماكرو';
+  String get enterMacroName => 'اكتب اسم للماكرو.';
 
   @override
-  String get addAtLeastOneStep => 'أضف خطوة واحدة على الأقل';
+  String get addAtLeastOneStep => 'ضيف خطوة واحدة على الأقل.';
 
   @override
   String get fixInvalidSteps => 'أصلح الخطوات غير الصالحة';
@@ -7553,7 +7554,7 @@ class AppLocalizationsArEg extends AppLocalizationsAr {
   String get macroName => 'اسم الماكرو';
 
   @override
-  String get macroNameHint => 'مثال، وضع i-cybie المتقدم';
+  String get macroNameHint => 'مثلاً: سهرة أفلام';
 
   @override
   String stepsTitleCount(int count) {
@@ -7561,11 +7562,11 @@ class AppLocalizationsArEg extends AppLocalizationsAr {
   }
 
   @override
-  String get noStepsYet => 'لا توجد خطوات بعد';
+  String get noStepsYet => 'لسه مفيش خطوات';
 
   @override
   String get addCommandsAndDelaysHint =>
-      'أضف الأوامر وفترات التأخير أدناه لبناء التسلسل';
+      'ضيف أوامر أو وقت انتظار أو وقفة للتأكيد. الخطوات هتشتغل بالترتيب المعروض.';
 
   @override
   String get addStep => 'إضافة خطوة';
@@ -7591,10 +7592,11 @@ class AppLocalizationsArEg extends AppLocalizationsAr {
   String get invalidStepTapToFix => 'خطوة غير صالحة، اضغط لإصلاحها';
 
   @override
-  String get sendIrCommand => 'إرسال IR command';
+  String get sendIrCommand => 'إرسال أمر بالأشعة تحت الحمراء';
 
   @override
-  String get waitForUserConfirmation => 'Wait for user confirmation';
+  String get waitForUserConfirmation =>
+      'الماكرو بيقف مؤقتاً لحد ما تختار تكمّل.';
 
   @override
   String get notImplemented => 'Not implemented';
@@ -7636,7 +7638,7 @@ class AppLocalizationsArEg extends AppLocalizationsAr {
 
   @override
   String get unsavedMacroChangesMessage =>
-      'Discard your macro changes and leave this screen?';
+      'تتجاهل تغييرات الماكرو ده؟ التغييرات دي مش هتتحفظ.';
 
   @override
   String get stopMacroBeforeLeaving =>

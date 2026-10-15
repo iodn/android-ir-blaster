@@ -1254,13 +1254,13 @@ class AppLocalizationsZh extends AppLocalizations {
   String get sendCommandDescription => '发送来自遥控器的红外命令。';
 
   @override
-  String get delay => '延迟';
+  String get delay => '定时等待';
 
   @override
   String get delayDescription => '在下一步前等待指定时长 例如 1000ms。';
 
   @override
-  String get manualContinue => '手动继续';
+  String get manualContinue => '等待确认';
 
   @override
   String get manualContinueDescription => '暂停执行，直到你点击继续 适合时长不固定的动画。';
@@ -2144,10 +2144,10 @@ class AppLocalizationsZh extends AppLocalizations {
   String get unnamedRemote => '未命名遥控器';
 
   @override
-  String get enterMacroName => '输入宏名称';
+  String get enterMacroName => '请输入宏名称。';
 
   @override
-  String get addAtLeastOneStep => '至少添加一个步骤';
+  String get addAtLeastOneStep => '请至少添加一个步骤。';
 
   @override
   String get fixInvalidSteps => '修正无效步骤';
@@ -2210,7 +2210,7 @@ class AppLocalizationsZh extends AppLocalizations {
   String get macroName => '宏名称';
 
   @override
-  String get macroNameHint => '例如 i-cybie 高级模式';
+  String get macroNameHint => '例如：观影之夜';
 
   @override
   String stepsTitleCount(int count) {
@@ -2218,10 +2218,10 @@ class AppLocalizationsZh extends AppLocalizations {
   }
 
   @override
-  String get noStepsYet => '还没有步骤';
+  String get noStepsYet => '尚未添加步骤';
 
   @override
-  String get addCommandsAndDelaysHint => '在下方添加命令和延迟以构建你的序列';
+  String get addCommandsAndDelaysHint => '添加命令、等待时间或确认等待。各步骤将按显示顺序执行。';
 
   @override
   String get addStep => '添加步骤';
@@ -2249,7 +2249,7 @@ class AppLocalizationsZh extends AppLocalizations {
   String get sendIrCommand => '发送红外命令';
 
   @override
-  String get waitForUserConfirmation => '等待用户确认';
+  String get waitForUserConfirmation => '暂停宏，直到您选择继续。';
 
   @override
   String get notImplemented => '尚未实现';
@@ -2290,8 +2290,7 @@ class AppLocalizationsZh extends AppLocalizations {
   String get unsavedChangesTitle => '未保存的更改';
 
   @override
-  String get unsavedMacroChangesMessage =>
-      'Discard your macro changes and leave this screen?';
+  String get unsavedMacroChangesMessage => '放弃对此宏的更改吗？更改将不会保存。';
 
   @override
   String get stopMacroBeforeLeaving =>

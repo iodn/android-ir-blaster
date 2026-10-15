@@ -1280,7 +1280,7 @@ class AppLocalizationsMs extends AppLocalizations {
   String get help => 'Bantuan';
 
   @override
-  String get createMacro => 'Buat Makro';
+  String get createMacro => 'Cipta makro';
 
   @override
   String get timedMacrosTitle => 'Makro Terjadwal';
@@ -1352,14 +1352,14 @@ class AppLocalizationsMs extends AppLocalizations {
   String get sendCommandDescription => 'Menghantar arahan IR dari remote anda.';
 
   @override
-  String get delay => 'Jeda';
+  String get delay => 'Masa menunggu';
 
   @override
   String get delayDescription =>
       'Menunggu durasi tertentu (cth. 1000ms) sebelum langkah berikutnya.';
 
   @override
-  String get manualContinue => 'Manual Lanjut';
+  String get manualContinue => 'Tunggu pengesahan';
 
   @override
   String get manualContinueDescription =>
@@ -2290,10 +2290,10 @@ class AppLocalizationsMs extends AppLocalizations {
   String get unnamedRemote => 'Remote tanpa nama';
 
   @override
-  String get enterMacroName => 'Masukkan nama makro';
+  String get enterMacroName => 'Masukkan nama makro.';
 
   @override
-  String get addAtLeastOneStep => 'Tambah at least one langkah';
+  String get addAtLeastOneStep => 'Tambah sekurang-kurangnya satu langkah.';
 
   @override
   String get fixInvalidSteps => 'Fix tidak sah langkah';
@@ -2357,7 +2357,7 @@ class AppLocalizationsMs extends AppLocalizations {
   String get macroName => 'Nama makro';
 
   @override
-  String get macroNameHint => 'cth. i-cybie Mode Lanjut';
+  String get macroNameHint => 'cth. Malam filem';
 
   @override
   String stepsTitleCount(int count) {
@@ -2365,14 +2365,14 @@ class AppLocalizationsMs extends AppLocalizations {
   }
 
   @override
-  String get noStepsYet => 'Tiada langkah yet';
+  String get noStepsYet => 'Belum ada langkah';
 
   @override
   String get addCommandsAndDelaysHint =>
-      'Tambahkan perintah dan jeda di bawah untuk menyusun urutan';
+      'Tambah arahan, masa menunggu atau jeda untuk pengesahan. Langkah dijalankan mengikut urutan yang dipaparkan.';
 
   @override
-  String get addStep => 'Tambah Langkah';
+  String get addStep => 'Tambah langkah';
 
   @override
   String get reorderStepsHint =>
@@ -2399,7 +2399,8 @@ class AppLocalizationsMs extends AppLocalizations {
   String get sendIrCommand => 'Hantar arahan IR';
 
   @override
-  String get waitForUserConfirmation => 'Tunggu konfirmasi pengguna';
+  String get waitForUserConfirmation =>
+      'Makro dijeda sehingga anda memilih untuk meneruskan.';
 
   @override
   String get notImplemented => 'Belum diimplementasikan';
@@ -2441,7 +2442,7 @@ class AppLocalizationsMs extends AppLocalizations {
 
   @override
   String get unsavedMacroChangesMessage =>
-      'Discard your macro changes and leave this screen?';
+      'Abaikan perubahan pada makro ini? Perubahan tidak akan disimpan.';
 
   @override
   String get stopMacroBeforeLeaving =>

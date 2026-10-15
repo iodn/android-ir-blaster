@@ -2355,7 +2355,7 @@ abstract class AppLocalizations {
   /// No description provided for @createMacro.
   ///
   /// In en, this message translates to:
-  /// **'Create Macro'**
+  /// **'Create macro'**
   String get createMacro;
 
   /// No description provided for @timedMacrosTitle.
@@ -2481,7 +2481,7 @@ abstract class AppLocalizations {
   /// No description provided for @manualContinue.
   ///
   /// In en, this message translates to:
-  /// **'Manual Continue'**
+  /// **'Wait for confirmation'**
   String get manualContinue;
 
   /// No description provided for @manualContinueDescription.
@@ -4054,13 +4054,13 @@ abstract class AppLocalizations {
   /// No description provided for @enterMacroName.
   ///
   /// In en, this message translates to:
-  /// **'Enter a macro name'**
+  /// **'Enter a name for the macro.'**
   String get enterMacroName;
 
   /// No description provided for @addAtLeastOneStep.
   ///
   /// In en, this message translates to:
-  /// **'Add at least one step'**
+  /// **'Add at least one step.'**
   String get addAtLeastOneStep;
 
   /// No description provided for @fixInvalidSteps.
@@ -4168,13 +4168,13 @@ abstract class AppLocalizations {
   /// No description provided for @macroName.
   ///
   /// In en, this message translates to:
-  /// **'Macro Name'**
+  /// **'Macro name'**
   String get macroName;
 
   /// No description provided for @macroNameHint.
   ///
   /// In en, this message translates to:
-  /// **'e.g., i-cybie Advanced Mode'**
+  /// **'e.g. Movie night'**
   String get macroNameHint;
 
   /// No description provided for @stepsTitleCount.
@@ -4192,13 +4192,13 @@ abstract class AppLocalizations {
   /// No description provided for @addCommandsAndDelaysHint.
   ///
   /// In en, this message translates to:
-  /// **'Add commands and delays below to build your sequence'**
+  /// **'Add commands, delays, or pauses for confirmation. They run in the order shown.'**
   String get addCommandsAndDelaysHint;
 
   /// No description provided for @addStep.
   ///
   /// In en, this message translates to:
-  /// **'Add Step'**
+  /// **'Add step'**
   String get addStep;
 
   /// No description provided for @reorderStepsHint.
@@ -4240,7 +4240,7 @@ abstract class AppLocalizations {
   /// No description provided for @waitForUserConfirmation.
   ///
   /// In en, this message translates to:
-  /// **'Wait for user confirmation'**
+  /// **'Pauses until you continue the macro.'**
   String get waitForUserConfirmation;
 
   /// No description provided for @notImplemented.
@@ -4318,7 +4318,7 @@ abstract class AppLocalizations {
   /// No description provided for @unsavedMacroChangesMessage.
   ///
   /// In en, this message translates to:
-  /// **'Discard your macro changes and leave this screen?'**
+  /// **'Discard your changes to this macro? They will not be saved.'**
   String get unsavedMacroChangesMessage;
 
   /// No description provided for @stopMacroBeforeLeaving.

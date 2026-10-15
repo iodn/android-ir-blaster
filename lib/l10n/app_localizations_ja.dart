@@ -1293,13 +1293,13 @@ class AppLocalizationsJa extends AppLocalizations {
   String get sendCommandDescription => 'リモコンからIRコマンドを送信します';
 
   @override
-  String get delay => '待機';
+  String get delay => '時間待ち';
 
   @override
   String get delayDescription => '次のステップまで指定時間 例 1000ms 待ちます。';
 
   @override
-  String get manualContinue => '手動続行';
+  String get manualContinue => '確認待ち';
 
   @override
   String get manualContinueDescription => '続行を押すまで実行を一時停止します 可変長アニメに便利です。';
@@ -2195,10 +2195,10 @@ class AppLocalizationsJa extends AppLocalizations {
   String get unnamedRemote => '無名のリモコン';
 
   @override
-  String get enterMacroName => 'マクロ名を入力';
+  String get enterMacroName => 'マクロの名前を入力してください。';
 
   @override
-  String get addAtLeastOneStep => '少なくとも1ステップ追加してください';
+  String get addAtLeastOneStep => 'ステップを1つ以上追加してください。';
 
   @override
   String get fixInvalidSteps => '無効なステップを修正してください';
@@ -2261,7 +2261,7 @@ class AppLocalizationsJa extends AppLocalizations {
   String get macroName => 'マクロ名';
 
   @override
-  String get macroNameHint => '例 i-cybie 高度モード';
+  String get macroNameHint => '例：映画鑑賞';
 
   @override
   String stepsTitleCount(int count) {
@@ -2272,7 +2272,7 @@ class AppLocalizationsJa extends AppLocalizations {
   String get noStepsYet => 'まだステップがありません';
 
   @override
-  String get addCommandsAndDelaysHint => '下にコマンドと待機を追加してシーケンスを組み立ててください';
+  String get addCommandsAndDelaysHint => 'コマンド、待機時間、確認待ちを追加してください。表示順に実行されます。';
 
   @override
   String get addStep => 'ステップを追加';
@@ -2298,10 +2298,10 @@ class AppLocalizationsJa extends AppLocalizations {
   String get invalidStepTapToFix => '無効なステップです タップして修正してください';
 
   @override
-  String get sendIrCommand => 'IRコマンドを送信';
+  String get sendIrCommand => '赤外線コマンドを送信';
 
   @override
-  String get waitForUserConfirmation => 'Wait for user confirmation';
+  String get waitForUserConfirmation => 'マクロの続行を選ぶまで一時停止します。';
 
   @override
   String get notImplemented => '未実装';
@@ -2342,8 +2342,7 @@ class AppLocalizationsJa extends AppLocalizations {
   String get unsavedChangesTitle => '未保存の変更';
 
   @override
-  String get unsavedMacroChangesMessage =>
-      'Discard your macro changes and leave this screen?';
+  String get unsavedMacroChangesMessage => 'このマクロの変更を破棄しますか？変更内容は保存されません。';
 
   @override
   String get stopMacroBeforeLeaving =>

@@ -397,7 +397,7 @@
   "sendCommandDescription": "يرسل أمر IR من جهاز التحكم الخاص بك.",
   "delay": "تأخير",
   "delayDescription": "ينتظر مدة محددة، مثل 1000ms، قبل الخطوة التالية.",
-  "manualContinue": "يدوي متابعة",
+  "manualContinue": "انتظار التأكيد",
   "manualContinueDescription": "يوقف التنفيذ حتى تضغط متابعة، مفيد للحركات ذات الطول المتغير.",
   "gotIt": "فهمت",
   "failedToSaveMacros": "فشل حفظ الماكرو.",
@@ -962,8 +962,8 @@
   "startMacro": "بدء الماكرو",
   "continueAction": "متابعة",
   "unnamedRemote": "Unnamed جهاز التحكم",
-  "enterMacroName": "أدخل اسم الماكرو",
-  "addAtLeastOneStep": "أضف خطوة واحدة على الأقل",
+  "enterMacroName": "اكتب اسم للماكرو.",
+  "addAtLeastOneStep": "ضيف خطوة واحدة على الأقل.",
   "fixInvalidSteps": "أصلح الخطوات غير الصالحة",
   "unknownCommand": "غير معروف Command",
   "unnamedCommand": "Unnamed Command",
@@ -1002,7 +1002,7 @@
   "ok": "موافق",
   "remote": "جهاز التحكم",
   "macroName": "اسم الماكرو",
-  "macroNameHint": "مثال، وضع i-cybie المتقدم",
+  "macroNameHint": "مثلاً: سهرة أفلام",
   "stepsTitleCount": "خطوات ({count})",
   "@stepsTitleCount": {
     "placeholders": {
@@ -1011,8 +1011,8 @@
       }
     }
   },
-  "noStepsYet": "لا توجد خطوات بعد",
-  "addCommandsAndDelaysHint": "أضف الأوامر وفترات التأخير أدناه لبناء التسلسل",
+  "noStepsYet": "لسه مفيش خطوات",
+  "addCommandsAndDelaysHint": "ضيف أوامر أو وقت انتظار أو وقفة للتأكيد. الخطوات هتشتغل بالترتيب المعروض.",
   "addStep": "إضافة خطوة",
   "reorderStepsHint": "ملاحظة: اسحب المقبض لإعادة ترتيب الخطوات. اضغط على خطوة لتعديلها.",
   "reorderStep": "إعادة ترتيب الخطوة {index}",
@@ -1033,8 +1033,8 @@
     }
   },
   "invalidStepTapToFix": "خطوة غير صالحة، اضغط لإصلاحها",
-  "sendIrCommand": "إرسال IR command",
-  "waitForUserConfirmation": "Wait for user confirmation",
+  "sendIrCommand": "إرسال أمر بالأشعة تحت الحمراء",
+  "waitForUserConfirmation": "الماكرو بيقف مؤقتاً لحد ما تختار تكمّل.",
   "notImplemented": "Not implemented",
   "frequencyKhz": "{value} kHz",
   "@frequencyKhz": {
@@ -1054,7 +1054,7 @@
   "discard": "تجاهل",
   "continueEditing": "كمّل التعديل",
   "unsavedChangesTitle": "تغييرات مش محفوظة",
-  "unsavedMacroChangesMessage": "Discard your macro changes and leave this screen?",
+  "unsavedMacroChangesMessage": "تتجاهل تغييرات الماكرو ده؟ التغييرات دي مش هتتحفظ.",
   "stopMacroBeforeLeaving": "Stop the macro before leaving this screen.",
   "stopTestingBeforeLeaving": "Stop testing before leaving this screen.",
   "idle": "خامل",

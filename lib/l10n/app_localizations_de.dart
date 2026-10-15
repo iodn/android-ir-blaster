@@ -1371,14 +1371,14 @@ class AppLocalizationsDe extends AppLocalizations {
       'Sendet einen IR-Befehl von deiner Fernbedienung.';
 
   @override
-  String get delay => 'Verzögerung';
+  String get delay => 'Wartezeit';
 
   @override
   String get delayDescription =>
       'Wartet eine festgelegte Dauer etwa 1000 ms vor dem nächsten Schritt.';
 
   @override
-  String get manualContinue => 'Manuell fortsetzen';
+  String get manualContinue => 'Auf Bestätigung warten';
 
   @override
   String get manualContinueDescription =>
@@ -2322,10 +2322,10 @@ class AppLocalizationsDe extends AppLocalizations {
   String get unnamedRemote => 'Unbenannte Fernbedienung';
 
   @override
-  String get enterMacroName => 'Makronamen eingeben';
+  String get enterMacroName => 'Gib einen Namen für das Makro ein.';
 
   @override
-  String get addAtLeastOneStep => 'Mindestens einen Schritt hinzufügen';
+  String get addAtLeastOneStep => 'Füge mindestens einen Schritt hinzu.';
 
   @override
   String get fixInvalidSteps => 'Ungültige Schritte korrigieren';
@@ -2390,7 +2390,7 @@ class AppLocalizationsDe extends AppLocalizations {
   String get macroName => 'Makroname';
 
   @override
-  String get macroNameHint => 'z. B. i-cybie erweiterter Modus';
+  String get macroNameHint => 'z. B. Filmabend';
 
   @override
   String stepsTitleCount(int count) {
@@ -2402,7 +2402,7 @@ class AppLocalizationsDe extends AppLocalizations {
 
   @override
   String get addCommandsAndDelaysHint =>
-      'Füge unten Befehle und Verzögerungen hinzu, um deine Sequenz zu bauen';
+      'Füge Befehle, Wartezeiten oder Pausen zur Bestätigung hinzu. Die Schritte laufen in der angezeigten Reihenfolge ab.';
 
   @override
   String get addStep => 'Schritt hinzufügen';
@@ -2432,7 +2432,7 @@ class AppLocalizationsDe extends AppLocalizations {
   String get sendIrCommand => 'IR-Befehl senden';
 
   @override
-  String get waitForUserConfirmation => 'Auf Bestätigung des Nutzers warten';
+  String get waitForUserConfirmation => 'Pausiert, bis du das Makro fortsetzt.';
 
   @override
   String get notImplemented => 'Nicht implementiert';
@@ -2474,7 +2474,7 @@ class AppLocalizationsDe extends AppLocalizations {
 
   @override
   String get unsavedMacroChangesMessage =>
-      'Discard your macro changes and leave this screen?';
+      'Änderungen an diesem Makro verwerfen? Sie werden nicht gespeichert.';
 
   @override
   String get stopMacroBeforeLeaving =>

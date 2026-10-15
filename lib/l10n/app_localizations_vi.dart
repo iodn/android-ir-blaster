@@ -1272,7 +1272,7 @@ class AppLocalizationsVi extends AppLocalizations {
   String get help => 'Trợ giúp';
 
   @override
-  String get createMacro => 'Tạo Macro';
+  String get createMacro => 'Tạo macro';
 
   @override
   String get timedMacrosTitle => 'Macro hẹn giờ';
@@ -1344,14 +1344,14 @@ class AppLocalizationsVi extends AppLocalizations {
   String get sendCommandDescription => 'Gửi một lệnh IR từ điều khiển của bạn.';
 
   @override
-  String get delay => 'Độ trễ';
+  String get delay => 'Thời gian chờ';
 
   @override
   String get delayDescription =>
       'Waits for a specified duration (vd. 1000ms) before the next step.';
 
   @override
-  String get manualContinue => 'Tiếp tục thủ công';
+  String get manualContinue => 'Chờ xác nhận';
 
   @override
   String get manualContinueDescription =>
@@ -2276,10 +2276,10 @@ class AppLocalizationsVi extends AppLocalizations {
   String get unnamedRemote => 'Điều khiển chưa tên';
 
   @override
-  String get enterMacroName => 'Nhập tên macro';
+  String get enterMacroName => 'Nhập tên cho macro.';
 
   @override
-  String get addAtLeastOneStep => 'Thêm ít nhất một bước';
+  String get addAtLeastOneStep => 'Thêm ít nhất một bước.';
 
   @override
   String get fixInvalidSteps => 'Sửa các bước không hợp lệ';
@@ -2343,7 +2343,7 @@ class AppLocalizationsVi extends AppLocalizations {
   String get macroName => 'Tên macro';
 
   @override
-  String get macroNameHint => 'vd. i-cybie Advanced Mode';
+  String get macroNameHint => 'ví dụ: Tối xem phim';
 
   @override
   String stepsTitleCount(int count) {
@@ -2351,11 +2351,11 @@ class AppLocalizationsVi extends AppLocalizations {
   }
 
   @override
-  String get noStepsYet => 'Không có bước yet';
+  String get noStepsYet => 'Chưa có bước nào';
 
   @override
   String get addCommandsAndDelaysHint =>
-      'Thêm lệnh và độ trễ bên dưới để tạo chuỗi';
+      'Thêm lệnh, thời gian chờ hoặc bước chờ xác nhận. Các bước chạy theo thứ tự hiển thị.';
 
   @override
   String get addStep => 'Thêm bước';
@@ -2381,10 +2381,11 @@ class AppLocalizationsVi extends AppLocalizations {
   String get invalidStepTapToFix => 'Bước không hợp lệ — chạm để sửa';
 
   @override
-  String get sendIrCommand => 'Gửi lệnh IR';
+  String get sendIrCommand => 'Gửi lệnh hồng ngoại';
 
   @override
-  String get waitForUserConfirmation => 'Chờ xác nhận của người dùng';
+  String get waitForUserConfirmation =>
+      'Tạm dừng cho đến khi bạn cho macro tiếp tục.';
 
   @override
   String get notImplemented => 'Chưa triển khai';
@@ -2426,7 +2427,7 @@ class AppLocalizationsVi extends AppLocalizations {
 
   @override
   String get unsavedMacroChangesMessage =>
-      'Discard your macro changes and leave this screen?';
+      'Bỏ các thay đổi của macro này? Các thay đổi sẽ không được lưu.';
 
   @override
   String get stopMacroBeforeLeaving =>

@@ -522,6 +522,7 @@ class _MacroEditorScreenState extends State<MacroEditorScreen> {
     return await showDialog<bool>(
           context: context,
           builder: (ctx) => AlertDialog(
+            scrollable: true,
             title: Text(context.l10n.unsavedChangesTitle),
             content: Text(context.l10n.unsavedMacroChangesMessage),
             actions: [
@@ -543,6 +544,22 @@ class _MacroEditorScreenState extends State<MacroEditorScreen> {
   Widget build(BuildContext context) {
     final theme = Theme.of(context);
     final cs = theme.colorScheme;
+    final titleStyle =
+        theme.appBarTheme.titleTextStyle ?? theme.textTheme.titleLarge!;
+    // Reserve the back and save actions while allowing translated titles to wrap.
+    final titleLayout = TextPainter(
+      text: TextSpan(text: _screenTitle, style: titleStyle),
+      textDirection: Directionality.of(context),
+      textScaler: MediaQuery.textScalerOf(context),
+    )..layout(
+        maxWidth: MediaQuery.sizeOf(context).width -
+            kToolbarHeight -
+            kMinInteractiveDimension -
+            32);
+    final titleLines = titleLayout.computeLineMetrics().length;
+    final toolbarHeight =
+        (titleLayout.height + 16).clamp(kToolbarHeight, double.infinity);
+    titleLayout.dispose();
 
     return PopScope(
       canPop: !_hasUnsavedChanges,
@@ -555,7 +572,8 @@ class _MacroEditorScreenState extends State<MacroEditorScreen> {
       },
       child: Scaffold(
       appBar: AppBar(
-        title: Text(_screenTitle),
+        toolbarHeight: toolbarHeight,
+        title: Text(_screenTitle, style: titleStyle, maxLines: titleLines),
         actions: [
           if (_canSave)
             IconButton(
@@ -675,21 +693,30 @@ class _MacroEditorScreenState extends State<MacroEditorScreen> {
             ),
           ),
           const SizedBox(height: 16),
-          TextField(
-            controller: _nameCtl,
-            decoration: InputDecoration(
-              labelText: context.l10n.macroName,
-              hintText: context.l10n.macroNameHint,
-              border: const OutlineInputBorder(),
-              prefixIcon: const Icon(Icons.label_outline_rounded),
-              suffixIcon: _nameCtl.text.trim().isNotEmpty
-                  ? IconButton(
-                      tooltip: context.l10n.clearAction,
-                      onPressed: () => _nameCtl.clear(),
-                      icon: const Icon(Icons.clear_rounded),
-                    )
-                  : null,
-            ),
+          Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Text(context.l10n.macroName, style: theme.textTheme.bodyMedium),
+              const SizedBox(height: 8),
+              Semantics(
+                label: context.l10n.macroName,
+                child: TextField(
+                  controller: _nameCtl,
+                  decoration: InputDecoration(
+                    helper: Text(context.l10n.macroNameHint),
+                    border: const OutlineInputBorder(),
+                    prefixIcon: const Icon(Icons.label_outline_rounded),
+                    suffixIcon: _nameCtl.text.trim().isNotEmpty
+                        ? IconButton(
+                            tooltip: context.l10n.clearAction,
+                            onPressed: () => _nameCtl.clear(),
+                            icon: const Icon(Icons.clear_rounded),
+                          )
+                        : null,
+                  ),
+                ),
+              ),
+            ],
           ),
           const SizedBox(height: 24),
           Row(

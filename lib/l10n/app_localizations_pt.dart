@@ -1367,14 +1367,14 @@ class AppLocalizationsPt extends AppLocalizations {
       'Transmite um comando IR do seu comando.';
 
   @override
-  String get delay => 'Pausa';
+  String get delay => 'Espera';
 
   @override
   String get delayDescription =>
       'Espera uma duración indicada (p. ej. 1000 ms) antes do seguinte passo.';
 
   @override
-  String get manualContinue => 'Continuación manual';
+  String get manualContinue => 'Aguardar confirmação';
 
   @override
   String get manualContinueDescription =>
@@ -2313,10 +2313,10 @@ class AppLocalizationsPt extends AppLocalizations {
   String get unnamedRemote => 'Unnamed Comando';
 
   @override
-  String get enterMacroName => 'Introduza um nome para a macro';
+  String get enterMacroName => 'Introduza um nome para a macro.';
 
   @override
-  String get addAtLeastOneStep => 'Adicione pelo menos um passo';
+  String get addAtLeastOneStep => 'Adicione pelo menos um passo.';
 
   @override
   String get fixInvalidSteps => 'Corrige os passos não válidos';
@@ -2378,10 +2378,10 @@ class AppLocalizationsPt extends AppLocalizations {
   String get remote => 'Comando';
 
   @override
-  String get macroName => 'Nome de a macro';
+  String get macroName => 'Nome da macro';
 
   @override
-  String get macroNameHint => 'e.g., i-cybie Advanced Modo';
+  String get macroNameHint => 'ex. Noite de cinema';
 
   @override
   String stepsTitleCount(int count) {
@@ -2393,7 +2393,7 @@ class AppLocalizationsPt extends AppLocalizations {
 
   @override
   String get addCommandsAndDelaysHint =>
-      'Adicione baixo comandos e pausas para criar o seu secuencia';
+      'Adicione comandos, tempos de espera ou pausas para confirmação. Os passos são executados pela ordem apresentada.';
 
   @override
   String get addStep => 'Adicionar passo';
@@ -2423,7 +2423,8 @@ class AppLocalizationsPt extends AppLocalizations {
   String get sendIrCommand => 'Enviar comando IR';
 
   @override
-  String get waitForUserConfirmation => 'Aguardar confirmación do usuario';
+  String get waitForUserConfirmation =>
+      'Faz uma pausa até decidir continuar a macro.';
 
   @override
   String get notImplemented => 'Não implementado';
@@ -2465,7 +2466,7 @@ class AppLocalizationsPt extends AppLocalizations {
 
   @override
   String get unsavedMacroChangesMessage =>
-      'Discard your macro changes and leave this screen?';
+      'Descartar as alterações desta macro? Não serão guardadas.';
 
   @override
   String get stopMacroBeforeLeaving =>
@@ -6648,14 +6649,14 @@ class AppLocalizationsPtBr extends AppLocalizationsPt {
       'Transmite um comando IR do seu controle.';
 
   @override
-  String get delay => 'Pausa';
+  String get delay => 'Espera';
 
   @override
   String get delayDescription =>
       'Espera uma duración indicada (p. ej. 1000 ms) antes do seguinte passo.';
 
   @override
-  String get manualContinue => 'Continuación manual';
+  String get manualContinue => 'Aguardar confirmação';
 
   @override
   String get manualContinueDescription =>
@@ -7595,10 +7596,10 @@ class AppLocalizationsPtBr extends AppLocalizationsPt {
   String get unnamedRemote => 'Unnamed controle';
 
   @override
-  String get enterMacroName => 'Digite um nome para a macro';
+  String get enterMacroName => 'Digite um nome para a macro.';
 
   @override
-  String get addAtLeastOneStep => 'Adicione pelo menos um passo';
+  String get addAtLeastOneStep => 'Adicione pelo menos uma etapa.';
 
   @override
   String get fixInvalidSteps => 'Corrige os passos não válidos';
@@ -7660,10 +7661,10 @@ class AppLocalizationsPtBr extends AppLocalizationsPt {
   String get remote => 'Controle';
 
   @override
-  String get macroName => 'Nome de a macro';
+  String get macroName => 'Nome da macro';
 
   @override
-  String get macroNameHint => 'e.g., i-cybie Advanced Modo';
+  String get macroNameHint => 'ex. Noite de cinema';
 
   @override
   String stepsTitleCount(int count) {
@@ -7671,14 +7672,14 @@ class AppLocalizationsPtBr extends AppLocalizationsPt {
   }
 
   @override
-  String get noStepsYet => 'Ainda não há passos';
+  String get noStepsYet => 'Ainda não há etapas';
 
   @override
   String get addCommandsAndDelaysHint =>
-      'Adicione baixo controles e pausas para criar o seu secuencia';
+      'Adicione comandos, tempos de espera ou pausas para confirmação. As etapas são executadas na ordem exibida.';
 
   @override
-  String get addStep => 'Adicionar passo';
+  String get addStep => 'Adicionar etapa';
 
   @override
   String get reorderStepsHint =>
@@ -7702,10 +7703,11 @@ class AppLocalizationsPtBr extends AppLocalizationsPt {
   String get invalidStepTapToFix => 'Passo inválido - toque para corrigir';
 
   @override
-  String get sendIrCommand => 'Enviar controle IR';
+  String get sendIrCommand => 'Enviar comando IR';
 
   @override
-  String get waitForUserConfirmation => 'Asalvar confirmación do usuario';
+  String get waitForUserConfirmation =>
+      'Pausa até você decidir continuar a macro.';
 
   @override
   String get notImplemented => 'Não implementado';
@@ -7747,7 +7749,7 @@ class AppLocalizationsPtBr extends AppLocalizationsPt {
 
   @override
   String get unsavedMacroChangesMessage =>
-      'Discard your macro changes and leave this screen?';
+      'Descartar as alterações desta macro? Elas não serão salvas.';
 
   @override
   String get stopMacroBeforeLeaving =>

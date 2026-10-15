@@ -1376,14 +1376,14 @@ class AppLocalizationsNl extends AppLocalizations {
       'Verzendt een IR-opdracht vanaf je afstandsbediening.';
 
   @override
-  String get delay => 'Vertraging';
+  String get delay => 'Wachttijd';
 
   @override
   String get delayDescription =>
       'Wacht een opgegeven duur bijvoorbeeld 1000ms vóór de volgende stap.';
 
   @override
-  String get manualContinue => 'Manual Doorgaan';
+  String get manualContinue => 'Wacht op bevestiging';
 
   @override
   String get manualContinueDescription =>
@@ -2321,10 +2321,10 @@ class AppLocalizationsNl extends AppLocalizations {
   String get unnamedRemote => 'Unnamed Afstandsbediening';
 
   @override
-  String get enterMacroName => 'Voer een macronaam in';
+  String get enterMacroName => 'Voer een naam voor de macro in.';
 
   @override
-  String get addAtLeastOneStep => 'Toevoegen at least one step';
+  String get addAtLeastOneStep => 'Voeg minstens één stap toe.';
 
   @override
   String get fixInvalidSteps => 'Herstel ongeldige stappen';
@@ -2388,7 +2388,7 @@ class AppLocalizationsNl extends AppLocalizations {
   String get macroName => 'Macronaam';
 
   @override
-  String get macroNameHint => 'bijv. i-cybie geavanceerde modus';
+  String get macroNameHint => 'bijv. Filmavond';
 
   @override
   String stepsTitleCount(int count) {
@@ -2396,14 +2396,14 @@ class AppLocalizationsNl extends AppLocalizations {
   }
 
   @override
-  String get noStepsYet => 'Geen steps yet';
+  String get noStepsYet => 'Nog geen stappen';
 
   @override
   String get addCommandsAndDelaysHint =>
-      'Voeg hieronder opdrachten en vertragingen toe om je reeks op te bouwen';
+      'Voeg opdrachten, wachttijden of pauzes voor bevestiging toe. Ze worden in de getoonde volgorde uitgevoerd.';
 
   @override
-  String get addStep => 'Toevoegen Step';
+  String get addStep => 'Stap toevoegen';
 
   @override
   String get reorderStepsHint =>
@@ -2430,7 +2430,8 @@ class AppLocalizationsNl extends AppLocalizations {
   String get sendIrCommand => 'IR-opdracht verzenden';
 
   @override
-  String get waitForUserConfirmation => 'Wachten op bevestiging van gebruiker';
+  String get waitForUserConfirmation =>
+      'Pauzeert totdat je de macro laat doorgaan.';
 
   @override
   String get notImplemented => 'Niet geïmplementeerd';
@@ -2472,7 +2473,7 @@ class AppLocalizationsNl extends AppLocalizations {
 
   @override
   String get unsavedMacroChangesMessage =>
-      'Discard your macro changes and leave this screen?';
+      'Wijzigingen aan deze macro verwerpen? Ze worden niet opgeslagen.';
 
   @override
   String get stopMacroBeforeLeaving =>
