@@ -940,10 +940,10 @@
       }
     }
   },
-  "tapContinueWhenReady": "Tapikin ang Continue when ready para sa the next hakbang",
+  "tapContinueWhenReady": "Kapag handa ka na sa susunod na hakbang, i-tap ang Magpatuloy.",
   "error": "Error",
-  "macroCompleted": "Macro Completed",
-  "finishedIn": "Finished in {duration}",
+  "macroCompleted": "Tapos na ang macro",
+  "finishedIn": "Natapos sa loob ng {duration}",
   "@finishedIn": {
     "placeholders": {
       "duration": {}
@@ -958,8 +958,8 @@
       }
     }
   },
-  "runAgain": "Run Again",
-  "startMacro": "Start Macro",
+  "runAgain": "Patakbuhin muli",
+  "startMacro": "Simulan ang macro",
   "continueAction": "Magpatuloy",
   "unnamedRemote": "Remote na walang pangalan",
   "enterMacroName": "Maglagay ng pangalan ng macro.",
@@ -1055,7 +1055,7 @@
   "continueEditing": "Ituloy ang pag-edit",
   "unsavedChangesTitle": "Mga pagbabagong hindi pa na-save",
   "unsavedMacroChangesMessage": "Alisin ang mga pagbabago sa macro na ito? Hindi mase-save ang mga ito.",
-  "stopMacroBeforeLeaving": "Stop the macro before leaving this screen.",
+  "stopMacroBeforeLeaving": "Ihinto muna ang macro bago umalis sa screen na ito.",
   "stopTestingBeforeLeaving": "Stop testing before leaving this screen.",
   "idle": "Idle",
   "start": "Simulan",

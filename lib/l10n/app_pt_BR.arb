@@ -940,10 +940,10 @@
       }
     }
   },
-  "tapContinueWhenReady": "Toque em Continuar quando estiver pronto para o próximo passo",
+  "tapContinueWhenReady": "Toque em Continuar quando estiver pronto para a próxima etapa.",
   "error": "Error",
-  "macroCompleted": "Macro Completado",
-  "finishedIn": "Terminado en {duration}",
+  "macroCompleted": "Macro concluída",
+  "finishedIn": "Concluída em {duration}",
   "@finishedIn": {
     "placeholders": {
       "duration": {}
@@ -958,8 +958,8 @@
       }
     }
   },
-  "runAgain": "Executar de novo",
-  "startMacro": "Iniciar Macro",
+  "runAgain": "Executar novamente",
+  "startMacro": "Iniciar macro",
   "continueAction": "Continuar",
   "unnamedRemote": "Unnamed controle",
   "enterMacroName": "Digite um nome para a macro.",
@@ -2058,7 +2058,7 @@
   "continueEditing": "Continuar editando",
   "unsavedChangesTitle": "Alterações não salvas",
   "unsavedMacroChangesMessage": "Descartar as alterações desta macro? Elas não serão salvas.",
-  "stopMacroBeforeLeaving": "Stop the macro before leaving this screen.",
+  "stopMacroBeforeLeaving": "Pare a macro antes de sair desta tela.",
   "stopTestingBeforeLeaving": "Stop testing before leaving this screen.",
   "learningModeEntryTitle": "Aprendizado IR",
   "learningModeEntrySubtitle": "Copie o sinal IR de um botão do controle remoto.",

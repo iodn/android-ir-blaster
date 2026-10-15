@@ -940,7 +940,7 @@
       }
     }
   },
-  "tapContinueWhenReady": "Tik op Doorgaan wanneer je klaar bent voor de volgende stap",
+  "tapContinueWhenReady": "Tik op Doorgaan wanneer je klaar bent voor de volgende stap.",
   "error": "Fout",
   "macroCompleted": "Macro voltooid",
   "finishedIn": "Voltooid in {duration}",
@@ -2058,7 +2058,7 @@
   "continueEditing": "Verder bewerken",
   "unsavedChangesTitle": "Niet-opgeslagen wijzigingen",
   "unsavedMacroChangesMessage": "Wijzigingen aan deze macro verwerpen? Ze worden niet opgeslagen.",
-  "stopMacroBeforeLeaving": "Stop the macro before leaving this screen.",
+  "stopMacroBeforeLeaving": "Stop de macro voordat je dit scherm verlaat.",
   "stopTestingBeforeLeaving": "Stop testing before leaving this screen.",
   "learningModeEntryTitle": "Leermodus",
   "learningModeEntrySubtitle": "Neem het IR-signaal van een afstandsbedieningsknop over.",

@@ -940,7 +940,7 @@
       }
     }
   },
-  "tapContinueWhenReady": "Нажмите Продолжить, когда будете готовы к следующему шагу",
+  "tapContinueWhenReady": "Нажмите «Продолжить», когда будете готовы к следующему шагу.",
   "error": "Ошибка",
   "macroCompleted": "Макрос завершён",
   "finishedIn": "Завершено за {duration}",
@@ -2058,7 +2058,7 @@
   "continueEditing": "Продолжить редактирование",
   "unsavedChangesTitle": "Несохранённые изменения",
   "unsavedMacroChangesMessage": "Отменить изменения этого макроса? Они не будут сохранены.",
-  "stopMacroBeforeLeaving": "Stop the macro before leaving this screen.",
+  "stopMacroBeforeLeaving": "Остановите макрос, прежде чем покинуть этот экран.",
   "stopTestingBeforeLeaving": "Stop testing before leaving this screen.",
   "learningModeEntryTitle": "Обучение",
   "learningModeEntrySubtitle": "Скопируйте ИК-сигнал кнопки с пульта.",

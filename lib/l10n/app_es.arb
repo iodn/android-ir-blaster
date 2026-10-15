@@ -945,10 +945,10 @@
       }
     }
   },
-  "tapContinueWhenReady": "Toca Continuar cuando estés listo para el siguiente paso",
+  "tapContinueWhenReady": "Toca Continuar cuando estés listo para el siguiente paso.",
   "error": "Error",
-  "macroCompleted": "Macro Completado",
-  "finishedIn": "Terminado en {duration}",
+  "macroCompleted": "Macro completada",
+  "finishedIn": "Completada en {duration}",
   "@finishedIn": {
     "placeholders": {
       "duration": {}
@@ -964,7 +964,7 @@
     }
   },
   "runAgain": "Ejecutar de nuevo",
-  "startMacro": "Iniciar Macro",
+  "startMacro": "Iniciar macro",
   "continueAction": "Continuar",
   "unnamedRemote": "Unnamed Mando",
   "enterMacroName": "Introduce un nombre para la macro.",
@@ -2058,7 +2058,7 @@
   "continueEditing": "Seguir editando",
   "unsavedChangesTitle": "Cambios sin guardar",
   "unsavedMacroChangesMessage": "¿Descartar los cambios de esta macro? No se guardarán.",
-  "stopMacroBeforeLeaving": "Stop the macro before leaving this screen.",
+  "stopMacroBeforeLeaving": "Detén la macro antes de salir de esta pantalla.",
   "stopTestingBeforeLeaving": "Stop testing before leaving this screen.",
   "learningModeEntryTitle": "Aprendizaje IR",
   "learningModeEntrySubtitle": "Copia la señal IR de un botón de tu mando.",

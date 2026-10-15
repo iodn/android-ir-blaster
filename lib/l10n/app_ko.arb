@@ -940,10 +940,10 @@
       }
     }
   },
-  "tapContinueWhenReady": "탭 계속 때 준비됨 다음 단계",
+  "tapContinueWhenReady": "다음 단계로 넘어갈 준비가 되면 계속을 누르세요.",
   "error": "오류",
-  "macroCompleted": "매크로 완료됨",
-  "finishedIn": "{duration}만에 완료",
+  "macroCompleted": "매크로 완료",
+  "finishedIn": "소요 시간: {duration}",
   "@finishedIn": {
     "placeholders": {
       "duration": {}
@@ -959,7 +959,7 @@
     }
   },
   "runAgain": "다시 실행",
-  "startMacro": "시작 매크로",
+  "startMacro": "매크로 시작",
   "continueAction": "계속",
   "unnamedRemote": "이름 없음 리모컨",
   "enterMacroName": "매크로 이름을 입력하세요.",
@@ -2058,7 +2058,7 @@
   "continueEditing": "계속 편집",
   "unsavedChangesTitle": "저장하지 않은 변경 사항",
   "unsavedMacroChangesMessage": "이 매크로의 변경 사항을 버릴까요? 변경 사항은 저장되지 않습니다.",
-  "stopMacroBeforeLeaving": "Stop the macro before leaving this screen.",
+  "stopMacroBeforeLeaving": "이 화면을 나가기 전에 매크로를 중지하세요.",
   "stopTestingBeforeLeaving": "Stop testing before leaving this screen.",
   "learningModeEntryTitle": "신호 학습",
   "learningModeEntrySubtitle": "리모컨 버튼의 적외선 신호를 복사합니다.",

@@ -940,7 +940,7 @@
       }
     }
   },
-  "tapContinueWhenReady": "Chạm Tiếp tục khi sẵn sàng cho bước tiếp theo",
+  "tapContinueWhenReady": "Nhấn Tiếp tục khi bạn đã sẵn sàng cho bước tiếp theo.",
   "error": "Lỗi",
   "macroCompleted": "Đã hoàn tất macro",
   "finishedIn": "Hoàn tất trong {duration}",
@@ -959,7 +959,7 @@
     }
   },
   "runAgain": "Chạy lại",
-  "startMacro": "Bắt đầu Macro",
+  "startMacro": "Bắt đầu macro",
   "continueAction": "Tiếp tục",
   "unnamedRemote": "Điều khiển chưa tên",
   "enterMacroName": "Nhập tên cho macro.",
@@ -2058,7 +2058,7 @@
   "continueEditing": "Tiếp tục chỉnh sửa",
   "unsavedChangesTitle": "Thay đổi chưa lưu",
   "unsavedMacroChangesMessage": "Bỏ các thay đổi của macro này? Các thay đổi sẽ không được lưu.",
-  "stopMacroBeforeLeaving": "Stop the macro before leaving this screen.",
+  "stopMacroBeforeLeaving": "Dừng macro trước khi rời khỏi màn hình này.",
   "stopTestingBeforeLeaving": "Stop testing before leaving this screen.",
   "learningModeEntryTitle": "Học tín hiệu",
   "learningModeEntrySubtitle": "Sao chép tín hiệu hồng ngoại của một nút trên điều khiển.",

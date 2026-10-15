@@ -940,10 +940,10 @@
       }
     }
   },
-  "tapContinueWhenReady": "准备好下一步后点击继续",
+  "tapContinueWhenReady": "准备好进入下一步后，点击“继续”。",
   "error": "错误",
   "macroCompleted": "宏已完成",
-  "finishedIn": "完成用时 {duration}",
+  "finishedIn": "完成用时：{duration}",
   "@finishedIn": {
     "placeholders": {
       "duration": {}
@@ -959,7 +959,7 @@
     }
   },
   "runAgain": "再次运行",
-  "startMacro": "开始宏",
+  "startMacro": "启动宏",
   "continueAction": "继续",
   "unnamedRemote": "未命名遥控器",
   "enterMacroName": "请输入宏名称。",
@@ -2058,7 +2058,7 @@
   "continueEditing": "继续编辑",
   "unsavedChangesTitle": "未保存的更改",
   "unsavedMacroChangesMessage": "放弃对此宏的更改吗？更改将不会保存。",
-  "stopMacroBeforeLeaving": "Stop the macro before leaving this screen.",
+  "stopMacroBeforeLeaving": "请先停止宏，再离开此页面。",
   "stopTestingBeforeLeaving": "Stop testing before leaving this screen.",
   "learningModeEntryTitle": "信号学习",
   "learningModeEntrySubtitle": "复制实体遥控器上某个按键的红外信号。",

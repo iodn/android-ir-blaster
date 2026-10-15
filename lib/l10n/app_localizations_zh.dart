@@ -2110,7 +2110,7 @@ class AppLocalizationsZh extends AppLocalizations {
   }
 
   @override
-  String get tapContinueWhenReady => '准备好下一步后点击继续';
+  String get tapContinueWhenReady => '准备好进入下一步后，点击“继续”。';
 
   @override
   String get error => '错误';
@@ -2120,7 +2120,7 @@ class AppLocalizationsZh extends AppLocalizations {
 
   @override
   String finishedIn(Object duration) {
-    return '完成用时 $duration';
+    return '完成用时：$duration';
   }
 
   @override
@@ -2135,7 +2135,7 @@ class AppLocalizationsZh extends AppLocalizations {
   String get runAgain => '再次运行';
 
   @override
-  String get startMacro => '开始宏';
+  String get startMacro => '启动宏';
 
   @override
   String get continueAction => '继续';
@@ -2293,8 +2293,7 @@ class AppLocalizationsZh extends AppLocalizations {
   String get unsavedMacroChangesMessage => '放弃对此宏的更改吗？更改将不会保存。';
 
   @override
-  String get stopMacroBeforeLeaving =>
-      'Stop the macro before leaving this screen.';
+  String get stopMacroBeforeLeaving => '请先停止宏，再离开此页面。';
 
   @override
   String get stopTestingBeforeLeaving =>

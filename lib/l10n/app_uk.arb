@@ -940,10 +940,10 @@
       }
     }
   },
-  "tapContinueWhenReady": "Торкніться «Продовжити», коли будете готові до наступного кроку",
+  "tapContinueWhenReady": "Торкніться «Продовжити», коли будете готові до наступного кроку.",
   "error": "Помилка",
   "macroCompleted": "Макрос завершено",
-  "finishedIn": "Завершено в {duration}",
+  "finishedIn": "Завершено за {duration}",
   "@finishedIn": {
     "placeholders": {
       "duration": {}
@@ -958,7 +958,7 @@
       }
     }
   },
-  "runAgain": "Бігти знову",
+  "runAgain": "Запустити знову",
   "startMacro": "Запустити макрос",
   "continueAction": "Продовжити",
   "unnamedRemote": "Пульт без назви",

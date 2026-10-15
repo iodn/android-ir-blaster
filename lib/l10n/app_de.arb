@@ -942,10 +942,10 @@
       }
     }
   },
-  "tapContinueWhenReady": "Tippe auf Weiter, wenn du für den nächsten Schritt bereit bist",
+  "tapContinueWhenReady": "Tippe auf Weiter, wenn du für den nächsten Schritt bereit bist.",
   "error": "Fehler",
   "macroCompleted": "Makro abgeschlossen",
-  "finishedIn": "Fertig in {duration}",
+  "finishedIn": "Abgeschlossen in {duration}",
   "@finishedIn": {
     "placeholders": {
       "duration": {}
@@ -2044,7 +2044,7 @@
   "continueEditing": "Weiter bearbeiten",
   "unsavedChangesTitle": "Ungespeicherte Änderungen",
   "unsavedMacroChangesMessage": "Änderungen an diesem Makro verwerfen? Sie werden nicht gespeichert.",
-  "stopMacroBeforeLeaving": "Stop the macro before leaving this screen.",
+  "stopMacroBeforeLeaving": "Stoppe das Makro, bevor du diesen Bildschirm verlässt.",
   "stopTestingBeforeLeaving": "Stop testing before leaving this screen.",
   "learningModeEntryTitle": "Lernmodus",
   "learningModeEntrySubtitle": "Das IR-Signal einer Fernbedienungstaste übernehmen.",

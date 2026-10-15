@@ -2340,7 +2340,7 @@ class AppLocalizationsPl extends AppLocalizations {
 
   @override
   String get tapContinueWhenReady =>
-      'Stuknij Kontynuuj, gdy będziesz gotowy na kolejny krok';
+      'Gdy będziesz gotowy do następnego kroku, stuknij Dalej.';
 
   @override
   String get error => 'Błąd';
@@ -2350,7 +2350,7 @@ class AppLocalizationsPl extends AppLocalizations {
 
   @override
   String finishedIn(Object duration) {
-    return 'Ukończono w $duration';
+    return 'Czas wykonania: $duration';
   }
 
   @override
@@ -2531,7 +2531,7 @@ class AppLocalizationsPl extends AppLocalizations {
 
   @override
   String get stopMacroBeforeLeaving =>
-      'Stop the macro before leaving this screen.';
+      'Zatrzymaj makro przed opuszczeniem tego ekranu.';
 
   @override
   String get stopTestingBeforeLeaving =>

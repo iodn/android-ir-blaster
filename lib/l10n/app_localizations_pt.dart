@@ -2279,17 +2279,17 @@ class AppLocalizationsPt extends AppLocalizations {
 
   @override
   String get tapContinueWhenReady =>
-      'Toque em Continuar quando estiver pronto para o passo seguinte';
+      'Toque em Continuar quando estiver pronto para o passo seguinte.';
 
   @override
   String get error => 'Error';
 
   @override
-  String get macroCompleted => 'Macro Completado';
+  String get macroCompleted => 'Macro concluída';
 
   @override
   String finishedIn(Object duration) {
-    return 'Terminado en $duration';
+    return 'Concluída em $duration';
   }
 
   @override
@@ -2301,10 +2301,10 @@ class AppLocalizationsPt extends AppLocalizations {
   }
 
   @override
-  String get runAgain => 'Executar de novo';
+  String get runAgain => 'Executar novamente';
 
   @override
-  String get startMacro => 'Iniciar Macro';
+  String get startMacro => 'Iniciar macro';
 
   @override
   String get continueAction => 'Continuar';
@@ -2469,8 +2469,7 @@ class AppLocalizationsPt extends AppLocalizations {
       'Descartar as alterações desta macro? Não serão guardadas.';
 
   @override
-  String get stopMacroBeforeLeaving =>
-      'Stop the macro before leaving this screen.';
+  String get stopMacroBeforeLeaving => 'Pare a macro antes de sair deste ecrã.';
 
   @override
   String get stopTestingBeforeLeaving =>
@@ -7562,17 +7561,17 @@ class AppLocalizationsPtBr extends AppLocalizationsPt {
 
   @override
   String get tapContinueWhenReady =>
-      'Toque em Continuar quando estiver pronto para o próximo passo';
+      'Toque em Continuar quando estiver pronto para a próxima etapa.';
 
   @override
   String get error => 'Error';
 
   @override
-  String get macroCompleted => 'Macro Completado';
+  String get macroCompleted => 'Macro concluída';
 
   @override
   String finishedIn(Object duration) {
-    return 'Terminado en $duration';
+    return 'Concluída em $duration';
   }
 
   @override
@@ -7584,10 +7583,10 @@ class AppLocalizationsPtBr extends AppLocalizationsPt {
   }
 
   @override
-  String get runAgain => 'Executar de novo';
+  String get runAgain => 'Executar novamente';
 
   @override
-  String get startMacro => 'Iniciar Macro';
+  String get startMacro => 'Iniciar macro';
 
   @override
   String get continueAction => 'Continuar';
@@ -7752,8 +7751,7 @@ class AppLocalizationsPtBr extends AppLocalizationsPt {
       'Descartar as alterações desta macro? Elas não serão salvas.';
 
   @override
-  String get stopMacroBeforeLeaving =>
-      'Stop the macro before leaving this screen.';
+  String get stopMacroBeforeLeaving => 'Pare a macro antes de sair desta tela.';
 
   @override
   String get stopTestingBeforeLeaving =>

@@ -3994,7 +3994,7 @@ abstract class AppLocalizations {
   /// No description provided for @tapContinueWhenReady.
   ///
   /// In en, this message translates to:
-  /// **'Tap Continue when ready for the next step'**
+  /// **'Tap Continue when you’re ready for the next step.'**
   String get tapContinueWhenReady;
 
   /// No description provided for @error.

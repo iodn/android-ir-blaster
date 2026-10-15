@@ -940,10 +940,10 @@
       }
     }
   },
-  "tapContinueWhenReady": "Sonraki adım için hazır olduğunuzda Devam Et'e dokunun",
+  "tapContinueWhenReady": "Sonraki adıma hazır olduğunuzda Devam et'e dokunun.",
   "error": "Hata",
-  "macroCompleted": "Macro Completed",
-  "finishedIn": "Finished in {duration}",
+  "macroCompleted": "Makro tamamlandı",
+  "finishedIn": "{duration} içinde tamamlandı",
   "@finishedIn": {
     "placeholders": {
       "duration": {}
@@ -959,7 +959,7 @@
     }
   },
   "runAgain": "Tekrar çalıştır",
-  "startMacro": "Başlat Macro",
+  "startMacro": "Makroyu başlat",
   "continueAction": "Devam et",
   "unnamedRemote": "Unnamed Kumanda",
   "enterMacroName": "Makro için bir ad girin.",
@@ -1055,7 +1055,7 @@
   "continueEditing": "Düzenlemeye devam et",
   "unsavedChangesTitle": "Kaydedilmemiş değişiklikler",
   "unsavedMacroChangesMessage": "Bu makrodaki değişiklikler silinsin mi? Değişiklikler kaydedilmeyecek.",
-  "stopMacroBeforeLeaving": "Stop the macro before leaving this screen.",
+  "stopMacroBeforeLeaving": "Bu ekrandan ayrılmadan önce makroyu durdurun.",
   "stopTestingBeforeLeaving": "Stop testing before leaving this screen.",
   "idle": "Idle",
   "start": "Başlat",

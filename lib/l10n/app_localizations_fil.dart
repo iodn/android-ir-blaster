@@ -2273,17 +2273,17 @@ class AppLocalizationsFil extends AppLocalizations {
 
   @override
   String get tapContinueWhenReady =>
-      'Tapikin ang Continue when ready para sa the next hakbang';
+      'Kapag handa ka na sa susunod na hakbang, i-tap ang Magpatuloy.';
 
   @override
   String get error => 'Error';
 
   @override
-  String get macroCompleted => 'Macro Completed';
+  String get macroCompleted => 'Tapos na ang macro';
 
   @override
   String finishedIn(Object duration) {
-    return 'Finished in $duration';
+    return 'Natapos sa loob ng $duration';
   }
 
   @override
@@ -2295,10 +2295,10 @@ class AppLocalizationsFil extends AppLocalizations {
   }
 
   @override
-  String get runAgain => 'Run Again';
+  String get runAgain => 'Patakbuhin muli';
 
   @override
-  String get startMacro => 'Start Macro';
+  String get startMacro => 'Simulan ang macro';
 
   @override
   String get continueAction => 'Magpatuloy';
@@ -2463,7 +2463,7 @@ class AppLocalizationsFil extends AppLocalizations {
 
   @override
   String get stopMacroBeforeLeaving =>
-      'Stop the macro before leaving this screen.';
+      'Ihinto muna ang macro bago umalis sa screen na ito.';
 
   @override
   String get stopTestingBeforeLeaving =>

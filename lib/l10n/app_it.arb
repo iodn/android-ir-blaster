@@ -940,10 +940,10 @@
       }
     }
   },
-  "tapContinueWhenReady": "Tocca Continua quando sei pronto per il passaggio successivo",
+  "tapContinueWhenReady": "Tocca Continua quando sei pronto per il passaggio successivo.",
   "error": "Errore",
   "macroCompleted": "Macro completata",
-  "finishedIn": "Terminato in {duration}",
+  "finishedIn": "Completata in {duration}",
   "@finishedIn": {
     "placeholders": {
       "duration": {}
@@ -2058,7 +2058,7 @@
   "continueEditing": "Continua a modificare",
   "unsavedChangesTitle": "Modifiche non salvate",
   "unsavedMacroChangesMessage": "Scartare le modifiche a questa macro? Non verranno salvate.",
-  "stopMacroBeforeLeaving": "Stop the macro before leaving this screen.",
+  "stopMacroBeforeLeaving": "Interrompi la macro prima di uscire da questa schermata.",
   "stopTestingBeforeLeaving": "Stop testing before leaving this screen.",
   "learningModeEntryTitle": "Apprendimento IR",
   "learningModeEntrySubtitle": "Copia il segnale IR di un tasto del telecomando.",

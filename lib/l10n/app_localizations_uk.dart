@@ -2348,7 +2348,7 @@ class AppLocalizationsUk extends AppLocalizations {
 
   @override
   String get tapContinueWhenReady =>
-      'Торкніться «Продовжити», коли будете готові до наступного кроку';
+      'Торкніться «Продовжити», коли будете готові до наступного кроку.';
 
   @override
   String get error => 'Помилка';
@@ -2358,7 +2358,7 @@ class AppLocalizationsUk extends AppLocalizations {
 
   @override
   String finishedIn(Object duration) {
-    return 'Завершено в $duration';
+    return 'Завершено за $duration';
   }
 
   @override
@@ -2370,7 +2370,7 @@ class AppLocalizationsUk extends AppLocalizations {
   }
 
   @override
-  String get runAgain => 'Бігти знову';
+  String get runAgain => 'Запустити знову';
 
   @override
   String get startMacro => 'Запустити макрос';

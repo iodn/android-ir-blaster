@@ -2301,7 +2301,7 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get tapContinueWhenReady =>
-      'Tap Continue when ready for the next step';
+      'Tap Continue when you’re ready for the next step.';
 
   @override
   String get error => 'Error';

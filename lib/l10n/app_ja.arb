@@ -940,10 +940,10 @@
       }
     }
   },
-  "tapContinueWhenReady": "次のステップの準備ができたら 続行 を押してください",
+  "tapContinueWhenReady": "次のステップに進む準備ができたら「続行」をタップしてください。",
   "error": "エラー",
-  "macroCompleted": "マクロ完了",
-  "finishedIn": "{duration}で完了",
+  "macroCompleted": "マクロが完了しました",
+  "finishedIn": "所要時間：{duration}",
   "@finishedIn": {
     "placeholders": {
       "duration": {}
@@ -959,7 +959,7 @@
     }
   },
   "runAgain": "再実行",
-  "startMacro": "マクロ開始",
+  "startMacro": "マクロを開始",
   "continueAction": "続行",
   "unnamedRemote": "無名のリモコン",
   "enterMacroName": "マクロの名前を入力してください。",
@@ -2058,7 +2058,7 @@
   "continueEditing": "編集を続ける",
   "unsavedChangesTitle": "未保存の変更",
   "unsavedMacroChangesMessage": "このマクロの変更を破棄しますか？変更内容は保存されません。",
-  "stopMacroBeforeLeaving": "Stop the macro before leaving this screen.",
+  "stopMacroBeforeLeaving": "この画面を閉じる前にマクロを停止してください。",
   "stopTestingBeforeLeaving": "Stop testing before leaving this screen.",
   "learningModeEntryTitle": "学習モード",
   "learningModeEntrySubtitle": "お使いのリモコンからボタンの赤外線信号をコピーします。",

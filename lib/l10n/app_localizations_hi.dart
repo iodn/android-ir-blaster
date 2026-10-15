@@ -2250,17 +2250,17 @@ class AppLocalizationsHi extends AppLocalizations {
 
   @override
   String get tapContinueWhenReady =>
-      'टैप करें जारी रखें जब तैयार के लिए the अगला चरण';
+      'अगले चरण के लिए तैयार होने पर जारी रखें पर टैप करें।';
 
   @override
   String get error => 'त्रुटि';
 
   @override
-  String get macroCompleted => 'मैक्रो पूर्ण';
+  String get macroCompleted => 'मैक्रो पूरा हुआ';
 
   @override
   String finishedIn(Object duration) {
-    return 'में समाप्त $duration';
+    return '$duration में पूरा हुआ';
   }
 
   @override
@@ -2272,10 +2272,10 @@ class AppLocalizationsHi extends AppLocalizations {
   }
 
   @override
-  String get runAgain => 'चलाएं फिर';
+  String get runAgain => 'फिर से चलाएँ';
 
   @override
-  String get startMacro => 'प्रारंभ मैक्रो';
+  String get startMacro => 'मैक्रो शुरू करें';
 
   @override
   String get continueAction => 'जारी रखें';
@@ -2440,7 +2440,7 @@ class AppLocalizationsHi extends AppLocalizations {
 
   @override
   String get stopMacroBeforeLeaving =>
-      'Stop the macro before leaving this screen.';
+      'इस स्क्रीन से जाने से पहले मैक्रो रोकें।';
 
   @override
   String get stopTestingBeforeLeaving =>

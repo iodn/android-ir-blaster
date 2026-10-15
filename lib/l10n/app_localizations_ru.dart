@@ -2258,7 +2258,7 @@ class AppLocalizationsRu extends AppLocalizations {
 
   @override
   String get tapContinueWhenReady =>
-      'Нажмите Продолжить, когда будете готовы к следующему шагу';
+      'Нажмите «Продолжить», когда будете готовы к следующему шагу.';
 
   @override
   String get error => 'Ошибка';
@@ -2449,7 +2449,7 @@ class AppLocalizationsRu extends AppLocalizations {
 
   @override
   String get stopMacroBeforeLeaving =>
-      'Stop the macro before leaving this screen.';
+      'Остановите макрос, прежде чем покинуть этот экран.';
 
   @override
   String get stopTestingBeforeLeaving =>

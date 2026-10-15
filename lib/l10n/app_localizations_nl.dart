@@ -2287,7 +2287,7 @@ class AppLocalizationsNl extends AppLocalizations {
 
   @override
   String get tapContinueWhenReady =>
-      'Tik op Doorgaan wanneer je klaar bent voor de volgende stap';
+      'Tik op Doorgaan wanneer je klaar bent voor de volgende stap.';
 
   @override
   String get error => 'Fout';
@@ -2477,7 +2477,7 @@ class AppLocalizationsNl extends AppLocalizations {
 
   @override
   String get stopMacroBeforeLeaving =>
-      'Stop the macro before leaving this screen.';
+      'Stop de macro voordat je dit scherm verlaat.';
 
   @override
   String get stopTestingBeforeLeaving =>

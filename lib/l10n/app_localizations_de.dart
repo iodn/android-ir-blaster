@@ -2288,7 +2288,7 @@ class AppLocalizationsDe extends AppLocalizations {
 
   @override
   String get tapContinueWhenReady =>
-      'Tippe auf Weiter, wenn du für den nächsten Schritt bereit bist';
+      'Tippe auf Weiter, wenn du für den nächsten Schritt bereit bist.';
 
   @override
   String get error => 'Fehler';
@@ -2298,7 +2298,7 @@ class AppLocalizationsDe extends AppLocalizations {
 
   @override
   String finishedIn(Object duration) {
-    return 'Fertig in $duration';
+    return 'Abgeschlossen in $duration';
   }
 
   @override
@@ -2478,7 +2478,7 @@ class AppLocalizationsDe extends AppLocalizations {
 
   @override
   String get stopMacroBeforeLeaving =>
-      'Stop the macro before leaving this screen.';
+      'Stoppe das Makro, bevor du diesen Bildschirm verlässt.';
 
   @override
   String get stopTestingBeforeLeaving =>

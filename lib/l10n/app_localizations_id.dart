@@ -2257,13 +2257,13 @@ class AppLocalizationsId extends AppLocalizations {
 
   @override
   String get tapContinueWhenReady =>
-      'Ketuk Lanjut saat siap untuk langkah berikutnya';
+      'Ketuk Lanjut saat Anda siap ke langkah berikutnya.';
 
   @override
   String get error => 'Galat';
 
   @override
-  String get macroCompleted => 'Makro Completed';
+  String get macroCompleted => 'Makro selesai';
 
   @override
   String finishedIn(Object duration) {
@@ -2279,10 +2279,10 @@ class AppLocalizationsId extends AppLocalizations {
   }
 
   @override
-  String get runAgain => 'Jalankan Lagi';
+  String get runAgain => 'Jalankan lagi';
 
   @override
-  String get startMacro => 'Mulai Makro';
+  String get startMacro => 'Mulai makro';
 
   @override
   String get continueAction => 'Lanjut';
@@ -2448,7 +2448,7 @@ class AppLocalizationsId extends AppLocalizations {
 
   @override
   String get stopMacroBeforeLeaving =>
-      'Stop the macro before leaving this screen.';
+      'Hentikan makro sebelum meninggalkan layar ini.';
 
   @override
   String get stopTestingBeforeLeaving =>

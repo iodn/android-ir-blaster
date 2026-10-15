@@ -940,9 +940,9 @@
       }
     }
   },
-  "tapContinueWhenReady": "Ketuk Lanjut saat siap untuk langkah berikutnya",
+  "tapContinueWhenReady": "Ketuk Lanjut saat Anda siap ke langkah berikutnya.",
   "error": "Galat",
-  "macroCompleted": "Makro Completed",
+  "macroCompleted": "Makro selesai",
   "finishedIn": "Selesai dalam {duration}",
   "@finishedIn": {
     "placeholders": {
@@ -958,8 +958,8 @@
       }
     }
   },
-  "runAgain": "Jalankan Lagi",
-  "startMacro": "Mulai Makro",
+  "runAgain": "Jalankan lagi",
+  "startMacro": "Mulai makro",
   "continueAction": "Lanjut",
   "unnamedRemote": "Remote tanpa nama",
   "enterMacroName": "Masukkan nama makro.",
@@ -2058,7 +2058,7 @@
   "continueEditing": "Lanjutkan mengedit",
   "unsavedChangesTitle": "Perubahan belum disimpan",
   "unsavedMacroChangesMessage": "Buang perubahan pada makro ini? Perubahan tidak akan disimpan.",
-  "stopMacroBeforeLeaving": "Stop the macro before leaving this screen.",
+  "stopMacroBeforeLeaving": "Hentikan makro sebelum meninggalkan layar ini.",
   "stopTestingBeforeLeaving": "Stop testing before leaving this screen.",
   "learningModeEntryTitle": "Belajar sinyal IR",
   "learningModeEntrySubtitle": "Salin sinyal IR dari tombol pada remote Anda.",

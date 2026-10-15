@@ -2161,17 +2161,17 @@ class AppLocalizationsJa extends AppLocalizations {
   }
 
   @override
-  String get tapContinueWhenReady => '次のステップの準備ができたら 続行 を押してください';
+  String get tapContinueWhenReady => '次のステップに進む準備ができたら「続行」をタップしてください。';
 
   @override
   String get error => 'エラー';
 
   @override
-  String get macroCompleted => 'マクロ完了';
+  String get macroCompleted => 'マクロが完了しました';
 
   @override
   String finishedIn(Object duration) {
-    return '$durationで完了';
+    return '所要時間：$duration';
   }
 
   @override
@@ -2186,7 +2186,7 @@ class AppLocalizationsJa extends AppLocalizations {
   String get runAgain => '再実行';
 
   @override
-  String get startMacro => 'マクロ開始';
+  String get startMacro => 'マクロを開始';
 
   @override
   String get continueAction => '続行';
@@ -2345,8 +2345,7 @@ class AppLocalizationsJa extends AppLocalizations {
   String get unsavedMacroChangesMessage => 'このマクロの変更を破棄しますか？変更内容は保存されません。';
 
   @override
-  String get stopMacroBeforeLeaving =>
-      'Stop the macro before leaving this screen.';
+  String get stopMacroBeforeLeaving => 'この画面を閉じる前にマクロを停止してください。';
 
   @override
   String get stopTestingBeforeLeaving =>

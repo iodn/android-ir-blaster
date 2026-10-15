@@ -2256,17 +2256,17 @@ class AppLocalizationsTr extends AppLocalizations {
 
   @override
   String get tapContinueWhenReady =>
-      'Sonraki adım için hazır olduğunuzda Devam Et\'e dokunun';
+      'Sonraki adıma hazır olduğunuzda Devam et\'e dokunun.';
 
   @override
   String get error => 'Hata';
 
   @override
-  String get macroCompleted => 'Macro Completed';
+  String get macroCompleted => 'Makro tamamlandı';
 
   @override
   String finishedIn(Object duration) {
-    return 'Finished in $duration';
+    return '$duration içinde tamamlandı';
   }
 
   @override
@@ -2281,7 +2281,7 @@ class AppLocalizationsTr extends AppLocalizations {
   String get runAgain => 'Tekrar çalıştır';
 
   @override
-  String get startMacro => 'Başlat Macro';
+  String get startMacro => 'Makroyu başlat';
 
   @override
   String get continueAction => 'Devam et';
@@ -2445,7 +2445,7 @@ class AppLocalizationsTr extends AppLocalizations {
 
   @override
   String get stopMacroBeforeLeaving =>
-      'Stop the macro before leaving this screen.';
+      'Bu ekrandan ayrılmadan önce makroyu durdurun.';
 
   @override
   String get stopTestingBeforeLeaving =>

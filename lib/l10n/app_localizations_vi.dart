@@ -2242,7 +2242,7 @@ class AppLocalizationsVi extends AppLocalizations {
 
   @override
   String get tapContinueWhenReady =>
-      'Chạm Tiếp tục khi sẵn sàng cho bước tiếp theo';
+      'Nhấn Tiếp tục khi bạn đã sẵn sàng cho bước tiếp theo.';
 
   @override
   String get error => 'Lỗi';
@@ -2267,7 +2267,7 @@ class AppLocalizationsVi extends AppLocalizations {
   String get runAgain => 'Chạy lại';
 
   @override
-  String get startMacro => 'Bắt đầu Macro';
+  String get startMacro => 'Bắt đầu macro';
 
   @override
   String get continueAction => 'Tiếp tục';
@@ -2431,7 +2431,7 @@ class AppLocalizationsVi extends AppLocalizations {
 
   @override
   String get stopMacroBeforeLeaving =>
-      'Stop the macro before leaving this screen.';
+      'Dừng macro trước khi rời khỏi màn hình này.';
 
   @override
   String get stopTestingBeforeLeaving =>

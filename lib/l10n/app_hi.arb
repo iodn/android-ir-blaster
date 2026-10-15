@@ -940,10 +940,10 @@
       }
     }
   },
-  "tapContinueWhenReady": "टैप करें जारी रखें जब तैयार के लिए the अगला चरण",
+  "tapContinueWhenReady": "अगले चरण के लिए तैयार होने पर जारी रखें पर टैप करें।",
   "error": "त्रुटि",
-  "macroCompleted": "मैक्रो पूर्ण",
-  "finishedIn": "में समाप्त {duration}",
+  "macroCompleted": "मैक्रो पूरा हुआ",
+  "finishedIn": "{duration} में पूरा हुआ",
   "@finishedIn": {
     "placeholders": {
       "duration": {}
@@ -958,8 +958,8 @@
       }
     }
   },
-  "runAgain": "चलाएं फिर",
-  "startMacro": "प्रारंभ मैक्रो",
+  "runAgain": "फिर से चलाएँ",
+  "startMacro": "मैक्रो शुरू करें",
   "continueAction": "जारी रखें",
   "unnamedRemote": "बिना नाम का रिमोट",
   "enterMacroName": "मैक्रो का नाम दर्ज करें।",
@@ -1055,7 +1055,7 @@
   "continueEditing": "संपादन जारी रखें",
   "unsavedChangesTitle": "बदलाव सहेजे नहीं गए",
   "unsavedMacroChangesMessage": "इस मैक्रो के बदलाव छोड़ दें? ये बदलाव सहेजे नहीं जाएंगे।",
-  "stopMacroBeforeLeaving": "Stop the macro before leaving this screen.",
+  "stopMacroBeforeLeaving": "इस स्क्रीन से जाने से पहले मैक्रो रोकें।",
   "stopTestingBeforeLeaving": "Stop testing before leaving this screen.",
   "idle": "Idle",
   "start": "प्रारंभ",

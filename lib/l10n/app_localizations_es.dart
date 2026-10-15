@@ -2275,17 +2275,17 @@ class AppLocalizationsEs extends AppLocalizations {
 
   @override
   String get tapContinueWhenReady =>
-      'Toca Continuar cuando estés listo para el siguiente paso';
+      'Toca Continuar cuando estés listo para el siguiente paso.';
 
   @override
   String get error => 'Error';
 
   @override
-  String get macroCompleted => 'Macro Completado';
+  String get macroCompleted => 'Macro completada';
 
   @override
   String finishedIn(Object duration) {
-    return 'Terminado en $duration';
+    return 'Completada en $duration';
   }
 
   @override
@@ -2300,7 +2300,7 @@ class AppLocalizationsEs extends AppLocalizations {
   String get runAgain => 'Ejecutar de nuevo';
 
   @override
-  String get startMacro => 'Iniciar Macro';
+  String get startMacro => 'Iniciar macro';
 
   @override
   String get continueAction => 'Continuar';
@@ -2466,7 +2466,7 @@ class AppLocalizationsEs extends AppLocalizations {
 
   @override
   String get stopMacroBeforeLeaving =>
-      'Stop the macro before leaving this screen.';
+      'Detén la macro antes de salir de esta pantalla.';
 
   @override
   String get stopTestingBeforeLeaving =>

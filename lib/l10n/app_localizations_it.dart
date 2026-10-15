@@ -2280,7 +2280,7 @@ class AppLocalizationsIt extends AppLocalizations {
 
   @override
   String get tapContinueWhenReady =>
-      'Tocca Continua quando sei pronto per il passaggio successivo';
+      'Tocca Continua quando sei pronto per il passaggio successivo.';
 
   @override
   String get error => 'Errore';
@@ -2290,7 +2290,7 @@ class AppLocalizationsIt extends AppLocalizations {
 
   @override
   String finishedIn(Object duration) {
-    return 'Terminato in $duration';
+    return 'Completata in $duration';
   }
 
   @override
@@ -2471,7 +2471,7 @@ class AppLocalizationsIt extends AppLocalizations {
 
   @override
   String get stopMacroBeforeLeaving =>
-      'Stop the macro before leaving this screen.';
+      'Interrompi la macro prima di uscire da questa schermata.';
 
   @override
   String get stopTestingBeforeLeaving =>

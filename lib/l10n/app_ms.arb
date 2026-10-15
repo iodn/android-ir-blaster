@@ -940,7 +940,7 @@
       }
     }
   },
-  "tapContinueWhenReady": "Tekan Lanjut saat sedia untuk langkah berikutnya",
+  "tapContinueWhenReady": "Ketik Teruskan apabila anda bersedia untuk langkah seterusnya.",
   "error": "Galat",
   "macroCompleted": "Makro selesai",
   "finishedIn": "Selesai dalam {duration}",
@@ -958,8 +958,8 @@
       }
     }
   },
-  "runAgain": "Jalankan Lagi",
-  "startMacro": "Mula Makro",
+  "runAgain": "Jalankan semula",
+  "startMacro": "Mulakan makro",
   "continueAction": "Teruskan",
   "unnamedRemote": "Remote tanpa nama",
   "enterMacroName": "Masukkan nama makro.",
@@ -2058,7 +2058,7 @@
   "continueEditing": "Teruskan menyunting",
   "unsavedChangesTitle": "Perubahan belum disimpan",
   "unsavedMacroChangesMessage": "Abaikan perubahan pada makro ini? Perubahan tidak akan disimpan.",
-  "stopMacroBeforeLeaving": "Stop the macro before leaving this screen.",
+  "stopMacroBeforeLeaving": "Hentikan makro sebelum meninggalkan skrin ini.",
   "stopTestingBeforeLeaving": "Stop testing before leaving this screen.",
   "learningModeEntryTitle": "Pembelajaran IR",
   "learningModeEntrySubtitle": "Salin isyarat IR daripada butang alat kawalan jauh anda.",

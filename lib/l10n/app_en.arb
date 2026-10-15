@@ -1053,7 +1053,7 @@
       }
     }
   },
-  "tapContinueWhenReady": "Tap Continue when ready for the next step",
+  "tapContinueWhenReady": "Tap Continue when you’re ready for the next step.",
   "error": "Error",
   "macroCompleted": "Macro Completed",
   "finishedIn": "Finished in {duration}",

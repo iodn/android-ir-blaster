@@ -940,10 +940,10 @@
       }
     }
   },
-  "tapContinueWhenReady": "اضغط متابعة عندما تصبح جاهزاً للخطوة التالية",
+  "tapContinueWhenReady": "اضغط على متابعة عندما تكون مستعداً للخطوة التالية.",
   "error": "خطأ",
   "macroCompleted": "اكتمل الماكرو",
-  "finishedIn": "Finished in {duration}",
+  "finishedIn": "اكتمل خلال {duration}",
   "@finishedIn": {
     "placeholders": {
       "duration": {}
@@ -958,7 +958,7 @@
       }
     }
   },
-  "runAgain": "تشغيل Again",
+  "runAgain": "تشغيل مجدداً",
   "startMacro": "بدء الماكرو",
   "continueAction": "متابعة",
   "unnamedRemote": "Unnamed جهاز التحكم",
@@ -1055,7 +1055,7 @@
   "continueEditing": "متابعة التعديل",
   "unsavedChangesTitle": "تغييرات غير محفوظة",
   "unsavedMacroChangesMessage": "هل تريد تجاهل تغييرات هذا الماكرو؟ لن تُحفظ هذه التغييرات.",
-  "stopMacroBeforeLeaving": "Stop the macro before leaving this screen.",
+  "stopMacroBeforeLeaving": "أوقف الماكرو قبل مغادرة هذه الشاشة.",
   "stopTestingBeforeLeaving": "Stop testing before leaving this screen.",
   "idle": "خامل",
   "start": "بدء",

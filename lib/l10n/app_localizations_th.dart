@@ -2235,17 +2235,18 @@ class AppLocalizationsTh extends AppLocalizations {
   }
 
   @override
-  String get tapContinueWhenReady => 'แตะ ทำต่อ เมื่อพร้อมสำหรับขั้นตอนถัดไป';
+  String get tapContinueWhenReady =>
+      'แตะ ดำเนินการต่อ เมื่อพร้อมสำหรับขั้นตอนถัดไป';
 
   @override
   String get error => 'Error';
 
   @override
-  String get macroCompleted => 'แมโครเสร็จสิ้น';
+  String get macroCompleted => 'มาโครเสร็จสิ้น';
 
   @override
   String finishedIn(Object duration) {
-    return 'เสร็จใน $duration';
+    return 'ใช้เวลา $duration';
   }
 
   @override
@@ -2257,10 +2258,10 @@ class AppLocalizationsTh extends AppLocalizations {
   }
 
   @override
-  String get runAgain => 'ทำงาน Again';
+  String get runAgain => 'เรียกใช้อีกครั้ง';
 
   @override
-  String get startMacro => 'เริ่ม แมโคร';
+  String get startMacro => 'เริ่มมาโคร';
 
   @override
   String get continueAction => 'ดำเนินการต่อ';
@@ -2424,8 +2425,7 @@ class AppLocalizationsTh extends AppLocalizations {
       'ละทิ้งการเปลี่ยนแปลงของมาโครนี้หรือไม่? การเปลี่ยนแปลงจะไม่ถูกบันทึก';
 
   @override
-  String get stopMacroBeforeLeaving =>
-      'Stop the macro before leaving this screen.';
+  String get stopMacroBeforeLeaving => 'หยุดมาโครก่อนออกจากหน้าจอนี้';
 
   @override
   String get stopTestingBeforeLeaving =>

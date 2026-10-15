@@ -945,10 +945,10 @@
       }
     }
   },
-  "tapContinueWhenReady": "Appuyez sur Continuer quand vous êtes prêt pour l’étape suivante",
+  "tapContinueWhenReady": "Appuyez sur Continuer quand vous êtes prêt pour l’étape suivante.",
   "error": "Erreur",
   "macroCompleted": "Macro terminée",
-  "finishedIn": "Terminé en {duration}",
+  "finishedIn": "Terminée en {duration}",
   "@finishedIn": {
     "placeholders": {
       "duration": {}
@@ -2058,7 +2058,7 @@
   "continueEditing": "Continuer à modifier",
   "unsavedChangesTitle": "Modifications non enregistrées",
   "unsavedMacroChangesMessage": "Abandonner les modifications de cette macro ? Elles ne seront pas enregistrées.",
-  "stopMacroBeforeLeaving": "Stop the macro before leaving this screen.",
+  "stopMacroBeforeLeaving": "Arrêtez la macro avant de quitter cet écran.",
   "stopTestingBeforeLeaving": "Stop testing before leaving this screen.",
   "learningModeEntryTitle": "Apprentissage IR",
   "learningModeEntrySubtitle": "Copiez le signal d'une touche de votre télécommande.",

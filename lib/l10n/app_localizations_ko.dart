@@ -2173,17 +2173,17 @@ class AppLocalizationsKo extends AppLocalizations {
   }
 
   @override
-  String get tapContinueWhenReady => '탭 계속 때 준비됨 다음 단계';
+  String get tapContinueWhenReady => '다음 단계로 넘어갈 준비가 되면 계속을 누르세요.';
 
   @override
   String get error => '오류';
 
   @override
-  String get macroCompleted => '매크로 완료됨';
+  String get macroCompleted => '매크로 완료';
 
   @override
   String finishedIn(Object duration) {
-    return '$duration만에 완료';
+    return '소요 시간: $duration';
   }
 
   @override
@@ -2198,7 +2198,7 @@ class AppLocalizationsKo extends AppLocalizations {
   String get runAgain => '다시 실행';
 
   @override
-  String get startMacro => '시작 매크로';
+  String get startMacro => '매크로 시작';
 
   @override
   String get continueAction => '계속';
@@ -2358,8 +2358,7 @@ class AppLocalizationsKo extends AppLocalizations {
       '이 매크로의 변경 사항을 버릴까요? 변경 사항은 저장되지 않습니다.';
 
   @override
-  String get stopMacroBeforeLeaving =>
-      'Stop the macro before leaving this screen.';
+  String get stopMacroBeforeLeaving => '이 화면을 나가기 전에 매크로를 중지하세요.';
 
   @override
   String get stopTestingBeforeLeaving =>

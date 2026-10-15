@@ -940,10 +940,10 @@
       }
     }
   },
-  "tapContinueWhenReady": "แตะ ทำต่อ เมื่อพร้อมสำหรับขั้นตอนถัดไป",
+  "tapContinueWhenReady": "แตะ ดำเนินการต่อ เมื่อพร้อมสำหรับขั้นตอนถัดไป",
   "error": "Error",
-  "macroCompleted": "แมโครเสร็จสิ้น",
-  "finishedIn": "เสร็จใน {duration}",
+  "macroCompleted": "มาโครเสร็จสิ้น",
+  "finishedIn": "ใช้เวลา {duration}",
   "@finishedIn": {
     "placeholders": {
       "duration": {}
@@ -958,8 +958,8 @@
       }
     }
   },
-  "runAgain": "ทำงาน Again",
-  "startMacro": "เริ่ม แมโคร",
+  "runAgain": "เรียกใช้อีกครั้ง",
+  "startMacro": "เริ่มมาโคร",
   "continueAction": "ดำเนินการต่อ",
   "unnamedRemote": "รีโมตไม่มีชื่อ",
   "enterMacroName": "กรอกชื่อมาโคร",
@@ -2058,7 +2058,7 @@
   "continueEditing": "แก้ไขต่อ",
   "unsavedChangesTitle": "การเปลี่ยนแปลงที่ยังไม่ได้บันทึก",
   "unsavedMacroChangesMessage": "ละทิ้งการเปลี่ยนแปลงของมาโครนี้หรือไม่? การเปลี่ยนแปลงจะไม่ถูกบันทึก",
-  "stopMacroBeforeLeaving": "Stop the macro before leaving this screen.",
+  "stopMacroBeforeLeaving": "หยุดมาโครก่อนออกจากหน้าจอนี้",
   "stopTestingBeforeLeaving": "Stop testing before leaving this screen.",
   "learningModeEntryTitle": "เรียนรู้สัญญาณ",
   "learningModeEntrySubtitle": "คัดลอกสัญญาณ IR ของปุ่มจากรีโมทของคุณ",

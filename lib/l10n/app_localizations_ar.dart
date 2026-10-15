@@ -2236,7 +2236,7 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String get tapContinueWhenReady =>
-      'اضغط متابعة عندما تصبح جاهزاً للخطوة التالية';
+      'اضغط على متابعة عندما تكون مستعداً للخطوة التالية.';
 
   @override
   String get error => 'خطأ';
@@ -2246,7 +2246,7 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String finishedIn(Object duration) {
-    return 'Finished in $duration';
+    return 'اكتمل خلال $duration';
   }
 
   @override
@@ -2258,7 +2258,7 @@ class AppLocalizationsAr extends AppLocalizations {
   }
 
   @override
-  String get runAgain => 'تشغيل Again';
+  String get runAgain => 'تشغيل مجدداً';
 
   @override
   String get startMacro => 'بدء الماكرو';
@@ -2423,8 +2423,7 @@ class AppLocalizationsAr extends AppLocalizations {
       'هل تريد تجاهل تغييرات هذا الماكرو؟ لن تُحفظ هذه التغييرات.';
 
   @override
-  String get stopMacroBeforeLeaving =>
-      'Stop the macro before leaving this screen.';
+  String get stopMacroBeforeLeaving => 'أوقف الماكرو قبل مغادرة هذه الشاشة.';
 
   @override
   String get stopTestingBeforeLeaving =>
@@ -7454,17 +7453,17 @@ class AppLocalizationsArEg extends AppLocalizationsAr {
 
   @override
   String get tapContinueWhenReady =>
-      'اضغط متابعة عندما تصبح جاهزاً للخطوة التالية';
+      'اضغط على متابعة لما تكون جاهز للخطوة اللي بعدها.';
 
   @override
   String get error => 'خطأ';
 
   @override
-  String get macroCompleted => 'اكتمل الماكرو';
+  String get macroCompleted => 'الماكرو خلص';
 
   @override
   String finishedIn(Object duration) {
-    return 'Finished in $duration';
+    return 'خلص في $duration';
   }
 
   @override
@@ -7476,10 +7475,10 @@ class AppLocalizationsArEg extends AppLocalizationsAr {
   }
 
   @override
-  String get runAgain => 'تشغيل Again';
+  String get runAgain => 'تشغيل تاني';
 
   @override
-  String get startMacro => 'بدء الماكرو';
+  String get startMacro => 'تشغيل الماكرو';
 
   @override
   String get continueAction => 'متابعة';
@@ -7641,8 +7640,7 @@ class AppLocalizationsArEg extends AppLocalizationsAr {
       'تتجاهل تغييرات الماكرو ده؟ التغييرات دي مش هتتحفظ.';
 
   @override
-  String get stopMacroBeforeLeaving =>
-      'Stop the macro before leaving this screen.';
+  String get stopMacroBeforeLeaving => 'وقّف الماكرو قبل ما تسيب الشاشة دي.';
 
   @override
   String get stopTestingBeforeLeaving =>

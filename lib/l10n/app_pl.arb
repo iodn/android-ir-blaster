@@ -942,10 +942,10 @@
       }
     }
   },
-  "tapContinueWhenReady": "Stuknij Kontynuuj, gdy będziesz gotowy na kolejny krok",
+  "tapContinueWhenReady": "Gdy będziesz gotowy do następnego kroku, stuknij Dalej.",
   "error": "Błąd",
   "macroCompleted": "Makro ukończone",
-  "finishedIn": "Ukończono w {duration}",
+  "finishedIn": "Czas wykonania: {duration}",
   "@finishedIn": {
     "placeholders": {
       "duration": {}
@@ -2060,7 +2060,7 @@
   "continueEditing": "Edytuj dalej",
   "unsavedChangesTitle": "Niezapisane zmiany",
   "unsavedMacroChangesMessage": "Odrzucić zmiany w tym makrze? Nie zostaną zapisane.",
-  "stopMacroBeforeLeaving": "Stop the macro before leaving this screen.",
+  "stopMacroBeforeLeaving": "Zatrzymaj makro przed opuszczeniem tego ekranu.",
   "stopTestingBeforeLeaving": "Stop testing before leaving this screen.",
   "learningModeEntryTitle": "Tryb uczenia",
   "learningModeEntrySubtitle": "Skopiuj sygnał IR przycisku z pilota.",
