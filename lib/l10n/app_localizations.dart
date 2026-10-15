@@ -2769,7 +2769,7 @@ abstract class AppLocalizations {
   /// No description provided for @untitledRemote.
   ///
   /// In en, this message translates to:
-  /// **'Untitled Remote'**
+  /// **'Unnamed remote'**
   String get untitledRemote;
 
   /// No description provided for @createRemoteTitle.
@@ -2871,13 +2871,13 @@ abstract class AppLocalizations {
   /// No description provided for @remoteNameHint.
   ///
   /// In en, this message translates to:
-  /// **'e.g., TV, Air Conditioner, LED Strip'**
+  /// **'e.g. TV or air conditioner'**
   String get remoteNameHint;
 
   /// No description provided for @remoteNameHelper.
   ///
   /// In en, this message translates to:
-  /// **'This name appears in your Remotes list.'**
+  /// **'This name appears in your remote list.'**
   String get remoteNameHelper;
 
   /// No description provided for @layoutStyle.
@@ -8309,13 +8309,13 @@ abstract class AppLocalizations {
   /// No description provided for @remoteSetupIntro.
   ///
   /// In en, this message translates to:
-  /// **'Choose a name and layout first. You can add buttons after this.'**
+  /// **'Name your remote and choose a layout. Add buttons next.'**
   String get remoteSetupIntro;
 
   /// No description provided for @startWithDefault.
   ///
   /// In en, this message translates to:
-  /// **'Start with default'**
+  /// **'Use default name'**
   String get startWithDefault;
 
   /// No description provided for @browseGithubStore.
@@ -8339,7 +8339,7 @@ abstract class AppLocalizations {
   /// No description provided for @unsavedRemoteSetupChangesMessage.
   ///
   /// In en, this message translates to:
-  /// **'Discard this new remote setup and leave this screen?'**
+  /// **'Discard this new remote setup? Your changes will not be saved.'**
   String get unsavedRemoteSetupChangesMessage;
 
   /// No description provided for @unsavedRemoteStudioChangesMessage.

@@ -1451,7 +1451,7 @@ class AppLocalizationsJa extends AppLocalizations {
   String get run => '実行';
 
   @override
-  String get untitledRemote => '無題のリモコン';
+  String get untitledRemote => '名前のないリモコン';
 
   @override
   String get createRemoteTitle => 'リモコンを作成';
@@ -1508,10 +1508,10 @@ class AppLocalizationsJa extends AppLocalizations {
   String get remoteName => 'リモコン名';
 
   @override
-  String get remoteNameHint => '例 TV エアコン LEDテープ';
+  String get remoteNameHint => '例：テレビ、エアコン';
 
   @override
-  String get remoteNameHelper => 'この名前はリモコン一覧に表示されます。';
+  String get remoteNameHelper => 'リモコン一覧に表示する名前です。';
 
   @override
   String get layoutStyle => 'レイアウト';
@@ -4425,10 +4425,10 @@ class AppLocalizationsJa extends AppLocalizations {
   String get learningModeSaveFailed => 'ボタンを保存できませんでした。';
 
   @override
-  String get remoteSetupIntro => 'まず名前とレイアウトを選択します。ボタンはあとから追加できます。';
+  String get remoteSetupIntro => 'リモコンの名前とレイアウトを決めます。ボタンは次の画面で追加できます。';
 
   @override
-  String get startWithDefault => 'デフォルトで開始';
+  String get startWithDefault => '標準の名前を使う';
 
   @override
   String get browseGithubStore => 'GitHubストアを見る';
@@ -4440,7 +4440,8 @@ class AppLocalizationsJa extends AppLocalizations {
   String get moreWaysToStart => '他の始め方を見る';
 
   @override
-  String get unsavedRemoteSetupChangesMessage => 'この新しいリモコン設定を破棄してこの画面を閉じますか？';
+  String get unsavedRemoteSetupChangesMessage =>
+      '新しいリモコンの設定を破棄しますか？変更内容は保存されません。';
 
   @override
   String get unsavedRemoteStudioChangesMessage => 'リモコンの変更を破棄してこの画面を閉じますか？';

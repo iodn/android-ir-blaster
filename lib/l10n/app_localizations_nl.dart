@@ -1546,10 +1546,10 @@ class AppLocalizationsNl extends AppLocalizations {
   String get run => 'Uitvoeren';
 
   @override
-  String get untitledRemote => 'Untitled Afstandsbediening';
+  String get untitledRemote => 'Naamloze afstandsbediening';
 
   @override
-  String get createRemoteTitle => 'Maken remote';
+  String get createRemoteTitle => 'Afstandsbediening maken';
 
   @override
   String get editRemoteTitle => 'Afstandsbediening bewerken';
@@ -1605,14 +1605,14 @@ class AppLocalizationsNl extends AppLocalizations {
   String get saveRemote => 'Opslaan remote';
 
   @override
-  String get remoteName => 'Afstandsbediening name';
+  String get remoteName => 'Naam afstandsbediening';
 
   @override
-  String get remoteNameHint => 'bijv. tv, airconditioner, ledstrip';
+  String get remoteNameHint => 'bijv. tv of airco';
 
   @override
   String get remoteNameHelper =>
-      'This name appears in your Afstandsbedieningen list.';
+      'Deze naam verschijnt in je lijst met afstandsbedieningen.';
 
   @override
   String get layoutStyle => 'Lay-outstijl';
@@ -4578,10 +4578,10 @@ class AppLocalizationsNl extends AppLocalizations {
 
   @override
   String get remoteSetupIntro =>
-      'Kies eerst een naam en lay-out. Daarna kun je knoppen toevoegen.';
+      'Kies een naam en indeling voor je afstandsbediening. Voeg daarna knoppen toe.';
 
   @override
-  String get startWithDefault => 'Start met standaardinstellingen';
+  String get startWithDefault => 'Standaardnaam';
 
   @override
   String get browseGithubStore => 'GitHub Store bekijken';
@@ -4594,7 +4594,7 @@ class AppLocalizationsNl extends AppLocalizations {
 
   @override
   String get unsavedRemoteSetupChangesMessage =>
-      'Deze nieuwe afstandsbedieningsinstelling verwijderen en dit scherm verlaten?';
+      'Instellingen voor de nieuwe afstandsbediening verwerpen? Je wijzigingen worden niet opgeslagen.';
 
   @override
   String get unsavedRemoteStudioChangesMessage =>

@@ -1538,7 +1538,7 @@ class AppLocalizationsPt extends AppLocalizations {
   String get run => 'Executar';
 
   @override
-  String get untitledRemote => 'Comando sem título';
+  String get untitledRemote => 'Comando sem nome';
 
   @override
   String get createRemoteTitle => 'Criar comando';
@@ -1599,11 +1599,11 @@ class AppLocalizationsPt extends AppLocalizations {
   String get remoteName => 'Nome do comando';
 
   @override
-  String get remoteNameHint => 'p. ej., TV, aire acondicionado, tira LED';
+  String get remoteNameHint => 'Ex.: televisão ou ar condicionado';
 
   @override
   String get remoteNameHelper =>
-      'Este nome aparece en o seu lista de comandos.';
+      'Este nome aparecerá na sua lista de comandos.';
 
   @override
   String get layoutStyle => 'Estilo de diseño';
@@ -4575,10 +4575,10 @@ class AppLocalizationsPt extends AppLocalizations {
 
   @override
   String get remoteSetupIntro =>
-      'Escolha primeiro um nome e um layout. Depois você poderá adicionar botões.';
+      'Escolha um nome e uma disposição. Adicione os botões no passo seguinte.';
 
   @override
-  String get startWithDefault => 'Começar com o padrão';
+  String get startWithDefault => 'Nome predefinido';
 
   @override
   String get browseGithubStore => 'Explorar GitHub Store';
@@ -4591,7 +4591,7 @@ class AppLocalizationsPt extends AppLocalizations {
 
   @override
   String get unsavedRemoteSetupChangesMessage =>
-      'Descartar esta nova configuração do comando e sair deste ecrã?';
+      'Descartar a configuração deste novo comando? As alterações não serão guardadas.';
 
   @override
   String get unsavedRemoteStudioChangesMessage =>
@@ -6821,7 +6821,7 @@ class AppLocalizationsPtBr extends AppLocalizationsPt {
   String get run => 'Executar';
 
   @override
-  String get untitledRemote => 'controle sem título';
+  String get untitledRemote => 'Controle sem nome';
 
   @override
   String get createRemoteTitle => 'Criar controle';
@@ -6882,11 +6882,11 @@ class AppLocalizationsPtBr extends AppLocalizationsPt {
   String get remoteName => 'Nome do controle';
 
   @override
-  String get remoteNameHint => 'p. ej., TV, aire acondicionado, tira LED';
+  String get remoteNameHint => 'Ex.: TV ou ar-condicionado';
 
   @override
   String get remoteNameHelper =>
-      'Este nome aparece en o seu lista de controles.';
+      'Este nome aparecerá na sua lista de controles.';
 
   @override
   String get layoutStyle => 'Estilo de diseño';
@@ -9857,10 +9857,10 @@ class AppLocalizationsPtBr extends AppLocalizationsPt {
 
   @override
   String get remoteSetupIntro =>
-      'Escolha primeiro um nome e um layout. Depois você poderá adicionar botões.';
+      'Escolha um nome e um layout. Adicione os botões na próxima etapa.';
 
   @override
-  String get startWithDefault => 'Começar com o padrão';
+  String get startWithDefault => 'Usar nome padrão';
 
   @override
   String get browseGithubStore => 'Explorar GitHub Store';
@@ -9873,7 +9873,7 @@ class AppLocalizationsPtBr extends AppLocalizationsPt {
 
   @override
   String get unsavedRemoteSetupChangesMessage =>
-      'Descartar esta nova configuração do controle e sair desta tela?';
+      'Descartar a configuração deste novo controle? As alterações não serão salvas.';
 
   @override
   String get unsavedRemoteStudioChangesMessage =>

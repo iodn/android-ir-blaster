@@ -1520,10 +1520,10 @@ class AppLocalizationsHi extends AppLocalizations {
   String get run => 'चलाएं';
 
   @override
-  String get untitledRemote => 'बिना शीर्षक का रिमोट';
+  String get untitledRemote => 'बिना नाम का रिमोट';
 
   @override
-  String get createRemoteTitle => 'बनाएं रिमोट';
+  String get createRemoteTitle => 'रिमोट बनाएँ';
 
   @override
   String get editRemoteTitle => 'रिमोट संपादित करें';
@@ -1577,13 +1577,13 @@ class AppLocalizationsHi extends AppLocalizations {
   String get saveRemote => 'सहेजें रिमोट';
 
   @override
-  String get remoteName => 'रिमोट नाम';
+  String get remoteName => 'रिमोट का नाम';
 
   @override
-  String get remoteNameHint => 'उदा. TV, Air Conditioner, LED Strip';
+  String get remoteNameHint => 'जैसे टीवी या एसी';
 
   @override
-  String get remoteNameHelper => 'यह नाम appears में आपकी रिमोट सूची.';
+  String get remoteNameHelper => 'यह नाम आपकी रिमोट सूची में दिखेगा।';
 
   @override
   String get layoutStyle => 'लेआउट शैली';
@@ -4538,10 +4538,10 @@ class AppLocalizationsHi extends AppLocalizations {
 
   @override
   String get remoteSetupIntro =>
-      'पहले नाम और लेआउट चुनें। उसके बाद आप बटन जोड़ सकते हैं।';
+      'रिमोट का नाम और लेआउट चुनें। अगले चरण में बटन जोड़ें।';
 
   @override
-  String get startWithDefault => 'डिफ़ॉल्ट से शुरू करें';
+  String get startWithDefault => 'डिफ़ॉल्ट नाम रखें';
 
   @override
   String get browseGithubStore => 'GitHub स्टोर देखें';
@@ -4554,7 +4554,7 @@ class AppLocalizationsHi extends AppLocalizations {
 
   @override
   String get unsavedRemoteSetupChangesMessage =>
-      'क्या इस नए रिमोट सेटअप को छोड़कर इस स्क्रीन से बाहर निकलना है?';
+      'नए रिमोट का सेटअप रद्द करें? आपके बदलाव सेव नहीं होंगे।';
 
   @override
   String get unsavedRemoteStudioChangesMessage =>

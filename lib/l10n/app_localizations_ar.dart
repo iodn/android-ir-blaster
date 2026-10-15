@@ -1504,7 +1504,7 @@ class AppLocalizationsAr extends AppLocalizations {
   String get run => 'تشغيل';
 
   @override
-  String get untitledRemote => 'Untitled جهاز التحكم';
+  String get untitledRemote => 'جهاز تحكم بلا اسم';
 
   @override
   String get createRemoteTitle => 'إنشاء جهاز تحكم';
@@ -1559,13 +1559,13 @@ class AppLocalizationsAr extends AppLocalizations {
   String get saveRemote => 'حفظ جهاز التحكم';
 
   @override
-  String get remoteName => 'جهاز التحكم name';
+  String get remoteName => 'اسم جهاز التحكم';
 
   @override
-  String get remoteNameHint => 'e.g., TV, Air Conditioner, LED Strip';
+  String get remoteNameHint => 'مثلاً: التلفاز أو المكيّف';
 
   @override
-  String get remoteNameHelper => 'سيظهر هذا الاسم في قائمة أجهزة التحكم لديك.';
+  String get remoteNameHelper => 'سيظهر هذا الاسم في قائمة أجهزة التحكم.';
 
   @override
   String get layoutStyle => 'Layout style';
@@ -4516,10 +4516,10 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String get remoteSetupIntro =>
-      'اختر الاسم والتخطيط أولاً. يمكنك إضافة الأزرار بعد ذلك.';
+      'اختر اسمًا لجهاز التحكم وتخطيطًا للأزرار، ثم أضف الأزرار في الخطوة التالية.';
 
   @override
-  String get startWithDefault => 'ابدأ بالإعدادات الافتراضية';
+  String get startWithDefault => 'استخدام الاسم الافتراضي';
 
   @override
   String get browseGithubStore => 'تصفح متجر GitHub';
@@ -4532,7 +4532,7 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String get unsavedRemoteSetupChangesMessage =>
-      'هل تريد تجاهل إعداد هذا الريموت الجديد ومغادرة هذه الشاشة؟';
+      'هل تريد تجاهل إعداد جهاز التحكم الجديد؟ لن تُحفظ تغييراتك.';
 
   @override
   String get unsavedRemoteStudioChangesMessage =>
@@ -6720,10 +6720,10 @@ class AppLocalizationsArEg extends AppLocalizationsAr {
   String get run => 'تشغيل';
 
   @override
-  String get untitledRemote => 'Untitled جهاز التحكم';
+  String get untitledRemote => 'ريموت من غير اسم';
 
   @override
-  String get createRemoteTitle => 'إنشاء جهاز تحكم';
+  String get createRemoteTitle => 'إنشاء ريموت';
 
   @override
   String get editRemoteTitle => 'تعديل جهاز التحكم';
@@ -6775,13 +6775,13 @@ class AppLocalizationsArEg extends AppLocalizationsAr {
   String get saveRemote => 'حفظ جهاز التحكم';
 
   @override
-  String get remoteName => 'جهاز التحكم name';
+  String get remoteName => 'اسم الريموت';
 
   @override
-  String get remoteNameHint => 'e.g., TV, Air Conditioner, LED Strip';
+  String get remoteNameHint => 'مثلاً: التلفزيون أو التكييف';
 
   @override
-  String get remoteNameHelper => 'سيظهر هذا الاسم في قائمة أجهزة التحكم لديك.';
+  String get remoteNameHelper => 'الاسم ده هيظهر في قائمة الريموتات.';
 
   @override
   String get layoutStyle => 'Layout style';
@@ -9731,10 +9731,10 @@ class AppLocalizationsArEg extends AppLocalizationsAr {
 
   @override
   String get remoteSetupIntro =>
-      'اختر الاسم والتخطيط أولاً. يمكنك إضافة الأزرار بعد ذلك.';
+      'اختار اسم للريموت وشكل ترتيب الأزرار، وبعدها ضيف الأزرار.';
 
   @override
-  String get startWithDefault => 'ابدأ بالإعدادات الافتراضية';
+  String get startWithDefault => 'استخدم الاسم الافتراضي';
 
   @override
   String get browseGithubStore => 'تصفح متجر GitHub';
@@ -9747,7 +9747,7 @@ class AppLocalizationsArEg extends AppLocalizationsAr {
 
   @override
   String get unsavedRemoteSetupChangesMessage =>
-      'هل تريد تجاهل إعداد هذا الريموت الجديد ومغادرة هذه الشاشة؟';
+      'تلغي إعداد الريموت الجديد؟ التغييرات مش هتتحفظ.';
 
   @override
   String get unsavedRemoteStudioChangesMessage =>

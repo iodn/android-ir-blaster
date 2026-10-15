@@ -1469,7 +1469,7 @@ class AppLocalizationsZh extends AppLocalizations {
   String get remoteName => '遥控器名称';
 
   @override
-  String get remoteNameHint => '例如 电视 空调 LED 灯带';
+  String get remoteNameHint => '例如：电视、空调';
 
   @override
   String get remoteNameHelper => '此名称会显示在遥控器列表中。';
@@ -4363,10 +4363,10 @@ class AppLocalizationsZh extends AppLocalizations {
   String get learningModeSaveFailed => '无法保存按键。';
 
   @override
-  String get remoteSetupIntro => '先选择名称和布局，之后可以再添加按钮。';
+  String get remoteSetupIntro => '为遥控器命名并选择布局，下一步再添加按钮。';
 
   @override
-  String get startWithDefault => '使用默认设置开始';
+  String get startWithDefault => '使用默认名称';
 
   @override
   String get browseGithubStore => '浏览 GitHub 商店';
@@ -4378,7 +4378,7 @@ class AppLocalizationsZh extends AppLocalizations {
   String get moreWaysToStart => '更多开始方式';
 
   @override
-  String get unsavedRemoteSetupChangesMessage => '要放弃这个新遥控器设置并离开此页面吗？';
+  String get unsavedRemoteSetupChangesMessage => '放弃设置新遥控器吗？更改将不会保存。';
 
   @override
   String get unsavedRemoteStudioChangesMessage => '要放弃遥控器更改并离开此页面吗？';

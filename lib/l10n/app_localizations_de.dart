@@ -1606,7 +1606,7 @@ class AppLocalizationsDe extends AppLocalizations {
   String get remoteName => 'Name der Fernbedienung';
 
   @override
-  String get remoteNameHint => 'z. B. TV, Klimaanlage, LED-Streifen';
+  String get remoteNameHint => 'z. B. Fernseher oder Klimaanlage';
 
   @override
   String get remoteNameHelper =>
@@ -4581,10 +4581,10 @@ class AppLocalizationsDe extends AppLocalizations {
 
   @override
   String get remoteSetupIntro =>
-      'Wählen Sie zuerst einen Namen und ein Layout. Danach können Sie Tasten hinzufügen.';
+      'Gib deiner Fernbedienung einen Namen und wähle ein Layout. Danach fügst du die Tasten hinzu.';
 
   @override
-  String get startWithDefault => 'Mit Standardwerten starten';
+  String get startWithDefault => 'Standardname';
 
   @override
   String get browseGithubStore => 'GitHub-Store durchsuchen';
@@ -4597,7 +4597,7 @@ class AppLocalizationsDe extends AppLocalizations {
 
   @override
   String get unsavedRemoteSetupChangesMessage =>
-      'Neue Fernbedienungs-Einrichtung verwerfen und diesen Bildschirm verlassen?';
+      'Einrichtung der neuen Fernbedienung verwerfen? Deine Änderungen werden nicht gespeichert.';
 
   @override
   String get unsavedRemoteStudioChangesMessage =>

@@ -1536,7 +1536,7 @@ class AppLocalizationsEs extends AppLocalizations {
   String get run => 'Ejecutar';
 
   @override
-  String get untitledRemote => 'Mando sin título';
+  String get untitledRemote => 'Mando sin nombre';
 
   @override
   String get createRemoteTitle => 'Crear mando';
@@ -1597,10 +1597,10 @@ class AppLocalizationsEs extends AppLocalizations {
   String get remoteName => 'Nombre del mando';
 
   @override
-  String get remoteNameHint => 'p. ej., TV, aire acondicionado, tira LED';
+  String get remoteNameHint => 'p. ej., televisor o aire acondicionado';
 
   @override
-  String get remoteNameHelper => 'Este nombre aparece en tu lista de mandos.';
+  String get remoteNameHelper => 'Este nombre aparecerá en tu lista de mandos.';
 
   @override
   String get layoutStyle => 'Estilo de diseño';
@@ -4569,10 +4569,10 @@ class AppLocalizationsEs extends AppLocalizations {
 
   @override
   String get remoteSetupIntro =>
-      'Elige primero un nombre y un diseño. Podrás añadir botones después.';
+      'Elige un nombre y un diseño para el mando. Después podrás añadir botones.';
 
   @override
-  String get startWithDefault => 'Empezar con los valores predeterminados';
+  String get startWithDefault => 'Nombre predeterminado';
 
   @override
   String get browseGithubStore => 'Explorar GitHub Store';
@@ -4585,7 +4585,7 @@ class AppLocalizationsEs extends AppLocalizations {
 
   @override
   String get unsavedRemoteSetupChangesMessage =>
-      '¿Descartar esta nueva configuración del mando y salir de esta pantalla?';
+      '¿Descartar la configuración del nuevo mando? No se guardarán los cambios.';
 
   @override
   String get unsavedRemoteStudioChangesMessage =>

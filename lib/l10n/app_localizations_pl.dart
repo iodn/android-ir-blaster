@@ -1628,10 +1628,10 @@ class AppLocalizationsPl extends AppLocalizations {
   String get remoteName => 'Nazwa pilota';
 
   @override
-  String get remoteNameHint => 'np. TV, klimatyzator, pasek LED';
+  String get remoteNameHint => 'np. telewizor lub klimatyzator';
 
   @override
-  String get remoteNameHelper => 'Ta nazwa pojawia się na liście Piloty.';
+  String get remoteNameHelper => 'Ta nazwa pojawi się na liście pilotów.';
 
   @override
   String get layoutStyle => 'Układ';
@@ -2369,7 +2369,7 @@ class AppLocalizationsPl extends AppLocalizations {
   String get startMacro => 'Uruchom makro';
 
   @override
-  String get continueAction => 'Kontynuuj';
+  String get continueAction => 'Dalej';
 
   @override
   String get unnamedRemote => 'Pilot bez nazwy';
@@ -4634,10 +4634,10 @@ class AppLocalizationsPl extends AppLocalizations {
 
   @override
   String get remoteSetupIntro =>
-      'Najpierw wybierz nazwę i układ. Przyciski możesz dodać później.';
+      'Nadaj pilotowi nazwę i wybierz układ. Przyciski dodasz w następnym kroku.';
 
   @override
-  String get startWithDefault => 'Zacznij od domyślnych ustawień';
+  String get startWithDefault => 'Domyślna nazwa';
 
   @override
   String get browseGithubStore => 'Przeglądaj GitHub Store';
@@ -4650,7 +4650,7 @@ class AppLocalizationsPl extends AppLocalizations {
 
   @override
   String get unsavedRemoteSetupChangesMessage =>
-      'Odrzucić konfigurację nowego pilota i opuścić ten ekran?';
+      'Odrzucić konfigurację nowego pilota? Zmiany nie zostaną zapisane.';
 
   @override
   String get unsavedRemoteStudioChangesMessage =>

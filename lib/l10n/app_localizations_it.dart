@@ -1540,7 +1540,7 @@ class AppLocalizationsIt extends AppLocalizations {
   String get run => 'Esegui';
 
   @override
-  String get untitledRemote => 'Telecomando senza titolo';
+  String get untitledRemote => 'Telecomando senza nome';
 
   @override
   String get createRemoteTitle => 'Crea telecomando';
@@ -1599,13 +1599,14 @@ class AppLocalizationsIt extends AppLocalizations {
   String get saveRemote => 'Salva telecomando';
 
   @override
-  String get remoteName => 'Nome telecomando';
+  String get remoteName => 'Nome del telecomando';
 
   @override
-  String get remoteNameHint => 'es. TV, Climatizzatore, Striscia LED';
+  String get remoteNameHint => 'es. TV o climatizzatore';
 
   @override
-  String get remoteNameHelper => 'Questo nome appare nell\'elenco Telecomandi.';
+  String get remoteNameHelper =>
+      'Questo nome comparirà nell’elenco dei telecomandi.';
 
   @override
   String get layoutStyle => 'Stile layout';
@@ -4568,10 +4569,10 @@ class AppLocalizationsIt extends AppLocalizations {
 
   @override
   String get remoteSetupIntro =>
-      'Scegli prima un nome e un layout. Potrai aggiungere pulsanti dopo.';
+      'Scegli un nome e una disposizione. Aggiungi i pulsanti nel passaggio successivo.';
 
   @override
-  String get startWithDefault => 'Inizia con i valori predefiniti';
+  String get startWithDefault => 'Nome predefinito';
 
   @override
   String get browseGithubStore => 'Sfoglia GitHub Store';
@@ -4584,7 +4585,7 @@ class AppLocalizationsIt extends AppLocalizations {
 
   @override
   String get unsavedRemoteSetupChangesMessage =>
-      'Vuoi scartare questa nuova configurazione del telecomando e lasciare questa schermata?';
+      'Annullare la configurazione del nuovo telecomando? Le modifiche non verranno salvate.';
 
   @override
   String get unsavedRemoteStudioChangesMessage =>

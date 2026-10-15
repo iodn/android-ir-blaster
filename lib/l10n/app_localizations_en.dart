@@ -1529,7 +1529,7 @@ class AppLocalizationsEn extends AppLocalizations {
   String get run => 'Run';
 
   @override
-  String get untitledRemote => 'Untitled Remote';
+  String get untitledRemote => 'Unnamed remote';
 
   @override
   String get createRemoteTitle => 'Create remote';
@@ -1601,10 +1601,10 @@ class AppLocalizationsEn extends AppLocalizations {
   String get remoteName => 'Remote name';
 
   @override
-  String get remoteNameHint => 'e.g., TV, Air Conditioner, LED Strip';
+  String get remoteNameHint => 'e.g. TV or air conditioner';
 
   @override
-  String get remoteNameHelper => 'This name appears in your Remotes list.';
+  String get remoteNameHelper => 'This name appears in your remote list.';
 
   @override
   String get layoutStyle => 'Layout style';
@@ -4582,10 +4582,10 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get remoteSetupIntro =>
-      'Choose a name and layout first. You can add buttons after this.';
+      'Name your remote and choose a layout. Add buttons next.';
 
   @override
-  String get startWithDefault => 'Start with default';
+  String get startWithDefault => 'Use default name';
 
   @override
   String get browseGithubStore => 'Browse GitHub Store';
@@ -4598,7 +4598,7 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get unsavedRemoteSetupChangesMessage =>
-      'Discard this new remote setup and leave this screen?';
+      'Discard this new remote setup? Your changes will not be saved.';
 
   @override
   String get unsavedRemoteStudioChangesMessage =>

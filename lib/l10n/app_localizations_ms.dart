@@ -1523,10 +1523,10 @@ class AppLocalizationsMs extends AppLocalizations {
   String get run => 'Jalankan';
 
   @override
-  String get untitledRemote => 'Remote tanpa judul';
+  String get untitledRemote => 'Alat kawalan jauh tanpa nama';
 
   @override
-  String get createRemoteTitle => 'Buat remote';
+  String get createRemoteTitle => 'Cipta alat kawalan jauh';
 
   @override
   String get editRemoteTitle => 'Ubah remote';
@@ -1580,13 +1580,14 @@ class AppLocalizationsMs extends AppLocalizations {
   String get saveRemote => 'Simpan remote';
 
   @override
-  String get remoteName => 'Nama remote';
+  String get remoteName => 'Nama alat kawalan jauh';
 
   @override
-  String get remoteNameHint => 'cth. TV, Penghawa Dingin, Jalur LED';
+  String get remoteNameHint => 'cth. TV atau penyaman udara';
 
   @override
-  String get remoteNameHelper => 'Nama ini muncul di daftar Remote Anda.';
+  String get remoteNameHelper =>
+      'Nama ini akan dipaparkan dalam senarai alat kawalan jauh anda.';
 
   @override
   String get layoutStyle => 'Gaya tata letak';
@@ -2283,7 +2284,7 @@ class AppLocalizationsMs extends AppLocalizations {
   String get startMacro => 'Mula Makro';
 
   @override
-  String get continueAction => 'Lanjut';
+  String get continueAction => 'Teruskan';
 
   @override
   String get unnamedRemote => 'Remote tanpa nama';
@@ -4546,10 +4547,10 @@ class AppLocalizationsMs extends AppLocalizations {
 
   @override
   String get remoteSetupIntro =>
-      'Pilih nama dan susun atur dahulu. Anda boleh menambah butang selepas itu.';
+      'Namakan alat kawalan jauh dan pilih susun atur. Tambah butang pada langkah seterusnya.';
 
   @override
-  String get startWithDefault => 'Mulakan dengan lalai';
+  String get startWithDefault => 'Guna nama lalai';
 
   @override
   String get browseGithubStore => 'Semak GitHub Store';
@@ -4562,7 +4563,7 @@ class AppLocalizationsMs extends AppLocalizations {
 
   @override
   String get unsavedRemoteSetupChangesMessage =>
-      'Buang persediaan alat kawalan jauh baharu ini dan tinggalkan skrin ini?';
+      'Batalkan persediaan alat kawalan jauh baharu ini? Perubahan tidak akan disimpan.';
 
   @override
   String get unsavedRemoteStudioChangesMessage =>

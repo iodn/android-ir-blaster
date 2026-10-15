@@ -1523,10 +1523,10 @@ class AppLocalizationsTr extends AppLocalizations {
   String get run => 'Çalıştır';
 
   @override
-  String get untitledRemote => 'Untitled Kumanda';
+  String get untitledRemote => 'Adsız kumanda';
 
   @override
-  String get createRemoteTitle => 'Create kumanda';
+  String get createRemoteTitle => 'Kumanda oluştur';
 
   @override
   String get editRemoteTitle => 'Düzenle kumanda';
@@ -1580,13 +1580,13 @@ class AppLocalizationsTr extends AppLocalizations {
   String get saveRemote => 'Kaydet kumanda';
 
   @override
-  String get remoteName => 'Kumanda name';
+  String get remoteName => 'Kumanda adı';
 
   @override
-  String get remoteNameHint => 'e.g., TV, Air Conditioner, LED Strip';
+  String get remoteNameHint => 'Örn. TV veya klima';
 
   @override
-  String get remoteNameHelper => 'Bu ad Kumandalar listenizde görünür.';
+  String get remoteNameHelper => 'Bu ad kumanda listenizde görünür.';
 
   @override
   String get layoutStyle => 'Düzen stili';
@@ -4542,10 +4542,10 @@ class AppLocalizationsTr extends AppLocalizations {
 
   @override
   String get remoteSetupIntro =>
-      'Önce bir ad ve düzen seçin. Düğmeleri daha sonra ekleyebilirsiniz.';
+      'Kumandanıza bir ad verin ve düzen seçin. Sonraki adımda düğmeleri ekleyin.';
 
   @override
-  String get startWithDefault => 'Varsayılanla başla';
+  String get startWithDefault => 'Varsayılan adı kullan';
 
   @override
   String get browseGithubStore => 'GitHub Store\'u aç';
@@ -4558,7 +4558,7 @@ class AppLocalizationsTr extends AppLocalizations {
 
   @override
   String get unsavedRemoteSetupChangesMessage =>
-      'Bu yeni kumanda kurulumunu silip bu ekrandan çıkmak istiyor musunuz?';
+      'Yeni kumanda kurulumu iptal edilsin mi? Değişiklikler kaydedilmeyecek.';
 
   @override
   String get unsavedRemoteStudioChangesMessage =>

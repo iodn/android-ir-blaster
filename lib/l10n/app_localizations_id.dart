@@ -1524,7 +1524,7 @@ class AppLocalizationsId extends AppLocalizations {
   String get run => 'Jalankan';
 
   @override
-  String get untitledRemote => 'Remote tanpa judul';
+  String get untitledRemote => 'Remote tanpa nama';
 
   @override
   String get createRemoteTitle => 'Buat remote';
@@ -1584,10 +1584,10 @@ class AppLocalizationsId extends AppLocalizations {
   String get remoteName => 'Nama remote';
 
   @override
-  String get remoteNameHint => 'mis. TV, AC, Strip LED';
+  String get remoteNameHint => 'mis. TV atau AC';
 
   @override
-  String get remoteNameHelper => 'Nama ini muncul di daftar Remote Anda.';
+  String get remoteNameHelper => 'Nama ini akan muncul di daftar remote Anda.';
 
   @override
   String get layoutStyle => 'Gaya tata letak';
@@ -4545,10 +4545,10 @@ class AppLocalizationsId extends AppLocalizations {
 
   @override
   String get remoteSetupIntro =>
-      'Pilih nama dan tata letak terlebih dahulu. Setelah itu Anda dapat menambahkan tombol.';
+      'Beri nama remote dan pilih tata letaknya. Tambahkan tombol pada langkah berikutnya.';
 
   @override
-  String get startWithDefault => 'Mulai dengan default';
+  String get startWithDefault => 'Gunakan nama bawaan';
 
   @override
   String get browseGithubStore => 'Telusuri GitHub Store';
@@ -4561,7 +4561,7 @@ class AppLocalizationsId extends AppLocalizations {
 
   @override
   String get unsavedRemoteSetupChangesMessage =>
-      'Buang pengaturan remote baru ini dan tinggalkan layar ini?';
+      'Batalkan pengaturan remote baru ini? Perubahan tidak akan disimpan.';
 
   @override
   String get unsavedRemoteStudioChangesMessage =>

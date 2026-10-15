@@ -1535,10 +1535,10 @@ class AppLocalizationsFil extends AppLocalizations {
   String get run => 'Run';
 
   @override
-  String get untitledRemote => 'Remote na walang pamagat';
+  String get untitledRemote => 'Remote na walang pangalan';
 
   @override
-  String get createRemoteTitle => 'Create remote';
+  String get createRemoteTitle => 'Gumawa ng remote';
 
   @override
   String get editRemoteTitle => 'I-edit remote';
@@ -1592,13 +1592,14 @@ class AppLocalizationsFil extends AppLocalizations {
   String get saveRemote => 'I-save ang remote';
 
   @override
-  String get remoteName => 'Remote pangalan';
+  String get remoteName => 'Pangalan ng remote';
 
   @override
-  String get remoteNameHint => 'e.g., TV, Air Conditioner, LED Strip';
+  String get remoteNameHint => 'Hal. TV o aircon';
 
   @override
-  String get remoteNameHelper => 'Ang pangalan appears in iyong Remotes list.';
+  String get remoteNameHelper =>
+      'Makikita ang pangalang ito sa listahan ng mga remote.';
 
   @override
   String get layoutStyle => 'Layout style';
@@ -2298,7 +2299,7 @@ class AppLocalizationsFil extends AppLocalizations {
   String get startMacro => 'Start Macro';
 
   @override
-  String get continueAction => 'Continue';
+  String get continueAction => 'Magpatuloy';
 
   @override
   String get unnamedRemote => 'Remote na walang pangalan';
@@ -4554,10 +4555,10 @@ class AppLocalizationsFil extends AppLocalizations {
 
   @override
   String get remoteSetupIntro =>
-      'Pumili muna ng pangalan at layout. Maaari kang magdagdag ng mga button pagkatapos.';
+      'Pangalanan ang remote at pumili ng layout. Idagdag ang mga button sa susunod na hakbang.';
 
   @override
-  String get startWithDefault => 'Magsimula sa default';
+  String get startWithDefault => 'Gamitin ang default na pangalan';
 
   @override
   String get browseGithubStore => 'Buksan ang GitHub Store';
@@ -4570,7 +4571,7 @@ class AppLocalizationsFil extends AppLocalizations {
 
   @override
   String get unsavedRemoteSetupChangesMessage =>
-      'Itapon ang bagong setup ng remote na ito at umalis sa screen na ito?';
+      'Kanselahin ang pag-set up ng bagong remote? Hindi mase-save ang mga pagbabago.';
 
   @override
   String get unsavedRemoteStudioChangesMessage =>

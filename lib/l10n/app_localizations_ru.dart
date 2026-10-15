@@ -1580,13 +1580,14 @@ class AppLocalizationsRu extends AppLocalizations {
   String get saveRemote => 'Сохранить пульт';
 
   @override
-  String get remoteName => 'Имя пульта';
+  String get remoteName => 'Название пульта';
 
   @override
-  String get remoteNameHint => 'напр., TV, кондиционер, LED лента';
+  String get remoteNameHint => 'Например, телевизор или кондиционер';
 
   @override
-  String get remoteNameHelper => 'Это имя отображается в списке пультов.';
+  String get remoteNameHelper =>
+      'Это название будет показано в списке пультов.';
 
   @override
   String get layoutStyle => 'Стиль раскладки';
@@ -4544,10 +4545,10 @@ class AppLocalizationsRu extends AppLocalizations {
 
   @override
   String get remoteSetupIntro =>
-      'Сначала выберите имя и макет. Кнопки можно добавить позже.';
+      'Назовите пульт и выберите расположение кнопок. На следующем шаге можно добавить кнопки.';
 
   @override
-  String get startWithDefault => 'Начать с настроек по умолчанию';
+  String get startWithDefault => 'Стандартное название';
 
   @override
   String get browseGithubStore => 'Открыть GitHub Store';
@@ -4560,7 +4561,7 @@ class AppLocalizationsRu extends AppLocalizations {
 
   @override
   String get unsavedRemoteSetupChangesMessage =>
-      'Отменить настройку нового пульта и выйти с этого экрана?';
+      'Отменить настройку нового пульта? Изменения не будут сохранены.';
 
   @override
   String get unsavedRemoteStudioChangesMessage =>

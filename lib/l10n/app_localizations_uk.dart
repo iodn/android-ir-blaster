@@ -1632,8 +1632,7 @@ class AppLocalizationsUk extends AppLocalizations {
   String get remoteName => 'Назва пульта';
 
   @override
-  String get remoteNameHint =>
-      'наприклад, телевізор, кондиціонер, світлодіодна стрічка';
+  String get remoteNameHint => 'Наприклад, телевізор або кондиціонер';
 
   @override
   String get remoteNameHelper => 'Ця назва відображатиметься у списку пультів.';
@@ -4648,10 +4647,10 @@ class AppLocalizationsUk extends AppLocalizations {
 
   @override
   String get remoteSetupIntro =>
-      'Спочатку виберіть назву та макет. Після цього ви можете додати кнопки.';
+      'Назвіть пульт і виберіть розташування кнопок. На наступному кроці додайте кнопки.';
 
   @override
-  String get startWithDefault => 'Почніть із замовчуванням';
+  String get startWithDefault => 'Стандартна назва';
 
   @override
   String get browseGithubStore => 'Перегляньте GitHub Store';
@@ -4664,7 +4663,7 @@ class AppLocalizationsUk extends AppLocalizations {
 
   @override
   String get unsavedRemoteSetupChangesMessage =>
-      'Відмінити це нове налаштування пульта та залишити цей екран?';
+      'Скасувати налаштування нового пульта? Зміни не буде збережено.';
 
   @override
   String get unsavedRemoteStudioChangesMessage =>

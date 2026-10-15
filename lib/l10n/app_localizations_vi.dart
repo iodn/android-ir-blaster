@@ -1511,7 +1511,7 @@ class AppLocalizationsVi extends AppLocalizations {
   String get run => 'Chạy';
 
   @override
-  String get untitledRemote => 'Điều khiển chưa tên';
+  String get untitledRemote => 'Điều khiển chưa đặt tên';
 
   @override
   String get createRemoteTitle => 'Tạo điều khiển';
@@ -1570,11 +1570,11 @@ class AppLocalizationsVi extends AppLocalizations {
   String get remoteName => 'Tên điều khiển';
 
   @override
-  String get remoteNameHint => 'vd. TV, Air Conditioner, LED Strip';
+  String get remoteNameHint => 'Ví dụ: TV hoặc máy lạnh';
 
   @override
   String get remoteNameHelper =>
-      'Tên này sẽ hiện trong danh sách Điều khiển của bạn.';
+      'Tên này sẽ xuất hiện trong danh sách điều khiển.';
 
   @override
   String get layoutStyle => 'Kiểu bố cục';
@@ -4530,10 +4530,10 @@ class AppLocalizationsVi extends AppLocalizations {
 
   @override
   String get remoteSetupIntro =>
-      'Hãy chọn tên và bố cục trước. Bạn có thể thêm nút sau.';
+      'Đặt tên và chọn bố cục cho điều khiển. Thêm các nút ở bước tiếp theo.';
 
   @override
-  String get startWithDefault => 'Bắt đầu với mặc định';
+  String get startWithDefault => 'Dùng tên mặc định';
 
   @override
   String get browseGithubStore => 'Mở GitHub Store';
@@ -4546,7 +4546,7 @@ class AppLocalizationsVi extends AppLocalizations {
 
   @override
   String get unsavedRemoteSetupChangesMessage =>
-      'Hủy thiết lập điều khiển mới này và rời khỏi màn hình?';
+      'Hủy thiết lập điều khiển mới này? Các thay đổi sẽ không được lưu.';
 
   @override
   String get unsavedRemoteStudioChangesMessage =>

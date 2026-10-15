@@ -152,7 +152,7 @@ class _RemoteSetupScreenState extends State<RemoteSetupScreen> {
                     decoration: InputDecoration(
                       labelText: l10n.remoteName,
                       hintText: l10n.remoteNameHint,
-                      helperText: l10n.remoteNameHelper,
+                      helper: Text(l10n.remoteNameHelper),
                       suffixIcon: _nameController.text.trim().isEmpty
                           ? null
                           : IconButton(

@@ -1562,10 +1562,10 @@ class AppLocalizationsTh extends AppLocalizations {
   String get saveRemote => 'บันทึกรีโมต';
 
   @override
-  String get remoteName => 'รีโมต name';
+  String get remoteName => 'ชื่อรีโมต';
 
   @override
-  String get remoteNameHint => 'e.g., TV, Air Conditioner, LED Strip';
+  String get remoteNameHint => 'เช่น ทีวีหรือเครื่องปรับอากาศ';
 
   @override
   String get remoteNameHelper => 'ชื่อนี้จะแสดงในรายการรีโมตของคุณ';
@@ -2263,7 +2263,7 @@ class AppLocalizationsTh extends AppLocalizations {
   String get startMacro => 'เริ่ม แมโคร';
 
   @override
-  String get continueAction => 'ทำต่อ';
+  String get continueAction => 'ดำเนินการต่อ';
 
   @override
   String get unnamedRemote => 'รีโมตไม่มีชื่อ';
@@ -4518,10 +4518,10 @@ class AppLocalizationsTh extends AppLocalizations {
 
   @override
   String get remoteSetupIntro =>
-      'เลือกชื่อและเลย์เอาต์ก่อน แล้วค่อยเพิ่มปุ่มภายหลัง';
+      'ตั้งชื่อรีโมตและเลือกรูปแบบการจัดวาง แล้วเพิ่มปุ่มในขั้นตอนถัดไป';
 
   @override
-  String get startWithDefault => 'เริ่มด้วยค่าเริ่มต้น';
+  String get startWithDefault => 'ใช้ชื่อเริ่มต้น';
 
   @override
   String get browseGithubStore => 'เปิด GitHub Store';
@@ -4534,7 +4534,7 @@ class AppLocalizationsTh extends AppLocalizations {
 
   @override
   String get unsavedRemoteSetupChangesMessage =>
-      'ละทิ้งการตั้งค่ารีโมตใหม่นี้และออกจากหน้านี้หรือไม่?';
+      'ยกเลิกการตั้งค่ารีโมตใหม่นี้หรือไม่? การเปลี่ยนแปลงจะไม่ถูกบันทึก';
 
   @override
   String get unsavedRemoteStudioChangesMessage =>

@@ -1536,7 +1536,7 @@ class AppLocalizationsFr extends AppLocalizations {
   String get run => 'Lancer';
 
   @override
-  String get untitledRemote => 'Télécommande sans titre';
+  String get untitledRemote => 'Télécommande sans nom';
 
   @override
   String get createRemoteTitle => 'Créer une télécommande';
@@ -1597,11 +1597,11 @@ class AppLocalizationsFr extends AppLocalizations {
   String get remoteName => 'Nom de la télécommande';
 
   @override
-  String get remoteNameHint => 'ex. TV, Clim, Ruban LED';
+  String get remoteNameHint => 'Ex. : téléviseur ou climatisation';
 
   @override
   String get remoteNameHelper =>
-      'Ce nom apparaît dans votre liste de télécommandes.';
+      'Ce nom apparaîtra dans votre liste de télécommandes.';
 
   @override
   String get layoutStyle => 'Style de disposition';
@@ -4582,10 +4582,10 @@ class AppLocalizationsFr extends AppLocalizations {
 
   @override
   String get remoteSetupIntro =>
-      'Choisissez d\'abord un nom et une disposition. Vous pourrez ajouter des boutons ensuite.';
+      'Choisissez un nom et une disposition. Vous ajouterez les boutons à l’étape suivante.';
 
   @override
-  String get startWithDefault => 'Commencer avec les valeurs par défaut';
+  String get startWithDefault => 'Nom par défaut';
 
   @override
   String get browseGithubStore => 'Parcourir le store GitHub';
@@ -4598,7 +4598,7 @@ class AppLocalizationsFr extends AppLocalizations {
 
   @override
   String get unsavedRemoteSetupChangesMessage =>
-      'Abandonner cette nouvelle configuration de télécommande et quitter cet écran ?';
+      'Abandonner la configuration de cette nouvelle télécommande ? Vos modifications ne seront pas enregistrées.';
 
   @override
   String get unsavedRemoteStudioChangesMessage =>

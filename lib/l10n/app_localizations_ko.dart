@@ -1460,10 +1460,10 @@ class AppLocalizationsKo extends AppLocalizations {
   String get run => '실행';
 
   @override
-  String get untitledRemote => '제목 없는 리모컨';
+  String get untitledRemote => '이름 없는 리모컨';
 
   @override
-  String get createRemoteTitle => '생성 리모컨';
+  String get createRemoteTitle => '리모컨 만들기';
 
   @override
   String get editRemoteTitle => '리모컨 편집';
@@ -1517,10 +1517,10 @@ class AppLocalizationsKo extends AppLocalizations {
   String get remoteName => '리모컨 이름';
 
   @override
-  String get remoteNameHint => '예: TV, Air Conditioner, LED Strip';
+  String get remoteNameHint => '예: TV, 에어컨';
 
   @override
-  String get remoteNameHelper => '이 이름이 리모컨 목록에 표시됩니다.';
+  String get remoteNameHelper => '리모컨 목록에 표시할 이름입니다.';
 
   @override
   String get layoutStyle => '레이아웃 스타일';
@@ -4437,10 +4437,10 @@ class AppLocalizationsKo extends AppLocalizations {
   String get learningModeSaveFailed => '버튼을 저장하지 못했습니다.';
 
   @override
-  String get remoteSetupIntro => '먼저 이름과 레이아웃을 선택하세요. 버튼은 나중에 추가할 수 있습니다.';
+  String get remoteSetupIntro => '리모컨 이름과 배치를 정하세요. 버튼은 다음 단계에서 추가할 수 있습니다.';
 
   @override
-  String get startWithDefault => '기본값으로 시작';
+  String get startWithDefault => '기본 이름 사용';
 
   @override
   String get browseGithubStore => 'GitHub 스토어 보기';
@@ -4452,7 +4452,8 @@ class AppLocalizationsKo extends AppLocalizations {
   String get moreWaysToStart => '다른 시작 방법';
 
   @override
-  String get unsavedRemoteSetupChangesMessage => '새 리모컨 설정을 버리고 이 화면을 나가시겠습니까?';
+  String get unsavedRemoteSetupChangesMessage =>
+      '새 리모컨 설정을 취소할까요? 변경 사항은 저장되지 않습니다.';
 
   @override
   String get unsavedRemoteStudioChangesMessage =>
