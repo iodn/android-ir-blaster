@@ -5283,4 +5283,23 @@ class AppLocalizationsVi extends AppLocalizations {
 
   @override
   String get githubImportIntoRemote => 'Thêm nút vào điều khiển đã lưu';
+
+  @override
+  String get githubImportReady => 'Sẵn sàng nhập';
+
+  @override
+  String get githubImportUnavailable => 'Không thể nhập';
+
+  @override
+  String githubImportPreviewCounts(int remoteCount, int buttonCount) {
+    return 'Điều khiển: $remoteCount, nút: $buttonCount.';
+  }
+
+  @override
+  String githubImportMoreRemotes(int count) {
+    return 'Điều khiển khác: $count';
+  }
+
+  @override
+  String get githubImportFileIssues => 'Vấn đề trong tệp';
 }

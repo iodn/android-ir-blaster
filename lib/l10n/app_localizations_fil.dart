@@ -5319,4 +5319,23 @@ class AppLocalizationsFil extends AppLocalizations {
   @override
   String get githubImportIntoRemote =>
       'Idagdag ang mga button sa naka-save na remote';
+
+  @override
+  String get githubImportReady => 'Handa nang i-import';
+
+  @override
+  String get githubImportUnavailable => 'Hindi ma-import';
+
+  @override
+  String githubImportPreviewCounts(int remoteCount, int buttonCount) {
+    return 'Mga remote: $remoteCount, mga button: $buttonCount.';
+  }
+
+  @override
+  String githubImportMoreRemotes(int count) {
+    return 'Iba pang remote: $count';
+  }
+
+  @override
+  String get githubImportFileIssues => 'Mga problema sa file';
 }

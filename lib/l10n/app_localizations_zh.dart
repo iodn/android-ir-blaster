@@ -5061,4 +5061,23 @@ class AppLocalizationsZh extends AppLocalizations {
 
   @override
   String get githubImportIntoRemote => '将按钮添加到已保存的遥控器';
+
+  @override
+  String get githubImportReady => '可以导入';
+
+  @override
+  String get githubImportUnavailable => '无法导入';
+
+  @override
+  String githubImportPreviewCounts(int remoteCount, int buttonCount) {
+    return '$remoteCount 个遥控器，$buttonCount 个按钮。';
+  }
+
+  @override
+  String githubImportMoreRemotes(int count) {
+    return '另有 $count 个遥控器';
+  }
+
+  @override
+  String get githubImportFileIssues => '文件问题';
 }

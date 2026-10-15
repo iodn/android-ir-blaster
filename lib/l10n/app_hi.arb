@@ -2440,5 +2440,10 @@
   "githubUnwrapLines": "पंक्तियों का रैप बंद करें",
   "githubImportNewRemote": "नए रिमोट के रूप में इंपोर्ट करें",
   "githubImportNewRemotes": "नए रिमोटों के रूप में इंपोर्ट करें",
-  "githubImportIntoRemote": "सहेजे गए रिमोट में बटन जोड़ें"
+  "githubImportIntoRemote": "सहेजे गए रिमोट में बटन जोड़ें",
+  "githubImportReady": "इंपोर्ट के लिए तैयार",
+  "githubImportUnavailable": "इंपोर्ट नहीं हो सकता",
+  "githubImportPreviewCounts": "रिमोट: {remoteCount}, बटन: {buttonCount}।",
+  "githubImportMoreRemotes": "अन्य रिमोट: {count}",
+  "githubImportFileIssues": "फ़ाइल की समस्याएँ"
 }

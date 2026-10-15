@@ -1122,8 +1122,8 @@ class _GitHubFileImportScreenState extends State<_GitHubFileImportScreen> {
                             ),
                             child: Text(
                               preview.isSupported
-                                  ? 'Compatible'
-                                  : 'Not compatible',
+                                  ? context.l10n.githubImportReady
+                                  : context.l10n.githubImportUnavailable,
                               style: theme.textTheme.labelMedium?.copyWith(
                                 fontWeight: FontWeight.w700,
                                 color: preview.isSupported
@@ -1149,7 +1149,10 @@ class _GitHubFileImportScreenState extends State<_GitHubFileImportScreen> {
                       ),
                       const SizedBox(height: 12),
                       Text(
-                        'Parsed ${preview.remotes.length} remote${preview.remotes.length == 1 ? '' : 's'} and ${preview.totalButtons} button${preview.totalButtons == 1 ? '' : 's'}.',
+                        context.l10n.githubImportPreviewCounts(
+                          preview.remotes.length,
+                          preview.totalButtons,
+                        ),
                         style: theme.textTheme.bodyMedium?.copyWith(
                           color: theme.colorScheme.onSurfaceVariant,
                         ),
@@ -1176,7 +1179,9 @@ class _GitHubFileImportScreenState extends State<_GitHubFileImportScreen> {
                         ),
                       if (preview.remotes.length > 8)
                         Text(
-                          '+${preview.remotes.length - 8} more',
+                          context.l10n.githubImportMoreRemotes(
+                            preview.remotes.length - 8,
+                          ),
                           style: theme.textTheme.bodySmall?.copyWith(
                             color: theme.colorScheme.onSurfaceVariant,
                           ),
@@ -1184,7 +1189,7 @@ class _GitHubFileImportScreenState extends State<_GitHubFileImportScreen> {
                       if (preview.issues.isNotEmpty) ...[
                         const SizedBox(height: 12),
                         Text(
-                          'Validation',
+                          context.l10n.githubImportFileIssues,
                           style: theme.textTheme.labelLarge,
                         ),
                         const SizedBox(height: 6),

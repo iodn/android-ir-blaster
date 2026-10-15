@@ -5386,6 +5386,25 @@ class AppLocalizationsPt extends AppLocalizations {
 
   @override
   String get githubImportIntoRemote => 'Adicionar botões a um comando guardado';
+
+  @override
+  String get githubImportReady => 'Pronto para importar';
+
+  @override
+  String get githubImportUnavailable => 'Não é possível importar';
+
+  @override
+  String githubImportPreviewCounts(int remoteCount, int buttonCount) {
+    return 'Comandos: $remoteCount, botões: $buttonCount.';
+  }
+
+  @override
+  String githubImportMoreRemotes(int count) {
+    return 'Outros comandos: $count';
+  }
+
+  @override
+  String get githubImportFileIssues => 'Problemas no ficheiro';
 }
 
 /// The translations for Portuguese, as used in Brazil (`pt_BR`).
@@ -10765,4 +10784,23 @@ class AppLocalizationsPtBr extends AppLocalizationsPt {
 
   @override
   String get githubImportIntoRemote => 'Adicionar botões a um controle salvo';
+
+  @override
+  String get githubImportReady => 'Pronto para importar';
+
+  @override
+  String get githubImportUnavailable => 'Não é possível importar';
+
+  @override
+  String githubImportPreviewCounts(int remoteCount, int buttonCount) {
+    return 'Controles: $remoteCount, botões: $buttonCount.';
+  }
+
+  @override
+  String githubImportMoreRemotes(int count) {
+    return 'Outros controles: $count';
+  }
+
+  @override
+  String get githubImportFileIssues => 'Problemas no arquivo';
 }

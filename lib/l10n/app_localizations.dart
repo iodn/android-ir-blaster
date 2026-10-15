@@ -9553,6 +9553,36 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Add buttons to saved remote'**
   String get githubImportIntoRemote;
+
+  /// No description provided for @githubImportReady.
+  ///
+  /// In en, this message translates to:
+  /// **'Ready to import'**
+  String get githubImportReady;
+
+  /// No description provided for @githubImportUnavailable.
+  ///
+  /// In en, this message translates to:
+  /// **'Cannot import'**
+  String get githubImportUnavailable;
+
+  /// No description provided for @githubImportPreviewCounts.
+  ///
+  /// In en, this message translates to:
+  /// **'Remotes: {remoteCount}, buttons: {buttonCount}.'**
+  String githubImportPreviewCounts(int remoteCount, int buttonCount);
+
+  /// No description provided for @githubImportMoreRemotes.
+  ///
+  /// In en, this message translates to:
+  /// **'More remotes: {count}'**
+  String githubImportMoreRemotes(int count);
+
+  /// No description provided for @githubImportFileIssues.
+  ///
+  /// In en, this message translates to:
+  /// **'File issues'**
+  String get githubImportFileIssues;
 }
 
 class _AppLocalizationsDelegate

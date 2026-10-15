@@ -5428,4 +5428,23 @@ class AppLocalizationsPl extends AppLocalizations {
 
   @override
   String get githubImportIntoRemote => 'Dodaj przyciski do zapisanego pilota';
+
+  @override
+  String get githubImportReady => 'Gotowe do importu';
+
+  @override
+  String get githubImportUnavailable => 'Nie można zaimportować';
+
+  @override
+  String githubImportPreviewCounts(int remoteCount, int buttonCount) {
+    return 'Piloty: $remoteCount, przyciski: $buttonCount.';
+  }
+
+  @override
+  String githubImportMoreRemotes(int count) {
+    return 'Pozostałe piloty: $count';
+  }
+
+  @override
+  String get githubImportFileIssues => 'Problemy z plikiem';
 }

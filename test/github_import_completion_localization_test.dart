@@ -13,7 +13,7 @@ import 'package:shared_preferences/shared_preferences.dart';
 
 void main() {
   for (final locale in AppLocalizations.supportedLocales) {
-    for (final count in [1, 2]) {
+    for (final count in [0, 1, 2, 9]) {
       testWidgets('GitHub import completion $locale / $count remotes',
           (tester) async {
         final dir = Directory.systemTemp.createTempSync('github-completion-');
@@ -32,6 +32,8 @@ void main() {
           for (var i = 0; i < count; i++)
             Remote(id: i + 1, name: 'Imported $i', buttons: [
               IRButton(id: 'power-$i', image: 'Power', isImage: false, code: 1),
+              IRButton(
+                  id: 'volume-$i', image: 'Volume', isImage: false, code: 2),
             ]).toJson(),
         ]);
         String key(String prefix, String raw) =>
@@ -91,6 +93,25 @@ void main() {
         scale = 2;
         await tester.pumpWidget(app());
         await tester.pumpAndSettle();
+        for (final label in [
+          count == 0 ? l10n.githubImportUnavailable : l10n.githubImportReady,
+          l10n.githubImportPreviewCounts(count, count * 2),
+          if (count > 8) l10n.githubImportMoreRemotes(count - 8),
+          if (count == 0) l10n.githubImportFileIssues,
+        ]) {
+          final text = find.text(label);
+          await tester.scrollUntilVisible(text, 250,
+              scrollable: find.byType(Scrollable).first);
+          await tester.ensureVisible(text);
+          await tester.pumpAndSettle();
+          final paragraph = tester.renderObject<RenderParagraph>(text);
+          expect(paragraph.didExceedMaxLines, isFalse, reason: label);
+          expect(paragraph.getMaxIntrinsicHeight(paragraph.size.width),
+              lessThanOrEqualTo(paragraph.size.height + 0.1),
+              reason: label);
+          expect(tester.getRect(text).top, greaterThanOrEqualTo(0));
+          expect(tester.getRect(text).bottom, lessThanOrEqualTo(640));
+        }
         final previewTitle = find.text(l10n.githubFilePreview);
         await tester.scrollUntilVisible(previewTitle, 300,
             scrollable: find.byType(Scrollable).first);
@@ -145,6 +166,18 @@ void main() {
         }
         final save = find.widgetWithText(FilledButton, newRemoteLabel);
         await tester.ensureVisible(save);
+        if (count == 0) {
+          expect(tester.widget<FilledButton>(save).onPressed, isNull);
+          expect(
+              tester
+                  .widget<OutlinedButton>(find.widgetWithText(
+                      OutlinedButton, l10n.githubImportIntoRemote))
+                  .onPressed,
+              isNull);
+          expect(state.remotes, hasLength(1));
+          await tester.pumpWidget(const SizedBox());
+          return;
+        }
         await tester.runAsync(() async {
           tester.widget<FilledButton>(save).onPressed!();
         });

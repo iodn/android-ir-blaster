@@ -2440,5 +2440,10 @@
   "githubUnwrapLines": "자동 줄바꿈 끄기",
   "githubImportNewRemote": "새 리모컨으로 가져오기",
   "githubImportNewRemotes": "새 리모컨으로 가져오기",
-  "githubImportIntoRemote": "저장된 리모컨에 버튼 추가"
+  "githubImportIntoRemote": "저장된 리모컨에 버튼 추가",
+  "githubImportReady": "가져오기 가능",
+  "githubImportUnavailable": "가져올 수 없음",
+  "githubImportPreviewCounts": "리모컨 {remoteCount}개, 버튼 {buttonCount}개.",
+  "githubImportMoreRemotes": "리모컨 {count}개 더 있음",
+  "githubImportFileIssues": "파일 문제"
 }

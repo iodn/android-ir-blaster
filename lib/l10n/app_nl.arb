@@ -2440,5 +2440,10 @@
   "githubUnwrapLines": "Regelafbreking uitschakelen",
   "githubImportNewRemote": "Als nieuwe afstandsbediening importeren",
   "githubImportNewRemotes": "Als nieuwe afstandsbedieningen importeren",
-  "githubImportIntoRemote": "Knoppen aan opgeslagen afstandsbediening toevoegen"
+  "githubImportIntoRemote": "Knoppen aan opgeslagen afstandsbediening toevoegen",
+  "githubImportReady": "Klaar om te importeren",
+  "githubImportUnavailable": "Importeren niet mogelijk",
+  "githubImportPreviewCounts": "Afstandsbedieningen: {remoteCount}, knoppen: {buttonCount}.",
+  "githubImportMoreRemotes": "Overige afstandsbedieningen: {count}",
+  "githubImportFileIssues": "Problemen met het bestand"
 }

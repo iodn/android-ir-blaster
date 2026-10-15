@@ -2440,5 +2440,10 @@
   "githubUnwrapLines": "Satır kaydırmayı kapat",
   "githubImportNewRemote": "Yeni kumanda olarak içe aktar",
   "githubImportNewRemotes": "Yeni kumandalar olarak içe aktar",
-  "githubImportIntoRemote": "Kayıtlı kumandaya düğme ekle"
+  "githubImportIntoRemote": "Kayıtlı kumandaya düğme ekle",
+  "githubImportReady": "İçe aktarmaya hazır",
+  "githubImportUnavailable": "İçe aktarılamıyor",
+  "githubImportPreviewCounts": "Kumanda sayısı: {remoteCount}, düğme sayısı: {buttonCount}.",
+  "githubImportMoreRemotes": "Diğer kumanda sayısı: {count}",
+  "githubImportFileIssues": "Dosya sorunları"
 }

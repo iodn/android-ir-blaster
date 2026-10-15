@@ -2440,5 +2440,10 @@
   "githubUnwrapLines": "عرض السطور بدون التفاف",
   "githubImportNewRemote": "استيراد كريموت جديد",
   "githubImportNewRemotes": "استيراد كريموتات جديدة",
-  "githubImportIntoRemote": "إضافة الأزرار لريموت محفوظ"
+  "githubImportIntoRemote": "إضافة الأزرار لريموت محفوظ",
+  "githubImportReady": "جاهز للاستيراد",
+  "githubImportUnavailable": "لا يمكن الاستيراد",
+  "githubImportPreviewCounts": "الريموتات: {remoteCount}، الأزرار: {buttonCount}.",
+  "githubImportMoreRemotes": "ريموتات أخرى: {count}",
+  "githubImportFileIssues": "مشكلات الملف"
 }

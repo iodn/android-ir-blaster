@@ -2440,5 +2440,10 @@
   "githubUnwrapLines": "Désactiver le retour à la ligne",
   "githubImportNewRemote": "Importer comme nouvelle télécommande",
   "githubImportNewRemotes": "Importer comme nouvelles télécommandes",
-  "githubImportIntoRemote": "Ajouter les boutons à une télécommande enregistrée"
+  "githubImportIntoRemote": "Ajouter les boutons à une télécommande enregistrée",
+  "githubImportReady": "Prêt à importer",
+  "githubImportUnavailable": "Importation impossible",
+  "githubImportPreviewCounts": "Télécommandes : {remoteCount}, boutons : {buttonCount}.",
+  "githubImportMoreRemotes": "Autres télécommandes : {count}",
+  "githubImportFileIssues": "Problèmes dans le fichier"
 }

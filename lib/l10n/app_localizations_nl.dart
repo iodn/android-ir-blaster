@@ -5390,4 +5390,23 @@ class AppLocalizationsNl extends AppLocalizations {
   @override
   String get githubImportIntoRemote =>
       'Knoppen aan opgeslagen afstandsbediening toevoegen';
+
+  @override
+  String get githubImportReady => 'Klaar om te importeren';
+
+  @override
+  String get githubImportUnavailable => 'Importeren niet mogelijk';
+
+  @override
+  String githubImportPreviewCounts(int remoteCount, int buttonCount) {
+    return 'Afstandsbedieningen: $remoteCount, knoppen: $buttonCount.';
+  }
+
+  @override
+  String githubImportMoreRemotes(int count) {
+    return 'Overige afstandsbedieningen: $count';
+  }
+
+  @override
+  String get githubImportFileIssues => 'Problemen met het bestand';
 }

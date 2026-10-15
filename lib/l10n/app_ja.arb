@@ -2440,5 +2440,10 @@
   "githubUnwrapLines": "行の折り返しを解除",
   "githubImportNewRemote": "新しいリモコンとして取り込む",
   "githubImportNewRemotes": "新しいリモコンとして取り込む",
-  "githubImportIntoRemote": "保存済みリモコンにボタンを追加"
+  "githubImportIntoRemote": "保存済みリモコンにボタンを追加",
+  "githubImportReady": "取り込み可能",
+  "githubImportUnavailable": "取り込み不可",
+  "githubImportPreviewCounts": "リモコン{remoteCount}件、ボタン{buttonCount}個。",
+  "githubImportMoreRemotes": "ほかにリモコン{count}件",
+  "githubImportFileIssues": "ファイルの問題"
 }

@@ -2442,5 +2442,10 @@
   "githubUnwrapLines": "Wyłącz zawijanie wierszy",
   "githubImportNewRemote": "Importuj jako nowy pilot",
   "githubImportNewRemotes": "Importuj jako nowe piloty",
-  "githubImportIntoRemote": "Dodaj przyciski do zapisanego pilota"
+  "githubImportIntoRemote": "Dodaj przyciski do zapisanego pilota",
+  "githubImportReady": "Gotowe do importu",
+  "githubImportUnavailable": "Nie można zaimportować",
+  "githubImportPreviewCounts": "Piloty: {remoteCount}, przyciski: {buttonCount}.",
+  "githubImportMoreRemotes": "Pozostałe piloty: {count}",
+  "githubImportFileIssues": "Problemy z plikiem"
 }

@@ -2440,5 +2440,10 @@
   "githubUnwrapLines": "ปิดการตัดบรรทัดอัตโนมัติ",
   "githubImportNewRemote": "นำเข้าเป็นรีโมตใหม่",
   "githubImportNewRemotes": "นำเข้าเป็นรีโมตใหม่",
-  "githubImportIntoRemote": "เพิ่มปุ่มในรีโมตที่บันทึกไว้"
+  "githubImportIntoRemote": "เพิ่มปุ่มในรีโมตที่บันทึกไว้",
+  "githubImportReady": "พร้อมนำเข้า",
+  "githubImportUnavailable": "ไม่สามารถนำเข้าได้",
+  "githubImportPreviewCounts": "รีโมต {remoteCount} รายการ ปุ่ม {buttonCount} ปุ่ม",
+  "githubImportMoreRemotes": "รีโมตอื่นอีก {count} รายการ",
+  "githubImportFileIssues": "ปัญหาในไฟล์"
 }

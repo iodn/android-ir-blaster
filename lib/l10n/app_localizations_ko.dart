@@ -5159,4 +5159,23 @@ class AppLocalizationsKo extends AppLocalizations {
 
   @override
   String get githubImportIntoRemote => '저장된 리모컨에 버튼 추가';
+
+  @override
+  String get githubImportReady => '가져오기 가능';
+
+  @override
+  String get githubImportUnavailable => '가져올 수 없음';
+
+  @override
+  String githubImportPreviewCounts(int remoteCount, int buttonCount) {
+    return '리모컨 $remoteCount개, 버튼 $buttonCount개.';
+  }
+
+  @override
+  String githubImportMoreRemotes(int count) {
+    return '리모컨 $count개 더 있음';
+  }
+
+  @override
+  String get githubImportFileIssues => '파일 문제';
 }

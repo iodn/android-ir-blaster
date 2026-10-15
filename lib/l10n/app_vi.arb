@@ -2440,5 +2440,10 @@
   "githubUnwrapLines": "Tắt tự động xuống dòng",
   "githubImportNewRemote": "Nhập thành điều khiển mới",
   "githubImportNewRemotes": "Nhập thành các điều khiển mới",
-  "githubImportIntoRemote": "Thêm nút vào điều khiển đã lưu"
+  "githubImportIntoRemote": "Thêm nút vào điều khiển đã lưu",
+  "githubImportReady": "Sẵn sàng nhập",
+  "githubImportUnavailable": "Không thể nhập",
+  "githubImportPreviewCounts": "Điều khiển: {remoteCount}, nút: {buttonCount}.",
+  "githubImportMoreRemotes": "Điều khiển khác: {count}",
+  "githubImportFileIssues": "Vấn đề trong tệp"
 }

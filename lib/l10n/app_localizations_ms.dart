@@ -5311,4 +5311,23 @@ class AppLocalizationsMs extends AppLocalizations {
   @override
   String get githubImportIntoRemote =>
       'Tambah butang ke alat kawalan jauh tersimpan';
+
+  @override
+  String get githubImportReady => 'Sedia untuk diimport';
+
+  @override
+  String get githubImportUnavailable => 'Tidak dapat diimport';
+
+  @override
+  String githubImportPreviewCounts(int remoteCount, int buttonCount) {
+    return 'Alat kawalan jauh: $remoteCount, butang: $buttonCount.';
+  }
+
+  @override
+  String githubImportMoreRemotes(int count) {
+    return 'Alat kawalan jauh lain: $count';
+  }
+
+  @override
+  String get githubImportFileIssues => 'Masalah fail';
 }

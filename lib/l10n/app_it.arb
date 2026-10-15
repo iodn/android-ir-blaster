@@ -2440,5 +2440,10 @@
   "githubUnwrapLines": "Disattiva l’a capo automatico",
   "githubImportNewRemote": "Importa come nuovo telecomando",
   "githubImportNewRemotes": "Importa come nuovi telecomandi",
-  "githubImportIntoRemote": "Aggiungi pulsanti a un telecomando salvato"
+  "githubImportIntoRemote": "Aggiungi pulsanti a un telecomando salvato",
+  "githubImportReady": "Pronto per l’importazione",
+  "githubImportUnavailable": "Impossibile importare",
+  "githubImportPreviewCounts": "Telecomandi: {remoteCount}, pulsanti: {buttonCount}.",
+  "githubImportMoreRemotes": "Altri telecomandi: {count}",
+  "githubImportFileIssues": "Problemi nel file"
 }

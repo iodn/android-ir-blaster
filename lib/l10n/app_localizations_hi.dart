@@ -5312,4 +5312,23 @@ class AppLocalizationsHi extends AppLocalizations {
 
   @override
   String get githubImportIntoRemote => 'सहेजे गए रिमोट में बटन जोड़ें';
+
+  @override
+  String get githubImportReady => 'इंपोर्ट के लिए तैयार';
+
+  @override
+  String get githubImportUnavailable => 'इंपोर्ट नहीं हो सकता';
+
+  @override
+  String githubImportPreviewCounts(int remoteCount, int buttonCount) {
+    return 'रिमोट: $remoteCount, बटन: $buttonCount।';
+  }
+
+  @override
+  String githubImportMoreRemotes(int count) {
+    return 'अन्य रिमोट: $count';
+  }
+
+  @override
+  String get githubImportFileIssues => 'फ़ाइल की समस्याएँ';
 }

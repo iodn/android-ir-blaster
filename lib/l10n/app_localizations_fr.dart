@@ -5401,4 +5401,23 @@ class AppLocalizationsFr extends AppLocalizations {
   @override
   String get githubImportIntoRemote =>
       'Ajouter les boutons à une télécommande enregistrée';
+
+  @override
+  String get githubImportReady => 'Prêt à importer';
+
+  @override
+  String get githubImportUnavailable => 'Importation impossible';
+
+  @override
+  String githubImportPreviewCounts(int remoteCount, int buttonCount) {
+    return 'Télécommandes : $remoteCount, boutons : $buttonCount.';
+  }
+
+  @override
+  String githubImportMoreRemotes(int count) {
+    return 'Autres télécommandes : $count';
+  }
+
+  @override
+  String get githubImportFileIssues => 'Problèmes dans le fichier';
 }

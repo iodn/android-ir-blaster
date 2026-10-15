@@ -5260,4 +5260,23 @@ class AppLocalizationsTh extends AppLocalizations {
 
   @override
   String get githubImportIntoRemote => 'เพิ่มปุ่มในรีโมตที่บันทึกไว้';
+
+  @override
+  String get githubImportReady => 'พร้อมนำเข้า';
+
+  @override
+  String get githubImportUnavailable => 'ไม่สามารถนำเข้าได้';
+
+  @override
+  String githubImportPreviewCounts(int remoteCount, int buttonCount) {
+    return 'รีโมต $remoteCount รายการ ปุ่ม $buttonCount ปุ่ม';
+  }
+
+  @override
+  String githubImportMoreRemotes(int count) {
+    return 'รีโมตอื่นอีก $count รายการ';
+  }
+
+  @override
+  String get githubImportFileIssues => 'ปัญหาในไฟล์';
 }

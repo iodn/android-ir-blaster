@@ -5369,4 +5369,23 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get githubImportIntoRemote => 'Add buttons to saved remote';
+
+  @override
+  String get githubImportReady => 'Ready to import';
+
+  @override
+  String get githubImportUnavailable => 'Cannot import';
+
+  @override
+  String githubImportPreviewCounts(int remoteCount, int buttonCount) {
+    return 'Remotes: $remoteCount, buttons: $buttonCount.';
+  }
+
+  @override
+  String githubImportMoreRemotes(int count) {
+    return 'More remotes: $count';
+  }
+
+  @override
+  String get githubImportFileIssues => 'File issues';
 }

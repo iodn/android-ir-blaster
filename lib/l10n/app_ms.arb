@@ -2440,5 +2440,10 @@
   "githubUnwrapLines": "Matikan balutan baris",
   "githubImportNewRemote": "Import sebagai alat kawalan jauh baharu",
   "githubImportNewRemotes": "Import sebagai alat kawalan jauh baharu",
-  "githubImportIntoRemote": "Tambah butang ke alat kawalan jauh tersimpan"
+  "githubImportIntoRemote": "Tambah butang ke alat kawalan jauh tersimpan",
+  "githubImportReady": "Sedia untuk diimport",
+  "githubImportUnavailable": "Tidak dapat diimport",
+  "githubImportPreviewCounts": "Alat kawalan jauh: {remoteCount}, butang: {buttonCount}.",
+  "githubImportMoreRemotes": "Alat kawalan jauh lain: {count}",
+  "githubImportFileIssues": "Masalah fail"
 }

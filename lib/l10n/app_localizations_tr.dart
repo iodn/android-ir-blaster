@@ -5297,4 +5297,23 @@ class AppLocalizationsTr extends AppLocalizations {
 
   @override
   String get githubImportIntoRemote => 'Kayıtlı kumandaya düğme ekle';
+
+  @override
+  String get githubImportReady => 'İçe aktarmaya hazır';
+
+  @override
+  String get githubImportUnavailable => 'İçe aktarılamıyor';
+
+  @override
+  String githubImportPreviewCounts(int remoteCount, int buttonCount) {
+    return 'Kumanda sayısı: $remoteCount, düğme sayısı: $buttonCount.';
+  }
+
+  @override
+  String githubImportMoreRemotes(int count) {
+    return 'Diğer kumanda sayısı: $count';
+  }
+
+  @override
+  String get githubImportFileIssues => 'Dosya sorunları';
 }

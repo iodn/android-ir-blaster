@@ -2426,5 +2426,10 @@
   "githubUnwrapLines": "Zeilenumbruch ausschalten",
   "githubImportNewRemote": "Als neue Fernbedienung importieren",
   "githubImportNewRemotes": "Als neue Fernbedienungen importieren",
-  "githubImportIntoRemote": "Tasten zu gespeicherter Fernbedienung hinzufügen"
+  "githubImportIntoRemote": "Tasten zu gespeicherter Fernbedienung hinzufügen",
+  "githubImportReady": "Bereit zum Importieren",
+  "githubImportUnavailable": "Import nicht möglich",
+  "githubImportPreviewCounts": "Fernbedienungen: {remoteCount}, Tasten: {buttonCount}.",
+  "githubImportMoreRemotes": "Weitere Fernbedienungen: {count}",
+  "githubImportFileIssues": "Probleme mit der Datei"
 }

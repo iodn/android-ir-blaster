@@ -5444,4 +5444,23 @@ class AppLocalizationsUk extends AppLocalizations {
 
   @override
   String get githubImportIntoRemote => 'Додати кнопки до збереженого пульта';
+
+  @override
+  String get githubImportReady => 'Можна імпортувати';
+
+  @override
+  String get githubImportUnavailable => 'Неможливо імпортувати';
+
+  @override
+  String githubImportPreviewCounts(int remoteCount, int buttonCount) {
+    return 'Пультів: $remoteCount, кнопок: $buttonCount.';
+  }
+
+  @override
+  String githubImportMoreRemotes(int count) {
+    return 'Інших пультів: $count';
+  }
+
+  @override
+  String get githubImportFileIssues => 'Проблеми з файлом';
 }

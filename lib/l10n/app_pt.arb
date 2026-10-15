@@ -2440,5 +2440,10 @@
   "githubUnwrapLines": "Desativar ajuste de linha",
   "githubImportNewRemote": "Importar como novo comando",
   "githubImportNewRemotes": "Importar como novos comandos",
-  "githubImportIntoRemote": "Adicionar botões a um comando guardado"
+  "githubImportIntoRemote": "Adicionar botões a um comando guardado",
+  "githubImportReady": "Pronto para importar",
+  "githubImportUnavailable": "Não é possível importar",
+  "githubImportPreviewCounts": "Comandos: {remoteCount}, botões: {buttonCount}.",
+  "githubImportMoreRemotes": "Outros comandos: {count}",
+  "githubImportFileIssues": "Problemas no ficheiro"
 }

@@ -2440,5 +2440,10 @@
   "githubUnwrapLines": "Desativar quebra de linha",
   "githubImportNewRemote": "Importar como novo controle",
   "githubImportNewRemotes": "Importar como novos controles",
-  "githubImportIntoRemote": "Adicionar botões a um controle salvo"
+  "githubImportIntoRemote": "Adicionar botões a um controle salvo",
+  "githubImportReady": "Pronto para importar",
+  "githubImportUnavailable": "Não é possível importar",
+  "githubImportPreviewCounts": "Controles: {remoteCount}, botões: {buttonCount}.",
+  "githubImportMoreRemotes": "Outros controles: {count}",
+  "githubImportFileIssues": "Problemas no arquivo"
 }

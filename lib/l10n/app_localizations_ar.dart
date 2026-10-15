@@ -5316,6 +5316,25 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String get githubImportIntoRemote => 'إضافة الأزرار إلى جهاز تحكم محفوظ';
+
+  @override
+  String get githubImportReady => 'جاهز للاستيراد';
+
+  @override
+  String get githubImportUnavailable => 'لا يمكن الاستيراد';
+
+  @override
+  String githubImportPreviewCounts(int remoteCount, int buttonCount) {
+    return 'أجهزة التحكم: $remoteCount، الأزرار: $buttonCount.';
+  }
+
+  @override
+  String githubImportMoreRemotes(int count) {
+    return 'أجهزة تحكم أخرى: $count';
+  }
+
+  @override
+  String get githubImportFileIssues => 'مشكلات الملف';
 }
 
 /// The translations for Arabic, as used in Egypt (`ar_EG`).
@@ -10629,4 +10648,23 @@ class AppLocalizationsArEg extends AppLocalizationsAr {
 
   @override
   String get githubImportIntoRemote => 'إضافة الأزرار لريموت محفوظ';
+
+  @override
+  String get githubImportReady => 'جاهز للاستيراد';
+
+  @override
+  String get githubImportUnavailable => 'لا يمكن الاستيراد';
+
+  @override
+  String githubImportPreviewCounts(int remoteCount, int buttonCount) {
+    return 'الريموتات: $remoteCount، الأزرار: $buttonCount.';
+  }
+
+  @override
+  String githubImportMoreRemotes(int count) {
+    return 'ريموتات أخرى: $count';
+  }
+
+  @override
+  String get githubImportFileIssues => 'مشكلات الملف';
 }

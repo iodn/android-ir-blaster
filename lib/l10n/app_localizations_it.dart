@@ -5386,4 +5386,23 @@ class AppLocalizationsIt extends AppLocalizations {
   @override
   String get githubImportIntoRemote =>
       'Aggiungi pulsanti a un telecomando salvato';
+
+  @override
+  String get githubImportReady => 'Pronto per l’importazione';
+
+  @override
+  String get githubImportUnavailable => 'Impossibile importare';
+
+  @override
+  String githubImportPreviewCounts(int remoteCount, int buttonCount) {
+    return 'Telecomandi: $remoteCount, pulsanti: $buttonCount.';
+  }
+
+  @override
+  String githubImportMoreRemotes(int count) {
+    return 'Altri telecomandi: $count';
+  }
+
+  @override
+  String get githubImportFileIssues => 'Problemi nel file';
 }

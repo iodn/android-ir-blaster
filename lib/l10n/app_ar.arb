@@ -2440,5 +2440,10 @@
   "githubUnwrapLines": "عرض الأسطر دون التفاف",
   "githubImportNewRemote": "استيراد كجهاز تحكم جديد",
   "githubImportNewRemotes": "استيراد كأجهزة تحكم جديدة",
-  "githubImportIntoRemote": "إضافة الأزرار إلى جهاز تحكم محفوظ"
+  "githubImportIntoRemote": "إضافة الأزرار إلى جهاز تحكم محفوظ",
+  "githubImportReady": "جاهز للاستيراد",
+  "githubImportUnavailable": "لا يمكن الاستيراد",
+  "githubImportPreviewCounts": "أجهزة التحكم: {remoteCount}، الأزرار: {buttonCount}.",
+  "githubImportMoreRemotes": "أجهزة تحكم أخرى: {count}",
+  "githubImportFileIssues": "مشكلات الملف"
 }

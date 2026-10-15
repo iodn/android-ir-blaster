@@ -2440,5 +2440,10 @@
   "githubUnwrapLines": "Huwag i-wrap ang mga linya",
   "githubImportNewRemote": "I-import bilang bagong remote",
   "githubImportNewRemotes": "I-import bilang mga bagong remote",
-  "githubImportIntoRemote": "Idagdag ang mga button sa naka-save na remote"
+  "githubImportIntoRemote": "Idagdag ang mga button sa naka-save na remote",
+  "githubImportReady": "Handa nang i-import",
+  "githubImportUnavailable": "Hindi ma-import",
+  "githubImportPreviewCounts": "Mga remote: {remoteCount}, mga button: {buttonCount}.",
+  "githubImportMoreRemotes": "Iba pang remote: {count}",
+  "githubImportFileIssues": "Mga problema sa file"
 }

@@ -5393,4 +5393,23 @@ class AppLocalizationsDe extends AppLocalizations {
   @override
   String get githubImportIntoRemote =>
       'Tasten zu gespeicherter Fernbedienung hinzufügen';
+
+  @override
+  String get githubImportReady => 'Bereit zum Importieren';
+
+  @override
+  String get githubImportUnavailable => 'Import nicht möglich';
+
+  @override
+  String githubImportPreviewCounts(int remoteCount, int buttonCount) {
+    return 'Fernbedienungen: $remoteCount, Tasten: $buttonCount.';
+  }
+
+  @override
+  String githubImportMoreRemotes(int count) {
+    return 'Weitere Fernbedienungen: $count';
+  }
+
+  @override
+  String get githubImportFileIssues => 'Probleme mit der Datei';
 }

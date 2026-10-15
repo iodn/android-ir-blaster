@@ -5144,4 +5144,23 @@ class AppLocalizationsJa extends AppLocalizations {
 
   @override
   String get githubImportIntoRemote => '保存済みリモコンにボタンを追加';
+
+  @override
+  String get githubImportReady => '取り込み可能';
+
+  @override
+  String get githubImportUnavailable => '取り込み不可';
+
+  @override
+  String githubImportPreviewCounts(int remoteCount, int buttonCount) {
+    return 'リモコン$remoteCount件、ボタン$buttonCount個。';
+  }
+
+  @override
+  String githubImportMoreRemotes(int count) {
+    return 'ほかにリモコン$count件';
+  }
+
+  @override
+  String get githubImportFileIssues => 'ファイルの問題';
 }

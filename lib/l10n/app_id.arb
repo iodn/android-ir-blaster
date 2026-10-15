@@ -2440,5 +2440,10 @@
   "githubUnwrapLines": "Nonaktifkan pembungkusan baris",
   "githubImportNewRemote": "Impor sebagai remote baru",
   "githubImportNewRemotes": "Impor sebagai remote baru",
-  "githubImportIntoRemote": "Tambahkan tombol ke remote tersimpan"
+  "githubImportIntoRemote": "Tambahkan tombol ke remote tersimpan",
+  "githubImportReady": "Siap diimpor",
+  "githubImportUnavailable": "Tidak dapat diimpor",
+  "githubImportPreviewCounts": "Remote: {remoteCount}, tombol: {buttonCount}.",
+  "githubImportMoreRemotes": "Remote lainnya: {count}",
+  "githubImportFileIssues": "Masalah pada file"
 }

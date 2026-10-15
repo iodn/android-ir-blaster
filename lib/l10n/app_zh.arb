@@ -2440,5 +2440,10 @@
   "githubUnwrapLines": "关闭自动折行",
   "githubImportNewRemote": "导入为新遥控器",
   "githubImportNewRemotes": "导入为新遥控器",
-  "githubImportIntoRemote": "将按钮添加到已保存的遥控器"
+  "githubImportIntoRemote": "将按钮添加到已保存的遥控器",
+  "githubImportReady": "可以导入",
+  "githubImportUnavailable": "无法导入",
+  "githubImportPreviewCounts": "{remoteCount} 个遥控器，{buttonCount} 个按钮。",
+  "githubImportMoreRemotes": "另有 {count} 个遥控器",
+  "githubImportFileIssues": "文件问题"
 }

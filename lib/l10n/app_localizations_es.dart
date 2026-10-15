@@ -5384,4 +5384,23 @@ class AppLocalizationsEs extends AppLocalizations {
 
   @override
   String get githubImportIntoRemote => 'Añadir botones a un mando guardado';
+
+  @override
+  String get githubImportReady => 'Listo para importar';
+
+  @override
+  String get githubImportUnavailable => 'No se puede importar';
+
+  @override
+  String githubImportPreviewCounts(int remoteCount, int buttonCount) {
+    return 'Mandos: $remoteCount, botones: $buttonCount.';
+  }
+
+  @override
+  String githubImportMoreRemotes(int count) {
+    return 'Más mandos: $count';
+  }
+
+  @override
+  String get githubImportFileIssues => 'Problemas del archivo';
 }

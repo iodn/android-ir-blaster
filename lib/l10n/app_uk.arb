@@ -2440,5 +2440,10 @@
   "githubUnwrapLines": "Вимкнути перенесення рядків",
   "githubImportNewRemote": "Імпортувати як новий пульт",
   "githubImportNewRemotes": "Імпортувати як нові пульти",
-  "githubImportIntoRemote": "Додати кнопки до збереженого пульта"
+  "githubImportIntoRemote": "Додати кнопки до збереженого пульта",
+  "githubImportReady": "Можна імпортувати",
+  "githubImportUnavailable": "Неможливо імпортувати",
+  "githubImportPreviewCounts": "Пультів: {remoteCount}, кнопок: {buttonCount}.",
+  "githubImportMoreRemotes": "Інших пультів: {count}",
+  "githubImportFileIssues": "Проблеми з файлом"
 }

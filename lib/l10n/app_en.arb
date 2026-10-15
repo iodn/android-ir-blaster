@@ -2669,5 +2669,12 @@
   "githubUnwrapLines": "Turn off line wrapping",
   "githubImportNewRemote": "Import as new remote",
   "githubImportNewRemotes": "Import as new remotes",
-  "githubImportIntoRemote": "Add buttons to saved remote"
+  "githubImportIntoRemote": "Add buttons to saved remote",
+  "githubImportReady": "Ready to import",
+  "githubImportUnavailable": "Cannot import",
+  "githubImportPreviewCounts": "Remotes: {remoteCount}, buttons: {buttonCount}.",
+  "githubImportMoreRemotes": "More remotes: {count}",
+  "githubImportFileIssues": "File issues",
+  "@githubImportPreviewCounts": {"placeholders": {"remoteCount": {"type": "int"}, "buttonCount": {"type": "int"}}},
+  "@githubImportMoreRemotes": {"placeholders": {"count": {"type": "int"}}}
 }

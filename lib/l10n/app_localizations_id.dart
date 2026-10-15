@@ -5300,4 +5300,23 @@ class AppLocalizationsId extends AppLocalizations {
 
   @override
   String get githubImportIntoRemote => 'Tambahkan tombol ke remote tersimpan';
+
+  @override
+  String get githubImportReady => 'Siap diimpor';
+
+  @override
+  String get githubImportUnavailable => 'Tidak dapat diimpor';
+
+  @override
+  String githubImportPreviewCounts(int remoteCount, int buttonCount) {
+    return 'Remote: $remoteCount, tombol: $buttonCount.';
+  }
+
+  @override
+  String githubImportMoreRemotes(int count) {
+    return 'Remote lainnya: $count';
+  }
+
+  @override
+  String get githubImportFileIssues => 'Masalah pada file';
 }
