@@ -1159,7 +1159,7 @@ class AppLocalizationsVi extends AppLocalizations {
   String get failedToUpdateSetting => 'Không cập nhật được cài đặt.';
 
   @override
-  String get unnamedButton => 'Nút chưa tên';
+  String get unnamedButton => 'Nút chưa đặt tên';
 
   @override
   String get iconFallback => 'Biểu tượng';
@@ -2181,7 +2181,7 @@ class AppLocalizationsVi extends AppLocalizations {
   }
 
   @override
-  String get unknownButton => 'Nút không rõ';
+  String get unknownButton => 'Nút không xác định';
 
   @override
   String durationSecondsShort(int seconds) {
@@ -2280,7 +2280,7 @@ class AppLocalizationsVi extends AppLocalizations {
   String get continueAction => 'Tiếp tục';
 
   @override
-  String get unnamedRemote => 'Điều khiển chưa tên';
+  String get unnamedRemote => 'Điều khiển chưa đặt tên';
 
   @override
   String get enterMacroName => 'Nhập tên cho macro.';
@@ -2292,13 +2292,13 @@ class AppLocalizationsVi extends AppLocalizations {
   String get fixInvalidSteps => 'Sửa các bước không hợp lệ trước khi lưu.';
 
   @override
-  String get unknownCommand => 'Lệnh không rõ';
+  String get unknownCommand => 'Lệnh không xác định';
 
   @override
-  String get unnamedCommand => 'Lệnh chưa tên';
+  String get unnamedCommand => 'Lệnh chưa đặt tên';
 
   @override
-  String get iconCommand => 'Biểu tượng Command';
+  String get iconCommand => 'Nút biểu tượng';
 
   @override
   String get selectDelay => 'Chọn thời gian chờ';
@@ -2390,7 +2390,7 @@ class AppLocalizationsVi extends AppLocalizations {
   }
 
   @override
-  String get invalidStepTapToFix => 'Bước không hợp lệ — chạm để sửa';
+  String get invalidStepTapToFix => 'Bước không hợp lệ. Chạm để chỉnh sửa.';
 
   @override
   String get sendIrCommand => 'Gửi lệnh hồng ngoại';

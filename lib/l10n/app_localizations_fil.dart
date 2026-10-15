@@ -1286,7 +1286,7 @@ class AppLocalizationsFil extends AppLocalizations {
   String get actions => 'Actions';
 
   @override
-  String get macrosTitle => 'Mga Macro';
+  String get macrosTitle => 'Mga macro';
 
   @override
   String get help => 'Help';
@@ -2203,7 +2203,7 @@ class AppLocalizationsFil extends AppLocalizations {
   }
 
   @override
-  String get buttonNotFound => 'Button not found';
+  String get buttonNotFound => 'Hindi makita ang button';
 
   @override
   String buttonNotFoundNamed(Object name) {
@@ -2211,7 +2211,7 @@ class AppLocalizationsFil extends AppLocalizations {
   }
 
   @override
-  String get unknownButton => 'Hindi kilalang Button';
+  String get unknownButton => 'Hindi kilalang button';
 
   @override
   String durationSecondsShort(int seconds) {
@@ -2324,13 +2324,13 @@ class AppLocalizationsFil extends AppLocalizations {
       'Ayusin muna ang mga hakbang na may problema bago i-save.';
 
   @override
-  String get unknownCommand => 'Hindi kilala Command';
+  String get unknownCommand => 'Hindi kilalang command';
 
   @override
-  String get unnamedCommand => 'Unnamed Command';
+  String get unnamedCommand => 'Command na walang pangalan';
 
   @override
-  String get iconCommand => 'Icon Command';
+  String get iconCommand => 'Button na may icon';
 
   @override
   String get selectDelay => 'Piliin ang oras ng paghihintay';
@@ -2424,7 +2424,8 @@ class AppLocalizationsFil extends AppLocalizations {
   }
 
   @override
-  String get invalidStepTapToFix => 'Invalid hakbang — tapikin to fix';
+  String get invalidStepTapToFix =>
+      'May problema sa hakbang. I-tap para ayusin.';
 
   @override
   String get sendIrCommand => 'Magpadala ng IR command';

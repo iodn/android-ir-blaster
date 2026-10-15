@@ -383,7 +383,7 @@
   "exampleUseCase": "Приклад",
   "macroExampleText": "1. Надішліть першу команду\n2. Зачекайте одну секунду\n3. Надішліть наступну команду",
   "createFirstMacro": "Створити перший макрос",
-  "noRemote": "Без пульта",
+  "noRemote": "Немає пульта",
   "macroStepCount": "{count} крок{plural}",
   "@macroStepCount": {
     "placeholders": {
@@ -972,8 +972,8 @@
   "addAtLeastOneStep": "Додайте хоча б один крок.",
   "fixInvalidSteps": "Виправте некоректні кроки перед збереженням.",
   "unknownCommand": "Невідома команда",
-  "unnamedCommand": "Безіменна команда",
-  "iconCommand": "Команда значка",
+  "unnamedCommand": "Команда без назви",
+  "iconCommand": "Кнопка зі значком",
   "selectDelay": "Виберіть час очікування",
   "keepMilliseconds": "Залишити {ms} мс",
   "@keepMilliseconds": {
@@ -1040,7 +1040,7 @@
       }
     }
   },
-  "invalidStepTapToFix": "Недійсний крок – торкніться, щоб виправити",
+  "invalidStepTapToFix": "Некоректний крок. Торкніться, щоб виправити.",
   "sendIrCommand": "Надіслати ІЧ-команду",
   "waitForUserConfirmation": "Призупиняє макрос, доки ви не продовжите його виконання.",
   "notImplemented": "Не реалізовано",

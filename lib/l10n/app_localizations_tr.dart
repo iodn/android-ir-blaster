@@ -1167,7 +1167,7 @@ class AppLocalizationsTr extends AppLocalizations {
   String get failedToUpdateSetting => 'Başarısız to update setting.';
 
   @override
-  String get unnamedButton => 'Unnamed düğme';
+  String get unnamedButton => 'Adsız düğme';
 
   @override
   String get iconFallback => 'Icon';
@@ -1326,7 +1326,7 @@ class AppLocalizationsTr extends AppLocalizations {
   String get createFirstMacro => 'İlk makronuzu oluşturun';
 
   @override
-  String get noRemote => 'No kumanda';
+  String get noRemote => 'Kumanda yok';
 
   @override
   String macroCopyName(String name) {
@@ -2194,7 +2194,7 @@ class AppLocalizationsTr extends AppLocalizations {
   }
 
   @override
-  String get unknownButton => 'Bilinmeyen Düğme';
+  String get unknownButton => 'Bilinmeyen düğme';
 
   @override
   String durationSecondsShort(int seconds) {
@@ -2293,7 +2293,7 @@ class AppLocalizationsTr extends AppLocalizations {
   String get continueAction => 'Devam et';
 
   @override
-  String get unnamedRemote => 'Unnamed Kumanda';
+  String get unnamedRemote => 'Adsız kumanda';
 
   @override
   String get enterMacroName => 'Makro için bir ad girin.';
@@ -2305,13 +2305,13 @@ class AppLocalizationsTr extends AppLocalizations {
   String get fixInvalidSteps => 'Kaydetmeden önce geçersiz adımları düzeltin.';
 
   @override
-  String get unknownCommand => 'Bilinmeyen Komut';
+  String get unknownCommand => 'Bilinmeyen komut';
 
   @override
-  String get unnamedCommand => 'Adsız Komut';
+  String get unnamedCommand => 'Adsız komut';
 
   @override
-  String get iconCommand => 'Simge Komutu';
+  String get iconCommand => 'Simge düğmesi';
 
   @override
   String get selectDelay => 'Bekleme süresini seçin';
@@ -2403,7 +2403,7 @@ class AppLocalizationsTr extends AppLocalizations {
   }
 
   @override
-  String get invalidStepTapToFix => 'Geçersiz adım — düzeltmek için dokunun';
+  String get invalidStepTapToFix => 'Geçersiz adım. Düzeltmek için dokunun.';
 
   @override
   String get sendIrCommand => 'Kızılötesi komut gönder';

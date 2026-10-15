@@ -1225,7 +1225,7 @@ class AppLocalizationsZh extends AppLocalizations {
   String get createFirstMacro => '创建第一个宏';
 
   @override
-  String get noRemote => '没有遥控器';
+  String get noRemote => '无遥控器';
 
   @override
   String macroCopyName(String name) {
@@ -2036,7 +2036,7 @@ class AppLocalizationsZh extends AppLocalizations {
   }
 
   @override
-  String get buttonNotFound => '未找到按钮';
+  String get buttonNotFound => '找不到按钮';
 
   @override
   String buttonNotFoundNamed(Object name) {
@@ -2044,7 +2044,7 @@ class AppLocalizationsZh extends AppLocalizations {
   }
 
   @override
-  String get unknownButton => '未知 按钮';
+  String get unknownButton => '未知按钮';
 
   @override
   String durationSecondsShort(int seconds) {
@@ -2160,7 +2160,7 @@ class AppLocalizationsZh extends AppLocalizations {
   String get unnamedCommand => '未命名命令';
 
   @override
-  String get iconCommand => '图标命令';
+  String get iconCommand => '图标按钮';
 
   @override
   String get selectDelay => '选择等待时间';
@@ -2248,7 +2248,7 @@ class AppLocalizationsZh extends AppLocalizations {
   }
 
   @override
-  String get invalidStepTapToFix => '步骤无效 点击修复';
+  String get invalidStepTapToFix => '步骤无效，点击修改。';
 
   @override
   String get sendIrCommand => '发送红外命令';

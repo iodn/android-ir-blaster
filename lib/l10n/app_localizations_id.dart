@@ -2193,7 +2193,7 @@ class AppLocalizationsId extends AppLocalizations {
   }
 
   @override
-  String get unknownButton => 'Tidak dikenal Tombol';
+  String get unknownButton => 'Tombol tidak dikenal';
 
   @override
   String durationSecondsShort(int seconds) {
@@ -2307,13 +2307,13 @@ class AppLocalizationsId extends AppLocalizations {
       'Perbaiki langkah yang tidak valid sebelum menyimpan.';
 
   @override
-  String get unknownCommand => 'Tidak dikenal Command';
+  String get unknownCommand => 'Perintah tidak dikenal';
 
   @override
   String get unnamedCommand => 'Perintah tanpa nama';
 
   @override
-  String get iconCommand => 'Ikon Command';
+  String get iconCommand => 'Tombol ikon';
 
   @override
   String get selectDelay => 'Pilih waktu tunggu';
@@ -2407,7 +2407,7 @@ class AppLocalizationsId extends AppLocalizations {
 
   @override
   String get invalidStepTapToFix =>
-      'Langkah tidak valid, ketuk untuk memperbaiki';
+      'Langkah tidak valid. Ketuk untuk memperbaikinya.';
 
   @override
   String get sendIrCommand => 'Kirim perintah IR';

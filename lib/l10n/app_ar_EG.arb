@@ -314,7 +314,7 @@
   "openOnUsbAttachEnabledMessage": "سيُقترح فتح IR Blaster عند توصيل دونجل USB مدعوم.",
   "openOnUsbAttachDisabledMessage": "لن يُقترح الفتح عند توصيل USB.",
   "failedToUpdateSetting": "فشل إلى update setting.",
-  "unnamedButton": "زر بدون اسم",
+  "unnamedButton": "زر من غير اسم",
   "iconFallback": "أيقونة",
   "remoteListReorderHint": "وضع إعادة الترتيب: اضغط مطولاً واسحب البطاقة لتحريكها.",
   "deleteRemoteTitle": "حذف جهاز التحكم؟",
@@ -383,7 +383,7 @@
   "exampleUseCase": "مثال",
   "macroExampleText": "1. ابعت أول أمر\n2. استنى ثانية\n3. ابعت الأمر اللي بعده",
   "createFirstMacro": "إنشاء أول ماكرو",
-  "noRemote": "لا يوجد جهاز تحكم",
+  "noRemote": "مفيش ريموت",
   "macroStepCount": "{count} خطوة{plural}",
   "@macroStepCount": {
     "placeholders": {
@@ -858,14 +858,14 @@
       "name": {}
     }
   },
-  "buttonNotFound": "زر not موجود",
+  "buttonNotFound": "الزر مش موجود",
   "buttonNotFoundNamed": "الزر مش موجود: {name}",
   "@buttonNotFoundNamed": {
     "placeholders": {
       "name": {}
     }
   },
-  "unknownButton": "غير معروف زر",
+  "unknownButton": "زر غير معروف",
   "durationSecondsShort": "{seconds}s",
   "@durationSecondsShort": {
     "placeholders": {
@@ -967,13 +967,13 @@
   "runAgain": "تشغيل تاني",
   "startMacro": "تشغيل الماكرو",
   "continueAction": "متابعة",
-  "unnamedRemote": "Unnamed جهاز التحكم",
+  "unnamedRemote": "ريموت من غير اسم",
   "enterMacroName": "اكتب اسم للماكرو.",
   "addAtLeastOneStep": "ضيف خطوة واحدة على الأقل.",
   "fixInvalidSteps": "صحّح الخطوات غير الصالحة قبل الحفظ.",
-  "unknownCommand": "غير معروف Command",
-  "unnamedCommand": "Unnamed Command",
-  "iconCommand": "Icon Command",
+  "unknownCommand": "أمر غير معروف",
+  "unnamedCommand": "أمر من غير اسم",
+  "iconCommand": "زر بأيقونة",
   "selectDelay": "اختار وقت الانتظار",
   "keepMilliseconds": "خليها {ms} مللي ثانية",
   "@keepMilliseconds": {
@@ -1040,7 +1040,7 @@
       }
     }
   },
-  "invalidStepTapToFix": "خطوة غير صالحة، اضغط لإصلاحها",
+  "invalidStepTapToFix": "الخطوة غير صالحة. اضغط عشان تعدّلها.",
   "sendIrCommand": "إرسال أمر بالأشعة تحت الحمراء",
   "waitForUserConfirmation": "الماكرو بيقف مؤقتاً لحد ما تختار تكمّل.",
   "notImplemented": "Not implemented",

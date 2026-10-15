@@ -986,7 +986,7 @@
       "name": {}
     }
   },
-  "unknownButton": "Unknown Button",
+  "unknownButton": "Unknown button",
   "durationSecondsShort": "{seconds}s",
   "@durationSecondsShort": {
     "placeholders": {
@@ -1088,13 +1088,13 @@
   "runAgain": "Run Again",
   "startMacro": "Start Macro",
   "continueAction": "Continue",
-  "unnamedRemote": "Unnamed Remote",
+  "unnamedRemote": "Unnamed remote",
   "enterMacroName": "Enter a name for the macro.",
   "addAtLeastOneStep": "Add at least one step.",
   "fixInvalidSteps": "Fix the invalid steps before saving.",
-  "unknownCommand": "Unknown Command",
-  "unnamedCommand": "Unnamed Command",
-  "iconCommand": "Icon Command",
+  "unknownCommand": "Unknown command",
+  "unnamedCommand": "Unnamed command",
+  "iconCommand": "Icon button",
   "selectDelay": "Choose wait time",
   "keepMilliseconds": "Keep {ms} ms",
   "@keepMilliseconds": {

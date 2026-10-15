@@ -1152,7 +1152,7 @@ class AppLocalizationsAr extends AppLocalizations {
   String get failedToUpdateSetting => 'فشل إلى update setting.';
 
   @override
-  String get unnamedButton => 'زر بدون اسم';
+  String get unnamedButton => 'زر بلا اسم';
 
   @override
   String get iconFallback => 'أيقونة';
@@ -2177,7 +2177,7 @@ class AppLocalizationsAr extends AppLocalizations {
   }
 
   @override
-  String get buttonNotFound => 'زر not موجود';
+  String get buttonNotFound => 'لم يتم العثور على الزر';
 
   @override
   String buttonNotFoundNamed(Object name) {
@@ -2185,7 +2185,7 @@ class AppLocalizationsAr extends AppLocalizations {
   }
 
   @override
-  String get unknownButton => 'غير معروف زر';
+  String get unknownButton => 'زر غير معروف';
 
   @override
   String durationSecondsShort(int seconds) {
@@ -2285,7 +2285,7 @@ class AppLocalizationsAr extends AppLocalizations {
   String get continueAction => 'متابعة';
 
   @override
-  String get unnamedRemote => 'Unnamed جهاز التحكم';
+  String get unnamedRemote => 'جهاز تحكم بلا اسم';
 
   @override
   String get enterMacroName => 'أدخل اسماً للماكرو.';
@@ -2297,13 +2297,13 @@ class AppLocalizationsAr extends AppLocalizations {
   String get fixInvalidSteps => 'صحّح الخطوات غير الصالحة قبل الحفظ.';
 
   @override
-  String get unknownCommand => 'غير معروف Command';
+  String get unknownCommand => 'أمر غير معروف';
 
   @override
-  String get unnamedCommand => 'Unnamed Command';
+  String get unnamedCommand => 'أمر بلا اسم';
 
   @override
-  String get iconCommand => 'Icon Command';
+  String get iconCommand => 'زر بأيقونة';
 
   @override
   String get selectDelay => 'اختر وقت الانتظار';
@@ -2403,7 +2403,7 @@ class AppLocalizationsAr extends AppLocalizations {
   }
 
   @override
-  String get invalidStepTapToFix => 'خطوة غير صالحة، اضغط لإصلاحها';
+  String get invalidStepTapToFix => 'خطوة غير صالحة. اضغط لتعديلها.';
 
   @override
   String get sendIrCommand => 'إرسال أمر بالأشعة تحت الحمراء';
@@ -6401,7 +6401,7 @@ class AppLocalizationsArEg extends AppLocalizationsAr {
   String get failedToUpdateSetting => 'فشل إلى update setting.';
 
   @override
-  String get unnamedButton => 'زر بدون اسم';
+  String get unnamedButton => 'زر من غير اسم';
 
   @override
   String get iconFallback => 'أيقونة';
@@ -6559,7 +6559,7 @@ class AppLocalizationsArEg extends AppLocalizationsAr {
   String get createFirstMacro => 'إنشاء أول ماكرو';
 
   @override
-  String get noRemote => 'لا يوجد جهاز تحكم';
+  String get noRemote => 'مفيش ريموت';
 
   @override
   String macroCopyName(String name) {
@@ -7426,7 +7426,7 @@ class AppLocalizationsArEg extends AppLocalizationsAr {
   }
 
   @override
-  String get buttonNotFound => 'زر not موجود';
+  String get buttonNotFound => 'الزر مش موجود';
 
   @override
   String buttonNotFoundNamed(Object name) {
@@ -7434,7 +7434,7 @@ class AppLocalizationsArEg extends AppLocalizationsAr {
   }
 
   @override
-  String get unknownButton => 'غير معروف زر';
+  String get unknownButton => 'زر غير معروف';
 
   @override
   String durationSecondsShort(int seconds) {
@@ -7534,7 +7534,7 @@ class AppLocalizationsArEg extends AppLocalizationsAr {
   String get continueAction => 'متابعة';
 
   @override
-  String get unnamedRemote => 'Unnamed جهاز التحكم';
+  String get unnamedRemote => 'ريموت من غير اسم';
 
   @override
   String get enterMacroName => 'اكتب اسم للماكرو.';
@@ -7546,13 +7546,13 @@ class AppLocalizationsArEg extends AppLocalizationsAr {
   String get fixInvalidSteps => 'صحّح الخطوات غير الصالحة قبل الحفظ.';
 
   @override
-  String get unknownCommand => 'غير معروف Command';
+  String get unknownCommand => 'أمر غير معروف';
 
   @override
-  String get unnamedCommand => 'Unnamed Command';
+  String get unnamedCommand => 'أمر من غير اسم';
 
   @override
-  String get iconCommand => 'Icon Command';
+  String get iconCommand => 'زر بأيقونة';
 
   @override
   String get selectDelay => 'اختار وقت الانتظار';
@@ -7653,7 +7653,7 @@ class AppLocalizationsArEg extends AppLocalizationsAr {
   }
 
   @override
-  String get invalidStepTapToFix => 'خطوة غير صالحة، اضغط لإصلاحها';
+  String get invalidStepTapToFix => 'الخطوة غير صالحة. اضغط عشان تعدّلها.';
 
   @override
   String get sendIrCommand => 'إرسال أمر بالأشعة تحت الحمراء';

@@ -865,7 +865,7 @@
       "name": {}
     }
   },
-  "unknownButton": "Tidak dikenal Tombol",
+  "unknownButton": "Tombol tidak dikenal",
   "durationSecondsShort": "{seconds}s",
   "@durationSecondsShort": {
     "placeholders": {
@@ -971,9 +971,9 @@
   "enterMacroName": "Masukkan nama makro.",
   "addAtLeastOneStep": "Tambahkan setidaknya satu langkah.",
   "fixInvalidSteps": "Perbaiki langkah yang tidak valid sebelum menyimpan.",
-  "unknownCommand": "Tidak dikenal Command",
+  "unknownCommand": "Perintah tidak dikenal",
   "unnamedCommand": "Perintah tanpa nama",
-  "iconCommand": "Ikon Command",
+  "iconCommand": "Tombol ikon",
   "selectDelay": "Pilih waktu tunggu",
   "keepMilliseconds": "Pertahankan {ms} ms",
   "@keepMilliseconds": {
@@ -1040,7 +1040,7 @@
       }
     }
   },
-  "invalidStepTapToFix": "Langkah tidak valid, ketuk untuk memperbaiki",
+  "invalidStepTapToFix": "Langkah tidak valid. Ketuk untuk memperbaikinya.",
   "sendIrCommand": "Kirim perintah IR",
   "waitForUserConfirmation": "Berhenti sementara hingga Anda melanjutkan makro.",
   "notImplemented": "Belum diimplementasikan",

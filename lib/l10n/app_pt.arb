@@ -967,13 +967,13 @@
   "runAgain": "Executar novamente",
   "startMacro": "Iniciar macro",
   "continueAction": "Continuar",
-  "unnamedRemote": "Unnamed Comando",
+  "unnamedRemote": "Comando sem nome",
   "enterMacroName": "Introduza um nome para a macro.",
   "addAtLeastOneStep": "Adicione pelo menos um passo.",
   "fixInvalidSteps": "Corrija os passos inválidos antes de guardar.",
   "unknownCommand": "Comando desconhecido",
   "unnamedCommand": "Comando sem nome",
-  "iconCommand": "Comando de ícone",
+  "iconCommand": "Botão com ícone",
   "selectDelay": "Escolher tempo de espera",
   "keepMilliseconds": "Manter {ms} ms",
   "@keepMilliseconds": {
@@ -1040,7 +1040,7 @@
       }
     }
   },
-  "invalidStepTapToFix": "Passo inválido - toque para corrigir",
+  "invalidStepTapToFix": "Passo inválido. Toque para o corrigir.",
   "sendIrCommand": "Enviar comando IR",
   "waitForUserConfirmation": "Faz uma pausa até decidir continuar a macro.",
   "notImplemented": "Não implementado",

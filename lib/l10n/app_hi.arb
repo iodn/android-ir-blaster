@@ -383,7 +383,7 @@
   "exampleUseCase": "उदाहरण",
   "macroExampleText": "1. पहला कमांड भेजें\n2. एक सेकंड रुकें\n3. अगला कमांड भेजें",
   "createFirstMacro": "पहला मैक्रो बनाएँ",
-  "noRemote": "नहीं रिमोट",
+  "noRemote": "कोई रिमोट नहीं",
   "macroStepCount": "{count} चरण{plural}",
   "@macroStepCount": {
     "placeholders": {
@@ -973,7 +973,7 @@
   "fixInvalidSteps": "सेव करने से पहले गलत चरणों को ठीक करें।",
   "unknownCommand": "अज्ञात कमांड",
   "unnamedCommand": "बिना नाम की कमांड",
-  "iconCommand": "आइकन कमांड",
+  "iconCommand": "आइकन वाला बटन",
   "selectDelay": "रुकने का समय चुनें",
   "keepMilliseconds": "{ms} मिलीसेकंड रखें",
   "@keepMilliseconds": {
@@ -1040,7 +1040,7 @@
       }
     }
   },
-  "invalidStepTapToFix": "अमान्य चरण — टैप करें fix",
+  "invalidStepTapToFix": "गलत चरण है। ठीक करने के लिए टैप करें।",
   "sendIrCommand": "IR कमांड भेजें",
   "waitForUserConfirmation": "जब तक आप मैक्रो आगे नहीं बढ़ाते, यह रुका रहता है।",
   "notImplemented": "अभी लागू नहीं",

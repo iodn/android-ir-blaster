@@ -383,7 +383,7 @@
   "exampleUseCase": "使用示例",
   "macroExampleText": "1. 发送第一条命令\n2. 等待1秒\n3. 发送下一条命令",
   "createFirstMacro": "创建第一个宏",
-  "noRemote": "没有遥控器",
+  "noRemote": "无遥控器",
   "macroStepCount": "{count} 个步骤{plural}",
   "@macroStepCount": {
     "placeholders": {
@@ -858,14 +858,14 @@
       "name": {}
     }
   },
-  "buttonNotFound": "未找到按钮",
+  "buttonNotFound": "找不到按钮",
   "buttonNotFoundNamed": "找不到按钮：{name}",
   "@buttonNotFoundNamed": {
     "placeholders": {
       "name": {}
     }
   },
-  "unknownButton": "未知 按钮",
+  "unknownButton": "未知按钮",
   "durationSecondsShort": "{seconds}s",
   "@durationSecondsShort": {
     "placeholders": {
@@ -973,7 +973,7 @@
   "fixInvalidSteps": "请先修正无效步骤，再保存。",
   "unknownCommand": "未知命令",
   "unnamedCommand": "未命名命令",
-  "iconCommand": "图标命令",
+  "iconCommand": "图标按钮",
   "selectDelay": "选择等待时间",
   "keepMilliseconds": "保留{ms}毫秒",
   "@keepMilliseconds": {
@@ -1040,7 +1040,7 @@
       }
     }
   },
-  "invalidStepTapToFix": "步骤无效 点击修复",
+  "invalidStepTapToFix": "步骤无效，点击修改。",
   "sendIrCommand": "发送红外命令",
   "waitForUserConfirmation": "暂停宏，直到您选择继续。",
   "notImplemented": "尚未实现",

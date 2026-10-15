@@ -2322,7 +2322,7 @@ class AppLocalizationsPt extends AppLocalizations {
   String get continueAction => 'Continuar';
 
   @override
-  String get unnamedRemote => 'Unnamed Comando';
+  String get unnamedRemote => 'Comando sem nome';
 
   @override
   String get enterMacroName => 'Introduza um nome para a macro.';
@@ -2340,7 +2340,7 @@ class AppLocalizationsPt extends AppLocalizations {
   String get unnamedCommand => 'Comando sem nome';
 
   @override
-  String get iconCommand => 'Comando de ícone';
+  String get iconCommand => 'Botão com ícone';
 
   @override
   String get selectDelay => 'Escolher tempo de espera';
@@ -2445,7 +2445,7 @@ class AppLocalizationsPt extends AppLocalizations {
   }
 
   @override
-  String get invalidStepTapToFix => 'Passo inválido - toque para corrigir';
+  String get invalidStepTapToFix => 'Passo inválido. Toque para o corrigir.';
 
   @override
   String get sendIrCommand => 'Enviar comando IR';
@@ -7631,7 +7631,7 @@ class AppLocalizationsPtBr extends AppLocalizationsPt {
   String get continueAction => 'Continuar';
 
   @override
-  String get unnamedRemote => 'Unnamed controle';
+  String get unnamedRemote => 'Controle sem nome';
 
   @override
   String get enterMacroName => 'Digite um nome para a macro.';
@@ -7646,10 +7646,10 @@ class AppLocalizationsPtBr extends AppLocalizationsPt {
   String get unknownCommand => 'Comando desconhecido';
 
   @override
-  String get unnamedCommand => 'controle sem nome';
+  String get unnamedCommand => 'Comando sem nome';
 
   @override
-  String get iconCommand => 'Comando de ícone';
+  String get iconCommand => 'Botão com ícone';
 
   @override
   String get selectDelay => 'Escolher tempo de espera';
@@ -7754,7 +7754,7 @@ class AppLocalizationsPtBr extends AppLocalizationsPt {
   }
 
   @override
-  String get invalidStepTapToFix => 'Passo inválido - toque para corrigir';
+  String get invalidStepTapToFix => 'Etapa inválida. Toque para corrigir.';
 
   @override
   String get sendIrCommand => 'Enviar comando IR';

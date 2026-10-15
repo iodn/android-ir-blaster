@@ -2342,7 +2342,7 @@ class AppLocalizationsIt extends AppLocalizations {
   String get unnamedCommand => 'Comando senza nome';
 
   @override
-  String get iconCommand => 'Comando icona';
+  String get iconCommand => 'Pulsante con icona';
 
   @override
   String get selectDelay => 'Scegli il tempo di attesa';
@@ -2447,7 +2447,8 @@ class AppLocalizationsIt extends AppLocalizations {
   }
 
   @override
-  String get invalidStepTapToFix => 'Passaggio non valido tocca per correggere';
+  String get invalidStepTapToFix =>
+      'Passaggio non valido. Tocca per correggerlo.';
 
   @override
   String get sendIrCommand => 'Invia comando IR';

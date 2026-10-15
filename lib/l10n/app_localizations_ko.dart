@@ -1270,7 +1270,7 @@ class AppLocalizationsKo extends AppLocalizations {
   String get createFirstMacro => '첫 매크로 만들기';
 
   @override
-  String get noRemote => '없음 리모컨';
+  String get noRemote => '리모컨 없음';
 
   @override
   String macroCopyName(String name) {
@@ -2099,7 +2099,7 @@ class AppLocalizationsKo extends AppLocalizations {
   }
 
   @override
-  String get buttonNotFound => '버튼을 찾을 수 없음';
+  String get buttonNotFound => '버튼을 찾을 수 없습니다';
 
   @override
   String buttonNotFoundNamed(Object name) {
@@ -2107,7 +2107,7 @@ class AppLocalizationsKo extends AppLocalizations {
   }
 
   @override
-  String get unknownButton => '알 수 없음 버튼';
+  String get unknownButton => '알 수 없는 버튼';
 
   @override
   String durationSecondsShort(int seconds) {
@@ -2205,7 +2205,7 @@ class AppLocalizationsKo extends AppLocalizations {
   String get continueAction => '계속';
 
   @override
-  String get unnamedRemote => '이름 없음 리모컨';
+  String get unnamedRemote => '이름 없는 리모컨';
 
   @override
   String get enterMacroName => '매크로 이름을 입력하세요.';
@@ -2217,13 +2217,13 @@ class AppLocalizationsKo extends AppLocalizations {
   String get fixInvalidSteps => '저장하기 전에 잘못된 단계를 수정하세요.';
 
   @override
-  String get unknownCommand => '알 수 없음 명령';
+  String get unknownCommand => '알 수 없는 명령';
 
   @override
-  String get unnamedCommand => '이름 없음 명령';
+  String get unnamedCommand => '이름 없는 명령';
 
   @override
-  String get iconCommand => '아이콘 명령';
+  String get iconCommand => '아이콘 버튼';
 
   @override
   String get selectDelay => '대기 시간 선택';
@@ -2312,7 +2312,7 @@ class AppLocalizationsKo extends AppLocalizations {
   }
 
   @override
-  String get invalidStepTapToFix => '잘못된 단계 — 탭하여 수정';
+  String get invalidStepTapToFix => '잘못된 단계입니다. 눌러서 수정하세요.';
 
   @override
   String get sendIrCommand => '적외선 명령 전송';

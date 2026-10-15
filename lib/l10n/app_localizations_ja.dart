@@ -1112,7 +1112,7 @@ class AppLocalizationsJa extends AppLocalizations {
   String get failedToUpdateSetting => '設定の更新に失敗しました。';
 
   @override
-  String get unnamedButton => '無名のボタン';
+  String get unnamedButton => '名前のないボタン';
 
   @override
   String get iconFallback => 'アイコン';
@@ -2192,7 +2192,7 @@ class AppLocalizationsJa extends AppLocalizations {
   String get continueAction => '続行';
 
   @override
-  String get unnamedRemote => '無名のリモコン';
+  String get unnamedRemote => '名前のないリモコン';
 
   @override
   String get enterMacroName => 'マクロの名前を入力してください。';
@@ -2207,10 +2207,10 @@ class AppLocalizationsJa extends AppLocalizations {
   String get unknownCommand => '不明なコマンド';
 
   @override
-  String get unnamedCommand => '無名のコマンド';
+  String get unnamedCommand => '名前のないコマンド';
 
   @override
-  String get iconCommand => 'アイコンコマンド';
+  String get iconCommand => 'アイコンボタン';
 
   @override
   String get selectDelay => '待ち時間を選択';
@@ -2299,7 +2299,7 @@ class AppLocalizationsJa extends AppLocalizations {
   }
 
   @override
-  String get invalidStepTapToFix => '無効なステップです タップして修正してください';
+  String get invalidStepTapToFix => '無効なステップです。タップして修正してください。';
 
   @override
   String get sendIrCommand => '赤外線コマンドを送信';

@@ -2395,13 +2395,13 @@ class AppLocalizationsPl extends AppLocalizations {
   String get fixInvalidSteps => 'Popraw nieprawidłowe kroki przed zapisaniem.';
 
   @override
-  String get unknownCommand => 'Nieznana komenda';
+  String get unknownCommand => 'Nieznane polecenie';
 
   @override
-  String get unnamedCommand => 'Komenda bez nazwy';
+  String get unnamedCommand => 'Polecenie bez nazwy';
 
   @override
-  String get iconCommand => 'Komenda ikony';
+  String get iconCommand => 'Przycisk z ikoną';
 
   @override
   String get selectDelay => 'Wybierz czas oczekiwania';
@@ -2511,7 +2511,7 @@ class AppLocalizationsPl extends AppLocalizations {
 
   @override
   String get invalidStepTapToFix =>
-      'Nieprawidłowy krok — stuknij, aby poprawić';
+      'Nieprawidłowy krok. Dotknij, aby go poprawić.';
 
   @override
   String get sendIrCommand => 'Wyślij polecenie IR';

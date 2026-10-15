@@ -1325,7 +1325,7 @@ class AppLocalizationsMs extends AppLocalizations {
   String get createFirstMacro => 'Cipta makro pertama';
 
   @override
-  String get noRemote => 'Tiada remote';
+  String get noRemote => 'Tiada alat kawalan jauh';
 
   @override
   String macroCopyName(String name) {
@@ -2193,7 +2193,7 @@ class AppLocalizationsMs extends AppLocalizations {
   }
 
   @override
-  String get unknownButton => 'Tidak dikenal Butang';
+  String get unknownButton => 'Butang tidak dikenali';
 
   @override
   String durationSecondsShort(int seconds) {
@@ -2294,7 +2294,7 @@ class AppLocalizationsMs extends AppLocalizations {
   String get continueAction => 'Teruskan';
 
   @override
-  String get unnamedRemote => 'Remote tanpa nama';
+  String get unnamedRemote => 'Alat kawalan jauh tanpa nama';
 
   @override
   String get enterMacroName => 'Masukkan nama makro.';
@@ -2307,13 +2307,13 @@ class AppLocalizationsMs extends AppLocalizations {
       'Betulkan langkah yang tidak sah sebelum menyimpan.';
 
   @override
-  String get unknownCommand => 'Tidak dikenal Arahan';
+  String get unknownCommand => 'Arahan tidak dikenali';
 
   @override
-  String get unnamedCommand => 'Perintah tanpa nama';
+  String get unnamedCommand => 'Arahan tanpa nama';
 
   @override
-  String get iconCommand => 'Ikon Arahan';
+  String get iconCommand => 'Butang ikon';
 
   @override
   String get selectDelay => 'Pilih masa menunggu';
@@ -2406,7 +2406,8 @@ class AppLocalizationsMs extends AppLocalizations {
   }
 
   @override
-  String get invalidStepTapToFix => 'Langkah tidak sah, tekan untuk baiki';
+  String get invalidStepTapToFix =>
+      'Langkah tidak sah. Ketik untuk membetulkannya.';
 
   @override
   String get sendIrCommand => 'Hantar arahan IR';

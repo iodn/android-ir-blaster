@@ -3904,7 +3904,7 @@ abstract class AppLocalizations {
   /// No description provided for @unknownButton.
   ///
   /// In en, this message translates to:
-  /// **'Unknown Button'**
+  /// **'Unknown button'**
   String get unknownButton;
 
   /// No description provided for @durationSecondsShort.
@@ -4054,7 +4054,7 @@ abstract class AppLocalizations {
   /// No description provided for @unnamedRemote.
   ///
   /// In en, this message translates to:
-  /// **'Unnamed Remote'**
+  /// **'Unnamed remote'**
   String get unnamedRemote;
 
   /// No description provided for @enterMacroName.
@@ -4078,19 +4078,19 @@ abstract class AppLocalizations {
   /// No description provided for @unknownCommand.
   ///
   /// In en, this message translates to:
-  /// **'Unknown Command'**
+  /// **'Unknown command'**
   String get unknownCommand;
 
   /// No description provided for @unnamedCommand.
   ///
   /// In en, this message translates to:
-  /// **'Unnamed Command'**
+  /// **'Unnamed command'**
   String get unnamedCommand;
 
   /// No description provided for @iconCommand.
   ///
   /// In en, this message translates to:
-  /// **'Icon Command'**
+  /// **'Icon button'**
   String get iconCommand;
 
   /// No description provided for @selectDelay.

@@ -383,7 +383,7 @@
   "exampleUseCase": "Voorbeeld",
   "macroExampleText": "1. Verzend de eerste opdracht\n2. Wacht één seconde\n3. Verzend de volgende opdracht",
   "createFirstMacro": "Maak je eerste macro",
-  "noRemote": "Geen remote",
+  "noRemote": "Geen afstandsbediening",
   "macroStepCount": "{count} stap{plural}",
   "@macroStepCount": {
     "placeholders": {
@@ -858,14 +858,14 @@
       "name": {}
     }
   },
-  "buttonNotFound": "Knop not found",
+  "buttonNotFound": "Knop niet gevonden",
   "buttonNotFoundNamed": "Knop niet gevonden: {name}",
   "@buttonNotFoundNamed": {
     "placeholders": {
       "name": {}
     }
   },
-  "unknownButton": "Onbekend Knop",
+  "unknownButton": "Onbekende knop",
   "durationSecondsShort": "{seconds}s",
   "@durationSecondsShort": {
     "placeholders": {
@@ -967,13 +967,13 @@
   "runAgain": "Opnieuw uitvoeren",
   "startMacro": "Macro starten",
   "continueAction": "Doorgaan",
-  "unnamedRemote": "Unnamed Afstandsbediening",
+  "unnamedRemote": "Afstandsbediening zonder naam",
   "enterMacroName": "Voer een naam voor de macro in.",
   "addAtLeastOneStep": "Voeg minstens één stap toe.",
   "fixInvalidSteps": "Herstel de ongeldige stappen voordat je opslaat.",
-  "unknownCommand": "Onbekend Command",
+  "unknownCommand": "Onbekende opdracht",
   "unnamedCommand": "Naamloze opdracht",
-  "iconCommand": "Pictogram Command",
+  "iconCommand": "Knop met pictogram",
   "selectDelay": "Wachttijd kiezen",
   "keepMilliseconds": "{ms} ms behouden",
   "@keepMilliseconds": {
@@ -1040,7 +1040,7 @@
       }
     }
   },
-  "invalidStepTapToFix": "Ongeldige stap tik om te herstellen",
+  "invalidStepTapToFix": "Ongeldige stap. Tik om deze te herstellen.",
   "sendIrCommand": "IR-opdracht verzenden",
   "waitForUserConfirmation": "Pauzeert totdat je de macro laat doorgaan.",
   "notImplemented": "Niet geïmplementeerd",

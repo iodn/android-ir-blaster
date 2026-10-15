@@ -983,7 +983,7 @@
   "fixInvalidSteps": "Korrigiere die ungültigen Schritte vor dem Speichern.",
   "unknownCommand": "Unbekannter Befehl",
   "unnamedCommand": "Unbenannter Befehl",
-  "iconCommand": "Symbolbefehl",
+  "iconCommand": "Symboltaste",
   "selectDelay": "Wartezeit wählen",
   "keepMilliseconds": "{ms} ms beibehalten",
   "@keepMilliseconds": {
@@ -1050,7 +1050,7 @@
       }
     }
   },
-  "invalidStepTapToFix": "Ungültiger Schritt tippe zum Korrigieren",
+  "invalidStepTapToFix": "Ungültiger Schritt. Zum Korrigieren antippen.",
   "sendIrCommand": "IR-Befehl senden",
   "waitForUserConfirmation": "Pausiert, bis du das Makro fortsetzt.",
   "notImplemented": "Nicht implementiert",

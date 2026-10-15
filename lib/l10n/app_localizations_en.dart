@@ -2244,7 +2244,7 @@ class AppLocalizationsEn extends AppLocalizations {
   }
 
   @override
-  String get unknownButton => 'Unknown Button';
+  String get unknownButton => 'Unknown button';
 
   @override
   String durationSecondsShort(int seconds) {
@@ -2344,7 +2344,7 @@ class AppLocalizationsEn extends AppLocalizations {
   String get continueAction => 'Continue';
 
   @override
-  String get unnamedRemote => 'Unnamed Remote';
+  String get unnamedRemote => 'Unnamed remote';
 
   @override
   String get enterMacroName => 'Enter a name for the macro.';
@@ -2356,13 +2356,13 @@ class AppLocalizationsEn extends AppLocalizations {
   String get fixInvalidSteps => 'Fix the invalid steps before saving.';
 
   @override
-  String get unknownCommand => 'Unknown Command';
+  String get unknownCommand => 'Unknown command';
 
   @override
-  String get unnamedCommand => 'Unnamed Command';
+  String get unnamedCommand => 'Unnamed command';
 
   @override
-  String get iconCommand => 'Icon Command';
+  String get iconCommand => 'Icon button';
 
   @override
   String get selectDelay => 'Choose wait time';

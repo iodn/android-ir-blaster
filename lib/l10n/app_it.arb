@@ -973,7 +973,7 @@
   "fixInvalidSteps": "Correggi i passaggi non validi prima di salvare.",
   "unknownCommand": "Comando sconosciuto",
   "unnamedCommand": "Comando senza nome",
-  "iconCommand": "Comando icona",
+  "iconCommand": "Pulsante con icona",
   "selectDelay": "Scegli il tempo di attesa",
   "keepMilliseconds": "Mantieni {ms} ms",
   "@keepMilliseconds": {
@@ -1040,7 +1040,7 @@
       }
     }
   },
-  "invalidStepTapToFix": "Passaggio non valido tocca per correggere",
+  "invalidStepTapToFix": "Passaggio non valido. Tocca per correggerlo.",
   "sendIrCommand": "Invia comando IR",
   "waitForUserConfirmation": "Mette in pausa la macro finché non scegli di continuare.",
   "notImplemented": "Non implementato",

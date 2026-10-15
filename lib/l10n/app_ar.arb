@@ -314,7 +314,7 @@
   "openOnUsbAttachEnabledMessage": "سيُقترح فتح IR Blaster عند توصيل دونجل USB مدعوم.",
   "openOnUsbAttachDisabledMessage": "لن يُقترح الفتح عند توصيل USB.",
   "failedToUpdateSetting": "فشل إلى update setting.",
-  "unnamedButton": "زر بدون اسم",
+  "unnamedButton": "زر بلا اسم",
   "iconFallback": "أيقونة",
   "remoteListReorderHint": "وضع إعادة الترتيب: اضغط مطولاً واسحب البطاقة لتحريكها.",
   "deleteRemoteTitle": "حذف جهاز التحكم؟",
@@ -858,14 +858,14 @@
       "name": {}
     }
   },
-  "buttonNotFound": "زر not موجود",
+  "buttonNotFound": "لم يتم العثور على الزر",
   "buttonNotFoundNamed": "لم يتم العثور على الزر: {name}",
   "@buttonNotFoundNamed": {
     "placeholders": {
       "name": {}
     }
   },
-  "unknownButton": "غير معروف زر",
+  "unknownButton": "زر غير معروف",
   "durationSecondsShort": "{seconds}s",
   "@durationSecondsShort": {
     "placeholders": {
@@ -967,13 +967,13 @@
   "runAgain": "تشغيل مجدداً",
   "startMacro": "بدء الماكرو",
   "continueAction": "متابعة",
-  "unnamedRemote": "Unnamed جهاز التحكم",
+  "unnamedRemote": "جهاز تحكم بلا اسم",
   "enterMacroName": "أدخل اسماً للماكرو.",
   "addAtLeastOneStep": "أضف خطوة واحدة على الأقل.",
   "fixInvalidSteps": "صحّح الخطوات غير الصالحة قبل الحفظ.",
-  "unknownCommand": "غير معروف Command",
-  "unnamedCommand": "Unnamed Command",
-  "iconCommand": "Icon Command",
+  "unknownCommand": "أمر غير معروف",
+  "unnamedCommand": "أمر بلا اسم",
+  "iconCommand": "زر بأيقونة",
   "selectDelay": "اختر وقت الانتظار",
   "keepMilliseconds": "الإبقاء على {ms} مللي ثانية",
   "@keepMilliseconds": {
@@ -1040,7 +1040,7 @@
       }
     }
   },
-  "invalidStepTapToFix": "خطوة غير صالحة، اضغط لإصلاحها",
+  "invalidStepTapToFix": "خطوة غير صالحة. اضغط لتعديلها.",
   "sendIrCommand": "إرسال أمر بالأشعة تحت الحمراء",
   "waitForUserConfirmation": "يتوقف الماكرو مؤقتاً حتى تختار المتابعة.",
   "notImplemented": "Not implemented",

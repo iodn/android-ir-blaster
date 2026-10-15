@@ -1348,7 +1348,7 @@ class AppLocalizationsNl extends AppLocalizations {
   String get createFirstMacro => 'Maak je eerste macro';
 
   @override
-  String get noRemote => 'Geen remote';
+  String get noRemote => 'Geen afstandsbediening';
 
   @override
   String macroCopyName(String name) {
@@ -2220,7 +2220,7 @@ class AppLocalizationsNl extends AppLocalizations {
   }
 
   @override
-  String get buttonNotFound => 'Knop not found';
+  String get buttonNotFound => 'Knop niet gevonden';
 
   @override
   String buttonNotFoundNamed(Object name) {
@@ -2228,7 +2228,7 @@ class AppLocalizationsNl extends AppLocalizations {
   }
 
   @override
-  String get unknownButton => 'Onbekend Knop';
+  String get unknownButton => 'Onbekende knop';
 
   @override
   String durationSecondsShort(int seconds) {
@@ -2329,7 +2329,7 @@ class AppLocalizationsNl extends AppLocalizations {
   String get continueAction => 'Doorgaan';
 
   @override
-  String get unnamedRemote => 'Unnamed Afstandsbediening';
+  String get unnamedRemote => 'Afstandsbediening zonder naam';
 
   @override
   String get enterMacroName => 'Voer een naam voor de macro in.';
@@ -2342,13 +2342,13 @@ class AppLocalizationsNl extends AppLocalizations {
       'Herstel de ongeldige stappen voordat je opslaat.';
 
   @override
-  String get unknownCommand => 'Onbekend Command';
+  String get unknownCommand => 'Onbekende opdracht';
 
   @override
   String get unnamedCommand => 'Naamloze opdracht';
 
   @override
-  String get iconCommand => 'Pictogram Command';
+  String get iconCommand => 'Knop met pictogram';
 
   @override
   String get selectDelay => 'Wachttijd kiezen';
@@ -2453,7 +2453,8 @@ class AppLocalizationsNl extends AppLocalizations {
   }
 
   @override
-  String get invalidStepTapToFix => 'Ongeldige stap tik om te herstellen';
+  String get invalidStepTapToFix =>
+      'Ongeldige stap. Tik om deze te herstellen.';
 
   @override
   String get sendIrCommand => 'IR-opdracht verzenden';

@@ -314,7 +314,7 @@
   "openOnUsbAttachEnabledMessage": "Desteklenen bir USB dongle takıldığında IR Blaster'ı açmayı önerecek.",
   "openOnUsbAttachDisabledMessage": "USB bağlanınca açmayı önermeyecek.",
   "failedToUpdateSetting": "Başarısız to update setting.",
-  "unnamedButton": "Unnamed düğme",
+  "unnamedButton": "Adsız düğme",
   "iconFallback": "Icon",
   "remoteListReorderHint": "Yeniden sıralama modu: taşımak için bir karta uzun basıp sürükleyin.",
   "deleteRemoteTitle": "Sil kumanda?",
@@ -383,7 +383,7 @@
   "exampleUseCase": "Örnek",
   "macroExampleText": "1. İlk komutu gönderin\n2. Bir saniye bekleyin\n3. Sonraki komutu gönderin",
   "createFirstMacro": "İlk makronuzu oluşturun",
-  "noRemote": "No kumanda",
+  "noRemote": "Kumanda yok",
   "macroStepCount": "{count} adım{plural}",
   "@macroStepCount": {
     "placeholders": {
@@ -865,7 +865,7 @@
       "name": {}
     }
   },
-  "unknownButton": "Bilinmeyen Düğme",
+  "unknownButton": "Bilinmeyen düğme",
   "durationSecondsShort": "{seconds}s",
   "@durationSecondsShort": {
     "placeholders": {
@@ -967,13 +967,13 @@
   "runAgain": "Tekrar çalıştır",
   "startMacro": "Makroyu başlat",
   "continueAction": "Devam et",
-  "unnamedRemote": "Unnamed Kumanda",
+  "unnamedRemote": "Adsız kumanda",
   "enterMacroName": "Makro için bir ad girin.",
   "addAtLeastOneStep": "En az bir adım ekleyin.",
   "fixInvalidSteps": "Kaydetmeden önce geçersiz adımları düzeltin.",
-  "unknownCommand": "Bilinmeyen Komut",
-  "unnamedCommand": "Adsız Komut",
-  "iconCommand": "Simge Komutu",
+  "unknownCommand": "Bilinmeyen komut",
+  "unnamedCommand": "Adsız komut",
+  "iconCommand": "Simge düğmesi",
   "selectDelay": "Bekleme süresini seçin",
   "keepMilliseconds": "{ms} ms olarak tut",
   "@keepMilliseconds": {
@@ -1040,7 +1040,7 @@
       }
     }
   },
-  "invalidStepTapToFix": "Geçersiz adım — düzeltmek için dokunun",
+  "invalidStepTapToFix": "Geçersiz adım. Düzeltmek için dokunun.",
   "sendIrCommand": "Kızılötesi komut gönder",
   "waitForUserConfirmation": "Siz devam ettirene kadar makroyu duraklatır.",
   "notImplemented": "Henüz uygulanmadı",

@@ -1324,7 +1324,7 @@ class AppLocalizationsHi extends AppLocalizations {
   String get createFirstMacro => 'पहला मैक्रो बनाएँ';
 
   @override
-  String get noRemote => 'नहीं रिमोट';
+  String get noRemote => 'कोई रिमोट नहीं';
 
   @override
   String macroCopyName(String name) {
@@ -2305,7 +2305,7 @@ class AppLocalizationsHi extends AppLocalizations {
   String get unnamedCommand => 'बिना नाम की कमांड';
 
   @override
-  String get iconCommand => 'आइकन कमांड';
+  String get iconCommand => 'आइकन वाला बटन';
 
   @override
   String get selectDelay => 'रुकने का समय चुनें';
@@ -2398,7 +2398,7 @@ class AppLocalizationsHi extends AppLocalizations {
   }
 
   @override
-  String get invalidStepTapToFix => 'अमान्य चरण — टैप करें fix';
+  String get invalidStepTapToFix => 'गलत चरण है। ठीक करने के लिए टैप करें।';
 
   @override
   String get sendIrCommand => 'IR कमांड भेजें';

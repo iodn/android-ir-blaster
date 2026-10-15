@@ -1265,7 +1265,7 @@ class AppLocalizationsTh extends AppLocalizations {
   String get actions => 'การทำงาน';
 
   @override
-  String get macrosTitle => 'แมโคร';
+  String get macrosTitle => 'มาโคร';
 
   @override
   String get help => 'Help';
@@ -2173,7 +2173,7 @@ class AppLocalizationsTh extends AppLocalizations {
   }
 
   @override
-  String get unknownButton => 'ปุ่มที่ไม่ทราบ';
+  String get unknownButton => 'ปุ่มที่ไม่รู้จัก';
 
   @override
   String durationSecondsShort(int seconds) {
@@ -2285,13 +2285,13 @@ class AppLocalizationsTh extends AppLocalizations {
   String get fixInvalidSteps => 'แก้ไขขั้นตอนที่ไม่ถูกต้องก่อนบันทึก';
 
   @override
-  String get unknownCommand => 'คำสั่งที่ไม่ทราบ';
+  String get unknownCommand => 'คำสั่งที่ไม่รู้จัก';
 
   @override
   String get unnamedCommand => 'คำสั่งไม่มีชื่อ';
 
   @override
-  String get iconCommand => 'คำสั่งไอคอน';
+  String get iconCommand => 'ปุ่มไอคอน';
 
   @override
   String get selectDelay => 'เลือกเวลารอ';

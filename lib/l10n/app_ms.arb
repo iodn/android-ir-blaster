@@ -383,7 +383,7 @@
   "exampleUseCase": "Contoh",
   "macroExampleText": "1. Hantar arahan pertama\n2. Tunggu satu saat\n3. Hantar arahan seterusnya",
   "createFirstMacro": "Cipta makro pertama",
-  "noRemote": "Tiada remote",
+  "noRemote": "Tiada alat kawalan jauh",
   "macroStepCount": "{count} langkah{plural}",
   "@macroStepCount": {
     "placeholders": {
@@ -865,7 +865,7 @@
       "name": {}
     }
   },
-  "unknownButton": "Tidak dikenal Butang",
+  "unknownButton": "Butang tidak dikenali",
   "durationSecondsShort": "{seconds}s",
   "@durationSecondsShort": {
     "placeholders": {
@@ -967,13 +967,13 @@
   "runAgain": "Jalankan semula",
   "startMacro": "Mulakan makro",
   "continueAction": "Teruskan",
-  "unnamedRemote": "Remote tanpa nama",
+  "unnamedRemote": "Alat kawalan jauh tanpa nama",
   "enterMacroName": "Masukkan nama makro.",
   "addAtLeastOneStep": "Tambah sekurang-kurangnya satu langkah.",
   "fixInvalidSteps": "Betulkan langkah yang tidak sah sebelum menyimpan.",
-  "unknownCommand": "Tidak dikenal Arahan",
-  "unnamedCommand": "Perintah tanpa nama",
-  "iconCommand": "Ikon Arahan",
+  "unknownCommand": "Arahan tidak dikenali",
+  "unnamedCommand": "Arahan tanpa nama",
+  "iconCommand": "Butang ikon",
   "selectDelay": "Pilih masa menunggu",
   "keepMilliseconds": "Kekalkan {ms} ms",
   "@keepMilliseconds": {
@@ -1040,7 +1040,7 @@
       }
     }
   },
-  "invalidStepTapToFix": "Langkah tidak sah, tekan untuk baiki",
+  "invalidStepTapToFix": "Langkah tidak sah. Ketik untuk membetulkannya.",
   "sendIrCommand": "Hantar arahan IR",
   "waitForUserConfirmation": "Makro dijeda sehingga anda memilih untuk meneruskan.",
   "notImplemented": "Belum diimplementasikan",

@@ -978,7 +978,7 @@
   "fixInvalidSteps": "Corrigez les étapes non valides avant d’enregistrer.",
   "unknownCommand": "Commande inconnue",
   "unnamedCommand": "Commande sans nom",
-  "iconCommand": "Icône commande",
+  "iconCommand": "Bouton avec icône",
   "selectDelay": "Choisir le temps d’attente",
   "keepMilliseconds": "Conserver {ms} ms",
   "@keepMilliseconds": {
@@ -1045,7 +1045,7 @@
       }
     }
   },
-  "invalidStepTapToFix": "Étape invalide - appuyez pour corriger",
+  "invalidStepTapToFix": "Étape non valide. Touchez-la pour la corriger.",
   "sendIrCommand": "Envoyer une commande IR",
   "waitForUserConfirmation": "Met la macro en pause jusqu’à ce que vous la poursuiviez.",
   "notImplemented": "Non implémenté",

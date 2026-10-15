@@ -368,7 +368,7 @@
   "noRemotesDescription": "Create a remote to start sending IR codes.",
   "noRemotesNextStep": "Susunod: tapikin ang Add remote, saka idagdag ang una mong mga button.",
   "actions": "Actions",
-  "macrosTitle": "Mga Macro",
+  "macrosTitle": "Mga macro",
   "help": "Help",
   "createMacro": "Gumawa ng macro",
   "timedMacrosTitle": "Mga macro",
@@ -858,14 +858,14 @@
       "name": {}
     }
   },
-  "buttonNotFound": "Button not found",
+  "buttonNotFound": "Hindi makita ang button",
   "buttonNotFoundNamed": "Hindi makita ang button: {name}",
   "@buttonNotFoundNamed": {
     "placeholders": {
       "name": {}
     }
   },
-  "unknownButton": "Hindi kilalang Button",
+  "unknownButton": "Hindi kilalang button",
   "durationSecondsShort": "{seconds}s",
   "@durationSecondsShort": {
     "placeholders": {
@@ -971,9 +971,9 @@
   "enterMacroName": "Maglagay ng pangalan ng macro.",
   "addAtLeastOneStep": "Magdagdag ng kahit isang hakbang.",
   "fixInvalidSteps": "Ayusin muna ang mga hakbang na may problema bago i-save.",
-  "unknownCommand": "Hindi kilala Command",
-  "unnamedCommand": "Unnamed Command",
-  "iconCommand": "Icon Command",
+  "unknownCommand": "Hindi kilalang command",
+  "unnamedCommand": "Command na walang pangalan",
+  "iconCommand": "Button na may icon",
   "selectDelay": "Piliin ang oras ng paghihintay",
   "keepMilliseconds": "Panatilihin ang {ms} ms",
   "@keepMilliseconds": {
@@ -1040,7 +1040,7 @@
       }
     }
   },
-  "invalidStepTapToFix": "Invalid hakbang — tapikin to fix",
+  "invalidStepTapToFix": "May problema sa hakbang. I-tap para ayusin.",
   "sendIrCommand": "Magpadala ng IR command",
   "waitForUserConfirmation": "Hihinto muna hanggang piliin mong ituloy ang macro.",
   "notImplemented": "Not implemented",

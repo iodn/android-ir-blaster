@@ -314,7 +314,7 @@
   "openOnUsbAttachEnabledMessage": "Sẽ gợi ý mở IR Blaster khi có USB dongle được hỗ trợ được gắn vào.",
   "openOnUsbAttachDisabledMessage": "Sẽ không gợi ý mở khi gắn USB.",
   "failedToUpdateSetting": "Không cập nhật được cài đặt.",
-  "unnamedButton": "Nút chưa tên",
+  "unnamedButton": "Nút chưa đặt tên",
   "iconFallback": "Biểu tượng",
   "remoteListReorderHint": "Chế độ sắp xếp lại: nhấn giữ và kéo thẻ để di chuyển.",
   "deleteRemoteTitle": "Xóa điều khiển?",
@@ -865,7 +865,7 @@
       "name": {}
     }
   },
-  "unknownButton": "Nút không rõ",
+  "unknownButton": "Nút không xác định",
   "durationSecondsShort": "{seconds}s",
   "@durationSecondsShort": {
     "placeholders": {
@@ -967,13 +967,13 @@
   "runAgain": "Chạy lại",
   "startMacro": "Bắt đầu macro",
   "continueAction": "Tiếp tục",
-  "unnamedRemote": "Điều khiển chưa tên",
+  "unnamedRemote": "Điều khiển chưa đặt tên",
   "enterMacroName": "Nhập tên cho macro.",
   "addAtLeastOneStep": "Thêm ít nhất một bước.",
   "fixInvalidSteps": "Sửa các bước không hợp lệ trước khi lưu.",
-  "unknownCommand": "Lệnh không rõ",
-  "unnamedCommand": "Lệnh chưa tên",
-  "iconCommand": "Biểu tượng Command",
+  "unknownCommand": "Lệnh không xác định",
+  "unnamedCommand": "Lệnh chưa đặt tên",
+  "iconCommand": "Nút biểu tượng",
   "selectDelay": "Chọn thời gian chờ",
   "keepMilliseconds": "Giữ {ms} ms",
   "@keepMilliseconds": {
@@ -1040,7 +1040,7 @@
       }
     }
   },
-  "invalidStepTapToFix": "Bước không hợp lệ — chạm để sửa",
+  "invalidStepTapToFix": "Bước không hợp lệ. Chạm để chỉnh sửa.",
   "sendIrCommand": "Gửi lệnh hồng ngoại",
   "waitForUserConfirmation": "Tạm dừng cho đến khi bạn cho macro tiếp tục.",
   "notImplemented": "Chưa triển khai",

@@ -1166,7 +1166,7 @@ class AppLocalizationsRu extends AppLocalizations {
   String get failedToUpdateSetting => 'Не удалось обновить настройку.';
 
   @override
-  String get unnamedButton => 'Безымянная кнопка';
+  String get unnamedButton => 'Кнопка без названия';
 
   @override
   String get iconFallback => 'Иконка';
@@ -2303,7 +2303,7 @@ class AppLocalizationsRu extends AppLocalizations {
   String get continueAction => 'Продолжить';
 
   @override
-  String get unnamedRemote => 'Безымянный пульт';
+  String get unnamedRemote => 'Пульт без названия';
 
   @override
   String get enterMacroName => 'Введите название макроса.';
@@ -2319,10 +2319,10 @@ class AppLocalizationsRu extends AppLocalizations {
   String get unknownCommand => 'Неизвестная команда';
 
   @override
-  String get unnamedCommand => 'Безымянная команда';
+  String get unnamedCommand => 'Команда без названия';
 
   @override
-  String get iconCommand => 'Иконка Команда';
+  String get iconCommand => 'Кнопка со значком';
 
   @override
   String get selectDelay => 'Выберите время ожидания';
@@ -2430,7 +2430,8 @@ class AppLocalizationsRu extends AppLocalizations {
   }
 
   @override
-  String get invalidStepTapToFix => 'Неверный шаг, нажмите для исправления';
+  String get invalidStepTapToFix =>
+      'Некорректный шаг. Нажмите, чтобы исправить.';
 
   @override
   String get sendIrCommand => 'Отправить ИК-команду';

@@ -2318,7 +2318,7 @@ class AppLocalizationsEs extends AppLocalizations {
   String get continueAction => 'Continuar';
 
   @override
-  String get unnamedRemote => 'Unnamed Mando';
+  String get unnamedRemote => 'Mando sin nombre';
 
   @override
   String get enterMacroName => 'Introduce un nombre para la macro.';
@@ -2331,13 +2331,13 @@ class AppLocalizationsEs extends AppLocalizations {
       'Corrige los pasos no válidos antes de guardar.';
 
   @override
-  String get unknownCommand => 'Desconocido Command';
+  String get unknownCommand => 'Comando desconocido';
 
   @override
   String get unnamedCommand => 'Comando sin nombre';
 
   @override
-  String get iconCommand => 'Comando de icono';
+  String get iconCommand => 'Botón con icono';
 
   @override
   String get selectDelay => 'Elegir tiempo de espera';
@@ -2442,7 +2442,7 @@ class AppLocalizationsEs extends AppLocalizations {
   }
 
   @override
-  String get invalidStepTapToFix => 'Paso no válido - toca para corregir';
+  String get invalidStepTapToFix => 'Paso no válido. Toca para corregirlo.';
 
   @override
   String get sendIrCommand => 'Enviar comando IR';

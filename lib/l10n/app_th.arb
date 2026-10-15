@@ -368,7 +368,7 @@
   "noRemotesDescription": "สร้าง a remote to start sending IR codes.",
   "noRemotesNextStep": "What ถัดไป: tap เพิ่มรีโมต, then add your ก่อน ปุ่มs.",
   "actions": "การทำงาน",
-  "macrosTitle": "แมโคร",
+  "macrosTitle": "มาโคร",
   "help": "Help",
   "createMacro": "สร้างมาโคร",
   "timedMacrosTitle": "มาโคร",
@@ -865,7 +865,7 @@
       "name": {}
     }
   },
-  "unknownButton": "ปุ่มที่ไม่ทราบ",
+  "unknownButton": "ปุ่มที่ไม่รู้จัก",
   "durationSecondsShort": "{seconds}ว",
   "@durationSecondsShort": {
     "placeholders": {
@@ -971,9 +971,9 @@
   "enterMacroName": "กรอกชื่อมาโคร",
   "addAtLeastOneStep": "เพิ่มอย่างน้อยหนึ่งขั้นตอน",
   "fixInvalidSteps": "แก้ไขขั้นตอนที่ไม่ถูกต้องก่อนบันทึก",
-  "unknownCommand": "คำสั่งที่ไม่ทราบ",
+  "unknownCommand": "คำสั่งที่ไม่รู้จัก",
   "unnamedCommand": "คำสั่งไม่มีชื่อ",
-  "iconCommand": "คำสั่งไอคอน",
+  "iconCommand": "ปุ่มไอคอน",
   "selectDelay": "เลือกเวลารอ",
   "keepMilliseconds": "ใช้ {ms} มิลลิวินาทีตามเดิม",
   "@keepMilliseconds": {

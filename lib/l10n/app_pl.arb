@@ -973,9 +973,9 @@
   "enterMacroName": "Wpisz nazwę makra.",
   "addAtLeastOneStep": "Dodaj co najmniej jeden krok.",
   "fixInvalidSteps": "Popraw nieprawidłowe kroki przed zapisaniem.",
-  "unknownCommand": "Nieznana komenda",
-  "unnamedCommand": "Komenda bez nazwy",
-  "iconCommand": "Komenda ikony",
+  "unknownCommand": "Nieznane polecenie",
+  "unnamedCommand": "Polecenie bez nazwy",
+  "iconCommand": "Przycisk z ikoną",
   "selectDelay": "Wybierz czas oczekiwania",
   "keepMilliseconds": "Zachowaj {ms} ms",
   "@keepMilliseconds": {
@@ -1042,7 +1042,7 @@
       }
     }
   },
-  "invalidStepTapToFix": "Nieprawidłowy krok — stuknij, aby poprawić",
+  "invalidStepTapToFix": "Nieprawidłowy krok. Dotknij, aby go poprawić.",
   "sendIrCommand": "Wyślij polecenie IR",
   "waitForUserConfirmation": "Wstrzymuje makro, aż zdecydujesz się je kontynuować.",
   "notImplemented": "Niezaimplementowano",

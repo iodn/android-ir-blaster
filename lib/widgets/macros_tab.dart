@@ -26,9 +26,32 @@ class _MacrosTabState extends State<MacrosTab> {
       child: ValueListenableBuilder<int>(
         valueListenable: macrosRevision,
         builder: (context, _, __) {
+          final theme = Theme.of(context);
+          final titleStyle =
+              theme.appBarTheme.titleTextStyle ?? theme.textTheme.titleLarge!;
+          final leadingWidth =
+              ModalRoute.of(context)?.impliesAppBarDismissal == true
+                  ? kToolbarHeight
+                  : 0.0;
+          final actionsWidth =
+              kMinInteractiveDimension * (macros.isEmpty ? 1 : 2);
+          final titleLayout = TextPainter(
+            text: TextSpan(text: context.l10n.macrosTitle, style: titleStyle),
+            textDirection: Directionality.of(context),
+            textScaler: MediaQuery.textScalerOf(context),
+          )..layout(
+              maxWidth: (MediaQuery.sizeOf(context).width -
+                      leadingWidth - actionsWidth - 32)
+                  .clamp(1.0, double.infinity));
+          final titleLines = titleLayout.computeLineMetrics().length;
+          final toolbarHeight =
+              (titleLayout.height + 16).clamp(kToolbarHeight, double.infinity);
+          titleLayout.dispose();
           return Scaffold(
             appBar: AppBar(
-              title: Text(context.l10n.macrosTitle),
+              toolbarHeight: toolbarHeight,
+              title: Text(context.l10n.macrosTitle,
+                  style: titleStyle, maxLines: titleLines),
               actions: [
                 IconButton(
                   tooltip: context.l10n.shareTitle,
@@ -262,9 +285,9 @@ class _MacrosTabState extends State<MacrosTab> {
       itemCount: macros.length,
       itemBuilder: (context, i) {
         final macro = macros[i];
-        final remoteLabel = macro.remoteName.trim().isEmpty
-            ? context.l10n.noRemote
-            : macro.remoteName;
+        final hasRemoteName = macro.remoteName.trim().isNotEmpty;
+        final remoteLabel =
+            hasRemoteName ? macro.remoteName : context.l10n.noRemote;
         final stepCount = macro.steps.length;
         return Card(
           margin: const EdgeInsets.only(bottom: 12),
@@ -324,8 +347,9 @@ class _MacrosTabState extends State<MacrosTab> {
                                   color: cs.onSurface.withValues(alpha: 0.7),
                                   fontWeight: FontWeight.w600,
                                 ),
-                                maxLines: 1,
-                                overflow: TextOverflow.ellipsis,
+                                maxLines: hasRemoteName ? 1 : null,
+                                overflow:
+                                    hasRemoteName ? TextOverflow.ellipsis : null,
                               ),
                             ),
                           ],

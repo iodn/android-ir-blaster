@@ -1344,7 +1344,7 @@ class AppLocalizationsUk extends AppLocalizations {
   String get createFirstMacro => 'Створити перший макрос';
 
   @override
-  String get noRemote => 'Без пульта';
+  String get noRemote => 'Немає пульта';
 
   @override
   String macroCopyName(String name) {
@@ -2405,10 +2405,10 @@ class AppLocalizationsUk extends AppLocalizations {
   String get unknownCommand => 'Невідома команда';
 
   @override
-  String get unnamedCommand => 'Безіменна команда';
+  String get unnamedCommand => 'Команда без назви';
 
   @override
-  String get iconCommand => 'Команда значка';
+  String get iconCommand => 'Кнопка зі значком';
 
   @override
   String get selectDelay => 'Виберіть час очікування';
@@ -2517,7 +2517,7 @@ class AppLocalizationsUk extends AppLocalizations {
 
   @override
   String get invalidStepTapToFix =>
-      'Недійсний крок – торкніться, щоб виправити';
+      'Некоректний крок. Торкніться, щоб виправити.';
 
   @override
   String get sendIrCommand => 'Надіслати ІЧ-команду';

@@ -2349,7 +2349,7 @@ class AppLocalizationsDe extends AppLocalizations {
   String get unnamedCommand => 'Unbenannter Befehl';
 
   @override
-  String get iconCommand => 'Symbolbefehl';
+  String get iconCommand => 'Symboltaste';
 
   @override
   String get selectDelay => 'Wartezeit wählen';
@@ -2454,7 +2454,8 @@ class AppLocalizationsDe extends AppLocalizations {
   }
 
   @override
-  String get invalidStepTapToFix => 'Ungültiger Schritt tippe zum Korrigieren';
+  String get invalidStepTapToFix =>
+      'Ungültiger Schritt. Zum Korrigieren antippen.';
 
   @override
   String get sendIrCommand => 'IR-Befehl senden';

@@ -2342,7 +2342,7 @@ class AppLocalizationsFr extends AppLocalizations {
   String get unnamedCommand => 'Commande sans nom';
 
   @override
-  String get iconCommand => 'Icône commande';
+  String get iconCommand => 'Bouton avec icône';
 
   @override
   String get selectDelay => 'Choisir le temps d’attente';
@@ -2447,7 +2447,8 @@ class AppLocalizationsFr extends AppLocalizations {
   }
 
   @override
-  String get invalidStepTapToFix => 'Étape invalide - appuyez pour corriger';
+  String get invalidStepTapToFix =>
+      'Étape non valide. Touchez-la pour la corriger.';
 
   @override
   String get sendIrCommand => 'Envoyer une commande IR';
