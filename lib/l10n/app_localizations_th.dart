@@ -297,11 +297,11 @@ class AppLocalizationsTh extends AppLocalizations {
   String get settingsDemoRemotesRestored => 'กู้คืนรีโมตตัวอย่างแล้ว';
 
   @override
-  String get settingsDeleteAllRemotesTitle => 'ลบรีโมตทั้งหมด';
+  String get settingsDeleteAllRemotesTitle => 'ลบรีโมตทั้งหมดหรือไม่?';
 
   @override
   String get settingsDeleteAllRemotesMessage =>
-      'การดำเนินการนี้จะลบรีโมตทั้งหมดออกจากอุปกรณ์นี้ และไม่สามารถยกเลิกได้';
+      'รีโมตทั้งหมดที่บันทึกไว้ในอุปกรณ์นี้จะถูกลบ และไม่สามารถย้อนกลับได้';
 
   @override
   String get settingsDeleteAllConfirm => 'ลบทั้งหมด';
@@ -889,7 +889,8 @@ class AppLocalizationsTh extends AppLocalizations {
   String get deleteAllRemotes => 'ลบรีโมตทั้งหมด';
 
   @override
-  String get deleteAllRemotesSubtitle => 'ลบรีโมตทั้งหมดออกจากอุปกรณ์นี้';
+  String get deleteAllRemotesSubtitle =>
+      'ลบรีโมตทั้งหมดที่บันทึกไว้ในอุปกรณ์นี้';
 
   @override
   String get backupTip =>

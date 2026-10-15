@@ -301,13 +301,13 @@ class AppLocalizationsId extends AppLocalizations {
 
   @override
   String get settingsDeleteAllRemotesMessage =>
-      'Ini menghapus semua remote dari perangkat ini. Tindakan ini tidak bisa dibatalkan.';
+      'Semua remote yang tersimpan di perangkat ini akan dihapus. Tindakan ini tidak dapat diurungkan.';
 
   @override
   String get settingsDeleteAllConfirm => 'Hapus semua';
 
   @override
-  String get settingsAllRemotesDeleted => 'Semua remote dihapus.';
+  String get settingsAllRemotesDeleted => 'Semua remote telah dihapus.';
 
   @override
   String get themeAuto => 'Tema Otomatis';
@@ -900,7 +900,7 @@ class AppLocalizationsId extends AppLocalizations {
 
   @override
   String get deleteAllRemotesSubtitle =>
-      'Hapus semua remote dari perangkat ini';
+      'Hapus semua remote yang tersimpan di perangkat ini.';
 
   @override
   String get backupTip =>

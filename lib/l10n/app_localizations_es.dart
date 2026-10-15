@@ -303,13 +303,13 @@ class AppLocalizationsEs extends AppLocalizations {
 
   @override
   String get settingsDeleteAllRemotesMessage =>
-      'This removes every mando from this dispositivo. This action can’t be undone.';
+      'Se eliminarán todos los mandos guardados en este dispositivo. No se puede deshacer.';
 
   @override
-  String get settingsDeleteAllConfirm => 'Eliminar todo';
+  String get settingsDeleteAllConfirm => 'Eliminar todos';
 
   @override
-  String get settingsAllRemotesDeleted => 'Todos los mandos eliminados.';
+  String get settingsAllRemotesDeleted => 'Se han eliminado todos los mandos.';
 
   @override
   String get themeAuto => 'Tema auto';
@@ -906,7 +906,7 @@ class AppLocalizationsEs extends AppLocalizations {
 
   @override
   String get deleteAllRemotesSubtitle =>
-      'Eliminar todos los mandos de este dispositivo';
+      'Elimina todos los mandos guardados en este dispositivo.';
 
   @override
   String get backupTip =>

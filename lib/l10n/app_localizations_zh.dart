@@ -275,10 +275,10 @@ class AppLocalizationsZh extends AppLocalizations {
   String get settingsDemoRemotesRestored => '已恢复演示遥控器。';
 
   @override
-  String get settingsDeleteAllRemotesTitle => '删除所有遥控器';
+  String get settingsDeleteAllRemotesTitle => '删除所有遥控器？';
 
   @override
-  String get settingsDeleteAllRemotesMessage => '这会从此设备移除所有遥控器。此操作无法撤销。';
+  String get settingsDeleteAllRemotesMessage => '保存在此设备上的所有遥控器都将被删除。此操作无法撤销。';
 
   @override
   String get settingsDeleteAllConfirm => '全部删除';
@@ -830,7 +830,7 @@ class AppLocalizationsZh extends AppLocalizations {
   String get deleteAllRemotes => '删除所有遥控器';
 
   @override
-  String get deleteAllRemotesSubtitle => '从此设备移除所有遥控器';
+  String get deleteAllRemotesSubtitle => '删除保存在此设备上的所有遥控器。';
 
   @override
   String get backupTip =>

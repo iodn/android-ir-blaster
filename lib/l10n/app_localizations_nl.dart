@@ -305,14 +305,14 @@ class AppLocalizationsNl extends AppLocalizations {
 
   @override
   String get settingsDeleteAllRemotesMessage =>
-      'Hiermee verwijder je elke afstandsbediening van dit apparaat. Deze actie kan niet ongedaan worden gemaakt.';
+      'Alle opgeslagen afstandsbedieningen op dit apparaat worden verwijderd. Dit kan niet ongedaan worden gemaakt.';
 
   @override
   String get settingsDeleteAllConfirm => 'Alles verwijderen';
 
   @override
   String get settingsAllRemotesDeleted =>
-      'Alle afstandsbedieningen verwijderd.';
+      'Alle afstandsbedieningen zijn verwijderd.';
 
   @override
   String get themeAuto => 'Automatisch thema';
@@ -913,7 +913,7 @@ class AppLocalizationsNl extends AppLocalizations {
 
   @override
   String get deleteAllRemotesSubtitle =>
-      'Verwijder elke afstandsbediening van dit apparaat';
+      'Verwijder alle afstandsbedieningen die op dit apparaat zijn opgeslagen.';
 
   @override
   String get backupTip =>

@@ -284,16 +284,17 @@ class AppLocalizationsJa extends AppLocalizations {
   String get settingsDemoRemotesRestored => 'デモリモコンを復元しました';
 
   @override
-  String get settingsDeleteAllRemotesTitle => 'すべてのリモコンを削除しますか?';
+  String get settingsDeleteAllRemotesTitle => 'すべてのリモコンを削除しますか？';
 
   @override
-  String get settingsDeleteAllRemotesMessage => 'この端末のすべてのリモコンを削除します。元に戻せません。';
+  String get settingsDeleteAllRemotesMessage =>
+      'この端末に保存したリモコンはすべて削除されます。この操作は元に戻せません。';
 
   @override
   String get settingsDeleteAllConfirm => 'すべて削除';
 
   @override
-  String get settingsAllRemotesDeleted => 'すべてのリモコンを削除しました';
+  String get settingsAllRemotesDeleted => 'すべてのリモコンを削除しました。';
 
   @override
   String get themeAuto => '自動テーマ';
@@ -859,7 +860,7 @@ class AppLocalizationsJa extends AppLocalizations {
   String get deleteAllRemotes => 'すべてのリモコンを削除';
 
   @override
-  String get deleteAllRemotesSubtitle => 'この端末の全リモコンを削除';
+  String get deleteAllRemotesSubtitle => 'この端末に保存したリモコンをすべて削除します。';
 
   @override
   String get backupTip =>

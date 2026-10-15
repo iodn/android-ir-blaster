@@ -299,17 +299,17 @@ class AppLocalizationsHi extends AppLocalizations {
   String get settingsDemoRemotesRestored => 'डेमो रिमोट पुनर्स्थापित किए गए।';
 
   @override
-  String get settingsDeleteAllRemotesTitle => 'हटाएं सभी रिमोट?';
+  String get settingsDeleteAllRemotesTitle => 'सभी रिमोट हटाएँ?';
 
   @override
   String get settingsDeleteAllRemotesMessage =>
-      'यह इस डिवाइस से हर रिमोट हटा देगा। इस क्रिया को पूर्ववत नहीं किया जा सकता।';
+      'इस डिवाइस पर सहेजे गए सभी रिमोट हटा दिए जाएँगे। इसे वापस नहीं लिया जा सकता।';
 
   @override
-  String get settingsDeleteAllConfirm => 'हटाएं सभी';
+  String get settingsDeleteAllConfirm => 'सभी हटाएँ';
 
   @override
-  String get settingsAllRemotesDeleted => 'सभी रिमोट हटाया गया.';
+  String get settingsAllRemotesDeleted => 'सभी रिमोट हटा दिए गए।';
 
   @override
   String get themeAuto => 'स्वतः थीम';
@@ -896,10 +896,11 @@ class AppLocalizationsHi extends AppLocalizations {
       'मौजूदा रिमोट की जगह ऐप के उदाहरण वाले रिमोट रखें।';
 
   @override
-  String get deleteAllRemotes => 'हटाएं सभी रिमोट';
+  String get deleteAllRemotes => 'सभी रिमोट हटाएँ';
 
   @override
-  String get deleteAllRemotesSubtitle => 'every रिमोट से यह डिवाइस हटाएं';
+  String get deleteAllRemotesSubtitle =>
+      'इस डिवाइस पर सहेजे गए सभी रिमोट हटाएँ।';
 
   @override
   String get backupTip =>

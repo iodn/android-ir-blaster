@@ -290,13 +290,13 @@ class AppLocalizationsKo extends AppLocalizations {
 
   @override
   String get settingsDeleteAllRemotesMessage =>
-      '이 기기의 모든 리모컨을 삭제합니다. 이 작업은 되돌릴 수 없습니다.';
+      '이 기기에 저장된 리모컨이 모두 삭제돼요. 이 작업은 되돌릴 수 없어요.';
 
   @override
   String get settingsDeleteAllConfirm => '모두 삭제';
 
   @override
-  String get settingsAllRemotesDeleted => '모든 리모컨을 삭제했습니다.';
+  String get settingsAllRemotesDeleted => '모든 리모컨을 삭제했어요.';
 
   @override
   String get themeAuto => '자동 테마';
@@ -865,7 +865,7 @@ class AppLocalizationsKo extends AppLocalizations {
   String get deleteAllRemotes => '모든 리모컨 삭제';
 
   @override
-  String get deleteAllRemotesSubtitle => '이 기기의 모든 리모컨 제거';
+  String get deleteAllRemotesSubtitle => '이 기기에 저장된 리모컨을 모두 삭제해요.';
 
   @override
   String get backupTip =>

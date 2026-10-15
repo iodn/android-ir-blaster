@@ -639,7 +639,7 @@ abstract class AppLocalizations {
   /// No description provided for @settingsDeleteAllRemotesMessage.
   ///
   /// In en, this message translates to:
-  /// **'This removes every remote from this device. This action can’t be undone.'**
+  /// **'All remotes saved on this device will be deleted. This cannot be undone.'**
   String get settingsDeleteAllRemotesMessage;
 
   /// No description provided for @settingsDeleteAllConfirm.
@@ -1701,7 +1701,7 @@ abstract class AppLocalizations {
   /// No description provided for @deleteAllRemotesSubtitle.
   ///
   /// In en, this message translates to:
-  /// **'Remove every remote from this device'**
+  /// **'Remove all remotes saved on this device.'**
   String get deleteAllRemotesSubtitle;
 
   /// No description provided for @backupTip.

@@ -303,7 +303,7 @@ class AppLocalizationsTr extends AppLocalizations {
 
   @override
   String get settingsDeleteAllRemotesMessage =>
-      'Bu işlem bu cihazdaki tüm kumandaları kaldırır. Bu işlem geri alınamaz.';
+      'Bu cihazda kayıtlı tüm kumandalar silinecek. Bu işlem geri alınamaz.';
 
   @override
   String get settingsDeleteAllConfirm => 'Tümünü sil';
@@ -899,10 +899,11 @@ class AppLocalizationsTr extends AppLocalizations {
       'Mevcut kumandaları uygulamadaki örneklerle değiştirin.';
 
   @override
-  String get deleteAllRemotes => 'Tümünü sil remotes';
+  String get deleteAllRemotes => 'Tüm kumandaları sil';
 
   @override
-  String get deleteAllRemotesSubtitle => 'Bu cihazdaki tüm kumandaları kaldır';
+  String get deleteAllRemotesSubtitle =>
+      'Bu cihazda kayıtlı tüm kumandaları kaldırın.';
 
   @override
   String get backupTip =>

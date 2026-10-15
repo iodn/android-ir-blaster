@@ -303,13 +303,14 @@ class AppLocalizationsIt extends AppLocalizations {
 
   @override
   String get settingsDeleteAllRemotesMessage =>
-      'Rimuove tutti i telecomandi da questo dispositivo. Questa azione non può essere annullata.';
+      'Tutti i telecomandi salvati su questo dispositivo saranno eliminati. L’operazione non può essere annullata.';
 
   @override
-  String get settingsDeleteAllConfirm => 'Elimina tutto';
+  String get settingsDeleteAllConfirm => 'Elimina tutti';
 
   @override
-  String get settingsAllRemotesDeleted => 'Tutti i telecomandi eliminati.';
+  String get settingsAllRemotesDeleted =>
+      'Tutti i telecomandi sono stati eliminati.';
 
   @override
   String get themeAuto => 'Tema auto';
@@ -910,7 +911,7 @@ class AppLocalizationsIt extends AppLocalizations {
 
   @override
   String get deleteAllRemotesSubtitle =>
-      'Rimuovi tutti i telecomandi da questo dispositivo';
+      'Rimuovi tutti i telecomandi salvati su questo dispositivo.';
 
   @override
   String get backupTip =>

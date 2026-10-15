@@ -303,7 +303,7 @@ class AppLocalizationsVi extends AppLocalizations {
 
   @override
   String get settingsDeleteAllRemotesMessage =>
-      'Thao tác này sẽ xóa mọi điều khiển khỏi thiết bị này. Không thể hoàn tác.';
+      'Tất cả điều khiển đã lưu trên thiết bị này sẽ bị xóa. Không thể hoàn tác thao tác này.';
 
   @override
   String get settingsDeleteAllConfirm => 'Xóa tất cả';
@@ -895,7 +895,8 @@ class AppLocalizationsVi extends AppLocalizations {
   String get deleteAllRemotes => 'Xóa tất cả điều khiển';
 
   @override
-  String get deleteAllRemotesSubtitle => 'Xóa mọi điều khiển khỏi thiết bị này';
+  String get deleteAllRemotesSubtitle =>
+      'Xóa tất cả điều khiển đã lưu trên thiết bị này.';
 
   @override
   String get backupTip =>

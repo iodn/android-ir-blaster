@@ -297,17 +297,17 @@ class AppLocalizationsAr extends AppLocalizations {
   String get settingsDemoRemotesRestored => 'تمت استعادة الأجهزة التجريبية.';
 
   @override
-  String get settingsDeleteAllRemotesTitle => 'حذف all remotes?';
+  String get settingsDeleteAllRemotesTitle => 'حذف جميع أجهزة التحكم؟';
 
   @override
   String get settingsDeleteAllRemotesMessage =>
-      'سيؤدي هذا إلى إزالة كل أجهزة التحكم من هذا الجهاز. لا يمكن التراجع عن هذا الإجراء.';
+      'ستُحذف جميع أجهزة التحكم المحفوظة على هذا الجهاز. لا يمكن التراجع عن الحذف.';
 
   @override
   String get settingsDeleteAllConfirm => 'حذف الكل';
 
   @override
-  String get settingsAllRemotesDeleted => 'الكل remotes deleted.';
+  String get settingsAllRemotesDeleted => 'تم حذف جميع أجهزة التحكم.';
 
   @override
   String get themeAuto => 'تلقائي Theme';
@@ -888,10 +888,11 @@ class AppLocalizationsAr extends AppLocalizations {
       'استبدال أجهزة التحكم الحالية بالأمثلة المرفقة بالتطبيق.';
 
   @override
-  String get deleteAllRemotes => 'حذف all remotes';
+  String get deleteAllRemotes => 'حذف جميع أجهزة التحكم';
 
   @override
-  String get deleteAllRemotesSubtitle => 'إزالة كل أجهزة التحكم من هذا الجهاز';
+  String get deleteAllRemotesSubtitle =>
+      'إزالة جميع أجهزة التحكم المحفوظة على هذا الجهاز.';
 
   @override
   String get backupTip =>
@@ -5572,17 +5573,17 @@ class AppLocalizationsArEg extends AppLocalizationsAr {
   String get settingsDemoRemotesRestored => 'تمت استعادة الأجهزة التجريبية.';
 
   @override
-  String get settingsDeleteAllRemotesTitle => 'حذف all remotes?';
+  String get settingsDeleteAllRemotesTitle => 'تمسح كل الريموتات؟';
 
   @override
   String get settingsDeleteAllRemotesMessage =>
-      'سيؤدي هذا إلى إزالة كل أجهزة التحكم من هذا الجهاز. لا يمكن التراجع عن هذا الإجراء.';
+      'كل الريموتات المحفوظة على الجهاز ده هتتمسح. مش هتقدر تتراجع عن الحذف.';
 
   @override
   String get settingsDeleteAllConfirm => 'حذف الكل';
 
   @override
-  String get settingsAllRemotesDeleted => 'الكل remotes deleted.';
+  String get settingsAllRemotesDeleted => 'كل الريموتات اتمسحت.';
 
   @override
   String get themeAuto => 'تلقائي Theme';
@@ -6162,10 +6163,11 @@ class AppLocalizationsArEg extends AppLocalizationsAr {
       'بدّل الريموتات الحالية بالأمثلة الموجودة في التطبيق.';
 
   @override
-  String get deleteAllRemotes => 'حذف all remotes';
+  String get deleteAllRemotes => 'حذف كل الريموتات';
 
   @override
-  String get deleteAllRemotesSubtitle => 'إزالة كل أجهزة التحكم من هذا الجهاز';
+  String get deleteAllRemotesSubtitle =>
+      'امسح كل الريموتات المحفوظة على الجهاز ده.';
 
   @override
   String get backupTip =>

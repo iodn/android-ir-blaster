@@ -301,11 +301,11 @@ class AppLocalizationsDe extends AppLocalizations {
       'Demo-Fernbedienungen wiederhergestellt.';
 
   @override
-  String get settingsDeleteAllRemotesTitle => 'Alle Fernbedienungen löschen';
+  String get settingsDeleteAllRemotesTitle => 'Alle Fernbedienungen löschen?';
 
   @override
   String get settingsDeleteAllRemotesMessage =>
-      'Dadurch werden alle Fernbedienungen von diesem Gerät entfernt. Diese Aktion kann nicht rückgängig gemacht werden.';
+      'Alle auf diesem Gerät gespeicherten Fernbedienungen werden gelöscht. Das lässt sich nicht rückgängig machen.';
 
   @override
   String get settingsDeleteAllConfirm => 'Alle löschen';
@@ -909,7 +909,7 @@ class AppLocalizationsDe extends AppLocalizations {
 
   @override
   String get deleteAllRemotesSubtitle =>
-      'Alle Fernbedienungen von diesem Gerät entfernen';
+      'Alle auf diesem Gerät gespeicherten Fernbedienungen entfernen.';
 
   @override
   String get backupTip =>

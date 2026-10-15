@@ -301,7 +301,7 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get settingsDeleteAllRemotesMessage =>
-      'This removes every remote from this device. This action can’t be undone.';
+      'All remotes saved on this device will be deleted. This cannot be undone.';
 
   @override
   String get settingsDeleteAllConfirm => 'Delete all';
@@ -895,7 +895,8 @@ class AppLocalizationsEn extends AppLocalizations {
   String get deleteAllRemotes => 'Delete all remotes';
 
   @override
-  String get deleteAllRemotesSubtitle => 'Remove every remote from this device';
+  String get deleteAllRemotesSubtitle =>
+      'Remove all remotes saved on this device.';
 
   @override
   String get backupTip =>

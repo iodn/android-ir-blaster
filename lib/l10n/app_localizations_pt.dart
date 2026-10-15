@@ -304,10 +304,10 @@ class AppLocalizationsPt extends AppLocalizations {
 
   @override
   String get settingsDeleteAllRemotesMessage =>
-      'Isto remove todos os comandos deste dispositivo. Esta ação não pode ser anulada.';
+      'Todos os comandos guardados neste dispositivo serão eliminados. Esta ação não pode ser anulada.';
 
   @override
-  String get settingsDeleteAllConfirm => 'Eliminar tudo';
+  String get settingsDeleteAllConfirm => 'Eliminar todos';
 
   @override
   String get settingsAllRemotesDeleted => 'Todos os comandos foram eliminados.';
@@ -904,7 +904,7 @@ class AppLocalizationsPt extends AppLocalizations {
 
   @override
   String get deleteAllRemotesSubtitle =>
-      'Eliminar todos os comandos deste dispositivo';
+      'Remova todos os comandos guardados neste dispositivo.';
 
   @override
   String get backupTip =>
@@ -5628,10 +5628,10 @@ class AppLocalizationsPtBr extends AppLocalizationsPt {
 
   @override
   String get settingsDeleteAllRemotesMessage =>
-      'Isto remove todos os controles deste dispositivo. Esta ação não pode ser desfeita.';
+      'Todos os controles salvos neste dispositivo serão excluídos. Não é possível desfazer essa ação.';
 
   @override
-  String get settingsDeleteAllConfirm => 'Excluir tudo';
+  String get settingsDeleteAllConfirm => 'Excluir todos';
 
   @override
   String get settingsAllRemotesDeleted => 'Todos os controles foram excluídos.';
@@ -6227,7 +6227,7 @@ class AppLocalizationsPtBr extends AppLocalizationsPt {
 
   @override
   String get deleteAllRemotesSubtitle =>
-      'Excluir todos os controles deste dispositivo';
+      'Remova todos os controles salvos neste dispositivo.';
 
   @override
   String get backupTip =>

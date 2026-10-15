@@ -303,10 +303,10 @@ class AppLocalizationsPl extends AppLocalizations {
 
   @override
   String get settingsDeleteAllRemotesMessage =>
-      'To usunie wszystkie piloty z tego urządzenia. Tego działania nie można cofnąć.';
+      'Wszystkie piloty zapisane na tym urządzeniu zostaną usunięte. Tej operacji nie można cofnąć.';
 
   @override
-  String get settingsDeleteAllConfirm => 'Usuń wszystko';
+  String get settingsDeleteAllConfirm => 'Usuń wszystkie';
 
   @override
   String get settingsAllRemotesDeleted => 'Usunięto wszystkie piloty.';
@@ -902,7 +902,7 @@ class AppLocalizationsPl extends AppLocalizations {
 
   @override
   String get deleteAllRemotesSubtitle =>
-      'Usuń wszystkie piloty z tego urządzenia';
+      'Usuń wszystkie piloty zapisane na tym urządzeniu.';
 
   @override
   String get backupTip =>

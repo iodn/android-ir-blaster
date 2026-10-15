@@ -303,10 +303,10 @@ class AppLocalizationsUk extends AppLocalizations {
 
   @override
   String get settingsDeleteAllRemotesMessage =>
-      'Усі пульти буде видалено з цього пристрою. Цю дію не можна скасувати.';
+      'Усі пульти, збережені на цьому пристрої, буде видалено. Цю дію не можна скасувати.';
 
   @override
-  String get settingsDeleteAllConfirm => 'Видалити все';
+  String get settingsDeleteAllConfirm => 'Видалити всі';
 
   @override
   String get settingsAllRemotesDeleted => 'Усі пульти видалено.';
@@ -901,7 +901,8 @@ class AppLocalizationsUk extends AppLocalizations {
   String get deleteAllRemotes => 'Видалити всі пульти';
 
   @override
-  String get deleteAllRemotesSubtitle => 'Видаліть усі пульти з цього пристрою';
+  String get deleteAllRemotesSubtitle =>
+      'Видалити всі пульти, збережені на цьому пристрої.';
 
   @override
   String get backupTip =>

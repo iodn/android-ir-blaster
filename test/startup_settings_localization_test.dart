@@ -1,3 +1,7 @@
+import 'dart:async';
+import 'dart:convert';
+import 'dart:io';
+
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 import 'package:flutter/services.dart';
@@ -35,6 +39,15 @@ void main() {
           buildNumber: '44',
           buildSignature: '');
       final messenger = tester.binding.defaultBinaryMessenger;
+      final directory = Directory.systemTemp.createTempSync('settings-l10n-');
+      final remoteFile = File('${directory.path}/remotes.json');
+      remoteFile.writeAsStringSync(jsonEncode([originalRemote.toJson()]));
+      const paths = MethodChannel('plugins.flutter.io/path_provider');
+      messenger.setMockMethodCallHandler(paths, (_) async => directory.path);
+      addTearDown(() {
+        messenger.setMockMethodCallHandler(paths, null);
+        directory.deleteSync(recursive: true);
+      });
       const channel = MethodChannel('org.nslabs/irtransmitter');
       const events = MethodChannel('org.nslabs/irtransmitter_events');
       String? vibrationBlockReason;
@@ -266,6 +279,8 @@ void main() {
         l10n.bulkImportFolderSubtitle,
         l10n.restoreDemoRemotes,
         l10n.restoreDemoRemotesSubtitle,
+        l10n.deleteAllRemotes,
+        l10n.deleteAllRemotesSubtitle,
       ]) {
         final text = find.text(label);
         await tester.ensureVisible(text);
@@ -319,6 +334,55 @@ void main() {
       await tester.pumpAndSettle();
       expect(find.byType(AlertDialog), findsNothing);
       expect(state.remotes, [originalRemote]);
+      for (final delete in [false, true]) {
+        await tester.ensureVisible(find.text(l10n.deleteAllRemotes));
+        await tester.pumpAndSettle();
+        final deleteTile =
+            find.widgetWithText(ListTile, l10n.deleteAllRemotes);
+        expect(deleteTile.hitTestable(), findsOneWidget);
+        // Keep the real storage workflow outside the widget test's fake clock.
+        await tester.runAsync(() async {
+          tester.widget<ListTile>(deleteTile).onTap!();
+        });
+        await tester.pumpAndSettle();
+        for (final label in [
+          l10n.settingsDeleteAllRemotesTitle,
+          l10n.settingsDeleteAllRemotesMessage,
+          l10n.settingsDeleteAllConfirm,
+          l10n.cancel,
+        ]) {
+          final text = find.descendant(
+              of: find.byType(AlertDialog), matching: find.text(label));
+          await tester.ensureVisible(text);
+          await tester.pumpAndSettle();
+          expectReadable(text);
+        }
+        final action = delete
+            ? find.widgetWithText(FilledButton, l10n.settingsDeleteAllConfirm)
+            : find.widgetWithText(TextButton, l10n.cancel);
+        expect(action.hitTestable(), findsOneWidget);
+        if (delete) {
+          await tester.runAsync(() async {
+            final saved = Completer<void>();
+            void onSaved() => saved.complete();
+            state.remotesRevision.addListener(onSaved);
+            try {
+              await tester.tap(action);
+              await saved.future.timeout(const Duration(seconds: 5));
+            } finally {
+              state.remotesRevision.removeListener(onSaved);
+            }
+          });
+        } else {
+          await tester.tap(action);
+        }
+        await tester.pumpAndSettle();
+        expect(find.byType(AlertDialog), findsNothing);
+        expect(state.remotes, delete ? isEmpty : [originalRemote]);
+        expect(jsonDecode(remoteFile.readAsStringSync()),
+            delete ? isEmpty : [originalRemote.toJson()]);
+        if (delete) expectReadable(find.text(l10n.settingsAllRemotesDeleted));
+      }
       await tester.pumpWidget(const SizedBox());
       await tester.pumpAndSettle();
     });

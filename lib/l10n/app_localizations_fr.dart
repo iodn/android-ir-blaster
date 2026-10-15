@@ -305,7 +305,7 @@ class AppLocalizationsFr extends AppLocalizations {
 
   @override
   String get settingsDeleteAllRemotesMessage =>
-      'Cela supprime toutes les télécommandes de cet appareil. Cette action est irréversible.';
+      'Toutes les télécommandes enregistrées sur cet appareil seront supprimées. Cette action est irréversible.';
 
   @override
   String get settingsDeleteAllConfirm => 'Tout supprimer';
@@ -907,11 +907,11 @@ class AppLocalizationsFr extends AppLocalizations {
       'Remplace les télécommandes actuelles par les exemples de l’appli.';
 
   @override
-  String get deleteAllRemotes => 'Supprimer toutes les télés';
+  String get deleteAllRemotes => 'Supprimer toutes les télécommandes';
 
   @override
   String get deleteAllRemotesSubtitle =>
-      'Retirer toutes les télécommandes de cet appareil';
+      'Retire toutes les télécommandes enregistrées sur cet appareil.';
 
   @override
   String get backupTip =>

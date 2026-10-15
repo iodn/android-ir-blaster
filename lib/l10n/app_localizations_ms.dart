@@ -299,17 +299,18 @@ class AppLocalizationsMs extends AppLocalizations {
   String get settingsDemoRemotesRestored => 'Remote demo dipulihkan.';
 
   @override
-  String get settingsDeleteAllRemotesTitle => 'Hapus semua remote?';
+  String get settingsDeleteAllRemotesTitle => 'Padam semua alat kawalan jauh?';
 
   @override
   String get settingsDeleteAllRemotesMessage =>
-      'Ini menghapus semua remote dari peranti ini. Tindakan ini tidak boleh dibatalkan.';
+      'Semua alat kawalan jauh yang disimpan pada peranti ini akan dipadamkan. Tindakan ini tidak boleh dibuat asal.';
 
   @override
-  String get settingsDeleteAllConfirm => 'Hapus semua';
+  String get settingsDeleteAllConfirm => 'Padam semua';
 
   @override
-  String get settingsAllRemotesDeleted => 'Semua remote dihapus.';
+  String get settingsAllRemotesDeleted =>
+      'Semua alat kawalan jauh telah dipadamkan.';
 
   @override
   String get themeAuto => 'Tema Automatik';
@@ -898,10 +899,11 @@ class AppLocalizationsMs extends AppLocalizations {
       'Gantikan alat kawalan jauh semasa dengan contoh dalam aplikasi.';
 
   @override
-  String get deleteAllRemotes => 'Hapus semua remote';
+  String get deleteAllRemotes => 'Padam semua alat kawalan jauh';
 
   @override
-  String get deleteAllRemotesSubtitle => 'Hapus semua remote dari peranti ini';
+  String get deleteAllRemotesSubtitle =>
+      'Padam semua alat kawalan jauh yang disimpan pada peranti ini.';
 
   @override
   String get backupTip =>

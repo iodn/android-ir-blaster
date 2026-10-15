@@ -299,17 +299,17 @@ class AppLocalizationsFil extends AppLocalizations {
   String get settingsDemoRemotesRestored => 'Demo mga remote restored.';
 
   @override
-  String get settingsDeleteAllRemotesTitle => 'Delete all mga remote?';
+  String get settingsDeleteAllRemotesTitle => 'Burahin ang lahat ng remote?';
 
   @override
   String get settingsDeleteAllRemotesMessage =>
-      'Aalisin nito ang lahat ng remote sa device na ito. Hindi na ito mababawi.';
+      'Mabubura ang lahat ng remote na naka-save sa device na ito. Hindi na ito maibabalik.';
 
   @override
-  String get settingsDeleteAllConfirm => 'Delete all';
+  String get settingsDeleteAllConfirm => 'Burahin lahat';
 
   @override
-  String get settingsAllRemotesDeleted => 'All mga remote deleted.';
+  String get settingsAllRemotesDeleted => 'Nabura na ang lahat ng remote.';
 
   @override
   String get themeAuto => 'Auto Theme';
@@ -902,11 +902,11 @@ class AppLocalizationsFil extends AppLocalizations {
       'Palitan ang kasalukuyang mga remote ng mga sample sa app.';
 
   @override
-  String get deleteAllRemotes => 'Delete all mga remote';
+  String get deleteAllRemotes => 'Burahin ang lahat ng remote';
 
   @override
   String get deleteAllRemotesSubtitle =>
-      'Alisin ang lahat ng remote sa device na ito';
+      'Alisin ang lahat ng remote na naka-save sa device na ito.';
 
   @override
   String get backupTip =>
