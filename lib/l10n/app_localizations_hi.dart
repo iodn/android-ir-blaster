@@ -1213,7 +1213,7 @@ class AppLocalizationsHi extends AppLocalizations {
   }
 
   @override
-  String get layoutComfort => 'Comfort';
+  String get layoutComfort => 'चौड़ा';
 
   @override
   String get layoutCompact => 'कॉम्पैक्ट';
@@ -1586,15 +1586,14 @@ class AppLocalizationsHi extends AppLocalizations {
   String get remoteNameHelper => 'यह नाम आपकी रिमोट सूची में दिखेगा।';
 
   @override
-  String get layoutStyle => 'लेआउट शैली';
+  String get layoutStyle => 'लेआउट';
 
   @override
-  String get layoutWideDescription =>
-      'चौड़ी: 2-स्तंभ बटन के साथ अतिरिक्त विवरण (अनुशंसित).';
+  String get layoutWideDescription => 'अधिक जानकारी वाले बटन, दो कॉलम में।';
 
   @override
   String get layoutCompactDescription =>
-      'कॉम्पैक्ट: क्लासिक 4× ग्रिड (icons/पाठ केवल).';
+      'आइकन या टेक्स्ट वाले बटन, चार कॉलम में।';
 
   @override
   String get importFromRemotes => 'आयात करें से रिमोट';
@@ -2412,7 +2411,7 @@ class AppLocalizationsHi extends AppLocalizations {
   String get msbShort => 'MSB';
 
   @override
-  String get layoutWide => 'चौड़ी';
+  String get layoutWide => 'चौड़ा';
 
   @override
   String get iconButton => 'आइकन बटन';
@@ -4939,7 +4938,8 @@ class AppLocalizationsHi extends AppLocalizations {
   String get layoutCustom => 'कस्टम';
 
   @override
-  String get layoutCustomDescription => 'कॉलम, आकार और खाली जगह चुनें';
+  String get layoutCustomDescription =>
+      'कॉलम की संख्या और बटन की आकृति चुनें। एडिटर में खाली जगह जोड़ें।';
 
   @override
   String get layoutColumns => 'प्रति पंक्ति बटन';
@@ -4958,7 +4958,7 @@ class AppLocalizationsHi extends AppLocalizations {
 
   @override
   String get layoutReflowHint =>
-      'कॉलम बदलने से ग्रिड फिर से व्यवस्थित होता है। संकरी स्क्रीन पर बटन आसानी से दबाने लायक रखने के लिए बगल की ओर स्वाइप करें।';
+      'कॉलम की संख्या बदलने से ग्रिड का क्रम बदलता है। ग्रिड स्क्रीन से चौड़ा हो, तो दाएँ या बाएँ स्वाइप करें।';
 
   @override
   String get layoutUpdated => 'लेआउट अपडेट हो गया';

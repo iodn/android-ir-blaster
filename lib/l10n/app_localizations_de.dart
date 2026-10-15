@@ -1231,7 +1231,7 @@ class AppLocalizationsDe extends AppLocalizations {
   }
 
   @override
-  String get layoutComfort => 'Komfort';
+  String get layoutComfort => 'Breit';
 
   @override
   String get layoutCompact => 'Kompakt';
@@ -1613,15 +1613,14 @@ class AppLocalizationsDe extends AppLocalizations {
       'Dieser Name erscheint in deiner Fernbedienungsliste.';
 
   @override
-  String get layoutStyle => 'Layoutstil';
+  String get layoutStyle => 'Layout';
 
   @override
-  String get layoutWideDescription =>
-      'Breit: 2-Spalten-Tasten mit mehr Details empfohlen.';
+  String get layoutWideDescription => 'Zwei Tastenspalten mit mehr Details.';
 
   @override
   String get layoutCompactDescription =>
-      'Kompakt: klassisches 4× Raster nur Symbole oder Text.';
+      'Vier Tastenspalten mit Symbolen oder Text.';
 
   @override
   String get importFromRemotes => 'Aus Fernbedienungen importieren';
@@ -4982,11 +4981,11 @@ class AppLocalizationsDe extends AppLocalizations {
       'Gerätesteuerung, Schnelleinstellungen, GitHub Store und universelles Ein-/Ausschalten';
 
   @override
-  String get layoutCustom => 'Benutzerdefiniert';
+  String get layoutCustom => 'Eigene Anordnung';
 
   @override
   String get layoutCustomDescription =>
-      'Spalten, Formen und freie Felder wählen';
+      'Wähle Spaltenzahl und Tastenform. Lücken fügst du im Editor hinzu.';
 
   @override
   String get layoutColumns => 'Tasten pro Zeile';
@@ -5005,7 +5004,7 @@ class AppLocalizationsDe extends AppLocalizations {
 
   @override
   String get layoutReflowHint =>
-      'Eine andere Spaltenzahl ordnet das Raster neu an. Auf schmalen Bildschirmen seitlich wischen, damit die Tasten gut bedienbar bleiben.';
+      'Eine andere Spaltenzahl ordnet das Raster neu an. Ist es breiter als der Bildschirm, kannst du seitlich wischen.';
 
   @override
   String get layoutUpdated => 'Layout aktualisiert';

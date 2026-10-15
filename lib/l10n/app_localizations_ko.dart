@@ -1165,10 +1165,10 @@ class AppLocalizationsKo extends AppLocalizations {
   }
 
   @override
-  String get layoutComfort => '편안함';
+  String get layoutComfort => '넓게';
 
   @override
-  String get layoutCompact => '컴팩트';
+  String get layoutCompact => '좁게';
 
   @override
   String get open => '열기';
@@ -1523,13 +1523,13 @@ class AppLocalizationsKo extends AppLocalizations {
   String get remoteNameHelper => '리모컨 목록에 표시할 이름입니다.';
 
   @override
-  String get layoutStyle => '레이아웃 스타일';
+  String get layoutStyle => '버튼 배치';
 
   @override
-  String get layoutWideDescription => '와이드: 추가 정보가 있는 2열 버튼(권장).';
+  String get layoutWideDescription => '버튼을 두 열로 배치하고 자세한 정보를 표시합니다.';
 
   @override
-  String get layoutCompactDescription => '컴팩트: 아이콘/텍스트만 있는 클래식 4× 격자.';
+  String get layoutCompactDescription => '아이콘이나 텍스트가 있는 버튼을 네 열로 배치합니다.';
 
   @override
   String get importFromRemotes => '가져오기 에서 리모컨';
@@ -2329,7 +2329,7 @@ class AppLocalizationsKo extends AppLocalizations {
   String get msbShort => 'MSB';
 
   @override
-  String get layoutWide => '와이드';
+  String get layoutWide => '넓게';
 
   @override
   String get iconButton => '아이콘 버튼';
@@ -4824,10 +4824,11 @@ class AppLocalizationsKo extends AppLocalizations {
   String get settingsToolsSubtitle => '기기 제어, 빠른 설정, GitHub 스토어 및 범용 전원';
 
   @override
-  String get layoutCustom => '사용자 지정';
+  String get layoutCustom => '직접 설정';
 
   @override
-  String get layoutCustomDescription => '열 수, 모양 및 빈 공간 선택';
+  String get layoutCustomDescription =>
+      '열 수와 버튼 모양을 선택하세요. 빈칸은 편집 화면에서 추가할 수 있습니다.';
 
   @override
   String get layoutColumns => '행당 버튼 수';
@@ -4846,7 +4847,7 @@ class AppLocalizationsKo extends AppLocalizations {
 
   @override
   String get layoutReflowHint =>
-      '열 수를 변경하면 격자가 재배치됩니다. 좁은 화면에서는 옆으로 스와이프하여 버튼을 누르기 쉬운 크기로 유지할 수 있습니다.';
+      '열 수를 바꾸면 버튼 배치가 달라집니다. 격자가 화면보다 넓으면 옆으로 밀어 확인하세요.';
 
   @override
   String get layoutUpdated => '배치가 업데이트되었습니다';

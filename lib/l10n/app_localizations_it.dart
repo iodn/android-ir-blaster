@@ -1229,10 +1229,10 @@ class AppLocalizationsIt extends AppLocalizations {
   }
 
   @override
-  String get layoutComfort => 'Comfort';
+  String get layoutComfort => 'Ampia';
 
   @override
-  String get layoutCompact => 'Compatto';
+  String get layoutCompact => 'Compatta';
 
   @override
   String get open => 'Apri';
@@ -1609,15 +1609,15 @@ class AppLocalizationsIt extends AppLocalizations {
       'Questo nome comparirà nell’elenco dei telecomandi.';
 
   @override
-  String get layoutStyle => 'Stile layout';
+  String get layoutStyle => 'Disposizione';
 
   @override
   String get layoutWideDescription =>
-      'Ampio. Pulsanti a 2 colonne con dettagli extra consigliato.';
+      'Due colonne di pulsanti con più dettagli.';
 
   @override
   String get layoutCompactDescription =>
-      'Compatto. Griglia classica 4× solo icone e testo.';
+      'Quattro colonne di pulsanti con icone o testo.';
 
   @override
   String get importFromRemotes => 'Importa dai telecomandi';
@@ -2442,7 +2442,7 @@ class AppLocalizationsIt extends AppLocalizations {
   String get msbShort => 'MSB';
 
   @override
-  String get layoutWide => 'Ampio';
+  String get layoutWide => 'Ampia';
 
   @override
   String get iconButton => 'Pulsante icona';
@@ -4969,10 +4969,11 @@ class AppLocalizationsIt extends AppLocalizations {
       'Controlli dei dispositivi, impostazioni rapide, GitHub Store e accensione universale';
 
   @override
-  String get layoutCustom => 'Personalizzato';
+  String get layoutCustom => 'Personalizzata';
 
   @override
-  String get layoutCustomDescription => 'Scegli colonne, forme e spazi vuoti';
+  String get layoutCustomDescription =>
+      'Scegli il numero di colonne e la forma dei pulsanti. Aggiungi spazi vuoti nell’editor.';
 
   @override
   String get layoutColumns => 'Pulsanti per riga';
@@ -4991,7 +4992,7 @@ class AppLocalizationsIt extends AppLocalizations {
 
   @override
   String get layoutReflowHint =>
-      'Cambiare le colonne riorganizza la griglia. Sugli schermi stretti, scorri lateralmente per mantenere i pulsanti facili da toccare.';
+      'Cambiare il numero di colonne riorganizza la griglia. Scorri lateralmente se la griglia è più larga dello schermo.';
 
   @override
   String get layoutUpdated => 'Disposizione aggiornata';

@@ -1215,7 +1215,7 @@ class AppLocalizationsId extends AppLocalizations {
   }
 
   @override
-  String get layoutComfort => 'Nyaman';
+  String get layoutComfort => 'Lebar';
 
   @override
   String get layoutCompact => 'Ringkas';
@@ -1590,15 +1590,15 @@ class AppLocalizationsId extends AppLocalizations {
   String get remoteNameHelper => 'Nama ini akan muncul di daftar remote Anda.';
 
   @override
-  String get layoutStyle => 'Gaya tata letak';
+  String get layoutStyle => 'Tata letak';
 
   @override
   String get layoutWideDescription =>
-      'Lebar: tombol 2 kolom dengan detail tambahan (disarankan).';
+      'Dua kolom tombol dengan lebih banyak detail.';
 
   @override
   String get layoutCompactDescription =>
-      'Ringkas: kisi 4× klasik (ikon/teks saja).';
+      'Empat kolom tombol dengan ikon atau teks.';
 
   @override
   String get importFromRemotes => 'Impor dari remote';
@@ -4948,7 +4948,8 @@ class AppLocalizationsId extends AppLocalizations {
   String get layoutCustom => 'Kustom';
 
   @override
-  String get layoutCustomDescription => 'Pilih kolom, bentuk, dan ruang kosong';
+  String get layoutCustomDescription =>
+      'Pilih jumlah kolom dan bentuk tombol. Tambahkan ruang kosong di editor.';
 
   @override
   String get layoutColumns => 'Tombol per baris';
@@ -4967,7 +4968,7 @@ class AppLocalizationsId extends AppLocalizations {
 
   @override
   String get layoutReflowHint =>
-      'Mengubah kolom akan menata ulang kisi. Pada layar sempit, geser ke samping agar tombol tetap mudah diketuk.';
+      'Mengubah jumlah kolom akan menata ulang kisi. Geser ke samping jika kisi lebih lebar dari layar.';
 
   @override
   String get layoutUpdated => 'Tata letak diperbarui';

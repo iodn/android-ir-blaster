@@ -1213,10 +1213,10 @@ class AppLocalizationsRu extends AppLocalizations {
   }
 
   @override
-  String get layoutComfort => 'Комфорт';
+  String get layoutComfort => 'Широкое';
 
   @override
-  String get layoutCompact => 'Компактный';
+  String get layoutCompact => 'Компактное';
 
   @override
   String get open => 'Открыть';
@@ -1590,15 +1590,15 @@ class AppLocalizationsRu extends AppLocalizations {
       'Это название будет показано в списке пультов.';
 
   @override
-  String get layoutStyle => 'Стиль раскладки';
+  String get layoutStyle => 'Расположение кнопок';
 
   @override
   String get layoutWideDescription =>
-      'Широкий: кнопки в 2 колонки с доп. деталями, рекомендуется.';
+      'Два столбца кнопок с дополнительной информацией.';
 
   @override
   String get layoutCompactDescription =>
-      'Компактный: классическая сетка 4×, только иконки или текст.';
+      'Четыре столбца кнопок со значками или текстом.';
 
   @override
   String get importFromRemotes => 'Импорт из пультов';
@@ -2419,7 +2419,7 @@ class AppLocalizationsRu extends AppLocalizations {
   String get msbShort => 'MSB';
 
   @override
-  String get layoutWide => 'Широкий';
+  String get layoutWide => 'Широкое';
 
   @override
   String get iconButton => 'Иконка кнопка';
@@ -4945,11 +4945,11 @@ class AppLocalizationsRu extends AppLocalizations {
       'Управление устройствами, быстрые настройки, магазин GitHub и универсальное питание';
 
   @override
-  String get layoutCustom => 'Свой макет';
+  String get layoutCustom => 'Своё';
 
   @override
   String get layoutCustomDescription =>
-      'Выберите столбцы, формы и пустые ячейки';
+      'Выберите число столбцов и форму кнопок. Пустые места можно добавить в редакторе.';
 
   @override
   String get layoutColumns => 'Кнопок в строке';
@@ -4968,7 +4968,7 @@ class AppLocalizationsRu extends AppLocalizations {
 
   @override
   String get layoutReflowHint =>
-      'Изменение числа столбцов перестраивает сетку. На узких экранах прокручивайте вбок, чтобы кнопки оставались удобными для нажатия.';
+      'При изменении числа столбцов сетка перестраивается. Если она шире экрана, прокручивайте её вбок.';
 
   @override
   String get layoutUpdated => 'Макет обновлён';

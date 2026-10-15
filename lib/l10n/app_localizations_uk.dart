@@ -1230,10 +1230,10 @@ class AppLocalizationsUk extends AppLocalizations {
   }
 
   @override
-  String get layoutComfort => 'Комфорт';
+  String get layoutComfort => 'Широке';
 
   @override
-  String get layoutCompact => 'Компактний';
+  String get layoutCompact => 'Компактне';
 
   @override
   String get open => 'відкритий';
@@ -1638,15 +1638,15 @@ class AppLocalizationsUk extends AppLocalizations {
   String get remoteNameHelper => 'Ця назва відображатиметься у списку пультів.';
 
   @override
-  String get layoutStyle => 'Стиль оформлення';
+  String get layoutStyle => 'Розташування кнопок';
 
   @override
   String get layoutWideDescription =>
-      'Широкий: 2-колонкові кнопки з додатковими деталями (рекомендовано).';
+      'Два стовпці кнопок із додатковою інформацією.';
 
   @override
   String get layoutCompactDescription =>
-      'Компактний: класична сітка 4× (лише значки/текст).';
+      'Чотири стовпці кнопок зі значками або текстом.';
 
   @override
   String get importFromRemotes => 'Імпорт з пультів';
@@ -2511,7 +2511,7 @@ class AppLocalizationsUk extends AppLocalizations {
   String get msbShort => 'MSB';
 
   @override
-  String get layoutWide => 'Широкий';
+  String get layoutWide => 'Широке';
 
   @override
   String get iconButton => 'Значок кнопки';
@@ -5051,11 +5051,11 @@ class AppLocalizationsUk extends AppLocalizations {
       'Керування пристроями, швидкі налаштування, магазин GitHub і універсальне живлення';
 
   @override
-  String get layoutCustom => 'Власний макет';
+  String get layoutCustom => 'Власне';
 
   @override
   String get layoutCustomDescription =>
-      'Виберіть стовпці, форми й порожні клітинки';
+      'Виберіть кількість стовпців і форму кнопок. Порожні місця можна додати в редакторі.';
 
   @override
   String get layoutColumns => 'Кнопок у рядку';
@@ -5074,7 +5074,7 @@ class AppLocalizationsUk extends AppLocalizations {
 
   @override
   String get layoutReflowHint =>
-      'Зміна кількості стовпців перебудовує сітку. На вузьких екранах гортайте вбік, щоб кнопки залишалися зручними для натискання.';
+      'Коли змінюється кількість стовпців, сітка перебудовується. Якщо вона ширша за екран, гортайте вбік.';
 
   @override
   String get layoutUpdated => 'Макет оновлено';

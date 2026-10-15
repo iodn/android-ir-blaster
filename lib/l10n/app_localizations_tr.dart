@@ -1214,10 +1214,10 @@ class AppLocalizationsTr extends AppLocalizations {
   }
 
   @override
-  String get layoutComfort => 'Comfort';
+  String get layoutComfort => 'Geniş';
 
   @override
-  String get layoutCompact => 'Compact';
+  String get layoutCompact => 'Kompakt';
 
   @override
   String get open => 'Aç';
@@ -1589,15 +1589,15 @@ class AppLocalizationsTr extends AppLocalizations {
   String get remoteNameHelper => 'Bu ad kumanda listenizde görünür.';
 
   @override
-  String get layoutStyle => 'Düzen stili';
+  String get layoutStyle => 'Düzen';
 
   @override
   String get layoutWideDescription =>
-      'Geniş: Ek ayrıntılarla 2 sütunlu düğmeler (önerilen).';
+      'Daha fazla ayrıntı gösteren iki sütunlu düğme düzeni.';
 
   @override
   String get layoutCompactDescription =>
-      'Compact: classic 4× grid (icons/text yalnızca).';
+      'Simge veya metin gösteren dört sütunlu düğme düzeni.';
 
   @override
   String get importFromRemotes => 'Kumandalardan içe aktar';
@@ -2415,7 +2415,7 @@ class AppLocalizationsTr extends AppLocalizations {
   String get msbShort => 'MSB';
 
   @override
-  String get layoutWide => 'Wide';
+  String get layoutWide => 'Geniş';
 
   @override
   String get iconButton => 'Icon düğme';
@@ -4944,7 +4944,7 @@ class AppLocalizationsTr extends AppLocalizations {
 
   @override
   String get layoutCustomDescription =>
-      'Sütunları, şekilleri ve boş alanları seçin';
+      'Sütun sayısını ve düğme şeklini seçin. Boşlukları düzenleyicide ekleyebilirsiniz.';
 
   @override
   String get layoutColumns => 'Satır başına düğme';
@@ -4963,7 +4963,7 @@ class AppLocalizationsTr extends AppLocalizations {
 
   @override
   String get layoutReflowHint =>
-      'Sütunları değiştirmek ızgarayı yeniden düzenler. Dar ekranlarda düğmelerin kolayca dokunulabilir kalması için yana kaydırın.';
+      'Sütun sayısını değiştirmek ızgarayı yeniden düzenler. Izgara ekrandan genişse yana kaydırın.';
 
   @override
   String get layoutUpdated => 'Düzen güncellendi';

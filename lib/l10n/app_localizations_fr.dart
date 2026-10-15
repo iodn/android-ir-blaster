@@ -1225,10 +1225,10 @@ class AppLocalizationsFr extends AppLocalizations {
   }
 
   @override
-  String get layoutComfort => 'Confort';
+  String get layoutComfort => 'Large';
 
   @override
-  String get layoutCompact => 'Compact';
+  String get layoutCompact => 'Compacte';
 
   @override
   String get open => 'Ouvrir';
@@ -1604,15 +1604,15 @@ class AppLocalizationsFr extends AppLocalizations {
       'Ce nom apparaîtra dans votre liste de télécommandes.';
 
   @override
-  String get layoutStyle => 'Style de disposition';
+  String get layoutStyle => 'Disposition';
 
   @override
   String get layoutWideDescription =>
-      'Large : boutons sur 2 colonnes avec plus de détails (recommandé).';
+      'Deux colonnes de boutons avec plus de détails.';
 
   @override
   String get layoutCompactDescription =>
-      'Compact : grille 4× classique (icônes/texte seuls).';
+      'Quatre colonnes de boutons avec des icônes ou du texte.';
 
   @override
   String get importFromRemotes => 'Importer depuis télés';
@@ -4986,11 +4986,11 @@ class AppLocalizationsFr extends AppLocalizations {
       'Commandes des appareils, réglages rapides, boutique GitHub et alimentation universelle';
 
   @override
-  String get layoutCustom => 'Personnalisé';
+  String get layoutCustom => 'Personnalisée';
 
   @override
   String get layoutCustomDescription =>
-      'Choisir les colonnes, les formes et les espaces vides';
+      'Choisissez le nombre de colonnes et la forme des boutons. Ajoutez des espaces dans l’éditeur.';
 
   @override
   String get layoutColumns => 'Boutons par ligne';
@@ -5009,7 +5009,7 @@ class AppLocalizationsFr extends AppLocalizations {
 
   @override
   String get layoutReflowHint =>
-      'Changer le nombre de colonnes réorganise la grille. Sur un écran étroit, faites défiler horizontalement pour garder des boutons faciles à toucher.';
+      'Modifier le nombre de colonnes réorganise la grille. Si elle dépasse la largeur de l’écran, faites-la défiler horizontalement.';
 
   @override
   String get layoutUpdated => 'Disposition mise à jour';

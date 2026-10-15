@@ -1227,10 +1227,10 @@ class AppLocalizationsPt extends AppLocalizations {
   }
 
   @override
-  String get layoutComfort => 'Cómodo';
+  String get layoutComfort => 'Larga';
 
   @override
-  String get layoutCompact => 'Compacto';
+  String get layoutCompact => 'Compacta';
 
   @override
   String get open => 'Abrir';
@@ -1606,15 +1606,15 @@ class AppLocalizationsPt extends AppLocalizations {
       'Este nome aparecerá na sua lista de comandos.';
 
   @override
-  String get layoutStyle => 'Estilo de diseño';
+  String get layoutStyle => 'Disposição';
 
   @override
   String get layoutWideDescription =>
-      'Ancho: botões de 2 columnas con detalhes extra (recomendado).';
+      'Duas colunas de botões com mais detalhes.';
 
   @override
   String get layoutCompactDescription =>
-      'Compacto: grelha clássica 4x (apenas ícones/texto).';
+      'Quatro colunas de botões com ícones ou texto.';
 
   @override
   String get importFromRemotes => 'Importar de comandos';
@@ -2441,7 +2441,7 @@ class AppLocalizationsPt extends AppLocalizations {
   String get msbShort => 'MSB';
 
   @override
-  String get layoutWide => 'Ancho';
+  String get layoutWide => 'Larga';
 
   @override
   String get iconButton => 'Icon botão';
@@ -4976,11 +4976,11 @@ class AppLocalizationsPt extends AppLocalizations {
       'Controlos de dispositivos, definições rápidas, loja GitHub e ligar/desligar universal';
 
   @override
-  String get layoutCustom => 'Personalizado';
+  String get layoutCustom => 'Personalizada';
 
   @override
   String get layoutCustomDescription =>
-      'Escolher colunas, formas e espaços vazios';
+      'Escolha o número de colunas e a forma dos botões. Adicione espaços vazios no editor.';
 
   @override
   String get layoutColumns => 'Botões por linha';
@@ -4999,7 +4999,7 @@ class AppLocalizationsPt extends AppLocalizations {
 
   @override
   String get layoutReflowHint =>
-      'Alterar as colunas reorganiza a grelha. Em ecrãs estreitos, deslize lateralmente para manter os botões fáceis de tocar.';
+      'Alterar o número de colunas reorganiza a grelha. Deslize para os lados se a grelha for mais larga do que o ecrã.';
 
   @override
   String get layoutUpdated => 'Disposição atualizada';
@@ -6509,7 +6509,7 @@ class AppLocalizationsPtBr extends AppLocalizationsPt {
   }
 
   @override
-  String get layoutComfort => 'Cómodo';
+  String get layoutComfort => 'Amplo';
 
   @override
   String get layoutCompact => 'Compacto';
@@ -6889,15 +6889,15 @@ class AppLocalizationsPtBr extends AppLocalizationsPt {
       'Este nome aparecerá na sua lista de controles.';
 
   @override
-  String get layoutStyle => 'Estilo de diseño';
+  String get layoutStyle => 'Layout';
 
   @override
   String get layoutWideDescription =>
-      'Ancho: botões de 2 columnas con detalhes extra (recomendado).';
+      'Duas colunas de botões com mais detalhes.';
 
   @override
   String get layoutCompactDescription =>
-      'Compacto: grade clássica 4x (apenas ícones/texto).';
+      'Quatro colunas de botões com ícones ou texto.';
 
   @override
   String get importFromRemotes => 'Importar de controles';
@@ -7724,7 +7724,7 @@ class AppLocalizationsPtBr extends AppLocalizationsPt {
   String get msbShort => 'MSB';
 
   @override
-  String get layoutWide => 'Ancho';
+  String get layoutWide => 'Amplo';
 
   @override
   String get iconButton => 'Icon botão';
@@ -10260,7 +10260,7 @@ class AppLocalizationsPtBr extends AppLocalizationsPt {
 
   @override
   String get layoutCustomDescription =>
-      'Escolha colunas, formas e espaços vazios';
+      'Escolha o número de colunas e o formato dos botões. Adicione espaços vazios no editor.';
 
   @override
   String get layoutColumns => 'Botões por linha';
@@ -10279,7 +10279,7 @@ class AppLocalizationsPtBr extends AppLocalizationsPt {
 
   @override
   String get layoutReflowHint =>
-      'Alterar as colunas reorganiza a grade. Em telas estreitas, deslize para os lados para manter os botões fáceis de tocar.';
+      'Alterar o número de colunas reorganiza a grade. Deslize para os lados se a grade for mais larga que a tela.';
 
   @override
   String get layoutUpdated => 'Layout atualizado';

@@ -1206,7 +1206,7 @@ class AppLocalizationsVi extends AppLocalizations {
   }
 
   @override
-  String get layoutComfort => 'Thoải mái';
+  String get layoutComfort => 'Rộng';
 
   @override
   String get layoutCompact => 'Gọn';
@@ -1577,15 +1577,14 @@ class AppLocalizationsVi extends AppLocalizations {
       'Tên này sẽ xuất hiện trong danh sách điều khiển.';
 
   @override
-  String get layoutStyle => 'Kiểu bố cục';
+  String get layoutStyle => 'Bố cục';
 
   @override
-  String get layoutWideDescription =>
-      'Rộng: nút 2 cột với chi tiết bổ sung (khuyên dùng).';
+  String get layoutWideDescription => 'Hai cột nút với nhiều thông tin hơn.';
 
   @override
   String get layoutCompactDescription =>
-      'Gọn: classic 4× grid (icons/text only).';
+      'Bốn cột nút hiển thị biểu tượng hoặc chữ.';
 
   @override
   String get importFromRemotes => 'Nhập từ điều khiển';
@@ -4933,7 +4932,7 @@ class AppLocalizationsVi extends AppLocalizations {
 
   @override
   String get layoutCustomDescription =>
-      'Chọn số cột, hình dạng và khoảng trống';
+      'Chọn số cột và hình dạng nút. Thêm khoảng trống trong trình chỉnh sửa.';
 
   @override
   String get layoutColumns => 'Số nút mỗi hàng';
@@ -4952,7 +4951,7 @@ class AppLocalizationsVi extends AppLocalizations {
 
   @override
   String get layoutReflowHint =>
-      'Thay đổi số cột sẽ sắp xếp lại lưới. Trên màn hình hẹp, hãy vuốt ngang để giữ các nút ở kích thước dễ chạm.';
+      'Đổi số cột sẽ sắp xếp lại lưới. Vuốt ngang nếu lưới rộng hơn màn hình.';
 
   @override
   String get layoutUpdated => 'Đã cập nhật bố cục';

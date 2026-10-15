@@ -1225,10 +1225,10 @@ class AppLocalizationsEs extends AppLocalizations {
   }
 
   @override
-  String get layoutComfort => 'Cómodo';
+  String get layoutComfort => 'Amplia';
 
   @override
-  String get layoutCompact => 'Compacto';
+  String get layoutCompact => 'Compacta';
 
   @override
   String get open => 'Abrir';
@@ -1603,15 +1603,15 @@ class AppLocalizationsEs extends AppLocalizations {
   String get remoteNameHelper => 'Este nombre aparecerá en tu lista de mandos.';
 
   @override
-  String get layoutStyle => 'Estilo de diseño';
+  String get layoutStyle => 'Distribución';
 
   @override
   String get layoutWideDescription =>
-      'Ancho: botones de 2 columnas con detalles extra (recomendado).';
+      'Dos columnas de botones con más detalles.';
 
   @override
   String get layoutCompactDescription =>
-      'Compacto: cuadrícula clásica 4× (solo iconos/texto).';
+      'Cuatro columnas de botones con iconos o texto.';
 
   @override
   String get importFromRemotes => 'Importar desde mandos';
@@ -2437,7 +2437,7 @@ class AppLocalizationsEs extends AppLocalizations {
   String get msbShort => 'MSB';
 
   @override
-  String get layoutWide => 'Ancho';
+  String get layoutWide => 'Amplia';
 
   @override
   String get iconButton => 'Icon botón';
@@ -4973,11 +4973,11 @@ class AppLocalizationsEs extends AppLocalizations {
       'Controles de dispositivos, ajustes rápidos, tienda GitHub y encendido universal';
 
   @override
-  String get layoutCustom => 'Personalizado';
+  String get layoutCustom => 'Personalizada';
 
   @override
   String get layoutCustomDescription =>
-      'Elige columnas, formas y espacios vacíos';
+      'Elige el número de columnas y la forma de los botones. Añade huecos en el editor.';
 
   @override
   String get layoutColumns => 'Botones por fila';
@@ -4996,7 +4996,7 @@ class AppLocalizationsEs extends AppLocalizations {
 
   @override
   String get layoutReflowHint =>
-      'Cambiar las columnas reorganiza la cuadrícula. En pantallas estrechas, desliza lateralmente para mantener los botones fáciles de pulsar.';
+      'Cambiar el número de columnas reorganiza la cuadrícula. Desliza hacia los lados si no cabe en la pantalla.';
 
   @override
   String get layoutUpdated => 'Diseño actualizado';

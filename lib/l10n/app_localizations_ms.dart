@@ -1213,7 +1213,7 @@ class AppLocalizationsMs extends AppLocalizations {
   }
 
   @override
-  String get layoutComfort => 'Nyaman';
+  String get layoutComfort => 'Lebar';
 
   @override
   String get layoutCompact => 'Padat';
@@ -1590,15 +1590,15 @@ class AppLocalizationsMs extends AppLocalizations {
       'Nama ini akan dipaparkan dalam senarai alat kawalan jauh anda.';
 
   @override
-  String get layoutStyle => 'Gaya tata letak';
+  String get layoutStyle => 'Susun atur';
 
   @override
   String get layoutWideDescription =>
-      'Luas: butang 2 kolom dengan detail tambahan (disyorkan).';
+      'Dua lajur butang dengan lebih banyak maklumat.';
 
   @override
   String get layoutCompactDescription =>
-      'Ringkas: kisi 4× klasik (ikon/teks saja).';
+      'Empat lajur butang dengan ikon atau teks.';
 
   @override
   String get importFromRemotes => 'Import dari remote';
@@ -2416,7 +2416,7 @@ class AppLocalizationsMs extends AppLocalizations {
   String get msbShort => 'MSB';
 
   @override
-  String get layoutWide => 'Luas';
+  String get layoutWide => 'Lebar';
 
   @override
   String get iconButton => 'Ikon butang';
@@ -4949,7 +4949,8 @@ class AppLocalizationsMs extends AppLocalizations {
   String get layoutCustom => 'Tersuai';
 
   @override
-  String get layoutCustomDescription => 'Pilih lajur, bentuk dan ruang kosong';
+  String get layoutCustomDescription =>
+      'Pilih bilangan lajur dan bentuk butang. Tambah ruang kosong dalam penyunting.';
 
   @override
   String get layoutColumns => 'Butang setiap baris';
@@ -4968,7 +4969,7 @@ class AppLocalizationsMs extends AppLocalizations {
 
   @override
   String get layoutReflowHint =>
-      'Menukar lajur menyusun semula grid. Pada skrin sempit, leret ke sisi supaya butang kekal mudah disentuh.';
+      'Menukar bilangan lajur akan menyusun semula grid. Leret ke sisi jika grid lebih lebar daripada skrin.';
 
   @override
   String get layoutUpdated => 'Susun atur dikemas kini';

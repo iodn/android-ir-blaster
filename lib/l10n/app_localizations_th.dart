@@ -1204,7 +1204,7 @@ class AppLocalizationsTh extends AppLocalizations {
   }
 
   @override
-  String get layoutComfort => 'สบายตา';
+  String get layoutComfort => 'กว้าง';
 
   @override
   String get layoutCompact => 'กะทัดรัด';
@@ -1571,15 +1571,14 @@ class AppLocalizationsTh extends AppLocalizations {
   String get remoteNameHelper => 'ชื่อนี้จะแสดงในรายการรีโมตของคุณ';
 
   @override
-  String get layoutStyle => 'รูปแบบเลย์เอาต์';
+  String get layoutStyle => 'การจัดวาง';
 
   @override
-  String get layoutWideDescription =>
-      'กว้าง: ปุ่ม 2 คอลัมน์พร้อมรายละเอียดเพิ่ม แนะนำ';
+  String get layoutWideDescription => 'ปุ่มสองคอลัมน์พร้อมรายละเอียดเพิ่มเติม';
 
   @override
   String get layoutCompactDescription =>
-      'กะทัดรัด: กริด 4× แบบคลาสสิก ไอคอนและข้อความเท่านั้น';
+      'ปุ่มสี่คอลัมน์ที่แสดงไอคอนหรือข้อความ';
 
   @override
   String get importFromRemotes => 'นำเข้าจากรีโมต';
@@ -4919,7 +4918,8 @@ class AppLocalizationsTh extends AppLocalizations {
   String get layoutCustom => 'กำหนดเอง';
 
   @override
-  String get layoutCustomDescription => 'เลือกคอลัมน์ รูปร่าง และพื้นที่ว่าง';
+  String get layoutCustomDescription =>
+      'เลือกจำนวนคอลัมน์และรูปร่างปุ่ม แล้วเพิ่มช่องว่างในหน้าแก้ไข';
 
   @override
   String get layoutColumns => 'จำนวนปุ่มต่อแถว';
@@ -4938,7 +4938,7 @@ class AppLocalizationsTh extends AppLocalizations {
 
   @override
   String get layoutReflowHint =>
-      'การเปลี่ยนคอลัมน์จะจัดตารางใหม่ บนหน้าจอแคบ ให้ปัดไปด้านข้างเพื่อคงขนาดปุ่มที่แตะได้ง่าย';
+      'การเปลี่ยนจำนวนคอลัมน์จะจัดตารางใหม่ หากตารางกว้างกว่าหน้าจอ ให้ปัดไปด้านข้าง';
 
   @override
   String get layoutUpdated => 'อัปเดตการจัดวางแล้ว';

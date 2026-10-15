@@ -1224,10 +1224,10 @@ class AppLocalizationsFil extends AppLocalizations {
   }
 
   @override
-  String get layoutComfort => 'Comfort';
+  String get layoutComfort => 'Maluwag';
 
   @override
-  String get layoutCompact => 'Compact';
+  String get layoutCompact => 'Siksik';
 
   @override
   String get open => 'Open';
@@ -1602,15 +1602,15 @@ class AppLocalizationsFil extends AppLocalizations {
       'Makikita ang pangalang ito sa listahan ng mga remote.';
 
   @override
-  String get layoutStyle => 'Layout style';
+  String get layoutStyle => 'Layout';
 
   @override
   String get layoutWideDescription =>
-      'Wide: 2-column mga button with extra details (recommended).';
+      'Dalawang column ng mga button na may dagdag na detalye.';
 
   @override
   String get layoutCompactDescription =>
-      'Compact: classic 4× grid (icons/text only).';
+      'Apat na column ng mga button na may icon o teksto.';
 
   @override
   String get importFromRemotes => 'Import from mga remote';
@@ -2431,7 +2431,7 @@ class AppLocalizationsFil extends AppLocalizations {
   String get msbShort => 'MSB';
 
   @override
-  String get layoutWide => 'Wide';
+  String get layoutWide => 'Maluwag';
 
   @override
   String get iconButton => 'Icon button';
@@ -4956,11 +4956,11 @@ class AppLocalizationsFil extends AppLocalizations {
       'Mga kontrol ng device, mabilisang setting, GitHub Store at unibersal na power';
 
   @override
-  String get layoutCustom => 'Pasadya';
+  String get layoutCustom => 'Sariling ayos';
 
   @override
   String get layoutCustomDescription =>
-      'Pumili ng mga column, hugis at bakanteng espasyo';
+      'Piliin ang bilang ng column at hugis ng mga button. Maglagay ng bakanteng puwesto sa editor.';
 
   @override
   String get layoutColumns => 'Mga button bawat hanay';
@@ -4979,7 +4979,7 @@ class AppLocalizationsFil extends AppLocalizations {
 
   @override
   String get layoutReflowHint =>
-      'Inaayos muli ang grid kapag binago ang mga column. Sa makitid na screen, mag-swipe patagilid para manatiling madaling pindutin ang mga button.';
+      'Mababago ang ayos ng grid kapag binago ang bilang ng column. Mag-swipe pakaliwa o pakanan kung hindi kasya ang grid sa screen.';
 
   @override
   String get layoutUpdated => 'Na-update ang layout';

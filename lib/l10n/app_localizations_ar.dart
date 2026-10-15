@@ -1199,10 +1199,10 @@ class AppLocalizationsAr extends AppLocalizations {
   }
 
   @override
-  String get layoutComfort => 'Comfort';
+  String get layoutComfort => 'عريض';
 
   @override
-  String get layoutCompact => 'Compact';
+  String get layoutCompact => 'مدمج';
 
   @override
   String get open => 'فتح';
@@ -1568,15 +1568,14 @@ class AppLocalizationsAr extends AppLocalizations {
   String get remoteNameHelper => 'سيظهر هذا الاسم في قائمة أجهزة التحكم.';
 
   @override
-  String get layoutStyle => 'Layout style';
+  String get layoutStyle => 'تخطيط الأزرار';
 
   @override
-  String get layoutWideDescription =>
-      'عريض: أزرار بعمودين مع تفاصيل إضافية، موصى به.';
+  String get layoutWideDescription => 'عمودان من الأزرار مع تفاصيل إضافية.';
 
   @override
   String get layoutCompactDescription =>
-      'Compact: classic 4× grid (icons/text only).';
+      'أربعة أعمدة من الأزرار تعرض رموزًا أو نصوصًا.';
 
   @override
   String get importFromRemotes => 'استيراد من remotes';
@@ -4917,7 +4916,7 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String get layoutCustomDescription =>
-      'اختر الأعمدة والأشكال والمساحات الفارغة';
+      'اختر عدد الأعمدة وشكل الأزرار. أضف الفراغات في المحرر.';
 
   @override
   String get layoutColumns => 'الأزرار في كل صف';
@@ -4936,7 +4935,7 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String get layoutReflowHint =>
-      'يؤدي تغيير الأعمدة إلى إعادة ترتيب الشبكة. على الشاشات الضيقة، اسحب جانبياً للحفاظ على حجم أزرار يسهل لمسها.';
+      'تغيير عدد الأعمدة يعيد ترتيب الشبكة. اسحب جانبياً إذا كانت الشبكة أعرض من الشاشة.';
 
   @override
   String get layoutUpdated => 'تم تحديث التخطيط';
@@ -6415,10 +6414,10 @@ class AppLocalizationsArEg extends AppLocalizationsAr {
   }
 
   @override
-  String get layoutComfort => 'Comfort';
+  String get layoutComfort => 'عريض';
 
   @override
-  String get layoutCompact => 'Compact';
+  String get layoutCompact => 'مدمج';
 
   @override
   String get open => 'فتح';
@@ -6784,15 +6783,14 @@ class AppLocalizationsArEg extends AppLocalizationsAr {
   String get remoteNameHelper => 'الاسم ده هيظهر في قائمة الريموتات.';
 
   @override
-  String get layoutStyle => 'Layout style';
+  String get layoutStyle => 'ترتيب الأزرار';
 
   @override
-  String get layoutWideDescription =>
-      'عريض: أزرار بعمودين مع تفاصيل إضافية، موصى به.';
+  String get layoutWideDescription => 'عمودين من الأزرار مع تفاصيل أكتر.';
 
   @override
   String get layoutCompactDescription =>
-      'Compact: classic 4× grid (icons/text only).';
+      'أربع أعمدة من الأزرار بتعرض رموز أو نصوص.';
 
   @override
   String get importFromRemotes => 'استيراد من remotes';
@@ -10132,7 +10130,7 @@ class AppLocalizationsArEg extends AppLocalizationsAr {
 
   @override
   String get layoutCustomDescription =>
-      'اختر الأعمدة والأشكال والمساحات الفارغة';
+      'اختار عدد الأعمدة وشكل الأزرار. ضيف الفراغات في شاشة التعديل.';
 
   @override
   String get layoutColumns => 'الأزرار في كل صف';
@@ -10151,7 +10149,7 @@ class AppLocalizationsArEg extends AppLocalizationsAr {
 
   @override
   String get layoutReflowHint =>
-      'يؤدي تغيير الأعمدة إلى إعادة ترتيب الشبكة. على الشاشات الضيقة، اسحب جانبياً للحفاظ على حجم أزرار يسهل لمسها.';
+      'تغيير عدد الأعمدة بيغيّر ترتيب الأزرار. اسحب على الجنب لو الشبكة أعرض من الشاشة.';
 
   @override
   String get layoutUpdated => 'تم تحديث التخطيط';

@@ -1215,7 +1215,7 @@ class AppLocalizationsEn extends AppLocalizations {
   }
 
   @override
-  String get layoutComfort => 'Comfort';
+  String get layoutComfort => 'Wide';
 
   @override
   String get layoutCompact => 'Compact';
@@ -1607,15 +1607,15 @@ class AppLocalizationsEn extends AppLocalizations {
   String get remoteNameHelper => 'This name appears in your remote list.';
 
   @override
-  String get layoutStyle => 'Layout style';
+  String get layoutStyle => 'Layout';
 
   @override
   String get layoutWideDescription =>
-      'Wide: 2-column buttons with extra details (recommended).';
+      'Two columns of buttons with more details.';
 
   @override
   String get layoutCompactDescription =>
-      'Compact: classic 4× grid (icons/text only).';
+      'Four columns of buttons showing icons or text.';
 
   @override
   String get importFromRemotes => 'Import from remotes';
@@ -4984,7 +4984,7 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get layoutCustomDescription =>
-      'Choose columns, shapes and empty spaces';
+      'Choose columns and button shape. Add gaps in the editor.';
 
   @override
   String get layoutColumns => 'Buttons per row';
@@ -5003,7 +5003,7 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get layoutReflowHint =>
-      'Changing columns reflows the grid. On narrow screens, swipe sideways to keep buttons easy to tap.';
+      'Changing the column count rearranges the grid. Swipe sideways if the grid is wider than the screen.';
 
   @override
   String get layoutUpdated => 'Layout updated';

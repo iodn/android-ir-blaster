@@ -1121,7 +1121,7 @@ class AppLocalizationsZh extends AppLocalizations {
   }
 
   @override
-  String get layoutComfort => '舒适';
+  String get layoutComfort => '宽布局';
 
   @override
   String get layoutCompact => '紧凑';
@@ -1475,13 +1475,13 @@ class AppLocalizationsZh extends AppLocalizations {
   String get remoteNameHelper => '此名称会显示在遥控器列表中。';
 
   @override
-  String get layoutStyle => '布局样式';
+  String get layoutStyle => '按钮布局';
 
   @override
-  String get layoutWideDescription => '宽布局 2 列按钮并显示更多详情 推荐。';
+  String get layoutWideDescription => '两列按钮，显示更多详细信息。';
 
   @override
-  String get layoutCompactDescription => '紧凑布局 经典 4× 网格 仅图标 文本。';
+  String get layoutCompactDescription => '四列按钮，显示图标或文字。';
 
   @override
   String get importFromRemotes => '从遥控器导入';
@@ -4747,7 +4747,7 @@ class AppLocalizationsZh extends AppLocalizations {
   String get layoutCustom => '自定义';
 
   @override
-  String get layoutCustomDescription => '选择列数、形状和空白位置';
+  String get layoutCustomDescription => '选择列数和按钮形状，然后在编辑器中添加空位。';
 
   @override
   String get layoutColumns => '每行按钮数';
@@ -4765,7 +4765,7 @@ class AppLocalizationsZh extends AppLocalizations {
   String get layoutRectangle => '矩形';
 
   @override
-  String get layoutReflowHint => '更改列数会重新排列网格。在较窄的屏幕上，可左右滑动，以保持按钮易于点击的大小。';
+  String get layoutReflowHint => '更改列数会重新排列网格。如果网格比屏幕宽，可左右滑动查看。';
 
   @override
   String get layoutUpdated => '布局已更新';

@@ -1157,7 +1157,7 @@ class AppLocalizationsJa extends AppLocalizations {
   }
 
   @override
-  String get layoutComfort => '快適';
+  String get layoutComfort => 'ワイド';
 
   @override
   String get layoutCompact => 'コンパクト';
@@ -1517,10 +1517,10 @@ class AppLocalizationsJa extends AppLocalizations {
   String get layoutStyle => 'レイアウト';
 
   @override
-  String get layoutWideDescription => 'ワイド 2列ボタンで詳細も表示 推奨。';
+  String get layoutWideDescription => 'ボタンを2列で並べ、詳しい情報も表示します。';
 
   @override
-  String get layoutCompactDescription => 'コンパクト 定番の4×グリッド アイコンまたは文字のみ。';
+  String get layoutCompactDescription => 'アイコンや文字のボタンを4列で並べます。';
 
   @override
   String get importFromRemotes => 'リモコンから取り込み';
@@ -4813,7 +4813,7 @@ class AppLocalizationsJa extends AppLocalizations {
   String get layoutCustom => 'カスタム';
 
   @override
-  String get layoutCustomDescription => '列数、形、空きスペースを選択';
+  String get layoutCustomDescription => '列数とボタンの形を選びます。空白は編集画面で追加できます。';
 
   @override
   String get layoutColumns => '1行のボタン数';
@@ -4832,7 +4832,7 @@ class AppLocalizationsJa extends AppLocalizations {
 
   @override
   String get layoutReflowHint =>
-      '列数を変更すると配置が組み直されます。画面が狭い場合は横にスワイプすると、押しやすいボタンのサイズを保てます。';
+      '列数を変えると配置が変わります。グリッドが画面に収まらない場合は横にスワイプしてください。';
 
   @override
   String get layoutUpdated => '配置を更新しました';

@@ -74,12 +74,19 @@ class RemoteLayoutPicker extends StatelessWidget {
           const SizedBox(height: 12),
           Text(l10n.layoutShape, style: theme.textTheme.titleSmall),
           const SizedBox(height: 8),
-          Wrap(
-            spacing: 8,
-            children: [
+          RadioGroup<RemoteButtonShape>(
+            groupValue: custom.shape,
+            onChanged: (shape) {
+              if (shape != null) {
+                onChanged(style, custom.copyWith(shape: shape));
+              }
+            },
+            child: Column(children: [
               for (final shape in RemoteButtonShape.values)
-                ChoiceChip(
-                  avatar: Icon(
+                RadioListTile<RemoteButtonShape>(
+                  value: shape,
+                  contentPadding: EdgeInsets.zero,
+                  secondary: Icon(
                       switch (shape) {
                         RemoteButtonShape.circle => Icons.circle_outlined,
                         RemoteButtonShape.roundedSquare =>
@@ -88,16 +95,14 @@ class RemoteLayoutPicker extends StatelessWidget {
                           Icons.crop_landscape_rounded,
                       },
                       size: 18),
-                  label: Text(switch (shape) {
+                  title: Text(switch (shape) {
                     RemoteButtonShape.circle => l10n.layoutCircle,
                     RemoteButtonShape.roundedSquare => l10n.layoutRoundedSquare,
                     RemoteButtonShape.rectangle => l10n.layoutRectangle,
                   }),
                   selected: custom.shape == shape,
-                  onSelected: (_) =>
-                      onChanged(style, custom.copyWith(shape: shape)),
                 ),
-            ],
+            ]),
           ),
           const SizedBox(height: 16),
           _preview(context, custom.columns, custom.shape),

@@ -2241,7 +2241,7 @@ abstract class AppLocalizations {
   /// No description provided for @layoutComfort.
   ///
   /// In en, this message translates to:
-  /// **'Comfort'**
+  /// **'Wide'**
   String get layoutComfort;
 
   /// No description provided for @layoutCompact.
@@ -2883,19 +2883,19 @@ abstract class AppLocalizations {
   /// No description provided for @layoutStyle.
   ///
   /// In en, this message translates to:
-  /// **'Layout style'**
+  /// **'Layout'**
   String get layoutStyle;
 
   /// No description provided for @layoutWideDescription.
   ///
   /// In en, this message translates to:
-  /// **'Wide: 2-column buttons with extra details (recommended).'**
+  /// **'Two columns of buttons with more details.'**
   String get layoutWideDescription;
 
   /// No description provided for @layoutCompactDescription.
   ///
   /// In en, this message translates to:
-  /// **'Compact: classic 4× grid (icons/text only).'**
+  /// **'Four columns of buttons showing icons or text.'**
   String get layoutCompactDescription;
 
   /// No description provided for @importFromRemotes.
@@ -8969,7 +8969,7 @@ abstract class AppLocalizations {
   /// No description provided for @layoutCustomDescription.
   ///
   /// In en, this message translates to:
-  /// **'Choose columns, shapes and empty spaces'**
+  /// **'Choose columns and button shape. Add gaps in the editor.'**
   String get layoutCustomDescription;
 
   /// No description provided for @layoutColumns.
@@ -9005,7 +9005,7 @@ abstract class AppLocalizations {
   /// No description provided for @layoutReflowHint.
   ///
   /// In en, this message translates to:
-  /// **'Changing columns reflows the grid. On narrow screens, swipe sideways to keep buttons easy to tap.'**
+  /// **'Changing the column count rearranges the grid. Swipe sideways if the grid is wider than the screen.'**
   String get layoutReflowHint;
 
   /// No description provided for @layoutUpdated.

@@ -1236,7 +1236,7 @@ class AppLocalizationsNl extends AppLocalizations {
   }
 
   @override
-  String get layoutComfort => 'Comfort';
+  String get layoutComfort => 'Breed';
 
   @override
   String get layoutCompact => 'Compact';
@@ -1615,15 +1615,15 @@ class AppLocalizationsNl extends AppLocalizations {
       'Deze naam verschijnt in je lijst met afstandsbedieningen.';
 
   @override
-  String get layoutStyle => 'Lay-outstijl';
+  String get layoutStyle => 'Indeling';
 
   @override
   String get layoutWideDescription =>
-      'Wide: 2-column knoppen with extra details (recommended).';
+      'Twee kolommen met knoppen en meer details.';
 
   @override
   String get layoutCompactDescription =>
-      'Compact klassieke 4×-rasterknoppen alleen pictogrammen of tekst.';
+      'Vier kolommen met knoppen met pictogrammen of tekst.';
 
   @override
   String get importFromRemotes => 'Importeren from remotes';
@@ -4979,7 +4979,8 @@ class AppLocalizationsNl extends AppLocalizations {
   String get layoutCustom => 'Aangepast';
 
   @override
-  String get layoutCustomDescription => 'Kies kolommen, vormen en lege ruimtes';
+  String get layoutCustomDescription =>
+      'Kies het aantal kolommen en de knopvorm. Voeg lege plekken toe in de editor.';
 
   @override
   String get layoutColumns => 'Knoppen per rij';
@@ -4998,7 +4999,7 @@ class AppLocalizationsNl extends AppLocalizations {
 
   @override
   String get layoutReflowHint =>
-      'Een ander aantal kolommen deelt het raster opnieuw in. Veeg op smalle schermen zijwaarts zodat de knoppen makkelijk te bedienen blijven.';
+      'Een ander aantal kolommen deelt het raster opnieuw in. Veeg zijwaarts als het raster breder is dan het scherm.';
 
   @override
   String get layoutUpdated => 'Indeling bijgewerkt';

@@ -1229,7 +1229,7 @@ class AppLocalizationsPl extends AppLocalizations {
   }
 
   @override
-  String get layoutComfort => 'Wygodny';
+  String get layoutComfort => 'Szeroki';
 
   @override
   String get layoutCompact => 'Kompaktowy';
@@ -1638,11 +1638,11 @@ class AppLocalizationsPl extends AppLocalizations {
 
   @override
   String get layoutWideDescription =>
-      'Szeroki: przyciski w 2 kolumnach z dodatkowymi szczegółami (zalecane).';
+      'Dwie kolumny przycisków z dodatkowymi informacjami.';
 
   @override
   String get layoutCompactDescription =>
-      'Kompaktowy: klasyczna siatka 4× (tylko ikony/tekst).';
+      'Cztery kolumny przycisków z ikonami lub tekstem.';
 
   @override
   String get importFromRemotes => 'Import z pilotów';
@@ -5037,7 +5037,7 @@ class AppLocalizationsPl extends AppLocalizations {
 
   @override
   String get layoutCustomDescription =>
-      'Wybierz kolumny, kształty i puste miejsca';
+      'Wybierz liczbę kolumn i kształt przycisków. Puste miejsca dodasz w edytorze.';
 
   @override
   String get layoutColumns => 'Przyciski w wierszu';
@@ -5056,7 +5056,7 @@ class AppLocalizationsPl extends AppLocalizations {
 
   @override
   String get layoutReflowHint =>
-      'Zmiana liczby kolumn zmienia układ siatki. Na wąskich ekranach przesuwaj w bok, aby przyciski pozostały łatwe do dotknięcia.';
+      'Zmiana liczby kolumn zmienia układ siatki. Jeśli siatka jest szersza niż ekran, przesuń ją w bok.';
 
   @override
   String get layoutUpdated => 'Układ zaktualizowany';
