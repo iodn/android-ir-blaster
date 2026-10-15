@@ -831,17 +831,17 @@ class AppLocalizationsEn extends AppLocalizations {
   String get intensityStrong => 'Strong';
 
   @override
-  String get remoteButtonMetadataTitle => 'Show button technical labels';
+  String get remoteButtonMetadataTitle => 'Show signal details';
 
   @override
   String get remoteButtonMetadataSubtitle =>
-      'Display protocol, code, and frequency chips on remote buttons.';
+      'Show protocol, code, and frequency on remote buttons.';
 
   @override
-  String get remoteButtonMetadataShown => 'Button technical labels shown.';
+  String get remoteButtonMetadataShown => 'Signal details shown.';
 
   @override
-  String get remoteButtonMetadataHidden => 'Button technical labels hidden.';
+  String get remoteButtonMetadataHidden => 'Signal details hidden.';
 
   @override
   String get flipRemoteDefaultTitle => 'Rotate remotes 180°';

@@ -843,17 +843,17 @@ class AppLocalizationsFr extends AppLocalizations {
   String get intensityStrong => 'Forte';
 
   @override
-  String get remoteButtonMetadataTitle => 'Afficher les libellés techniques';
+  String get remoteButtonMetadataTitle => 'Afficher les détails du signal';
 
   @override
   String get remoteButtonMetadataSubtitle =>
-      'Affiche le protocole, le code et la fréquence sur les boutons.';
+      'Affiche le protocole, le code et la fréquence sur les boutons de la télécommande.';
 
   @override
-  String get remoteButtonMetadataShown => 'Libellés techniques affichés.';
+  String get remoteButtonMetadataShown => 'Détails du signal affichés.';
 
   @override
-  String get remoteButtonMetadataHidden => 'Libellés techniques masqués.';
+  String get remoteButtonMetadataHidden => 'Détails du signal masqués.';
 
   @override
   String get flipRemoteDefaultTitle => 'Tourner les télécommandes à 180°';

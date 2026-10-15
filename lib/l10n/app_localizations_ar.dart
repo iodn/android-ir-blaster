@@ -828,17 +828,17 @@ class AppLocalizationsAr extends AppLocalizations {
   String get intensityStrong => 'قوي';
 
   @override
-  String get remoteButtonMetadataTitle => 'إظهار التسميات التقنية للأزرار';
+  String get remoteButtonMetadataTitle => 'إظهار تفاصيل الإشارة';
 
   @override
   String get remoteButtonMetadataSubtitle =>
-      'اعرض البروتوكول والرمز وتردد الإرسال على أزرار جهاز التحكم.';
+      'عرض البروتوكول والرمز والتردد على أزرار جهاز التحكم.';
 
   @override
-  String get remoteButtonMetadataShown => 'تم إظهار التسميات التقنية للأزرار.';
+  String get remoteButtonMetadataShown => 'تم إظهار تفاصيل الإشارة.';
 
   @override
-  String get remoteButtonMetadataHidden => 'تم إخفاء التسميات التقنية للأزرار.';
+  String get remoteButtonMetadataHidden => 'تم إخفاء تفاصيل الإشارة.';
 
   @override
   String get flipRemoteDefaultTitle => 'تدوير أجهزة التحكم 180°';
@@ -6103,17 +6103,17 @@ class AppLocalizationsArEg extends AppLocalizationsAr {
   String get intensityStrong => 'قوي';
 
   @override
-  String get remoteButtonMetadataTitle => 'إظهار التسميات التقنية للأزرار';
+  String get remoteButtonMetadataTitle => 'إظهار تفاصيل الإشارة';
 
   @override
   String get remoteButtonMetadataSubtitle =>
-      'اعرض البروتوكول والرمز وتردد الإرسال على أزرار جهاز التحكم.';
+      'اعرض البروتوكول والكود والتردد على أزرار الريموت.';
 
   @override
-  String get remoteButtonMetadataShown => 'تم إظهار التسميات التقنية للأزرار.';
+  String get remoteButtonMetadataShown => 'تفاصيل الإشارة ظاهرة دلوقتي.';
 
   @override
-  String get remoteButtonMetadataHidden => 'تم إخفاء التسميات التقنية للأزرار.';
+  String get remoteButtonMetadataHidden => 'تفاصيل الإشارة اتخفت.';
 
   @override
   String get flipRemoteDefaultTitle => 'تدوير أجهزة التحكم 180°';

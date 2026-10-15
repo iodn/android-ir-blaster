@@ -836,18 +836,17 @@ class AppLocalizationsMs extends AppLocalizations {
   String get intensityStrong => 'Kuat';
 
   @override
-  String get remoteButtonMetadataTitle => 'Tunjuk label teknikal butang';
+  String get remoteButtonMetadataTitle => 'Paparkan butiran isyarat';
 
   @override
   String get remoteButtonMetadataSubtitle =>
-      'Paparkan protokol, kod dan frekuensi pada butang remote.';
+      'Paparkan protokol, kod dan frekuensi pada butang alat kawalan jauh.';
 
   @override
-  String get remoteButtonMetadataShown => 'Label teknikal butang dipaparkan.';
+  String get remoteButtonMetadataShown => 'Butiran isyarat dipaparkan.';
 
   @override
-  String get remoteButtonMetadataHidden =>
-      'Label teknikal butang disembunyikan.';
+  String get remoteButtonMetadataHidden => 'Butiran isyarat disembunyikan.';
 
   @override
   String get flipRemoteDefaultTitle => 'Putar kawalan jauh 180°';

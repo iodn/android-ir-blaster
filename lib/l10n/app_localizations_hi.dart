@@ -837,17 +837,17 @@ class AppLocalizationsHi extends AppLocalizations {
   String get intensityStrong => 'तेज़';
 
   @override
-  String get remoteButtonMetadataTitle => 'बटन के तकनीकी लेबल दिखाएँ';
+  String get remoteButtonMetadataTitle => 'सिग्नल की जानकारी दिखाएँ';
 
   @override
   String get remoteButtonMetadataSubtitle =>
-      'रिमोट बटन पर प्रोटोकॉल, कोड और फ़्रीक्वेंसी चिप दिखाएँ.';
+      'रिमोट के बटन पर प्रोटोकॉल, कोड और आवृत्ति दिखाएँ।';
 
   @override
-  String get remoteButtonMetadataShown => 'बटन के तकनीकी लेबल दिख रहे हैं.';
+  String get remoteButtonMetadataShown => 'सिग्नल की जानकारी दिखाई गई।';
 
   @override
-  String get remoteButtonMetadataHidden => 'बटन के तकनीकी लेबल छिपे हैं.';
+  String get remoteButtonMetadataHidden => 'सिग्नल की जानकारी छिपा दी गई।';
 
   @override
   String get flipRemoteDefaultTitle => 'रिमोट को 180° घुमाएँ';

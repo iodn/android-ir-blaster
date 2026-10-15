@@ -839,8 +839,7 @@ class AppLocalizationsFil extends AppLocalizations {
   String get intensityStrong => 'Malakas';
 
   @override
-  String get remoteButtonMetadataTitle =>
-      'Ipakita ang teknikal na label ng button';
+  String get remoteButtonMetadataTitle => 'Ipakita ang detalye ng signal';
 
   @override
   String get remoteButtonMetadataSubtitle =>
@@ -848,11 +847,10 @@ class AppLocalizationsFil extends AppLocalizations {
 
   @override
   String get remoteButtonMetadataShown =>
-      'Ipinapakita ang teknikal na label ng button.';
+      'Ipinapakita na ang detalye ng signal.';
 
   @override
-  String get remoteButtonMetadataHidden =>
-      'Nakatago ang teknikal na label ng button.';
+  String get remoteButtonMetadataHidden => 'Nakatago na ang detalye ng signal.';
 
   @override
   String get flipRemoteDefaultTitle => 'Iikot ang mga remote nang 180°';

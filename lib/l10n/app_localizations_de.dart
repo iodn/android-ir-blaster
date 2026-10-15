@@ -842,19 +842,17 @@ class AppLocalizationsDe extends AppLocalizations {
   String get intensityStrong => 'Stark';
 
   @override
-  String get remoteButtonMetadataTitle => 'Technische Tastenlabels anzeigen';
+  String get remoteButtonMetadataTitle => 'Signaldetails anzeigen';
 
   @override
   String get remoteButtonMetadataSubtitle =>
-      'Protokoll, Code und Frequenz auf Fernbedienungstasten anzeigen.';
+      'Protokoll, Code und Frequenz auf den Fernbedienungstasten anzeigen.';
 
   @override
-  String get remoteButtonMetadataShown =>
-      'Technische Tastenlabels werden angezeigt.';
+  String get remoteButtonMetadataShown => 'Signaldetails werden angezeigt.';
 
   @override
-  String get remoteButtonMetadataHidden =>
-      'Technische Tastenlabels werden ausgeblendet.';
+  String get remoteButtonMetadataHidden => 'Signaldetails sind ausgeblendet.';
 
   @override
   String get flipRemoteDefaultTitle => 'Fernbedienungen um 180° drehen';

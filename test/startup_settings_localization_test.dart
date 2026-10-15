@@ -5,6 +5,7 @@ import 'package:flutter_test/flutter_test.dart';
 import 'package:irblaster_controller/l10n/app_localizations.dart';
 import 'package:irblaster_controller/state/haptics.dart';
 import 'package:irblaster_controller/state/orientation_pref.dart';
+import 'package:irblaster_controller/state/remote_display_prefs.dart';
 import 'package:irblaster_controller/state/startup_prefs.dart';
 import 'package:irblaster_controller/widgets/settings_screen.dart';
 import 'package:package_info_plus/package_info_plus.dart';
@@ -19,6 +20,8 @@ void main() {
       await controller.load();
       final orientation = RemoteOrientationController.instance;
       await orientation.load();
+      final display = RemoteDisplayController.instance;
+      await display.load();
       PackageInfo.setMockInitialValues(
           appName: 'IR Blaster',
           packageName: 'org.nslabs.ir_blaster',
@@ -202,6 +205,34 @@ void main() {
         await tester.pumpAndSettle();
         expect(find.text(message), findsNothing);
         expect(HapticsController.instance.forceVibrationOverride, isFalse);
+      }
+      for (final message in [
+        l10n.remoteButtonMetadataTitle,
+        l10n.remoteButtonMetadataSubtitle,
+      ]) {
+        await tester.ensureVisible(find.text(message));
+        await tester.pumpAndSettle();
+        expectReadable(find.text(message));
+      }
+      final detailsTile = find.widgetWithText(
+          SwitchListTile, l10n.remoteButtonMetadataTitle);
+      expect(tester.widget<SwitchListTile>(detailsTile).value, isTrue);
+      final detailsToggle =
+          find.descendant(of: detailsTile, matching: find.byType(Switch));
+      for (final value in [false, true]) {
+        await tester.ensureVisible(detailsToggle);
+        await tester.pumpAndSettle();
+        await tester.tap(detailsToggle);
+        await tester.pumpAndSettle();
+        expect(display.showButtonMetadata, value);
+        final prefs = await SharedPreferences.getInstance();
+        expect(prefs.getBool('remote_view_show_button_metadata_v1'), value);
+        final feedback = find.text(value
+            ? l10n.remoteButtonMetadataShown
+            : l10n.remoteButtonMetadataHidden);
+        expectReadable(feedback);
+        ScaffoldMessenger.of(tester.element(feedback)).removeCurrentSnackBar();
+        await tester.pumpAndSettle();
       }
       await tester.pumpWidget(const SizedBox());
       await tester.pumpAndSettle();

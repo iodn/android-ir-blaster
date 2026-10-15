@@ -846,19 +846,17 @@ class AppLocalizationsNl extends AppLocalizations {
   String get intensityStrong => 'Sterk';
 
   @override
-  String get remoteButtonMetadataTitle => 'Technische knoplabels tonen';
+  String get remoteButtonMetadataTitle => 'Signaalgegevens tonen';
 
   @override
   String get remoteButtonMetadataSubtitle =>
-      'Toon protocol, code en frequentie op afstandsbedieningsknoppen.';
+      'Toon protocol, code en frequentie op de knoppen van de afstandsbediening.';
 
   @override
-  String get remoteButtonMetadataShown =>
-      'Technische knoplabels worden getoond.';
+  String get remoteButtonMetadataShown => 'Signaalgegevens worden getoond.';
 
   @override
-  String get remoteButtonMetadataHidden =>
-      'Technische knoplabels zijn verborgen.';
+  String get remoteButtonMetadataHidden => 'Signaalgegevens zijn verborgen.';
 
   @override
   String get flipRemoteDefaultTitle => 'Afstandsbedieningen 180° draaien';

@@ -800,16 +800,16 @@ class AppLocalizationsJa extends AppLocalizations {
   String get intensityStrong => '強';
 
   @override
-  String get remoteButtonMetadataTitle => 'ボタンの技術ラベルを表示';
+  String get remoteButtonMetadataTitle => '信号の詳細を表示';
 
   @override
-  String get remoteButtonMetadataSubtitle => 'リモコンボタンにプロトコル コード 周波数を表示します。';
+  String get remoteButtonMetadataSubtitle => 'リモコンのボタンにプロトコル、コード、周波数を表示します。';
 
   @override
-  String get remoteButtonMetadataShown => 'ボタンの技術ラベルを表示しました。';
+  String get remoteButtonMetadataShown => '信号の詳細を表示しました。';
 
   @override
-  String get remoteButtonMetadataHidden => 'ボタンの技術ラベルを非表示にしました。';
+  String get remoteButtonMetadataHidden => '信号の詳細を非表示にしました。';
 
   @override
   String get flipRemoteDefaultTitle => 'リモコンを180°回転';

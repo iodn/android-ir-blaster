@@ -840,20 +840,17 @@ class AppLocalizationsPt extends AppLocalizations {
   String get intensityStrong => 'Forte';
 
   @override
-  String get remoteButtonMetadataTitle =>
-      'Mostrar etiquetas técnicas dos botões';
+  String get remoteButtonMetadataTitle => 'Mostrar detalhes do sinal';
 
   @override
   String get remoteButtonMetadataSubtitle =>
-      'Mostra protocolo, código e frequência nos botões do comando.';
+      'Mostra o protocolo, o código e a frequência nos botões do comando.';
 
   @override
-  String get remoteButtonMetadataShown =>
-      'Etiquetas técnicas dos botões visíveis.';
+  String get remoteButtonMetadataShown => 'Detalhes do sinal visíveis.';
 
   @override
-  String get remoteButtonMetadataHidden =>
-      'Etiquetas técnicas dos botões ocultas.';
+  String get remoteButtonMetadataHidden => 'Detalhes do sinal ocultos.';
 
   @override
   String get flipRemoteDefaultTitle => 'Rodar comandos 180°';
@@ -6166,20 +6163,17 @@ class AppLocalizationsPtBr extends AppLocalizationsPt {
   String get intensityStrong => 'Forte';
 
   @override
-  String get remoteButtonMetadataTitle =>
-      'Mostrar etiquetas técnicas dos botões';
+  String get remoteButtonMetadataTitle => 'Mostrar detalhes do sinal';
 
   @override
   String get remoteButtonMetadataSubtitle =>
-      'Mostra protocolo, código e frequência nos botões do controle.';
+      'Mostra o protocolo, o código e a frequência nos botões do controle.';
 
   @override
-  String get remoteButtonMetadataShown =>
-      'Etiquetas técnicas dos botões visíveis.';
+  String get remoteButtonMetadataShown => 'Detalhes do sinal visíveis.';
 
   @override
-  String get remoteButtonMetadataHidden =>
-      'Etiquetas técnicas dos botões ocultas.';
+  String get remoteButtonMetadataHidden => 'Detalhes do sinal ocultos.';
 
   @override
   String get flipRemoteDefaultTitle => 'Girar controles em 180°';

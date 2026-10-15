@@ -835,17 +835,17 @@ class AppLocalizationsRu extends AppLocalizations {
   String get intensityStrong => 'Сильная';
 
   @override
-  String get remoteButtonMetadataTitle => 'Показывать технические метки кнопок';
+  String get remoteButtonMetadataTitle => 'Показывать данные сигнала';
 
   @override
   String get remoteButtonMetadataSubtitle =>
-      'Показывает протокол, код и частоту на кнопках пульта.';
+      'Показывать протокол, код и частоту на кнопках пульта.';
 
   @override
-  String get remoteButtonMetadataShown => 'Технические метки кнопок показаны.';
+  String get remoteButtonMetadataShown => 'Данные сигнала показаны.';
 
   @override
-  String get remoteButtonMetadataHidden => 'Технические метки кнопок скрыты.';
+  String get remoteButtonMetadataHidden => 'Данные сигнала скрыты.';
 
   @override
   String get flipRemoteDefaultTitle => 'Поворачивать пульты на 180°';

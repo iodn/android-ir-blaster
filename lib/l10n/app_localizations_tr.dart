@@ -837,18 +837,17 @@ class AppLocalizationsTr extends AppLocalizations {
   String get intensityStrong => 'Güçlü';
 
   @override
-  String get remoteButtonMetadataTitle => 'Düğme teknik etiketlerini göster';
+  String get remoteButtonMetadataTitle => 'Sinyal bilgilerini göster';
 
   @override
   String get remoteButtonMetadataSubtitle =>
-      'Kumanda düğmelerinde protokol, kod ve frekans bilgisini gösterir.';
+      'Kumanda düğmelerinde protokol, kod ve frekansı gösterir.';
 
   @override
-  String get remoteButtonMetadataShown =>
-      'Düğme teknik etiketleri gösteriliyor.';
+  String get remoteButtonMetadataShown => 'Sinyal bilgileri gösteriliyor.';
 
   @override
-  String get remoteButtonMetadataHidden => 'Düğme teknik etiketleri gizlendi.';
+  String get remoteButtonMetadataHidden => 'Sinyal bilgileri gizlendi.';
 
   @override
   String get flipRemoteDefaultTitle => 'Kumandaları 180° döndür';

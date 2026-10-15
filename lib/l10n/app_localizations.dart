@@ -1587,25 +1587,25 @@ abstract class AppLocalizations {
   /// Settings toggle title for showing or hiding technical metadata on remote buttons.
   ///
   /// In en, this message translates to:
-  /// **'Show button technical labels'**
+  /// **'Show signal details'**
   String get remoteButtonMetadataTitle;
 
   /// Settings toggle subtitle for showing or hiding protocol, code, and frequency labels on remote buttons.
   ///
   /// In en, this message translates to:
-  /// **'Display protocol, code, and frequency chips on remote buttons.'**
+  /// **'Show protocol, code, and frequency on remote buttons.'**
   String get remoteButtonMetadataSubtitle;
 
   /// Snackbar shown when remote button technical metadata is enabled.
   ///
   /// In en, this message translates to:
-  /// **'Button technical labels shown.'**
+  /// **'Signal details shown.'**
   String get remoteButtonMetadataShown;
 
   /// Snackbar shown when remote button technical metadata is disabled.
   ///
   /// In en, this message translates to:
-  /// **'Button technical labels hidden.'**
+  /// **'Signal details hidden.'**
   String get remoteButtonMetadataHidden;
 
   /// No description provided for @flipRemoteDefaultTitle.

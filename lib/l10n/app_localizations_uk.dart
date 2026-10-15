@@ -836,17 +836,17 @@ class AppLocalizationsUk extends AppLocalizations {
   String get intensityStrong => 'Сильна';
 
   @override
-  String get remoteButtonMetadataTitle => 'Показувати технічні мітки кнопок';
+  String get remoteButtonMetadataTitle => 'Показувати дані сигналу';
 
   @override
   String get remoteButtonMetadataSubtitle =>
-      'Показує протокол, код і частоту на кнопках пульта.';
+      'Показувати протокол, код і частоту на кнопках пульта.';
 
   @override
-  String get remoteButtonMetadataShown => 'Технічні мітки кнопок показано.';
+  String get remoteButtonMetadataShown => 'Дані сигналу показано.';
 
   @override
-  String get remoteButtonMetadataHidden => 'Технічні мітки кнопок приховано.';
+  String get remoteButtonMetadataHidden => 'Дані сигналу приховано.';
 
   @override
   String get flipRemoteDefaultTitle => 'Повертати пульти на 180°';

@@ -845,19 +845,17 @@ class AppLocalizationsIt extends AppLocalizations {
   String get intensityStrong => 'Forte';
 
   @override
-  String get remoteButtonMetadataTitle => 'Mostra etichette tecniche pulsanti';
+  String get remoteButtonMetadataTitle => 'Mostra dettagli del segnale';
 
   @override
   String get remoteButtonMetadataSubtitle =>
       'Mostra protocollo, codice e frequenza sui pulsanti del telecomando.';
 
   @override
-  String get remoteButtonMetadataShown =>
-      'Etichette tecniche pulsanti visibili.';
+  String get remoteButtonMetadataShown => 'Dettagli del segnale visibili.';
 
   @override
-  String get remoteButtonMetadataHidden =>
-      'Etichette tecniche pulsanti nascoste.';
+  String get remoteButtonMetadataHidden => 'Dettagli del segnale nascosti.';
 
   @override
   String get flipRemoteDefaultTitle => 'Ruota i telecomandi di 180°';
