@@ -5546,4 +5546,30 @@ class AppLocalizationsEn extends AppLocalizations {
   String githubLimitResetTime(String time) {
     return 'Limit resets: $time';
   }
+
+  @override
+  String get githubConnectionTestTitle => 'Connection test';
+
+  @override
+  String get githubConnectionTestBody =>
+      'Check whether GitHub is reachable and how many requests remain.';
+
+  @override
+  String get githubTestAccess => 'Test GitHub access';
+
+  @override
+  String get githubTestingAccess => 'Testing…';
+
+  @override
+  String get githubConnectionSuccessful => 'Connection successful';
+
+  @override
+  String get githubConnectionTestFailed => 'Connection test failed';
+
+  @override
+  String get githubPublicAccessWorking =>
+      'GitHub is reachable without a token.';
+
+  @override
+  String get githubTokenAccessWorking => 'GitHub access works with this token.';
 }

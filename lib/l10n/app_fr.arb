@@ -2493,5 +2493,13 @@
   "githubRequestLimit": "Limite de requêtes : {count}",
   "@githubRequestLimit": {"placeholders":{"count":{"type":"int","format":"decimalPattern"}}},
   "githubLimitResetTime": "Réinitialisation de la limite : {time}",
-  "@githubLimitResetTime": {"placeholders":{"time":{"type":"String"}}}
+  "@githubLimitResetTime": {"placeholders":{"time":{"type":"String"}}},
+  "githubConnectionTestTitle": "Test de connexion",
+  "githubConnectionTestBody": "Vérifiez l’accès à GitHub et le nombre de requêtes restantes.",
+  "githubTestAccess": "Tester l’accès à GitHub",
+  "githubTestingAccess": "Test en cours…",
+  "githubConnectionSuccessful": "Connexion réussie",
+  "githubConnectionTestFailed": "Échec du test de connexion",
+  "githubPublicAccessWorking": "GitHub est accessible sans jeton.",
+  "githubTokenAccessWorking": "L’accès à GitHub fonctionne avec ce jeton."
 }

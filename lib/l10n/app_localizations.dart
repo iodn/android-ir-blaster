@@ -9853,6 +9853,54 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Limit resets: {time}'**
   String githubLimitResetTime(String time);
+
+  /// No description provided for @githubConnectionTestTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Connection test'**
+  String get githubConnectionTestTitle;
+
+  /// No description provided for @githubConnectionTestBody.
+  ///
+  /// In en, this message translates to:
+  /// **'Check whether GitHub is reachable and how many requests remain.'**
+  String get githubConnectionTestBody;
+
+  /// No description provided for @githubTestAccess.
+  ///
+  /// In en, this message translates to:
+  /// **'Test GitHub access'**
+  String get githubTestAccess;
+
+  /// No description provided for @githubTestingAccess.
+  ///
+  /// In en, this message translates to:
+  /// **'Testing…'**
+  String get githubTestingAccess;
+
+  /// No description provided for @githubConnectionSuccessful.
+  ///
+  /// In en, this message translates to:
+  /// **'Connection successful'**
+  String get githubConnectionSuccessful;
+
+  /// No description provided for @githubConnectionTestFailed.
+  ///
+  /// In en, this message translates to:
+  /// **'Connection test failed'**
+  String get githubConnectionTestFailed;
+
+  /// No description provided for @githubPublicAccessWorking.
+  ///
+  /// In en, this message translates to:
+  /// **'GitHub is reachable without a token.'**
+  String get githubPublicAccessWorking;
+
+  /// No description provided for @githubTokenAccessWorking.
+  ///
+  /// In en, this message translates to:
+  /// **'GitHub access works with this token.'**
+  String get githubTokenAccessWorking;
 }
 
 class _AppLocalizationsDelegate

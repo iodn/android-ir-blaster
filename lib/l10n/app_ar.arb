@@ -2493,5 +2493,13 @@
   "githubRequestLimit": "الحد الأقصى للطلبات: {count}",
   "@githubRequestLimit": {"placeholders":{"count":{"type":"int","format":"decimalPattern"}}},
   "githubLimitResetTime": "إعادة تعيين الحد: {time}",
-  "@githubLimitResetTime": {"placeholders":{"time":{"type":"String"}}}
+  "@githubLimitResetTime": {"placeholders":{"time":{"type":"String"}}},
+  "githubConnectionTestTitle": "اختبار الاتصال",
+  "githubConnectionTestBody": "تحقق من إمكانية الوصول إلى GitHub وعدد الطلبات المتبقية.",
+  "githubTestAccess": "اختبار الوصول إلى GitHub",
+  "githubTestingAccess": "جارٍ الاختبار…",
+  "githubConnectionSuccessful": "نجح الاتصال",
+  "githubConnectionTestFailed": "فشل اختبار الاتصال",
+  "githubPublicAccessWorking": "يمكن الوصول إلى GitHub دون رمز.",
+  "githubTokenAccessWorking": "يمكن الوصول إلى GitHub بهذا الرمز."
 }

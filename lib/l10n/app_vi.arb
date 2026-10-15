@@ -2493,5 +2493,13 @@
   "githubRequestLimit": "Giới hạn yêu cầu: {count}",
   "@githubRequestLimit": {"placeholders":{"count":{"type":"int","format":"decimalPattern"}}},
   "githubLimitResetTime": "Đặt lại giới hạn lúc: {time}",
-  "@githubLimitResetTime": {"placeholders":{"time":{"type":"String"}}}
+  "@githubLimitResetTime": {"placeholders":{"time":{"type":"String"}}},
+  "githubConnectionTestTitle": "Kiểm tra kết nối",
+  "githubConnectionTestBody": "Kiểm tra khả năng truy cập GitHub và số yêu cầu còn lại.",
+  "githubTestAccess": "Kiểm tra truy cập GitHub",
+  "githubTestingAccess": "Đang kiểm tra…",
+  "githubConnectionSuccessful": "Kết nối thành công",
+  "githubConnectionTestFailed": "Kiểm tra kết nối thất bại",
+  "githubPublicAccessWorking": "Có thể truy cập GitHub mà không cần mã truy cập.",
+  "githubTokenAccessWorking": "Truy cập GitHub thành công bằng mã này."
 }

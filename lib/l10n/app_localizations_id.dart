@@ -5477,4 +5477,30 @@ class AppLocalizationsId extends AppLocalizations {
   String githubLimitResetTime(String time) {
     return 'Batas direset: $time';
   }
+
+  @override
+  String get githubConnectionTestTitle => 'Uji koneksi';
+
+  @override
+  String get githubConnectionTestBody =>
+      'Periksa apakah GitHub dapat diakses dan berapa permintaan yang tersisa.';
+
+  @override
+  String get githubTestAccess => 'Uji akses GitHub';
+
+  @override
+  String get githubTestingAccess => 'Menguji…';
+
+  @override
+  String get githubConnectionSuccessful => 'Koneksi berhasil';
+
+  @override
+  String get githubConnectionTestFailed => 'Uji koneksi gagal';
+
+  @override
+  String get githubPublicAccessWorking => 'GitHub dapat diakses tanpa token.';
+
+  @override
+  String get githubTokenAccessWorking =>
+      'Akses GitHub berhasil dengan token ini.';
 }

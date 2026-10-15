@@ -5607,4 +5607,30 @@ class AppLocalizationsPl extends AppLocalizations {
   String githubLimitResetTime(String time) {
     return 'Reset limitu: $time';
   }
+
+  @override
+  String get githubConnectionTestTitle => 'Test połączenia';
+
+  @override
+  String get githubConnectionTestBody =>
+      'Sprawdź dostęp do GitHuba i liczbę pozostałych żądań.';
+
+  @override
+  String get githubTestAccess => 'Sprawdź dostęp do GitHuba';
+
+  @override
+  String get githubTestingAccess => 'Trwa sprawdzanie…';
+
+  @override
+  String get githubConnectionSuccessful => 'Połączenie działa';
+
+  @override
+  String get githubConnectionTestFailed => 'Test połączenia nie powiódł się';
+
+  @override
+  String get githubPublicAccessWorking => 'GitHub jest dostępny bez tokenu.';
+
+  @override
+  String get githubTokenAccessWorking =>
+      'Dostęp do GitHuba działa z tym tokenem.';
 }

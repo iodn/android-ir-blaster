@@ -2493,5 +2493,13 @@
   "githubRequestLimit": "请求次数上限：{count}",
   "@githubRequestLimit": {"placeholders":{"count":{"type":"int","format":"decimalPattern"}}},
   "githubLimitResetTime": "限额重置时间：{time}",
-  "@githubLimitResetTime": {"placeholders":{"time":{"type":"String"}}}
+  "@githubLimitResetTime": {"placeholders":{"time":{"type":"String"}}},
+  "githubConnectionTestTitle": "连接测试",
+  "githubConnectionTestBody": "检查能否访问GitHub，以及剩余的请求次数。",
+  "githubTestAccess": "测试GitHub访问",
+  "githubTestingAccess": "正在测试…",
+  "githubConnectionSuccessful": "连接成功",
+  "githubConnectionTestFailed": "连接测试失败",
+  "githubPublicAccessWorking": "无需令牌即可访问GitHub。",
+  "githubTokenAccessWorking": "使用此令牌可以访问GitHub。"
 }

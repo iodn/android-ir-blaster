@@ -1605,8 +1605,8 @@ class _GitHubConnectionScreenState extends State<_GitHubConnectionScreen> {
         _status = status;
         _statusIsError = false;
         _statusMessage = token.isEmpty
-            ? 'Public GitHub access is working.'
-            : 'GitHub token is working.';
+            ? context.l10n.githubPublicAccessWorking
+            : context.l10n.githubTokenAccessWorking;
       });
     } catch (error) {
       if (!mounted) return;
@@ -1794,14 +1794,14 @@ class _GitHubConnectionScreenState extends State<_GitHubConnectionScreen> {
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         Text(
-                          'Check GitHub access',
+                          context.l10n.githubConnectionTestTitle,
                           style: theme.textTheme.titleMedium?.copyWith(
                             fontWeight: FontWeight.w800,
                           ),
                         ),
                         const SizedBox(height: 6),
                         Text(
-                          'Run a lightweight GitHub check to verify your current access mode and see your current rate limit window.',
+                          context.l10n.githubConnectionTestBody,
                           style: theme.textTheme.bodyMedium?.copyWith(
                             color: cs.onSurfaceVariant,
                           ),
@@ -1819,7 +1819,9 @@ class _GitHubConnectionScreenState extends State<_GitHubConnectionScreen> {
                                 )
                               : const Icon(Icons.network_check_rounded),
                           label: Text(
-                            _testing ? 'Checking…' : 'Test GitHub access',
+                            _testing
+                                ? context.l10n.githubTestingAccess
+                                : context.l10n.githubTestAccess,
                           ),
                         ),
                         if (_statusMessage != null) ...[
@@ -1838,10 +1840,10 @@ class _GitHubConnectionScreenState extends State<_GitHubConnectionScreen> {
                               children: [
                                 Text(
                                   _statusIsError
-                                      ? 'Connection issue'
+                                      ? context.l10n.githubConnectionTestFailed
                                       : _status == null
                                           ? context.l10n.githubSettingsSaved
-                                          : 'Connection ready',
+                                          : context.l10n.githubConnectionSuccessful,
                                   style: theme.textTheme.titleSmall?.copyWith(
                                     fontWeight: FontWeight.w800,
                                     color: _statusIsError

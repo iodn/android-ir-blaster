@@ -5491,4 +5491,31 @@ class AppLocalizationsHi extends AppLocalizations {
   String githubLimitResetTime(String time) {
     return 'सीमा रीसेट होने का समय: $time';
   }
+
+  @override
+  String get githubConnectionTestTitle => 'कनेक्शन की जाँच';
+
+  @override
+  String get githubConnectionTestBody =>
+      'देखें कि GitHub से कनेक्ट हो पा रहे हैं या नहीं और कितने अनुरोध बचे हैं।';
+
+  @override
+  String get githubTestAccess => 'GitHub कनेक्शन जाँचें';
+
+  @override
+  String get githubTestingAccess => 'जाँच हो रही है…';
+
+  @override
+  String get githubConnectionSuccessful => 'कनेक्शन सफल';
+
+  @override
+  String get githubConnectionTestFailed => 'कनेक्शन की जाँच विफल रही';
+
+  @override
+  String get githubPublicAccessWorking =>
+      'बिना टोकन के GitHub से कनेक्ट हो पा रहे हैं।';
+
+  @override
+  String get githubTokenAccessWorking =>
+      'इस टोकन से GitHub से कनेक्ट हो पा रहे हैं।';
 }

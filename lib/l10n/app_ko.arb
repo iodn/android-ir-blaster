@@ -2493,5 +2493,13 @@
   "githubRequestLimit": "요청 한도: {count}",
   "@githubRequestLimit": {"placeholders":{"count":{"type":"int","format":"decimalPattern"}}},
   "githubLimitResetTime": "한도 초기화: {time}",
-  "@githubLimitResetTime": {"placeholders":{"time":{"type":"String"}}}
+  "@githubLimitResetTime": {"placeholders":{"time":{"type":"String"}}},
+  "githubConnectionTestTitle": "연결 테스트",
+  "githubConnectionTestBody": "GitHub에 접속할 수 있는지와 남은 요청 수를 확인해요.",
+  "githubTestAccess": "GitHub 접속 테스트",
+  "githubTestingAccess": "테스트 중…",
+  "githubConnectionSuccessful": "연결 성공",
+  "githubConnectionTestFailed": "연결 테스트 실패",
+  "githubPublicAccessWorking": "토큰 없이 GitHub에 접속할 수 있어요.",
+  "githubTokenAccessWorking": "이 토큰으로 GitHub에 접속할 수 있어요."
 }

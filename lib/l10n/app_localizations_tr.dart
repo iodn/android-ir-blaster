@@ -5474,4 +5474,31 @@ class AppLocalizationsTr extends AppLocalizations {
   String githubLimitResetTime(String time) {
     return 'Sınırın sıfırlanma zamanı: $time';
   }
+
+  @override
+  String get githubConnectionTestTitle => 'Bağlantı testi';
+
+  @override
+  String get githubConnectionTestBody =>
+      'GitHub’a erişilip erişilemediğini ve kaç istek hakkı kaldığını kontrol edin.';
+
+  @override
+  String get githubTestAccess => 'GitHub erişimini test et';
+
+  @override
+  String get githubTestingAccess => 'Test ediliyor…';
+
+  @override
+  String get githubConnectionSuccessful => 'Bağlantı başarılı';
+
+  @override
+  String get githubConnectionTestFailed => 'Bağlantı testi başarısız';
+
+  @override
+  String get githubPublicAccessWorking =>
+      'GitHub’a belirteç olmadan erişilebiliyor.';
+
+  @override
+  String get githubTokenAccessWorking =>
+      'Bu belirteçle GitHub’a erişilebiliyor.';
 }

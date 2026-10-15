@@ -2479,5 +2479,13 @@
   "githubRequestLimit": "Anfragelimit: {count}",
   "@githubRequestLimit": {"placeholders":{"count":{"type":"int","format":"decimalPattern"}}},
   "githubLimitResetTime": "Zurücksetzung: {time}",
-  "@githubLimitResetTime": {"placeholders":{"time":{"type":"String"}}}
+  "@githubLimitResetTime": {"placeholders":{"time":{"type":"String"}}},
+  "githubConnectionTestTitle": "Verbindungstest",
+  "githubConnectionTestBody": "Prüfe, ob GitHub erreichbar ist und wie viele Anfragen noch möglich sind.",
+  "githubTestAccess": "GitHub-Zugriff testen",
+  "githubTestingAccess": "Wird getestet…",
+  "githubConnectionSuccessful": "Verbindung erfolgreich",
+  "githubConnectionTestFailed": "Verbindungstest fehlgeschlagen",
+  "githubPublicAccessWorking": "GitHub ist ohne Token erreichbar.",
+  "githubTokenAccessWorking": "Der GitHub-Zugriff funktioniert mit diesem Token."
 }

@@ -39,7 +39,7 @@ void main() {
             }));
     await tester.pumpAndSettle();
     expect(requests, 1);
-    await tester.scrollUntilVisible(find.text('Connection ready'), 300,
+    await tester.scrollUntilVisible(find.text('Connection successful'), 300,
         scrollable: find.byType(Scrollable).first);
     await tester.pumpAndSettle();
     expect(find.text('Requests left: 59'), findsOneWidget);
@@ -54,7 +54,7 @@ void main() {
     await tester.scrollUntilVisible(find.text('Settings saved'), 300,
         scrollable: find.byType(Scrollable).first);
     await tester.pumpAndSettle();
-    expect(find.text('Connection ready'), findsNothing);
+    expect(find.text('Connection successful'), findsNothing);
     expect(find.text('Requests left: 59'), findsNothing);
     expect(find.text('Request limit: 60'), findsNothing);
     expect(find.text('Token saved on this device.'), findsOneWidget);
@@ -156,8 +156,8 @@ void main() {
         expect(prefs.getString(key), token);
         await checkMessage(l10n.githubSettingsSaved);
         await checkMessage(l10n.githubTokenSaved);
-        expect(find.text('Connection ready'), findsNothing);
-        expect(find.text('GitHub token is working.'), findsNothing);
+        expect(find.text(l10n.githubConnectionSuccessful), findsNothing);
+        expect(find.text(l10n.githubTokenAccessWorking), findsNothing);
       }
       await reveal(find.text(l10n.remove), -300);
       await tester.tap(find.text(l10n.remove));
@@ -165,7 +165,7 @@ void main() {
       expect(prefs.containsKey(key), isFalse);
       await checkMessage(l10n.githubSettingsSaved);
       await checkMessage(l10n.githubTokenRemoved);
-      expect(find.text('Connection ready'), findsNothing);
+      expect(find.text(l10n.githubConnectionSuccessful), findsNothing);
       await reveal(field, -300);
       expect(tester.widget<TextField>(field).controller!.text, isEmpty);
       await checkMessage(l10n.githubSaveToken);

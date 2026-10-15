@@ -2493,5 +2493,13 @@
   "githubRequestLimit": "Limite de pedidos: {count}",
   "@githubRequestLimit": {"placeholders":{"count":{"type":"int","format":"decimalPattern"}}},
   "githubLimitResetTime": "Reposição do limite: {time}",
-  "@githubLimitResetTime": {"placeholders":{"time":{"type":"String"}}}
+  "@githubLimitResetTime": {"placeholders":{"time":{"type":"String"}}},
+  "githubConnectionTestTitle": "Teste de ligação",
+  "githubConnectionTestBody": "Verifique se o GitHub está acessível e quantos pedidos restam.",
+  "githubTestAccess": "Testar acesso ao GitHub",
+  "githubTestingAccess": "A testar…",
+  "githubConnectionSuccessful": "Ligação estabelecida",
+  "githubConnectionTestFailed": "O teste de ligação falhou",
+  "githubPublicAccessWorking": "É possível aceder ao GitHub sem token.",
+  "githubTokenAccessWorking": "O acesso ao GitHub funciona com este token."
 }

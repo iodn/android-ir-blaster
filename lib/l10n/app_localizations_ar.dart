@@ -5492,6 +5492,31 @@ class AppLocalizationsAr extends AppLocalizations {
   String githubLimitResetTime(String time) {
     return 'إعادة تعيين الحد: $time';
   }
+
+  @override
+  String get githubConnectionTestTitle => 'اختبار الاتصال';
+
+  @override
+  String get githubConnectionTestBody =>
+      'تحقق من إمكانية الوصول إلى GitHub وعدد الطلبات المتبقية.';
+
+  @override
+  String get githubTestAccess => 'اختبار الوصول إلى GitHub';
+
+  @override
+  String get githubTestingAccess => 'جارٍ الاختبار…';
+
+  @override
+  String get githubConnectionSuccessful => 'نجح الاتصال';
+
+  @override
+  String get githubConnectionTestFailed => 'فشل اختبار الاتصال';
+
+  @override
+  String get githubPublicAccessWorking => 'يمكن الوصول إلى GitHub دون رمز.';
+
+  @override
+  String get githubTokenAccessWorking => 'يمكن الوصول إلى GitHub بهذا الرمز.';
 }
 
 /// The translations for Arabic, as used in Egypt (`ar_EG`).
@@ -10982,4 +11007,29 @@ class AppLocalizationsArEg extends AppLocalizationsAr {
   String githubLimitResetTime(String time) {
     return 'تجديد الحد: $time';
   }
+
+  @override
+  String get githubConnectionTestTitle => 'اختبار الاتصال';
+
+  @override
+  String get githubConnectionTestBody =>
+      'اتأكد إن GitHub متاح وشوف عدد الطلبات المتبقية.';
+
+  @override
+  String get githubTestAccess => 'اختبار الاتصال بـ GitHub';
+
+  @override
+  String get githubTestingAccess => 'جاري الاختبار…';
+
+  @override
+  String get githubConnectionSuccessful => 'الاتصال ناجح';
+
+  @override
+  String get githubConnectionTestFailed => 'اختبار الاتصال فشل';
+
+  @override
+  String get githubPublicAccessWorking => 'تقدر تتصل بـ GitHub من غير رمز.';
+
+  @override
+  String get githubTokenAccessWorking => 'الاتصال بـ GitHub شغال بالرمز ده.';
 }

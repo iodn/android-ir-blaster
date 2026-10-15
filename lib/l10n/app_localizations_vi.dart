@@ -5459,4 +5459,31 @@ class AppLocalizationsVi extends AppLocalizations {
   String githubLimitResetTime(String time) {
     return 'Đặt lại giới hạn lúc: $time';
   }
+
+  @override
+  String get githubConnectionTestTitle => 'Kiểm tra kết nối';
+
+  @override
+  String get githubConnectionTestBody =>
+      'Kiểm tra khả năng truy cập GitHub và số yêu cầu còn lại.';
+
+  @override
+  String get githubTestAccess => 'Kiểm tra truy cập GitHub';
+
+  @override
+  String get githubTestingAccess => 'Đang kiểm tra…';
+
+  @override
+  String get githubConnectionSuccessful => 'Kết nối thành công';
+
+  @override
+  String get githubConnectionTestFailed => 'Kiểm tra kết nối thất bại';
+
+  @override
+  String get githubPublicAccessWorking =>
+      'Có thể truy cập GitHub mà không cần mã truy cập.';
+
+  @override
+  String get githubTokenAccessWorking =>
+      'Truy cập GitHub thành công bằng mã này.';
 }

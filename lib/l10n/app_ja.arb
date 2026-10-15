@@ -2493,5 +2493,13 @@
   "githubRequestLimit": "リクエスト上限: {count}",
   "@githubRequestLimit": {"placeholders":{"count":{"type":"int","format":"decimalPattern"}}},
   "githubLimitResetTime": "制限のリセット: {time}",
-  "@githubLimitResetTime": {"placeholders":{"time":{"type":"String"}}}
+  "@githubLimitResetTime": {"placeholders":{"time":{"type":"String"}}},
+  "githubConnectionTestTitle": "接続テスト",
+  "githubConnectionTestBody": "GitHubに接続できるか、あと何回リクエストできるかを確認します。",
+  "githubTestAccess": "GitHubへの接続をテスト",
+  "githubTestingAccess": "テスト中…",
+  "githubConnectionSuccessful": "接続できました",
+  "githubConnectionTestFailed": "接続テストに失敗しました",
+  "githubPublicAccessWorking": "トークンなしでGitHubに接続できます。",
+  "githubTokenAccessWorking": "このトークンでGitHubに接続できます。"
 }

@@ -5331,4 +5331,28 @@ class AppLocalizationsKo extends AppLocalizations {
   String githubLimitResetTime(String time) {
     return '한도 초기화: $time';
   }
+
+  @override
+  String get githubConnectionTestTitle => '연결 테스트';
+
+  @override
+  String get githubConnectionTestBody => 'GitHub에 접속할 수 있는지와 남은 요청 수를 확인해요.';
+
+  @override
+  String get githubTestAccess => 'GitHub 접속 테스트';
+
+  @override
+  String get githubTestingAccess => '테스트 중…';
+
+  @override
+  String get githubConnectionSuccessful => '연결 성공';
+
+  @override
+  String get githubConnectionTestFailed => '연결 테스트 실패';
+
+  @override
+  String get githubPublicAccessWorking => '토큰 없이 GitHub에 접속할 수 있어요.';
+
+  @override
+  String get githubTokenAccessWorking => '이 토큰으로 GitHub에 접속할 수 있어요.';
 }

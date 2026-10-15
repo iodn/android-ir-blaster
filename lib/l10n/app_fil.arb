@@ -2493,5 +2493,13 @@
   "githubRequestLimit": "Limitasyon sa mga request: {count}",
   "@githubRequestLimit": {"placeholders":{"count":{"type":"int","format":"decimalPattern"}}},
   "githubLimitResetTime": "Magre-reset ang limitasyon: {time}",
-  "@githubLimitResetTime": {"placeholders":{"time":{"type":"String"}}}
+  "@githubLimitResetTime": {"placeholders":{"time":{"type":"String"}}},
+  "githubConnectionTestTitle": "Pagsubok ng koneksiyon",
+  "githubConnectionTestBody": "Tingnan kung makakakonekta sa GitHub at kung ilang request pa ang natitira.",
+  "githubTestAccess": "Subukan ang GitHub access",
+  "githubTestingAccess": "Sinusubukan…",
+  "githubConnectionSuccessful": "Nakakonekta",
+  "githubConnectionTestFailed": "Hindi nagtagumpay ang pagsubok",
+  "githubPublicAccessWorking": "Makakakonekta sa GitHub nang walang token.",
+  "githubTokenAccessWorking": "Gumagana ang GitHub access gamit ang token na ito."
 }

@@ -2493,5 +2493,13 @@
   "githubRequestLimit": "İstek sınırı: {count}",
   "@githubRequestLimit": {"placeholders":{"count":{"type":"int","format":"decimalPattern"}}},
   "githubLimitResetTime": "Sınırın sıfırlanma zamanı: {time}",
-  "@githubLimitResetTime": {"placeholders":{"time":{"type":"String"}}}
+  "@githubLimitResetTime": {"placeholders":{"time":{"type":"String"}}},
+  "githubConnectionTestTitle": "Bağlantı testi",
+  "githubConnectionTestBody": "GitHub’a erişilip erişilemediğini ve kaç istek hakkı kaldığını kontrol edin.",
+  "githubTestAccess": "GitHub erişimini test et",
+  "githubTestingAccess": "Test ediliyor…",
+  "githubConnectionSuccessful": "Bağlantı başarılı",
+  "githubConnectionTestFailed": "Bağlantı testi başarısız",
+  "githubPublicAccessWorking": "GitHub’a belirteç olmadan erişilebiliyor.",
+  "githubTokenAccessWorking": "Bu belirteçle GitHub’a erişilebiliyor."
 }

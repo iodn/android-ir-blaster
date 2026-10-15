@@ -5570,4 +5570,30 @@ class AppLocalizationsNl extends AppLocalizations {
   String githubLimitResetTime(String time) {
     return 'Limiet wordt hersteld: $time';
   }
+
+  @override
+  String get githubConnectionTestTitle => 'Verbindingstest';
+
+  @override
+  String get githubConnectionTestBody =>
+      'Controleer of GitHub bereikbaar is en hoeveel verzoeken nog over zijn.';
+
+  @override
+  String get githubTestAccess => 'GitHub-toegang testen';
+
+  @override
+  String get githubTestingAccess => 'Bezig met testen…';
+
+  @override
+  String get githubConnectionSuccessful => 'Verbinding geslaagd';
+
+  @override
+  String get githubConnectionTestFailed => 'Verbindingstest mislukt';
+
+  @override
+  String get githubPublicAccessWorking => 'GitHub is bereikbaar zonder token.';
+
+  @override
+  String get githubTokenAccessWorking =>
+      'Toegang tot GitHub werkt met dit token.';
 }

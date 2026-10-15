@@ -5558,4 +5558,30 @@ class AppLocalizationsRu extends AppLocalizations {
   String githubLimitResetTime(String time) {
     return 'Лимит обновится: $time';
   }
+
+  @override
+  String get githubConnectionTestTitle => 'Проверка подключения';
+
+  @override
+  String get githubConnectionTestBody =>
+      'Проверьте доступность GitHub и количество оставшихся запросов.';
+
+  @override
+  String get githubTestAccess => 'Проверить доступ к GitHub';
+
+  @override
+  String get githubTestingAccess => 'Проверка…';
+
+  @override
+  String get githubConnectionSuccessful => 'Подключение успешно';
+
+  @override
+  String get githubConnectionTestFailed => 'Не удалось проверить подключение';
+
+  @override
+  String get githubPublicAccessWorking => 'GitHub доступен без токена.';
+
+  @override
+  String get githubTokenAccessWorking =>
+      'Доступ к GitHub с этим токеном работает.';
 }

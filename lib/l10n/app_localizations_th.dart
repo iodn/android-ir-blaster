@@ -5436,4 +5436,29 @@ class AppLocalizationsTh extends AppLocalizations {
   String githubLimitResetTime(String time) {
     return 'รีเซ็ตขีดจำกัด: $time';
   }
+
+  @override
+  String get githubConnectionTestTitle => 'ทดสอบการเชื่อมต่อ';
+
+  @override
+  String get githubConnectionTestBody =>
+      'ตรวจสอบว่าเข้าถึง GitHub ได้หรือไม่ และเหลือคำขออีกเท่าไร';
+
+  @override
+  String get githubTestAccess => 'ทดสอบการเข้าถึง GitHub';
+
+  @override
+  String get githubTestingAccess => 'กำลังทดสอบ…';
+
+  @override
+  String get githubConnectionSuccessful => 'เชื่อมต่อสำเร็จ';
+
+  @override
+  String get githubConnectionTestFailed => 'ทดสอบการเชื่อมต่อไม่สำเร็จ';
+
+  @override
+  String get githubPublicAccessWorking => 'เข้าถึง GitHub ได้โดยไม่ใช้โทเค็น';
+
+  @override
+  String get githubTokenAccessWorking => 'เข้าถึง GitHub ได้ด้วยโทเค็นนี้';
 }

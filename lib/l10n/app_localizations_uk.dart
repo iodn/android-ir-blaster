@@ -5623,4 +5623,30 @@ class AppLocalizationsUk extends AppLocalizations {
   String githubLimitResetTime(String time) {
     return 'Ліміт оновиться: $time';
   }
+
+  @override
+  String get githubConnectionTestTitle => 'Перевірка з’єднання';
+
+  @override
+  String get githubConnectionTestBody =>
+      'Перевірте доступність GitHub і кількість запитів, що залишилися.';
+
+  @override
+  String get githubTestAccess => 'Перевірити доступ до GitHub';
+
+  @override
+  String get githubTestingAccess => 'Перевірка…';
+
+  @override
+  String get githubConnectionSuccessful => 'З’єднання успішне';
+
+  @override
+  String get githubConnectionTestFailed => 'Не вдалося перевірити з’єднання';
+
+  @override
+  String get githubPublicAccessWorking => 'GitHub доступний без токена.';
+
+  @override
+  String get githubTokenAccessWorking =>
+      'Доступ до GitHub із цим токеном працює.';
 }

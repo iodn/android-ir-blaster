@@ -2493,5 +2493,13 @@
   "githubRequestLimit": "Лимит запросов: {count}",
   "@githubRequestLimit": {"placeholders":{"count":{"type":"int","format":"decimalPattern"}}},
   "githubLimitResetTime": "Лимит обновится: {time}",
-  "@githubLimitResetTime": {"placeholders":{"time":{"type":"String"}}}
+  "@githubLimitResetTime": {"placeholders":{"time":{"type":"String"}}},
+  "githubConnectionTestTitle": "Проверка подключения",
+  "githubConnectionTestBody": "Проверьте доступность GitHub и количество оставшихся запросов.",
+  "githubTestAccess": "Проверить доступ к GitHub",
+  "githubTestingAccess": "Проверка…",
+  "githubConnectionSuccessful": "Подключение успешно",
+  "githubConnectionTestFailed": "Не удалось проверить подключение",
+  "githubPublicAccessWorking": "GitHub доступен без токена.",
+  "githubTokenAccessWorking": "Доступ к GitHub с этим токеном работает."
 }

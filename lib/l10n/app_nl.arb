@@ -2493,5 +2493,13 @@
   "githubRequestLimit": "Verzoeklimiet: {count}",
   "@githubRequestLimit": {"placeholders":{"count":{"type":"int","format":"decimalPattern"}}},
   "githubLimitResetTime": "Limiet wordt hersteld: {time}",
-  "@githubLimitResetTime": {"placeholders":{"time":{"type":"String"}}}
+  "@githubLimitResetTime": {"placeholders":{"time":{"type":"String"}}},
+  "githubConnectionTestTitle": "Verbindingstest",
+  "githubConnectionTestBody": "Controleer of GitHub bereikbaar is en hoeveel verzoeken nog over zijn.",
+  "githubTestAccess": "GitHub-toegang testen",
+  "githubTestingAccess": "Bezig met testen…",
+  "githubConnectionSuccessful": "Verbinding geslaagd",
+  "githubConnectionTestFailed": "Verbindingstest mislukt",
+  "githubPublicAccessWorking": "GitHub is bereikbaar zonder token.",
+  "githubTokenAccessWorking": "Toegang tot GitHub werkt met dit token."
 }

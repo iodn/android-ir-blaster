@@ -2493,5 +2493,13 @@
   "githubRequestLimit": "Had permintaan: {count}",
   "@githubRequestLimit": {"placeholders":{"count":{"type":"int","format":"decimalPattern"}}},
   "githubLimitResetTime": "Had ditetapkan semula: {time}",
-  "@githubLimitResetTime": {"placeholders":{"time":{"type":"String"}}}
+  "@githubLimitResetTime": {"placeholders":{"time":{"type":"String"}}},
+  "githubConnectionTestTitle": "Ujian sambungan",
+  "githubConnectionTestBody": "Semak sama ada GitHub boleh dicapai dan jumlah permintaan yang masih berbaki.",
+  "githubTestAccess": "Uji akses GitHub",
+  "githubTestingAccess": "Sedang menguji…",
+  "githubConnectionSuccessful": "Sambungan berjaya",
+  "githubConnectionTestFailed": "Ujian sambungan gagal",
+  "githubPublicAccessWorking": "GitHub boleh dicapai tanpa token.",
+  "githubTokenAccessWorking": "Akses GitHub berjaya dengan token ini."
 }

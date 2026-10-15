@@ -5498,4 +5498,31 @@ class AppLocalizationsFil extends AppLocalizations {
   String githubLimitResetTime(String time) {
     return 'Magre-reset ang limitasyon: $time';
   }
+
+  @override
+  String get githubConnectionTestTitle => 'Pagsubok ng koneksiyon';
+
+  @override
+  String get githubConnectionTestBody =>
+      'Tingnan kung makakakonekta sa GitHub at kung ilang request pa ang natitira.';
+
+  @override
+  String get githubTestAccess => 'Subukan ang GitHub access';
+
+  @override
+  String get githubTestingAccess => 'Sinusubukan…';
+
+  @override
+  String get githubConnectionSuccessful => 'Nakakonekta';
+
+  @override
+  String get githubConnectionTestFailed => 'Hindi nagtagumpay ang pagsubok';
+
+  @override
+  String get githubPublicAccessWorking =>
+      'Makakakonekta sa GitHub nang walang token.';
+
+  @override
+  String get githubTokenAccessWorking =>
+      'Gumagana ang GitHub access gamit ang token na ito.';
 }

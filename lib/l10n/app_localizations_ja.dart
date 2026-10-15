@@ -5315,4 +5315,28 @@ class AppLocalizationsJa extends AppLocalizations {
   String githubLimitResetTime(String time) {
     return '制限のリセット: $time';
   }
+
+  @override
+  String get githubConnectionTestTitle => '接続テスト';
+
+  @override
+  String get githubConnectionTestBody => 'GitHubに接続できるか、あと何回リクエストできるかを確認します。';
+
+  @override
+  String get githubTestAccess => 'GitHubへの接続をテスト';
+
+  @override
+  String get githubTestingAccess => 'テスト中…';
+
+  @override
+  String get githubConnectionSuccessful => '接続できました';
+
+  @override
+  String get githubConnectionTestFailed => '接続テストに失敗しました';
+
+  @override
+  String get githubPublicAccessWorking => 'トークンなしでGitHubに接続できます。';
+
+  @override
+  String get githubTokenAccessWorking => 'このトークンでGitHubに接続できます。';
 }

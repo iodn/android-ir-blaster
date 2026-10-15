@@ -2493,5 +2493,13 @@
   "githubRequestLimit": "अनुरोधों की सीमा: {count}",
   "@githubRequestLimit": {"placeholders":{"count":{"type":"int","format":"decimalPattern"}}},
   "githubLimitResetTime": "सीमा रीसेट होने का समय: {time}",
-  "@githubLimitResetTime": {"placeholders":{"time":{"type":"String"}}}
+  "@githubLimitResetTime": {"placeholders":{"time":{"type":"String"}}},
+  "githubConnectionTestTitle": "कनेक्शन की जाँच",
+  "githubConnectionTestBody": "देखें कि GitHub से कनेक्ट हो पा रहे हैं या नहीं और कितने अनुरोध बचे हैं।",
+  "githubTestAccess": "GitHub कनेक्शन जाँचें",
+  "githubTestingAccess": "जाँच हो रही है…",
+  "githubConnectionSuccessful": "कनेक्शन सफल",
+  "githubConnectionTestFailed": "कनेक्शन की जाँच विफल रही",
+  "githubPublicAccessWorking": "बिना टोकन के GitHub से कनेक्ट हो पा रहे हैं।",
+  "githubTokenAccessWorking": "इस टोकन से GitHub से कनेक्ट हो पा रहे हैं।"
 }

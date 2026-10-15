@@ -5566,6 +5566,33 @@ class AppLocalizationsPt extends AppLocalizations {
   String githubLimitResetTime(String time) {
     return 'Reposição do limite: $time';
   }
+
+  @override
+  String get githubConnectionTestTitle => 'Teste de ligação';
+
+  @override
+  String get githubConnectionTestBody =>
+      'Verifique se o GitHub está acessível e quantos pedidos restam.';
+
+  @override
+  String get githubTestAccess => 'Testar acesso ao GitHub';
+
+  @override
+  String get githubTestingAccess => 'A testar…';
+
+  @override
+  String get githubConnectionSuccessful => 'Ligação estabelecida';
+
+  @override
+  String get githubConnectionTestFailed => 'O teste de ligação falhou';
+
+  @override
+  String get githubPublicAccessWorking =>
+      'É possível aceder ao GitHub sem token.';
+
+  @override
+  String get githubTokenAccessWorking =>
+      'O acesso ao GitHub funciona com este token.';
 }
 
 /// The translations for Portuguese, as used in Brazil (`pt_BR`).
@@ -11124,4 +11151,31 @@ class AppLocalizationsPtBr extends AppLocalizationsPt {
   String githubLimitResetTime(String time) {
     return 'Redefinição do limite: $time';
   }
+
+  @override
+  String get githubConnectionTestTitle => 'Teste de conexão';
+
+  @override
+  String get githubConnectionTestBody =>
+      'Verifique se o GitHub está acessível e quantas solicitações restam.';
+
+  @override
+  String get githubTestAccess => 'Testar acesso ao GitHub';
+
+  @override
+  String get githubTestingAccess => 'Testando…';
+
+  @override
+  String get githubConnectionSuccessful => 'Conexão bem-sucedida';
+
+  @override
+  String get githubConnectionTestFailed => 'O teste de conexão falhou';
+
+  @override
+  String get githubPublicAccessWorking =>
+      'É possível acessar o GitHub sem token.';
+
+  @override
+  String get githubTokenAccessWorking =>
+      'O acesso ao GitHub funciona com este token.';
 }

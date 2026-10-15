@@ -5230,4 +5230,28 @@ class AppLocalizationsZh extends AppLocalizations {
   String githubLimitResetTime(String time) {
     return '限额重置时间：$time';
   }
+
+  @override
+  String get githubConnectionTestTitle => '连接测试';
+
+  @override
+  String get githubConnectionTestBody => '检查能否访问GitHub，以及剩余的请求次数。';
+
+  @override
+  String get githubTestAccess => '测试GitHub访问';
+
+  @override
+  String get githubTestingAccess => '正在测试…';
+
+  @override
+  String get githubConnectionSuccessful => '连接成功';
+
+  @override
+  String get githubConnectionTestFailed => '连接测试失败';
+
+  @override
+  String get githubPublicAccessWorking => '无需令牌即可访问GitHub。';
+
+  @override
+  String get githubTokenAccessWorking => '使用此令牌可以访问GitHub。';
 }

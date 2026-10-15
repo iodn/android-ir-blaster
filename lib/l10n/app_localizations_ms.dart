@@ -5490,4 +5490,30 @@ class AppLocalizationsMs extends AppLocalizations {
   String githubLimitResetTime(String time) {
     return 'Had ditetapkan semula: $time';
   }
+
+  @override
+  String get githubConnectionTestTitle => 'Ujian sambungan';
+
+  @override
+  String get githubConnectionTestBody =>
+      'Semak sama ada GitHub boleh dicapai dan jumlah permintaan yang masih berbaki.';
+
+  @override
+  String get githubTestAccess => 'Uji akses GitHub';
+
+  @override
+  String get githubTestingAccess => 'Sedang menguji…';
+
+  @override
+  String get githubConnectionSuccessful => 'Sambungan berjaya';
+
+  @override
+  String get githubConnectionTestFailed => 'Ujian sambungan gagal';
+
+  @override
+  String get githubPublicAccessWorking => 'GitHub boleh dicapai tanpa token.';
+
+  @override
+  String get githubTokenAccessWorking =>
+      'Akses GitHub berjaya dengan token ini.';
 }
