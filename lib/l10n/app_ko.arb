@@ -1910,7 +1910,7 @@
   "@continueSectionSubtitle": {
     "description": "Subtitle for the continue strip on the remotes screen."
   },
-  "continueLastRemoteTitle": "Last remote",
+  "continueLastRemoteTitle": "최근 리모컨",
   "@continueLastRemoteTitle": {
     "description": "Eyebrow label for the last opened remote card."
   },
@@ -1922,7 +1922,7 @@
   "@continueLastIrFinderHitTitle": {
     "description": "Eyebrow label for the last saved IR Finder result card."
   },
-  "continueTargetUnavailable": "That item is no longer available.",
+  "continueTargetUnavailable": "더 이상 사용할 수 없는 항목이에요.",
   "@continueTargetUnavailable": {
     "description": "Shown when a continue card points to a deleted or missing target."
   },

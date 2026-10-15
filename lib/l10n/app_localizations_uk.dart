@@ -4536,7 +4536,7 @@ class AppLocalizationsUk extends AppLocalizations {
       'Останнє попадання в інфрачервоний шукач';
 
   @override
-  String get continueTargetUnavailable => 'Цей товар більше не доступний.';
+  String get continueTargetUnavailable => 'Цей елемент більше недоступний.';
 
   @override
   String get continueUniversalPowerAllBrands => 'Всі бренди';

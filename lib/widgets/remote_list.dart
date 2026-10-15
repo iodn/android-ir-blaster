@@ -260,11 +260,41 @@ class _RemoteListState extends State<RemoteList> {
     if (items.isEmpty) return const SizedBox.shrink();
     final visibleItems = verySmallPhone ? items.take(4).toList() : items;
     final cs = Theme.of(context).colorScheme;
+    final theme = Theme.of(context);
+    final headingStyle = theme.textTheme.labelSmall!
+        .copyWith(fontWeight: FontWeight.w900, height: 1.0);
+    final titleStyle = theme.textTheme.labelLarge!
+        .copyWith(fontWeight: FontWeight.w800, height: 1.05);
+    Size measure(String text, TextStyle style,
+        {double maxWidth = double.infinity}) {
+      final painter = TextPainter(
+        text: TextSpan(text: text, style: style),
+        textDirection: Directionality.of(context),
+        textScaler: MediaQuery.textScalerOf(context),
+      )..layout(maxWidth: maxWidth);
+      final size = painter.size;
+      painter.dispose();
+      return size;
+    }
+    var cardWidth = verySmallPhone ? 142.0 : 148.0;
+    // Horizontal padding, icon and gap use 58 pixels inside each card.
+    for (final item in visibleItems) {
+      final width = measure(item.eyebrow, headingStyle).width + 58;
+      if (width > cardWidth) cardWidth = width;
+    }
+    cardWidth = cardWidth.clamp(59.0, screenWidth - 32);
+    var cardHeight = 68.0;
+    for (final item in visibleItems) {
+      final height = measure(item.eyebrow, headingStyle,
+                  maxWidth: cardWidth - 58).height +
+          measure(item.title, titleStyle).height + 19;
+      if (height > cardHeight) cardHeight = height;
+    }
 
     return Padding(
       padding: const EdgeInsets.fromLTRB(16, 8, 16, 4),
       child: SizedBox(
-        height: 68,
+        height: cardHeight,
         child: ListView.separated(
           scrollDirection: Axis.horizontal,
           itemCount: visibleItems.length,
@@ -272,7 +302,7 @@ class _RemoteListState extends State<RemoteList> {
           itemBuilder: (context, index) => _TopRemoteAccessCard(
             item: visibleItems[index],
             colorScheme: cs,
-            compactWidth: verySmallPhone,
+            width: cardWidth,
           ),
         ),
       ),
@@ -996,12 +1026,12 @@ class _TopRemoteAccessCardData {
 class _TopRemoteAccessCard extends StatelessWidget {
   final _TopRemoteAccessCardData item;
   final ColorScheme colorScheme;
-  final bool compactWidth;
+  final double width;
 
   const _TopRemoteAccessCard({
     required this.item,
     required this.colorScheme,
-    this.compactWidth = false,
+    required this.width,
   });
 
   @override
@@ -1011,7 +1041,7 @@ class _TopRemoteAccessCard extends StatelessWidget {
       message: item.subtitle,
       waitDuration: const Duration(milliseconds: 350),
       child: SizedBox(
-        width: compactWidth ? 142 : 148,
+        width: width,
         child: Material(
           color: item.pinned
               ? colorScheme.surfaceContainerHigh
@@ -1051,8 +1081,6 @@ class _TopRemoteAccessCard extends StatelessWidget {
                       children: [
                         Text(
                           item.eyebrow,
-                          maxLines: 1,
-                          overflow: TextOverflow.ellipsis,
                           style: theme.textTheme.labelSmall?.copyWith(
                             color: item.pinned
                                 ? colorScheme.primary

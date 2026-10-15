@@ -4466,7 +4466,7 @@ class AppLocalizationsPt extends AppLocalizations {
   String get continueSectionSubtitle => 'Pick up where you left off.';
 
   @override
-  String get continueLastRemoteTitle => 'Last remote';
+  String get continueLastRemoteTitle => 'Último comando';
 
   @override
   String get continueLastMacroTitle => 'Last macro';
@@ -4475,7 +4475,7 @@ class AppLocalizationsPt extends AppLocalizations {
   String get continueLastIrFinderHitTitle => 'Last IR Finder hit';
 
   @override
-  String get continueTargetUnavailable => 'That item is no longer available.';
+  String get continueTargetUnavailable => 'Este item já não está disponível.';
 
   @override
   String get continueUniversalPowerAllBrands => 'All brands';
@@ -9789,7 +9789,7 @@ class AppLocalizationsPtBr extends AppLocalizationsPt {
   String get continueSectionSubtitle => 'Pick up where you left off.';
 
   @override
-  String get continueLastRemoteTitle => 'Last remote';
+  String get continueLastRemoteTitle => 'Último controle';
 
   @override
   String get continueLastMacroTitle => 'Last macro';
@@ -9798,7 +9798,7 @@ class AppLocalizationsPtBr extends AppLocalizationsPt {
   String get continueLastIrFinderHitTitle => 'Last IR Finder hit';
 
   @override
-  String get continueTargetUnavailable => 'That item is no longer available.';
+  String get continueTargetUnavailable => 'Este item não está mais disponível.';
 
   @override
   String get continueUniversalPowerAllBrands => 'All brands';

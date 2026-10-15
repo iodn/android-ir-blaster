@@ -4472,7 +4472,7 @@ class AppLocalizationsFr extends AppLocalizations {
   String get continueSectionSubtitle => 'Pick up where you left off.';
 
   @override
-  String get continueLastRemoteTitle => 'Last remote';
+  String get continueLastRemoteTitle => 'Dernière télécommande';
 
   @override
   String get continueLastMacroTitle => 'Last macro';
@@ -4481,7 +4481,7 @@ class AppLocalizationsFr extends AppLocalizations {
   String get continueLastIrFinderHitTitle => 'Last IR Finder hit';
 
   @override
-  String get continueTargetUnavailable => 'That item is no longer available.';
+  String get continueTargetUnavailable => 'Cet élément n’est plus disponible.';
 
   @override
   String get continueUniversalPowerAllBrands => 'All brands';

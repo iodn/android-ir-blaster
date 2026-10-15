@@ -4447,7 +4447,7 @@ class AppLocalizationsRu extends AppLocalizations {
   String get continueSectionSubtitle => 'Pick up where you left off.';
 
   @override
-  String get continueLastRemoteTitle => 'Last remote';
+  String get continueLastRemoteTitle => 'Последний пульт';
 
   @override
   String get continueLastMacroTitle => 'Last macro';
@@ -4456,7 +4456,7 @@ class AppLocalizationsRu extends AppLocalizations {
   String get continueLastIrFinderHitTitle => 'Last IR Finder hit';
 
   @override
-  String get continueTargetUnavailable => 'That item is no longer available.';
+  String get continueTargetUnavailable => 'Этот элемент больше недоступен.';
 
   @override
   String get continueUniversalPowerAllBrands => 'All brands';

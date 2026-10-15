@@ -4423,7 +4423,7 @@ class AppLocalizationsAr extends AppLocalizations {
   String get continueSectionSubtitle => 'Pick up where you left off.';
 
   @override
-  String get continueLastRemoteTitle => 'Last remote';
+  String get continueLastRemoteTitle => 'آخر جهاز تحكم';
 
   @override
   String get continueLastMacroTitle => 'Last macro';
@@ -4432,7 +4432,7 @@ class AppLocalizationsAr extends AppLocalizations {
   String get continueLastIrFinderHitTitle => 'Last IR Finder hit';
 
   @override
-  String get continueTargetUnavailable => 'That item is no longer available.';
+  String get continueTargetUnavailable => 'هذا العنصر لم يعد متاحًا.';
 
   @override
   String get continueUniversalPowerAllBrands => 'All brands';
@@ -9696,7 +9696,7 @@ class AppLocalizationsArEg extends AppLocalizationsAr {
   String get continueSectionSubtitle => 'Pick up where you left off.';
 
   @override
-  String get continueLastRemoteTitle => 'Last remote';
+  String get continueLastRemoteTitle => 'آخر جهاز تحكم';
 
   @override
   String get continueLastMacroTitle => 'Last macro';
@@ -9705,7 +9705,7 @@ class AppLocalizationsArEg extends AppLocalizationsAr {
   String get continueLastIrFinderHitTitle => 'Last IR Finder hit';
 
   @override
-  String get continueTargetUnavailable => 'That item is no longer available.';
+  String get continueTargetUnavailable => 'العنصر ده مبقاش متاح.';
 
   @override
   String get continueUniversalPowerAllBrands => 'All brands';

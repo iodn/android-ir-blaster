@@ -4293,7 +4293,7 @@ class AppLocalizationsKo extends AppLocalizations {
   String get continueSectionSubtitle => 'Pick up where you left off.';
 
   @override
-  String get continueLastRemoteTitle => 'Last remote';
+  String get continueLastRemoteTitle => '최근 리모컨';
 
   @override
   String get continueLastMacroTitle => 'Last macro';
@@ -4302,7 +4302,7 @@ class AppLocalizationsKo extends AppLocalizations {
   String get continueLastIrFinderHitTitle => 'Last IR Finder hit';
 
   @override
-  String get continueTargetUnavailable => 'That item is no longer available.';
+  String get continueTargetUnavailable => '더 이상 사용할 수 없는 항목이에요.';
 
   @override
   String get continueUniversalPowerAllBrands => 'All brands';

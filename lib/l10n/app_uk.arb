@@ -1922,7 +1922,7 @@
   "@continueLastIrFinderHitTitle": {
     "description": "Eyebrow label for the last saved IR Finder result card."
   },
-  "continueTargetUnavailable": "Цей товар більше не доступний.",
+  "continueTargetUnavailable": "Цей елемент більше недоступний.",
   "@continueTargetUnavailable": {
     "description": "Shown when a continue card points to a deleted or missing target."
   },
