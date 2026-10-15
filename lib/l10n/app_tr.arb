@@ -367,7 +367,7 @@
   "noRemotesYet": "No remotes yet",
   "noRemotesDescription": "Create a kumanda to başlat sending IR codes.",
   "noRemotesNextStep": "Sonraki adım: Kumanda Ekle'ye dokunun, sonra ilk düğmelerinizi ekleyin.",
-  "actions": "Actions",
+  "actions": "İşlemler",
   "macrosTitle": "Makrolar",
   "help": "Help",
   "createMacro": "Makro oluştur",
@@ -393,13 +393,13 @@
   },
   "aboutTimedMacros": "Makrolar hakkında",
   "aboutTimedMacrosDescription": "IR komutlarını adımlar arasında bekleyerek sırayla çalıştırın.",
-  "sendCommand": "Komut Gönder",
+  "sendCommand": "Komut gönder",
   "sendCommandDescription": "Kumandanızda kayıtlı bir düğmenin IR sinyalini gönderir.",
   "delay": "Bekleme süresi",
   "delayDescription": "Sonraki adıma geçmeden önce belirlediğiniz süre kadar bekler.",
   "manualContinue": "Onay bekle",
   "manualContinueDescription": "Sonraki adıma geçmeden önce Devam et'e dokunmanızı bekler.",
-  "gotIt": "Got it",
+  "gotIt": "Anladım",
   "failedToSaveMacros": "Makrolar kaydedilemedi.",
   "deletedMacroNamed": "“{name}” silindi.",
   "@deletedMacroNamed": {
@@ -411,7 +411,7 @@
   "failedToRestoreMacro": "Makro geri yüklenemedi.",
   "deleteMacroTitle": "Makro silinsin mi?",
   "deleteMacroMessage": "Sildikten sonra çıkan mesajda Geri al seçeneğine dokunarak makroyu geri yükleyebilirsiniz.",
-  "noRemotesAvailable": "No remotes mevcut.",
+  "noRemotesAvailable": "Kullanılabilir kumanda yok.",
   "remoteButtonCountSummary": "{count} düğme(s)",
   "@remoteButtonCountSummary": {
     "placeholders": {
@@ -910,7 +910,7 @@
       }
     }
   },
-  "completed": "Completed",
+  "completed": "Tamamlandı",
   "paused": "Duraklatıldı",
   "running": "Çalışıyor",
   "ready": "Hazır",

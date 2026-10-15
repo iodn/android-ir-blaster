@@ -1270,7 +1270,7 @@ class AppLocalizationsHi extends AppLocalizations {
       'What अगला: टैप जोड़ें रिमोट, फिर जोड़ें आपकी पहले बटन.';
 
   @override
-  String get actions => 'क्रियाएं';
+  String get actions => 'कार्रवाइयाँ';
 
   @override
   String get macrosTitle => 'मैक्रो';
@@ -1344,7 +1344,7 @@ class AppLocalizationsHi extends AppLocalizations {
       'बीच में तय समय तक रुकते हुए कई IR कमांड एक के बाद एक चलाएँ।';
 
   @override
-  String get sendCommand => 'भेजें कमांड';
+  String get sendCommand => 'कमांड भेजें';
 
   @override
   String get sendCommandDescription =>
@@ -1365,7 +1365,7 @@ class AppLocalizationsHi extends AppLocalizations {
       'अगले चरण से पहले आपके जारी रखें पर टैप करने का इंतज़ार करता है।';
 
   @override
-  String get gotIt => 'Got it';
+  String get gotIt => 'समझ गया';
 
   @override
   String get failedToSaveMacros => 'मैक्रो सेव नहीं हो सके।';
@@ -1389,7 +1389,7 @@ class AppLocalizationsHi extends AppLocalizations {
       'हटाने के बाद दिखने वाले संदेश में पूर्ववत करें पर टैप करके मैक्रो वापस ला सकते हैं।';
 
   @override
-  String get noRemotesAvailable => 'नहीं रिमोट उपलब्ध.';
+  String get noRemotesAvailable => 'कोई रिमोट उपलब्ध नहीं है।';
 
   @override
   String remoteButtonCountSummary(int count) {
@@ -1517,7 +1517,7 @@ class AppLocalizationsHi extends AppLocalizations {
   String get done => 'पूर्ण';
 
   @override
-  String get run => 'चलाएं';
+  String get run => 'चलाएँ';
 
   @override
   String get untitledRemote => 'बिना नाम का रिमोट';
@@ -2158,7 +2158,7 @@ class AppLocalizationsHi extends AppLocalizations {
   }
 
   @override
-  String get clearAction => 'स्पष्ट';
+  String get clearAction => 'साफ़ करें';
 
   @override
   String get saveAction => 'सहेजें';
@@ -2220,7 +2220,7 @@ class AppLocalizationsHi extends AppLocalizations {
   }
 
   @override
-  String get completed => 'पूर्ण';
+  String get completed => 'पूरा हुआ';
 
   @override
   String get paused => 'रुका हुआ';

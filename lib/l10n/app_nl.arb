@@ -411,7 +411,7 @@
   "failedToRestoreMacro": "De macro kon niet worden hersteld.",
   "deleteMacroTitle": "Macro verwijderen?",
   "deleteMacroMessage": "Tik na het verwijderen op Ongedaan maken in de melding om de macro te herstellen.",
-  "noRemotesAvailable": "Geen remotes available.",
+  "noRemotesAvailable": "Geen afstandsbedieningen beschikbaar.",
   "remoteButtonCountSummary": "{count} knop(s)",
   "@remoteButtonCountSummary": {
     "placeholders": {

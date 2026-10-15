@@ -1356,7 +1356,7 @@ class AppLocalizationsTh extends AppLocalizations {
       'รอจนกว่าคุณจะแตะ ดำเนินการต่อ ก่อนทำขั้นตอนถัดไป';
 
   @override
-  String get gotIt => 'Got it';
+  String get gotIt => 'เข้าใจแล้ว';
 
   @override
   String get failedToSaveMacros => 'บันทึกมาโครไม่สำเร็จ';
@@ -1505,7 +1505,7 @@ class AppLocalizationsTh extends AppLocalizations {
   String get done => 'Done';
 
   @override
-  String get run => 'ทำงาน';
+  String get run => 'เริ่มทำงาน';
 
   @override
   String get untitledRemote => 'รีโมตไม่มีชื่อ';
@@ -2145,7 +2145,7 @@ class AppLocalizationsTh extends AppLocalizations {
   }
 
   @override
-  String get clearAction => 'Clear';
+  String get clearAction => 'ล้าง';
 
   @override
   String get saveAction => 'บันทึก';
@@ -2302,7 +2302,7 @@ class AppLocalizationsTh extends AppLocalizations {
   }
 
   @override
-  String get custom => 'Custom';
+  String get custom => 'กำหนดเอง';
 
   @override
   String get enterCustomDelayDuration => 'กรอกเวลารออื่น';

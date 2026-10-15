@@ -367,7 +367,7 @@
   "noRemotesYet": "No remotes yet",
   "noRemotesDescription": "أنشئ جهاز تحكم لبدء إرسال أكواد IR.",
   "noRemotesNextStep": "ماذا بعد: اضغط إضافة جهاز تحكم، ثم أضف أول أزرارك.",
-  "actions": "Actions",
+  "actions": "الإجراءات",
   "macrosTitle": "الماكرو",
   "help": "مساعدة",
   "createMacro": "إنشاء ماكرو",
@@ -393,7 +393,7 @@
   },
   "aboutTimedMacros": "حول الماكرو",
   "aboutTimedMacrosDescription": "شغّل سلسلة من أوامر الأشعة تحت الحمراء مع فترات انتظار بين الخطوات.",
-  "sendCommand": "إرسال Command",
+  "sendCommand": "إرسال أمر",
   "sendCommandDescription": "يرسل إشارة الأشعة تحت الحمراء لزر محفوظ في جهاز التحكم.",
   "delay": "تأخير",
   "delayDescription": "ينتظر المدة التي تحددها قبل الانتقال إلى الخطوة التالية.",
@@ -411,7 +411,7 @@
   "failedToRestoreMacro": "تعذّرت استعادة الماكرو.",
   "deleteMacroTitle": "حذف الماكرو؟",
   "deleteMacroMessage": "بعد الحذف، اضغط على تراجع في الرسالة التي تظهر لاستعادة الماكرو.",
-  "noRemotesAvailable": "No remotes available.",
+  "noRemotesAvailable": "لا توجد أجهزة تحكم متاحة.",
   "remoteButtonCountSummary": "{count} زر",
   "@remoteButtonCountSummary": {
     "placeholders": {
@@ -910,7 +910,7 @@
       }
     }
   },
-  "completed": "Completed",
+  "completed": "اكتمل",
   "paused": "متوقف مؤقتًا",
   "running": "قيد التنفيذ",
   "ready": "جاهز",

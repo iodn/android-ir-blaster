@@ -1272,7 +1272,7 @@ class AppLocalizationsTr extends AppLocalizations {
       'Sonraki adım: Kumanda Ekle\'ye dokunun, sonra ilk düğmelerinizi ekleyin.';
 
   @override
-  String get actions => 'Actions';
+  String get actions => 'İşlemler';
 
   @override
   String get macrosTitle => 'Makrolar';
@@ -1346,7 +1346,7 @@ class AppLocalizationsTr extends AppLocalizations {
       'IR komutlarını adımlar arasında bekleyerek sırayla çalıştırın.';
 
   @override
-  String get sendCommand => 'Komut Gönder';
+  String get sendCommand => 'Komut gönder';
 
   @override
   String get sendCommandDescription =>
@@ -1367,7 +1367,7 @@ class AppLocalizationsTr extends AppLocalizations {
       'Sonraki adıma geçmeden önce Devam et\'e dokunmanızı bekler.';
 
   @override
-  String get gotIt => 'Got it';
+  String get gotIt => 'Anladım';
 
   @override
   String get failedToSaveMacros => 'Makrolar kaydedilemedi.';
@@ -1391,7 +1391,7 @@ class AppLocalizationsTr extends AppLocalizations {
       'Sildikten sonra çıkan mesajda Geri al seçeneğine dokunarak makroyu geri yükleyebilirsiniz.';
 
   @override
-  String get noRemotesAvailable => 'No remotes mevcut.';
+  String get noRemotesAvailable => 'Kullanılabilir kumanda yok.';
 
   @override
   String remoteButtonCountSummary(int count) {
@@ -2226,7 +2226,7 @@ class AppLocalizationsTr extends AppLocalizations {
   }
 
   @override
-  String get completed => 'Completed';
+  String get completed => 'Tamamlandı';
 
   @override
   String get paused => 'Duraklatıldı';

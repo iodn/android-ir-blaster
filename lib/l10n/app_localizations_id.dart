@@ -1273,7 +1273,7 @@ class AppLocalizationsId extends AppLocalizations {
       'Berikutnya: ketuk Tambah remote, lalu tambahkan tombol pertama.';
 
   @override
-  String get actions => 'Aksi';
+  String get actions => 'Tindakan';
 
   @override
   String get macrosTitle => 'Makro';
@@ -1347,7 +1347,7 @@ class AppLocalizationsId extends AppLocalizations {
       'Jalankan rangkaian perintah IR dengan jeda di antara langkah.';
 
   @override
-  String get sendCommand => 'Kirim Perintah';
+  String get sendCommand => 'Kirim perintah';
 
   @override
   String get sendCommandDescription =>
@@ -1392,7 +1392,7 @@ class AppLocalizationsId extends AppLocalizations {
       'Setelah dihapus, ketuk Urungkan pada pesan yang muncul untuk memulihkan makro.';
 
   @override
-  String get noRemotesAvailable => 'Tidak ada remote tersedia.';
+  String get noRemotesAvailable => 'Tidak ada remote yang tersedia.';
 
   @override
   String remoteButtonCountSummary(int count) {
@@ -2165,7 +2165,7 @@ class AppLocalizationsId extends AppLocalizations {
   }
 
   @override
-  String get clearAction => 'Bersihkan';
+  String get clearAction => 'Hapus';
 
   @override
   String get saveAction => 'Simpan';

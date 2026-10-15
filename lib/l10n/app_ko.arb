@@ -910,7 +910,7 @@
       }
     }
   },
-  "completed": "완료됨",
+  "completed": "완료",
   "paused": "일시 정지",
   "running": "실행 중",
   "ready": "준비됨",

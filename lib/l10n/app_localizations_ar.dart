@@ -1256,7 +1256,7 @@ class AppLocalizationsAr extends AppLocalizations {
       'ماذا بعد: اضغط إضافة جهاز تحكم، ثم أضف أول أزرارك.';
 
   @override
-  String get actions => 'Actions';
+  String get actions => 'الإجراءات';
 
   @override
   String get macrosTitle => 'الماكرو';
@@ -1340,7 +1340,7 @@ class AppLocalizationsAr extends AppLocalizations {
       'شغّل سلسلة من أوامر الأشعة تحت الحمراء مع فترات انتظار بين الخطوات.';
 
   @override
-  String get sendCommand => 'إرسال Command';
+  String get sendCommand => 'إرسال أمر';
 
   @override
   String get sendCommandDescription =>
@@ -1385,7 +1385,7 @@ class AppLocalizationsAr extends AppLocalizations {
       'بعد الحذف، اضغط على تراجع في الرسالة التي تظهر لاستعادة الماكرو.';
 
   @override
-  String get noRemotesAvailable => 'No remotes available.';
+  String get noRemotesAvailable => 'لا توجد أجهزة تحكم متاحة.';
 
   @override
   String remoteButtonCountSummary(int count) {
@@ -2218,7 +2218,7 @@ class AppLocalizationsAr extends AppLocalizations {
   }
 
   @override
-  String get completed => 'Completed';
+  String get completed => 'اكتمل';
 
   @override
   String get paused => 'متوقف مؤقتًا';
@@ -6505,7 +6505,7 @@ class AppLocalizationsArEg extends AppLocalizationsAr {
       'ماذا بعد: اضغط إضافة جهاز تحكم، ثم أضف أول أزرارك.';
 
   @override
-  String get actions => 'Actions';
+  String get actions => 'الإجراءات';
 
   @override
   String get macrosTitle => 'الماكرو';
@@ -6589,7 +6589,7 @@ class AppLocalizationsArEg extends AppLocalizationsAr {
       'شغّل أوامر الأشعة تحت الحمراء ورا بعض، مع وقت انتظار بين الخطوات.';
 
   @override
-  String get sendCommand => 'إرسال Command';
+  String get sendCommand => 'إرسال أمر';
 
   @override
   String get sendCommandDescription =>
@@ -6634,7 +6634,7 @@ class AppLocalizationsArEg extends AppLocalizationsAr {
       'بعد الحذف، اضغط على تراجع في الرسالة اللي هتظهر عشان ترجّع الماكرو.';
 
   @override
-  String get noRemotesAvailable => 'No remotes available.';
+  String get noRemotesAvailable => 'لا توجد أجهزة تحكم متاحة.';
 
   @override
   String remoteButtonCountSummary(int count) {
@@ -7467,7 +7467,7 @@ class AppLocalizationsArEg extends AppLocalizationsAr {
   }
 
   @override
-  String get completed => 'Completed';
+  String get completed => 'اكتمل';
 
   @override
   String get paused => 'متوقف مؤقتًا';

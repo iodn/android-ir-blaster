@@ -514,7 +514,7 @@
   },
   "aboutTimedMacros": "About macros",
   "aboutTimedMacrosDescription": "Run a sequence of IR commands with waits between steps.",
-  "sendCommand": "Send Command",
+  "sendCommand": "Send command",
   "sendCommandDescription": "Sends the IR signal of a button saved in your remote.",
   "delay": "Delay",
   "delayDescription": "Waits for the time you set before moving to the next step.",

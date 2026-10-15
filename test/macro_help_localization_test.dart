@@ -75,6 +75,7 @@ void main() {
       for (final text in [
         l10n.aboutTimedMacros,
         l10n.aboutTimedMacrosDescription,
+        l10n.sendCommand,
         l10n.sendCommandDescription,
         l10n.delayDescription,
         l10n.manualContinueDescription,

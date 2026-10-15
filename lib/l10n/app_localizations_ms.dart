@@ -1271,7 +1271,7 @@ class AppLocalizationsMs extends AppLocalizations {
       'Berikutnya: tekan Tambah remote, kemudian tambahkan butang pertama.';
 
   @override
-  String get actions => 'Aksi';
+  String get actions => 'Tindakan';
 
   @override
   String get macrosTitle => 'Makro';
@@ -1345,7 +1345,7 @@ class AppLocalizationsMs extends AppLocalizations {
       'Jalankan urutan arahan IR dengan masa menunggu antara langkah.';
 
   @override
-  String get sendCommand => 'Kirim Perintah';
+  String get sendCommand => 'Hantar arahan';
 
   @override
   String get sendCommandDescription =>
@@ -1366,7 +1366,7 @@ class AppLocalizationsMs extends AppLocalizations {
       'Menunggu sehingga anda mengetik Teruskan sebelum langkah seterusnya.';
 
   @override
-  String get gotIt => 'Mengerti';
+  String get gotIt => 'Faham';
 
   @override
   String get failedToSaveMacros => 'Makro tidak dapat disimpan.';
@@ -1390,7 +1390,7 @@ class AppLocalizationsMs extends AppLocalizations {
       'Selepas dipadam, ketik Buat asal pada mesej yang muncul untuk memulihkan makro.';
 
   @override
-  String get noRemotesAvailable => 'Tiada remote tersedia.';
+  String get noRemotesAvailable => 'Tiada alat kawalan jauh tersedia.';
 
   @override
   String remoteButtonCountSummary(int count) {
@@ -2165,7 +2165,7 @@ class AppLocalizationsMs extends AppLocalizations {
   }
 
   @override
-  String get clearAction => 'Bersihkan';
+  String get clearAction => 'Kosongkan';
 
   @override
   String get saveAction => 'Simpan';
@@ -2324,7 +2324,7 @@ class AppLocalizationsMs extends AppLocalizations {
   }
 
   @override
-  String get custom => 'Kustom';
+  String get custom => 'Tersuai';
 
   @override
   String get enterCustomDelayDuration => 'Masukkan masa menunggu lain';

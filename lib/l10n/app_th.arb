@@ -399,7 +399,7 @@
   "delayDescription": "รอตามเวลาที่ตั้งไว้ก่อนทำขั้นตอนถัดไป",
   "manualContinue": "รอการยืนยัน",
   "manualContinueDescription": "รอจนกว่าคุณจะแตะ ดำเนินการต่อ ก่อนทำขั้นตอนถัดไป",
-  "gotIt": "Got it",
+  "gotIt": "เข้าใจแล้ว",
   "failedToSaveMacros": "บันทึกมาโครไม่สำเร็จ",
   "deletedMacroNamed": "ลบ “{name}” แล้ว",
   "@deletedMacroNamed": {
@@ -466,7 +466,7 @@
   "duplicateAndEdit": "สร้างสำเนาและแก้ไข",
   "duplicateAndEditSubtitle": "สร้างสำเนาและแก้ไขทันที",
   "done": "Done",
-  "run": "ทำงาน",
+  "run": "เริ่มทำงาน",
   "untitledRemote": "รีโมตไม่มีชื่อ",
   "createRemoteTitle": "สร้างรีโมต",
   "editRemoteTitle": "แก้ไข remote",
@@ -841,7 +841,7 @@
       "sourceLabel": {}
     }
   },
-  "clearAction": "Clear",
+  "clearAction": "ล้าง",
   "saveAction": "บันทึก",
   "buttonsTitleCount": "ปุ่ม {count}",
   "@buttonsTitleCount": {
@@ -983,7 +983,7 @@
       }
     }
   },
-  "custom": "Custom",
+  "custom": "กำหนดเอง",
   "enterCustomDelayDuration": "กรอกเวลารออื่น",
   "millisecondsLong": "{ms} มิลลิวินาที",
   "@millisecondsLong": {

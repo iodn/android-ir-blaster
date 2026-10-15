@@ -1283,7 +1283,7 @@ class AppLocalizationsFil extends AppLocalizations {
       'Susunod: tapikin ang Add remote, saka idagdag ang una mong mga button.';
 
   @override
-  String get actions => 'Actions';
+  String get actions => 'Mga aksyon';
 
   @override
   String get macrosTitle => 'Mga macro';
@@ -1357,7 +1357,7 @@ class AppLocalizationsFil extends AppLocalizations {
       'Magpatakbo ng sunod-sunod na IR command na may paghihintay sa pagitan ng mga hakbang.';
 
   @override
-  String get sendCommand => 'Send Command';
+  String get sendCommand => 'Magpadala ng command';
 
   @override
   String get sendCommandDescription =>
@@ -1378,7 +1378,7 @@ class AppLocalizationsFil extends AppLocalizations {
       'Naghihintay hanggang i-tap mo ang Magpatuloy bago ang susunod na hakbang.';
 
   @override
-  String get gotIt => 'Got it';
+  String get gotIt => 'Naintindihan ko';
 
   @override
   String get failedToSaveMacros => 'Hindi na-save ang mga macro.';
@@ -1402,7 +1402,7 @@ class AppLocalizationsFil extends AppLocalizations {
       'Pagka-delete, i-tap ang Ibalik sa mensaheng lalabas para maibalik ang macro.';
 
   @override
-  String get noRemotesAvailable => 'Walang mga remote available.';
+  String get noRemotesAvailable => 'Walang available na remote.';
 
   @override
   String remoteButtonCountSummary(int count) {
@@ -1533,7 +1533,7 @@ class AppLocalizationsFil extends AppLocalizations {
   String get done => 'Tapos';
 
   @override
-  String get run => 'Run';
+  String get run => 'Patakbuhin';
 
   @override
   String get untitledRemote => 'Remote na walang pangalan';
@@ -2183,7 +2183,7 @@ class AppLocalizationsFil extends AppLocalizations {
   }
 
   @override
-  String get clearAction => 'Clear';
+  String get clearAction => 'I-clear';
 
   @override
   String get saveAction => 'I-save';
@@ -2244,7 +2244,7 @@ class AppLocalizationsFil extends AppLocalizations {
   }
 
   @override
-  String get completed => 'Completed';
+  String get completed => 'Tapos na';
 
   @override
   String get paused => 'Naka-pause';
@@ -2341,7 +2341,7 @@ class AppLocalizationsFil extends AppLocalizations {
   }
 
   @override
-  String get custom => 'Custom';
+  String get custom => 'Pasadya';
 
   @override
   String get enterCustomDelayDuration =>

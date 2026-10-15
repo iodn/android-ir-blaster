@@ -367,7 +367,7 @@
   "noRemotesYet": "Walang mga remote yet",
   "noRemotesDescription": "Create a remote to start sending IR codes.",
   "noRemotesNextStep": "Susunod: tapikin ang Add remote, saka idagdag ang una mong mga button.",
-  "actions": "Actions",
+  "actions": "Mga aksyon",
   "macrosTitle": "Mga macro",
   "help": "Help",
   "createMacro": "Gumawa ng macro",
@@ -393,13 +393,13 @@
   },
   "aboutTimedMacros": "Tungkol sa mga macro",
   "aboutTimedMacrosDescription": "Magpatakbo ng sunod-sunod na IR command na may paghihintay sa pagitan ng mga hakbang.",
-  "sendCommand": "Send Command",
+  "sendCommand": "Magpadala ng command",
   "sendCommandDescription": "Ipinapadala ang IR signal ng isang button na naka-save sa iyong remote.",
   "delay": "Maghintay",
   "delayDescription": "Naghihintay nang ayon sa itinakda mong tagal bago ang susunod na hakbang.",
   "manualContinue": "Hintayin ang kumpirmasyon",
   "manualContinueDescription": "Naghihintay hanggang i-tap mo ang Magpatuloy bago ang susunod na hakbang.",
-  "gotIt": "Got it",
+  "gotIt": "Naintindihan ko",
   "failedToSaveMacros": "Hindi na-save ang mga macro.",
   "deletedMacroNamed": "Na-delete ang “{name}”.",
   "@deletedMacroNamed": {
@@ -411,7 +411,7 @@
   "failedToRestoreMacro": "Hindi naibalik ang macro.",
   "deleteMacroTitle": "I-delete ang macro?",
   "deleteMacroMessage": "Pagka-delete, i-tap ang Ibalik sa mensaheng lalabas para maibalik ang macro.",
-  "noRemotesAvailable": "Walang mga remote available.",
+  "noRemotesAvailable": "Walang available na remote.",
   "remoteButtonCountSummary": "{count} button(s)",
   "@remoteButtonCountSummary": {
     "placeholders": {
@@ -466,7 +466,7 @@
   "duplicateAndEdit": "Kopyahin at i-edit",
   "duplicateAndEditSubtitle": "Gumawa ng kopya at i-edit agad ito",
   "done": "Tapos",
-  "run": "Run",
+  "run": "Patakbuhin",
   "untitledRemote": "Remote na walang pangalan",
   "createRemoteTitle": "Gumawa ng remote",
   "editRemoteTitle": "I-edit remote",
@@ -841,7 +841,7 @@
       "sourceLabel": {}
     }
   },
-  "clearAction": "Clear",
+  "clearAction": "I-clear",
   "saveAction": "I-save",
   "buttonsTitleCount": "Buttons ({count})",
   "@buttonsTitleCount": {
@@ -910,7 +910,7 @@
       }
     }
   },
-  "completed": "Completed",
+  "completed": "Tapos na",
   "paused": "Naka-pause",
   "running": "Tumatakbo",
   "ready": "Handa",
@@ -983,7 +983,7 @@
       }
     }
   },
-  "custom": "Custom",
+  "custom": "Pasadya",
   "enterCustomDelayDuration": "Maglagay ng ibang tagal ng paghihintay",
   "millisecondsLong": "{ms} milisegundo",
   "@millisecondsLong": {

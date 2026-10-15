@@ -367,7 +367,7 @@
   "noRemotesYet": "नहीं रिमोट yet",
   "noRemotesDescription": "बनाएं a रिमोट तक प्रारंभ sending IR कोड.",
   "noRemotesNextStep": "What अगला: टैप जोड़ें रिमोट, फिर जोड़ें आपकी पहले बटन.",
-  "actions": "क्रियाएं",
+  "actions": "कार्रवाइयाँ",
   "macrosTitle": "मैक्रो",
   "help": "मदद",
   "createMacro": "मैक्रो बनाएं",
@@ -393,13 +393,13 @@
   },
   "aboutTimedMacros": "मैक्रो के बारे में",
   "aboutTimedMacrosDescription": "बीच में तय समय तक रुकते हुए कई IR कमांड एक के बाद एक चलाएँ।",
-  "sendCommand": "भेजें कमांड",
+  "sendCommand": "कमांड भेजें",
   "sendCommandDescription": "आपके रिमोट में सेव किए गए बटन का IR सिग्नल भेजता है।",
   "delay": "इंतज़ार",
   "delayDescription": "अगले चरण से पहले आपके तय किए समय तक रुकता है।",
   "manualContinue": "पुष्टि का इंतज़ार",
   "manualContinueDescription": "अगले चरण से पहले आपके जारी रखें पर टैप करने का इंतज़ार करता है।",
-  "gotIt": "Got it",
+  "gotIt": "समझ गया",
   "failedToSaveMacros": "मैक्रो सेव नहीं हो सके।",
   "deletedMacroNamed": "“{name}” हटा दिया गया।",
   "@deletedMacroNamed": {
@@ -411,7 +411,7 @@
   "failedToRestoreMacro": "मैक्रो वापस नहीं लाया जा सका।",
   "deleteMacroTitle": "मैक्रो हटाएँ?",
   "deleteMacroMessage": "हटाने के बाद दिखने वाले संदेश में पूर्ववत करें पर टैप करके मैक्रो वापस ला सकते हैं।",
-  "noRemotesAvailable": "नहीं रिमोट उपलब्ध.",
+  "noRemotesAvailable": "कोई रिमोट उपलब्ध नहीं है।",
   "remoteButtonCountSummary": "{count} बटन",
   "@remoteButtonCountSummary": {
     "placeholders": {
@@ -466,7 +466,7 @@
   "duplicateAndEdit": "कॉपी बनाकर संपादित करें",
   "duplicateAndEditSubtitle": "कॉपी बनाएं और तुरंत संपादित करें",
   "done": "पूर्ण",
-  "run": "चलाएं",
+  "run": "चलाएँ",
   "untitledRemote": "बिना नाम का रिमोट",
   "createRemoteTitle": "रिमोट बनाएँ",
   "editRemoteTitle": "रिमोट संपादित करें",
@@ -841,7 +841,7 @@
       "sourceLabel": {}
     }
   },
-  "clearAction": "स्पष्ट",
+  "clearAction": "साफ़ करें",
   "saveAction": "सहेजें",
   "buttonsTitleCount": "बटन ({count})",
   "@buttonsTitleCount": {
@@ -910,7 +910,7 @@
       }
     }
   },
-  "completed": "पूर्ण",
+  "completed": "पूरा हुआ",
   "paused": "रुका हुआ",
   "running": "चल रहा है",
   "ready": "तैयार",

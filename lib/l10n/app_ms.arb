@@ -367,7 +367,7 @@
   "noRemotesYet": "Belum ada remote",
   "noRemotesDescription": "Buat remote untuk mula menghantar kod IR.",
   "noRemotesNextStep": "Berikutnya: tekan Tambah remote, kemudian tambahkan butang pertama.",
-  "actions": "Aksi",
+  "actions": "Tindakan",
   "macrosTitle": "Makro",
   "help": "Bantuan",
   "createMacro": "Cipta makro",
@@ -393,13 +393,13 @@
   },
   "aboutTimedMacros": "Tentang makro",
   "aboutTimedMacrosDescription": "Jalankan urutan arahan IR dengan masa menunggu antara langkah.",
-  "sendCommand": "Kirim Perintah",
+  "sendCommand": "Hantar arahan",
   "sendCommandDescription": "Menghantar isyarat IR bagi butang yang disimpan dalam alat kawalan jauh anda.",
   "delay": "Masa menunggu",
   "delayDescription": "Menunggu selama tempoh yang anda tetapkan sebelum langkah seterusnya.",
   "manualContinue": "Tunggu pengesahan",
   "manualContinueDescription": "Menunggu sehingga anda mengetik Teruskan sebelum langkah seterusnya.",
-  "gotIt": "Mengerti",
+  "gotIt": "Faham",
   "failedToSaveMacros": "Makro tidak dapat disimpan.",
   "deletedMacroNamed": "“{name}” telah dipadam.",
   "@deletedMacroNamed": {
@@ -411,7 +411,7 @@
   "failedToRestoreMacro": "Makro tidak dapat dipulihkan.",
   "deleteMacroTitle": "Padam makro?",
   "deleteMacroMessage": "Selepas dipadam, ketik Buat asal pada mesej yang muncul untuk memulihkan makro.",
-  "noRemotesAvailable": "Tiada remote tersedia.",
+  "noRemotesAvailable": "Tiada alat kawalan jauh tersedia.",
   "remoteButtonCountSummary": "{count} butang(s)",
   "@remoteButtonCountSummary": {
     "placeholders": {
@@ -841,7 +841,7 @@
       "sourceLabel": {}
     }
   },
-  "clearAction": "Bersihkan",
+  "clearAction": "Kosongkan",
   "saveAction": "Simpan",
   "buttonsTitleCount": "Butang ({count})",
   "@buttonsTitleCount": {
@@ -983,7 +983,7 @@
       }
     }
   },
-  "custom": "Kustom",
+  "custom": "Tersuai",
   "enterCustomDelayDuration": "Masukkan masa menunggu lain",
   "millisecondsLong": "{ms} milisaat",
   "@millisecondsLong": {

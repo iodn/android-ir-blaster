@@ -393,7 +393,7 @@
   },
   "aboutTimedMacros": "Sobre as macros",
   "aboutTimedMacrosDescription": "Execute uma sequência de comandos IR com pausas entre as etapas.",
-  "sendCommand": "Enviar controle",
+  "sendCommand": "Enviar comando",
   "sendCommandDescription": "Envia o sinal IR de um botão salvo no seu controle.",
   "delay": "Espera",
   "delayDescription": "Aguarda o tempo definido antes de avançar para a próxima etapa.",
@@ -841,7 +841,7 @@
       "sourceLabel": {}
     }
   },
-  "clearAction": "Limpiar",
+  "clearAction": "Limpar",
   "saveAction": "Salvar",
   "buttonsTitleCount": "Botões ({count})",
   "@buttonsTitleCount": {
@@ -910,7 +910,7 @@
       }
     }
   },
-  "completed": "Completado",
+  "completed": "Concluído",
   "paused": "Pausado",
   "running": "Em execução",
   "ready": "Pronto",

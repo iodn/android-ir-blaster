@@ -77,6 +77,9 @@ void main() {
       await tester.ensureVisible(find.text(l10n.macroCompleted));
       await tester.pumpAndSettle();
       readable(l10n.macroCompleted);
+      await tester.ensureVisible(find.text(l10n.completed));
+      await tester.pumpAndSettle();
+      readable(l10n.completed);
       final completionDetails = find.descendant(
         of: find
             .ancestor(

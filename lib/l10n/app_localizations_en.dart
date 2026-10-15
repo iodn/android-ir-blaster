@@ -1353,7 +1353,7 @@ class AppLocalizationsEn extends AppLocalizations {
       'Run a sequence of IR commands with waits between steps.';
 
   @override
-  String get sendCommand => 'Send Command';
+  String get sendCommand => 'Send command';
 
   @override
   String get sendCommandDescription =>

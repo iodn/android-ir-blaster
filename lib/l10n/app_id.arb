@@ -367,7 +367,7 @@
   "noRemotesYet": "Belum ada remote",
   "noRemotesDescription": "Buat remote untuk mulai mengirim kode IR.",
   "noRemotesNextStep": "Berikutnya: ketuk Tambah remote, lalu tambahkan tombol pertama.",
-  "actions": "Aksi",
+  "actions": "Tindakan",
   "macrosTitle": "Makro",
   "help": "Bantuan",
   "createMacro": "Buat makro",
@@ -393,7 +393,7 @@
   },
   "aboutTimedMacros": "Tentang makro",
   "aboutTimedMacrosDescription": "Jalankan rangkaian perintah IR dengan jeda di antara langkah.",
-  "sendCommand": "Kirim Perintah",
+  "sendCommand": "Kirim perintah",
   "sendCommandDescription": "Mengirim sinyal IR dari tombol yang tersimpan di remote Anda.",
   "delay": "Waktu tunggu",
   "delayDescription": "Menunggu selama waktu yang Anda tentukan sebelum langkah berikutnya.",
@@ -411,7 +411,7 @@
   "failedToRestoreMacro": "Makro tidak dapat dipulihkan.",
   "deleteMacroTitle": "Hapus makro?",
   "deleteMacroMessage": "Setelah dihapus, ketuk Urungkan pada pesan yang muncul untuk memulihkan makro.",
-  "noRemotesAvailable": "Tidak ada remote tersedia.",
+  "noRemotesAvailable": "Tidak ada remote yang tersedia.",
   "remoteButtonCountSummary": "{count} tombol(s)",
   "@remoteButtonCountSummary": {
     "placeholders": {
@@ -841,7 +841,7 @@
       "sourceLabel": {}
     }
   },
-  "clearAction": "Bersihkan",
+  "clearAction": "Hapus",
   "saveAction": "Simpan",
   "buttonsTitleCount": "Tombol ({count})",
   "@buttonsTitleCount": {

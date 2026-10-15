@@ -1419,7 +1419,7 @@ class AppLocalizationsNl extends AppLocalizations {
       'Tik na het verwijderen op Ongedaan maken in de melding om de macro te herstellen.';
 
   @override
-  String get noRemotesAvailable => 'Geen remotes available.';
+  String get noRemotesAvailable => 'Geen afstandsbedieningen beschikbaar.';
 
   @override
   String remoteButtonCountSummary(int count) {

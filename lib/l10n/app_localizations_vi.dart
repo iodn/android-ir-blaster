@@ -1382,7 +1382,7 @@ class AppLocalizationsVi extends AppLocalizations {
       'Sau khi xóa, nhấn Hoàn tác trong thông báo xuất hiện để khôi phục macro.';
 
   @override
-  String get noRemotesAvailable => 'Không có điều khiểns available.';
+  String get noRemotesAvailable => 'Không có điều khiển nào.';
 
   @override
   String remoteButtonCountSummary(int count) {

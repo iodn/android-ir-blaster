@@ -2194,7 +2194,7 @@ class AppLocalizationsIt extends AppLocalizations {
   }
 
   @override
-  String get clearAction => 'Pulisci';
+  String get clearAction => 'Cancella';
 
   @override
   String get saveAction => 'Salva';

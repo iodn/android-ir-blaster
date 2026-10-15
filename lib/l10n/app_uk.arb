@@ -399,7 +399,7 @@
   "delayDescription": "Чекає заданий час перед переходом до наступного кроку.",
   "manualContinue": "Чекати підтвердження",
   "manualContinueDescription": "Чекає на натискання «Продовжити» перед переходом до наступного кроку.",
-  "gotIt": "зрозумів",
+  "gotIt": "Зрозуміло",
   "failedToSaveMacros": "Не вдалося зберегти макроси.",
   "deletedMacroNamed": "«{name}» видалено.",
   "@deletedMacroNamed": {
@@ -466,7 +466,7 @@
   "duplicateAndEdit": "Дублювати й редагувати",
   "duplicateAndEditSubtitle": "Створити копію й одразу її відредагувати",
   "done": "Готово",
-  "run": "бігти",
+  "run": "Запустити",
   "untitledRemote": "Пульт без назви",
   "createRemoteTitle": "Створити пульт",
   "editRemoteTitle": "Редагувати пульт",
@@ -841,7 +841,7 @@
       "sourceLabel": {}
     }
   },
-  "clearAction": "ясно",
+  "clearAction": "Очистити",
   "saveAction": "Зберегти",
   "buttonsTitleCount": "Кнопки ({count})",
   "@buttonsTitleCount": {

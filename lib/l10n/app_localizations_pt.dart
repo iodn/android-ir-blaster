@@ -2193,7 +2193,7 @@ class AppLocalizationsPt extends AppLocalizations {
   }
 
   @override
-  String get clearAction => 'Limpiar';
+  String get clearAction => 'Limpar';
 
   @override
   String get saveAction => 'Guardar';
@@ -2255,7 +2255,7 @@ class AppLocalizationsPt extends AppLocalizations {
   }
 
   @override
-  String get completed => 'Completado';
+  String get completed => 'Concluído';
 
   @override
   String get paused => 'Em pausa';
@@ -6674,7 +6674,7 @@ class AppLocalizationsPtBr extends AppLocalizationsPt {
       'Execute uma sequência de comandos IR com pausas entre as etapas.';
 
   @override
-  String get sendCommand => 'Enviar controle';
+  String get sendCommand => 'Enviar comando';
 
   @override
   String get sendCommandDescription =>
@@ -7502,7 +7502,7 @@ class AppLocalizationsPtBr extends AppLocalizationsPt {
   }
 
   @override
-  String get clearAction => 'Limpiar';
+  String get clearAction => 'Limpar';
 
   @override
   String get saveAction => 'Salvar';
@@ -7564,7 +7564,7 @@ class AppLocalizationsPtBr extends AppLocalizationsPt {
   }
 
   @override
-  String get completed => 'Completado';
+  String get completed => 'Concluído';
 
   @override
   String get paused => 'Pausado';

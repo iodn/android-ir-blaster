@@ -55,6 +55,7 @@ void main() {
           scrollable: sheetScroll);
       await tester.pumpAndSettle();
       readable(l10n.enterCustomDelayDuration);
+      readable(l10n.custom);
       await Scrollable.ensureVisible(
           tester.element(find.text(l10n.enterCustomDelayDuration)),
           alignment: 1);

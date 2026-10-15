@@ -2139,7 +2139,7 @@ class AppLocalizationsKo extends AppLocalizations {
   }
 
   @override
-  String get completed => '완료됨';
+  String get completed => '완료';
 
   @override
   String get paused => '일시 정지';

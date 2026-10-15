@@ -1271,7 +1271,7 @@ class AppLocalizationsRu extends AppLocalizations {
       'Что дальше: нажмите Добавить пульт, затем добавьте первые кнопки.';
 
   @override
-  String get actions => 'Actions';
+  String get actions => 'Действия';
 
   @override
   String get macrosTitle => 'Макросы';
@@ -2333,7 +2333,7 @@ class AppLocalizationsRu extends AppLocalizations {
   }
 
   @override
-  String get custom => 'Свое';
+  String get custom => 'Свой вариант';
 
   @override
   String get enterCustomDelayDuration => 'Введите другое время ожидания';

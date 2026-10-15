@@ -841,7 +841,7 @@
       "sourceLabel": {}
     }
   },
-  "clearAction": "Pulisci",
+  "clearAction": "Cancella",
   "saveAction": "Salva",
   "buttonsTitleCount": "Pulsanti ({count})",
   "@buttonsTitleCount": {

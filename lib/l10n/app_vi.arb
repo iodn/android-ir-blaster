@@ -411,7 +411,7 @@
   "failedToRestoreMacro": "Không khôi phục được macro.",
   "deleteMacroTitle": "Xóa macro?",
   "deleteMacroMessage": "Sau khi xóa, nhấn Hoàn tác trong thông báo xuất hiện để khôi phục macro.",
-  "noRemotesAvailable": "Không có điều khiểns available.",
+  "noRemotesAvailable": "Không có điều khiển nào.",
   "remoteButtonCountSummary": "{count} nút",
   "@remoteButtonCountSummary": {
     "placeholders": {

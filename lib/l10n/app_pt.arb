@@ -841,7 +841,7 @@
       "sourceLabel": {}
     }
   },
-  "clearAction": "Limpiar",
+  "clearAction": "Limpar",
   "saveAction": "Guardar",
   "buttonsTitleCount": "Botões ({count})",
   "@buttonsTitleCount": {
@@ -910,7 +910,7 @@
       }
     }
   },
-  "completed": "Completado",
+  "completed": "Concluído",
   "paused": "Em pausa",
   "running": "Em execução",
   "ready": "Pronto",

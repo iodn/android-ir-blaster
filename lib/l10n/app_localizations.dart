@@ -2463,7 +2463,7 @@ abstract class AppLocalizations {
   /// No description provided for @sendCommand.
   ///
   /// In en, this message translates to:
-  /// **'Send Command'**
+  /// **'Send command'**
   String get sendCommand;
 
   /// No description provided for @sendCommandDescription.

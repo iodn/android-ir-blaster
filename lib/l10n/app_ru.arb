@@ -367,7 +367,7 @@
   "noRemotesYet": "Пультов пока нет",
   "noRemotesDescription": "Создайте пульт, чтобы начать отправлять ИК-коды.",
   "noRemotesNextStep": "Что дальше: нажмите Добавить пульт, затем добавьте первые кнопки.",
-  "actions": "Actions",
+  "actions": "Действия",
   "macrosTitle": "Макросы",
   "help": "Помощь",
   "createMacro": "Создать макрос",
@@ -983,7 +983,7 @@
       }
     }
   },
-  "custom": "Свое",
+  "custom": "Свой вариант",
   "enterCustomDelayDuration": "Введите другое время ожидания",
   "millisecondsLong": "{ms, plural, one{{ms} миллисекунда} few{{ms} миллисекунды} many{{ms} миллисекунд} other{{ms} миллисекунды}}",
   "@millisecondsLong": {

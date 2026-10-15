@@ -1363,7 +1363,7 @@ class AppLocalizationsFr extends AppLocalizations {
       'Exécutez une suite de commandes IR avec des temps d’attente entre les étapes.';
 
   @override
-  String get sendCommand => 'Envoyer commande';
+  String get sendCommand => 'Envoyer une commande';
 
   @override
   String get sendCommandDescription =>
@@ -1384,7 +1384,7 @@ class AppLocalizationsFr extends AppLocalizations {
       'Attend que vous appuyiez sur Continuer avant de passer à l’étape suivante.';
 
   @override
-  String get gotIt => 'J\'ai compris';
+  String get gotIt => 'Compris';
 
   @override
   String get failedToSaveMacros => 'Impossible d’enregistrer les macros.';

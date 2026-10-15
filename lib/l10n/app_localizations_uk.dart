@@ -1393,7 +1393,7 @@ class AppLocalizationsUk extends AppLocalizations {
       'Чекає на натискання «Продовжити» перед переходом до наступного кроку.';
 
   @override
-  String get gotIt => 'зрозумів';
+  String get gotIt => 'Зрозуміло';
 
   @override
   String get failedToSaveMacros => 'Не вдалося зберегти макроси.';
@@ -1557,7 +1557,7 @@ class AppLocalizationsUk extends AppLocalizations {
   String get done => 'Готово';
 
   @override
-  String get run => 'бігти';
+  String get run => 'Запустити';
 
   @override
   String get untitledRemote => 'Пульт без назви';
@@ -2261,7 +2261,7 @@ class AppLocalizationsUk extends AppLocalizations {
   }
 
   @override
-  String get clearAction => 'ясно';
+  String get clearAction => 'Очистити';
 
   @override
   String get saveAction => 'Зберегти';
