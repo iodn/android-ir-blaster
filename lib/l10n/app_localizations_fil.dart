@@ -52,8 +52,7 @@ class AppLocalizationsFil extends AppLocalizations {
       'Hindi makakonekta sa USB adapter kahit may pahintulot na. Tanggalin, isaksak muli, at subukan ulit.';
 
   @override
-  String get homeUsbReadyMessage =>
-      'Walang built-in IR emitter ang teleponong ito.';
+  String get homeUsbReadyMessage => 'Handa na ang USB IR adapter.';
 
   @override
   String get homeUsbNoDeviceMessage =>
@@ -84,7 +83,7 @@ class AppLocalizationsFil extends AppLocalizations {
 
   @override
   String get homeHardwareBannerNoInternal =>
-      'Walang built-in IR ang teleponong ito. Ikabit ang USB IR dongle o i-on ang Audio mode sa Mga Setting.';
+      'Walang built-in na IR transmitter. Gumamit ng compatible na USB IR adapter o audio-to-IR accessory.';
 
   @override
   String get homeHardwareBannerPermissionRequired =>
@@ -116,7 +115,7 @@ class AppLocalizationsFil extends AppLocalizations {
 
   @override
   String get homeAudioAdapterDescription =>
-      'Mga Setting → IR Transmitter → Audio 1 LED / 2 LED. Kailangan ng audio-to-IR adapter.';
+      'Kailangan ng audio-to-IR adapter. Sa Mga Setting, piliin ang Audio (1 o 2 LED) at lakasan ang media volume.';
 
   @override
   String get close => 'Isara';
@@ -129,21 +128,21 @@ class AppLocalizationsFil extends AppLocalizations {
 
   @override
   String get homeUsbPermissionSentApprove =>
-      'Naipadala na ang hiling para sa pahintulot sa USB. Payagan ang prompt para ma-enable ang USB.';
+      'Naipadala na ang hiling. Payagan ang USB access sa prompt ng Android.';
 
   @override
   String get homeUsbDongleNotDetected =>
-      'Walang natukoy na suportadong USB IR dongle. Isaksak ito at subukan muli.';
+      'Walang nakitang suportadong USB IR adapter. Ikabit ito at subukan muli.';
 
   @override
   String get homeUsbPermissionRequestFailed =>
-      'Nabigong humiling ng pahintulot sa USB.';
+      'Hindi makahiling ng USB access. Subukan muli.';
 
   @override
   String get working => 'Gumagana…';
 
   @override
-  String get requestUsbPermission => 'Humiling ng pahintulot sa USB';
+  String get requestUsbPermission => 'Humiling ng USB access';
 
   @override
   String get homeHardwareTip =>
@@ -158,10 +157,10 @@ class AppLocalizationsFil extends AppLocalizations {
 
   @override
   String get homeCanStillUseWithoutHardware =>
-      'Maaari ka pa ring gumawa, mag-import, at mag-ayos ng mga remote ngayon din.';
+      'Puwede ka pa ring gumawa, mag-import, at mag-ayos ng mga remote.';
 
   @override
-  String get homeWaysToUseIrBlaster => 'Mga paraan para gamitin ang IR Blaster';
+  String get homeWaysToUseIrBlaster => 'Mga pagpipiliang hardware';
 
   @override
   String get homeBuiltInIrOptionTitle => 'Built-in na IR transmitter';
@@ -171,7 +170,7 @@ class AppLocalizationsFil extends AppLocalizations {
       'May built-in na IR transmitter ang ilang phone. Wala nito ang phone na ito.';
 
   @override
-  String get homeBuiltInIrUnavailable => 'Hindi available sa teleponong ito';
+  String get homeBuiltInIrUnavailable => 'Hindi built-in sa phone na ito';
 
   @override
   String get homeUsbFamilyTiqiaaZaza => 'Tiqiaa / ZaZa';
@@ -180,7 +179,7 @@ class AppLocalizationsFil extends AppLocalizations {
   String get homeUsbFamilyElkSmart => 'ElkSmart';
 
   @override
-  String get homeAudioAccessoryLabel => '3.5 mm na audio adapter';
+  String get homeAudioAccessoryLabel => 'Audio-to-IR adapter';
 
   @override
   String get homeContinueWithoutHardware => 'Magpatuloy nang walang IR';

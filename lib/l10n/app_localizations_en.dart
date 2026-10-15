@@ -52,8 +52,7 @@ class AppLocalizationsEn extends AppLocalizations {
       'Could not connect to the USB adapter despite having permission. Unplug it, reconnect it, and try again.';
 
   @override
-  String get homeUsbReadyMessage =>
-      'This phone does not include a built-in IR emitter.';
+  String get homeUsbReadyMessage => 'USB IR adapter ready.';
 
   @override
   String get homeUsbNoDeviceMessage =>
@@ -83,7 +82,7 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get homeHardwareBannerNoInternal =>
-      'This phone has no built-in IR. Connect a USB IR dongle or enable Audio mode in Settings.';
+      'No built-in IR transmitter. Use a compatible USB IR adapter or an audio-to-IR accessory.';
 
   @override
   String get homeHardwareBannerPermissionRequired =>
@@ -115,7 +114,7 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get homeAudioAdapterDescription =>
-      'Settings → IR Transmitter → Audio (1 LED / 2 LED). Requires an audio-to-IR adapter.';
+      'Needs an audio-to-IR adapter. In Settings, choose Audio (1 LED or 2 LEDs) and raise media volume.';
 
   @override
   String get close => 'Close';
@@ -128,21 +127,21 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get homeUsbPermissionSentApprove =>
-      'USB permission request sent. Approve the prompt to enable USB.';
+      'Permission requested. Allow USB access in the Android prompt.';
 
   @override
   String get homeUsbDongleNotDetected =>
-      'No supported USB IR dongle detected. Plug it in and try again.';
+      'No supported USB IR adapter found. Connect it and try again.';
 
   @override
   String get homeUsbPermissionRequestFailed =>
-      'Failed to request USB permission.';
+      'Could not request USB access. Please try again.';
 
   @override
   String get working => 'Working…';
 
   @override
-  String get requestUsbPermission => 'Request USB permission';
+  String get requestUsbPermission => 'Request USB access';
 
   @override
   String get homeHardwareTip =>
@@ -157,10 +156,10 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get homeCanStillUseWithoutHardware =>
-      'You can still create, import, and organize remotes right now.';
+      'You can still create, import, and organize remotes.';
 
   @override
-  String get homeWaysToUseIrBlaster => 'Ways to use IR Blaster';
+  String get homeWaysToUseIrBlaster => 'Hardware options';
 
   @override
   String get homeBuiltInIrOptionTitle => 'Built-in IR transmitter';
@@ -170,7 +169,7 @@ class AppLocalizationsEn extends AppLocalizations {
       'Some phones have an IR transmitter built in. This phone does not.';
 
   @override
-  String get homeBuiltInIrUnavailable => 'Not available on this phone';
+  String get homeBuiltInIrUnavailable => 'Not built into this phone';
 
   @override
   String get homeUsbFamilyTiqiaaZaza => 'Tiqiaa / ZaZa';
@@ -179,7 +178,7 @@ class AppLocalizationsEn extends AppLocalizations {
   String get homeUsbFamilyElkSmart => 'ElkSmart';
 
   @override
-  String get homeAudioAccessoryLabel => '3.5 mm audio adapter';
+  String get homeAudioAccessoryLabel => 'Audio-to-IR adapter';
 
   @override
   String get homeContinueWithoutHardware => 'Continue without sending';

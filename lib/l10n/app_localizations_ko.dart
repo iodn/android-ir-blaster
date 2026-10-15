@@ -52,8 +52,7 @@ class AppLocalizationsKo extends AppLocalizations {
       '권한은 있지만 USB 어댑터에 연결하지 못했습니다. 어댑터를 뺐다가 다시 연결하고 시도하세요.';
 
   @override
-  String get homeUsbReadyMessage =>
-      '이 휴대폰에는 내장 IR 송신기가 없습니다. USB IR 동글이 연결되어 준비되었습니다.';
+  String get homeUsbReadyMessage => 'USB IR 어댑터 준비 완료.';
 
   @override
   String get homeUsbNoDeviceMessage =>
@@ -79,7 +78,7 @@ class AppLocalizationsKo extends AppLocalizations {
 
   @override
   String get homeHardwareBannerNoInternal =>
-      '이 휴대폰에는 내장 IR이 없습니다. USB IR 동글을 연결하거나 설정에서 오디오 모드를 켜세요.';
+      '내장 IR 송신기가 없습니다. 호환되는 USB IR 어댑터나 오디오 IR 액세서리를 사용하세요.';
 
   @override
   String get homeHardwareBannerPermissionRequired => '연결됨. USB 접근을 허용하세요.';
@@ -107,7 +106,7 @@ class AppLocalizationsKo extends AppLocalizations {
 
   @override
   String get homeAudioAdapterDescription =>
-      '설정 → IR 송신기 → 오디오(LED 1개 / 2개). 오디오-IR 어댑터가 필요합니다.';
+      '오디오 IR 어댑터가 필요합니다. 설정에서 오디오(LED 1개 또는 2개)를 선택하고 미디어 음량을 높이세요.';
 
   @override
   String get close => '닫기';
@@ -120,20 +119,21 @@ class AppLocalizationsKo extends AppLocalizations {
 
   @override
   String get homeUsbPermissionSentApprove =>
-      'USB 권한 요청을 보냈습니다. USB를 사용하려면 프롬프트를 승인하세요.';
+      '권한을 요청했습니다. Android 확인 창에서 USB 접근을 허용하세요.';
 
   @override
   String get homeUsbDongleNotDetected =>
-      '지원되는 USB IR 동글이 감지되지 않았습니다. 연결한 뒤 다시 시도하세요.';
+      '지원되는 USB IR 어댑터를 찾지 못했습니다. 연결한 후 다시 시도하세요.';
 
   @override
-  String get homeUsbPermissionRequestFailed => 'USB 권한을 요청하지 못했습니다.';
+  String get homeUsbPermissionRequestFailed =>
+      'USB 접근 권한을 요청하지 못했습니다. 다시 시도하세요.';
 
   @override
   String get working => '작업 중…';
 
   @override
-  String get requestUsbPermission => '요청 USB 권한';
+  String get requestUsbPermission => 'USB 접근 요청';
 
   @override
   String get homeHardwareTip => '지금 리모컨을 준비해 두세요. IR 송신기는 명령을 전송할 때만 필요합니다.';
@@ -147,10 +147,10 @@ class AppLocalizationsKo extends AppLocalizations {
 
   @override
   String get homeCanStillUseWithoutHardware =>
-      '지금도 리모컨을 만들고, 가져오고, 정리할 수 있습니다.';
+      '리모컨 만들기, 가져오기, 정리는 계속 사용할 수 있습니다.';
 
   @override
-  String get homeWaysToUseIrBlaster => 'IR Blaster 사용 방법';
+  String get homeWaysToUseIrBlaster => '사용할 수 있는 송신기';
 
   @override
   String get homeBuiltInIrOptionTitle => '내장 IR 송신기';
@@ -160,7 +160,7 @@ class AppLocalizationsKo extends AppLocalizations {
       '일부 휴대전화에는 IR 송신기가 내장되어 있지만, 이 휴대전화에는 없습니다.';
 
   @override
-  String get homeBuiltInIrUnavailable => '이 휴대폰에서는 사용할 수 없음';
+  String get homeBuiltInIrUnavailable => '이 휴대전화에 내장되어 있지 않음';
 
   @override
   String get homeUsbFamilyTiqiaaZaza => 'Tiqiaa / ZaZa';
@@ -169,7 +169,7 @@ class AppLocalizationsKo extends AppLocalizations {
   String get homeUsbFamilyElkSmart => 'ElkSmart';
 
   @override
-  String get homeAudioAccessoryLabel => '3.5mm 오디오 어댑터';
+  String get homeAudioAccessoryLabel => '오디오 IR 어댑터';
 
   @override
   String get homeContinueWithoutHardware => '전송 없이 계속';

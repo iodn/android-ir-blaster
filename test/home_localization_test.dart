@@ -56,6 +56,12 @@ void main() {
         messenger.setMockMethodCallHandler(channel, (call) async {
           if (call.method == 'performHaptic') return true;
           if (call.method == 'getPreferredTransmitterType') return 'INTERNAL';
+          if (call.method == 'usbScanAndRequest') {
+            if (status == 'OPEN_FAILED') {
+              throw PlatformException(code: 'USB_REQUEST_FAILED');
+            }
+            return status == 'PERMISSION_REQUIRED';
+          }
           if (call.method == 'getTransmitterCapabilities') {
             return {
               'hasInternal': false,
@@ -93,6 +99,8 @@ void main() {
         expect(find.text(l10n.homeHardwareRequiredTitle), findsOneWidget);
         expect(find.text(l10n.homeHardwareRequiredBody), findsOneWidget);
         expect(find.text(l10n.homeUsbDongleRecommended), findsOneWidget);
+        expect(find.text(l10n.homeAudioAdapterDescription), findsOneWidget);
+        expect(find.text(l10n.homeAudioAccessoryLabel), findsWidgets);
         final message = switch (status) {
           'PERMISSION_REQUIRED' => l10n.homeUsbPermissionRequiredMessage,
           'PERMISSION_DENIED' => l10n.homeUsbPermissionDeniedMessage,
@@ -102,6 +110,24 @@ void main() {
         };
         expect(find.text(message), findsWidgets);
         expect(tester.takeException(), isNull);
+        if (['PERMISSION_REQUIRED', 'PERMISSION_DENIED', 'OPEN_FAILED']
+            .contains(status)) {
+          final request =
+              find.widgetWithText(FilledButton, l10n.requestUsbPermission);
+          await tester.ensureVisible(request);
+          await tester.pumpAndSettle();
+          await tester.tap(request);
+          await tester.pumpAndSettle();
+          final feedback = switch (status) {
+            'PERMISSION_REQUIRED' => l10n.homeUsbPermissionSentApprove,
+            'PERMISSION_DENIED' => l10n.homeUsbDongleNotDetected,
+            _ => l10n.homeUsbPermissionRequestFailed,
+          };
+          expect(find.text(feedback), findsOneWidget);
+          expect(tester.takeException(), isNull);
+          await tester.pump(const Duration(seconds: 5));
+          await tester.pumpAndSettle();
+        }
         final proceed =
             find.widgetWithText(TextButton, l10n.homeContinueWithoutHardware);
         await tester.ensureVisible(proceed);

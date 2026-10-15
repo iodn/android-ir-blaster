@@ -52,7 +52,7 @@ class AppLocalizationsTr extends AppLocalizations {
       'İzin verilmesine rağmen USB adaptörüne bağlanılamadı. Çıkarıp yeniden takın ve tekrar deneyin.';
 
   @override
-  String get homeUsbReadyMessage => 'Bu telefonda dahili IR verici yok.';
+  String get homeUsbReadyMessage => 'USB IR adaptörü hazır.';
 
   @override
   String get homeUsbNoDeviceMessage =>
@@ -83,7 +83,7 @@ class AppLocalizationsTr extends AppLocalizations {
 
   @override
   String get homeHardwareBannerNoInternal =>
-      'Bu telefonda dahili IR yok. Bir USB IR dongle bağlayın veya Ayarlar\'da Ses modunu etkinleştirin.';
+      'Dahili IR verici yok. Uyumlu bir USB IR adaptörü veya sesi IR sinyaline dönüştüren bir aksesuar kullanın.';
 
   @override
   String get homeHardwareBannerPermissionRequired =>
@@ -115,7 +115,7 @@ class AppLocalizationsTr extends AppLocalizations {
 
   @override
   String get homeAudioAdapterDescription =>
-      'Ayarlar → IR Verici → Ses (1 LED / 2 LED). Ses-IR adaptörü gerekir.';
+      'Ses-IR adaptörü gerekir. Ayarlar’da Ses (1 veya 2 LED) seçeneğini seçin ve medya sesini yükseltin.';
 
   @override
   String get close => 'Kapat';
@@ -128,20 +128,21 @@ class AppLocalizationsTr extends AppLocalizations {
 
   @override
   String get homeUsbPermissionSentApprove =>
-      'USB izin isteği gönderildi. USB\'yi etkinleştirmek için istemi onaylayın.';
+      'İzin istendi. Android iletişim kutusunda USB erişimine izin verin.';
 
   @override
   String get homeUsbDongleNotDetected =>
-      'Desteklenen USB IR dongle algılanmadı. Takıp yeniden deneyin.';
+      'Desteklenen USB IR adaptörü bulunamadı. Bağlayıp tekrar deneyin.';
 
   @override
-  String get homeUsbPermissionRequestFailed => 'USB izni istenemedi.';
+  String get homeUsbPermissionRequestFailed =>
+      'USB erişimi istenemedi. Tekrar deneyin.';
 
   @override
   String get working => 'Çalışıyor…';
 
   @override
-  String get requestUsbPermission => 'USB izni iste';
+  String get requestUsbPermission => 'USB erişimi iste';
 
   @override
   String get homeHardwareTip =>
@@ -156,10 +157,10 @@ class AppLocalizationsTr extends AppLocalizations {
 
   @override
   String get homeCanStillUseWithoutHardware =>
-      'Şu anda yine de kumandalar oluşturabilir, içe aktarabilir ve düzenleyebilirsiniz.';
+      'Kumanda oluşturmaya, içe aktarmaya ve düzenlemeye devam edebilirsiniz.';
 
   @override
-  String get homeWaysToUseIrBlaster => 'IR Blaster kullanma yolları';
+  String get homeWaysToUseIrBlaster => 'Donanım seçenekleri';
 
   @override
   String get homeBuiltInIrOptionTitle => 'Dahili IR verici';
@@ -169,7 +170,7 @@ class AppLocalizationsTr extends AppLocalizations {
       'Bazı telefonlarda dahili IR verici bulunur. Bu telefonda bulunmuyor.';
 
   @override
-  String get homeBuiltInIrUnavailable => 'Bu telefonda mevcut değil';
+  String get homeBuiltInIrUnavailable => 'Bu telefonda dahili olarak yok';
 
   @override
   String get homeUsbFamilyTiqiaaZaza => 'Tiqiaa / ZaZa';
@@ -178,7 +179,7 @@ class AppLocalizationsTr extends AppLocalizations {
   String get homeUsbFamilyElkSmart => 'ElkSmart';
 
   @override
-  String get homeAudioAccessoryLabel => '3,5 mm ses adaptörü';
+  String get homeAudioAccessoryLabel => 'Ses-IR adaptörü';
 
   @override
   String get homeContinueWithoutHardware => 'Göndermeden devam et';

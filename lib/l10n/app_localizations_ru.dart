@@ -52,8 +52,7 @@ class AppLocalizationsRu extends AppLocalizations {
       'Не удалось подключиться к USB-адаптеру, хотя доступ разрешён. Отключите его, подключите снова и повторите попытку.';
 
   @override
-  String get homeUsbReadyMessage =>
-      'В этом телефоне нет встроенного ИК-передатчика.';
+  String get homeUsbReadyMessage => 'ИК USB-адаптер готов.';
 
   @override
   String get homeUsbNoDeviceMessage =>
@@ -84,7 +83,7 @@ class AppLocalizationsRu extends AppLocalizations {
 
   @override
   String get homeHardwareBannerNoInternal =>
-      'В телефоне нет встроенного ИК. Подключите USB ИК-адаптер или включите режим Аудио в настройках.';
+      'Нет встроенного ИК-передатчика. Используйте совместимый ИК USB-адаптер или ИК-аксессуар с аудиоподключением.';
 
   @override
   String get homeHardwareBannerPermissionRequired =>
@@ -116,7 +115,7 @@ class AppLocalizationsRu extends AppLocalizations {
 
   @override
   String get homeAudioAdapterDescription =>
-      'Настройки → ИК-передатчик → Аудио (1 LED / 2 LED). Требуется аудио-ИК адаптер.';
+      'Нужен ИК-адаптер с аудиоподключением. В настройках выберите Аудио (1 или 2 светодиода) и увеличьте громкость мультимедиа.';
 
   @override
   String get close => 'Закрыть';
@@ -129,21 +128,21 @@ class AppLocalizationsRu extends AppLocalizations {
 
   @override
   String get homeUsbPermissionSentApprove =>
-      'Запрос доступа USB отправлен. Подтвердите его, чтобы включить USB.';
+      'Разрешение запрошено. Разрешите доступ к USB в окне Android.';
 
   @override
   String get homeUsbDongleNotDetected =>
-      'Поддерживаемый USB ИК-адаптер не найден. Подключите его и попробуйте снова.';
+      'Поддерживаемый ИК USB-адаптер не найден. Подключите его и попробуйте снова.';
 
   @override
   String get homeUsbPermissionRequestFailed =>
-      'Не удалось запросить доступ USB.';
+      'Не удалось запросить доступ к USB. Попробуйте снова.';
 
   @override
   String get working => 'Выполняется…';
 
   @override
-  String get requestUsbPermission => 'Запросить доступ USB';
+  String get requestUsbPermission => 'Запросить доступ к USB';
 
   @override
   String get homeHardwareTip =>
@@ -158,10 +157,10 @@ class AppLocalizationsRu extends AppLocalizations {
 
   @override
   String get homeCanStillUseWithoutHardware =>
-      'Вы уже можете создавать, импортировать и упорядочивать пульты прямо сейчас.';
+      'Вы по-прежнему можете создавать, импортировать и упорядочивать пульты.';
 
   @override
-  String get homeWaysToUseIrBlaster => 'Как использовать IR Blaster';
+  String get homeWaysToUseIrBlaster => 'Варианты оборудования';
 
   @override
   String get homeBuiltInIrOptionTitle => 'Встроенный ИК-передатчик';
@@ -171,7 +170,7 @@ class AppLocalizationsRu extends AppLocalizations {
       'В некоторых телефонах есть встроенный ИК-передатчик. В этом телефоне его нет.';
 
   @override
-  String get homeBuiltInIrUnavailable => 'Недоступно на этом телефоне';
+  String get homeBuiltInIrUnavailable => 'В этом телефоне отсутствует';
 
   @override
   String get homeUsbFamilyTiqiaaZaza => 'Tiqiaa / ZaZa';
@@ -180,7 +179,7 @@ class AppLocalizationsRu extends AppLocalizations {
   String get homeUsbFamilyElkSmart => 'ElkSmart';
 
   @override
-  String get homeAudioAccessoryLabel => 'Аудиоадаптер 3,5 мм';
+  String get homeAudioAccessoryLabel => 'ИК-адаптер с аудиоподключением';
 
   @override
   String get homeContinueWithoutHardware => 'Продолжить без отправки';

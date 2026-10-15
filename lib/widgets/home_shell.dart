@@ -634,14 +634,21 @@ class _HomeShellState extends State<HomeShell> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Column(
-        children: [
-          _hardwareBanner(context),
-          Expanded(
-            child: IndexedStack(index: _index, children: _pages),
-          ),
-        ],
-      ),
+      body: LayoutBuilder(
+          builder: (context, constraints) => Column(
+                children: [
+                  // Keep the remote canvas usable with large text and long translations.
+                  ConstrainedBox(
+                    constraints:
+                        BoxConstraints(maxHeight: constraints.maxHeight / 2),
+                    child:
+                        SingleChildScrollView(child: _hardwareBanner(context)),
+                  ),
+                  Expanded(
+                    child: IndexedStack(index: _index, children: _pages),
+                  ),
+                ],
+              )),
       bottomNavigationBar: NavigationBar(
         selectedIndex: _index,
         onDestinationSelected: (i) => setState(() => _index = i),

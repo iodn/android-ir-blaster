@@ -52,8 +52,7 @@ class AppLocalizationsVi extends AppLocalizations {
       'Không thể kết nối với bộ chuyển đổi USB dù đã có quyền truy cập. Hãy rút ra, cắm lại rồi thử lại.';
 
   @override
-  String get homeUsbReadyMessage =>
-      'Điện thoại này không có bộ phát IR tích hợp.';
+  String get homeUsbReadyMessage => 'Bộ chuyển đổi USB IR đã sẵn sàng.';
 
   @override
   String get homeUsbNoDeviceMessage =>
@@ -84,7 +83,7 @@ class AppLocalizationsVi extends AppLocalizations {
 
   @override
   String get homeHardwareBannerNoInternal =>
-      'Điện thoại này không có IR tích hợp. Hãy kết nối USB IR dongle hoặc bật chế độ Audio trong Cài đặt.';
+      'Không có bộ phát hồng ngoại tích hợp. Hãy dùng bộ chuyển đổi USB IR tương thích hoặc phụ kiện chuyển âm thanh sang hồng ngoại.';
 
   @override
   String get homeHardwareBannerPermissionRequired =>
@@ -116,7 +115,7 @@ class AppLocalizationsVi extends AppLocalizations {
 
   @override
   String get homeAudioAdapterDescription =>
-      'Cài đặt → Bộ phát IR → Audio (1 LED / 2 LED). Cần bộ chuyển audio sang IR.';
+      'Cần bộ chuyển âm thanh sang IR. Trong Cài đặt, chọn Âm thanh (1 hoặc 2 LED) và tăng âm lượng đa phương tiện.';
 
   @override
   String get close => 'Đóng';
@@ -129,20 +128,21 @@ class AppLocalizationsVi extends AppLocalizations {
 
   @override
   String get homeUsbPermissionSentApprove =>
-      'Đã gửi yêu cầu quyền USB. Hãy chấp nhận lời nhắc để bật USB.';
+      'Đã gửi yêu cầu cấp quyền. Hãy cho phép truy cập USB trong hộp thoại Android.';
 
   @override
   String get homeUsbDongleNotDetected =>
-      'Không phát hiện USB IR dongle được hỗ trợ. Hãy cắm vào rồi thử lại.';
+      'Không tìm thấy bộ chuyển đổi USB IR được hỗ trợ. Hãy kết nối rồi thử lại.';
 
   @override
-  String get homeUsbPermissionRequestFailed => 'Không yêu cầu được quyền USB.';
+  String get homeUsbPermissionRequestFailed =>
+      'Không thể yêu cầu quyền truy cập USB. Hãy thử lại.';
 
   @override
   String get working => 'Đang xử lý…';
 
   @override
-  String get requestUsbPermission => 'Yêu cầu quyền USB';
+  String get requestUsbPermission => 'Yêu cầu truy cập USB';
 
   @override
   String get homeHardwareTip =>
@@ -157,10 +157,10 @@ class AppLocalizationsVi extends AppLocalizations {
 
   @override
   String get homeCanStillUseWithoutHardware =>
-      'Bạn vẫn có thể tạo, nhập và sắp xếp điều khiển từ xa ngay bây giờ.';
+      'Bạn vẫn có thể tạo, nhập và sắp xếp các điều khiển.';
 
   @override
-  String get homeWaysToUseIrBlaster => 'Các cách dùng IR Blaster';
+  String get homeWaysToUseIrBlaster => 'Các lựa chọn phần cứng';
 
   @override
   String get homeBuiltInIrOptionTitle => 'Bộ phát hồng ngoại tích hợp';
@@ -170,7 +170,7 @@ class AppLocalizationsVi extends AppLocalizations {
       'Một số điện thoại có bộ phát hồng ngoại tích hợp. Điện thoại này không có.';
 
   @override
-  String get homeBuiltInIrUnavailable => 'Không có trên điện thoại này';
+  String get homeBuiltInIrUnavailable => 'Không tích hợp trên điện thoại này';
 
   @override
   String get homeUsbFamilyTiqiaaZaza => 'Tiqiaa / ZaZa';
@@ -179,7 +179,7 @@ class AppLocalizationsVi extends AppLocalizations {
   String get homeUsbFamilyElkSmart => 'ElkSmart';
 
   @override
-  String get homeAudioAccessoryLabel => 'Bộ chuyển âm thanh 3,5 mm';
+  String get homeAudioAccessoryLabel => 'Bộ chuyển âm thanh sang IR';
 
   @override
   String get homeContinueWithoutHardware => 'Tiếp tục mà không phát tín hiệu';

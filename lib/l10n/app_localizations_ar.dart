@@ -52,7 +52,7 @@ class AppLocalizationsAr extends AppLocalizations {
       'تعذّر الاتصال بمحوّل USB رغم السماح بالوصول. افصله ثم أعد توصيله وحاول مجددًا.';
 
   @override
-  String get homeUsbReadyMessage => 'هذا الهاتف لا يحتوي على مرسل IR مدمج.';
+  String get homeUsbReadyMessage => 'محوّل IR USB جاهز.';
 
   @override
   String get homeUsbNoDeviceMessage =>
@@ -81,7 +81,7 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String get homeHardwareBannerNoInternal =>
-      'هذا الهاتف لا يحتوي على IR مدمج. وصّل دونجل IR عبر USB أو فعّل وضع الصوت من الإعدادات.';
+      'لا يوجد مرسل IR مدمج. استخدم محوّل IR USB متوافقًا أو ملحقًا يحوّل الصوت إلى أشعة تحت الحمراء.';
 
   @override
   String get homeHardwareBannerPermissionRequired =>
@@ -113,7 +113,7 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String get homeAudioAdapterDescription =>
-      'الإعدادات → مرسل IR → الصوت 1 LED أو 2 LED. يتطلب محول صوت إلى IR.';
+      'يلزم محوّل صوت إلى IR. اختر الصوت (LED واحد أو اثنان) في الإعدادات وارفع مستوى صوت الوسائط.';
 
   @override
   String get close => 'إغلاق';
@@ -126,20 +126,21 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String get homeUsbPermissionSentApprove =>
-      'تم إرسال طلب إذن USB. وافق على الرسالة لتفعيل USB.';
+      'تم طلب الإذن. اسمح بالوصول إلى USB في نافذة Android.';
 
   @override
   String get homeUsbDongleNotDetected =>
-      'لم يتم اكتشاف دونجل IR عبر USB مدعوم. وصّله ثم حاول مرة أخرى.';
+      'لم يتم العثور على محوّل IR USB مدعوم. وصّله وحاول مجددًا.';
 
   @override
-  String get homeUsbPermissionRequestFailed => 'فشل طلب إذن USB.';
+  String get homeUsbPermissionRequestFailed =>
+      'تعذّر طلب الوصول إلى USB. حاول مجددًا.';
 
   @override
   String get working => 'جارٍ التنفيذ…';
 
   @override
-  String get requestUsbPermission => 'طلب إذن USB';
+  String get requestUsbPermission => 'طلب الوصول إلى USB';
 
   @override
   String get homeHardwareTip =>
@@ -154,10 +155,10 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String get homeCanStillUseWithoutHardware =>
-      'ما زال بإمكانك إنشاء أجهزة التحكم واستيرادها وتنظيمها الآن.';
+      'لا يزال بإمكانك إنشاء أجهزة التحكم واستيرادها وتنظيمها.';
 
   @override
-  String get homeWaysToUseIrBlaster => 'طرق استخدام IR Blaster';
+  String get homeWaysToUseIrBlaster => 'خيارات الأجهزة';
 
   @override
   String get homeBuiltInIrOptionTitle => 'مرسل IR مدمج';
@@ -167,7 +168,7 @@ class AppLocalizationsAr extends AppLocalizations {
       'تحتوي بعض الهواتف على مرسل IR مدمج. هذا الهاتف لا يحتوي عليه.';
 
   @override
-  String get homeBuiltInIrUnavailable => 'غير متاح على هذا الهاتف';
+  String get homeBuiltInIrUnavailable => 'غير مدمج في هذا الهاتف';
 
   @override
   String get homeUsbFamilyTiqiaaZaza => 'Tiqiaa / ZaZa';
@@ -176,7 +177,7 @@ class AppLocalizationsAr extends AppLocalizations {
   String get homeUsbFamilyElkSmart => 'ElkSmart';
 
   @override
-  String get homeAudioAccessoryLabel => 'محوّل صوت 3.5 مم';
+  String get homeAudioAccessoryLabel => 'محوّل صوت إلى IR';
 
   @override
   String get homeContinueWithoutHardware => 'المتابعة دون إرسال';
@@ -5267,7 +5268,7 @@ class AppLocalizationsArEg extends AppLocalizationsAr {
       'ما قدرناش نتصل بمحوّل USB رغم إن الإذن موجود. افصله ووصّله تاني، وجرب من جديد.';
 
   @override
-  String get homeUsbReadyMessage => 'هذا الهاتف لا يحتوي على مرسل IR مدمج.';
+  String get homeUsbReadyMessage => 'محوّل IR USB جاهز.';
 
   @override
   String get homeUsbNoDeviceMessage =>
@@ -5295,7 +5296,7 @@ class AppLocalizationsArEg extends AppLocalizationsAr {
 
   @override
   String get homeHardwareBannerNoInternal =>
-      'هذا الهاتف لا يحتوي على IR مدمج. وصّل دونجل IR عبر USB أو فعّل وضع الصوت من الإعدادات.';
+      'مافيش مرسل IR مدمج. استخدم محوّل IR USB متوافق أو إكسسوار بيحوّل الصوت لأشعة تحت الحمراء.';
 
   @override
   String get homeHardwareBannerPermissionRequired =>
@@ -5326,7 +5327,7 @@ class AppLocalizationsArEg extends AppLocalizationsAr {
 
   @override
   String get homeAudioAdapterDescription =>
-      'الإعدادات → مرسل IR → الصوت 1 LED أو 2 LED. يتطلب محول صوت إلى IR.';
+      'محتاج محوّل صوت لـ IR. من الإعدادات، اختار الصوت (LED واحد أو اتنين) وارفع صوت الوسائط.';
 
   @override
   String get close => 'إغلاق';
@@ -5339,20 +5340,21 @@ class AppLocalizationsArEg extends AppLocalizationsAr {
 
   @override
   String get homeUsbPermissionSentApprove =>
-      'تم إرسال طلب إذن USB. وافق على الرسالة لتفعيل USB.';
+      'طلبنا الإذن. اسمح بالوصول للـ USB في نافذة Android.';
 
   @override
   String get homeUsbDongleNotDetected =>
-      'لم يتم اكتشاف دونجل IR عبر USB مدعوم. وصّله ثم حاول مرة أخرى.';
+      'ما لقيناش محوّل IR USB مدعوم. وصّله وجرب تاني.';
 
   @override
-  String get homeUsbPermissionRequestFailed => 'فشل طلب إذن USB.';
+  String get homeUsbPermissionRequestFailed =>
+      'ما قدرناش نطلب الوصول للـ USB. جرب تاني.';
 
   @override
   String get working => 'جارٍ التنفيذ…';
 
   @override
-  String get requestUsbPermission => 'طلب إذن USB';
+  String get requestUsbPermission => 'اطلب الوصول للـ USB';
 
   @override
   String get homeHardwareTip =>
@@ -5367,10 +5369,10 @@ class AppLocalizationsArEg extends AppLocalizationsAr {
 
   @override
   String get homeCanStillUseWithoutHardware =>
-      'لسه تقدر تنشئ الريموتات وتستوردها وتنظمها دلوقتي.';
+      'لسه تقدر تعمل ريموتات وتستوردها وترتبها.';
 
   @override
-  String get homeWaysToUseIrBlaster => 'طرق استخدام IR Blaster';
+  String get homeWaysToUseIrBlaster => 'الأجهزة اللي تقدر تستخدمها';
 
   @override
   String get homeBuiltInIrOptionTitle => 'مرسل IR مدمج';
@@ -5380,7 +5382,7 @@ class AppLocalizationsArEg extends AppLocalizationsAr {
       'بعض الموبايلات فيها مرسل IR مدمج، لكن الموبايل ده مافيهوش.';
 
   @override
-  String get homeBuiltInIrUnavailable => 'غير متاح على هذا الهاتف';
+  String get homeBuiltInIrUnavailable => 'مش مدمج في الموبايل ده';
 
   @override
   String get homeUsbFamilyTiqiaaZaza => 'Tiqiaa / ZaZa';
@@ -5389,7 +5391,7 @@ class AppLocalizationsArEg extends AppLocalizationsAr {
   String get homeUsbFamilyElkSmart => 'ElkSmart';
 
   @override
-  String get homeAudioAccessoryLabel => 'محول صوت 3.5 مم';
+  String get homeAudioAccessoryLabel => 'محوّل صوت لـ IR';
 
   @override
   String get homeContinueWithoutHardware => 'كمّل من غير إرسال';

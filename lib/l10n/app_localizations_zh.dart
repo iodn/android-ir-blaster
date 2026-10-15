@@ -49,7 +49,7 @@ class AppLocalizationsZh extends AppLocalizations {
   String get homeUsbOpenFailedMessage => '已获得权限，但无法连接 USB 适配器。请拔下后重新插入，再试一次。';
 
   @override
-  String get homeUsbReadyMessage => '此手机没有内置红外发射器。';
+  String get homeUsbReadyMessage => 'USB 红外适配器已就绪。';
 
   @override
   String get homeUsbNoDeviceMessage => '这部手机没有内置红外发射器，也未连接受支持的 USB 红外适配器。';
@@ -74,7 +74,7 @@ class AppLocalizationsZh extends AppLocalizations {
 
   @override
   String get homeHardwareBannerNoInternal =>
-      '此手机没有内置红外。请连接 USB 红外 dongle，或在设置中启用音频模式。';
+      '没有内置红外发射器。请使用兼容的 USB 红外适配器或音频转红外配件。';
 
   @override
   String get homeHardwareBannerPermissionRequired => '已连接。请允许 USB 访问。';
@@ -102,7 +102,7 @@ class AppLocalizationsZh extends AppLocalizations {
 
   @override
   String get homeAudioAdapterDescription =>
-      '设置 → 红外发射器 → 音频 1 LED / 2 LED。需要音频转红外适配器。';
+      '需要音频转红外适配器。请在设置中选择音频模式（1 个或 2 个 LED），并调高媒体音量。';
 
   @override
   String get close => '关闭';
@@ -114,19 +114,19 @@ class AppLocalizationsZh extends AppLocalizations {
   String get openSettings => '打开设置';
 
   @override
-  String get homeUsbPermissionSentApprove => '已发送 USB 权限请求。请在提示中允许以启用 USB。';
+  String get homeUsbPermissionSentApprove => '已请求权限。请在 Android 提示窗口中允许 USB 访问。';
 
   @override
-  String get homeUsbDongleNotDetected => '未检测到受支持的 USB 红外 dongle。请插入后重试。';
+  String get homeUsbDongleNotDetected => '未找到受支持的 USB 红外适配器。请连接后重试。';
 
   @override
-  String get homeUsbPermissionRequestFailed => '申请 USB 权限失败。';
+  String get homeUsbPermissionRequestFailed => '无法请求 USB 访问权限，请重试。';
 
   @override
   String get working => '处理中…';
 
   @override
-  String get requestUsbPermission => '申请 USB 权限';
+  String get requestUsbPermission => '请求 USB 访问权限';
 
   @override
   String get homeHardwareTip => '你现在就可以配置遥控器，只有发送指令时才需要红外发射设备。';
@@ -138,10 +138,10 @@ class AppLocalizationsZh extends AppLocalizations {
   String get homeHardwareRequiredBody => '没有红外发射器也能创建和整理遥控器。要控制设备，请使用以下任一方式。';
 
   @override
-  String get homeCanStillUseWithoutHardware => '你现在仍然可以创建、导入和整理遥控器。';
+  String get homeCanStillUseWithoutHardware => '你仍然可以创建、导入和整理遥控器。';
 
   @override
-  String get homeWaysToUseIrBlaster => '使用 IR Blaster 的方式';
+  String get homeWaysToUseIrBlaster => '可用的硬件方案';
 
   @override
   String get homeBuiltInIrOptionTitle => '内置红外发射器';
@@ -150,7 +150,7 @@ class AppLocalizationsZh extends AppLocalizations {
   String get homeBuiltInIrOptionSubtitle => '部分手机内置红外发射器，但这部手机没有。';
 
   @override
-  String get homeBuiltInIrUnavailable => '此手机不可用';
+  String get homeBuiltInIrUnavailable => '这部手机未内置';
 
   @override
   String get homeUsbFamilyTiqiaaZaza => 'Tiqiaa / ZaZa';
@@ -159,7 +159,7 @@ class AppLocalizationsZh extends AppLocalizations {
   String get homeUsbFamilyElkSmart => 'ElkSmart';
 
   @override
-  String get homeAudioAccessoryLabel => '3.5 毫米音频适配器';
+  String get homeAudioAccessoryLabel => '音频转红外适配器';
 
   @override
   String get homeContinueWithoutHardware => '暂不发送，继续使用';

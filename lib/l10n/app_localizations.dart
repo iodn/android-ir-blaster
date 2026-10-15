@@ -219,7 +219,7 @@ abstract class AppLocalizations {
   /// No description provided for @homeUsbReadyMessage.
   ///
   /// In en, this message translates to:
-  /// **'This phone does not include a built-in IR emitter.'**
+  /// **'USB IR adapter ready.'**
   String get homeUsbReadyMessage;
 
   /// No description provided for @homeUsbNoDeviceMessage.
@@ -267,7 +267,7 @@ abstract class AppLocalizations {
   /// No description provided for @homeHardwareBannerNoInternal.
   ///
   /// In en, this message translates to:
-  /// **'This phone has no built-in IR. Connect a USB IR dongle or enable Audio mode in Settings.'**
+  /// **'No built-in IR transmitter. Use a compatible USB IR adapter or an audio-to-IR accessory.'**
   String get homeHardwareBannerNoInternal;
 
   /// No description provided for @homeHardwareBannerPermissionRequired.
@@ -321,7 +321,7 @@ abstract class AppLocalizations {
   /// No description provided for @homeAudioAdapterDescription.
   ///
   /// In en, this message translates to:
-  /// **'Settings → IR Transmitter → Audio (1 LED / 2 LED). Requires an audio-to-IR adapter.'**
+  /// **'Needs an audio-to-IR adapter. In Settings, choose Audio (1 LED or 2 LEDs) and raise media volume.'**
   String get homeAudioAdapterDescription;
 
   /// No description provided for @close.
@@ -345,19 +345,19 @@ abstract class AppLocalizations {
   /// No description provided for @homeUsbPermissionSentApprove.
   ///
   /// In en, this message translates to:
-  /// **'USB permission request sent. Approve the prompt to enable USB.'**
+  /// **'Permission requested. Allow USB access in the Android prompt.'**
   String get homeUsbPermissionSentApprove;
 
   /// No description provided for @homeUsbDongleNotDetected.
   ///
   /// In en, this message translates to:
-  /// **'No supported USB IR dongle detected. Plug it in and try again.'**
+  /// **'No supported USB IR adapter found. Connect it and try again.'**
   String get homeUsbDongleNotDetected;
 
   /// No description provided for @homeUsbPermissionRequestFailed.
   ///
   /// In en, this message translates to:
-  /// **'Failed to request USB permission.'**
+  /// **'Could not request USB access. Please try again.'**
   String get homeUsbPermissionRequestFailed;
 
   /// No description provided for @working.
@@ -369,7 +369,7 @@ abstract class AppLocalizations {
   /// No description provided for @requestUsbPermission.
   ///
   /// In en, this message translates to:
-  /// **'Request USB permission'**
+  /// **'Request USB access'**
   String get requestUsbPermission;
 
   /// No description provided for @homeHardwareTip.
@@ -393,13 +393,13 @@ abstract class AppLocalizations {
   /// No description provided for @homeCanStillUseWithoutHardware.
   ///
   /// In en, this message translates to:
-  /// **'You can still create, import, and organize remotes right now.'**
+  /// **'You can still create, import, and organize remotes.'**
   String get homeCanStillUseWithoutHardware;
 
   /// No description provided for @homeWaysToUseIrBlaster.
   ///
   /// In en, this message translates to:
-  /// **'Ways to use IR Blaster'**
+  /// **'Hardware options'**
   String get homeWaysToUseIrBlaster;
 
   /// No description provided for @homeBuiltInIrOptionTitle.
@@ -417,7 +417,7 @@ abstract class AppLocalizations {
   /// No description provided for @homeBuiltInIrUnavailable.
   ///
   /// In en, this message translates to:
-  /// **'Not available on this phone'**
+  /// **'Not built into this phone'**
   String get homeBuiltInIrUnavailable;
 
   /// No description provided for @homeUsbFamilyTiqiaaZaza.
@@ -435,7 +435,7 @@ abstract class AppLocalizations {
   /// No description provided for @homeAudioAccessoryLabel.
   ///
   /// In en, this message translates to:
-  /// **'3.5 mm audio adapter'**
+  /// **'Audio-to-IR adapter'**
   String get homeAudioAccessoryLabel;
 
   /// No description provided for @homeContinueWithoutHardware.

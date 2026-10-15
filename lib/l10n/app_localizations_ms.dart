@@ -52,8 +52,7 @@ class AppLocalizationsMs extends AppLocalizations {
       'Tidak dapat menyambung ke penyesuai USB walaupun akses dibenarkan. Cabut, sambungkan semula dan cuba lagi.';
 
   @override
-  String get homeUsbReadyMessage =>
-      'Telefon ini tidak mempunyai pemancar IR terbina dalam.';
+  String get homeUsbReadyMessage => 'Penyesuai IR USB sedia.';
 
   @override
   String get homeUsbNoDeviceMessage =>
@@ -84,7 +83,7 @@ class AppLocalizationsMs extends AppLocalizations {
 
   @override
   String get homeHardwareBannerNoInternal =>
-      'Telefon ini tiada IR terbina dalam. Sambung dongel IR USB atau aktifkan mod Audio di Tetapan.';
+      'Tiada pemancar IR terbina dalam. Gunakan penyesuai IR USB yang serasi atau aksesori audio-ke-IR.';
 
   @override
   String get homeHardwareBannerPermissionRequired =>
@@ -116,7 +115,7 @@ class AppLocalizationsMs extends AppLocalizations {
 
   @override
   String get homeAudioAdapterDescription =>
-      'Tetapan → Pemancar IR → Audio (1 LED / 2 LED). Memerlukan penyesuai audio-ke-IR.';
+      'Memerlukan penyesuai audio-ke-IR. Dalam Tetapan, pilih Audio (1 atau 2 LED) dan naikkan kelantangan media.';
 
   @override
   String get close => 'Tutup';
@@ -129,20 +128,21 @@ class AppLocalizationsMs extends AppLocalizations {
 
   @override
   String get homeUsbPermissionSentApprove =>
-      'Permintaan izin USB dihantar. Benarkan dialog untuk mengaktifkan USB.';
+      'Kebenaran telah diminta. Benarkan akses USB dalam dialog Android.';
 
   @override
   String get homeUsbDongleNotDetected =>
-      'Tiada dongel IR USB yang disokong dikesan. Sambung kemudian cuba lagi.';
+      'Tiada penyesuai IR USB yang disokong ditemui. Sambungkan dan cuba lagi.';
 
   @override
-  String get homeUsbPermissionRequestFailed => 'Gagal meminta izin USB.';
+  String get homeUsbPermissionRequestFailed =>
+      'Tidak dapat meminta akses USB. Cuba lagi.';
 
   @override
   String get working => 'Sedang bekerja…';
 
   @override
-  String get requestUsbPermission => 'Minta izin USB';
+  String get requestUsbPermission => 'Minta akses USB';
 
   @override
   String get homeHardwareTip =>
@@ -157,10 +157,10 @@ class AppLocalizationsMs extends AppLocalizations {
 
   @override
   String get homeCanStillUseWithoutHardware =>
-      'Anda masih boleh mencipta, mengimport dan menyusun alat kawalan jauh sekarang.';
+      'Anda masih boleh mencipta, mengimport dan menyusun alat kawalan jauh.';
 
   @override
-  String get homeWaysToUseIrBlaster => 'Cara menggunakan IR Blaster';
+  String get homeWaysToUseIrBlaster => 'Pilihan perkakasan';
 
   @override
   String get homeBuiltInIrOptionTitle => 'Pemancar IR terbina dalam';
@@ -170,7 +170,7 @@ class AppLocalizationsMs extends AppLocalizations {
       'Sesetengah telefon mempunyai pemancar IR terbina dalam. Telefon ini tiada pemancar tersebut.';
 
   @override
-  String get homeBuiltInIrUnavailable => 'Tidak tersedia pada telefon ini';
+  String get homeBuiltInIrUnavailable => 'Tidak terbina dalam telefon ini';
 
   @override
   String get homeUsbFamilyTiqiaaZaza => 'Tiqiaa / ZaZa';
@@ -179,7 +179,7 @@ class AppLocalizationsMs extends AppLocalizations {
   String get homeUsbFamilyElkSmart => 'ElkSmart';
 
   @override
-  String get homeAudioAccessoryLabel => 'Penyesuai audio 3.5 mm';
+  String get homeAudioAccessoryLabel => 'Penyesuai audio-ke-IR';
 
   @override
   String get homeContinueWithoutHardware => 'Teruskan tanpa menghantar';

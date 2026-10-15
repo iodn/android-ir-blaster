@@ -52,7 +52,7 @@ class AppLocalizationsTh extends AppLocalizations {
       'เชื่อมต่ออะแดปเตอร์ USB ไม่ได้แม้จะได้รับสิทธิ์แล้ว ลองถอดแล้วเสียบใหม่ จากนั้นลองอีกครั้ง';
 
   @override
-  String get homeUsbReadyMessage => 'โทรศัพท์นี้ไม่มี IR ในตัว';
+  String get homeUsbReadyMessage => 'อะแดปเตอร์ USB IR พร้อมแล้ว';
 
   @override
   String get homeUsbNoDeviceMessage =>
@@ -83,7 +83,7 @@ class AppLocalizationsTh extends AppLocalizations {
 
   @override
   String get homeHardwareBannerNoInternal =>
-      'โทรศัพท์นี้ไม่มี IR ในตัว เชื่อมต่อดองเกิล IR USB หรือเปิดโหมดเสียงใน การตั้งค่า';
+      'ไม่มีตัวส่ง IR ในตัว โปรดใช้อะแดปเตอร์ USB IR ที่รองรับ หรืออุปกรณ์แปลงเสียงเป็น IR';
 
   @override
   String get homeHardwareBannerPermissionRequired =>
@@ -115,7 +115,7 @@ class AppLocalizationsTh extends AppLocalizations {
 
   @override
   String get homeAudioAdapterDescription =>
-      'การตั้งค่า → ตัวส่ง IR → เสียง 1 LED / 2 LED ต้องใช้อะแดปเตอร์แปลงเสียงเป็น IR';
+      'ต้องใช้อะแดปเตอร์แปลงเสียงเป็น IR เลือกโหมดเสียง (1 หรือ 2 LED) ในการตั้งค่า แล้วเพิ่มระดับเสียงสื่อ';
 
   @override
   String get close => 'ปิด';
@@ -128,20 +128,21 @@ class AppLocalizationsTh extends AppLocalizations {
 
   @override
   String get homeUsbPermissionSentApprove =>
-      'ส่งคำขอสิทธิ์ USB แล้ว อนุมัติหน้าต่างแจ้งเพื่อเปิด USB';
+      'ส่งคำขอสิทธิ์แล้ว โปรดอนุญาตการเข้าถึง USB ในหน้าต่างของ Android';
 
   @override
   String get homeUsbDongleNotDetected =>
-      'ไม่พบดองเกิล IR USB ที่รองรับ เสียบอุปกรณ์แล้วลองอีกครั้ง';
+      'ไม่พบอะแดปเตอร์ USB IR ที่รองรับ โปรดเชื่อมต่อแล้วลองอีกครั้ง';
 
   @override
-  String get homeUsbPermissionRequestFailed => 'ขอสิทธิ์ USB ไม่สำเร็จ';
+  String get homeUsbPermissionRequestFailed =>
+      'ขอสิทธิ์เข้าถึง USB ไม่ได้ โปรดลองอีกครั้ง';
 
   @override
   String get working => 'กำลังทำงาน…';
 
   @override
-  String get requestUsbPermission => 'ขอสิทธิ์ USB';
+  String get requestUsbPermission => 'ขอสิทธิ์เข้าถึง USB';
 
   @override
   String get homeHardwareTip =>
@@ -156,10 +157,10 @@ class AppLocalizationsTh extends AppLocalizations {
 
   @override
   String get homeCanStillUseWithoutHardware =>
-      'ตอนนี้คุณยังสร้าง นำเข้า และจัดระเบียบรีโมตได้อยู่';
+      'คุณยังสร้าง นำเข้า และจัดระเบียบรีโมตได้';
 
   @override
-  String get homeWaysToUseIrBlaster => 'วิธีใช้งาน IR Blaster';
+  String get homeWaysToUseIrBlaster => 'อุปกรณ์ที่ใช้ได้';
 
   @override
   String get homeBuiltInIrOptionTitle => 'ตัวส่ง IR ในตัว';
@@ -169,7 +170,7 @@ class AppLocalizationsTh extends AppLocalizations {
       'โทรศัพท์บางรุ่นมีตัวส่ง IR ในตัว แต่เครื่องนี้ไม่มี';
 
   @override
-  String get homeBuiltInIrUnavailable => 'ไม่พร้อมใช้งานบนโทรศัพท์เครื่องนี้';
+  String get homeBuiltInIrUnavailable => 'ไม่มีในโทรศัพท์เครื่องนี้';
 
   @override
   String get homeUsbFamilyTiqiaaZaza => 'Tiqiaa / ZaZa';
@@ -178,7 +179,7 @@ class AppLocalizationsTh extends AppLocalizations {
   String get homeUsbFamilyElkSmart => 'ElkSmart';
 
   @override
-  String get homeAudioAccessoryLabel => 'อะแดปเตอร์เสียง 3.5 มม.';
+  String get homeAudioAccessoryLabel => 'อะแดปเตอร์แปลงเสียงเป็น IR';
 
   @override
   String get homeContinueWithoutHardware => 'ใช้งานต่อโดยไม่ส่งสัญญาณ';

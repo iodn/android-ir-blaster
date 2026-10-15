@@ -52,7 +52,7 @@ class AppLocalizationsEs extends AppLocalizations {
       'No se pudo conectar con el adaptador USB pese a tener permiso. Desenchúfalo, vuelve a conectarlo e inténtalo de nuevo.';
 
   @override
-  String get homeUsbReadyMessage => 'Este teléfono no tiene IR integrado.';
+  String get homeUsbReadyMessage => 'Adaptador IR USB listo.';
 
   @override
   String get homeUsbNoDeviceMessage =>
@@ -83,7 +83,7 @@ class AppLocalizationsEs extends AppLocalizations {
 
   @override
   String get homeHardwareBannerNoInternal =>
-      'Este teléfono no tiene IR integrado. Conecta un dongle IR USB o activa el modo Audio en Ajustes.';
+      'No hay emisor IR integrado. Usa un adaptador IR USB compatible o un accesorio de audio a IR.';
 
   @override
   String get homeHardwareBannerPermissionRequired =>
@@ -115,7 +115,7 @@ class AppLocalizationsEs extends AppLocalizations {
 
   @override
   String get homeAudioAdapterDescription =>
-      'Ajustes → Emisor IR → Audio (1 LED / 2 LED). Requiere un adaptador de audio a IR.';
+      'Necesita un adaptador de audio a IR. En Ajustes, elige Audio (1 o 2 LED) y sube el volumen multimedia.';
 
   @override
   String get close => 'Cerrar';
@@ -128,21 +128,21 @@ class AppLocalizationsEs extends AppLocalizations {
 
   @override
   String get homeUsbPermissionSentApprove =>
-      'Solicitud de permiso USB enviada. Acepta el aviso para activar USB.';
+      'Permiso solicitado. Acepta el acceso USB en el aviso de Android.';
 
   @override
   String get homeUsbDongleNotDetected =>
-      'No se detectó un dongle IR USB compatible. Conéctalo e inténtalo otra vez.';
+      'No se ha encontrado un adaptador IR USB compatible. Conéctalo y vuelve a intentarlo.';
 
   @override
   String get homeUsbPermissionRequestFailed =>
-      'No se pudo pedir el permiso USB.';
+      'No se pudo solicitar acceso USB. Vuelve a intentarlo.';
 
   @override
   String get working => 'Procesando…';
 
   @override
-  String get requestUsbPermission => 'Pedir permiso USB';
+  String get requestUsbPermission => 'Solicitar acceso USB';
 
   @override
   String get homeHardwareTip =>
@@ -157,10 +157,10 @@ class AppLocalizationsEs extends AppLocalizations {
 
   @override
   String get homeCanStillUseWithoutHardware =>
-      'Aún puedes crear, importar y organizar mandos ahora mismo.';
+      'Puedes seguir creando, importando y organizando mandos.';
 
   @override
-  String get homeWaysToUseIrBlaster => 'Formas de usar IR Blaster';
+  String get homeWaysToUseIrBlaster => 'Opciones de hardware';
 
   @override
   String get homeBuiltInIrOptionTitle => 'Emisor IR integrado';
@@ -170,7 +170,7 @@ class AppLocalizationsEs extends AppLocalizations {
       'Algunos teléfonos tienen un emisor IR integrado. Este teléfono no tiene uno.';
 
   @override
-  String get homeBuiltInIrUnavailable => 'No disponible en este teléfono';
+  String get homeBuiltInIrUnavailable => 'No integrado en este teléfono';
 
   @override
   String get homeUsbFamilyTiqiaaZaza => 'Tiqiaa / ZaZa';
@@ -179,7 +179,7 @@ class AppLocalizationsEs extends AppLocalizations {
   String get homeUsbFamilyElkSmart => 'ElkSmart';
 
   @override
-  String get homeAudioAccessoryLabel => 'Adaptador de audio de 3,5 mm';
+  String get homeAudioAccessoryLabel => 'Adaptador de audio a IR';
 
   @override
   String get homeContinueWithoutHardware => 'Continuar sin enviar';

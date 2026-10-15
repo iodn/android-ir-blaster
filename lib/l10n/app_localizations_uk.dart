@@ -52,8 +52,7 @@ class AppLocalizationsUk extends AppLocalizations {
       'Не вдалося з’єднатися з USB-адаптером, хоча доступ надано. Від’єднайте його, під’єднайте знову й повторіть спробу.';
 
   @override
-  String get homeUsbReadyMessage =>
-      'Цей телефон не має вбудованого ІЧ-випромінювача.';
+  String get homeUsbReadyMessage => 'ІЧ USB-адаптер готовий.';
 
   @override
   String get homeUsbNoDeviceMessage =>
@@ -84,7 +83,7 @@ class AppLocalizationsUk extends AppLocalizations {
 
   @override
   String get homeHardwareBannerNoInternal =>
-      'Цей телефон не має вбудованого ІЧ-порту. Підключіть USB ІЧ-адаптер або ввімкніть режим аудіо в налаштуваннях.';
+      'Немає вбудованого ІЧ-передавача. Використовуйте сумісний ІЧ USB-адаптер або ІЧ-аксесуар з аудіопідключенням.';
 
   @override
   String get homeHardwareBannerPermissionRequired =>
@@ -116,7 +115,7 @@ class AppLocalizationsUk extends AppLocalizations {
 
   @override
   String get homeAudioAdapterDescription =>
-      'Налаштування → ІЧ-передавач → Аудіо (1 LED / 2 LED). Потрібен аудіо ІЧ-адаптер.';
+      'Потрібен ІЧ-адаптер з аудіопідключенням. У налаштуваннях виберіть Аудіо (1 або 2 світлодіоди) і збільште гучність медіа.';
 
   @override
   String get close => 'Закрити';
@@ -129,21 +128,21 @@ class AppLocalizationsUk extends AppLocalizations {
 
   @override
   String get homeUsbPermissionSentApprove =>
-      'Запит на дозвіл USB надіслано. Підтвердьте системний запит, щоб увімкнути USB.';
+      'Дозвіл запитано. Надайте доступ до USB у вікні Android.';
 
   @override
   String get homeUsbDongleNotDetected =>
-      'Не виявлено підтримуваного USB ІЧ-адаптера. Підключіть його та повторіть спробу.';
+      'Сумісний ІЧ USB-адаптер не знайдено. Під’єднайте його й спробуйте ще раз.';
 
   @override
   String get homeUsbPermissionRequestFailed =>
-      'Не вдалося запитати дозвіл USB.';
+      'Не вдалося запитати доступ до USB. Спробуйте ще раз.';
 
   @override
   String get working => 'Виконується…';
 
   @override
-  String get requestUsbPermission => 'Запросити дозвіл USB';
+  String get requestUsbPermission => 'Запитати доступ до USB';
 
   @override
   String get homeHardwareTip =>
@@ -158,10 +157,10 @@ class AppLocalizationsUk extends AppLocalizations {
 
   @override
   String get homeCanStillUseWithoutHardware =>
-      'Ви все ще можете створювати, імпортувати та впорядковувати пульти прямо зараз.';
+      'Ви й далі можете створювати, імпортувати й упорядковувати пульти.';
 
   @override
-  String get homeWaysToUseIrBlaster => 'Способи використання IR Blaster';
+  String get homeWaysToUseIrBlaster => 'Варіанти обладнання';
 
   @override
   String get homeBuiltInIrOptionTitle => 'Вбудований ІЧ-передавач';
@@ -171,7 +170,7 @@ class AppLocalizationsUk extends AppLocalizations {
       'Деякі телефони мають вбудований ІЧ-передавач. У цьому телефоні його немає.';
 
   @override
-  String get homeBuiltInIrUnavailable => 'Недоступно на цьому телефоні';
+  String get homeBuiltInIrUnavailable => 'Немає в цьому телефоні';
 
   @override
   String get homeUsbFamilyTiqiaaZaza => 'Tiqiaa / ZaZa';
@@ -180,7 +179,7 @@ class AppLocalizationsUk extends AppLocalizations {
   String get homeUsbFamilyElkSmart => 'ElkSmart';
 
   @override
-  String get homeAudioAccessoryLabel => 'Аудіоадаптер 3,5 мм';
+  String get homeAudioAccessoryLabel => 'ІЧ-адаптер з аудіопідключенням';
 
   @override
   String get homeContinueWithoutHardware => 'Продовжити без надсилання';

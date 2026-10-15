@@ -52,7 +52,7 @@ class AppLocalizationsJa extends AppLocalizations {
       'アクセスは許可されていますが、USBアダプターに接続できませんでした。抜き差しして、もう一度お試しください。';
 
   @override
-  String get homeUsbReadyMessage => 'この端末には内蔵IR送信機がありません。';
+  String get homeUsbReadyMessage => 'USB赤外線アダプターは使用可能です。';
 
   @override
   String get homeUsbNoDeviceMessage =>
@@ -78,7 +78,7 @@ class AppLocalizationsJa extends AppLocalizations {
 
   @override
   String get homeHardwareBannerNoInternal =>
-      'この端末には内蔵IRがありません。USB IRドングルを接続するか 設定で音声モードを有効にしてください。';
+      '赤外線送信機は内蔵されていません。対応するUSB赤外線アダプター、またはオーディオ接続の赤外線機器をお使いください。';
 
   @override
   String get homeHardwareBannerPermissionRequired => '接続済み。USBへのアクセスを許可してください。';
@@ -106,7 +106,7 @@ class AppLocalizationsJa extends AppLocalizations {
 
   @override
   String get homeAudioAdapterDescription =>
-      '設定 → IR送信機 → 音声 1 LED / 2 LED。音声からIRへのアダプタが必要です。';
+      '音声を赤外線に変換するアダプターが必要です。設定で音声（LED 1個または2個）を選び、メディア音量を上げてください。';
 
   @override
   String get close => '閉じる';
@@ -119,20 +119,21 @@ class AppLocalizationsJa extends AppLocalizations {
 
   @override
   String get homeUsbPermissionSentApprove =>
-      'USB権限要求を送信しました。USBを有効にするには確認を許可してください。';
+      '許可をリクエストしました。Androidの確認画面でUSBへのアクセスを許可してください。';
 
   @override
   String get homeUsbDongleNotDetected =>
-      '対応するUSB IRドングルが見つかりません。接続して再試行してください。';
+      '対応するUSB赤外線アダプターが見つかりません。接続して、もう一度お試しください。';
 
   @override
-  String get homeUsbPermissionRequestFailed => 'USB権限の要求に失敗しました。';
+  String get homeUsbPermissionRequestFailed =>
+      'USBへのアクセス許可をリクエストできませんでした。もう一度お試しください。';
 
   @override
   String get working => '処理中…';
 
   @override
-  String get requestUsbPermission => 'USB権限を要求';
+  String get requestUsbPermission => 'USBの使用許可を求める';
 
   @override
   String get homeHardwareTip => 'リモコンの準備は今すぐできます。赤外線の送信機器が必要なのは、コマンドを送るときだけです。';
@@ -145,10 +146,10 @@ class AppLocalizationsJa extends AppLocalizations {
       '赤外線送信機がなくても、リモコンの作成や整理はできます。機器を操作するには、以下のいずれかが必要です。';
 
   @override
-  String get homeCanStillUseWithoutHardware => '今すぐリモコンの作成、インポート、整理は行えます。';
+  String get homeCanStillUseWithoutHardware => 'リモコンの作成・取り込み・整理は引き続き利用できます。';
 
   @override
-  String get homeWaysToUseIrBlaster => 'IR Blaster の使い方';
+  String get homeWaysToUseIrBlaster => '利用できる送信機器';
 
   @override
   String get homeBuiltInIrOptionTitle => '内蔵の赤外線送信機';
@@ -157,7 +158,7 @@ class AppLocalizationsJa extends AppLocalizations {
   String get homeBuiltInIrOptionSubtitle => '赤外線送信機を内蔵した端末もありますが、この端末にはありません。';
 
   @override
-  String get homeBuiltInIrUnavailable => 'このスマートフォンでは利用できません';
+  String get homeBuiltInIrUnavailable => 'この端末には内蔵されていません';
 
   @override
   String get homeUsbFamilyTiqiaaZaza => 'Tiqiaa / ZaZa';
@@ -166,7 +167,7 @@ class AppLocalizationsJa extends AppLocalizations {
   String get homeUsbFamilyElkSmart => 'ElkSmart';
 
   @override
-  String get homeAudioAccessoryLabel => '3.5 mm オーディオアダプター';
+  String get homeAudioAccessoryLabel => '音声から赤外線への変換アダプター';
 
   @override
   String get homeContinueWithoutHardware => '送信せずに続ける';

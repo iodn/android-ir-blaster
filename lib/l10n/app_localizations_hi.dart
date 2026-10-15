@@ -52,7 +52,7 @@ class AppLocalizationsHi extends AppLocalizations {
       'अनुमति मिलने के बावजूद USB अडैप्टर से कनेक्ट नहीं हो सका। उसे निकालकर फिर लगाएँ और दोबारा कोशिश करें।';
 
   @override
-  String get homeUsbReadyMessage => 'इस फ़ोन में बिल्ट-इन IR एमिटर नहीं है।';
+  String get homeUsbReadyMessage => 'USB IR अडैप्टर तैयार है।';
 
   @override
   String get homeUsbNoDeviceMessage =>
@@ -83,7 +83,7 @@ class AppLocalizationsHi extends AppLocalizations {
 
   @override
   String get homeHardwareBannerNoInternal =>
-      'इस फ़ोन में बिल्ट-इन IR नहीं है। USB IR डोंगल जोड़ें या सेटिंग्स में ऑडियो मोड सक्षम करें।';
+      'फ़ोन में IR ट्रांसमीटर नहीं है। संगत USB IR अडैप्टर या ऑडियो को IR में बदलने वाला उपकरण इस्तेमाल करें।';
 
   @override
   String get homeHardwareBannerPermissionRequired =>
@@ -115,7 +115,7 @@ class AppLocalizationsHi extends AppLocalizations {
 
   @override
   String get homeAudioAdapterDescription =>
-      'सेटिंग्स → IR प्रेषक → ऑडियो (1 LED / 2 LED). इसके लिए audio-to-IR एडेप्टर चाहिए।';
+      'ऑडियो से IR अडैप्टर चाहिए। सेटिंग में ऑडियो (1 या 2 LED) चुनें और मीडिया की आवाज़ बढ़ाएँ।';
 
   @override
   String get close => 'बंद करें';
@@ -128,20 +128,21 @@ class AppLocalizationsHi extends AppLocalizations {
 
   @override
   String get homeUsbPermissionSentApprove =>
-      'USB अनुमति अनुरोध भेजा गया। USB सक्षम करने के लिए प्रॉम्प्ट स्वीकार करें।';
+      'अनुमति माँगी गई है। Android के संदेश में USB ऐक्सेस की अनुमति दें।';
 
   @override
   String get homeUsbDongleNotDetected =>
-      'कोई समर्थित USB IR डोंगल नहीं मिला। इसे लगाएँ और दोबारा प्रयास करें।';
+      'कोई समर्थित USB IR अडैप्टर नहीं मिला। उसे जोड़कर फिर कोशिश करें।';
 
   @override
-  String get homeUsbPermissionRequestFailed => 'USB अनुमति का अनुरोध विफल रहा।';
+  String get homeUsbPermissionRequestFailed =>
+      'USB ऐक्सेस की अनुमति नहीं माँग सके। फिर कोशिश करें।';
 
   @override
   String get working => 'काम हो रहा है…';
 
   @override
-  String get requestUsbPermission => 'USB अनुमति का अनुरोध करें';
+  String get requestUsbPermission => 'USB ऐक्सेस माँगें';
 
   @override
   String get homeHardwareTip =>
@@ -156,10 +157,10 @@ class AppLocalizationsHi extends AppLocalizations {
 
   @override
   String get homeCanStillUseWithoutHardware =>
-      'आप अभी भी रिमोट बना, आयात कर और व्यवस्थित कर सकते हैं।';
+      'आप अब भी रिमोट बना सकते हैं, आयात कर सकते हैं और व्यवस्थित कर सकते हैं।';
 
   @override
-  String get homeWaysToUseIrBlaster => 'IR Blaster इस्तेमाल करने के तरीके';
+  String get homeWaysToUseIrBlaster => 'हार्डवेयर के विकल्प';
 
   @override
   String get homeBuiltInIrOptionTitle => 'फ़ोन में लगा IR ट्रांसमीटर';
@@ -169,7 +170,7 @@ class AppLocalizationsHi extends AppLocalizations {
       'कुछ फ़ोन में IR ट्रांसमीटर लगा होता है। इस फ़ोन में नहीं है।';
 
   @override
-  String get homeBuiltInIrUnavailable => 'इस फ़ोन पर उपलब्ध नहीं';
+  String get homeBuiltInIrUnavailable => 'इस फ़ोन में नहीं है';
 
   @override
   String get homeUsbFamilyTiqiaaZaza => 'Tiqiaa / ZaZa';
@@ -178,7 +179,7 @@ class AppLocalizationsHi extends AppLocalizations {
   String get homeUsbFamilyElkSmart => 'ElkSmart';
 
   @override
-  String get homeAudioAccessoryLabel => '3.5 mm ऑडियो एडेप्टर';
+  String get homeAudioAccessoryLabel => 'ऑडियो से IR अडैप्टर';
 
   @override
   String get homeContinueWithoutHardware => 'बिना सिग्नल भेजे आगे बढ़ें';

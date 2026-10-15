@@ -52,8 +52,7 @@ class AppLocalizationsNl extends AppLocalizations {
       'Er is toestemming, maar verbinden met de USB-adapter is niet gelukt. Koppel hem los, sluit hem opnieuw aan en probeer het nogmaals.';
 
   @override
-  String get homeUsbReadyMessage =>
-      'Deze telefoon heeft geen ingebouwde IR-zender.';
+  String get homeUsbReadyMessage => 'USB-IR-adapter klaar.';
 
   @override
   String get homeUsbNoDeviceMessage =>
@@ -84,7 +83,7 @@ class AppLocalizationsNl extends AppLocalizations {
 
   @override
   String get homeHardwareBannerNoInternal =>
-      'Deze telefoon heeft geen ingebouwde IR. Sluit een USB-IR-dongle aan of schakel Audiomodus in bij Instellingen.';
+      'Geen ingebouwde IR-zender. Gebruik een compatibele USB-IR-adapter of een audio-IR-accessoire.';
 
   @override
   String get homeHardwareBannerPermissionRequired =>
@@ -116,7 +115,7 @@ class AppLocalizationsNl extends AppLocalizations {
 
   @override
   String get homeAudioAdapterDescription =>
-      'Instellingen → IR-zender → Audio (1 LED / 2 LED). Vereist een audio-naar-IR-adapter.';
+      'Een audio-IR-adapter is nodig. Kies Audio (1 of 2 leds) in de instellingen en zet het mediavolume hoger.';
 
   @override
   String get close => 'Sluiten';
@@ -129,21 +128,21 @@ class AppLocalizationsNl extends AppLocalizations {
 
   @override
   String get homeUsbPermissionSentApprove =>
-      'USB-toestemmingsaanvraag verzonden. Keur de melding goed om USB te activeren.';
+      'Toestemming gevraagd. Sta USB-toegang toe in het Android-venster.';
 
   @override
   String get homeUsbDongleNotDetected =>
-      'Geen ondersteunde USB-IR-dongle gedetecteerd. Sluit hem aan en probeer het opnieuw.';
+      'Geen ondersteunde USB-IR-adapter gevonden. Sluit hem aan en probeer het opnieuw.';
 
   @override
   String get homeUsbPermissionRequestFailed =>
-      'USB-toestemming aanvragen mislukt.';
+      'Kan geen USB-toegang aanvragen. Probeer het opnieuw.';
 
   @override
   String get working => 'Bezig…';
 
   @override
-  String get requestUsbPermission => 'USB-toestemming aanvragen';
+  String get requestUsbPermission => 'USB-toegang vragen';
 
   @override
   String get homeHardwareTip =>
@@ -158,10 +157,10 @@ class AppLocalizationsNl extends AppLocalizations {
 
   @override
   String get homeCanStillUseWithoutHardware =>
-      'Je kunt nu nog steeds afstandsbedieningen maken, importeren en organiseren.';
+      'Je kunt nog steeds afstandsbedieningen maken, importeren en ordenen.';
 
   @override
-  String get homeWaysToUseIrBlaster => 'Manieren om IR Blaster te gebruiken';
+  String get homeWaysToUseIrBlaster => 'Hardwareopties';
 
   @override
   String get homeBuiltInIrOptionTitle => 'Ingebouwde IR-zender';
@@ -171,7 +170,7 @@ class AppLocalizationsNl extends AppLocalizations {
       'Sommige telefoons hebben een ingebouwde IR-zender. Deze telefoon heeft er geen.';
 
   @override
-  String get homeBuiltInIrUnavailable => 'Niet beschikbaar op deze telefoon';
+  String get homeBuiltInIrUnavailable => 'Niet ingebouwd in deze telefoon';
 
   @override
   String get homeUsbFamilyTiqiaaZaza => 'Tiqiaa / ZaZa';
@@ -180,7 +179,7 @@ class AppLocalizationsNl extends AppLocalizations {
   String get homeUsbFamilyElkSmart => 'ElkSmart';
 
   @override
-  String get homeAudioAccessoryLabel => '3,5 mm audio-adapter';
+  String get homeAudioAccessoryLabel => 'Audio-IR-adapter';
 
   @override
   String get homeContinueWithoutHardware => 'Doorgaan zonder zenden';
