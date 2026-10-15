@@ -429,7 +429,7 @@
   "remoteNoButtons": "Belum ada butang",
   "remoteNoButtonsDescription": "Sunting alat kawalan jauh ini untuk menambah atau menetapkan butang.",
   "editRemote": "Ubah remote",
-  "editRemoteActionsSubtitle": "Ganti nama, urutkan ulang, dan ubah butang",
+  "editRemoteActionsSubtitle": "Namakan semula alat kawalan jauh, susun dan sunting butang",
   "remoteUpdatedNamedButton": "Diperbarui \"{name}\".",
   "@remoteUpdatedNamedButton": {
     "placeholders": {
@@ -1950,23 +1950,23 @@
   "@recentlyUsedRemotesSubtitle": {
     "description": "Subtitle for the recently used remotes section on the remotes screen."
   },
-  "pinRemote": "Pin remote",
+  "pinRemote": "Sematkan alat kawalan jauh",
   "@pinRemote": {
     "description": "Action label to pin a remote for quick access."
   },
-  "unpinRemote": "Unpin remote",
+  "unpinRemote": "Nyahsemat alat kawalan jauh",
   "@unpinRemote": {
     "description": "Action label to remove a remote from the pinned section."
   },
-  "pinRemoteSubtitle": "Keep this remote at the top for faster access.",
+  "pinRemoteSubtitle": "Letakkan alat kawalan jauh ini di bahagian atas untuk akses pantas.",
   "@pinRemoteSubtitle": {
     "description": "Subtitle shown under the pin/unpin remote action."
   },
-  "remoteAddedToPinned": "Remote pinned.",
+  "remoteAddedToPinned": "Alat kawalan jauh disematkan.",
   "@remoteAddedToPinned": {
     "description": "Snackbar shown after pinning a remote."
   },
-  "remoteRemovedFromPinned": "Remote removed from pinned.",
+  "remoteRemovedFromPinned": "Sematan alat kawalan jauh dibuang.",
   "@remoteRemovedFromPinned": {
     "description": "Snackbar shown after unpinning a remote."
   },

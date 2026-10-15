@@ -429,7 +429,7 @@
   "remoteNoButtons": "ยังไม่มีปุ่ม",
   "remoteNoButtonsDescription": "แก้ไขรีโมตนี้เพื่อเพิ่มหรือตั้งค่าปุ่ม",
   "editRemote": "แก้ไข remote",
-  "editRemoteActionsSubtitle": "เปลี่ยนชื่อ จัดลำดับ และแก้ไขปุ่ม",
+  "editRemoteActionsSubtitle": "เปลี่ยนชื่อรีโมต จัดวางและแก้ไขปุ่ม",
   "remoteUpdatedNamedButton": "อัปเดต \"{name}\" แล้ว",
   "@remoteUpdatedNamedButton": {
     "placeholders": {
@@ -1950,23 +1950,23 @@
   "@recentlyUsedRemotesSubtitle": {
     "description": "Subtitle for the recently used remotes section on the remotes screen."
   },
-  "pinRemote": "Pin remote",
+  "pinRemote": "ปักหมุดรีโมต",
   "@pinRemote": {
     "description": "Action label to pin a remote for quick access."
   },
-  "unpinRemote": "Unpin remote",
+  "unpinRemote": "เลิกปักหมุดรีโมต",
   "@unpinRemote": {
     "description": "Action label to remove a remote from the pinned section."
   },
-  "pinRemoteSubtitle": "Keep this remote at the top for faster access.",
+  "pinRemoteSubtitle": "แสดงรีโมตนี้ไว้ด้านบนเพื่อเปิดใช้งานได้รวดเร็ว",
   "@pinRemoteSubtitle": {
     "description": "Subtitle shown under the pin/unpin remote action."
   },
-  "remoteAddedToPinned": "Remote pinned.",
+  "remoteAddedToPinned": "ปักหมุดรีโมตแล้ว",
   "@remoteAddedToPinned": {
     "description": "Snackbar shown after pinning a remote."
   },
-  "remoteRemovedFromPinned": "Remote removed from pinned.",
+  "remoteRemovedFromPinned": "เลิกปักหมุดรีโมตแล้ว",
   "@remoteRemovedFromPinned": {
     "description": "Snackbar shown after unpinning a remote."
   },

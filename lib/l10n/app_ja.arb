@@ -429,7 +429,7 @@
   "remoteNoButtons": "まだボタンがありません",
   "remoteNoButtonsDescription": "このリモコンを編集して、ボタンを追加・設定できます。",
   "editRemote": "リモコンを編集",
-  "editRemoteActionsSubtitle": "名前変更 並べ替え ボタン編集",
+  "editRemoteActionsSubtitle": "リモコン名の変更、ボタンの配置・編集",
   "remoteUpdatedNamedButton": "\"{name}\" を更新しました。",
   "@remoteUpdatedNamedButton": {
     "placeholders": {
@@ -1950,23 +1950,23 @@
   "@recentlyUsedRemotesSubtitle": {
     "description": "Subtitle for the recently used remotes section on the remotes screen."
   },
-  "pinRemote": "Pin remote",
+  "pinRemote": "リモコンを固定",
   "@pinRemote": {
     "description": "Action label to pin a remote for quick access."
   },
-  "unpinRemote": "Unpin remote",
+  "unpinRemote": "固定を解除",
   "@unpinRemote": {
     "description": "Action label to remove a remote from the pinned section."
   },
-  "pinRemoteSubtitle": "Keep this remote at the top for faster access.",
+  "pinRemoteSubtitle": "このリモコンを上部に固定して、すぐに開けるようにします。",
   "@pinRemoteSubtitle": {
     "description": "Subtitle shown under the pin/unpin remote action."
   },
-  "remoteAddedToPinned": "Remote pinned.",
+  "remoteAddedToPinned": "リモコンを固定しました。",
   "@remoteAddedToPinned": {
     "description": "Snackbar shown after pinning a remote."
   },
-  "remoteRemovedFromPinned": "Remote removed from pinned.",
+  "remoteRemovedFromPinned": "リモコンの固定を解除しました。",
   "@remoteRemovedFromPinned": {
     "description": "Snackbar shown after unpinning a remote."
   },

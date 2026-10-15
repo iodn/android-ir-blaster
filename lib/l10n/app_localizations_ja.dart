@@ -1359,7 +1359,7 @@ class AppLocalizationsJa extends AppLocalizations {
   String get editRemote => 'リモコンを編集';
 
   @override
-  String get editRemoteActionsSubtitle => '名前変更 並べ替え ボタン編集';
+  String get editRemoteActionsSubtitle => 'リモコン名の変更、ボタンの配置・編集';
 
   @override
   String remoteUpdatedNamedButton(Object name) {
@@ -4316,20 +4316,19 @@ class AppLocalizationsJa extends AppLocalizations {
       'Jump back into the remotes you opened most recently.';
 
   @override
-  String get pinRemote => 'Pin remote';
+  String get pinRemote => 'リモコンを固定';
 
   @override
-  String get unpinRemote => 'Unpin remote';
+  String get unpinRemote => '固定を解除';
 
   @override
-  String get pinRemoteSubtitle =>
-      'Keep this remote at the top for faster access.';
+  String get pinRemoteSubtitle => 'このリモコンを上部に固定して、すぐに開けるようにします。';
 
   @override
-  String get remoteAddedToPinned => 'Remote pinned.';
+  String get remoteAddedToPinned => 'リモコンを固定しました。';
 
   @override
-  String get remoteRemovedFromPinned => 'Remote removed from pinned.';
+  String get remoteRemovedFromPinned => 'リモコンの固定を解除しました。';
 
   @override
   String get homeDeviceControlsTitle => 'クイック操作';

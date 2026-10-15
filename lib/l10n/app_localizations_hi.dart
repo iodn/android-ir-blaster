@@ -1428,7 +1428,7 @@ class AppLocalizationsHi extends AppLocalizations {
 
   @override
   String get editRemoteActionsSubtitle =>
-      'Rename, पुन:क्रमित करें, और संपादित करें बटन';
+      'रिमोट का नाम बदलें, बटन व्यवस्थित करें और संपादित करें';
 
   @override
   String remoteUpdatedNamedButton(Object name) {
@@ -4432,20 +4432,20 @@ class AppLocalizationsHi extends AppLocalizations {
       'Jump back into the remotes you opened most recently.';
 
   @override
-  String get pinRemote => 'Pin remote';
+  String get pinRemote => 'रिमोट पिन करें';
 
   @override
-  String get unpinRemote => 'Unpin remote';
+  String get unpinRemote => 'रिमोट अनपिन करें';
 
   @override
   String get pinRemoteSubtitle =>
-      'Keep this remote at the top for faster access.';
+      'इस रिमोट को ऊपर रखें ताकि इसे जल्दी खोल सकें।';
 
   @override
-  String get remoteAddedToPinned => 'Remote pinned.';
+  String get remoteAddedToPinned => 'रिमोट पिन किया गया।';
 
   @override
-  String get remoteRemovedFromPinned => 'Remote removed from pinned.';
+  String get remoteRemovedFromPinned => 'रिमोट अनपिन किया गया।';
 
   @override
   String get homeDeviceControlsTitle => 'त्वरित नियंत्रण';

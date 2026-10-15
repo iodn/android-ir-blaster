@@ -429,7 +429,7 @@
   "remoteNoButtons": "Ще немає кнопок",
   "remoteNoButtonsDescription": "Відредагуйте цей пульт, щоб додати або налаштувати кнопки.",
   "editRemote": "Редагувати пульт",
-  "editRemoteActionsSubtitle": "Кнопки перейменування, зміни порядку та редагування",
+  "editRemoteActionsSubtitle": "Перейменувати пульт, розташувати й редагувати кнопки",
   "remoteUpdatedNamedButton": "Оновлено \"{name}\".",
   "@remoteUpdatedNamedButton": {
     "placeholders": {
@@ -1950,7 +1950,7 @@
   "@recentlyUsedRemotesSubtitle": {
     "description": "Subtitle for the recently used remotes section on the remotes screen."
   },
-  "pinRemote": "Прикріпити пульт",
+  "pinRemote": "Закріпити пульт",
   "@pinRemote": {
     "description": "Action label to pin a remote for quick access."
   },
@@ -1958,7 +1958,7 @@
   "@unpinRemote": {
     "description": "Action label to remove a remote from the pinned section."
   },
-  "pinRemoteSubtitle": "Тримайте цей пульт угорі для швидшого доступу.",
+  "pinRemoteSubtitle": "Розмістіть цей пульт угорі для швидкого доступу.",
   "@pinRemoteSubtitle": {
     "description": "Subtitle shown under the pin/unpin remote action."
   },
@@ -1966,7 +1966,7 @@
   "@remoteAddedToPinned": {
     "description": "Snackbar shown after pinning a remote."
   },
-  "remoteRemovedFromPinned": "Пульт видалено із закріпленого.",
+  "remoteRemovedFromPinned": "Пульт відкріплено.",
   "@remoteRemovedFromPinned": {
     "description": "Snackbar shown after unpinning a remote."
   },

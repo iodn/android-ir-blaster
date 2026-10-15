@@ -429,7 +429,7 @@
   "remoteNoButtons": "अभी कोई बटन नहीं है",
   "remoteNoButtonsDescription": "बटन जोड़ने या सेट करने के लिए इस रिमोट को संपादित करें।",
   "editRemote": "रिमोट संपादित करें",
-  "editRemoteActionsSubtitle": "Rename, पुन:क्रमित करें, और संपादित करें बटन",
+  "editRemoteActionsSubtitle": "रिमोट का नाम बदलें, बटन व्यवस्थित करें और संपादित करें",
   "remoteUpdatedNamedButton": "\"{name}\" अपडेट किया गया।",
   "@remoteUpdatedNamedButton": {
     "placeholders": {
@@ -1955,23 +1955,23 @@
   "@recentlyUsedRemotesSubtitle": {
     "description": "Subtitle for the recently used remotes section on the remotes screen."
   },
-  "pinRemote": "Pin remote",
+  "pinRemote": "रिमोट पिन करें",
   "@pinRemote": {
     "description": "Action label to pin a remote for quick access."
   },
-  "unpinRemote": "Unpin remote",
+  "unpinRemote": "रिमोट अनपिन करें",
   "@unpinRemote": {
     "description": "Action label to remove a remote from the pinned section."
   },
-  "pinRemoteSubtitle": "Keep this remote at the top for faster access.",
+  "pinRemoteSubtitle": "इस रिमोट को ऊपर रखें ताकि इसे जल्दी खोल सकें।",
   "@pinRemoteSubtitle": {
     "description": "Subtitle shown under the pin/unpin remote action."
   },
-  "remoteAddedToPinned": "Remote pinned.",
+  "remoteAddedToPinned": "रिमोट पिन किया गया।",
   "@remoteAddedToPinned": {
     "description": "Snackbar shown after pinning a remote."
   },
-  "remoteRemovedFromPinned": "Remote removed from pinned.",
+  "remoteRemovedFromPinned": "रिमोट अनपिन किया गया।",
   "@remoteRemovedFromPinned": {
     "description": "Snackbar shown after unpinning a remote."
   },

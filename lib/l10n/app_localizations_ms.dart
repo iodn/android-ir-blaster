@@ -1430,7 +1430,7 @@ class AppLocalizationsMs extends AppLocalizations {
 
   @override
   String get editRemoteActionsSubtitle =>
-      'Ganti nama, urutkan ulang, dan ubah butang';
+      'Namakan semula alat kawalan jauh, susun dan sunting butang';
 
   @override
   String remoteUpdatedNamedButton(Object name) {
@@ -4443,20 +4443,20 @@ class AppLocalizationsMs extends AppLocalizations {
       'Jump back into the remotes you opened most recently.';
 
   @override
-  String get pinRemote => 'Pin remote';
+  String get pinRemote => 'Sematkan alat kawalan jauh';
 
   @override
-  String get unpinRemote => 'Unpin remote';
+  String get unpinRemote => 'Nyahsemat alat kawalan jauh';
 
   @override
   String get pinRemoteSubtitle =>
-      'Keep this remote at the top for faster access.';
+      'Letakkan alat kawalan jauh ini di bahagian atas untuk akses pantas.';
 
   @override
-  String get remoteAddedToPinned => 'Remote pinned.';
+  String get remoteAddedToPinned => 'Alat kawalan jauh disematkan.';
 
   @override
-  String get remoteRemovedFromPinned => 'Remote removed from pinned.';
+  String get remoteRemovedFromPinned => 'Sematan alat kawalan jauh dibuang.';
 
   @override
   String get homeDeviceControlsTitle => 'Kawalan pantas';

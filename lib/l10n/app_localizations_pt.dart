@@ -1455,7 +1455,8 @@ class AppLocalizationsPt extends AppLocalizations {
   String get editRemote => 'Editar comando';
 
   @override
-  String get editRemoteActionsSubtitle => 'Renomear, reordenar e editar botões';
+  String get editRemoteActionsSubtitle =>
+      'Mudar o nome do comando, organizar e editar botões';
 
   @override
   String remoteUpdatedNamedButton(Object name) {
@@ -4490,20 +4491,20 @@ class AppLocalizationsPt extends AppLocalizations {
       'Jump back into the remotes you opened most recently.';
 
   @override
-  String get pinRemote => 'Pin remote';
+  String get pinRemote => 'Fixar comando';
 
   @override
-  String get unpinRemote => 'Unpin remote';
+  String get unpinRemote => 'Desafixar comando';
 
   @override
   String get pinRemoteSubtitle =>
-      'Keep this remote at the top for faster access.';
+      'Mantenha este comando no topo para lhe aceder rapidamente.';
 
   @override
-  String get remoteAddedToPinned => 'Remote pinned.';
+  String get remoteAddedToPinned => 'Comando fixado.';
 
   @override
-  String get remoteRemovedFromPinned => 'Remote removed from pinned.';
+  String get remoteRemovedFromPinned => 'Comando desafixado.';
 
   @override
   String get homeDeviceControlsTitle => 'Controlos rápidos';
@@ -6770,7 +6771,8 @@ class AppLocalizationsPtBr extends AppLocalizationsPt {
   String get editRemote => 'Editar controle';
 
   @override
-  String get editRemoteActionsSubtitle => 'Renomear, reordenar e editar botões';
+  String get editRemoteActionsSubtitle =>
+      'Renomear o controle, organizar e editar botões';
 
   @override
   String remoteUpdatedNamedButton(Object name) {
@@ -9806,20 +9808,20 @@ class AppLocalizationsPtBr extends AppLocalizationsPt {
       'Jump back into the remotes you opened most recently.';
 
   @override
-  String get pinRemote => 'Pin remote';
+  String get pinRemote => 'Fixar controle';
 
   @override
-  String get unpinRemote => 'Unpin remote';
+  String get unpinRemote => 'Desafixar controle';
 
   @override
   String get pinRemoteSubtitle =>
-      'Keep this remote at the top for faster access.';
+      'Mantenha este controle no topo para acessá-lo rapidamente.';
 
   @override
-  String get remoteAddedToPinned => 'Remote pinned.';
+  String get remoteAddedToPinned => 'Controle fixado.';
 
   @override
-  String get remoteRemovedFromPinned => 'Remote removed from pinned.';
+  String get remoteRemovedFromPinned => 'Controle desafixado.';
 
   @override
   String get homeDeviceControlsTitle => 'Controles rápidos';

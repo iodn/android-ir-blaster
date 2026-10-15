@@ -1461,7 +1461,7 @@ class AppLocalizationsDe extends AppLocalizations {
 
   @override
   String get editRemoteActionsSubtitle =>
-      'Umbenennen, sortieren und Tasten bearbeiten';
+      'Namen ändern, Tasten anordnen und bearbeiten';
 
   @override
   String remoteUpdatedNamedButton(Object name) {
@@ -4497,20 +4497,20 @@ class AppLocalizationsDe extends AppLocalizations {
       'Jump back into the remotes you opened most recently.';
 
   @override
-  String get pinRemote => 'Pin remote';
+  String get pinRemote => 'Fernbedienung anheften';
 
   @override
-  String get unpinRemote => 'Unpin remote';
+  String get unpinRemote => 'Fernbedienung lösen';
 
   @override
   String get pinRemoteSubtitle =>
-      'Keep this remote at the top for faster access.';
+      'Zeige diese Fernbedienung oben an, um sie schneller zu finden.';
 
   @override
-  String get remoteAddedToPinned => 'Remote pinned.';
+  String get remoteAddedToPinned => 'Fernbedienung angeheftet.';
 
   @override
-  String get remoteRemovedFromPinned => 'Remote removed from pinned.';
+  String get remoteRemovedFromPinned => 'Fernbedienung nicht mehr angeheftet.';
 
   @override
   String get homeDeviceControlsTitle => 'Schnellsteuerung';

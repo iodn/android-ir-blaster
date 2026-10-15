@@ -429,7 +429,7 @@
   "remoteNoButtons": "아직 버튼이 없습니다",
   "remoteNoButtonsDescription": "이 리모컨을 편집하여 버튼을 추가하거나 설정하세요.",
   "editRemote": "리모컨 편집",
-  "editRemoteActionsSubtitle": "이름 변경, 순서 변경 및 버튼 편집",
+  "editRemoteActionsSubtitle": "리모컨 이름 변경, 버튼 배치 및 편집",
   "remoteUpdatedNamedButton": "\"{name}\" 업데이트됨.",
   "@remoteUpdatedNamedButton": {
     "placeholders": {
@@ -1950,23 +1950,23 @@
   "@recentlyUsedRemotesSubtitle": {
     "description": "Subtitle for the recently used remotes section on the remotes screen."
   },
-  "pinRemote": "Pin remote",
+  "pinRemote": "리모컨 고정",
   "@pinRemote": {
     "description": "Action label to pin a remote for quick access."
   },
-  "unpinRemote": "Unpin remote",
+  "unpinRemote": "리모컨 고정 해제",
   "@unpinRemote": {
     "description": "Action label to remove a remote from the pinned section."
   },
-  "pinRemoteSubtitle": "Keep this remote at the top for faster access.",
+  "pinRemoteSubtitle": "이 리모컨을 맨 위에 고정하여 빠르게 열 수 있습니다.",
   "@pinRemoteSubtitle": {
     "description": "Subtitle shown under the pin/unpin remote action."
   },
-  "remoteAddedToPinned": "Remote pinned.",
+  "remoteAddedToPinned": "리모컨을 고정했습니다.",
   "@remoteAddedToPinned": {
     "description": "Snackbar shown after pinning a remote."
   },
-  "remoteRemovedFromPinned": "Remote removed from pinned.",
+  "remoteRemovedFromPinned": "리모컨 고정을 해제했습니다.",
   "@remoteRemovedFromPinned": {
     "description": "Snackbar shown after unpinning a remote."
   },

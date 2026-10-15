@@ -2607,7 +2607,7 @@ abstract class AppLocalizations {
   /// No description provided for @editRemoteActionsSubtitle.
   ///
   /// In en, this message translates to:
-  /// **'Rename, reorder, and edit buttons'**
+  /// **'Rename the remote, arrange and edit buttons'**
   String get editRemoteActionsSubtitle;
 
   /// No description provided for @remoteUpdatedNamedButton.
@@ -8117,7 +8117,7 @@ abstract class AppLocalizations {
   /// Subtitle shown under the pin/unpin remote action.
   ///
   /// In en, this message translates to:
-  /// **'Keep this remote at the top for faster access.'**
+  /// **'Keep this remote at the top for quick access.'**
   String get pinRemoteSubtitle;
 
   /// Snackbar shown after pinning a remote.
@@ -8129,7 +8129,7 @@ abstract class AppLocalizations {
   /// Snackbar shown after unpinning a remote.
   ///
   /// In en, this message translates to:
-  /// **'Remote removed from pinned.'**
+  /// **'Remote unpinned.'**
   String get remoteRemovedFromPinned;
 
   /// Title for the compact device controls row on the home surface.

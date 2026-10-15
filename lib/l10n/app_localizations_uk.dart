@@ -1465,7 +1465,7 @@ class AppLocalizationsUk extends AppLocalizations {
 
   @override
   String get editRemoteActionsSubtitle =>
-      'Кнопки перейменування, зміни порядку та редагування';
+      'Перейменувати пульт, розташувати й редагувати кнопки';
 
   @override
   String remoteUpdatedNamedButton(Object name) {
@@ -4559,20 +4559,20 @@ class AppLocalizationsUk extends AppLocalizations {
       'Поверніться до пультів, які ви нещодавно відкривали.';
 
   @override
-  String get pinRemote => 'Прикріпити пульт';
+  String get pinRemote => 'Закріпити пульт';
 
   @override
   String get unpinRemote => 'Відкріпити пульт';
 
   @override
   String get pinRemoteSubtitle =>
-      'Тримайте цей пульт угорі для швидшого доступу.';
+      'Розмістіть цей пульт угорі для швидкого доступу.';
 
   @override
   String get remoteAddedToPinned => 'Пульт закріплено.';
 
   @override
-  String get remoteRemovedFromPinned => 'Пульт видалено із закріпленого.';
+  String get remoteRemovedFromPinned => 'Пульт відкріплено.';
 
   @override
   String get homeDeviceControlsTitle => 'Швидке керування';

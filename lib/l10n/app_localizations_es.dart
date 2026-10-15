@@ -1454,7 +1454,7 @@ class AppLocalizationsEs extends AppLocalizations {
 
   @override
   String get editRemoteActionsSubtitle =>
-      'Renombrar, reordenar y editar botones';
+      'Cambiar el nombre del mando, ordenar y editar botones';
 
   @override
   String remoteUpdatedNamedButton(Object name) {
@@ -4488,20 +4488,20 @@ class AppLocalizationsEs extends AppLocalizations {
       'Jump back into the remotes you opened most recently.';
 
   @override
-  String get pinRemote => 'Pin remote';
+  String get pinRemote => 'Fijar mando';
 
   @override
-  String get unpinRemote => 'Unpin remote';
+  String get unpinRemote => 'Desfijar mando';
 
   @override
   String get pinRemoteSubtitle =>
-      'Keep this remote at the top for faster access.';
+      'Mantén este mando arriba para acceder más rápido.';
 
   @override
-  String get remoteAddedToPinned => 'Remote pinned.';
+  String get remoteAddedToPinned => 'Mando fijado.';
 
   @override
-  String get remoteRemovedFromPinned => 'Remote removed from pinned.';
+  String get remoteRemovedFromPinned => 'Mando desfijado.';
 
   @override
   String get homeDeviceControlsTitle => 'Controles rápidos';

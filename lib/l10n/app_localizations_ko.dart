@@ -1368,7 +1368,7 @@ class AppLocalizationsKo extends AppLocalizations {
   String get editRemote => '리모컨 편집';
 
   @override
-  String get editRemoteActionsSubtitle => '이름 변경, 순서 변경 및 버튼 편집';
+  String get editRemoteActionsSubtitle => '리모컨 이름 변경, 버튼 배치 및 편집';
 
   @override
   String remoteUpdatedNamedButton(Object name) {
@@ -4331,20 +4331,19 @@ class AppLocalizationsKo extends AppLocalizations {
       'Jump back into the remotes you opened most recently.';
 
   @override
-  String get pinRemote => 'Pin remote';
+  String get pinRemote => '리모컨 고정';
 
   @override
-  String get unpinRemote => 'Unpin remote';
+  String get unpinRemote => '리모컨 고정 해제';
 
   @override
-  String get pinRemoteSubtitle =>
-      'Keep this remote at the top for faster access.';
+  String get pinRemoteSubtitle => '이 리모컨을 맨 위에 고정하여 빠르게 열 수 있습니다.';
 
   @override
-  String get remoteAddedToPinned => 'Remote pinned.';
+  String get remoteAddedToPinned => '리모컨을 고정했습니다.';
 
   @override
-  String get remoteRemovedFromPinned => 'Remote removed from pinned.';
+  String get remoteRemovedFromPinned => '리모컨 고정을 해제했습니다.';
 
   @override
   String get homeDeviceControlsTitle => '빠른 제어';

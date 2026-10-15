@@ -1463,7 +1463,7 @@ class AppLocalizationsPl extends AppLocalizations {
 
   @override
   String get editRemoteActionsSubtitle =>
-      'Zmień nazwę, kolejność i edytuj przyciski';
+      'Zmień nazwę pilota, rozmieść i edytuj przyciski';
 
   @override
   String remoteUpdatedNamedButton(Object name) {
@@ -4547,20 +4547,20 @@ class AppLocalizationsPl extends AppLocalizations {
       'Jump back into the remotes you opened most recently.';
 
   @override
-  String get pinRemote => 'Pin remote';
+  String get pinRemote => 'Przypnij pilot';
 
   @override
-  String get unpinRemote => 'Unpin remote';
+  String get unpinRemote => 'Odepnij pilot';
 
   @override
   String get pinRemoteSubtitle =>
-      'Keep this remote at the top for faster access.';
+      'Umieść ten pilot u góry, aby mieć do niego szybki dostęp.';
 
   @override
-  String get remoteAddedToPinned => 'Remote pinned.';
+  String get remoteAddedToPinned => 'Pilot przypięty.';
 
   @override
-  String get remoteRemovedFromPinned => 'Remote removed from pinned.';
+  String get remoteRemovedFromPinned => 'Pilot odpięty.';
 
   @override
   String get homeDeviceControlsTitle => 'Szybkie sterowanie';

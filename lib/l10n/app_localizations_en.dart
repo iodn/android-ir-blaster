@@ -1440,7 +1440,8 @@ class AppLocalizationsEn extends AppLocalizations {
   String get editRemote => 'Edit remote';
 
   @override
-  String get editRemoteActionsSubtitle => 'Rename, reorder, and edit buttons';
+  String get editRemoteActionsSubtitle =>
+      'Rename the remote, arrange and edit buttons';
 
   @override
   String remoteUpdatedNamedButton(Object name) {
@@ -4502,13 +4503,13 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get pinRemoteSubtitle =>
-      'Keep this remote at the top for faster access.';
+      'Keep this remote at the top for quick access.';
 
   @override
   String get remoteAddedToPinned => 'Remote pinned.';
 
   @override
-  String get remoteRemovedFromPinned => 'Remote removed from pinned.';
+  String get remoteRemovedFromPinned => 'Remote unpinned.';
 
   @override
   String get homeDeviceControlsTitle => 'Quick controls';

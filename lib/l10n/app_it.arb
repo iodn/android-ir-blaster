@@ -429,7 +429,7 @@
   "remoteNoButtons": "Ancora nessun pulsante",
   "remoteNoButtonsDescription": "Modifica questo telecomando per aggiungere o configurare i pulsanti.",
   "editRemote": "Modifica telecomando",
-  "editRemoteActionsSubtitle": "Rinomina, riordina e modifica pulsanti",
+  "editRemoteActionsSubtitle": "Rinomina il telecomando, disponi e modifica i pulsanti",
   "remoteUpdatedNamedButton": "Aggiornato \"{name}\".",
   "@remoteUpdatedNamedButton": {
     "placeholders": {
@@ -1950,23 +1950,23 @@
   "@recentlyUsedRemotesSubtitle": {
     "description": "Subtitle for the recently used remotes section on the remotes screen."
   },
-  "pinRemote": "Pin remote",
+  "pinRemote": "Fissa telecomando",
   "@pinRemote": {
     "description": "Action label to pin a remote for quick access."
   },
-  "unpinRemote": "Unpin remote",
+  "unpinRemote": "Rimuovi fissaggio",
   "@unpinRemote": {
     "description": "Action label to remove a remote from the pinned section."
   },
-  "pinRemoteSubtitle": "Keep this remote at the top for faster access.",
+  "pinRemoteSubtitle": "Tieni questo telecomando in alto per accedervi rapidamente.",
   "@pinRemoteSubtitle": {
     "description": "Subtitle shown under the pin/unpin remote action."
   },
-  "remoteAddedToPinned": "Remote pinned.",
+  "remoteAddedToPinned": "Telecomando fissato.",
   "@remoteAddedToPinned": {
     "description": "Snackbar shown after pinning a remote."
   },
-  "remoteRemovedFromPinned": "Remote removed from pinned.",
+  "remoteRemovedFromPinned": "Telecomando non più fissato.",
   "@remoteRemovedFromPinned": {
     "description": "Snackbar shown after unpinning a remote."
   },

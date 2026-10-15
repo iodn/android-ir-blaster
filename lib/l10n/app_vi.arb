@@ -429,7 +429,7 @@
   "remoteNoButtons": "Chưa có nút nào",
   "remoteNoButtonsDescription": "Chỉnh sửa điều khiển này để thêm hoặc thiết lập các nút.",
   "editRemote": "Sửa điều khiển",
-  "editRemoteActionsSubtitle": "Đổi tên, sắp xếp lại và sửa nút",
+  "editRemoteActionsSubtitle": "Đổi tên điều khiển, sắp xếp và chỉnh sửa các nút",
   "remoteUpdatedNamedButton": "Đã cập nhật \"{name}\".",
   "@remoteUpdatedNamedButton": {
     "placeholders": {
@@ -1950,23 +1950,23 @@
   "@recentlyUsedRemotesSubtitle": {
     "description": "Subtitle for the recently used remotes section on the remotes screen."
   },
-  "pinRemote": "Pin remote",
+  "pinRemote": "Ghim điều khiển",
   "@pinRemote": {
     "description": "Action label to pin a remote for quick access."
   },
-  "unpinRemote": "Unpin remote",
+  "unpinRemote": "Bỏ ghim điều khiển",
   "@unpinRemote": {
     "description": "Action label to remove a remote from the pinned section."
   },
-  "pinRemoteSubtitle": "Keep this remote at the top for faster access.",
+  "pinRemoteSubtitle": "Giữ điều khiển này ở trên cùng để truy cập nhanh.",
   "@pinRemoteSubtitle": {
     "description": "Subtitle shown under the pin/unpin remote action."
   },
-  "remoteAddedToPinned": "Remote pinned.",
+  "remoteAddedToPinned": "Đã ghim điều khiển.",
   "@remoteAddedToPinned": {
     "description": "Snackbar shown after pinning a remote."
   },
-  "remoteRemovedFromPinned": "Remote removed from pinned.",
+  "remoteRemovedFromPinned": "Đã bỏ ghim điều khiển.",
   "@remoteRemovedFromPinned": {
     "description": "Snackbar shown after unpinning a remote."
   },

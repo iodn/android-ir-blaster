@@ -1416,7 +1416,7 @@ class AppLocalizationsTh extends AppLocalizations {
   String get editRemote => 'แก้ไข remote';
 
   @override
-  String get editRemoteActionsSubtitle => 'เปลี่ยนชื่อ จัดลำดับ และแก้ไขปุ่ม';
+  String get editRemoteActionsSubtitle => 'เปลี่ยนชื่อรีโมต จัดวางและแก้ไขปุ่ม';
 
   @override
   String remoteUpdatedNamedButton(Object name) {
@@ -4412,20 +4412,20 @@ class AppLocalizationsTh extends AppLocalizations {
       'Jump back into the remotes you opened most recently.';
 
   @override
-  String get pinRemote => 'Pin remote';
+  String get pinRemote => 'ปักหมุดรีโมต';
 
   @override
-  String get unpinRemote => 'Unpin remote';
+  String get unpinRemote => 'เลิกปักหมุดรีโมต';
 
   @override
   String get pinRemoteSubtitle =>
-      'Keep this remote at the top for faster access.';
+      'แสดงรีโมตนี้ไว้ด้านบนเพื่อเปิดใช้งานได้รวดเร็ว';
 
   @override
-  String get remoteAddedToPinned => 'Remote pinned.';
+  String get remoteAddedToPinned => 'ปักหมุดรีโมตแล้ว';
 
   @override
-  String get remoteRemovedFromPinned => 'Remote removed from pinned.';
+  String get remoteRemovedFromPinned => 'เลิกปักหมุดรีโมตแล้ว';
 
   @override
   String get homeDeviceControlsTitle => 'การควบคุมด่วน';

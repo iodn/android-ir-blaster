@@ -429,7 +429,7 @@
   "remoteNoButtons": "لا توجد أزرار بعد",
   "remoteNoButtonsDescription": "عدّل جهاز التحكم لإضافة الأزرار أو إعدادها.",
   "editRemote": "تعديل جهاز التحكم",
-  "editRemoteActionsSubtitle": "إعادة التسمية وإعادة الترتيب وتعديل الأزرار",
+  "editRemoteActionsSubtitle": "تغيير الاسم وترتيب الأزرار وتعديلها",
   "remoteUpdatedNamedButton": "تم تحديث \"{name}\".",
   "@remoteUpdatedNamedButton": {
     "placeholders": {
@@ -1955,23 +1955,23 @@
   "@recentlyUsedRemotesSubtitle": {
     "description": "Subtitle for the recently used remotes section on the remotes screen."
   },
-  "pinRemote": "Pin remote",
+  "pinRemote": "تثبيت جهاز التحكم",
   "@pinRemote": {
     "description": "Action label to pin a remote for quick access."
   },
-  "unpinRemote": "Unpin remote",
+  "unpinRemote": "إلغاء تثبيت جهاز التحكم",
   "@unpinRemote": {
     "description": "Action label to remove a remote from the pinned section."
   },
-  "pinRemoteSubtitle": "Keep this remote at the top for faster access.",
+  "pinRemoteSubtitle": "ضع جهاز التحكم في الأعلى للوصول إليه بسرعة.",
   "@pinRemoteSubtitle": {
     "description": "Subtitle shown under the pin/unpin remote action."
   },
-  "remoteAddedToPinned": "Remote pinned.",
+  "remoteAddedToPinned": "ثُبّت جهاز التحكم.",
   "@remoteAddedToPinned": {
     "description": "Snackbar shown after pinning a remote."
   },
-  "remoteRemovedFromPinned": "Remote removed from pinned.",
+  "remoteRemovedFromPinned": "أُلغي تثبيت جهاز التحكم.",
   "@remoteRemovedFromPinned": {
     "description": "Snackbar shown after unpinning a remote."
   },

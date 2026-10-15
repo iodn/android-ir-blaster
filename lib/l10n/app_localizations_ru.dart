@@ -1444,7 +1444,7 @@ class AppLocalizationsRu extends AppLocalizations {
 
   @override
   String get editRemoteActionsSubtitle =>
-      'Переименовать, сортировать и изменить кнопки';
+      'Переименовать пульт, расположить и изменить кнопки';
 
   @override
   String remoteUpdatedNamedButton(Object name) {
@@ -4469,20 +4469,20 @@ class AppLocalizationsRu extends AppLocalizations {
       'Jump back into the remotes you opened most recently.';
 
   @override
-  String get pinRemote => 'Pin remote';
+  String get pinRemote => 'Закрепить пульт';
 
   @override
-  String get unpinRemote => 'Unpin remote';
+  String get unpinRemote => 'Открепить пульт';
 
   @override
   String get pinRemoteSubtitle =>
-      'Keep this remote at the top for faster access.';
+      'Разместите этот пульт вверху для быстрого доступа.';
 
   @override
-  String get remoteAddedToPinned => 'Remote pinned.';
+  String get remoteAddedToPinned => 'Пульт закреплён.';
 
   @override
-  String get remoteRemovedFromPinned => 'Remote removed from pinned.';
+  String get remoteRemovedFromPinned => 'Пульт откреплён.';
 
   @override
   String get homeDeviceControlsTitle => 'Быстрое управление';

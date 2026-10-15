@@ -1441,7 +1441,7 @@ class AppLocalizationsFil extends AppLocalizations {
 
   @override
   String get editRemoteActionsSubtitle =>
-      'Palitan ang pangalan, ayusin muli, at i-edit ang mga button';
+      'Palitan ang pangalan ng remote, ayusin at i-edit ang mga pindutan';
 
   @override
   String remoteUpdatedNamedButton(Object name) {
@@ -4455,20 +4455,20 @@ class AppLocalizationsFil extends AppLocalizations {
       'Jump back into the remotes you opened most recently.';
 
   @override
-  String get pinRemote => 'Pin remote';
+  String get pinRemote => 'I-pin ang remote';
 
   @override
-  String get unpinRemote => 'Unpin remote';
+  String get unpinRemote => 'Alisin ang pagka-pin';
 
   @override
   String get pinRemoteSubtitle =>
-      'Keep this remote at the top for faster access.';
+      'Ilagay ang remote na ito sa itaas para madaling mahanap.';
 
   @override
-  String get remoteAddedToPinned => 'Remote pinned.';
+  String get remoteAddedToPinned => 'Na-pin na ang remote.';
 
   @override
-  String get remoteRemovedFromPinned => 'Remote removed from pinned.';
+  String get remoteRemovedFromPinned => 'Inalis na ang pagka-pin ng remote.';
 
   @override
   String get homeDeviceControlsTitle => 'Mabilis na kontrol';

@@ -1430,7 +1430,7 @@ class AppLocalizationsTr extends AppLocalizations {
 
   @override
   String get editRemoteActionsSubtitle =>
-      'Yeniden adlandırın, sıralayın ve düğmeleri düzenleyin';
+      'Kumandayı yeniden adlandırın, düğmeleri yerleştirin ve düzenleyin';
 
   @override
   String remoteUpdatedNamedButton(Object name) {
@@ -4439,20 +4439,20 @@ class AppLocalizationsTr extends AppLocalizations {
       'Jump back into the remotes you opened most recently.';
 
   @override
-  String get pinRemote => 'Pin remote';
+  String get pinRemote => 'Kumandayı sabitle';
 
   @override
-  String get unpinRemote => 'Unpin remote';
+  String get unpinRemote => 'Sabitlemeyi kaldır';
 
   @override
   String get pinRemoteSubtitle =>
-      'Keep this remote at the top for faster access.';
+      'Hızlı erişim için bu kumandayı en üstte tutun.';
 
   @override
-  String get remoteAddedToPinned => 'Remote pinned.';
+  String get remoteAddedToPinned => 'Kumanda sabitlendi.';
 
   @override
-  String get remoteRemovedFromPinned => 'Remote removed from pinned.';
+  String get remoteRemovedFromPinned => 'Kumandanın sabitlemesi kaldırıldı.';
 
   @override
   String get homeDeviceControlsTitle => 'Hızlı kontroller';

@@ -1419,7 +1419,8 @@ class AppLocalizationsVi extends AppLocalizations {
   String get editRemote => 'Sửa điều khiển';
 
   @override
-  String get editRemoteActionsSubtitle => 'Đổi tên, sắp xếp lại và sửa nút';
+  String get editRemoteActionsSubtitle =>
+      'Đổi tên điều khiển, sắp xếp và chỉnh sửa các nút';
 
   @override
   String remoteUpdatedNamedButton(Object name) {
@@ -4422,20 +4423,20 @@ class AppLocalizationsVi extends AppLocalizations {
       'Jump back into the remotes you opened most recently.';
 
   @override
-  String get pinRemote => 'Pin remote';
+  String get pinRemote => 'Ghim điều khiển';
 
   @override
-  String get unpinRemote => 'Unpin remote';
+  String get unpinRemote => 'Bỏ ghim điều khiển';
 
   @override
   String get pinRemoteSubtitle =>
-      'Keep this remote at the top for faster access.';
+      'Giữ điều khiển này ở trên cùng để truy cập nhanh.';
 
   @override
-  String get remoteAddedToPinned => 'Remote pinned.';
+  String get remoteAddedToPinned => 'Đã ghim điều khiển.';
 
   @override
-  String get remoteRemovedFromPinned => 'Remote removed from pinned.';
+  String get remoteRemovedFromPinned => 'Đã bỏ ghim điều khiển.';
 
   @override
   String get homeDeviceControlsTitle => 'Điều khiển nhanh';

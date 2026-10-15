@@ -1457,7 +1457,7 @@ class AppLocalizationsIt extends AppLocalizations {
 
   @override
   String get editRemoteActionsSubtitle =>
-      'Rinomina, riordina e modifica pulsanti';
+      'Rinomina il telecomando, disponi e modifica i pulsanti';
 
   @override
   String remoteUpdatedNamedButton(Object name) {
@@ -4488,20 +4488,20 @@ class AppLocalizationsIt extends AppLocalizations {
       'Jump back into the remotes you opened most recently.';
 
   @override
-  String get pinRemote => 'Pin remote';
+  String get pinRemote => 'Fissa telecomando';
 
   @override
-  String get unpinRemote => 'Unpin remote';
+  String get unpinRemote => 'Rimuovi fissaggio';
 
   @override
   String get pinRemoteSubtitle =>
-      'Keep this remote at the top for faster access.';
+      'Tieni questo telecomando in alto per accedervi rapidamente.';
 
   @override
-  String get remoteAddedToPinned => 'Remote pinned.';
+  String get remoteAddedToPinned => 'Telecomando fissato.';
 
   @override
-  String get remoteRemovedFromPinned => 'Remote removed from pinned.';
+  String get remoteRemovedFromPinned => 'Telecomando non più fissato.';
 
   @override
   String get homeDeviceControlsTitle => 'Controlli rapidi';

@@ -1320,7 +1320,7 @@ class AppLocalizationsZh extends AppLocalizations {
   String get editRemote => '编辑遥控器';
 
   @override
-  String get editRemoteActionsSubtitle => '重命名、重排并编辑按钮';
+  String get editRemoteActionsSubtitle => '重命名遥控器、排列和编辑按钮';
 
   @override
   String remoteUpdatedNamedButton(Object name) {
@@ -4256,20 +4256,19 @@ class AppLocalizationsZh extends AppLocalizations {
       'Jump back into the remotes you opened most recently.';
 
   @override
-  String get pinRemote => 'Pin remote';
+  String get pinRemote => '置顶遥控器';
 
   @override
-  String get unpinRemote => 'Unpin remote';
+  String get unpinRemote => '取消置顶';
 
   @override
-  String get pinRemoteSubtitle =>
-      'Keep this remote at the top for faster access.';
+  String get pinRemoteSubtitle => '将此遥控器置于顶部，方便快速访问。';
 
   @override
-  String get remoteAddedToPinned => 'Remote pinned.';
+  String get remoteAddedToPinned => '已置顶遥控器。';
 
   @override
-  String get remoteRemovedFromPinned => 'Remote removed from pinned.';
+  String get remoteRemovedFromPinned => '已取消置顶遥控器。';
 
   @override
   String get homeDeviceControlsTitle => '快捷控制';

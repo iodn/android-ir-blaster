@@ -1432,8 +1432,7 @@ class AppLocalizationsAr extends AppLocalizations {
   String get editRemote => 'تعديل جهاز التحكم';
 
   @override
-  String get editRemoteActionsSubtitle =>
-      'إعادة التسمية وإعادة الترتيب وتعديل الأزرار';
+  String get editRemoteActionsSubtitle => 'تغيير الاسم وترتيب الأزرار وتعديلها';
 
   @override
   String remoteUpdatedNamedButton(Object name) {
@@ -4440,20 +4439,19 @@ class AppLocalizationsAr extends AppLocalizations {
       'Jump back into the remotes you opened most recently.';
 
   @override
-  String get pinRemote => 'Pin remote';
+  String get pinRemote => 'تثبيت جهاز التحكم';
 
   @override
-  String get unpinRemote => 'Unpin remote';
+  String get unpinRemote => 'إلغاء تثبيت جهاز التحكم';
 
   @override
-  String get pinRemoteSubtitle =>
-      'Keep this remote at the top for faster access.';
+  String get pinRemoteSubtitle => 'ضع جهاز التحكم في الأعلى للوصول إليه بسرعة.';
 
   @override
-  String get remoteAddedToPinned => 'Remote pinned.';
+  String get remoteAddedToPinned => 'ثُبّت جهاز التحكم.';
 
   @override
-  String get remoteRemovedFromPinned => 'Remote removed from pinned.';
+  String get remoteRemovedFromPinned => 'أُلغي تثبيت جهاز التحكم.';
 
   @override
   String get homeDeviceControlsTitle => 'عناصر تحكم سريعة';
@@ -6689,8 +6687,7 @@ class AppLocalizationsArEg extends AppLocalizationsAr {
   String get editRemote => 'تعديل جهاز التحكم';
 
   @override
-  String get editRemoteActionsSubtitle =>
-      'إعادة التسمية وإعادة الترتيب وتعديل الأزرار';
+  String get editRemoteActionsSubtitle => 'تغيير الاسم وترتيب الأزرار وتعديلها';
 
   @override
   String remoteUpdatedNamedButton(Object name) {
@@ -9698,20 +9695,19 @@ class AppLocalizationsArEg extends AppLocalizationsAr {
       'Jump back into the remotes you opened most recently.';
 
   @override
-  String get pinRemote => 'Pin remote';
+  String get pinRemote => 'تثبيت جهاز التحكم';
 
   @override
-  String get unpinRemote => 'Unpin remote';
+  String get unpinRemote => 'إلغاء تثبيت جهاز التحكم';
 
   @override
-  String get pinRemoteSubtitle =>
-      'Keep this remote at the top for faster access.';
+  String get pinRemoteSubtitle => 'ضع جهاز التحكم في الأعلى للوصول إليه بسرعة.';
 
   @override
-  String get remoteAddedToPinned => 'Remote pinned.';
+  String get remoteAddedToPinned => 'ثُبّت جهاز التحكم.';
 
   @override
-  String get remoteRemovedFromPinned => 'Remote removed from pinned.';
+  String get remoteRemovedFromPinned => 'أُلغي تثبيت جهاز التحكم.';
 
   @override
   String get homeDeviceControlsTitle => 'عناصر تحكم سريعة';
