@@ -58,11 +58,11 @@
   "macrosNavLabel": "Макроси",
   "signalTesterNavLabel": "Тестер сигналу",
   "settingsTitle": "Налаштування",
-  "remoteNoIrEmitterTitle": "Без ІЧ випромінювача",
-  "remoteNoIrEmitterMessage": "Цей пристрій не має ІЧ-випромінювача",
-  "remoteNoIrEmitterNeedsEmitter": "Для роботи цієї програми потрібен ІЧ-випромінювач",
-  "remoteDismiss": "Закрити",
-  "remoteClose": "Закрити",
+  "remoteNoIrEmitterTitle": "ІЧ-передавач недоступний",
+  "remoteNoIrEmitterMessage": "Не знайдено ІЧ-передавача, який можна використати.",
+  "remoteNoIrEmitterNeedsEmitter": "Для надсилання сигналів потрібен вбудований ІЧ-передавач або сумісний зовнішній передавач.",
+  "remoteDismiss": "Продовжити перегляд",
+  "remoteClose": "Закрити програму",
   "remoteFailedToSend": "Не вдалося надіслати ІЧ: {error}",
   "@remoteFailedToSend": {
     "placeholders": {

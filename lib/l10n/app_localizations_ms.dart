@@ -206,19 +206,21 @@ class AppLocalizationsMs extends AppLocalizations {
   String get settingsTitle => 'Tetapan';
 
   @override
-  String get remoteNoIrEmitterTitle => 'Tiada pemancar IR';
+  String get remoteNoIrEmitterTitle => 'Pemancar IR tidak tersedia';
 
   @override
-  String get remoteNoIrEmitterMessage => 'Peranti ini tiada pemancar IR';
+  String get remoteNoIrEmitterMessage =>
+      'Tiada pemancar IR yang boleh digunakan dikesan.';
 
   @override
-  String get remoteNoIrEmitterNeedsEmitter => 'Aplikasi ini perlu pemancar IR';
+  String get remoteNoIrEmitterNeedsEmitter =>
+      'Untuk menghantar isyarat, gunakan pemancar IR terbina dalam atau pemancar luaran yang serasi.';
 
   @override
-  String get remoteDismiss => 'Tutup';
+  String get remoteDismiss => 'Teruskan';
 
   @override
-  String get remoteClose => 'Tutup';
+  String get remoteClose => 'Tutup aplikasi';
 
   @override
   String remoteFailedToSend(Object error) {

@@ -196,19 +196,20 @@ class AppLocalizationsKo extends AppLocalizations {
   String get settingsTitle => '설정';
 
   @override
-  String get remoteNoIrEmitterTitle => '없음 IR 송신기';
+  String get remoteNoIrEmitterTitle => 'IR 송신기를 사용할 수 없습니다';
 
   @override
-  String get remoteNoIrEmitterMessage => '이 기기에는 IR 송신기가 없습니다';
+  String get remoteNoIrEmitterMessage => '사용 가능한 IR 송신기를 찾지 못했습니다.';
 
   @override
-  String get remoteNoIrEmitterNeedsEmitter => '이 앱은 IR 송신 기능이 필요합니다';
+  String get remoteNoIrEmitterNeedsEmitter =>
+      '신호를 보내려면 내장 IR 송신기 또는 호환되는 외부 송신기가 필요합니다.';
 
   @override
-  String get remoteDismiss => '닫기';
+  String get remoteDismiss => '계속 둘러보기';
 
   @override
-  String get remoteClose => '닫기';
+  String get remoteClose => '앱 닫기';
 
   @override
   String remoteFailedToSend(Object error) {

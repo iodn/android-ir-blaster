@@ -206,20 +206,21 @@ class AppLocalizationsVi extends AppLocalizations {
   String get settingsTitle => 'Cài đặt';
 
   @override
-  String get remoteNoIrEmitterTitle => 'Không có bộ phát IR';
+  String get remoteNoIrEmitterTitle => 'Không có bộ phát IR khả dụng';
 
   @override
-  String get remoteNoIrEmitterMessage => 'Thiết bị này không có bộ phát IR';
+  String get remoteNoIrEmitterMessage =>
+      'Không tìm thấy bộ phát IR có thể sử dụng.';
 
   @override
   String get remoteNoIrEmitterNeedsEmitter =>
-      'Ứng dụng này cần bộ phát IR để hoạt động';
+      'Để gửi tín hiệu, cần bộ phát IR tích hợp hoặc bộ phát ngoài tương thích.';
 
   @override
-  String get remoteDismiss => 'Bỏ qua';
+  String get remoteDismiss => 'Tiếp tục xem';
 
   @override
-  String get remoteClose => 'Đóng';
+  String get remoteClose => 'Đóng ứng dụng';
 
   @override
   String remoteFailedToSend(Object error) {

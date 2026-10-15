@@ -206,20 +206,21 @@ class AppLocalizationsTr extends AppLocalizations {
   String get settingsTitle => 'Ayarlar';
 
   @override
-  String get remoteNoIrEmitterTitle => 'IR verici yok';
+  String get remoteNoIrEmitterTitle => 'IR verici kullanılamıyor';
 
   @override
-  String get remoteNoIrEmitterMessage => 'Bu cihazda IR verici yok';
+  String get remoteNoIrEmitterMessage =>
+      'Kullanılabilir bir IR verici algılanamadı.';
 
   @override
   String get remoteNoIrEmitterNeedsEmitter =>
-      'Bu uygulamanın çalışması için IR verici gerekir';
+      'Sinyal göndermek için dahili IR verici veya uyumlu bir harici verici gerekir.';
 
   @override
-  String get remoteDismiss => 'Kapat';
+  String get remoteDismiss => 'Gezinmeye devam et';
 
   @override
-  String get remoteClose => 'Kapat';
+  String get remoteClose => 'Uygulamayı kapat';
 
   @override
   String remoteFailedToSend(Object error) {

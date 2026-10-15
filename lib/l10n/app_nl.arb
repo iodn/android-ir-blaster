@@ -58,11 +58,11 @@
   "macrosNavLabel": "Macro's",
   "signalTesterNavLabel": "Signaaltester",
   "settingsTitle": "Instellingen",
-  "remoteNoIrEmitterTitle": "Geen IR-zender",
-  "remoteNoIrEmitterMessage": "Dit apparaat heeft geen IR-zender",
-  "remoteNoIrEmitterNeedsEmitter": "Deze app heeft een IR-zender nodig om te werken",
-  "remoteDismiss": "Sluiten",
-  "remoteClose": "Sluiten",
+  "remoteNoIrEmitterTitle": "IR-zender niet beschikbaar",
+  "remoteNoIrEmitterMessage": "Er is geen bruikbare IR-zender gevonden.",
+  "remoteNoIrEmitterNeedsEmitter": "Om signalen te versturen heb je een ingebouwde IR-zender of een geschikte externe zender nodig.",
+  "remoteDismiss": "Verder bekijken",
+  "remoteClose": "App sluiten",
   "remoteFailedToSend": "IR verzenden mislukt: {error}",
   "@remoteFailedToSend": {
     "placeholders": {

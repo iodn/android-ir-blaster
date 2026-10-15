@@ -58,11 +58,11 @@
   "macrosNavLabel": "Makra",
   "signalTesterNavLabel": "Tester sygnału",
   "settingsTitle": "Ustawienia",
-  "remoteNoIrEmitterTitle": "Brak nadajnika IR",
-  "remoteNoIrEmitterMessage": "To urządzenie nie ma nadajnika IR",
-  "remoteNoIrEmitterNeedsEmitter": "Ta aplikacja wymaga nadajnika IR",
-  "remoteDismiss": "Zamknij",
-  "remoteClose": "Zamknij",
+  "remoteNoIrEmitterTitle": "Nadajnik IR niedostępny",
+  "remoteNoIrEmitterMessage": "Nie wykryto nadajnika IR, którego można użyć.",
+  "remoteNoIrEmitterNeedsEmitter": "Do wysyłania sygnałów potrzebny jest wbudowany nadajnik IR lub zgodny nadajnik zewnętrzny.",
+  "remoteDismiss": "Przeglądaj dalej",
+  "remoteClose": "Zamknij aplikację",
   "remoteFailedToSend": "Nie udało się wysłać IR: {error}",
   "@remoteFailedToSend": {
     "placeholders": {

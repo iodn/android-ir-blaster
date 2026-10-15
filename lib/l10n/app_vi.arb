@@ -58,11 +58,11 @@
   "macrosNavLabel": "Macro",
   "signalTesterNavLabel": "Kiểm tra tín hiệu",
   "settingsTitle": "Cài đặt",
-  "remoteNoIrEmitterTitle": "Không có bộ phát IR",
-  "remoteNoIrEmitterMessage": "Thiết bị này không có bộ phát IR",
-  "remoteNoIrEmitterNeedsEmitter": "Ứng dụng này cần bộ phát IR để hoạt động",
-  "remoteDismiss": "Bỏ qua",
-  "remoteClose": "Đóng",
+  "remoteNoIrEmitterTitle": "Không có bộ phát IR khả dụng",
+  "remoteNoIrEmitterMessage": "Không tìm thấy bộ phát IR có thể sử dụng.",
+  "remoteNoIrEmitterNeedsEmitter": "Để gửi tín hiệu, cần bộ phát IR tích hợp hoặc bộ phát ngoài tương thích.",
+  "remoteDismiss": "Tiếp tục xem",
+  "remoteClose": "Đóng ứng dụng",
   "remoteFailedToSend": "Gửi IR thất bại: {error}",
   "@remoteFailedToSend": {
     "placeholders": {

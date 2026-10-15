@@ -206,20 +206,21 @@ class AppLocalizationsPl extends AppLocalizations {
   String get settingsTitle => 'Ustawienia';
 
   @override
-  String get remoteNoIrEmitterTitle => 'Brak nadajnika IR';
+  String get remoteNoIrEmitterTitle => 'Nadajnik IR niedostępny';
 
   @override
-  String get remoteNoIrEmitterMessage => 'To urządzenie nie ma nadajnika IR';
+  String get remoteNoIrEmitterMessage =>
+      'Nie wykryto nadajnika IR, którego można użyć.';
 
   @override
   String get remoteNoIrEmitterNeedsEmitter =>
-      'Ta aplikacja wymaga nadajnika IR';
+      'Do wysyłania sygnałów potrzebny jest wbudowany nadajnik IR lub zgodny nadajnik zewnętrzny.';
 
   @override
-  String get remoteDismiss => 'Zamknij';
+  String get remoteDismiss => 'Przeglądaj dalej';
 
   @override
-  String get remoteClose => 'Zamknij';
+  String get remoteClose => 'Zamknij aplikację';
 
   @override
   String remoteFailedToSend(Object error) {

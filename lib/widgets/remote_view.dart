@@ -105,14 +105,14 @@ class RemoteViewState extends State<RemoteView> {
       barrierDismissible: false,
       builder: (BuildContext context) {
         return AlertDialog(
+          scrollable: true,
           title: Text(context.l10n.remoteNoIrEmitterTitle),
-          content: SingleChildScrollView(
-            child: ListBody(
-              children: <Widget>[
-                Text(context.l10n.remoteNoIrEmitterMessage),
-                Text(context.l10n.remoteNoIrEmitterNeedsEmitter),
-              ],
-            ),
+          content: ListBody(
+            children: <Widget>[
+              Text(context.l10n.remoteNoIrEmitterMessage),
+              const SizedBox(height: 12),
+              Text(context.l10n.remoteNoIrEmitterNeedsEmitter),
+            ],
           ),
           actions: <Widget>[
             TextButton(

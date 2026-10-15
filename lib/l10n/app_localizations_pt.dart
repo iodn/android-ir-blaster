@@ -206,20 +206,21 @@ class AppLocalizationsPt extends AppLocalizations {
   String get settingsTitle => 'Definições';
 
   @override
-  String get remoteNoIrEmitterTitle => 'Sem emissor IR';
+  String get remoteNoIrEmitterTitle => 'Emissor IR indisponível';
 
   @override
-  String get remoteNoIrEmitterMessage => 'Este dispositivo não tem emissor IR';
+  String get remoteNoIrEmitterMessage =>
+      'Não foi detetado nenhum emissor IR utilizável.';
 
   @override
   String get remoteNoIrEmitterNeedsEmitter =>
-      'Esta app precisa de um emissor IR para funcionar';
+      'Para enviar sinais, precisa de um emissor IR integrado ou de um emissor externo compatível.';
 
   @override
-  String get remoteDismiss => 'Descartar';
+  String get remoteDismiss => 'Continuar a explorar';
 
   @override
-  String get remoteClose => 'Fechar';
+  String get remoteClose => 'Fechar aplicação';
 
   @override
   String remoteFailedToSend(Object error) {
@@ -5520,20 +5521,21 @@ class AppLocalizationsPtBr extends AppLocalizationsPt {
   String get settingsTitle => 'configurações';
 
   @override
-  String get remoteNoIrEmitterTitle => 'Sem emissor IR';
+  String get remoteNoIrEmitterTitle => 'Emissor IR indisponível';
 
   @override
-  String get remoteNoIrEmitterMessage => 'Este dispositivo não tem emissor IR';
+  String get remoteNoIrEmitterMessage =>
+      'Nenhum emissor IR utilizável foi detectado.';
 
   @override
   String get remoteNoIrEmitterNeedsEmitter =>
-      'Este app precisa de um emissor IR para funcionar';
+      'Para enviar sinais, você precisa de um emissor IR integrado ou de um emissor externo compatível.';
 
   @override
-  String get remoteDismiss => 'Descartar';
+  String get remoteDismiss => 'Continuar explorando';
 
   @override
-  String get remoteClose => 'Fechar';
+  String get remoteClose => 'Fechar aplicativo';
 
   @override
   String remoteFailedToSend(Object error) {

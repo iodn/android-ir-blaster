@@ -206,20 +206,21 @@ class AppLocalizationsFil extends AppLocalizations {
   String get settingsTitle => 'Mga Setting';
 
   @override
-  String get remoteNoIrEmitterTitle => 'Walang IR emitter';
+  String get remoteNoIrEmitterTitle => 'Walang magamit na IR emitter';
 
   @override
-  String get remoteNoIrEmitterMessage => 'Walang IR emitter ang device na ito';
+  String get remoteNoIrEmitterMessage =>
+      'Walang natukoy na IR emitter na magagamit.';
 
   @override
   String get remoteNoIrEmitterNeedsEmitter =>
-      'Kailangan ng app na ito ng IR emitter para gumana';
+      'Para magpadala ng signal, kailangan ng built-in na IR o katugmang panlabas na emitter.';
 
   @override
-  String get remoteDismiss => 'Isara';
+  String get remoteDismiss => 'Magpatuloy';
 
   @override
-  String get remoteClose => 'Isara';
+  String get remoteClose => 'Isara ang app';
 
   @override
   String remoteFailedToSend(Object error) {

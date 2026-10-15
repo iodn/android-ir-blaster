@@ -58,11 +58,11 @@
   "macrosNavLabel": "매크로",
   "signalTesterNavLabel": "신호 테스터",
   "settingsTitle": "설정",
-  "remoteNoIrEmitterTitle": "없음 IR 송신기",
-  "remoteNoIrEmitterMessage": "이 기기에는 IR 송신기가 없습니다",
-  "remoteNoIrEmitterNeedsEmitter": "이 앱은 IR 송신 기능이 필요합니다",
-  "remoteDismiss": "닫기",
-  "remoteClose": "닫기",
+  "remoteNoIrEmitterTitle": "IR 송신기를 사용할 수 없습니다",
+  "remoteNoIrEmitterMessage": "사용 가능한 IR 송신기를 찾지 못했습니다.",
+  "remoteNoIrEmitterNeedsEmitter": "신호를 보내려면 내장 IR 송신기 또는 호환되는 외부 송신기가 필요합니다.",
+  "remoteDismiss": "계속 둘러보기",
+  "remoteClose": "앱 닫기",
   "remoteFailedToSend": "IR 전송 실패: {error}",
   "@remoteFailedToSend": {
     "placeholders": {

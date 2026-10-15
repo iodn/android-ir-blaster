@@ -58,11 +58,11 @@
   "macrosNavLabel": "Makros",
   "signalTesterNavLabel": "Signaltester",
   "settingsTitle": "Einstellungen",
-  "remoteNoIrEmitterTitle": "Kein IR-Sender",
-  "remoteNoIrEmitterMessage": "Dieses Gerät hat keinen IR-Sender",
-  "remoteNoIrEmitterNeedsEmitter": "Diese App benötigt einen IR-Sender",
-  "remoteDismiss": "Schließen",
-  "remoteClose": "Schließen",
+  "remoteNoIrEmitterTitle": "IR-Sender nicht verfügbar",
+  "remoteNoIrEmitterMessage": "Es wurde kein nutzbarer IR-Sender erkannt.",
+  "remoteNoIrEmitterNeedsEmitter": "Zum Senden brauchst du einen eingebauten IR-Sender oder einen kompatiblen externen Sender.",
+  "remoteDismiss": "Weiter nutzen",
+  "remoteClose": "App schließen",
   "remoteFailedToSend": "IR senden fehlgeschlagen: {error}",
   "@remoteFailedToSend": {
     "placeholders": {

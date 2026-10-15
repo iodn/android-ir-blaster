@@ -489,31 +489,31 @@ abstract class AppLocalizations {
   /// No description provided for @remoteNoIrEmitterTitle.
   ///
   /// In en, this message translates to:
-  /// **'No IR emitter'**
+  /// **'IR emitter unavailable'**
   String get remoteNoIrEmitterTitle;
 
   /// No description provided for @remoteNoIrEmitterMessage.
   ///
   /// In en, this message translates to:
-  /// **'This device does not have an IR emitter'**
+  /// **'No usable IR emitter was detected.'**
   String get remoteNoIrEmitterMessage;
 
   /// No description provided for @remoteNoIrEmitterNeedsEmitter.
   ///
   /// In en, this message translates to:
-  /// **'This app needs an IR emitter to function'**
+  /// **'To send signals, use built-in IR or a compatible external emitter.'**
   String get remoteNoIrEmitterNeedsEmitter;
 
   /// No description provided for @remoteDismiss.
   ///
   /// In en, this message translates to:
-  /// **'Dismiss'**
+  /// **'Keep browsing'**
   String get remoteDismiss;
 
   /// No description provided for @remoteClose.
   ///
   /// In en, this message translates to:
-  /// **'Close'**
+  /// **'Close app'**
   String get remoteClose;
 
   /// No description provided for @remoteFailedToSend.

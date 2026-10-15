@@ -58,11 +58,11 @@
   "macrosNavLabel": "Mga Macro",
   "signalTesterNavLabel": "Signal Tester",
   "settingsTitle": "Mga Setting",
-  "remoteNoIrEmitterTitle": "Walang IR emitter",
-  "remoteNoIrEmitterMessage": "Walang IR emitter ang device na ito",
-  "remoteNoIrEmitterNeedsEmitter": "Kailangan ng app na ito ng IR emitter para gumana",
-  "remoteDismiss": "Isara",
-  "remoteClose": "Isara",
+  "remoteNoIrEmitterTitle": "Walang magamit na IR emitter",
+  "remoteNoIrEmitterMessage": "Walang natukoy na IR emitter na magagamit.",
+  "remoteNoIrEmitterNeedsEmitter": "Para magpadala ng signal, kailangan ng built-in na IR o katugmang panlabas na emitter.",
+  "remoteDismiss": "Magpatuloy",
+  "remoteClose": "Isara ang app",
   "remoteFailedToSend": "Nabigong magpadala ng IR: {error}",
   "@remoteFailedToSend": {
     "placeholders": {

@@ -58,11 +58,11 @@
   "macrosNavLabel": "Makro",
   "signalTesterNavLabel": "Penguji Isyarat",
   "settingsTitle": "Tetapan",
-  "remoteNoIrEmitterTitle": "Tiada pemancar IR",
-  "remoteNoIrEmitterMessage": "Peranti ini tiada pemancar IR",
-  "remoteNoIrEmitterNeedsEmitter": "Aplikasi ini perlu pemancar IR",
-  "remoteDismiss": "Tutup",
-  "remoteClose": "Tutup",
+  "remoteNoIrEmitterTitle": "Pemancar IR tidak tersedia",
+  "remoteNoIrEmitterMessage": "Tiada pemancar IR yang boleh digunakan dikesan.",
+  "remoteNoIrEmitterNeedsEmitter": "Untuk menghantar isyarat, gunakan pemancar IR terbina dalam atau pemancar luaran yang serasi.",
+  "remoteDismiss": "Teruskan",
+  "remoteClose": "Tutup aplikasi",
   "remoteFailedToSend": "Gagal menghantar IR: {error}",
   "@remoteFailedToSend": {
     "placeholders": {

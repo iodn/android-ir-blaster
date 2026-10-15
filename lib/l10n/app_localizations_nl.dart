@@ -206,20 +206,21 @@ class AppLocalizationsNl extends AppLocalizations {
   String get settingsTitle => 'Instellingen';
 
   @override
-  String get remoteNoIrEmitterTitle => 'Geen IR-zender';
+  String get remoteNoIrEmitterTitle => 'IR-zender niet beschikbaar';
 
   @override
-  String get remoteNoIrEmitterMessage => 'Dit apparaat heeft geen IR-zender';
+  String get remoteNoIrEmitterMessage =>
+      'Er is geen bruikbare IR-zender gevonden.';
 
   @override
   String get remoteNoIrEmitterNeedsEmitter =>
-      'Deze app heeft een IR-zender nodig om te werken';
+      'Om signalen te versturen heb je een ingebouwde IR-zender of een geschikte externe zender nodig.';
 
   @override
-  String get remoteDismiss => 'Sluiten';
+  String get remoteDismiss => 'Verder bekijken';
 
   @override
-  String get remoteClose => 'Sluiten';
+  String get remoteClose => 'App sluiten';
 
   @override
   String remoteFailedToSend(Object error) {

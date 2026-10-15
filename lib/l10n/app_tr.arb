@@ -58,11 +58,11 @@
   "macrosNavLabel": "Makrolar",
   "signalTesterNavLabel": "Sinyal Testi",
   "settingsTitle": "Ayarlar",
-  "remoteNoIrEmitterTitle": "IR verici yok",
-  "remoteNoIrEmitterMessage": "Bu cihazda IR verici yok",
-  "remoteNoIrEmitterNeedsEmitter": "Bu uygulamanın çalışması için IR verici gerekir",
-  "remoteDismiss": "Kapat",
-  "remoteClose": "Kapat",
+  "remoteNoIrEmitterTitle": "IR verici kullanılamıyor",
+  "remoteNoIrEmitterMessage": "Kullanılabilir bir IR verici algılanamadı.",
+  "remoteNoIrEmitterNeedsEmitter": "Sinyal göndermek için dahili IR verici veya uyumlu bir harici verici gerekir.",
+  "remoteDismiss": "Gezinmeye devam et",
+  "remoteClose": "Uygulamayı kapat",
   "remoteFailedToSend": "Başarısız to gönder IR: {error}",
   "@remoteFailedToSend": {
     "placeholders": {

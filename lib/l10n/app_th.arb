@@ -58,11 +58,11 @@
   "macrosNavLabel": "แมโคร",
   "signalTesterNavLabel": "สัญญาณ Tester",
   "settingsTitle": "การตั้งค่า",
-  "remoteNoIrEmitterTitle": "ไม่มีตัวส่ง IR",
-  "remoteNoIrEmitterMessage": "อุปกรณ์นี้ไม่มีตัวส่ง IR",
-  "remoteNoIrEmitterNeedsEmitter": "แอปนี้ต้องใช้ตัวส่ง IR จึงจะทำงานได้",
-  "remoteDismiss": "ปิด",
-  "remoteClose": "ปิด",
+  "remoteNoIrEmitterTitle": "ไม่พบตัวส่ง IR ที่ใช้งานได้",
+  "remoteNoIrEmitterMessage": "ตรวจไม่พบตัวส่ง IR ที่พร้อมใช้งาน",
+  "remoteNoIrEmitterNeedsEmitter": "การส่งสัญญาณต้องใช้ตัวส่ง IR ในตัวเครื่อง หรือตัวส่งภายนอกที่รองรับ",
+  "remoteDismiss": "ดูต่อ",
+  "remoteClose": "ปิดแอป",
   "remoteFailedToSend": "ไม่สำเร็จ เพื่อส่ง IR: {error}",
   "@remoteFailedToSend": {
     "placeholders": {

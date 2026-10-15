@@ -206,20 +206,21 @@ class AppLocalizationsEs extends AppLocalizations {
   String get settingsTitle => 'Ajustes';
 
   @override
-  String get remoteNoIrEmitterTitle => 'Sin emisor IR';
+  String get remoteNoIrEmitterTitle => 'Emisor IR no disponible';
 
   @override
-  String get remoteNoIrEmitterMessage => 'Este dispositivo no tiene emisor IR';
+  String get remoteNoIrEmitterMessage =>
+      'No se ha detectado ningún emisor IR utilizable.';
 
   @override
   String get remoteNoIrEmitterNeedsEmitter =>
-      'Esta app necesita un emisor IR para funcionar';
+      'Para enviar señales, necesitas un emisor IR integrado o uno externo compatible.';
 
   @override
-  String get remoteDismiss => 'Descartar';
+  String get remoteDismiss => 'Seguir explorando';
 
   @override
-  String get remoteClose => 'Cerrar';
+  String get remoteClose => 'Cerrar la app';
 
   @override
   String remoteFailedToSend(Object error) {

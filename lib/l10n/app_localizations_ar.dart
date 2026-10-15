@@ -204,20 +204,21 @@ class AppLocalizationsAr extends AppLocalizations {
   String get settingsTitle => 'الإعدادات';
 
   @override
-  String get remoteNoIrEmitterTitle => 'لا يوجد مرسل IR';
+  String get remoteNoIrEmitterTitle => 'مرسل الأشعة تحت الحمراء غير متاح';
 
   @override
-  String get remoteNoIrEmitterMessage => 'هذا الجهاز لا يحتوي على مرسل IR';
+  String get remoteNoIrEmitterMessage =>
+      'لم يُكتشف مرسل أشعة تحت الحمراء متاح للاستخدام.';
 
   @override
   String get remoteNoIrEmitterNeedsEmitter =>
-      'يحتاج هذا التطبيق إلى مرسل IR ليعمل';
+      'لإرسال الإشارات، تحتاج إلى مرسل مدمج في الهاتف أو مرسل خارجي متوافق.';
 
   @override
-  String get remoteDismiss => 'تجاهل';
+  String get remoteDismiss => 'متابعة التصفح';
 
   @override
-  String get remoteClose => 'إغلاق';
+  String get remoteClose => 'إغلاق التطبيق';
 
   @override
   String remoteFailedToSend(Object error) {
@@ -5460,20 +5461,21 @@ class AppLocalizationsArEg extends AppLocalizationsAr {
   String get settingsTitle => 'الإعدادات';
 
   @override
-  String get remoteNoIrEmitterTitle => 'لا يوجد مرسل IR';
+  String get remoteNoIrEmitterTitle => 'مرسل الأشعة تحت الحمراء غير متاح';
 
   @override
-  String get remoteNoIrEmitterMessage => 'هذا الجهاز لا يحتوي على مرسل IR';
+  String get remoteNoIrEmitterMessage =>
+      'لم يُكتشف مرسل أشعة تحت الحمراء متاح للاستخدام.';
 
   @override
   String get remoteNoIrEmitterNeedsEmitter =>
-      'يحتاج هذا التطبيق إلى مرسل IR ليعمل';
+      'لإرسال الإشارات، تحتاج إلى مرسل مدمج في الهاتف أو مرسل خارجي متوافق.';
 
   @override
-  String get remoteDismiss => 'تجاهل';
+  String get remoteDismiss => 'متابعة التصفح';
 
   @override
-  String get remoteClose => 'إغلاق';
+  String get remoteClose => 'إغلاق التطبيق';
 
   @override
   String remoteFailedToSend(Object error) {

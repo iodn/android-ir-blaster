@@ -58,11 +58,11 @@
   "macrosNavLabel": "الماكرو",
   "signalTesterNavLabel": "مختبر الإشارة",
   "settingsTitle": "الإعدادات",
-  "remoteNoIrEmitterTitle": "لا يوجد مرسل IR",
-  "remoteNoIrEmitterMessage": "هذا الجهاز لا يحتوي على مرسل IR",
-  "remoteNoIrEmitterNeedsEmitter": "يحتاج هذا التطبيق إلى مرسل IR ليعمل",
-  "remoteDismiss": "تجاهل",
-  "remoteClose": "إغلاق",
+  "remoteNoIrEmitterTitle": "مرسل الأشعة تحت الحمراء غير متاح",
+  "remoteNoIrEmitterMessage": "لم يُكتشف مرسل أشعة تحت الحمراء متاح للاستخدام.",
+  "remoteNoIrEmitterNeedsEmitter": "لإرسال الإشارات، تحتاج إلى مرسل مدمج في الهاتف أو مرسل خارجي متوافق.",
+  "remoteDismiss": "متابعة التصفح",
+  "remoteClose": "إغلاق التطبيق",
   "remoteFailedToSend": "فشل إلى send IR: {error}",
   "@remoteFailedToSend": {
     "placeholders": {

@@ -206,20 +206,20 @@ class AppLocalizationsTh extends AppLocalizations {
   String get settingsTitle => 'การตั้งค่า';
 
   @override
-  String get remoteNoIrEmitterTitle => 'ไม่มีตัวส่ง IR';
+  String get remoteNoIrEmitterTitle => 'ไม่พบตัวส่ง IR ที่ใช้งานได้';
 
   @override
-  String get remoteNoIrEmitterMessage => 'อุปกรณ์นี้ไม่มีตัวส่ง IR';
+  String get remoteNoIrEmitterMessage => 'ตรวจไม่พบตัวส่ง IR ที่พร้อมใช้งาน';
 
   @override
   String get remoteNoIrEmitterNeedsEmitter =>
-      'แอปนี้ต้องใช้ตัวส่ง IR จึงจะทำงานได้';
+      'การส่งสัญญาณต้องใช้ตัวส่ง IR ในตัวเครื่อง หรือตัวส่งภายนอกที่รองรับ';
 
   @override
-  String get remoteDismiss => 'ปิด';
+  String get remoteDismiss => 'ดูต่อ';
 
   @override
-  String get remoteClose => 'ปิด';
+  String get remoteClose => 'ปิดแอป';
 
   @override
   String remoteFailedToSend(Object error) {

@@ -206,20 +206,21 @@ class AppLocalizationsUk extends AppLocalizations {
   String get settingsTitle => 'Налаштування';
 
   @override
-  String get remoteNoIrEmitterTitle => 'Без ІЧ випромінювача';
+  String get remoteNoIrEmitterTitle => 'ІЧ-передавач недоступний';
 
   @override
-  String get remoteNoIrEmitterMessage => 'Цей пристрій не має ІЧ-випромінювача';
+  String get remoteNoIrEmitterMessage =>
+      'Не знайдено ІЧ-передавача, який можна використати.';
 
   @override
   String get remoteNoIrEmitterNeedsEmitter =>
-      'Для роботи цієї програми потрібен ІЧ-випромінювач';
+      'Для надсилання сигналів потрібен вбудований ІЧ-передавач або сумісний зовнішній передавач.';
 
   @override
-  String get remoteDismiss => 'Закрити';
+  String get remoteDismiss => 'Продовжити перегляд';
 
   @override
-  String get remoteClose => 'Закрити';
+  String get remoteClose => 'Закрити програму';
 
   @override
   String remoteFailedToSend(Object error) {

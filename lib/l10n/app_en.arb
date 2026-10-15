@@ -58,11 +58,11 @@
   "macrosNavLabel": "Macros",
   "signalTesterNavLabel": "Signal Tester",
   "settingsTitle": "Settings",
-  "remoteNoIrEmitterTitle": "No IR emitter",
-  "remoteNoIrEmitterMessage": "This device does not have an IR emitter",
-  "remoteNoIrEmitterNeedsEmitter": "This app needs an IR emitter to function",
-  "remoteDismiss": "Dismiss",
-  "remoteClose": "Close",
+  "remoteNoIrEmitterTitle": "IR emitter unavailable",
+  "remoteNoIrEmitterMessage": "No usable IR emitter was detected.",
+  "remoteNoIrEmitterNeedsEmitter": "To send signals, use built-in IR or a compatible external emitter.",
+  "remoteDismiss": "Keep browsing",
+  "remoteClose": "Close app",
   "remoteFailedToSend": "Failed to send IR: {error}",
   "@remoteFailedToSend": {
     "placeholders": {

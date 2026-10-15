@@ -58,11 +58,11 @@
   "macrosNavLabel": "マクロ",
   "signalTesterNavLabel": "信号テスター",
   "settingsTitle": "設定",
-  "remoteNoIrEmitterTitle": "IR送信機がありません",
-  "remoteNoIrEmitterMessage": "この端末にはIR送信機がありません",
-  "remoteNoIrEmitterNeedsEmitter": "このアプリの動作にはIR送信機が必要です",
-  "remoteDismiss": "閉じる",
-  "remoteClose": "閉じる",
+  "remoteNoIrEmitterTitle": "赤外線送信機が使えません",
+  "remoteNoIrEmitterMessage": "使用できる赤外線送信機が見つかりません。",
+  "remoteNoIrEmitterNeedsEmitter": "信号を送るには、端末内蔵の赤外線送信機か、対応する外付け送信機が必要です。",
+  "remoteDismiss": "閲覧を続ける",
+  "remoteClose": "アプリを閉じる",
   "remoteFailedToSend": "IR送信に失敗しました: {error}",
   "@remoteFailedToSend": {
     "placeholders": {

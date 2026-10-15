@@ -58,11 +58,11 @@
   "macrosNavLabel": "Макросы",
   "signalTesterNavLabel": "Тестер сигнала",
   "settingsTitle": "Настройки",
-  "remoteNoIrEmitterTitle": "Нет ИК-передатчика",
-  "remoteNoIrEmitterMessage": "На этом устройстве нет ИК-передатчика",
-  "remoteNoIrEmitterNeedsEmitter": "Для работы приложению нужен ИК-передатчик",
-  "remoteDismiss": "Закрыть",
-  "remoteClose": "Закрыть",
+  "remoteNoIrEmitterTitle": "ИК-передатчик недоступен",
+  "remoteNoIrEmitterMessage": "Не найден ИК-передатчик, который можно использовать.",
+  "remoteNoIrEmitterNeedsEmitter": "Для отправки сигналов нужен встроенный ИК-передатчик или совместимый внешний передатчик.",
+  "remoteDismiss": "Продолжить просмотр",
+  "remoteClose": "Закрыть приложение",
   "remoteFailedToSend": "Не удалось отправить ИК: {error}",
   "@remoteFailedToSend": {
     "placeholders": {

@@ -186,19 +186,19 @@ class AppLocalizationsZh extends AppLocalizations {
   String get settingsTitle => '设置';
 
   @override
-  String get remoteNoIrEmitterTitle => '没有红外发射器';
+  String get remoteNoIrEmitterTitle => '红外发射器不可用';
 
   @override
-  String get remoteNoIrEmitterMessage => '此设备没有红外发射器';
+  String get remoteNoIrEmitterMessage => '未检测到可用的红外发射器。';
 
   @override
-  String get remoteNoIrEmitterNeedsEmitter => '此应用需要红外发射器才能工作';
+  String get remoteNoIrEmitterNeedsEmitter => '发送信号需要设备内置的红外发射器，或兼容的外接发射器。';
 
   @override
-  String get remoteDismiss => '关闭';
+  String get remoteDismiss => '继续浏览';
 
   @override
-  String get remoteClose => '关闭';
+  String get remoteClose => '关闭应用';
 
   @override
   String remoteFailedToSend(Object error) {

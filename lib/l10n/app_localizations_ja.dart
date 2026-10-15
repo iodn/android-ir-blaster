@@ -194,19 +194,20 @@ class AppLocalizationsJa extends AppLocalizations {
   String get settingsTitle => '設定';
 
   @override
-  String get remoteNoIrEmitterTitle => 'IR送信機がありません';
+  String get remoteNoIrEmitterTitle => '赤外線送信機が使えません';
 
   @override
-  String get remoteNoIrEmitterMessage => 'この端末にはIR送信機がありません';
+  String get remoteNoIrEmitterMessage => '使用できる赤外線送信機が見つかりません。';
 
   @override
-  String get remoteNoIrEmitterNeedsEmitter => 'このアプリの動作にはIR送信機が必要です';
+  String get remoteNoIrEmitterNeedsEmitter =>
+      '信号を送るには、端末内蔵の赤外線送信機か、対応する外付け送信機が必要です。';
 
   @override
-  String get remoteDismiss => '閉じる';
+  String get remoteDismiss => '閲覧を続ける';
 
   @override
-  String get remoteClose => '閉じる';
+  String get remoteClose => 'アプリを閉じる';
 
   @override
   String remoteFailedToSend(Object error) {

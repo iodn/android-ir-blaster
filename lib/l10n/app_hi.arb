@@ -58,11 +58,11 @@
   "macrosNavLabel": "मैक्रो",
   "signalTesterNavLabel": "सिग्नल टेस्टर",
   "settingsTitle": "सेटिंग्स",
-  "remoteNoIrEmitterTitle": "कोई IR प्रेषक नहीं",
-  "remoteNoIrEmitterMessage": "इस डिवाइस में IR प्रेषक नहीं है",
-  "remoteNoIrEmitterNeedsEmitter": "इस ऐप को काम करने के लिए IR प्रेषक चाहिए",
-  "remoteDismiss": "हटाएं",
-  "remoteClose": "बंद करें",
+  "remoteNoIrEmitterTitle": "IR ट्रांसमीटर उपलब्ध नहीं है",
+  "remoteNoIrEmitterMessage": "कोई उपयोग योग्य IR ट्रांसमीटर नहीं मिला।",
+  "remoteNoIrEmitterNeedsEmitter": "सिग्नल भेजने के लिए फ़ोन में मौजूद IR ट्रांसमीटर या कोई संगत बाहरी ट्रांसमीटर चाहिए।",
+  "remoteDismiss": "देखना जारी रखें",
+  "remoteClose": "ऐप बंद करें",
   "remoteFailedToSend": "भेजें IR: {error} विफल",
   "@remoteFailedToSend": {
     "placeholders": {

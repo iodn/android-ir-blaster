@@ -58,11 +58,11 @@
   "macrosNavLabel": "宏",
   "signalTesterNavLabel": "信号测试器",
   "settingsTitle": "设置",
-  "remoteNoIrEmitterTitle": "没有红外发射器",
-  "remoteNoIrEmitterMessage": "此设备没有红外发射器",
-  "remoteNoIrEmitterNeedsEmitter": "此应用需要红外发射器才能工作",
-  "remoteDismiss": "关闭",
-  "remoteClose": "关闭",
+  "remoteNoIrEmitterTitle": "红外发射器不可用",
+  "remoteNoIrEmitterMessage": "未检测到可用的红外发射器。",
+  "remoteNoIrEmitterNeedsEmitter": "发送信号需要设备内置的红外发射器，或兼容的外接发射器。",
+  "remoteDismiss": "继续浏览",
+  "remoteClose": "关闭应用",
   "remoteFailedToSend": "发送红外失败 {error}",
   "@remoteFailedToSend": {
     "placeholders": {

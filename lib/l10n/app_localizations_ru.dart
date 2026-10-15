@@ -206,21 +206,21 @@ class AppLocalizationsRu extends AppLocalizations {
   String get settingsTitle => 'Настройки';
 
   @override
-  String get remoteNoIrEmitterTitle => 'Нет ИК-передатчика';
+  String get remoteNoIrEmitterTitle => 'ИК-передатчик недоступен';
 
   @override
   String get remoteNoIrEmitterMessage =>
-      'На этом устройстве нет ИК-передатчика';
+      'Не найден ИК-передатчик, который можно использовать.';
 
   @override
   String get remoteNoIrEmitterNeedsEmitter =>
-      'Для работы приложению нужен ИК-передатчик';
+      'Для отправки сигналов нужен встроенный ИК-передатчик или совместимый внешний передатчик.';
 
   @override
-  String get remoteDismiss => 'Закрыть';
+  String get remoteDismiss => 'Продолжить просмотр';
 
   @override
-  String get remoteClose => 'Закрыть';
+  String get remoteClose => 'Закрыть приложение';
 
   @override
   String remoteFailedToSend(Object error) {

@@ -206,20 +206,21 @@ class AppLocalizationsHi extends AppLocalizations {
   String get settingsTitle => 'सेटिंग्स';
 
   @override
-  String get remoteNoIrEmitterTitle => 'कोई IR प्रेषक नहीं';
+  String get remoteNoIrEmitterTitle => 'IR ट्रांसमीटर उपलब्ध नहीं है';
 
   @override
-  String get remoteNoIrEmitterMessage => 'इस डिवाइस में IR प्रेषक नहीं है';
+  String get remoteNoIrEmitterMessage =>
+      'कोई उपयोग योग्य IR ट्रांसमीटर नहीं मिला।';
 
   @override
   String get remoteNoIrEmitterNeedsEmitter =>
-      'इस ऐप को काम करने के लिए IR प्रेषक चाहिए';
+      'सिग्नल भेजने के लिए फ़ोन में मौजूद IR ट्रांसमीटर या कोई संगत बाहरी ट्रांसमीटर चाहिए।';
 
   @override
-  String get remoteDismiss => 'हटाएं';
+  String get remoteDismiss => 'देखना जारी रखें';
 
   @override
-  String get remoteClose => 'बंद करें';
+  String get remoteClose => 'ऐप बंद करें';
 
   @override
   String remoteFailedToSend(Object error) {

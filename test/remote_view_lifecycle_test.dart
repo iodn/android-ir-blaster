@@ -38,8 +38,8 @@ void main() {
           protocol: 'marantz', protocolParams: {'address': '11', 'command': '76', 'extension': '09'}),
       ]))));
       await tester.pumpAndSettle();
-      if (find.text('Dismiss').evaluate().isNotEmpty) {
-        await tester.tap(find.text('Dismiss'));
+      if (find.text(AppLocalizations.of(tester.element(find.byType(RemoteView)))!.remoteDismiss).evaluate().isNotEmpty) {
+        await tester.tap(find.text(AppLocalizations.of(tester.element(find.byType(RemoteView)))!.remoteDismiss));
         await tester.pumpAndSettle();
       }
       final sendLabel = AppLocalizations.of(tester.element(find.byType(RemoteView)))!.sendCommand;
@@ -106,7 +106,7 @@ void main() {
           rawData: '9000 4500 560 560')
     ]))));
     await tester.pumpAndSettle();
-    await tester.tap(find.text('Dismiss'));
+    await tester.tap(find.text(AppLocalizations.of(tester.element(find.byType(RemoteView)))!.remoteDismiss));
     await tester.pumpAndSettle();
     for (var i = 0; i < 2; i++) {
       await tester.tap(find.text('Power').first);
