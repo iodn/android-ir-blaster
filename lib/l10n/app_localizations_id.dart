@@ -868,11 +868,11 @@ class AppLocalizationsId extends AppLocalizations {
   String get backupSubtitle => 'Impor/ekspor remote dan makro';
 
   @override
-  String get importBackup => 'Impor cadangan';
+  String get importBackup => 'Impor dari file';
 
   @override
   String get importBackupSubtitle =>
-      'Impor cadangan remote/makro atau file Flipper Zero, LIRC, atau IRPLUS';
+      'Impor cadangan remote dan makro, atau file Flipper Zero, LIRC, atau IRPLUS.';
 
   @override
   String get bulkImportFolder => 'Impor massal folder';
@@ -881,11 +881,11 @@ class AppLocalizationsId extends AppLocalizations {
   String get bulkImportFolderSubtitle => 'Impor banyak remote dari folder';
 
   @override
-  String get exportBackup => 'Ekspor cadangan';
+  String get exportBackup => 'Simpan cadangan';
 
   @override
   String get exportBackupSubtitle =>
-      'Simpan remote + makro sebagai satu file JSON ke Unduhan';
+      'Simpan remote dan makro bersama dalam satu file JSON.';
 
   @override
   String get restoreDemoRemotes => 'Pulihkan remote demo';

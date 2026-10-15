@@ -872,11 +872,11 @@ class AppLocalizationsPt extends AppLocalizations {
   String get backupSubtitle => 'Importar/exportar comandos e macros';
 
   @override
-  String get importBackup => 'Importar cópia';
+  String get importBackup => 'Importar de ficheiro';
 
   @override
   String get importBackupSubtitle =>
-      'Importa cópias de comandos/macros ou ficheiros do Flipper Zero, LIRC ou IRPLUS';
+      'Importe uma cópia de segurança de comandos e macros, ou ficheiros Flipper Zero, LIRC ou IRPLUS.';
 
   @override
   String get bulkImportFolder => 'Importar pasta';
@@ -886,11 +886,11 @@ class AppLocalizationsPt extends AppLocalizations {
       'Importar vários comandos de uma pasta';
 
   @override
-  String get exportBackup => 'Exportar cópia';
+  String get exportBackup => 'Guardar cópia de segurança';
 
   @override
   String get exportBackupSubtitle =>
-      'Guardar comandos + macros como um JSON em Transferências';
+      'Guarde os comandos e as macros num único ficheiro JSON.';
 
   @override
   String get restoreDemoRemotes => 'Restaurar comandos de demonstração';
@@ -6195,11 +6195,11 @@ class AppLocalizationsPtBr extends AppLocalizationsPt {
   String get backupSubtitle => 'Importar/exportar controles e macros';
 
   @override
-  String get importBackup => 'Importar cópia';
+  String get importBackup => 'Importar de arquivo';
 
   @override
   String get importBackupSubtitle =>
-      'Importa cópias de controles/macros ou arquivos do Flipper Zero, LIRC ou IRPLUS';
+      'Importe um backup de controles e macros ou arquivos Flipper Zero, LIRC ou IRPLUS.';
 
   @override
   String get bulkImportFolder => 'Importar pasta';
@@ -6209,11 +6209,11 @@ class AppLocalizationsPtBr extends AppLocalizationsPt {
       'Importar vários controles de uma pasta';
 
   @override
-  String get exportBackup => 'Exportar cópia';
+  String get exportBackup => 'Salvar backup';
 
   @override
   String get exportBackupSubtitle =>
-      'Salvar controles + macros como um JSON em Downloads';
+      'Salve os controles e as macros juntos em um arquivo JSON.';
 
   @override
   String get restoreDemoRemotes => 'Restaurar controles de demonstração';

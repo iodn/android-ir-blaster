@@ -859,7 +859,7 @@ class AppLocalizationsTh extends AppLocalizations {
   String get backupSubtitle => 'นำเข้าและส่งออกรีโมตกับแมโคร';
 
   @override
-  String get importBackup => 'นำเข้าข้อมูลสำรอง';
+  String get importBackup => 'นำเข้าจากไฟล์';
 
   @override
   String get importBackupSubtitle =>
@@ -873,11 +873,11 @@ class AppLocalizationsTh extends AppLocalizations {
       'นำเข้า multiple รีโมต from a โฟลเดอร์';
 
   @override
-  String get exportBackup => 'ส่งออก backup';
+  String get exportBackup => 'บันทึกข้อมูลสำรอง';
 
   @override
   String get exportBackupSubtitle =>
-      'Save รีโมต + แมโครs as one JSON ไฟล์ to ดาวน์โหลด';
+      'บันทึกรีโมตและแมโครรวมกันในไฟล์ JSON เดียว';
 
   @override
   String get restoreDemoRemotes => 'กู้คืนตัวอย่าง รีโมต';

@@ -234,6 +234,34 @@ void main() {
         ScaffoldMessenger.of(tester.element(feedback)).removeCurrentSnackBar();
         await tester.pumpAndSettle();
       }
+      await tester.tap(find.byType(BackButton));
+      await tester.pumpAndSettle();
+      await tester.scrollUntilVisible(find.text(l10n.backupTitle), 150);
+      await tester.pumpAndSettle();
+      await tester.ensureVisible(find.text(l10n.backupTitle));
+      await tester.pumpAndSettle();
+      await tester.tap(find.text(l10n.backupTitle));
+      await tester.pumpAndSettle();
+      for (final label in [
+        l10n.importBackup,
+        l10n.importBackupSubtitle,
+        l10n.exportBackup,
+        l10n.exportBackupSubtitle,
+      ]) {
+        final text = find.text(label);
+        await tester.ensureVisible(text);
+        await tester.pumpAndSettle();
+        expectReadable(text);
+        final tile = find.ancestor(of: text, matching: find.byType(ListTile));
+        final bounds = tester.getRect(tile);
+        expect(tester.getRect(text).top, greaterThanOrEqualTo(bounds.top));
+        expect(tester.getRect(text).bottom, lessThanOrEqualTo(bounds.bottom));
+      }
+      for (final label in [l10n.importBackup, l10n.exportBackup]) {
+        await tester.ensureVisible(find.text(label));
+        await tester.pumpAndSettle();
+        expect(find.text(label).hitTestable(), findsOneWidget);
+      }
       await tester.pumpWidget(const SizedBox());
       await tester.pumpAndSettle();
     });

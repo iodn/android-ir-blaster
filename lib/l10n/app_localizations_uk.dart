@@ -870,11 +870,11 @@ class AppLocalizationsUk extends AppLocalizations {
   String get backupSubtitle => 'Імпорт/експорт пультів і макросів';
 
   @override
-  String get importBackup => 'Імпорт резервної копії';
+  String get importBackup => 'Імпорт із файлу';
 
   @override
   String get importBackupSubtitle =>
-      'Імпортуйте резервні копії пультів/макросів або файли Flipper Zero, LIRC або IRPLUS';
+      'Імпортуйте резервну копію пультів і макросів або файли Flipper Zero, LIRC чи IRPLUS.';
 
   @override
   String get bulkImportFolder => 'Папка масового імпорту';
@@ -883,11 +883,11 @@ class AppLocalizationsUk extends AppLocalizations {
   String get bulkImportFolderSubtitle => 'Імпорт кількох пультів з папки';
 
   @override
-  String get exportBackup => 'Експорт резервної копії';
+  String get exportBackup => 'Зберегти резервну копію';
 
   @override
   String get exportBackupSubtitle =>
-      'Збережіть пульти та макроси як один файл JSON у завантаженнях';
+      'Збережіть пульти й макроси разом в одному JSON-файлі.';
 
   @override
   String get restoreDemoRemotes => 'Відновити демонстраційні пульти';

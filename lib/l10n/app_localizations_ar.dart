@@ -860,11 +860,11 @@ class AppLocalizationsAr extends AppLocalizations {
   String get backupSubtitle => 'استيراد أو تصدير أجهزة التحكم والماكرو';
 
   @override
-  String get importBackup => 'استيراد نسخة احتياطية';
+  String get importBackup => 'استيراد من ملف';
 
   @override
   String get importBackupSubtitle =>
-      'استيراد نسخة أجهزة التحكم أو الماكرو أو ملفات Flipper Zero أو LIRC أو IRPLUS';
+      'استيراد نسخة احتياطية لأجهزة التحكم والماكرو، أو ملفات Flipper Zero أو LIRC أو IRPLUS.';
 
   @override
   String get bulkImportFolder => 'Bulk import folder';
@@ -873,11 +873,11 @@ class AppLocalizationsAr extends AppLocalizations {
   String get bulkImportFolderSubtitle => 'استيراد multiple remotes من a folder';
 
   @override
-  String get exportBackup => 'تصدير نسخة احتياطية';
+  String get exportBackup => 'حفظ نسخة احتياطية';
 
   @override
   String get exportBackupSubtitle =>
-      'احفظ أجهزة التحكم والماكرو في ملف JSON واحد داخل التنزيلات';
+      'حفظ أجهزة التحكم والماكرو معًا في ملف JSON واحد.';
 
   @override
   String get restoreDemoRemotes => 'استعادة الأجهزة التجريبية';
@@ -6135,11 +6135,11 @@ class AppLocalizationsArEg extends AppLocalizationsAr {
   String get backupSubtitle => 'استيراد أو تصدير أجهزة التحكم والماكرو';
 
   @override
-  String get importBackup => 'استيراد نسخة احتياطية';
+  String get importBackup => 'استيراد من ملف';
 
   @override
   String get importBackupSubtitle =>
-      'استيراد نسخة أجهزة التحكم أو الماكرو أو ملفات Flipper Zero أو LIRC أو IRPLUS';
+      'استورد نسخة احتياطية للريموتات والماكرو، أو ملفات Flipper Zero أو LIRC أو IRPLUS.';
 
   @override
   String get bulkImportFolder => 'Bulk import folder';
@@ -6148,11 +6148,11 @@ class AppLocalizationsArEg extends AppLocalizationsAr {
   String get bulkImportFolderSubtitle => 'استيراد multiple remotes من a folder';
 
   @override
-  String get exportBackup => 'تصدير نسخة احتياطية';
+  String get exportBackup => 'حفظ نسخة احتياطية';
 
   @override
   String get exportBackupSubtitle =>
-      'احفظ أجهزة التحكم والماكرو في ملف JSON واحد داخل التنزيلات';
+      'احفظ الريموتات والماكرو مع بعض في ملف JSON واحد.';
 
   @override
   String get restoreDemoRemotes => 'استعادة الأجهزة التجريبية';

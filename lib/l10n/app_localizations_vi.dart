@@ -864,11 +864,11 @@ class AppLocalizationsVi extends AppLocalizations {
   String get backupSubtitle => 'Nhập/xuất điều khiển và macro';
 
   @override
-  String get importBackup => 'Nhập bản sao lưu';
+  String get importBackup => 'Nhập từ tệp';
 
   @override
   String get importBackupSubtitle =>
-      'Nhập bản sao lưu điều khiển/macro hoặc tệp Flipper Zero, LIRC hay IRPLUS';
+      'Nhập bản sao lưu điều khiển và macro, hoặc tệp Flipper Zero, LIRC hay IRPLUS.';
 
   @override
   String get bulkImportFolder => 'Nhập hàng loạt thư mục';
@@ -877,11 +877,11 @@ class AppLocalizationsVi extends AppLocalizations {
   String get bulkImportFolderSubtitle => 'Nhập nhiều điều khiển từ một thư mục';
 
   @override
-  String get exportBackup => 'Xuất bản sao lưu';
+  String get exportBackup => 'Lưu bản sao lưu';
 
   @override
   String get exportBackupSubtitle =>
-      'Lưu điều khiển + macro thành một tệp JSON vào Downloads';
+      'Lưu điều khiển và macro chung trong một tệp JSON.';
 
   @override
   String get restoreDemoRemotes => 'Khôi phục điều khiển mẫu';

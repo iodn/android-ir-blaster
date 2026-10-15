@@ -1647,13 +1647,13 @@ abstract class AppLocalizations {
   /// No description provided for @importBackup.
   ///
   /// In en, this message translates to:
-  /// **'Import backup'**
+  /// **'Import from file'**
   String get importBackup;
 
   /// No description provided for @importBackupSubtitle.
   ///
   /// In en, this message translates to:
-  /// **'Import remotes/macros backup or Flipper Zero, LIRC or IRPLUS files'**
+  /// **'Import a backup of remotes and macros, or Flipper Zero, LIRC, or IRPLUS files.'**
   String get importBackupSubtitle;
 
   /// No description provided for @bulkImportFolder.
@@ -1671,13 +1671,13 @@ abstract class AppLocalizations {
   /// No description provided for @exportBackup.
   ///
   /// In en, this message translates to:
-  /// **'Export backup'**
+  /// **'Save backup'**
   String get exportBackup;
 
   /// No description provided for @exportBackupSubtitle.
   ///
   /// In en, this message translates to:
-  /// **'Save remotes + macros as one JSON file to Downloads'**
+  /// **'Save remotes and macros together in one JSON file.'**
   String get exportBackupSubtitle;
 
   /// No description provided for @restoreDemoRemotes.

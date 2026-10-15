@@ -870,11 +870,11 @@ class AppLocalizationsTr extends AppLocalizations {
   String get backupSubtitle => 'Kumandaları ve makroları içe/dışa aktar';
 
   @override
-  String get importBackup => 'İçe aktar yedek';
+  String get importBackup => 'Dosyadan içe aktar';
 
   @override
   String get importBackupSubtitle =>
-      'İçe aktar remotes/macros yedek or Flipper Sıfır, LIRC or IRPLUS files';
+      'Kumanda ve makro yedeğini veya Flipper Zero, LIRC ya da IRPLUS dosyalarını içe aktarın.';
 
   @override
   String get bulkImportFolder => 'Bulk içe aktar klasör';
@@ -884,11 +884,11 @@ class AppLocalizationsTr extends AppLocalizations {
       'Bir klasörden birden çok kumanda içe aktar';
 
   @override
-  String get exportBackup => 'Dışa aktar yedek';
+  String get exportBackup => 'Yedeği kaydet';
 
   @override
   String get exportBackupSubtitle =>
-      'Kumandaları ve makroları tek bir JSON dosyası olarak İndirilenler\'e kaydet';
+      'Kumandaları ve makroları tek bir JSON dosyasında birlikte kaydedin.';
 
   @override
   String get restoreDemoRemotes => 'Demoyu geri yükle remotes';

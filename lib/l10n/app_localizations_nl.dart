@@ -881,11 +881,11 @@ class AppLocalizationsNl extends AppLocalizations {
       'Afstandsbedieningen en macro\'s importeren of exporteren';
 
   @override
-  String get importBackup => 'Back-up importeren';
+  String get importBackup => 'Uit bestand importeren';
 
   @override
   String get importBackupSubtitle =>
-      'Importeer back-up van afstandsbedieningen of macro\'s of Flipper Zero, LIRC of IRPLUS-bestanden';
+      'Importeer een back-up van afstandsbedieningen en macro’s, of bestanden voor Flipper Zero, LIRC of IRPLUS.';
 
   @override
   String get bulkImportFolder => 'Map in bulk importeren';
@@ -895,11 +895,11 @@ class AppLocalizationsNl extends AppLocalizations {
       'Importeer meerdere afstandsbedieningen uit een map';
 
   @override
-  String get exportBackup => 'Back-up exporteren';
+  String get exportBackup => 'Back-up opslaan';
 
   @override
   String get exportBackupSubtitle =>
-      'Sla afstandsbedieningen en macro\'s als één JSON-bestand op in Downloads';
+      'Sla afstandsbedieningen en macro’s samen op in één JSON-bestand.';
 
   @override
   String get restoreDemoRemotes => 'Demo-afstandsbedieningen herstellen';

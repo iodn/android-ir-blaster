@@ -837,11 +837,11 @@ class AppLocalizationsKo extends AppLocalizations {
   String get backupSubtitle => '리모컨과 매크로 가져오기/내보내기';
 
   @override
-  String get importBackup => '백업 가져오기';
+  String get importBackup => '파일에서 가져오기';
 
   @override
   String get importBackupSubtitle =>
-      '리모컨/매크로 백업 또는 Flipper Zero, LIRC, IRPLUS 파일 가져오기';
+      '리모컨과 매크로의 백업 또는 Flipper Zero, LIRC, IRPLUS 파일을 가져와요.';
 
   @override
   String get bulkImportFolder => '폴더 대량 가져오기';
@@ -850,10 +850,10 @@ class AppLocalizationsKo extends AppLocalizations {
   String get bulkImportFolderSubtitle => '폴더에서 여러 리모컨 가져오기';
 
   @override
-  String get exportBackup => '백업 내보내기';
+  String get exportBackup => '백업 저장';
 
   @override
-  String get exportBackupSubtitle => '리모컨과 매크로를 하나의 JSON 파일로 Downloads에 저장';
+  String get exportBackupSubtitle => '리모컨과 매크로를 하나의 JSON 파일에 함께 저장해요.';
 
   @override
   String get restoreDemoRemotes => '데모 리모컨 복원';

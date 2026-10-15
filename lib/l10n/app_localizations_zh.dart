@@ -801,10 +801,11 @@ class AppLocalizationsZh extends AppLocalizations {
   String get backupSubtitle => '导入导出遥控器和宏';
 
   @override
-  String get importBackup => '导入备份';
+  String get importBackup => '从文件导入';
 
   @override
-  String get importBackupSubtitle => '导入遥控器 宏备份或 Flipper Zero LIRC IRPLUS 文件';
+  String get importBackupSubtitle =>
+      '导入遥控器和宏的备份，或Flipper Zero、LIRC、IRPLUS格式的文件。';
 
   @override
   String get bulkImportFolder => '批量导入文件夹';
@@ -813,10 +814,10 @@ class AppLocalizationsZh extends AppLocalizations {
   String get bulkImportFolderSubtitle => '从文件夹导入多个遥控器';
 
   @override
-  String get exportBackup => '导出备份';
+  String get exportBackup => '保存备份';
 
   @override
-  String get exportBackupSubtitle => '将遥控器与宏保存为一个 JSON 文件到下载目录';
+  String get exportBackupSubtitle => '将遥控器和宏一起保存到一个JSON文件中。';
 
   @override
   String get restoreDemoRemotes => '恢复演示遥控器';

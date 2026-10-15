@@ -877,11 +877,11 @@ class AppLocalizationsDe extends AppLocalizations {
       'Fernbedienungen und Makros importieren oder exportieren';
 
   @override
-  String get importBackup => 'Sicherung importieren';
+  String get importBackup => 'Aus Datei importieren';
 
   @override
   String get importBackupSubtitle =>
-      'Sicherung von Fernbedienungen oder Makros sowie Flipper Zero, LIRC oder IRPLUS importieren';
+      'Eine Sicherung von Fernbedienungen und Makros oder Dateien für Flipper Zero, LIRC oder IRPLUS importieren.';
 
   @override
   String get bulkImportFolder => 'Ordner gesammelt importieren';
@@ -891,11 +891,11 @@ class AppLocalizationsDe extends AppLocalizations {
       'Mehrere Fernbedienungen aus einem Ordner importieren';
 
   @override
-  String get exportBackup => 'Sicherung exportieren';
+  String get exportBackup => 'Sicherung speichern';
 
   @override
   String get exportBackupSubtitle =>
-      'Fernbedienungen und Makros als eine JSON-Datei in Downloads speichern';
+      'Fernbedienungen und Makros zusammen in einer JSON-Datei speichern.';
 
   @override
   String get restoreDemoRemotes => 'Demo-Fernbedienungen wiederherstellen';

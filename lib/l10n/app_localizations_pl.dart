@@ -870,11 +870,11 @@ class AppLocalizationsPl extends AppLocalizations {
   String get backupSubtitle => 'Import/eksport pilotów i makr';
 
   @override
-  String get importBackup => 'Importuj kopię';
+  String get importBackup => 'Importuj z pliku';
 
   @override
   String get importBackupSubtitle =>
-      'Importuj kopię pilotów/makr albo pliki Flipper Zero, LIRC lub IRPLUS';
+      'Importuj kopię zapasową pilotów i makr lub pliki Flipper Zero, LIRC albo IRPLUS.';
 
   @override
   String get bulkImportFolder => 'Importuj folder';
@@ -883,11 +883,11 @@ class AppLocalizationsPl extends AppLocalizations {
   String get bulkImportFolderSubtitle => 'Importuj wiele pilotów z folderu';
 
   @override
-  String get exportBackup => 'Eksportuj kopię';
+  String get exportBackup => 'Zapisz kopię zapasową';
 
   @override
   String get exportBackupSubtitle =>
-      'Zapisz piloty i makra jako jeden plik JSON do Pobranych';
+      'Zapisz piloty i makra razem w jednym pliku JSON.';
 
   @override
   String get restoreDemoRemotes => 'Przywróć piloty demo';
