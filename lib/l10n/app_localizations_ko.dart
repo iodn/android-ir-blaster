@@ -2019,7 +2019,7 @@ class AppLocalizationsKo extends AppLocalizations {
 
   @override
   String get importedOneRemoteFromFlipper =>
-      'Flipper .ir에서 리모컨 1개를 가져왔습니다. 매크로는 변경되지 않았습니다.';
+      'Flipper .ir 파일에서 리모컨 1개를 가져왔습니다. 매크로는 변경하지 않았습니다.';
 
   @override
   String get importFailedInvalidIrplus =>
@@ -2027,7 +2027,7 @@ class AppLocalizationsKo extends AppLocalizations {
 
   @override
   String get importedOneRemoteFromIrplus =>
-      'irplus에서 리모컨 1개를 가져왔습니다. 매크로는 변경되지 않았습니다.';
+      'IRPLUS 파일에서 리모컨 1개를 가져왔습니다. 매크로는 변경하지 않았습니다.';
 
   @override
   String get importFailedInvalidLirc =>
@@ -2035,7 +2035,7 @@ class AppLocalizationsKo extends AppLocalizations {
 
   @override
   String get importedOneRemoteFromLirc =>
-      'LIRC config에서 리모컨 1개를 가져왔습니다. 매크로는 변경되지 않았습니다.';
+      'LIRC 파일에서 리모컨 1개를 가져왔습니다. 매크로는 변경하지 않았습니다.';
 
   @override
   String get unsupportedFileTypeSelected => '지원하지 않는 파일 형식이에요.';

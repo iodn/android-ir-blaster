@@ -2012,21 +2012,21 @@ class AppLocalizationsJa extends AppLocalizations {
 
   @override
   String get importedOneRemoteFromFlipper =>
-      'Flipper .ir から1つのリモコンを取り込みました。マクロは変更されませんでした。';
+      'Flipper .irファイルからリモコンを1件取り込みました。マクロは変更していません。';
 
   @override
   String get importFailedInvalidIrplus => 'IRPLUSファイルに読み込めるボタンが見つかりません。';
 
   @override
   String get importedOneRemoteFromIrplus =>
-      'irplus から1つのリモコンを取り込みました。マクロは変更されませんでした。';
+      'IRPLUSファイルからリモコンを1件取り込みました。マクロは変更していません。';
 
   @override
   String get importFailedInvalidLirc => 'LIRCファイルに読み込める赤外線コードが見つかりません。';
 
   @override
   String get importedOneRemoteFromLirc =>
-      'LIRC設定から1つのリモコンを取り込みました。マクロは変更されませんでした。';
+      'LIRCファイルからリモコンを1件取り込みました。マクロは変更していません。';
 
   @override
   String get unsupportedFileTypeSelected => 'この種類のファイルには対応していません。';

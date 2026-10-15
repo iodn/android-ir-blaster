@@ -2153,7 +2153,7 @@ class AppLocalizationsIt extends AppLocalizations {
 
   @override
   String get importedOneRemoteFromFlipper =>
-      'Importato 1 telecomando da Flipper .ir. Le macro non sono state modificate.';
+      'Importato 1 telecomando da un file Flipper .ir. Le macro restano invariate.';
 
   @override
   String get importFailedInvalidIrplus =>
@@ -2161,7 +2161,7 @@ class AppLocalizationsIt extends AppLocalizations {
 
   @override
   String get importedOneRemoteFromIrplus =>
-      'Importato 1 telecomando da irplus. Le macro non sono state modificate.';
+      'Importato 1 telecomando da un file IRPLUS. Le macro restano invariate.';
 
   @override
   String get importFailedInvalidLirc =>
@@ -2169,7 +2169,7 @@ class AppLocalizationsIt extends AppLocalizations {
 
   @override
   String get importedOneRemoteFromLirc =>
-      'Importato 1 telecomando dalla configurazione LIRC. Le macro non sono state modificate.';
+      'Importato 1 telecomando da un file LIRC. Le macro restano invariate.';
 
   @override
   String get unsupportedFileTypeSelected =>

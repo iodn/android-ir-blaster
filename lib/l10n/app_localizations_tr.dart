@@ -2112,7 +2112,7 @@ class AppLocalizationsTr extends AppLocalizations {
 
   @override
   String get importedOneRemoteFromFlipper =>
-      'Flipper .ir\'den 1 kumanda içe aktarıldı. Makrolar değiştirilmedi.';
+      'Flipper .ir dosyasından 1 kumanda içe aktarıldı. Makrolar değiştirilmedi.';
 
   @override
   String get importFailedInvalidIrplus =>
@@ -2120,7 +2120,7 @@ class AppLocalizationsTr extends AppLocalizations {
 
   @override
   String get importedOneRemoteFromIrplus =>
-      'IRPLUS\'tan 1 kumanda içe aktarıldı. Makrolar değiştirilmedi.';
+      'IRPLUS dosyasından 1 kumanda içe aktarıldı. Makrolar değiştirilmedi.';
 
   @override
   String get importFailedInvalidLirc =>
@@ -2128,7 +2128,7 @@ class AppLocalizationsTr extends AppLocalizations {
 
   @override
   String get importedOneRemoteFromLirc =>
-      'LIRC yapılandırmasından 1 kumanda içe aktarıldı. Makrolar değiştirilmedi.';
+      'LIRC dosyasından 1 kumanda içe aktarıldı. Makrolar değiştirilmedi.';
 
   @override
   String get unsupportedFileTypeSelected => 'Bu dosya türü desteklenmiyor.';

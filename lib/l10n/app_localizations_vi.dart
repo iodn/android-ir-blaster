@@ -2095,7 +2095,7 @@ class AppLocalizationsVi extends AppLocalizations {
 
   @override
   String get importedOneRemoteFromFlipper =>
-      'Đã nhập 1 điều khiển từ Flipper .ir. Macro không đổi.';
+      'Đã nhập 1 điều khiển từ tệp Flipper .ir. Các macro không thay đổi.';
 
   @override
   String get importFailedInvalidIrplus =>
@@ -2103,7 +2103,7 @@ class AppLocalizationsVi extends AppLocalizations {
 
   @override
   String get importedOneRemoteFromIrplus =>
-      'Đã nhập 1 điều khiển từ irplus. Macro không đổi.';
+      'Đã nhập 1 điều khiển từ tệp IRPLUS. Các macro không thay đổi.';
 
   @override
   String get importFailedInvalidLirc =>
@@ -2111,7 +2111,7 @@ class AppLocalizationsVi extends AppLocalizations {
 
   @override
   String get importedOneRemoteFromLirc =>
-      'Đã nhập 1 điều khiển từ cấu hình LIRC. Macro không đổi.';
+      'Đã nhập 1 điều khiển từ tệp LIRC. Các macro không thay đổi.';
 
   @override
   String get unsupportedFileTypeSelected => 'Loại tệp này không được hỗ trợ.';

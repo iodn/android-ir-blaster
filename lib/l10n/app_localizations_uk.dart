@@ -2208,7 +2208,7 @@ class AppLocalizationsUk extends AppLocalizations {
 
   @override
   String get importedOneRemoteFromFlipper =>
-      'Імпортовано 1 пульт від Flipper .ir. Макроси не змінено.';
+      'Імпортовано 1 пульт із файлу Flipper .ir. Макроси не змінено.';
 
   @override
   String get importFailedInvalidIrplus =>
@@ -2216,7 +2216,7 @@ class AppLocalizationsUk extends AppLocalizations {
 
   @override
   String get importedOneRemoteFromIrplus =>
-      'Імпортовано 1 пульт з irplus. Макроси не змінено.';
+      'Імпортовано 1 пульт із файлу IRPLUS. Макроси не змінено.';
 
   @override
   String get importFailedInvalidLirc =>
@@ -2224,7 +2224,7 @@ class AppLocalizationsUk extends AppLocalizations {
 
   @override
   String get importedOneRemoteFromLirc =>
-      'Імпортовано 1 пульт із конфігурації LIRC. Макроси не змінено.';
+      'Імпортовано 1 пульт із файлу LIRC. Макроси не змінено.';
 
   @override
   String get unsupportedFileTypeSelected => 'Цей тип файлу не підтримується.';

@@ -2151,7 +2151,7 @@ class AppLocalizationsPt extends AppLocalizations {
 
   @override
   String get importedOneRemoteFromFlipper =>
-      'Foi importado 1 comando de Flipper.ir. As macros não foram alteradas.';
+      'Foi importado 1 comando de um ficheiro Flipper .ir. As macros não foram alteradas.';
 
   @override
   String get importFailedInvalidIrplus =>
@@ -2159,7 +2159,7 @@ class AppLocalizationsPt extends AppLocalizations {
 
   @override
   String get importedOneRemoteFromIrplus =>
-      'Foi importado 1 comando de irplus. As macros não foram alteradas.';
+      'Foi importado 1 comando de um ficheiro IRPLUS. As macros não foram alteradas.';
 
   @override
   String get importFailedInvalidLirc =>
@@ -2167,7 +2167,7 @@ class AppLocalizationsPt extends AppLocalizations {
 
   @override
   String get importedOneRemoteFromLirc =>
-      'Foi importado 1 comando de uma configuração LIRC. As macros não foram alteradas.';
+      'Foi importado 1 comando de um ficheiro LIRC. As macros não foram alteradas.';
 
   @override
   String get unsupportedFileTypeSelected =>
@@ -7473,7 +7473,7 @@ class AppLocalizationsPtBr extends AppLocalizationsPt {
 
   @override
   String get importedOneRemoteFromFlipper =>
-      'Foi importado 1 controle de Flipper.ir. As macros não foram alteradas.';
+      '1 controle importado de um arquivo Flipper .ir. As macros não foram alteradas.';
 
   @override
   String get importFailedInvalidIrplus =>
@@ -7481,7 +7481,7 @@ class AppLocalizationsPtBr extends AppLocalizationsPt {
 
   @override
   String get importedOneRemoteFromIrplus =>
-      'Foi importado 1 controle de irplus. As macros não foram alteradas.';
+      '1 controle importado de um arquivo IRPLUS. As macros não foram alteradas.';
 
   @override
   String get importFailedInvalidLirc =>
@@ -7489,7 +7489,7 @@ class AppLocalizationsPtBr extends AppLocalizationsPt {
 
   @override
   String get importedOneRemoteFromLirc =>
-      'Foi importado 1 controle de uma configuração LIRC. As macros não foram alteradas.';
+      '1 controle importado de um arquivo LIRC. As macros não foram alteradas.';
 
   @override
   String get unsupportedFileTypeSelected =>

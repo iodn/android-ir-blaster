@@ -2112,7 +2112,7 @@ class AppLocalizationsMs extends AppLocalizations {
 
   @override
   String get importedOneRemoteFromFlipper =>
-      'Mengimport 1 remote dari Flipper .ir. Makro tidak diubah.';
+      '1 alat kawalan jauh berjaya diimport daripada fail Flipper .ir. Makro tidak diubah.';
 
   @override
   String get importFailedInvalidIrplus =>
@@ -2120,7 +2120,7 @@ class AppLocalizationsMs extends AppLocalizations {
 
   @override
   String get importedOneRemoteFromIrplus =>
-      'Mengimport 1 remote dari irplus. Makro tidak diubah.';
+      '1 alat kawalan jauh berjaya diimport daripada fail IRPLUS. Makro tidak diubah.';
 
   @override
   String get importFailedInvalidLirc =>
@@ -2128,7 +2128,7 @@ class AppLocalizationsMs extends AppLocalizations {
 
   @override
   String get importedOneRemoteFromLirc =>
-      'Mengimport 1 remote dari konfigurasi LIRC. Makro tidak diubah.';
+      '1 alat kawalan jauh berjaya diimport daripada fail LIRC. Makro tidak diubah.';
 
   @override
   String get unsupportedFileTypeSelected => 'Jenis fail ini tidak disokong.';

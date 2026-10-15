@@ -2199,7 +2199,7 @@ class AppLocalizationsPl extends AppLocalizations {
 
   @override
   String get importedOneRemoteFromFlipper =>
-      'Imported 1 pilot from Flipper.ir. makra were nie changed.';
+      'Zaimportowano 1 pilot z pliku Flipper .ir. Makra pozostają bez zmian.';
 
   @override
   String get importFailedInvalidIrplus =>
@@ -2207,7 +2207,7 @@ class AppLocalizationsPl extends AppLocalizations {
 
   @override
   String get importedOneRemoteFromIrplus =>
-      'Imported 1 pilot from irplus. makra were nie changed.';
+      'Zaimportowano 1 pilot z pliku IRPLUS. Makra pozostają bez zmian.';
 
   @override
   String get importFailedInvalidLirc =>
@@ -2215,7 +2215,7 @@ class AppLocalizationsPl extends AppLocalizations {
 
   @override
   String get importedOneRemoteFromLirc =>
-      'Imported 1 pilot from LIRC config. makra were nie changed.';
+      'Zaimportowano 1 pilot z pliku LIRC. Makra pozostają bez zmian.';
 
   @override
   String get unsupportedFileTypeSelected =>

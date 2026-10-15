@@ -2156,7 +2156,7 @@ class AppLocalizationsDe extends AppLocalizations {
 
   @override
   String get importedOneRemoteFromFlipper =>
-      '1 Fernbedienung aus Flipper .ir importiert. Makros wurden nicht geändert.';
+      '1 Fernbedienung aus einer Flipper .ir-Datei importiert. Makros bleiben unverändert.';
 
   @override
   String get importFailedInvalidIrplus =>
@@ -2164,7 +2164,7 @@ class AppLocalizationsDe extends AppLocalizations {
 
   @override
   String get importedOneRemoteFromIrplus =>
-      '1 Fernbedienung aus irplus importiert. Makros wurden nicht geändert.';
+      '1 Fernbedienung aus einer IRPLUS-Datei importiert. Makros bleiben unverändert.';
 
   @override
   String get importFailedInvalidLirc =>
@@ -2172,7 +2172,7 @@ class AppLocalizationsDe extends AppLocalizations {
 
   @override
   String get importedOneRemoteFromLirc =>
-      '1 Fernbedienung aus LIRC-Konfiguration importiert. Makros wurden nicht geändert.';
+      '1 Fernbedienung aus einer LIRC-Datei importiert. Makros bleiben unverändert.';
 
   @override
   String get unsupportedFileTypeSelected =>

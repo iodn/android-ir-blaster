@@ -2107,7 +2107,7 @@ class AppLocalizationsId extends AppLocalizations {
 
   @override
   String get importedOneRemoteFromFlipper =>
-      'Mengimpor 1 remote dari Flipper .ir. Makro tidak diubah.';
+      '1 remote berhasil diimpor dari file Flipper .ir. Makro tidak diubah.';
 
   @override
   String get importFailedInvalidIrplus =>
@@ -2115,7 +2115,7 @@ class AppLocalizationsId extends AppLocalizations {
 
   @override
   String get importedOneRemoteFromIrplus =>
-      'Mengimpor 1 remote dari irplus. Makro tidak diubah.';
+      '1 remote berhasil diimpor dari file IRPLUS. Makro tidak diubah.';
 
   @override
   String get importFailedInvalidLirc =>
@@ -2123,7 +2123,7 @@ class AppLocalizationsId extends AppLocalizations {
 
   @override
   String get importedOneRemoteFromLirc =>
-      'Mengimpor 1 remote dari konfigurasi LIRC. Makro tidak diubah.';
+      '1 remote berhasil diimpor dari file LIRC. Makro tidak diubah.';
 
   @override
   String get unsupportedFileTypeSelected => 'Jenis file ini tidak didukung.';

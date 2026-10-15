@@ -2164,7 +2164,7 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get importedOneRemoteFromFlipper =>
-      'Imported 1 remote from Flipper .ir. Macros were not changed.';
+      'Imported 1 remote from a Flipper .ir file. Macros are unchanged.';
 
   @override
   String get importFailedInvalidIrplus =>
@@ -2172,7 +2172,7 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get importedOneRemoteFromIrplus =>
-      'Imported 1 remote from irplus. Macros were not changed.';
+      'Imported 1 remote from a IRPLUS file. Macros are unchanged.';
 
   @override
   String get importFailedInvalidLirc =>
@@ -2180,7 +2180,7 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get importedOneRemoteFromLirc =>
-      'Imported 1 remote from LIRC config. Macros were not changed.';
+      'Imported 1 remote from a LIRC file. Macros are unchanged.';
 
   @override
   String get unsupportedFileTypeSelected => 'This file type is not supported.';

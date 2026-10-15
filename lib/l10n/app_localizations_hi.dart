@@ -2099,7 +2099,7 @@ class AppLocalizationsHi extends AppLocalizations {
 
   @override
   String get importedOneRemoteFromFlipper =>
-      'Imported 1 रिमोट से Flipper.IR. मैक्रो थे नहीं बदला गया.';
+      'Flipper .ir फ़ाइल से 1 रिमोट इंपोर्ट किया गया। मैक्रो में कोई बदलाव नहीं हुआ।';
 
   @override
   String get importFailedInvalidIrplus =>
@@ -2107,7 +2107,7 @@ class AppLocalizationsHi extends AppLocalizations {
 
   @override
   String get importedOneRemoteFromIrplus =>
-      'Imported 1 रिमोट से irplus. मैक्रो थे नहीं बदला गया.';
+      'IRPLUS फ़ाइल से 1 रिमोट इंपोर्ट किया गया। मैक्रो में कोई बदलाव नहीं हुआ।';
 
   @override
   String get importFailedInvalidLirc =>
@@ -2115,7 +2115,7 @@ class AppLocalizationsHi extends AppLocalizations {
 
   @override
   String get importedOneRemoteFromLirc =>
-      'Imported 1 रिमोट से LIRC config. मैक्रो थे नहीं बदला गया.';
+      'LIRC फ़ाइल से 1 रिमोट इंपोर्ट किया गया। मैक्रो में कोई बदलाव नहीं हुआ।';
 
   @override
   String get unsupportedFileTypeSelected =>

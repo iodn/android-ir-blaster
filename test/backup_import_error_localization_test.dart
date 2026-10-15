@@ -10,7 +10,7 @@ import 'package:irblaster_controller/utils/remotes_io.dart';
 
 void main() {
   for (final locale in AppLocalizations.supportedLocales) {
-    testWidgets('import errors are localized and readable: $locale',
+    testWidgets('import results are localized and readable: $locale',
         (tester) async {
       final directory = Directory.systemTemp.createTempSync('backup-errors-');
       final originalPicker = FilePickerPlatform.instance;
@@ -55,16 +55,59 @@ void main() {
         ('missing.json', null, l10n.importFailedInvalidUnreadableFile),
         ('unsupported.txt', 'Not an IR file', l10n.unsupportedFileTypeSelected),
       ];
-      for (final (name, contents, expectedMessage) in cases) {
+      final successCases = <(String, String?, String)>[
+        ('valid.ir', '''
+Filetype: IR signals file
+Version: 1
+#
+name: Power
+type: parsed
+protocol: NEC
+address: 00 00 00 00
+command: 12 00 00 00
+''', l10n.importedOneRemoteFromFlipper),
+        ('valid.irplus', '''
+<irplus>
+  <device manufacturer="Test" model="Remote" format="NEC">
+    <button label="Power">0x00FF 0x20DF</button>
+  </device>
+</irplus>
+''', l10n.importedOneRemoteFromIrplus),
+        ('valid.conf', '''
+begin remote
+  name TV
+  flags SPACE_ENC|CONST_LENGTH
+  frequency 38000
+  bits 32
+  header 9000 4500
+  one 560 1690
+  zero 560 560
+  ptrail 560
+  gap 45000
+  begin codes
+    KEY_POWER 0x20DF10EF
+  end codes
+end remote
+''', l10n.importedOneRemoteFromLirc),
+      ];
+      for (final testCase in [...cases, ...successCases]) {
+        final (name, contents, expectedMessage) = testCase;
+        final expectedSuccess = successCases.contains(testCase);
         final file = File('${directory.path}/$name');
         if (contents != null) file.writeAsStringSync(contents);
         FilePickerPlatform.instance = _BackupPicker(file.path);
         final result = await tester.runAsync(
             () => importRemotesFromPicker(context, current: current));
         expect(result, isNotNull);
-        expect(result!.success, isFalse);
+        expect(result!.success, expectedSuccess);
         expect(result.message, expectedMessage, reason: name);
         expect(current, [original]);
+        expect(result.macros, isNull);
+        if (expectedSuccess) {
+          expect(result.remotes, hasLength(2));
+          expect(result.remotes.first, same(original));
+          expect(result.remotes.last.buttons, hasLength(1));
+        }
         ScaffoldMessenger.of(context)
             .showSnackBar(SnackBar(content: Text(result.message)));
         await tester.pumpAndSettle();

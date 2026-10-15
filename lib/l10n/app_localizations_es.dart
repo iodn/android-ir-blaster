@@ -2145,7 +2145,7 @@ class AppLocalizationsEs extends AppLocalizations {
 
   @override
   String get importedOneRemoteFromFlipper =>
-      'Se importó 1 mando desde Flipper .ir. Las macros no cambiaron.';
+      'Se importó 1 mando de un archivo Flipper .ir. Las macros no se han modificado.';
 
   @override
   String get importFailedInvalidIrplus =>
@@ -2153,7 +2153,7 @@ class AppLocalizationsEs extends AppLocalizations {
 
   @override
   String get importedOneRemoteFromIrplus =>
-      'Se importó 1 mando desde irplus. Las macros no cambiaron.';
+      'Se importó 1 mando de un archivo IRPLUS. Las macros no se han modificado.';
 
   @override
   String get importFailedInvalidLirc =>
@@ -2161,7 +2161,7 @@ class AppLocalizationsEs extends AppLocalizations {
 
   @override
   String get importedOneRemoteFromLirc =>
-      'Se importó 1 mando desde una config LIRC. Las macros no cambiaron.';
+      'Se importó 1 mando de un archivo LIRC. Las macros no se han modificado.';
 
   @override
   String get unsupportedFileTypeSelected =>

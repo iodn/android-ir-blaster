@@ -2125,7 +2125,7 @@ class AppLocalizationsFil extends AppLocalizations {
 
   @override
   String get importedOneRemoteFromFlipper =>
-      'Imported 1 remote from Flipper .ir. Macros were not changed.';
+      'Na-import ang 1 remote mula sa Flipper .ir file. Walang binago sa mga macro.';
 
   @override
   String get importFailedInvalidIrplus =>
@@ -2133,7 +2133,7 @@ class AppLocalizationsFil extends AppLocalizations {
 
   @override
   String get importedOneRemoteFromIrplus =>
-      'Imported 1 remote from irplus. Macros were not changed.';
+      'Na-import ang 1 remote mula sa IRPLUS file. Walang binago sa mga macro.';
 
   @override
   String get importFailedInvalidLirc =>
@@ -2141,7 +2141,7 @@ class AppLocalizationsFil extends AppLocalizations {
 
   @override
   String get importedOneRemoteFromLirc =>
-      'Imported 1 remote from LIRC config. Macros were not changed.';
+      'Na-import ang 1 remote mula sa LIRC file. Walang binago sa mga macro.';
 
   @override
   String get unsupportedFileTypeSelected =>

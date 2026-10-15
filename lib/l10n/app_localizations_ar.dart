@@ -2129,7 +2129,7 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String get importedOneRemoteFromFlipper =>
-      'تم استيراد جهاز تحكم واحد من Flipper بصيغة .ir. لم يتم تغيير الماكرو.';
+      'تم استيراد جهاز تحكم واحد من ملف Flipper .ir. لم تتغير وحدات الماكرو.';
 
   @override
   String get importFailedInvalidIrplus =>
@@ -2137,7 +2137,7 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String get importedOneRemoteFromIrplus =>
-      'تم استيراد جهاز تحكم واحد من irplus. لم يتم تغيير الماكرو.';
+      'تم استيراد جهاز تحكم واحد من ملف IRPLUS. لم تتغير وحدات الماكرو.';
 
   @override
   String get importFailedInvalidLirc =>
@@ -2145,7 +2145,7 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String get importedOneRemoteFromLirc =>
-      'تم استيراد جهاز تحكم واحد من إعداد LIRC. لم يتم تغيير الماكرو.';
+      'تم استيراد جهاز تحكم واحد من ملف LIRC. لم تتغير وحدات الماكرو.';
 
   @override
   String get unsupportedFileTypeSelected => 'نوع الملف المحدد غير مدعوم.';
@@ -7405,7 +7405,7 @@ class AppLocalizationsArEg extends AppLocalizationsAr {
 
   @override
   String get importedOneRemoteFromFlipper =>
-      'تم استيراد جهاز تحكم واحد من Flipper بصيغة .ir. لم يتم تغيير الماكرو.';
+      'تم استيراد ريموت واحد من ملف Flipper .ir. وحدات الماكرو لم تتغير.';
 
   @override
   String get importFailedInvalidIrplus =>
@@ -7413,7 +7413,7 @@ class AppLocalizationsArEg extends AppLocalizationsAr {
 
   @override
   String get importedOneRemoteFromIrplus =>
-      'تم استيراد جهاز تحكم واحد من irplus. لم يتم تغيير الماكرو.';
+      'تم استيراد ريموت واحد من ملف IRPLUS. وحدات الماكرو لم تتغير.';
 
   @override
   String get importFailedInvalidLirc =>
@@ -7421,7 +7421,7 @@ class AppLocalizationsArEg extends AppLocalizationsAr {
 
   @override
   String get importedOneRemoteFromLirc =>
-      'تم استيراد جهاز تحكم واحد من إعداد LIRC. لم يتم تغيير الماكرو.';
+      'تم استيراد ريموت واحد من ملف LIRC. وحدات الماكرو لم تتغير.';
 
   @override
   String get unsupportedFileTypeSelected => 'نوع الملف اللي اخترته مش مدعوم.';

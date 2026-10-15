@@ -3783,7 +3783,7 @@ abstract class AppLocalizations {
   /// No description provided for @importedOneRemoteFromFlipper.
   ///
   /// In en, this message translates to:
-  /// **'Imported 1 remote from Flipper .ir. Macros were not changed.'**
+  /// **'Imported 1 remote from a Flipper .ir file. Macros are unchanged.'**
   String get importedOneRemoteFromFlipper;
 
   /// No description provided for @importFailedInvalidIrplus.
@@ -3795,7 +3795,7 @@ abstract class AppLocalizations {
   /// No description provided for @importedOneRemoteFromIrplus.
   ///
   /// In en, this message translates to:
-  /// **'Imported 1 remote from irplus. Macros were not changed.'**
+  /// **'Imported 1 remote from a IRPLUS file. Macros are unchanged.'**
   String get importedOneRemoteFromIrplus;
 
   /// No description provided for @importFailedInvalidLirc.
@@ -3807,7 +3807,7 @@ abstract class AppLocalizations {
   /// No description provided for @importedOneRemoteFromLirc.
   ///
   /// In en, this message translates to:
-  /// **'Imported 1 remote from LIRC config. Macros were not changed.'**
+  /// **'Imported 1 remote from a LIRC file. Macros are unchanged.'**
   String get importedOneRemoteFromLirc;
 
   /// No description provided for @unsupportedFileTypeSelected.

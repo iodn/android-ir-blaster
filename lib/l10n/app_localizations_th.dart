@@ -2081,7 +2081,7 @@ class AppLocalizationsTh extends AppLocalizations {
 
   @override
   String get importedOneRemoteFromFlipper =>
-      'นำเข้ารีโมต 1 รายการจาก Flipper .ir แมโครไม่เปลี่ยน';
+      'นำเข้ารีโมต 1 รายการจากไฟล์ Flipper .ir แล้ว โดยไม่ได้เปลี่ยนแปลงแมโคร';
 
   @override
   String get importFailedInvalidIrplus =>
@@ -2089,7 +2089,7 @@ class AppLocalizationsTh extends AppLocalizations {
 
   @override
   String get importedOneRemoteFromIrplus =>
-      'นำเข้ารีโมต 1 รายการจาก irplus แมโครไม่เปลี่ยน';
+      'นำเข้ารีโมต 1 รายการจากไฟล์ IRPLUS แล้ว โดยไม่ได้เปลี่ยนแปลงแมโคร';
 
   @override
   String get importFailedInvalidLirc =>
@@ -2097,7 +2097,7 @@ class AppLocalizationsTh extends AppLocalizations {
 
   @override
   String get importedOneRemoteFromLirc =>
-      'นำเข้ารีโมต 1 รายการจากไฟล์ LIRC แมโครไม่เปลี่ยน';
+      'นำเข้ารีโมต 1 รายการจากไฟล์ LIRC แล้ว โดยไม่ได้เปลี่ยนแปลงแมโคร';
 
   @override
   String get unsupportedFileTypeSelected => 'ไม่รองรับไฟล์ประเภทนี้';
