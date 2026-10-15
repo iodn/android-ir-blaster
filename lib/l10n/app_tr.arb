@@ -646,8 +646,8 @@
   "unnamedKey": "Unnamed key",
   "unknown": "Bilinmeyen",
   "emDash": "—",
-  "searchCommands": "Ara commands",
-  "noMatchingCommands": "Eşleşen yok commands",
+  "searchCommands": "Komut arayın",
+  "noMatchingCommands": "Eşleşen komut bulunamadı",
   "quickTileFavoritesTitle": "Hızlı döşeme favorileri",
   "changeMappingForTile": "{tileLabel} döşemesi için eşlemeyi değiştir",
   "@changeMappingForTile": {
@@ -663,7 +663,7 @@
   "commandLabel": "Komut",
   "editButtonCodeTitle": "Düzenle Kod of the düğme",
   "thisRemoteHasNoButtons": "Bu kumandada düğme yok.",
-  "selectCommand": "Komut seç",
+  "selectCommand": "Komut seçin",
   "databaseModeAutofillHint": "Veritabanı modu 2. adımı sizin için otomatik doldurur (marka + model + protokol). Bir tuş içe aktardıktan sonra Manuel bölümünde her şeyi iyileştirebilirsiniz.",
   "test": "Test",
   "allSelectedButtonsWereDuplicates": "Tüm seçili düğmeler yinelemeydi.",
@@ -964,7 +964,7 @@
   "unnamedRemote": "Unnamed Kumanda",
   "enterMacroName": "Makro için bir ad girin.",
   "addAtLeastOneStep": "En az bir adım ekleyin.",
-  "fixInvalidSteps": "Fix geçersiz steps",
+  "fixInvalidSteps": "Kaydetmeden önce geçersiz adımları düzeltin.",
   "unknownCommand": "Bilinmeyen Komut",
   "unnamedCommand": "Adsız Komut",
   "iconCommand": "Simge Komutu",
@@ -1016,7 +1016,7 @@
   "noStepsYet": "Henüz adım yok",
   "addCommandsAndDelaysHint": "Komut, bekleme süresi veya onay bekleme adımı ekleyin. Adımlar gösterilen sırayla çalışır.",
   "addStep": "Adım ekle",
-  "reorderStepsHint": "İpucu: Adımları yeniden sıralamak için tutamacı sürükleyin. Düzenlemek için bir adıma dokunun.",
+  "reorderStepsHint": "Adımları sıralamak için tutamacı sürükleyin. Düzenlemek için adıma dokunun.",
   "reorderStep": "{index}. adımı yeniden sırala",
   "@reorderStep": {
     "placeholders": {
@@ -1025,7 +1025,7 @@
       }
     }
   },
-  "pressAndDragToChangeStepOrder": "Adım sırasını değiştirmek için basılı tutup sürükleyin",
+  "pressAndDragToChangeStepOrder": "Adımı taşımak için basılı tutup sürükleyin",
   "deleteStep": "{index}. adımı sil",
   "@deleteStep": {
     "placeholders": {

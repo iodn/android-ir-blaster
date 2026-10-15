@@ -1887,10 +1887,10 @@ class AppLocalizationsNl extends AppLocalizations {
   String get emDash => '—';
 
   @override
-  String get searchCommands => 'Zoeken commands';
+  String get searchCommands => 'Opdrachten zoeken';
 
   @override
-  String get noMatchingCommands => 'Geen matching commands';
+  String get noMatchingCommands => 'Geen opdrachten gevonden';
 
   @override
   String get quickTileFavoritesTitle => 'Quick tile favorieten';
@@ -1926,7 +1926,7 @@ class AppLocalizationsNl extends AppLocalizations {
       'Deze afstandsbediening heeft geen knoppen.';
 
   @override
-  String get selectCommand => 'Selecteer Command';
+  String get selectCommand => 'Opdracht kiezen';
 
   @override
   String get databaseModeAutofillHint =>
@@ -2327,7 +2327,8 @@ class AppLocalizationsNl extends AppLocalizations {
   String get addAtLeastOneStep => 'Voeg minstens één stap toe.';
 
   @override
-  String get fixInvalidSteps => 'Herstel ongeldige stappen';
+  String get fixInvalidSteps =>
+      'Herstel de ongeldige stappen voordat je opslaat.';
 
   @override
   String get unknownCommand => 'Onbekend Command';
@@ -2424,7 +2425,7 @@ class AppLocalizationsNl extends AppLocalizations {
 
   @override
   String get reorderStepsHint =>
-      'Tip: Drag the handle to reorder steps. Tap a step to bewerken it.';
+      'Sleep de handgreep om een stap te verplaatsen. Tik op een stap om deze te bewerken.';
 
   @override
   String reorderStep(int index) {
@@ -2433,7 +2434,7 @@ class AppLocalizationsNl extends AppLocalizations {
 
   @override
   String get pressAndDragToChangeStepOrder =>
-      'Druk en sleep om de volgorde van stappen te wijzigen';
+      'Houd ingedrukt en sleep om de stap te verplaatsen';
 
   @override
   String deleteStep(int index) {

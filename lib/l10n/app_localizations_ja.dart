@@ -1809,7 +1809,7 @@ class AppLocalizationsJa extends AppLocalizations {
   String get editButtonCodeTitle => 'ボタンのコードを編集';
 
   @override
-  String get thisRemoteHasNoButtons => 'このリモコンにボタンがありません。';
+  String get thisRemoteHasNoButtons => 'このリモコンにはボタンがありません。';
 
   @override
   String get selectCommand => 'コマンドを選択';
@@ -2197,7 +2197,7 @@ class AppLocalizationsJa extends AppLocalizations {
   String get addAtLeastOneStep => 'ステップを1つ以上追加してください。';
 
   @override
-  String get fixInvalidSteps => '無効なステップを修正してください';
+  String get fixInvalidSteps => '保存する前に無効なステップを修正してください。';
 
   @override
   String get unknownCommand => '不明なコマンド';
@@ -2279,8 +2279,7 @@ class AppLocalizationsJa extends AppLocalizations {
   String get addStep => 'ステップを追加';
 
   @override
-  String get reorderStepsHint =>
-      'ヒント ハンドルをドラッグしてステップを並べ替えられます。ステップをタップすると編集できます。';
+  String get reorderStepsHint => 'ハンドルをドラッグすると順番を変更できます。ステップをタップすると編集できます。';
 
   @override
   String reorderStep(int index) {
@@ -2288,7 +2287,7 @@ class AppLocalizationsJa extends AppLocalizations {
   }
 
   @override
-  String get pressAndDragToChangeStepOrder => '長押ししてドラッグするとステップ順を変更できます';
+  String get pressAndDragToChangeStepOrder => '長押ししてドラッグすると順番を変更できます';
 
   @override
   String deleteStep(int index) {

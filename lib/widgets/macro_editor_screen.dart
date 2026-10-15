@@ -201,6 +201,7 @@ class _MacroEditorScreenState extends State<MacroEditorScreen> {
     var query = '';
     return showModalBottomSheet<IRButton>(
       context: context,
+      isScrollControlled: true,
       useSafeArea: true,
       showDragHandle: true,
       builder: (ctx) {
@@ -214,79 +215,98 @@ class _MacroEditorScreenState extends State<MacroEditorScreen> {
               return label.contains(normalizedQuery);
             }).toList();
 
-            return Column(
-              mainAxisSize: MainAxisSize.min,
-              children: [
-                Padding(
-                  padding: const EdgeInsets.fromLTRB(24, 8, 24, 16),
-                  child: Row(
-                    children: [
-                      Icon(Icons.send_rounded, color: theme.colorScheme.primary),
-                      const SizedBox(width: 12),
-                      Text(
-                        context.l10n.selectCommand,
-                        style: theme.textTheme.titleLarge?.copyWith(
-                          fontWeight: FontWeight.w900,
+            return Padding(
+              padding:
+                  EdgeInsets.only(bottom: MediaQuery.viewInsetsOf(ctx2).bottom),
+              child: CustomScrollView(
+                shrinkWrap: true,
+                slivers: [
+                  SliverToBoxAdapter(
+                      child: Column(children: [
+                    Padding(
+                      padding: const EdgeInsets.fromLTRB(24, 8, 24, 16),
+                      child: Row(
+                        children: [
+                          Icon(Icons.send_rounded,
+                              color: theme.colorScheme.primary),
+                          const SizedBox(width: 12),
+                          Expanded(
+                              child: Text(
+                            context.l10n.selectCommand,
+                            style: theme.textTheme.titleLarge?.copyWith(
+                              fontWeight: FontWeight.w900,
+                            ),
+                          )),
+                        ],
+                      ),
+                    ),
+                    Padding(
+                      padding: const EdgeInsets.fromLTRB(16, 0, 16, 10),
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Text(context.l10n.searchCommands),
+                          const SizedBox(height: 8),
+                          Semantics(
+                              label: context.l10n.searchCommands,
+                              child: TextField(
+                                onChanged: (value) =>
+                                    setSheetState(() => query = value),
+                                decoration: InputDecoration(
+                                  prefixIcon: const Icon(Icons.search_rounded),
+                                  border: const OutlineInputBorder(),
+                                ),
+                              )),
+                        ],
+                      ),
+                    ),
+                  ])),
+                  if (filteredButtons.isEmpty)
+                    SliverToBoxAdapter(
+                        child: Padding(
+                      padding: const EdgeInsets.fromLTRB(16, 8, 16, 16),
+                      child: Text(
+                        context.l10n.noMatchingCommands,
+                        style: theme.textTheme.bodyMedium?.copyWith(
+                          color: theme.colorScheme.onSurfaceVariant,
                         ),
                       ),
-                    ],
-                  ),
-                ),
-                Padding(
-                  padding: const EdgeInsets.fromLTRB(16, 0, 16, 10),
-                  child: TextField(
-                    onChanged: (value) => setSheetState(() => query = value),
-                    decoration: InputDecoration(
-                      hintText: context.l10n.searchCommands,
-                      prefixIcon: const Icon(Icons.search_rounded),
-                      border: const OutlineInputBorder(),
-                    ),
-                  ),
-                ),
-                if (filteredButtons.isEmpty)
-                  Padding(
-                    padding: const EdgeInsets.fromLTRB(16, 8, 16, 16),
-                    child: Text(
-                      context.l10n.noMatchingCommands,
-                      style: theme.textTheme.bodyMedium?.copyWith(
-                        color: theme.colorScheme.onSurfaceVariant,
+                    ))
+                  else
+                    SliverPadding(
+                      padding: const EdgeInsets.symmetric(horizontal: 16),
+                      sliver: SliverList.builder(
+                        itemCount: filteredButtons.length,
+                        itemBuilder: (context, i) {
+                          final b = filteredButtons[i];
+                          final label = _buttonLabel(b);
+                          return Card(
+                            margin: const EdgeInsets.only(bottom: 8),
+                            child: ListTile(
+                              leading: Container(
+                                padding: const EdgeInsets.all(8),
+                                decoration: BoxDecoration(
+                                  color: theme.colorScheme.primaryContainer
+                                      .withValues(alpha: 0.5),
+                                  borderRadius: BorderRadius.circular(8),
+                                ),
+                                child: Icon(
+                                  Icons.touch_app_rounded,
+                                  size: 20,
+                                  color: theme.colorScheme.onPrimaryContainer,
+                                ),
+                              ),
+                              title: Text(label),
+                              trailing: const Icon(Icons.chevron_right_rounded),
+                              onTap: () => Navigator.of(ctx).pop(b),
+                            ),
+                          );
+                        },
                       ),
                     ),
-                  )
-                else
-                  Flexible(
-                    child: ListView.builder(
-                      padding: const EdgeInsets.symmetric(horizontal: 16),
-                      shrinkWrap: true,
-                      itemCount: filteredButtons.length,
-                      itemBuilder: (context, i) {
-                        final b = filteredButtons[i];
-                        final label = _buttonLabel(b);
-                        return Card(
-                          margin: const EdgeInsets.only(bottom: 8),
-                          child: ListTile(
-                            leading: Container(
-                              padding: const EdgeInsets.all(8),
-                              decoration: BoxDecoration(
-                                color: theme.colorScheme.primaryContainer.withValues(alpha: 0.5),
-                                borderRadius: BorderRadius.circular(8),
-                              ),
-                              child: Icon(
-                                Icons.touch_app_rounded,
-                                size: 20,
-                                color: theme.colorScheme.onPrimaryContainer,
-                              ),
-                            ),
-                            title: Text(label),
-                            trailing: const Icon(Icons.chevron_right_rounded),
-                            onTap: () => Navigator.of(ctx).pop(b),
-                          ),
-                        );
-                      },
-                    ),
-                  ),
-                const SizedBox(height: 16),
-              ],
+                  const SliverToBoxAdapter(child: SizedBox(height: 16)),
+                ],
+              ),
             );
           },
         );

@@ -2328,7 +2328,8 @@ class AppLocalizationsDe extends AppLocalizations {
   String get addAtLeastOneStep => 'Füge mindestens einen Schritt hinzu.';
 
   @override
-  String get fixInvalidSteps => 'Ungültige Schritte korrigieren';
+  String get fixInvalidSteps =>
+      'Korrigiere die ungültigen Schritte vor dem Speichern.';
 
   @override
   String get unknownCommand => 'Unbekannter Befehl';
@@ -2425,7 +2426,7 @@ class AppLocalizationsDe extends AppLocalizations {
 
   @override
   String get reorderStepsHint =>
-      'Tipp: Ziehe den Griff, um Schritte neu anzuordnen. Tippe auf einen Schritt, um ihn zu bearbeiten.';
+      'Ziehe am Griff, um Schritte zu verschieben. Tippe auf einen Schritt, um ihn zu bearbeiten.';
 
   @override
   String reorderStep(int index) {
@@ -2434,7 +2435,7 @@ class AppLocalizationsDe extends AppLocalizations {
 
   @override
   String get pressAndDragToChangeStepOrder =>
-      'Drücken und ziehen, um die Reihenfolge zu ändern';
+      'Drücken und ziehen, um den Schritt zu verschieben';
 
   @override
   String deleteStep(int index) {

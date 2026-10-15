@@ -647,7 +647,7 @@
   "unknown": "Không rõ",
   "emDash": "—",
   "searchCommands": "Tìm lệnh",
-  "noMatchingCommands": "Không có lệnh khớp",
+  "noMatchingCommands": "Không tìm thấy lệnh phù hợp",
   "quickTileFavoritesTitle": "Yêu thích ô nhanh",
   "changeMappingForTile": "Đổi ánh xạ cho ô {tileLabel}",
   "@changeMappingForTile": {
@@ -662,7 +662,7 @@
   "deviceCodeLabel": "Mã thiết bị",
   "commandLabel": "Lệnh",
   "editButtonCodeTitle": "Sửa mã của nút",
-  "thisRemoteHasNoButtons": "Điều khiển này không có nút nào.",
+  "thisRemoteHasNoButtons": "Điều khiển này chưa có nút nào.",
   "selectCommand": "Chọn lệnh",
   "databaseModeAutofillHint": "Chế độ CSDL sẽ tự điền Bước 2 cho bạn (hãng + mẫu + giao thức). Sau khi nhập một khóa, bạn có thể chỉnh mọi thứ trong Thủ công.",
   "test": "Kiểm tra",
@@ -964,7 +964,7 @@
   "unnamedRemote": "Điều khiển chưa tên",
   "enterMacroName": "Nhập tên cho macro.",
   "addAtLeastOneStep": "Thêm ít nhất một bước.",
-  "fixInvalidSteps": "Sửa các bước không hợp lệ",
+  "fixInvalidSteps": "Sửa các bước không hợp lệ trước khi lưu.",
   "unknownCommand": "Lệnh không rõ",
   "unnamedCommand": "Lệnh chưa tên",
   "iconCommand": "Biểu tượng Command",
@@ -1016,7 +1016,7 @@
   "noStepsYet": "Chưa có bước nào",
   "addCommandsAndDelaysHint": "Thêm lệnh, thời gian chờ hoặc bước chờ xác nhận. Các bước chạy theo thứ tự hiển thị.",
   "addStep": "Thêm bước",
-  "reorderStepsHint": "Mẹo: Kéo tay nắm để sắp xếp lại bước. Chạm vào bước để sửa.",
+  "reorderStepsHint": "Kéo tay nắm để đổi thứ tự các bước. Chạm vào một bước để chỉnh sửa.",
   "reorderStep": "Sắp xếp lại bước {index}",
   "@reorderStep": {
     "placeholders": {
@@ -1025,7 +1025,7 @@
       }
     }
   },
-  "pressAndDragToChangeStepOrder": "Nhấn và kéo để đổi thứ tự bước",
+  "pressAndDragToChangeStepOrder": "Nhấn giữ và kéo để di chuyển bước",
   "deleteStep": "Xóa bước {index}",
   "@deleteStep": {
     "placeholders": {

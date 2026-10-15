@@ -646,8 +646,8 @@
   "unnamedKey": "Unnamed key",
   "unknown": "غير معروف",
   "emDash": "—",
-  "searchCommands": "ابحث commands",
-  "noMatchingCommands": "No matching commands",
+  "searchCommands": "البحث عن أمر",
+  "noMatchingCommands": "لا توجد أوامر مطابقة",
   "quickTileFavoritesTitle": "Quick tile favorites",
   "changeMappingForTile": "Change mapping for {tileLabel} tile",
   "@changeMappingForTile": {
@@ -660,10 +660,10 @@
   "invalidMacroFileFormat": "تنسيق ملف الماكرو غير صالح.",
   "failedToParseMacroFile": "فشل تحليل ملف الماكرو.",
   "deviceCodeLabel": "الجهاز Code",
-  "commandLabel": "Command",
+  "commandLabel": "أمر",
   "editButtonCodeTitle": "تعديل كود الزر",
-  "thisRemoteHasNoButtons": "هذا الجهاز لا يحتوي على أزرار.",
-  "selectCommand": "اختر Command",
+  "thisRemoteHasNoButtons": "لا يحتوي هذا الريموت على أزرار.",
+  "selectCommand": "اختر أمرًا",
   "databaseModeAutofillHint": "يقوم وضع قاعدة البيانات بملء الخطوة 2 تلقائياً، العلامة والطراز والبروتوكول. بعد استيراد مفتاح، يمكنك تعديل أي شيء في الوضع اليدوي.",
   "test": "اختبار",
   "allSelectedButtonsWereDuplicates": "الكل المحدد أزرار were duplicates.",
@@ -964,7 +964,7 @@
   "unnamedRemote": "Unnamed جهاز التحكم",
   "enterMacroName": "أدخل اسماً للماكرو.",
   "addAtLeastOneStep": "أضف خطوة واحدة على الأقل.",
-  "fixInvalidSteps": "أصلح الخطوات غير الصالحة",
+  "fixInvalidSteps": "صحّح الخطوات غير الصالحة قبل الحفظ.",
   "unknownCommand": "غير معروف Command",
   "unnamedCommand": "Unnamed Command",
   "iconCommand": "Icon Command",
@@ -1016,7 +1016,7 @@
   "noStepsYet": "لا توجد خطوات بعد",
   "addCommandsAndDelaysHint": "أضف أوامر أو فترات انتظار أو توقفاً للتأكيد. تُنفّذ الخطوات بالترتيب المعروض.",
   "addStep": "إضافة خطوة",
-  "reorderStepsHint": "ملاحظة: اسحب المقبض لإعادة ترتيب الخطوات. اضغط على خطوة لتعديلها.",
+  "reorderStepsHint": "اسحب مقبض الخطوة لتغيير ترتيبها. اضغط على الخطوة لتعديلها.",
   "reorderStep": "إعادة ترتيب الخطوة {index}",
   "@reorderStep": {
     "placeholders": {
@@ -1025,7 +1025,7 @@
       }
     }
   },
-  "pressAndDragToChangeStepOrder": "اضغط واسحب لتغيير ترتيب الخطوات",
+  "pressAndDragToChangeStepOrder": "اضغط واسحب لتغيير ترتيب الخطوة",
   "deleteStep": "حذف الخطوة {index}",
   "@deleteStep": {
     "placeholders": {

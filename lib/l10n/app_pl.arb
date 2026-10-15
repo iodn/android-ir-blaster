@@ -648,8 +648,8 @@
   "unnamedKey": "Unnamed klawisz",
   "unknown": "Nieznane",
   "emDash": "—",
-  "searchCommands": "szukaj komendy",
-  "noMatchingCommands": "No matching komendy",
+  "searchCommands": "Szukaj poleceń",
+  "noMatchingCommands": "Nie znaleziono poleceń",
   "quickTileFavoritesTitle": "Quick kafelek ulubione",
   "changeMappingForTile": "Change mapping dla {tileLabel} kafelek",
   "@changeMappingForTile": {
@@ -662,10 +662,10 @@
   "invalidMacroFileFormat": "Invalid makro plik format.",
   "failedToParseMacroFile": "nieudane do parse makro plik.",
   "deviceCodeLabel": "urządzenie kod",
-  "commandLabel": "komenda",
+  "commandLabel": "Polecenie",
   "editButtonCodeTitle": "edytuj kod of przycisk",
-  "thisRemoteHasNoButtons": "This pilot has no przyciski.",
-  "selectCommand": "Select komenda",
+  "thisRemoteHasNoButtons": "Ten pilot nie ma przycisków.",
+  "selectCommand": "Wybierz polecenie",
   "databaseModeAutofillHint": "baza danych mode auto-fills krok 2 dla you (marka + model + protokół). After importing a klawisz, you can refine anything in Manual.",
   "test": "Test",
   "allSelectedButtonsWereDuplicates": "All wybrano przyciski were duplicates.",
@@ -966,7 +966,7 @@
   "unnamedRemote": "Pilot bez nazwy",
   "enterMacroName": "Wpisz nazwę makra.",
   "addAtLeastOneStep": "Dodaj co najmniej jeden krok.",
-  "fixInvalidSteps": "Popraw błędne kroki",
+  "fixInvalidSteps": "Popraw nieprawidłowe kroki przed zapisaniem.",
   "unknownCommand": "Nieznana komenda",
   "unnamedCommand": "Komenda bez nazwy",
   "iconCommand": "Komenda ikony",
@@ -1018,7 +1018,7 @@
   "noStepsYet": "Jeszcze nie ma kroków",
   "addCommandsAndDelaysHint": "Dodaj polecenia, czas oczekiwania lub pauzy na potwierdzenie. Kroki wykonają się w pokazanej kolejności.",
   "addStep": "Dodaj krok",
-  "reorderStepsHint": "Wskazówka: przeciągnij uchwyt, aby zmienić kolejność kroków. Stuknij krok, aby go edytować.",
+  "reorderStepsHint": "Przeciągnij uchwyt, aby zmienić kolejność kroków. Dotknij kroku, aby go edytować.",
   "reorderStep": "Zmień kolejność kroku {index}",
   "@reorderStep": {
     "placeholders": {
@@ -1027,7 +1027,7 @@
       }
     }
   },
-  "pressAndDragToChangeStepOrder": "Naciśnij i przeciągnij, aby zmienić kolejność kroków",
+  "pressAndDragToChangeStepOrder": "Naciśnij i przeciągnij, aby przesunąć krok",
   "deleteStep": "Usuń krok {index}",
   "@deleteStep": {
     "placeholders": {

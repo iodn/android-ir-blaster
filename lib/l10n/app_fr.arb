@@ -651,8 +651,8 @@
   "unnamedKey": "Touche sans nom",
   "unknown": "Inconnu",
   "emDash": "-",
-  "searchCommands": "Rechercher des commandes",
-  "noMatchingCommands": "Aucune commande correspondante",
+  "searchCommands": "Rechercher une commande",
+  "noMatchingCommands": "Aucune commande trouvée",
   "quickTileFavoritesTitle": "Favoris de tuiles rapides",
   "changeMappingForTile": "Changer le mapping de la tuile {tileLabel}",
   "@changeMappingForTile": {
@@ -667,8 +667,8 @@
   "deviceCodeLabel": "Code appareil",
   "commandLabel": "Commande",
   "editButtonCodeTitle": "Modifier le code du bouton",
-  "thisRemoteHasNoButtons": "Cette télécommande n'a aucun bouton.",
-  "selectCommand": "Choisir la commande",
+  "thisRemoteHasNoButtons": "Cette télécommande n’a aucun bouton.",
+  "selectCommand": "Choisir une commande",
   "databaseModeAutofillHint": "Le mode base auto-remplit l'étape 2 (marque + modèle + protocole). Après import d'une touche, vous pouvez tout affiner en Manuel.",
   "test": "Tester",
   "allSelectedButtonsWereDuplicates": "Tous les boutons choisis étaient des doublons.",
@@ -969,7 +969,7 @@
   "unnamedRemote": "Télécommande sans nom",
   "enterMacroName": "Saisissez un nom pour la macro.",
   "addAtLeastOneStep": "Ajoutez au moins une étape.",
-  "fixInvalidSteps": "Corrigez les étapes invalides",
+  "fixInvalidSteps": "Corrigez les étapes non valides avant d’enregistrer.",
   "unknownCommand": "Commande inconnue",
   "unnamedCommand": "Commande sans nom",
   "iconCommand": "Icône commande",
@@ -1021,7 +1021,7 @@
   "noStepsYet": "Aucune étape pour le moment",
   "addCommandsAndDelaysHint": "Ajoutez des commandes, des délais ou des pauses pour confirmation. Les étapes s’exécutent dans l’ordre affiché.",
   "addStep": "Ajouter une étape",
-  "reorderStepsHint": "Astuce : faites glisser la poignée pour réorganiser les étapes. Appuyez sur une étape pour la modifier.",
+  "reorderStepsHint": "Faites glisser la poignée pour déplacer une étape. Touchez une étape pour la modifier.",
   "reorderStep": "Réorganiser l’étape {index}",
   "@reorderStep": {
     "placeholders": {
@@ -1030,7 +1030,7 @@
       }
     }
   },
-  "pressAndDragToChangeStepOrder": "Maintenez et faites glisser pour changer l’ordre des étapes",
+  "pressAndDragToChangeStepOrder": "Maintenez et faites glisser pour déplacer l’étape",
   "deleteStep": "Supprimer l’étape {index}",
   "@deleteStep": {
     "placeholders": {

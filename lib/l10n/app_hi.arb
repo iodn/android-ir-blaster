@@ -646,8 +646,8 @@
   "unnamedKey": "बिना नाम की कुंजी",
   "unknown": "अज्ञात",
   "emDash": "—",
-  "searchCommands": "खोजें कमांड",
-  "noMatchingCommands": "नहीं मेल खाती कमांड",
+  "searchCommands": "कमांड खोजें",
+  "noMatchingCommands": "कोई कमांड नहीं मिली",
   "quickTileFavoritesTitle": "त्वरित tile पसंदीदा",
   "changeMappingForTile": "{tileLabel} टाइल के लिए मैपिंग बदलें",
   "@changeMappingForTile": {
@@ -662,8 +662,8 @@
   "deviceCodeLabel": "डिवाइस कोड",
   "commandLabel": "कमांड",
   "editButtonCodeTitle": "संपादित करें कोड का the बटन",
-  "thisRemoteHasNoButtons": "यह रिमोट has नहीं बटन.",
-  "selectCommand": "चुनें कमांड",
+  "thisRemoteHasNoButtons": "इस रिमोट में कोई बटन नहीं है।",
+  "selectCommand": "कमांड चुनें",
   "databaseModeAutofillHint": "डेटाबेस मोड auto-fills चरण 2 के लिए you (ब्रांड + मॉडल + प्रोटोकॉल). बाद आयात करते समय a key, you सकता है परिष्कृत करें anything में मैनुअल.",
   "test": "जांचें",
   "allSelectedButtonsWereDuplicates": "सभी चयनित बटन थे डुप्लिकेट.",
@@ -964,7 +964,7 @@
   "unnamedRemote": "बिना नाम का रिमोट",
   "enterMacroName": "मैक्रो का नाम दर्ज करें।",
   "addAtLeastOneStep": "कम से कम एक चरण जोड़ें।",
-  "fixInvalidSteps": "Fix अमान्य चरण",
+  "fixInvalidSteps": "सेव करने से पहले गलत चरणों को ठीक करें।",
   "unknownCommand": "अज्ञात कमांड",
   "unnamedCommand": "बिना नाम की कमांड",
   "iconCommand": "आइकन कमांड",
@@ -1016,7 +1016,7 @@
   "noStepsYet": "अभी कोई चरण नहीं है",
   "addCommandsAndDelaysHint": "कमांड, इंतज़ार का समय या पुष्टि के लिए विराम जोड़ें। चरण दिखाए गए क्रम में चलेंगे।",
   "addStep": "चरण जोड़ें",
-  "reorderStepsHint": "सुझाव: खींचें the handle तक पुन:क्रमित करें चरण. टैप करें a चरण तक संपादित करें it.",
+  "reorderStepsHint": "चरणों का क्रम बदलने के लिए हैंडल खींचें। किसी चरण को बदलने के लिए उस पर टैप करें।",
   "reorderStep": "पुन:क्रमित करें चरण {index}",
   "@reorderStep": {
     "placeholders": {
@@ -1025,7 +1025,7 @@
       }
     }
   },
-  "pressAndDragToChangeStepOrder": "दबाएं और खींचें तक बदलें चरण क्रम",
+  "pressAndDragToChangeStepOrder": "चरण का क्रम बदलने के लिए दबाकर खींचें",
   "deleteStep": "हटाएं चरण {index}",
   "@deleteStep": {
     "placeholders": {

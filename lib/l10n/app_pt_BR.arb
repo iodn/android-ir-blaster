@@ -646,8 +646,8 @@
   "unnamedKey": "Tecla sem nome",
   "unknown": "Desconhecido",
   "emDash": "-",
-  "searchCommands": "pesquisar controles",
-  "noMatchingCommands": "Não há controles correspondentes",
+  "searchCommands": "Buscar comandos",
+  "noMatchingCommands": "Nenhum comando encontrado",
   "quickTileFavoritesTitle": "Favoritos dos blocos rápidos",
   "changeMappingForTile": "Cambiar asignación do mosaico {tileLabel}",
   "@changeMappingForTile": {
@@ -660,10 +660,10 @@
   "invalidMacroFileFormat": "Formato de arquivo de macro não válido.",
   "failedToParseMacroFile": "Não se pudo analizar o arquivo de macro.",
   "deviceCodeLabel": "Código de dispositivo",
-  "commandLabel": "controle",
+  "commandLabel": "Comando",
   "editButtonCodeTitle": "Editar código do botão",
   "thisRemoteHasNoButtons": "Este controle não tem botões.",
-  "selectCommand": "Selecionar controle",
+  "selectCommand": "Escolher comando",
   "databaseModeAutofillHint": "O modo Banco de dados preenche o Passo 2 para você (marca + modelo + protocolo). Após importar uma tecla, você pode ajustar tudo no modo Manual.",
   "test": "Testar",
   "allSelectedButtonsWereDuplicates": "Todos os botões elegidos eran duplicados.",
@@ -964,7 +964,7 @@
   "unnamedRemote": "Unnamed controle",
   "enterMacroName": "Digite um nome para a macro.",
   "addAtLeastOneStep": "Adicione pelo menos uma etapa.",
-  "fixInvalidSteps": "Corrige os passos não válidos",
+  "fixInvalidSteps": "Corrija as etapas inválidas antes de salvar.",
   "unknownCommand": "Comando desconhecido",
   "unnamedCommand": "controle sem nome",
   "iconCommand": "Comando de ícone",
@@ -1016,7 +1016,7 @@
   "noStepsYet": "Ainda não há etapas",
   "addCommandsAndDelaysHint": "Adicione comandos, tempos de espera ou pausas para confirmação. As etapas são executadas na ordem exibida.",
   "addStep": "Adicionar etapa",
-  "reorderStepsHint": "Dica: arraste a alça para reordenar os passos. Toque em um passo para editá-lo.",
+  "reorderStepsHint": "Arraste a alça para mudar a ordem das etapas. Toque em uma etapa para editá-la.",
   "reorderStep": "Reordenar passo {index}",
   "@reorderStep": {
     "placeholders": {
@@ -1025,7 +1025,7 @@
       }
     }
   },
-  "pressAndDragToChangeStepOrder": "Mantenha pressionado e arraste para cambiar o orden de os passos",
+  "pressAndDragToChangeStepOrder": "Mantenha pressionado e arraste para mover a etapa",
   "deleteStep": "Excluir passo {index}",
   "@deleteStep": {
     "placeholders": {

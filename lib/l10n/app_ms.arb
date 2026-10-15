@@ -646,8 +646,8 @@
   "unnamedKey": "Unnamed butang",
   "unknown": "Tidak dikenal",
   "emDash": "—",
-  "searchCommands": "Cari arahans",
-  "noMatchingCommands": "Tiada matching arahans",
+  "searchCommands": "Cari arahan",
+  "noMatchingCommands": "Tiada arahan yang sepadan",
   "quickTileFavoritesTitle": "Cepat jubin kegemaran",
   "changeMappingForTile": "Ubah pemetaan untuk jubin {tileLabel}",
   "@changeMappingForTile": {
@@ -660,10 +660,10 @@
   "invalidMacroFileFormat": "Insah makro file format.",
   "failedToParseMacroFile": "Gagal parse makro file.",
   "deviceCodeLabel": "Peranti Kod",
-  "commandLabel": "Perintah",
+  "commandLabel": "Arahan",
   "editButtonCodeTitle": "Ubah Kod butang",
-  "thisRemoteHasNoButtons": "Remote ini tidak mempunyai butang.",
-  "selectCommand": "Pilih Arahan",
+  "thisRemoteHasNoButtons": "Alat kawalan jauh ini belum mempunyai butang.",
+  "selectCommand": "Pilih arahan",
   "databaseModeAutofillHint": "Mode Pangkalan data mengisi automatik Langkah 2 untuk Anda (jenama + model + protokol). Setelah mengimport butang, Anda boleh menyempurnakan apa pun di Manual.",
   "test": "Uji",
   "allSelectedButtonsWereDuplicates": "Semua butang terpilih adalah duplikat.",
@@ -964,7 +964,7 @@
   "unnamedRemote": "Remote tanpa nama",
   "enterMacroName": "Masukkan nama makro.",
   "addAtLeastOneStep": "Tambah sekurang-kurangnya satu langkah.",
-  "fixInvalidSteps": "Fix tidak sah langkah",
+  "fixInvalidSteps": "Betulkan langkah yang tidak sah sebelum menyimpan.",
   "unknownCommand": "Tidak dikenal Arahan",
   "unnamedCommand": "Perintah tanpa nama",
   "iconCommand": "Ikon Arahan",
@@ -1016,7 +1016,7 @@
   "noStepsYet": "Belum ada langkah",
   "addCommandsAndDelaysHint": "Tambah arahan, masa menunggu atau jeda untuk pengesahan. Langkah dijalankan mengikut urutan yang dipaparkan.",
   "addStep": "Tambah langkah",
-  "reorderStepsHint": "Tip: seret pegangan untuk mengurut ulang langkah. Tekan langkah untuk mengubahnya.",
+  "reorderStepsHint": "Seret pemegang untuk menyusun semula langkah. Ketik langkah untuk mengeditnya.",
   "reorderStep": "Reorder langkah {index}",
   "@reorderStep": {
     "placeholders": {
@@ -1025,7 +1025,7 @@
       }
     }
   },
-  "pressAndDragToChangeStepOrder": "Tekan dan seret untuk mengubah urutan langkah",
+  "pressAndDragToChangeStepOrder": "Tekan dan seret untuk mengalihkan langkah",
   "deleteStep": "Hapus langkah {index}",
   "@deleteStep": {
     "placeholders": {

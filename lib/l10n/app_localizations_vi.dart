@@ -1851,7 +1851,7 @@ class AppLocalizationsVi extends AppLocalizations {
   String get searchCommands => 'Tìm lệnh';
 
   @override
-  String get noMatchingCommands => 'Không có lệnh khớp';
+  String get noMatchingCommands => 'Không tìm thấy lệnh phù hợp';
 
   @override
   String get quickTileFavoritesTitle => 'Yêu thích ô nhanh';
@@ -1883,7 +1883,7 @@ class AppLocalizationsVi extends AppLocalizations {
   String get editButtonCodeTitle => 'Sửa mã của nút';
 
   @override
-  String get thisRemoteHasNoButtons => 'Điều khiển này không có nút nào.';
+  String get thisRemoteHasNoButtons => 'Điều khiển này chưa có nút nào.';
 
   @override
   String get selectCommand => 'Chọn lệnh';
@@ -2284,7 +2284,7 @@ class AppLocalizationsVi extends AppLocalizations {
   String get addAtLeastOneStep => 'Thêm ít nhất một bước.';
 
   @override
-  String get fixInvalidSteps => 'Sửa các bước không hợp lệ';
+  String get fixInvalidSteps => 'Sửa các bước không hợp lệ trước khi lưu.';
 
   @override
   String get unknownCommand => 'Lệnh không rõ';
@@ -2368,7 +2368,7 @@ class AppLocalizationsVi extends AppLocalizations {
 
   @override
   String get reorderStepsHint =>
-      'Mẹo: Kéo tay nắm để sắp xếp lại bước. Chạm vào bước để sửa.';
+      'Kéo tay nắm để đổi thứ tự các bước. Chạm vào một bước để chỉnh sửa.';
 
   @override
   String reorderStep(int index) {
@@ -2376,7 +2376,8 @@ class AppLocalizationsVi extends AppLocalizations {
   }
 
   @override
-  String get pressAndDragToChangeStepOrder => 'Nhấn và kéo để đổi thứ tự bước';
+  String get pressAndDragToChangeStepOrder =>
+      'Nhấn giữ và kéo để di chuyển bước';
 
   @override
   String deleteStep(int index) {

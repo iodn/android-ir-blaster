@@ -646,8 +646,8 @@
   "unnamedKey": "이름 없음 키",
   "unknown": "알 수 없음",
   "emDash": "—",
-  "searchCommands": "검색 명령",
-  "noMatchingCommands": "없음 일치하는 명령",
+  "searchCommands": "명령 검색",
+  "noMatchingCommands": "일치하는 명령이 없습니다",
   "quickTileFavoritesTitle": "빠른 타일 즐겨찾기",
   "changeMappingForTile": "{tileLabel} 타일의 매핑 변경",
   "@changeMappingForTile": {
@@ -662,8 +662,8 @@
   "deviceCodeLabel": "기기 코드",
   "commandLabel": "명령",
   "editButtonCodeTitle": "편집 코드 버튼",
-  "thisRemoteHasNoButtons": "이 리모컨 있음 없음 버튼.",
-  "selectCommand": "선택 명령",
+  "thisRemoteHasNoButtons": "이 리모컨에는 버튼이 없습니다.",
+  "selectCommand": "명령 선택",
   "databaseModeAutofillHint": "데이터베이스 모드는 2단계(브랜드 + 모델 + 프로토콜)를 자동으로 채웁니다. 키를 가져온 뒤에는 수동에서 세부 조정할 수 있습니다.",
   "test": "테스트",
   "allSelectedButtonsWereDuplicates": "선택한 버튼이 모두 중복이었습니다.",
@@ -964,7 +964,7 @@
   "unnamedRemote": "이름 없음 리모컨",
   "enterMacroName": "매크로 이름을 입력하세요.",
   "addAtLeastOneStep": "단계를 하나 이상 추가하세요.",
-  "fixInvalidSteps": "잘못된 단계 수정",
+  "fixInvalidSteps": "저장하기 전에 잘못된 단계를 수정하세요.",
   "unknownCommand": "알 수 없음 명령",
   "unnamedCommand": "이름 없음 명령",
   "iconCommand": "아이콘 명령",
@@ -1016,7 +1016,7 @@
   "noStepsYet": "아직 단계가 없습니다",
   "addCommandsAndDelaysHint": "명령, 대기 시간 또는 확인 대기를 추가하세요. 표시된 순서대로 실행됩니다.",
   "addStep": "단계 추가",
-  "reorderStepsHint": "팁: 드래그 핸들로 단계 순서를 바꾸세요. 단계를 탭해 편집할 수도 있습니다",
+  "reorderStepsHint": "핸들을 드래그하면 순서를 바꿀 수 있습니다. 단계를 누르면 편집할 수 있습니다.",
   "reorderStep": "단계 {index} 순서 변경",
   "@reorderStep": {
     "placeholders": {
@@ -1025,7 +1025,7 @@
       }
     }
   },
-  "pressAndDragToChangeStepOrder": "단계 순서를 바꾸려면 길게 누르고 드래그하세요",
+  "pressAndDragToChangeStepOrder": "길게 누른 채 드래그하여 단계 순서를 바꾸세요",
   "deleteStep": "삭제 단계 {index}",
   "@deleteStep": {
     "placeholders": {

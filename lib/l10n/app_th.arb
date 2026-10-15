@@ -662,7 +662,7 @@
   "deviceCodeLabel": "รหัสอุปกรณ์",
   "commandLabel": "คำสั่ง",
   "editButtonCodeTitle": "แก้ไขโค้ดของปุ่ม",
-  "thisRemoteHasNoButtons": "รีโมตนี้ไม่มีปุ่ม",
+  "thisRemoteHasNoButtons": "รีโมตนี้ยังไม่มีปุ่ม",
   "selectCommand": "เลือกคำสั่ง",
   "databaseModeAutofillHint": "โหมดฐานข้อมูลจะกรอกขั้นตอนที่ 2 ให้อัตโนมัติ ยี่ห้อ รุ่น และโปรโตคอล หลังนำเข้าคีย์แล้ว คุณยังปรับทุกอย่างได้ในโหมด Manual",
   "test": "ทดสอบ",
@@ -964,7 +964,7 @@
   "unnamedRemote": "รีโมตไม่มีชื่อ",
   "enterMacroName": "กรอกชื่อมาโคร",
   "addAtLeastOneStep": "เพิ่มอย่างน้อยหนึ่งขั้นตอน",
-  "fixInvalidSteps": "แก้ไขขั้นตอนที่ไม่ถูกต้อง",
+  "fixInvalidSteps": "แก้ไขขั้นตอนที่ไม่ถูกต้องก่อนบันทึก",
   "unknownCommand": "คำสั่งที่ไม่ทราบ",
   "unnamedCommand": "คำสั่งไม่มีชื่อ",
   "iconCommand": "คำสั่งไอคอน",
@@ -1016,7 +1016,7 @@
   "noStepsYet": "ยังไม่มีขั้นตอน",
   "addCommandsAndDelaysHint": "เพิ่มคำสั่ง เวลารอ หรือการหยุดรอการยืนยัน ขั้นตอนจะทำงานตามลำดับที่แสดง",
   "addStep": "เพิ่มขั้นตอน",
-  "reorderStepsHint": "เคล็ดลับ: ลากที่จับเพื่อจัดลำดับขั้นตอน แตะขั้นตอนเพื่อแก้ไข",
+  "reorderStepsHint": "ลากที่จับเพื่อเปลี่ยนลำดับขั้นตอน แตะขั้นตอนเพื่อแก้ไข",
   "reorderStep": "จัดลำดับขั้นตอน {index}",
   "@reorderStep": {
     "placeholders": {
@@ -1025,7 +1025,7 @@
       }
     }
   },
-  "pressAndDragToChangeStepOrder": "กดและลากเพื่อเปลี่ยนลำดับขั้นตอน",
+  "pressAndDragToChangeStepOrder": "กดค้างแล้วลากเพื่อย้ายขั้นตอน",
   "deleteStep": "ลบขั้นตอน {index}",
   "@deleteStep": {
     "placeholders": {

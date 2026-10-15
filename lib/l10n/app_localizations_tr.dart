@@ -1861,10 +1861,10 @@ class AppLocalizationsTr extends AppLocalizations {
   String get emDash => '—';
 
   @override
-  String get searchCommands => 'Ara commands';
+  String get searchCommands => 'Komut arayın';
 
   @override
-  String get noMatchingCommands => 'Eşleşen yok commands';
+  String get noMatchingCommands => 'Eşleşen komut bulunamadı';
 
   @override
   String get quickTileFavoritesTitle => 'Hızlı döşeme favorileri';
@@ -1899,7 +1899,7 @@ class AppLocalizationsTr extends AppLocalizations {
   String get thisRemoteHasNoButtons => 'Bu kumandada düğme yok.';
 
   @override
-  String get selectCommand => 'Komut seç';
+  String get selectCommand => 'Komut seçin';
 
   @override
   String get databaseModeAutofillHint =>
@@ -2297,7 +2297,7 @@ class AppLocalizationsTr extends AppLocalizations {
   String get addAtLeastOneStep => 'En az bir adım ekleyin.';
 
   @override
-  String get fixInvalidSteps => 'Fix geçersiz steps';
+  String get fixInvalidSteps => 'Kaydetmeden önce geçersiz adımları düzeltin.';
 
   @override
   String get unknownCommand => 'Bilinmeyen Komut';
@@ -2381,7 +2381,7 @@ class AppLocalizationsTr extends AppLocalizations {
 
   @override
   String get reorderStepsHint =>
-      'İpucu: Adımları yeniden sıralamak için tutamacı sürükleyin. Düzenlemek için bir adıma dokunun.';
+      'Adımları sıralamak için tutamacı sürükleyin. Düzenlemek için adıma dokunun.';
 
   @override
   String reorderStep(int index) {
@@ -2390,7 +2390,7 @@ class AppLocalizationsTr extends AppLocalizations {
 
   @override
   String get pressAndDragToChangeStepOrder =>
-      'Adım sırasını değiştirmek için basılı tutup sürükleyin';
+      'Adımı taşımak için basılı tutup sürükleyin';
 
   @override
   String deleteStep(int index) {

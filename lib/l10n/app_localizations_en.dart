@@ -2342,7 +2342,7 @@ class AppLocalizationsEn extends AppLocalizations {
   String get addAtLeastOneStep => 'Add at least one step.';
 
   @override
-  String get fixInvalidSteps => 'Fix invalid steps';
+  String get fixInvalidSteps => 'Fix the invalid steps before saving.';
 
   @override
   String get unknownCommand => 'Unknown Command';
@@ -2439,7 +2439,7 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get reorderStepsHint =>
-      'Tip: Drag the handle to reorder steps. Tap a step to edit it.';
+      'Drag the handle to reorder steps. Tap a step to edit it.';
 
   @override
   String reorderStep(int index) {
@@ -2448,7 +2448,7 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get pressAndDragToChangeStepOrder =>
-      'Press and drag to change step order';
+      'Press and drag to change the step order';
 
   @override
   String deleteStep(int index) {

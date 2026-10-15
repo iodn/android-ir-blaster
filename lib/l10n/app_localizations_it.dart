@@ -1884,7 +1884,7 @@ class AppLocalizationsIt extends AppLocalizations {
   String get searchCommands => 'Cerca comandi';
 
   @override
-  String get noMatchingCommands => 'Nessun comando corrispondente';
+  String get noMatchingCommands => 'Nessun comando trovato';
 
   @override
   String get quickTileFavoritesTitle => 'Preferiti riquadro rapido';
@@ -1919,7 +1919,7 @@ class AppLocalizationsIt extends AppLocalizations {
   String get thisRemoteHasNoButtons => 'Questo telecomando non ha pulsanti.';
 
   @override
-  String get selectCommand => 'Seleziona comando';
+  String get selectCommand => 'Scegli un comando';
 
   @override
   String get databaseModeAutofillHint =>
@@ -2321,7 +2321,8 @@ class AppLocalizationsIt extends AppLocalizations {
   String get addAtLeastOneStep => 'Aggiungi almeno un passaggio.';
 
   @override
-  String get fixInvalidSteps => 'Correggi i passaggi non validi';
+  String get fixInvalidSteps =>
+      'Correggi i passaggi non validi prima di salvare.';
 
   @override
   String get unknownCommand => 'Comando sconosciuto';
@@ -2418,7 +2419,7 @@ class AppLocalizationsIt extends AppLocalizations {
 
   @override
   String get reorderStepsHint =>
-      'Suggerimento. Trascina la maniglia per riordinare i passaggi. Tocca un passaggio per modificarlo.';
+      'Trascina la maniglia per spostare un passaggio. Tocca un passaggio per modificarlo.';
 
   @override
   String reorderStep(int index) {
@@ -2427,7 +2428,7 @@ class AppLocalizationsIt extends AppLocalizations {
 
   @override
   String get pressAndDragToChangeStepOrder =>
-      'Premi e trascina per cambiare l\'ordine';
+      'Tieni premuto e trascina per spostare il passaggio';
 
   @override
   String deleteStep(int index) {

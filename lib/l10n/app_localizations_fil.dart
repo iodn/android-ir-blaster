@@ -1878,10 +1878,10 @@ class AppLocalizationsFil extends AppLocalizations {
   String get emDash => '—';
 
   @override
-  String get searchCommands => 'Search commands';
+  String get searchCommands => 'Maghanap ng command';
 
   @override
-  String get noMatchingCommands => 'Walang matching commands';
+  String get noMatchingCommands => 'Walang command na tumutugma';
 
   @override
   String get quickTileFavoritesTitle => 'Quick tile favorites';
@@ -1913,10 +1913,11 @@ class AppLocalizationsFil extends AppLocalizations {
   String get editButtonCodeTitle => 'I-edit ang Code ng button';
 
   @override
-  String get thisRemoteHasNoButtons => 'Ang remote has no mga button.';
+  String get thisRemoteHasNoButtons =>
+      'Wala pang mga button ang remote na ito.';
 
   @override
-  String get selectCommand => 'Select Command';
+  String get selectCommand => 'Pumili ng command';
 
   @override
   String get databaseModeAutofillHint =>
@@ -2314,7 +2315,8 @@ class AppLocalizationsFil extends AppLocalizations {
   String get addAtLeastOneStep => 'Magdagdag ng kahit isang hakbang.';
 
   @override
-  String get fixInvalidSteps => 'Fix hindi wasto mga hakbang';
+  String get fixInvalidSteps =>
+      'Ayusin muna ang mga hakbang na may problema bago i-save.';
 
   @override
   String get unknownCommand => 'Hindi kilala Command';
@@ -2400,7 +2402,7 @@ class AppLocalizationsFil extends AppLocalizations {
 
   @override
   String get reorderStepsHint =>
-      'Tip: Drag the handle to reorder mga hakbang. Tapikin ang a hakbang to edit it.';
+      'I-drag ang hawakan para baguhin ang pagkakasunod-sunod ng mga hakbang. I-tap ang hakbang para i-edit ito.';
 
   @override
   String reorderStep(int index) {
@@ -2409,7 +2411,7 @@ class AppLocalizationsFil extends AppLocalizations {
 
   @override
   String get pressAndDragToChangeStepOrder =>
-      'Press at drag to change hakbang order';
+      'Pindutin at i-drag para ilipat ang hakbang';
 
   @override
   String deleteStep(int index) {

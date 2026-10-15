@@ -646,8 +646,8 @@
   "unnamedKey": "Безіменний ключ",
   "unknown": "Невідомий",
   "emDash": "-",
-  "searchCommands": "Команди пошуку",
-  "noMatchingCommands": "Немає відповідних команд",
+  "searchCommands": "Пошук команд",
+  "noMatchingCommands": "Команд не знайдено",
   "quickTileFavoritesTitle": "Швидкі вибрані плитки",
   "changeMappingForTile": "Змінити відображення для плитки {tileLabel}",
   "@changeMappingForTile": {
@@ -662,7 +662,7 @@
   "deviceCodeLabel": "Код пристрою",
   "commandLabel": "Команда",
   "editButtonCodeTitle": "Редагувати код кнопки",
-  "thisRemoteHasNoButtons": "Цей пульт не має кнопок.",
+  "thisRemoteHasNoButtons": "На цьому пульті немає кнопок.",
   "selectCommand": "Виберіть команду",
   "databaseModeAutofillHint": "Режим бази даних автоматично заповнює крок 2 для вас (бренд + модель + протокол). Після імпортування ключа ви можете вдосконалити будь-що вручну.",
   "test": "Тест",
@@ -964,7 +964,7 @@
   "unnamedRemote": "Пульт без назви",
   "enterMacroName": "Введіть назву макросу.",
   "addAtLeastOneStep": "Додайте хоча б один крок.",
-  "fixInvalidSteps": "Виправте недійсні кроки",
+  "fixInvalidSteps": "Виправте некоректні кроки перед збереженням.",
   "unknownCommand": "Невідома команда",
   "unnamedCommand": "Безіменна команда",
   "iconCommand": "Команда значка",
@@ -1016,7 +1016,7 @@
   "noStepsYet": "Кроків ще немає",
   "addCommandsAndDelaysHint": "Додайте команди, час очікування або паузи для підтвердження. Кроки виконуються в показаному порядку.",
   "addStep": "Додати крок",
-  "reorderStepsHint": "Порада: перетягніть маркер, щоб змінити порядок кроків. Торкніться кроку, щоб відредагувати його.",
+  "reorderStepsHint": "Перетягніть крок за значок, щоб змінити порядок. Торкніться кроку, щоб відредагувати його.",
   "reorderStep": "Змініть порядок кроку {index}",
   "@reorderStep": {
     "placeholders": {
@@ -1025,7 +1025,7 @@
       }
     }
   },
-  "pressAndDragToChangeStepOrder": "Натисніть і перетягніть, щоб змінити порядок кроків",
+  "pressAndDragToChangeStepOrder": "Натисніть і перетягніть, щоб перемістити крок",
   "deleteStep": "Видалити крок {index}",
   "@deleteStep": {
     "placeholders": {

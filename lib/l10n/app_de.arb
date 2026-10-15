@@ -966,7 +966,7 @@
   "unnamedRemote": "Unbenannte Fernbedienung",
   "enterMacroName": "Gib einen Namen für das Makro ein.",
   "addAtLeastOneStep": "Füge mindestens einen Schritt hinzu.",
-  "fixInvalidSteps": "Ungültige Schritte korrigieren",
+  "fixInvalidSteps": "Korrigiere die ungültigen Schritte vor dem Speichern.",
   "unknownCommand": "Unbekannter Befehl",
   "unnamedCommand": "Unbenannter Befehl",
   "iconCommand": "Symbolbefehl",
@@ -1018,7 +1018,7 @@
   "noStepsYet": "Noch keine Schritte",
   "addCommandsAndDelaysHint": "Füge Befehle, Wartezeiten oder Pausen zur Bestätigung hinzu. Die Schritte laufen in der angezeigten Reihenfolge ab.",
   "addStep": "Schritt hinzufügen",
-  "reorderStepsHint": "Tipp: Ziehe den Griff, um Schritte neu anzuordnen. Tippe auf einen Schritt, um ihn zu bearbeiten.",
+  "reorderStepsHint": "Ziehe am Griff, um Schritte zu verschieben. Tippe auf einen Schritt, um ihn zu bearbeiten.",
   "reorderStep": "Schritt {index} neu anordnen",
   "@reorderStep": {
     "placeholders": {
@@ -1027,7 +1027,7 @@
       }
     }
   },
-  "pressAndDragToChangeStepOrder": "Drücken und ziehen, um die Reihenfolge zu ändern",
+  "pressAndDragToChangeStepOrder": "Drücken und ziehen, um den Schritt zu verschieben",
   "deleteStep": "Schritt {index} löschen",
   "@deleteStep": {
     "placeholders": {

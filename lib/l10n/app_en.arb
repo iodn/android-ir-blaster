@@ -1077,7 +1077,7 @@
   "unnamedRemote": "Unnamed Remote",
   "enterMacroName": "Enter a name for the macro.",
   "addAtLeastOneStep": "Add at least one step.",
-  "fixInvalidSteps": "Fix invalid steps",
+  "fixInvalidSteps": "Fix the invalid steps before saving.",
   "unknownCommand": "Unknown Command",
   "unnamedCommand": "Unnamed Command",
   "iconCommand": "Icon Command",
@@ -1129,7 +1129,7 @@
   "noStepsYet": "No steps yet",
   "addCommandsAndDelaysHint": "Add commands, delays, or pauses for confirmation. They run in the order shown.",
   "addStep": "Add step",
-  "reorderStepsHint": "Tip: Drag the handle to reorder steps. Tap a step to edit it.",
+  "reorderStepsHint": "Drag the handle to reorder steps. Tap a step to edit it.",
   "reorderStep": "Reorder step {index}",
   "@reorderStep": {
     "placeholders": {
@@ -1138,7 +1138,7 @@
       }
     }
   },
-  "pressAndDragToChangeStepOrder": "Press and drag to change step order",
+  "pressAndDragToChangeStepOrder": "Press and drag to change the step order",
   "deleteStep": "Delete step {index}",
   "@deleteStep": {
     "placeholders": {

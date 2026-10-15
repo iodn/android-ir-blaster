@@ -1841,10 +1841,10 @@ class AppLocalizationsAr extends AppLocalizations {
   String get emDash => '—';
 
   @override
-  String get searchCommands => 'ابحث commands';
+  String get searchCommands => 'البحث عن أمر';
 
   @override
-  String get noMatchingCommands => 'No matching commands';
+  String get noMatchingCommands => 'لا توجد أوامر مطابقة';
 
   @override
   String get quickTileFavoritesTitle => 'Quick tile favorites';
@@ -1870,16 +1870,16 @@ class AppLocalizationsAr extends AppLocalizations {
   String get deviceCodeLabel => 'الجهاز Code';
 
   @override
-  String get commandLabel => 'Command';
+  String get commandLabel => 'أمر';
 
   @override
   String get editButtonCodeTitle => 'تعديل كود الزر';
 
   @override
-  String get thisRemoteHasNoButtons => 'هذا الجهاز لا يحتوي على أزرار.';
+  String get thisRemoteHasNoButtons => 'لا يحتوي هذا الريموت على أزرار.';
 
   @override
-  String get selectCommand => 'اختر Command';
+  String get selectCommand => 'اختر أمرًا';
 
   @override
   String get databaseModeAutofillHint =>
@@ -2279,7 +2279,7 @@ class AppLocalizationsAr extends AppLocalizations {
   String get addAtLeastOneStep => 'أضف خطوة واحدة على الأقل.';
 
   @override
-  String get fixInvalidSteps => 'أصلح الخطوات غير الصالحة';
+  String get fixInvalidSteps => 'صحّح الخطوات غير الصالحة قبل الحفظ.';
 
   @override
   String get unknownCommand => 'غير معروف Command';
@@ -2372,7 +2372,7 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String get reorderStepsHint =>
-      'ملاحظة: اسحب المقبض لإعادة ترتيب الخطوات. اضغط على خطوة لتعديلها.';
+      'اسحب مقبض الخطوة لتغيير ترتيبها. اضغط على الخطوة لتعديلها.';
 
   @override
   String reorderStep(int index) {
@@ -2380,7 +2380,7 @@ class AppLocalizationsAr extends AppLocalizations {
   }
 
   @override
-  String get pressAndDragToChangeStepOrder => 'اضغط واسحب لتغيير ترتيب الخطوات';
+  String get pressAndDragToChangeStepOrder => 'اضغط واسحب لتغيير ترتيب الخطوة';
 
   @override
   String deleteStep(int index) {
@@ -7075,10 +7075,10 @@ class AppLocalizationsArEg extends AppLocalizationsAr {
   String get emDash => '—';
 
   @override
-  String get searchCommands => 'ابحث commands';
+  String get searchCommands => 'ابحث عن أمر';
 
   @override
-  String get noMatchingCommands => 'No matching commands';
+  String get noMatchingCommands => 'مفيش أوامر مطابقة';
 
   @override
   String get quickTileFavoritesTitle => 'Quick tile favorites';
@@ -7104,16 +7104,16 @@ class AppLocalizationsArEg extends AppLocalizationsAr {
   String get deviceCodeLabel => 'الجهاز Code';
 
   @override
-  String get commandLabel => 'Command';
+  String get commandLabel => 'أمر';
 
   @override
   String get editButtonCodeTitle => 'تعديل كود الزر';
 
   @override
-  String get thisRemoteHasNoButtons => 'هذا الجهاز لا يحتوي على أزرار.';
+  String get thisRemoteHasNoButtons => 'الريموت ده مفيهوش أزرار.';
 
   @override
-  String get selectCommand => 'اختر Command';
+  String get selectCommand => 'اختار أمر';
 
   @override
   String get databaseModeAutofillHint =>
@@ -7513,7 +7513,7 @@ class AppLocalizationsArEg extends AppLocalizationsAr {
   String get addAtLeastOneStep => 'ضيف خطوة واحدة على الأقل.';
 
   @override
-  String get fixInvalidSteps => 'أصلح الخطوات غير الصالحة';
+  String get fixInvalidSteps => 'صحّح الخطوات غير الصالحة قبل الحفظ.';
 
   @override
   String get unknownCommand => 'غير معروف Command';
@@ -7606,7 +7606,7 @@ class AppLocalizationsArEg extends AppLocalizationsAr {
 
   @override
   String get reorderStepsHint =>
-      'ملاحظة: اسحب المقبض لإعادة ترتيب الخطوات. اضغط على خطوة لتعديلها.';
+      'اسحب مقبض الخطوة عشان تغيّر ترتيبها. اضغط على الخطوة عشان تعدّلها.';
 
   @override
   String reorderStep(int index) {
@@ -7614,7 +7614,8 @@ class AppLocalizationsArEg extends AppLocalizationsAr {
   }
 
   @override
-  String get pressAndDragToChangeStepOrder => 'اضغط واسحب لتغيير ترتيب الخطوات';
+  String get pressAndDragToChangeStepOrder =>
+      'اضغط واسحب عشان تغيّر ترتيب الخطوة';
 
   @override
   String deleteStep(int index) {

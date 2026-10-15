@@ -646,8 +646,8 @@
   "unnamedKey": "Unnamed tombol",
   "unknown": "Tidak dikenal",
   "emDash": "—",
-  "searchCommands": "Cari commands",
-  "noMatchingCommands": "Tidak ada matching commands",
+  "searchCommands": "Cari perintah",
+  "noMatchingCommands": "Tidak ada perintah yang cocok",
   "quickTileFavoritesTitle": "Cepat tile favorit",
   "changeMappingForTile": "Ubah pemetaan untuk tile {tileLabel}",
   "@changeMappingForTile": {
@@ -662,8 +662,8 @@
   "deviceCodeLabel": "Perangkat Kode",
   "commandLabel": "Perintah",
   "editButtonCodeTitle": "Ubah Kode tombol",
-  "thisRemoteHasNoButtons": "Remote ini tidak memiliki tombol.",
-  "selectCommand": "Pilih Command",
+  "thisRemoteHasNoButtons": "Remote ini belum memiliki tombol.",
+  "selectCommand": "Pilih perintah",
   "databaseModeAutofillHint": "Mode Basis data mengisi otomatis Langkah 2 untuk Anda (merek + model + protokol). Setelah mengimpor tombol, Anda bisa menyempurnakan apa pun di Manual.",
   "test": "Uji",
   "allSelectedButtonsWereDuplicates": "Semua tombol terpilih adalah duplikat.",
@@ -964,7 +964,7 @@
   "unnamedRemote": "Remote tanpa nama",
   "enterMacroName": "Masukkan nama makro.",
   "addAtLeastOneStep": "Tambahkan setidaknya satu langkah.",
-  "fixInvalidSteps": "Fix tidak valid langkah",
+  "fixInvalidSteps": "Perbaiki langkah yang tidak valid sebelum menyimpan.",
   "unknownCommand": "Tidak dikenal Command",
   "unnamedCommand": "Perintah tanpa nama",
   "iconCommand": "Ikon Command",
@@ -1016,7 +1016,7 @@
   "noStepsYet": "Belum ada langkah",
   "addCommandsAndDelaysHint": "Tambahkan perintah, waktu tunggu, atau jeda untuk konfirmasi. Langkah dijalankan sesuai urutan yang ditampilkan.",
   "addStep": "Tambah langkah",
-  "reorderStepsHint": "Tip: seret pegangan untuk mengurut ulang langkah. Ketuk langkah untuk mengubahnya.",
+  "reorderStepsHint": "Seret gagang untuk mengubah urutan langkah. Ketuk langkah untuk mengeditnya.",
   "reorderStep": "Reorder langkah {index}",
   "@reorderStep": {
     "placeholders": {
@@ -1025,7 +1025,7 @@
       }
     }
   },
-  "pressAndDragToChangeStepOrder": "Tekan dan seret untuk mengubah urutan langkah",
+  "pressAndDragToChangeStepOrder": "Tekan dan seret untuk memindahkan langkah",
   "deleteStep": "Hapus langkah {index}",
   "@deleteStep": {
     "placeholders": {

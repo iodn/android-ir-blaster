@@ -1861,10 +1861,10 @@ class AppLocalizationsMs extends AppLocalizations {
   String get emDash => '—';
 
   @override
-  String get searchCommands => 'Cari arahans';
+  String get searchCommands => 'Cari arahan';
 
   @override
-  String get noMatchingCommands => 'Tiada matching arahans';
+  String get noMatchingCommands => 'Tiada arahan yang sepadan';
 
   @override
   String get quickTileFavoritesTitle => 'Cepat jubin kegemaran';
@@ -1890,16 +1890,17 @@ class AppLocalizationsMs extends AppLocalizations {
   String get deviceCodeLabel => 'Peranti Kod';
 
   @override
-  String get commandLabel => 'Perintah';
+  String get commandLabel => 'Arahan';
 
   @override
   String get editButtonCodeTitle => 'Ubah Kod butang';
 
   @override
-  String get thisRemoteHasNoButtons => 'Remote ini tidak mempunyai butang.';
+  String get thisRemoteHasNoButtons =>
+      'Alat kawalan jauh ini belum mempunyai butang.';
 
   @override
-  String get selectCommand => 'Pilih Arahan';
+  String get selectCommand => 'Pilih arahan';
 
   @override
   String get databaseModeAutofillHint =>
@@ -2297,7 +2298,8 @@ class AppLocalizationsMs extends AppLocalizations {
   String get addAtLeastOneStep => 'Tambah sekurang-kurangnya satu langkah.';
 
   @override
-  String get fixInvalidSteps => 'Fix tidak sah langkah';
+  String get fixInvalidSteps =>
+      'Betulkan langkah yang tidak sah sebelum menyimpan.';
 
   @override
   String get unknownCommand => 'Tidak dikenal Arahan';
@@ -2382,7 +2384,7 @@ class AppLocalizationsMs extends AppLocalizations {
 
   @override
   String get reorderStepsHint =>
-      'Tip: seret pegangan untuk mengurut ulang langkah. Tekan langkah untuk mengubahnya.';
+      'Seret pemegang untuk menyusun semula langkah. Ketik langkah untuk mengeditnya.';
 
   @override
   String reorderStep(int index) {
@@ -2391,7 +2393,7 @@ class AppLocalizationsMs extends AppLocalizations {
 
   @override
   String get pressAndDragToChangeStepOrder =>
-      'Tekan dan seret untuk mengubah urutan langkah';
+      'Tekan dan seret untuk mengalihkan langkah';
 
   @override
   String deleteStep(int index) {

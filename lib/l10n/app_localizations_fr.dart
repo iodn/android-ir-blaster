@@ -1879,10 +1879,10 @@ class AppLocalizationsFr extends AppLocalizations {
   String get emDash => '-';
 
   @override
-  String get searchCommands => 'Rechercher des commandes';
+  String get searchCommands => 'Rechercher une commande';
 
   @override
-  String get noMatchingCommands => 'Aucune commande correspondante';
+  String get noMatchingCommands => 'Aucune commande trouvée';
 
   @override
   String get quickTileFavoritesTitle => 'Favoris de tuiles rapides';
@@ -1914,10 +1914,10 @@ class AppLocalizationsFr extends AppLocalizations {
   String get editButtonCodeTitle => 'Modifier le code du bouton';
 
   @override
-  String get thisRemoteHasNoButtons => 'Cette télécommande n\'a aucun bouton.';
+  String get thisRemoteHasNoButtons => 'Cette télécommande n’a aucun bouton.';
 
   @override
-  String get selectCommand => 'Choisir la commande';
+  String get selectCommand => 'Choisir une commande';
 
   @override
   String get databaseModeAutofillHint =>
@@ -2321,7 +2321,8 @@ class AppLocalizationsFr extends AppLocalizations {
   String get addAtLeastOneStep => 'Ajoutez au moins une étape.';
 
   @override
-  String get fixInvalidSteps => 'Corrigez les étapes invalides';
+  String get fixInvalidSteps =>
+      'Corrigez les étapes non valides avant d’enregistrer.';
 
   @override
   String get unknownCommand => 'Commande inconnue';
@@ -2418,7 +2419,7 @@ class AppLocalizationsFr extends AppLocalizations {
 
   @override
   String get reorderStepsHint =>
-      'Astuce : faites glisser la poignée pour réorganiser les étapes. Appuyez sur une étape pour la modifier.';
+      'Faites glisser la poignée pour déplacer une étape. Touchez une étape pour la modifier.';
 
   @override
   String reorderStep(int index) {
@@ -2427,7 +2428,7 @@ class AppLocalizationsFr extends AppLocalizations {
 
   @override
   String get pressAndDragToChangeStepOrder =>
-      'Maintenez et faites glisser pour changer l’ordre des étapes';
+      'Maintenez et faites glisser pour déplacer l’étape';
 
   @override
   String deleteStep(int index) {

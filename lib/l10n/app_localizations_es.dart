@@ -1878,7 +1878,7 @@ class AppLocalizationsEs extends AppLocalizations {
   String get searchCommands => 'Buscar comandos';
 
   @override
-  String get noMatchingCommands => 'No hay comandos coincidentes';
+  String get noMatchingCommands => 'No se encontraron comandos';
 
   @override
   String get quickTileFavoritesTitle => 'Favoritos de mosaicos';
@@ -1914,7 +1914,7 @@ class AppLocalizationsEs extends AppLocalizations {
   String get thisRemoteHasNoButtons => 'Este mando no tiene botones.';
 
   @override
-  String get selectCommand => 'Seleccionar comando';
+  String get selectCommand => 'Elegir comando';
 
   @override
   String get databaseModeAutofillHint =>
@@ -2316,7 +2316,8 @@ class AppLocalizationsEs extends AppLocalizations {
   String get addAtLeastOneStep => 'Añade al menos un paso.';
 
   @override
-  String get fixInvalidSteps => 'Corrige los pasos no válidos';
+  String get fixInvalidSteps =>
+      'Corrige los pasos no válidos antes de guardar.';
 
   @override
   String get unknownCommand => 'Desconocido Command';
@@ -2413,7 +2414,7 @@ class AppLocalizationsEs extends AppLocalizations {
 
   @override
   String get reorderStepsHint =>
-      'Consejo: arrastra el asa para reordenar pasos. Toca un paso para editarlo.';
+      'Arrastra el control de cada paso para cambiar su posición. Toca un paso para editarlo.';
 
   @override
   String reorderStep(int index) {
@@ -2422,7 +2423,7 @@ class AppLocalizationsEs extends AppLocalizations {
 
   @override
   String get pressAndDragToChangeStepOrder =>
-      'Mantén pulsado y arrastra para cambiar el orden de los pasos';
+      'Mantén pulsado y arrastra para cambiar el orden';
 
   @override
   String deleteStep(int index) {

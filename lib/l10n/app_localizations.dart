@@ -4066,7 +4066,7 @@ abstract class AppLocalizations {
   /// No description provided for @fixInvalidSteps.
   ///
   /// In en, this message translates to:
-  /// **'Fix invalid steps'**
+  /// **'Fix the invalid steps before saving.'**
   String get fixInvalidSteps;
 
   /// No description provided for @unknownCommand.
@@ -4204,7 +4204,7 @@ abstract class AppLocalizations {
   /// No description provided for @reorderStepsHint.
   ///
   /// In en, this message translates to:
-  /// **'Tip: Drag the handle to reorder steps. Tap a step to edit it.'**
+  /// **'Drag the handle to reorder steps. Tap a step to edit it.'**
   String get reorderStepsHint;
 
   /// No description provided for @reorderStep.
@@ -4216,7 +4216,7 @@ abstract class AppLocalizations {
   /// No description provided for @pressAndDragToChangeStepOrder.
   ///
   /// In en, this message translates to:
-  /// **'Press and drag to change step order'**
+  /// **'Press and drag to change the step order'**
   String get pressAndDragToChangeStepOrder;
 
   /// No description provided for @deleteStep.

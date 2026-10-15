@@ -1736,7 +1736,7 @@ class AppLocalizationsZh extends AppLocalizations {
   String get searchCommands => '搜索命令';
 
   @override
-  String get noMatchingCommands => '没有匹配命令';
+  String get noMatchingCommands => '未找到匹配的命令';
 
   @override
   String get quickTileFavoritesTitle => '快捷磁贴收藏';
@@ -1768,7 +1768,7 @@ class AppLocalizationsZh extends AppLocalizations {
   String get editButtonCodeTitle => '编辑按钮代码';
 
   @override
-  String get thisRemoteHasNoButtons => '此遥控器没有按钮。';
+  String get thisRemoteHasNoButtons => '此遥控器还没有按钮。';
 
   @override
   String get selectCommand => '选择命令';
@@ -2147,7 +2147,7 @@ class AppLocalizationsZh extends AppLocalizations {
   String get addAtLeastOneStep => '请至少添加一个步骤。';
 
   @override
-  String get fixInvalidSteps => '修正无效步骤';
+  String get fixInvalidSteps => '请先修正无效步骤，再保存。';
 
   @override
   String get unknownCommand => '未知命令';
@@ -2228,7 +2228,7 @@ class AppLocalizationsZh extends AppLocalizations {
   String get addStep => '添加步骤';
 
   @override
-  String get reorderStepsHint => '提示 拖动把手可重排步骤。点击步骤可编辑。';
+  String get reorderStepsHint => '拖动手柄可调整步骤顺序。点击步骤可编辑。';
 
   @override
   String reorderStep(int index) {
@@ -2236,7 +2236,7 @@ class AppLocalizationsZh extends AppLocalizations {
   }
 
   @override
-  String get pressAndDragToChangeStepOrder => '按住并拖动以更改步骤顺序';
+  String get pressAndDragToChangeStepOrder => '按住并拖动以调整步骤顺序';
 
   @override
   String deleteStep(int index) {

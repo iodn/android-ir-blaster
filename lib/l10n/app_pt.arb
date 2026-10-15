@@ -647,7 +647,7 @@
   "unknown": "Desconhecido",
   "emDash": "-",
   "searchCommands": "Pesquisar comandos",
-  "noMatchingCommands": "Ainda não há comandos correspondentes",
+  "noMatchingCommands": "Nenhum comando encontrado",
   "quickTileFavoritesTitle": "Favoritos dos mosaicos rápidos",
   "changeMappingForTile": "Cambiar asignación do mosaico {tileLabel}",
   "@changeMappingForTile": {
@@ -663,7 +663,7 @@
   "commandLabel": "Comando",
   "editButtonCodeTitle": "Editar código do botão",
   "thisRemoteHasNoButtons": "Este comando não tem botões.",
-  "selectCommand": "Selecionar comando",
+  "selectCommand": "Escolher comando",
   "databaseModeAutofillHint": "O modo Base de dados preenche o Passo 2 por si (marca + modelo + protocolo). Depois de importar uma tecla, pode ajustar tudo em Manual.",
   "test": "Teste",
   "allSelectedButtonsWereDuplicates": "Todos os botões elegidos eran duplicados.",
@@ -964,7 +964,7 @@
   "unnamedRemote": "Unnamed Comando",
   "enterMacroName": "Introduza um nome para a macro.",
   "addAtLeastOneStep": "Adicione pelo menos um passo.",
-  "fixInvalidSteps": "Corrige os passos não válidos",
+  "fixInvalidSteps": "Corrija os passos inválidos antes de guardar.",
   "unknownCommand": "Comando desconhecido",
   "unnamedCommand": "Comando sem nome",
   "iconCommand": "Comando de ícone",
@@ -1016,7 +1016,7 @@
   "noStepsYet": "Ainda não há passos",
   "addCommandsAndDelaysHint": "Adicione comandos, tempos de espera ou pausas para confirmação. Os passos são executados pela ordem apresentada.",
   "addStep": "Adicionar passo",
-  "reorderStepsHint": "Dica: arraste a pega para reordenar passos. Toque num passo para editá-lo.",
+  "reorderStepsHint": "Arraste a pega para mudar a ordem dos passos. Toque num passo para o editar.",
   "reorderStep": "Reordenar passo {index}",
   "@reorderStep": {
     "placeholders": {
@@ -1025,7 +1025,7 @@
       }
     }
   },
-  "pressAndDragToChangeStepOrder": "Mantenha premido e arraste para cambiar o orden de os passos",
+  "pressAndDragToChangeStepOrder": "Mantenha premido e arraste para mover o passo",
   "deleteStep": "Eliminar passo {index}",
   "@deleteStep": {
     "placeholders": {

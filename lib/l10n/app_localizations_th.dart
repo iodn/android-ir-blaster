@@ -1877,7 +1877,7 @@ class AppLocalizationsTh extends AppLocalizations {
   String get editButtonCodeTitle => 'แก้ไขโค้ดของปุ่ม';
 
   @override
-  String get thisRemoteHasNoButtons => 'รีโมตนี้ไม่มีปุ่ม';
+  String get thisRemoteHasNoButtons => 'รีโมตนี้ยังไม่มีปุ่ม';
 
   @override
   String get selectCommand => 'เลือกคำสั่ง';
@@ -2277,7 +2277,7 @@ class AppLocalizationsTh extends AppLocalizations {
   String get addAtLeastOneStep => 'เพิ่มอย่างน้อยหนึ่งขั้นตอน';
 
   @override
-  String get fixInvalidSteps => 'แก้ไขขั้นตอนที่ไม่ถูกต้อง';
+  String get fixInvalidSteps => 'แก้ไขขั้นตอนที่ไม่ถูกต้องก่อนบันทึก';
 
   @override
   String get unknownCommand => 'คำสั่งที่ไม่ทราบ';
@@ -2361,7 +2361,7 @@ class AppLocalizationsTh extends AppLocalizations {
 
   @override
   String get reorderStepsHint =>
-      'เคล็ดลับ: ลากที่จับเพื่อจัดลำดับขั้นตอน แตะขั้นตอนเพื่อแก้ไข';
+      'ลากที่จับเพื่อเปลี่ยนลำดับขั้นตอน แตะขั้นตอนเพื่อแก้ไข';
 
   @override
   String reorderStep(int index) {
@@ -2369,8 +2369,7 @@ class AppLocalizationsTh extends AppLocalizations {
   }
 
   @override
-  String get pressAndDragToChangeStepOrder =>
-      'กดและลากเพื่อเปลี่ยนลำดับขั้นตอน';
+  String get pressAndDragToChangeStepOrder => 'กดค้างแล้วลากเพื่อย้ายขั้นตอน';
 
   @override
   String deleteStep(int index) {

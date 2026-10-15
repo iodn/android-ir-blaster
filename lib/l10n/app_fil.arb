@@ -646,8 +646,8 @@
   "unnamedKey": "Unnamed key",
   "unknown": "Hindi kilala",
   "emDash": "—",
-  "searchCommands": "Search commands",
-  "noMatchingCommands": "Walang matching commands",
+  "searchCommands": "Maghanap ng command",
+  "noMatchingCommands": "Walang command na tumutugma",
   "quickTileFavoritesTitle": "Quick tile favorites",
   "changeMappingForTile": "Change mapping para sa {tileLabel} tile",
   "@changeMappingForTile": {
@@ -662,8 +662,8 @@
   "deviceCodeLabel": "Device Code",
   "commandLabel": "Command",
   "editButtonCodeTitle": "I-edit ang Code ng button",
-  "thisRemoteHasNoButtons": "Ang remote has no mga button.",
-  "selectCommand": "Select Command",
+  "thisRemoteHasNoButtons": "Wala pang mga button ang remote na ito.",
+  "selectCommand": "Pumili ng command",
   "databaseModeAutofillHint": "Awtomatikong pinupunan ng Database mode ang Hakbang 2 para sa iyo, brand, modelo, at protocol. Pagkatapos mag-import ng key, maaari mong ayusin pa ang lahat sa Manual.",
   "test": "Subukan",
   "allSelectedButtonsWereDuplicates": "All napiling mga button were duplicates.",
@@ -964,7 +964,7 @@
   "unnamedRemote": "Remote na walang pangalan",
   "enterMacroName": "Maglagay ng pangalan ng macro.",
   "addAtLeastOneStep": "Magdagdag ng kahit isang hakbang.",
-  "fixInvalidSteps": "Fix hindi wasto mga hakbang",
+  "fixInvalidSteps": "Ayusin muna ang mga hakbang na may problema bago i-save.",
   "unknownCommand": "Hindi kilala Command",
   "unnamedCommand": "Unnamed Command",
   "iconCommand": "Icon Command",
@@ -1016,7 +1016,7 @@
   "noStepsYet": "Wala pang mga hakbang",
   "addCommandsAndDelaysHint": "Magdagdag ng mga utos, oras ng paghihintay, o paghinto para sa kumpirmasyon. Susundin ang pagkakasunod na ipinapakita.",
   "addStep": "Magdagdag ng hakbang",
-  "reorderStepsHint": "Tip: Drag the handle to reorder mga hakbang. Tapikin ang a hakbang to edit it.",
+  "reorderStepsHint": "I-drag ang hawakan para baguhin ang pagkakasunod-sunod ng mga hakbang. I-tap ang hakbang para i-edit ito.",
   "reorderStep": "Reorder hakbang {index}",
   "@reorderStep": {
     "placeholders": {
@@ -1025,7 +1025,7 @@
       }
     }
   },
-  "pressAndDragToChangeStepOrder": "Press at drag to change hakbang order",
+  "pressAndDragToChangeStepOrder": "Pindutin at i-drag para ilipat ang hakbang",
   "deleteStep": "Delete hakbang {index}",
   "@deleteStep": {
     "placeholders": {

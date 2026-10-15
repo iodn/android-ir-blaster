@@ -1861,10 +1861,10 @@ class AppLocalizationsId extends AppLocalizations {
   String get emDash => '—';
 
   @override
-  String get searchCommands => 'Cari commands';
+  String get searchCommands => 'Cari perintah';
 
   @override
-  String get noMatchingCommands => 'Tidak ada matching commands';
+  String get noMatchingCommands => 'Tidak ada perintah yang cocok';
 
   @override
   String get quickTileFavoritesTitle => 'Cepat tile favorit';
@@ -1896,10 +1896,10 @@ class AppLocalizationsId extends AppLocalizations {
   String get editButtonCodeTitle => 'Ubah Kode tombol';
 
   @override
-  String get thisRemoteHasNoButtons => 'Remote ini tidak memiliki tombol.';
+  String get thisRemoteHasNoButtons => 'Remote ini belum memiliki tombol.';
 
   @override
-  String get selectCommand => 'Pilih Command';
+  String get selectCommand => 'Pilih perintah';
 
   @override
   String get databaseModeAutofillHint =>
@@ -2298,7 +2298,8 @@ class AppLocalizationsId extends AppLocalizations {
   String get addAtLeastOneStep => 'Tambahkan setidaknya satu langkah.';
 
   @override
-  String get fixInvalidSteps => 'Fix tidak valid langkah';
+  String get fixInvalidSteps =>
+      'Perbaiki langkah yang tidak valid sebelum menyimpan.';
 
   @override
   String get unknownCommand => 'Tidak dikenal Command';
@@ -2383,7 +2384,7 @@ class AppLocalizationsId extends AppLocalizations {
 
   @override
   String get reorderStepsHint =>
-      'Tip: seret pegangan untuk mengurut ulang langkah. Ketuk langkah untuk mengubahnya.';
+      'Seret gagang untuk mengubah urutan langkah. Ketuk langkah untuk mengeditnya.';
 
   @override
   String reorderStep(int index) {
@@ -2392,7 +2393,7 @@ class AppLocalizationsId extends AppLocalizations {
 
   @override
   String get pressAndDragToChangeStepOrder =>
-      'Tekan dan seret untuk mengubah urutan langkah';
+      'Tekan dan seret untuk memindahkan langkah';
 
   @override
   String deleteStep(int index) {

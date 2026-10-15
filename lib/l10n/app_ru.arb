@@ -647,7 +647,7 @@
   "unknown": "Неизвестно",
   "emDash": "—",
   "searchCommands": "Поиск команд",
-  "noMatchingCommands": "Совпадающих команд нет",
+  "noMatchingCommands": "Команды не найдены",
   "quickTileFavoritesTitle": "Избр. быстрых плиток",
   "changeMappingForTile": "Изменить назначение для плитки {tileLabel}",
   "@changeMappingForTile": {
@@ -662,7 +662,7 @@
   "deviceCodeLabel": "Код устройства",
   "commandLabel": "Команда",
   "editButtonCodeTitle": "Изменить код кнопки",
-  "thisRemoteHasNoButtons": "В этом пульте нет кнопок.",
+  "thisRemoteHasNoButtons": "У этого пульта нет кнопок.",
   "selectCommand": "Выберите команду",
   "databaseModeAutofillHint": "Режим База автоматически заполняет шаг 2, бренд, модель и протокол. После импорта ключа можно донастроить всё вручную.",
   "test": "Тест",
@@ -964,7 +964,7 @@
   "unnamedRemote": "Безымянный пульт",
   "enterMacroName": "Введите название макроса.",
   "addAtLeastOneStep": "Добавьте хотя бы один шаг.",
-  "fixInvalidSteps": "Исправьте неверные шаги",
+  "fixInvalidSteps": "Исправьте некорректные шаги перед сохранением.",
   "unknownCommand": "Неизвестная команда",
   "unnamedCommand": "Безымянная команда",
   "iconCommand": "Иконка Команда",
@@ -1016,7 +1016,7 @@
   "noStepsYet": "Пока нет шагов",
   "addCommandsAndDelaysHint": "Добавьте команды, время ожидания или паузы для подтверждения. Шаги выполняются в указанном порядке.",
   "addStep": "Добавить шаг",
-  "reorderStepsHint": "Подсказка: перетаскивайте ручку, чтобы менять порядок шагов. Нажмите на шаг, чтобы изменить его.",
+  "reorderStepsHint": "Перетащите шаг за значок, чтобы изменить порядок. Нажмите на шаг, чтобы отредактировать его.",
   "reorderStep": "Переставить шаг {index}",
   "@reorderStep": {
     "placeholders": {
@@ -1025,7 +1025,7 @@
       }
     }
   },
-  "pressAndDragToChangeStepOrder": "Зажмите и перетащите, чтобы изменить порядок шагов",
+  "pressAndDragToChangeStepOrder": "Нажмите и перетащите, чтобы переместить шаг",
   "deleteStep": "Удалить шаг {index}",
   "@deleteStep": {
     "placeholders": {

@@ -1864,7 +1864,7 @@ class AppLocalizationsRu extends AppLocalizations {
   String get searchCommands => 'Поиск команд';
 
   @override
-  String get noMatchingCommands => 'Совпадающих команд нет';
+  String get noMatchingCommands => 'Команды не найдены';
 
   @override
   String get quickTileFavoritesTitle => 'Избр. быстрых плиток';
@@ -1896,7 +1896,7 @@ class AppLocalizationsRu extends AppLocalizations {
   String get editButtonCodeTitle => 'Изменить код кнопки';
 
   @override
-  String get thisRemoteHasNoButtons => 'В этом пульте нет кнопок.';
+  String get thisRemoteHasNoButtons => 'У этого пульта нет кнопок.';
 
   @override
   String get selectCommand => 'Выберите команду';
@@ -2299,7 +2299,8 @@ class AppLocalizationsRu extends AppLocalizations {
   String get addAtLeastOneStep => 'Добавьте хотя бы один шаг.';
 
   @override
-  String get fixInvalidSteps => 'Исправьте неверные шаги';
+  String get fixInvalidSteps =>
+      'Исправьте некорректные шаги перед сохранением.';
 
   @override
   String get unknownCommand => 'Неизвестная команда';
@@ -2399,7 +2400,7 @@ class AppLocalizationsRu extends AppLocalizations {
 
   @override
   String get reorderStepsHint =>
-      'Подсказка: перетаскивайте ручку, чтобы менять порядок шагов. Нажмите на шаг, чтобы изменить его.';
+      'Перетащите шаг за значок, чтобы изменить порядок. Нажмите на шаг, чтобы отредактировать его.';
 
   @override
   String reorderStep(int index) {
@@ -2408,7 +2409,7 @@ class AppLocalizationsRu extends AppLocalizations {
 
   @override
   String get pressAndDragToChangeStepOrder =>
-      'Зажмите и перетащите, чтобы изменить порядок шагов';
+      'Нажмите и перетащите, чтобы переместить шаг';
 
   @override
   String deleteStep(int index) {

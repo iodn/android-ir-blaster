@@ -646,8 +646,8 @@
   "unnamedKey": "Naamloze toets",
   "unknown": "Onbekend",
   "emDash": "—",
-  "searchCommands": "Zoeken commands",
-  "noMatchingCommands": "Geen matching commands",
+  "searchCommands": "Opdrachten zoeken",
+  "noMatchingCommands": "Geen opdrachten gevonden",
   "quickTileFavoritesTitle": "Quick tile favorieten",
   "changeMappingForTile": "Wijzig koppeling voor tegel {tileLabel}",
   "@changeMappingForTile": {
@@ -663,7 +663,7 @@
   "commandLabel": "Opdracht",
   "editButtonCodeTitle": "Bewerken Code of the knop",
   "thisRemoteHasNoButtons": "Deze afstandsbediening heeft geen knoppen.",
-  "selectCommand": "Selecteer Command",
+  "selectCommand": "Opdracht kiezen",
   "databaseModeAutofillHint": "Database mode auto-fills Step 2 for you (brand + model + protocol). After importerening a key, you can refine anything in Manual.",
   "test": "Test",
   "allSelectedButtonsWereDuplicates": "All geselecteerd knoppen were duplicates.",
@@ -964,7 +964,7 @@
   "unnamedRemote": "Unnamed Afstandsbediening",
   "enterMacroName": "Voer een naam voor de macro in.",
   "addAtLeastOneStep": "Voeg minstens één stap toe.",
-  "fixInvalidSteps": "Herstel ongeldige stappen",
+  "fixInvalidSteps": "Herstel de ongeldige stappen voordat je opslaat.",
   "unknownCommand": "Onbekend Command",
   "unnamedCommand": "Naamloze opdracht",
   "iconCommand": "Pictogram Command",
@@ -1016,7 +1016,7 @@
   "noStepsYet": "Nog geen stappen",
   "addCommandsAndDelaysHint": "Voeg opdrachten, wachttijden of pauzes voor bevestiging toe. Ze worden in de getoonde volgorde uitgevoerd.",
   "addStep": "Stap toevoegen",
-  "reorderStepsHint": "Tip: Drag the handle to reorder steps. Tap a step to bewerken it.",
+  "reorderStepsHint": "Sleep de handgreep om een stap te verplaatsen. Tik op een stap om deze te bewerken.",
   "reorderStep": "Stap {index} verplaatsen",
   "@reorderStep": {
     "placeholders": {
@@ -1025,7 +1025,7 @@
       }
     }
   },
-  "pressAndDragToChangeStepOrder": "Druk en sleep om de volgorde van stappen te wijzigen",
+  "pressAndDragToChangeStepOrder": "Houd ingedrukt en sleep om de stap te verplaatsen",
   "deleteStep": "Verwijderen step {index}",
   "@deleteStep": {
     "placeholders": {

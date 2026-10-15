@@ -1854,10 +1854,10 @@ class AppLocalizationsHi extends AppLocalizations {
   String get emDash => '—';
 
   @override
-  String get searchCommands => 'खोजें कमांड';
+  String get searchCommands => 'कमांड खोजें';
 
   @override
-  String get noMatchingCommands => 'नहीं मेल खाती कमांड';
+  String get noMatchingCommands => 'कोई कमांड नहीं मिली';
 
   @override
   String get quickTileFavoritesTitle => 'त्वरित tile पसंदीदा';
@@ -1889,10 +1889,10 @@ class AppLocalizationsHi extends AppLocalizations {
   String get editButtonCodeTitle => 'संपादित करें कोड का the बटन';
 
   @override
-  String get thisRemoteHasNoButtons => 'यह रिमोट has नहीं बटन.';
+  String get thisRemoteHasNoButtons => 'इस रिमोट में कोई बटन नहीं है।';
 
   @override
-  String get selectCommand => 'चुनें कमांड';
+  String get selectCommand => 'कमांड चुनें';
 
   @override
   String get databaseModeAutofillHint =>
@@ -2291,7 +2291,7 @@ class AppLocalizationsHi extends AppLocalizations {
   String get addAtLeastOneStep => 'कम से कम एक चरण जोड़ें।';
 
   @override
-  String get fixInvalidSteps => 'Fix अमान्य चरण';
+  String get fixInvalidSteps => 'सेव करने से पहले गलत चरणों को ठीक करें।';
 
   @override
   String get unknownCommand => 'अज्ञात कमांड';
@@ -2376,7 +2376,7 @@ class AppLocalizationsHi extends AppLocalizations {
 
   @override
   String get reorderStepsHint =>
-      'सुझाव: खींचें the handle तक पुन:क्रमित करें चरण. टैप करें a चरण तक संपादित करें it.';
+      'चरणों का क्रम बदलने के लिए हैंडल खींचें। किसी चरण को बदलने के लिए उस पर टैप करें।';
 
   @override
   String reorderStep(int index) {
@@ -2385,7 +2385,7 @@ class AppLocalizationsHi extends AppLocalizations {
 
   @override
   String get pressAndDragToChangeStepOrder =>
-      'दबाएं और खींचें तक बदलें चरण क्रम';
+      'चरण का क्रम बदलने के लिए दबाकर खींचें';
 
   @override
   String deleteStep(int index) {

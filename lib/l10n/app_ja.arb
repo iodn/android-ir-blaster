@@ -662,7 +662,7 @@
   "deviceCodeLabel": "デバイスコード",
   "commandLabel": "コマンド",
   "editButtonCodeTitle": "ボタンのコードを編集",
-  "thisRemoteHasNoButtons": "このリモコンにボタンがありません。",
+  "thisRemoteHasNoButtons": "このリモコンにはボタンがありません。",
   "selectCommand": "コマンドを選択",
   "databaseModeAutofillHint": "データベースモードではステップ2 ブランド モデル プロトコル を自動入力します。キー取り込み後は手動で調整できます。",
   "test": "テスト",
@@ -964,7 +964,7 @@
   "unnamedRemote": "無名のリモコン",
   "enterMacroName": "マクロの名前を入力してください。",
   "addAtLeastOneStep": "ステップを1つ以上追加してください。",
-  "fixInvalidSteps": "無効なステップを修正してください",
+  "fixInvalidSteps": "保存する前に無効なステップを修正してください。",
   "unknownCommand": "不明なコマンド",
   "unnamedCommand": "無名のコマンド",
   "iconCommand": "アイコンコマンド",
@@ -1016,7 +1016,7 @@
   "noStepsYet": "まだステップがありません",
   "addCommandsAndDelaysHint": "コマンド、待機時間、確認待ちを追加してください。表示順に実行されます。",
   "addStep": "ステップを追加",
-  "reorderStepsHint": "ヒント ハンドルをドラッグしてステップを並べ替えられます。ステップをタップすると編集できます。",
+  "reorderStepsHint": "ハンドルをドラッグすると順番を変更できます。ステップをタップすると編集できます。",
   "reorderStep": "ステップ{index}を並べ替え",
   "@reorderStep": {
     "placeholders": {
@@ -1025,7 +1025,7 @@
       }
     }
   },
-  "pressAndDragToChangeStepOrder": "長押ししてドラッグするとステップ順を変更できます",
+  "pressAndDragToChangeStepOrder": "長押ししてドラッグすると順番を変更できます",
   "deleteStep": "ステップ{index}を削除",
   "@deleteStep": {
     "placeholders": {

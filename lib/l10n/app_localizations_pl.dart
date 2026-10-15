@@ -1904,10 +1904,10 @@ class AppLocalizationsPl extends AppLocalizations {
   String get emDash => '—';
 
   @override
-  String get searchCommands => 'szukaj komendy';
+  String get searchCommands => 'Szukaj poleceń';
 
   @override
-  String get noMatchingCommands => 'No matching komendy';
+  String get noMatchingCommands => 'Nie znaleziono poleceń';
 
   @override
   String get quickTileFavoritesTitle => 'Quick kafelek ulubione';
@@ -1933,16 +1933,16 @@ class AppLocalizationsPl extends AppLocalizations {
   String get deviceCodeLabel => 'urządzenie kod';
 
   @override
-  String get commandLabel => 'komenda';
+  String get commandLabel => 'Polecenie';
 
   @override
   String get editButtonCodeTitle => 'edytuj kod of przycisk';
 
   @override
-  String get thisRemoteHasNoButtons => 'This pilot has no przyciski.';
+  String get thisRemoteHasNoButtons => 'Ten pilot nie ma przycisków.';
 
   @override
-  String get selectCommand => 'Select komenda';
+  String get selectCommand => 'Wybierz polecenie';
 
   @override
   String get databaseModeAutofillHint =>
@@ -2381,7 +2381,7 @@ class AppLocalizationsPl extends AppLocalizations {
   String get addAtLeastOneStep => 'Dodaj co najmniej jeden krok.';
 
   @override
-  String get fixInvalidSteps => 'Popraw błędne kroki';
+  String get fixInvalidSteps => 'Popraw nieprawidłowe kroki przed zapisaniem.';
 
   @override
   String get unknownCommand => 'Nieznana komenda';
@@ -2482,7 +2482,7 @@ class AppLocalizationsPl extends AppLocalizations {
 
   @override
   String get reorderStepsHint =>
-      'Wskazówka: przeciągnij uchwyt, aby zmienić kolejność kroków. Stuknij krok, aby go edytować.';
+      'Przeciągnij uchwyt, aby zmienić kolejność kroków. Dotknij kroku, aby go edytować.';
 
   @override
   String reorderStep(int index) {
@@ -2491,7 +2491,7 @@ class AppLocalizationsPl extends AppLocalizations {
 
   @override
   String get pressAndDragToChangeStepOrder =>
-      'Naciśnij i przeciągnij, aby zmienić kolejność kroków';
+      'Naciśnij i przeciągnij, aby przesunąć krok';
 
   @override
   String deleteStep(int index) {

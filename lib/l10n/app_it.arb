@@ -647,7 +647,7 @@
   "unknown": "Sconosciuto",
   "emDash": "-",
   "searchCommands": "Cerca comandi",
-  "noMatchingCommands": "Nessun comando corrispondente",
+  "noMatchingCommands": "Nessun comando trovato",
   "quickTileFavoritesTitle": "Preferiti riquadro rapido",
   "changeMappingForTile": "Cambia mappatura riquadro {tileLabel}",
   "@changeMappingForTile": {
@@ -663,7 +663,7 @@
   "commandLabel": "Comando",
   "editButtonCodeTitle": "Modifica codice del pulsante",
   "thisRemoteHasNoButtons": "Questo telecomando non ha pulsanti.",
-  "selectCommand": "Seleziona comando",
+  "selectCommand": "Scegli un comando",
   "databaseModeAutofillHint": "La modalità database compila automaticamente per te il Passo 2, marca, modello e protocollo. Dopo aver importato un tasto puoi rifinire tutto in Manuale.",
   "test": "Test",
   "allSelectedButtonsWereDuplicates": "Tutti i pulsanti selezionati erano duplicati.",
@@ -964,7 +964,7 @@
   "unnamedRemote": "Telecomando senza nome",
   "enterMacroName": "Inserisci un nome per la macro.",
   "addAtLeastOneStep": "Aggiungi almeno un passaggio.",
-  "fixInvalidSteps": "Correggi i passaggi non validi",
+  "fixInvalidSteps": "Correggi i passaggi non validi prima di salvare.",
   "unknownCommand": "Comando sconosciuto",
   "unnamedCommand": "Comando senza nome",
   "iconCommand": "Comando icona",
@@ -1016,7 +1016,7 @@
   "noStepsYet": "Nessun passaggio ancora",
   "addCommandsAndDelaysHint": "Aggiungi comandi, attese o pause per la conferma. I passaggi vengono eseguiti nell’ordine mostrato.",
   "addStep": "Aggiungi passaggio",
-  "reorderStepsHint": "Suggerimento. Trascina la maniglia per riordinare i passaggi. Tocca un passaggio per modificarlo.",
+  "reorderStepsHint": "Trascina la maniglia per spostare un passaggio. Tocca un passaggio per modificarlo.",
   "reorderStep": "Riordina passo {index}",
   "@reorderStep": {
     "placeholders": {
@@ -1025,7 +1025,7 @@
       }
     }
   },
-  "pressAndDragToChangeStepOrder": "Premi e trascina per cambiare l'ordine",
+  "pressAndDragToChangeStepOrder": "Tieni premuto e trascina per spostare il passaggio",
   "deleteStep": "Elimina passo {index}",
   "@deleteStep": {
     "placeholders": {

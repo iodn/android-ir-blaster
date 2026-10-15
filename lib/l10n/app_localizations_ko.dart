@@ -1784,10 +1784,10 @@ class AppLocalizationsKo extends AppLocalizations {
   String get emDash => '—';
 
   @override
-  String get searchCommands => '검색 명령';
+  String get searchCommands => '명령 검색';
 
   @override
-  String get noMatchingCommands => '없음 일치하는 명령';
+  String get noMatchingCommands => '일치하는 명령이 없습니다';
 
   @override
   String get quickTileFavoritesTitle => '빠른 타일 즐겨찾기';
@@ -1819,10 +1819,10 @@ class AppLocalizationsKo extends AppLocalizations {
   String get editButtonCodeTitle => '편집 코드 버튼';
 
   @override
-  String get thisRemoteHasNoButtons => '이 리모컨 있음 없음 버튼.';
+  String get thisRemoteHasNoButtons => '이 리모컨에는 버튼이 없습니다.';
 
   @override
-  String get selectCommand => '선택 명령';
+  String get selectCommand => '명령 선택';
 
   @override
   String get databaseModeAutofillHint =>
@@ -2209,7 +2209,7 @@ class AppLocalizationsKo extends AppLocalizations {
   String get addAtLeastOneStep => '단계를 하나 이상 추가하세요.';
 
   @override
-  String get fixInvalidSteps => '잘못된 단계 수정';
+  String get fixInvalidSteps => '저장하기 전에 잘못된 단계를 수정하세요.';
 
   @override
   String get unknownCommand => '알 수 없음 명령';
@@ -2291,7 +2291,7 @@ class AppLocalizationsKo extends AppLocalizations {
   String get addStep => '단계 추가';
 
   @override
-  String get reorderStepsHint => '팁: 드래그 핸들로 단계 순서를 바꾸세요. 단계를 탭해 편집할 수도 있습니다';
+  String get reorderStepsHint => '핸들을 드래그하면 순서를 바꿀 수 있습니다. 단계를 누르면 편집할 수 있습니다.';
 
   @override
   String reorderStep(int index) {
@@ -2299,7 +2299,7 @@ class AppLocalizationsKo extends AppLocalizations {
   }
 
   @override
-  String get pressAndDragToChangeStepOrder => '단계 순서를 바꾸려면 길게 누르고 드래그하세요';
+  String get pressAndDragToChangeStepOrder => '길게 누른 채 드래그하여 단계 순서를 바꾸세요';
 
   @override
   String deleteStep(int index) {

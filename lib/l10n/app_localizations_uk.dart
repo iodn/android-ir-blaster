@@ -1907,10 +1907,10 @@ class AppLocalizationsUk extends AppLocalizations {
   String get emDash => '-';
 
   @override
-  String get searchCommands => 'Команди пошуку';
+  String get searchCommands => 'Пошук команд';
 
   @override
-  String get noMatchingCommands => 'Немає відповідних команд';
+  String get noMatchingCommands => 'Команд не знайдено';
 
   @override
   String get quickTileFavoritesTitle => 'Швидкі вибрані плитки';
@@ -1943,7 +1943,7 @@ class AppLocalizationsUk extends AppLocalizations {
   String get editButtonCodeTitle => 'Редагувати код кнопки';
 
   @override
-  String get thisRemoteHasNoButtons => 'Цей пульт не має кнопок.';
+  String get thisRemoteHasNoButtons => 'На цьому пульті немає кнопок.';
 
   @override
   String get selectCommand => 'Виберіть команду';
@@ -2388,7 +2388,7 @@ class AppLocalizationsUk extends AppLocalizations {
   String get addAtLeastOneStep => 'Додайте хоча б один крок.';
 
   @override
-  String get fixInvalidSteps => 'Виправте недійсні кроки';
+  String get fixInvalidSteps => 'Виправте некоректні кроки перед збереженням.';
 
   @override
   String get unknownCommand => 'Невідома команда';
@@ -2488,7 +2488,7 @@ class AppLocalizationsUk extends AppLocalizations {
 
   @override
   String get reorderStepsHint =>
-      'Порада: перетягніть маркер, щоб змінити порядок кроків. Торкніться кроку, щоб відредагувати його.';
+      'Перетягніть крок за значок, щоб змінити порядок. Торкніться кроку, щоб відредагувати його.';
 
   @override
   String reorderStep(int index) {
@@ -2497,7 +2497,7 @@ class AppLocalizationsUk extends AppLocalizations {
 
   @override
   String get pressAndDragToChangeStepOrder =>
-      'Натисніть і перетягніть, щоб змінити порядок кроків';
+      'Натисніть і перетягніть, щоб перемістити крок';
 
   @override
   String deleteStep(int index) {

@@ -652,7 +652,7 @@
   "unknown": "Desconocido",
   "emDash": "-",
   "searchCommands": "Buscar comandos",
-  "noMatchingCommands": "No hay comandos coincidentes",
+  "noMatchingCommands": "No se encontraron comandos",
   "quickTileFavoritesTitle": "Favoritos de mosaicos",
   "changeMappingForTile": "Cambiar asignación del mosaico {tileLabel}",
   "@changeMappingForTile": {
@@ -668,7 +668,7 @@
   "commandLabel": "Comando",
   "editButtonCodeTitle": "Editar código del botón",
   "thisRemoteHasNoButtons": "Este mando no tiene botones.",
-  "selectCommand": "Seleccionar comando",
+  "selectCommand": "Elegir comando",
   "databaseModeAutofillHint": "El modo Base de datos completa el Paso 2 por ti (marca + modelo + protocolo). Tras importar una tecla, puedes ajustar todo en Manual.",
   "test": "Probar",
   "allSelectedButtonsWereDuplicates": "Todos los botones elegidos eran duplicados.",
@@ -969,7 +969,7 @@
   "unnamedRemote": "Unnamed Mando",
   "enterMacroName": "Introduce un nombre para la macro.",
   "addAtLeastOneStep": "Añade al menos un paso.",
-  "fixInvalidSteps": "Corrige los pasos no válidos",
+  "fixInvalidSteps": "Corrige los pasos no válidos antes de guardar.",
   "unknownCommand": "Desconocido Command",
   "unnamedCommand": "Comando sin nombre",
   "iconCommand": "Comando de icono",
@@ -1021,7 +1021,7 @@
   "noStepsYet": "Aún no hay pasos",
   "addCommandsAndDelaysHint": "Añade comandos, tiempos de espera o pausas para confirmar. Se ejecutarán en el orden mostrado.",
   "addStep": "Añadir paso",
-  "reorderStepsHint": "Consejo: arrastra el asa para reordenar pasos. Toca un paso para editarlo.",
+  "reorderStepsHint": "Arrastra el control de cada paso para cambiar su posición. Toca un paso para editarlo.",
   "reorderStep": "Reordenar paso {index}",
   "@reorderStep": {
     "placeholders": {
@@ -1030,7 +1030,7 @@
       }
     }
   },
-  "pressAndDragToChangeStepOrder": "Mantén pulsado y arrastra para cambiar el orden de los pasos",
+  "pressAndDragToChangeStepOrder": "Mantén pulsado y arrastra para cambiar el orden",
   "deleteStep": "Eliminar paso {index}",
   "@deleteStep": {
     "placeholders": {
