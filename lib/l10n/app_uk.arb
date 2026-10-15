@@ -780,9 +780,9 @@
       }
     }
   },
-  "importFailedRemotesMustBeList": "Помилка імпорту: резервні \"пульти\" мають бути списком JSON, якщо вони присутні.",
-  "importFailedMacrosMustBeList": "Помилка імпорту: резервні «макроси» мають бути списком JSON, якщо вони присутні.",
-  "importFailedInvalidBackupFormat": "Помилка імпорту: недійсний формат резервної копії (очікується застарілий список або карта з пультами/макросами).",
+  "importFailedRemotesMustBeList": "Не вдалося імпортувати: неправильний формат списку пультів у резервній копії.",
+  "importFailedMacrosMustBeList": "Не вдалося імпортувати: неправильний формат списку макросів у резервній копії.",
+  "importFailedInvalidBackupFormat": "Не вдалося імпортувати: цей формат резервної копії не підтримується.",
   "importedBackupRemotesOnly": "{remoteCount, plural, one{Імпортовано {remoteCount} пульт із резервної копії. Макроси не змінено.} few{Імпортовано {remoteCount} пульти з резервної копії. Макроси не змінено.} many{Імпортовано {remoteCount} пультів із резервної копії. Макроси не змінено.} other{Імпортовано {remoteCount} пульта з резервної копії. Макроси не змінено.}}",
   "@importedBackupRemotesOnly": {
     "placeholders": {

@@ -2086,15 +2086,15 @@ class AppLocalizationsTr extends AppLocalizations {
 
   @override
   String get importFailedRemotesMustBeList =>
-      'İçe aktarma başarısız: varsa yedekteki \"remotes\" bir JSON listesi olmalıdır.';
+      'İçe aktarılamıyor: yedekteki kumanda listesi geçersiz.';
 
   @override
   String get importFailedMacrosMustBeList =>
-      'İçe aktarma başarısız: varsa yedekteki \"macros\" bir JSON listesi olmalıdır.';
+      'İçe aktarılamıyor: yedekteki makro listesi geçersiz.';
 
   @override
   String get importFailedInvalidBackupFormat =>
-      'İçe aktarma başarısız: geçersiz yedek biçimi (beklenen eski Liste veya kumandalar/makrolar içeren Harita).';
+      'İçe aktarılamıyor: bu yedek biçimi desteklenmiyor.';
 
   @override
   String importedBackupRemotesOnly(int remoteCount) {

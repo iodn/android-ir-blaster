@@ -2119,15 +2119,15 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get importFailedRemotesMustBeList =>
-      'Import failed: backup \"remotes\" must be a JSON list when present.';
+      'Cannot import: the backup’s remote list is invalid.';
 
   @override
   String get importFailedMacrosMustBeList =>
-      'Import failed: backup \"macros\" must be a JSON list when present.';
+      'Cannot import: the backup’s macro list is invalid.';
 
   @override
   String get importFailedInvalidBackupFormat =>
-      'Import failed: invalid backup format (expected legacy List or Map with remotes/macros).';
+      'Cannot import: this backup format is not supported.';
 
   @override
   String importedBackupRemotesOnly(int remoteCount) {

@@ -1995,16 +1995,13 @@ class AppLocalizationsKo extends AppLocalizations {
   }
 
   @override
-  String get importFailedRemotesMustBeList =>
-      '가져오기 실패: 백업의 \"remotes\"는 존재할 경우 JSON 목록이어야 합니다.';
+  String get importFailedRemotesMustBeList => '백업의 리모컨 목록이 올바르지 않아 가져올 수 없어요.';
 
   @override
-  String get importFailedMacrosMustBeList =>
-      '가져오기 실패: 백업의 \"macros\"는 존재할 경우 JSON 목록이어야 합니다.';
+  String get importFailedMacrosMustBeList => '백업의 매크로 목록이 올바르지 않아 가져올 수 없어요.';
 
   @override
-  String get importFailedInvalidBackupFormat =>
-      '가져오기 실패: 잘못된 백업 형식입니다(레거시 List 또는 remotes/macros가 있는 Map 필요).';
+  String get importFailedInvalidBackupFormat => '지원하지 않는 백업 형식이라 가져올 수 없어요.';
 
   @override
   String importedBackupRemotesOnly(int remoteCount) {

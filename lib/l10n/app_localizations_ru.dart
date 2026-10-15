@@ -2114,15 +2114,15 @@ class AppLocalizationsRu extends AppLocalizations {
 
   @override
   String get importFailedRemotesMustBeList =>
-      'Импорт не удался: backup \"remotes\" должен быть JSON-списком, если он присутствует.';
+      'Не удалось импортировать: неверный формат списка пультов в резервной копии.';
 
   @override
   String get importFailedMacrosMustBeList =>
-      'Импорт не удался: backup \"macros\" должен быть JSON-списком, если он присутствует.';
+      'Не удалось импортировать: неверный формат списка макросов в резервной копии.';
 
   @override
   String get importFailedInvalidBackupFormat =>
-      'Импорт не удался: неверный формат backup, ожидался старый List или Map с remotes/macros.';
+      'Не удалось импортировать: этот формат резервной копии не поддерживается.';
 
   @override
   String importedBackupRemotesOnly(int remoteCount) {

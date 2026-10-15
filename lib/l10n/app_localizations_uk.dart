@@ -2154,15 +2154,15 @@ class AppLocalizationsUk extends AppLocalizations {
 
   @override
   String get importFailedRemotesMustBeList =>
-      'Помилка імпорту: резервні \"пульти\" мають бути списком JSON, якщо вони присутні.';
+      'Не вдалося імпортувати: неправильний формат списку пультів у резервній копії.';
 
   @override
   String get importFailedMacrosMustBeList =>
-      'Помилка імпорту: резервні «макроси» мають бути списком JSON, якщо вони присутні.';
+      'Не вдалося імпортувати: неправильний формат списку макросів у резервній копії.';
 
   @override
   String get importFailedInvalidBackupFormat =>
-      'Помилка імпорту: недійсний формат резервної копії (очікується застарілий список або карта з пультами/макросами).';
+      'Не вдалося імпортувати: цей формат резервної копії не підтримується.';
 
   @override
   String importedBackupRemotesOnly(int remoteCount) {

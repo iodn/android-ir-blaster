@@ -2145,15 +2145,15 @@ class AppLocalizationsPl extends AppLocalizations {
 
   @override
   String get importFailedRemotesMustBeList =>
-      'Import nieudane: backup \"piloty\" must be a JSON liście gdy present.';
+      'Nie można zaimportować: lista pilotów w kopii zapasowej jest nieprawidłowa.';
 
   @override
   String get importFailedMacrosMustBeList =>
-      'Import nieudane: backup \"makra\" must be a JSON liście gdy present.';
+      'Nie można zaimportować: lista makr w kopii zapasowej jest nieprawidłowa.';
 
   @override
   String get importFailedInvalidBackupFormat =>
-      'Import nieudane: invalid backup format (expected legacy List lub Map z piloty/makra).';
+      'Nie można zaimportować: ten format kopii zapasowej nie jest obsługiwany.';
 
   @override
   String importedBackupRemotesOnly(int remoteCount) {

@@ -782,9 +782,9 @@
       }
     }
   },
-  "importFailedRemotesMustBeList": "Import nieudane: backup \"piloty\" must be a JSON liście gdy present.",
-  "importFailedMacrosMustBeList": "Import nieudane: backup \"makra\" must be a JSON liście gdy present.",
-  "importFailedInvalidBackupFormat": "Import nieudane: invalid backup format (expected legacy List lub Map z piloty/makra).",
+  "importFailedRemotesMustBeList": "Nie można zaimportować: lista pilotów w kopii zapasowej jest nieprawidłowa.",
+  "importFailedMacrosMustBeList": "Nie można zaimportować: lista makr w kopii zapasowej jest nieprawidłowa.",
+  "importFailedInvalidBackupFormat": "Nie można zaimportować: ten format kopii zapasowej nie jest obsługiwany.",
   "importedBackupRemotesOnly": "{remoteCount, plural, one{Zaimportowano {remoteCount} pilot z kopii zapasowej. Makra nie zostały zmienione.} few{Zaimportowano {remoteCount} piloty z kopii zapasowej. Makra nie zostały zmienione.} many{Zaimportowano {remoteCount} pilotów z kopii zapasowej. Makra nie zostały zmienione.} other{Zaimportowano {remoteCount} pilotów z kopii zapasowej. Makra nie zostały zmienione.}}",
   "@importedBackupRemotesOnly": {
     "placeholders": {

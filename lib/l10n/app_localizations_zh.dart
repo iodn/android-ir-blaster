@@ -1941,15 +1941,13 @@ class AppLocalizationsZh extends AppLocalizations {
   }
 
   @override
-  String get importFailedRemotesMustBeList =>
-      '导入失败 备份中的 \"遥控器\" 存在时必须是 JSON 列表。';
+  String get importFailedRemotesMustBeList => '无法导入：备份中的遥控器列表格式不正确。';
 
   @override
-  String get importFailedMacrosMustBeList => '导入失败 备份中的 \"宏\" 存在时必须是 JSON 列表。';
+  String get importFailedMacrosMustBeList => '无法导入：备份中的宏列表格式不正确。';
 
   @override
-  String get importFailedInvalidBackupFormat =>
-      '导入失败 备份格式无效 预期为旧版列表或包含 遥控器 宏 的映射。';
+  String get importFailedInvalidBackupFormat => '无法导入：不支持此备份格式。';
 
   @override
   String importedBackupRemotesOnly(int remoteCount) {

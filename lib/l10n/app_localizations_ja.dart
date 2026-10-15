@@ -1987,15 +1987,15 @@ class AppLocalizationsJa extends AppLocalizations {
 
   @override
   String get importFailedRemotesMustBeList =>
-      '取り込み失敗 backupの\"remotes\" は存在する場合 JSON配列である必要があります。';
+      '読み込めません。バックアップ内のリモコン一覧の形式が正しくありません。';
 
   @override
   String get importFailedMacrosMustBeList =>
-      '取り込み失敗 backupの\"macros\" は存在する場合 JSON配列である必要があります。';
+      '読み込めません。バックアップ内のマクロ一覧の形式が正しくありません。';
 
   @override
   String get importFailedInvalidBackupFormat =>
-      '取り込み失敗 無効なバックアップ形式です 旧形式の配列 または remotes macros を持つマップを想定しています。';
+      'この形式のバックアップには対応していないため、読み込めません。';
 
   @override
   String importedBackupRemotesOnly(int remoteCount) {

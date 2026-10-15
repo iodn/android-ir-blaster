@@ -2055,15 +2055,15 @@ class AppLocalizationsTh extends AppLocalizations {
 
   @override
   String get importFailedRemotesMustBeList =>
-      'นำเข้าไม่สำเร็จ ค่า backup \"remotes\" ต้องเป็นรายการ JSON เมื่อมีอยู่';
+      'นำเข้าไม่ได้: รายการรีโมตในข้อมูลสำรองไม่ถูกต้อง';
 
   @override
   String get importFailedMacrosMustBeList =>
-      'นำเข้าไม่สำเร็จ ค่า backup \"macros\" ต้องเป็นรายการ JSON เมื่อมีอยู่';
+      'นำเข้าไม่ได้: รายการแมโครในข้อมูลสำรองไม่ถูกต้อง';
 
   @override
   String get importFailedInvalidBackupFormat =>
-      'นำเข้าไม่สำเร็จ รูปแบบข้อมูลสำรองไม่ถูกต้อง คาดว่าเป็น List แบบเก่าหรือ Map ที่มี remotes และ macros';
+      'นำเข้าไม่ได้: ไม่รองรับรูปแบบข้อมูลสำรองนี้';
 
   @override
   String importedBackupRemotesOnly(int remoteCount) {

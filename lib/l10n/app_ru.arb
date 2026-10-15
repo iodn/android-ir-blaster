@@ -780,9 +780,9 @@
       }
     }
   },
-  "importFailedRemotesMustBeList": "Импорт не удался: backup \"remotes\" должен быть JSON-списком, если он присутствует.",
-  "importFailedMacrosMustBeList": "Импорт не удался: backup \"macros\" должен быть JSON-списком, если он присутствует.",
-  "importFailedInvalidBackupFormat": "Импорт не удался: неверный формат backup, ожидался старый List или Map с remotes/macros.",
+  "importFailedRemotesMustBeList": "Не удалось импортировать: неверный формат списка пультов в резервной копии.",
+  "importFailedMacrosMustBeList": "Не удалось импортировать: неверный формат списка макросов в резервной копии.",
+  "importFailedInvalidBackupFormat": "Не удалось импортировать: этот формат резервной копии не поддерживается.",
   "importedBackupRemotesOnly": "Импортировано пультов из копии: {remoteCount}. Макросы не менялись.",
   "@importedBackupRemotesOnly": {
     "placeholders": {

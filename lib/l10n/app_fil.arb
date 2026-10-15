@@ -780,9 +780,9 @@
       }
     }
   },
-  "importFailedRemotesMustBeList": "Import nabigo: backup \"mga remote\" must be a JSON list when present.",
-  "importFailedMacrosMustBeList": "Import nabigo: backup \"mga macro\" must be a JSON list when present.",
-  "importFailedInvalidBackupFormat": "Nabigo ang import. Hindi wastong backup format. Inaasahan ang legacy List o Map na may remotes o macros.",
+  "importFailedRemotesMustBeList": "Hindi ma-import: hindi wasto ang listahan ng mga remote sa backup.",
+  "importFailedMacrosMustBeList": "Hindi ma-import: hindi wasto ang listahan ng mga macro sa backup.",
+  "importFailedInvalidBackupFormat": "Hindi ma-import: hindi suportado ang format ng backup na ito.",
   "importedBackupRemotesOnly": "Na-import ang {remoteCount} remote mula sa backup. Hindi binago ang mga macro.",
   "@importedBackupRemotesOnly": {
     "placeholders": {

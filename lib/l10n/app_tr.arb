@@ -780,9 +780,9 @@
       }
     }
   },
-  "importFailedRemotesMustBeList": "İçe aktarma başarısız: varsa yedekteki \"remotes\" bir JSON listesi olmalıdır.",
-  "importFailedMacrosMustBeList": "İçe aktarma başarısız: varsa yedekteki \"macros\" bir JSON listesi olmalıdır.",
-  "importFailedInvalidBackupFormat": "İçe aktarma başarısız: geçersiz yedek biçimi (beklenen eski Liste veya kumandalar/makrolar içeren Harita).",
+  "importFailedRemotesMustBeList": "İçe aktarılamıyor: yedekteki kumanda listesi geçersiz.",
+  "importFailedMacrosMustBeList": "İçe aktarılamıyor: yedekteki makro listesi geçersiz.",
+  "importFailedInvalidBackupFormat": "İçe aktarılamıyor: bu yedek biçimi desteklenmiyor.",
   "importedBackupRemotesOnly": "Yedekten {remoteCount} kumanda içe aktarıldı. Makrolar değiştirilmedi.",
   "@importedBackupRemotesOnly": {
     "placeholders": {

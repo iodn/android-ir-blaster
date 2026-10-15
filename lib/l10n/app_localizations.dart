@@ -3747,19 +3747,19 @@ abstract class AppLocalizations {
   /// No description provided for @importFailedRemotesMustBeList.
   ///
   /// In en, this message translates to:
-  /// **'Import failed: backup \"remotes\" must be a JSON list when present.'**
+  /// **'Cannot import: the backup’s remote list is invalid.'**
   String get importFailedRemotesMustBeList;
 
   /// No description provided for @importFailedMacrosMustBeList.
   ///
   /// In en, this message translates to:
-  /// **'Import failed: backup \"macros\" must be a JSON list when present.'**
+  /// **'Cannot import: the backup’s macro list is invalid.'**
   String get importFailedMacrosMustBeList;
 
   /// No description provided for @importFailedInvalidBackupFormat.
   ///
   /// In en, this message translates to:
-  /// **'Import failed: invalid backup format (expected legacy List or Map with remotes/macros).'**
+  /// **'Cannot import: this backup format is not supported.'**
   String get importFailedInvalidBackupFormat;
 
   /// No description provided for @importedBackupRemotesOnly.

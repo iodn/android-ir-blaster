@@ -2125,15 +2125,15 @@ class AppLocalizationsPt extends AppLocalizations {
 
   @override
   String get importFailedRemotesMustBeList =>
-      'Importação falhada: \"remotes\" deve ser uma lista JSON se existe.';
+      'Não foi possível importar: a lista de comandos da cópia de segurança é inválida.';
 
   @override
   String get importFailedMacrosMustBeList =>
-      'Importação falhada: \"macros\" deve ser uma lista JSON se existe.';
+      'Não foi possível importar: a lista de macros da cópia de segurança é inválida.';
 
   @override
   String get importFailedInvalidBackupFormat =>
-      'Falha na importação: formato de cópia inválido (era esperada uma lista antiga ou um mapa com remotes/macros).';
+      'Não foi possível importar: este formato de cópia de segurança não é suportado.';
 
   @override
   String importedBackupRemotesOnly(int remoteCount) {
@@ -7447,15 +7447,15 @@ class AppLocalizationsPtBr extends AppLocalizationsPt {
 
   @override
   String get importFailedRemotesMustBeList =>
-      'Importação falhada: \"remotes\" deve ser uma lista JSON se existe.';
+      'Não foi possível importar: a lista de controles do backup é inválida.';
 
   @override
   String get importFailedMacrosMustBeList =>
-      'Importação falhada: \"macros\" deve ser uma lista JSON se existe.';
+      'Não foi possível importar: a lista de macros do backup é inválida.';
 
   @override
   String get importFailedInvalidBackupFormat =>
-      'Falha na importação: formato de cópia inválido (era esperada uma lista antiga ou um mapa com remotes/macros).';
+      'Não foi possível importar: este formato de backup não é compatível.';
 
   @override
   String importedBackupRemotesOnly(int remoteCount) {

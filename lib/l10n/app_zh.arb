@@ -780,9 +780,9 @@
       }
     }
   },
-  "importFailedRemotesMustBeList": "导入失败 备份中的 \"遥控器\" 存在时必须是 JSON 列表。",
-  "importFailedMacrosMustBeList": "导入失败 备份中的 \"宏\" 存在时必须是 JSON 列表。",
-  "importFailedInvalidBackupFormat": "导入失败 备份格式无效 预期为旧版列表或包含 遥控器 宏 的映射。",
+  "importFailedRemotesMustBeList": "无法导入：备份中的遥控器列表格式不正确。",
+  "importFailedMacrosMustBeList": "无法导入：备份中的宏列表格式不正确。",
+  "importFailedInvalidBackupFormat": "无法导入：不支持此备份格式。",
   "importedBackupRemotesOnly": "已从备份导入 {remoteCount} 个遥控器。宏未更改。",
   "@importedBackupRemotesOnly": {
     "placeholders": {

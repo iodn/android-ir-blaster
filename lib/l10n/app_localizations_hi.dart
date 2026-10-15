@@ -2073,15 +2073,15 @@ class AppLocalizationsHi extends AppLocalizations {
 
   @override
   String get importFailedRemotesMustBeList =>
-      'आयात करें विफल: बैकअप \"रिमोट\" must हो a JSON सूची जब present.';
+      'आयात नहीं हो सका: बैकअप में रिमोट की सूची सही नहीं है।';
 
   @override
   String get importFailedMacrosMustBeList =>
-      'आयात करें विफल: बैकअप \"मैक्रो\" must हो a JSON सूची जब present.';
+      'आयात नहीं हो सका: बैकअप में मैक्रो की सूची सही नहीं है।';
 
   @override
   String get importFailedInvalidBackupFormat =>
-      'आयात करें विफल: अमान्य बैकअप format (expected legacy सूची या Map के साथ रिमोट/मैक्रो).';
+      'आयात नहीं हो सका: बैकअप का यह प्रारूप समर्थित नहीं है।';
 
   @override
   String importedBackupRemotesOnly(int remoteCount) {

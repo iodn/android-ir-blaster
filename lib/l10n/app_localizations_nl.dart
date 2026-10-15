@@ -2129,15 +2129,15 @@ class AppLocalizationsNl extends AppLocalizations {
 
   @override
   String get importFailedRemotesMustBeList =>
-      'Importeren mislukt back-up \"remotes\" moet een JSON-lijst zijn wanneer aanwezig.';
+      'Importeren mislukt: de lijst met afstandsbedieningen in de back-up is ongeldig.';
 
   @override
   String get importFailedMacrosMustBeList =>
-      'Importeren mislukt back-up \"macros\" moet een JSON-lijst zijn wanneer aanwezig.';
+      'Importeren mislukt: de lijst met macro’s in de back-up is ongeldig.';
 
   @override
   String get importFailedInvalidBackupFormat =>
-      'Importeren mislukt ongeldig back-upformaat verwacht oude List of Map met remotes/macros.';
+      'Importeren mislukt: dit back-upformaat wordt niet ondersteund.';
 
   @override
   String importedBackupRemotesOnly(int remoteCount) {

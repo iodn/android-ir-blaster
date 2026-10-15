@@ -780,9 +780,9 @@
       }
     }
   },
-  "importFailedRemotesMustBeList": "가져오기 실패: 백업의 \"remotes\"는 존재할 경우 JSON 목록이어야 합니다.",
-  "importFailedMacrosMustBeList": "가져오기 실패: 백업의 \"macros\"는 존재할 경우 JSON 목록이어야 합니다.",
-  "importFailedInvalidBackupFormat": "가져오기 실패: 잘못된 백업 형식입니다(레거시 List 또는 remotes/macros가 있는 Map 필요).",
+  "importFailedRemotesMustBeList": "백업의 리모컨 목록이 올바르지 않아 가져올 수 없어요.",
+  "importFailedMacrosMustBeList": "백업의 매크로 목록이 올바르지 않아 가져올 수 없어요.",
+  "importFailedInvalidBackupFormat": "지원하지 않는 백업 형식이라 가져올 수 없어요.",
   "importedBackupRemotesOnly": "백업에서 리모컨 {remoteCount}개를 가져왔습니다. 매크로는 변경되지 않았습니다.",
   "@importedBackupRemotesOnly": {
     "placeholders": {

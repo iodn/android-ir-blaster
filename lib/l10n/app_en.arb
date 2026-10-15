@@ -901,9 +901,9 @@
       }
     }
   },
-  "importFailedRemotesMustBeList": "Import failed: backup \"remotes\" must be a JSON list when present.",
-  "importFailedMacrosMustBeList": "Import failed: backup \"macros\" must be a JSON list when present.",
-  "importFailedInvalidBackupFormat": "Import failed: invalid backup format (expected legacy List or Map with remotes/macros).",
+  "importFailedRemotesMustBeList": "Cannot import: the backup’s remote list is invalid.",
+  "importFailedMacrosMustBeList": "Cannot import: the backup’s macro list is invalid.",
+  "importFailedInvalidBackupFormat": "Cannot import: this backup format is not supported.",
   "importedBackupRemotesOnly": "{remoteCount, plural, one{Imported {remoteCount} remote from backup. Macros were not changed.} other{Imported {remoteCount} remotes from backup. Macros were not changed.}}",
   "@importedBackupRemotesOnly": {
     "placeholders": {

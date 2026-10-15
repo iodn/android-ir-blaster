@@ -785,9 +785,9 @@
       }
     }
   },
-  "importFailedRemotesMustBeList": "Importación fallida: \"remotes\" debe ser una lista JSON si existe.",
-  "importFailedMacrosMustBeList": "Importación fallida: \"macros\" debe ser una lista JSON si existe.",
-  "importFailedInvalidBackupFormat": "Importación fallida: formato de copia no válido (se esperaba una List antigua o un Map con remotes/macros).",
+  "importFailedRemotesMustBeList": "No se puede importar: la lista de mandos de la copia no es válida.",
+  "importFailedMacrosMustBeList": "No se puede importar: la lista de macros de la copia no es válida.",
+  "importFailedInvalidBackupFormat": "No se puede importar: este formato de copia de seguridad no es compatible.",
   "importedBackupRemotesOnly": "Se importaron {remoteCount} mandos de la copia. Las macros no cambiaron.",
   "@importedBackupRemotesOnly": {
     "placeholders": {

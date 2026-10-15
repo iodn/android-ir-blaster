@@ -2069,15 +2069,15 @@ class AppLocalizationsVi extends AppLocalizations {
 
   @override
   String get importFailedRemotesMustBeList =>
-      'Nhập thất bại: \"remotes\" phải là danh sách JSON khi có mặt.';
+      'Không thể nhập: danh sách điều khiển trong bản sao lưu không hợp lệ.';
 
   @override
   String get importFailedMacrosMustBeList =>
-      'Nhập thất bại: \"macros\" phải là danh sách JSON khi có mặt.';
+      'Không thể nhập: danh sách macro trong bản sao lưu không hợp lệ.';
 
   @override
   String get importFailedInvalidBackupFormat =>
-      'Nhập thất bại: định dạng sao lưu không hợp lệ (cần List cũ hoặc Map có remotes/macros).';
+      'Không thể nhập: định dạng bản sao lưu này không được hỗ trợ.';
 
   @override
   String importedBackupRemotesOnly(int remoteCount) {

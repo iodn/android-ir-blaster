@@ -2127,15 +2127,15 @@ class AppLocalizationsFr extends AppLocalizations {
 
   @override
   String get importFailedRemotesMustBeList =>
-      'Import échoué : le champ \"remotes\" doit être une liste JSON quand présent.';
+      'Importation impossible : la liste des télécommandes de la sauvegarde est invalide.';
 
   @override
   String get importFailedMacrosMustBeList =>
-      'Import échoué : le champ \"macros\" doit être une liste JSON quand présent.';
+      'Importation impossible : la liste des macros de la sauvegarde est invalide.';
 
   @override
   String get importFailedInvalidBackupFormat =>
-      'Import échoué : format de sauvegarde invalide (liste legacy ou map avec remotes/macros attendue).';
+      'Importation impossible : ce format de sauvegarde n’est pas pris en charge.';
 
   @override
   String importedBackupRemotesOnly(int remoteCount) {

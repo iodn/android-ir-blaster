@@ -2086,15 +2086,15 @@ class AppLocalizationsMs extends AppLocalizations {
 
   @override
   String get importFailedRemotesMustBeList =>
-      'Import gagal: \"remotes\" dalam sandaran mesti berupa senarai JSON jika ada.';
+      'Tidak dapat mengimport: senarai alat kawalan jauh dalam sandaran tidak sah.';
 
   @override
   String get importFailedMacrosMustBeList =>
-      'Import gagal: \"macros\" dalam sandaran mesti berupa senarai JSON jika ada.';
+      'Tidak dapat mengimport: senarai makro dalam sandaran tidak sah.';
 
   @override
   String get importFailedInvalidBackupFormat =>
-      'Import gagal: format sandaran tidak sah (diharapkan List atau Map lama dengan remote/makro).';
+      'Tidak dapat mengimport: format sandaran ini tidak disokong.';
 
   @override
   String importedBackupRemotesOnly(int remoteCount) {

@@ -780,9 +780,9 @@
       }
     }
   },
-  "importFailedRemotesMustBeList": "Import gagal: \"remotes\" dalam sandaran mesti berupa senarai JSON jika ada.",
-  "importFailedMacrosMustBeList": "Import gagal: \"macros\" dalam sandaran mesti berupa senarai JSON jika ada.",
-  "importFailedInvalidBackupFormat": "Import gagal: format sandaran tidak sah (diharapkan List atau Map lama dengan remote/makro).",
+  "importFailedRemotesMustBeList": "Tidak dapat mengimport: senarai alat kawalan jauh dalam sandaran tidak sah.",
+  "importFailedMacrosMustBeList": "Tidak dapat mengimport: senarai makro dalam sandaran tidak sah.",
+  "importFailedInvalidBackupFormat": "Tidak dapat mengimport: format sandaran ini tidak disokong.",
   "importedBackupRemotesOnly": "Mengimport {remoteCount} remote dari sandaran. Makro tidak diubah.",
   "@importedBackupRemotesOnly": {
     "placeholders": {

@@ -2081,15 +2081,15 @@ class AppLocalizationsId extends AppLocalizations {
 
   @override
   String get importFailedRemotesMustBeList =>
-      'Impor gagal: \"remote\" pada cadangan harus berupa daftar JSON bila ada.';
+      'Tidak dapat mengimpor: daftar remote dalam cadangan tidak valid.';
 
   @override
   String get importFailedMacrosMustBeList =>
-      'Impor gagal: \"makro\" pada cadangan harus berupa daftar JSON bila ada.';
+      'Tidak dapat mengimpor: daftar makro dalam cadangan tidak valid.';
 
   @override
   String get importFailedInvalidBackupFormat =>
-      'Impor gagal: format cadangan tidak valid (diharapkan List atau Map lama dengan remote/makro).';
+      'Tidak dapat mengimpor: format cadangan ini tidak didukung.';
 
   @override
   String importedBackupRemotesOnly(int remoteCount) {

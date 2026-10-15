@@ -2130,15 +2130,15 @@ class AppLocalizationsDe extends AppLocalizations {
 
   @override
   String get importFailedRemotesMustBeList =>
-      'Import fehlgeschlagen: remotes im Backup muss eine JSON-Liste sein, wenn vorhanden.';
+      'Import nicht möglich: Die Fernbedienungsliste in der Sicherung ist ungültig.';
 
   @override
   String get importFailedMacrosMustBeList =>
-      'Import fehlgeschlagen: macros im Backup muss eine JSON-Liste sein, wenn vorhanden.';
+      'Import nicht möglich: Die Makroliste in der Sicherung ist ungültig.';
 
   @override
   String get importFailedInvalidBackupFormat =>
-      'Import fehlgeschlagen: ungültiges Backup-Format erwartet alte Liste oder Map mit remotes oder macros.';
+      'Import nicht möglich: Dieses Sicherungsformat wird nicht unterstützt.';
 
   @override
   String importedBackupRemotesOnly(int remoteCount) {

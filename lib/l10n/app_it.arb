@@ -780,9 +780,9 @@
       }
     }
   },
-  "importFailedRemotesMustBeList": "Importazione fallita. il backup \"remotes\" deve essere una lista JSON se presente.",
-  "importFailedMacrosMustBeList": "Importazione fallita. il backup \"macros\" deve essere una lista JSON se presente.",
-  "importFailedInvalidBackupFormat": "Importazione fallita. formato backup non valido, attesa lista legacy o mappa con remotes macros.",
+  "importFailedRemotesMustBeList": "Importazione non riuscita: l’elenco dei telecomandi nel backup non è valido.",
+  "importFailedMacrosMustBeList": "Importazione non riuscita: l’elenco delle macro nel backup non è valido.",
+  "importFailedInvalidBackupFormat": "Importazione non riuscita: questo formato di backup non è supportato.",
   "importedBackupRemotesOnly": "Importati {remoteCount} telecomandi dal backup. Le macro non sono state modificate.",
   "@importedBackupRemotesOnly": {
     "placeholders": {

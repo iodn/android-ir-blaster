@@ -780,9 +780,9 @@
       }
     }
   },
-  "importFailedRemotesMustBeList": "Impor gagal: \"remote\" pada cadangan harus berupa daftar JSON bila ada.",
-  "importFailedMacrosMustBeList": "Impor gagal: \"makro\" pada cadangan harus berupa daftar JSON bila ada.",
-  "importFailedInvalidBackupFormat": "Impor gagal: format cadangan tidak valid (diharapkan List atau Map lama dengan remote/makro).",
+  "importFailedRemotesMustBeList": "Tidak dapat mengimpor: daftar remote dalam cadangan tidak valid.",
+  "importFailedMacrosMustBeList": "Tidak dapat mengimpor: daftar makro dalam cadangan tidak valid.",
+  "importFailedInvalidBackupFormat": "Tidak dapat mengimpor: format cadangan ini tidak didukung.",
   "importedBackupRemotesOnly": "Mengimpor {remoteCount} remote dari cadangan. Makro tidak diubah.",
   "@importedBackupRemotesOnly": {
     "placeholders": {

@@ -2127,15 +2127,15 @@ class AppLocalizationsIt extends AppLocalizations {
 
   @override
   String get importFailedRemotesMustBeList =>
-      'Importazione fallita. il backup \"remotes\" deve essere una lista JSON se presente.';
+      'Importazione non riuscita: l’elenco dei telecomandi nel backup non è valido.';
 
   @override
   String get importFailedMacrosMustBeList =>
-      'Importazione fallita. il backup \"macros\" deve essere una lista JSON se presente.';
+      'Importazione non riuscita: l’elenco delle macro nel backup non è valido.';
 
   @override
   String get importFailedInvalidBackupFormat =>
-      'Importazione fallita. formato backup non valido, attesa lista legacy o mappa con remotes macros.';
+      'Importazione non riuscita: questo formato di backup non è supportato.';
 
   @override
   String importedBackupRemotesOnly(int remoteCount) {

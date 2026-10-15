@@ -780,9 +780,9 @@
       }
     }
   },
-  "importFailedRemotesMustBeList": "นำเข้าไม่สำเร็จ ค่า backup \"remotes\" ต้องเป็นรายการ JSON เมื่อมีอยู่",
-  "importFailedMacrosMustBeList": "นำเข้าไม่สำเร็จ ค่า backup \"macros\" ต้องเป็นรายการ JSON เมื่อมีอยู่",
-  "importFailedInvalidBackupFormat": "นำเข้าไม่สำเร็จ รูปแบบข้อมูลสำรองไม่ถูกต้อง คาดว่าเป็น List แบบเก่าหรือ Map ที่มี remotes และ macros",
+  "importFailedRemotesMustBeList": "นำเข้าไม่ได้: รายการรีโมตในข้อมูลสำรองไม่ถูกต้อง",
+  "importFailedMacrosMustBeList": "นำเข้าไม่ได้: รายการแมโครในข้อมูลสำรองไม่ถูกต้อง",
+  "importFailedInvalidBackupFormat": "นำเข้าไม่ได้: ไม่รองรับรูปแบบข้อมูลสำรองนี้",
   "importedBackupRemotesOnly": "นำเข้ารีโมต {remoteCount} รายการจากข้อมูลสำรอง แมโครไม่เปลี่ยน",
   "@importedBackupRemotesOnly": {
     "placeholders": {

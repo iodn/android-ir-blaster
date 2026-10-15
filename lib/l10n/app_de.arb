@@ -790,9 +790,9 @@
       }
     }
   },
-  "importFailedRemotesMustBeList": "Import fehlgeschlagen: remotes im Backup muss eine JSON-Liste sein, wenn vorhanden.",
-  "importFailedMacrosMustBeList": "Import fehlgeschlagen: macros im Backup muss eine JSON-Liste sein, wenn vorhanden.",
-  "importFailedInvalidBackupFormat": "Import fehlgeschlagen: ungültiges Backup-Format erwartet alte Liste oder Map mit remotes oder macros.",
+  "importFailedRemotesMustBeList": "Import nicht möglich: Die Fernbedienungsliste in der Sicherung ist ungültig.",
+  "importFailedMacrosMustBeList": "Import nicht möglich: Die Makroliste in der Sicherung ist ungültig.",
+  "importFailedInvalidBackupFormat": "Import nicht möglich: Dieses Sicherungsformat wird nicht unterstützt.",
   "importedBackupRemotesOnly": "{remoteCount} Fernbedienungen aus Sicherung importiert. Makros wurden nicht geändert.",
   "@importedBackupRemotesOnly": {
     "placeholders": {

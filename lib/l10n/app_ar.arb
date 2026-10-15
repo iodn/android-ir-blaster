@@ -780,9 +780,9 @@
       }
     }
   },
-  "importFailedRemotesMustBeList": "فشل الاستيراد: يجب أن تكون النسخة الاحتياطية remotes قائمة JSON عند وجودها.",
-  "importFailedMacrosMustBeList": "فشل الاستيراد: يجب أن تكون النسخة الاحتياطية للماكرو قائمة JSON عند وجودها.",
-  "importFailedInvalidBackupFormat": "فشل الاستيراد: تنسيق النسخة الاحتياطية غير صالح، المطلوب قائمة قديمة أو خريطة مع أجهزة التحكم أو الماكرو.",
+  "importFailedRemotesMustBeList": "تعذّر الاستيراد: قائمة أجهزة التحكم في النسخة الاحتياطية غير صالحة.",
+  "importFailedMacrosMustBeList": "تعذّر الاستيراد: قائمة الماكرو في النسخة الاحتياطية غير صالحة.",
+  "importFailedInvalidBackupFormat": "تعذّر الاستيراد: تنسيق النسخة الاحتياطية غير مدعوم.",
   "importedBackupRemotesOnly": "تم استيراد {remoteCount} من أجهزة التحكم من النسخة الاحتياطية. لم يتم تغيير الماكرو.",
   "@importedBackupRemotesOnly": {
     "placeholders": {

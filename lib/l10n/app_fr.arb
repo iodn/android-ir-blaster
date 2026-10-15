@@ -785,9 +785,9 @@
       }
     }
   },
-  "importFailedRemotesMustBeList": "Import échoué : le champ \"remotes\" doit être une liste JSON quand présent.",
-  "importFailedMacrosMustBeList": "Import échoué : le champ \"macros\" doit être une liste JSON quand présent.",
-  "importFailedInvalidBackupFormat": "Import échoué : format de sauvegarde invalide (liste legacy ou map avec remotes/macros attendue).",
+  "importFailedRemotesMustBeList": "Importation impossible : la liste des télécommandes de la sauvegarde est invalide.",
+  "importFailedMacrosMustBeList": "Importation impossible : la liste des macros de la sauvegarde est invalide.",
+  "importFailedInvalidBackupFormat": "Importation impossible : ce format de sauvegarde n’est pas pris en charge.",
   "importedBackupRemotesOnly": "{remoteCount} télécommande(s) importée(s) depuis la sauvegarde. Les macros n'ont pas été modifiées.",
   "@importedBackupRemotesOnly": {
     "placeholders": {

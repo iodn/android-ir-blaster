@@ -2103,15 +2103,15 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String get importFailedRemotesMustBeList =>
-      'فشل الاستيراد: يجب أن تكون النسخة الاحتياطية remotes قائمة JSON عند وجودها.';
+      'تعذّر الاستيراد: قائمة أجهزة التحكم في النسخة الاحتياطية غير صالحة.';
 
   @override
   String get importFailedMacrosMustBeList =>
-      'فشل الاستيراد: يجب أن تكون النسخة الاحتياطية للماكرو قائمة JSON عند وجودها.';
+      'تعذّر الاستيراد: قائمة الماكرو في النسخة الاحتياطية غير صالحة.';
 
   @override
   String get importFailedInvalidBackupFormat =>
-      'فشل الاستيراد: تنسيق النسخة الاحتياطية غير صالح، المطلوب قائمة قديمة أو خريطة مع أجهزة التحكم أو الماكرو.';
+      'تعذّر الاستيراد: تنسيق النسخة الاحتياطية غير مدعوم.';
 
   @override
   String importedBackupRemotesOnly(int remoteCount) {
@@ -7379,15 +7379,15 @@ class AppLocalizationsArEg extends AppLocalizationsAr {
 
   @override
   String get importFailedRemotesMustBeList =>
-      'فشل الاستيراد: يجب أن تكون النسخة الاحتياطية remotes قائمة JSON عند وجودها.';
+      'الاستيراد فشل: قائمة الريموتات في النسخة الاحتياطية مش سليمة.';
 
   @override
   String get importFailedMacrosMustBeList =>
-      'فشل الاستيراد: يجب أن تكون النسخة الاحتياطية للماكرو قائمة JSON عند وجودها.';
+      'الاستيراد فشل: قائمة الماكرو في النسخة الاحتياطية مش سليمة.';
 
   @override
   String get importFailedInvalidBackupFormat =>
-      'فشل الاستيراد: تنسيق النسخة الاحتياطية غير صالح، المطلوب قائمة قديمة أو خريطة مع أجهزة التحكم أو الماكرو.';
+      'الاستيراد فشل: صيغة النسخة الاحتياطية مش مدعومة.';
 
   @override
   String importedBackupRemotesOnly(int remoteCount) {

@@ -2099,15 +2099,15 @@ class AppLocalizationsFil extends AppLocalizations {
 
   @override
   String get importFailedRemotesMustBeList =>
-      'Import nabigo: backup \"mga remote\" must be a JSON list when present.';
+      'Hindi ma-import: hindi wasto ang listahan ng mga remote sa backup.';
 
   @override
   String get importFailedMacrosMustBeList =>
-      'Import nabigo: backup \"mga macro\" must be a JSON list when present.';
+      'Hindi ma-import: hindi wasto ang listahan ng mga macro sa backup.';
 
   @override
   String get importFailedInvalidBackupFormat =>
-      'Nabigo ang import. Hindi wastong backup format. Inaasahan ang legacy List o Map na may remotes o macros.';
+      'Hindi ma-import: hindi suportado ang format ng backup na ito.';
 
   @override
   String importedBackupRemotesOnly(int remoteCount) {

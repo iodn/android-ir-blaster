@@ -2119,15 +2119,15 @@ class AppLocalizationsEs extends AppLocalizations {
 
   @override
   String get importFailedRemotesMustBeList =>
-      'Importación fallida: \"remotes\" debe ser una lista JSON si existe.';
+      'No se puede importar: la lista de mandos de la copia no es válida.';
 
   @override
   String get importFailedMacrosMustBeList =>
-      'Importación fallida: \"macros\" debe ser una lista JSON si existe.';
+      'No se puede importar: la lista de macros de la copia no es válida.';
 
   @override
   String get importFailedInvalidBackupFormat =>
-      'Importación fallida: formato de copia no válido (se esperaba una List antigua o un Map con remotes/macros).';
+      'No se puede importar: este formato de copia de seguridad no es compatible.';
 
   @override
   String importedBackupRemotesOnly(int remoteCount) {
