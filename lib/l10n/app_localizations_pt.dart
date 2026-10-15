@@ -2054,7 +2054,7 @@ class AppLocalizationsPt extends AppLocalizations {
   String get noMacrosToExport => 'Não há macros para exportar.';
 
   @override
-  String get macrosExportedToDownloads => 'Macros exportedas a Descargas.';
+  String get macrosExportedToDownloads => 'Macros guardadas.';
 
   @override
   String get failedToExportMacros => 'Não se pudieron exporter as macros.';
@@ -2111,7 +2111,7 @@ class AppLocalizationsPt extends AppLocalizations {
       'Permissão de almacenamiento negada (necesario en algums Android antiguos).';
 
   @override
-  String get backupExportedToDownloads => 'Cópia exporteda a Descargas.';
+  String get backupExportedToDownloads => 'Cópia de segurança guardada.';
 
   @override
   String failedToExport(Object error) {
@@ -7376,7 +7376,7 @@ class AppLocalizationsPtBr extends AppLocalizationsPt {
   String get noMacrosToExport => 'Não há macros para exportar.';
 
   @override
-  String get macrosExportedToDownloads => 'Macros exportedas a Descargas.';
+  String get macrosExportedToDownloads => 'Macros salvas.';
 
   @override
   String get failedToExportMacros => 'Não se pudieron exporter as macros.';
@@ -7433,7 +7433,7 @@ class AppLocalizationsPtBr extends AppLocalizationsPt {
       'Permissão de almacenamiento negada (necesario en algums Android antiguos).';
 
   @override
-  String get backupExportedToDownloads => 'Cópia exporteda a Descargas.';
+  String get backupExportedToDownloads => 'Backup salvo.';
 
   @override
   String failedToExport(Object error) {

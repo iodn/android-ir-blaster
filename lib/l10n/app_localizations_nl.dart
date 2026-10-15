@@ -2058,7 +2058,7 @@ class AppLocalizationsNl extends AppLocalizations {
   String get noMacrosToExport => 'Geen macros to exporteren.';
 
   @override
-  String get macrosExportedToDownloads => 'Macro\'s exporterened to Downloads.';
+  String get macrosExportedToDownloads => 'Macro’s opgeslagen.';
 
   @override
   String get failedToExportMacros => 'Macro\'s exportereneren mislukt.';
@@ -2115,7 +2115,7 @@ class AppLocalizationsNl extends AppLocalizations {
       'Opslagtoestemming geweigerd nodig op sommige oudere Android-apparaten.';
 
   @override
-  String get backupExportedToDownloads => 'Back-up exporterened to Downloads.';
+  String get backupExportedToDownloads => 'Back-up opgeslagen.';
 
   @override
   String failedToExport(Object error) {

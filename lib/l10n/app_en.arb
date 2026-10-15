@@ -851,7 +851,7 @@
   "skipDuplicatesSubtitle": "Do not import buttons that already exist in this remote.",
   "importSelected": "Import selected",
   "noMacrosToExport": "No macros to export.",
-  "macrosExportedToDownloads": "Macros exported to Downloads.",
+  "macrosExportedToDownloads": "Macros saved.",
   "failedToExportMacros": "Failed to export macros.",
   "failedToReadFile": "Failed to read file.",
   "importFromExistingRemotesTitle": "Import from Existing Remotes",
@@ -886,7 +886,7 @@
     }
   },
   "storagePermissionDeniedLegacy": "Storage permission denied (needed on some older Android devices).",
-  "backupExportedToDownloads": "Backup exported to Downloads.",
+  "backupExportedToDownloads": "Backup saved.",
   "failedToExport": "Failed to export: {error}",
   "@failedToExport": {
     "placeholders": {

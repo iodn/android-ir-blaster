@@ -735,7 +735,7 @@
   "skipDuplicatesSubtitle": "N'importe pas les boutons qui existent déjà dans cette télécommande.",
   "importSelected": "Importer la sélection",
   "noMacrosToExport": "Aucune macro à exporter.",
-  "macrosExportedToDownloads": "Macros exportées dans Téléchargements.",
+  "macrosExportedToDownloads": "Macros enregistrées.",
   "failedToExportMacros": "Échec de l'export des macros.",
   "failedToReadFile": "Échec de la lecture du fichier.",
   "importFromExistingRemotesTitle": "Importer depuis des télés existantes",
@@ -770,7 +770,7 @@
     }
   },
   "storagePermissionDeniedLegacy": "Autorisation de stockage refusée (nécessaire sur certains anciens appareils Android).",
-  "backupExportedToDownloads": "Sauvegarde exportée dans Téléchargements.",
+  "backupExportedToDownloads": "Sauvegarde enregistrée.",
   "failedToExport": "Échec de l'export : {error}",
   "@failedToExport": {
     "placeholders": {

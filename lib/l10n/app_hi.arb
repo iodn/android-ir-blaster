@@ -730,7 +730,7 @@
   "skipDuplicatesSubtitle": "Do नहीं आयात बटन वह already exist में यह रिमोट.",
   "importSelected": "आयात करें चयनित",
   "noMacrosToExport": "नहीं मैक्रो तक निर्यात.",
-  "macrosExportedToDownloads": "मैक्रो Downloads में निर्यात किए गए।",
+  "macrosExportedToDownloads": "मैक्रो सहेज दिए गए।",
   "failedToExportMacros": "निर्यात मैक्रो. विफल",
   "failedToReadFile": "read फ़ाइल. विफल",
   "importFromExistingRemotesTitle": "आयात करें से मौजूदा रिमोट",
@@ -765,7 +765,7 @@
     }
   },
   "storagePermissionDeniedLegacy": "Storage अनुमति अस्वीकृत (कुछ पुराने Android डिवाइस पर आवश्यक)।",
-  "backupExportedToDownloads": "बैकअप Downloads में निर्यात किया गया।",
+  "backupExportedToDownloads": "बैकअप सहेज दिया गया।",
   "failedToExport": "निर्यात: {error} विफल",
   "@failedToExport": {
     "placeholders": {

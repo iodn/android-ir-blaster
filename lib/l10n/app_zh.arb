@@ -730,7 +730,7 @@
   "skipDuplicatesSubtitle": "不要导入此遥控器中已存在的按钮。",
   "importSelected": "导入所选",
   "noMacrosToExport": "没有可导出的宏。",
-  "macrosExportedToDownloads": "宏已导出到下载目录。",
+  "macrosExportedToDownloads": "宏已保存。",
   "failedToExportMacros": "导出宏失败。",
   "failedToReadFile": "读取文件失败。",
   "importFromExistingRemotesTitle": "从现有遥控器导入",
@@ -765,7 +765,7 @@
     }
   },
   "storagePermissionDeniedLegacy": "存储权限被拒 某些旧版 Android 设备需要此权限。",
-  "backupExportedToDownloads": "备份已导出到下载目录。",
+  "backupExportedToDownloads": "备份已保存。",
   "failedToExport": "导出失败 {error}",
   "@failedToExport": {
     "placeholders": {

@@ -2014,7 +2014,7 @@ class AppLocalizationsMs extends AppLocalizations {
   String get noMacrosToExport => 'Tiada makro untuk diekspor.';
 
   @override
-  String get macrosExportedToDownloads => 'Makro diekspor ke Unduhan.';
+  String get macrosExportedToDownloads => 'Makro disimpan.';
 
   @override
   String get failedToExportMacros => 'Gagal export makro.';
@@ -2069,7 +2069,7 @@ class AppLocalizationsMs extends AppLocalizations {
       'Izin penyimpanan ditolak (diperlukan di beberapa peranti Android lama).';
 
   @override
-  String get backupExportedToDownloads => 'Sandaran diekspor ke Unduhan.';
+  String get backupExportedToDownloads => 'Sandaran disimpan.';
 
   @override
   String failedToExport(Object error) {

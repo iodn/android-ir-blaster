@@ -730,7 +730,7 @@
   "skipDuplicatesSubtitle": "Không nhập các nút đã tồn tại trong điều khiển này.",
   "importSelected": "Nhập mục đã chọn",
   "noMacrosToExport": "Không có macro để xuất.",
-  "macrosExportedToDownloads": "Đã xuất macro vào Downloads.",
+  "macrosExportedToDownloads": "Đã lưu macro.",
   "failedToExportMacros": "Xuất macro thất bại.",
   "failedToReadFile": "Đọc tệp thất bại.",
   "importFromExistingRemotesTitle": "Nhập từ điều khiển hiện có",
@@ -765,7 +765,7 @@
     }
   },
   "storagePermissionDeniedLegacy": "Quyền bộ nhớ bị từ chối (cần trên một số thiết bị Android cũ).",
-  "backupExportedToDownloads": "Đã xuất bản sao lưu vào Downloads.",
+  "backupExportedToDownloads": "Đã lưu bản sao lưu.",
   "failedToExport": "Xuất thất bại: {error}",
   "@failedToExport": {
     "placeholders": {

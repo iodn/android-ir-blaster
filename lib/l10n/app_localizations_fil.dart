@@ -2029,7 +2029,7 @@ class AppLocalizationsFil extends AppLocalizations {
   String get noMacrosToExport => 'Walang mga macro to export.';
 
   @override
-  String get macrosExportedToDownloads => 'Macros exported to Downloads.';
+  String get macrosExportedToDownloads => 'Na-save na ang mga macro.';
 
   @override
   String get failedToExportMacros => 'Nabigong i-export ang mga macro.';
@@ -2085,7 +2085,7 @@ class AppLocalizationsFil extends AppLocalizations {
       'Storage pahintulot tinanggihan (needed on some older Android mga device).';
 
   @override
-  String get backupExportedToDownloads => 'Backup exported to Downloads.';
+  String get backupExportedToDownloads => 'Na-save na ang backup.';
 
   @override
   String failedToExport(Object error) {

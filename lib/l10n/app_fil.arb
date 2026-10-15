@@ -730,7 +730,7 @@
   "skipDuplicatesSubtitle": "Huwag i-import ang mga button na nasa remote na ito.",
   "importSelected": "Import selected",
   "noMacrosToExport": "Walang mga macro to export.",
-  "macrosExportedToDownloads": "Macros exported to Downloads.",
+  "macrosExportedToDownloads": "Na-save na ang mga macro.",
   "failedToExportMacros": "Nabigong i-export ang mga macro.",
   "failedToReadFile": "Nabigong basahin ang file.",
   "importFromExistingRemotesTitle": "Import from Existing Remotes",
@@ -765,7 +765,7 @@
     }
   },
   "storagePermissionDeniedLegacy": "Storage pahintulot tinanggihan (needed on some older Android mga device).",
-  "backupExportedToDownloads": "Backup exported to Downloads.",
+  "backupExportedToDownloads": "Na-save na ang backup.",
   "failedToExport": "Nabigong i-export: {error}",
   "@failedToExport": {
     "placeholders": {

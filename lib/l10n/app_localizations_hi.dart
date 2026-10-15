@@ -2004,8 +2004,7 @@ class AppLocalizationsHi extends AppLocalizations {
   String get noMacrosToExport => 'नहीं मैक्रो तक निर्यात.';
 
   @override
-  String get macrosExportedToDownloads =>
-      'मैक्रो Downloads में निर्यात किए गए।';
+  String get macrosExportedToDownloads => 'मैक्रो सहेज दिए गए।';
 
   @override
   String get failedToExportMacros => 'निर्यात मैक्रो. विफल';
@@ -2060,8 +2059,7 @@ class AppLocalizationsHi extends AppLocalizations {
       'Storage अनुमति अस्वीकृत (कुछ पुराने Android डिवाइस पर आवश्यक)।';
 
   @override
-  String get backupExportedToDownloads =>
-      'बैकअप Downloads में निर्यात किया गया।';
+  String get backupExportedToDownloads => 'बैकअप सहेज दिया गया।';
 
   @override
   String failedToExport(Object error) {

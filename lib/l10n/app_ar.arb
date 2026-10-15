@@ -730,7 +730,7 @@
   "skipDuplicatesSubtitle": "لا تستورد الأزرار الموجودة بالفعل في جهاز التحكم هذا.",
   "importSelected": "استيراد المحدد",
   "noMacrosToExport": "لا توجد وحدات ماكرو للتصدير.",
-  "macrosExportedToDownloads": "تم تصدير الماكرو إلى التنزيلات.",
+  "macrosExportedToDownloads": "تم حفظ الماكرو.",
   "failedToExportMacros": "فشل تصدير الماكرو.",
   "failedToReadFile": "فشل إلى read file.",
   "importFromExistingRemotesTitle": "استيراد من Existing أجهزة التحكم",
@@ -765,7 +765,7 @@
     }
   },
   "storagePermissionDeniedLegacy": "تم رفض إذن التخزين، وهو مطلوب في بعض أجهزة أندرويد الأقدم.",
-  "backupExportedToDownloads": "تم تصدير النسخة الاحتياطية إلى التنزيلات.",
+  "backupExportedToDownloads": "تم حفظ النسخة الاحتياطية.",
   "failedToExport": "فشل إلى export: {error}",
   "@failedToExport": {
     "placeholders": {

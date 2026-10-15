@@ -2015,7 +2015,7 @@ class AppLocalizationsTr extends AppLocalizations {
   String get noMacrosToExport => 'No macros to dışa aktar.';
 
   @override
-  String get macrosExportedToDownloads => 'Makrolar İndirilenler\'e aktarıldı.';
+  String get macrosExportedToDownloads => 'Makrolar kaydedildi.';
 
   @override
   String get failedToExportMacros => 'Başarısız to dışa aktar macros.';
@@ -2070,7 +2070,7 @@ class AppLocalizationsTr extends AppLocalizations {
       'Storage izin denied (needed on some older Android cihazlar).';
 
   @override
-  String get backupExportedToDownloads => 'Yedek İndirilenler\'e aktarıldı.';
+  String get backupExportedToDownloads => 'Yedek kaydedildi.';
 
   @override
   String failedToExport(Object error) {

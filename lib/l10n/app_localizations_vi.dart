@@ -1997,7 +1997,7 @@ class AppLocalizationsVi extends AppLocalizations {
   String get noMacrosToExport => 'Không có macro để xuất.';
 
   @override
-  String get macrosExportedToDownloads => 'Đã xuất macro vào Downloads.';
+  String get macrosExportedToDownloads => 'Đã lưu macro.';
 
   @override
   String get failedToExportMacros => 'Xuất macro thất bại.';
@@ -2053,7 +2053,7 @@ class AppLocalizationsVi extends AppLocalizations {
       'Quyền bộ nhớ bị từ chối (cần trên một số thiết bị Android cũ).';
 
   @override
-  String get backupExportedToDownloads => 'Đã xuất bản sao lưu vào Downloads.';
+  String get backupExportedToDownloads => 'Đã lưu bản sao lưu.';
 
   @override
   String failedToExport(Object error) {

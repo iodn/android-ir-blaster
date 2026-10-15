@@ -740,7 +740,7 @@
   "skipDuplicatesSubtitle": "Tasten nicht importieren, die bereits in dieser Fernbedienung existieren.",
   "importSelected": "Auswahl importieren",
   "noMacrosToExport": "Keine Makros zum Exportieren.",
-  "macrosExportedToDownloads": "Makros in Downloads exportiert.",
+  "macrosExportedToDownloads": "Makros gespeichert.",
   "failedToExportMacros": "Makros konnten nicht exportiert werden.",
   "failedToReadFile": "Datei konnte nicht gelesen werden.",
   "importFromExistingRemotesTitle": "Aus vorhandenen Fernbedienungen importieren",
@@ -775,7 +775,7 @@
     }
   },
   "storagePermissionDeniedLegacy": "Speicherberechtigung verweigert benötigt auf einigen älteren Android-Geräten.",
-  "backupExportedToDownloads": "Sicherung in Downloads exportiert.",
+  "backupExportedToDownloads": "Sicherung gespeichert.",
   "failedToExport": "Export fehlgeschlagen: {error}",
   "@failedToExport": {
     "placeholders": {

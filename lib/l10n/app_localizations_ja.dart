@@ -1917,7 +1917,7 @@ class AppLocalizationsJa extends AppLocalizations {
   String get noMacrosToExport => 'エクスポートするマクロがありません';
 
   @override
-  String get macrosExportedToDownloads => 'マクロをDownloadsに書き出しました。';
+  String get macrosExportedToDownloads => 'マクロを保存しました。';
 
   @override
   String get failedToExportMacros => 'マクロのエクスポートに失敗しました。';
@@ -1972,7 +1972,7 @@ class AppLocalizationsJa extends AppLocalizations {
       'ストレージ権限が拒否されました 一部の古いAndroid端末では必要です。';
 
   @override
-  String get backupExportedToDownloads => 'バックアップをDownloadsに書き出しました。';
+  String get backupExportedToDownloads => 'バックアップを保存しました。';
 
   @override
   String failedToExport(Object error) {

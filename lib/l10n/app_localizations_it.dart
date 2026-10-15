@@ -2055,7 +2055,7 @@ class AppLocalizationsIt extends AppLocalizations {
   String get noMacrosToExport => 'Nessuna macro da esportare.';
 
   @override
-  String get macrosExportedToDownloads => 'Macro esportate in Download.';
+  String get macrosExportedToDownloads => 'Macro salvate.';
 
   @override
   String get failedToExportMacros => 'Esportazione macro fallita.';
@@ -2112,7 +2112,7 @@ class AppLocalizationsIt extends AppLocalizations {
       'Permesso archiviazione negato, necessario su alcuni vecchi dispositivi Android.';
 
   @override
-  String get backupExportedToDownloads => 'Backup esportato in Download.';
+  String get backupExportedToDownloads => 'Backup salvato.';
 
   @override
   String failedToExport(Object error) {

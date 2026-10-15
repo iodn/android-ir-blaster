@@ -730,7 +730,7 @@
   "skipDuplicatesSubtitle": "Do not importeren knoppen that already exist in this remote.",
   "importSelected": "Importeren geselecteerd",
   "noMacrosToExport": "Geen macros to exporteren.",
-  "macrosExportedToDownloads": "Macro's exporterened to Downloads.",
+  "macrosExportedToDownloads": "Macro’s opgeslagen.",
   "failedToExportMacros": "Macro's exportereneren mislukt.",
   "failedToReadFile": "Bestand lezen mislukt.",
   "importFromExistingRemotesTitle": "Importereneren uit bestaande afstandsbedieningen",
@@ -765,7 +765,7 @@
     }
   },
   "storagePermissionDeniedLegacy": "Opslagtoestemming geweigerd nodig op sommige oudere Android-apparaten.",
-  "backupExportedToDownloads": "Back-up exporterened to Downloads.",
+  "backupExportedToDownloads": "Back-up opgeslagen.",
   "failedToExport": "Mislukt to exporteren: {error}",
   "@failedToExport": {
     "placeholders": {

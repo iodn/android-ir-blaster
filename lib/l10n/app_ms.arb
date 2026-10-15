@@ -730,7 +730,7 @@
   "skipDuplicatesSubtitle": "Jangan import butang yang sudah ada di remote ini.",
   "importSelected": "Import terpilih",
   "noMacrosToExport": "Tiada makro untuk diekspor.",
-  "macrosExportedToDownloads": "Makro diekspor ke Unduhan.",
+  "macrosExportedToDownloads": "Makro disimpan.",
   "failedToExportMacros": "Gagal export makro.",
   "failedToReadFile": "Gagal read file.",
   "importFromExistingRemotesTitle": "Import dari Remote yang Ada",
@@ -765,7 +765,7 @@
     }
   },
   "storagePermissionDeniedLegacy": "Izin penyimpanan ditolak (diperlukan di beberapa peranti Android lama).",
-  "backupExportedToDownloads": "Sandaran diekspor ke Unduhan.",
+  "backupExportedToDownloads": "Sandaran disimpan.",
   "failedToExport": "Gagal export: {error}",
   "@failedToExport": {
     "placeholders": {

@@ -730,7 +730,7 @@
   "skipDuplicatesSubtitle": "Non importare pulsanti che esistono già in questo telecomando.",
   "importSelected": "Importa selezionati",
   "noMacrosToExport": "Nessuna macro da esportare.",
-  "macrosExportedToDownloads": "Macro esportate in Download.",
+  "macrosExportedToDownloads": "Macro salvate.",
   "failedToExportMacros": "Esportazione macro fallita.",
   "failedToReadFile": "Lettura file fallita.",
   "importFromExistingRemotesTitle": "Importa da telecomandi esistenti",
@@ -765,7 +765,7 @@
     }
   },
   "storagePermissionDeniedLegacy": "Permesso archiviazione negato, necessario su alcuni vecchi dispositivi Android.",
-  "backupExportedToDownloads": "Backup esportato in Download.",
+  "backupExportedToDownloads": "Backup salvato.",
   "failedToExport": "Esportazione fallita: {error}",
   "@failedToExport": {
     "placeholders": {

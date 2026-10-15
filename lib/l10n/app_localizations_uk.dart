@@ -2070,8 +2070,7 @@ class AppLocalizationsUk extends AppLocalizations {
   String get noMacrosToExport => 'Немає макросів для експорту.';
 
   @override
-  String get macrosExportedToDownloads =>
-      'Макроси експортовано до завантажень.';
+  String get macrosExportedToDownloads => 'Макроси збережено.';
 
   @override
   String get failedToExportMacros => 'Не вдалося експортувати макроси.';
@@ -2127,8 +2126,7 @@ class AppLocalizationsUk extends AppLocalizations {
       'У дозволі на зберігання відмовлено (потрібен на деяких старіших пристроях Android).';
 
   @override
-  String get backupExportedToDownloads =>
-      'Резервну копію експортовано до завантажень.';
+  String get backupExportedToDownloads => 'Резервну копію збережено.';
 
   @override
   String failedToExport(Object error) {

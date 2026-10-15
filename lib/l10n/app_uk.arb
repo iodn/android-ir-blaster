@@ -730,7 +730,7 @@
   "skipDuplicatesSubtitle": "Не імпортуйте кнопки, які вже існують на цьому пульті.",
   "importSelected": "Вибрано імпорт",
   "noMacrosToExport": "Немає макросів для експорту.",
-  "macrosExportedToDownloads": "Макроси експортовано до завантажень.",
+  "macrosExportedToDownloads": "Макроси збережено.",
   "failedToExportMacros": "Не вдалося експортувати макроси.",
   "failedToReadFile": "Не вдалося прочитати файл.",
   "importFromExistingRemotesTitle": "Імпортувати з наявних пультів",
@@ -765,7 +765,7 @@
     }
   },
   "storagePermissionDeniedLegacy": "У дозволі на зберігання відмовлено (потрібен на деяких старіших пристроях Android).",
-  "backupExportedToDownloads": "Резервну копію експортовано до завантажень.",
+  "backupExportedToDownloads": "Резервну копію збережено.",
   "failedToExport": "Не вдалося експортувати: {error}",
   "@failedToExport": {
     "placeholders": {

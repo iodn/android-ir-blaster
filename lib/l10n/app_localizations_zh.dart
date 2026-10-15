@@ -1874,7 +1874,7 @@ class AppLocalizationsZh extends AppLocalizations {
   String get noMacrosToExport => '没有可导出的宏。';
 
   @override
-  String get macrosExportedToDownloads => '宏已导出到下载目录。';
+  String get macrosExportedToDownloads => '宏已保存。';
 
   @override
   String get failedToExportMacros => '导出宏失败。';
@@ -1928,7 +1928,7 @@ class AppLocalizationsZh extends AppLocalizations {
   String get storagePermissionDeniedLegacy => '存储权限被拒 某些旧版 Android 设备需要此权限。';
 
   @override
-  String get backupExportedToDownloads => '备份已导出到下载目录。';
+  String get backupExportedToDownloads => '备份已保存。';
 
   @override
   String failedToExport(Object error) {

@@ -2030,7 +2030,7 @@ class AppLocalizationsAr extends AppLocalizations {
   String get noMacrosToExport => 'لا توجد وحدات ماكرو للتصدير.';
 
   @override
-  String get macrosExportedToDownloads => 'تم تصدير الماكرو إلى التنزيلات.';
+  String get macrosExportedToDownloads => 'تم حفظ الماكرو.';
 
   @override
   String get failedToExportMacros => 'فشل تصدير الماكرو.';
@@ -2087,8 +2087,7 @@ class AppLocalizationsAr extends AppLocalizations {
       'تم رفض إذن التخزين، وهو مطلوب في بعض أجهزة أندرويد الأقدم.';
 
   @override
-  String get backupExportedToDownloads =>
-      'تم تصدير النسخة الاحتياطية إلى التنزيلات.';
+  String get backupExportedToDownloads => 'تم حفظ النسخة الاحتياطية.';
 
   @override
   String failedToExport(Object error) {
@@ -7306,7 +7305,7 @@ class AppLocalizationsArEg extends AppLocalizationsAr {
   String get noMacrosToExport => 'لا توجد وحدات ماكرو للتصدير.';
 
   @override
-  String get macrosExportedToDownloads => 'تم تصدير الماكرو إلى التنزيلات.';
+  String get macrosExportedToDownloads => 'الماكرو اتحفظ.';
 
   @override
   String get failedToExportMacros => 'فشل تصدير الماكرو.';
@@ -7363,8 +7362,7 @@ class AppLocalizationsArEg extends AppLocalizationsAr {
       'تم رفض إذن التخزين، وهو مطلوب في بعض أجهزة أندرويد الأقدم.';
 
   @override
-  String get backupExportedToDownloads =>
-      'تم تصدير النسخة الاحتياطية إلى التنزيلات.';
+  String get backupExportedToDownloads => 'النسخة الاحتياطية اتحفظت.';
 
   @override
   String failedToExport(Object error) {

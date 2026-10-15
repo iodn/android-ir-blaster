@@ -732,7 +732,7 @@
   "skipDuplicatesSubtitle": "Nie importuj przycisków, które już istnieją w tym pilocie.",
   "importSelected": "Importuj wybrane",
   "noMacrosToExport": "Brak makr do eksportu.",
-  "macrosExportedToDownloads": "Wyeksportowano makra do Pobranych.",
+  "macrosExportedToDownloads": "Zapisano makra.",
   "failedToExportMacros": "Nie udało się wyeksportować makr.",
   "failedToReadFile": "Nie udało się odczytać pliku.",
   "importFromExistingRemotesTitle": "Import z istniejących pilotów",
@@ -767,7 +767,7 @@
     }
   },
   "storagePermissionDeniedLegacy": "Storage permission denied (needed na some older Android urządzenia).",
-  "backupExportedToDownloads": "Backup exported do Downloads.",
+  "backupExportedToDownloads": "Zapisano kopię zapasową.",
   "failedToExport": "nieudane do export: {error}",
   "@failedToExport": {
     "placeholders": {

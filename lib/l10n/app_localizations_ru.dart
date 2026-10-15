@@ -2043,7 +2043,7 @@ class AppLocalizationsRu extends AppLocalizations {
   String get noMacrosToExport => 'Нет макросов для экспорта.';
 
   @override
-  String get macrosExportedToDownloads => 'Макросы экспортированы в Downloads.';
+  String get macrosExportedToDownloads => 'Макросы сохранены.';
 
   @override
   String get failedToExportMacros => 'Не удалось экспортировать макросы.';
@@ -2099,7 +2099,7 @@ class AppLocalizationsRu extends AppLocalizations {
       'Доступ к хранилищу отклонён, нужен на некоторых старых Android-устройствах.';
 
   @override
-  String get backupExportedToDownloads => 'Копия экспортирована в Downloads.';
+  String get backupExportedToDownloads => 'Резервная копия сохранена.';
 
   @override
   String failedToExport(Object error) {

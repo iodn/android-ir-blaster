@@ -730,7 +730,7 @@
   "skipDuplicatesSubtitle": "리모컨에 이미 있는 버튼은 가져오지 않습니다.",
   "importSelected": "가져오기 선택됨",
   "noMacrosToExport": "없음 매크로 내보내기.",
-  "macrosExportedToDownloads": "매크로를 Downloads로 내보냈습니다.",
+  "macrosExportedToDownloads": "매크로를 저장했어요.",
   "failedToExportMacros": "내보내기 매크로하지 못했습니다.",
   "failedToReadFile": "파일을 읽지 못했습니다.",
   "importFromExistingRemotesTitle": "기존 리모컨에서 가져오기",
@@ -765,7 +765,7 @@
     }
   },
   "storagePermissionDeniedLegacy": "저장소 권한이 거부되었습니다(일부 구형 Android 기기에서 필요).",
-  "backupExportedToDownloads": "백업을 Downloads로 내보냈습니다.",
+  "backupExportedToDownloads": "백업을 저장했어요.",
   "failedToExport": "내보내지 못했습니다: {error}",
   "@failedToExport": {
     "placeholders": {

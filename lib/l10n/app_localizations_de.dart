@@ -2059,7 +2059,7 @@ class AppLocalizationsDe extends AppLocalizations {
   String get noMacrosToExport => 'Keine Makros zum Exportieren.';
 
   @override
-  String get macrosExportedToDownloads => 'Makros in Downloads exportiert.';
+  String get macrosExportedToDownloads => 'Makros gespeichert.';
 
   @override
   String get failedToExportMacros => 'Makros konnten nicht exportiert werden.';
@@ -2116,7 +2116,7 @@ class AppLocalizationsDe extends AppLocalizations {
       'Speicherberechtigung verweigert benötigt auf einigen älteren Android-Geräten.';
 
   @override
-  String get backupExportedToDownloads => 'Sicherung in Downloads exportiert.';
+  String get backupExportedToDownloads => 'Sicherung gespeichert.';
 
   @override
   String failedToExport(Object error) {

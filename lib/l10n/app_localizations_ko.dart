@@ -1927,7 +1927,7 @@ class AppLocalizationsKo extends AppLocalizations {
   String get noMacrosToExport => '없음 매크로 내보내기.';
 
   @override
-  String get macrosExportedToDownloads => '매크로를 Downloads로 내보냈습니다.';
+  String get macrosExportedToDownloads => '매크로를 저장했어요.';
 
   @override
   String get failedToExportMacros => '내보내기 매크로하지 못했습니다.';
@@ -1982,7 +1982,7 @@ class AppLocalizationsKo extends AppLocalizations {
       '저장소 권한이 거부되었습니다(일부 구형 Android 기기에서 필요).';
 
   @override
-  String get backupExportedToDownloads => '백업을 Downloads로 내보냈습니다.';
+  String get backupExportedToDownloads => '백업을 저장했어요.';
 
   @override
   String failedToExport(Object error) {

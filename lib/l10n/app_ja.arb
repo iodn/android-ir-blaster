@@ -730,7 +730,7 @@
   "skipDuplicatesSubtitle": "このリモコンにあるボタンは取り込みません",
   "importSelected": "選択を取り込み",
   "noMacrosToExport": "エクスポートするマクロがありません",
-  "macrosExportedToDownloads": "マクロをDownloadsに書き出しました。",
+  "macrosExportedToDownloads": "マクロを保存しました。",
   "failedToExportMacros": "マクロのエクスポートに失敗しました。",
   "failedToReadFile": "ファイルの読み込みに失敗しました。",
   "importFromExistingRemotesTitle": "既存のリモコンから取り込み",
@@ -765,7 +765,7 @@
     }
   },
   "storagePermissionDeniedLegacy": "ストレージ権限が拒否されました 一部の古いAndroid端末では必要です。",
-  "backupExportedToDownloads": "バックアップをDownloadsに書き出しました。",
+  "backupExportedToDownloads": "バックアップを保存しました。",
   "failedToExport": "エクスポートに失敗しました: {error}",
   "@failedToExport": {
     "placeholders": {

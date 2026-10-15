@@ -730,7 +730,7 @@
   "skipDuplicatesSubtitle": "ไม่นำเข้าปุ่มที่มีอยู่แล้วในรีโมตนี้",
   "importSelected": "นำเข้าที่เลือก",
   "noMacrosToExport": "ไม่มีแมโครให้ส่งออก",
-  "macrosExportedToDownloads": "แมโครs exported to ดาวน์โหลด.",
+  "macrosExportedToDownloads": "บันทึกแมโครแล้ว",
   "failedToExportMacros": "ไม่สำเร็จในการexport แมโครs.",
   "failedToReadFile": "ไม่สำเร็จในการread ไฟล์.",
   "importFromExistingRemotesTitle": "นำเข้าจากรีโมตที่มีอยู่",
@@ -765,7 +765,7 @@
     }
   },
   "storagePermissionDeniedLegacy": "สิทธิ์พื้นที่เก็บข้อมูลถูกปฏิเสธ จำเป็นในอุปกรณ์ Android รุ่นเก่าบางรุ่น",
-  "backupExportedToDownloads": "ส่งออกข้อมูลสำรองไปยัง Downloads แล้ว",
+  "backupExportedToDownloads": "บันทึกข้อมูลสำรองแล้ว",
   "failedToExport": "ส่งออกไม่สำเร็จ: {error}",
   "@failedToExport": {
     "placeholders": {

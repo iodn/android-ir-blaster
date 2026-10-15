@@ -730,7 +730,7 @@
   "skipDuplicatesSubtitle": "Não importes botões que já existan en este controle.",
   "importSelected": "Importar selecionados",
   "noMacrosToExport": "Não há macros para exportar.",
-  "macrosExportedToDownloads": "Macros exportedas a Descargas.",
+  "macrosExportedToDownloads": "Macros salvas.",
   "failedToExportMacros": "Não se pudieron exporter as macros.",
   "failedToReadFile": "Não se pudo leer o arquivo.",
   "importFromExistingRemotesTitle": "Importar de controles existentes",
@@ -765,7 +765,7 @@
     }
   },
   "storagePermissionDeniedLegacy": "Permissão de almacenamiento negada (necesario en algums Android antiguos).",
-  "backupExportedToDownloads": "Cópia exporteda a Descargas.",
+  "backupExportedToDownloads": "Backup salvo.",
   "failedToExport": "Falha ao exportar: {error}",
   "@failedToExport": {
     "placeholders": {

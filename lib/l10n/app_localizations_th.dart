@@ -1986,7 +1986,7 @@ class AppLocalizationsTh extends AppLocalizations {
   String get noMacrosToExport => 'ไม่มีแมโครให้ส่งออก';
 
   @override
-  String get macrosExportedToDownloads => 'แมโครs exported to ดาวน์โหลด.';
+  String get macrosExportedToDownloads => 'บันทึกแมโครแล้ว';
 
   @override
   String get failedToExportMacros => 'ไม่สำเร็จในการexport แมโครs.';
@@ -2041,8 +2041,7 @@ class AppLocalizationsTh extends AppLocalizations {
       'สิทธิ์พื้นที่เก็บข้อมูลถูกปฏิเสธ จำเป็นในอุปกรณ์ Android รุ่นเก่าบางรุ่น';
 
   @override
-  String get backupExportedToDownloads =>
-      'ส่งออกข้อมูลสำรองไปยัง Downloads แล้ว';
+  String get backupExportedToDownloads => 'บันทึกข้อมูลสำรองแล้ว';
 
   @override
   String failedToExport(Object error) {

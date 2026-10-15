@@ -3633,7 +3633,7 @@ abstract class AppLocalizations {
   /// No description provided for @macrosExportedToDownloads.
   ///
   /// In en, this message translates to:
-  /// **'Macros exported to Downloads.'**
+  /// **'Macros saved.'**
   String get macrosExportedToDownloads;
 
   /// No description provided for @failedToExportMacros.
@@ -3729,7 +3729,7 @@ abstract class AppLocalizations {
   /// No description provided for @backupExportedToDownloads.
   ///
   /// In en, this message translates to:
-  /// **'Backup exported to Downloads.'**
+  /// **'Backup saved.'**
   String get backupExportedToDownloads;
 
   /// No description provided for @failedToExport.

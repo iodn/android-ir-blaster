@@ -730,7 +730,7 @@
   "skipDuplicatesSubtitle": "Não importes botões que já existan en este comando.",
   "importSelected": "Importar selecionados",
   "noMacrosToExport": "Não há macros para exportar.",
-  "macrosExportedToDownloads": "Macros exportedas a Descargas.",
+  "macrosExportedToDownloads": "Macros guardadas.",
   "failedToExportMacros": "Não se pudieron exporter as macros.",
   "failedToReadFile": "Não se pudo leer o ficheiro.",
   "importFromExistingRemotesTitle": "Importar de comandos existentes",
@@ -765,7 +765,7 @@
     }
   },
   "storagePermissionDeniedLegacy": "Permissão de almacenamiento negada (necesario en algums Android antiguos).",
-  "backupExportedToDownloads": "Cópia exporteda a Descargas.",
+  "backupExportedToDownloads": "Cópia de segurança guardada.",
   "failedToExport": "Falha ao exportar: {error}",
   "@failedToExport": {
     "placeholders": {

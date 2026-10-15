@@ -730,7 +730,7 @@
   "skipDuplicatesSubtitle": "Bu kumandada zaten bulunan düğmeleri içe aktarmayın.",
   "importSelected": "İçe aktar seçili",
   "noMacrosToExport": "No macros to dışa aktar.",
-  "macrosExportedToDownloads": "Makrolar İndirilenler'e aktarıldı.",
+  "macrosExportedToDownloads": "Makrolar kaydedildi.",
   "failedToExportMacros": "Başarısız to dışa aktar macros.",
   "failedToReadFile": "Dosya okunamadı.",
   "importFromExistingRemotesTitle": "Mevcut Kumandalardan İçe Aktar",
@@ -765,7 +765,7 @@
     }
   },
   "storagePermissionDeniedLegacy": "Storage izin denied (needed on some older Android cihazlar).",
-  "backupExportedToDownloads": "Yedek İndirilenler'e aktarıldı.",
+  "backupExportedToDownloads": "Yedek kaydedildi.",
   "failedToExport": "Başarısız to dışa aktar: {error}",
   "@failedToExport": {
     "placeholders": {
