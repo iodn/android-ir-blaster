@@ -1412,12 +1412,10 @@ class AppLocalizationsEn extends AppLocalizations {
   }
 
   @override
-  String get remoteOrientationFlippedTooltip =>
-      'Orientation: flipped (tap to normal)';
+  String get remoteOrientationFlippedTooltip => 'Restore original orientation';
 
   @override
-  String get remoteOrientationNormalTooltip =>
-      'Orientation: normal (tap to flip)';
+  String get remoteOrientationNormalTooltip => 'Rotate remote 180°';
 
   @override
   String get stopLoop => 'Stop loop';
@@ -1427,17 +1425,17 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get remoteReorderHint =>
-      'Reorder mode: long-press and drag a button to move it.';
+      'Touch and hold a button, then drag it to a new position.';
 
   @override
   String get manageRemote => 'Manage remote';
 
   @override
-  String get remoteNoButtons => 'No buttons in this remote';
+  String get remoteNoButtons => 'No buttons yet';
 
   @override
   String get remoteNoButtonsDescription =>
-      'Use \"Edit remote\" to add or configure buttons.';
+      'Edit this remote to add or configure buttons.';
 
   @override
   String get editRemote => 'Edit remote';

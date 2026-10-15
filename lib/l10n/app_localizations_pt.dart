@@ -1425,11 +1425,10 @@ class AppLocalizationsPt extends AppLocalizations {
 
   @override
   String get remoteOrientationFlippedTooltip =>
-      'Orientação: invertida (toque para normal)';
+      'Restaurar a orientação original';
 
   @override
-  String get remoteOrientationNormalTooltip =>
-      'Orientação: normal (toque para inverter)';
+  String get remoteOrientationNormalTooltip => 'Rodar o comando 180°';
 
   @override
   String get stopLoop => 'Parar ciclo';
@@ -1439,17 +1438,17 @@ class AppLocalizationsPt extends AppLocalizations {
 
   @override
   String get remoteReorderHint =>
-      'Modo de reordenação: mantenha premido e arraste um botão para movê-lo.';
+      'Mantenha um botão premido e arraste-o para outra posição.';
 
   @override
   String get manageRemote => 'Gerir comando';
 
   @override
-  String get remoteNoButtons => 'Não há botões en este comando';
+  String get remoteNoButtons => 'Ainda não há botões';
 
   @override
   String get remoteNoButtonsDescription =>
-      'Usa \"Editar comando\" para adicionar o configurar botões.';
+      'Edite este comando para adicionar ou configurar botões.';
 
   @override
   String get editRemote => 'Editar comando';
@@ -6740,11 +6739,10 @@ class AppLocalizationsPtBr extends AppLocalizationsPt {
 
   @override
   String get remoteOrientationFlippedTooltip =>
-      'Orientação: invertida (toque para normal)';
+      'Restaurar a orientação original';
 
   @override
-  String get remoteOrientationNormalTooltip =>
-      'Orientação: normal (toque para inverter)';
+  String get remoteOrientationNormalTooltip => 'Girar o controle em 180°';
 
   @override
   String get stopLoop => 'parar ciclo';
@@ -6754,17 +6752,17 @@ class AppLocalizationsPtBr extends AppLocalizationsPt {
 
   @override
   String get remoteReorderHint =>
-      'Modo de reordenação: mantenha pressionado e arraste um botão para movê-lo.';
+      'Toque e segure um botão, depois arraste-o para outra posição.';
 
   @override
-  String get manageRemote => 'Gerir controle';
+  String get manageRemote => 'Gerenciar controle';
 
   @override
-  String get remoteNoButtons => 'Não há botões en este controle';
+  String get remoteNoButtons => 'Ainda não há botões';
 
   @override
   String get remoteNoButtonsDescription =>
-      'Usa \"Editar controle\" para adicionar o configurar botões.';
+      'Edite este controle para adicionar ou configurar botões.';
 
   @override
   String get editRemote => 'Editar controle';

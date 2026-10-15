@@ -1390,12 +1390,10 @@ class AppLocalizationsVi extends AppLocalizations {
   }
 
   @override
-  String get remoteOrientationFlippedTooltip =>
-      'Hướng: lật (chạm để về bình thường)';
+  String get remoteOrientationFlippedTooltip => 'Khôi phục hướng ban đầu';
 
   @override
-  String get remoteOrientationNormalTooltip =>
-      'Hướng: bình thường (chạm để lật)';
+  String get remoteOrientationNormalTooltip => 'Xoay điều khiển 180°';
 
   @override
   String get stopLoop => 'Dừng lặp';
@@ -1404,18 +1402,17 @@ class AppLocalizationsVi extends AppLocalizations {
   String get reorderButtons => 'Sắp xếp lại nút';
 
   @override
-  String get remoteReorderHint =>
-      'Chế độ sắp xếp lại: long-press and drag a button to move it.';
+  String get remoteReorderHint => 'Nhấn giữ một nút rồi kéo đến vị trí mới.';
 
   @override
   String get manageRemote => 'Quản lý điều khiển';
 
   @override
-  String get remoteNoButtons => 'Điều khiển này không có nút';
+  String get remoteNoButtons => 'Chưa có nút nào';
 
   @override
   String get remoteNoButtonsDescription =>
-      'Dùng \"Sửa điều khiển\" để thêm hoặc cấu hình nút.';
+      'Chỉnh sửa điều khiển này để thêm hoặc thiết lập các nút.';
 
   @override
   String get editRemote => 'Sửa điều khiển';

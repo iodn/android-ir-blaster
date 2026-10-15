@@ -1400,12 +1400,10 @@ class AppLocalizationsId extends AppLocalizations {
   }
 
   @override
-  String get remoteOrientationFlippedTooltip =>
-      'Orientasi: terbalik (ketuk untuk normal)';
+  String get remoteOrientationFlippedTooltip => 'Kembalikan orientasi semula';
 
   @override
-  String get remoteOrientationNormalTooltip =>
-      'Orientasi: normal (ketuk untuk balik)';
+  String get remoteOrientationNormalTooltip => 'Putar remote 180°';
 
   @override
   String get stopLoop => 'Hentikan loop';
@@ -1415,17 +1413,17 @@ class AppLocalizationsId extends AppLocalizations {
 
   @override
   String get remoteReorderHint =>
-      'Mode urut ulang: tekan lama dan seret tombol untuk memindahkannya.';
+      'Tekan dan tahan tombol, lalu seret ke posisi baru.';
 
   @override
   String get manageRemote => 'Kelola remote';
 
   @override
-  String get remoteNoButtons => 'Tidak ada tombol di remote ini';
+  String get remoteNoButtons => 'Belum ada tombol';
 
   @override
   String get remoteNoButtonsDescription =>
-      'Gunakan \"Ubah remote\" untuk menambah atau mengatur tombol.';
+      'Edit remote ini untuk menambah atau mengatur tombol.';
 
   @override
   String get editRemote => 'Ubah remote';

@@ -1397,12 +1397,10 @@ class AppLocalizationsHi extends AppLocalizations {
   }
 
   @override
-  String get remoteOrientationFlippedTooltip =>
-      'ओरिएंटेशन: उल्टा (सामान्य हेतु टैप करें)';
+  String get remoteOrientationFlippedTooltip => 'मूल दिशा में वापस करें';
 
   @override
-  String get remoteOrientationNormalTooltip =>
-      'ओरिएंटेशन: सामान्य (उलटने हेतु टैप करें)';
+  String get remoteOrientationNormalTooltip => 'रिमोट को 180° घुमाएँ';
 
   @override
   String get stopLoop => 'रोकें लूप';
@@ -1412,17 +1410,17 @@ class AppLocalizationsHi extends AppLocalizations {
 
   @override
   String get remoteReorderHint =>
-      'पुन:क्रमित करें मोड: लंबा दबाएं और खींचें a बटन तक स्थानांतरित करें it.';
+      'किसी बटन को दबाकर रखें, फिर उसे नई जगह खींचें।';
 
   @override
-  String get manageRemote => 'प्रबंधित करें रिमोट';
+  String get manageRemote => 'रिमोट प्रबंधित करें';
 
   @override
-  String get remoteNoButtons => 'नहीं बटन में यह रिमोट';
+  String get remoteNoButtons => 'अभी कोई बटन नहीं है';
 
   @override
   String get remoteNoButtonsDescription =>
-      'उपयोग करें \"संपादित करें रिमोट\" तक जोड़ें या कॉन्फ़िगर करें बटन.';
+      'बटन जोड़ने या सेट करने के लिए इस रिमोट को संपादित करें।';
 
   @override
   String get editRemote => 'रिमोट संपादित करें';

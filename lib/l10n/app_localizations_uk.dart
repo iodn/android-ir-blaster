@@ -1434,11 +1434,10 @@ class AppLocalizationsUk extends AppLocalizations {
 
   @override
   String get remoteOrientationFlippedTooltip =>
-      'Орієнтація: перевернуто (натисніть до нормального)';
+      'Відновити початкову орієнтацію';
 
   @override
-  String get remoteOrientationNormalTooltip =>
-      'Орієнтація: нормальна (торкніться, щоб перевернути)';
+  String get remoteOrientationNormalTooltip => 'Повернути пульт на 180°';
 
   @override
   String get stopLoop => 'Зупинити цикл';
@@ -1448,17 +1447,17 @@ class AppLocalizationsUk extends AppLocalizations {
 
   @override
   String get remoteReorderHint =>
-      'Режим зміни порядку: утримуйте та перетягуйте кнопку, щоб перемістити її.';
+      'Натисніть і утримуйте кнопку, а потім перетягніть її на нове місце.';
 
   @override
   String get manageRemote => 'Керувати пультом';
 
   @override
-  String get remoteNoButtons => 'У цьому пульті немає кнопок';
+  String get remoteNoButtons => 'Ще немає кнопок';
 
   @override
   String get remoteNoButtonsDescription =>
-      'Використовуйте «Редагувати пульт», щоб додати або налаштувати кнопки.';
+      'Відредагуйте цей пульт, щоб додати або налаштувати кнопки.';
 
   @override
   String get editRemote => 'Редагувати пульт';

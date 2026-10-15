@@ -1398,12 +1398,10 @@ class AppLocalizationsMs extends AppLocalizations {
   }
 
   @override
-  String get remoteOrientationFlippedTooltip =>
-      'Orientasi: terbalik (tekan untuk normal)';
+  String get remoteOrientationFlippedTooltip => 'Pulihkan orientasi asal';
 
   @override
-  String get remoteOrientationNormalTooltip =>
-      'Orientasi: normal (tekan untuk balik)';
+  String get remoteOrientationNormalTooltip => 'Putar alat kawalan jauh 180°';
 
   @override
   String get stopLoop => 'Hentikan loop';
@@ -1413,17 +1411,17 @@ class AppLocalizationsMs extends AppLocalizations {
 
   @override
   String get remoteReorderHint =>
-      'Mode urut ulang: tekan lama dan seret butang untuk memindahkannya.';
+      'Tekan dan tahan butang, kemudian seret ke kedudukan baharu.';
 
   @override
-  String get manageRemote => 'Urus remote';
+  String get manageRemote => 'Urus alat kawalan jauh';
 
   @override
-  String get remoteNoButtons => 'Tiada butang di remote ini';
+  String get remoteNoButtons => 'Belum ada butang';
 
   @override
   String get remoteNoButtonsDescription =>
-      'Gunakan \"Ubah remote\" untuk menambah atau mengatur butang.';
+      'Sunting alat kawalan jauh ini untuk menambah atau menetapkan butang.';
 
   @override
   String get editRemote => 'Ubah remote';

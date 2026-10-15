@@ -1432,12 +1432,10 @@ class AppLocalizationsPl extends AppLocalizations {
   }
 
   @override
-  String get remoteOrientationFlippedTooltip =>
-      'Orientacja: odwrócona (stuknij, aby przywrócić normalną)';
+  String get remoteOrientationFlippedTooltip => 'Przywróć pierwotną orientację';
 
   @override
-  String get remoteOrientationNormalTooltip =>
-      'Orientacja: normalna (stuknij, aby odwrócić)';
+  String get remoteOrientationNormalTooltip => 'Obróć pilot o 180°';
 
   @override
   String get stopLoop => 'Zatrzymaj pętlę';
@@ -1447,17 +1445,17 @@ class AppLocalizationsPl extends AppLocalizations {
 
   @override
   String get remoteReorderHint =>
-      'Reorder mode: long-press i drag a przycisk do move go.';
+      'Przytrzymaj przycisk i przeciągnij go w nowe miejsce.';
 
   @override
   String get manageRemote => 'Zarządzaj pilotem';
 
   @override
-  String get remoteNoButtons => 'Brak przycisków w tym pilocie';
+  String get remoteNoButtons => 'Nie ma jeszcze przycisków';
 
   @override
   String get remoteNoButtonsDescription =>
-      'Użyj „Edytuj pilot\", aby dodać lub skonfigurować przyciski.';
+      'Edytuj ten pilot, aby dodać lub skonfigurować przyciski.';
 
   @override
   String get editRemote => 'Edytuj pilot';

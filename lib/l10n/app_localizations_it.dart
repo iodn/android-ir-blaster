@@ -1427,11 +1427,10 @@ class AppLocalizationsIt extends AppLocalizations {
 
   @override
   String get remoteOrientationFlippedTooltip =>
-      'Orientamento. capovolto tocca per normale';
+      'Ripristina l’orientamento originale';
 
   @override
-  String get remoteOrientationNormalTooltip =>
-      'Orientamento. normale tocca per capovolgere';
+  String get remoteOrientationNormalTooltip => 'Ruota il telecomando di 180°';
 
   @override
   String get stopLoop => 'Ferma loop';
@@ -1441,17 +1440,17 @@ class AppLocalizationsIt extends AppLocalizations {
 
   @override
   String get remoteReorderHint =>
-      'Modalità riordino. Tieni premuto e trascina un pulsante per spostarlo.';
+      'Tieni premuto un pulsante e trascinalo nella posizione desiderata.';
 
   @override
   String get manageRemote => 'Gestisci telecomando';
 
   @override
-  String get remoteNoButtons => 'Nessun pulsante in questo telecomando';
+  String get remoteNoButtons => 'Ancora nessun pulsante';
 
   @override
   String get remoteNoButtonsDescription =>
-      'Usa \"Modifica telecomando\" per aggiungere o configurare i pulsanti.';
+      'Modifica questo telecomando per aggiungere o configurare i pulsanti.';
 
   @override
   String get editRemote => 'Modifica telecomando';

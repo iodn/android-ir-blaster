@@ -1434,11 +1434,10 @@ class AppLocalizationsNl extends AppLocalizations {
 
   @override
   String get remoteOrientationFlippedTooltip =>
-      'Oriëntatie omgedraaid tik voor normaal';
+      'Oorspronkelijke stand herstellen';
 
   @override
-  String get remoteOrientationNormalTooltip =>
-      'Oriëntatie normaal tik om om te draaien';
+  String get remoteOrientationNormalTooltip => 'Afstandsbediening 180° draaien';
 
   @override
   String get stopLoop => 'Lus stoppen';
@@ -1448,17 +1447,17 @@ class AppLocalizationsNl extends AppLocalizations {
 
   @override
   String get remoteReorderHint =>
-      'Reorder mode: long-press and drag a knop to move it.';
+      'Houd een knop ingedrukt en sleep deze naar een andere plek.';
 
   @override
   String get manageRemote => 'Afstandsbediening beheren';
 
   @override
-  String get remoteNoButtons => 'Geen knoppen in deze afstandsbediening';
+  String get remoteNoButtons => 'Nog geen knoppen';
 
   @override
   String get remoteNoButtonsDescription =>
-      'Gebruik \"Afstandsbediening bewerken\" om knoppen toe te voegen of te configureren.';
+      'Bewerk deze afstandsbediening om knoppen toe te voegen of in te stellen.';
 
   @override
   String get editRemote => 'Afstandsbediening bewerken';

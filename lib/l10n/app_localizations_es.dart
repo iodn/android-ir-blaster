@@ -1423,11 +1423,10 @@ class AppLocalizationsEs extends AppLocalizations {
 
   @override
   String get remoteOrientationFlippedTooltip =>
-      'Orientación: invertida (toca para normal)';
+      'Restaurar la orientación original';
 
   @override
-  String get remoteOrientationNormalTooltip =>
-      'Orientación: normal (toca para invertir)';
+  String get remoteOrientationNormalTooltip => 'Girar el mando 180°';
 
   @override
   String get stopLoop => 'Detener bucle';
@@ -1437,17 +1436,17 @@ class AppLocalizationsEs extends AppLocalizations {
 
   @override
   String get remoteReorderHint =>
-      'Modo reordenar: mantén pulsado y arrastra un botón para moverlo.';
+      'Mantén pulsado un botón y arrástralo a otra posición.';
 
   @override
   String get manageRemote => 'Gestionar mando';
 
   @override
-  String get remoteNoButtons => 'No hay botones en este mando';
+  String get remoteNoButtons => 'Aún no hay botones';
 
   @override
   String get remoteNoButtonsDescription =>
-      'Usa \"Editar mando\" para añadir o configurar botones.';
+      'Edita este mando para añadir o configurar botones.';
 
   @override
   String get editRemote => 'Editar mando';

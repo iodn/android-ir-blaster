@@ -1694,17 +1694,6 @@ class RemoteViewState extends State<RemoteView> {
               }
               setState(() => _reorderMode = !_reorderMode);
               Haptics.selectionClick();
-              if (_reorderMode && mounted) {
-                ScaffoldMessenger.of(context).hideCurrentSnackBar();
-                ScaffoldMessenger.of(context).showSnackBar(
-                  SnackBar(
-                    content: Text(
-                      context.l10n.remoteReorderHint,
-                    ),
-                    duration: Duration(seconds: 2),
-                  ),
-                );
-              }
             },
             icon: Icon(_reorderMode
                 ? Icons.check_rounded
@@ -2461,26 +2450,34 @@ class _ReorderHintBanner extends StatelessWidget {
       color: cs.secondaryContainer.withValues(alpha: 0.55),
       child: Padding(
         padding: const EdgeInsets.fromLTRB(16, 10, 12, 10),
-        child: Row(
+        child: Column(
+          mainAxisSize: MainAxisSize.min,
           children: [
-            Icon(
-              Icons.drag_indicator_rounded,
-              color: cs.onSecondaryContainer.withValues(alpha: 0.9),
-            ),
-            const SizedBox(width: 10),
-            Expanded(
-              child: Text(
-                context.l10n.remoteReorderHint,
-                style: theme.textTheme.bodyMedium?.copyWith(
-                  fontWeight: FontWeight.w700,
-                  color: cs.onSecondaryContainer.withValues(alpha: 0.92),
+            Row(
+              children: [
+                Icon(
+                  Icons.drag_indicator_rounded,
+                  color: cs.onSecondaryContainer.withValues(alpha: 0.9),
                 ),
-              ),
+                const SizedBox(width: 10),
+                Expanded(
+                  child: Text(
+                    context.l10n.remoteReorderHint,
+                    style: theme.textTheme.bodyMedium?.copyWith(
+                      fontWeight: FontWeight.w700,
+                      color: cs.onSecondaryContainer.withValues(alpha: 0.92),
+                    ),
+                  ),
+                ),
+              ],
             ),
-            const SizedBox(width: 8),
-            FilledButton.tonal(
-              onPressed: onDone,
-              child: Text(context.l10n.done),
+            const SizedBox(height: 8),
+            Align(
+              alignment: AlignmentDirectional.centerEnd,
+              child: FilledButton.tonal(
+                onPressed: onDone,
+                child: Text(context.l10n.done),
+              ),
             ),
           ],
         ),

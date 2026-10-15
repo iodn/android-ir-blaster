@@ -1430,11 +1430,10 @@ class AppLocalizationsDe extends AppLocalizations {
 
   @override
   String get remoteOrientationFlippedTooltip =>
-      'Ausrichtung: gedreht tippen für normal';
+      'Ursprüngliche Ausrichtung wiederherstellen';
 
   @override
-  String get remoteOrientationNormalTooltip =>
-      'Ausrichtung: normal tippen für drehen';
+  String get remoteOrientationNormalTooltip => 'Fernbedienung um 180° drehen';
 
   @override
   String get stopLoop => 'Schleife stoppen';
@@ -1444,17 +1443,17 @@ class AppLocalizationsDe extends AppLocalizations {
 
   @override
   String get remoteReorderHint =>
-      'Sortiermodus: Taste lange drücken und ziehen, um sie zu verschieben.';
+      'Halte eine Taste gedrückt und ziehe sie an die gewünschte Stelle.';
 
   @override
   String get manageRemote => 'Fernbedienung verwalten';
 
   @override
-  String get remoteNoButtons => 'Keine Tasten in dieser Fernbedienung';
+  String get remoteNoButtons => 'Noch keine Tasten';
 
   @override
   String get remoteNoButtonsDescription =>
-      'Verwende Fernbedienung bearbeiten, um Tasten hinzuzufügen oder zu konfigurieren.';
+      'Bearbeite diese Fernbedienung, um Tasten hinzuzufügen oder einzurichten.';
 
   @override
   String get editRemote => 'Fernbedienung bearbeiten';

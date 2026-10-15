@@ -1403,12 +1403,10 @@ class AppLocalizationsAr extends AppLocalizations {
   }
 
   @override
-  String get remoteOrientationFlippedTooltip =>
-      'Orientation: flipped (tap إلى normal)';
+  String get remoteOrientationFlippedTooltip => 'إعادة الاتجاه الأصلي';
 
   @override
-  String get remoteOrientationNormalTooltip =>
-      'Orientation: normal (tap إلى flip)';
+  String get remoteOrientationNormalTooltip => 'تدوير جهاز التحكم 180°';
 
   @override
   String get stopLoop => 'إيقاف loop';
@@ -1417,18 +1415,17 @@ class AppLocalizationsAr extends AppLocalizations {
   String get reorderButtons => 'Reorder أزرار';
 
   @override
-  String get remoteReorderHint =>
-      'وضع إعادة الترتيب: اضغط مطولاً واسحب الزر لتحريكه.';
+  String get remoteReorderHint => 'اضغط مطولًا على زر واسحبه لتغيير موضعه.';
 
   @override
   String get manageRemote => 'إدارة جهاز التحكم';
 
   @override
-  String get remoteNoButtons => 'لا توجد أزرار في جهاز التحكم هذا';
+  String get remoteNoButtons => 'لا توجد أزرار بعد';
 
   @override
   String get remoteNoButtonsDescription =>
-      'استخدم تعديل جهاز التحكم لإضافة الأزرار أو ضبطها.';
+      'عدّل جهاز التحكم لإضافة الأزرار أو إعدادها.';
 
   @override
   String get editRemote => 'تعديل جهاز التحكم';
@@ -6662,12 +6659,10 @@ class AppLocalizationsArEg extends AppLocalizationsAr {
   }
 
   @override
-  String get remoteOrientationFlippedTooltip =>
-      'Orientation: flipped (tap إلى normal)';
+  String get remoteOrientationFlippedTooltip => 'إعادة الاتجاه الأصلي';
 
   @override
-  String get remoteOrientationNormalTooltip =>
-      'Orientation: normal (tap إلى flip)';
+  String get remoteOrientationNormalTooltip => 'تدوير جهاز التحكم 180°';
 
   @override
   String get stopLoop => 'إيقاف loop';
@@ -6676,18 +6671,17 @@ class AppLocalizationsArEg extends AppLocalizationsAr {
   String get reorderButtons => 'Reorder أزرار';
 
   @override
-  String get remoteReorderHint =>
-      'وضع إعادة الترتيب: اضغط مطولاً واسحب الزر لتحريكه.';
+  String get remoteReorderHint => 'اضغط مطولًا على زر واسحبه لتغيير موضعه.';
 
   @override
   String get manageRemote => 'إدارة جهاز التحكم';
 
   @override
-  String get remoteNoButtons => 'لا توجد أزرار في جهاز التحكم هذا';
+  String get remoteNoButtons => 'لا توجد أزرار بعد';
 
   @override
   String get remoteNoButtonsDescription =>
-      'استخدم تعديل جهاز التحكم لإضافة الأزرار أو ضبطها.';
+      'عدّل جهاز التحكم لإضافة الأزرار أو إعدادها.';
 
   @override
   String get editRemote => 'تعديل جهاز التحكم';

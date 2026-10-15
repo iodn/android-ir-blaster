@@ -1399,10 +1399,10 @@ class AppLocalizationsTr extends AppLocalizations {
   }
 
   @override
-  String get remoteOrientationFlippedTooltip => 'Yön: ters (dokun to normal)';
+  String get remoteOrientationFlippedTooltip => 'Önceki yöne döndür';
 
   @override
-  String get remoteOrientationNormalTooltip => 'Yön: normal (dokun to flip)';
+  String get remoteOrientationNormalTooltip => 'Kumandayı 180° döndür';
 
   @override
   String get stopLoop => 'Durdur döngü';
@@ -1412,17 +1412,17 @@ class AppLocalizationsTr extends AppLocalizations {
 
   @override
   String get remoteReorderHint =>
-      'Yeniden sıralama modu: taşımak için bir düğmeye uzun basıp sürükleyin.';
+      'Bir düğmeyi basılı tutup yeni konumuna sürükleyin.';
 
   @override
-  String get manageRemote => 'Manage kumanda';
+  String get manageRemote => 'Kumandayı yönet';
 
   @override
-  String get remoteNoButtons => 'Bu kumandada düğme yok';
+  String get remoteNoButtons => 'Henüz düğme yok';
 
   @override
   String get remoteNoButtonsDescription =>
-      'Düğme eklemek veya yapılandırmak için \"Kumandayı Düzenle\"yi kullanın.';
+      'Düğme eklemek veya ayarlamak için bu kumandayı düzenleyin.';
 
   @override
   String get editRemote => 'Düzenle kumanda';

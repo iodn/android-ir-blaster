@@ -1410,12 +1410,10 @@ class AppLocalizationsFil extends AppLocalizations {
   }
 
   @override
-  String get remoteOrientationFlippedTooltip =>
-      'Orientation: flipped (tap to normal)';
+  String get remoteOrientationFlippedTooltip => 'Ibalik ang dating oryentasyon';
 
   @override
-  String get remoteOrientationNormalTooltip =>
-      'Orientation: normal (tap to flip)';
+  String get remoteOrientationNormalTooltip => 'Iikot ang remote nang 180°';
 
   @override
   String get stopLoop => 'Stop loop';
@@ -1425,17 +1423,17 @@ class AppLocalizationsFil extends AppLocalizations {
 
   @override
   String get remoteReorderHint =>
-      'Reorder mode: pindutin nang matagal at i-drag ang button para ilipat ito.';
+      'Pindutin nang matagal ang isang pindutan, saka i-drag ito sa bagong puwesto.';
 
   @override
-  String get manageRemote => 'Manage remote';
+  String get manageRemote => 'Pamahalaan ang remote';
 
   @override
-  String get remoteNoButtons => 'Walang button sa remote na ito';
+  String get remoteNoButtons => 'Wala pang pindutan';
 
   @override
   String get remoteNoButtonsDescription =>
-      'Gamitin ang \"I-edit remote\" para magdagdag o mag-ayos ng mga button.';
+      'I-edit ang remote na ito para magdagdag o mag-ayos ng mga pindutan.';
 
   @override
   String get editRemote => 'I-edit remote';

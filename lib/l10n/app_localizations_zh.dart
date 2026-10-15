@@ -1293,10 +1293,10 @@ class AppLocalizationsZh extends AppLocalizations {
   }
 
   @override
-  String get remoteOrientationFlippedTooltip => '方向 已翻转 点击恢复正常';
+  String get remoteOrientationFlippedTooltip => '恢复原来的方向';
 
   @override
-  String get remoteOrientationNormalTooltip => '方向 正常 点击翻转';
+  String get remoteOrientationNormalTooltip => '将遥控器旋转180°';
 
   @override
   String get stopLoop => '停止循环';
@@ -1305,16 +1305,16 @@ class AppLocalizationsZh extends AppLocalizations {
   String get reorderButtons => '重排按钮';
 
   @override
-  String get remoteReorderHint => '排序模式 长按并拖动按钮以移动。';
+  String get remoteReorderHint => '长按按钮，然后拖动到新位置。';
 
   @override
   String get manageRemote => '管理遥控器';
 
   @override
-  String get remoteNoButtons => '此遥控器中没有按钮';
+  String get remoteNoButtons => '还没有按钮';
 
   @override
-  String get remoteNoButtonsDescription => '使用 \"编辑遥控器\" 添加或配置按钮。';
+  String get remoteNoButtonsDescription => '编辑此遥控器以添加或设置按钮。';
 
   @override
   String get editRemote => '编辑遥控器';

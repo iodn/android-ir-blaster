@@ -78,6 +78,30 @@ void main() {
           await tester.pumpAndSettle();
           expect(manage.hitTestable(), findsOneWidget);
         }
+        await tester.tap(find.byTooltip(l10n.remoteOrientationNormalTooltip));
+        await tester.pumpAndSettle();
+        expect(find.byTooltip(l10n.remoteOrientationFlippedTooltip),
+            findsOneWidget);
+        await tester.tap(find.byTooltip(l10n.remoteOrientationFlippedTooltip));
+        await tester.pumpAndSettle();
+        expect(find.byTooltip(l10n.remoteOrientationNormalTooltip),
+            findsOneWidget);
+        if (count > 0) {
+          await tester.tap(find.byTooltip(l10n.reorderButtons));
+          await tester.pumpAndSettle();
+          final hints = find.text(l10n.remoteReorderHint);
+          expect(hints, findsWidgets);
+          for (final element in hints.evaluate()) {
+            final hint = element.renderObject! as RenderParagraph;
+            expect(hint.didExceedMaxLines, isFalse);
+            expect(hint.getMaxIntrinsicHeight(hint.size.width),
+                lessThanOrEqualTo(hint.size.height + 0.1));
+          }
+          final done = find.widgetWithText(FilledButton, l10n.done);
+          expect(done.hitTestable(), findsOneWidget);
+          await tester.tap(done);
+          await tester.pumpAndSettle();
+        }
         await tester.pumpWidget(const SizedBox());
         await tester.pumpAndSettle();
       });

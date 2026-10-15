@@ -1340,10 +1340,10 @@ class AppLocalizationsKo extends AppLocalizations {
   }
 
   @override
-  String get remoteOrientationFlippedTooltip => '방향: 뒤집힘(탭하여 정상)';
+  String get remoteOrientationFlippedTooltip => '원래 방향으로 되돌리기';
 
   @override
-  String get remoteOrientationNormalTooltip => '방향: 정상(탭하여 뒤집기)';
+  String get remoteOrientationNormalTooltip => '리모컨 180° 회전';
 
   @override
   String get stopLoop => '반복 중지';
@@ -1352,16 +1352,16 @@ class AppLocalizationsKo extends AppLocalizations {
   String get reorderButtons => '버튼 순서 변경';
 
   @override
-  String get remoteReorderHint => '순서 변경 모드: 버튼을 길게 누르고 드래그해 이동하세요.';
+  String get remoteReorderHint => '버튼을 길게 누른 채 원하는 위치로 끌어다 놓으세요.';
 
   @override
   String get manageRemote => '리모컨 관리';
 
   @override
-  String get remoteNoButtons => '리모컨에 버튼이 없습니다';
+  String get remoteNoButtons => '아직 버튼이 없습니다';
 
   @override
-  String get remoteNoButtonsDescription => '\"리모컨 편집\"을 사용해 버튼을 추가하거나 설정하세요.';
+  String get remoteNoButtonsDescription => '이 리모컨을 편집하여 버튼을 추가하거나 설정하세요.';
 
   @override
   String get editRemote => '리모컨 편집';

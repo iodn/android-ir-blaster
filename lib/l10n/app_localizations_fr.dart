@@ -1423,11 +1423,10 @@ class AppLocalizationsFr extends AppLocalizations {
 
   @override
   String get remoteOrientationFlippedTooltip =>
-      'Orientation : inversée (toucher pour normal)';
+      'Rétablir l’orientation initiale';
 
   @override
-  String get remoteOrientationNormalTooltip =>
-      'Orientation : normale (toucher pour inverser)';
+  String get remoteOrientationNormalTooltip => 'Tourner la télécommande à 180°';
 
   @override
   String get stopLoop => 'Arrêter la boucle';
@@ -1437,17 +1436,17 @@ class AppLocalizationsFr extends AppLocalizations {
 
   @override
   String get remoteReorderHint =>
-      'Mode réorganisation : appui long puis glisser un bouton pour le déplacer.';
+      'Maintenez un bouton appuyé, puis faites-le glisser à l’endroit souhaité.';
 
   @override
   String get manageRemote => 'Gérer la télécommande';
 
   @override
-  String get remoteNoButtons => 'Aucun bouton dans cette télécommande';
+  String get remoteNoButtons => 'Aucun bouton pour le moment';
 
   @override
   String get remoteNoButtonsDescription =>
-      'Utilisez \"Modifier la télécommande\" pour ajouter ou configurer des boutons.';
+      'Modifiez cette télécommande pour ajouter ou configurer des boutons.';
 
   @override
   String get editRemote => 'Modifier la télécommande';

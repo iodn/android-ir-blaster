@@ -2553,13 +2553,13 @@ abstract class AppLocalizations {
   /// No description provided for @remoteOrientationFlippedTooltip.
   ///
   /// In en, this message translates to:
-  /// **'Orientation: flipped (tap to normal)'**
+  /// **'Restore original orientation'**
   String get remoteOrientationFlippedTooltip;
 
   /// No description provided for @remoteOrientationNormalTooltip.
   ///
   /// In en, this message translates to:
-  /// **'Orientation: normal (tap to flip)'**
+  /// **'Rotate remote 180°'**
   String get remoteOrientationNormalTooltip;
 
   /// No description provided for @stopLoop.
@@ -2577,7 +2577,7 @@ abstract class AppLocalizations {
   /// No description provided for @remoteReorderHint.
   ///
   /// In en, this message translates to:
-  /// **'Reorder mode: long-press and drag a button to move it.'**
+  /// **'Touch and hold a button, then drag it to a new position.'**
   String get remoteReorderHint;
 
   /// No description provided for @manageRemote.
@@ -2589,13 +2589,13 @@ abstract class AppLocalizations {
   /// No description provided for @remoteNoButtons.
   ///
   /// In en, this message translates to:
-  /// **'No buttons in this remote'**
+  /// **'No buttons yet'**
   String get remoteNoButtons;
 
   /// No description provided for @remoteNoButtonsDescription.
   ///
   /// In en, this message translates to:
-  /// **'Use \"Edit remote\" to add or configure buttons.'**
+  /// **'Edit this remote to add or configure buttons.'**
   String get remoteNoButtonsDescription;
 
   /// No description provided for @editRemote.

@@ -1388,12 +1388,10 @@ class AppLocalizationsTh extends AppLocalizations {
   }
 
   @override
-  String get remoteOrientationFlippedTooltip =>
-      'การวางแนว: กลับด้าน แตะเพื่อกลับปกติ';
+  String get remoteOrientationFlippedTooltip => 'กลับสู่แนวเดิม';
 
   @override
-  String get remoteOrientationNormalTooltip =>
-      'การวางแนว: ปกติ แตะเพื่อกลับด้าน';
+  String get remoteOrientationNormalTooltip => 'หมุนรีโมต 180°';
 
   @override
   String get stopLoop => 'หยุด loop';
@@ -1402,17 +1400,17 @@ class AppLocalizationsTh extends AppLocalizations {
   String get reorderButtons => 'จัดลำดับปุ่ม';
 
   @override
-  String get remoteReorderHint => 'โหมดจัดลำดับ: กดค้างและลากปุ่มเพื่อย้าย';
+  String get remoteReorderHint => 'กดปุ่มค้างไว้ แล้วลากไปยังตำแหน่งใหม่';
 
   @override
   String get manageRemote => 'จัดการรีโมต';
 
   @override
-  String get remoteNoButtons => 'ไม่มีปุ่มในรีโมตนี้';
+  String get remoteNoButtons => 'ยังไม่มีปุ่ม';
 
   @override
   String get remoteNoButtonsDescription =>
-      'ใช้ แก้ไขรีโมต เพื่อเพิ่มหรือตั้งค่าปุ่ม';
+      'แก้ไขรีโมตนี้เพื่อเพิ่มหรือตั้งค่าปุ่ม';
 
   @override
   String get editRemote => 'แก้ไข remote';

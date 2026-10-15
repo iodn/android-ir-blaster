@@ -1331,10 +1331,10 @@ class AppLocalizationsJa extends AppLocalizations {
   }
 
   @override
-  String get remoteOrientationFlippedTooltip => '向き 反転中 タップで通常';
+  String get remoteOrientationFlippedTooltip => '元の向きに戻す';
 
   @override
-  String get remoteOrientationNormalTooltip => '向き 通常 タップで反転';
+  String get remoteOrientationNormalTooltip => 'リモコンを180°回転';
 
   @override
   String get stopLoop => 'ループ停止';
@@ -1343,16 +1343,16 @@ class AppLocalizationsJa extends AppLocalizations {
   String get reorderButtons => 'ボタンを並べ替え';
 
   @override
-  String get remoteReorderHint => '並べ替えモード 長押ししてボタンをドラッグすると移動できます。';
+  String get remoteReorderHint => 'ボタンを長押しし、そのまま移動先へドラッグしてください。';
 
   @override
   String get manageRemote => 'リモコンを管理';
 
   @override
-  String get remoteNoButtons => 'このリモコンにボタンがありません';
+  String get remoteNoButtons => 'まだボタンがありません';
 
   @override
-  String get remoteNoButtonsDescription => 'ボタンの追加や設定には リモコンを編集 を使ってください。';
+  String get remoteNoButtonsDescription => 'このリモコンを編集して、ボタンを追加・設定できます。';
 
   @override
   String get editRemote => 'リモコンを編集';
