@@ -790,10 +790,11 @@ class AppLocalizationsEs extends AppLocalizations {
   String get backAction => 'Back';
 
   @override
-  String get interactionTitle => 'Interacción';
+  String get interactionTitle => 'Uso de la app';
 
   @override
-  String get interactionSubtitle => 'Respuesta táctil y diseño del mando';
+  String get interactionSubtitle =>
+      'Ajusta el inicio, la respuesta táctil y la vista de los mandos.';
 
   @override
   String get autoOpenLastRemoteTitle => 'Reabrir el último mando';
@@ -5007,7 +5008,7 @@ class AppLocalizationsEs extends AppLocalizations {
 
   @override
   String get settingsInteractionSubtitle =>
-      'Inicio, vibración, vista del mando y automatización';
+      'Inicio, vibración, vista de los mandos y automatización';
 
   @override
   String get settingsToolsTitle => 'Herramientas y accesos directos';

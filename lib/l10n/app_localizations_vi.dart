@@ -781,10 +781,11 @@ class AppLocalizationsVi extends AppLocalizations {
   String get backAction => 'Back';
 
   @override
-  String get interactionTitle => 'Tương tác';
+  String get interactionTitle => 'Hoạt động của ứng dụng';
 
   @override
-  String get interactionSubtitle => 'Phản hồi chạm và bố cục điều khiển';
+  String get interactionSubtitle =>
+      'Điều chỉnh cách khởi động, phản hồi khi chạm và hiển thị điều khiển.';
 
   @override
   String get autoOpenLastRemoteTitle => 'Mở lại điều khiển gần nhất';

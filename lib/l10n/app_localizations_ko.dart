@@ -757,10 +757,10 @@ class AppLocalizationsKo extends AppLocalizations {
   String get backAction => 'Back';
 
   @override
-  String get interactionTitle => '상호작용';
+  String get interactionTitle => '앱 동작';
 
   @override
-  String get interactionSubtitle => '터치 피드백과 리모컨 레이아웃';
+  String get interactionSubtitle => '시작 동작, 진동, 리모컨 표시 방식을 설정하세요.';
 
   @override
   String get autoOpenLastRemoteTitle => '최근 리모컨 다시 열기';
@@ -4817,7 +4817,7 @@ class AppLocalizationsKo extends AppLocalizations {
   String get settingsAppearanceSubtitle => '테마, 색상 및 앱 언어';
 
   @override
-  String get settingsInteractionSubtitle => '시작 동작, 진동, 리모컨 표시 및 자동화';
+  String get settingsInteractionSubtitle => '시작 동작, 진동, 리모컨 표시, 자동화';
 
   @override
   String get settingsToolsTitle => '도구 및 바로가기';

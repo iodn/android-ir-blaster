@@ -777,10 +777,11 @@ class AppLocalizationsAr extends AppLocalizations {
   String get backAction => 'Back';
 
   @override
-  String get interactionTitle => 'Interaction';
+  String get interactionTitle => 'سلوك التطبيق';
 
   @override
-  String get interactionSubtitle => 'استجابة اللمس وتخطيط جهاز التحكم';
+  String get interactionSubtitle =>
+      'اضبط بدء التطبيق واستجابته وعرض أجهزة التحكم.';
 
   @override
   String get autoOpenLastRemoteTitle => 'إعادة فتح آخر جهاز تحكم';
@@ -4961,7 +4962,7 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String get settingsInteractionSubtitle =>
-      'بدء التشغيل والاهتزاز وعرض جهاز التحكم والأتمتة';
+      'بدء التطبيق والاهتزاز وعرض أجهزة التحكم والأتمتة';
 
   @override
   String get settingsToolsTitle => 'الأدوات والاختصارات';
@@ -6051,10 +6052,11 @@ class AppLocalizationsArEg extends AppLocalizationsAr {
   String get backAction => 'Back';
 
   @override
-  String get interactionTitle => 'Interaction';
+  String get interactionTitle => 'سلوك التطبيق';
 
   @override
-  String get interactionSubtitle => 'استجابة اللمس وتخطيط جهاز التحكم';
+  String get interactionSubtitle =>
+      'اضبط فتح التطبيق واستجابته وعرض أجهزة التحكم.';
 
   @override
   String get autoOpenLastRemoteTitle => 'فتح آخر جهاز تحكم تاني';
@@ -10236,7 +10238,7 @@ class AppLocalizationsArEg extends AppLocalizationsAr {
 
   @override
   String get settingsInteractionSubtitle =>
-      'بدء التشغيل والاهتزاز وعرض جهاز التحكم والأتمتة';
+      'فتح التطبيق والاهتزاز وعرض أجهزة التحكم والأتمتة';
 
   @override
   String get settingsToolsTitle => 'الأدوات والاختصارات';

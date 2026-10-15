@@ -785,10 +785,11 @@ class AppLocalizationsHi extends AppLocalizations {
   String get backAction => 'Back';
 
   @override
-  String get interactionTitle => 'इंटरैक्शन';
+  String get interactionTitle => 'ऐप का व्यवहार';
 
   @override
-  String get interactionSubtitle => 'स्पर्श प्रतिक्रिया और रिमोट लेआउट';
+  String get interactionSubtitle =>
+      'ऐप खुलने का तरीका, कंपन और रिमोट का दिखना तय करें।';
 
   @override
   String get autoOpenLastRemoteTitle => 'पिछला रिमोट फिर खोलें';
@@ -4933,7 +4934,7 @@ class AppLocalizationsHi extends AppLocalizations {
 
   @override
   String get settingsInteractionSubtitle =>
-      'स्टार्टअप, कंपन, रिमोट डिस्प्ले और ऑटोमेशन';
+      'ऐप की शुरुआत, कंपन, रिमोट का दिखना और ऑटोमेशन';
 
   @override
   String get settingsToolsTitle => 'टूल और शॉर्टकट';

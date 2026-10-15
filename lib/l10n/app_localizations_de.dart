@@ -791,11 +791,11 @@ class AppLocalizationsDe extends AppLocalizations {
   String get backAction => 'Back';
 
   @override
-  String get interactionTitle => 'Interaktion';
+  String get interactionTitle => 'Bedienung';
 
   @override
   String get interactionSubtitle =>
-      'Berührungsfeedback und Fernbedienungslayout';
+      'Passe Startverhalten, Rückmeldungen und Fernbedienungsansicht an.';
 
   @override
   String get autoOpenLastRemoteTitle => 'Letzte Fernbedienung öffnen';
@@ -5016,7 +5016,7 @@ class AppLocalizationsDe extends AppLocalizations {
 
   @override
   String get settingsInteractionSubtitle =>
-      'Startverhalten, Vibration, Fernbedienungsansicht und Automatisierung';
+      'App-Start, Vibration, Fernbedienungsansicht und Automatisierung';
 
   @override
   String get settingsToolsTitle => 'Werkzeuge und Verknüpfungen';

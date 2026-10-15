@@ -784,10 +784,11 @@ class AppLocalizationsId extends AppLocalizations {
   String get backAction => 'Back';
 
   @override
-  String get interactionTitle => 'Interaksi';
+  String get interactionTitle => 'Perilaku aplikasi';
 
   @override
-  String get interactionSubtitle => 'Umpan balik sentuh dan tata letak remote';
+  String get interactionSubtitle =>
+      'Atur pembukaan aplikasi, respons sentuhan, dan tampilan remote.';
 
   @override
   String get autoOpenLastRemoteTitle => 'Buka kembali remote terakhir';
@@ -4943,7 +4944,7 @@ class AppLocalizationsId extends AppLocalizations {
 
   @override
   String get settingsInteractionSubtitle =>
-      'Saat memulai, getaran, tampilan remote, dan otomatisasi';
+      'Pembukaan aplikasi, getaran, tampilan remote, dan otomatisasi';
 
   @override
   String get settingsToolsTitle => 'Alat dan pintasan';

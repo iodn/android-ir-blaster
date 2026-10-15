@@ -784,10 +784,11 @@ class AppLocalizationsRu extends AppLocalizations {
   String get backAction => 'Back';
 
   @override
-  String get interactionTitle => 'Взаимодействие';
+  String get interactionTitle => 'Поведение приложения';
 
   @override
-  String get interactionSubtitle => 'Отклик на касания и раскладка пульта';
+  String get interactionSubtitle =>
+      'Настройте запуск, отклик на касания и отображение пультов.';
 
   @override
   String get autoOpenLastRemoteTitle => 'Открывать последний пульт';
@@ -4990,7 +4991,7 @@ class AppLocalizationsRu extends AppLocalizations {
 
   @override
   String get settingsInteractionSubtitle =>
-      'Запуск, вибрация, отображение пульта и автоматизация';
+      'Запуск, вибрация, отображение пультов и автоматизация';
 
   @override
   String get settingsToolsTitle => 'Инструменты и ярлыки';

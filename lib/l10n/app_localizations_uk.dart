@@ -785,10 +785,11 @@ class AppLocalizationsUk extends AppLocalizations {
   String get backAction => 'Назад';
 
   @override
-  String get interactionTitle => 'Взаємодія';
+  String get interactionTitle => 'Поведінка застосунку';
 
   @override
-  String get interactionSubtitle => 'Тактильний відгук і компонування пульта';
+  String get interactionSubtitle =>
+      'Налаштуйте запуск, відгук на дотик і відображення пультів.';
 
   @override
   String get autoOpenLastRemoteTitle => 'Відкривати останній пульт';
@@ -5073,7 +5074,7 @@ class AppLocalizationsUk extends AppLocalizations {
 
   @override
   String get settingsInteractionSubtitle =>
-      'Запуск, вібрація, відображення пульта й автоматизація';
+      'Запуск, вібрація, відображення пультів і автоматизація';
 
   @override
   String get settingsToolsTitle => 'Інструменти та ярлики';

@@ -165,17 +165,19 @@ void main() {
       (tester) async {
     await tester.pumpWidget(settings());
     await tester.pumpAndSettle();
-    await openCategory(tester, 'Interaction');
+    final l10n =
+        AppLocalizations.of(tester.element(find.byType(SettingsScreen)))!;
+    await openCategory(tester, l10n.interactionTitle);
     final toggle = find.widgetWithText(
       SwitchListTile,
-      'Open last remote at startup',
+      l10n.autoOpenLastRemoteTitle,
     );
     expect(tester.widget<SwitchListTile>(toggle).value, isFalse);
     await tester.tap(toggle);
     await tester.pumpAndSettle();
     await tester.tap(find.byType(BackButton));
     await tester.pumpAndSettle();
-    await openCategory(tester, 'Interaction');
+    await openCategory(tester, l10n.interactionTitle);
     expect(tester.widget<SwitchListTile>(toggle).value, isTrue);
     final prefs = await SharedPreferences.getInstance();
     expect(prefs.getBool('startup_auto_open_last_remote_v1'), isTrue);

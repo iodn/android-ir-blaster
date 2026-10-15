@@ -795,11 +795,11 @@ class AppLocalizationsNl extends AppLocalizations {
   String get backAction => 'Back';
 
   @override
-  String get interactionTitle => 'Interactie';
+  String get interactionTitle => 'Bediening';
 
   @override
   String get interactionSubtitle =>
-      'Aanraakfeedback en lay-out van afstandsbediening';
+      'Stel het opstartgedrag, de aanraakfeedback en de weergave van afstandsbedieningen in.';
 
   @override
   String get autoOpenLastRemoteTitle => 'Laatste afstandsbediening openen';
@@ -5013,7 +5013,7 @@ class AppLocalizationsNl extends AppLocalizations {
 
   @override
   String get settingsInteractionSubtitle =>
-      'Opstarten, trillen, afstandsbedieningsweergave en automatisering';
+      'Opstarten, trillen, afstandsbedieningen en automatisering';
 
   @override
   String get settingsToolsTitle => 'Hulpmiddelen en snelkoppelingen';

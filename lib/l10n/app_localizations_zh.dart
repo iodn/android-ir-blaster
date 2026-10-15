@@ -725,10 +725,10 @@ class AppLocalizationsZh extends AppLocalizations {
   String get backAction => 'Back';
 
   @override
-  String get interactionTitle => '交互';
+  String get interactionTitle => '应用行为';
 
   @override
-  String get interactionSubtitle => '触控反馈与遥控器布局';
+  String get interactionSubtitle => '调整启动方式、触控反馈和遥控器显示。';
 
   @override
   String get autoOpenLastRemoteTitle => '重新打开上次的遥控器';
@@ -4733,7 +4733,7 @@ class AppLocalizationsZh extends AppLocalizations {
   String get settingsAppearanceSubtitle => '主题、颜色和应用语言';
 
   @override
-  String get settingsInteractionSubtitle => '启动、振动、遥控器显示和自动化';
+  String get settingsInteractionSubtitle => '启动、振动、遥控器显示与自动化';
 
   @override
   String get settingsToolsTitle => '工具与快捷方式';

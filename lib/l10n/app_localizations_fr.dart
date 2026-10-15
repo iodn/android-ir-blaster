@@ -792,10 +792,11 @@ class AppLocalizationsFr extends AppLocalizations {
   String get backAction => 'Back';
 
   @override
-  String get interactionTitle => 'Interaction';
+  String get interactionTitle => 'Utilisation';
 
   @override
-  String get interactionSubtitle => 'Retour tactile et disposition';
+  String get interactionSubtitle =>
+      'Réglez le démarrage, les vibrations et l’affichage des télécommandes.';
 
   @override
   String get autoOpenLastRemoteTitle => 'Rouvrir la dernière télécommande';
@@ -5019,7 +5020,7 @@ class AppLocalizationsFr extends AppLocalizations {
 
   @override
   String get settingsInteractionSubtitle =>
-      'Démarrage, vibrations, affichage des télécommandes et automatisation';
+      'Démarrage, vibrations, affichage et automatisation';
 
   @override
   String get settingsToolsTitle => 'Outils et raccourcis';

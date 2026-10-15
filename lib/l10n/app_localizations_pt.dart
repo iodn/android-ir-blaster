@@ -789,10 +789,11 @@ class AppLocalizationsPt extends AppLocalizations {
   String get backAction => 'Back';
 
   @override
-  String get interactionTitle => 'Interacción';
+  String get interactionTitle => 'Comportamento da app';
 
   @override
-  String get interactionSubtitle => 'Resposta tátil e disposição do comando';
+  String get interactionSubtitle =>
+      'Ajuste o arranque, a resposta tátil e a apresentação dos comandos.';
 
   @override
   String get autoOpenLastRemoteTitle => 'Reabrir o último comando';
@@ -5010,7 +5011,7 @@ class AppLocalizationsPt extends AppLocalizations {
 
   @override
   String get settingsInteractionSubtitle =>
-      'Arranque, vibração, visualização do comando e automatização';
+      'Arranque, vibração, apresentação dos comandos e automatização';
 
   @override
   String get settingsToolsTitle => 'Ferramentas e atalhos';
@@ -6114,10 +6115,11 @@ class AppLocalizationsPtBr extends AppLocalizationsPt {
   String get backAction => 'Back';
 
   @override
-  String get interactionTitle => 'Interacción';
+  String get interactionTitle => 'Comportamento do app';
 
   @override
-  String get interactionSubtitle => 'Resposta tátil e layout do controle';
+  String get interactionSubtitle =>
+      'Ajuste a inicialização, a resposta ao toque e a exibição dos controles.';
 
   @override
   String get autoOpenLastRemoteTitle => 'Reabrir o último controle';
@@ -10332,7 +10334,7 @@ class AppLocalizationsPtBr extends AppLocalizationsPt {
 
   @override
   String get settingsInteractionSubtitle =>
-      'Inicialização, vibração, exibição do controle e automação';
+      'Inicialização, vibração, exibição dos controles e automação';
 
   @override
   String get settingsToolsTitle => 'Ferramentas e atalhos';

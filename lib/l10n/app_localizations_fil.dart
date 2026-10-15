@@ -787,10 +787,11 @@ class AppLocalizationsFil extends AppLocalizations {
   String get backAction => 'Back';
 
   @override
-  String get interactionTitle => 'Interaction';
+  String get interactionTitle => 'Paggamit ng app';
 
   @override
-  String get interactionSubtitle => 'Touch feedback at remote layout';
+  String get interactionSubtitle =>
+      'Ayusin ang pagbukas ng app, pag-vibrate at hitsura ng mga remote.';
 
   @override
   String get autoOpenLastRemoteTitle => 'Buksan muli ang huling remote';
@@ -4960,7 +4961,7 @@ class AppLocalizationsFil extends AppLocalizations {
 
   @override
   String get settingsInteractionSubtitle =>
-      'Pagsisimula, pag-vibrate, pagpapakita ng remote at automation';
+      'Pagbukas ng app, pag-vibrate, hitsura ng remote at automation';
 
   @override
   String get settingsToolsTitle => 'Mga tool at shortcut';

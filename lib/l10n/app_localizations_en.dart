@@ -780,10 +780,11 @@ class AppLocalizationsEn extends AppLocalizations {
   String get backAction => 'Back';
 
   @override
-  String get interactionTitle => 'Interaction';
+  String get interactionTitle => 'App behavior';
 
   @override
-  String get interactionSubtitle => 'Touch feedback and remote layout';
+  String get interactionSubtitle =>
+      'Adjust startup, feedback and how remotes are displayed.';
 
   @override
   String get autoOpenLastRemoteTitle => 'Reopen last remote';

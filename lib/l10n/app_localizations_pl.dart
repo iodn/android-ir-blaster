@@ -786,10 +786,11 @@ class AppLocalizationsPl extends AppLocalizations {
   String get backAction => 'Back';
 
   @override
-  String get interactionTitle => 'Interakcja';
+  String get interactionTitle => 'Działanie aplikacji';
 
   @override
-  String get interactionSubtitle => 'Informacja dotykowa i układ pilota';
+  String get interactionSubtitle =>
+      'Dostosuj uruchamianie, reakcję na dotyk i wygląd pilotów.';
 
   @override
   String get autoOpenLastRemoteTitle => 'Otwieraj ostatni pilot';
@@ -5057,7 +5058,7 @@ class AppLocalizationsPl extends AppLocalizations {
 
   @override
   String get settingsInteractionSubtitle =>
-      'Uruchamianie, wibracje, widok pilota i automatyzacja';
+      'Uruchamianie, wibracje, wygląd pilotów i automatyzacja';
 
   @override
   String get settingsToolsTitle => 'Narzędzia i skróty';

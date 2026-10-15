@@ -577,25 +577,50 @@ class SettingsScreen extends StatelessWidget {
         onTap: () => Navigator.of(context).push(
           MaterialPageRoute<void>(
             builder: pageBuilder ??
-                (ctx) => Scaffold(
-                      appBar: AppBar(title: Text(title(ctx.l10n))),
-                      body: SafeArea(
-                        child: Center(
-                          child: ConstrainedBox(
-                            constraints: const BoxConstraints(maxWidth: 760),
-                            child: ListView(
-                              padding: const EdgeInsets.symmetric(vertical: 12),
-                              children: [
-                                for (final section in sections!(ctx)) ...[
-                                  section,
-                                  const SizedBox(height: 10),
-                                ],
+                (ctx) {
+                  final label = title(ctx.l10n);
+                  final theme = Theme.of(ctx);
+                  final style = theme.appBarTheme.titleTextStyle ??
+                      theme.textTheme.titleLarge!;
+                  final media = MediaQuery.of(ctx);
+                  final spacing = theme.appBarTheme.titleSpacing ?? 16.0;
+                  final painter = TextPainter(
+                    text: TextSpan(text: label, style: style),
+                    textDirection: Directionality.of(ctx),
+                    textScaler: media.textScaler,
+                  )..layout(
+                      maxWidth: (media.size.width -
+                              media.padding.horizontal -
+                              56 -
+                              spacing * 2)
+                          .clamp(1.0, double.infinity));
+                  final height = (painter.height + 16)
+                      .clamp(kToolbarHeight, double.infinity);
+                  final lines = painter.computeLineMetrics().length;
+                  painter.dispose();
+                  return Scaffold(
+                    appBar: AppBar(
+                      toolbarHeight: height,
+                      title: Text(label, style: style, maxLines: lines),
+                    ),
+                    body: SafeArea(
+                      child: Center(
+                        child: ConstrainedBox(
+                          constraints: const BoxConstraints(maxWidth: 760),
+                          child: ListView(
+                            padding: const EdgeInsets.symmetric(vertical: 12),
+                            children: [
+                              for (final section in sections!(ctx)) ...[
+                                section,
+                                const SizedBox(height: 10),
                               ],
-                            ),
+                            ],
                           ),
                         ),
                       ),
                     ),
+                  );
+                },
           ),
         ),
       ),

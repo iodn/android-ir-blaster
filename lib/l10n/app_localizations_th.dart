@@ -776,10 +776,11 @@ class AppLocalizationsTh extends AppLocalizations {
   String get backAction => 'Back';
 
   @override
-  String get interactionTitle => 'การโต้ตอบ';
+  String get interactionTitle => 'การทำงานของแอป';
 
   @override
-  String get interactionSubtitle => 'การตอบสนองเมื่อแตะและเลย์เอาต์รีโมต';
+  String get interactionSubtitle =>
+      'ปรับการเริ่มแอป การสั่นตอบสนอง และการแสดงรีโมต';
 
   @override
   String get autoOpenLastRemoteTitle => 'เปิดรีโมตล่าสุดอีกครั้ง';
@@ -4908,7 +4909,7 @@ class AppLocalizationsTh extends AppLocalizations {
 
   @override
   String get settingsInteractionSubtitle =>
-      'การเริ่มต้น การสั่น การแสดงรีโมต และระบบอัตโนมัติ';
+      'การเริ่มแอป การสั่น การแสดงรีโมต และระบบอัตโนมัติ';
 
   @override
   String get settingsToolsTitle => 'เครื่องมือและทางลัด';

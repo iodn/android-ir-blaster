@@ -1497,13 +1497,13 @@ abstract class AppLocalizations {
   /// No description provided for @interactionTitle.
   ///
   /// In en, this message translates to:
-  /// **'Interaction'**
+  /// **'App behavior'**
   String get interactionTitle;
 
   /// No description provided for @interactionSubtitle.
   ///
   /// In en, this message translates to:
-  /// **'Touch feedback and remote layout'**
+  /// **'Adjust startup, feedback and how remotes are displayed.'**
   String get interactionSubtitle;
 
   /// No description provided for @autoOpenLastRemoteTitle.

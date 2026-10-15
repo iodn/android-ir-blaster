@@ -54,12 +54,28 @@ void main() {
       ));
       await tester.pumpAndSettle();
       final l10n = await AppLocalizations.delegate.load(locale);
+      void expectReadable(Finder text) {
+        final paragraph = tester.renderObject<RenderParagraph>(text);
+        expect(paragraph.didExceedMaxLines, isFalse);
+        expect(paragraph.getMaxIntrinsicHeight(paragraph.size.width),
+            lessThanOrEqualTo(paragraph.size.height + 0.1));
+      }
+
       await tester.scrollUntilVisible(find.text(l10n.interactionTitle), 150);
       await tester.pumpAndSettle();
+      expectReadable(find.text(l10n.interactionTitle));
+      expectReadable(find.text(l10n.settingsInteractionSubtitle));
       await tester.ensureVisible(find.text(l10n.interactionTitle));
       await tester.pumpAndSettle();
       await tester.tap(find.text(l10n.interactionTitle));
       await tester.pumpAndSettle();
+      final heading = find.descendant(
+          of: find.byType(AppBar), matching: find.text(l10n.interactionTitle));
+      expectReadable(heading);
+      final bounds = tester.getRect(find.byType(AppBar));
+      expect(tester.getRect(heading).bottom, lessThanOrEqualTo(bounds.bottom));
+      expectReadable(find.text(l10n.interactionTitle).last);
+      expectReadable(find.text(l10n.interactionSubtitle));
       for (final value in [
         l10n.autoOpenLastRemoteTitle,
         l10n.autoOpenLastRemoteSubtitle

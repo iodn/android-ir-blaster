@@ -784,10 +784,11 @@ class AppLocalizationsMs extends AppLocalizations {
   String get backAction => 'Back';
 
   @override
-  String get interactionTitle => 'Interaksi';
+  String get interactionTitle => 'Penggunaan aplikasi';
 
   @override
-  String get interactionSubtitle => 'Umpan balik sentuh dan tata letak remote';
+  String get interactionSubtitle =>
+      'Tetapkan cara aplikasi dibuka, maklum balas sentuhan dan paparan alat kawalan jauh.';
 
   @override
   String get autoOpenLastRemoteTitle => 'Buka semula kawalan jauh terakhir';

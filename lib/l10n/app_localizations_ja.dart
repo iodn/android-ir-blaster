@@ -751,10 +751,10 @@ class AppLocalizationsJa extends AppLocalizations {
   String get backAction => 'Back';
 
   @override
-  String get interactionTitle => '操作';
+  String get interactionTitle => '動作と操作';
 
   @override
-  String get interactionSubtitle => '触覚フィードバックとレイアウト';
+  String get interactionSubtitle => '起動時の動作、振動、リモコンの表示を設定します。';
 
   @override
   String get autoOpenLastRemoteTitle => '前回のリモコンを開く';
@@ -4801,7 +4801,7 @@ class AppLocalizationsJa extends AppLocalizations {
   String get settingsAppearanceSubtitle => 'テーマ、色、アプリの言語';
 
   @override
-  String get settingsInteractionSubtitle => '起動、振動、リモコン表示、自動化';
+  String get settingsInteractionSubtitle => '起動時の動作、振動、リモコン表示、自動化';
 
   @override
   String get settingsToolsTitle => 'ツールとショートカット';

@@ -794,10 +794,11 @@ class AppLocalizationsIt extends AppLocalizations {
   String get backAction => 'Back';
 
   @override
-  String get interactionTitle => 'Interazione';
+  String get interactionTitle => 'Comportamento dell’app';
 
   @override
-  String get interactionSubtitle => 'Feedback tocco e layout telecomando';
+  String get interactionSubtitle =>
+      'Regola l’avvio, la risposta al tocco e la visualizzazione dei telecomandi.';
 
   @override
   String get autoOpenLastRemoteTitle => 'Riapri l’ultimo telecomando';
@@ -5005,7 +5006,7 @@ class AppLocalizationsIt extends AppLocalizations {
 
   @override
   String get settingsInteractionSubtitle =>
-      'Avvio, vibrazione, visualizzazione del telecomando e automazione';
+      'Avvio, vibrazione, vista dei telecomandi e automazione';
 
   @override
   String get settingsToolsTitle => 'Strumenti e scorciatoie';

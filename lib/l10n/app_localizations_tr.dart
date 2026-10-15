@@ -786,10 +786,11 @@ class AppLocalizationsTr extends AppLocalizations {
   String get backAction => 'Back';
 
   @override
-  String get interactionTitle => 'Interaction';
+  String get interactionTitle => 'Uygulama davranışı';
 
   @override
-  String get interactionSubtitle => 'Dokunma geri bildirimi ve kumanda düzeni';
+  String get interactionSubtitle =>
+      'Başlangıcı, dokunma geri bildirimini ve kumanda görünümünü ayarlayın.';
 
   @override
   String get autoOpenLastRemoteTitle => 'Son kumandayı yeniden aç';
