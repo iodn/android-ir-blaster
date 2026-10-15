@@ -843,7 +843,7 @@
   },
   "clearAction": "ล้าง",
   "saveAction": "บันทึก",
-  "buttonsTitleCount": "ปุ่ม {count}",
+  "buttonsTitleCount": "ปุ่ม ({count})",
   "@buttonsTitleCount": {
     "placeholders": {
       "count": {

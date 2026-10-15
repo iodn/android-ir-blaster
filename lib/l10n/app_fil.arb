@@ -412,7 +412,7 @@
   "deleteMacroTitle": "I-delete ang macro?",
   "deleteMacroMessage": "Pagka-delete, i-tap ang Ibalik sa mensaheng lalabas para maibalik ang macro.",
   "noRemotesAvailable": "Walang available na remote.",
-  "remoteButtonCountSummary": "{count} button(s)",
+  "remoteButtonCountSummary": "{count} pindutan",
   "@remoteButtonCountSummary": {
     "placeholders": {
       "count": {
@@ -843,7 +843,7 @@
   },
   "clearAction": "I-clear",
   "saveAction": "I-save",
-  "buttonsTitleCount": "Buttons ({count})",
+  "buttonsTitleCount": "Mga pindutan ({count})",
   "@buttonsTitleCount": {
     "placeholders": {
       "count": {

@@ -417,7 +417,7 @@
   "deleteMacroTitle": "Supprimer la macro ?",
   "deleteMacroMessage": "Après la suppression, appuyez sur Annuler dans le message qui s’affiche pour restaurer la macro.",
   "noRemotesAvailable": "Aucune télécommande disponible.",
-  "remoteButtonCountSummary": "{count} bouton(s)",
+  "remoteButtonCountSummary": "{count, plural, one{{count} bouton} other{{count} boutons}}",
   "@remoteButtonCountSummary": {
     "placeholders": {
       "count": {

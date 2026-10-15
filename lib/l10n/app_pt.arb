@@ -412,7 +412,7 @@
   "deleteMacroTitle": "Eliminar macro?",
   "deleteMacroMessage": "Depois de eliminar, toque em Anular na mensagem apresentada para restaurar a macro.",
   "noRemotesAvailable": "Ainda não há comandos disponíveis.",
-  "remoteButtonCountSummary": "{count} botão(es)",
+  "remoteButtonCountSummary": "{count, plural, one{{count} botão} other{{count} botões}}",
   "@remoteButtonCountSummary": {
     "placeholders": {
       "count": {

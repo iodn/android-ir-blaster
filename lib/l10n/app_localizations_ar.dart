@@ -1389,7 +1389,17 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String remoteButtonCountSummary(int count) {
-    return '$count زر';
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: '$count زر',
+      many: '$count زرًا',
+      few: '$count أزرار',
+      two: 'زران',
+      one: 'زر واحد',
+      zero: 'لا أزرار',
+    );
+    return '$_temp0';
   }
 
   @override
@@ -2164,7 +2174,7 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String buttonsTitleCount(int count) {
-    return 'أزرار ($count)';
+    return 'الأزرار ($count)';
   }
 
   @override
@@ -6638,7 +6648,17 @@ class AppLocalizationsArEg extends AppLocalizationsAr {
 
   @override
   String remoteButtonCountSummary(int count) {
-    return '$count زر';
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: '$count زر',
+      many: '$count زرًا',
+      few: '$count أزرار',
+      two: 'زران',
+      one: 'زر واحد',
+      zero: 'لا أزرار',
+    );
+    return '$_temp0';
   }
 
   @override
@@ -7413,7 +7433,7 @@ class AppLocalizationsArEg extends AppLocalizationsAr {
 
   @override
   String buttonsTitleCount(int count) {
-    return 'أزرار ($count)';
+    return 'الأزرار ($count)';
   }
 
   @override

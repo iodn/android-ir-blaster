@@ -412,7 +412,7 @@
   "deleteMacroTitle": "Padam makro?",
   "deleteMacroMessage": "Selepas dipadam, ketik Buat asal pada mesej yang muncul untuk memulihkan makro.",
   "noRemotesAvailable": "Tiada alat kawalan jauh tersedia.",
-  "remoteButtonCountSummary": "{count} butang(s)",
+  "remoteButtonCountSummary": "{count} butang",
   "@remoteButtonCountSummary": {
     "placeholders": {
       "count": {

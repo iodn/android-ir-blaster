@@ -1406,7 +1406,7 @@ class AppLocalizationsFil extends AppLocalizations {
 
   @override
   String remoteButtonCountSummary(int count) {
-    return '$count button(s)';
+    return '$count pindutan';
   }
 
   @override
@@ -2190,7 +2190,7 @@ class AppLocalizationsFil extends AppLocalizations {
 
   @override
   String buttonsTitleCount(int count) {
-    return 'Buttons ($count)';
+    return 'Mga pindutan ($count)';
   }
 
   @override

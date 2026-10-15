@@ -412,7 +412,7 @@
   "deleteMacroTitle": "Eliminare la macro?",
   "deleteMacroMessage": "Dopo l’eliminazione, tocca Annulla nel messaggio che compare per ripristinare la macro.",
   "noRemotesAvailable": "Nessun telecomando disponibile.",
-  "remoteButtonCountSummary": "{count} pulsante/i",
+  "remoteButtonCountSummary": "{count, plural, one{{count} pulsante} other{{count} pulsanti}}",
   "@remoteButtonCountSummary": {
     "placeholders": {
       "count": {

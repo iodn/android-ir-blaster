@@ -1327,7 +1327,7 @@ class AppLocalizationsJa extends AppLocalizations {
 
   @override
   String remoteButtonCountSummary(int count) {
-    return '$count個のボタン';
+    return 'ボタン$count個';
   }
 
   @override
@@ -2074,7 +2074,7 @@ class AppLocalizationsJa extends AppLocalizations {
 
   @override
   String buttonsTitleCount(int count) {
-    return 'ボタン $count';
+    return 'ボタン ($count)';
   }
 
   @override

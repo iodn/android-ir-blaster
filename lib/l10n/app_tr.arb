@@ -412,7 +412,7 @@
   "deleteMacroTitle": "Makro silinsin mi?",
   "deleteMacroMessage": "Sildikten sonra çıkan mesajda Geri al seçeneğine dokunarak makroyu geri yükleyebilirsiniz.",
   "noRemotesAvailable": "Kullanılabilir kumanda yok.",
-  "remoteButtonCountSummary": "{count} düğme(s)",
+  "remoteButtonCountSummary": "{count} düğme",
   "@remoteButtonCountSummary": {
     "placeholders": {
       "count": {

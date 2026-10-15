@@ -1414,7 +1414,13 @@ class AppLocalizationsPt extends AppLocalizations {
 
   @override
   String remoteButtonCountSummary(int count) {
-    return '$count botão(es)';
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: '$count botões',
+      one: '$count botão',
+    );
+    return '$_temp0';
   }
 
   @override
@@ -6723,7 +6729,13 @@ class AppLocalizationsPtBr extends AppLocalizationsPt {
 
   @override
   String remoteButtonCountSummary(int count) {
-    return '$count botão(es)';
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: '$count botões',
+      one: '$count botão',
+    );
+    return '$_temp0';
   }
 
   @override

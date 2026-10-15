@@ -412,7 +412,7 @@
   "deleteMacroTitle": "Удалить макрос?",
   "deleteMacroMessage": "После удаления нажмите «Отменить» в появившемся сообщении, чтобы восстановить макрос.",
   "noRemotesAvailable": "Нет доступных пультов.",
-  "remoteButtonCountSummary": "{count} кноп.",
+  "remoteButtonCountSummary": "{count, plural, one{{count} кнопка} few{{count} кнопки} many{{count} кнопок} other{{count} кнопки}}",
   "@remoteButtonCountSummary": {
     "placeholders": {
       "count": {
@@ -843,7 +843,7 @@
   },
   "clearAction": "Очистить",
   "saveAction": "Сохранить",
-  "buttonsTitleCount": "Кнопки, {count}",
+  "buttonsTitleCount": "Кнопки ({count})",
   "@buttonsTitleCount": {
     "placeholders": {
       "count": {

@@ -417,7 +417,7 @@
   "deleteMacroTitle": "¿Eliminar macro?",
   "deleteMacroMessage": "Tras eliminarla, toca Deshacer en el mensaje que aparece para restaurar la macro.",
   "noRemotesAvailable": "No hay mandos disponibles.",
-  "remoteButtonCountSummary": "{count} botón(es)",
+  "remoteButtonCountSummary": "{count, plural, one{{count} botón} other{{count} botones}}",
   "@remoteButtonCountSummary": {
     "placeholders": {
       "count": {

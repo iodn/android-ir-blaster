@@ -422,7 +422,7 @@
   "deleteMacroTitle": "Makro löschen?",
   "deleteMacroMessage": "Tippe nach dem Löschen in der angezeigten Meldung auf Rückgängig, um das Makro wiederherzustellen.",
   "noRemotesAvailable": "Keine Fernbedienungen verfügbar.",
-  "remoteButtonCountSummary": "{count} Taste(n)",
+  "remoteButtonCountSummary": "{count, plural, one{{count} Taste} other{{count} Tasten}}",
   "@remoteButtonCountSummary": {
     "placeholders": {
       "count": {
@@ -853,7 +853,7 @@
   },
   "clearAction": "Leeren",
   "saveAction": "Speichern",
-  "buttonsTitleCount": "Tasten {count}",
+  "buttonsTitleCount": "Tasten ({count})",
   "@buttonsTitleCount": {
     "placeholders": {
       "count": {

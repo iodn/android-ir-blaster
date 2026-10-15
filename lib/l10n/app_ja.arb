@@ -412,7 +412,7 @@
   "deleteMacroTitle": "マクロを削除しますか？",
   "deleteMacroMessage": "削除後に表示されるメッセージの「元に戻す」をタップすると、マクロを復元できます。",
   "noRemotesAvailable": "利用可能なリモコンがありません",
-  "remoteButtonCountSummary": "{count}個のボタン",
+  "remoteButtonCountSummary": "ボタン{count}個",
   "@remoteButtonCountSummary": {
     "placeholders": {
       "count": {
@@ -843,7 +843,7 @@
   },
   "clearAction": "クリア",
   "saveAction": "保存",
-  "buttonsTitleCount": "ボタン {count}",
+  "buttonsTitleCount": "ボタン ({count})",
   "@buttonsTitleCount": {
     "placeholders": {
       "count": {

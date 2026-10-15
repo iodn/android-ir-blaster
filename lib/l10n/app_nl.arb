@@ -412,7 +412,7 @@
   "deleteMacroTitle": "Macro verwijderen?",
   "deleteMacroMessage": "Tik na het verwijderen op Ongedaan maken in de melding om de macro te herstellen.",
   "noRemotesAvailable": "Geen afstandsbedieningen beschikbaar.",
-  "remoteButtonCountSummary": "{count} knop(s)",
+  "remoteButtonCountSummary": "{count, plural, one{{count} knop} other{{count} knoppen}}",
   "@remoteButtonCountSummary": {
     "placeholders": {
       "count": {
@@ -843,7 +843,7 @@
   },
   "clearAction": "Wissen",
   "saveAction": "Opslaan",
-  "buttonsTitleCount": "Knops ({count})",
+  "buttonsTitleCount": "Knoppen ({count})",
   "@buttonsTitleCount": {
     "placeholders": {
       "count": {

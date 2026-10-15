@@ -1412,7 +1412,13 @@ class AppLocalizationsFr extends AppLocalizations {
 
   @override
   String remoteButtonCountSummary(int count) {
-    return '$count bouton(s)';
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: '$count boutons',
+      one: '$count bouton',
+    );
+    return '$_temp0';
   }
 
   @override

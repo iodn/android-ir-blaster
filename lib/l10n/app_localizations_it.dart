@@ -1416,7 +1416,13 @@ class AppLocalizationsIt extends AppLocalizations {
 
   @override
   String remoteButtonCountSummary(int count) {
-    return '$count pulsante/i';
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: '$count pulsanti',
+      one: '$count pulsante',
+    );
+    return '$_temp0';
   }
 
   @override

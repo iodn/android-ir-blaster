@@ -42,11 +42,12 @@ void main() {
         await tester.tap(find.text('Dismiss'));
         await tester.pumpAndSettle();
       }
+      final sendLabel = AppLocalizations.of(tester.element(find.byType(RemoteView)))!.sendCommand;
       await tester.longPress(find.text('Power').first);
       await tester.pumpAndSettle();
       for (var i = 0; i < 2; i++) {
-        await tester.ensureVisible(find.text('Send Command'));
-        await tester.tap(find.text('Send Command'));
+        await tester.ensureVisible(find.text(sendLabel));
+        await tester.tap(find.text(sendLabel));
         await tester.pump();
         await tester.pump(const Duration(milliseconds: 1100));
         await tester.pump(const Duration(milliseconds: 200));
@@ -69,7 +70,7 @@ void main() {
       }
       expect(tester.widget<IrWaveformPanel>(find.byType(IrWaveformPanel)).playheadProgress, isNull);
       if (!fail) {
-        await tester.tap(find.text('Send Command'));
+        await tester.tap(find.text(sendLabel));
         await tester.pump();
         Navigator.of(tester.element(find.byType(IrWaveformPanel))).pop();
         await tester.pump(const Duration(milliseconds: 400));

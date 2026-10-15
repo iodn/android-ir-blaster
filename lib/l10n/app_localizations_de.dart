@@ -1419,7 +1419,13 @@ class AppLocalizationsDe extends AppLocalizations {
 
   @override
   String remoteButtonCountSummary(int count) {
-    return '$count Taste(n)';
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: '$count Tasten',
+      one: '$count Taste',
+    );
+    return '$_temp0';
   }
 
   @override
@@ -2208,7 +2214,7 @@ class AppLocalizationsDe extends AppLocalizations {
 
   @override
   String buttonsTitleCount(int count) {
-    return 'Tasten $count';
+    return 'Tasten ($count)';
   }
 
   @override

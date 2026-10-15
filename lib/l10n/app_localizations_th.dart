@@ -2152,7 +2152,7 @@ class AppLocalizationsTh extends AppLocalizations {
 
   @override
   String buttonsTitleCount(int count) {
-    return 'ปุ่ม $count';
+    return 'ปุ่ม ($count)';
   }
 
   @override

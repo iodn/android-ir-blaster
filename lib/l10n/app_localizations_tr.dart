@@ -1395,7 +1395,7 @@ class AppLocalizationsTr extends AppLocalizations {
 
   @override
   String remoteButtonCountSummary(int count) {
-    return '$count düğme(s)';
+    return '$count düğme';
   }
 
   @override

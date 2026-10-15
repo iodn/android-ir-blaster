@@ -1394,7 +1394,7 @@ class AppLocalizationsMs extends AppLocalizations {
 
   @override
   String remoteButtonCountSummary(int count) {
-    return '$count butang(s)';
+    return '$count butang';
   }
 
   @override

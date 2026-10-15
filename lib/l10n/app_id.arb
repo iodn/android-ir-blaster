@@ -412,7 +412,7 @@
   "deleteMacroTitle": "Hapus makro?",
   "deleteMacroMessage": "Setelah dihapus, ketuk Urungkan pada pesan yang muncul untuk memulihkan makro.",
   "noRemotesAvailable": "Tidak ada remote yang tersedia.",
-  "remoteButtonCountSummary": "{count} tombol(s)",
+  "remoteButtonCountSummary": "{count} tombol",
   "@remoteButtonCountSummary": {
     "placeholders": {
       "count": {

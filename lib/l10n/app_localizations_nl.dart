@@ -1423,7 +1423,13 @@ class AppLocalizationsNl extends AppLocalizations {
 
   @override
   String remoteButtonCountSummary(int count) {
-    return '$count knop(s)';
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: '$count knoppen',
+      one: '$count knop',
+    );
+    return '$_temp0';
   }
 
   @override
@@ -2207,7 +2213,7 @@ class AppLocalizationsNl extends AppLocalizations {
 
   @override
   String buttonsTitleCount(int count) {
-    return 'Knops ($count)';
+    return 'Knoppen ($count)';
   }
 
   @override

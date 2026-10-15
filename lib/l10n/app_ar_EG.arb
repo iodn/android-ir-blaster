@@ -412,7 +412,7 @@
   "deleteMacroTitle": "تحذف الماكرو؟",
   "deleteMacroMessage": "بعد الحذف، اضغط على تراجع في الرسالة اللي هتظهر عشان ترجّع الماكرو.",
   "noRemotesAvailable": "لا توجد أجهزة تحكم متاحة.",
-  "remoteButtonCountSummary": "{count} زر",
+  "remoteButtonCountSummary": "{count, plural, zero{لا أزرار} one{زر واحد} two{زران} few{{count} أزرار} many{{count} زرًا} other{{count} زر}}",
   "@remoteButtonCountSummary": {
     "placeholders": {
       "count": {
@@ -843,7 +843,7 @@
   },
   "clearAction": "مسح",
   "saveAction": "حفظ",
-  "buttonsTitleCount": "أزرار ({count})",
+  "buttonsTitleCount": "الأزرار ({count})",
   "@buttonsTitleCount": {
     "placeholders": {
       "count": {
