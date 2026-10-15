@@ -318,7 +318,7 @@
   "iconFallback": "Ícone",
   "remoteListReorderHint": "Modo reordenar: mantenha pressionado e arraste uma cartão para moverla.",
   "deleteRemoteTitle": "Excluir controle?",
-  "deleteRemoteMessage": "\"{name}\" será removido permanentemente. Esta ação não pode ser desfeita.",
+  "deleteRemoteMessage": "O controle “{name}” será excluído permanentemente. Esta ação não pode ser desfeita.",
   "@deleteRemoteMessage": {
     "placeholders": {
       "name": {}
@@ -351,7 +351,7 @@
   "useThisRemote": "Usar este controle",
   "edit": "Editar",
   "editRemoteSubtitle": "Renomear e editar botões",
-  "thisCannotBeUndone": "Isto não pode ser desfeito",
+  "thisCannotBeUndone": "Esta ação não pode ser desfeita",
   "searchRemotes": "pesquisar controles",
   "reorderRemotes": "Reordenar controles",
   "addRemote": "Adicionar controle",

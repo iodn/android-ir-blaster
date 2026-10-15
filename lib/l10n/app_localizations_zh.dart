@@ -1085,11 +1085,11 @@ class AppLocalizationsZh extends AppLocalizations {
   String get remoteListReorderHint => '排序模式 长按并拖动卡片以移动。';
 
   @override
-  String get deleteRemoteTitle => '删除遥控器';
+  String get deleteRemoteTitle => '删除遥控器？';
 
   @override
   String deleteRemoteMessage(Object name) {
-    return '\"$name\" 将被永久移除。此操作无法撤销。';
+    return '将永久删除“$name”。此操作无法撤销。';
   }
 
   @override

@@ -1178,11 +1178,11 @@ class AppLocalizationsMs extends AppLocalizations {
       'Mode urut ulang: tekan lama dan seret kartu untuk memindahkannya.';
 
   @override
-  String get deleteRemoteTitle => 'Hapus remote?';
+  String get deleteRemoteTitle => 'Padam alat kawalan jauh?';
 
   @override
   String deleteRemoteMessage(Object name) {
-    return '\"$name\" akan dihapus permanen. Tindakan ini tidak boleh dibatalkan.';
+    return '“$name” akan dipadam secara kekal. Tindakan ini tidak boleh dibuat asal.';
   }
 
   @override
@@ -1233,7 +1233,7 @@ class AppLocalizationsMs extends AppLocalizations {
   String get editRemoteSubtitle => 'Ganti nama dan ubah butang';
 
   @override
-  String get thisCannotBeUndone => 'Ini tidak boleh dibatalkan';
+  String get thisCannotBeUndone => 'Tindakan ini tidak boleh dibuat asal';
 
   @override
   String get searchRemotes => 'Cari Remote';

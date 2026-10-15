@@ -1189,7 +1189,7 @@ class AppLocalizationsPl extends AppLocalizations {
 
   @override
   String deleteRemoteMessage(Object name) {
-    return '\"$name\" will be permanently removed. This action can\'t be undone.';
+    return 'Pilot „$name” zostanie trwale usunięty. Tej czynności nie można cofnąć.';
   }
 
   @override
@@ -1248,7 +1248,7 @@ class AppLocalizationsPl extends AppLocalizations {
   String get editRemoteSubtitle => 'Rename, i edytuj przyciski';
 
   @override
-  String get thisCannotBeUndone => 'Tego nie można cofnąć';
+  String get thisCannotBeUndone => 'Tej czynności nie można cofnąć';
 
   @override
   String get searchRemotes => 'Szukaj pilotów';

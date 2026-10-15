@@ -317,8 +317,8 @@
   "unnamedButton": "名前のないボタン",
   "iconFallback": "アイコン",
   "remoteListReorderHint": "並べ替えモード 長押ししてカードをドラッグすると移動できます。",
-  "deleteRemoteTitle": "リモコンを削除しますか?",
-  "deleteRemoteMessage": "\"{name}\" は完全に削除されます。元に戻せません。",
+  "deleteRemoteTitle": "リモコンを削除しますか？",
+  "deleteRemoteMessage": "「{name}」を完全に削除します。この操作は元に戻せません。",
   "@deleteRemoteMessage": {
     "placeholders": {
       "name": {}
@@ -351,7 +351,7 @@
   "useThisRemote": "このリモコンを使う",
   "edit": "編集",
   "editRemoteSubtitle": "名前変更とボタン編集",
-  "thisCannotBeUndone": "元に戻せません",
+  "thisCannotBeUndone": "この操作は元に戻せません",
   "searchRemotes": "リモコンを検索",
   "reorderRemotes": "リモコンを並べ替え",
   "addRemote": "リモコンを追加",

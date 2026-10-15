@@ -318,7 +318,7 @@
   "iconFallback": "Ícone",
   "remoteListReorderHint": "Modo reordenar: mantenha premido e arraste uma cartão para moverla.",
   "deleteRemoteTitle": "Eliminar comando?",
-  "deleteRemoteMessage": "\"{name}\" será removido permanentemente. Esta ação não pode ser anulada.",
+  "deleteRemoteMessage": "O comando «{name}» será eliminado permanentemente. Esta ação não pode ser anulada.",
   "@deleteRemoteMessage": {
     "placeholders": {
       "name": {}
@@ -351,7 +351,7 @@
   "useThisRemote": "Usar este comando",
   "edit": "Editar",
   "editRemoteSubtitle": "Renomear e editar botões",
-  "thisCannotBeUndone": "Isto não pode ser anulado",
+  "thisCannotBeUndone": "Esta ação não pode ser anulada",
   "searchRemotes": "Pesquisar comandos",
   "reorderRemotes": "Reordenar comandos",
   "addRemote": "Adicionar comando",

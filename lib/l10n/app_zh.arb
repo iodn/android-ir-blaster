@@ -317,8 +317,8 @@
   "unnamedButton": "未命名按钮",
   "iconFallback": "图标",
   "remoteListReorderHint": "排序模式 长按并拖动卡片以移动。",
-  "deleteRemoteTitle": "删除遥控器",
-  "deleteRemoteMessage": "\"{name}\" 将被永久移除。此操作无法撤销。",
+  "deleteRemoteTitle": "删除遥控器？",
+  "deleteRemoteMessage": "将永久删除“{name}”。此操作无法撤销。",
   "@deleteRemoteMessage": {
     "placeholders": {
       "name": {}

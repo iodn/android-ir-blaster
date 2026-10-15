@@ -429,7 +429,7 @@
   "iconFallback": "Icon",
   "remoteListReorderHint": "Reorder mode: long-press and drag a card to move it.",
   "deleteRemoteTitle": "Delete remote?",
-  "deleteRemoteMessage": "\"{name}\" will be permanently removed. This action can't be undone.",
+  "deleteRemoteMessage": "“{name}” will be permanently deleted. This cannot be undone.",
   "@deleteRemoteMessage": {
     "placeholders": {
       "name": {}

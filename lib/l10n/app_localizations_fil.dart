@@ -1188,11 +1188,11 @@ class AppLocalizationsFil extends AppLocalizations {
       'Reorder mode: long-press at drag a card to move it.';
 
   @override
-  String get deleteRemoteTitle => 'Delete remote?';
+  String get deleteRemoteTitle => 'Burahin ang remote?';
 
   @override
   String deleteRemoteMessage(Object name) {
-    return '\"$name\" will be permanently removed. Ang action hindi na mababawi.';
+    return 'Permanenteng mabubura ang “$name”. Hindi ito maibabalik.';
   }
 
   @override
@@ -1244,7 +1244,7 @@ class AppLocalizationsFil extends AppLocalizations {
       'Palitan ang pangalan at i-edit ang mga button';
 
   @override
-  String get thisCannotBeUndone => 'Ang cannot be undone';
+  String get thisCannotBeUndone => 'Hindi ito maibabalik';
 
   @override
   String get searchRemotes => 'Search Remotes';

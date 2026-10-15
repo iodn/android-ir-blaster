@@ -323,7 +323,7 @@
   "iconFallback": "Icône",
   "remoteListReorderHint": "Mode réorganisation : appui long puis glisser une carte pour la déplacer.",
   "deleteRemoteTitle": "Supprimer la télécommande ?",
-  "deleteRemoteMessage": "\"{name}\" sera supprimé définitivement. Cette action est irréversible.",
+  "deleteRemoteMessage": "« {name} » sera supprimée définitivement. Cette action est irréversible.",
   "@deleteRemoteMessage": {
     "placeholders": {
       "name": {}

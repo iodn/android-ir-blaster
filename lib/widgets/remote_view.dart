@@ -1119,6 +1119,7 @@ class RemoteViewState extends State<RemoteView> {
     return await showDialog<bool>(
       context: context,
       builder: (ctx) => AlertDialog(
+        scrollable: true,
         icon: Icon(Icons.warning_amber_rounded, color: cs.error),
         title: Text(context.l10n.deleteRemoteTitle),
         content: Text(

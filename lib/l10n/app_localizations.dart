@@ -2187,7 +2187,7 @@ abstract class AppLocalizations {
   /// No description provided for @deleteRemoteMessage.
   ///
   /// In en, this message translates to:
-  /// **'\"{name}\" will be permanently removed. This action can\'t be undone.'**
+  /// **'“{name}” will be permanently deleted. This cannot be undone.'**
   String deleteRemoteMessage(Object name);
 
   /// No description provided for @delete.

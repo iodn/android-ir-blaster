@@ -1177,11 +1177,11 @@ class AppLocalizationsHi extends AppLocalizations {
       'पुन:क्रमित करें मोड: लंबा दबाएं और खींचें a कार्ड तक स्थानांतरित करें it.';
 
   @override
-  String get deleteRemoteTitle => 'हटाएं रिमोट?';
+  String get deleteRemoteTitle => 'रिमोट मिटाएँ?';
 
   @override
   String deleteRemoteMessage(Object name) {
-    return '\"$name\" होगा हो स्थायी रूप से हटाया गया. यह action सकता है\'t हो undone.';
+    return '“$name” हमेशा के लिए मिट जाएगा। इसे वापस नहीं लाया जा सकेगा।';
   }
 
   @override
@@ -1232,7 +1232,7 @@ class AppLocalizationsHi extends AppLocalizations {
   String get editRemoteSubtitle => 'Rename, और संपादित करें बटन';
 
   @override
-  String get thisCannotBeUndone => 'इसे पूर्ववत नहीं किया जा सकता';
+  String get thisCannotBeUndone => 'इसे वापस नहीं लाया जा सकेगा';
 
   @override
   String get searchRemotes => 'खोजें रिमोट';

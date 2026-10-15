@@ -1167,7 +1167,7 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String deleteRemoteMessage(Object name) {
-    return '\"$name\" will be permanently removed. This action can\'t be undone.';
+    return 'سيُحذف جهاز التحكم «$name» نهائيًا. لا يمكن التراجع عن هذا الإجراء.';
   }
 
   @override
@@ -1228,7 +1228,7 @@ class AppLocalizationsAr extends AppLocalizations {
   String get editRemoteSubtitle => 'إعادة التسمية وتعديل الأزرار';
 
   @override
-  String get thisCannotBeUndone => 'This cannot be undone';
+  String get thisCannotBeUndone => 'لا يمكن التراجع عن الحذف';
 
   @override
   String get searchRemotes => 'ابحث أجهزة التحكم';
@@ -6432,7 +6432,7 @@ class AppLocalizationsArEg extends AppLocalizationsAr {
 
   @override
   String deleteRemoteMessage(Object name) {
-    return '\"$name\" will be permanently removed. This action can\'t be undone.';
+    return 'سيُحذف جهاز التحكم «$name» نهائيًا. لا يمكن التراجع عن هذا الإجراء.';
   }
 
   @override
@@ -6493,7 +6493,7 @@ class AppLocalizationsArEg extends AppLocalizationsAr {
   String get editRemoteSubtitle => 'إعادة التسمية وتعديل الأزرار';
 
   @override
-  String get thisCannotBeUndone => 'This cannot be undone';
+  String get thisCannotBeUndone => 'لا يمكن التراجع عن الحذف';
 
   @override
   String get searchRemotes => 'ابحث أجهزة التحكم';

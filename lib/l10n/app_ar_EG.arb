@@ -318,7 +318,7 @@
   "iconFallback": "أيقونة",
   "remoteListReorderHint": "وضع إعادة الترتيب: اضغط مطولاً واسحب البطاقة لتحريكها.",
   "deleteRemoteTitle": "حذف جهاز التحكم؟",
-  "deleteRemoteMessage": "\"{name}\" will be permanently removed. This action can't be undone.",
+  "deleteRemoteMessage": "سيُحذف جهاز التحكم «{name}» نهائيًا. لا يمكن التراجع عن هذا الإجراء.",
   "@deleteRemoteMessage": {
     "placeholders": {
       "name": {}
@@ -351,7 +351,7 @@
   "useThisRemote": "استخدم جهاز التحكم هذا",
   "edit": "تعديل",
   "editRemoteSubtitle": "إعادة التسمية وتعديل الأزرار",
-  "thisCannotBeUndone": "This cannot be undone",
+  "thisCannotBeUndone": "لا يمكن التراجع عن الحذف",
   "searchRemotes": "ابحث أجهزة التحكم",
   "reorderRemotes": "Reorder remotes",
   "addRemote": "إضافة جهاز تحكم",

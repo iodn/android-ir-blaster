@@ -317,8 +317,8 @@
   "unnamedButton": "Naamloze knop",
   "iconFallback": "Pictogram",
   "remoteListReorderHint": "Sorteermodus druk lang op een kaart en sleep om te verplaatsen.",
-  "deleteRemoteTitle": "Afstandsbediening verwijderen",
-  "deleteRemoteMessage": "\"{name}\" wordt permanent verwijderd. Deze actie kan niet ongedaan worden gemaakt.",
+  "deleteRemoteTitle": "Afstandsbediening verwijderen?",
+  "deleteRemoteMessage": "‘{name}’ wordt definitief verwijderd. Dit kan niet ongedaan worden gemaakt.",
   "@deleteRemoteMessage": {
     "placeholders": {
       "name": {}

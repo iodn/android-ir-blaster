@@ -1180,7 +1180,7 @@ class AppLocalizationsRu extends AppLocalizations {
 
   @override
   String deleteRemoteMessage(Object name) {
-    return '\"$name\" будет удалён навсегда. Действие нельзя отменить.';
+    return 'Пульт «$name» будет удалён навсегда. Это действие нельзя отменить.';
   }
 
   @override
@@ -1239,7 +1239,7 @@ class AppLocalizationsRu extends AppLocalizations {
   String get editRemoteSubtitle => 'Переименовать и изменить кнопки';
 
   @override
-  String get thisCannotBeUndone => 'Это нельзя отменить';
+  String get thisCannotBeUndone => 'Это действие нельзя отменить';
 
   @override
   String get searchRemotes => 'Поиск пультов';

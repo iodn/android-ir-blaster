@@ -1193,7 +1193,7 @@ class AppLocalizationsEs extends AppLocalizations {
 
   @override
   String deleteRemoteMessage(Object name) {
-    return '\"$name\" se eliminará permanentemente. Esta acción no se puede deshacer.';
+    return '«$name» se eliminará permanentemente. Esta acción no se puede deshacer.';
   }
 
   @override
@@ -1250,7 +1250,7 @@ class AppLocalizationsEs extends AppLocalizations {
   String get editRemoteSubtitle => 'Renombrar y editar botones';
 
   @override
-  String get thisCannotBeUndone => 'Esto no se puede deshacer';
+  String get thisCannotBeUndone => 'Esta acción no se puede deshacer';
 
   @override
   String get searchRemotes => 'Buscar mandos';

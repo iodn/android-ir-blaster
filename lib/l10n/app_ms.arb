@@ -317,8 +317,8 @@
   "unnamedButton": "Butang tanpa nama",
   "iconFallback": "Ikon",
   "remoteListReorderHint": "Mode urut ulang: tekan lama dan seret kartu untuk memindahkannya.",
-  "deleteRemoteTitle": "Hapus remote?",
-  "deleteRemoteMessage": "\"{name}\" akan dihapus permanen. Tindakan ini tidak boleh dibatalkan.",
+  "deleteRemoteTitle": "Padam alat kawalan jauh?",
+  "deleteRemoteMessage": "“{name}” akan dipadam secara kekal. Tindakan ini tidak boleh dibuat asal.",
   "@deleteRemoteMessage": {
     "placeholders": {
       "name": {}
@@ -351,7 +351,7 @@
   "useThisRemote": "Gunakan remote ini",
   "edit": "Sunting",
   "editRemoteSubtitle": "Ganti nama dan ubah butang",
-  "thisCannotBeUndone": "Ini tidak boleh dibatalkan",
+  "thisCannotBeUndone": "Tindakan ini tidak boleh dibuat asal",
   "searchRemotes": "Cari Remote",
   "reorderRemotes": "Urutkan ulang remote",
   "addRemote": "Tambah remote",

@@ -1183,7 +1183,7 @@ class AppLocalizationsId extends AppLocalizations {
 
   @override
   String deleteRemoteMessage(Object name) {
-    return '\"$name\" akan dihapus permanen. Tindakan ini tidak bisa dibatalkan.';
+    return '“$name” akan dihapus secara permanen. Tindakan ini tidak dapat diurungkan.';
   }
 
   @override
@@ -1234,7 +1234,7 @@ class AppLocalizationsId extends AppLocalizations {
   String get editRemoteSubtitle => 'Ganti nama dan ubah tombol';
 
   @override
-  String get thisCannotBeUndone => 'Ini tidak bisa dibatalkan';
+  String get thisCannotBeUndone => 'Tindakan ini tidak dapat diurungkan';
 
   @override
   String get searchRemotes => 'Cari Remote';

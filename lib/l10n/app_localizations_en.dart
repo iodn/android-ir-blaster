@@ -1175,7 +1175,7 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String deleteRemoteMessage(Object name) {
-    return '\"$name\" will be permanently removed. This action can\'t be undone.';
+    return '“$name” will be permanently deleted. This cannot be undone.';
   }
 
   @override

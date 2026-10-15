@@ -318,7 +318,7 @@
   "iconFallback": "Biểu tượng",
   "remoteListReorderHint": "Chế độ sắp xếp lại: nhấn giữ và kéo thẻ để di chuyển.",
   "deleteRemoteTitle": "Xóa điều khiển?",
-  "deleteRemoteMessage": "\"{name}\" sẽ bị xóa vĩnh viễn. Không thể hoàn tác thao tác này.",
+  "deleteRemoteMessage": "“{name}” sẽ bị xóa vĩnh viễn. Không thể hoàn tác thao tác này.",
   "@deleteRemoteMessage": {
     "placeholders": {
       "name": {}
@@ -351,7 +351,7 @@
   "useThisRemote": "Dùng điều khiển này",
   "edit": "Sửa",
   "editRemoteSubtitle": "Đổi tên và sửa nút",
-  "thisCannotBeUndone": "Không thể hoàn tác",
+  "thisCannotBeUndone": "Không thể hoàn tác thao tác này",
   "searchRemotes": "Tìm điều khiển",
   "reorderRemotes": "Sắp xếp lại điều khiển",
   "addRemote": "Thêm điều khiển",

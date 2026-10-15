@@ -318,7 +318,7 @@
   "iconFallback": "Иконка",
   "remoteListReorderHint": "Режим сортировки: зажмите и перетащите карточку.",
   "deleteRemoteTitle": "Удалить пульт?",
-  "deleteRemoteMessage": "\"{name}\" будет удалён навсегда. Действие нельзя отменить.",
+  "deleteRemoteMessage": "Пульт «{name}» будет удалён навсегда. Это действие нельзя отменить.",
   "@deleteRemoteMessage": {
     "placeholders": {
       "name": {}
@@ -351,7 +351,7 @@
   "useThisRemote": "Использовать пульт",
   "edit": "Изменить",
   "editRemoteSubtitle": "Переименовать и изменить кнопки",
-  "thisCannotBeUndone": "Это нельзя отменить",
+  "thisCannotBeUndone": "Это действие нельзя отменить",
   "searchRemotes": "Поиск пультов",
   "reorderRemotes": "Изменить порядок пультов",
   "addRemote": "Добавить пульт",

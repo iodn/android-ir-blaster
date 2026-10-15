@@ -1174,7 +1174,7 @@ class AppLocalizationsVi extends AppLocalizations {
 
   @override
   String deleteRemoteMessage(Object name) {
-    return '\"$name\" sẽ bị xóa vĩnh viễn. Không thể hoàn tác thao tác này.';
+    return '“$name” sẽ bị xóa vĩnh viễn. Không thể hoàn tác thao tác này.';
   }
 
   @override
@@ -1225,7 +1225,7 @@ class AppLocalizationsVi extends AppLocalizations {
   String get editRemoteSubtitle => 'Đổi tên và sửa nút';
 
   @override
-  String get thisCannotBeUndone => 'Không thể hoàn tác';
+  String get thisCannotBeUndone => 'Không thể hoàn tác thao tác này';
 
   @override
   String get searchRemotes => 'Tìm điều khiển';

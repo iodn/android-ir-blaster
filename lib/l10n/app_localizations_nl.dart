@@ -1200,11 +1200,11 @@ class AppLocalizationsNl extends AppLocalizations {
       'Sorteermodus druk lang op een kaart en sleep om te verplaatsen.';
 
   @override
-  String get deleteRemoteTitle => 'Afstandsbediening verwijderen';
+  String get deleteRemoteTitle => 'Afstandsbediening verwijderen?';
 
   @override
   String deleteRemoteMessage(Object name) {
-    return '\"$name\" wordt permanent verwijderd. Deze actie kan niet ongedaan worden gemaakt.';
+    return '‘$name’ wordt definitief verwijderd. Dit kan niet ongedaan worden gemaakt.';
   }
 
   @override

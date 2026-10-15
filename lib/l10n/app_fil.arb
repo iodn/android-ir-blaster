@@ -317,8 +317,8 @@
   "unnamedButton": "Button na walang pangalan",
   "iconFallback": "Icon",
   "remoteListReorderHint": "Reorder mode: long-press at drag a card to move it.",
-  "deleteRemoteTitle": "Delete remote?",
-  "deleteRemoteMessage": "\"{name}\" will be permanently removed. Ang action hindi na mababawi.",
+  "deleteRemoteTitle": "Burahin ang remote?",
+  "deleteRemoteMessage": "Permanenteng mabubura ang “{name}”. Hindi ito maibabalik.",
   "@deleteRemoteMessage": {
     "placeholders": {
       "name": {}
@@ -351,7 +351,7 @@
   "useThisRemote": "Gamitin ang remote na ito",
   "edit": "I-edit",
   "editRemoteSubtitle": "Palitan ang pangalan at i-edit ang mga button",
-  "thisCannotBeUndone": "Ang cannot be undone",
+  "thisCannotBeUndone": "Hindi ito maibabalik",
   "searchRemotes": "Search Remotes",
   "reorderRemotes": "Reorder mga remote",
   "addRemote": "Add remote",

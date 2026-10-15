@@ -1192,11 +1192,11 @@ class AppLocalizationsIt extends AppLocalizations {
       'Modalità riordino. Tieni premuto e trascina una scheda per spostarla.';
 
   @override
-  String get deleteRemoteTitle => 'Eliminare telecomando?';
+  String get deleteRemoteTitle => 'Eliminare il telecomando?';
 
   @override
   String deleteRemoteMessage(Object name) {
-    return '\"$name\" sarà rimosso in modo permanente. Questa azione non può essere annullata.';
+    return '«$name» verrà eliminato definitivamente. Non sarà possibile annullare l’operazione.';
   }
 
   @override
@@ -1253,7 +1253,7 @@ class AppLocalizationsIt extends AppLocalizations {
   String get editRemoteSubtitle => 'Rinomina e modifica pulsanti';
 
   @override
-  String get thisCannotBeUndone => 'Questo non può essere annullato';
+  String get thisCannotBeUndone => 'L’operazione non può essere annullata';
 
   @override
   String get searchRemotes => 'Cerca telecomandi';

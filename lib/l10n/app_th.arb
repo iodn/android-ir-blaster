@@ -317,8 +317,8 @@
   "unnamedButton": "ปุ่มไม่มีชื่อ",
   "iconFallback": "Icon",
   "remoteListReorderHint": "โหมดจัดลำดับ: กดค้างและลากการ์ดเพื่อย้าย",
-  "deleteRemoteTitle": "ลบรีโมต",
-  "deleteRemoteMessage": "\"{name}\" จะถูกลบถาวร และไม่สามารถยกเลิกได้",
+  "deleteRemoteTitle": "ลบรีโมตหรือไม่?",
+  "deleteRemoteMessage": "รีโมต “{name}” จะถูกลบอย่างถาวร และไม่สามารถกู้คืนได้",
   "@deleteRemoteMessage": {
     "placeholders": {
       "name": {}
@@ -351,7 +351,7 @@
   "useThisRemote": "ใช้รีโมตนี้",
   "edit": "แก้ไข",
   "editRemoteSubtitle": "เปลี่ยนชื่อและแก้ไขปุ่ม",
-  "thisCannotBeUndone": "ไม่สามารถยกเลิกได้",
+  "thisCannotBeUndone": "ไม่สามารถกู้คืนได้",
   "searchRemotes": "ค้นหารีโมต",
   "reorderRemotes": "จัดลำดับรีโมต",
   "addRemote": "เพิ่มรีโมต",

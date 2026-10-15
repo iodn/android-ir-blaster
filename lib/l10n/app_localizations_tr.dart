@@ -1178,11 +1178,11 @@ class AppLocalizationsTr extends AppLocalizations {
       'Yeniden sıralama modu: taşımak için bir karta uzun basıp sürükleyin.';
 
   @override
-  String get deleteRemoteTitle => 'Sil kumanda?';
+  String get deleteRemoteTitle => 'Kumanda silinsin mi?';
 
   @override
   String deleteRemoteMessage(Object name) {
-    return '\"$name\" kalıcı olarak kaldırılacak. Bu işlem geri alınamaz.';
+    return '“$name” kalıcı olarak silinecek. Bu işlem geri alınamaz.';
   }
 
   @override

@@ -317,8 +317,8 @@
   "unnamedButton": "Pulsante senza nome",
   "iconFallback": "Icona",
   "remoteListReorderHint": "Modalità riordino. Tieni premuto e trascina una scheda per spostarla.",
-  "deleteRemoteTitle": "Eliminare telecomando?",
-  "deleteRemoteMessage": "\"{name}\" sarà rimosso in modo permanente. Questa azione non può essere annullata.",
+  "deleteRemoteTitle": "Eliminare il telecomando?",
+  "deleteRemoteMessage": "«{name}» verrà eliminato definitivamente. Non sarà possibile annullare l’operazione.",
   "@deleteRemoteMessage": {
     "placeholders": {
       "name": {}
@@ -351,7 +351,7 @@
   "useThisRemote": "Usa questo telecomando",
   "edit": "Modifica",
   "editRemoteSubtitle": "Rinomina e modifica pulsanti",
-  "thisCannotBeUndone": "Questo non può essere annullato",
+  "thisCannotBeUndone": "L’operazione non può essere annullata",
   "searchRemotes": "Cerca telecomandi",
   "reorderRemotes": "Riordina telecomandi",
   "addRemote": "Aggiungi telecomando",

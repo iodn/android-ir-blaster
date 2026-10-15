@@ -1193,7 +1193,7 @@ class AppLocalizationsPt extends AppLocalizations {
 
   @override
   String deleteRemoteMessage(Object name) {
-    return '\"$name\" será removido permanentemente. Esta ação não pode ser anulada.';
+    return 'O comando «$name» será eliminado permanentemente. Esta ação não pode ser anulada.';
   }
 
   @override
@@ -1252,7 +1252,7 @@ class AppLocalizationsPt extends AppLocalizations {
   String get editRemoteSubtitle => 'Renomear e editar botões';
 
   @override
-  String get thisCannotBeUndone => 'Isto não pode ser anulado';
+  String get thisCannotBeUndone => 'Esta ação não pode ser anulada';
 
   @override
   String get searchRemotes => 'Pesquisar comandos';
@@ -6515,7 +6515,7 @@ class AppLocalizationsPtBr extends AppLocalizationsPt {
 
   @override
   String deleteRemoteMessage(Object name) {
-    return '\"$name\" será removido permanentemente. Esta ação não pode ser desfeita.';
+    return 'O controle “$name” será excluído permanentemente. Esta ação não pode ser desfeita.';
   }
 
   @override
@@ -6574,7 +6574,7 @@ class AppLocalizationsPtBr extends AppLocalizationsPt {
   String get editRemoteSubtitle => 'Renomear e editar botões';
 
   @override
-  String get thisCannotBeUndone => 'Isto não pode ser desfeito';
+  String get thisCannotBeUndone => 'Esta ação não pode ser desfeita';
 
   @override
   String get searchRemotes => 'pesquisar controles';

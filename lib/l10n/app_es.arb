@@ -323,7 +323,7 @@
   "iconFallback": "Icono",
   "remoteListReorderHint": "Modo reordenar: mantén pulsado y arrastra una tarjeta para moverla.",
   "deleteRemoteTitle": "¿Eliminar mando?",
-  "deleteRemoteMessage": "\"{name}\" se eliminará permanentemente. Esta acción no se puede deshacer.",
+  "deleteRemoteMessage": "«{name}» se eliminará permanentemente. Esta acción no se puede deshacer.",
   "@deleteRemoteMessage": {
     "placeholders": {
       "name": {}
@@ -356,7 +356,7 @@
   "useThisRemote": "Usar este mando",
   "edit": "Editar",
   "editRemoteSubtitle": "Renombrar y editar botones",
-  "thisCannotBeUndone": "Esto no se puede deshacer",
+  "thisCannotBeUndone": "Esta acción no se puede deshacer",
   "searchRemotes": "Buscar mandos",
   "reorderRemotes": "Reordenar mandos",
   "addRemote": "Añadir mando",

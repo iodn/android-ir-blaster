@@ -317,8 +317,8 @@
   "unnamedButton": "बिना नाम का बटन",
   "iconFallback": "आइकन",
   "remoteListReorderHint": "पुन:क्रमित करें मोड: लंबा दबाएं और खींचें a कार्ड तक स्थानांतरित करें it.",
-  "deleteRemoteTitle": "हटाएं रिमोट?",
-  "deleteRemoteMessage": "\"{name}\" होगा हो स्थायी रूप से हटाया गया. यह action सकता है't हो undone.",
+  "deleteRemoteTitle": "रिमोट मिटाएँ?",
+  "deleteRemoteMessage": "“{name}” हमेशा के लिए मिट जाएगा। इसे वापस नहीं लाया जा सकेगा।",
   "@deleteRemoteMessage": {
     "placeholders": {
       "name": {}
@@ -351,7 +351,7 @@
   "useThisRemote": "उपयोग करें यह रिमोट",
   "edit": "संपादित करें",
   "editRemoteSubtitle": "Rename, और संपादित करें बटन",
-  "thisCannotBeUndone": "इसे पूर्ववत नहीं किया जा सकता",
+  "thisCannotBeUndone": "इसे वापस नहीं लाया जा सकेगा",
   "searchRemotes": "खोजें रिमोट",
   "reorderRemotes": "पुन:क्रमित करें रिमोट",
   "addRemote": "जोड़ें रिमोट",

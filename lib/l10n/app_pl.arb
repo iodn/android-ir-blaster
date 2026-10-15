@@ -318,7 +318,7 @@
   "iconFallback": "Ikona",
   "remoteListReorderHint": "Reorder mode: long-press i drag a card do move go.",
   "deleteRemoteTitle": "Usunąć pilot?",
-  "deleteRemoteMessage": "\"{name}\" will be permanently removed. This action can't be undone.",
+  "deleteRemoteMessage": "Pilot „{name}” zostanie trwale usunięty. Tej czynności nie można cofnąć.",
   "@deleteRemoteMessage": {
     "placeholders": {
       "name": {}
@@ -351,7 +351,7 @@
   "useThisRemote": "Użyj tego pilota",
   "edit": "Edytuj",
   "editRemoteSubtitle": "Rename, i edytuj przyciski",
-  "thisCannotBeUndone": "Tego nie można cofnąć",
+  "thisCannotBeUndone": "Tej czynności nie można cofnąć",
   "searchRemotes": "Szukaj pilotów",
   "reorderRemotes": "Zmień kolejność pilotów",
   "addRemote": "Dodaj pilot",

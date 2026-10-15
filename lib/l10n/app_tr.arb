@@ -317,8 +317,8 @@
   "unnamedButton": "Adsız düğme",
   "iconFallback": "Icon",
   "remoteListReorderHint": "Yeniden sıralama modu: taşımak için bir karta uzun basıp sürükleyin.",
-  "deleteRemoteTitle": "Sil kumanda?",
-  "deleteRemoteMessage": "\"{name}\" kalıcı olarak kaldırılacak. Bu işlem geri alınamaz.",
+  "deleteRemoteTitle": "Kumanda silinsin mi?",
+  "deleteRemoteMessage": "“{name}” kalıcı olarak silinecek. Bu işlem geri alınamaz.",
   "@deleteRemoteMessage": {
     "placeholders": {
       "name": {}

@@ -1167,11 +1167,11 @@ class AppLocalizationsTh extends AppLocalizations {
       'โหมดจัดลำดับ: กดค้างและลากการ์ดเพื่อย้าย';
 
   @override
-  String get deleteRemoteTitle => 'ลบรีโมต';
+  String get deleteRemoteTitle => 'ลบรีโมตหรือไม่?';
 
   @override
   String deleteRemoteMessage(Object name) {
-    return '\"$name\" จะถูกลบถาวร และไม่สามารถยกเลิกได้';
+    return 'รีโมต “$name” จะถูกลบอย่างถาวร และไม่สามารถกู้คืนได้';
   }
 
   @override
@@ -1222,7 +1222,7 @@ class AppLocalizationsTh extends AppLocalizations {
   String get editRemoteSubtitle => 'เปลี่ยนชื่อและแก้ไขปุ่ม';
 
   @override
-  String get thisCannotBeUndone => 'ไม่สามารถยกเลิกได้';
+  String get thisCannotBeUndone => 'ไม่สามารถกู้คืนได้';
 
   @override
   String get searchRemotes => 'ค้นหารีโมต';

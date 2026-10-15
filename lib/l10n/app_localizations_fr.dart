@@ -1193,7 +1193,7 @@ class AppLocalizationsFr extends AppLocalizations {
 
   @override
   String deleteRemoteMessage(Object name) {
-    return '\"$name\" sera supprimé définitivement. Cette action est irréversible.';
+    return '« $name » sera supprimée définitivement. Cette action est irréversible.';
   }
 
   @override

@@ -1122,11 +1122,11 @@ class AppLocalizationsJa extends AppLocalizations {
   String get remoteListReorderHint => '並べ替えモード 長押ししてカードをドラッグすると移動できます。';
 
   @override
-  String get deleteRemoteTitle => 'リモコンを削除しますか?';
+  String get deleteRemoteTitle => 'リモコンを削除しますか？';
 
   @override
   String deleteRemoteMessage(Object name) {
-    return '\"$name\" は完全に削除されます。元に戻せません。';
+    return '「$name」を完全に削除します。この操作は元に戻せません。';
   }
 
   @override
@@ -1176,7 +1176,7 @@ class AppLocalizationsJa extends AppLocalizations {
   String get editRemoteSubtitle => '名前変更とボタン編集';
 
   @override
-  String get thisCannotBeUndone => '元に戻せません';
+  String get thisCannotBeUndone => 'この操作は元に戻せません';
 
   @override
   String get searchRemotes => 'リモコンを検索';

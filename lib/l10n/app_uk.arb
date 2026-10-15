@@ -318,7 +318,7 @@
   "iconFallback": "значок",
   "remoteListReorderHint": "Режим зміни порядку: натисніть і перетягніть картку, щоб перемістити її.",
   "deleteRemoteTitle": "Видалити пульт?",
-  "deleteRemoteMessage": "\"{name}\" буде остаточно видалено. Цю дію не можна скасувати.",
+  "deleteRemoteMessage": "Пульт «{name}» буде видалено назавжди. Цю дію неможливо скасувати.",
   "@deleteRemoteMessage": {
     "placeholders": {
       "name": {}
@@ -351,7 +351,7 @@
   "useThisRemote": "Використовуйте цей пульт",
   "edit": "Редагувати",
   "editRemoteSubtitle": "Кнопки перейменування та редагування",
-  "thisCannotBeUndone": "Це неможливо скасувати",
+  "thisCannotBeUndone": "Цю дію неможливо скасувати",
   "searchRemotes": "Пошук пультів",
   "reorderRemotes": "Змінити замовлення пультів",
   "addRemote": "Додати пульт",

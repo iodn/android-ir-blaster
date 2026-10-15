@@ -1130,11 +1130,11 @@ class AppLocalizationsKo extends AppLocalizations {
   String get remoteListReorderHint => '순서 변경 모드: 카드를 길게 누르고 드래그해 이동하세요.';
 
   @override
-  String get deleteRemoteTitle => '삭제 리모컨?';
+  String get deleteRemoteTitle => '리모컨을 삭제할까요?';
 
   @override
   String deleteRemoteMessage(Object name) {
-    return '\"$name\"이(가) 영구적으로 삭제됩니다. 이 작업은 되돌릴 수 없습니다.';
+    return '“$name” 리모컨을 영구적으로 삭제합니다. 이 작업은 되돌릴 수 없습니다.';
   }
 
   @override

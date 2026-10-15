@@ -1188,7 +1188,7 @@ class AppLocalizationsUk extends AppLocalizations {
 
   @override
   String deleteRemoteMessage(Object name) {
-    return '\"$name\" буде остаточно видалено. Цю дію не можна скасувати.';
+    return 'Пульт «$name» буде видалено назавжди. Цю дію неможливо скасувати.';
   }
 
   @override
@@ -1249,7 +1249,7 @@ class AppLocalizationsUk extends AppLocalizations {
   String get editRemoteSubtitle => 'Кнопки перейменування та редагування';
 
   @override
-  String get thisCannotBeUndone => 'Це неможливо скасувати';
+  String get thisCannotBeUndone => 'Цю дію неможливо скасувати';
 
   @override
   String get searchRemotes => 'Пошук пультів';

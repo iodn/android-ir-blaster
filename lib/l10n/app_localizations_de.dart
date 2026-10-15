@@ -1195,11 +1195,11 @@ class AppLocalizationsDe extends AppLocalizations {
       'Sortiermodus: Karte lange drücken und ziehen, um sie zu verschieben.';
 
   @override
-  String get deleteRemoteTitle => 'Fernbedienung löschen';
+  String get deleteRemoteTitle => 'Fernbedienung löschen?';
 
   @override
   String deleteRemoteMessage(Object name) {
-    return '$name wird dauerhaft entfernt. Diese Aktion kann nicht rückgängig gemacht werden.';
+    return '„$name“ wird dauerhaft gelöscht. Das lässt sich nicht rückgängig machen.';
   }
 
   @override
@@ -1256,7 +1256,7 @@ class AppLocalizationsDe extends AppLocalizations {
   String get editRemoteSubtitle => 'Umbenennen und Tasten bearbeiten';
 
   @override
-  String get thisCannotBeUndone => 'Dies kann nicht rückgängig gemacht werden';
+  String get thisCannotBeUndone => 'Kann nicht rückgängig gemacht werden';
 
   @override
   String get searchRemotes => 'Fernbedienungen suchen';
