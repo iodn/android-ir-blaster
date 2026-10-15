@@ -365,8 +365,8 @@
     }
   },
   "noRemotesYet": "ยังไม่มีรีโมต",
-  "noRemotesDescription": "สร้าง a remote to start sending IR codes.",
-  "noRemotesNextStep": "What ถัดไป: tap เพิ่มรีโมต, then add your ก่อน ปุ่มs.",
+  "noRemotesDescription": "สร้างรีโมตเพื่อส่งสัญญาณอินฟราเรด",
+  "noRemotesNextStep": "เพิ่มรีโมตก่อน แล้วเพิ่มปุ่มลงในรีโมต",
   "actions": "การทำงาน",
   "macrosTitle": "มาโคร",
   "help": "Help",

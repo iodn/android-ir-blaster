@@ -1289,11 +1289,11 @@ class AppLocalizationsDe extends AppLocalizations {
 
   @override
   String get noRemotesDescription =>
-      'Erstelle eine Fernbedienung, um IR-Codes zu senden.';
+      'Erstelle eine Fernbedienung zum Senden von IR-Signalen.';
 
   @override
   String get noRemotesNextStep =>
-      'Als Nächstes: Tippe auf Fernbedienung hinzufügen und lege deine ersten Tasten an.';
+      'Füge zuerst eine Fernbedienung hinzu, danach die Tasten.';
 
   @override
   String get actions => 'Aktionen';

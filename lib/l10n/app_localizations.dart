@@ -2325,13 +2325,13 @@ abstract class AppLocalizations {
   /// No description provided for @noRemotesDescription.
   ///
   /// In en, this message translates to:
-  /// **'Create a remote to start sending IR codes.'**
+  /// **'Create a remote to send infrared signals.'**
   String get noRemotesDescription;
 
   /// No description provided for @noRemotesNextStep.
   ///
   /// In en, this message translates to:
-  /// **'What next: tap Add remote, then add your first buttons.'**
+  /// **'Add a remote, then add its buttons.'**
   String get noRemotesNextStep;
 
   /// No description provided for @actions.

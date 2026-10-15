@@ -370,8 +370,8 @@
     }
   },
   "noRemotesYet": "Aún no hay mandos",
-  "noRemotesDescription": "Crea un mando para empezar a enviar códigos IR.",
-  "noRemotesNextStep": "Siguiente paso: toca Añadir mando y luego añade tus primeros botones.",
+  "noRemotesDescription": "Crea un mando para enviar señales infrarrojas.",
+  "noRemotesNextStep": "Añade un mando y después sus botones.",
   "actions": "Acciones",
   "macrosTitle": "Macros",
   "help": "Ayuda",

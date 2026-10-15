@@ -364,9 +364,9 @@
       "plural": {}
     }
   },
-  "noRemotesYet": "Nessun telecomando ancora",
-  "noRemotesDescription": "Crea un telecomando per iniziare a inviare codici IR.",
-  "noRemotesNextStep": "Prossimo passo. Tocca Aggiungi telecomando, poi aggiungi i primi pulsanti.",
+  "noRemotesYet": "Nessun telecomando",
+  "noRemotesDescription": "Crea un telecomando per inviare segnali a infrarossi.",
+  "noRemotesNextStep": "Aggiungi un telecomando, poi i suoi pulsanti.",
   "actions": "Azioni",
   "macrosTitle": "Macro",
   "help": "Aiuto",

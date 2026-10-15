@@ -1171,10 +1171,10 @@ class AppLocalizationsZh extends AppLocalizations {
   String get noRemotesYet => '还没有遥控器';
 
   @override
-  String get noRemotesDescription => '创建遥控器即可开始发送红外代码。';
+  String get noRemotesDescription => '创建遥控器来发送红外信号。';
 
   @override
-  String get noRemotesNextStep => '下一步 点击添加遥控器，然后添加第一个按钮。';
+  String get noRemotesNextStep => '先添加遥控器，再添加按钮。';
 
   @override
   String get actions => '操作';

@@ -1282,15 +1282,15 @@ class AppLocalizationsIt extends AppLocalizations {
   }
 
   @override
-  String get noRemotesYet => 'Nessun telecomando ancora';
+  String get noRemotesYet => 'Nessun telecomando';
 
   @override
   String get noRemotesDescription =>
-      'Crea un telecomando per iniziare a inviare codici IR.';
+      'Crea un telecomando per inviare segnali a infrarossi.';
 
   @override
   String get noRemotesNextStep =>
-      'Prossimo passo. Tocca Aggiungi telecomando, poi aggiungi i primi pulsanti.';
+      'Aggiungi un telecomando, poi i suoi pulsanti.';
 
   @override
   String get actions => 'Azioni';

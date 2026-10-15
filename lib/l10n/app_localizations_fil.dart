@@ -1274,15 +1274,15 @@ class AppLocalizationsFil extends AppLocalizations {
   }
 
   @override
-  String get noRemotesYet => 'Walang mga remote yet';
+  String get noRemotesYet => 'Wala pang remote';
 
   @override
   String get noRemotesDescription =>
-      'Create a remote to start sending IR codes.';
+      'Gumawa ng remote para magpadala ng infrared signal.';
 
   @override
   String get noRemotesNextStep =>
-      'Susunod: tapikin ang Add remote, saka idagdag ang una mong mga button.';
+      'Magdagdag muna ng remote, saka ng mga pindutan nito.';
 
   @override
   String get actions => 'Mga aksyon';

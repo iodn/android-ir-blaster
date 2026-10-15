@@ -365,8 +365,8 @@
     }
   },
   "noRemotesYet": "还没有遥控器",
-  "noRemotesDescription": "创建遥控器即可开始发送红外代码。",
-  "noRemotesNextStep": "下一步 点击添加遥控器，然后添加第一个按钮。",
+  "noRemotesDescription": "创建遥控器来发送红外信号。",
+  "noRemotesNextStep": "先添加遥控器，再添加按钮。",
   "actions": "操作",
   "macrosTitle": "宏",
   "help": "帮助",

@@ -366,8 +366,8 @@
     }
   },
   "noRemotesYet": "Noch keine Fernbedienungen",
-  "noRemotesDescription": "Erstelle eine Fernbedienung, um IR-Codes zu senden.",
-  "noRemotesNextStep": "Als Nächstes: Tippe auf Fernbedienung hinzufügen und lege deine ersten Tasten an.",
+  "noRemotesDescription": "Erstelle eine Fernbedienung zum Senden von IR-Signalen.",
+  "noRemotesNextStep": "Füge zuerst eine Fernbedienung hinzu, danach die Tasten.",
   "actions": "Aktionen",
   "macrosTitle": "Makros",
   "help": "Hilfe",

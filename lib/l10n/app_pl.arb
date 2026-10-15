@@ -367,8 +367,8 @@
     }
   },
   "noRemotesYet": "Brak pilotów",
-  "noRemotesDescription": "Utwórz pilot, aby zacząć wysyłać kody IR.",
-  "noRemotesNextStep": "Co dalej: stuknij Dodaj pilot, a potem dodaj pierwsze przyciski.",
+  "noRemotesDescription": "Utwórz pilot do wysyłania sygnałów podczerwieni.",
+  "noRemotesNextStep": "Dodaj pilot, a następnie jego przyciski.",
   "actions": "Działania",
   "macrosTitle": "Makra",
   "help": "Pomoc",

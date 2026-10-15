@@ -364,9 +364,9 @@
       "plural": {}
     }
   },
-  "noRemotesYet": "Belum ada remote",
-  "noRemotesDescription": "Buat remote untuk mula menghantar kod IR.",
-  "noRemotesNextStep": "Berikutnya: tekan Tambah remote, kemudian tambahkan butang pertama.",
+  "noRemotesYet": "Belum ada alat kawalan jauh",
+  "noRemotesDescription": "Cipta alat kawalan jauh untuk menghantar isyarat inframerah.",
+  "noRemotesNextStep": "Tambah alat kawalan jauh dahulu, kemudian butangnya.",
   "actions": "Tindakan",
   "macrosTitle": "Makro",
   "help": "Bantuan",

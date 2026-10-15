@@ -1205,13 +1205,13 @@ class AppLocalizationsJa extends AppLocalizations {
   }
 
   @override
-  String get noRemotesYet => 'まだリモコンがありません';
+  String get noRemotesYet => 'リモコンがありません';
 
   @override
-  String get noRemotesDescription => 'リモコンを作成してIRコード送信を始めましょう';
+  String get noRemotesDescription => '赤外線信号を送信するリモコンを作成できます。';
 
   @override
-  String get noRemotesNextStep => '次の操作 追加を押して最初のボタンを追加してください。';
+  String get noRemotesNextStep => 'まずリモコンを追加し、次にボタンを追加してください。';
 
   @override
   String get actions => '操作';

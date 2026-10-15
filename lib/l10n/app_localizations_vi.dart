@@ -1257,11 +1257,11 @@ class AppLocalizationsVi extends AppLocalizations {
   String get noRemotesYet => 'Chưa có điều khiển nào';
 
   @override
-  String get noRemotesDescription => 'Tạo một điều khiển để bắt đầu gửi mã IR.';
+  String get noRemotesDescription =>
+      'Tạo điều khiển để gửi tín hiệu hồng ngoại.';
 
   @override
-  String get noRemotesNextStep =>
-      'Tiếp theo: chạm Thêm điều khiển, rồi thêm các nút đầu tiên.';
+  String get noRemotesNextStep => 'Thêm điều khiển trước, rồi thêm các nút.';
 
   @override
   String get actions => 'Thao tác';

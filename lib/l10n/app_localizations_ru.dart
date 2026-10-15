@@ -1272,12 +1272,10 @@ class AppLocalizationsRu extends AppLocalizations {
   String get noRemotesYet => 'Пультов пока нет';
 
   @override
-  String get noRemotesDescription =>
-      'Создайте пульт, чтобы начать отправлять ИК-коды.';
+  String get noRemotesDescription => 'Создайте пульт для отправки ИК-сигналов.';
 
   @override
-  String get noRemotesNextStep =>
-      'Что дальше: нажмите Добавить пульт, затем добавьте первые кнопки.';
+  String get noRemotesNextStep => 'Сначала добавьте пульт, затем кнопки.';
 
   @override
   String get actions => 'Действия';

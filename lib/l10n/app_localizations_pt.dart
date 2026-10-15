@@ -1285,11 +1285,11 @@ class AppLocalizationsPt extends AppLocalizations {
 
   @override
   String get noRemotesDescription =>
-      'Crie um comando para começar a enviar códigos IR.';
+      'Crie um comando para enviar sinais infravermelhos.';
 
   @override
   String get noRemotesNextStep =>
-      'Seguinte passo: toque em Adicionar comando e depois adicione os seus primeiros botões.';
+      'Adicione um comando e depois os respetivos botões.';
 
   @override
   String get actions => 'Ações';
@@ -6607,11 +6607,10 @@ class AppLocalizationsPtBr extends AppLocalizationsPt {
 
   @override
   String get noRemotesDescription =>
-      'Crie um controle para começar a enviar códigos IR.';
+      'Crie um controle para enviar sinais infravermelhos.';
 
   @override
-  String get noRemotesNextStep =>
-      'Próximo passo: toque em Adicionar controle e depois adicione os seus primeiros botões.';
+  String get noRemotesNextStep => 'Adicione um controle e depois os botões.';
 
   @override
   String get actions => 'Ações';

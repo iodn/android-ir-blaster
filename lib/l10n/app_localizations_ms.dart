@@ -1262,15 +1262,15 @@ class AppLocalizationsMs extends AppLocalizations {
   }
 
   @override
-  String get noRemotesYet => 'Belum ada remote';
+  String get noRemotesYet => 'Belum ada alat kawalan jauh';
 
   @override
   String get noRemotesDescription =>
-      'Buat remote untuk mula menghantar kod IR.';
+      'Cipta alat kawalan jauh untuk menghantar isyarat inframerah.';
 
   @override
   String get noRemotesNextStep =>
-      'Berikutnya: tekan Tambah remote, kemudian tambahkan butang pertama.';
+      'Tambah alat kawalan jauh dahulu, kemudian butangnya.';
 
   @override
   String get actions => 'Tindakan';

@@ -364,9 +364,9 @@
       "plural": {}
     }
   },
-  "noRemotesYet": "नहीं रिमोट yet",
-  "noRemotesDescription": "बनाएं a रिमोट तक प्रारंभ sending IR कोड.",
-  "noRemotesNextStep": "What अगला: टैप जोड़ें रिमोट, फिर जोड़ें आपकी पहले बटन.",
+  "noRemotesYet": "अभी कोई रिमोट नहीं है",
+  "noRemotesDescription": "इन्फ्रारेड सिग्नल भेजने के लिए रिमोट बनाएँ।",
+  "noRemotesNextStep": "पहले रिमोट जोड़ें, फिर उसमें बटन जोड़ें।",
   "actions": "कार्रवाइयाँ",
   "macrosTitle": "मैक्रो",
   "help": "मदद",

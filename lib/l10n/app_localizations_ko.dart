@@ -1213,13 +1213,13 @@ class AppLocalizationsKo extends AppLocalizations {
   }
 
   @override
-  String get noRemotesYet => '아직 리모컨이 없습니다';
+  String get noRemotesYet => '아직 리모컨이 없어요';
 
   @override
-  String get noRemotesDescription => '생성 리모컨 시작 IR 송신 코드.';
+  String get noRemotesDescription => '적외선 신호를 보낼 리모컨을 만들어 보세요.';
 
   @override
-  String get noRemotesNextStep => '다음 단계: 리모컨 추가를 탭한 뒤 첫 버튼을 추가하세요.';
+  String get noRemotesNextStep => '리모컨을 추가한 다음 버튼을 추가하세요.';
 
   @override
   String get actions => '동작';

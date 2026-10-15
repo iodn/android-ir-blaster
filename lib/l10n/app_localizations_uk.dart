@@ -1284,11 +1284,10 @@ class AppLocalizationsUk extends AppLocalizations {
 
   @override
   String get noRemotesDescription =>
-      'Створіть пульт, щоб розпочати надсилання ІЧ-кодів.';
+      'Створіть пульт для надсилання ІЧ-сигналів.';
 
   @override
-  String get noRemotesNextStep =>
-      'Що далі: торкніться «Додати пульт», а потім додайте перші кнопки.';
+  String get noRemotesNextStep => 'Спочатку додайте пульт, а потім кнопки.';
 
   @override
   String get actions => 'Дії';

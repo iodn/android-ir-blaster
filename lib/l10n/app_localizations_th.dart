@@ -1254,12 +1254,10 @@ class AppLocalizationsTh extends AppLocalizations {
   String get noRemotesYet => 'ยังไม่มีรีโมต';
 
   @override
-  String get noRemotesDescription =>
-      'สร้าง a remote to start sending IR codes.';
+  String get noRemotesDescription => 'สร้างรีโมตเพื่อส่งสัญญาณอินฟราเรด';
 
   @override
-  String get noRemotesNextStep =>
-      'What ถัดไป: tap เพิ่มรีโมต, then add your ก่อน ปุ่มs.';
+  String get noRemotesNextStep => 'เพิ่มรีโมตก่อน แล้วเพิ่มปุ่มลงในรีโมต';
 
   @override
   String get actions => 'การทำงาน';

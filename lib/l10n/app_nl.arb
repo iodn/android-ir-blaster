@@ -365,8 +365,8 @@
     }
   },
   "noRemotesYet": "Nog geen afstandsbedieningen",
-  "noRemotesDescription": "Maak een afstandsbediening om IR-codes te verzenden.",
-  "noRemotesNextStep": "Wat nu tik op Afstandsbediening toevoegen en voeg daarna je eerste knoppen toe.",
+  "noRemotesDescription": "Maak een afstandsbediening om infraroodsignalen te verzenden.",
+  "noRemotesNextStep": "Voeg eerst een afstandsbediening toe, daarna de knoppen.",
   "actions": "Acties",
   "macrosTitle": "Macro's",
   "help": "Help",

@@ -1262,14 +1262,14 @@ class AppLocalizationsHi extends AppLocalizations {
   }
 
   @override
-  String get noRemotesYet => 'नहीं रिमोट yet';
+  String get noRemotesYet => 'अभी कोई रिमोट नहीं है';
 
   @override
-  String get noRemotesDescription => 'बनाएं a रिमोट तक प्रारंभ sending IR कोड.';
+  String get noRemotesDescription =>
+      'इन्फ्रारेड सिग्नल भेजने के लिए रिमोट बनाएँ।';
 
   @override
-  String get noRemotesNextStep =>
-      'What अगला: टैप जोड़ें रिमोट, फिर जोड़ें आपकी पहले बटन.';
+  String get noRemotesNextStep => 'पहले रिमोट जोड़ें, फिर उसमें बटन जोड़ें।';
 
   @override
   String get actions => 'कार्रवाइयाँ';

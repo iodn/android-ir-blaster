@@ -364,9 +364,9 @@
       "plural": {}
     }
   },
-  "noRemotesYet": "Walang mga remote yet",
-  "noRemotesDescription": "Create a remote to start sending IR codes.",
-  "noRemotesNextStep": "Susunod: tapikin ang Add remote, saka idagdag ang una mong mga button.",
+  "noRemotesYet": "Wala pang remote",
+  "noRemotesDescription": "Gumawa ng remote para magpadala ng infrared signal.",
+  "noRemotesNextStep": "Magdagdag muna ng remote, saka ng mga pindutan nito.",
   "actions": "Mga aksyon",
   "macrosTitle": "Mga macro",
   "help": "Help",

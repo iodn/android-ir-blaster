@@ -364,9 +364,9 @@
       "plural": {}
     }
   },
-  "noRemotesYet": "まだリモコンがありません",
-  "noRemotesDescription": "リモコンを作成してIRコード送信を始めましょう",
-  "noRemotesNextStep": "次の操作 追加を押して最初のボタンを追加してください。",
+  "noRemotesYet": "リモコンがありません",
+  "noRemotesDescription": "赤外線信号を送信するリモコンを作成できます。",
+  "noRemotesNextStep": "まずリモコンを追加し、次にボタンを追加してください。",
   "actions": "操作",
   "macrosTitle": "マクロ",
   "help": "ヘルプ",

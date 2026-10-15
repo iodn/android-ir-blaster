@@ -364,9 +364,9 @@
       "plural": {}
     }
   },
-  "noRemotesYet": "No remotes yet",
-  "noRemotesDescription": "Create a kumanda to başlat sending IR codes.",
-  "noRemotesNextStep": "Sonraki adım: Kumanda Ekle'ye dokunun, sonra ilk düğmelerinizi ekleyin.",
+  "noRemotesYet": "Henüz kumanda yok",
+  "noRemotesDescription": "Kızılötesi sinyal göndermek için bir kumanda oluşturun.",
+  "noRemotesNextStep": "Önce bir kumanda, ardından düğmelerini ekleyin.",
   "actions": "İşlemler",
   "macrosTitle": "Makrolar",
   "help": "Help",

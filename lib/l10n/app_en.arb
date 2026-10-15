@@ -477,8 +477,8 @@
     }
   },
   "noRemotesYet": "No remotes yet",
-  "noRemotesDescription": "Create a remote to start sending IR codes.",
-  "noRemotesNextStep": "What next: tap Add remote, then add your first buttons.",
+  "noRemotesDescription": "Create a remote to send infrared signals.",
+  "noRemotesNextStep": "Add a remote, then add its buttons.",
   "actions": "Actions",
   "macrosTitle": "Macros",
   "help": "Help",

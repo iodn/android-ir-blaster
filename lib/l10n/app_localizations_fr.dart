@@ -1283,11 +1283,10 @@ class AppLocalizationsFr extends AppLocalizations {
 
   @override
   String get noRemotesDescription =>
-      'Créez une télécommande pour commencer à envoyer des codes IR.';
+      'Créez une télécommande pour envoyer des signaux infrarouges.';
 
   @override
-  String get noRemotesNextStep =>
-      'Et ensuite : touchez Ajouter une télécommande, puis ajoutez vos premiers boutons.';
+  String get noRemotesNextStep => 'Ajoutez une télécommande, puis ses boutons.';
 
   @override
   String get actions => 'Actions';

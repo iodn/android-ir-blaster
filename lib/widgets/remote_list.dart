@@ -678,11 +678,13 @@ class _RemoteListState extends State<RemoteList> {
                 ),
               ],
             ),
-            floatingActionButton: FloatingActionButton.extended(
-              onPressed: _reorderMode ? null : _addRemote,
-              icon: const Icon(Icons.add),
-              label: Text(context.l10n.addRemote),
-            ),
+            floatingActionButton: remotes.isEmpty
+                ? null
+                : FloatingActionButton.extended(
+                    onPressed: _reorderMode ? null : _addRemote,
+                    icon: const Icon(Icons.add),
+                    label: Text(context.l10n.addRemote),
+                  ),
             body: SafeArea(
               child: remotes.isEmpty
                   ? CustomScrollView(

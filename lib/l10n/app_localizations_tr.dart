@@ -1263,15 +1263,15 @@ class AppLocalizationsTr extends AppLocalizations {
   }
 
   @override
-  String get noRemotesYet => 'No remotes yet';
+  String get noRemotesYet => 'Henüz kumanda yok';
 
   @override
   String get noRemotesDescription =>
-      'Create a kumanda to başlat sending IR codes.';
+      'Kızılötesi sinyal göndermek için bir kumanda oluşturun.';
 
   @override
   String get noRemotesNextStep =>
-      'Sonraki adım: Kumanda Ekle\'ye dokunun, sonra ilk düğmelerinizi ekleyin.';
+      'Önce bir kumanda, ardından düğmelerini ekleyin.';
 
   @override
   String get actions => 'İşlemler';

@@ -1258,14 +1258,14 @@ class AppLocalizationsAr extends AppLocalizations {
   }
 
   @override
-  String get noRemotesYet => 'No remotes yet';
+  String get noRemotesYet => 'لا توجد أجهزة تحكم بعد';
 
   @override
-  String get noRemotesDescription => 'أنشئ جهاز تحكم لبدء إرسال أكواد IR.';
+  String get noRemotesDescription =>
+      'أنشئ جهاز تحكم لإرسال إشارات الأشعة تحت الحمراء.';
 
   @override
-  String get noRemotesNextStep =>
-      'ماذا بعد: اضغط إضافة جهاز تحكم، ثم أضف أول أزرارك.';
+  String get noRemotesNextStep => 'ابدأ بإضافة جهاز تحكم، ثم أضف إليه الأزرار.';
 
   @override
   String get actions => 'الإجراءات';
@@ -6524,14 +6524,15 @@ class AppLocalizationsArEg extends AppLocalizationsAr {
   }
 
   @override
-  String get noRemotesYet => 'No remotes yet';
+  String get noRemotesYet => 'لسه مفيش أجهزة تحكم';
 
   @override
-  String get noRemotesDescription => 'أنشئ جهاز تحكم لبدء إرسال أكواد IR.';
+  String get noRemotesDescription =>
+      'اعمل جهاز تحكم لإرسال إشارات الأشعة تحت الحمراء.';
 
   @override
   String get noRemotesNextStep =>
-      'ماذا بعد: اضغط إضافة جهاز تحكم، ثم أضف أول أزرارك.';
+      'ابدأ بإضافة جهاز تحكم، وبعدها ضيف له الأزرار.';
 
   @override
   String get actions => 'الإجراءات';

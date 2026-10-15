@@ -365,8 +365,8 @@
     }
   },
   "noRemotesYet": "Belum ada remote",
-  "noRemotesDescription": "Buat remote untuk mulai mengirim kode IR.",
-  "noRemotesNextStep": "Berikutnya: ketuk Tambah remote, lalu tambahkan tombol pertama.",
+  "noRemotesDescription": "Buat remote untuk mengirim sinyal inframerah.",
+  "noRemotesNextStep": "Tambahkan remote, lalu tombol-tombolnya.",
   "actions": "Tindakan",
   "macrosTitle": "Makro",
   "help": "Bantuan",

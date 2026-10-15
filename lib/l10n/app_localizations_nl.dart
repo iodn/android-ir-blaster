@@ -1294,11 +1294,11 @@ class AppLocalizationsNl extends AppLocalizations {
 
   @override
   String get noRemotesDescription =>
-      'Maak een afstandsbediening om IR-codes te verzenden.';
+      'Maak een afstandsbediening om infraroodsignalen te verzenden.';
 
   @override
   String get noRemotesNextStep =>
-      'Wat nu tik op Afstandsbediening toevoegen en voeg daarna je eerste knoppen toe.';
+      'Voeg eerst een afstandsbediening toe, daarna de knoppen.';
 
   @override
   String get actions => 'Acties';

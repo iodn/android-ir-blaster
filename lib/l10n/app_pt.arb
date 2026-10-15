@@ -365,8 +365,8 @@
     }
   },
   "noRemotesYet": "Ainda não há comandos",
-  "noRemotesDescription": "Crie um comando para começar a enviar códigos IR.",
-  "noRemotesNextStep": "Seguinte passo: toque em Adicionar comando e depois adicione os seus primeiros botões.",
+  "noRemotesDescription": "Crie um comando para enviar sinais infravermelhos.",
+  "noRemotesNextStep": "Adicione um comando e depois os respetivos botões.",
   "actions": "Ações",
   "macrosTitle": "Macros",
   "help": "Ajuda",

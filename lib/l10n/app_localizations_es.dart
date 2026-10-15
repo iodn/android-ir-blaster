@@ -1283,11 +1283,10 @@ class AppLocalizationsEs extends AppLocalizations {
 
   @override
   String get noRemotesDescription =>
-      'Crea un mando para empezar a enviar códigos IR.';
+      'Crea un mando para enviar señales infrarrojas.';
 
   @override
-  String get noRemotesNextStep =>
-      'Siguiente paso: toca Añadir mando y luego añade tus primeros botones.';
+  String get noRemotesNextStep => 'Añade un mando y después sus botones.';
 
   @override
   String get actions => 'Acciones';

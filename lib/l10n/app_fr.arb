@@ -370,8 +370,8 @@
     }
   },
   "noRemotesYet": "Aucune télécommande",
-  "noRemotesDescription": "Créez une télécommande pour commencer à envoyer des codes IR.",
-  "noRemotesNextStep": "Et ensuite : touchez Ajouter une télécommande, puis ajoutez vos premiers boutons.",
+  "noRemotesDescription": "Créez une télécommande pour envoyer des signaux infrarouges.",
+  "noRemotesNextStep": "Ajoutez une télécommande, puis ses boutons.",
   "actions": "Actions",
   "macrosTitle": "Macros",
   "help": "Aide",

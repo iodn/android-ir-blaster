@@ -1266,11 +1266,10 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get noRemotesDescription =>
-      'Create a remote to start sending IR codes.';
+      'Create a remote to send infrared signals.';
 
   @override
-  String get noRemotesNextStep =>
-      'What next: tap Add remote, then add your first buttons.';
+  String get noRemotesNextStep => 'Add a remote, then add its buttons.';
 
   @override
   String get actions => 'Actions';

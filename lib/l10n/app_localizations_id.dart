@@ -1267,11 +1267,10 @@ class AppLocalizationsId extends AppLocalizations {
 
   @override
   String get noRemotesDescription =>
-      'Buat remote untuk mulai mengirim kode IR.';
+      'Buat remote untuk mengirim sinyal inframerah.';
 
   @override
-  String get noRemotesNextStep =>
-      'Berikutnya: ketuk Tambah remote, lalu tambahkan tombol pertama.';
+  String get noRemotesNextStep => 'Tambahkan remote, lalu tombol-tombolnya.';
 
   @override
   String get actions => 'Tindakan';

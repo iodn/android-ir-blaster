@@ -1283,11 +1283,10 @@ class AppLocalizationsPl extends AppLocalizations {
 
   @override
   String get noRemotesDescription =>
-      'Utwórz pilot, aby zacząć wysyłać kody IR.';
+      'Utwórz pilot do wysyłania sygnałów podczerwieni.';
 
   @override
-  String get noRemotesNextStep =>
-      'Co dalej: stuknij Dodaj pilot, a potem dodaj pierwsze przyciski.';
+  String get noRemotesNextStep => 'Dodaj pilot, a następnie jego przyciski.';
 
   @override
   String get actions => 'Działania';

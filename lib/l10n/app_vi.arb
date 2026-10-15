@@ -365,8 +365,8 @@
     }
   },
   "noRemotesYet": "Chưa có điều khiển nào",
-  "noRemotesDescription": "Tạo một điều khiển để bắt đầu gửi mã IR.",
-  "noRemotesNextStep": "Tiếp theo: chạm Thêm điều khiển, rồi thêm các nút đầu tiên.",
+  "noRemotesDescription": "Tạo điều khiển để gửi tín hiệu hồng ngoại.",
+  "noRemotesNextStep": "Thêm điều khiển trước, rồi thêm các nút.",
   "actions": "Thao tác",
   "macrosTitle": "Macro",
   "help": "Trợ giúp",

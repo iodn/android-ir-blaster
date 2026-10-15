@@ -364,9 +364,9 @@
       "plural": {}
     }
   },
-  "noRemotesYet": "No remotes yet",
-  "noRemotesDescription": "أنشئ جهاز تحكم لبدء إرسال أكواد IR.",
-  "noRemotesNextStep": "ماذا بعد: اضغط إضافة جهاز تحكم، ثم أضف أول أزرارك.",
+  "noRemotesYet": "لسه مفيش أجهزة تحكم",
+  "noRemotesDescription": "اعمل جهاز تحكم لإرسال إشارات الأشعة تحت الحمراء.",
+  "noRemotesNextStep": "ابدأ بإضافة جهاز تحكم، وبعدها ضيف له الأزرار.",
   "actions": "الإجراءات",
   "macrosTitle": "الماكرو",
   "help": "مساعدة",
