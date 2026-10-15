@@ -2657,5 +2657,11 @@
         "type": "int"
       }
     }
-  }
+  },
+  "githubImportComplete": "Import complete",
+  "githubImportNextStep": "Open the remote now or keep browsing GitHub.",
+  "githubImportRemoteCount": "Remotes imported: {count}.",
+  "githubImportOpenRemote": "Open remote",
+  "githubImportContinueBrowsing": "Keep browsing",
+  "@githubImportRemoteCount": {"placeholders": {"count": {"type": "int"}}}
 }

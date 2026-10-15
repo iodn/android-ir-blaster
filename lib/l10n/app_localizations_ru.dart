@@ -5343,4 +5343,22 @@ class AppLocalizationsRu extends AppLocalizations {
   String learningModeByteCount(int count) {
     return 'Байты: $count';
   }
+
+  @override
+  String get githubImportComplete => 'Импорт завершён';
+
+  @override
+  String get githubImportNextStep =>
+      'Откройте пульт или продолжите поиск на GitHub.';
+
+  @override
+  String githubImportRemoteCount(int count) {
+    return 'Импортировано пультов: $count.';
+  }
+
+  @override
+  String get githubImportOpenRemote => 'Открыть пульт';
+
+  @override
+  String get githubImportContinueBrowsing => 'Продолжить поиск';
 }

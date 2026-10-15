@@ -2429,5 +2429,10 @@
   "learningModeLgReplayRestriction": "عشان تبعت الإشارة دي تاني، لازم تستخدم نفس موبايل LG اللي سجلتها بيه.",
   "learningModeTimingCount": "الفترات المسجّلة: {count}",
   "learningModeUnknownCarrier": "تردد الموجة الحاملة مش معروف",
-  "learningModeByteCount": "عدد البايتات: {count}"
+  "learningModeByteCount": "عدد البايتات: {count}",
+  "githubImportComplete": "اكتمل الاستيراد",
+  "githubImportNextStep": "يمكنك فتح الريموت الآن أو متابعة التصفح في GitHub.",
+  "githubImportRemoteCount": "الريموتات المستوردة: {count}.",
+  "githubImportOpenRemote": "فتح الريموت",
+  "githubImportContinueBrowsing": "متابعة التصفح"
 }

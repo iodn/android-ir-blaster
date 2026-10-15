@@ -2429,5 +2429,10 @@
   "learningModeLgReplayRestriction": "重发此信号必须使用当时接收信号的同一部 LG 手机。",
   "learningModeTimingCount": "记录的时长条目：{count}",
   "learningModeUnknownCarrier": "载波频率未知",
-  "learningModeByteCount": "字节数：{count}"
+  "learningModeByteCount": "字节数：{count}",
+  "githubImportComplete": "导入完成",
+  "githubImportNextStep": "现在可以打开遥控器，也可以继续浏览 GitHub。",
+  "githubImportRemoteCount": "已导入 {count} 个遥控器。",
+  "githubImportOpenRemote": "打开遥控器",
+  "githubImportContinueBrowsing": "继续浏览"
 }

@@ -5124,4 +5124,21 @@ class AppLocalizationsKo extends AppLocalizations {
   String learningModeByteCount(int count) {
     return '바이트 수: $count';
   }
+
+  @override
+  String get githubImportComplete => '가져오기 완료';
+
+  @override
+  String get githubImportNextStep => '리모컨을 열거나 GitHub에서 계속 찾아볼 수 있습니다.';
+
+  @override
+  String githubImportRemoteCount(int count) {
+    return '리모컨 $count개를 가져왔습니다.';
+  }
+
+  @override
+  String get githubImportOpenRemote => '리모컨 열기';
+
+  @override
+  String get githubImportContinueBrowsing => '계속 둘러보기';
 }

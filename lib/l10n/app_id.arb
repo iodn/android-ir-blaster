@@ -2429,5 +2429,10 @@
   "learningModeLgReplayRestriction": "Untuk mengirim ulang sinyal ini, gunakan ponsel LG yang sama dengan yang digunakan saat merekamnya.",
   "learningModeTimingCount": "Interval tercatat: {count}",
   "learningModeUnknownCarrier": "Frekuensi pembawa tidak diketahui",
-  "learningModeByteCount": "Jumlah byte: {count}"
+  "learningModeByteCount": "Jumlah byte: {count}",
+  "githubImportComplete": "Impor selesai",
+  "githubImportNextStep": "Buka remote sekarang atau lanjutkan penelusuran di GitHub.",
+  "githubImportRemoteCount": "Remote yang diimpor: {count}.",
+  "githubImportOpenRemote": "Buka remote",
+  "githubImportContinueBrowsing": "Lanjutkan penelusuran"
 }

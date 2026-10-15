@@ -2429,5 +2429,10 @@
   "learningModeLgReplayRestriction": "यह सिग्नल भेजने के लिए उसी LG फ़ोन की ज़रूरत है जिससे इसे रिकॉर्ड किया गया था।",
   "learningModeTimingCount": "दर्ज समय-अंतराल: {count}",
   "learningModeUnknownCarrier": "कैरियर फ़्रीक्वेंसी अज्ञात",
-  "learningModeByteCount": "बाइट की संख्या: {count}"
+  "learningModeByteCount": "बाइट की संख्या: {count}",
+  "githubImportComplete": "इंपोर्ट पूरा हुआ",
+  "githubImportNextStep": "रिमोट अभी खोलें या GitHub पर और रिमोट खोजें।",
+  "githubImportRemoteCount": "इंपोर्ट किए गए रिमोट: {count}।",
+  "githubImportOpenRemote": "रिमोट खोलें",
+  "githubImportContinueBrowsing": "और खोजें"
 }

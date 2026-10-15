@@ -2429,5 +2429,10 @@
   "learningModeLgReplayRestriction": "Kailangan ang parehong LG phone na ginamit sa pagkuha ng signal para maipadala ito muli.",
   "learningModeTimingCount": "Naitalang agwat ng oras: {count}",
   "learningModeUnknownCarrier": "Hindi alam ang carrier frequency",
-  "learningModeByteCount": "Bilang ng byte: {count}"
+  "learningModeByteCount": "Bilang ng byte: {count}",
+  "githubImportComplete": "Tapos na ang pag-import",
+  "githubImportNextStep": "Maaari mong buksan ang remote o maghanap pa sa GitHub.",
+  "githubImportRemoteCount": "Mga remote na na-import: {count}.",
+  "githubImportOpenRemote": "Buksan ang remote",
+  "githubImportContinueBrowsing": "Maghanap pa"
 }

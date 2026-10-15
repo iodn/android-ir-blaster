@@ -2429,5 +2429,10 @@
   "learningModeLgReplayRestriction": "Để phát lại tín hiệu này, cần dùng đúng chiếc điện thoại LG đã thu tín hiệu.",
   "learningModeTimingCount": "Khoảng thời gian đã ghi: {count}",
   "learningModeUnknownCarrier": "Chưa xác định tần số sóng mang",
-  "learningModeByteCount": "Số byte: {count}"
+  "learningModeByteCount": "Số byte: {count}",
+  "githubImportComplete": "Nhập thành công",
+  "githubImportNextStep": "Bạn có thể mở điều khiển hoặc tiếp tục tìm trên GitHub.",
+  "githubImportRemoteCount": "Đã nhập {count} điều khiển.",
+  "githubImportOpenRemote": "Mở điều khiển",
+  "githubImportContinueBrowsing": "Tiếp tục tìm"
 }

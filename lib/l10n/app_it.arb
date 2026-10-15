@@ -2429,5 +2429,10 @@
   "learningModeLgReplayRestriction": "Per inviare questo segnale serve lo stesso telefono LG usato per acquisirlo.",
   "learningModeTimingCount": "Intervalli registrati: {count}",
   "learningModeUnknownCarrier": "Frequenza portante sconosciuta",
-  "learningModeByteCount": "Byte: {count}"
+  "learningModeByteCount": "Byte: {count}",
+  "githubImportComplete": "Importazione completata",
+  "githubImportNextStep": "Puoi aprire il telecomando o continuare a esplorare GitHub.",
+  "githubImportRemoteCount": "Telecomandi importati: {count}.",
+  "githubImportOpenRemote": "Apri telecomando",
+  "githubImportContinueBrowsing": "Continua a esplorare"
 }

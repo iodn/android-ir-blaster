@@ -5364,4 +5364,22 @@ class AppLocalizationsFr extends AppLocalizations {
   String learningModeByteCount(int count) {
     return 'Octets : $count';
   }
+
+  @override
+  String get githubImportComplete => 'Importation terminée';
+
+  @override
+  String get githubImportNextStep =>
+      'Vous pouvez ouvrir la télécommande ou continuer à parcourir GitHub.';
+
+  @override
+  String githubImportRemoteCount(int count) {
+    return 'Télécommandes importées : $count.';
+  }
+
+  @override
+  String get githubImportOpenRemote => 'Ouvrir la télécommande';
+
+  @override
+  String get githubImportContinueBrowsing => 'Continuer à parcourir';
 }

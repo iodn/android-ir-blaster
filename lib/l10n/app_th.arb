@@ -2429,5 +2429,10 @@
   "learningModeLgReplayRestriction": "ต้องใช้โทรศัพท์ LG เครื่องเดียวกับที่ใช้รับสัญญาณนี้ จึงจะส่งสัญญาณซ้ำได้",
   "learningModeTimingCount": "ช่วงเวลาที่บันทึก: {count}",
   "learningModeUnknownCarrier": "ไม่ทราบความถี่พาหะ",
-  "learningModeByteCount": "จำนวนไบต์: {count}"
+  "learningModeByteCount": "จำนวนไบต์: {count}",
+  "githubImportComplete": "นำเข้าเสร็จแล้ว",
+  "githubImportNextStep": "เปิดรีโมตได้เลย หรือค้นหาต่อใน GitHub",
+  "githubImportRemoteCount": "นำเข้ารีโมตแล้ว {count} รายการ",
+  "githubImportOpenRemote": "เปิดรีโมต",
+  "githubImportContinueBrowsing": "ค้นหาต่อ"
 }

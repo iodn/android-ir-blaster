@@ -2429,5 +2429,10 @@
   "learningModeLgReplayRestriction": "Щоб надіслати цей сигнал, потрібен той самий телефон LG, яким його записали.",
   "learningModeTimingCount": "Записані інтервали: {count}",
   "learningModeUnknownCarrier": "Несуча частота невідома",
-  "learningModeByteCount": "Байти: {count}"
+  "learningModeByteCount": "Байти: {count}",
+  "githubImportComplete": "Імпорт завершено",
+  "githubImportNextStep": "Відкрийте пульт або продовжте пошук на GitHub.",
+  "githubImportRemoteCount": "Імпортовано пультів: {count}.",
+  "githubImportOpenRemote": "Відкрити пульт",
+  "githubImportContinueBrowsing": "Продовжити пошук"
 }

@@ -5273,4 +5273,22 @@ class AppLocalizationsMs extends AppLocalizations {
   String learningModeByteCount(int count) {
     return 'Jumlah bait: $count';
   }
+
+  @override
+  String get githubImportComplete => 'Import selesai';
+
+  @override
+  String get githubImportNextStep =>
+      'Buka alat kawalan jauh sekarang atau teruskan carian di GitHub.';
+
+  @override
+  String githubImportRemoteCount(int count) {
+    return 'Alat kawalan jauh yang diimport: $count.';
+  }
+
+  @override
+  String get githubImportOpenRemote => 'Buka alat kawalan jauh';
+
+  @override
+  String get githubImportContinueBrowsing => 'Teruskan carian';
 }

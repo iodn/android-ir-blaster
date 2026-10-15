@@ -5408,4 +5408,22 @@ class AppLocalizationsUk extends AppLocalizations {
   String learningModeByteCount(int count) {
     return 'Байти: $count';
   }
+
+  @override
+  String get githubImportComplete => 'Імпорт завершено';
+
+  @override
+  String get githubImportNextStep =>
+      'Відкрийте пульт або продовжте пошук на GitHub.';
+
+  @override
+  String githubImportRemoteCount(int count) {
+    return 'Імпортовано пультів: $count.';
+  }
+
+  @override
+  String get githubImportOpenRemote => 'Відкрити пульт';
+
+  @override
+  String get githubImportContinueBrowsing => 'Продовжити пошук';
 }

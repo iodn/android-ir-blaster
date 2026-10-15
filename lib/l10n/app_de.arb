@@ -2415,5 +2415,10 @@
   "learningModeLgReplayRestriction": "Dieses Signal kann nur mit dem LG-Handy gesendet werden, mit dem es aufgenommen wurde.",
   "learningModeTimingCount": "Zeitabschnitte: {count}",
   "learningModeUnknownCarrier": "Trägerfrequenz unbekannt",
-  "learningModeByteCount": "Bytes: {count}"
+  "learningModeByteCount": "Bytes: {count}",
+  "githubImportComplete": "Import abgeschlossen",
+  "githubImportNextStep": "Du kannst die Fernbedienung jetzt öffnen oder weiter auf GitHub stöbern.",
+  "githubImportRemoteCount": "Importierte Fernbedienungen: {count}.",
+  "githubImportOpenRemote": "Fernbedienung öffnen",
+  "githubImportContinueBrowsing": "Weiter stöbern"
 }

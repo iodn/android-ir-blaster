@@ -5352,4 +5352,22 @@ class AppLocalizationsNl extends AppLocalizations {
   String learningModeByteCount(int count) {
     return 'Bytes: $count';
   }
+
+  @override
+  String get githubImportComplete => 'Import voltooid';
+
+  @override
+  String get githubImportNextStep =>
+      'Open de afstandsbediening of zoek verder op GitHub.';
+
+  @override
+  String githubImportRemoteCount(int count) {
+    return 'Geïmporteerde afstandsbedieningen: $count.';
+  }
+
+  @override
+  String get githubImportOpenRemote => 'Afstandsbediening openen';
+
+  @override
+  String get githubImportContinueBrowsing => 'Verder zoeken';
 }

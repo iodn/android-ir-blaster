@@ -5356,4 +5356,22 @@ class AppLocalizationsDe extends AppLocalizations {
   String learningModeByteCount(int count) {
     return 'Bytes: $count';
   }
+
+  @override
+  String get githubImportComplete => 'Import abgeschlossen';
+
+  @override
+  String get githubImportNextStep =>
+      'Du kannst die Fernbedienung jetzt öffnen oder weiter auf GitHub stöbern.';
+
+  @override
+  String githubImportRemoteCount(int count) {
+    return 'Importierte Fernbedienungen: $count.';
+  }
+
+  @override
+  String get githubImportOpenRemote => 'Fernbedienung öffnen';
+
+  @override
+  String get githubImportContinueBrowsing => 'Weiter stöbern';
 }

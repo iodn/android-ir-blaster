@@ -5348,4 +5348,22 @@ class AppLocalizationsEs extends AppLocalizations {
   String learningModeByteCount(int count) {
     return 'Bytes: $count';
   }
+
+  @override
+  String get githubImportComplete => 'Importación completada';
+
+  @override
+  String get githubImportNextStep =>
+      'Puedes abrir el mando ahora o seguir explorando GitHub.';
+
+  @override
+  String githubImportRemoteCount(int count) {
+    return 'Mandos importados: $count.';
+  }
+
+  @override
+  String get githubImportOpenRemote => 'Abrir mando';
+
+  @override
+  String get githubImportContinueBrowsing => 'Seguir explorando';
 }

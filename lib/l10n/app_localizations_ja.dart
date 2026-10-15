@@ -5109,4 +5109,21 @@ class AppLocalizationsJa extends AppLocalizations {
   String learningModeByteCount(int count) {
     return 'バイト数：$count';
   }
+
+  @override
+  String get githubImportComplete => '取り込み完了';
+
+  @override
+  String get githubImportNextStep => 'リモコンを開くか、GitHubで引き続き探せます。';
+
+  @override
+  String githubImportRemoteCount(int count) {
+    return 'リモコンを$count件取り込みました。';
+  }
+
+  @override
+  String get githubImportOpenRemote => 'リモコンを開く';
+
+  @override
+  String get githubImportContinueBrowsing => '続けて探す';
 }

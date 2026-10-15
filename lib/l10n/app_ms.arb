@@ -2429,5 +2429,10 @@
   "learningModeLgReplayRestriction": "Untuk menghantar semula isyarat ini, gunakan telefon LG yang sama seperti semasa merakamnya.",
   "learningModeTimingCount": "Sela masa direkodkan: {count}",
   "learningModeUnknownCarrier": "Frekuensi pembawa tidak diketahui",
-  "learningModeByteCount": "Jumlah bait: {count}"
+  "learningModeByteCount": "Jumlah bait: {count}",
+  "githubImportComplete": "Import selesai",
+  "githubImportNextStep": "Buka alat kawalan jauh sekarang atau teruskan carian di GitHub.",
+  "githubImportRemoteCount": "Alat kawalan jauh yang diimport: {count}.",
+  "githubImportOpenRemote": "Buka alat kawalan jauh",
+  "githubImportContinueBrowsing": "Teruskan carian"
 }

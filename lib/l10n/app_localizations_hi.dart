@@ -5276,4 +5276,22 @@ class AppLocalizationsHi extends AppLocalizations {
   String learningModeByteCount(int count) {
     return 'बाइट की संख्या: $count';
   }
+
+  @override
+  String get githubImportComplete => 'इंपोर्ट पूरा हुआ';
+
+  @override
+  String get githubImportNextStep =>
+      'रिमोट अभी खोलें या GitHub पर और रिमोट खोजें।';
+
+  @override
+  String githubImportRemoteCount(int count) {
+    return 'इंपोर्ट किए गए रिमोट: $count।';
+  }
+
+  @override
+  String get githubImportOpenRemote => 'रिमोट खोलें';
+
+  @override
+  String get githubImportContinueBrowsing => 'और खोजें';
 }

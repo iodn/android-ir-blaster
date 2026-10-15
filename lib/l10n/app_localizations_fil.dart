@@ -5282,4 +5282,22 @@ class AppLocalizationsFil extends AppLocalizations {
   String learningModeByteCount(int count) {
     return 'Bilang ng byte: $count';
   }
+
+  @override
+  String get githubImportComplete => 'Tapos na ang pag-import';
+
+  @override
+  String get githubImportNextStep =>
+      'Maaari mong buksan ang remote o maghanap pa sa GitHub.';
+
+  @override
+  String githubImportRemoteCount(int count) {
+    return 'Mga remote na na-import: $count.';
+  }
+
+  @override
+  String get githubImportOpenRemote => 'Buksan ang remote';
+
+  @override
+  String get githubImportContinueBrowsing => 'Maghanap pa';
 }

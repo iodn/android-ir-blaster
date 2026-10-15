@@ -2429,5 +2429,10 @@
   "learningModeLgReplayRestriction": "Para reenviar este sinal, use o mesmo celular LG usado na captura.",
   "learningModeTimingCount": "Intervalos registrados: {count}",
   "learningModeUnknownCarrier": "Frequência portadora desconhecida",
-  "learningModeByteCount": "Bytes: {count}"
+  "learningModeByteCount": "Bytes: {count}",
+  "githubImportComplete": "Importação concluída",
+  "githubImportNextStep": "Você pode abrir o controle ou continuar explorando o GitHub.",
+  "githubImportRemoteCount": "Controles importados: {count}.",
+  "githubImportOpenRemote": "Abrir controle",
+  "githubImportContinueBrowsing": "Continuar explorando"
 }

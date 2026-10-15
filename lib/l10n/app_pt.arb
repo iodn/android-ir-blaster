@@ -2429,5 +2429,10 @@
   "learningModeLgReplayRestriction": "Para reenviar este sinal, utilize o mesmo telemóvel LG com que o captou.",
   "learningModeTimingCount": "Intervalos registados: {count}",
   "learningModeUnknownCarrier": "Frequência portadora desconhecida",
-  "learningModeByteCount": "Bytes: {count}"
+  "learningModeByteCount": "Bytes: {count}",
+  "githubImportComplete": "Importação concluída",
+  "githubImportNextStep": "Pode abrir o comando ou continuar a explorar o GitHub.",
+  "githubImportRemoteCount": "Comandos importados: {count}.",
+  "githubImportOpenRemote": "Abrir comando",
+  "githubImportContinueBrowsing": "Continuar a explorar"
 }

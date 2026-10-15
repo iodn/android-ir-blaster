@@ -5280,6 +5280,24 @@ class AppLocalizationsAr extends AppLocalizations {
   String learningModeByteCount(int count) {
     return 'عدد البايتات: $count';
   }
+
+  @override
+  String get githubImportComplete => 'اكتمل الاستيراد';
+
+  @override
+  String get githubImportNextStep =>
+      'يمكنك فتح جهاز التحكم الآن أو متابعة التصفح في GitHub.';
+
+  @override
+  String githubImportRemoteCount(int count) {
+    return 'أجهزة التحكم المستوردة: $count.';
+  }
+
+  @override
+  String get githubImportOpenRemote => 'فتح جهاز التحكم';
+
+  @override
+  String get githubImportContinueBrowsing => 'متابعة التصفح';
 }
 
 /// The translations for Arabic, as used in Egypt (`ar_EG`).
@@ -10557,4 +10575,22 @@ class AppLocalizationsArEg extends AppLocalizationsAr {
   String learningModeByteCount(int count) {
     return 'عدد البايتات: $count';
   }
+
+  @override
+  String get githubImportComplete => 'اكتمل الاستيراد';
+
+  @override
+  String get githubImportNextStep =>
+      'يمكنك فتح الريموت الآن أو متابعة التصفح في GitHub.';
+
+  @override
+  String githubImportRemoteCount(int count) {
+    return 'الريموتات المستوردة: $count.';
+  }
+
+  @override
+  String get githubImportOpenRemote => 'فتح الريموت';
+
+  @override
+  String get githubImportContinueBrowsing => 'متابعة التصفح';
 }

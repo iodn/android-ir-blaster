@@ -2429,5 +2429,10 @@
   "learningModeLgReplayRestriction": "Dit signaal kan alleen worden verzonden met de LG-telefoon waarmee het is opgenomen.",
   "learningModeTimingCount": "Tijdsintervallen: {count}",
   "learningModeUnknownCarrier": "Draaggolffrequentie onbekend",
-  "learningModeByteCount": "Bytes: {count}"
+  "learningModeByteCount": "Bytes: {count}",
+  "githubImportComplete": "Import voltooid",
+  "githubImportNextStep": "Open de afstandsbediening of zoek verder op GitHub.",
+  "githubImportRemoteCount": "Geïmporteerde afstandsbedieningen: {count}.",
+  "githubImportOpenRemote": "Afstandsbediening openen",
+  "githubImportContinueBrowsing": "Verder zoeken"
 }

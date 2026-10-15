@@ -2429,5 +2429,10 @@
   "learningModeLgReplayRestriction": "Pour renvoyer ce signal, utilisez le téléphone LG qui l’a enregistré.",
   "learningModeTimingCount": "Durées enregistrées : {count}",
   "learningModeUnknownCarrier": "Fréquence porteuse inconnue",
-  "learningModeByteCount": "Octets : {count}"
+  "learningModeByteCount": "Octets : {count}",
+  "githubImportComplete": "Importation terminée",
+  "githubImportNextStep": "Vous pouvez ouvrir la télécommande ou continuer à parcourir GitHub.",
+  "githubImportRemoteCount": "Télécommandes importées : {count}.",
+  "githubImportOpenRemote": "Ouvrir la télécommande",
+  "githubImportContinueBrowsing": "Continuer à parcourir"
 }

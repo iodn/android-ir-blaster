@@ -5350,6 +5350,24 @@ class AppLocalizationsPt extends AppLocalizations {
   String learningModeByteCount(int count) {
     return 'Bytes: $count';
   }
+
+  @override
+  String get githubImportComplete => 'Importação concluída';
+
+  @override
+  String get githubImportNextStep =>
+      'Pode abrir o comando ou continuar a explorar o GitHub.';
+
+  @override
+  String githubImportRemoteCount(int count) {
+    return 'Comandos importados: $count.';
+  }
+
+  @override
+  String get githubImportOpenRemote => 'Abrir comando';
+
+  @override
+  String get githubImportContinueBrowsing => 'Continuar a explorar';
 }
 
 /// The translations for Portuguese, as used in Brazil (`pt_BR`).
@@ -10693,4 +10711,22 @@ class AppLocalizationsPtBr extends AppLocalizationsPt {
   String learningModeByteCount(int count) {
     return 'Bytes: $count';
   }
+
+  @override
+  String get githubImportComplete => 'Importação concluída';
+
+  @override
+  String get githubImportNextStep =>
+      'Você pode abrir o controle ou continuar explorando o GitHub.';
+
+  @override
+  String githubImportRemoteCount(int count) {
+    return 'Controles importados: $count.';
+  }
+
+  @override
+  String get githubImportOpenRemote => 'Abrir controle';
+
+  @override
+  String get githubImportContinueBrowsing => 'Continuar explorando';
 }

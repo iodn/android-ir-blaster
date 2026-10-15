@@ -2431,5 +2431,10 @@
   "learningModeLgReplayRestriction": "Do wysłania tego sygnału potrzebny jest ten sam telefon LG, którym go przechwycono.",
   "learningModeTimingCount": "Zapisane odcinki czasu: {count}",
   "learningModeUnknownCarrier": "Nieznana częstotliwość nośna",
-  "learningModeByteCount": "Bajty: {count}"
+  "learningModeByteCount": "Bajty: {count}",
+  "githubImportComplete": "Import zakończony",
+  "githubImportNextStep": "Możesz otworzyć pilota lub dalej przeglądać GitHub.",
+  "githubImportRemoteCount": "Zaimportowane piloty: {count}.",
+  "githubImportOpenRemote": "Otwórz pilota",
+  "githubImportContinueBrowsing": "Przeglądaj dalej"
 }

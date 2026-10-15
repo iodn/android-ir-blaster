@@ -2429,5 +2429,10 @@
   "learningModeLgReplayRestriction": "Bu sinyali yeniden göndermek için sinyali kaydeden LG telefonun aynısı gerekir.",
   "learningModeTimingCount": "Kaydedilen zaman aralığı: {count}",
   "learningModeUnknownCarrier": "Taşıyıcı frekansı bilinmiyor",
-  "learningModeByteCount": "Bayt sayısı: {count}"
+  "learningModeByteCount": "Bayt sayısı: {count}",
+  "githubImportComplete": "İçe aktarma tamamlandı",
+  "githubImportNextStep": "Kumandayı açabilir veya GitHub'a göz atmaya devam edebilirsiniz.",
+  "githubImportRemoteCount": "İçe aktarılan kumanda sayısı: {count}.",
+  "githubImportOpenRemote": "Kumandayı aç",
+  "githubImportContinueBrowsing": "Göz atmaya devam et"
 }

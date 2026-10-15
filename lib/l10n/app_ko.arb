@@ -2429,5 +2429,10 @@
   "learningModeLgReplayRestriction": "이 신호를 전송하려면 수신에 사용한 것과 동일한 LG 휴대전화가 필요합니다.",
   "learningModeTimingCount": "기록된 구간 수: {count}",
   "learningModeUnknownCarrier": "반송파 주파수 알 수 없음",
-  "learningModeByteCount": "바이트 수: {count}"
+  "learningModeByteCount": "바이트 수: {count}",
+  "githubImportComplete": "가져오기 완료",
+  "githubImportNextStep": "리모컨을 열거나 GitHub에서 계속 찾아볼 수 있습니다.",
+  "githubImportRemoteCount": "리모컨 {count}개를 가져왔습니다.",
+  "githubImportOpenRemote": "리모컨 열기",
+  "githubImportContinueBrowsing": "계속 둘러보기"
 }

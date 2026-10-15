@@ -5026,4 +5026,21 @@ class AppLocalizationsZh extends AppLocalizations {
   String learningModeByteCount(int count) {
     return '字节数：$count';
   }
+
+  @override
+  String get githubImportComplete => '导入完成';
+
+  @override
+  String get githubImportNextStep => '现在可以打开遥控器，也可以继续浏览 GitHub。';
+
+  @override
+  String githubImportRemoteCount(int count) {
+    return '已导入 $count 个遥控器。';
+  }
+
+  @override
+  String get githubImportOpenRemote => '打开遥控器';
+
+  @override
+  String get githubImportContinueBrowsing => '继续浏览';
 }

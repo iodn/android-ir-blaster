@@ -9487,6 +9487,36 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Bytes: {count}'**
   String learningModeByteCount(int count);
+
+  /// No description provided for @githubImportComplete.
+  ///
+  /// In en, this message translates to:
+  /// **'Import complete'**
+  String get githubImportComplete;
+
+  /// No description provided for @githubImportNextStep.
+  ///
+  /// In en, this message translates to:
+  /// **'Open the remote now or keep browsing GitHub.'**
+  String get githubImportNextStep;
+
+  /// No description provided for @githubImportRemoteCount.
+  ///
+  /// In en, this message translates to:
+  /// **'Remotes imported: {count}.'**
+  String githubImportRemoteCount(int count);
+
+  /// No description provided for @githubImportOpenRemote.
+  ///
+  /// In en, this message translates to:
+  /// **'Open remote'**
+  String get githubImportOpenRemote;
+
+  /// No description provided for @githubImportContinueBrowsing.
+  ///
+  /// In en, this message translates to:
+  /// **'Keep browsing'**
+  String get githubImportContinueBrowsing;
 }
 
 class _AppLocalizationsDelegate

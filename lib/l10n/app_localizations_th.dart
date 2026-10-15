@@ -5225,4 +5225,21 @@ class AppLocalizationsTh extends AppLocalizations {
   String learningModeByteCount(int count) {
     return 'จำนวนไบต์: $count';
   }
+
+  @override
+  String get githubImportComplete => 'นำเข้าเสร็จแล้ว';
+
+  @override
+  String get githubImportNextStep => 'เปิดรีโมตได้เลย หรือค้นหาต่อใน GitHub';
+
+  @override
+  String githubImportRemoteCount(int count) {
+    return 'นำเข้ารีโมตแล้ว $count รายการ';
+  }
+
+  @override
+  String get githubImportOpenRemote => 'เปิดรีโมต';
+
+  @override
+  String get githubImportContinueBrowsing => 'ค้นหาต่อ';
 }

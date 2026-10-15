@@ -2429,5 +2429,10 @@
   "learningModeLgReplayRestriction": "لإعادة إرسال هذه الإشارة، يلزم استخدام هاتف LG نفسه الذي سجّلها.",
   "learningModeTimingCount": "الفترات المسجّلة: {count}",
   "learningModeUnknownCarrier": "تردد الموجة الحاملة غير معروف",
-  "learningModeByteCount": "عدد البايتات: {count}"
+  "learningModeByteCount": "عدد البايتات: {count}",
+  "githubImportComplete": "اكتمل الاستيراد",
+  "githubImportNextStep": "يمكنك فتح جهاز التحكم الآن أو متابعة التصفح في GitHub.",
+  "githubImportRemoteCount": "أجهزة التحكم المستوردة: {count}.",
+  "githubImportOpenRemote": "فتح جهاز التحكم",
+  "githubImportContinueBrowsing": "متابعة التصفح"
 }

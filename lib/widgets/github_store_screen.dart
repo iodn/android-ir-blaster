@@ -792,10 +792,11 @@ class _GitHubFileImportScreenState extends State<_GitHubFileImportScreen> {
       context: context,
       useSafeArea: true,
       showDragHandle: true,
+      isScrollControlled: true,
       builder: (sheetContext) {
         final theme = Theme.of(sheetContext);
         final cs = theme.colorScheme;
-        return Padding(
+        return SingleChildScrollView(
           padding: const EdgeInsets.fromLTRB(20, 4, 20, 20),
           child: Column(
             mainAxisSize: MainAxisSize.min,
@@ -847,7 +848,7 @@ class _GitHubFileImportScreenState extends State<_GitHubFileImportScreen> {
                     _ImportSuccessAction.openRemote,
                   ),
                   icon: const Icon(Icons.settings_remote_rounded),
-                  label: const Text('Open remote'),
+                  label: Text(sheetContext.l10n.githubImportOpenRemote),
                 ),
                 const SizedBox(height: 10),
               ],
@@ -856,7 +857,7 @@ class _GitHubFileImportScreenState extends State<_GitHubFileImportScreen> {
                   _ImportSuccessAction.browseAgain,
                 ),
                 icon: const Icon(Icons.travel_explore_rounded),
-                label: const Text('Browse again'),
+                label: Text(sheetContext.l10n.githubImportContinueBrowsing),
               ),
             ],
           ),
@@ -918,10 +919,10 @@ class _GitHubFileImportScreenState extends State<_GitHubFileImportScreen> {
           .toList(growable: false);
       final importedCount = savedRemotes.length;
       await _showImportSuccessSheet(
-        title: importedCount == 1 ? 'Remote imported' : 'Remotes imported',
+        title: context.l10n.githubImportComplete,
         message: importedCount == 1
-            ? 'The remote is ready. You can keep browsing GitHub or open it now.'
-            : 'Imported $importedCount remotes. You can go back to GitHub Store and continue browsing.',
+            ? context.l10n.githubImportNextStep
+            : context.l10n.githubImportRemoteCount(importedCount),
         remoteToOpen: importedCount == 1 ? savedRemotes.first : null,
       );
     } catch (e) {
@@ -1034,9 +1035,9 @@ class _GitHubFileImportScreenState extends State<_GitHubFileImportScreen> {
           : context.l10n.importedButtonCount(toAdd.length);
       final successMessage = updatedRemote == null
           ? '$remoteLabel: $message'
-          : '$remoteLabel: $message You can keep browsing GitHub or open this remote now.';
+          : '$remoteLabel: $message ${context.l10n.githubImportNextStep}';
       await _showImportSuccessSheet(
-        title: 'Import complete',
+        title: context.l10n.githubImportComplete,
         message: successMessage,
         remoteToOpen: updatedRemote,
       );
@@ -1104,7 +1105,9 @@ class _GitHubFileImportScreenState extends State<_GitHubFileImportScreen> {
                         ),
                       ),
                       const SizedBox(height: 10),
-                      Row(
+                      Wrap(
+                        spacing: 8,
+                        runSpacing: 8,
                         children: [
                           Container(
                             padding: const EdgeInsets.symmetric(
@@ -1129,13 +1132,10 @@ class _GitHubFileImportScreenState extends State<_GitHubFileImportScreen> {
                               ),
                             ),
                           ),
-                          const SizedBox(width: 8),
-                          Expanded(
-                            child: Text(
-                              preview.formatLabel,
-                              style: theme.textTheme.bodyMedium?.copyWith(
-                                color: theme.colorScheme.onSurfaceVariant,
-                              ),
+                          Text(
+                            preview.formatLabel,
+                            style: theme.textTheme.bodyMedium?.copyWith(
+                              color: theme.colorScheme.onSurfaceVariant,
                             ),
                           ),
                         ],
@@ -1225,13 +1225,14 @@ class _GitHubFileImportScreenState extends State<_GitHubFileImportScreen> {
                     children: [
                       Row(
                         children: [
-                          Text(
-                            'File preview',
-                            style: theme.textTheme.titleSmall?.copyWith(
-                              fontWeight: FontWeight.w800,
+                          Expanded(
+                            child: Text(
+                              'File preview',
+                              style: theme.textTheme.titleSmall?.copyWith(
+                                fontWeight: FontWeight.w800,
+                              ),
                             ),
                           ),
-                          const Spacer(),
                           IconButton(
                             tooltip: _wrap ? 'Disable wrap' : 'Enable wrap',
                             onPressed: () => setState(() => _wrap = !_wrap),

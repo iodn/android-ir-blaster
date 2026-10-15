@@ -5261,4 +5261,22 @@ class AppLocalizationsTr extends AppLocalizations {
   String learningModeByteCount(int count) {
     return 'Bayt sayısı: $count';
   }
+
+  @override
+  String get githubImportComplete => 'İçe aktarma tamamlandı';
+
+  @override
+  String get githubImportNextStep =>
+      'Kumandayı açabilir veya GitHub\'a göz atmaya devam edebilirsiniz.';
+
+  @override
+  String githubImportRemoteCount(int count) {
+    return 'İçe aktarılan kumanda sayısı: $count.';
+  }
+
+  @override
+  String get githubImportOpenRemote => 'Kumandayı aç';
+
+  @override
+  String get githubImportContinueBrowsing => 'Göz atmaya devam et';
 }

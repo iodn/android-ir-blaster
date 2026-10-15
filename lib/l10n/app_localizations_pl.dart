@@ -5392,4 +5392,22 @@ class AppLocalizationsPl extends AppLocalizations {
   String learningModeByteCount(int count) {
     return 'Bajty: $count';
   }
+
+  @override
+  String get githubImportComplete => 'Import zakończony';
+
+  @override
+  String get githubImportNextStep =>
+      'Możesz otworzyć pilota lub dalej przeglądać GitHub.';
+
+  @override
+  String githubImportRemoteCount(int count) {
+    return 'Zaimportowane piloty: $count.';
+  }
+
+  @override
+  String get githubImportOpenRemote => 'Otwórz pilota';
+
+  @override
+  String get githubImportContinueBrowsing => 'Przeglądaj dalej';
 }

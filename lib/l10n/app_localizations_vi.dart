@@ -5247,4 +5247,22 @@ class AppLocalizationsVi extends AppLocalizations {
   String learningModeByteCount(int count) {
     return 'Số byte: $count';
   }
+
+  @override
+  String get githubImportComplete => 'Nhập thành công';
+
+  @override
+  String get githubImportNextStep =>
+      'Bạn có thể mở điều khiển hoặc tiếp tục tìm trên GitHub.';
+
+  @override
+  String githubImportRemoteCount(int count) {
+    return 'Đã nhập $count điều khiển.';
+  }
+
+  @override
+  String get githubImportOpenRemote => 'Mở điều khiển';
+
+  @override
+  String get githubImportContinueBrowsing => 'Tiếp tục tìm';
 }
