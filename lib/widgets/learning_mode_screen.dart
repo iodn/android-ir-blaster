@@ -1,4 +1,5 @@
 import 'dart:async';
+import 'dart:convert';
 import 'dart:math' as math;
 
 import 'package:flutter/material.dart';
@@ -210,25 +211,43 @@ class _LearningModeScreenState extends State<LearningModeScreen>
   }
 
   String _capturePreviewBody(LearnedUsbSignal signal) {
-    final String header = signal.displayPreview.isNotEmpty
-        ? signal.displayPreview
-        : signal.family == 'audio'
-            ? 'Audio learned capture'
-            : signal.family == 'elksmart'
-                ? 'ElkSmart USB learned frame'
-                : signal.family == 'huawei_ir'
-                    ? 'Huawei internal IR learned frame'
-                    : signal.family == 'lge_ir'
-                        ? 'LG internal IR learned frame (UEI Quickset)'
-                        : 'Tiqiaa USB learned frame';
+    final l10n = context.l10n;
+    final device = switch (signal.family) {
+      'elksmart' => 'ElkSmart USB',
+      'tiqiaa' => 'Tiqiaa USB',
+      'huawei_ir' => 'Huawei IR',
+      'lge_ir' => 'LG IR / UEI Quickset',
+      _ => null,
+    };
     final lines = <String>[
-      header,
-      'RAW',
+      if (device != null)
+        l10n.learningModeCapturedWith(device)
+      else if (signal.displayPreview.isNotEmpty)
+        signal.displayPreview
+      else
+        l10n.learningModeCapturedSummary,
     ];
+    if (signal.family == 'lge_ir') {
+      try {
+        lines.add(l10n.learningModeByteCount(
+          base64Decode(signal.opaqueFrameBase64).length,
+        ));
+      } on FormatException {
+        // Preview formatting must not hide the device-specific replay warning.
+      }
+      lines.add(l10n.learningModeLgReplayRestriction);
+      return lines.join('\n');
+    }
+    lines.add('RAW');
+    if (signal.rawPatternUs.isNotEmpty) {
+      lines.add(l10n.learningModeTimingCount(signal.rawPatternUs.length));
+      final totalUs = signal.rawPatternUs.fold<int>(0, (sum, value) => sum + value);
+      lines.add('${totalUs / 1000} ms');
+    }
     if (signal.frequencyHz > 0) {
       lines.add('${signal.frequencyHz} Hz');
     } else if (signal.family == 'audio') {
-      lines.add('Carrier unknown');
+      lines.add(l10n.learningModeUnknownCarrier);
     }
     return lines.join('\n');
   }

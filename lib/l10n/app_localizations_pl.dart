@@ -5320,4 +5320,26 @@ class AppLocalizationsPl extends AppLocalizations {
   @override
   String get learningModeSupportedReceivers =>
       'Użyj odbiornika obsługiwanego przez aplikację:\n• Zgodnego adaptera IR USB Tiqiaa, ZaZa lub ElkSmart\n• Obsługiwanego telefonu Huawei / Honor z odbiornikiem IR\n• Obsługiwanego telefonu LG z UEI Quickset\n\nNie wszystkie modele mają funkcję uczenia.';
+
+  @override
+  String learningModeCapturedWith(String device) {
+    return 'Sygnał przechwycony przez $device';
+  }
+
+  @override
+  String get learningModeLgReplayRestriction =>
+      'Do wysłania tego sygnału potrzebny jest ten sam telefon LG, którym go przechwycono.';
+
+  @override
+  String learningModeTimingCount(int count) {
+    return 'Zapisane odcinki czasu: $count';
+  }
+
+  @override
+  String get learningModeUnknownCarrier => 'Nieznana częstotliwość nośna';
+
+  @override
+  String learningModeByteCount(int count) {
+    return 'Bajty: $count';
+  }
 }

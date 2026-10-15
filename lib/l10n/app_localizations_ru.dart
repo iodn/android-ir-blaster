@@ -5230,4 +5230,26 @@ class AppLocalizationsRu extends AppLocalizations {
   @override
   String get learningModeSupportedReceivers =>
       'Используйте приёмник, поддерживаемый приложением:\n• Совместимый ИК USB-адаптер Tiqiaa, ZaZa или ElkSmart\n• Поддерживаемый телефон Huawei / Honor с ИК-приёмником\n• Поддерживаемый телефон LG с UEI Quickset\n\nНе все модели поддерживают обучение.';
+
+  @override
+  String learningModeCapturedWith(String device) {
+    return 'Сигнал записан через $device';
+  }
+
+  @override
+  String get learningModeLgReplayRestriction =>
+      'Для отправки этого сигнала нужен тот же телефон LG, на котором он был записан.';
+
+  @override
+  String learningModeTimingCount(int count) {
+    return 'Записанные интервалы: $count';
+  }
+
+  @override
+  String get learningModeUnknownCarrier => 'Несущая частота неизвестна';
+
+  @override
+  String learningModeByteCount(int count) {
+    return 'Байты: $count';
+  }
 }

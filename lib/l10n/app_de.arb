@@ -2393,5 +2393,10 @@
   "learningModeBuiltInReceiver": "Integrierter IR-Empfänger von {brand}",
   "learningModeUsbReceiver": "USB-Lernempfänger",
   "learningModeDefaultRemoteName": "Fernbedienung {buttonName}",
-  "learningModeSupportedReceivers": "Verwenden Sie einen von der App unterstützten Empfänger:\n• Einen kompatiblen USB-IR-Adapter von Tiqiaa, ZaZa oder ElkSmart\n• Ein unterstütztes Huawei-/Honor-Handy mit IR-Empfang\n• Ein unterstütztes LG-Handy mit UEI Quickset\n\nNicht alle Modelle können Signale anlernen."
+  "learningModeSupportedReceivers": "Verwenden Sie einen von der App unterstützten Empfänger:\n• Einen kompatiblen USB-IR-Adapter von Tiqiaa, ZaZa oder ElkSmart\n• Ein unterstütztes Huawei-/Honor-Handy mit IR-Empfang\n• Ein unterstütztes LG-Handy mit UEI Quickset\n\nNicht alle Modelle können Signale anlernen.",
+  "learningModeCapturedWith": "Mit {device} erfasst",
+  "learningModeLgReplayRestriction": "Dieses Signal kann nur mit dem LG-Handy gesendet werden, mit dem es aufgenommen wurde.",
+  "learningModeTimingCount": "Zeitabschnitte: {count}",
+  "learningModeUnknownCarrier": "Trägerfrequenz unbekannt",
+  "learningModeByteCount": "Bytes: {count}"
 }

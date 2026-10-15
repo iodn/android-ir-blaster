@@ -2407,5 +2407,10 @@
   "learningModeBuiltInReceiver": "Ingebouwde IR-ontvanger van {brand}",
   "learningModeUsbReceiver": "USB-ontvanger met leerfunctie",
   "learningModeDefaultRemoteName": "Afstandsbediening {buttonName}",
-  "learningModeSupportedReceivers": "Gebruik een ontvanger die deze app ondersteunt:\n• Een compatibele USB-IR-adapter van Tiqiaa, ZaZa of ElkSmart\n• Een ondersteunde Huawei-/Honor-telefoon met IR-ontvangst\n• Een ondersteunde LG-telefoon met UEI Quickset\n\nNiet alle modellen hebben een leerfunctie."
+  "learningModeSupportedReceivers": "Gebruik een ontvanger die deze app ondersteunt:\n• Een compatibele USB-IR-adapter van Tiqiaa, ZaZa of ElkSmart\n• Een ondersteunde Huawei-/Honor-telefoon met IR-ontvangst\n• Een ondersteunde LG-telefoon met UEI Quickset\n\nNiet alle modellen hebben een leerfunctie.",
+  "learningModeCapturedWith": "Opgenomen met {device}",
+  "learningModeLgReplayRestriction": "Dit signaal kan alleen worden verzonden met de LG-telefoon waarmee het is opgenomen.",
+  "learningModeTimingCount": "Tijdsintervallen: {count}",
+  "learningModeUnknownCarrier": "Draaggolffrequentie onbekend",
+  "learningModeByteCount": "Bytes: {count}"
 }

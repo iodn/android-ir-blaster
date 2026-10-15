@@ -9445,6 +9445,36 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Use a receiver supported by this app:\n• A compatible Tiqiaa, ZaZa, or ElkSmart USB IR dongle\n• A supported Huawei / Honor phone with IR reception\n• A supported LG phone with UEI Quickset\n\nNot all models support learning.'**
   String get learningModeSupportedReceivers;
+
+  /// No description provided for @learningModeCapturedWith.
+  ///
+  /// In en, this message translates to:
+  /// **'Captured with {device}'**
+  String learningModeCapturedWith(String device);
+
+  /// No description provided for @learningModeLgReplayRestriction.
+  ///
+  /// In en, this message translates to:
+  /// **'Replay requires the same LG phone used to capture this signal.'**
+  String get learningModeLgReplayRestriction;
+
+  /// No description provided for @learningModeTimingCount.
+  ///
+  /// In en, this message translates to:
+  /// **'Timing entries: {count}'**
+  String learningModeTimingCount(int count);
+
+  /// No description provided for @learningModeUnknownCarrier.
+  ///
+  /// In en, this message translates to:
+  /// **'Carrier frequency unknown'**
+  String get learningModeUnknownCarrier;
+
+  /// No description provided for @learningModeByteCount.
+  ///
+  /// In en, this message translates to:
+  /// **'Bytes: {count}'**
+  String learningModeByteCount(int count);
 }
 
 class _AppLocalizationsDelegate

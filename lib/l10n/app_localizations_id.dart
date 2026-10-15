@@ -5227,4 +5227,26 @@ class AppLocalizationsId extends AppLocalizations {
   @override
   String get learningModeSupportedReceivers =>
       'Gunakan penerima yang didukung aplikasi ini:\n• Dongle IR USB Tiqiaa, ZaZa, atau ElkSmart yang kompatibel\n• Ponsel Huawei / Honor yang didukung dan bisa menerima IR\n• Ponsel LG yang didukung dengan UEI Quickset\n\nTidak semua model mendukung fitur belajar sinyal.';
+
+  @override
+  String learningModeCapturedWith(String device) {
+    return 'Sinyal direkam dengan $device';
+  }
+
+  @override
+  String get learningModeLgReplayRestriction =>
+      'Untuk mengirim ulang sinyal ini, gunakan ponsel LG yang sama dengan yang digunakan saat merekamnya.';
+
+  @override
+  String learningModeTimingCount(int count) {
+    return 'Interval tercatat: $count';
+  }
+
+  @override
+  String get learningModeUnknownCarrier => 'Frekuensi pembawa tidak diketahui';
+
+  @override
+  String learningModeByteCount(int count) {
+    return 'Jumlah byte: $count';
+  }
 }

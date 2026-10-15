@@ -2407,5 +2407,10 @@
   "learningModeBuiltInReceiver": "{brand} 内置红外接收器",
   "learningModeUsbReceiver": "USB 学习接收器",
   "learningModeDefaultRemoteName": "{buttonName}遥控器",
-  "learningModeSupportedReceivers": "请使用本应用支持的接收器：\n• 兼容的 Tiqiaa、ZaZa 或 ElkSmart USB 红外适配器\n• 受支持且具备红外接收功能的华为 / 荣耀手机\n• 受支持且安装了 UEI Quickset 的 LG 手机\n\n并非所有型号都支持学习。"
+  "learningModeSupportedReceivers": "请使用本应用支持的接收器：\n• 兼容的 Tiqiaa、ZaZa 或 ElkSmart USB 红外适配器\n• 受支持且具备红外接收功能的华为 / 荣耀手机\n• 受支持且安装了 UEI Quickset 的 LG 手机\n\n并非所有型号都支持学习。",
+  "learningModeCapturedWith": "通过 {device} 接收",
+  "learningModeLgReplayRestriction": "重发此信号必须使用当时接收信号的同一部 LG 手机。",
+  "learningModeTimingCount": "记录的时长条目：{count}",
+  "learningModeUnknownCarrier": "载波频率未知",
+  "learningModeByteCount": "字节数：{count}"
 }

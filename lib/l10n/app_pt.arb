@@ -2407,5 +2407,10 @@
   "learningModeBuiltInReceiver": "Recetor IR integrado {brand}",
   "learningModeUsbReceiver": "Recetor USB de aprendizagem",
   "learningModeDefaultRemoteName": "Comando {buttonName}",
-  "learningModeSupportedReceivers": "Utilize um recetor suportado pela aplicação:\n• Um adaptador IR USB compatível Tiqiaa, ZaZa ou ElkSmart\n• Um telemóvel Huawei / Honor suportado com receção IR\n• Um telemóvel LG suportado com UEI Quickset\n\nNem todos os modelos permitem aprender sinais."
+  "learningModeSupportedReceivers": "Utilize um recetor suportado pela aplicação:\n• Um adaptador IR USB compatível Tiqiaa, ZaZa ou ElkSmart\n• Um telemóvel Huawei / Honor suportado com receção IR\n• Um telemóvel LG suportado com UEI Quickset\n\nNem todos os modelos permitem aprender sinais.",
+  "learningModeCapturedWith": "Sinal captado com {device}",
+  "learningModeLgReplayRestriction": "Para reenviar este sinal, utilize o mesmo telemóvel LG com que o captou.",
+  "learningModeTimingCount": "Intervalos registados: {count}",
+  "learningModeUnknownCarrier": "Frequência portadora desconhecida",
+  "learningModeByteCount": "Bytes: {count}"
 }

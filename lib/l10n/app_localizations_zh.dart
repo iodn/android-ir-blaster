@@ -5014,4 +5014,25 @@ class AppLocalizationsZh extends AppLocalizations {
   @override
   String get learningModeSupportedReceivers =>
       '请使用本应用支持的接收器：\n• 兼容的 Tiqiaa、ZaZa 或 ElkSmart USB 红外适配器\n• 受支持且具备红外接收功能的华为 / 荣耀手机\n• 受支持且安装了 UEI Quickset 的 LG 手机\n\n并非所有型号都支持学习。';
+
+  @override
+  String learningModeCapturedWith(String device) {
+    return '通过 $device 接收';
+  }
+
+  @override
+  String get learningModeLgReplayRestriction => '重发此信号必须使用当时接收信号的同一部 LG 手机。';
+
+  @override
+  String learningModeTimingCount(int count) {
+    return '记录的时长条目：$count';
+  }
+
+  @override
+  String get learningModeUnknownCarrier => '载波频率未知';
+
+  @override
+  String learningModeByteCount(int count) {
+    return '字节数：$count';
+  }
 }

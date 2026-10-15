@@ -2409,5 +2409,10 @@
   "learningModeBuiltInReceiver": "Wbudowany odbiornik IR {brand}",
   "learningModeUsbReceiver": "Odbiornik USB z funkcją uczenia",
   "learningModeDefaultRemoteName": "Pilot {buttonName}",
-  "learningModeSupportedReceivers": "Użyj odbiornika obsługiwanego przez aplikację:\n• Zgodnego adaptera IR USB Tiqiaa, ZaZa lub ElkSmart\n• Obsługiwanego telefonu Huawei / Honor z odbiornikiem IR\n• Obsługiwanego telefonu LG z UEI Quickset\n\nNie wszystkie modele mają funkcję uczenia."
+  "learningModeSupportedReceivers": "Użyj odbiornika obsługiwanego przez aplikację:\n• Zgodnego adaptera IR USB Tiqiaa, ZaZa lub ElkSmart\n• Obsługiwanego telefonu Huawei / Honor z odbiornikiem IR\n• Obsługiwanego telefonu LG z UEI Quickset\n\nNie wszystkie modele mają funkcję uczenia.",
+  "learningModeCapturedWith": "Sygnał przechwycony przez {device}",
+  "learningModeLgReplayRestriction": "Do wysłania tego sygnału potrzebny jest ten sam telefon LG, którym go przechwycono.",
+  "learningModeTimingCount": "Zapisane odcinki czasu: {count}",
+  "learningModeUnknownCarrier": "Nieznana częstotliwość nośna",
+  "learningModeByteCount": "Bajty: {count}"
 }

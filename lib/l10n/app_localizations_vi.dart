@@ -5214,4 +5214,26 @@ class AppLocalizationsVi extends AppLocalizations {
   @override
   String get learningModeSupportedReceivers =>
       'Dùng bộ thu được ứng dụng hỗ trợ:\n• Bộ chuyển đổi hồng ngoại USB Tiqiaa, ZaZa hoặc ElkSmart tương thích\n• Điện thoại Huawei / Honor được hỗ trợ và có khả năng thu hồng ngoại\n• Điện thoại LG được hỗ trợ, có UEI Quickset\n\nKhông phải mẫu máy nào cũng học được tín hiệu.';
+
+  @override
+  String learningModeCapturedWith(String device) {
+    return 'Đã thu bằng $device';
+  }
+
+  @override
+  String get learningModeLgReplayRestriction =>
+      'Để phát lại tín hiệu này, cần dùng đúng chiếc điện thoại LG đã thu tín hiệu.';
+
+  @override
+  String learningModeTimingCount(int count) {
+    return 'Khoảng thời gian đã ghi: $count';
+  }
+
+  @override
+  String get learningModeUnknownCarrier => 'Chưa xác định tần số sóng mang';
+
+  @override
+  String learningModeByteCount(int count) {
+    return 'Số byte: $count';
+  }
 }

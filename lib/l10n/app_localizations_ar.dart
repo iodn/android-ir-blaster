@@ -5193,6 +5193,28 @@ class AppLocalizationsAr extends AppLocalizations {
   @override
   String get learningModeSupportedReceivers =>
       'استخدم مستقبلًا يدعمه هذا التطبيق:\n• محوّل IR USB متوافق من Tiqiaa أو ZaZa أو ElkSmart\n• هاتف Huawei / Honor مدعوم يمكنه استقبال الأشعة تحت الحمراء\n• هاتف LG مدعوم مزوّد بخدمة UEI Quickset\n\nليست كل الطرازات قادرة على التعلّم.';
+
+  @override
+  String learningModeCapturedWith(String device) {
+    return 'تم استقبال الإشارة عبر $device';
+  }
+
+  @override
+  String get learningModeLgReplayRestriction =>
+      'لإعادة إرسال هذه الإشارة، يلزم استخدام هاتف LG نفسه الذي سجّلها.';
+
+  @override
+  String learningModeTimingCount(int count) {
+    return 'الفترات المسجّلة: $count';
+  }
+
+  @override
+  String get learningModeUnknownCarrier => 'تردد الموجة الحاملة غير معروف';
+
+  @override
+  String learningModeByteCount(int count) {
+    return 'عدد البايتات: $count';
+  }
 }
 
 /// The translations for Arabic, as used in Egypt (`ar_EG`).
@@ -10385,4 +10407,26 @@ class AppLocalizationsArEg extends AppLocalizationsAr {
   @override
   String get learningModeSupportedReceivers =>
       'استخدم مستقبل بيدعمه التطبيق:\n• محوّل IR USB متوافق من Tiqiaa أو ZaZa أو ElkSmart\n• موبايل Huawei / Honor مدعوم بيستقبل أشعة تحت الحمراء\n• موبايل LG مدعوم وعليه خدمة UEI Quickset\n\nمش كل الموديلات بتدعم التعلّم.';
+
+  @override
+  String learningModeCapturedWith(String device) {
+    return 'الإشارة اتسجلت باستخدام $device';
+  }
+
+  @override
+  String get learningModeLgReplayRestriction =>
+      'عشان تبعت الإشارة دي تاني، لازم تستخدم نفس موبايل LG اللي سجلتها بيه.';
+
+  @override
+  String learningModeTimingCount(int count) {
+    return 'الفترات المسجّلة: $count';
+  }
+
+  @override
+  String get learningModeUnknownCarrier => 'تردد الموجة الحاملة مش معروف';
+
+  @override
+  String learningModeByteCount(int count) {
+    return 'عدد البايتات: $count';
+  }
 }

@@ -5338,4 +5338,26 @@ class AppLocalizationsUk extends AppLocalizations {
   @override
   String get learningModeSupportedReceivers =>
       'Використовуйте приймач, який підтримує цей застосунок:\n• Сумісний ІЧ USB-адаптер Tiqiaa, ZaZa або ElkSmart\n• Підтримуваний телефон Huawei / Honor з ІЧ-приймачем\n• Підтримуваний телефон LG з UEI Quickset\n\nНе всі моделі підтримують навчання.';
+
+  @override
+  String learningModeCapturedWith(String device) {
+    return 'Сигнал отримано через $device';
+  }
+
+  @override
+  String get learningModeLgReplayRestriction =>
+      'Щоб надіслати цей сигнал, потрібен той самий телефон LG, яким його записали.';
+
+  @override
+  String learningModeTimingCount(int count) {
+    return 'Записані інтервали: $count';
+  }
+
+  @override
+  String get learningModeUnknownCarrier => 'Несуча частота невідома';
+
+  @override
+  String learningModeByteCount(int count) {
+    return 'Байти: $count';
+  }
 }

@@ -2614,5 +2614,31 @@
         "type": "String"
       }
     }
+  },
+  "learningModeCapturedWith": "Captured with {device}",
+  "learningModeLgReplayRestriction": "Replay requires the same LG phone used to capture this signal.",
+  "learningModeTimingCount": "Timing entries: {count}",
+  "learningModeUnknownCarrier": "Carrier frequency unknown",
+  "learningModeByteCount": "Bytes: {count}",
+  "@learningModeCapturedWith": {
+    "placeholders": {
+      "device": {
+        "type": "String"
+      }
+    }
+  },
+  "@learningModeTimingCount": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "@learningModeByteCount": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
   }
 }

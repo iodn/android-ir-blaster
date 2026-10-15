@@ -5264,4 +5264,26 @@ class AppLocalizationsNl extends AppLocalizations {
   @override
   String get learningModeSupportedReceivers =>
       'Gebruik een ontvanger die deze app ondersteunt:\n• Een compatibele USB-IR-adapter van Tiqiaa, ZaZa of ElkSmart\n• Een ondersteunde Huawei-/Honor-telefoon met IR-ontvangst\n• Een ondersteunde LG-telefoon met UEI Quickset\n\nNiet alle modellen hebben een leerfunctie.';
+
+  @override
+  String learningModeCapturedWith(String device) {
+    return 'Opgenomen met $device';
+  }
+
+  @override
+  String get learningModeLgReplayRestriction =>
+      'Dit signaal kan alleen worden verzonden met de LG-telefoon waarmee het is opgenomen.';
+
+  @override
+  String learningModeTimingCount(int count) {
+    return 'Tijdsintervallen: $count';
+  }
+
+  @override
+  String get learningModeUnknownCarrier => 'Draaggolffrequentie onbekend';
+
+  @override
+  String learningModeByteCount(int count) {
+    return 'Bytes: $count';
+  }
 }

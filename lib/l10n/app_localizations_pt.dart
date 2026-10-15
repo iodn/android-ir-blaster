@@ -5262,6 +5262,28 @@ class AppLocalizationsPt extends AppLocalizations {
   @override
   String get learningModeSupportedReceivers =>
       'Utilize um recetor suportado pela aplicação:\n• Um adaptador IR USB compatível Tiqiaa, ZaZa ou ElkSmart\n• Um telemóvel Huawei / Honor suportado com receção IR\n• Um telemóvel LG suportado com UEI Quickset\n\nNem todos os modelos permitem aprender sinais.';
+
+  @override
+  String learningModeCapturedWith(String device) {
+    return 'Sinal captado com $device';
+  }
+
+  @override
+  String get learningModeLgReplayRestriction =>
+      'Para reenviar este sinal, utilize o mesmo telemóvel LG com que o captou.';
+
+  @override
+  String learningModeTimingCount(int count) {
+    return 'Intervalos registados: $count';
+  }
+
+  @override
+  String get learningModeUnknownCarrier => 'Frequência portadora desconhecida';
+
+  @override
+  String learningModeByteCount(int count) {
+    return 'Bytes: $count';
+  }
 }
 
 /// The translations for Portuguese, as used in Brazil (`pt_BR`).
@@ -10524,4 +10546,26 @@ class AppLocalizationsPtBr extends AppLocalizationsPt {
   @override
   String get learningModeSupportedReceivers =>
       'Use um receptor compatível com o app:\n• Um adaptador IR USB compatível Tiqiaa, ZaZa ou ElkSmart\n• Um celular Huawei / Honor compatível com recepção IR\n• Um celular LG compatível com UEI Quickset\n\nNem todos os modelos permitem aprender sinais.';
+
+  @override
+  String learningModeCapturedWith(String device) {
+    return 'Sinal capturado com $device';
+  }
+
+  @override
+  String get learningModeLgReplayRestriction =>
+      'Para reenviar este sinal, use o mesmo celular LG usado na captura.';
+
+  @override
+  String learningModeTimingCount(int count) {
+    return 'Intervalos registrados: $count';
+  }
+
+  @override
+  String get learningModeUnknownCarrier => 'Frequência portadora desconhecida';
+
+  @override
+  String learningModeByteCount(int count) {
+    return 'Bytes: $count';
+  }
 }

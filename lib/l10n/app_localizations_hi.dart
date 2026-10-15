@@ -5220,4 +5220,26 @@ class AppLocalizationsHi extends AppLocalizations {
   @override
   String get learningModeSupportedReceivers =>
       'ऐसा रिसीवर इस्तेमाल करें जिसे यह ऐप सपोर्ट करता हो:\n• संगत Tiqiaa, ZaZa या ElkSmart USB IR डोंगल\n• IR रिसीवर वाला समर्थित Huawei / Honor फ़ोन\n• UEI Quickset वाला समर्थित LG फ़ोन\n\nहर मॉडल में सिग्नल सीखने की सुविधा नहीं होती।';
+
+  @override
+  String learningModeCapturedWith(String device) {
+    return '$device से सिग्नल मिला';
+  }
+
+  @override
+  String get learningModeLgReplayRestriction =>
+      'यह सिग्नल भेजने के लिए उसी LG फ़ोन की ज़रूरत है जिससे इसे रिकॉर्ड किया गया था।';
+
+  @override
+  String learningModeTimingCount(int count) {
+    return 'दर्ज समय-अंतराल: $count';
+  }
+
+  @override
+  String get learningModeUnknownCarrier => 'कैरियर फ़्रीक्वेंसी अज्ञात';
+
+  @override
+  String learningModeByteCount(int count) {
+    return 'बाइट की संख्या: $count';
+  }
 }

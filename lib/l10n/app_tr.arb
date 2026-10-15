@@ -2407,5 +2407,10 @@
   "learningModeBuiltInReceiver": "{brand} dahili IR alıcısı",
   "learningModeUsbReceiver": "Öğrenme özellikli USB alıcı",
   "learningModeDefaultRemoteName": "{buttonName} kumandası",
-  "learningModeSupportedReceivers": "Bu uygulamanın desteklediği bir alıcı kullanın:\n• Uyumlu bir Tiqiaa, ZaZa veya ElkSmart USB IR adaptörü\n• IR sinyali alabilen, desteklenen bir Huawei / Honor telefon\n• UEI Quickset bulunan, desteklenen bir LG telefon\n\nHer model öğrenme özelliğini desteklemez."
+  "learningModeSupportedReceivers": "Bu uygulamanın desteklediği bir alıcı kullanın:\n• Uyumlu bir Tiqiaa, ZaZa veya ElkSmart USB IR adaptörü\n• IR sinyali alabilen, desteklenen bir Huawei / Honor telefon\n• UEI Quickset bulunan, desteklenen bir LG telefon\n\nHer model öğrenme özelliğini desteklemez.",
+  "learningModeCapturedWith": "Sinyal {device} ile alındı",
+  "learningModeLgReplayRestriction": "Bu sinyali yeniden göndermek için sinyali kaydeden LG telefonun aynısı gerekir.",
+  "learningModeTimingCount": "Kaydedilen zaman aralığı: {count}",
+  "learningModeUnknownCarrier": "Taşıyıcı frekansı bilinmiyor",
+  "learningModeByteCount": "Bayt sayısı: {count}"
 }

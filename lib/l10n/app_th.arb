@@ -2407,5 +2407,10 @@
   "learningModeBuiltInReceiver": "ตัวรับ IR ในตัวของ {brand}",
   "learningModeUsbReceiver": "ตัวรับ USB สำหรับเรียนรู้สัญญาณ",
   "learningModeDefaultRemoteName": "รีโมต {buttonName}",
-  "learningModeSupportedReceivers": "ใช้ตัวรับสัญญาณที่แอปนี้รองรับ:\n• ดองเกิล USB IR รุ่นที่รองรับของ Tiqiaa, ZaZa หรือ ElkSmart\n• โทรศัพท์ Huawei / Honor รุ่นที่รองรับและรับสัญญาณ IR ได้\n• โทรศัพท์ LG รุ่นที่รองรับและมี UEI Quickset\n\nไม่ใช่ทุกรุ่นที่เรียนรู้สัญญาณได้"
+  "learningModeSupportedReceivers": "ใช้ตัวรับสัญญาณที่แอปนี้รองรับ:\n• ดองเกิล USB IR รุ่นที่รองรับของ Tiqiaa, ZaZa หรือ ElkSmart\n• โทรศัพท์ Huawei / Honor รุ่นที่รองรับและรับสัญญาณ IR ได้\n• โทรศัพท์ LG รุ่นที่รองรับและมี UEI Quickset\n\nไม่ใช่ทุกรุ่นที่เรียนรู้สัญญาณได้",
+  "learningModeCapturedWith": "รับสัญญาณด้วย {device}",
+  "learningModeLgReplayRestriction": "ต้องใช้โทรศัพท์ LG เครื่องเดียวกับที่ใช้รับสัญญาณนี้ จึงจะส่งสัญญาณซ้ำได้",
+  "learningModeTimingCount": "ช่วงเวลาที่บันทึก: {count}",
+  "learningModeUnknownCarrier": "ไม่ทราบความถี่พาหะ",
+  "learningModeByteCount": "จำนวนไบต์: {count}"
 }

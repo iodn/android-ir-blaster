@@ -12,6 +12,7 @@ void main() {
       SharedPreferences.setMockInitialValues({});
       var incomplete = true;
       var preferredType = 'AUDIO_2_LED';
+      var family = 'elksmart';
       final messenger =
           TestDefaultBinaryMessengerBinding.instance.defaultBinaryMessenger;
       const channel = MethodChannel('org.nslabs/irtransmitter');
@@ -25,15 +26,18 @@ void main() {
           preferredType = call.arguments['type'] as String;
           return preferredType;
         }
-        if (call.method == 'learnUsbSignal') {
+        if (['learnUsbSignal', 'learnHuaweiSignal', 'learnLgSignal']
+            .contains(call.method)) {
           return {
-            'family': 'elksmart',
+            'family': family,
             'frequencyHz': 38000,
-            'rawPatternUs': incomplete
-                ? [560, 560]
-                : [9000, 4500, 560, 560, 560, 560],
+            'rawPatternUs': family == 'lge_ir'
+                ? <int>[]
+                : incomplete
+                    ? [560, 560]
+                    : [9000, 4500, 560, 560, 560, 560],
             'opaqueFrameBase64': 'AAAAAAAAAAAAAAAA',
-            'displayPreview': 'RAW',
+            'displayPreview': 'Native English preview',
           };
         }
         if (call.method == 'getTransmitterCapabilities') {
@@ -42,8 +46,11 @@ void main() {
             'usbOpened': true,
             'usbStatus': 'READY',
             'currentType': 'USB',
+            'hasHuaweiIrLearning': family == 'huawei_ir',
+            'hasLgeIrLearning': family == 'lge_ir',
             'usbDevices': [
-              {'vendorId': 0x045c, 'productId': 0x0134, 'hasPermission': true}
+              if (family == 'elksmart')
+                {'vendorId': 0x045c, 'productId': 0x0134, 'hasPermission': true}
             ],
           };
         }
@@ -114,8 +121,48 @@ void main() {
       await tester.pumpAndSettle();
       expect(tester.widget<FilledButton>(save).onPressed, isNotNull);
       expect(tester.takeException(), isNull);
+      final app = tester.widget<MaterialApp>(find.byType(MaterialApp));
       await tester.pumpWidget(const SizedBox());
       await tester.pumpAndSettle();
+      for (final internalFamily in ['huawei_ir', 'lge_ir']) {
+        family = internalFamily;
+        preferredType = 'INTERNAL';
+        await tester.pumpWidget(app);
+        await tester.pumpAndSettle();
+        await tester.ensureVisible(start);
+        await tester.pumpAndSettle();
+        await tester.tap(start);
+        await tester.pumpAndSettle();
+        await tester.ensureVisible(find.byType(TabBar));
+        await tester.pumpAndSettle();
+        final previewText = family == 'lge_ir'
+            ? l10n.learningModeLgReplayRestriction
+            : l10n.learningModeTimingCount(6);
+        await tester.scrollUntilVisible(
+          find.textContaining(previewText),
+          100,
+          scrollable: find.descendant(
+            of: find.byType(TabBarView),
+            matching: find.byWidgetPredicate((widget) =>
+                widget is Scrollable &&
+                widget.axisDirection == AxisDirection.down),
+          ).first,
+        );
+        await tester.pumpAndSettle();
+        expect(find.textContaining('Native English preview'), findsNothing);
+        if (family == 'lge_ir') {
+          expect(find.textContaining(l10n.learningModeLgReplayRestriction),
+              findsOneWidget);
+          expect(find.textContaining(l10n.learningModeByteCount(12)),
+              findsOneWidget);
+        } else {
+          expect(find.textContaining(l10n.learningModeTimingCount(6)),
+              findsOneWidget);
+        }
+        expect(tester.takeException(), isNull);
+        await tester.pumpWidget(const SizedBox());
+        await tester.pumpAndSettle();
+      }
     });
   }
 }

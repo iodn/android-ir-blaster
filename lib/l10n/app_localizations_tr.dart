@@ -5222,4 +5222,26 @@ class AppLocalizationsTr extends AppLocalizations {
   @override
   String get learningModeSupportedReceivers =>
       'Bu uygulamanın desteklediği bir alıcı kullanın:\n• Uyumlu bir Tiqiaa, ZaZa veya ElkSmart USB IR adaptörü\n• IR sinyali alabilen, desteklenen bir Huawei / Honor telefon\n• UEI Quickset bulunan, desteklenen bir LG telefon\n\nHer model öğrenme özelliğini desteklemez.';
+
+  @override
+  String learningModeCapturedWith(String device) {
+    return 'Sinyal $device ile alındı';
+  }
+
+  @override
+  String get learningModeLgReplayRestriction =>
+      'Bu sinyali yeniden göndermek için sinyali kaydeden LG telefonun aynısı gerekir.';
+
+  @override
+  String learningModeTimingCount(int count) {
+    return 'Kaydedilen zaman aralığı: $count';
+  }
+
+  @override
+  String get learningModeUnknownCarrier => 'Taşıyıcı frekansı bilinmiyor';
+
+  @override
+  String learningModeByteCount(int count) {
+    return 'Bayt sayısı: $count';
+  }
 }

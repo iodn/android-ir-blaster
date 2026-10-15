@@ -2407,5 +2407,10 @@
   "learningModeBuiltInReceiver": "{brand} 내장 IR 수신기",
   "learningModeUsbReceiver": "USB 학습용 수신기",
   "learningModeDefaultRemoteName": "{buttonName} 리모컨",
-  "learningModeSupportedReceivers": "이 앱에서 지원하는 수신기를 사용하세요.\n• 호환되는 Tiqiaa, ZaZa 또는 ElkSmart USB IR 동글\n• IR 수신이 가능한 지원 대상 Huawei / Honor 휴대전화\n• UEI Quickset을 갖춘 지원 대상 LG 휴대전화\n\n모든 모델이 학습을 지원하는 것은 아닙니다."
+  "learningModeSupportedReceivers": "이 앱에서 지원하는 수신기를 사용하세요.\n• 호환되는 Tiqiaa, ZaZa 또는 ElkSmart USB IR 동글\n• IR 수신이 가능한 지원 대상 Huawei / Honor 휴대전화\n• UEI Quickset을 갖춘 지원 대상 LG 휴대전화\n\n모든 모델이 학습을 지원하는 것은 아닙니다.",
+  "learningModeCapturedWith": "{device}에서 수신",
+  "learningModeLgReplayRestriction": "이 신호를 전송하려면 수신에 사용한 것과 동일한 LG 휴대전화가 필요합니다.",
+  "learningModeTimingCount": "기록된 구간 수: {count}",
+  "learningModeUnknownCarrier": "반송파 주파수 알 수 없음",
+  "learningModeByteCount": "바이트 수: {count}"
 }

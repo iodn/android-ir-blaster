@@ -5085,4 +5085,26 @@ class AppLocalizationsJa extends AppLocalizations {
   @override
   String get learningModeSupportedReceivers =>
       'このアプリに対応した受信機をお使いください。\n• 対応するTiqiaa、ZaZa、ElkSmartのUSB赤外線アダプター\n• 赤外線受信に対応したHuawei / Honor端末\n• UEI Quicksetを搭載した対応LG端末\n\nすべての機種が学習に対応しているわけではありません。';
+
+  @override
+  String learningModeCapturedWith(String device) {
+    return '$deviceで受信';
+  }
+
+  @override
+  String get learningModeLgReplayRestriction =>
+      'この信号の送信には、受信に使ったものと同じLG端末が必要です。';
+
+  @override
+  String learningModeTimingCount(int count) {
+    return '記録した区間数：$count';
+  }
+
+  @override
+  String get learningModeUnknownCarrier => '搬送波の周波数は不明です';
+
+  @override
+  String learningModeByteCount(int count) {
+    return 'バイト数：$count';
+  }
 }

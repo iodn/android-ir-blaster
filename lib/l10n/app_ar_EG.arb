@@ -2407,5 +2407,10 @@
   "learningModeBuiltInReceiver": "مستقبل IR مدمج من {brand}",
   "learningModeUsbReceiver": "مستقبل USB للتعلّم",
   "learningModeDefaultRemoteName": "ريموت {buttonName}",
-  "learningModeSupportedReceivers": "استخدم مستقبل بيدعمه التطبيق:\n• محوّل IR USB متوافق من Tiqiaa أو ZaZa أو ElkSmart\n• موبايل Huawei / Honor مدعوم بيستقبل أشعة تحت الحمراء\n• موبايل LG مدعوم وعليه خدمة UEI Quickset\n\nمش كل الموديلات بتدعم التعلّم."
+  "learningModeSupportedReceivers": "استخدم مستقبل بيدعمه التطبيق:\n• محوّل IR USB متوافق من Tiqiaa أو ZaZa أو ElkSmart\n• موبايل Huawei / Honor مدعوم بيستقبل أشعة تحت الحمراء\n• موبايل LG مدعوم وعليه خدمة UEI Quickset\n\nمش كل الموديلات بتدعم التعلّم.",
+  "learningModeCapturedWith": "الإشارة اتسجلت باستخدام {device}",
+  "learningModeLgReplayRestriction": "عشان تبعت الإشارة دي تاني، لازم تستخدم نفس موبايل LG اللي سجلتها بيه.",
+  "learningModeTimingCount": "الفترات المسجّلة: {count}",
+  "learningModeUnknownCarrier": "تردد الموجة الحاملة مش معروف",
+  "learningModeByteCount": "عدد البايتات: {count}"
 }

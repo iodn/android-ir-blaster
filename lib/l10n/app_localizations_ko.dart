@@ -5103,4 +5103,26 @@ class AppLocalizationsKo extends AppLocalizations {
   @override
   String get learningModeSupportedReceivers =>
       '이 앱에서 지원하는 수신기를 사용하세요.\n• 호환되는 Tiqiaa, ZaZa 또는 ElkSmart USB IR 동글\n• IR 수신이 가능한 지원 대상 Huawei / Honor 휴대전화\n• UEI Quickset을 갖춘 지원 대상 LG 휴대전화\n\n모든 모델이 학습을 지원하는 것은 아닙니다.';
+
+  @override
+  String learningModeCapturedWith(String device) {
+    return '$device에서 수신';
+  }
+
+  @override
+  String get learningModeLgReplayRestriction =>
+      '이 신호를 전송하려면 수신에 사용한 것과 동일한 LG 휴대전화가 필요합니다.';
+
+  @override
+  String learningModeTimingCount(int count) {
+    return '기록된 구간 수: $count';
+  }
+
+  @override
+  String get learningModeUnknownCarrier => '반송파 주파수 알 수 없음';
+
+  @override
+  String learningModeByteCount(int count) {
+    return '바이트 수: $count';
+  }
 }

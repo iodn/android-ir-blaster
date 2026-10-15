@@ -2407,5 +2407,10 @@
   "learningModeBuiltInReceiver": "Вбудований ІЧ-приймач {brand}",
   "learningModeUsbReceiver": "USB-приймач із навчанням",
   "learningModeDefaultRemoteName": "Пульт {buttonName}",
-  "learningModeSupportedReceivers": "Використовуйте приймач, який підтримує цей застосунок:\n• Сумісний ІЧ USB-адаптер Tiqiaa, ZaZa або ElkSmart\n• Підтримуваний телефон Huawei / Honor з ІЧ-приймачем\n• Підтримуваний телефон LG з UEI Quickset\n\nНе всі моделі підтримують навчання."
+  "learningModeSupportedReceivers": "Використовуйте приймач, який підтримує цей застосунок:\n• Сумісний ІЧ USB-адаптер Tiqiaa, ZaZa або ElkSmart\n• Підтримуваний телефон Huawei / Honor з ІЧ-приймачем\n• Підтримуваний телефон LG з UEI Quickset\n\nНе всі моделі підтримують навчання.",
+  "learningModeCapturedWith": "Сигнал отримано через {device}",
+  "learningModeLgReplayRestriction": "Щоб надіслати цей сигнал, потрібен той самий телефон LG, яким його записали.",
+  "learningModeTimingCount": "Записані інтервали: {count}",
+  "learningModeUnknownCarrier": "Несуча частота невідома",
+  "learningModeByteCount": "Байти: {count}"
 }

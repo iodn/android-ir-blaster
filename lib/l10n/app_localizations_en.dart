@@ -5268,4 +5268,26 @@ class AppLocalizationsEn extends AppLocalizations {
   @override
   String get learningModeSupportedReceivers =>
       'Use a receiver supported by this app:\n• A compatible Tiqiaa, ZaZa, or ElkSmart USB IR dongle\n• A supported Huawei / Honor phone with IR reception\n• A supported LG phone with UEI Quickset\n\nNot all models support learning.';
+
+  @override
+  String learningModeCapturedWith(String device) {
+    return 'Captured with $device';
+  }
+
+  @override
+  String get learningModeLgReplayRestriction =>
+      'Replay requires the same LG phone used to capture this signal.';
+
+  @override
+  String learningModeTimingCount(int count) {
+    return 'Timing entries: $count';
+  }
+
+  @override
+  String get learningModeUnknownCarrier => 'Carrier frequency unknown';
+
+  @override
+  String learningModeByteCount(int count) {
+    return 'Bytes: $count';
+  }
 }

@@ -2407,5 +2407,10 @@
   "learningModeBuiltInReceiver": "Bộ thu hồng ngoại tích hợp của {brand}",
   "learningModeUsbReceiver": "Bộ thu USB để học tín hiệu",
   "learningModeDefaultRemoteName": "Điều khiển {buttonName}",
-  "learningModeSupportedReceivers": "Dùng bộ thu được ứng dụng hỗ trợ:\n• Bộ chuyển đổi hồng ngoại USB Tiqiaa, ZaZa hoặc ElkSmart tương thích\n• Điện thoại Huawei / Honor được hỗ trợ và có khả năng thu hồng ngoại\n• Điện thoại LG được hỗ trợ, có UEI Quickset\n\nKhông phải mẫu máy nào cũng học được tín hiệu."
+  "learningModeSupportedReceivers": "Dùng bộ thu được ứng dụng hỗ trợ:\n• Bộ chuyển đổi hồng ngoại USB Tiqiaa, ZaZa hoặc ElkSmart tương thích\n• Điện thoại Huawei / Honor được hỗ trợ và có khả năng thu hồng ngoại\n• Điện thoại LG được hỗ trợ, có UEI Quickset\n\nKhông phải mẫu máy nào cũng học được tín hiệu.",
+  "learningModeCapturedWith": "Đã thu bằng {device}",
+  "learningModeLgReplayRestriction": "Để phát lại tín hiệu này, cần dùng đúng chiếc điện thoại LG đã thu tín hiệu.",
+  "learningModeTimingCount": "Khoảng thời gian đã ghi: {count}",
+  "learningModeUnknownCarrier": "Chưa xác định tần số sóng mang",
+  "learningModeByteCount": "Số byte: {count}"
 }

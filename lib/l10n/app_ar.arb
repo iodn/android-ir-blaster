@@ -2407,5 +2407,10 @@
   "learningModeBuiltInReceiver": "مستقبل IR مدمج من {brand}",
   "learningModeUsbReceiver": "مستقبل USB للتعلّم",
   "learningModeDefaultRemoteName": "جهاز تحكم {buttonName}",
-  "learningModeSupportedReceivers": "استخدم مستقبلًا يدعمه هذا التطبيق:\n• محوّل IR USB متوافق من Tiqiaa أو ZaZa أو ElkSmart\n• هاتف Huawei / Honor مدعوم يمكنه استقبال الأشعة تحت الحمراء\n• هاتف LG مدعوم مزوّد بخدمة UEI Quickset\n\nليست كل الطرازات قادرة على التعلّم."
+  "learningModeSupportedReceivers": "استخدم مستقبلًا يدعمه هذا التطبيق:\n• محوّل IR USB متوافق من Tiqiaa أو ZaZa أو ElkSmart\n• هاتف Huawei / Honor مدعوم يمكنه استقبال الأشعة تحت الحمراء\n• هاتف LG مدعوم مزوّد بخدمة UEI Quickset\n\nليست كل الطرازات قادرة على التعلّم.",
+  "learningModeCapturedWith": "تم استقبال الإشارة عبر {device}",
+  "learningModeLgReplayRestriction": "لإعادة إرسال هذه الإشارة، يلزم استخدام هاتف LG نفسه الذي سجّلها.",
+  "learningModeTimingCount": "الفترات المسجّلة: {count}",
+  "learningModeUnknownCarrier": "تردد الموجة الحاملة غير معروف",
+  "learningModeByteCount": "عدد البايتات: {count}"
 }

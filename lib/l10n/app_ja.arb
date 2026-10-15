@@ -2407,5 +2407,10 @@
   "learningModeBuiltInReceiver": "{brand}の内蔵赤外線受信機",
   "learningModeUsbReceiver": "USB学習用受信機",
   "learningModeDefaultRemoteName": "{buttonName}用リモコン",
-  "learningModeSupportedReceivers": "このアプリに対応した受信機をお使いください。\n• 対応するTiqiaa、ZaZa、ElkSmartのUSB赤外線アダプター\n• 赤外線受信に対応したHuawei / Honor端末\n• UEI Quicksetを搭載した対応LG端末\n\nすべての機種が学習に対応しているわけではありません。"
+  "learningModeSupportedReceivers": "このアプリに対応した受信機をお使いください。\n• 対応するTiqiaa、ZaZa、ElkSmartのUSB赤外線アダプター\n• 赤外線受信に対応したHuawei / Honor端末\n• UEI Quicksetを搭載した対応LG端末\n\nすべての機種が学習に対応しているわけではありません。",
+  "learningModeCapturedWith": "{device}で受信",
+  "learningModeLgReplayRestriction": "この信号の送信には、受信に使ったものと同じLG端末が必要です。",
+  "learningModeTimingCount": "記録した区間数：{count}",
+  "learningModeUnknownCarrier": "搬送波の周波数は不明です",
+  "learningModeByteCount": "バイト数：{count}"
 }
