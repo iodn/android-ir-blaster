@@ -2108,7 +2108,7 @@ class AppLocalizationsTr extends AppLocalizations {
 
   @override
   String get importFailedNoValidButtonsInIr =>
-      'İçe aktarma başarısız: .ir dosyasında geçerli düğme bulunamadı.';
+      'İçe aktarılamıyor: .ir dosyasında kullanılabilir düğme bulunamadı.';
 
   @override
   String get importedOneRemoteFromFlipper =>
@@ -2116,7 +2116,7 @@ class AppLocalizationsTr extends AppLocalizations {
 
   @override
   String get importFailedInvalidIrplus =>
-      'İçe aktarma başarısız: geçersiz irplus dosyası (geçerli düğme bulunamadı).';
+      'İçe aktarılamıyor: IRPLUS dosyasında kullanılabilir düğme bulunamadı.';
 
   @override
   String get importedOneRemoteFromIrplus =>
@@ -2124,19 +2124,18 @@ class AppLocalizationsTr extends AppLocalizations {
 
   @override
   String get importFailedInvalidLirc =>
-      'İçe aktarma başarısız: geçersiz LIRC dosyası (geçerli kod veya ham kod bulunamadı).';
+      'İçe aktarılamıyor: LIRC dosyasında kullanılabilir IR kodu bulunamadı.';
 
   @override
   String get importedOneRemoteFromLirc =>
       'LIRC yapılandırmasından 1 kumanda içe aktarıldı. Makrolar değiştirilmedi.';
 
   @override
-  String get unsupportedFileTypeSelected =>
-      'Desteklenmeyen dosya türü seçildi.';
+  String get unsupportedFileTypeSelected => 'Bu dosya türü desteklenmiyor.';
 
   @override
   String get importFailedInvalidUnreadableFile =>
-      'İçe aktarma başarısız: geçersiz veya okunamayan dosya.';
+      'İçe aktarılamıyor: dosya geçersiz veya okunamıyor.';
 
   @override
   String get bulkImportNoSupportedFilesInFolder =>

@@ -2151,7 +2151,7 @@ class AppLocalizationsNl extends AppLocalizations {
 
   @override
   String get importFailedNoValidButtonsInIr =>
-      'Importeren mislukt geen geldige knoppen gevonden in .ir-bestand.';
+      'Importeren mislukt: geen bruikbare knoppen gevonden in het .ir-bestand.';
 
   @override
   String get importedOneRemoteFromFlipper =>
@@ -2159,7 +2159,7 @@ class AppLocalizationsNl extends AppLocalizations {
 
   @override
   String get importFailedInvalidIrplus =>
-      'Importeren mislukt ongeldig irplus-bestand geen geldige knoppen gevonden.';
+      'Importeren mislukt: geen bruikbare knoppen gevonden in het IRPLUS-bestand.';
 
   @override
   String get importedOneRemoteFromIrplus =>
@@ -2167,7 +2167,7 @@ class AppLocalizationsNl extends AppLocalizations {
 
   @override
   String get importFailedInvalidLirc =>
-      'Importeren mislukt ongeldig LIRC-bestand geen geldige codes of ruwe codes gevonden.';
+      'Importeren mislukt: geen bruikbare IR-codes gevonden in het LIRC-bestand.';
 
   @override
   String get importedOneRemoteFromLirc =>
@@ -2175,11 +2175,11 @@ class AppLocalizationsNl extends AppLocalizations {
 
   @override
   String get unsupportedFileTypeSelected =>
-      'Niet-ondersteund bestandstype geselecteerd.';
+      'Dit bestandstype wordt niet ondersteund.';
 
   @override
   String get importFailedInvalidUnreadableFile =>
-      'Importeren mislukt ongeldige of onleesbare bestand.';
+      'Importeren mislukt: het bestand is ongeldig of onleesbaar.';
 
   @override
   String get bulkImportNoSupportedFilesInFolder =>

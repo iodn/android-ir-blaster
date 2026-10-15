@@ -2095,7 +2095,7 @@ class AppLocalizationsHi extends AppLocalizations {
 
   @override
   String get importFailedNoValidButtonsInIr =>
-      'आयात करें विफल: नहीं valid बटन मिला में.IR फ़ाइल.';
+      'आयात नहीं हो सका: .ir फ़ाइल में उपयोग करने लायक कोई बटन नहीं मिला।';
 
   @override
   String get importedOneRemoteFromFlipper =>
@@ -2103,7 +2103,7 @@ class AppLocalizationsHi extends AppLocalizations {
 
   @override
   String get importFailedInvalidIrplus =>
-      'आयात करें विफल: अमान्य irplus फ़ाइल (नहीं valid बटन मिला).';
+      'आयात नहीं हो सका: IRPLUS फ़ाइल में उपयोग करने लायक कोई बटन नहीं मिला।';
 
   @override
   String get importedOneRemoteFromIrplus =>
@@ -2111,18 +2111,19 @@ class AppLocalizationsHi extends AppLocalizations {
 
   @override
   String get importFailedInvalidLirc =>
-      'आयात करें विफल: अमान्य LIRC फ़ाइल (नहीं valid कोड/रॉ कोड मिला).';
+      'आयात नहीं हो सका: LIRC फ़ाइल में उपयोग करने लायक कोई IR कोड नहीं मिला।';
 
   @override
   String get importedOneRemoteFromLirc =>
       'Imported 1 रिमोट से LIRC config. मैक्रो थे नहीं बदला गया.';
 
   @override
-  String get unsupportedFileTypeSelected => 'असमर्थित फ़ाइल प्रकार चुना गया।';
+  String get unsupportedFileTypeSelected =>
+      'इस प्रकार की फ़ाइल समर्थित नहीं है।';
 
   @override
   String get importFailedInvalidUnreadableFile =>
-      'आयात करें विफल: अमान्य या unreadable फ़ाइल.';
+      'आयात नहीं हो सका: फ़ाइल सही नहीं है या पढ़ी नहीं जा सकी।';
 
   @override
   String get bulkImportNoSupportedFilesInFolder =>

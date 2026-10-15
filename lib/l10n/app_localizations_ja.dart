@@ -2008,34 +2008,32 @@ class AppLocalizationsJa extends AppLocalizations {
   }
 
   @override
-  String get importFailedNoValidButtonsInIr =>
-      '取り込み失敗 .ir ファイルに有効なボタンが見つかりません。';
+  String get importFailedNoValidButtonsInIr => '.irファイルに読み込めるボタンが見つかりません。';
 
   @override
   String get importedOneRemoteFromFlipper =>
       'Flipper .ir から1つのリモコンを取り込みました。マクロは変更されませんでした。';
 
   @override
-  String get importFailedInvalidIrplus =>
-      '取り込み失敗 無効な irplus ファイルです 有効なボタンが見つかりません。';
+  String get importFailedInvalidIrplus => 'IRPLUSファイルに読み込めるボタンが見つかりません。';
 
   @override
   String get importedOneRemoteFromIrplus =>
       'irplus から1つのリモコンを取り込みました。マクロは変更されませんでした。';
 
   @override
-  String get importFailedInvalidLirc =>
-      '取り込み失敗 無効なLIRCファイルです 有効なコードまたは生コードが見つかりません。';
+  String get importFailedInvalidLirc => 'LIRCファイルに読み込める赤外線コードが見つかりません。';
 
   @override
   String get importedOneRemoteFromLirc =>
       'LIRC設定から1つのリモコンを取り込みました。マクロは変更されませんでした。';
 
   @override
-  String get unsupportedFileTypeSelected => '未対応のファイル形式です';
+  String get unsupportedFileTypeSelected => 'この種類のファイルには対応していません。';
 
   @override
-  String get importFailedInvalidUnreadableFile => '取り込み失敗 無効または読めないファイルです。';
+  String get importFailedInvalidUnreadableFile =>
+      'ファイルの内容が正しくないか、読み取れないため、読み込めません。';
 
   @override
   String get bulkImportNoSupportedFilesInFolder =>

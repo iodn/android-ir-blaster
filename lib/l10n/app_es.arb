@@ -807,14 +807,14 @@
       }
     }
   },
-  "importFailedNoValidButtonsInIr": "Importación fallida: no se encontraron botones válidos en el archivo .ir.",
+  "importFailedNoValidButtonsInIr": "No se puede importar: el archivo .ir no contiene botones válidos.",
   "importedOneRemoteFromFlipper": "Se importó 1 mando desde Flipper .ir. Las macros no cambiaron.",
-  "importFailedInvalidIrplus": "Importación fallida: archivo irplus no válido (no se encontraron botones válidos).",
+  "importFailedInvalidIrplus": "No se puede importar: el archivo IRPLUS no contiene botones válidos.",
   "importedOneRemoteFromIrplus": "Se importó 1 mando desde irplus. Las macros no cambiaron.",
-  "importFailedInvalidLirc": "Importación fallida: archivo LIRC no válido (no se encontraron códigos válidos/brutos).",
+  "importFailedInvalidLirc": "No se puede importar: el archivo LIRC no contiene códigos IR válidos.",
   "importedOneRemoteFromLirc": "Se importó 1 mando desde una config LIRC. Las macros no cambiaron.",
-  "unsupportedFileTypeSelected": "Se seleccionó un tipo de archivo no compatible.",
-  "importFailedInvalidUnreadableFile": "Importación fallida: archivo no válido o ilegible.",
+  "unsupportedFileTypeSelected": "Este tipo de archivo no es compatible.",
+  "importFailedInvalidUnreadableFile": "No se puede importar: el archivo no es válido o no se puede leer.",
   "bulkImportNoSupportedFilesInFolder": "Importación masiva completada: no se encontraron archivos compatibles en la carpeta.",
   "bulkImportNoRemotesImported": "Importación masiva completada: no se importaron mandos. Se omitieron {skippedCount} archivo(s).",
   "@bulkImportNoRemotesImported": {

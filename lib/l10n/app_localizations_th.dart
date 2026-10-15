@@ -2077,7 +2077,7 @@ class AppLocalizationsTh extends AppLocalizations {
 
   @override
   String get importFailedNoValidButtonsInIr =>
-      'นำเข้าไม่สำเร็จ: no valid ปุ่มs found in.ir ไฟล์.';
+      'นำเข้าไม่ได้: ไม่พบปุ่มที่ใช้งานได้ในไฟล์ .ir';
 
   @override
   String get importedOneRemoteFromFlipper =>
@@ -2085,7 +2085,7 @@ class AppLocalizationsTh extends AppLocalizations {
 
   @override
   String get importFailedInvalidIrplus =>
-      'นำเข้าไม่สำเร็จ: invalid irplus ไฟล์ (no valid ปุ่มs found).';
+      'นำเข้าไม่ได้: ไม่พบปุ่มที่ใช้งานได้ในไฟล์ IRPLUS';
 
   @override
   String get importedOneRemoteFromIrplus =>
@@ -2093,18 +2093,18 @@ class AppLocalizationsTh extends AppLocalizations {
 
   @override
   String get importFailedInvalidLirc =>
-      'นำเข้าไม่สำเร็จ: invalid LIRC ไฟล์ (no valid codes/raw codes found).';
+      'นำเข้าไม่ได้: ไม่พบรหัส IR ที่ใช้งานได้ในไฟล์ LIRC';
 
   @override
   String get importedOneRemoteFromLirc =>
       'นำเข้ารีโมต 1 รายการจากไฟล์ LIRC แมโครไม่เปลี่ยน';
 
   @override
-  String get unsupportedFileTypeSelected => 'Unที่รองรับ ไฟล์ type selected.';
+  String get unsupportedFileTypeSelected => 'ไม่รองรับไฟล์ประเภทนี้';
 
   @override
   String get importFailedInvalidUnreadableFile =>
-      'นำเข้าไม่สำเร็จ: invalid or unreadable ไฟล์.';
+      'นำเข้าไม่ได้: ไฟล์ไม่ถูกต้องหรืออ่านไม่ได้';
 
   @override
   String get bulkImportNoSupportedFilesInFolder =>

@@ -802,14 +802,14 @@
       }
     }
   },
-  "importFailedNoValidButtonsInIr": "取り込み失敗 .ir ファイルに有効なボタンが見つかりません。",
+  "importFailedNoValidButtonsInIr": ".irファイルに読み込めるボタンが見つかりません。",
   "importedOneRemoteFromFlipper": "Flipper .ir から1つのリモコンを取り込みました。マクロは変更されませんでした。",
-  "importFailedInvalidIrplus": "取り込み失敗 無効な irplus ファイルです 有効なボタンが見つかりません。",
+  "importFailedInvalidIrplus": "IRPLUSファイルに読み込めるボタンが見つかりません。",
   "importedOneRemoteFromIrplus": "irplus から1つのリモコンを取り込みました。マクロは変更されませんでした。",
-  "importFailedInvalidLirc": "取り込み失敗 無効なLIRCファイルです 有効なコードまたは生コードが見つかりません。",
+  "importFailedInvalidLirc": "LIRCファイルに読み込める赤外線コードが見つかりません。",
   "importedOneRemoteFromLirc": "LIRC設定から1つのリモコンを取り込みました。マクロは変更されませんでした。",
-  "unsupportedFileTypeSelected": "未対応のファイル形式です",
-  "importFailedInvalidUnreadableFile": "取り込み失敗 無効または読めないファイルです。",
+  "unsupportedFileTypeSelected": "この種類のファイルには対応していません。",
+  "importFailedInvalidUnreadableFile": "ファイルの内容が正しくないか、読み取れないため、読み込めません。",
   "bulkImportNoSupportedFilesInFolder": "一括取り込み完了 対応ファイルがフォルダ内にありません。",
   "bulkImportNoRemotesImported": "一括取り込み完了 リモコンは取り込まれませんでした。{skippedCount}件のファイルをスキップしました。",
   "@bulkImportNoRemotesImported": {

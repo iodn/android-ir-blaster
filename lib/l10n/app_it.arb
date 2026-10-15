@@ -802,14 +802,14 @@
       }
     }
   },
-  "importFailedNoValidButtonsInIr": "Importazione fallita. nessun pulsante valido trovato nel file .ir.",
+  "importFailedNoValidButtonsInIr": "Importazione non riuscita: nessun pulsante utilizzabile nel file .ir.",
   "importedOneRemoteFromFlipper": "Importato 1 telecomando da Flipper .ir. Le macro non sono state modificate.",
-  "importFailedInvalidIrplus": "Importazione fallita. file irplus non valido, nessun pulsante valido trovato.",
+  "importFailedInvalidIrplus": "Importazione non riuscita: nessun pulsante utilizzabile nel file IRPLUS.",
   "importedOneRemoteFromIrplus": "Importato 1 telecomando da irplus. Le macro non sono state modificate.",
-  "importFailedInvalidLirc": "Importazione fallita. file LIRC non valido, nessun codice valido o raw trovato.",
+  "importFailedInvalidLirc": "Importazione non riuscita: nessun codice IR utilizzabile nel file LIRC.",
   "importedOneRemoteFromLirc": "Importato 1 telecomando dalla configurazione LIRC. Le macro non sono state modificate.",
-  "unsupportedFileTypeSelected": "Unsupported file type selezionati.",
-  "importFailedInvalidUnreadableFile": "Importazione fallita. file non valido o illeggibile.",
+  "unsupportedFileTypeSelected": "Questo tipo di file non è supportato.",
+  "importFailedInvalidUnreadableFile": "Importazione non riuscita: il file non è valido o non è leggibile.",
   "bulkImportNoSupportedFilesInFolder": "Importazione massiva completata. nessun file supportato trovato nella cartella.",
   "bulkImportNoRemotesImported": "Importazione massiva completata. nessun telecomando importato. Saltati {skippedCount} file.",
   "@bulkImportNoRemotesImported": {

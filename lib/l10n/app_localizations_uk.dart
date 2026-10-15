@@ -2204,7 +2204,7 @@ class AppLocalizationsUk extends AppLocalizations {
 
   @override
   String get importFailedNoValidButtonsInIr =>
-      'Помилка імпорту: у файлі .ir не знайдено дійсних кнопок.';
+      'Не вдалося імпортувати: у файлі .ir немає придатних кнопок.';
 
   @override
   String get importedOneRemoteFromFlipper =>
@@ -2212,7 +2212,7 @@ class AppLocalizationsUk extends AppLocalizations {
 
   @override
   String get importFailedInvalidIrplus =>
-      'Помилка імпорту: недійсний файл irplus (дійсних кнопок не знайдено).';
+      'Не вдалося імпортувати: у файлі IRPLUS немає придатних кнопок.';
 
   @override
   String get importedOneRemoteFromIrplus =>
@@ -2220,19 +2220,18 @@ class AppLocalizationsUk extends AppLocalizations {
 
   @override
   String get importFailedInvalidLirc =>
-      'Помилка імпорту: недійсний файл LIRC (дійсних кодів/необроблених кодів не знайдено).';
+      'Не вдалося імпортувати: у файлі LIRC немає придатних ІЧ-кодів.';
 
   @override
   String get importedOneRemoteFromLirc =>
       'Імпортовано 1 пульт із конфігурації LIRC. Макроси не змінено.';
 
   @override
-  String get unsupportedFileTypeSelected =>
-      'Вибрано непідтримуваний тип файлу.';
+  String get unsupportedFileTypeSelected => 'Цей тип файлу не підтримується.';
 
   @override
   String get importFailedInvalidUnreadableFile =>
-      'Помилка імпорту: недійсний або нечитабельний файл.';
+      'Не вдалося імпортувати: файл некоректний або його неможливо прочитати.';
 
   @override
   String get bulkImportNoSupportedFilesInFolder =>

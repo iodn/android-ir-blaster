@@ -802,14 +802,14 @@
       }
     }
   },
-  "importFailedNoValidButtonsInIr": "Помилка імпорту: у файлі .ir не знайдено дійсних кнопок.",
+  "importFailedNoValidButtonsInIr": "Не вдалося імпортувати: у файлі .ir немає придатних кнопок.",
   "importedOneRemoteFromFlipper": "Імпортовано 1 пульт від Flipper .ir. Макроси не змінено.",
-  "importFailedInvalidIrplus": "Помилка імпорту: недійсний файл irplus (дійсних кнопок не знайдено).",
+  "importFailedInvalidIrplus": "Не вдалося імпортувати: у файлі IRPLUS немає придатних кнопок.",
   "importedOneRemoteFromIrplus": "Імпортовано 1 пульт з irplus. Макроси не змінено.",
-  "importFailedInvalidLirc": "Помилка імпорту: недійсний файл LIRC (дійсних кодів/необроблених кодів не знайдено).",
+  "importFailedInvalidLirc": "Не вдалося імпортувати: у файлі LIRC немає придатних ІЧ-кодів.",
   "importedOneRemoteFromLirc": "Імпортовано 1 пульт із конфігурації LIRC. Макроси не змінено.",
-  "unsupportedFileTypeSelected": "Вибрано непідтримуваний тип файлу.",
-  "importFailedInvalidUnreadableFile": "Помилка імпорту: недійсний або нечитабельний файл.",
+  "unsupportedFileTypeSelected": "Цей тип файлу не підтримується.",
+  "importFailedInvalidUnreadableFile": "Не вдалося імпортувати: файл некоректний або його неможливо прочитати.",
   "bulkImportNoSupportedFilesInFolder": "Масовий імпорт завершено: у папці не знайдено підтримуваних файлів.",
   "bulkImportNoRemotesImported": "Масовий імпорт завершено: пульти не імпортовано. Пропущено файл(и) {skippedCount}.",
   "@bulkImportNoRemotesImported": {

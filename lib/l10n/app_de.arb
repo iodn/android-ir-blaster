@@ -812,14 +812,14 @@
       }
     }
   },
-  "importFailedNoValidButtonsInIr": "Import fehlgeschlagen: keine gültigen Tasten in .ir-Datei gefunden.",
+  "importFailedNoValidButtonsInIr": "Import nicht möglich: Die .ir-Datei enthält keine gültigen Tasten.",
   "importedOneRemoteFromFlipper": "1 Fernbedienung aus Flipper .ir importiert. Makros wurden nicht geändert.",
-  "importFailedInvalidIrplus": "Import fehlgeschlagen: ungültige irplus-Datei keine gültigen Tasten gefunden.",
+  "importFailedInvalidIrplus": "Import nicht möglich: Die IRPLUS-Datei enthält keine gültigen Tasten.",
   "importedOneRemoteFromIrplus": "1 Fernbedienung aus irplus importiert. Makros wurden nicht geändert.",
-  "importFailedInvalidLirc": "Import fehlgeschlagen: ungültige LIRC-Datei keine gültigen Codes oder Rohcodes gefunden.",
+  "importFailedInvalidLirc": "Import nicht möglich: Die LIRC-Datei enthält keine gültigen IR-Codes.",
   "importedOneRemoteFromLirc": "1 Fernbedienung aus LIRC-Konfiguration importiert. Makros wurden nicht geändert.",
-  "unsupportedFileTypeSelected": "Nicht unterstützter Dateityp gewählt.",
-  "importFailedInvalidUnreadableFile": "Import fehlgeschlagen: ungültige oder unlesbare Datei.",
+  "unsupportedFileTypeSelected": "Dieser Dateityp wird nicht unterstützt.",
+  "importFailedInvalidUnreadableFile": "Import nicht möglich: Die Datei ist ungültig oder nicht lesbar.",
   "bulkImportNoSupportedFilesInFolder": "Sammelimport abgeschlossen: keine unterstützten Dateien im Ordner gefunden.",
   "bulkImportNoRemotesImported": "Sammelimport abgeschlossen: keine Fernbedienungen importiert. {skippedCount} Datei(en) übersprungen.",
   "@bulkImportNoRemotesImported": {

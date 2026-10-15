@@ -2152,7 +2152,7 @@ class AppLocalizationsDe extends AppLocalizations {
 
   @override
   String get importFailedNoValidButtonsInIr =>
-      'Import fehlgeschlagen: keine gültigen Tasten in .ir-Datei gefunden.';
+      'Import nicht möglich: Die .ir-Datei enthält keine gültigen Tasten.';
 
   @override
   String get importedOneRemoteFromFlipper =>
@@ -2160,7 +2160,7 @@ class AppLocalizationsDe extends AppLocalizations {
 
   @override
   String get importFailedInvalidIrplus =>
-      'Import fehlgeschlagen: ungültige irplus-Datei keine gültigen Tasten gefunden.';
+      'Import nicht möglich: Die IRPLUS-Datei enthält keine gültigen Tasten.';
 
   @override
   String get importedOneRemoteFromIrplus =>
@@ -2168,7 +2168,7 @@ class AppLocalizationsDe extends AppLocalizations {
 
   @override
   String get importFailedInvalidLirc =>
-      'Import fehlgeschlagen: ungültige LIRC-Datei keine gültigen Codes oder Rohcodes gefunden.';
+      'Import nicht möglich: Die LIRC-Datei enthält keine gültigen IR-Codes.';
 
   @override
   String get importedOneRemoteFromLirc =>
@@ -2176,11 +2176,11 @@ class AppLocalizationsDe extends AppLocalizations {
 
   @override
   String get unsupportedFileTypeSelected =>
-      'Nicht unterstützter Dateityp gewählt.';
+      'Dieser Dateityp wird nicht unterstützt.';
 
   @override
   String get importFailedInvalidUnreadableFile =>
-      'Import fehlgeschlagen: ungültige oder unlesbare Datei.';
+      'Import nicht möglich: Die Datei ist ungültig oder nicht lesbar.';
 
   @override
   String get bulkImportNoSupportedFilesInFolder =>

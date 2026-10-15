@@ -3777,7 +3777,7 @@ abstract class AppLocalizations {
   /// No description provided for @importFailedNoValidButtonsInIr.
   ///
   /// In en, this message translates to:
-  /// **'Import failed: no valid buttons found in .ir file.'**
+  /// **'Cannot import: no usable buttons found in the .ir file.'**
   String get importFailedNoValidButtonsInIr;
 
   /// No description provided for @importedOneRemoteFromFlipper.
@@ -3789,7 +3789,7 @@ abstract class AppLocalizations {
   /// No description provided for @importFailedInvalidIrplus.
   ///
   /// In en, this message translates to:
-  /// **'Import failed: invalid irplus file (no valid buttons found).'**
+  /// **'Cannot import: no usable buttons found in the IRPLUS file.'**
   String get importFailedInvalidIrplus;
 
   /// No description provided for @importedOneRemoteFromIrplus.
@@ -3801,7 +3801,7 @@ abstract class AppLocalizations {
   /// No description provided for @importFailedInvalidLirc.
   ///
   /// In en, this message translates to:
-  /// **'Import failed: invalid LIRC file (no valid codes/raw codes found).'**
+  /// **'Cannot import: no usable IR codes found in the LIRC file.'**
   String get importFailedInvalidLirc;
 
   /// No description provided for @importedOneRemoteFromLirc.
@@ -3813,13 +3813,13 @@ abstract class AppLocalizations {
   /// No description provided for @unsupportedFileTypeSelected.
   ///
   /// In en, this message translates to:
-  /// **'Unsupported file type selected.'**
+  /// **'This file type is not supported.'**
   String get unsupportedFileTypeSelected;
 
   /// No description provided for @importFailedInvalidUnreadableFile.
   ///
   /// In en, this message translates to:
-  /// **'Import failed: invalid or unreadable file.'**
+  /// **'Cannot import: the file is invalid or cannot be read.'**
   String get importFailedInvalidUnreadableFile;
 
   /// No description provided for @bulkImportNoSupportedFilesInFolder.

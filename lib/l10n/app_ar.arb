@@ -802,14 +802,14 @@
       }
     }
   },
-  "importFailedNoValidButtonsInIr": "فشل الاستيراد: no valid أزرار موجود in .ir file.",
+  "importFailedNoValidButtonsInIr": "تعذّر الاستيراد: لا توجد أزرار صالحة في ملف .ir.",
   "importedOneRemoteFromFlipper": "تم استيراد جهاز تحكم واحد من Flipper بصيغة .ir. لم يتم تغيير الماكرو.",
-  "importFailedInvalidIrplus": "فشل الاستيراد: invalid irplus file (no valid أزرار موجود).",
+  "importFailedInvalidIrplus": "تعذّر الاستيراد: لا توجد أزرار صالحة في ملف IRPLUS.",
   "importedOneRemoteFromIrplus": "تم استيراد جهاز تحكم واحد من irplus. لم يتم تغيير الماكرو.",
-  "importFailedInvalidLirc": "فشل الاستيراد: invalid LIRC file (no valid codes/raw codes موجود).",
+  "importFailedInvalidLirc": "تعذّر الاستيراد: لا توجد رموز أشعة تحت الحمراء صالحة في ملف LIRC.",
   "importedOneRemoteFromLirc": "تم استيراد جهاز تحكم واحد من إعداد LIRC. لم يتم تغيير الماكرو.",
-  "unsupportedFileTypeSelected": "Unsupported file type المحدد.",
-  "importFailedInvalidUnreadableFile": "فشل الاستيراد: invalid or unreadable file.",
+  "unsupportedFileTypeSelected": "نوع الملف المحدد غير مدعوم.",
+  "importFailedInvalidUnreadableFile": "تعذّر الاستيراد: الملف غير صالح أو لا يمكن قراءته.",
   "bulkImportNoSupportedFilesInFolder": "اكتمل الاستيراد المجمع: no مدعوم files موجود in folder.",
   "bulkImportNoRemotesImported": "اكتمل الاستيراد المجمع: لم يتم استيراد أي جهاز تحكم. تم تخطي {skippedCount} ملفاً.",
   "@bulkImportNoRemotesImported": {

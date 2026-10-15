@@ -802,14 +802,14 @@
       }
     }
   },
-  "importFailedNoValidButtonsInIr": "Nhập thất bại: không tìm thấy nút hợp lệ trong tệp .ir.",
+  "importFailedNoValidButtonsInIr": "Không thể nhập: không tìm thấy nút dùng được trong tệp .ir.",
   "importedOneRemoteFromFlipper": "Đã nhập 1 điều khiển từ Flipper .ir. Macro không đổi.",
-  "importFailedInvalidIrplus": "Nhập thất bại: tệp irplus không hợp lệ (không tìm thấy nút hợp lệ).",
+  "importFailedInvalidIrplus": "Không thể nhập: không tìm thấy nút dùng được trong tệp IRPLUS.",
   "importedOneRemoteFromIrplus": "Đã nhập 1 điều khiển từ irplus. Macro không đổi.",
-  "importFailedInvalidLirc": "Nhập thất bại: tệp LIRC không hợp lệ (không tìm thấy mã/raw code hợp lệ).",
+  "importFailedInvalidLirc": "Không thể nhập: không tìm thấy mã IR dùng được trong tệp LIRC.",
   "importedOneRemoteFromLirc": "Đã nhập 1 điều khiển từ cấu hình LIRC. Macro không đổi.",
-  "unsupportedFileTypeSelected": "Đã chọn loại tệp không được hỗ trợ.",
-  "importFailedInvalidUnreadableFile": "Nhập thất bại: tệp không hợp lệ hoặc không đọc được.",
+  "unsupportedFileTypeSelected": "Loại tệp này không được hỗ trợ.",
+  "importFailedInvalidUnreadableFile": "Không thể nhập: tệp không hợp lệ hoặc không đọc được.",
   "bulkImportNoSupportedFilesInFolder": "Nhập hàng loạt xong: không tìm thấy tệp được hỗ trợ trong thư mục.",
   "bulkImportNoRemotesImported": "Bulk import complete: no remotes imported. Bỏ quaped {skippedCount} file(s).",
   "@bulkImportNoRemotesImported": {

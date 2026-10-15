@@ -2091,7 +2091,7 @@ class AppLocalizationsVi extends AppLocalizations {
 
   @override
   String get importFailedNoValidButtonsInIr =>
-      'Nhập thất bại: không tìm thấy nút hợp lệ trong tệp .ir.';
+      'Không thể nhập: không tìm thấy nút dùng được trong tệp .ir.';
 
   @override
   String get importedOneRemoteFromFlipper =>
@@ -2099,7 +2099,7 @@ class AppLocalizationsVi extends AppLocalizations {
 
   @override
   String get importFailedInvalidIrplus =>
-      'Nhập thất bại: tệp irplus không hợp lệ (không tìm thấy nút hợp lệ).';
+      'Không thể nhập: không tìm thấy nút dùng được trong tệp IRPLUS.';
 
   @override
   String get importedOneRemoteFromIrplus =>
@@ -2107,19 +2107,18 @@ class AppLocalizationsVi extends AppLocalizations {
 
   @override
   String get importFailedInvalidLirc =>
-      'Nhập thất bại: tệp LIRC không hợp lệ (không tìm thấy mã/raw code hợp lệ).';
+      'Không thể nhập: không tìm thấy mã IR dùng được trong tệp LIRC.';
 
   @override
   String get importedOneRemoteFromLirc =>
       'Đã nhập 1 điều khiển từ cấu hình LIRC. Macro không đổi.';
 
   @override
-  String get unsupportedFileTypeSelected =>
-      'Đã chọn loại tệp không được hỗ trợ.';
+  String get unsupportedFileTypeSelected => 'Loại tệp này không được hỗ trợ.';
 
   @override
   String get importFailedInvalidUnreadableFile =>
-      'Nhập thất bại: tệp không hợp lệ hoặc không đọc được.';
+      'Không thể nhập: tệp không hợp lệ hoặc không đọc được.';
 
   @override
   String get bulkImportNoSupportedFilesInFolder =>

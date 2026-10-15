@@ -2015,7 +2015,7 @@ class AppLocalizationsKo extends AppLocalizations {
 
   @override
   String get importFailedNoValidButtonsInIr =>
-      '가져오기 실패: 없음 유효한 버튼 찾을 수 없음 .IR 파일.';
+      '.ir 파일에 사용할 수 있는 버튼이 없어 가져올 수 없어요.';
 
   @override
   String get importedOneRemoteFromFlipper =>
@@ -2023,7 +2023,7 @@ class AppLocalizationsKo extends AppLocalizations {
 
   @override
   String get importFailedInvalidIrplus =>
-      '가져오기 실패: 잘못된 irplus 파일입니다(유효한 버튼 없음).';
+      'IRPLUS 파일에 사용할 수 있는 버튼이 없어 가져올 수 없어요.';
 
   @override
   String get importedOneRemoteFromIrplus =>
@@ -2031,18 +2031,18 @@ class AppLocalizationsKo extends AppLocalizations {
 
   @override
   String get importFailedInvalidLirc =>
-      '가져오기 실패: 잘못된 LIRC 파일입니다(유효한 코드/원시 코드 없음).';
+      'LIRC 파일에 사용할 수 있는 IR 코드가 없어 가져올 수 없어요.';
 
   @override
   String get importedOneRemoteFromLirc =>
       'LIRC config에서 리모컨 1개를 가져왔습니다. 매크로는 변경되지 않았습니다.';
 
   @override
-  String get unsupportedFileTypeSelected => '지원되지 않는 파일 형식을 선택했습니다.';
+  String get unsupportedFileTypeSelected => '지원하지 않는 파일 형식이에요.';
 
   @override
   String get importFailedInvalidUnreadableFile =>
-      '가져오기 실패: 잘못되었거나 읽을 수 없는 파일입니다.';
+      '파일이 올바르지 않거나 읽을 수 없어 가져오지 못했어요.';
 
   @override
   String get bulkImportNoSupportedFilesInFolder =>

@@ -2125,7 +2125,7 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String get importFailedNoValidButtonsInIr =>
-      'فشل الاستيراد: no valid أزرار موجود in .ir file.';
+      'تعذّر الاستيراد: لا توجد أزرار صالحة في ملف .ir.';
 
   @override
   String get importedOneRemoteFromFlipper =>
@@ -2133,7 +2133,7 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String get importFailedInvalidIrplus =>
-      'فشل الاستيراد: invalid irplus file (no valid أزرار موجود).';
+      'تعذّر الاستيراد: لا توجد أزرار صالحة في ملف IRPLUS.';
 
   @override
   String get importedOneRemoteFromIrplus =>
@@ -2141,18 +2141,18 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String get importFailedInvalidLirc =>
-      'فشل الاستيراد: invalid LIRC file (no valid codes/raw codes موجود).';
+      'تعذّر الاستيراد: لا توجد رموز أشعة تحت الحمراء صالحة في ملف LIRC.';
 
   @override
   String get importedOneRemoteFromLirc =>
       'تم استيراد جهاز تحكم واحد من إعداد LIRC. لم يتم تغيير الماكرو.';
 
   @override
-  String get unsupportedFileTypeSelected => 'Unsupported file type المحدد.';
+  String get unsupportedFileTypeSelected => 'نوع الملف المحدد غير مدعوم.';
 
   @override
   String get importFailedInvalidUnreadableFile =>
-      'فشل الاستيراد: invalid or unreadable file.';
+      'تعذّر الاستيراد: الملف غير صالح أو لا يمكن قراءته.';
 
   @override
   String get bulkImportNoSupportedFilesInFolder =>
@@ -7401,7 +7401,7 @@ class AppLocalizationsArEg extends AppLocalizationsAr {
 
   @override
   String get importFailedNoValidButtonsInIr =>
-      'فشل الاستيراد: no valid أزرار موجود in .ir file.';
+      'الاستيراد فشل: ملف .ir مفيهوش أزرار صالحة.';
 
   @override
   String get importedOneRemoteFromFlipper =>
@@ -7409,7 +7409,7 @@ class AppLocalizationsArEg extends AppLocalizationsAr {
 
   @override
   String get importFailedInvalidIrplus =>
-      'فشل الاستيراد: invalid irplus file (no valid أزرار موجود).';
+      'الاستيراد فشل: ملف IRPLUS مفيهوش أزرار صالحة.';
 
   @override
   String get importedOneRemoteFromIrplus =>
@@ -7417,18 +7417,18 @@ class AppLocalizationsArEg extends AppLocalizationsAr {
 
   @override
   String get importFailedInvalidLirc =>
-      'فشل الاستيراد: invalid LIRC file (no valid codes/raw codes موجود).';
+      'الاستيراد فشل: ملف LIRC مفيهوش أكواد أشعة تحت الحمراء صالحة.';
 
   @override
   String get importedOneRemoteFromLirc =>
       'تم استيراد جهاز تحكم واحد من إعداد LIRC. لم يتم تغيير الماكرو.';
 
   @override
-  String get unsupportedFileTypeSelected => 'Unsupported file type المحدد.';
+  String get unsupportedFileTypeSelected => 'نوع الملف اللي اخترته مش مدعوم.';
 
   @override
   String get importFailedInvalidUnreadableFile =>
-      'فشل الاستيراد: invalid or unreadable file.';
+      'الاستيراد فشل: الملف مش سليم أو مش ممكن يتقري.';
 
   @override
   String get bulkImportNoSupportedFilesInFolder =>

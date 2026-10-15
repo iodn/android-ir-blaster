@@ -802,14 +802,14 @@
       }
     }
   },
-  "importFailedNoValidButtonsInIr": "นำเข้าไม่สำเร็จ: no valid ปุ่มs found in.ir ไฟล์.",
+  "importFailedNoValidButtonsInIr": "นำเข้าไม่ได้: ไม่พบปุ่มที่ใช้งานได้ในไฟล์ .ir",
   "importedOneRemoteFromFlipper": "นำเข้ารีโมต 1 รายการจาก Flipper .ir แมโครไม่เปลี่ยน",
-  "importFailedInvalidIrplus": "นำเข้าไม่สำเร็จ: invalid irplus ไฟล์ (no valid ปุ่มs found).",
+  "importFailedInvalidIrplus": "นำเข้าไม่ได้: ไม่พบปุ่มที่ใช้งานได้ในไฟล์ IRPLUS",
   "importedOneRemoteFromIrplus": "นำเข้ารีโมต 1 รายการจาก irplus แมโครไม่เปลี่ยน",
-  "importFailedInvalidLirc": "นำเข้าไม่สำเร็จ: invalid LIRC ไฟล์ (no valid codes/raw codes found).",
+  "importFailedInvalidLirc": "นำเข้าไม่ได้: ไม่พบรหัส IR ที่ใช้งานได้ในไฟล์ LIRC",
   "importedOneRemoteFromLirc": "นำเข้ารีโมต 1 รายการจากไฟล์ LIRC แมโครไม่เปลี่ยน",
-  "unsupportedFileTypeSelected": "Unที่รองรับ ไฟล์ type selected.",
-  "importFailedInvalidUnreadableFile": "นำเข้าไม่สำเร็จ: invalid or unreadable ไฟล์.",
+  "unsupportedFileTypeSelected": "ไม่รองรับไฟล์ประเภทนี้",
+  "importFailedInvalidUnreadableFile": "นำเข้าไม่ได้: ไฟล์ไม่ถูกต้องหรืออ่านไม่ได้",
   "bulkImportNoSupportedFilesInFolder": "Bulk import complete: no ที่รองรับ ไฟล์s found in โฟลเดอร์.",
   "bulkImportNoRemotesImported": "นำเข้าจำนวนมากเสร็จแล้ว แต่ไม่มีรีโมตถูกนำเข้า ข้ามไฟล์ {skippedCount} ไฟล์",
   "@bulkImportNoRemotesImported": {

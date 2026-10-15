@@ -10,12 +10,10 @@ import 'package:irblaster_controller/utils/remotes_io.dart';
 
 void main() {
   for (final locale in AppLocalizations.supportedLocales) {
-    testWidgets('backup format errors are localized and readable: $locale',
+    testWidgets('import errors are localized and readable: $locale',
         (tester) async {
       final directory = Directory.systemTemp.createTempSync('backup-errors-');
-      final file = File('${directory.path}/backup.json');
       final originalPicker = FilePickerPlatform.instance;
-      FilePickerPlatform.instance = _BackupPicker(file.path);
       addTearDown(() {
         FilePickerPlatform.instance = originalPicker;
         directory.deleteSync(recursive: true);
@@ -43,24 +41,34 @@ void main() {
       final l10n = AppLocalizations.of(context)!;
       final original = Remote(id: 1, name: 'TV', buttons: []);
       final current = [original];
-      final cases = {
-        '{"remotes": {}}': l10n.importFailedRemotesMustBeList,
-        '{"macros": {}}': l10n.importFailedMacrosMustBeList,
-        '{}': l10n.importFailedInvalidBackupFormat,
-        '42': l10n.importFailedInvalidBackupFormat,
-      };
-      for (final entry in cases.entries) {
-        file.writeAsStringSync(entry.key);
+      final cases = <(String, String?, String)>[
+        ('backup.json', '{"remotes": {}}', l10n.importFailedRemotesMustBeList),
+        ('backup.json', '{"macros": {}}', l10n.importFailedMacrosMustBeList),
+        ('backup.json', '{}', l10n.importFailedInvalidBackupFormat),
+        ('backup.json', '42', l10n.importFailedInvalidBackupFormat),
+        ('empty.ir', 'Filetype: IR signals file\nVersion: 1\n',
+            l10n.importFailedNoValidButtonsInIr),
+        ('empty.irplus', '<irplus></irplus>', l10n.importFailedInvalidIrplus),
+        ('empty.conf', 'begin remote\n name Empty\nend remote\n',
+            l10n.importFailedInvalidLirc),
+        ('broken.json', '{', l10n.importFailedInvalidUnreadableFile),
+        ('missing.json', null, l10n.importFailedInvalidUnreadableFile),
+        ('unsupported.txt', 'Not an IR file', l10n.unsupportedFileTypeSelected),
+      ];
+      for (final (name, contents, expectedMessage) in cases) {
+        final file = File('${directory.path}/$name');
+        if (contents != null) file.writeAsStringSync(contents);
+        FilePickerPlatform.instance = _BackupPicker(file.path);
         final result = await tester.runAsync(
             () => importRemotesFromPicker(context, current: current));
         expect(result, isNotNull);
         expect(result!.success, isFalse);
-        expect(result.message, entry.value);
+        expect(result.message, expectedMessage, reason: name);
         expect(current, [original]);
         ScaffoldMessenger.of(context)
             .showSnackBar(SnackBar(content: Text(result.message)));
         await tester.pumpAndSettle();
-        final text = find.text(entry.value);
+        final text = find.text(expectedMessage);
         final paragraph = tester.renderObject<RenderParagraph>(text);
         expect(paragraph.didExceedMaxLines, isFalse);
         expect(paragraph.getMaxIntrinsicHeight(paragraph.size.width),
@@ -102,9 +110,9 @@ final class _BackupFile extends PlatformFile {
   @override
   final String path;
   @override
-  String get name => 'backup.json';
+  String get name => path.split('/').last;
   @override
-  String get extension => 'json';
+  String get extension => name.split('.').last;
   @override
   dynamic noSuchMethod(Invocation invocation) => super.noSuchMethod(invocation);
 }

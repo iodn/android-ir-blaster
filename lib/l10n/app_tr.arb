@@ -802,14 +802,14 @@
       }
     }
   },
-  "importFailedNoValidButtonsInIr": "İçe aktarma başarısız: .ir dosyasında geçerli düğme bulunamadı.",
+  "importFailedNoValidButtonsInIr": "İçe aktarılamıyor: .ir dosyasında kullanılabilir düğme bulunamadı.",
   "importedOneRemoteFromFlipper": "Flipper .ir'den 1 kumanda içe aktarıldı. Makrolar değiştirilmedi.",
-  "importFailedInvalidIrplus": "İçe aktarma başarısız: geçersiz irplus dosyası (geçerli düğme bulunamadı).",
+  "importFailedInvalidIrplus": "İçe aktarılamıyor: IRPLUS dosyasında kullanılabilir düğme bulunamadı.",
   "importedOneRemoteFromIrplus": "IRPLUS'tan 1 kumanda içe aktarıldı. Makrolar değiştirilmedi.",
-  "importFailedInvalidLirc": "İçe aktarma başarısız: geçersiz LIRC dosyası (geçerli kod veya ham kod bulunamadı).",
+  "importFailedInvalidLirc": "İçe aktarılamıyor: LIRC dosyasında kullanılabilir IR kodu bulunamadı.",
   "importedOneRemoteFromLirc": "LIRC yapılandırmasından 1 kumanda içe aktarıldı. Makrolar değiştirilmedi.",
-  "unsupportedFileTypeSelected": "Desteklenmeyen dosya türü seçildi.",
-  "importFailedInvalidUnreadableFile": "İçe aktarma başarısız: geçersiz veya okunamayan dosya.",
+  "unsupportedFileTypeSelected": "Bu dosya türü desteklenmiyor.",
+  "importFailedInvalidUnreadableFile": "İçe aktarılamıyor: dosya geçersiz veya okunamıyor.",
   "bulkImportNoSupportedFilesInFolder": "Toplu içe aktarma tamamlandı: klasörde desteklenen dosya bulunamadı.",
   "bulkImportNoRemotesImported": "Toplu içe aktarma tamamlandı: hiç kumanda içe aktarılmadı. {skippedCount} dosya atlandı.",
   "@bulkImportNoRemotesImported": {

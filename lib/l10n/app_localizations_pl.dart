@@ -2195,7 +2195,7 @@ class AppLocalizationsPl extends AppLocalizations {
 
   @override
   String get importFailedNoValidButtonsInIr =>
-      'Import nieudane: no valid przyciski znaleziono in.ir plik.';
+      'Nie można zaimportować: plik .ir nie zawiera poprawnych przycisków.';
 
   @override
   String get importedOneRemoteFromFlipper =>
@@ -2203,7 +2203,7 @@ class AppLocalizationsPl extends AppLocalizations {
 
   @override
   String get importFailedInvalidIrplus =>
-      'Import nieudane: invalid irplus plik (no valid przyciski znaleziono).';
+      'Nie można zaimportować: plik IRPLUS nie zawiera poprawnych przycisków.';
 
   @override
   String get importedOneRemoteFromIrplus =>
@@ -2211,18 +2211,19 @@ class AppLocalizationsPl extends AppLocalizations {
 
   @override
   String get importFailedInvalidLirc =>
-      'Import nieudane: invalid LIRC plik (no valid kody/raw kody znaleziono).';
+      'Nie można zaimportować: plik LIRC nie zawiera poprawnych kodów IR.';
 
   @override
   String get importedOneRemoteFromLirc =>
       'Imported 1 pilot from LIRC config. makra were nie changed.';
 
   @override
-  String get unsupportedFileTypeSelected => 'Unsupported plik type wybrano.';
+  String get unsupportedFileTypeSelected =>
+      'Ten typ pliku nie jest obsługiwany.';
 
   @override
   String get importFailedInvalidUnreadableFile =>
-      'Import nieudany: plik jest nieprawidłowy lub nieczytelny.';
+      'Nie można zaimportować: plik jest nieprawidłowy lub nie można go odczytać.';
 
   @override
   String get bulkImportNoSupportedFilesInFolder =>

@@ -1960,28 +1960,28 @@ class AppLocalizationsZh extends AppLocalizations {
   }
 
   @override
-  String get importFailedNoValidButtonsInIr => '导入失败 在.ir 文件中未找到有效按钮。';
+  String get importFailedNoValidButtonsInIr => '无法导入：.ir文件中没有可用的按钮。';
 
   @override
   String get importedOneRemoteFromFlipper => '已从 Flipper.ir 导入 1 个遥控器。宏未更改。';
 
   @override
-  String get importFailedInvalidIrplus => '导入失败 IRPlus 文件无效 未找到有效按钮。';
+  String get importFailedInvalidIrplus => '无法导入：IRPLUS文件中没有可用的按钮。';
 
   @override
   String get importedOneRemoteFromIrplus => '已从 IRPlus 导入 1 个遥控器。宏未更改。';
 
   @override
-  String get importFailedInvalidLirc => '导入失败 LIRC 文件无效 未找到有效代码 原始代码。';
+  String get importFailedInvalidLirc => '无法导入：LIRC文件中没有可用的红外代码。';
 
   @override
   String get importedOneRemoteFromLirc => '已从 LIRC 配置导入 1 个遥控器。宏未更改。';
 
   @override
-  String get unsupportedFileTypeSelected => '所选文件类型不受支持。';
+  String get unsupportedFileTypeSelected => '不支持此文件类型。';
 
   @override
-  String get importFailedInvalidUnreadableFile => '导入失败 文件无效或无法读取。';
+  String get importFailedInvalidUnreadableFile => '无法导入：文件内容无效或无法读取。';
 
   @override
   String get bulkImportNoSupportedFilesInFolder => '批量导入完成 文件夹中未找到受支持文件。';

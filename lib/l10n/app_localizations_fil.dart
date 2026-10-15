@@ -2121,7 +2121,7 @@ class AppLocalizationsFil extends AppLocalizations {
 
   @override
   String get importFailedNoValidButtonsInIr =>
-      'Import nabigo: no valid mga button found in .ir file.';
+      'Hindi ma-import: walang magagamit na button sa .ir file.';
 
   @override
   String get importedOneRemoteFromFlipper =>
@@ -2129,7 +2129,7 @@ class AppLocalizationsFil extends AppLocalizations {
 
   @override
   String get importFailedInvalidIrplus =>
-      'Import nabigo: hindi wasto irplus file (no valid mga button found).';
+      'Hindi ma-import: walang magagamit na button sa IRPLUS file.';
 
   @override
   String get importedOneRemoteFromIrplus =>
@@ -2137,18 +2137,19 @@ class AppLocalizationsFil extends AppLocalizations {
 
   @override
   String get importFailedInvalidLirc =>
-      'Import nabigo: hindi wasto LIRC file (no valid codes/raw codes found).';
+      'Hindi ma-import: walang magagamit na IR code sa LIRC file.';
 
   @override
   String get importedOneRemoteFromLirc =>
       'Imported 1 remote from LIRC config. Macros were not changed.';
 
   @override
-  String get unsupportedFileTypeSelected => 'Unsupported file type selected.';
+  String get unsupportedFileTypeSelected =>
+      'Hindi suportado ang ganitong uri ng file.';
 
   @override
   String get importFailedInvalidUnreadableFile =>
-      'Import nabigo: hindi wasto o unreadable file.';
+      'Hindi ma-import: hindi wasto o hindi mabasa ang file.';
 
   @override
   String get bulkImportNoSupportedFilesInFolder =>

@@ -802,14 +802,14 @@
       }
     }
   },
-  "importFailedNoValidButtonsInIr": "Import gagal: tiada butang sah di file .ir.",
+  "importFailedNoValidButtonsInIr": "Tidak dapat mengimport: tiada butang yang boleh digunakan dalam fail .ir.",
   "importedOneRemoteFromFlipper": "Mengimport 1 remote dari Flipper .ir. Makro tidak diubah.",
-  "importFailedInvalidIrplus": "Import gagal: file irplus tidak sah (tiada butang sah).",
+  "importFailedInvalidIrplus": "Tidak dapat mengimport: tiada butang yang boleh digunakan dalam fail IRPLUS.",
   "importedOneRemoteFromIrplus": "Mengimport 1 remote dari irplus. Makro tidak diubah.",
-  "importFailedInvalidLirc": "Import gagal: file LIRC tidak sah (tiada kod/kod mentah sah).",
+  "importFailedInvalidLirc": "Tidak dapat mengimport: tiada kod IR yang boleh digunakan dalam fail LIRC.",
   "importedOneRemoteFromLirc": "Mengimport 1 remote dari konfigurasi LIRC. Makro tidak diubah.",
-  "unsupportedFileTypeSelected": "Unsupported file type terpilih.",
-  "importFailedInvalidUnreadableFile": "Import gagal: file tidak sah atau tidak boleh dibaca.",
+  "unsupportedFileTypeSelected": "Jenis fail ini tidak disokong.",
+  "importFailedInvalidUnreadableFile": "Tidak dapat mengimport: fail tidak sah atau tidak dapat dibaca.",
   "bulkImportNoSupportedFilesInFolder": "Import massal selesai: tiada file yang disokong di folder.",
   "bulkImportNoRemotesImported": "Import pukal selesai: tiada remote diimport. Melangkau {skippedCount} fail.",
   "@bulkImportNoRemotesImported": {

@@ -804,14 +804,14 @@
       }
     }
   },
-  "importFailedNoValidButtonsInIr": "Import nieudane: no valid przyciski znaleziono in.ir plik.",
+  "importFailedNoValidButtonsInIr": "Nie można zaimportować: plik .ir nie zawiera poprawnych przycisków.",
   "importedOneRemoteFromFlipper": "Imported 1 pilot from Flipper.ir. makra were nie changed.",
-  "importFailedInvalidIrplus": "Import nieudane: invalid irplus plik (no valid przyciski znaleziono).",
+  "importFailedInvalidIrplus": "Nie można zaimportować: plik IRPLUS nie zawiera poprawnych przycisków.",
   "importedOneRemoteFromIrplus": "Imported 1 pilot from irplus. makra were nie changed.",
-  "importFailedInvalidLirc": "Import nieudane: invalid LIRC plik (no valid kody/raw kody znaleziono).",
+  "importFailedInvalidLirc": "Nie można zaimportować: plik LIRC nie zawiera poprawnych kodów IR.",
   "importedOneRemoteFromLirc": "Imported 1 pilot from LIRC config. makra were nie changed.",
-  "unsupportedFileTypeSelected": "Unsupported plik type wybrano.",
-  "importFailedInvalidUnreadableFile": "Import nieudany: plik jest nieprawidłowy lub nieczytelny.",
+  "unsupportedFileTypeSelected": "Ten typ pliku nie jest obsługiwany.",
+  "importFailedInvalidUnreadableFile": "Nie można zaimportować: plik jest nieprawidłowy lub nie można go odczytać.",
   "bulkImportNoSupportedFilesInFolder": "Import zbiorczy zakończony: nie znaleziono w folderze obsługiwanych plików.",
   "bulkImportNoRemotesImported": "Import zbiorczy zakończony: nie zaimportowano żadnych pilotów. Pominięto {skippedCount} plik(i).",
   "@bulkImportNoRemotesImported": {

@@ -802,14 +802,14 @@
       }
     }
   },
-  "importFailedNoValidButtonsInIr": "आयात करें विफल: नहीं valid बटन मिला में.IR फ़ाइल.",
+  "importFailedNoValidButtonsInIr": "आयात नहीं हो सका: .ir फ़ाइल में उपयोग करने लायक कोई बटन नहीं मिला।",
   "importedOneRemoteFromFlipper": "Imported 1 रिमोट से Flipper.IR. मैक्रो थे नहीं बदला गया.",
-  "importFailedInvalidIrplus": "आयात करें विफल: अमान्य irplus फ़ाइल (नहीं valid बटन मिला).",
+  "importFailedInvalidIrplus": "आयात नहीं हो सका: IRPLUS फ़ाइल में उपयोग करने लायक कोई बटन नहीं मिला।",
   "importedOneRemoteFromIrplus": "Imported 1 रिमोट से irplus. मैक्रो थे नहीं बदला गया.",
-  "importFailedInvalidLirc": "आयात करें विफल: अमान्य LIRC फ़ाइल (नहीं valid कोड/रॉ कोड मिला).",
+  "importFailedInvalidLirc": "आयात नहीं हो सका: LIRC फ़ाइल में उपयोग करने लायक कोई IR कोड नहीं मिला।",
   "importedOneRemoteFromLirc": "Imported 1 रिमोट से LIRC config. मैक्रो थे नहीं बदला गया.",
-  "unsupportedFileTypeSelected": "असमर्थित फ़ाइल प्रकार चुना गया।",
-  "importFailedInvalidUnreadableFile": "आयात करें विफल: अमान्य या unreadable फ़ाइल.",
+  "unsupportedFileTypeSelected": "इस प्रकार की फ़ाइल समर्थित नहीं है।",
+  "importFailedInvalidUnreadableFile": "आयात नहीं हो सका: फ़ाइल सही नहीं है या पढ़ी नहीं जा सकी।",
   "bulkImportNoSupportedFilesInFolder": "Bulk आयात पूर्ण: नहीं समर्थित फ़ाइलें मिला में फ़ोल्डर.",
   "bulkImportNoRemotesImported": "Bulk आयात पूर्ण: नहीं रिमोट आयात किए गए. छोड़ा गया {skippedCount} फ़ाइल(s).",
   "@bulkImportNoRemotesImported": {

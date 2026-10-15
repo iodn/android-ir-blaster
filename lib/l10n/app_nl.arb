@@ -802,14 +802,14 @@
       }
     }
   },
-  "importFailedNoValidButtonsInIr": "Importeren mislukt geen geldige knoppen gevonden in .ir-bestand.",
+  "importFailedNoValidButtonsInIr": "Importeren mislukt: geen bruikbare knoppen gevonden in het .ir-bestand.",
   "importedOneRemoteFromFlipper": "1 afstandsbediening geïmporteerd uit Flipper .ir. Macro's zijn niet gewijzigd.",
-  "importFailedInvalidIrplus": "Importeren mislukt ongeldig irplus-bestand geen geldige knoppen gevonden.",
+  "importFailedInvalidIrplus": "Importeren mislukt: geen bruikbare knoppen gevonden in het IRPLUS-bestand.",
   "importedOneRemoteFromIrplus": "1 afstandsbediening geïmporteerd uit irplus. Macro's zijn niet gewijzigd.",
-  "importFailedInvalidLirc": "Importeren mislukt ongeldig LIRC-bestand geen geldige codes of ruwe codes gevonden.",
+  "importFailedInvalidLirc": "Importeren mislukt: geen bruikbare IR-codes gevonden in het LIRC-bestand.",
   "importedOneRemoteFromLirc": "1 afstandsbediening geïmporteerd uit LIRC-configuratie. Macro's zijn niet gewijzigd.",
-  "unsupportedFileTypeSelected": "Niet-ondersteund bestandstype geselecteerd.",
-  "importFailedInvalidUnreadableFile": "Importeren mislukt ongeldige of onleesbare bestand.",
+  "unsupportedFileTypeSelected": "Dit bestandstype wordt niet ondersteund.",
+  "importFailedInvalidUnreadableFile": "Importeren mislukt: het bestand is ongeldig of onleesbaar.",
   "bulkImportNoSupportedFilesInFolder": "Bulkimporteren voltooid: no ondersteunde files found in folder.",
   "bulkImportNoRemotesImported": "Bulkimporteren voltooid: no remotes importerened. Overslaanped {skippedCount} file(s).",
   "@bulkImportNoRemotesImported": {

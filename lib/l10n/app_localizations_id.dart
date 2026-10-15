@@ -2103,7 +2103,7 @@ class AppLocalizationsId extends AppLocalizations {
 
   @override
   String get importFailedNoValidButtonsInIr =>
-      'Impor gagal: tidak ada tombol valid di file .ir.';
+      'Tidak dapat mengimpor: tidak ada tombol yang dapat digunakan dalam file .ir.';
 
   @override
   String get importedOneRemoteFromFlipper =>
@@ -2111,7 +2111,7 @@ class AppLocalizationsId extends AppLocalizations {
 
   @override
   String get importFailedInvalidIrplus =>
-      'Impor gagal: file irplus tidak valid (tidak ada tombol valid).';
+      'Tidak dapat mengimpor: tidak ada tombol yang dapat digunakan dalam file IRPLUS.';
 
   @override
   String get importedOneRemoteFromIrplus =>
@@ -2119,18 +2119,18 @@ class AppLocalizationsId extends AppLocalizations {
 
   @override
   String get importFailedInvalidLirc =>
-      'Impor gagal: file LIRC tidak valid (tidak ada kode/kode mentah valid).';
+      'Tidak dapat mengimpor: tidak ada kode IR yang dapat digunakan dalam file LIRC.';
 
   @override
   String get importedOneRemoteFromLirc =>
       'Mengimpor 1 remote dari konfigurasi LIRC. Makro tidak diubah.';
 
   @override
-  String get unsupportedFileTypeSelected => 'Unsupported file type terpilih.';
+  String get unsupportedFileTypeSelected => 'Jenis file ini tidak didukung.';
 
   @override
   String get importFailedInvalidUnreadableFile =>
-      'Impor gagal: file tidak valid atau tidak bisa dibaca.';
+      'Tidak dapat mengimpor: file tidak valid atau tidak dapat dibaca.';
 
   @override
   String get bulkImportNoSupportedFilesInFolder =>
