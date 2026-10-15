@@ -1488,13 +1488,14 @@ class AppLocalizationsNl extends AppLocalizations {
   String get startLoop => 'Lus starten';
 
   @override
-  String get editButtonSubtitle => 'Wijzig label, code, protocol en frequentie';
+  String get editButtonSubtitle => 'Label, kleuren of IR-signaal wijzigen';
 
   @override
-  String get newButton => 'New knop';
+  String get newButton => 'Nieuwe knop';
 
   @override
-  String get newButtonSubtitle => 'Maak een nieuwe knop na deze';
+  String get newButtonSubtitle =>
+      'Maak nog een knop voor deze afstandsbediening';
 
   @override
   String get duplicate => 'Dupliceren';
@@ -1510,7 +1511,7 @@ class AppLocalizationsNl extends AppLocalizations {
 
   @override
   String get deviceControlsButtonSubtitle =>
-      'Toont deze knop in de systeem-apparaatbediening';
+      'Gebruik deze knop via de apparaatbediening van Android';
 
   @override
   String get removedFromDeviceControls => 'Verwijderd uit apparaatbediening.';
@@ -1523,7 +1524,7 @@ class AppLocalizationsNl extends AppLocalizations {
 
   @override
   String get quickTileButtonSubtitle =>
-      'Toont deze knop bovenaan de snelle-tegelkiezer';
+      'Favorieten staan vooraan bij het instellen van een tegel voor snelle instellingen';
 
   @override
   String get removedFromQuickTileFavorites =>

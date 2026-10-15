@@ -1479,13 +1479,14 @@ class AppLocalizationsFr extends AppLocalizations {
 
   @override
   String get editButtonSubtitle =>
-      'Modifier le libellé, le code, le protocole, la fréquence';
+      'Modifier le libellé, les couleurs ou le signal IR';
 
   @override
   String get newButton => 'Nouveau bouton';
 
   @override
-  String get newButtonSubtitle => 'Créer un nouveau bouton après celui-ci';
+  String get newButtonSubtitle =>
+      'Créer un autre bouton pour cette télécommande';
 
   @override
   String get duplicate => 'Dupliquer';
@@ -1501,7 +1502,7 @@ class AppLocalizationsFr extends AppLocalizations {
 
   @override
   String get deviceControlsButtonSubtitle =>
-      'Affiche ce bouton dans les contrôles appareil du système';
+      'Utiliser ce bouton depuis les commandes d’appareils d’Android';
 
   @override
   String get removedFromDeviceControls => 'Retiré des contrôles appareil.';
@@ -1514,7 +1515,7 @@ class AppLocalizationsFr extends AppLocalizations {
 
   @override
   String get quickTileButtonSubtitle =>
-      'Affiche ce bouton en haut du choix des tuiles rapides';
+      'Les favoris apparaissent en premier lors de la configuration d’une tuile de paramètres rapides';
 
   @override
   String get removedFromQuickTileFavorites => 'Retiré des favoris de tuiles.';

@@ -1397,13 +1397,13 @@ class AppLocalizationsJa extends AppLocalizations {
   String get startLoop => 'ループ開始';
 
   @override
-  String get editButtonSubtitle => 'ラベル コード プロトコル 周波数を変更';
+  String get editButtonSubtitle => 'ラベル、色、赤外線信号を変更';
 
   @override
   String get newButton => '新しいボタン';
 
   @override
-  String get newButtonSubtitle => 'この後ろに新しいボタンを作成';
+  String get newButtonSubtitle => 'このリモコンに別のボタンを作成';
 
   @override
   String get duplicate => '複製';
@@ -1418,7 +1418,7 @@ class AppLocalizationsJa extends AppLocalizations {
   String get addToDeviceControls => 'デバイスコントロールに追加';
 
   @override
-  String get deviceControlsButtonSubtitle => 'このボタンをシステムのデバイスコントロールに表示';
+  String get deviceControlsButtonSubtitle => 'Androidのデバイスコントロールからこのボタンを使用';
 
   @override
   String get removedFromDeviceControls => 'デバイスコントロールから削除しました';
@@ -1430,7 +1430,7 @@ class AppLocalizationsJa extends AppLocalizations {
   String get unpinQuickTile => 'クイックタイルお気に入りから解除';
 
   @override
-  String get quickTileButtonSubtitle => 'このボタンをクイックタイル選択画面の上部に表示';
+  String get quickTileButtonSubtitle => 'クイック設定タイルの設定時に、お気に入りが先に表示されます';
 
   @override
   String get removedFromQuickTileFavorites => 'クイックタイルお気に入りから削除しました';
@@ -1442,7 +1442,7 @@ class AppLocalizationsJa extends AppLocalizations {
   String get duplicateAndEdit => '複製して編集';
 
   @override
-  String get duplicateAndEditSubtitle => '複製を作成してすぐ編集';
+  String get duplicateAndEditSubtitle => '複製したボタンをすぐに編集';
 
   @override
   String get done => '完了';

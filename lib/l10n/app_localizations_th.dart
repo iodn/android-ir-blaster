@@ -1452,13 +1452,13 @@ class AppLocalizationsTh extends AppLocalizations {
   String get startLoop => 'เริ่ม loop';
 
   @override
-  String get editButtonSubtitle => 'แก้ไขชื่อ โค้ด โปรโตคอล และความถี่';
+  String get editButtonSubtitle => 'เปลี่ยนชื่อ สี หรือสัญญาณอินฟราเรด';
 
   @override
-  String get newButton => 'New ปุ่ม';
+  String get newButton => 'ปุ่มใหม่';
 
   @override
-  String get newButtonSubtitle => 'สร้างปุ่มใหม่ต่อจากปุ่มนี้';
+  String get newButtonSubtitle => 'สร้างอีกปุ่มสำหรับรีโมตนี้';
 
   @override
   String get duplicate => 'สร้างสำเนา';
@@ -1474,7 +1474,7 @@ class AppLocalizationsTh extends AppLocalizations {
 
   @override
   String get deviceControlsButtonSubtitle =>
-      'แสดงปุ่มนี้ในการควบคุมอุปกรณ์ของระบบ';
+      'ใช้ปุ่มนี้ผ่านการควบคุมอุปกรณ์ของ Android';
 
   @override
   String get removedFromDeviceControls => 'นำออกจากการควบคุมอุปกรณ์แล้ว';
@@ -1486,7 +1486,8 @@ class AppLocalizationsTh extends AppLocalizations {
   String get unpinQuickTile => 'เอาออกจากรายการโปรดไทล์ด่วน';
 
   @override
-  String get quickTileButtonSubtitle => 'แสดงปุ่มนี้ด้านบนของตัวเลือกไทล์ด่วน';
+  String get quickTileButtonSubtitle =>
+      'รายการโปรดจะแสดงก่อนเมื่อเลือกปุ่มสำหรับการตั้งค่าด่วน';
 
   @override
   String get removedFromQuickTileFavorites => 'นำออกจากรายการโปรดไทล์ด่วนแล้ว';

@@ -1465,13 +1465,14 @@ class AppLocalizationsMs extends AppLocalizations {
   String get startLoop => 'Mula loop';
 
   @override
-  String get editButtonSubtitle => 'Modify label, kod, protokol, frequency';
+  String get editButtonSubtitle => 'Tukar label, warna atau isyarat IR';
 
   @override
-  String get newButton => 'New butang';
+  String get newButton => 'Butang baharu';
 
   @override
-  String get newButtonSubtitle => 'Buat butang baru setelah butang ini';
+  String get newButtonSubtitle =>
+      'Buat satu lagi butang untuk alat kawalan jauh ini';
 
   @override
   String get duplicate => 'Gandakan';
@@ -1487,7 +1488,7 @@ class AppLocalizationsMs extends AppLocalizations {
 
   @override
   String get deviceControlsButtonSubtitle =>
-      'Menampilkan butang ini di kawalan peranti sistem';
+      'Gunakan butang ini melalui kawalan peranti Android';
 
   @override
   String get removedFromDeviceControls => 'Dihapus dari Kawalan Peranti.';
@@ -1500,7 +1501,7 @@ class AppLocalizationsMs extends AppLocalizations {
 
   @override
   String get quickTileButtonSubtitle =>
-      'Menampilkan butang ini di bagian atas pemilih jubin pantas';
+      'Kegemaran dipaparkan dahulu semasa menyediakan jubin Tetapan Pantas';
 
   @override
   String get removedFromQuickTileFavorites =>
@@ -1514,7 +1515,7 @@ class AppLocalizationsMs extends AppLocalizations {
   String get duplicateAndEdit => 'Gandakan dan sunting';
 
   @override
-  String get duplicateAndEditSubtitle => 'Buat salinan kemudian langsung ubah';
+  String get duplicateAndEditSubtitle => 'Buat salinan dan terus sunting';
 
   @override
   String get done => 'Selesai';

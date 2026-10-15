@@ -1406,13 +1406,13 @@ class AppLocalizationsKo extends AppLocalizations {
   String get startLoop => '반복 시작';
 
   @override
-  String get editButtonSubtitle => '레이블, 코드, 프로토콜, 주파수 수정';
+  String get editButtonSubtitle => '레이블, 색상 또는 적외선 신호 변경';
 
   @override
   String get newButton => '새 버튼';
 
   @override
-  String get newButtonSubtitle => '새 버튼을 만든 뒤 하나를 추가하세요';
+  String get newButtonSubtitle => '이 리모컨에 사용할 다른 버튼 만들기';
 
   @override
   String get duplicate => '복제';
@@ -1427,7 +1427,7 @@ class AppLocalizationsKo extends AppLocalizations {
   String get addToDeviceControls => '기기 제어에 추가';
 
   @override
-  String get deviceControlsButtonSubtitle => '시스템 기기 제어에 이 버튼 표시';
+  String get deviceControlsButtonSubtitle => 'Android 기기 제어에서 이 버튼 사용';
 
   @override
   String get removedFromDeviceControls => '기기 제어에서 제거됨.';
@@ -1439,7 +1439,7 @@ class AppLocalizationsKo extends AppLocalizations {
   String get unpinQuickTile => '빠른 타일 즐겨찾기에서 해제';
 
   @override
-  String get quickTileButtonSubtitle => '빠른 타일 선택기의 상단에 이 버튼 표시';
+  String get quickTileButtonSubtitle => '빠른 설정 타일을 설정할 때 즐겨찾기가 먼저 표시됩니다';
 
   @override
   String get removedFromQuickTileFavorites => '빠른 타일 즐겨찾기에서 제거됨.';

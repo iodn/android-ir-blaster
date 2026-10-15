@@ -1477,14 +1477,13 @@ class AppLocalizationsPt extends AppLocalizations {
   String get startLoop => 'Iniciar ciclo';
 
   @override
-  String get editButtonSubtitle =>
-      'Modificar etiqueta, código, protocolo e frecuencia';
+  String get editButtonSubtitle => 'Alterar a etiqueta, as cores ou o sinal IR';
 
   @override
   String get newButton => 'Novo botão';
 
   @override
-  String get newButtonSubtitle => 'Criar um novo botão depois deste';
+  String get newButtonSubtitle => 'Criar outro botão para este comando';
 
   @override
   String get duplicate => 'Duplicar';
@@ -1500,7 +1499,7 @@ class AppLocalizationsPt extends AppLocalizations {
 
   @override
   String get deviceControlsButtonSubtitle =>
-      'Mostra este botão nos controlos do dispositivo do sistema';
+      'Usar este botão nos controlos de dispositivos do Android';
 
   @override
   String get removedFromDeviceControls =>
@@ -1514,7 +1513,7 @@ class AppLocalizationsPt extends AppLocalizations {
 
   @override
   String get quickTileButtonSubtitle =>
-      'Mostra este botão acima do seletor de mosaicos';
+      'Os favoritos aparecem primeiro ao configurar um mosaico de definições rápidas';
 
   @override
   String get removedFromQuickTileFavorites =>
@@ -6760,14 +6759,13 @@ class AppLocalizationsPtBr extends AppLocalizationsPt {
   String get startLoop => 'Iniciar ciclo';
 
   @override
-  String get editButtonSubtitle =>
-      'Modificar etiqueta, código, protocolo e frecuencia';
+  String get editButtonSubtitle => 'Alterar o rótulo, as cores ou o sinal IR';
 
   @override
   String get newButton => 'Novo botão';
 
   @override
-  String get newButtonSubtitle => 'Criar um novo botão depois deste';
+  String get newButtonSubtitle => 'Criar outro botão para este controle';
 
   @override
   String get duplicate => 'Duplicar';
@@ -6783,7 +6781,7 @@ class AppLocalizationsPtBr extends AppLocalizationsPt {
 
   @override
   String get deviceControlsButtonSubtitle =>
-      'Mostra este botão nos controles do dispositivo do sistema';
+      'Usar este botão nos controles de dispositivos do Android';
 
   @override
   String get removedFromDeviceControls =>
@@ -6797,7 +6795,7 @@ class AppLocalizationsPtBr extends AppLocalizationsPt {
 
   @override
   String get quickTileButtonSubtitle =>
-      'Mostra este botão acima do seletor de blocos';
+      'Os favoritos aparecem primeiro ao configurar um bloco de configurações rápidas';
 
   @override
   String get removedFromQuickTileFavorites =>

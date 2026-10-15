@@ -2661,7 +2661,7 @@ abstract class AppLocalizations {
   /// No description provided for @editButtonSubtitle.
   ///
   /// In en, this message translates to:
-  /// **'Modify label, code, protocol, frequency'**
+  /// **'Change the label, colors, or IR signal'**
   String get editButtonSubtitle;
 
   /// No description provided for @newButton.
@@ -2673,7 +2673,7 @@ abstract class AppLocalizations {
   /// No description provided for @newButtonSubtitle.
   ///
   /// In en, this message translates to:
-  /// **'Create a new button after this one'**
+  /// **'Create another button for this remote'**
   String get newButtonSubtitle;
 
   /// No description provided for @duplicate.
@@ -2703,7 +2703,7 @@ abstract class AppLocalizations {
   /// No description provided for @deviceControlsButtonSubtitle.
   ///
   /// In en, this message translates to:
-  /// **'Shows this button in the system device controls'**
+  /// **'Use this button from Android’s device controls'**
   String get deviceControlsButtonSubtitle;
 
   /// No description provided for @removedFromDeviceControls.
@@ -2727,7 +2727,7 @@ abstract class AppLocalizations {
   /// No description provided for @quickTileButtonSubtitle.
   ///
   /// In en, this message translates to:
-  /// **'Shows this button at the top of the quick tile chooser'**
+  /// **'Favorites appear first when setting up a Quick Settings tile'**
   String get quickTileButtonSubtitle;
 
   /// No description provided for @removedFromQuickTileFavorites.

@@ -1465,13 +1465,13 @@ class AppLocalizationsTr extends AppLocalizations {
 
   @override
   String get editButtonSubtitle =>
-      'Etiketi, kodu, protokolü ve frekansı değiştirin';
+      'Etiketi, renkleri veya kızılötesi sinyali değiştirin';
 
   @override
-  String get newButton => 'New düğme';
+  String get newButton => 'Yeni düğme';
 
   @override
-  String get newButtonSubtitle => 'Bundan sonra yeni bir düğme oluştur';
+  String get newButtonSubtitle => 'Bu kumanda için başka bir düğme oluştur';
 
   @override
   String get duplicate => 'Çoğalt';
@@ -1487,7 +1487,7 @@ class AppLocalizationsTr extends AppLocalizations {
 
   @override
   String get deviceControlsButtonSubtitle =>
-      'Bu düğmeyi sistem cihaz kontrollerinde gösterir';
+      'Bu düğmeyi Android cihaz kontrollerinden kullanın';
 
   @override
   String get removedFromDeviceControls => 'Cihaz Kontrollerinden kaldırıldı.';
@@ -1500,7 +1500,7 @@ class AppLocalizationsTr extends AppLocalizations {
 
   @override
   String get quickTileButtonSubtitle =>
-      'Bu düğmeyi hızlı döşeme seçicisinde üstte gösterir';
+      'Hızlı Ayarlar kutucuğu ayarlanırken favoriler önce gösterilir';
 
   @override
   String get removedFromQuickTileFavorites =>

@@ -1495,19 +1495,19 @@ class AppLocalizationsUk extends AppLocalizations {
   String get startLoop => 'Почати цикл';
 
   @override
-  String get editButtonSubtitle => 'Змінити мітку, код, протокол, частоту';
+  String get editButtonSubtitle => 'Змінити підпис, кольори або ІЧ-сигнал';
 
   @override
   String get newButton => 'Нова кнопка';
 
   @override
-  String get newButtonSubtitle => 'Створіть нову кнопку після цієї';
+  String get newButtonSubtitle => 'Створити ще одну кнопку для цього пульта';
 
   @override
   String get duplicate => 'Дублювати';
 
   @override
-  String get duplicateButtonSubtitle => 'Створіть копію цієї кнопки';
+  String get duplicateButtonSubtitle => 'Створити копію цієї кнопки';
 
   @override
   String get removeFromDeviceControls =>
@@ -1518,7 +1518,7 @@ class AppLocalizationsUk extends AppLocalizations {
 
   @override
   String get deviceControlsButtonSubtitle =>
-      'Показує цю кнопку в елементах керування системним пристроєм';
+      'Використовувати цю кнопку в керуванні пристроями Android';
 
   @override
   String get removedFromDeviceControls =>
@@ -1532,7 +1532,7 @@ class AppLocalizationsUk extends AppLocalizations {
 
   @override
   String get quickTileButtonSubtitle =>
-      'Показує цю кнопку у верхній частині швидкого вибору плитки';
+      'Обране показується першим під час налаштування плитки швидких налаштувань';
 
   @override
   String get removedFromQuickTileFavorites =>
@@ -1546,7 +1546,7 @@ class AppLocalizationsUk extends AppLocalizations {
 
   @override
   String get duplicateAndEditSubtitle =>
-      'Створіть копію та негайно відредагуйте її';
+      'Створити копію й одразу її відредагувати';
 
   @override
   String get done => 'Готово';

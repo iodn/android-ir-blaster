@@ -1447,13 +1447,14 @@ class AppLocalizationsAr extends AppLocalizations {
   String get startLoop => 'بدء loop';
 
   @override
-  String get editButtonSubtitle => 'تعديل التسمية والكود والبروتوكول والتردد';
+  String get editButtonSubtitle =>
+      'غيّر التسمية أو الألوان أو إشارة الأشعة تحت الحمراء';
 
   @override
   String get newButton => 'زر جديد';
 
   @override
-  String get newButtonSubtitle => 'أنشئ زراً جديداً بعد هذا الزر';
+  String get newButtonSubtitle => 'أنشئ زراً آخر لجهاز التحكم هذا';
 
   @override
   String get duplicate => 'إنشاء نسخة';
@@ -1469,7 +1470,7 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String get deviceControlsButtonSubtitle =>
-      'يعرض هذا الزر في عناصر تحكم جهاز النظام';
+      'استخدم هذا الزر من عناصر التحكم بالأجهزة في Android';
 
   @override
   String get removedFromDeviceControls => 'تمت الإزالة من عناصر تحكم الجهاز.';
@@ -1482,7 +1483,7 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String get quickTileButtonSubtitle =>
-      'يعرض هذا الزر أعلى قائمة اختيار المربعات السريعة';
+      'تظهر المفضلة أولاً عند إعداد مربع في الإعدادات السريعة';
 
   @override
   String get removedFromQuickTileFavorites =>
@@ -1495,7 +1496,7 @@ class AppLocalizationsAr extends AppLocalizations {
   String get duplicateAndEdit => 'نسخ وتعديل';
 
   @override
-  String get duplicateAndEditSubtitle => 'أنشئ نسخة وعدلها فوراً';
+  String get duplicateAndEditSubtitle => 'أنشئ نسخة وافتحها للتعديل';
 
   @override
   String get done => 'تم';
@@ -6663,19 +6664,20 @@ class AppLocalizationsArEg extends AppLocalizationsAr {
   String get startLoop => 'بدء loop';
 
   @override
-  String get editButtonSubtitle => 'تعديل التسمية والكود والبروتوكول والتردد';
+  String get editButtonSubtitle =>
+      'غيّر اسم الزر أو ألوانه أو إشارة الأشعة تحت الحمراء';
 
   @override
   String get newButton => 'زر جديد';
 
   @override
-  String get newButtonSubtitle => 'أنشئ زراً جديداً بعد هذا الزر';
+  String get newButtonSubtitle => 'اعمل زر تاني للريموت ده';
 
   @override
   String get duplicate => 'عمل نسخة';
 
   @override
-  String get duplicateButtonSubtitle => 'أنشئ نسخة من هذا الزر';
+  String get duplicateButtonSubtitle => 'اعمل نسخة من الزر ده';
 
   @override
   String get removeFromDeviceControls => 'إزالة من عناصر تحكم الجهاز';
@@ -6685,7 +6687,7 @@ class AppLocalizationsArEg extends AppLocalizationsAr {
 
   @override
   String get deviceControlsButtonSubtitle =>
-      'يعرض هذا الزر في عناصر تحكم جهاز النظام';
+      'استخدم الزر ده من عناصر التحكم بالأجهزة في Android';
 
   @override
   String get removedFromDeviceControls => 'تمت الإزالة من عناصر تحكم الجهاز.';
@@ -6698,7 +6700,7 @@ class AppLocalizationsArEg extends AppLocalizationsAr {
 
   @override
   String get quickTileButtonSubtitle =>
-      'يعرض هذا الزر أعلى قائمة اختيار المربعات السريعة';
+      'المفضلة بتظهر الأول لما تختار زر للإعدادات السريعة';
 
   @override
   String get removedFromQuickTileFavorites =>
@@ -6711,7 +6713,7 @@ class AppLocalizationsArEg extends AppLocalizationsAr {
   String get duplicateAndEdit => 'نسخ وتعديل';
 
   @override
-  String get duplicateAndEditSubtitle => 'أنشئ نسخة وعدلها فوراً';
+  String get duplicateAndEditSubtitle => 'اعمل نسخة وافتحها للتعديل';
 
   @override
   String get done => 'تم';

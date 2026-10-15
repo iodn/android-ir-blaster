@@ -1465,13 +1465,13 @@ class AppLocalizationsRu extends AppLocalizations {
   String get startLoop => 'Запустить цикл';
 
   @override
-  String get editButtonSubtitle => 'Изменить метку, код, протокол, частоту';
+  String get editButtonSubtitle => 'Изменить подпись, цвета или ИК-сигнал';
 
   @override
   String get newButton => 'Новая кнопка';
 
   @override
-  String get newButtonSubtitle => 'Создать новую кнопку после этой';
+  String get newButtonSubtitle => 'Создать ещё одну кнопку для этого пульта';
 
   @override
   String get duplicate => 'Дублировать';
@@ -1487,7 +1487,7 @@ class AppLocalizationsRu extends AppLocalizations {
 
   @override
   String get deviceControlsButtonSubtitle =>
-      'Показывает эту кнопку в системном управлении устройством';
+      'Использовать эту кнопку в управлении устройствами Android';
 
   @override
   String get removedFromDeviceControls => 'Удалено из управления устройством.';
@@ -1500,7 +1500,7 @@ class AppLocalizationsRu extends AppLocalizations {
 
   @override
   String get quickTileButtonSubtitle =>
-      'Показывает эту кнопку вверху выбора быстрых плиток';
+      'Избранное показывается первым при настройке плитки быстрых настроек';
 
   @override
   String get removedFromQuickTileFavorites =>
@@ -1514,7 +1514,7 @@ class AppLocalizationsRu extends AppLocalizations {
   String get duplicateAndEdit => 'Дублировать и изменить';
 
   @override
-  String get duplicateAndEditSubtitle => 'Создать копию и сразу изменить';
+  String get duplicateAndEditSubtitle => 'Создать копию и сразу изменить её';
 
   @override
   String get done => 'Готово';

@@ -1477,13 +1477,13 @@ class AppLocalizationsEs extends AppLocalizations {
 
   @override
   String get editButtonSubtitle =>
-      'Modificar etiqueta, código, protocolo y frecuencia';
+      'Cambiar la etiqueta, los colores o la señal IR';
 
   @override
   String get newButton => 'Nuevo botón';
 
   @override
-  String get newButtonSubtitle => 'Crear un nuevo botón después de este';
+  String get newButtonSubtitle => 'Crear otro botón para este mando';
 
   @override
   String get duplicate => 'Duplicar';
@@ -1499,7 +1499,7 @@ class AppLocalizationsEs extends AppLocalizations {
 
   @override
   String get deviceControlsButtonSubtitle =>
-      'Muestra este botón en los controles del dispositivo del sistema';
+      'Usar este botón desde los controles de dispositivos de Android';
 
   @override
   String get removedFromDeviceControls =>
@@ -1513,7 +1513,7 @@ class AppLocalizationsEs extends AppLocalizations {
 
   @override
   String get quickTileButtonSubtitle =>
-      'Muestra este botón arriba del selector de mosaicos';
+      'Los favoritos aparecen primero al configurar un botón de ajustes rápidos';
 
   @override
   String get removedFromQuickTileFavorites =>

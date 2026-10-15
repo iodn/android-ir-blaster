@@ -1481,14 +1481,14 @@ class AppLocalizationsIt extends AppLocalizations {
   String get startLoop => 'Avvia loop';
 
   @override
-  String get editButtonSubtitle =>
-      'Modifica etichetta, codice, protocollo, frequenza';
+  String get editButtonSubtitle => 'Cambia etichetta, colori o segnale IR';
 
   @override
   String get newButton => 'Nuovo pulsante';
 
   @override
-  String get newButtonSubtitle => 'Crea un nuovo pulsante dopo questo';
+  String get newButtonSubtitle =>
+      'Crea un altro pulsante per questo telecomando';
 
   @override
   String get duplicate => 'Duplica';
@@ -1504,7 +1504,7 @@ class AppLocalizationsIt extends AppLocalizations {
 
   @override
   String get deviceControlsButtonSubtitle =>
-      'Mostra questo pulsante nei controlli dispositivo di sistema';
+      'Usa questo pulsante dai controlli dei dispositivi Android';
 
   @override
   String get removedFromDeviceControls => 'Rimosso dai controlli dispositivo.';
@@ -1517,7 +1517,7 @@ class AppLocalizationsIt extends AppLocalizations {
 
   @override
   String get quickTileButtonSubtitle =>
-      'Mostra questo pulsante in alto nella scelta dei riquadri rapidi';
+      'I preferiti compaiono per primi quando configuri un riquadro delle impostazioni rapide';
 
   @override
   String get removedFromQuickTileFavorites =>

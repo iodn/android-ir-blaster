@@ -1485,14 +1485,14 @@ class AppLocalizationsDe extends AppLocalizations {
   String get startLoop => 'Schleife starten';
 
   @override
-  String get editButtonSubtitle =>
-      'Beschriftung, Code, Protokoll und Frequenz ändern';
+  String get editButtonSubtitle => 'Beschriftung, Farben oder IR-Signal ändern';
 
   @override
   String get newButton => 'Neue Taste';
 
   @override
-  String get newButtonSubtitle => 'Eine neue Taste nach dieser erstellen';
+  String get newButtonSubtitle =>
+      'Eine weitere Taste für diese Fernbedienung erstellen';
 
   @override
   String get duplicate => 'Duplizieren';
@@ -1508,7 +1508,7 @@ class AppLocalizationsDe extends AppLocalizations {
 
   @override
   String get deviceControlsButtonSubtitle =>
-      'Zeigt diese Taste in der System-Gerätesteuerung';
+      'Diese Taste über die Gerätesteuerung von Android verwenden';
 
   @override
   String get removedFromDeviceControls => 'Aus Gerätesteuerung entfernt.';
@@ -1521,7 +1521,7 @@ class AppLocalizationsDe extends AppLocalizations {
 
   @override
   String get quickTileButtonSubtitle =>
-      'Zeigt diese Taste oben in der Schnellkachel-Auswahl';
+      'Favoriten erscheinen beim Einrichten einer Schnelleinstellungskachel zuerst';
 
   @override
   String get removedFromQuickTileFavorites =>
@@ -1536,7 +1536,7 @@ class AppLocalizationsDe extends AppLocalizations {
 
   @override
   String get duplicateAndEditSubtitle =>
-      'Eine Kopie erstellen und sofort bearbeiten';
+      'Eine Kopie erstellen und direkt bearbeiten';
 
   @override
   String get done => 'Fertig';

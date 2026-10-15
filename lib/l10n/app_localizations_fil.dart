@@ -1477,13 +1477,14 @@ class AppLocalizationsFil extends AppLocalizations {
   String get startLoop => 'Start loop';
 
   @override
-  String get editButtonSubtitle => 'Modify label, code, protocol, frequency';
+  String get editButtonSubtitle => 'Palitan ang label, mga kulay, o IR signal';
 
   @override
-  String get newButton => 'New button';
+  String get newButton => 'Bagong button';
 
   @override
-  String get newButtonSubtitle => 'Gumawa ng bagong button pagkatapos nito';
+  String get newButtonSubtitle =>
+      'Gumawa ng isa pang button para sa remote na ito';
 
   @override
   String get duplicate => 'Gumawa ng kopya';
@@ -1499,7 +1500,7 @@ class AppLocalizationsFil extends AppLocalizations {
 
   @override
   String get deviceControlsButtonSubtitle =>
-      'Ipinapakita ang button na ito sa mga kontrol ng device ng system';
+      'Gamitin ang button na ito mula sa mga kontrol ng device sa Android';
 
   @override
   String get removedFromDeviceControls => 'Inalis sa Mga Kontrol ng Device.';
@@ -1512,7 +1513,7 @@ class AppLocalizationsFil extends AppLocalizations {
 
   @override
   String get quickTileButtonSubtitle =>
-      'Ipinapakita ang button na ito sa itaas ng tagapili ng mabilisang tile';
+      'Unang makikita ang mga paborito kapag nagse-set up ng tile sa Quick Settings';
 
   @override
   String get removedFromQuickTileFavorites =>

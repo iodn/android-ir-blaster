@@ -1175,7 +1175,7 @@ class RemoteViewState extends State<RemoteView> {
   IRButton _draftBlankButtonFrom(IRButton anchor) {
     return anchor.copyWith(
       id: const Uuid().v4(),
-      image: 'New',
+      image: context.l10n.newButton,
       isImage: false,
       protocol: null,
       protocolParams: null,

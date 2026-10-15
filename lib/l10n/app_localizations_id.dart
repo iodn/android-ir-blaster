@@ -1467,13 +1467,13 @@ class AppLocalizationsId extends AppLocalizations {
   String get startLoop => 'Mulai loop';
 
   @override
-  String get editButtonSubtitle => 'Modify label, kode, protokol, frequency';
+  String get editButtonSubtitle => 'Ubah label, warna, atau sinyal IR';
 
   @override
-  String get newButton => 'New tombol';
+  String get newButton => 'Tombol baru';
 
   @override
-  String get newButtonSubtitle => 'Buat tombol baru setelah tombol ini';
+  String get newButtonSubtitle => 'Buat tombol lain untuk remote ini';
 
   @override
   String get duplicate => 'Duplikat';
@@ -1489,7 +1489,7 @@ class AppLocalizationsId extends AppLocalizations {
 
   @override
   String get deviceControlsButtonSubtitle =>
-      'Menampilkan tombol ini di kontrol perangkat sistem';
+      'Gunakan tombol ini melalui kontrol perangkat Android';
 
   @override
   String get removedFromDeviceControls => 'Dihapus dari Kontrol Perangkat.';
@@ -1502,7 +1502,7 @@ class AppLocalizationsId extends AppLocalizations {
 
   @override
   String get quickTileButtonSubtitle =>
-      'Menampilkan tombol ini di bagian atas pemilih tile cepat';
+      'Favorit muncul lebih dulu saat menyiapkan tombol Setelan Cepat';
 
   @override
   String get removedFromQuickTileFavorites =>

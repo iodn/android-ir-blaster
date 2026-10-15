@@ -1358,13 +1358,13 @@ class AppLocalizationsZh extends AppLocalizations {
   String get startLoop => '开始循环';
 
   @override
-  String get editButtonSubtitle => '修改标签、代码、协议和频率';
+  String get editButtonSubtitle => '更改标签、颜色或红外信号';
 
   @override
   String get newButton => '新建按钮';
 
   @override
-  String get newButtonSubtitle => '在此按钮后创建新按钮';
+  String get newButtonSubtitle => '为此遥控器创建另一个按钮';
 
   @override
   String get duplicate => '复制';
@@ -1379,7 +1379,7 @@ class AppLocalizationsZh extends AppLocalizations {
   String get addToDeviceControls => '添加到设备控制';
 
   @override
-  String get deviceControlsButtonSubtitle => '在系统设备控制中显示此按钮';
+  String get deviceControlsButtonSubtitle => '通过 Android 的设备控制使用此按钮';
 
   @override
   String get removedFromDeviceControls => '已从 设备 控制 移除。';
@@ -1391,7 +1391,7 @@ class AppLocalizationsZh extends AppLocalizations {
   String get unpinQuickTile => '取消固定快捷磁贴收藏';
 
   @override
-  String get quickTileButtonSubtitle => '在快捷磁贴选择器顶部显示此按钮';
+  String get quickTileButtonSubtitle => '设置快捷设置磁贴时，收藏的按钮会优先显示';
 
   @override
   String get removedFromQuickTileFavorites => '已从 快捷 磁贴 收藏 移除。';

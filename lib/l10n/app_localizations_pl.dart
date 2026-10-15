@@ -1492,14 +1492,13 @@ class AppLocalizationsPl extends AppLocalizations {
   String get startLoop => 'Uruchom pętlę';
 
   @override
-  String get editButtonSubtitle =>
-      'Zmień etykietę, kod, protokół i częstotliwość';
+  String get editButtonSubtitle => 'Zmień etykietę, kolory lub sygnał IR';
 
   @override
   String get newButton => 'Nowy przycisk';
 
   @override
-  String get newButtonSubtitle => 'Utwórz nowy przycisk po tym';
+  String get newButtonSubtitle => 'Utwórz kolejny przycisk dla tego pilota';
 
   @override
   String get duplicate => 'Duplikuj';
@@ -1515,7 +1514,7 @@ class AppLocalizationsPl extends AppLocalizations {
 
   @override
   String get deviceControlsButtonSubtitle =>
-      'Pokazuje ten przycisk w systemowym sterowaniu urządzeniem';
+      'Używaj tego przycisku w sterowaniu urządzeniami Androida';
 
   @override
   String get removedFromDeviceControls => 'Usunięto ze sterowania urządzeniem.';
@@ -1528,7 +1527,7 @@ class AppLocalizationsPl extends AppLocalizations {
 
   @override
   String get quickTileButtonSubtitle =>
-      'Pokazuje ten przycisk na górze wyboru szybkich kafelków';
+      'Ulubione pojawiają się jako pierwsze podczas konfiguracji kafelka szybkich ustawień';
 
   @override
   String get removedFromQuickTileFavorites =>

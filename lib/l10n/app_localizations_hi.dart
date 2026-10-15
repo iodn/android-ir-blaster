@@ -1463,13 +1463,13 @@ class AppLocalizationsHi extends AppLocalizations {
   String get startLoop => 'प्रारंभ लूप';
 
   @override
-  String get editButtonSubtitle => 'बदलें लेबल, कोड, प्रोटोकॉल, फ़्रीक्वेंसी';
+  String get editButtonSubtitle => 'लेबल, रंग या IR सिग्नल बदलें';
 
   @override
   String get newButton => 'नया बटन';
 
   @override
-  String get newButtonSubtitle => 'बनाएं a नया बटन बाद यह एक';
+  String get newButtonSubtitle => 'इस रिमोट के लिए एक और बटन बनाएं';
 
   @override
   String get duplicate => 'कॉपी बनाएं';
@@ -1485,7 +1485,7 @@ class AppLocalizationsHi extends AppLocalizations {
 
   @override
   String get deviceControlsButtonSubtitle =>
-      'इस बटन को सिस्टम डिवाइस नियंत्रण में दिखाता है';
+      'Android के डिवाइस कंट्रोल से इस बटन का इस्तेमाल करें';
 
   @override
   String get removedFromDeviceControls => 'डिवाइस नियंत्रण से हटाया गया।';
@@ -1498,7 +1498,7 @@ class AppLocalizationsHi extends AppLocalizations {
 
   @override
   String get quickTileButtonSubtitle =>
-      'इस बटन को त्वरित टाइल चयनकर्ता के ऊपर दिखाता है';
+      'क्विक सेटिंग्स टाइल सेट करते समय पसंदीदा बटन पहले दिखते हैं';
 
   @override
   String get removedFromQuickTileFavorites =>

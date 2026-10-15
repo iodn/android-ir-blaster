@@ -1454,13 +1454,13 @@ class AppLocalizationsVi extends AppLocalizations {
   String get startLoop => 'Bắt đầu lặp';
 
   @override
-  String get editButtonSubtitle => 'Sửa nhãn, mã, giao thức, tần số';
+  String get editButtonSubtitle => 'Đổi nhãn, màu sắc hoặc tín hiệu hồng ngoại';
 
   @override
   String get newButton => 'Nút mới';
 
   @override
-  String get newButtonSubtitle => 'Tạo nút mới sau nút này';
+  String get newButtonSubtitle => 'Tạo thêm một nút cho điều khiển này';
 
   @override
   String get duplicate => 'Nhân bản';
@@ -1476,7 +1476,7 @@ class AppLocalizationsVi extends AppLocalizations {
 
   @override
   String get deviceControlsButtonSubtitle =>
-      'Hiển thị nút này trong điều khiển thiết bị hệ thống';
+      'Dùng nút này từ phần điều khiển thiết bị của Android';
 
   @override
   String get removedFromDeviceControls => 'Đã xóa khỏi Điều khiển thiết bị.';
@@ -1489,7 +1489,7 @@ class AppLocalizationsVi extends AppLocalizations {
 
   @override
   String get quickTileButtonSubtitle =>
-      'Hiển thị nút này ở đầu bộ chọn ô nhanh';
+      'Mục yêu thích xuất hiện trước khi thiết lập ô Cài đặt nhanh';
 
   @override
   String get removedFromQuickTileFavorites =>
