@@ -37,19 +37,19 @@ class AppLocalizationsRu extends AppLocalizations {
 
   @override
   String get homeUsbPermissionRequiredMessage =>
-      'В этом телефоне нет встроенного ИК-передатчика. USB ИК-адаптер найден, но доступ ещё не выдан.\n\nРазрешите USB-доступ, чтобы отправлять ИК.';
+      'Обнаружен ИК USB-адаптер. Разрешите доступ к USB, чтобы отправлять команды.';
 
   @override
   String get homeUsbPermissionDeniedMessage =>
-      'В этом телефоне нет встроенного ИК-передатчика. USB ИК-адаптер найден, но доступ к USB отклонён.\n\nЗапросите доступ снова и подтвердите его, чтобы отправлять ИК.';
+      'В доступе к USB отказано. Запросите разрешение ещё раз и предоставьте доступ, чтобы отправлять команды.';
 
   @override
   String get homeUsbPermissionGrantedMessage =>
-      'В этом телефоне нет встроенного ИК-передатчика. USB ИК-адаптер авторизован, но ещё не инициализирован.';
+      'Доступ к USB разрешён, но адаптер ещё не готов.';
 
   @override
   String get homeUsbOpenFailedMessage =>
-      'В этом телефоне нет встроенного ИК-передатчика. USB ИК-адаптер найден и авторизован, но не удалось его инициализировать.\n\nПереподключите адаптер и попробуйте снова.';
+      'Не удалось подключиться к USB-адаптеру, хотя доступ разрешён. Отключите его, подключите снова и повторите попытку.';
 
   @override
   String get homeUsbReadyMessage =>
@@ -57,29 +57,30 @@ class AppLocalizationsRu extends AppLocalizations {
 
   @override
   String get homeUsbNoDeviceMessage =>
-      'В этом телефоне нет встроенного ИК-передатчика, и сейчас не подключён поддерживаемый USB ИК-адаптер.\n\nВы всё ещё можете создавать, импортировать и управлять пультами, но для отправки ИК-сигналов нужен один из вариантов ниже.';
+      'В этом телефоне нет встроенного ИК-передатчика, и поддерживаемый ИК USB-адаптер не подключён.';
 
   @override
   String get homeUsbOptionPlugIn =>
-      'Подключите поддерживаемый USB ИК-адаптер и разрешите доступ.';
+      'Подключите поддерживаемый ИК USB-адаптер и разрешите доступ.';
 
   @override
-  String get homeUsbOptionReady => 'Готов к работе.';
+  String get homeUsbOptionReady => 'Готово к отправке.';
 
   @override
-  String get homeUsbOptionPermissionRequired => 'Подключено. Нужен доступ.';
+  String get homeUsbOptionPermissionRequired =>
+      'Подключено. Разрешите доступ к USB.';
 
   @override
   String get homeUsbOptionPermissionDenied =>
-      'Доступ отклонён. Запросите снова.';
+      'Доступ запрещён. Запросите разрешение ещё раз.';
 
   @override
   String get homeUsbOptionPermissionGranted =>
-      'Авторизовано. Идёт инициализация.';
+      'Доступ разрешён. Ожидание адаптера.';
 
   @override
   String get homeUsbOptionOpenFailed =>
-      'Авторизовано, но инициализация не удалась.';
+      'Ошибка подключения. Подключите адаптер заново.';
 
   @override
   String get homeHardwareBannerNoInternal =>
@@ -87,22 +88,22 @@ class AppLocalizationsRu extends AppLocalizations {
 
   @override
   String get homeHardwareBannerPermissionRequired =>
-      'USB-адаптер найден. Для отправки ИК нужен доступ.';
+      'Подключено. Разрешите доступ к USB.';
 
   @override
   String get homeHardwareBannerPermissionDenied =>
-      'Доступ USB отклонён. Запросите его снова для отправки ИК.';
+      'Доступ запрещён. Запросите разрешение ещё раз.';
 
   @override
   String get homeHardwareBannerPermissionGranted =>
-      'USB-адаптер авторизован. Ожидание инициализации.';
+      'Доступ разрешён. Ожидание адаптера.';
 
   @override
   String get homeHardwareBannerOpenFailed =>
-      'USB-адаптер авторизован, но инициализация не удалась.';
+      'Ошибка подключения. Подключите адаптер заново.';
 
   @override
-  String get homeHardwareBannerReady => 'USB готов.';
+  String get homeHardwareBannerReady => 'Готово к отправке.';
 
   @override
   String get homeHardwareRequiredTitle => 'Нужен ИК-передатчик';

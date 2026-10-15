@@ -37,19 +37,19 @@ class AppLocalizationsUk extends AppLocalizations {
 
   @override
   String get homeUsbPermissionRequiredMessage =>
-      'Цей телефон не має вбудованого ІЧ-випромінювача. USB ІЧ-адаптер виявлено, але дозвіл ще не надано.\n\nПідтвердьте системний запит дозволу USB, щоб увімкнути надсилання ІЧ-команд.';
+      'Виявлено ІЧ USB-адаптер. Надайте доступ до USB, щоб надсилати команди.';
 
   @override
   String get homeUsbPermissionDeniedMessage =>
-      'Цей телефон не має вбудованого ІЧ-випромінювача. USB ІЧ-адаптер виявлено, але в дозволі USB відмовлено.\n\nЗнову запитайте дозвіл і підтвердьте запит, щоб увімкнути надсилання ІЧ-команд.';
+      'Доступ до USB відхилено. Повторно запитайте дозвіл і надайте доступ, щоб надсилати команди.';
 
   @override
   String get homeUsbPermissionGrantedMessage =>
-      'Цей телефон не має вбудованого ІЧ-випромінювача. USB ІЧ-адаптер авторизовано, але він ще не ініціалізований.';
+      'Доступ до USB надано, але адаптер ще не готовий.';
 
   @override
   String get homeUsbOpenFailedMessage =>
-      'Цей телефон не має вбудованого ІЧ-випромінювача. USB ІЧ-адаптер виявлено та авторизовано, але його не вдалося ініціалізувати.\n\nПовторно підключіть ключ і спробуйте ще раз.';
+      'Не вдалося з’єднатися з USB-адаптером, хоча доступ надано. Від’єднайте його, під’єднайте знову й повторіть спробу.';
 
   @override
   String get homeUsbReadyMessage =>
@@ -57,29 +57,30 @@ class AppLocalizationsUk extends AppLocalizations {
 
   @override
   String get homeUsbNoDeviceMessage =>
-      'Цей телефон не містить вбудованого ІЧ-випромінювача, і наразі не підключено жодного підтримуваного USB ІЧ-адаптера.\n\nВи все ще можете створювати, імпортувати та керувати пультами, але для надсилання ІЧ-команд вам потрібен один із наведених нижче варіантів.';
+      'Цей телефон не має вбудованого ІЧ-передавача, і жоден сумісний ІЧ USB-адаптер не під’єднано.';
 
   @override
   String get homeUsbOptionPlugIn =>
-      'Підключіть підтримуваний USB ІЧ-адаптер, а потім підтвердьте дозвіл.';
+      'Під’єднайте сумісний ІЧ USB-адаптер і надайте доступ.';
 
   @override
-  String get homeUsbOptionReady => 'Готово до використання.';
+  String get homeUsbOptionReady => 'Готово до надсилання.';
 
   @override
-  String get homeUsbOptionPermissionRequired => 'Підключено. Потрібен дозвіл.';
+  String get homeUsbOptionPermissionRequired =>
+      'Під’єднано. Надайте доступ до USB.';
 
   @override
   String get homeUsbOptionPermissionDenied =>
-      'У дозволі відмовлено. Запитайте знову.';
+      'Доступ відхилено. Запитайте дозвіл ще раз.';
 
   @override
   String get homeUsbOptionPermissionGranted =>
-      'Дозволено. Ініціалізація адаптера.';
+      'Доступ надано. Очікування адаптера.';
 
   @override
   String get homeUsbOptionOpenFailed =>
-      'Авторизовано, але не вдалося ініціалізувати.';
+      'Помилка з’єднання. Під’єднайте адаптер знову.';
 
   @override
   String get homeHardwareBannerNoInternal =>
@@ -87,22 +88,22 @@ class AppLocalizationsUk extends AppLocalizations {
 
   @override
   String get homeHardwareBannerPermissionRequired =>
-      'Виявлено USB-адаптер. Для надсилання ІЧ-команд потрібен дозвіл.';
+      'Під’єднано. Надайте доступ до USB.';
 
   @override
   String get homeHardwareBannerPermissionDenied =>
-      'У дозволі USB відмовлено. Запитуйте його ще раз, щоб надіслати ІЧ.';
+      'Доступ відхилено. Запитайте дозвіл ще раз.';
 
   @override
   String get homeHardwareBannerPermissionGranted =>
-      'USB-адаптер авторизовано. Очікування ініціалізації.';
+      'Доступ надано. Очікування адаптера.';
 
   @override
   String get homeHardwareBannerOpenFailed =>
-      'USB-адаптер авторизовано, але не вдалося ініціалізувати.';
+      'Помилка з’єднання. Під’єднайте адаптер знову.';
 
   @override
-  String get homeHardwareBannerReady => 'USB готовий.';
+  String get homeHardwareBannerReady => 'Готово до надсилання.';
 
   @override
   String get homeHardwareRequiredTitle => 'Потрібен ІЧ-передавач';

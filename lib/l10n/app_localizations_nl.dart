@@ -37,19 +37,19 @@ class AppLocalizationsNl extends AppLocalizations {
 
   @override
   String get homeUsbPermissionRequiredMessage =>
-      'Deze telefoon heeft geen ingebouwde IR-zender. Er is een USB-IR-dongle gedetecteerd, maar er is nog geen toestemming.\n\nKeur de USB-melding goed om IR te kunnen verzenden.';
+      'USB-IR-adapter gevonden. Sta USB-toegang toe om opdrachten te verzenden.';
 
   @override
   String get homeUsbPermissionDeniedMessage =>
-      'Deze telefoon heeft geen ingebouwde IR-zender. Er is een USB-IR-dongle gedetecteerd, maar USB-toestemming is geweigerd.\n\nVraag opnieuw toestemming aan en keur de melding goed om IR te kunnen verzenden.';
+      'USB-toegang is geweigerd. Vraag opnieuw toestemming en sta toegang toe om opdrachten te verzenden.';
 
   @override
   String get homeUsbPermissionGrantedMessage =>
-      'Deze telefoon heeft geen ingebouwde IR-zender. Een USB-IR-dongle is geautoriseerd, maar nog niet geïnitialiseerd.';
+      'USB-toegang is toegestaan, maar de adapter is nog niet klaar.';
 
   @override
   String get homeUsbOpenFailedMessage =>
-      'Deze telefoon heeft geen ingebouwde IR-zender. Een USB-IR-dongle is gedetecteerd en geautoriseerd, maar kon niet worden geïnitialiseerd.\n\nSluit de dongle opnieuw aan en probeer het opnieuw.';
+      'Er is toestemming, maar verbinden met de USB-adapter is niet gelukt. Koppel hem los, sluit hem opnieuw aan en probeer het nogmaals.';
 
   @override
   String get homeUsbReadyMessage =>
@@ -57,30 +57,30 @@ class AppLocalizationsNl extends AppLocalizations {
 
   @override
   String get homeUsbNoDeviceMessage =>
-      'Deze telefoon heeft geen ingebouwde IR-zender en er is momenteel geen ondersteunde USB-IR-dongle aangesloten.\n\nJe kunt nog steeds afstandsbedieningen maken, importeren en beheren, maar om IR-signalen te verzenden heb je een van de onderstaande opties nodig.';
+      'Deze telefoon heeft geen ingebouwde IR-zender en er is geen ondersteunde USB-IR-adapter aangesloten.';
 
   @override
   String get homeUsbOptionPlugIn =>
-      'Sluit een ondersteunde USB-IR-dongle aan en keur de toestemming goed.';
+      'Sluit een ondersteunde USB-IR-adapter aan en sta toegang toe.';
 
   @override
-  String get homeUsbOptionReady => 'Klaar voor gebruik.';
+  String get homeUsbOptionReady => 'Klaar om te verzenden.';
 
   @override
   String get homeUsbOptionPermissionRequired =>
-      'Aangesloten. Toestemming vereist.';
+      'Aangesloten. Sta USB-toegang toe.';
 
   @override
   String get homeUsbOptionPermissionDenied =>
-      'Toestemming geweigerd. Vraag opnieuw aan.';
+      'Toegang geweigerd. Vraag opnieuw toestemming.';
 
   @override
   String get homeUsbOptionPermissionGranted =>
-      'Geautoriseerd. Dongle wordt geïnitialiseerd.';
+      'Toegang toegestaan. Wachten op de adapter.';
 
   @override
   String get homeUsbOptionOpenFailed =>
-      'Geautoriseerd, maar initialisatie mislukt.';
+      'Verbinding mislukt. Sluit de adapter opnieuw aan.';
 
   @override
   String get homeHardwareBannerNoInternal =>
@@ -88,22 +88,22 @@ class AppLocalizationsNl extends AppLocalizations {
 
   @override
   String get homeHardwareBannerPermissionRequired =>
-      'USB-dongle gedetecteerd. Toestemming vereist om IR te verzenden.';
+      'Aangesloten. Sta USB-toegang toe.';
 
   @override
   String get homeHardwareBannerPermissionDenied =>
-      'USB-toestemming is geweigerd. Vraag opnieuw aan om IR te verzenden.';
+      'Toegang geweigerd. Vraag opnieuw toestemming.';
 
   @override
   String get homeHardwareBannerPermissionGranted =>
-      'USB-dongle geautoriseerd. Wacht op initialisatie.';
+      'Toegang toegestaan. Wachten op de adapter.';
 
   @override
   String get homeHardwareBannerOpenFailed =>
-      'USB-dongle geautoriseerd, maar initialisatie mislukt.';
+      'Verbinding mislukt. Sluit de adapter opnieuw aan.';
 
   @override
-  String get homeHardwareBannerReady => 'USB is klaar.';
+  String get homeHardwareBannerReady => 'Klaar om te verzenden.';
 
   @override
   String get homeHardwareRequiredTitle => 'IR-zender nodig';

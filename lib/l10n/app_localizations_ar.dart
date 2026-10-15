@@ -37,45 +37,47 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String get homeUsbPermissionRequiredMessage =>
-      'هذا الهاتف لا يحتوي على مرسل IR مدمج. تم اكتشاف دونجل IR عبر USB، لكن لم يتم منح الإذن بعد.\n\nوافق على طلب إذن USB لتفعيل الإرسال عبر IR.';
+      'تم اكتشاف محوّل IR USB. اسمح بالوصول إلى USB لإرسال الأوامر.';
 
   @override
   String get homeUsbPermissionDeniedMessage =>
-      'هذا الهاتف لا يحتوي على مرسل IR مدمج. تم اكتشاف دونجل IR عبر USB، لكن تم رفض إذن USB.\n\nاطلب الإذن مرة أخرى ووافق على الرسالة لتفعيل الإرسال عبر IR.';
+      'تم رفض الوصول إلى USB. اطلب الإذن مجددًا واسمح بالوصول لإرسال الأوامر.';
 
   @override
   String get homeUsbPermissionGrantedMessage =>
-      'هذا الهاتف لا يحتوي على مرسل IR مدمج. تم السماح لدونجل IR عبر USB، لكنه لم يتهيأ بعد.';
+      'الوصول إلى USB مسموح، لكن المحوّل ليس جاهزًا بعد.';
 
   @override
   String get homeUsbOpenFailedMessage =>
-      'هذا الهاتف لا يحتوي على مرسل IR مدمج. تم اكتشاف دونجل IR عبر USB والسماح له، لكن تعذر تهيئته.\n\nأعد توصيل الدونجل وحاول مرة أخرى.';
+      'تعذّر الاتصال بمحوّل USB رغم السماح بالوصول. افصله ثم أعد توصيله وحاول مجددًا.';
 
   @override
   String get homeUsbReadyMessage => 'هذا الهاتف لا يحتوي على مرسل IR مدمج.';
 
   @override
   String get homeUsbNoDeviceMessage =>
-      'هذا الهاتف لا يحتوي على مرسل IR مدمج، ولا يوجد حالياً دونجل IR عبر USB مدعوم متصل.\n\nما زال بإمكانك إنشاء أجهزة التحكم واستيرادها وإدارتها، لكن لإرسال إشارات IR تحتاج إلى أحد الخيارات أدناه.';
+      'هذا الهاتف لا يحتوي على مرسل IR مدمج، ولا يوجد محوّل IR USB مدعوم متصل.';
 
   @override
   String get homeUsbOptionPlugIn =>
-      'وصّل دونجل IR عبر USB مدعوماً، ثم وافق على الإذن.';
+      'وصّل محوّل IR USB مدعومًا واسمح بالوصول إليه.';
 
   @override
-  String get homeUsbOptionReady => 'جاهز للاستخدام.';
+  String get homeUsbOptionReady => 'جاهز للإرسال.';
 
   @override
-  String get homeUsbOptionPermissionRequired => 'موصول. الإذن مطلوب.';
+  String get homeUsbOptionPermissionRequired => 'متصل. اسمح بالوصول إلى USB.';
 
   @override
-  String get homeUsbOptionPermissionDenied => 'تم رفض الإذن. اطلبه مرة أخرى.';
+  String get homeUsbOptionPermissionDenied =>
+      'الوصول مرفوض. اطلب الإذن مجددًا.';
 
   @override
-  String get homeUsbOptionPermissionGranted => 'تم السماح. جار تهيئة الدونجل.';
+  String get homeUsbOptionPermissionGranted =>
+      'الوصول مسموح. في انتظار المحوّل.';
 
   @override
-  String get homeUsbOptionOpenFailed => 'تم السماح، لكن فشلت التهيئة.';
+  String get homeUsbOptionOpenFailed => 'تعذّر الاتصال. أعد توصيل المحوّل.';
 
   @override
   String get homeHardwareBannerNoInternal =>
@@ -83,22 +85,22 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String get homeHardwareBannerPermissionRequired =>
-      'تم اكتشاف دونجل USB. الإذن مطلوب لإرسال IR.';
+      'متصل. اسمح بالوصول إلى USB.';
 
   @override
   String get homeHardwareBannerPermissionDenied =>
-      'تم رفض إذن USB. اطلبه مرة أخرى لإرسال IR.';
+      'الوصول مرفوض. اطلب الإذن مجددًا.';
 
   @override
   String get homeHardwareBannerPermissionGranted =>
-      'تم السماح لدونجل USB. في انتظار التهيئة.';
+      'الوصول مسموح. في انتظار المحوّل.';
 
   @override
   String get homeHardwareBannerOpenFailed =>
-      'تم السماح لدونجل USB، لكن فشلت التهيئة.';
+      'تعذّر الاتصال. أعد توصيل المحوّل.';
 
   @override
-  String get homeHardwareBannerReady => 'USB جاهز.';
+  String get homeHardwareBannerReady => 'جاهز للإرسال.';
 
   @override
   String get homeHardwareRequiredTitle => 'يلزم مرسل للأشعة تحت الحمراء';
@@ -5250,45 +5252,46 @@ class AppLocalizationsArEg extends AppLocalizationsAr {
 
   @override
   String get homeUsbPermissionRequiredMessage =>
-      'هذا الهاتف لا يحتوي على مرسل IR مدمج. تم اكتشاف دونجل IR عبر USB، لكن لم يتم منح الإذن بعد.\n\nوافق على طلب إذن USB لتفعيل الإرسال عبر IR.';
+      'لقينا محوّل IR USB. اسمح بالوصول للـ USB عشان تبعت أوامر.';
 
   @override
   String get homeUsbPermissionDeniedMessage =>
-      'هذا الهاتف لا يحتوي على مرسل IR مدمج. تم اكتشاف دونجل IR عبر USB، لكن تم رفض إذن USB.\n\nاطلب الإذن مرة أخرى ووافق على الرسالة لتفعيل الإرسال عبر IR.';
+      'الوصول للـ USB اترفض. اطلب الإذن تاني واسمح بالوصول عشان تبعت أوامر.';
 
   @override
   String get homeUsbPermissionGrantedMessage =>
-      'هذا الهاتف لا يحتوي على مرسل IR مدمج. تم السماح لدونجل IR عبر USB، لكنه لم يتهيأ بعد.';
+      'الوصول للـ USB مسموح، لكن المحوّل لسه مش جاهز.';
 
   @override
   String get homeUsbOpenFailedMessage =>
-      'هذا الهاتف لا يحتوي على مرسل IR مدمج. تم اكتشاف دونجل IR عبر USB والسماح له، لكن تعذر تهيئته.\n\nأعد توصيل الدونجل وحاول مرة أخرى.';
+      'ما قدرناش نتصل بمحوّل USB رغم إن الإذن موجود. افصله ووصّله تاني، وجرب من جديد.';
 
   @override
   String get homeUsbReadyMessage => 'هذا الهاتف لا يحتوي على مرسل IR مدمج.';
 
   @override
   String get homeUsbNoDeviceMessage =>
-      'هذا الهاتف لا يحتوي على مرسل IR مدمج، ولا يوجد حالياً دونجل IR عبر USB مدعوم متصل.\n\nما زال بإمكانك إنشاء أجهزة التحكم واستيرادها وإدارتها، لكن لإرسال إشارات IR تحتاج إلى أحد الخيارات أدناه.';
+      'الموبايل ده مافيهوش مرسل IR مدمج، ومافيش محوّل IR USB مدعوم متوصل.';
 
   @override
   String get homeUsbOptionPlugIn =>
-      'وصّل دونجل IR عبر USB مدعوماً، ثم وافق على الإذن.';
+      'وصّل محوّل IR USB مدعوم واسمح بالوصول ليه.';
 
   @override
-  String get homeUsbOptionReady => 'جاهز للاستخدام.';
+  String get homeUsbOptionReady => 'جاهز للإرسال.';
 
   @override
-  String get homeUsbOptionPermissionRequired => 'موصول. الإذن مطلوب.';
+  String get homeUsbOptionPermissionRequired => 'متوصل. اسمح بالوصول للـ USB.';
 
   @override
-  String get homeUsbOptionPermissionDenied => 'تم رفض الإذن. اطلبه مرة أخرى.';
+  String get homeUsbOptionPermissionDenied => 'الوصول اترفض. اطلب الإذن تاني.';
 
   @override
-  String get homeUsbOptionPermissionGranted => 'تم السماح. جار تهيئة الدونجل.';
+  String get homeUsbOptionPermissionGranted =>
+      'الوصول مسموح. مستنيين المحوّل يجهز.';
 
   @override
-  String get homeUsbOptionOpenFailed => 'تم السماح، لكن فشلت التهيئة.';
+  String get homeUsbOptionOpenFailed => 'الاتصال فشل. وصّل المحوّل تاني.';
 
   @override
   String get homeHardwareBannerNoInternal =>
@@ -5296,22 +5299,21 @@ class AppLocalizationsArEg extends AppLocalizationsAr {
 
   @override
   String get homeHardwareBannerPermissionRequired =>
-      'تم اكتشاف دونجل USB. الإذن مطلوب لإرسال IR.';
+      'متوصل. اسمح بالوصول للـ USB.';
 
   @override
   String get homeHardwareBannerPermissionDenied =>
-      'تم رفض إذن USB. اطلبه مرة أخرى لإرسال IR.';
+      'الوصول اترفض. اطلب الإذن تاني.';
 
   @override
   String get homeHardwareBannerPermissionGranted =>
-      'تم السماح لدونجل USB. في انتظار التهيئة.';
+      'الوصول مسموح. مستنيين المحوّل يجهز.';
 
   @override
-  String get homeHardwareBannerOpenFailed =>
-      'تم السماح لدونجل USB، لكن التهيئة فشلت.';
+  String get homeHardwareBannerOpenFailed => 'الاتصال فشل. وصّل المحوّل تاني.';
 
   @override
-  String get homeHardwareBannerReady => 'USB جاهز.';
+  String get homeHardwareBannerReady => 'جاهز للإرسال.';
 
   @override
   String get homeHardwareRequiredTitle => 'محتاج مرسل أشعة تحت الحمراء';

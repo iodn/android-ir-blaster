@@ -37,48 +37,49 @@ class AppLocalizationsHi extends AppLocalizations {
 
   @override
   String get homeUsbPermissionRequiredMessage =>
-      'इस फ़ोन में बिल्ट-इन IR एमिटर नहीं है। USB IR डोंगल मिला है, लेकिन अभी अनुमति नहीं मिली है。\n\nIR भेजना सक्षम करने के लिए USB अनुमति प्रॉम्प्ट स्वीकार करें।';
+      'USB IR अडैप्टर मिला। कमांड भेजने के लिए USB ऐक्सेस की अनुमति दें।';
 
   @override
   String get homeUsbPermissionDeniedMessage =>
-      'इस फ़ोन में बिल्ट-इन IR एमिटर नहीं है। USB IR डोंगल मिला, लेकिन USB अनुमति अस्वीकृत हो गई。\n\nफिर से अनुमति मांगें और IR भेजना सक्षम करने के लिए प्रॉम्प्ट स्वीकार करें।';
+      'USB ऐक्सेस की अनुमति नहीं मिली। कमांड भेजने के लिए फिर से अनुमति माँगें और उसे स्वीकार करें।';
 
   @override
   String get homeUsbPermissionGrantedMessage =>
-      'इस फ़ोन में बिल्ट-इन IR एमिटर नहीं है। USB IR डोंगल अधिकृत है, लेकिन अभी शुरू नहीं हुआ है।';
+      'USB ऐक्सेस की अनुमति है, लेकिन अडैप्टर अभी तैयार नहीं है।';
 
   @override
   String get homeUsbOpenFailedMessage =>
-      'इस फ़ोन में बिल्ट-इन IR एमिटर नहीं है। USB IR डोंगल मिला और अधिकृत है, लेकिन इसे शुरू नहीं किया जा सका。\n\nडोंगल फिर से जोड़ें और दोबारा प्रयास करें।';
+      'अनुमति मिलने के बावजूद USB अडैप्टर से कनेक्ट नहीं हो सका। उसे निकालकर फिर लगाएँ और दोबारा कोशिश करें।';
 
   @override
   String get homeUsbReadyMessage => 'इस फ़ोन में बिल्ट-इन IR एमिटर नहीं है।';
 
   @override
   String get homeUsbNoDeviceMessage =>
-      'इस फ़ोन में बिल्ट-इन IR एमिटर नहीं है, और अभी कोई समर्थित USB IR डोंगल जुड़ा नहीं है。\n\nआप अभी भी रिमोट बना, आयात और प्रबंधित कर सकते हैं, लेकिन IR सिग्नल भेजने के लिए आपको नीचे दिए गए विकल्पों में से एक की आवश्यकता होगी।';
+      'इस फ़ोन में IR ट्रांसमीटर नहीं है और कोई समर्थित USB IR अडैप्टर भी नहीं जुड़ा है।';
 
   @override
   String get homeUsbOptionPlugIn =>
-      'समर्थित USB IR डोंगल लगाएँ, फिर अनुमति स्वीकार करें।';
+      'समर्थित USB IR अडैप्टर जोड़ें और ऐक्सेस की अनुमति दें।';
 
   @override
-  String get homeUsbOptionReady => 'उपयोग के लिए तैयार।';
+  String get homeUsbOptionReady => 'भेजने के लिए तैयार।';
 
   @override
   String get homeUsbOptionPermissionRequired =>
-      'जुड़ा हुआ है। अनुमति आवश्यक है।';
+      'जुड़ा है। USB ऐक्सेस की अनुमति दें।';
 
   @override
   String get homeUsbOptionPermissionDenied =>
-      'अनुमति अस्वीकृत। फिर से अनुरोध करें।';
+      'ऐक्सेस नहीं मिला। फिर से अनुमति माँगें।';
 
   @override
   String get homeUsbOptionPermissionGranted =>
-      'अधिकृत. आरंभ किया जा रहा है डोंगल.';
+      'अनुमति मिल गई। अडैप्टर तैयार होने का इंतज़ार है।';
 
   @override
-  String get homeUsbOptionOpenFailed => 'अधिकृत है, लेकिन आरंभ नहीं हो सका।';
+  String get homeUsbOptionOpenFailed =>
+      'कनेक्शन नहीं हुआ। अडैप्टर फिर से जोड़ें।';
 
   @override
   String get homeHardwareBannerNoInternal =>
@@ -86,22 +87,22 @@ class AppLocalizationsHi extends AppLocalizations {
 
   @override
   String get homeHardwareBannerPermissionRequired =>
-      'USB डोंगल मिला है। IR भेजने के लिए अनुमति आवश्यक है।';
+      'जुड़ा है। USB ऐक्सेस की अनुमति दें।';
 
   @override
   String get homeHardwareBannerPermissionDenied =>
-      'USB अनुमति अस्वीकृत हुई। IR भेजने के लिए फिर से अनुरोध करें।';
+      'ऐक्सेस नहीं मिला। फिर से अनुमति माँगें।';
 
   @override
   String get homeHardwareBannerPermissionGranted =>
-      'USB डोंगल अधिकृत है। आरंभ की प्रतीक्षा में।';
+      'अनुमति मिल गई। अडैप्टर तैयार होने का इंतज़ार है।';
 
   @override
   String get homeHardwareBannerOpenFailed =>
-      'USB डोंगल अधिकृत है, लेकिन आरंभ विफल रहा।';
+      'कनेक्शन नहीं हुआ। अडैप्टर फिर से जोड़ें।';
 
   @override
-  String get homeHardwareBannerReady => 'USB तैयार है।';
+  String get homeHardwareBannerReady => 'भेजने के लिए तैयार।';
 
   @override
   String get homeHardwareRequiredTitle => 'IR ट्रांसमीटर चाहिए';

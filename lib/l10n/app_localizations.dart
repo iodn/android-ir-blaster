@@ -195,25 +195,25 @@ abstract class AppLocalizations {
   /// No description provided for @homeUsbPermissionRequiredMessage.
   ///
   /// In en, this message translates to:
-  /// **'This phone does not include a built-in IR emitter. A USB IR dongle is detected, but permission is not granted yet.\n\nApprove the USB permission prompt to enable sending IR.'**
+  /// **'USB IR adapter detected. Allow USB access to send commands.'**
   String get homeUsbPermissionRequiredMessage;
 
   /// No description provided for @homeUsbPermissionDeniedMessage.
   ///
   /// In en, this message translates to:
-  /// **'This phone does not include a built-in IR emitter. A USB IR dongle is detected, but USB permission was denied.\n\nRequest permission again and approve the prompt to enable sending IR.'**
+  /// **'USB access was denied. Request permission again and allow access to send commands.'**
   String get homeUsbPermissionDeniedMessage;
 
   /// No description provided for @homeUsbPermissionGrantedMessage.
   ///
   /// In en, this message translates to:
-  /// **'This phone does not include a built-in IR emitter. A USB IR dongle is authorized, but it is not initialized yet.'**
+  /// **'USB access is allowed, but the adapter is not ready yet.'**
   String get homeUsbPermissionGrantedMessage;
 
   /// No description provided for @homeUsbOpenFailedMessage.
   ///
   /// In en, this message translates to:
-  /// **'This phone does not include a built-in IR emitter. A USB IR dongle is detected and authorized, but it could not be initialized.\n\nReconnect the dongle and try again.'**
+  /// **'Could not connect to the USB adapter despite having permission. Unplug it, reconnect it, and try again.'**
   String get homeUsbOpenFailedMessage;
 
   /// No description provided for @homeUsbReadyMessage.
@@ -225,43 +225,43 @@ abstract class AppLocalizations {
   /// No description provided for @homeUsbNoDeviceMessage.
   ///
   /// In en, this message translates to:
-  /// **'This phone does not include a built-in IR emitter, and no supported USB IR dongle is currently connected.\n\nYou can still create, import, and manage remotes - but to transmit IR signals you need one of the options below.'**
+  /// **'This phone has no built-in IR transmitter, and no supported USB IR adapter is connected.'**
   String get homeUsbNoDeviceMessage;
 
   /// No description provided for @homeUsbOptionPlugIn.
   ///
   /// In en, this message translates to:
-  /// **'Plug in a supported USB IR dongle, then approve permission.'**
+  /// **'Connect a supported USB IR adapter and allow access.'**
   String get homeUsbOptionPlugIn;
 
   /// No description provided for @homeUsbOptionReady.
   ///
   /// In en, this message translates to:
-  /// **'Ready to use.'**
+  /// **'Ready to send.'**
   String get homeUsbOptionReady;
 
   /// No description provided for @homeUsbOptionPermissionRequired.
   ///
   /// In en, this message translates to:
-  /// **'Plugged in. Permission required.'**
+  /// **'Connected. Allow USB access.'**
   String get homeUsbOptionPermissionRequired;
 
   /// No description provided for @homeUsbOptionPermissionDenied.
   ///
   /// In en, this message translates to:
-  /// **'Permission denied. Request it again.'**
+  /// **'Access denied. Request permission again.'**
   String get homeUsbOptionPermissionDenied;
 
   /// No description provided for @homeUsbOptionPermissionGranted.
   ///
   /// In en, this message translates to:
-  /// **'Authorized. Initializing dongle.'**
+  /// **'Access allowed. Waiting for the adapter.'**
   String get homeUsbOptionPermissionGranted;
 
   /// No description provided for @homeUsbOptionOpenFailed.
   ///
   /// In en, this message translates to:
-  /// **'Authorized, but initialization failed.'**
+  /// **'Connection failed. Reconnect the adapter.'**
   String get homeUsbOptionOpenFailed;
 
   /// No description provided for @homeHardwareBannerNoInternal.
@@ -273,31 +273,31 @@ abstract class AppLocalizations {
   /// No description provided for @homeHardwareBannerPermissionRequired.
   ///
   /// In en, this message translates to:
-  /// **'USB dongle detected. Permission required to send IR.'**
+  /// **'Connected. Allow USB access.'**
   String get homeHardwareBannerPermissionRequired;
 
   /// No description provided for @homeHardwareBannerPermissionDenied.
   ///
   /// In en, this message translates to:
-  /// **'USB permission was denied. Request it again to send IR.'**
+  /// **'Access denied. Request permission again.'**
   String get homeHardwareBannerPermissionDenied;
 
   /// No description provided for @homeHardwareBannerPermissionGranted.
   ///
   /// In en, this message translates to:
-  /// **'USB dongle authorized. Waiting for initialization.'**
+  /// **'Access allowed. Waiting for the adapter.'**
   String get homeHardwareBannerPermissionGranted;
 
   /// No description provided for @homeHardwareBannerOpenFailed.
   ///
   /// In en, this message translates to:
-  /// **'USB dongle authorized, but initialization failed.'**
+  /// **'Connection failed. Reconnect the adapter.'**
   String get homeHardwareBannerOpenFailed;
 
   /// No description provided for @homeHardwareBannerReady.
   ///
   /// In en, this message translates to:
-  /// **'USB is ready.'**
+  /// **'Ready to send.'**
   String get homeHardwareBannerReady;
 
   /// No description provided for @homeHardwareRequiredTitle.

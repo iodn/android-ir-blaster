@@ -37,19 +37,19 @@ class AppLocalizationsId extends AppLocalizations {
 
   @override
   String get homeUsbPermissionRequiredMessage =>
-      'Ponsel ini tidak memiliki pemancar IR bawaan. Dongle IR USB terdeteksi, tetapi izin belum diberikan.\n\nSetujui dialog izin USB untuk mengaktifkan pengiriman IR.';
+      'Adaptor IR USB terdeteksi. Izinkan akses USB untuk mengirim perintah.';
 
   @override
   String get homeUsbPermissionDeniedMessage =>
-      'Ponsel ini tidak memiliki pemancar IR bawaan. Dongle IR USB terdeteksi, tetapi izin USB ditolak.\n\nMinta izin lagi lalu setujui dialog untuk mengaktifkan pengiriman IR.';
+      'Akses USB ditolak. Minta izin lagi dan izinkan akses untuk mengirim perintah.';
 
   @override
   String get homeUsbPermissionGrantedMessage =>
-      'Ponsel ini tidak memiliki pemancar IR bawaan. Dongle IR USB diizinkan, tetapi belum diinisialisasi.';
+      'Akses USB sudah diizinkan, tetapi adaptor belum siap.';
 
   @override
   String get homeUsbOpenFailedMessage =>
-      'Ponsel ini tidak memiliki pemancar IR bawaan. A USB IR dongle terdeteksi dan diizinkan, tetapi gagal diinisialisasi.\n\nSambungkan ulang dongle lalu coba lagi.';
+      'Tidak dapat terhubung ke adaptor USB meski akses sudah diizinkan. Cabut, sambungkan kembali, lalu coba lagi.';
 
   @override
   String get homeUsbReadyMessage =>
@@ -57,26 +57,28 @@ class AppLocalizationsId extends AppLocalizations {
 
   @override
   String get homeUsbNoDeviceMessage =>
-      'Ponsel ini tidak memiliki pemancar IR bawaan, dan tidak ada dongle IR USB yang didukung yang sedang terhubung.\n\nAnda masih bisa membuat, mengimpor, dan mengelola remote, tetapi untuk mengirim sinyal IR Anda memerlukan salah satu opsi di bawah.';
+      'Ponsel ini tidak memiliki pemancar IR bawaan dan tidak ada adaptor IR USB yang didukung terhubung.';
 
   @override
   String get homeUsbOptionPlugIn =>
-      'Sambungkan dongle IR USB yang didukung, lalu setujui izin.';
+      'Hubungkan adaptor IR USB yang didukung dan izinkan akses.';
 
   @override
-  String get homeUsbOptionReady => 'Siap digunakan.';
+  String get homeUsbOptionReady => 'Siap mengirim.';
 
   @override
-  String get homeUsbOptionPermissionRequired => 'Terpasang. Perlu izin.';
+  String get homeUsbOptionPermissionRequired => 'Terhubung. Izinkan akses USB.';
 
   @override
-  String get homeUsbOptionPermissionDenied => 'Izin ditolak. Minta lagi.';
+  String get homeUsbOptionPermissionDenied => 'Akses ditolak. Minta izin lagi.';
 
   @override
-  String get homeUsbOptionPermissionGranted => 'Diizinkan. Memulai dongle.';
+  String get homeUsbOptionPermissionGranted =>
+      'Akses diizinkan. Menunggu adaptor siap.';
 
   @override
-  String get homeUsbOptionOpenFailed => 'Diizinkan, tapi gagal memulai.';
+  String get homeUsbOptionOpenFailed =>
+      'Koneksi gagal. Hubungkan kembali adaptor.';
 
   @override
   String get homeHardwareBannerNoInternal =>
@@ -84,22 +86,22 @@ class AppLocalizationsId extends AppLocalizations {
 
   @override
   String get homeHardwareBannerPermissionRequired =>
-      'Dongle USB terdeteksi. Izin diperlukan untuk mengirim IR.';
+      'Terhubung. Izinkan akses USB.';
 
   @override
   String get homeHardwareBannerPermissionDenied =>
-      'Izin USB ditolak. Minta lagi untuk mengirim IR.';
+      'Akses ditolak. Minta izin lagi.';
 
   @override
   String get homeHardwareBannerPermissionGranted =>
-      'Dongle USB diizinkan. Menunggu inisialisasi.';
+      'Akses diizinkan. Menunggu adaptor siap.';
 
   @override
   String get homeHardwareBannerOpenFailed =>
-      'Dongle USB diizinkan, tetapi inisialisasi gagal.';
+      'Koneksi gagal. Hubungkan kembali adaptor.';
 
   @override
-  String get homeHardwareBannerReady => 'USB siap.';
+  String get homeHardwareBannerReady => 'Siap mengirim.';
 
   @override
   String get homeHardwareRequiredTitle => 'Perlu pemancar IR';

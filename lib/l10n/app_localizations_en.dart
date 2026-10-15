@@ -37,19 +37,19 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get homeUsbPermissionRequiredMessage =>
-      'This phone does not include a built-in IR emitter. A USB IR dongle is detected, but permission is not granted yet.\n\nApprove the USB permission prompt to enable sending IR.';
+      'USB IR adapter detected. Allow USB access to send commands.';
 
   @override
   String get homeUsbPermissionDeniedMessage =>
-      'This phone does not include a built-in IR emitter. A USB IR dongle is detected, but USB permission was denied.\n\nRequest permission again and approve the prompt to enable sending IR.';
+      'USB access was denied. Request permission again and allow access to send commands.';
 
   @override
   String get homeUsbPermissionGrantedMessage =>
-      'This phone does not include a built-in IR emitter. A USB IR dongle is authorized, but it is not initialized yet.';
+      'USB access is allowed, but the adapter is not ready yet.';
 
   @override
   String get homeUsbOpenFailedMessage =>
-      'This phone does not include a built-in IR emitter. A USB IR dongle is detected and authorized, but it could not be initialized.\n\nReconnect the dongle and try again.';
+      'Could not connect to the USB adapter despite having permission. Unplug it, reconnect it, and try again.';
 
   @override
   String get homeUsbReadyMessage =>
@@ -57,30 +57,29 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get homeUsbNoDeviceMessage =>
-      'This phone does not include a built-in IR emitter, and no supported USB IR dongle is currently connected.\n\nYou can still create, import, and manage remotes - but to transmit IR signals you need one of the options below.';
+      'This phone has no built-in IR transmitter, and no supported USB IR adapter is connected.';
 
   @override
   String get homeUsbOptionPlugIn =>
-      'Plug in a supported USB IR dongle, then approve permission.';
+      'Connect a supported USB IR adapter and allow access.';
 
   @override
-  String get homeUsbOptionReady => 'Ready to use.';
+  String get homeUsbOptionReady => 'Ready to send.';
 
   @override
-  String get homeUsbOptionPermissionRequired =>
-      'Plugged in. Permission required.';
+  String get homeUsbOptionPermissionRequired => 'Connected. Allow USB access.';
 
   @override
   String get homeUsbOptionPermissionDenied =>
-      'Permission denied. Request it again.';
+      'Access denied. Request permission again.';
 
   @override
   String get homeUsbOptionPermissionGranted =>
-      'Authorized. Initializing dongle.';
+      'Access allowed. Waiting for the adapter.';
 
   @override
   String get homeUsbOptionOpenFailed =>
-      'Authorized, but initialization failed.';
+      'Connection failed. Reconnect the adapter.';
 
   @override
   String get homeHardwareBannerNoInternal =>
@@ -88,22 +87,22 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get homeHardwareBannerPermissionRequired =>
-      'USB dongle detected. Permission required to send IR.';
+      'Connected. Allow USB access.';
 
   @override
   String get homeHardwareBannerPermissionDenied =>
-      'USB permission was denied. Request it again to send IR.';
+      'Access denied. Request permission again.';
 
   @override
   String get homeHardwareBannerPermissionGranted =>
-      'USB dongle authorized. Waiting for initialization.';
+      'Access allowed. Waiting for the adapter.';
 
   @override
   String get homeHardwareBannerOpenFailed =>
-      'USB dongle authorized, but initialization failed.';
+      'Connection failed. Reconnect the adapter.';
 
   @override
-  String get homeHardwareBannerReady => 'USB is ready.';
+  String get homeHardwareBannerReady => 'Ready to send.';
 
   @override
   String get homeHardwareRequiredTitle => 'IR hardware needed';

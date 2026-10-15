@@ -37,47 +37,49 @@ class AppLocalizationsTr extends AppLocalizations {
 
   @override
   String get homeUsbPermissionRequiredMessage =>
-      'Bu telefonda dahili IR verici yok. Bir USB IR dongle algılandı, ancak izin henüz verilmedi.\n\nIR göndermeyi etkinleştirmek için USB izin istemini onaylayın.';
+      'USB IR adaptörü algılandı. Komut göndermek için USB erişimine izin verin.';
 
   @override
   String get homeUsbPermissionDeniedMessage =>
-      'Bu telefonda dahili IR verici yok. Bir USB IR dongle algılandı, ancak USB izni reddedildi.\n\nİzni yeniden isteyin ve IR göndermeyi etkinleştirmek için istemi onaylayın.';
+      'USB erişimi reddedildi. Komut göndermek için yeniden izin isteyin ve erişime izin verin.';
 
   @override
   String get homeUsbPermissionGrantedMessage =>
-      'Bu telefonda dahili IR verici yok. USB IR dongle yetkilendirildi, ancak henüz başlatılmadı.';
+      'USB erişimine izin verildi ancak adaptör henüz hazır değil.';
 
   @override
   String get homeUsbOpenFailedMessage =>
-      'Bu telefonda dahili IR verici yok. USB IR dongle algılandı ve yetkilendirildi, ancak başlatılamadı.\n\nDongle\'ı yeniden takıp tekrar deneyin.';
+      'İzin verilmesine rağmen USB adaptörüne bağlanılamadı. Çıkarıp yeniden takın ve tekrar deneyin.';
 
   @override
   String get homeUsbReadyMessage => 'Bu telefonda dahili IR verici yok.';
 
   @override
   String get homeUsbNoDeviceMessage =>
-      'Bu telefonda dahili IR verici yok ve şu anda desteklenen bir USB IR dongle bağlı değil.\n\nYine de kumandalar oluşturabilir, içe aktarabilir ve yönetebilirsiniz — ancak IR sinyali göndermek için aşağıdaki seçeneklerden birine ihtiyacınız var.';
+      'Bu telefonda dahili IR verici yok ve desteklenen bir USB IR adaptörü bağlı değil.';
 
   @override
   String get homeUsbOptionPlugIn =>
-      'Desteklenen bir USB IR dongle takın, sonra izni onaylayın.';
+      'Desteklenen bir USB IR adaptörü bağlayın ve erişime izin verin.';
 
   @override
-  String get homeUsbOptionReady => 'Kullanıma hazır.';
+  String get homeUsbOptionReady => 'Göndermeye hazır.';
 
   @override
-  String get homeUsbOptionPermissionRequired => 'Takılı. İzin gerekli.';
+  String get homeUsbOptionPermissionRequired =>
+      'Bağlı. USB erişimine izin verin.';
 
   @override
   String get homeUsbOptionPermissionDenied =>
-      'İzin reddedildi. Yeniden isteyin.';
+      'Erişim reddedildi. Yeniden izin isteyin.';
 
   @override
-  String get homeUsbOptionPermissionGranted => 'Yetkili. Dongle başlatılıyor.';
+  String get homeUsbOptionPermissionGranted =>
+      'Erişime izin verildi. Adaptör bekleniyor.';
 
   @override
   String get homeUsbOptionOpenFailed =>
-      'Yetkili, ancak başlatma başarısız oldu.';
+      'Bağlantı kurulamadı. Adaptörü yeniden takın.';
 
   @override
   String get homeHardwareBannerNoInternal =>
@@ -85,22 +87,22 @@ class AppLocalizationsTr extends AppLocalizations {
 
   @override
   String get homeHardwareBannerPermissionRequired =>
-      'USB dongle algılandı. IR göndermek için izin gerekli.';
+      'Bağlı. USB erişimine izin verin.';
 
   @override
   String get homeHardwareBannerPermissionDenied =>
-      'USB izni reddedildi. IR göndermek için yeniden isteyin.';
+      'Erişim reddedildi. Yeniden izin isteyin.';
 
   @override
   String get homeHardwareBannerPermissionGranted =>
-      'USB dongle yetkilendirildi. Başlatma bekleniyor.';
+      'Erişime izin verildi. Adaptör bekleniyor.';
 
   @override
   String get homeHardwareBannerOpenFailed =>
-      'USB dongle yetkilendirildi, ancak başlatma başarısız oldu.';
+      'Bağlantı kurulamadı. Adaptörü yeniden takın.';
 
   @override
-  String get homeHardwareBannerReady => 'USB hazır.';
+  String get homeHardwareBannerReady => 'Göndermeye hazır.';
 
   @override
   String get homeHardwareRequiredTitle => 'IR verici gerekli';

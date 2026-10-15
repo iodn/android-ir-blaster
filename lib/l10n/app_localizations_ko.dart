@@ -37,19 +37,19 @@ class AppLocalizationsKo extends AppLocalizations {
 
   @override
   String get homeUsbPermissionRequiredMessage =>
-      '이 휴대폰에는 내장 IR 송신기가 없습니다. USB IR 동글이 감지되었지만 아직 권한이 없습니다.\n\nIR 송신을 사용하려면 USB 권한 프롬프트를 승인하세요.';
+      'USB IR 어댑터를 감지했습니다. 명령을 전송하려면 USB 접근을 허용하세요.';
 
   @override
   String get homeUsbPermissionDeniedMessage =>
-      '이 휴대폰에는 내장 IR 송신기가 없습니다. USB IR 동글이 감지되었지만 USB 권한이 거부되었습니다.\n\nIR 송신을 사용하려면 권한을 다시 요청하고 프롬프트를 승인하세요.';
+      'USB 접근이 거부되었습니다. 권한을 다시 요청하고 접근을 허용하면 명령을 전송할 수 있습니다.';
 
   @override
   String get homeUsbPermissionGrantedMessage =>
-      '이 휴대폰에는 내장 IR 송신기가 없습니다. USB IR 동글은 승인되었지만 아직 초기화되지 않았습니다.';
+      'USB 접근은 허용되었지만 어댑터가 아직 준비되지 않았습니다.';
 
   @override
   String get homeUsbOpenFailedMessage =>
-      '이 휴대폰에는 내장 IR 송신기가 없습니다. USB IR 동글이 감지되고 승인되었지만 초기화하지 못했습니다.\n\n동글을 다시 연결한 뒤 다시 시도하세요.';
+      '권한은 있지만 USB 어댑터에 연결하지 못했습니다. 어댑터를 뺐다가 다시 연결하고 시도하세요.';
 
   @override
   String get homeUsbReadyMessage =>
@@ -57,47 +57,44 @@ class AppLocalizationsKo extends AppLocalizations {
 
   @override
   String get homeUsbNoDeviceMessage =>
-      '이 휴대폰에는 내장 IR 송신기가 없고 현재 지원되는 USB IR 동글도 연결되어 있지 않습니다.\n\n리모컨을 만들고 가져오고 관리할 수는 있지만 IR 신호를 보내려면 아래 옵션 중 하나가 필요합니다.';
+      '이 휴대전화에는 내장 IR 송신기가 없으며, 지원되는 USB IR 어댑터도 연결되어 있지 않습니다.';
 
   @override
-  String get homeUsbOptionPlugIn => 'USB IR 동글 연결';
+  String get homeUsbOptionPlugIn => '지원되는 USB IR 어댑터를 연결하고 접근을 허용하세요.';
 
   @override
-  String get homeUsbOptionReady => 'USB IR 동글 준비됨';
+  String get homeUsbOptionReady => '전송 준비 완료.';
 
   @override
-  String get homeUsbOptionPermissionRequired => 'USB 권한 필요';
+  String get homeUsbOptionPermissionRequired => '연결됨. USB 접근을 허용하세요.';
 
   @override
-  String get homeUsbOptionPermissionDenied => 'USB 권한 거부됨';
+  String get homeUsbOptionPermissionDenied => '접근 거부됨. 권한을 다시 요청하세요.';
 
   @override
-  String get homeUsbOptionPermissionGranted => 'USB 권한 승인됨';
+  String get homeUsbOptionPermissionGranted => '접근 허용됨. 어댑터 준비 대기 중.';
 
   @override
-  String get homeUsbOptionOpenFailed => 'USB 초기화 실패';
+  String get homeUsbOptionOpenFailed => '연결 실패. 어댑터를 다시 연결하세요.';
 
   @override
   String get homeHardwareBannerNoInternal =>
       '이 휴대폰에는 내장 IR이 없습니다. USB IR 동글을 연결하거나 설정에서 오디오 모드를 켜세요.';
 
   @override
-  String get homeHardwareBannerPermissionRequired =>
-      'USB 동글이 감지되었습니다. IR 전송을 위해 권한이 필요합니다.';
+  String get homeHardwareBannerPermissionRequired => '연결됨. USB 접근을 허용하세요.';
 
   @override
-  String get homeHardwareBannerPermissionDenied =>
-      'USB 권한이 거부되었습니다. 다시 요청해 IR 전송을 활성화하세요.';
+  String get homeHardwareBannerPermissionDenied => '접근 거부됨. 권한을 다시 요청하세요.';
 
   @override
-  String get homeHardwareBannerPermissionGranted =>
-      'USB 동글이 승인되었습니다. 초기화를 기다리는 중입니다.';
+  String get homeHardwareBannerPermissionGranted => '접근 허용됨. 어댑터 준비 대기 중.';
 
   @override
-  String get homeHardwareBannerOpenFailed => 'USB 동글이 승인되었지만 초기화에 실패했습니다.';
+  String get homeHardwareBannerOpenFailed => '연결 실패. 어댑터를 다시 연결하세요.';
 
   @override
-  String get homeHardwareBannerReady => 'USB 준비됨.';
+  String get homeHardwareBannerReady => '전송 준비 완료.';
 
   @override
   String get homeHardwareRequiredTitle => 'IR 송신기 필요';

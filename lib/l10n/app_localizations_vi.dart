@@ -37,19 +37,19 @@ class AppLocalizationsVi extends AppLocalizations {
 
   @override
   String get homeUsbPermissionRequiredMessage =>
-      'Điện thoại này không có bộ phát IR tích hợp. Đã phát hiện USB IR dongle, nhưng chưa được cấp quyền.\n\nHãy chấp nhận lời nhắc quyền USB để bật gửi IR.';
+      'Đã phát hiện bộ chuyển đổi USB IR. Hãy cho phép truy cập USB để gửi lệnh.';
 
   @override
   String get homeUsbPermissionDeniedMessage =>
-      'Điện thoại này không có bộ phát IR tích hợp. Đã phát hiện USB IR dongle, nhưng quyền USB đã bị từ chối.\n\nHãy yêu cầu lại quyền và chấp nhận lời nhắc để bật gửi IR.';
+      'Quyền truy cập USB bị từ chối. Hãy yêu cầu lại quyền và cho phép truy cập để gửi lệnh.';
 
   @override
   String get homeUsbPermissionGrantedMessage =>
-      'Điện thoại này không có bộ phát IR tích hợp. USB IR dongle đã được cấp quyền, nhưng chưa được khởi tạo.';
+      'Đã được phép truy cập USB, nhưng bộ chuyển đổi chưa sẵn sàng.';
 
   @override
   String get homeUsbOpenFailedMessage =>
-      'Điện thoại này không có bộ phát IR tích hợp. Đã phát hiện và cấp quyền cho USB IR dongle, nhưng không thể khởi tạo.\n\nHãy kết nối lại dongle và thử lại.';
+      'Không thể kết nối với bộ chuyển đổi USB dù đã có quyền truy cập. Hãy rút ra, cắm lại rồi thử lại.';
 
   @override
   String get homeUsbReadyMessage =>
@@ -57,29 +57,30 @@ class AppLocalizationsVi extends AppLocalizations {
 
   @override
   String get homeUsbNoDeviceMessage =>
-      'This phone does not include a built-in IR emitter, and hiện không có USB IR dongle được hỗ trợ nào được kết nối.\n\nBạn vẫn có thể tạo, nhập và quản lý điều khiển — nhưng để truyền tín hiệu IR bạn cần một trong các tùy chọn bên dưới.';
+      'Điện thoại này không có bộ phát hồng ngoại tích hợp và chưa kết nối bộ chuyển đổi USB IR được hỗ trợ.';
 
   @override
   String get homeUsbOptionPlugIn =>
-      'Cắm USB IR dongle được hỗ trợ rồi chấp nhận quyền.';
+      'Kết nối bộ chuyển đổi USB IR được hỗ trợ và cho phép truy cập.';
 
   @override
-  String get homeUsbOptionReady => 'Sẵn sàng sử dụng.';
+  String get homeUsbOptionReady => 'Sẵn sàng gửi lệnh.';
 
   @override
-  String get homeUsbOptionPermissionRequired => 'Đã cắm. Cần quyền.';
+  String get homeUsbOptionPermissionRequired =>
+      'Đã kết nối. Hãy cho phép truy cập USB.';
 
   @override
   String get homeUsbOptionPermissionDenied =>
-      'Đã từ chối quyền. Hãy yêu cầu lại.';
+      'Truy cập bị từ chối. Hãy yêu cầu lại quyền.';
 
   @override
   String get homeUsbOptionPermissionGranted =>
-      'Đã cấp quyền. Đang khởi tạo dongle.';
+      'Đã có quyền truy cập. Đang chờ bộ chuyển đổi.';
 
   @override
   String get homeUsbOptionOpenFailed =>
-      'Đã cấp quyền, nhưng khởi tạo thất bại.';
+      'Kết nối thất bại. Hãy cắm lại bộ chuyển đổi.';
 
   @override
   String get homeHardwareBannerNoInternal =>
@@ -87,22 +88,22 @@ class AppLocalizationsVi extends AppLocalizations {
 
   @override
   String get homeHardwareBannerPermissionRequired =>
-      'Đã phát hiện USB dongle. Cần quyền để gửi IR.';
+      'Đã kết nối. Hãy cho phép truy cập USB.';
 
   @override
   String get homeHardwareBannerPermissionDenied =>
-      'Quyền USB đã bị từ chối. Hãy yêu cầu lại để gửi IR.';
+      'Truy cập bị từ chối. Hãy yêu cầu lại quyền.';
 
   @override
   String get homeHardwareBannerPermissionGranted =>
-      'USB dongle đã được cấp quyền. Đang chờ khởi tạo.';
+      'Đã có quyền truy cập. Đang chờ bộ chuyển đổi.';
 
   @override
   String get homeHardwareBannerOpenFailed =>
-      'USB dongle đã được cấp quyền, nhưng khởi tạo thất bại.';
+      'Kết nối thất bại. Hãy cắm lại bộ chuyển đổi.';
 
   @override
-  String get homeHardwareBannerReady => 'USB đã sẵn sàng.';
+  String get homeHardwareBannerReady => 'Sẵn sàng gửi lệnh.';
 
   @override
   String get homeHardwareRequiredTitle => 'Cần bộ phát hồng ngoại';

@@ -37,46 +37,49 @@ class AppLocalizationsTh extends AppLocalizations {
 
   @override
   String get homeUsbPermissionRequiredMessage =>
-      'โทรศัพท์นี้ไม่มี IR ในตัว ตรวจพบดองเกิล IR USB แต่ยังไม่ได้รับสิทธิ์\n\nอนุมัติสิทธิ์ USB เพื่อเปิดการส่ง IR';
+      'พบอะแดปเตอร์ USB IR แล้ว โปรดอนุญาตให้เข้าถึง USB เพื่อส่งคำสั่ง';
 
   @override
   String get homeUsbPermissionDeniedMessage =>
-      'โทรศัพท์นี้ไม่มี IR ในตัว ตรวจพบดองเกิล IR USB แต่สิทธิ์ USB ถูกปฏิเสธ\n\nขอสิทธิ์อีกครั้งและอนุมัติเพื่อเปิดการส่ง IR';
+      'ไม่ได้รับอนุญาตให้เข้าถึง USB โปรดขอสิทธิ์อีกครั้งและอนุญาตเพื่อส่งคำสั่ง';
 
   @override
   String get homeUsbPermissionGrantedMessage =>
-      'โทรศัพท์นี้ไม่มี IR ในตัว ดองเกิล IR USB ได้รับสิทธิ์แล้ว แต่ยังไม่เริ่มต้น';
+      'อนุญาตให้เข้าถึง USB แล้ว แต่อะแดปเตอร์ยังไม่พร้อม';
 
   @override
   String get homeUsbOpenFailedMessage =>
-      'โทรศัพท์นี้ไม่มี IR ในตัว ตรวจพบและอนุญาตดองเกิล IR USB แล้ว แต่เริ่มต้นไม่สำเร็จ\n\nถอดเสียบใหม่แล้วลองอีกครั้ง';
+      'เชื่อมต่ออะแดปเตอร์ USB ไม่ได้แม้จะได้รับสิทธิ์แล้ว ลองถอดแล้วเสียบใหม่ จากนั้นลองอีกครั้ง';
 
   @override
   String get homeUsbReadyMessage => 'โทรศัพท์นี้ไม่มี IR ในตัว';
 
   @override
   String get homeUsbNoDeviceMessage =>
-      'โทรศัพท์นี้ไม่มี IR ในตัว และยังไม่มีดองเกิล IR USB ที่รองรับเชื่อมต่ออยู่\n\nคุณยังสร้าง นำเข้า และจัดการรีโมตได้ แต่หากต้องการส่งสัญญาณ IR ต้องใช้ตัวเลือกด้านล่างอย่างใดอย่างหนึ่ง';
+      'โทรศัพท์เครื่องนี้ไม่มีตัวส่ง IR ในตัว และยังไม่ได้เชื่อมต่ออะแดปเตอร์ USB IR ที่รองรับ';
 
   @override
   String get homeUsbOptionPlugIn =>
-      'เสียบดองเกิล IR USB ที่รองรับ แล้วอนุมัติสิทธิ์';
+      'เชื่อมต่ออะแดปเตอร์ USB IR ที่รองรับ แล้วอนุญาตให้เข้าถึง';
 
   @override
-  String get homeUsbOptionReady => 'พร้อมใช้';
+  String get homeUsbOptionReady => 'พร้อมส่งคำสั่ง';
 
   @override
-  String get homeUsbOptionPermissionRequired => 'เสียบแล้ว ต้องการสิทธิ์';
+  String get homeUsbOptionPermissionRequired =>
+      'เชื่อมต่อแล้ว โปรดอนุญาตให้เข้าถึง USB';
 
   @override
-  String get homeUsbOptionPermissionDenied => 'สิทธิ์ถูกปฏิเสธ ขอใหม่อีกครั้ง';
+  String get homeUsbOptionPermissionDenied =>
+      'ถูกปฏิเสธการเข้าถึง โปรดขอสิทธิ์อีกครั้ง';
 
   @override
   String get homeUsbOptionPermissionGranted =>
-      'อนุญาตแล้ว กำลังเริ่มต้นดองเกิล';
+      'ได้รับสิทธิ์แล้ว กำลังรออะแดปเตอร์พร้อม';
 
   @override
-  String get homeUsbOptionOpenFailed => 'อนุญาตแล้ว แต่เริ่มต้นไม่สำเร็จ';
+  String get homeUsbOptionOpenFailed =>
+      'เชื่อมต่อไม่สำเร็จ ลองเสียบอะแดปเตอร์ใหม่';
 
   @override
   String get homeHardwareBannerNoInternal =>
@@ -84,22 +87,22 @@ class AppLocalizationsTh extends AppLocalizations {
 
   @override
   String get homeHardwareBannerPermissionRequired =>
-      'ตรวจพบดองเกิล USB ต้องการสิทธิ์เพื่อส่ง IR';
+      'เชื่อมต่อแล้ว โปรดอนุญาตให้เข้าถึง USB';
 
   @override
   String get homeHardwareBannerPermissionDenied =>
-      'สิทธิ์ USB ถูกปฏิเสธ ขออีกครั้งเพื่อส่ง IR';
+      'ถูกปฏิเสธการเข้าถึง โปรดขอสิทธิ์อีกครั้ง';
 
   @override
   String get homeHardwareBannerPermissionGranted =>
-      'ดองเกิล USB ได้รับสิทธิ์แล้ว รอการเริ่มต้น';
+      'ได้รับสิทธิ์แล้ว กำลังรออะแดปเตอร์พร้อม';
 
   @override
   String get homeHardwareBannerOpenFailed =>
-      'ดองเกิล USB ได้รับสิทธิ์แล้ว แต่เริ่มต้นไม่สำเร็จ';
+      'เชื่อมต่อไม่สำเร็จ ลองเสียบอะแดปเตอร์ใหม่';
 
   @override
-  String get homeHardwareBannerReady => 'USB พร้อมแล้ว';
+  String get homeHardwareBannerReady => 'พร้อมส่งคำสั่ง';
 
   @override
   String get homeHardwareRequiredTitle => 'ต้องมีตัวส่งสัญญาณ IR';

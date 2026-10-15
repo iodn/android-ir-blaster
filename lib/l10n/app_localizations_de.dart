@@ -37,19 +37,19 @@ class AppLocalizationsDe extends AppLocalizations {
 
   @override
   String get homeUsbPermissionRequiredMessage =>
-      'Dieses Telefon hat keinen integrierten IR-Sender. Ein USB-IR-Dongle wurde erkannt, aber die Berechtigung fehlt noch.\n\nBestätige die USB-Abfrage, um IR senden zu können.';
+      'USB-IR-Adapter erkannt. Erlauben Sie den USB-Zugriff, um Befehle zu senden.';
 
   @override
   String get homeUsbPermissionDeniedMessage =>
-      'Dieses Telefon hat keinen integrierten IR-Sender. Ein USB-IR-Dongle wurde erkannt, aber die USB-Berechtigung wurde verweigert.\n\nFordere die Berechtigung erneut an und bestätige die Abfrage, um IR senden zu können.';
+      'Der USB-Zugriff wurde abgelehnt. Fordern Sie die Berechtigung erneut an und erlauben Sie den Zugriff, um Befehle zu senden.';
 
   @override
   String get homeUsbPermissionGrantedMessage =>
-      'Dieses Telefon hat keinen integrierten IR-Sender. Ein USB-IR-Dongle ist autorisiert, aber noch nicht initialisiert.';
+      'Der USB-Zugriff ist erlaubt, aber der Adapter ist noch nicht bereit.';
 
   @override
   String get homeUsbOpenFailedMessage =>
-      'Dieses Telefon hat keinen integrierten IR-Sender. Ein USB-IR-Dongle wurde erkannt und autorisiert, konnte aber nicht initialisiert werden.\n\nStecke den Dongle neu an und versuche es erneut.';
+      'Trotz erteilter Berechtigung konnte keine Verbindung zum USB-Adapter hergestellt werden. Ziehen Sie ihn ab, stecken Sie ihn wieder ein und versuchen Sie es erneut.';
 
   @override
   String get homeUsbReadyMessage =>
@@ -57,30 +57,30 @@ class AppLocalizationsDe extends AppLocalizations {
 
   @override
   String get homeUsbNoDeviceMessage =>
-      'Dieses Telefon hat keinen integrierten IR-Sender, und aktuell ist kein unterstützter USB-IR-Dongle verbunden.\n\nDu kannst trotzdem Fernbedienungen erstellen, importieren und verwalten, aber zum Senden von IR-Signalen brauchst du eine der Optionen unten.';
+      'Dieses Handy hat keinen integrierten IR-Sender. Es ist auch kein unterstützter USB-IR-Adapter angeschlossen.';
 
   @override
   String get homeUsbOptionPlugIn =>
-      'Unterstützten USB-IR-Dongle anstecken und Berechtigung bestätigen.';
+      'Schließen Sie einen unterstützten USB-IR-Adapter an und erlauben Sie den Zugriff.';
 
   @override
-  String get homeUsbOptionReady => 'Einsatzbereit.';
+  String get homeUsbOptionReady => 'Sendebereit.';
 
   @override
   String get homeUsbOptionPermissionRequired =>
-      'Angesteckt. Berechtigung nötig.';
+      'Angeschlossen. USB-Zugriff erlauben.';
 
   @override
   String get homeUsbOptionPermissionDenied =>
-      'Berechtigung verweigert. Erneut anfordern.';
+      'Zugriff abgelehnt. Berechtigung erneut anfordern.';
 
   @override
   String get homeUsbOptionPermissionGranted =>
-      'Autorisiert. Dongle wird initialisiert.';
+      'Zugriff erlaubt. Warten auf den Adapter.';
 
   @override
   String get homeUsbOptionOpenFailed =>
-      'Autorisiert, aber Initialisierung fehlgeschlagen.';
+      'Verbindung fehlgeschlagen. Adapter neu anschließen.';
 
   @override
   String get homeHardwareBannerNoInternal =>
@@ -88,22 +88,22 @@ class AppLocalizationsDe extends AppLocalizations {
 
   @override
   String get homeHardwareBannerPermissionRequired =>
-      'USB-Dongle erkannt. Zum Senden von IR ist eine Berechtigung nötig.';
+      'Angeschlossen. USB-Zugriff erlauben.';
 
   @override
   String get homeHardwareBannerPermissionDenied =>
-      'USB-Berechtigung wurde verweigert. Fordere sie erneut an, um IR zu senden.';
+      'Zugriff abgelehnt. Berechtigung erneut anfordern.';
 
   @override
   String get homeHardwareBannerPermissionGranted =>
-      'USB-Dongle autorisiert. Warte auf Initialisierung.';
+      'Zugriff erlaubt. Warten auf den Adapter.';
 
   @override
   String get homeHardwareBannerOpenFailed =>
-      'USB-Dongle autorisiert, aber Initialisierung fehlgeschlagen.';
+      'Verbindung fehlgeschlagen. Adapter neu anschließen.';
 
   @override
-  String get homeHardwareBannerReady => 'USB ist bereit.';
+  String get homeHardwareBannerReady => 'Sendebereit.';
 
   @override
   String get homeHardwareRequiredTitle => 'IR-Hardware erforderlich';

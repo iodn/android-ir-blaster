@@ -37,64 +37,59 @@ class AppLocalizationsZh extends AppLocalizations {
 
   @override
   String get homeUsbPermissionRequiredMessage =>
-      '此手机没有内置红外发射器。检测到 USB 红外 dongle，但尚未获得权限。\n\n请在 USB 权限提示中点击允许以启用红外发送。';
+      '已检测到 USB 红外适配器。请允许 USB 访问，以便发送指令。';
 
   @override
-  String get homeUsbPermissionDeniedMessage =>
-      '此手机没有内置红外发射器。检测到 USB 红外 dongle，但 USB 权限被拒绝。\n\n请再次申请权限并在提示中允许，以启用红外发送。';
+  String get homeUsbPermissionDeniedMessage => 'USB 访问被拒绝。请重新申请权限并允许访问，以便发送指令。';
 
   @override
-  String get homeUsbPermissionGrantedMessage =>
-      '此手机没有内置红外发射器。USB 红外 dongle 已授权，但尚未初始化。';
+  String get homeUsbPermissionGrantedMessage => '已获得 USB 访问权限，但适配器尚未就绪。';
 
   @override
-  String get homeUsbOpenFailedMessage =>
-      '此手机没有内置红外发射器。检测到并已授权 USB 红外 dongle，但初始化失败。\n\n请重新连接 dongle 后重试。';
+  String get homeUsbOpenFailedMessage => '已获得权限，但无法连接 USB 适配器。请拔下后重新插入，再试一次。';
 
   @override
   String get homeUsbReadyMessage => '此手机没有内置红外发射器。';
 
   @override
-  String get homeUsbNoDeviceMessage =>
-      '此手机没有内置红外发射器，且当前未连接受支持的 USB 红外 dongle。\n\n你仍可创建、导入和管理遥控器，但要发射红外信号，需要使用下方其中一种方式。';
+  String get homeUsbNoDeviceMessage => '这部手机没有内置红外发射器，也未连接受支持的 USB 红外适配器。';
 
   @override
-  String get homeUsbOptionPlugIn => '插入受支持的 USB 红外 dongle，然后授予权限。';
+  String get homeUsbOptionPlugIn => '请连接受支持的 USB 红外适配器并允许访问。';
 
   @override
-  String get homeUsbOptionReady => '可立即使用。';
+  String get homeUsbOptionReady => '可以发送了。';
 
   @override
-  String get homeUsbOptionPermissionRequired => '已连接。需要权限。';
+  String get homeUsbOptionPermissionRequired => '已连接。请允许 USB 访问。';
 
   @override
-  String get homeUsbOptionPermissionDenied => '权限被拒。请重新申请。';
+  String get homeUsbOptionPermissionDenied => '访问被拒绝。请重新申请权限。';
 
   @override
-  String get homeUsbOptionPermissionGranted => '已授权。正在初始化 dongle。';
+  String get homeUsbOptionPermissionGranted => '已获授权，正在等待适配器就绪。';
 
   @override
-  String get homeUsbOptionOpenFailed => '已授权，但初始化失败。';
+  String get homeUsbOptionOpenFailed => '连接失败。请重新插入适配器。';
 
   @override
   String get homeHardwareBannerNoInternal =>
       '此手机没有内置红外。请连接 USB 红外 dongle，或在设置中启用音频模式。';
 
   @override
-  String get homeHardwareBannerPermissionRequired =>
-      '检测到 USB dongle。发送红外前需要权限。';
+  String get homeHardwareBannerPermissionRequired => '已连接。请允许 USB 访问。';
 
   @override
-  String get homeHardwareBannerPermissionDenied => 'USB 权限被拒。请重新申请后再发送红外。';
+  String get homeHardwareBannerPermissionDenied => '访问被拒绝。请重新申请权限。';
 
   @override
-  String get homeHardwareBannerPermissionGranted => 'USB dongle 已授权。正在等待初始化。';
+  String get homeHardwareBannerPermissionGranted => '已获授权，正在等待适配器就绪。';
 
   @override
-  String get homeHardwareBannerOpenFailed => 'USB dongle 已授权，但初始化失败。';
+  String get homeHardwareBannerOpenFailed => '连接失败。请重新插入适配器。';
 
   @override
-  String get homeHardwareBannerReady => 'USB 已就绪。';
+  String get homeHardwareBannerReady => '可以发送了。';
 
   @override
   String get homeHardwareRequiredTitle => '需要红外发射设备';

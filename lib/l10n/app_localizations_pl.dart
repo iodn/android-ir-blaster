@@ -37,19 +37,19 @@ class AppLocalizationsPl extends AppLocalizations {
 
   @override
   String get homeUsbPermissionRequiredMessage =>
-      'Ten telefon nie ma wbudowanego nadajnika IR. Wykryto dongiel USB IR, ale uprawnienie nie zostało jeszcze przyznane.\n\nZaakceptuj monit o uprawnienie USB, aby włączyć wysyłanie IR.';
+      'Wykryto adapter IR USB. Zezwól na dostęp do USB, aby wysyłać polecenia.';
 
   @override
   String get homeUsbPermissionDeniedMessage =>
-      'Ten telefon nie ma wbudowanego nadajnika IR. Wykryto dongiel USB IR, ale odmówiono uprawnienia USB.\n\nPoproś o uprawnienie ponownie i zaakceptuj monit, aby włączyć wysyłanie IR.';
+      'Odmówiono dostępu do USB. Poproś o uprawnienie ponownie i zezwól na dostęp, aby wysyłać polecenia.';
 
   @override
   String get homeUsbPermissionGrantedMessage =>
-      'Ten telefon nie ma wbudowanego nadajnika IR. Dongiel USB IR jest autoryzowany, ale nie jest jeszcze zainicjowany.';
+      'Dostęp do USB jest dozwolony, ale adapter nie jest jeszcze gotowy.';
 
   @override
   String get homeUsbOpenFailedMessage =>
-      'Ten telefon nie ma wbudowanego nadajnika IR. Wykryto i autoryzowano dongiel USB IR, ale nie udało się go zainicjować.\n\nPodłącz ponownie dongiel i spróbuj jeszcze raz.';
+      'Nie udało się połączyć z adapterem USB mimo udzielonego uprawnienia. Odłącz go, podłącz ponownie i spróbuj jeszcze raz.';
 
   @override
   String get homeUsbReadyMessage =>
@@ -57,30 +57,30 @@ class AppLocalizationsPl extends AppLocalizations {
 
   @override
   String get homeUsbNoDeviceMessage =>
-      'Ten telefon nie ma wbudowanego nadajnika IR i obecnie nie jest podłączony żaden obsługiwany dongiel USB IR.\n\nNadal możesz tworzyć, importować i zarządzać pilotami, ale do wysyłania sygnałów IR potrzebujesz jednej z opcji poniżej.';
+      'Ten telefon nie ma wbudowanego nadajnika IR i nie jest podłączony żaden obsługiwany adapter IR USB.';
 
   @override
   String get homeUsbOptionPlugIn =>
-      'Podłącz obsługiwany dongiel USB IR, a potem zaakceptuj uprawnienie.';
+      'Podłącz obsługiwany adapter IR USB i zezwól na dostęp.';
 
   @override
-  String get homeUsbOptionReady => 'Gotowe do użycia.';
+  String get homeUsbOptionReady => 'Gotowy do wysyłania.';
 
   @override
   String get homeUsbOptionPermissionRequired =>
-      'Podłączono. Wymagane uprawnienie.';
+      'Podłączono. Zezwól na dostęp do USB.';
 
   @override
   String get homeUsbOptionPermissionDenied =>
-      'Odmówiono uprawnienia. Poproś ponownie.';
+      'Odmowa dostępu. Poproś o uprawnienie ponownie.';
 
   @override
   String get homeUsbOptionPermissionGranted =>
-      'Autoryzowano. Trwa inicjalizacja dongla.';
+      'Dostęp dozwolony. Oczekiwanie na adapter.';
 
   @override
   String get homeUsbOptionOpenFailed =>
-      'Autoryzowano, ale inicjalizacja nie powiodła się.';
+      'Błąd połączenia. Podłącz adapter ponownie.';
 
   @override
   String get homeHardwareBannerNoInternal =>
@@ -88,22 +88,22 @@ class AppLocalizationsPl extends AppLocalizations {
 
   @override
   String get homeHardwareBannerPermissionRequired =>
-      'Wykryto dongiel USB. Do wysyłania IR wymagane jest uprawnienie.';
+      'Podłączono. Zezwól na dostęp do USB.';
 
   @override
   String get homeHardwareBannerPermissionDenied =>
-      'Odmówiono uprawnienia USB. Poproś ponownie, aby wysyłać IR.';
+      'Odmowa dostępu. Poproś o uprawnienie ponownie.';
 
   @override
   String get homeHardwareBannerPermissionGranted =>
-      'Dongiel USB autoryzowany. Oczekiwanie na inicjalizację.';
+      'Dostęp dozwolony. Oczekiwanie na adapter.';
 
   @override
   String get homeHardwareBannerOpenFailed =>
-      'Dongiel USB autoryzowany, ale inicjalizacja nie powiodła się.';
+      'Błąd połączenia. Podłącz adapter ponownie.';
 
   @override
-  String get homeHardwareBannerReady => 'USB jest gotowe.';
+  String get homeHardwareBannerReady => 'Gotowy do wysyłania.';
 
   @override
   String get homeHardwareRequiredTitle => 'Potrzebny nadajnik IR';

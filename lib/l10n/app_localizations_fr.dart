@@ -37,19 +37,19 @@ class AppLocalizationsFr extends AppLocalizations {
 
   @override
   String get homeUsbPermissionRequiredMessage =>
-      'Ce téléphone n\'a pas d\'émetteur infrarouge intégré. Un dongle IR USB est détecté, mais l\'autorisation n\'est pas encore accordée.\n\nValidez la demande USB pour activer l\'envoi IR.';
+      'Adaptateur IR USB détecté. Autorisez l’accès USB pour envoyer des commandes.';
 
   @override
   String get homeUsbPermissionDeniedMessage =>
-      'Ce téléphone n\'a pas d\'émetteur infrarouge intégré. Un dongle IR USB est détecté, mais l\'autorisation USB a été refusée.\n\nRedemandez l\'autorisation et validez l\'invite pour activer l\'envoi IR.';
+      'L’accès USB a été refusé. Demandez à nouveau l’autorisation et acceptez-la pour envoyer des commandes.';
 
   @override
   String get homeUsbPermissionGrantedMessage =>
-      'Ce téléphone n\'a pas d\'émetteur infrarouge intégré. Un dongle IR USB est autorisé, mais pas encore initialisé.';
+      'L’accès USB est autorisé, mais l’adaptateur n’est pas encore prêt.';
 
   @override
   String get homeUsbOpenFailedMessage =>
-      'Ce téléphone n\'a pas d\'émetteur infrarouge intégré. Un dongle IR USB est détecté et autorisé, mais il n\'a pas pu être initialisé.\n\nRebranchez le dongle et réessayez.';
+      'Impossible de se connecter à l’adaptateur USB malgré l’autorisation. Débranchez-le, rebranchez-le et réessayez.';
 
   @override
   String get homeUsbReadyMessage =>
@@ -57,29 +57,30 @@ class AppLocalizationsFr extends AppLocalizations {
 
   @override
   String get homeUsbNoDeviceMessage =>
-      'Ce téléphone n\'a pas d\'émetteur infrarouge intégré et aucun dongle IR USB compatible n\'est connecté.\n\nVous pouvez quand même créer, importer et gérer des télécommandes - mais pour émettre des signaux IR il faut une des options ci-dessous.';
+      'Ce téléphone n’a pas d’émetteur IR intégré et aucun adaptateur IR USB compatible n’est connecté.';
 
   @override
   String get homeUsbOptionPlugIn =>
-      'Branchez un dongle IR USB compatible, puis validez l\'autorisation.';
+      'Branchez un adaptateur IR USB compatible et autorisez l’accès.';
 
   @override
-  String get homeUsbOptionReady => 'Prêt à l\'emploi.';
+  String get homeUsbOptionReady => 'Prêt à envoyer.';
 
   @override
   String get homeUsbOptionPermissionRequired =>
-      'Branché. Autorisation requise.';
+      'Branché. Autorisez l’accès USB.';
 
   @override
   String get homeUsbOptionPermissionDenied =>
-      'Autorisation refusée. Redemandez-la.';
+      'Accès refusé. Redemandez l’autorisation.';
 
   @override
   String get homeUsbOptionPermissionGranted =>
-      'Autorisé. Initialisation du dongle.';
+      'Accès autorisé. En attente de l’adaptateur.';
 
   @override
-  String get homeUsbOptionOpenFailed => 'Autorisé, mais init. échouée.';
+  String get homeUsbOptionOpenFailed =>
+      'Connexion impossible. Rebranchez l’adaptateur.';
 
   @override
   String get homeHardwareBannerNoInternal =>
@@ -87,22 +88,22 @@ class AppLocalizationsFr extends AppLocalizations {
 
   @override
   String get homeHardwareBannerPermissionRequired =>
-      'Dongle USB détecté. Autorisation requise pour envoyer l\'IR.';
+      'Branché. Autorisez l’accès USB.';
 
   @override
   String get homeHardwareBannerPermissionDenied =>
-      'L\'autorisation USB a été refusée. Redemandez-la pour envoyer l\'IR.';
+      'Accès refusé. Redemandez l’autorisation.';
 
   @override
   String get homeHardwareBannerPermissionGranted =>
-      'Dongle USB autorisé. Attente de l\'initialisation.';
+      'Accès autorisé. En attente de l’adaptateur.';
 
   @override
   String get homeHardwareBannerOpenFailed =>
-      'Dongle USB autorisé, mais init. échouée.';
+      'Connexion impossible. Rebranchez l’adaptateur.';
 
   @override
-  String get homeHardwareBannerReady => 'USB prêt.';
+  String get homeHardwareBannerReady => 'Prêt à envoyer.';
 
   @override
   String get homeHardwareRequiredTitle => 'Un émetteur IR est nécessaire';

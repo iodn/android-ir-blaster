@@ -37,65 +37,63 @@ class AppLocalizationsJa extends AppLocalizations {
 
   @override
   String get homeUsbPermissionRequiredMessage =>
-      'この端末には内蔵IR送信機がありません。 USB IRドングルを検出しましたが まだ権限がありません。\n\nIR送信を有効にするにはUSB権限の確認を許可してください。';
+      'USB赤外線アダプターを検出しました。コマンドを送るには、USBへのアクセスを許可してください。';
 
   @override
   String get homeUsbPermissionDeniedMessage =>
-      'この端末には内蔵IR送信機がありません。 USB IRドングルを検出しましたが USB権限が拒否されました。\n\nIR送信を有効にするには権限を再要求し 確認を許可してください。';
+      'USBへのアクセスが許可されませんでした。もう一度許可をリクエストし、表示された画面で許可してください。';
 
   @override
   String get homeUsbPermissionGrantedMessage =>
-      'この端末には内蔵IR送信機がありません。 USB IRドングルは認証済みですが まだ初期化されていません。';
+      'USBへのアクセスは許可されていますが、アダプターはまだ使用できません。';
 
   @override
   String get homeUsbOpenFailedMessage =>
-      'この端末には内蔵IR送信機がありません。 USB IRドングルは検出済みかつ認証済みですが 初期化できませんでした。\n\nドングルを再接続して再試行してください。';
+      'アクセスは許可されていますが、USBアダプターに接続できませんでした。抜き差しして、もう一度お試しください。';
 
   @override
   String get homeUsbReadyMessage => 'この端末には内蔵IR送信機がありません。';
 
   @override
   String get homeUsbNoDeviceMessage =>
-      'この端末には内蔵IR送信機がなく 対応するUSB IRドングルも現在接続されていません。\n\nリモコンの作成 取り込み 管理は可能ですが IR送信には以下のいずれかが必要です。';
+      'この端末には赤外線送信機が内蔵されておらず、対応するUSB赤外線アダプターも接続されていません。';
 
   @override
-  String get homeUsbOptionPlugIn => '対応USB IRドングルを接続し 権限を許可してください。';
+  String get homeUsbOptionPlugIn => '対応するUSB赤外線アダプターを接続し、アクセスを許可してください。';
 
   @override
-  String get homeUsbOptionReady => '使用できます。';
+  String get homeUsbOptionReady => '送信できます。';
 
   @override
-  String get homeUsbOptionPermissionRequired => '接続済みです。権限が必要です。';
+  String get homeUsbOptionPermissionRequired => '接続済み。USBへのアクセスを許可してください。';
 
   @override
-  String get homeUsbOptionPermissionDenied => '権限が拒否されました。再要求してください。';
+  String get homeUsbOptionPermissionDenied => 'アクセスが拒否されました。再度許可を求めてください。';
 
   @override
-  String get homeUsbOptionPermissionGranted => '認証済みです。ドングルを初期化中です。';
+  String get homeUsbOptionPermissionGranted => 'アクセス許可済み。アダプターの準備待ちです。';
 
   @override
-  String get homeUsbOptionOpenFailed => '認証済みですが 初期化に失敗しました。';
+  String get homeUsbOptionOpenFailed => '接続できません。アダプターを抜き差ししてください。';
 
   @override
   String get homeHardwareBannerNoInternal =>
       'この端末には内蔵IRがありません。USB IRドングルを接続するか 設定で音声モードを有効にしてください。';
 
   @override
-  String get homeHardwareBannerPermissionRequired =>
-      'USBドングルを検出しました。IR送信には権限が必要です。';
+  String get homeHardwareBannerPermissionRequired => '接続済み。USBへのアクセスを許可してください。';
 
   @override
-  String get homeHardwareBannerPermissionDenied =>
-      'USB権限が拒否されました。IR送信のため再要求してください。';
+  String get homeHardwareBannerPermissionDenied => 'アクセスが拒否されました。再度許可を求めてください。';
 
   @override
-  String get homeHardwareBannerPermissionGranted => 'USBドングルは認証済みです。初期化待ちです。';
+  String get homeHardwareBannerPermissionGranted => 'アクセス許可済み。アダプターの準備待ちです。';
 
   @override
-  String get homeHardwareBannerOpenFailed => 'USBドングルは認証済みですが 初期化に失敗しました。';
+  String get homeHardwareBannerOpenFailed => '接続できません。アダプターを抜き差ししてください。';
 
   @override
-  String get homeHardwareBannerReady => 'USBは使用可能です。';
+  String get homeHardwareBannerReady => '送信できます。';
 
   @override
   String get homeHardwareRequiredTitle => '赤外線の送信機器が必要です';

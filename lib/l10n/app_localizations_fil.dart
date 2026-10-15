@@ -37,19 +37,19 @@ class AppLocalizationsFil extends AppLocalizations {
 
   @override
   String get homeUsbPermissionRequiredMessage =>
-      'Walang built-in IR emitter ang teleponong ito. May natukoy na USB IR dongle, pero wala pang pahintulot.\n\nPayagan ang USB prompt para makapagpadala ng IR.';
+      'May nakitang USB IR adapter. Payagan ang USB access para makapagpadala ng command.';
 
   @override
   String get homeUsbPermissionDeniedMessage =>
-      'Walang built-in IR emitter ang teleponong ito. May natukoy na USB IR dongle, pero tinanggihan ang pahintulot sa USB.\n\nHumiling muli ng pahintulot at payagan ang prompt para makapagpadala ng IR.';
+      'Tinanggihan ang USB access. Humiling muli ng pahintulot at payagan ang access para makapagpadala ng command.';
 
   @override
   String get homeUsbPermissionGrantedMessage =>
-      'Walang built-in IR emitter ang teleponong ito. Pinayagan ang USB IR dongle, pero hindi pa ito na-init.';
+      'Pinayagan na ang USB access, pero hindi pa handa ang adapter.';
 
   @override
   String get homeUsbOpenFailedMessage =>
-      'Walang built-in IR emitter ang teleponong ito. May natukoy at pinayagang USB IR dongle, pero hindi ito ma-init.\n\nIkabit muli ang dongle at subukan ulit.';
+      'Hindi makakonekta sa USB adapter kahit may pahintulot na. Tanggalin, isaksak muli, at subukan ulit.';
 
   @override
   String get homeUsbReadyMessage =>
@@ -57,30 +57,30 @@ class AppLocalizationsFil extends AppLocalizations {
 
   @override
   String get homeUsbNoDeviceMessage =>
-      'Walang built-in IR emitter ang teleponong ito, at walang suportadong USB IR dongle na nakakabit ngayon.\n\nMaaari ka pa ring gumawa, mag-import, at mamahala ng mga remote — pero para magpadala ng IR signal kailangan mo ang isa sa mga opsyon sa ibaba.';
+      'Walang built-in na IR transmitter ang phone na ito at walang nakakabit na suportadong USB IR adapter.';
 
   @override
   String get homeUsbOptionPlugIn =>
-      'Isaksak ang suportadong USB IR dongle, saka payagan ito.';
+      'Ikabit ang suportadong USB IR adapter at payagan ang access.';
 
   @override
-  String get homeUsbOptionReady => 'Handa nang gamitin.';
+  String get homeUsbOptionReady => 'Handa nang magpadala.';
 
   @override
   String get homeUsbOptionPermissionRequired =>
-      'Nakakabit na. Kailangan ng pahintulot.';
+      'Nakakabit na. Payagan ang USB access.';
 
   @override
   String get homeUsbOptionPermissionDenied =>
-      'Tinanggihan ang pahintulot. Humiling muli.';
+      'Tinanggihan ang access. Humiling muli ng pahintulot.';
 
   @override
   String get homeUsbOptionPermissionGranted =>
-      'Awtorisado. Ino-initialize ang dongle.';
+      'May pahintulot na. Hinihintay ang adapter.';
 
   @override
   String get homeUsbOptionOpenFailed =>
-      'Awtorisado, pero nabigo ang pag-initialize.';
+      'Hindi makakonekta. Ikabit muli ang adapter.';
 
   @override
   String get homeHardwareBannerNoInternal =>
@@ -88,22 +88,22 @@ class AppLocalizationsFil extends AppLocalizations {
 
   @override
   String get homeHardwareBannerPermissionRequired =>
-      'May natukoy na USB dongle. Kailangan ng pahintulot para makapagpadala ng IR.';
+      'Nakakabit na. Payagan ang USB access.';
 
   @override
   String get homeHardwareBannerPermissionDenied =>
-      'Tinanggihan ang pahintulot sa USB. Humiling muli para makapagpadala ng IR.';
+      'Tinanggihan ang access. Humiling muli ng pahintulot.';
 
   @override
   String get homeHardwareBannerPermissionGranted =>
-      'Awtorisado ang USB dongle. Naghihintay ng pag-initialize.';
+      'May pahintulot na. Hinihintay ang adapter.';
 
   @override
   String get homeHardwareBannerOpenFailed =>
-      'Awtorisado ang USB dongle, pero nabigo ang pag-initialize.';
+      'Hindi makakonekta. Ikabit muli ang adapter.';
 
   @override
-  String get homeHardwareBannerReady => 'Handa na ang USB.';
+  String get homeHardwareBannerReady => 'Handa nang magpadala.';
 
   @override
   String get homeHardwareRequiredTitle => 'Kailangan ng IR transmitter';
