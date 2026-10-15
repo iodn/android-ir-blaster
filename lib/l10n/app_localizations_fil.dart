@@ -1613,20 +1613,20 @@ class AppLocalizationsFil extends AppLocalizations {
       'Apat na column ng mga button na may icon o teksto.';
 
   @override
-  String get importFromRemotes => 'Import from mga remote';
+  String get importFromRemotes => 'Mag-import mula sa mga remote';
 
   @override
-  String get importFromDatabase => 'Import from DB';
+  String get importFromDatabase => 'Mag-import mula sa database';
 
   @override
-  String get addButton => 'Add button';
+  String get addButton => 'Magdagdag ng button';
 
   @override
-  String get noButtonsYet => 'Walang mga button yet';
+  String get noButtonsYet => 'Wala pang button';
 
   @override
   String get createRemoteEmptyStateDescription =>
-      'Idagdag ang una mong button, saka pindutin ito nang matagal para sa edit o remove na opsyon.';
+      'Maghanap ng mga button sa database, mag-import mula sa ibang remote, o gumawa ng sarili mong button.';
 
   @override
   String get createButtonTitle => 'Create Button';
@@ -1978,7 +1978,7 @@ class AppLocalizationsFil extends AppLocalizations {
 
   @override
   String get importFromDatabaseSubtitle =>
-      'Pumili ng device, i-load ang magkakatugmang keys, saka i-import ang mga napiling button.';
+      'Hanapin ang device, piliin ang mga button, at i-import ang mga ito.';
 
   @override
   String get deviceAndFilters => 'Device & filters';
@@ -4561,13 +4561,13 @@ class AppLocalizationsFil extends AppLocalizations {
   String get startWithDefault => 'Gamitin ang default na pangalan';
 
   @override
-  String get browseGithubStore => 'Buksan ang GitHub Store';
+  String get browseGithubStore => 'Tumingin sa GitHub';
 
   @override
   String get addFirstButton => 'Idagdag ang unang button';
 
   @override
-  String get moreWaysToStart => 'Iba pang paraan para magsimula';
+  String get moreWaysToStart => 'Iba pang paraan para magdagdag';
 
   @override
   String get unsavedRemoteSetupChangesMessage =>

@@ -1606,14 +1606,14 @@ class AppLocalizationsTr extends AppLocalizations {
   String get importFromDatabase => 'Veritabanından içe aktar';
 
   @override
-  String get addButton => 'Ekle düğme';
+  String get addButton => 'Düğme ekle';
 
   @override
   String get noButtonsYet => 'Henüz düğme yok';
 
   @override
   String get createRemoteEmptyStateDescription =>
-      'İlk düğmenizi ekleyin, sonra düzenleme/kaldırma seçenekleri için ona uzun basın.';
+      'Veritabanında düğme arayın, başka bir kumandadan içe aktarın veya kendiniz oluşturun.';
 
   @override
   String get createButtonTitle => 'Create Düğme';
@@ -1964,7 +1964,7 @@ class AppLocalizationsTr extends AppLocalizations {
 
   @override
   String get importFromDatabaseSubtitle =>
-      'Bir cihaz seçin, eşleşen tuşları yükleyin, sonra seçili düğmeleri içe aktarın.';
+      'Cihazınızı bulun, düğmelerini seçin ve içe aktarın.';
 
   @override
   String get deviceAndFilters => 'Cihaz ve filtreler';
@@ -4548,13 +4548,13 @@ class AppLocalizationsTr extends AppLocalizations {
   String get startWithDefault => 'Varsayılan adı kullan';
 
   @override
-  String get browseGithubStore => 'GitHub Store\'u aç';
+  String get browseGithubStore => 'GitHub’a göz at';
 
   @override
   String get addFirstButton => 'İlk düğmeyi ekle';
 
   @override
-  String get moreWaysToStart => 'Başlamanın diğer yolları';
+  String get moreWaysToStart => 'Düğme eklemenin diğer yolları';
 
   @override
   String get unsavedRemoteSetupChangesMessage =>

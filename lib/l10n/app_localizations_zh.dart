@@ -1484,7 +1484,7 @@ class AppLocalizationsZh extends AppLocalizations {
   String get layoutCompactDescription => '四列按钮，显示图标或文字。';
 
   @override
-  String get importFromRemotes => '从遥控器导入';
+  String get importFromRemotes => '从其他遥控器导入';
 
   @override
   String get importFromDatabase => '从数据库导入';
@@ -1496,7 +1496,7 @@ class AppLocalizationsZh extends AppLocalizations {
   String get noButtonsYet => '还没有按钮';
 
   @override
-  String get createRemoteEmptyStateDescription => '添加第一个按钮后，长按它可进行编辑或移除。';
+  String get createRemoteEmptyStateDescription => '在数据库中查找按钮，从其他遥控器导入，或自行创建。';
 
   @override
   String get createButtonTitle => '创建按钮';
@@ -1835,7 +1835,7 @@ class AppLocalizationsZh extends AppLocalizations {
   String get importFromDatabaseTitle => '从数据库导入';
 
   @override
-  String get importFromDatabaseSubtitle => '选择设备，加载匹配按键，然后导入所选按钮。';
+  String get importFromDatabaseSubtitle => '查找设备，选择需要的按钮并导入。';
 
   @override
   String get deviceAndFilters => '设备与筛选';
@@ -4369,13 +4369,13 @@ class AppLocalizationsZh extends AppLocalizations {
   String get startWithDefault => '使用默认名称';
 
   @override
-  String get browseGithubStore => '浏览 GitHub 商店';
+  String get browseGithubStore => '浏览 GitHub';
 
   @override
   String get addFirstButton => '添加第一个按钮';
 
   @override
-  String get moreWaysToStart => '更多开始方式';
+  String get moreWaysToStart => '其他添加按钮的方式';
 
   @override
   String get unsavedRemoteSetupChangesMessage => '放弃设置新遥控器吗？更改将不会保存。';

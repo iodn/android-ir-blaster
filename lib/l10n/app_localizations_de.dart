@@ -1636,7 +1636,7 @@ class AppLocalizationsDe extends AppLocalizations {
 
   @override
   String get createRemoteEmptyStateDescription =>
-      'Füge deine erste Taste hinzu und halte sie dann für Bearbeiten oder Entfernen gedrückt.';
+      'Suche Tasten in der Datenbank, importiere sie aus einer anderen Fernbedienung oder erstelle eigene.';
 
   @override
   String get createButtonTitle => 'Taste erstellen';
@@ -1991,7 +1991,7 @@ class AppLocalizationsDe extends AppLocalizations {
 
   @override
   String get importFromDatabaseSubtitle =>
-      'Wähle ein Gerät, lade passende Schlüssel und importiere dann die ausgewählten Tasten.';
+      'Suche dein Gerät und wähle die Tasten aus, die du importieren möchtest.';
 
   @override
   String get deviceAndFilters => 'Gerät und Filter';
@@ -4586,13 +4586,13 @@ class AppLocalizationsDe extends AppLocalizations {
   String get startWithDefault => 'Standardname';
 
   @override
-  String get browseGithubStore => 'GitHub-Store durchsuchen';
+  String get browseGithubStore => 'GitHub durchsuchen';
 
   @override
   String get addFirstButton => 'Erste Taste hinzufügen';
 
   @override
-  String get moreWaysToStart => 'Weitere Startmöglichkeiten';
+  String get moreWaysToStart => 'Weitere Möglichkeiten';
 
   @override
   String get unsavedRemoteSetupChangesMessage =>

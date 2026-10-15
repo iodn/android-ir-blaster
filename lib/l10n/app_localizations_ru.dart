@@ -1604,7 +1604,7 @@ class AppLocalizationsRu extends AppLocalizations {
   String get importFromRemotes => 'Импорт из пультов';
 
   @override
-  String get importFromDatabase => 'Импорт из БД';
+  String get importFromDatabase => 'Импорт из базы данных';
 
   @override
   String get addButton => 'Добавить кнопку';
@@ -1614,7 +1614,7 @@ class AppLocalizationsRu extends AppLocalizations {
 
   @override
   String get createRemoteEmptyStateDescription =>
-      'Добавьте первую кнопку, затем зажмите её для изменения или удаления.';
+      'Найдите кнопки в базе данных, импортируйте их из другого пульта или создайте свои.';
 
   @override
   String get createButtonTitle => 'Создать кнопку';
@@ -1963,7 +1963,7 @@ class AppLocalizationsRu extends AppLocalizations {
 
   @override
   String get importFromDatabaseSubtitle =>
-      'Выберите устройство, загрузите подходящие ключи и импортируйте выбранные кнопки.';
+      'Найдите своё устройство, выберите нужные кнопки и импортируйте их.';
 
   @override
   String get deviceAndFilters => 'Устройство и фильтры';
@@ -4551,13 +4551,13 @@ class AppLocalizationsRu extends AppLocalizations {
   String get startWithDefault => 'Стандартное название';
 
   @override
-  String get browseGithubStore => 'Открыть GitHub Store';
+  String get browseGithubStore => 'Найти на GitHub';
 
   @override
   String get addFirstButton => 'Добавить первую кнопку';
 
   @override
-  String get moreWaysToStart => 'Другие способы начать';
+  String get moreWaysToStart => 'Другие способы добавить кнопки';
 
   @override
   String get unsavedRemoteSetupChangesMessage =>

@@ -1623,17 +1623,17 @@ class AppLocalizationsIt extends AppLocalizations {
   String get importFromRemotes => 'Importa dai telecomandi';
 
   @override
-  String get importFromDatabase => 'Importa dal DB';
+  String get importFromDatabase => 'Importa dal database';
 
   @override
   String get addButton => 'Aggiungi pulsante';
 
   @override
-  String get noButtonsYet => 'Nessun pulsante ancora';
+  String get noButtonsYet => 'Nessun pulsante';
 
   @override
   String get createRemoteEmptyStateDescription =>
-      'Aggiungi il primo pulsante, poi tienilo premuto per opzioni modifica o rimozione.';
+      'Trova i pulsanti nel database, importali da un altro telecomando o creane di nuovi.';
 
   @override
   String get createButtonTitle => 'Crea pulsante';
@@ -1985,7 +1985,7 @@ class AppLocalizationsIt extends AppLocalizations {
 
   @override
   String get importFromDatabaseSubtitle =>
-      'Scegli un dispositivo, carica i tasti corrispondenti, poi importa i pulsanti selezionati.';
+      'Cerca il dispositivo, scegli i pulsanti e importali.';
 
   @override
   String get deviceAndFilters => 'Dispositivo e filtri';
@@ -4575,13 +4575,13 @@ class AppLocalizationsIt extends AppLocalizations {
   String get startWithDefault => 'Nome predefinito';
 
   @override
-  String get browseGithubStore => 'Sfoglia GitHub Store';
+  String get browseGithubStore => 'Esplora GitHub';
 
   @override
   String get addFirstButton => 'Aggiungi il primo pulsante';
 
   @override
-  String get moreWaysToStart => 'Altri modi per iniziare';
+  String get moreWaysToStart => 'Altri modi per aggiungere pulsanti';
 
   @override
   String get unsavedRemoteSetupChangesMessage =>

@@ -1532,20 +1532,20 @@ class AppLocalizationsKo extends AppLocalizations {
   String get layoutCompactDescription => '아이콘이나 텍스트가 있는 버튼을 네 열로 배치합니다.';
 
   @override
-  String get importFromRemotes => '가져오기 에서 리모컨';
+  String get importFromRemotes => '다른 리모컨에서 가져오기';
 
   @override
-  String get importFromDatabase => '가져오기 에서 DB';
+  String get importFromDatabase => '데이터베이스에서 가져오기';
 
   @override
-  String get addButton => '추가 버튼';
+  String get addButton => '버튼 추가';
 
   @override
-  String get noButtonsYet => '없음 버튼 아직';
+  String get noButtonsYet => '아직 버튼이 없습니다';
 
   @override
   String get createRemoteEmptyStateDescription =>
-      '첫 버튼을 추가한 뒤 길게 눌러 편집/제거 옵션을 여세요.';
+      '데이터베이스에서 버튼을 찾거나, 다른 리모컨에서 가져오거나, 직접 만들어 보세요.';
 
   @override
   String get createButtonTitle => '생성 버튼';
@@ -1886,8 +1886,7 @@ class AppLocalizationsKo extends AppLocalizations {
   String get importFromDatabaseTitle => '가져오기 에서 데이터베이스';
 
   @override
-  String get importFromDatabaseSubtitle =>
-      '기기를 선택하고 일치하는 키를 불러온 뒤 선택한 버튼을 가져오세요.';
+  String get importFromDatabaseSubtitle => '기기를 검색하고 가져올 버튼을 선택하세요.';
 
   @override
   String get deviceAndFilters => '기기 & 필터';
@@ -4443,13 +4442,13 @@ class AppLocalizationsKo extends AppLocalizations {
   String get startWithDefault => '기본 이름 사용';
 
   @override
-  String get browseGithubStore => 'GitHub 스토어 보기';
+  String get browseGithubStore => 'GitHub 둘러보기';
 
   @override
   String get addFirstButton => '첫 버튼 추가';
 
   @override
-  String get moreWaysToStart => '다른 시작 방법';
+  String get moreWaysToStart => '버튼을 추가하는 다른 방법';
 
   @override
   String get unsavedRemoteSetupChangesMessage =>

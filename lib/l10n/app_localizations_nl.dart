@@ -1626,20 +1626,20 @@ class AppLocalizationsNl extends AppLocalizations {
       'Vier kolommen met knoppen met pictogrammen of tekst.';
 
   @override
-  String get importFromRemotes => 'Importeren from remotes';
+  String get importFromRemotes => 'Uit afstandsbedieningen importeren';
 
   @override
-  String get importFromDatabase => 'Importeren from DB';
+  String get importFromDatabase => 'Uit database importeren';
 
   @override
-  String get addButton => 'Toevoegen knop';
+  String get addButton => 'Knop toevoegen';
 
   @override
-  String get noButtonsYet => 'Geen knoppen yet';
+  String get noButtonsYet => 'Nog geen knoppen';
 
   @override
   String get createRemoteEmptyStateDescription =>
-      'Toevoegen your first knop, then long-press it for bewerken/remove options.';
+      'Zoek knoppen in de database, importeer ze uit een andere afstandsbediening of maak ze zelf.';
 
   @override
   String get createButtonTitle => 'Maken Knop';
@@ -1990,7 +1990,7 @@ class AppLocalizationsNl extends AppLocalizations {
 
   @override
   String get importFromDatabaseSubtitle =>
-      'Kies een apparaat, laad overeenkomende toetsen en importereneer daarna de geselecteerde knoppen.';
+      'Zoek je apparaat, kies de knoppen en importeer ze.';
 
   @override
   String get deviceAndFilters => 'Apparaat & filters';
@@ -4584,13 +4584,13 @@ class AppLocalizationsNl extends AppLocalizations {
   String get startWithDefault => 'Standaardnaam';
 
   @override
-  String get browseGithubStore => 'GitHub Store bekijken';
+  String get browseGithubStore => 'GitHub bekijken';
 
   @override
   String get addFirstButton => 'Eerste knop toevoegen';
 
   @override
-  String get moreWaysToStart => 'Meer manieren om te beginnen';
+  String get moreWaysToStart => 'Andere manieren om knoppen toe te voegen';
 
   @override
   String get unsavedRemoteSetupChangesMessage =>

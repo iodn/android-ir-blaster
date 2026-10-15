@@ -1621,7 +1621,7 @@ class AppLocalizationsEn extends AppLocalizations {
   String get importFromRemotes => 'Import from remotes';
 
   @override
-  String get importFromDatabase => 'Import from DB';
+  String get importFromDatabase => 'Import from database';
 
   @override
   String get addButton => 'Add button';
@@ -1631,7 +1631,7 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get createRemoteEmptyStateDescription =>
-      'Add your first button, then long-press it for edit/remove options.';
+      'Find buttons in the database, import them from another remote, or create your own.';
 
   @override
   String get createButtonTitle => 'Create Button';
@@ -1980,7 +1980,7 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get importFromDatabaseSubtitle =>
-      'Choose a device, load matching keys, then import selected buttons.';
+      'Find your device, choose its buttons, then import them.';
 
   @override
   String get deviceAndFilters => 'Device & filters';
@@ -4588,13 +4588,13 @@ class AppLocalizationsEn extends AppLocalizations {
   String get startWithDefault => 'Use default name';
 
   @override
-  String get browseGithubStore => 'Browse GitHub Store';
+  String get browseGithubStore => 'Browse GitHub';
 
   @override
   String get addFirstButton => 'Add first button';
 
   @override
-  String get moreWaysToStart => 'More ways to start';
+  String get moreWaysToStart => 'Other ways to add buttons';
 
   @override
   String get unsavedRemoteSetupChangesMessage =>

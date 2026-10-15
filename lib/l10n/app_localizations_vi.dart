@@ -1587,10 +1587,10 @@ class AppLocalizationsVi extends AppLocalizations {
       'Bốn cột nút hiển thị biểu tượng hoặc chữ.';
 
   @override
-  String get importFromRemotes => 'Nhập từ điều khiển';
+  String get importFromRemotes => 'Nhập từ điều khiển khác';
 
   @override
-  String get importFromDatabase => 'Nhập từ CSDL';
+  String get importFromDatabase => 'Nhập từ cơ sở dữ liệu';
 
   @override
   String get addButton => 'Thêm nút';
@@ -1600,7 +1600,7 @@ class AppLocalizationsVi extends AppLocalizations {
 
   @override
   String get createRemoteEmptyStateDescription =>
-      'Thêm nút đầu tiên, rồi nhấn giữ để xem tùy chọn sửa/xóa.';
+      'Tìm nút trong cơ sở dữ liệu, nhập từ điều khiển khác hoặc tự tạo nút.';
 
   @override
   String get createButtonTitle => 'Tạo nút';
@@ -1949,7 +1949,7 @@ class AppLocalizationsVi extends AppLocalizations {
 
   @override
   String get importFromDatabaseSubtitle =>
-      'Chọn thiết bị, tải khóa khớp rồi nhập các nút đã chọn.';
+      'Tìm thiết bị, chọn các nút rồi nhập vào điều khiển.';
 
   @override
   String get deviceAndFilters => 'Thiết bị và bộ lọc';
@@ -4535,13 +4535,13 @@ class AppLocalizationsVi extends AppLocalizations {
   String get startWithDefault => 'Dùng tên mặc định';
 
   @override
-  String get browseGithubStore => 'Mở GitHub Store';
+  String get browseGithubStore => 'Duyệt GitHub';
 
   @override
   String get addFirstButton => 'Thêm nút đầu tiên';
 
   @override
-  String get moreWaysToStart => 'Thêm cách để bắt đầu';
+  String get moreWaysToStart => 'Các cách khác để thêm nút';
 
   @override
   String get unsavedRemoteSetupChangesMessage =>

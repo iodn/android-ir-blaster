@@ -1649,20 +1649,20 @@ class AppLocalizationsUk extends AppLocalizations {
       'Чотири стовпці кнопок зі значками або текстом.';
 
   @override
-  String get importFromRemotes => 'Імпорт з пультів';
+  String get importFromRemotes => 'Імпорт із пультів';
 
   @override
-  String get importFromDatabase => 'Імпорт з БД';
+  String get importFromDatabase => 'Імпорт із бази даних';
 
   @override
   String get addButton => 'Додати кнопку';
 
   @override
-  String get noButtonsYet => 'Ще немає кнопок';
+  String get noButtonsYet => 'Кнопок ще немає';
 
   @override
   String get createRemoteEmptyStateDescription =>
-      'Додайте свою першу кнопку, а потім утримуйте її, щоб переглянути параметри редагування/видалення.';
+      'Знайдіть кнопки в базі даних, імпортуйте їх з іншого пульта або створіть власні.';
 
   @override
   String get createButtonTitle => 'Створити кнопку';
@@ -2012,7 +2012,7 @@ class AppLocalizationsUk extends AppLocalizations {
 
   @override
   String get importFromDatabaseSubtitle =>
-      'Виберіть пристрій, завантажте відповідні ключі, а потім імпортуйте вибрані кнопки.';
+      'Знайдіть свій пристрій, виберіть потрібні кнопки та імпортуйте їх.';
 
   @override
   String get deviceAndFilters => 'Пристрій і фільтри';
@@ -4653,13 +4653,13 @@ class AppLocalizationsUk extends AppLocalizations {
   String get startWithDefault => 'Стандартна назва';
 
   @override
-  String get browseGithubStore => 'Перегляньте GitHub Store';
+  String get browseGithubStore => 'Знайти на GitHub';
 
   @override
   String get addFirstButton => 'Додати першу кнопку';
 
   @override
-  String get moreWaysToStart => 'Більше способів почати';
+  String get moreWaysToStart => 'Інші способи додати кнопки';
 
   @override
   String get unsavedRemoteSetupChangesMessage =>

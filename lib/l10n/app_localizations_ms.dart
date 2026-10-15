@@ -1601,20 +1601,20 @@ class AppLocalizationsMs extends AppLocalizations {
       'Empat lajur butang dengan ikon atau teks.';
 
   @override
-  String get importFromRemotes => 'Import dari remote';
+  String get importFromRemotes => 'Import daripada alat kawalan jauh';
 
   @override
-  String get importFromDatabase => 'Import dari DB';
+  String get importFromDatabase => 'Import daripada pangkalan data';
 
   @override
   String get addButton => 'Tambah butang';
 
   @override
-  String get noButtonsYet => 'Tiada butang yet';
+  String get noButtonsYet => 'Belum ada butang';
 
   @override
   String get createRemoteEmptyStateDescription =>
-      'Tambahkan butang pertama, kemudian tekan lama untuk opsi ubah/hapus.';
+      'Cari butang dalam pangkalan data, import daripada alat kawalan jauh lain atau cipta sendiri.';
 
   @override
   String get createButtonTitle => 'Buat Butang';
@@ -1963,7 +1963,7 @@ class AppLocalizationsMs extends AppLocalizations {
 
   @override
   String get importFromDatabaseSubtitle =>
-      'Pilih peranti, muat butang yang cocok, kemudian import butang terpilih.';
+      'Cari peranti anda, pilih butangnya, kemudian import.';
 
   @override
   String get deviceAndFilters => 'Peranti & filters';
@@ -4553,13 +4553,13 @@ class AppLocalizationsMs extends AppLocalizations {
   String get startWithDefault => 'Guna nama lalai';
 
   @override
-  String get browseGithubStore => 'Semak GitHub Store';
+  String get browseGithubStore => 'Layari GitHub';
 
   @override
   String get addFirstButton => 'Tambah butang pertama';
 
   @override
-  String get moreWaysToStart => 'Lagi cara untuk bermula';
+  String get moreWaysToStart => 'Cara lain untuk menambah butang';
 
   @override
   String get unsavedRemoteSetupChangesMessage =>

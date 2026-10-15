@@ -691,8 +691,13 @@ class _RemoteStudioScreenState extends State<RemoteStudioScreen> {
     final theme = Theme.of(context);
     final compactPhone = MediaQuery.sizeOf(context).width < 400;
     return Center(
-      child: Padding(
-        padding: EdgeInsets.all(compactPhone ? 18 : 24),
+      child: SingleChildScrollView(
+        padding: EdgeInsets.fromLTRB(
+          compactPhone ? 18 : 24,
+          compactPhone ? 18 : 24,
+          compactPhone ? 18 : 24,
+          96,
+        ),
         child: Column(
           mainAxisSize: MainAxisSize.min,
           children: [
@@ -717,13 +722,9 @@ class _RemoteStudioScreenState extends State<RemoteStudioScreen> {
               ),
             ),
             SizedBox(height: compactPhone ? 16 : 20),
-            GridView.count(
-              shrinkWrap: true,
-              physics: const NeverScrollableScrollPhysics(),
-              crossAxisCount: 2,
-              mainAxisSpacing: 10,
-              crossAxisSpacing: 10,
-              childAspectRatio: compactPhone ? 2.5 : 2.8,
+            LayoutBuilder(builder: (context, constraints) => Wrap(
+              spacing: 10,
+              runSpacing: 10,
               children: [
                 FilledButton.icon(
                   onPressed: _openBulkImport,
@@ -745,8 +746,13 @@ class _RemoteStudioScreenState extends State<RemoteStudioScreen> {
                   icon: const FaIcon(FontAwesomeIcons.github, size: 18),
                   label: Text(context.l10n.browseGithubStore),
                 ),
-              ],
-            ),
+              ].map((button) => SizedBox(
+                width: constraints.maxWidth < 600
+                    ? constraints.maxWidth
+                    : (constraints.maxWidth - 10) / 2,
+                child: button,
+              )).toList(),
+            )),
           ],
         ),
       ),
@@ -821,21 +827,28 @@ class _RemoteStudioScreenState extends State<RemoteStudioScreen> {
                   ],
                 ),
           actions: [
-            IconButton(
-              tooltip: context.l10n.remoteName,
-              onPressed: _renameRemoteInline,
-              icon: const Icon(Icons.edit_outlined),
-            ),
+            if (!compactPhone)
+              IconButton(
+                tooltip: context.l10n.remoteName,
+                onPressed: _renameRemoteInline,
+                icon: const Icon(Icons.edit_outlined),
+              ),
             IconButton(
               tooltip: context.l10n.editRemote,
               onPressed: _openSettingsSheet,
               icon: const Icon(Icons.tune_rounded),
             ),
-            TextButton.icon(
-              onPressed: _finish,
-              icon: const Icon(Icons.save_outlined, size: 18),
-              label: Text(context.l10n.saveAction),
-            ),
+            if (compactPhone)
+              TextButton(
+                onPressed: _finish,
+                child: Text(context.l10n.saveAction),
+              )
+            else
+              TextButton.icon(
+                onPressed: _finish,
+                icon: const Icon(Icons.save_outlined, size: 18),
+                label: Text(context.l10n.saveAction),
+              ),
           ],
         ),
         floatingActionButton: Row(

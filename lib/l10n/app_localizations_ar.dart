@@ -1578,20 +1578,20 @@ class AppLocalizationsAr extends AppLocalizations {
       'أربعة أعمدة من الأزرار تعرض رموزًا أو نصوصًا.';
 
   @override
-  String get importFromRemotes => 'استيراد من remotes';
+  String get importFromRemotes => 'استيراد من أجهزة التحكم';
 
   @override
-  String get importFromDatabase => 'استيراد من DB';
+  String get importFromDatabase => 'استيراد من قاعدة البيانات';
 
   @override
   String get addButton => 'إضافة زر';
 
   @override
-  String get noButtonsYet => 'No أزرار yet';
+  String get noButtonsYet => 'لا توجد أزرار بعد';
 
   @override
   String get createRemoteEmptyStateDescription =>
-      'أضف أول زر، ثم اضغطه مطولاً لخيارات التعديل أو الإزالة.';
+      'ابحث عن أزرار في قاعدة البيانات، أو استوردها من جهاز تحكم آخر، أو أنشئ أزرارك بنفسك.';
 
   @override
   String get createButtonTitle => 'إنشاء زر';
@@ -1939,7 +1939,7 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String get importFromDatabaseSubtitle =>
-      'اختر جهازاً، حمّل المفاتيح المطابقة، ثم استورد الأزرار المحددة.';
+      'ابحث عن جهازك، واختر الأزرار التي تريد استيرادها.';
 
   @override
   String get deviceAndFilters => 'الجهاز & filters';
@@ -4521,13 +4521,13 @@ class AppLocalizationsAr extends AppLocalizations {
   String get startWithDefault => 'استخدام الاسم الافتراضي';
 
   @override
-  String get browseGithubStore => 'تصفح متجر GitHub';
+  String get browseGithubStore => 'تصفح GitHub';
 
   @override
   String get addFirstButton => 'أضف الزر الأول';
 
   @override
-  String get moreWaysToStart => 'المزيد من طرق البدء';
+  String get moreWaysToStart => 'طرق أخرى لإضافة الأزرار';
 
   @override
   String get unsavedRemoteSetupChangesMessage =>
@@ -6793,20 +6793,20 @@ class AppLocalizationsArEg extends AppLocalizationsAr {
       'أربع أعمدة من الأزرار بتعرض رموز أو نصوص.';
 
   @override
-  String get importFromRemotes => 'استيراد من remotes';
+  String get importFromRemotes => 'استيراد من الريموتات';
 
   @override
-  String get importFromDatabase => 'استيراد من DB';
+  String get importFromDatabase => 'استيراد من قاعدة البيانات';
 
   @override
   String get addButton => 'إضافة زر';
 
   @override
-  String get noButtonsYet => 'No أزرار yet';
+  String get noButtonsYet => 'لسه مفيش أزرار';
 
   @override
   String get createRemoteEmptyStateDescription =>
-      'أضف أول زر، ثم اضغطه مطولاً لخيارات التعديل أو الإزالة.';
+      'دوّر على أزرار في قاعدة البيانات، أو استوردها من ريموت تاني، أو اعمل أزرارك بنفسك.';
 
   @override
   String get createButtonTitle => 'إنشاء زر';
@@ -7154,7 +7154,7 @@ class AppLocalizationsArEg extends AppLocalizationsAr {
 
   @override
   String get importFromDatabaseSubtitle =>
-      'اختر جهازاً، حمّل المفاتيح المطابقة، ثم استورد الأزرار المحددة.';
+      'دوّر على جهازك واختار الأزرار اللي عايز تستوردها.';
 
   @override
   String get deviceAndFilters => 'الجهاز & filters';
@@ -9735,13 +9735,13 @@ class AppLocalizationsArEg extends AppLocalizationsAr {
   String get startWithDefault => 'استخدم الاسم الافتراضي';
 
   @override
-  String get browseGithubStore => 'تصفح متجر GitHub';
+  String get browseGithubStore => 'تصفح GitHub';
 
   @override
   String get addFirstButton => 'أضف الزر الأول';
 
   @override
-  String get moreWaysToStart => 'المزيد من طرق البدء';
+  String get moreWaysToStart => 'طرق تانية لإضافة الأزرار';
 
   @override
   String get unsavedRemoteSetupChangesMessage =>

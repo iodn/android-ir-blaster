@@ -1523,10 +1523,10 @@ class AppLocalizationsJa extends AppLocalizations {
   String get layoutCompactDescription => 'アイコンや文字のボタンを4列で並べます。';
 
   @override
-  String get importFromRemotes => 'リモコンから取り込み';
+  String get importFromRemotes => '他のリモコンから読み込む';
 
   @override
-  String get importFromDatabase => 'DBから取り込み';
+  String get importFromDatabase => 'データベースから読み込む';
 
   @override
   String get addButton => 'ボタンを追加';
@@ -1536,7 +1536,7 @@ class AppLocalizationsJa extends AppLocalizations {
 
   @override
   String get createRemoteEmptyStateDescription =>
-      '最初のボタンを追加し その後長押しで編集や削除の操作を使ってください。';
+      'データベースでボタンを探すか、他のリモコンから読み込むか、自分で作成できます。';
 
   @override
   String get createButtonTitle => 'ボタンを作成';
@@ -1876,8 +1876,7 @@ class AppLocalizationsJa extends AppLocalizations {
   String get importFromDatabaseTitle => 'データベースから取り込み';
 
   @override
-  String get importFromDatabaseSubtitle =>
-      'デバイスを選び 一致するキーを読み込み 選択したボタンを取り込みます。';
+  String get importFromDatabaseSubtitle => '機器を検索し、読み込みたいボタンを選びます。';
 
   @override
   String get deviceAndFilters => 'デバイスとフィルタ';
@@ -4431,13 +4430,13 @@ class AppLocalizationsJa extends AppLocalizations {
   String get startWithDefault => '標準の名前を使う';
 
   @override
-  String get browseGithubStore => 'GitHubストアを見る';
+  String get browseGithubStore => 'GitHubを探す';
 
   @override
   String get addFirstButton => '最初のボタンを追加';
 
   @override
-  String get moreWaysToStart => '他の始め方を見る';
+  String get moreWaysToStart => '他の方法でボタンを追加';
 
   @override
   String get unsavedRemoteSetupChangesMessage =>

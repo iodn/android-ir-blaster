@@ -2907,7 +2907,7 @@ abstract class AppLocalizations {
   /// No description provided for @importFromDatabase.
   ///
   /// In en, this message translates to:
-  /// **'Import from DB'**
+  /// **'Import from database'**
   String get importFromDatabase;
 
   /// No description provided for @addButton.
@@ -2925,7 +2925,7 @@ abstract class AppLocalizations {
   /// No description provided for @createRemoteEmptyStateDescription.
   ///
   /// In en, this message translates to:
-  /// **'Add your first button, then long-press it for edit/remove options.'**
+  /// **'Find buttons in the database, import them from another remote, or create your own.'**
   String get createRemoteEmptyStateDescription;
 
   /// No description provided for @createButtonTitle.
@@ -3537,7 +3537,7 @@ abstract class AppLocalizations {
   /// No description provided for @importFromDatabaseSubtitle.
   ///
   /// In en, this message translates to:
-  /// **'Choose a device, load matching keys, then import selected buttons.'**
+  /// **'Find your device, choose its buttons, then import them.'**
   String get importFromDatabaseSubtitle;
 
   /// No description provided for @deviceAndFilters.
@@ -8321,7 +8321,7 @@ abstract class AppLocalizations {
   /// No description provided for @browseGithubStore.
   ///
   /// In en, this message translates to:
-  /// **'Browse GitHub Store'**
+  /// **'Browse GitHub'**
   String get browseGithubStore;
 
   /// No description provided for @addFirstButton.
@@ -8333,7 +8333,7 @@ abstract class AppLocalizations {
   /// No description provided for @moreWaysToStart.
   ///
   /// In en, this message translates to:
-  /// **'More ways to start'**
+  /// **'Other ways to add buttons'**
   String get moreWaysToStart;
 
   /// No description provided for @unsavedRemoteSetupChangesMessage.

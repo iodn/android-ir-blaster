@@ -1645,20 +1645,20 @@ class AppLocalizationsPl extends AppLocalizations {
       'Cztery kolumny przycisków z ikonami lub tekstem.';
 
   @override
-  String get importFromRemotes => 'Import z pilotów';
+  String get importFromRemotes => 'Importuj z pilotów';
 
   @override
-  String get importFromDatabase => 'Import z bazy';
+  String get importFromDatabase => 'Importuj z bazy danych';
 
   @override
   String get addButton => 'Dodaj przycisk';
 
   @override
-  String get noButtonsYet => 'Brak przycisków';
+  String get noButtonsYet => 'Nie ma jeszcze przycisków';
 
   @override
   String get createRemoteEmptyStateDescription =>
-      'Dodaj pierwszy przycisk, a potem przytrzymaj go, aby edytować lub usunąć.';
+      'Znajdź przyciski w bazie danych, zaimportuj je z innego pilota lub utwórz własne.';
 
   @override
   String get createButtonTitle => 'Utwórz przycisk';
@@ -2007,7 +2007,7 @@ class AppLocalizationsPl extends AppLocalizations {
 
   @override
   String get importFromDatabaseSubtitle =>
-      'Wybierz a urządzenie, load matching klawisze, then import wybrano przyciski.';
+      'Znajdź swoje urządzenie, wybierz przyciski i zaimportuj je.';
 
   @override
   String get deviceAndFilters => 'urządzenie & filters';
@@ -4640,13 +4640,13 @@ class AppLocalizationsPl extends AppLocalizations {
   String get startWithDefault => 'Domyślna nazwa';
 
   @override
-  String get browseGithubStore => 'Przeglądaj GitHub Store';
+  String get browseGithubStore => 'Przeglądaj GitHub';
 
   @override
   String get addFirstButton => 'Dodaj pierwszy przycisk';
 
   @override
-  String get moreWaysToStart => 'Więcej sposobów rozpoczęcia';
+  String get moreWaysToStart => 'Inne sposoby dodawania przycisków';
 
   @override
   String get unsavedRemoteSetupChangesMessage =>

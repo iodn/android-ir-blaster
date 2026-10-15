@@ -1594,7 +1594,7 @@ class AppLocalizationsTh extends AppLocalizations {
 
   @override
   String get createRemoteEmptyStateDescription =>
-      'เพิ่มปุ่มแรกของคุณ แล้วกดค้างเพื่อแก้ไขหรือลบ';
+      'ค้นหาปุ่มในฐานข้อมูล นำเข้าจากรีโมตอื่น หรือสร้างปุ่มเอง';
 
   @override
   String get createButtonTitle => 'สร้างปุ่ม';
@@ -1943,7 +1943,7 @@ class AppLocalizationsTh extends AppLocalizations {
 
   @override
   String get importFromDatabaseSubtitle =>
-      'เลือกอุปกรณ์ โหลดคีย์ที่ตรงกัน แล้วนำเข้าปุ่มที่เลือก';
+      'ค้นหาอุปกรณ์ของคุณ เลือกปุ่ม แล้วนำเข้า';
 
   @override
   String get deviceAndFilters => 'อุปกรณ์และตัวกรอง';
@@ -4523,13 +4523,13 @@ class AppLocalizationsTh extends AppLocalizations {
   String get startWithDefault => 'ใช้ชื่อเริ่มต้น';
 
   @override
-  String get browseGithubStore => 'เปิด GitHub Store';
+  String get browseGithubStore => 'ค้นหาใน GitHub';
 
   @override
   String get addFirstButton => 'เพิ่มปุ่มแรก';
 
   @override
-  String get moreWaysToStart => 'วิธีเริ่มต้นเพิ่มเติม';
+  String get moreWaysToStart => 'วิธีอื่นในการเพิ่มปุ่ม';
 
   @override
   String get unsavedRemoteSetupChangesMessage =>

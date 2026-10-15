@@ -1615,20 +1615,20 @@ class AppLocalizationsFr extends AppLocalizations {
       'Quatre colonnes de boutons avec des icônes ou du texte.';
 
   @override
-  String get importFromRemotes => 'Importer depuis télés';
+  String get importFromRemotes => 'Importer depuis des télécommandes';
 
   @override
-  String get importFromDatabase => 'Importer depuis la BD';
+  String get importFromDatabase => 'Importer depuis la base de données';
 
   @override
   String get addButton => 'Ajouter un bouton';
 
   @override
-  String get noButtonsYet => 'Aucun bouton';
+  String get noButtonsYet => 'Aucun bouton pour le moment';
 
   @override
   String get createRemoteEmptyStateDescription =>
-      'Ajoutez votre premier bouton, puis faites un appui long dessus pour voir modifier/retirer.';
+      'Trouvez des boutons dans la base de données, importez-les d’une autre télécommande ou créez les vôtres.';
 
   @override
   String get createButtonTitle => 'Créer un bouton';
@@ -1981,7 +1981,7 @@ class AppLocalizationsFr extends AppLocalizations {
 
   @override
   String get importFromDatabaseSubtitle =>
-      'Choisissez un appareil, chargez les touches correspondantes, puis importez les boutons choisis.';
+      'Recherchez votre appareil, choisissez ses boutons, puis importez-les.';
 
   @override
   String get deviceAndFilters => 'Appareil et filtres';
@@ -4588,13 +4588,13 @@ class AppLocalizationsFr extends AppLocalizations {
   String get startWithDefault => 'Nom par défaut';
 
   @override
-  String get browseGithubStore => 'Parcourir le store GitHub';
+  String get browseGithubStore => 'Parcourir GitHub';
 
   @override
   String get addFirstButton => 'Ajouter le premier bouton';
 
   @override
-  String get moreWaysToStart => 'Plus de façons de commencer';
+  String get moreWaysToStart => 'Autres façons d’ajouter des boutons';
 
   @override
   String get unsavedRemoteSetupChangesMessage =>

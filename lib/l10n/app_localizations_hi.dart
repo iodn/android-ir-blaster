@@ -1596,20 +1596,20 @@ class AppLocalizationsHi extends AppLocalizations {
       'आइकन या टेक्स्ट वाले बटन, चार कॉलम में।';
 
   @override
-  String get importFromRemotes => 'आयात करें से रिमोट';
+  String get importFromRemotes => 'रिमोट से आयात करें';
 
   @override
-  String get importFromDatabase => 'आयात करें से DB';
+  String get importFromDatabase => 'डेटाबेस से आयात करें';
 
   @override
-  String get addButton => 'जोड़ें बटन';
+  String get addButton => 'बटन जोड़ें';
 
   @override
-  String get noButtonsYet => 'नहीं बटन yet';
+  String get noButtonsYet => 'अभी कोई बटन नहीं है';
 
   @override
   String get createRemoteEmptyStateDescription =>
-      'जोड़ें आपकी पहले बटन, फिर लंबा दबाएं it के लिए संपादित करें/हटाएं options.';
+      'डेटाबेस में बटन खोजें, दूसरे रिमोट से आयात करें या अपने बटन बनाएँ।';
 
   @override
   String get createButtonTitle => 'बनाएं बटन';
@@ -1956,7 +1956,7 @@ class AppLocalizationsHi extends AppLocalizations {
 
   @override
   String get importFromDatabaseSubtitle =>
-      'चुनें a डिवाइस, लोड करें मेल खाती keys, फिर आयात चयनित बटन.';
+      'अपना डिवाइस खोजें, उसके बटन चुनें और उन्हें आयात करें।';
 
   @override
   String get deviceAndFilters => 'डिवाइस & फ़िल्टर';
@@ -4543,13 +4543,13 @@ class AppLocalizationsHi extends AppLocalizations {
   String get startWithDefault => 'डिफ़ॉल्ट नाम रखें';
 
   @override
-  String get browseGithubStore => 'GitHub स्टोर देखें';
+  String get browseGithubStore => 'GitHub पर देखें';
 
   @override
   String get addFirstButton => 'पहला बटन जोड़ें';
 
   @override
-  String get moreWaysToStart => 'शुरू करने के और तरीके';
+  String get moreWaysToStart => 'बटन जोड़ने के अन्य तरीके';
 
   @override
   String get unsavedRemoteSetupChangesMessage =>

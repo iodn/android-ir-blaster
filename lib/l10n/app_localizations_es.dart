@@ -1617,7 +1617,7 @@ class AppLocalizationsEs extends AppLocalizations {
   String get importFromRemotes => 'Importar desde mandos';
 
   @override
-  String get importFromDatabase => 'Importar de BD';
+  String get importFromDatabase => 'Importar de la base de datos';
 
   @override
   String get addButton => 'Añadir botón';
@@ -1627,7 +1627,7 @@ class AppLocalizationsEs extends AppLocalizations {
 
   @override
   String get createRemoteEmptyStateDescription =>
-      'Añade tu primer botón y luego mantén pulsado para editar o quitar.';
+      'Busca botones en la base de datos, impórtalos de otro mando o crea los tuyos.';
 
   @override
   String get createButtonTitle => 'Crear botón';
@@ -1980,7 +1980,7 @@ class AppLocalizationsEs extends AppLocalizations {
 
   @override
   String get importFromDatabaseSubtitle =>
-      'Elige un dispositivo, carga las teclas coincidentes y luego importa los botones seleccionados.';
+      'Busca tu dispositivo, elige los botones e impórtalos.';
 
   @override
   String get deviceAndFilters => 'Dispositivo y filtros';
@@ -4575,13 +4575,13 @@ class AppLocalizationsEs extends AppLocalizations {
   String get startWithDefault => 'Nombre predeterminado';
 
   @override
-  String get browseGithubStore => 'Explorar GitHub Store';
+  String get browseGithubStore => 'Explorar GitHub';
 
   @override
   String get addFirstButton => 'Añadir primer botón';
 
   @override
-  String get moreWaysToStart => 'Más formas de empezar';
+  String get moreWaysToStart => 'Otras formas de añadir botones';
 
   @override
   String get unsavedRemoteSetupChangesMessage =>

@@ -31,7 +31,7 @@ class AddButtonSheet extends StatelessWidget {
           Padding(
             padding: const EdgeInsets.symmetric(horizontal: 4),
             child: Text(
-              l10n.importFromRemotes,
+              l10n.moreWaysToStart,
               style: theme.textTheme.labelLarge?.copyWith(
                 color: cs.onSurfaceVariant,
                 fontWeight: FontWeight.w800,

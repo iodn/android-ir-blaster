@@ -1604,17 +1604,17 @@ class AppLocalizationsId extends AppLocalizations {
   String get importFromRemotes => 'Impor dari remote';
 
   @override
-  String get importFromDatabase => 'Impor dari DB';
+  String get importFromDatabase => 'Impor dari database';
 
   @override
   String get addButton => 'Tambah tombol';
 
   @override
-  String get noButtonsYet => 'Tidak ada tombol yet';
+  String get noButtonsYet => 'Belum ada tombol';
 
   @override
   String get createRemoteEmptyStateDescription =>
-      'Tambahkan tombol pertama, lalu tekan lama untuk opsi ubah/hapus.';
+      'Cari tombol di database, impor dari remote lain, atau buat tombol sendiri.';
 
   @override
   String get createButtonTitle => 'Buat Tombol';
@@ -1963,7 +1963,7 @@ class AppLocalizationsId extends AppLocalizations {
 
   @override
   String get importFromDatabaseSubtitle =>
-      'Pilih perangkat, muat tombol yang cocok, lalu impor tombol terpilih.';
+      'Cari perangkat Anda, pilih tombolnya, lalu impor.';
 
   @override
   String get deviceAndFilters => 'Perangkat & filters';
@@ -4551,13 +4551,13 @@ class AppLocalizationsId extends AppLocalizations {
   String get startWithDefault => 'Gunakan nama bawaan';
 
   @override
-  String get browseGithubStore => 'Telusuri GitHub Store';
+  String get browseGithubStore => 'Jelajahi GitHub';
 
   @override
   String get addFirstButton => 'Tambah tombol pertama';
 
   @override
-  String get moreWaysToStart => 'Cara lain untuk memulai';
+  String get moreWaysToStart => 'Cara lain menambahkan tombol';
 
   @override
   String get unsavedRemoteSetupChangesMessage =>
