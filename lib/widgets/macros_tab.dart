@@ -158,10 +158,12 @@ class _MacrosTabState extends State<MacrosTab> {
                         color: cs.primary,
                       ),
                       const SizedBox(width: 8),
-                      Text(
-                        context.l10n.exampleUseCase,
-                        style: theme.textTheme.titleSmall?.copyWith(
-                          fontWeight: FontWeight.w900,
+                      Expanded(
+                        child: Text(
+                          context.l10n.exampleUseCase,
+                          style: theme.textTheme.titleSmall?.copyWith(
+                            fontWeight: FontWeight.w900,
+                          ),
                         ),
                       ),
                     ],
@@ -331,34 +333,38 @@ class _MacrosTabState extends State<MacrosTab> {
                         const SizedBox(height: 4),
                         Row(
                           children: [
-                            Container(
-                              padding: const EdgeInsets.symmetric(
-                                horizontal: 8,
-                                vertical: 4,
-                              ),
-                              decoration: BoxDecoration(
-                                color: cs.secondaryContainer
-                                    .withValues(alpha: 0.5),
-                                borderRadius: BorderRadius.circular(8),
-                              ),
-                              child: Row(
-                                mainAxisSize: MainAxisSize.min,
-                                children: [
-                                  Icon(
-                                    Icons.format_list_numbered_rounded,
-                                    size: 12,
-                                    color: cs.onSecondaryContainer,
-                                  ),
-                                  const SizedBox(width: 4),
-                                  Text(
-                                    context.l10n.macroStepCountLabel(stepCount),
-                                    style: TextStyle(
-                                      fontSize: 11,
-                                      fontWeight: FontWeight.w800,
+                            Flexible(
+                              child: Container(
+                                padding: const EdgeInsets.symmetric(
+                                  horizontal: 8,
+                                  vertical: 4,
+                                ),
+                                decoration: BoxDecoration(
+                                  color: cs.secondaryContainer
+                                      .withValues(alpha: 0.5),
+                                  borderRadius: BorderRadius.circular(8),
+                                ),
+                                child: Row(
+                                  mainAxisSize: MainAxisSize.min,
+                                  children: [
+                                    Icon(
+                                      Icons.format_list_numbered_rounded,
+                                      size: 12,
                                       color: cs.onSecondaryContainer,
                                     ),
-                                  ),
-                                ],
+                                    const SizedBox(width: 4),
+                                    Flexible(
+                                      child: Text(
+                                        context.l10n.macroStepCountLabel(stepCount),
+                                        style: TextStyle(
+                                          fontSize: 11,
+                                          fontWeight: FontWeight.w800,
+                                          color: cs.onSecondaryContainer,
+                                        ),
+                                      ),
+                                    ),
+                                  ],
+                                ),
                               ),
                             ),
                           ],
@@ -438,7 +444,7 @@ class _MacrosTabState extends State<MacrosTab> {
       showDragHandle: true,
       isScrollControlled: true,
       builder: (ctx) {
-        return Padding(
+        return SingleChildScrollView(
           padding: const EdgeInsets.fromLTRB(24, 8, 24, 24),
           child: Column(
             mainAxisSize: MainAxisSize.min,
@@ -448,10 +454,12 @@ class _MacrosTabState extends State<MacrosTab> {
                 children: [
                   Icon(Icons.help_outline_rounded, color: cs.primary),
                   const SizedBox(width: 12),
-                  Text(
-                    context.l10n.aboutTimedMacros,
-                    style: theme.textTheme.titleLarge?.copyWith(
-                      fontWeight: FontWeight.w900,
+                  Expanded(
+                    child: Text(
+                      context.l10n.aboutTimedMacros,
+                      style: theme.textTheme.titleLarge?.copyWith(
+                        fontWeight: FontWeight.w900,
+                      ),
                     ),
                   ),
                 ],

@@ -1233,14 +1233,13 @@ class AppLocalizationsKo extends AppLocalizations {
   String get createMacro => '매크로 만들기';
 
   @override
-  String get timedMacrosTitle => '시간 지정 매크로';
+  String get timedMacrosTitle => '매크로';
 
   @override
-  String get timedMacrosSubtitle => '정확한 타이밍으로 IR 명령 시퀀스를 자동화';
+  String get timedMacrosSubtitle => '단계 사이에 대기 시간을 두고 여러 적외선 명령을 순서대로 실행하세요.';
 
   @override
-  String get timedMacrosNextStep =>
-      '다음 단계: 첫 매크로 만들기를 탭하고 리모컨을 고른 뒤 명령과 지연을 추가하세요.';
+  String get timedMacrosNextStep => '리모컨을 선택하고 명령과 대기 시간을 추가해 첫 매크로를 만들어 보세요.';
 
   @override
   String get macroFeatureToysTitle => '인터랙티브 장난감에 적합';
@@ -1288,30 +1287,29 @@ class AppLocalizationsKo extends AppLocalizations {
   }
 
   @override
-  String get aboutTimedMacros => '시간 지정 매크로 정보';
+  String get aboutTimedMacros => '매크로 안내';
 
   @override
   String get aboutTimedMacrosDescription =>
-      '시간 지정 매크로를 사용하면 각 단계 사이에 정확한 지연을 두고 IR 명령 시퀀스를 자동화할 수 있습니다.';
+      '단계 사이에 대기 시간을 두고 여러 적외선 명령을 순서대로 실행하세요.';
 
   @override
   String get sendCommand => '명령 전송';
 
   @override
-  String get sendCommandDescription => '리모컨의 IR 명령을 전송합니다.';
+  String get sendCommandDescription => '리모컨에 저장된 버튼의 적외선 신호를 보냅니다.';
 
   @override
   String get delay => '시간 대기';
 
   @override
-  String get delayDescription => '다음 단계 전 지정한 시간(예: 1000ms)만큼 기다립니다.';
+  String get delayDescription => '설정한 시간만큼 기다린 뒤 다음 단계로 넘어갑니다.';
 
   @override
   String get manualContinue => '확인 대기';
 
   @override
-  String get manualContinueDescription =>
-      '계속을 탭할 때까지 실행을 멈춥니다(길이가 일정하지 않은 애니메이션에 유용).';
+  String get manualContinueDescription => '계속을 누를 때까지 기다린 뒤 다음 단계로 넘어갑니다.';
 
   @override
   String get gotIt => '확인';

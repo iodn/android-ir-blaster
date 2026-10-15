@@ -1295,15 +1295,15 @@ class AppLocalizationsFr extends AppLocalizations {
   String get createMacro => 'Créer une macro';
 
   @override
-  String get timedMacrosTitle => 'Macros temporisées';
+  String get timedMacrosTitle => 'Macros';
 
   @override
   String get timedMacrosSubtitle =>
-      'Automatisez des séquences de commandes IR avec un timing précis';
+      'Exécutez une suite de commandes IR avec des temps d’attente entre les étapes.';
 
   @override
   String get timedMacrosNextStep =>
-      'Et ensuite : touchez Créer votre première macro, choisissez une télécommande, puis ajoutez commandes et délais.';
+      'Choisissez une télécommande, puis ajoutez des commandes et des temps d’attente pour créer votre première macro.';
 
   @override
   String get macroFeatureToysTitle => 'Parfait pour les jouets interactifs';
@@ -1351,32 +1351,32 @@ class AppLocalizationsFr extends AppLocalizations {
   }
 
   @override
-  String get aboutTimedMacros => 'À propos des macros temporisées';
+  String get aboutTimedMacros => 'À propos des macros';
 
   @override
   String get aboutTimedMacrosDescription =>
-      'Les macros temporisées vous permettent d\'automatiser des séquences de commandes IR avec des délais précis entre chaque étape.';
+      'Exécutez une suite de commandes IR avec des temps d’attente entre les étapes.';
 
   @override
   String get sendCommand => 'Envoyer commande';
 
   @override
   String get sendCommandDescription =>
-      'Transmet une commande IR depuis votre télécommande.';
+      'Envoie le signal IR d’un bouton enregistré dans votre télécommande.';
 
   @override
   String get delay => 'Délai';
 
   @override
   String get delayDescription =>
-      'Attend une durée donnée (ex. 1000 ms) avant l\'étape suivante.';
+      'Attend la durée choisie avant de passer à l’étape suivante.';
 
   @override
   String get manualContinue => 'Attendre la confirmation';
 
   @override
   String get manualContinueDescription =>
-      'Met l\'exécution en pause jusqu\'à ce que vous touchiez Continuer (utile pour les animations à durée variable).';
+      'Attend que vous appuyiez sur Continuer avant de passer à l’étape suivante.';
 
   @override
   String get gotIt => 'J\'ai compris';

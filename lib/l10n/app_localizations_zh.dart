@@ -1189,13 +1189,13 @@ class AppLocalizationsZh extends AppLocalizations {
   String get createMacro => '创建宏';
 
   @override
-  String get timedMacrosTitle => '定时宏';
+  String get timedMacrosTitle => '宏';
 
   @override
-  String get timedMacrosSubtitle => '以精确定时自动执行一系列红外命令';
+  String get timedMacrosSubtitle => '依次执行红外命令，并在步骤之间加入等待时间。';
 
   @override
-  String get timedMacrosNextStep => '下一步 点击创建你的第一个宏，选择一个遥控器，然后添加命令和延迟。';
+  String get timedMacrosNextStep => '选择遥控器，然后添加命令和等待时间，即可创建第一个宏。';
 
   @override
   String get macroFeatureToysTitle => '非常适合互动玩具';
@@ -1242,28 +1242,28 @@ class AppLocalizationsZh extends AppLocalizations {
   }
 
   @override
-  String get aboutTimedMacros => '关于定时宏';
+  String get aboutTimedMacros => '关于宏';
 
   @override
-  String get aboutTimedMacrosDescription => '定时宏可让你以精确延迟自动执行一系列红外命令。';
+  String get aboutTimedMacrosDescription => '依次执行红外命令，并在步骤之间加入等待时间。';
 
   @override
   String get sendCommand => '发送命令';
 
   @override
-  String get sendCommandDescription => '发送来自遥控器的红外命令。';
+  String get sendCommandDescription => '发送遥控器中已保存按钮的红外信号。';
 
   @override
   String get delay => '定时等待';
 
   @override
-  String get delayDescription => '在下一步前等待指定时长 例如 1000ms。';
+  String get delayDescription => '等待设定的时间后，再执行下一步。';
 
   @override
   String get manualContinue => '等待确认';
 
   @override
-  String get manualContinueDescription => '暂停执行，直到你点击继续 适合时长不固定的动画。';
+  String get manualContinueDescription => '等待您点击“继续”后，再执行下一步。';
 
   @override
   String get gotIt => '知道了';

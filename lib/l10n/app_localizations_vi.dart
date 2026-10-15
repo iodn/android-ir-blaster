@@ -1275,15 +1275,15 @@ class AppLocalizationsVi extends AppLocalizations {
   String get createMacro => 'Tạo macro';
 
   @override
-  String get timedMacrosTitle => 'Macro hẹn giờ';
+  String get timedMacrosTitle => 'Macro';
 
   @override
   String get timedMacrosSubtitle =>
-      'Tự động hóa chuỗi lệnh IR với thời gian chính xác';
+      'Chạy chuỗi lệnh hồng ngoại với thời gian chờ giữa các bước.';
 
   @override
   String get timedMacrosNextStep =>
-      'Tiếp theo: chạm Tạo macro đầu tiên, chọn điều khiển rồi thêm lệnh và độ trễ.';
+      'Chọn điều khiển, rồi thêm lệnh và thời gian chờ để tạo macro đầu tiên.';
 
   @override
   String get macroFeatureToysTitle => 'Rất hợp cho đồ chơi tương tác';
@@ -1331,31 +1331,32 @@ class AppLocalizationsVi extends AppLocalizations {
   }
 
   @override
-  String get aboutTimedMacros => 'Về macro hẹn giờ';
+  String get aboutTimedMacros => 'Giới thiệu về macro';
 
   @override
   String get aboutTimedMacrosDescription =>
-      'Macro hẹn giờ cho phép bạn tự động hóa chuỗi lệnh IR với độ trễ chính xác giữa từng bước.';
+      'Chạy chuỗi lệnh hồng ngoại với thời gian chờ giữa các bước.';
 
   @override
   String get sendCommand => 'Gửi lệnh';
 
   @override
-  String get sendCommandDescription => 'Gửi một lệnh IR từ điều khiển của bạn.';
+  String get sendCommandDescription =>
+      'Gửi tín hiệu hồng ngoại của nút đã lưu trong điều khiển.';
 
   @override
   String get delay => 'Thời gian chờ';
 
   @override
   String get delayDescription =>
-      'Waits for a specified duration (vd. 1000ms) before the next step.';
+      'Chờ theo thời gian bạn đặt trước khi sang bước tiếp theo.';
 
   @override
   String get manualContinue => 'Chờ xác nhận';
 
   @override
   String get manualContinueDescription =>
-      'Tạm dừng cho đến khi bạn chạm Tiếp tục (hữu ích với hoạt ảnh có độ dài thay đổi).';
+      'Chờ bạn nhấn Tiếp tục trước khi sang bước tiếp theo.';
 
   @override
   String get gotIt => 'Đã hiểu';

@@ -1301,15 +1301,15 @@ class AppLocalizationsDe extends AppLocalizations {
   String get createMacro => 'Makro erstellen';
 
   @override
-  String get timedMacrosTitle => 'Zeitgesteuerte Makros';
+  String get timedMacrosTitle => 'Makros';
 
   @override
   String get timedMacrosSubtitle =>
-      'Automatisiere IR-Befehlsfolgen mit präzisem Timing';
+      'Führe mehrere IR-Befehle mit Wartezeiten zwischen den Schritten aus.';
 
   @override
   String get timedMacrosNextStep =>
-      'Als Nächstes: Tippe auf Dein erstes Makro erstellen, wähle eine Fernbedienung und füge dann Befehle und Pausen hinzu.';
+      'Wähle eine Fernbedienung und füge Befehle und Wartezeiten für dein erstes Makro hinzu.';
 
   @override
   String get macroFeatureToysTitle => 'Perfekt für interaktive Spielzeuge';
@@ -1357,32 +1357,32 @@ class AppLocalizationsDe extends AppLocalizations {
   }
 
   @override
-  String get aboutTimedMacros => 'Über zeitgesteuerte Makros';
+  String get aboutTimedMacros => 'Über Makros';
 
   @override
   String get aboutTimedMacrosDescription =>
-      'Zeitgesteuerte Makros automatisieren Folgen von IR-Befehlen mit genauen Verzögerungen zwischen den Schritten.';
+      'Führe mehrere IR-Befehle mit Wartezeiten zwischen den Schritten aus.';
 
   @override
   String get sendCommand => 'Befehl senden';
 
   @override
   String get sendCommandDescription =>
-      'Sendet einen IR-Befehl von deiner Fernbedienung.';
+      'Sendet das IR-Signal einer gespeicherten Fernbedienungstaste.';
 
   @override
   String get delay => 'Wartezeit';
 
   @override
   String get delayDescription =>
-      'Wartet eine festgelegte Dauer etwa 1000 ms vor dem nächsten Schritt.';
+      'Wartet die eingestellte Zeit, bevor der nächste Schritt beginnt.';
 
   @override
   String get manualContinue => 'Auf Bestätigung warten';
 
   @override
   String get manualContinueDescription =>
-      'Pausiert bis du auf Weiter tippst nützlich bei variabler Animationslänge.';
+      'Wartet, bis du auf Weiter tippst, bevor der nächste Schritt beginnt.';
 
   @override
   String get gotIt => 'Verstanden';

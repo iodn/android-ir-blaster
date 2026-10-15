@@ -1295,15 +1295,15 @@ class AppLocalizationsEs extends AppLocalizations {
   String get createMacro => 'Crear macro';
 
   @override
-  String get timedMacrosTitle => 'Macros temporizadas';
+  String get timedMacrosTitle => 'Macros';
 
   @override
   String get timedMacrosSubtitle =>
-      'Automatiza secuencias de comandos IR con temporización precisa';
+      'Ejecuta una secuencia de comandos IR con pausas entre los pasos.';
 
   @override
   String get timedMacrosNextStep =>
-      'Siguiente paso: toca Crear tu primera macro, elige un mando y añade comandos y pausas.';
+      'Elige un mando y añade comandos y pausas para crear tu primera macro.';
 
   @override
   String get macroFeatureToysTitle => 'Perfecto para juguetes interactivos';
@@ -1351,31 +1351,32 @@ class AppLocalizationsEs extends AppLocalizations {
   }
 
   @override
-  String get aboutTimedMacros => 'Sobre las macros temporizadas';
+  String get aboutTimedMacros => 'Acerca de las macros';
 
   @override
   String get aboutTimedMacrosDescription =>
-      'Las macros temporizadas te permiten automatizar secuencias de comandos IR con pausas precisas entre pasos.';
+      'Ejecuta una secuencia de comandos IR con pausas entre los pasos.';
 
   @override
   String get sendCommand => 'Enviar comando';
 
   @override
-  String get sendCommandDescription => 'Transmite un comando IR de tu mando.';
+  String get sendCommandDescription =>
+      'Envía la señal IR de un botón guardado en tu mando.';
 
   @override
   String get delay => 'Espera';
 
   @override
   String get delayDescription =>
-      'Espera una duración indicada (p. ej. 1000 ms) antes del siguiente paso.';
+      'Espera el tiempo que indiques antes de pasar al siguiente paso.';
 
   @override
   String get manualContinue => 'Esperar confirmación';
 
   @override
   String get manualContinueDescription =>
-      'Pausa la ejecución hasta que toques Continuar (útil para animaciones de duración variable).';
+      'Espera a que toques Continuar antes de pasar al siguiente paso.';
 
   @override
   String get gotIt => 'Entendido';

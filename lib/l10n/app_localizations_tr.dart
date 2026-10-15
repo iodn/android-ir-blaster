@@ -1284,15 +1284,15 @@ class AppLocalizationsTr extends AppLocalizations {
   String get createMacro => 'Makro oluştur';
 
   @override
-  String get timedMacrosTitle => 'Timed Makrolar';
+  String get timedMacrosTitle => 'Makrolar';
 
   @override
   String get timedMacrosSubtitle =>
-      'Automate sequences of IR commands with precise timing';
+      'IR komutlarını adımlar arasında bekleyerek sırayla çalıştırın.';
 
   @override
   String get timedMacrosNextStep =>
-      'Sonraki adım: İlk Makronu Oluştur\'a dokun, bir kumanda seç, sonra komutlar ve gecikmeler ekle.';
+      'İlk makronuzu oluşturmak için bir kumanda seçin, ardından komutlar ve bekleme süreleri ekleyin.';
 
   @override
   String get macroFeatureToysTitle => 'Etkileşimli oyuncaklar için ideal';
@@ -1340,31 +1340,32 @@ class AppLocalizationsTr extends AppLocalizations {
   }
 
   @override
-  String get aboutTimedMacros => 'About Timed Makrolar';
+  String get aboutTimedMacros => 'Makrolar hakkında';
 
   @override
   String get aboutTimedMacrosDescription =>
-      'Zamanlı Makrolar, her adım arasında hassas gecikmelerle IR komut dizilerini otomatikleştirmenizi sağlar.';
+      'IR komutlarını adımlar arasında bekleyerek sırayla çalıştırın.';
 
   @override
   String get sendCommand => 'Komut Gönder';
 
   @override
-  String get sendCommandDescription => 'Kumandanızdan bir IR komutu gönderir.';
+  String get sendCommandDescription =>
+      'Kumandanızda kayıtlı bir düğmenin IR sinyalini gönderir.';
 
   @override
   String get delay => 'Bekleme süresi';
 
   @override
   String get delayDescription =>
-      'Bir sonraki adımdan önce belirtilen süre kadar bekler (örn. 1000 ms).';
+      'Sonraki adıma geçmeden önce belirlediğiniz süre kadar bekler.';
 
   @override
   String get manualContinue => 'Onay bekle';
 
   @override
   String get manualContinueDescription =>
-      'Devam Et\'e dokunana kadar yürütmeyi duraklatır (değişken uzunluklu animasyonlar için kullanışlıdır).';
+      'Sonraki adıma geçmeden önce Devam et\'e dokunmanızı bekler.';
 
   @override
   String get gotIt => 'Got it';

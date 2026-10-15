@@ -1274,15 +1274,15 @@ class AppLocalizationsTh extends AppLocalizations {
   String get createMacro => 'สร้างมาโคร';
 
   @override
-  String get timedMacrosTitle => 'Timed แมโครs';
+  String get timedMacrosTitle => 'มาโคร';
 
   @override
   String get timedMacrosSubtitle =>
-      'Automate sequences of IR commands with precise timing';
+      'ส่งคำสั่งอินฟราเรดตามลำดับ โดยกำหนดเวลารอระหว่างขั้นตอนได้';
 
   @override
   String get timedMacrosNextStep =>
-      'ขั้นต่อไป แตะ สร้างแมโครแรกของคุณ เลือกรีโมต แล้วเพิ่มคำสั่งและช่วงหน่วง';
+      'เลือกรีโมต แล้วเพิ่มคำสั่งและเวลารอเพื่อสร้างมาโครแรกของคุณ';
 
   @override
   String get macroFeatureToysTitle => 'เหมาะสำหรับของเล่นแบบโต้ตอบ';
@@ -1330,31 +1330,31 @@ class AppLocalizationsTh extends AppLocalizations {
   }
 
   @override
-  String get aboutTimedMacros => 'เกี่ยวกับแมโครตั้งเวลา';
+  String get aboutTimedMacros => 'เกี่ยวกับมาโคร';
 
   @override
   String get aboutTimedMacrosDescription =>
-      'แมโครตั้งเวลาช่วยให้คุณทำลำดับคำสั่ง IR อัตโนมัติด้วยการหน่วงเวลาที่แม่นยำในแต่ละขั้น';
+      'ส่งคำสั่งอินฟราเรดตามลำดับ โดยกำหนดเวลารอระหว่างขั้นตอนได้';
 
   @override
   String get sendCommand => 'ส่งคำสั่ง';
 
   @override
   String get sendCommandDescription =>
-      'Transmits an IR command from your remote.';
+      'ส่งสัญญาณอินฟราเรดของปุ่มที่บันทึกไว้ในรีโมต';
 
   @override
   String get delay => 'เวลารอ';
 
   @override
-  String get delayDescription => 'รอตามเวลาที่กำหนด เช่น 1000ms ก่อนขั้นถัดไป';
+  String get delayDescription => 'รอตามเวลาที่ตั้งไว้ก่อนทำขั้นตอนถัดไป';
 
   @override
   String get manualContinue => 'รอการยืนยัน';
 
   @override
   String get manualContinueDescription =>
-      'หยุดการทำงานไว้จนกว่าคุณจะแตะ ทำต่อ เหมาะกับแอนิเมชันที่ความยาวไม่คงที่';
+      'รอจนกว่าคุณจะแตะ ดำเนินการต่อ ก่อนทำขั้นตอนถัดไป';
 
   @override
   String get gotIt => 'Got it';

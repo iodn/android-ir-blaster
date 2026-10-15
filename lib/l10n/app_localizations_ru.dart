@@ -1283,15 +1283,15 @@ class AppLocalizationsRu extends AppLocalizations {
   String get createMacro => 'Создать макрос';
 
   @override
-  String get timedMacrosTitle => 'Макросы с таймингом';
+  String get timedMacrosTitle => 'Макросы';
 
   @override
   String get timedMacrosSubtitle =>
-      'Автоматизируйте последовательности ИК-команд с точным таймингом';
+      'Выполняйте ИК-команды по очереди с паузами между шагами.';
 
   @override
   String get timedMacrosNextStep =>
-      'Что дальше: нажмите \"Создать первый макрос\", выберите пульт, затем добавьте команды и задержки.';
+      'Выберите пульт, затем добавьте команды и паузы, чтобы создать первый макрос.';
 
   @override
   String get macroFeatureToysTitle => 'Идеально для интерактивных игрушек';
@@ -1339,31 +1339,32 @@ class AppLocalizationsRu extends AppLocalizations {
   }
 
   @override
-  String get aboutTimedMacros => 'О макросах с таймингом';
+  String get aboutTimedMacros => 'О макросах';
 
   @override
   String get aboutTimedMacrosDescription =>
-      'Макросы с таймингом позволяют автоматизировать последовательности ИК-команд с точными задержками между шагами.';
+      'Выполняйте ИК-команды по очереди с паузами между шагами.';
 
   @override
   String get sendCommand => 'Отправить команду';
 
   @override
-  String get sendCommandDescription => 'Отправляет ИК-команду с вашего пульта.';
+  String get sendCommandDescription =>
+      'Отправляет ИК-сигнал сохранённой кнопки пульта.';
 
   @override
   String get delay => 'Время ожидания';
 
   @override
   String get delayDescription =>
-      'Ждёт указанное время, например 1000 мс, перед следующим шагом.';
+      'Ждёт указанное время перед переходом к следующему шагу.';
 
   @override
   String get manualContinue => 'Ждать подтверждения';
 
   @override
   String get manualContinueDescription =>
-      'Приостанавливает выполнение до нажатия Продолжить. Полезно для анимаций переменной длины.';
+      'Ждёт нажатия «Продолжить» перед переходом к следующему шагу.';
 
   @override
   String get gotIt => 'Понятно';

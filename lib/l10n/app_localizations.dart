@@ -2361,19 +2361,19 @@ abstract class AppLocalizations {
   /// No description provided for @timedMacrosTitle.
   ///
   /// In en, this message translates to:
-  /// **'Timed Macros'**
+  /// **'Macros'**
   String get timedMacrosTitle;
 
   /// No description provided for @timedMacrosSubtitle.
   ///
   /// In en, this message translates to:
-  /// **'Automate sequences of IR commands with precise timing'**
+  /// **'Run a sequence of IR commands with waits between steps.'**
   String get timedMacrosSubtitle;
 
   /// No description provided for @timedMacrosNextStep.
   ///
   /// In en, this message translates to:
-  /// **'What next: tap Create Your First Macro, pick a remote, then add commands and delays.'**
+  /// **'Choose a remote, then add commands and waits to create your first macro.'**
   String get timedMacrosNextStep;
 
   /// No description provided for @macroFeatureToysTitle.
@@ -2445,13 +2445,13 @@ abstract class AppLocalizations {
   /// No description provided for @aboutTimedMacros.
   ///
   /// In en, this message translates to:
-  /// **'About Timed Macros'**
+  /// **'About macros'**
   String get aboutTimedMacros;
 
   /// No description provided for @aboutTimedMacrosDescription.
   ///
   /// In en, this message translates to:
-  /// **'Timed Macros let you automate sequences of IR commands with precise delays between each step.'**
+  /// **'Run a sequence of IR commands with waits between steps.'**
   String get aboutTimedMacrosDescription;
 
   /// No description provided for @sendCommand.
@@ -2463,7 +2463,7 @@ abstract class AppLocalizations {
   /// No description provided for @sendCommandDescription.
   ///
   /// In en, this message translates to:
-  /// **'Transmits an IR command from your remote.'**
+  /// **'Sends the IR signal of a button saved in your remote.'**
   String get sendCommandDescription;
 
   /// No description provided for @delay.
@@ -2475,7 +2475,7 @@ abstract class AppLocalizations {
   /// No description provided for @delayDescription.
   ///
   /// In en, this message translates to:
-  /// **'Waits for a specified duration (e.g., 1000ms) before the next step.'**
+  /// **'Waits for the time you set before moving to the next step.'**
   String get delayDescription;
 
   /// No description provided for @manualContinue.
@@ -2487,7 +2487,7 @@ abstract class AppLocalizations {
   /// No description provided for @manualContinueDescription.
   ///
   /// In en, this message translates to:
-  /// **'Pauses execution until you tap Continue (useful for variable-length animations).'**
+  /// **'Waits until you tap Continue before moving to the next step.'**
   String get manualContinueDescription;
 
   /// No description provided for @gotIt.

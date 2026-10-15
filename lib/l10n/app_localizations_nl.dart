@@ -1306,15 +1306,15 @@ class AppLocalizationsNl extends AppLocalizations {
   String get createMacro => 'Macro maken';
 
   @override
-  String get timedMacrosTitle => 'Getimede macro\'s';
+  String get timedMacrosTitle => 'Macro’s';
 
   @override
   String get timedMacrosSubtitle =>
-      'Automatiseer reeksen IR-opdrachten met nauwkeurige timing';
+      'Voer een reeks IR-opdrachten uit met wachttijden tussen de stappen.';
 
   @override
   String get timedMacrosNextStep =>
-      'Wat nu tik op Maak je eerste macro, kies een afstandsbediening en voeg daarna opdrachten en vertragingen toe.';
+      'Kies een afstandsbediening en voeg opdrachten en wachttijden toe om je eerste macro te maken.';
 
   @override
   String get macroFeatureToysTitle => 'Perfect voor interactief speelgoed';
@@ -1362,32 +1362,32 @@ class AppLocalizationsNl extends AppLocalizations {
   }
 
   @override
-  String get aboutTimedMacros => 'Over getimede macro\'s';
+  String get aboutTimedMacros => 'Over macro’s';
 
   @override
   String get aboutTimedMacrosDescription =>
-      'Getimede macro\'s laten je reeksen IR-opdrachten automatiseren met precieze vertragingen tussen elke stap.';
+      'Voer een reeks IR-opdrachten uit met wachttijden tussen de stappen.';
 
   @override
   String get sendCommand => 'Opdracht verzenden';
 
   @override
   String get sendCommandDescription =>
-      'Verzendt een IR-opdracht vanaf je afstandsbediening.';
+      'Verzendt het IR-signaal van een opgeslagen knop op je afstandsbediening.';
 
   @override
   String get delay => 'Wachttijd';
 
   @override
   String get delayDescription =>
-      'Wacht een opgegeven duur bijvoorbeeld 1000ms vóór de volgende stap.';
+      'Wacht de ingestelde tijd voordat de volgende stap begint.';
 
   @override
   String get manualContinue => 'Wacht op bevestiging';
 
   @override
   String get manualContinueDescription =>
-      'Pauzes execution until you tap Doorgaan (useful for variable-length animations).';
+      'Wacht tot je op Doorgaan tikt voordat de volgende stap begint.';
 
   @override
   String get gotIt => 'Begrepen';

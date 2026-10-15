@@ -1297,15 +1297,15 @@ class AppLocalizationsPt extends AppLocalizations {
   String get createMacro => 'Criar macro';
 
   @override
-  String get timedMacrosTitle => 'Macros temporizadas';
+  String get timedMacrosTitle => 'Macros';
 
   @override
   String get timedMacrosSubtitle =>
-      'Automatiza secuencias de comandos IR con temporización precisa';
+      'Execute uma sequência de comandos IR com pausas entre os passos.';
 
   @override
   String get timedMacrosNextStep =>
-      'Seguinte passo: toque em Criar a sua primeira macro, escolha um comando e depois adicione comandos e pausas.';
+      'Escolha um comando e adicione ações e pausas para criar a sua primeira macro.';
 
   @override
   String get macroFeatureToysTitle => 'Perfecto para brinquedos interactivos';
@@ -1353,32 +1353,32 @@ class AppLocalizationsPt extends AppLocalizations {
   }
 
   @override
-  String get aboutTimedMacros => 'Sobre as macros temporizadas';
+  String get aboutTimedMacros => 'Acerca das macros';
 
   @override
   String get aboutTimedMacrosDescription =>
-      'As macros temporizadas permitem automatizar sequências de comandos IR com pausas precisas entre cada passo.';
+      'Execute uma sequência de comandos IR com pausas entre os passos.';
 
   @override
   String get sendCommand => 'Enviar comando';
 
   @override
   String get sendCommandDescription =>
-      'Transmite um comando IR do seu comando.';
+      'Envia o sinal IR de um botão guardado no seu comando.';
 
   @override
   String get delay => 'Espera';
 
   @override
   String get delayDescription =>
-      'Espera uma duración indicada (p. ej. 1000 ms) antes do seguinte passo.';
+      'Aguarda o tempo definido antes de avançar para o passo seguinte.';
 
   @override
   String get manualContinue => 'Aguardar confirmação';
 
   @override
   String get manualContinueDescription =>
-      'Pausa a execução até tocar em Continuar (útil para animações de duração variável).';
+      'Aguarda que toque em Continuar antes de avançar para o passo seguinte.';
 
   @override
   String get gotIt => 'Entendido';
@@ -6578,15 +6578,15 @@ class AppLocalizationsPtBr extends AppLocalizationsPt {
   String get createMacro => 'Criar macro';
 
   @override
-  String get timedMacrosTitle => 'Macros temporizadas';
+  String get timedMacrosTitle => 'Macros';
 
   @override
   String get timedMacrosSubtitle =>
-      'Automatiza secuencias de controles IR con temporización precisa';
+      'Execute uma sequência de comandos IR com pausas entre as etapas.';
 
   @override
   String get timedMacrosNextStep =>
-      'Próximo passo: toque em Criar sua primeira macro, escolha um controle e depois adicione comandos e pausas.';
+      'Escolha um controle e adicione comandos e pausas para criar sua primeira macro.';
 
   @override
   String get macroFeatureToysTitle => 'Perfecto para brinquedos interactivos';
@@ -6634,32 +6634,32 @@ class AppLocalizationsPtBr extends AppLocalizationsPt {
   }
 
   @override
-  String get aboutTimedMacros => 'Sobre as macros temporizadas';
+  String get aboutTimedMacros => 'Sobre as macros';
 
   @override
   String get aboutTimedMacrosDescription =>
-      'As macros temporizadas permitem automatizar sequências de comandos IR com atrasos precisos entre cada passo.';
+      'Execute uma sequência de comandos IR com pausas entre as etapas.';
 
   @override
   String get sendCommand => 'Enviar controle';
 
   @override
   String get sendCommandDescription =>
-      'Transmite um comando IR do seu controle.';
+      'Envia o sinal IR de um botão salvo no seu controle.';
 
   @override
   String get delay => 'Espera';
 
   @override
   String get delayDescription =>
-      'Espera uma duración indicada (p. ej. 1000 ms) antes do seguinte passo.';
+      'Aguarda o tempo definido antes de avançar para a próxima etapa.';
 
   @override
   String get manualContinue => 'Aguardar confirmação';
 
   @override
   String get manualContinueDescription =>
-      'Pausa a execução até você tocar em Continuar (útil para animações de duração variável).';
+      'Aguarda você tocar em Continuar antes de avançar para a próxima etapa.';
 
   @override
   String get gotIt => 'Entendido';

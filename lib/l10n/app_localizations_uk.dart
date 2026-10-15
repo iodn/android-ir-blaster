@@ -1302,15 +1302,15 @@ class AppLocalizationsUk extends AppLocalizations {
   String get createMacro => 'Створити макрос';
 
   @override
-  String get timedMacrosTitle => 'Тимчасові макроси';
+  String get timedMacrosTitle => 'Макроси';
 
   @override
   String get timedMacrosSubtitle =>
-      'Автоматизуйте послідовності ІЧ-команд із точним синхронізацією';
+      'Виконуйте ІЧ-команди послідовно з паузами між кроками.';
 
   @override
   String get timedMacrosNextStep =>
-      'Що далі: натисніть «Створити свій перший макрос», виберіть пульт, а потім додайте команди та затримки.';
+      'Виберіть пульт, а потім додайте команди й паузи, щоб створити перший макрос.';
 
   @override
   String get macroFeatureToysTitle =>
@@ -1361,31 +1361,32 @@ class AppLocalizationsUk extends AppLocalizations {
   }
 
   @override
-  String get aboutTimedMacros => 'Про тимчасові макроси';
+  String get aboutTimedMacros => 'Про макроси';
 
   @override
   String get aboutTimedMacrosDescription =>
-      'Тимчасові макроси дозволяють автоматизувати послідовності ІЧ-команд із точними затримками між кожним кроком.';
+      'Виконуйте ІЧ-команди послідовно з паузами між кроками.';
 
   @override
   String get sendCommand => 'Надіслати команду';
 
   @override
-  String get sendCommandDescription => 'Передає ІЧ-команду з пульта.';
+  String get sendCommandDescription =>
+      'Надсилає ІЧ-сигнал збереженої кнопки пульта.';
 
   @override
   String get delay => 'Час очікування';
 
   @override
   String get delayDescription =>
-      'Очікує певний час (наприклад, 1000 мс) перед наступним кроком.';
+      'Чекає заданий час перед переходом до наступного кроку.';
 
   @override
   String get manualContinue => 'Чекати підтвердження';
 
   @override
   String get manualContinueDescription =>
-      'Призупиняє виконання, доки ви не торкнете Продовжити (корисно для анімації змінної довжини).';
+      'Чекає на натискання «Продовжити» перед переходом до наступного кроку.';
 
   @override
   String get gotIt => 'зрозумів';

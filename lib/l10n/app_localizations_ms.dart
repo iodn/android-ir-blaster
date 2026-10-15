@@ -1283,15 +1283,15 @@ class AppLocalizationsMs extends AppLocalizations {
   String get createMacro => 'Cipta makro';
 
   @override
-  String get timedMacrosTitle => 'Makro Terjadwal';
+  String get timedMacrosTitle => 'Makro';
 
   @override
   String get timedMacrosSubtitle =>
-      'Automasikan urutan arahan IR dengan masa yang tepat';
+      'Jalankan urutan arahan IR dengan masa menunggu antara langkah.';
 
   @override
   String get timedMacrosNextStep =>
-      'Berikutnya: tekan Buat Makro Pertama, pilih remote, kemudian tambahkan perintah dan jeda.';
+      'Pilih alat kawalan jauh, kemudian tambah arahan dan masa menunggu untuk mencipta makro pertama anda.';
 
   @override
   String get macroFeatureToysTitle => 'Cocok untuk Mainan Interaktif';
@@ -1339,31 +1339,32 @@ class AppLocalizationsMs extends AppLocalizations {
   }
 
   @override
-  String get aboutTimedMacros => 'Tentang Makro Terjadwal';
+  String get aboutTimedMacros => 'Tentang makro';
 
   @override
   String get aboutTimedMacrosDescription =>
-      'Makro Berjadual membolehkan anda mengautomasikan urutan arahan IR dengan jeda tepat pada setiap langkah.';
+      'Jalankan urutan arahan IR dengan masa menunggu antara langkah.';
 
   @override
   String get sendCommand => 'Kirim Perintah';
 
   @override
-  String get sendCommandDescription => 'Menghantar arahan IR dari remote anda.';
+  String get sendCommandDescription =>
+      'Menghantar isyarat IR bagi butang yang disimpan dalam alat kawalan jauh anda.';
 
   @override
   String get delay => 'Masa menunggu';
 
   @override
   String get delayDescription =>
-      'Menunggu durasi tertentu (cth. 1000ms) sebelum langkah berikutnya.';
+      'Menunggu selama tempoh yang anda tetapkan sebelum langkah seterusnya.';
 
   @override
   String get manualContinue => 'Tunggu pengesahan';
 
   @override
   String get manualContinueDescription =>
-      'Menjeda eksekusi sampai Anda mengetuk Lanjut (berguna untuk animasi dengan durasi bervariasi).';
+      'Menunggu sehingga anda mengetik Teruskan sebelum langkah seterusnya.';
 
   @override
   String get gotIt => 'Mengerti';

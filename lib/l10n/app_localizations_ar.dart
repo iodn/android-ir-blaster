@@ -1268,14 +1268,15 @@ class AppLocalizationsAr extends AppLocalizations {
   String get createMacro => 'إنشاء ماكرو';
 
   @override
-  String get timedMacrosTitle => 'ماكرو مؤقت';
+  String get timedMacrosTitle => 'الماكرو';
 
   @override
-  String get timedMacrosSubtitle => 'أتمتة تسلسلات أوامر IR بتوقيت دقيق';
+  String get timedMacrosSubtitle =>
+      'شغّل سلسلة من أوامر الأشعة تحت الحمراء مع فترات انتظار بين الخطوات.';
 
   @override
   String get timedMacrosNextStep =>
-      'الخطوة التالية: اضغط إنشاء أول ماكرو، اختر جهاز تحكم، ثم أضف الأوامر وفترات التأخير.';
+      'اختر جهاز تحكم، ثم أضف أوامر وفترات انتظار لإنشاء أول ماكرو.';
 
   @override
   String get macroFeatureToysTitle => 'مثالي للألعاب التفاعلية';
@@ -1323,31 +1324,32 @@ class AppLocalizationsAr extends AppLocalizations {
   }
 
   @override
-  String get aboutTimedMacros => 'حول الماكرو المؤقت';
+  String get aboutTimedMacros => 'حول الماكرو';
 
   @override
   String get aboutTimedMacrosDescription =>
-      'تتيح لك وحدات الماكرو المؤقتة أتمتة تسلسلات أوامر IR مع تأخيرات دقيقة بين كل خطوة.';
+      'شغّل سلسلة من أوامر الأشعة تحت الحمراء مع فترات انتظار بين الخطوات.';
 
   @override
   String get sendCommand => 'إرسال Command';
 
   @override
-  String get sendCommandDescription => 'يرسل أمر IR من جهاز التحكم الخاص بك.';
+  String get sendCommandDescription =>
+      'يرسل إشارة الأشعة تحت الحمراء لزر محفوظ في جهاز التحكم.';
 
   @override
   String get delay => 'تأخير';
 
   @override
   String get delayDescription =>
-      'ينتظر مدة محددة، مثل 1000ms، قبل الخطوة التالية.';
+      'ينتظر المدة التي تحددها قبل الانتقال إلى الخطوة التالية.';
 
   @override
   String get manualContinue => 'انتظار التأكيد';
 
   @override
   String get manualContinueDescription =>
-      'يوقف التنفيذ حتى تضغط متابعة، مفيد للحركات ذات الطول المتغير.';
+      'ينتظر حتى تضغط على متابعة للانتقال إلى الخطوة التالية.';
 
   @override
   String get gotIt => 'فهمت';
@@ -6485,14 +6487,15 @@ class AppLocalizationsArEg extends AppLocalizationsAr {
   String get createMacro => 'إنشاء ماكرو';
 
   @override
-  String get timedMacrosTitle => 'ماكرو مؤقت';
+  String get timedMacrosTitle => 'الماكرو';
 
   @override
-  String get timedMacrosSubtitle => 'أتمتة تسلسلات أوامر IR بتوقيت دقيق';
+  String get timedMacrosSubtitle =>
+      'شغّل أوامر الأشعة تحت الحمراء ورا بعض، مع وقت انتظار بين الخطوات.';
 
   @override
   String get timedMacrosNextStep =>
-      'الخطوة التالية: اضغط إنشاء أول ماكرو، اختر جهاز تحكم، ثم أضف الأوامر وفترات التأخير.';
+      'اختار ريموت، وبعدها ضيف أوامر وأوقات انتظار عشان تعمل أول ماكرو.';
 
   @override
   String get macroFeatureToysTitle => 'مثالي للألعاب التفاعلية';
@@ -6540,31 +6543,32 @@ class AppLocalizationsArEg extends AppLocalizationsAr {
   }
 
   @override
-  String get aboutTimedMacros => 'حول الماكرو المؤقت';
+  String get aboutTimedMacros => 'عن الماكرو';
 
   @override
   String get aboutTimedMacrosDescription =>
-      'تتيح لك وحدات الماكرو المؤقتة أتمتة تسلسلات أوامر IR مع تأخيرات دقيقة بين كل خطوة.';
+      'شغّل أوامر الأشعة تحت الحمراء ورا بعض، مع وقت انتظار بين الخطوات.';
 
   @override
   String get sendCommand => 'إرسال Command';
 
   @override
-  String get sendCommandDescription => 'يرسل أمر IR من جهاز التحكم الخاص بك.';
+  String get sendCommandDescription =>
+      'بيبعت إشارة الأشعة تحت الحمراء لزر محفوظ في الريموت.';
 
   @override
   String get delay => 'تأخير';
 
   @override
   String get delayDescription =>
-      'ينتظر مدة محددة، مثل 1000ms، قبل الخطوة التالية.';
+      'بيستنى المدة اللي تحددها قبل ما يروح للخطوة اللي بعدها.';
 
   @override
   String get manualContinue => 'انتظار التأكيد';
 
   @override
   String get manualContinueDescription =>
-      'يوقف التنفيذ حتى تضغط متابعة، مفيد للحركات ذات الطول المتغير.';
+      'بيستنى لحد ما تضغط على متابعة عشان يروح للخطوة اللي بعدها.';
 
   @override
   String get gotIt => 'فهمت';

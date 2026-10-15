@@ -1225,14 +1225,13 @@ class AppLocalizationsJa extends AppLocalizations {
   String get createMacro => 'マクロを作成';
 
   @override
-  String get timedMacrosTitle => '時間指定マクロ';
+  String get timedMacrosTitle => 'マクロ';
 
   @override
-  String get timedMacrosSubtitle => 'IRコマンド列を正確なタイミングで自動実行';
+  String get timedMacrosSubtitle => '赤外線コマンドを順番に実行し、ステップの間に待ち時間を入れられます。';
 
   @override
-  String get timedMacrosNextStep =>
-      '次の操作 最初のマクロを作成を押し リモコンを選んでからコマンドと待機を追加してください。';
+  String get timedMacrosNextStep => 'リモコンを選び、コマンドや待ち時間を追加して最初のマクロを作成しましょう。';
 
   @override
   String get macroFeatureToysTitle => 'インタラクティブ玩具に最適';
@@ -1280,29 +1279,29 @@ class AppLocalizationsJa extends AppLocalizations {
   }
 
   @override
-  String get aboutTimedMacros => '時間指定マクロについて';
+  String get aboutTimedMacros => 'マクロについて';
 
   @override
   String get aboutTimedMacrosDescription =>
-      '時間指定マクロでは 各ステップの間に正確な待機を入れてIRコマンド列を自動化できます。';
+      '赤外線コマンドを順番に実行し、ステップの間に待ち時間を入れられます。';
 
   @override
   String get sendCommand => 'コマンド送信';
 
   @override
-  String get sendCommandDescription => 'リモコンからIRコマンドを送信します';
+  String get sendCommandDescription => 'リモコンに保存したボタンの赤外線信号を送信します。';
 
   @override
   String get delay => '時間待ち';
 
   @override
-  String get delayDescription => '次のステップまで指定時間 例 1000ms 待ちます。';
+  String get delayDescription => '指定した時間だけ待ってから、次のステップに進みます。';
 
   @override
   String get manualContinue => '確認待ち';
 
   @override
-  String get manualContinueDescription => '続行を押すまで実行を一時停止します 可変長アニメに便利です。';
+  String get manualContinueDescription => '「続行」をタップするまで待ってから、次のステップに進みます。';
 
   @override
   String get gotIt => '了解';

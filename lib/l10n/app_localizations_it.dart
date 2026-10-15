@@ -1299,15 +1299,15 @@ class AppLocalizationsIt extends AppLocalizations {
   String get createMacro => 'Crea macro';
 
   @override
-  String get timedMacrosTitle => 'Macro temporizzate';
+  String get timedMacrosTitle => 'Macro';
 
   @override
   String get timedMacrosSubtitle =>
-      'Automatizza sequenze di comandi IR con tempi precisi';
+      'Esegui una sequenza di comandi IR con attese tra i passaggi.';
 
   @override
   String get timedMacrosNextStep =>
-      'Prossimo passo. Tocca Crea la tua prima macro, scegli un telecomando, poi aggiungi comandi e ritardi.';
+      'Scegli un telecomando, poi aggiungi comandi e attese per creare la tua prima macro.';
 
   @override
   String get macroFeatureToysTitle => 'Perfette per giocattoli interattivi';
@@ -1355,32 +1355,32 @@ class AppLocalizationsIt extends AppLocalizations {
   }
 
   @override
-  String get aboutTimedMacros => 'Informazioni sulle macro temporizzate';
+  String get aboutTimedMacros => 'Informazioni sulle macro';
 
   @override
   String get aboutTimedMacrosDescription =>
-      'Le macro temporizzate ti permettono di automatizzare sequenze di comandi IR con ritardi precisi tra ogni passaggio.';
+      'Esegui una sequenza di comandi IR con attese tra i passaggi.';
 
   @override
   String get sendCommand => 'Invia comando';
 
   @override
   String get sendCommandDescription =>
-      'Trasmette un comando IR dal tuo telecomando.';
+      'Invia il segnale IR di un pulsante salvato nel telecomando.';
 
   @override
   String get delay => 'Attesa';
 
   @override
   String get delayDescription =>
-      'Attende una durata specificata, per esempio 1000 ms, prima del passaggio successivo.';
+      'Attende il tempo impostato prima di passare al passaggio successivo.';
 
   @override
   String get manualContinue => 'Attendi conferma';
 
   @override
   String get manualContinueDescription =>
-      'Mette in pausa l\'esecuzione finché non tocchi Continua, utile per animazioni di durata variabile.';
+      'Attende che tocchi Continua prima di passare al passaggio successivo.';
 
   @override
   String get gotIt => 'Capito';

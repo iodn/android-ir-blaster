@@ -1285,15 +1285,15 @@ class AppLocalizationsEn extends AppLocalizations {
   String get createMacro => 'Create macro';
 
   @override
-  String get timedMacrosTitle => 'Timed Macros';
+  String get timedMacrosTitle => 'Macros';
 
   @override
   String get timedMacrosSubtitle =>
-      'Automate sequences of IR commands with precise timing';
+      'Run a sequence of IR commands with waits between steps.';
 
   @override
   String get timedMacrosNextStep =>
-      'What next: tap Create Your First Macro, pick a remote, then add commands and delays.';
+      'Choose a remote, then add commands and waits to create your first macro.';
 
   @override
   String get macroFeatureToysTitle => 'Perfect for Interactive Toys';
@@ -1341,32 +1341,32 @@ class AppLocalizationsEn extends AppLocalizations {
   }
 
   @override
-  String get aboutTimedMacros => 'About Timed Macros';
+  String get aboutTimedMacros => 'About macros';
 
   @override
   String get aboutTimedMacrosDescription =>
-      'Timed Macros let you automate sequences of IR commands with precise delays between each step.';
+      'Run a sequence of IR commands with waits between steps.';
 
   @override
   String get sendCommand => 'Send Command';
 
   @override
   String get sendCommandDescription =>
-      'Transmits an IR command from your remote.';
+      'Sends the IR signal of a button saved in your remote.';
 
   @override
   String get delay => 'Delay';
 
   @override
   String get delayDescription =>
-      'Waits for a specified duration (e.g., 1000ms) before the next step.';
+      'Waits for the time you set before moving to the next step.';
 
   @override
   String get manualContinue => 'Wait for confirmation';
 
   @override
   String get manualContinueDescription =>
-      'Pauses execution until you tap Continue (useful for variable-length animations).';
+      'Waits until you tap Continue before moving to the next step.';
 
   @override
   String get gotIt => 'Got it';

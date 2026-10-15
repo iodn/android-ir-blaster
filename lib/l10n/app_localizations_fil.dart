@@ -1295,15 +1295,15 @@ class AppLocalizationsFil extends AppLocalizations {
   String get createMacro => 'Gumawa ng macro';
 
   @override
-  String get timedMacrosTitle => 'Timed Macros';
+  String get timedMacrosTitle => 'Mga macro';
 
   @override
   String get timedMacrosSubtitle =>
-      'Automate sequences ng IR commands with precise timing';
+      'Magpatakbo ng sunod-sunod na IR command na may paghihintay sa pagitan ng mga hakbang.';
 
   @override
   String get timedMacrosNextStep =>
-      'Susunod. Tapikin ang Gumawa ng Unang Macro, pumili ng remote, saka magdagdag ng mga command at delay.';
+      'Pumili ng remote, saka magdagdag ng mga command at oras ng paghihintay para sa una mong macro.';
 
   @override
   String get macroFeatureToysTitle => 'Perfect para sa Interactive Toys';
@@ -1351,32 +1351,32 @@ class AppLocalizationsFil extends AppLocalizations {
   }
 
   @override
-  String get aboutTimedMacros => 'About Timed Macros';
+  String get aboutTimedMacros => 'Tungkol sa mga macro';
 
   @override
   String get aboutTimedMacrosDescription =>
-      'Hinahayaan ka ng Timed Macros na i-automate ang sunod-sunod na IR command na may eksaktong delay sa bawat hakbang.';
+      'Magpatakbo ng sunod-sunod na IR command na may paghihintay sa pagitan ng mga hakbang.';
 
   @override
   String get sendCommand => 'Send Command';
 
   @override
   String get sendCommandDescription =>
-      'Transmits an IR command from iyong remote.';
+      'Ipinapadala ang IR signal ng isang button na naka-save sa iyong remote.';
 
   @override
   String get delay => 'Maghintay';
 
   @override
   String get delayDescription =>
-      'Waits para sa a specified duration (e.g., 1000ms) before the next hakbang.';
+      'Naghihintay nang ayon sa itinakda mong tagal bago ang susunod na hakbang.';
 
   @override
   String get manualContinue => 'Hintayin ang kumpirmasyon';
 
   @override
   String get manualContinueDescription =>
-      'Pauses execution until you tapikin Continue (useful para sa variable-length animations).';
+      'Naghihintay hanggang i-tap mo ang Magpatuloy bago ang susunod na hakbang.';
 
   @override
   String get gotIt => 'Got it';

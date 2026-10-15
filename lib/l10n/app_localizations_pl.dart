@@ -1301,15 +1301,15 @@ class AppLocalizationsPl extends AppLocalizations {
   String get createMacro => 'Utwórz makro';
 
   @override
-  String get timedMacrosTitle => 'Makra czasowe';
+  String get timedMacrosTitle => 'Makra';
 
   @override
   String get timedMacrosSubtitle =>
-      'Automatyzuj sekwencje komend IR z dokładnym czasowaniem';
+      'Uruchamiaj sekwencje poleceń IR z przerwami między krokami.';
 
   @override
   String get timedMacrosNextStep =>
-      'Co dalej: stuknij Utwórz pierwsze makro, wybierz pilot, a potem dodaj komendy i opóźnienia.';
+      'Wybierz pilot, a następnie dodaj polecenia i przerwy, aby utworzyć pierwsze makro.';
 
   @override
   String get macroFeatureToysTitle => 'Idealne do interaktywnych zabawek';
@@ -1359,31 +1359,32 @@ class AppLocalizationsPl extends AppLocalizations {
   }
 
   @override
-  String get aboutTimedMacros => 'O makrach czasowych';
+  String get aboutTimedMacros => 'O makrach';
 
   @override
   String get aboutTimedMacrosDescription =>
-      'Makra czasowe pozwalają automatyzować sekwencje komend IR z precyzyjnymi opóźnieniami między krokami.';
+      'Uruchamiaj sekwencje poleceń IR z przerwami między krokami.';
 
   @override
   String get sendCommand => 'Wyślij komendę';
 
   @override
-  String get sendCommandDescription => 'Wysyła komendę IR z twojego pilota.';
+  String get sendCommandDescription =>
+      'Wysyła sygnał IR przycisku zapisanego na pilocie.';
 
   @override
   String get delay => 'Czas oczekiwania';
 
   @override
   String get delayDescription =>
-      'Czeka określony czas (np. 1000 ms) przed następnym krokiem.';
+      'Czeka przez ustawiony czas przed przejściem do następnego kroku.';
 
   @override
   String get manualContinue => 'Czekaj na potwierdzenie';
 
   @override
   String get manualContinueDescription =>
-      'Wstrzymuje wykonanie, dopóki nie stukniesz Kontynuuj (przydatne przy animacjach o zmiennej długości).';
+      'Czeka na stuknięcie Dalej przed przejściem do następnego kroku.';
 
   @override
   String get gotIt => 'Rozumiem';

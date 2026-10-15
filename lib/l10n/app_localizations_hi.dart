@@ -1282,15 +1282,15 @@ class AppLocalizationsHi extends AppLocalizations {
   String get createMacro => 'मैक्रो बनाएं';
 
   @override
-  String get timedMacrosTitle => 'समयबद्ध मैक्रो';
+  String get timedMacrosTitle => 'मैक्रो';
 
   @override
   String get timedMacrosSubtitle =>
-      'स्वचालित करें क्रम का IR कमांड के साथ सटीक समय-नियंत्रण';
+      'बीच में तय समय तक रुकते हुए कई IR कमांड एक के बाद एक चलाएँ।';
 
   @override
   String get timedMacrosNextStep =>
-      'What अगला: टैप बनाएं आपकी पहले मैक्रो, pick a रिमोट, फिर जोड़ें कमांड और विलंब.';
+      'अपना पहला मैक्रो बनाने के लिए रिमोट चुनें, फिर कमांड और रुकने का समय जोड़ें।';
 
   @override
   String get macroFeatureToysTitle => 'के लिए उपयुक्त Interactive खिलौने';
@@ -1338,31 +1338,32 @@ class AppLocalizationsHi extends AppLocalizations {
   }
 
   @override
-  String get aboutTimedMacros => 'परिचय समयबद्ध मैक्रो';
+  String get aboutTimedMacros => 'मैक्रो के बारे में';
 
   @override
   String get aboutTimedMacrosDescription =>
-      'समयबद्ध मैक्रो आपको हर चरण के बीच सटीक विलंब के साथ IR कमांड क्रम स्वचालित करने देते हैं।';
+      'बीच में तय समय तक रुकते हुए कई IR कमांड एक के बाद एक चलाएँ।';
 
   @override
   String get sendCommand => 'भेजें कमांड';
 
   @override
-  String get sendCommandDescription => 'भेजता है an IR कमांड से आपकी रिमोट.';
+  String get sendCommandDescription =>
+      'आपके रिमोट में सेव किए गए बटन का IR सिग्नल भेजता है।';
 
   @override
   String get delay => 'इंतज़ार';
 
   @override
   String get delayDescription =>
-      'Waits के लिए a निर्दिष्ट अवधि (e.g., 1000ms) पहले the अगला चरण.';
+      'अगले चरण से पहले आपके तय किए समय तक रुकता है।';
 
   @override
   String get manualContinue => 'पुष्टि का इंतज़ार';
 
   @override
   String get manualContinueDescription =>
-      'Pauses execution जब तक you टैप जारी रखें (उपयोगी के लिए परिवर्तनीय-लंबाई एनिमेशन).';
+      'अगले चरण से पहले आपके जारी रखें पर टैप करने का इंतज़ार करता है।';
 
   @override
   String get gotIt => 'Got it';
