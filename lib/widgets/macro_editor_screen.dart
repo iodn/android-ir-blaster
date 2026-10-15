@@ -418,9 +418,10 @@ class _MacroEditorScreenState extends State<MacroEditorScreen> {
   Future<int?> _promptCustomDelay(BuildContext context, {int? initial}) async {
     final ctl = TextEditingController(text: initial?.toString() ?? '');
     final theme = Theme.of(context);
+    var showError = false;
     return showDialog<int>(
       context: context,
-      builder: (ctx) {
+      builder: (ctx) => StatefulBuilder(builder: (ctx, setDialogState) {
         return AlertDialog(
           scrollable: true,
           title: Text(context.l10n.customDelay),
@@ -434,10 +435,19 @@ class _MacroEditorScreenState extends State<MacroEditorScreen> {
                 label: context.l10n.delayMillisecondsLabel,
                 child: TextField(
                   controller: ctl,
+                  onChanged: (_) {
+                    if (showError) setDialogState(() => showError = false);
+                  },
                   keyboardType: TextInputType.number,
                   inputFormatters: [FilteringTextInputFormatter.digitsOnly],
                   decoration: InputDecoration(
                     hintText: context.l10n.delayMillisecondsHint,
+                    error: showError
+                        ? Semantics(
+                            liveRegion: true,
+                            child: Text(context.l10n.enterValidPositiveNumber),
+                          )
+                        : null,
                     border: const OutlineInputBorder(),
                     prefixIcon: const Icon(Icons.timer_rounded),
                   ),
@@ -482,9 +492,7 @@ class _MacroEditorScreenState extends State<MacroEditorScreen> {
               onPressed: () {
                 final v = int.tryParse(ctl.text.trim());
                 if (v == null || v <= 0) {
-                  ScaffoldMessenger.of(ctx).showSnackBar(
-                    SnackBar(content: Text(context.l10n.enterValidPositiveNumber)),
-                  );
+                  setDialogState(() => showError = true);
                   return;
                 }
                 Navigator.of(ctx).pop(v);
@@ -493,7 +501,7 @@ class _MacroEditorScreenState extends State<MacroEditorScreen> {
             ),
           ],
         );
-      },
+      }),
     );
   }
 

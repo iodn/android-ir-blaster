@@ -14,6 +14,7 @@ void main() {
       tester.view.devicePixelRatio = 1;
       addTearDown(tester.view.resetPhysicalSize);
       addTearDown(tester.view.resetDevicePixelRatio);
+      addTearDown(tester.view.resetViewInsets);
       await tester.pumpWidget(MaterialApp(
         locale: locale,
         supportedLocales: AppLocalizations.supportedLocales,
@@ -67,8 +68,27 @@ void main() {
       readable(l10n.recommendedDelayRange);
       final field = find.descendant(
           of: find.byType(AlertDialog), matching: find.byType(TextField));
+      tester.view.viewInsets = const FakeViewPadding(bottom: 240);
+      await tester.pumpAndSettle();
+      for (final invalid in ['', '0']) {
+        await tester.enterText(field, invalid);
+        await tester.tap(find.widgetWithText(FilledButton, l10n.ok));
+        await tester.pumpAndSettle();
+        final error = find.descendant(
+          of: find.byType(AlertDialog),
+          matching: find.text(l10n.enterValidPositiveNumber),
+        );
+        expect(error, findsOneWidget);
+        await Scrollable.ensureVisible(tester.element(error), alignment: 1);
+        await tester.pumpAndSettle();
+        readable(l10n.enterValidPositiveNumber);
+        expect(find.byType(SnackBar), findsNothing);
+      }
       await tester.enterText(field, '1250');
+      await tester.pumpAndSettle();
+      expect(find.text(l10n.enterValidPositiveNumber), findsNothing);
       await tester.testTextInput.receiveAction(TextInputAction.done);
+      tester.view.resetViewInsets();
       await tester.pumpAndSettle();
       await tester.tap(find.widgetWithText(FilledButton, l10n.ok));
       await tester.pumpAndSettle();
