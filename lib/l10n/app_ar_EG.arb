@@ -1883,7 +1883,7 @@
   "forceInAppVibrationWarning": "خيار متقدم. قد يجعل التطبيق يهتز حتى عندما يكون اللمس الارتدادي في أندرويد معطلاً على مستوى النظام.",
   "forceInAppVibrationBlockedMasterWarning": "تم تعطيل اهتزاز النظام في أندرويد. لا يمكن للاهتزاز داخل التطبيق تجاوزه على هذا الجهاز.",
   "forceInAppVibrationNoVibratorWarning": "الجهاز ده لا يبلّغ عن وجود محرك اهتزاز، لذلك لا يمكن أن يعمل الاهتزاز داخل التطبيق.",
-  "remoteButtonCountLabel": "{count, plural, one{{count} button} other{{count} buttons}}",
+  "remoteButtonCountLabel": "{count, plural, zero{لا أزرار} one{زر واحد} two{زران} few{{count} أزرار} many{{count} زرًا} other{{count} زر}}",
   "@remoteButtonCountLabel": {
     "placeholders": {
       "count": {

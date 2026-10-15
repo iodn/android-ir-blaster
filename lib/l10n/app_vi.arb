@@ -1878,7 +1878,7 @@
   "forceInAppVibrationWarning": "Tùy chọn nâng cao. Ứng dụng có thể rung ngay cả khi phản hồi chạm của Android bị tắt trên toàn hệ thống.",
   "forceInAppVibrationBlockedMasterWarning": "Rung hệ thống Android đã bị tắt. Rung cưỡng bức trong ứng dụng không thể ghi đè điều này trên thiết bị này.",
   "forceInAppVibrationNoVibratorWarning": "Thiết bị này không báo có phần cứng rung, nên rung trong ứng dụng không thể hoạt động.",
-  "remoteButtonCountLabel": "{count, plural, one{{count} button} other{{count} buttons}}",
+  "remoteButtonCountLabel": "{count} nút",
   "@remoteButtonCountLabel": {
     "placeholders": {
       "count": {

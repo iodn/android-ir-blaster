@@ -1878,7 +1878,7 @@
   "forceInAppVibrationWarning": "ตัวเลือกขั้นสูง แอปอาจสั่นได้แม้ว่าการตอบสนองการสัมผัสของ Android จะถูกปิดไว้ทั้งระบบ",
   "forceInAppVibrationBlockedMasterWarning": "การสั่นของระบบ Android ถูกปิดอยู่ การบังคับสั่นภายในแอปไม่สามารถข้ามข้อจำกัดนี้บนอุปกรณ์นี้ได้",
   "forceInAppVibrationNoVibratorWarning": "อุปกรณ์นี้ไม่รายงานว่ามีฮาร์ดแวร์สั่น ดังนั้นการสั่นภายในแอปจึงไม่สามารถทำงานได้",
-  "remoteButtonCountLabel": "{count, plural, one{{count} button} other{{count} buttons}}",
+  "remoteButtonCountLabel": "{count} ปุ่ม",
   "@remoteButtonCountLabel": {
     "placeholders": {
       "count": {

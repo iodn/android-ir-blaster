@@ -1262,8 +1262,10 @@ class AppLocalizationsRu extends AppLocalizations {
     String _temp0 = intl.Intl.pluralLogic(
       count,
       locale: localeName,
-      other: '$count buttons',
-      one: '$count button',
+      other: '$count кнопки',
+      many: '$count кнопок',
+      few: '$count кнопки',
+      one: '$count кнопка',
     );
     return '$_temp0';
   }

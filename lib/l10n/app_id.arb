@@ -1878,7 +1878,7 @@
   "forceInAppVibrationWarning": "Opsi lanjutan. Aplikasi dapat bergetar meskipun umpan balik sentuhan Android dinonaktifkan secara global.",
   "forceInAppVibrationBlockedMasterWarning": "Getaran sistem Android dinonaktifkan. Getaran paksa di aplikasi tidak dapat menimpanya di perangkat ini.",
   "forceInAppVibrationNoVibratorWarning": "Perangkat ini tidak melaporkan perangkat keras getar, sehingga getaran di aplikasi tidak dapat berfungsi.",
-  "remoteButtonCountLabel": "{count, plural, one{{count} button} other{{count} buttons}}",
+  "remoteButtonCountLabel": "{count} tombol",
   "@remoteButtonCountLabel": {
     "placeholders": {
       "count": {

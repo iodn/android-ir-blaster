@@ -1878,7 +1878,7 @@
   "forceInAppVibrationWarning": "Расширенная опция. Приложение может вибрировать, даже если тактильный отклик Android глобально отключён.",
   "forceInAppVibrationBlockedMasterWarning": "Системная вибрация Android отключена. Принудительная вибрация в приложении не может обойти это на данном устройстве.",
   "forceInAppVibrationNoVibratorWarning": "Это устройство не сообщает о наличии вибромотора, поэтому вибрация в приложении не может работать.",
-  "remoteButtonCountLabel": "{count, plural, one{{count} button} other{{count} buttons}}",
+  "remoteButtonCountLabel": "{count, plural, one{{count} кнопка} few{{count} кнопки} many{{count} кнопок} other{{count} кнопки}}",
   "@remoteButtonCountLabel": {
     "placeholders": {
       "count": {

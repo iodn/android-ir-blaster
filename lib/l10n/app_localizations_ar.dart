@@ -1251,8 +1251,12 @@ class AppLocalizationsAr extends AppLocalizations {
     String _temp0 = intl.Intl.pluralLogic(
       count,
       locale: localeName,
-      other: '$count buttons',
-      one: '$count button',
+      other: '$count زر',
+      many: '$count زرًا',
+      few: '$count أزرار',
+      two: 'زران',
+      one: 'زر واحد',
+      zero: 'لا أزرار',
     );
     return '$_temp0';
   }
@@ -6517,8 +6521,12 @@ class AppLocalizationsArEg extends AppLocalizationsAr {
     String _temp0 = intl.Intl.pluralLogic(
       count,
       locale: localeName,
-      other: '$count buttons',
-      one: '$count button',
+      other: '$count زر',
+      many: '$count زرًا',
+      few: '$count أزرار',
+      two: 'زران',
+      one: 'زر واحد',
+      zero: 'لا أزرار',
     );
     return '$_temp0';
   }

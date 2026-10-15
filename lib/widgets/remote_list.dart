@@ -600,12 +600,13 @@ class _RemoteListState extends State<RemoteList> {
     final availableWidth = width - horizontalPadding - spacing;
     final cardWidth = availableWidth / crossAxisCount;
     final theme = Theme.of(context);
-    double textHeight(String text, TextStyle style) {
+    double textHeight(String text, TextStyle style,
+        {double maxWidth = double.infinity}) {
       final painter = TextPainter(
         text: TextSpan(text: text, style: style),
         textDirection: Directionality.of(context),
         textScaler: MediaQuery.textScalerOf(context),
-      )..layout();
+      )..layout(maxWidth: maxWidth);
       final height = painter.height;
       painter.dispose();
       return height;
@@ -614,8 +615,16 @@ class _RemoteListState extends State<RemoteList> {
         'Ag\nAg',
         theme.textTheme.titleMedium!
             .copyWith(fontWeight: FontWeight.w900, height: 1.2));
-    final countHeight = textHeight('0',
-        theme.textTheme.labelSmall!.copyWith(fontWeight: FontWeight.w800));
+    final countStyle =
+        theme.textTheme.labelSmall!.copyWith(fontWeight: FontWeight.w800);
+    // Leave room for card/chip insets and the count icon before wrapping.
+    final countWidth = (cardWidth - 78).clamp(1.0, double.infinity);
+    var countHeight = 14.0;
+    for (final count in remotes.map((r) => r.buttons.length).toSet()) {
+      final height = textHeight(context.l10n.remoteButtonCountLabel(count),
+          countStyle, maxWidth: countWidth);
+      if (height > countHeight) countHeight = height;
+    }
     // Card margin, padding, icon, gaps, and count-chip insets.
     final minimumHeight = 8 + 28 + 40 + 12 + nameHeight + 8 +
         countHeight.clamp(14.0, double.infinity) + 14;
@@ -953,8 +962,6 @@ class _RemoteCard extends StatelessWidget {
                           fontWeight: FontWeight.w800,
                           color: cs.onSurface.withValues(alpha: 0.85),
                         ),
-                        maxLines: 1,
-                        overflow: TextOverflow.ellipsis,
                       ),
                     ),
                   ],

@@ -1878,7 +1878,7 @@
   "forceInAppVibrationWarning": "Geavanceerde optie. Hierdoor kan de app trillen, zelfs wanneer Android-aanraakfeedback globaal is uitgeschakeld.",
   "forceInAppVibrationBlockedMasterWarning": "Android-systeemtrilling is uitgeschakeld. Geforceerde trilling in de app kan dit op dit apparaat niet omzeilen.",
   "forceInAppVibrationNoVibratorWarning": "Dit apparaat meldt geen trilhardware, dus trilling in de app kan niet werken.",
-  "remoteButtonCountLabel": "{count, plural, one{{count} button} other{{count} buttons}}",
+  "remoteButtonCountLabel": "{count, plural, one{{count} knop} other{{count} knoppen}}",
   "@remoteButtonCountLabel": {
     "placeholders": {
       "count": {

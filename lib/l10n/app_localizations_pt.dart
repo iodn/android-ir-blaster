@@ -1274,8 +1274,8 @@ class AppLocalizationsPt extends AppLocalizations {
     String _temp0 = intl.Intl.pluralLogic(
       count,
       locale: localeName,
-      other: '$count buttons',
-      one: '$count button',
+      other: '$count botões',
+      one: '$count botão',
     );
     return '$_temp0';
   }
@@ -6596,8 +6596,8 @@ class AppLocalizationsPtBr extends AppLocalizationsPt {
     String _temp0 = intl.Intl.pluralLogic(
       count,
       locale: localeName,
-      other: '$count buttons',
-      one: '$count button',
+      other: '$count botões',
+      one: '$count botão',
     );
     return '$_temp0';
   }

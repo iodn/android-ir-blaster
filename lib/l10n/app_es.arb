@@ -1878,7 +1878,7 @@
   "demoRemoteName": "Mando demo",
   "protocolFieldsInvalid": "Rellena los campos obligatorios del protocolo y asegúrate de que la frecuencia sea 15k–60k si se define.",
   "unknownProtocolSelected": "Se seleccionó un protocolo desconocido.",
-  "remoteButtonCountLabel": "{count, plural, one{{count} button} other{{count} buttons}}",
+  "remoteButtonCountLabel": "{count, plural, one{{count} botón} other{{count} botones}}",
   "@remoteButtonCountLabel": {
     "placeholders": {
       "count": {

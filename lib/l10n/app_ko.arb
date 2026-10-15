@@ -1878,7 +1878,7 @@
   "forceInAppVibrationWarning": "고급 옵션입니다. Android 터치 피드백이 전역으로 꺼져 있어도 앱이 진동할 수 있습니다.",
   "forceInAppVibrationBlockedMasterWarning": "Android 시스템 진동이 비활성화되어 있습니다. 이 기기에서는 앱 내 강제 진동으로 이를 무시할 수 없습니다.",
   "forceInAppVibrationNoVibratorWarning": "이 기기는 진동 하드웨어를 보고하지 않으므로 앱 내 진동을 사용할 수 없습니다.",
-  "remoteButtonCountLabel": "{count, plural, one{{count} button} other{{count} buttons}}",
+  "remoteButtonCountLabel": "버튼 {count}개",
   "@remoteButtonCountLabel": {
     "placeholders": {
       "count": {

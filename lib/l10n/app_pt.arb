@@ -1878,7 +1878,7 @@
   "forceInAppVibrationWarning": "Opção avançada. A aplicação pode vibrar mesmo quando o feedback tátil do Android está desativado globalmente.",
   "forceInAppVibrationBlockedMasterWarning": "A vibração do sistema Android está desativada. A vibração forçada na aplicação não a pode substituir neste dispositivo.",
   "forceInAppVibrationNoVibratorWarning": "Este dispositivo não indica hardware de vibração, por isso a vibração na aplicação não pode funcionar.",
-  "remoteButtonCountLabel": "{count, plural, one{{count} button} other{{count} buttons}}",
+  "remoteButtonCountLabel": "{count, plural, one{{count} botão} other{{count} botões}}",
   "@remoteButtonCountLabel": {
     "placeholders": {
       "count": {

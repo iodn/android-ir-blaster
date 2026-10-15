@@ -1883,7 +1883,7 @@
   "forceInAppVibrationWarning": "Gelişmiş seçenek. Android dokunma geri bildirimi genel olarak kapalı olsa bile uygulama titreşebilir.",
   "forceInAppVibrationBlockedMasterWarning": "Android sistem titreşimi devre dışı. Uygulama içi zorunlu titreşim bu cihazda bunu geçersiz kılamaz.",
   "forceInAppVibrationNoVibratorWarning": "Bu cihaz titreşim donanımı bildirmiyor, bu yüzden uygulama içi titreşim çalışamaz.",
-  "remoteButtonCountLabel": "{count, plural, one{{count} button} other{{count} buttons}}",
+  "remoteButtonCountLabel": "{count} düğme",
   "@remoteButtonCountLabel": {
     "placeholders": {
       "count": {

@@ -1158,13 +1158,7 @@ class AppLocalizationsZh extends AppLocalizations {
 
   @override
   String remoteButtonCountLabel(int count) {
-    String _temp0 = intl.Intl.pluralLogic(
-      count,
-      locale: localeName,
-      other: '$count buttons',
-      one: '$count button',
-    );
-    return '$_temp0';
+    return '$count 个按钮';
   }
 
   @override

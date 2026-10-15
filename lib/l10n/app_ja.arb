@@ -1878,7 +1878,7 @@
   "forceInAppVibrationWarning": "高度なオプションです。Android のタッチフィードバックが全体で無効でも、アプリが振動する場合があります。",
   "forceInAppVibrationBlockedMasterWarning": "Androidのシステム振動が無効です。この端末ではアプリ内の強制振動で上書きできません。",
   "forceInAppVibrationNoVibratorWarning": "この端末は振動ハードウェアを報告していないため、アプリ内の振動は動作しません。",
-  "remoteButtonCountLabel": "{count, plural, one{{count} button} other{{count} buttons}}",
+  "remoteButtonCountLabel": "ボタン{count}個",
   "@remoteButtonCountLabel": {
     "placeholders": {
       "count": {

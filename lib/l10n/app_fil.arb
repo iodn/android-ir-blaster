@@ -1883,7 +1883,7 @@
   "forceInAppVibrationWarning": "Advanced na opsyon. Maaari nitong paganahin ang vibration ng app kahit naka-disable ang Android touch feedback sa buong system.",
   "forceInAppVibrationBlockedMasterWarning": "Naka-disable ang vibration ng Android system. Hindi ito ma-o-override ng sapilitang in-app vibration sa device na ito.",
   "forceInAppVibrationNoVibratorWarning": "Walang vibration hardware na iniulat ang device na ito, kaya hindi gagana ang in-app vibration.",
-  "remoteButtonCountLabel": "{count, plural, one{{count} button} other{{count} buttons}}",
+  "remoteButtonCountLabel": "{count} pindutan",
   "@remoteButtonCountLabel": {
     "placeholders": {
       "count": {

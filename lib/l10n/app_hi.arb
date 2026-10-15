@@ -1883,7 +1883,7 @@
   "forceInAppVibrationWarning": "उन्नत विकल्प। इससे ऐप तब भी कंपन कर सकता है जब Android का टच फ़ीडबैक वैश्विक रूप से बंद हो।",
   "forceInAppVibrationBlockedMasterWarning": "Android सिस्टम वाइब्रेशन बंद है। इस डिवाइस पर ऐप के अंदर जबरन वाइब्रेशन इसे ओवरराइड नहीं कर सकता।",
   "forceInAppVibrationNoVibratorWarning": "यह डिवाइस वाइब्रेशन हार्डवेयर रिपोर्ट नहीं करता, इसलिए ऐप के अंदर वाइब्रेशन काम नहीं कर सकता।",
-  "remoteButtonCountLabel": "{count, plural, one{{count} button} other{{count} buttons}}",
+  "remoteButtonCountLabel": "{count} बटन",
   "@remoteButtonCountLabel": {
     "placeholders": {
       "count": {

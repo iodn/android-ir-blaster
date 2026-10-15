@@ -1878,7 +1878,7 @@
   "forceInAppVibrationWarning": "高级选项。即使 Android 全局触觉反馈已关闭，应用也可能振动。",
   "forceInAppVibrationBlockedMasterWarning": "Android 系统振动已关闭。此设备上无法通过应用内强制振动覆盖该设置。",
   "forceInAppVibrationNoVibratorWarning": "此设备未报告振动硬件，因此应用内振动无法工作。",
-  "remoteButtonCountLabel": "{count, plural, one{{count} button} other{{count} buttons}}",
+  "remoteButtonCountLabel": "{count} 个按钮",
   "@remoteButtonCountLabel": {
     "placeholders": {
       "count": {
