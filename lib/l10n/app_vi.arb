@@ -217,7 +217,7 @@
   "restoreDemoRemotesSubtitle": "Thay điều khiển hiện tại bằng các mẫu có sẵn trong ứng dụng.",
   "deleteAllRemotes": "Xóa tất cả điều khiển",
   "deleteAllRemotesSubtitle": "Xóa tất cả điều khiển đã lưu trên thiết bị này.",
-  "backupTip": "Tip: export a backup before large edits. Nhập hỗ trợ bản sao lưu đầy đủ, bản sao lưu JSON điều khiển cũ và tệp .ir của Flipper Zero.",
+  "backupTip": "Hãy lưu bản sao lưu trước khi thay đổi nhiều nội dung. Bạn có thể nhập bản sao lưu đầy đủ và bản sao lưu JSON cũ chỉ chứa điều khiển.",
   "aboutTitle": "Giới thiệu",
   "aboutSubtitle": "Thông tin ứng dụng và chi tiết mã nguồn mở",
   "aboutAppNameWithCreator": "IR Blaster - {creator}",

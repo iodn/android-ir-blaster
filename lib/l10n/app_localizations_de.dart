@@ -913,7 +913,7 @@ class AppLocalizationsDe extends AppLocalizations {
 
   @override
   String get backupTip =>
-      'Tipp: Exportiere vor größeren Änderungen eine Sicherung. Der Import unterstützt vollständige Backups, ältere JSON-Backups nur für Fernbedienungen und Flipper Zero .ir-Dateien.';
+      'Speichere vor größeren Änderungen eine Sicherung. Du kannst vollständige Sicherungen und ältere JSON-Sicherungen mit ausschließlich Fernbedienungen importieren.';
 
   @override
   String get aboutTitle => 'Über';

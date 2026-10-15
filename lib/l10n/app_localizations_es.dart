@@ -910,7 +910,7 @@ class AppLocalizationsEs extends AppLocalizations {
 
   @override
   String get backupTip =>
-      'Consejo: exporta una copia antes de grandes cambios. La importación admite copias completas, copias JSON antiguas de mandos y archivos .ir de Flipper Zero.';
+      'Guarda una copia de seguridad antes de hacer cambios importantes. Puedes importar copias completas y copias JSON antiguas que solo contienen mandos.';
 
   @override
   String get aboutTitle => 'Acerca de';

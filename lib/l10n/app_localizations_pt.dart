@@ -908,7 +908,7 @@ class AppLocalizationsPt extends AppLocalizations {
 
   @override
   String get backupTip =>
-      'Dica: exporte uma cópia antes de grandes alterações. A importação aceita cópias completas, cópias JSON antigas de comandos e ficheiros .ir do Flipper Zero.';
+      'Guarde uma cópia de segurança antes de fazer grandes alterações. Pode importar cópias completas e cópias JSON antigas que contêm apenas comandos.';
 
   @override
   String get aboutTitle => 'Acerca de';
@@ -6231,7 +6231,7 @@ class AppLocalizationsPtBr extends AppLocalizationsPt {
 
   @override
   String get backupTip =>
-      'Dica: exporte uma cópia antes de grandes alterações. A importação aceita cópias completas, cópias JSON antigas de controles e arquivos .ir do Flipper Zero.';
+      'Salve um backup antes de fazer grandes alterações. Você pode importar backups completos e backups JSON antigos que contêm apenas controles.';
 
   @override
   String get aboutTitle => 'Acerca de';

@@ -833,8 +833,7 @@ class AppLocalizationsZh extends AppLocalizations {
   String get deleteAllRemotesSubtitle => '删除保存在此设备上的所有遥控器。';
 
   @override
-  String get backupTip =>
-      '提示 大改前请先导出备份。导入支持完整备份、旧版仅遥控器 JSON 备份和 Flipper Zero .ir 文件。';
+  String get backupTip => '进行较大修改前，请先保存备份。您可以导入完整备份，也可以导入仅包含遥控器的旧版JSON备份。';
 
   @override
   String get aboutTitle => '关于';

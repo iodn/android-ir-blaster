@@ -900,7 +900,7 @@ class AppLocalizationsVi extends AppLocalizations {
 
   @override
   String get backupTip =>
-      'Tip: export a backup before large edits. Nhập hỗ trợ bản sao lưu đầy đủ, bản sao lưu JSON điều khiển cũ và tệp .ir của Flipper Zero.';
+      'Hãy lưu bản sao lưu trước khi thay đổi nhiều nội dung. Bạn có thể nhập bản sao lưu đầy đủ và bản sao lưu JSON cũ chỉ chứa điều khiển.';
 
   @override
   String get aboutTitle => 'Giới thiệu';

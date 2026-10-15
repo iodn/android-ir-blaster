@@ -864,7 +864,7 @@ class AppLocalizationsJa extends AppLocalizations {
 
   @override
   String get backupTip =>
-      'ヒント 大きな編集の前にバックアップをエクスポートしてください。取り込みでは完全バックアップ 旧形式のリモコンのみJSONバックアップ Flipper Zeroの.irファイルに対応します。';
+      '大きな変更を加える前にバックアップを保存してください。完全なバックアップのほか、リモコンだけを含む旧形式のJSONバックアップも読み込めます。';
 
   @override
   String get aboutTitle => '情報';

@@ -222,7 +222,7 @@
   "restoreDemoRemotesSubtitle": "Remplace les télécommandes actuelles par les exemples de l’appli.",
   "deleteAllRemotes": "Supprimer toutes les télécommandes",
   "deleteAllRemotesSubtitle": "Retire toutes les télécommandes enregistrées sur cet appareil.",
-  "backupTip": "Astuce : exportez une sauvegarde avant de gros changements. L'import prend en charge les sauvegardes complètes, les anciennes sauvegardes JSON de télécommandes seules et les fichiers .ir Flipper Zero.",
+  "backupTip": "Faites une sauvegarde avant toute modification importante. Vous pouvez importer des sauvegardes complètes et d’anciennes sauvegardes JSON contenant uniquement des télécommandes.",
   "aboutTitle": "À propos",
   "aboutSubtitle": "Infos de l'appli et détails open source",
   "aboutAppNameWithCreator": "IR Blaster - {creator}",

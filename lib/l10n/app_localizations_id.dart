@@ -904,7 +904,7 @@ class AppLocalizationsId extends AppLocalizations {
 
   @override
   String get backupTip =>
-      'Tip: ekspor cadangan sebelum pengubahan besar. Impor mendukung cadangan penuh, cadangan JSON remote saja versi lama, dan file Flipper Zero .ir.';
+      'Simpan cadangan sebelum membuat perubahan besar. Anda dapat mengimpor cadangan lengkap maupun cadangan JSON lama yang hanya berisi remote.';
 
   @override
   String get aboutTitle => 'Tentang';

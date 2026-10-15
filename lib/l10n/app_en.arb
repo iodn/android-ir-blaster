@@ -328,7 +328,7 @@
   "restoreDemoRemotesSubtitle": "Replace current remotes with the app’s built-in examples.",
   "deleteAllRemotes": "Delete all remotes",
   "deleteAllRemotesSubtitle": "Remove all remotes saved on this device.",
-  "backupTip": "Tip: export a backup before large edits. Import supports full backups, legacy remotes-only JSON backups, and Flipper Zero .ir files.",
+  "backupTip": "Save a backup before making major changes. You can import full backups and older JSON backups containing only remotes.",
   "aboutTitle": "About",
   "aboutSubtitle": "App information and open-source details",
   "aboutAppNameWithCreator": "IR Blaster - {creator}",

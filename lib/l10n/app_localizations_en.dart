@@ -900,7 +900,7 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get backupTip =>
-      'Tip: export a backup before large edits. Import supports full backups, legacy remotes-only JSON backups, and Flipper Zero .ir files.';
+      'Save a backup before making major changes. You can import full backups and older JSON backups containing only remotes.';
 
   @override
   String get aboutTitle => 'About';

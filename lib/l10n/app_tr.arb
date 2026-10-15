@@ -217,7 +217,7 @@
   "restoreDemoRemotesSubtitle": "Mevcut kumandaları uygulamadaki örneklerle değiştirin.",
   "deleteAllRemotes": "Tüm kumandaları sil",
   "deleteAllRemotesSubtitle": "Bu cihazda kayıtlı tüm kumandaları kaldırın.",
-  "backupTip": "İpucu: Büyük düzenlemelerden önce bir yedek dışa aktarın. İçe aktarma; tam yedekleri, eski yalnızca-kumanda JSON yedeklerini ve Flipper Zero .ir dosyalarını destekler.",
+  "backupTip": "Büyük değişiklikler yapmadan önce bir yedek kaydedin. Tam yedekleri ve yalnızca kumanda içeren eski JSON yedeklerini içe aktarabilirsiniz.",
   "aboutTitle": "About",
   "aboutSubtitle": "Uygulama bilgileri ve açık kaynak ayrıntıları",
   "aboutAppNameWithCreator": "IR Blaster - {creator}",

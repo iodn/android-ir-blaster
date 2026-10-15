@@ -222,7 +222,7 @@
   "restoreDemoRemotesSubtitle": "Reemplaza los mandos actuales por los ejemplos de la app.",
   "deleteAllRemotes": "Eliminar todos los mandos",
   "deleteAllRemotesSubtitle": "Elimina todos los mandos guardados en este dispositivo.",
-  "backupTip": "Consejo: exporta una copia antes de grandes cambios. La importación admite copias completas, copias JSON antiguas de mandos y archivos .ir de Flipper Zero.",
+  "backupTip": "Guarda una copia de seguridad antes de hacer cambios importantes. Puedes importar copias completas y copias JSON antiguas que solo contienen mandos.",
   "aboutTitle": "Acerca de",
   "aboutSubtitle": "Información de la app y detalles de código abierto",
   "aboutAppNameWithCreator": "IR Blaster - {creator}",

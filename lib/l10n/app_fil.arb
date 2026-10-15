@@ -217,7 +217,7 @@
   "restoreDemoRemotesSubtitle": "Palitan ang kasalukuyang mga remote ng mga sample sa app.",
   "deleteAllRemotes": "Burahin ang lahat ng remote",
   "deleteAllRemotesSubtitle": "Alisin ang lahat ng remote na naka-save sa device na ito.",
-  "backupTip": "Tip. Mag-export ng backup bago ang malalaking edit. Sinusuportahan ng import ang full backup, legacy mga remote lamang JSON backup, at Flipper Zero .ir files.",
+  "backupTip": "Mag-save ng backup bago gumawa ng malalaking pagbabago. Puwedeng mag-import ng buong backup at mga lumang JSON backup na mga remote lang ang laman.",
   "aboutTitle": "Tungkol",
   "aboutSubtitle": "App information at open-source details",
   "aboutAppNameWithCreator": "IR Blaster - {creator}",

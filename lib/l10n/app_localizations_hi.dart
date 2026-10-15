@@ -904,7 +904,7 @@ class AppLocalizationsHi extends AppLocalizations {
 
   @override
   String get backupTip =>
-      'सुझाव: निर्यात a बैकअप पहले बड़े संपादन. आयात करें समर्थन करता है पूर्ण बैकअप, legacy remotes-only JSON बैकअप, और Flipper Zero.IR फ़ाइलें.';
+      'बड़े बदलाव करने से पहले बैकअप सहेजें। आप पूरे बैकअप के साथ पुराने JSON बैकअप भी आयात कर सकते हैं जिनमें केवल रिमोट हों।';
 
   @override
   String get aboutTitle => 'परिचय';

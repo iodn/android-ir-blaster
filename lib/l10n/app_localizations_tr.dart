@@ -907,7 +907,7 @@ class AppLocalizationsTr extends AppLocalizations {
 
   @override
   String get backupTip =>
-      'İpucu: Büyük düzenlemelerden önce bir yedek dışa aktarın. İçe aktarma; tam yedekleri, eski yalnızca-kumanda JSON yedeklerini ve Flipper Zero .ir dosyalarını destekler.';
+      'Büyük değişiklikler yapmadan önce bir yedek kaydedin. Tam yedekleri ve yalnızca kumanda içeren eski JSON yedeklerini içe aktarabilirsiniz.';
 
   @override
   String get aboutTitle => 'About';

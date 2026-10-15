@@ -217,7 +217,7 @@
   "restoreDemoRemotesSubtitle": "Sostituisci i telecomandi attuali con gli esempi dell’app.",
   "deleteAllRemotes": "Elimina tutti i telecomandi",
   "deleteAllRemotesSubtitle": "Rimuovi tutti i telecomandi salvati su questo dispositivo.",
-  "backupTip": "Suggerimento. Esporta un backup prima di grandi modifiche. L'import supporta backup completi, vecchi backup JSON solo telecomandi e file .ir di Flipper Zero.",
+  "backupTip": "Salva un backup prima di modifiche importanti. Puoi importare backup completi e vecchi backup JSON contenenti solo telecomandi.",
   "aboutTitle": "Informazioni",
   "aboutSubtitle": "Info app e dettagli open source",
   "aboutAppNameWithCreator": "IR Blaster - {creator}",

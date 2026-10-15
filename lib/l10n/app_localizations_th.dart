@@ -894,7 +894,7 @@ class AppLocalizationsTh extends AppLocalizations {
 
   @override
   String get backupTip =>
-      'Tip: export a backup before large edits. นำเข้า supports full backups, legacy รีโมต-เท่านั้น JSON backups, and Flipper Zero.ir ไฟล์s.';
+      'บันทึกข้อมูลสำรองก่อนทำการเปลี่ยนแปลงครั้งใหญ่ คุณนำเข้าได้ทั้งข้อมูลสำรองทั้งหมดและข้อมูลสำรอง JSON รุ่นเก่าที่มีเฉพาะรีโมต';
 
   @override
   String get aboutTitle => 'เกี่ยวกับ';

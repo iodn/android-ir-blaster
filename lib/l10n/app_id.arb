@@ -217,7 +217,7 @@
   "restoreDemoRemotesSubtitle": "Ganti remote saat ini dengan contoh bawaan aplikasi.",
   "deleteAllRemotes": "Hapus semua remote",
   "deleteAllRemotesSubtitle": "Hapus semua remote yang tersimpan di perangkat ini.",
-  "backupTip": "Tip: ekspor cadangan sebelum pengubahan besar. Impor mendukung cadangan penuh, cadangan JSON remote saja versi lama, dan file Flipper Zero .ir.",
+  "backupTip": "Simpan cadangan sebelum membuat perubahan besar. Anda dapat mengimpor cadangan lengkap maupun cadangan JSON lama yang hanya berisi remote.",
   "aboutTitle": "Tentang",
   "aboutSubtitle": "Info aplikasi dan detail sumber terbuka",
   "aboutAppNameWithCreator": "IR Blaster - {creator}",

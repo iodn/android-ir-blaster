@@ -906,7 +906,7 @@ class AppLocalizationsPl extends AppLocalizations {
 
   @override
   String get backupTip =>
-      'Wskazówka: przed większymi zmianami wyeksportuj kopię. Import obsługuje pełne kopie, starsze kopie JSON tylko z pilotami oraz pliki Flipper Zero .ir.';
+      'Przed większymi zmianami zapisz kopię zapasową. Możesz importować pełne kopie oraz starsze kopie JSON zawierające tylko piloty.';
 
   @override
   String get aboutTitle => 'O aplikacji';

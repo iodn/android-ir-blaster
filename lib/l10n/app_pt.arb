@@ -217,7 +217,7 @@
   "restoreDemoRemotesSubtitle": "Substitua os comandos atuais pelos exemplos da aplicação.",
   "deleteAllRemotes": "Eliminar todos os comandos",
   "deleteAllRemotesSubtitle": "Remova todos os comandos guardados neste dispositivo.",
-  "backupTip": "Dica: exporte uma cópia antes de grandes alterações. A importação aceita cópias completas, cópias JSON antigas de comandos e ficheiros .ir do Flipper Zero.",
+  "backupTip": "Guarde uma cópia de segurança antes de fazer grandes alterações. Pode importar cópias completas e cópias JSON antigas que contêm apenas comandos.",
   "aboutTitle": "Acerca de",
   "aboutSubtitle": "Informação da app e detalhes de código aberto",
   "aboutAppNameWithCreator": "IR Blaster - {creator}",

@@ -217,7 +217,7 @@
   "restoreDemoRemotesSubtitle": "Gantikan alat kawalan jauh semasa dengan contoh dalam aplikasi.",
   "deleteAllRemotes": "Padam semua alat kawalan jauh",
   "deleteAllRemotesSubtitle": "Padam semua alat kawalan jauh yang disimpan pada peranti ini.",
-  "backupTip": "Petua: eksport sandaran sebelum perubahan besar. Import menyokong sandaran penuh, sandaran JSON remote versi lama, dan fail Flipper Zero .ir.",
+  "backupTip": "Simpan sandaran sebelum membuat perubahan besar. Anda boleh mengimport sandaran penuh serta sandaran JSON lama yang hanya mengandungi alat kawalan jauh.",
   "aboutTitle": "Tentang",
   "aboutSubtitle": "Info aplikasi dan detail sumber terbuka",
   "aboutAppNameWithCreator": "IR Blaster - {creator}",

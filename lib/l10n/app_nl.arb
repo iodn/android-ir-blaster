@@ -217,7 +217,7 @@
   "restoreDemoRemotesSubtitle": "Vervang de huidige afstandsbedieningen door de voorbeelden uit de app.",
   "deleteAllRemotes": "Alle afstandsbedieningen verwijderen",
   "deleteAllRemotesSubtitle": "Verwijder alle afstandsbedieningen die op dit apparaat zijn opgeslagen.",
-  "backupTip": "Tip: exporteer een back-up vóór grote bewerkingen. Import ondersteunt volledige back-ups, oudere JSON-back-ups alleen voor afstandsbedieningen en Flipper Zero .ir-bestanden.",
+  "backupTip": "Sla een back-up op voordat je grote wijzigingen maakt. Je kunt volledige back-ups importeren, maar ook oudere JSON-back-ups met alleen afstandsbedieningen.",
   "aboutTitle": "Over",
   "aboutSubtitle": "App-info en open-sourcegegevens",
   "aboutAppNameWithCreator": "IR Blaster - {creator}",

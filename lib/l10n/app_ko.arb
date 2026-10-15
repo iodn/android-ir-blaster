@@ -217,7 +217,7 @@
   "restoreDemoRemotesSubtitle": "현재 리모컨을 앱에 포함된 예제로 바꿔요.",
   "deleteAllRemotes": "모든 리모컨 삭제",
   "deleteAllRemotesSubtitle": "이 기기에 저장된 리모컨을 모두 삭제해요.",
-  "backupTip": "팁: 큰 편집 전에 백업을 내보내세요. 가져오기는 전체 백업, 리모컨만 있는 레거시 JSON 백업, Flipper Zero .ir 파일을 지원합니다.",
+  "backupTip": "큰 변경을 하기 전에 백업을 저장하세요. 전체 백업뿐 아니라 리모컨만 들어 있는 이전 형식의 JSON 백업도 가져올 수 있어요.",
   "aboutTitle": "정보",
   "aboutSubtitle": "앱 정보와 오픈 소스 세부정보",
   "aboutAppNameWithCreator": "IR Blaster - {creator}",

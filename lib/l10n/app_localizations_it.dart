@@ -915,7 +915,7 @@ class AppLocalizationsIt extends AppLocalizations {
 
   @override
   String get backupTip =>
-      'Suggerimento. Esporta un backup prima di grandi modifiche. L\'import supporta backup completi, vecchi backup JSON solo telecomandi e file .ir di Flipper Zero.';
+      'Salva un backup prima di modifiche importanti. Puoi importare backup completi e vecchi backup JSON contenenti solo telecomandi.';
 
   @override
   String get aboutTitle => 'Informazioni';

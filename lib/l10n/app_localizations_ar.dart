@@ -896,7 +896,7 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String get backupTip =>
-      'ملاحظة: صدّر نسخة احتياطية قبل التعديلات الكبيرة. يدعم الاستيراد النسخ الكاملة ونسخ JSON القديمة الخاصة بالأجهزة فقط وملفات Flipper Zero بصيغة .ir.';
+      'احفظ نسخة احتياطية قبل إجراء تغييرات كبيرة. يمكنك استيراد النسخ الكاملة وكذلك نسخ JSON القديمة التي تحتوي على أجهزة التحكم فقط.';
 
   @override
   String get aboutTitle => 'حول';
@@ -6171,7 +6171,7 @@ class AppLocalizationsArEg extends AppLocalizationsAr {
 
   @override
   String get backupTip =>
-      'ملاحظة: صدّر نسخة احتياطية قبل التعديلات الكبيرة. يدعم الاستيراد النسخ الكاملة ونسخ JSON القديمة الخاصة بالأجهزة فقط وملفات Flipper Zero بصيغة .ir.';
+      'احفظ نسخة احتياطية قبل التغييرات الكبيرة. تقدر تستورد النسخ الكاملة وكمان نسخ JSON القديمة اللي فيها ريموتات بس.';
 
   @override
   String get aboutTitle => 'حول';

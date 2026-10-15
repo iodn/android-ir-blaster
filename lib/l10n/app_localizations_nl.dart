@@ -917,7 +917,7 @@ class AppLocalizationsNl extends AppLocalizations {
 
   @override
   String get backupTip =>
-      'Tip: exporteer een back-up vóór grote bewerkingen. Import ondersteunt volledige back-ups, oudere JSON-back-ups alleen voor afstandsbedieningen en Flipper Zero .ir-bestanden.';
+      'Sla een back-up op voordat je grote wijzigingen maakt. Je kunt volledige back-ups importeren, maar ook oudere JSON-back-ups met alleen afstandsbedieningen.';
 
   @override
   String get aboutTitle => 'Over';

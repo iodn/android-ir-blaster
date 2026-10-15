@@ -915,7 +915,7 @@ class AppLocalizationsFr extends AppLocalizations {
 
   @override
   String get backupTip =>
-      'Astuce : exportez une sauvegarde avant de gros changements. L\'import prend en charge les sauvegardes complètes, les anciennes sauvegardes JSON de télécommandes seules et les fichiers .ir Flipper Zero.';
+      'Faites une sauvegarde avant toute modification importante. Vous pouvez importer des sauvegardes complètes et d’anciennes sauvegardes JSON contenant uniquement des télécommandes.';
 
   @override
   String get aboutTitle => 'À propos';

@@ -270,6 +270,17 @@ void main() {
           lessThanOrEqualTo(tester.getRect(find.byType(AppBar)).bottom));
       expectReadable(find.text(l10n.backupTitle).last);
       expectReadable(find.text(l10n.backupSubtitle));
+      final backupTip = find.text(l10n.backupTip);
+      await tester.ensureVisible(backupTip);
+      await tester.pumpAndSettle();
+      expectReadable(backupTip);
+      await Scrollable.ensureVisible(tester.element(backupTip), alignment: 0);
+      await tester.pumpAndSettle();
+      expect(tester.getRect(backupTip).top,
+          greaterThanOrEqualTo(tester.getRect(find.byType(AppBar)).bottom));
+      await Scrollable.ensureVisible(tester.element(backupTip), alignment: 1);
+      await tester.pumpAndSettle();
+      expect(tester.getRect(backupTip).bottom, lessThanOrEqualTo(640));
       for (final label in [
         l10n.importBackup,
         l10n.importBackupSubtitle,

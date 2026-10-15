@@ -907,7 +907,7 @@ class AppLocalizationsMs extends AppLocalizations {
 
   @override
   String get backupTip =>
-      'Petua: eksport sandaran sebelum perubahan besar. Import menyokong sandaran penuh, sandaran JSON remote versi lama, dan fail Flipper Zero .ir.';
+      'Simpan sandaran sebelum membuat perubahan besar. Anda boleh mengimport sandaran penuh serta sandaran JSON lama yang hanya mengandungi alat kawalan jauh.';
 
   @override
   String get aboutTitle => 'Tentang';

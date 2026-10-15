@@ -869,7 +869,7 @@ class AppLocalizationsKo extends AppLocalizations {
 
   @override
   String get backupTip =>
-      '팁: 큰 편집 전에 백업을 내보내세요. 가져오기는 전체 백업, 리모컨만 있는 레거시 JSON 백업, Flipper Zero .ir 파일을 지원합니다.';
+      '큰 변경을 하기 전에 백업을 저장하세요. 전체 백업뿐 아니라 리모컨만 들어 있는 이전 형식의 JSON 백업도 가져올 수 있어요.';
 
   @override
   String get aboutTitle => '정보';

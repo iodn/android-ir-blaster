@@ -217,7 +217,7 @@
   "restoreDemoRemotesSubtitle": "แทนที่รีโมตปัจจุบันด้วยรีโมตตัวอย่างในแอป",
   "deleteAllRemotes": "ลบรีโมตทั้งหมด",
   "deleteAllRemotesSubtitle": "ลบรีโมตทั้งหมดที่บันทึกไว้ในอุปกรณ์นี้",
-  "backupTip": "Tip: export a backup before large edits. นำเข้า supports full backups, legacy รีโมต-เท่านั้น JSON backups, and Flipper Zero.ir ไฟล์s.",
+  "backupTip": "บันทึกข้อมูลสำรองก่อนทำการเปลี่ยนแปลงครั้งใหญ่ คุณนำเข้าได้ทั้งข้อมูลสำรองทั้งหมดและข้อมูลสำรอง JSON รุ่นเก่าที่มีเฉพาะรีโมต",
   "aboutTitle": "เกี่ยวกับ",
   "aboutSubtitle": "ข้อมูลแอปและรายละเอียดโอเพนซอร์ส",
   "aboutAppNameWithCreator": "IR Bล่าสุดer - {creator}",
