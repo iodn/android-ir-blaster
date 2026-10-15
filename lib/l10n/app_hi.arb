@@ -2487,5 +2487,11 @@
   "githubTokenOptionalBody": "वैकल्पिक। आप बिना टोकन के GitHub की सार्वजनिक रिपॉज़िटरी देख सकते हैं।",
   "githubShowToken": "टोकन दिखाएँ",
   "githubHideToken": "टोकन छिपाएँ",
-  "githubTokenStorageNote": "इस डिवाइस पर सहेजा जाता है।"
+  "githubTokenStorageNote": "इस डिवाइस पर सहेजा जाता है।",
+  "githubRequestsRemaining": "बचे हुए अनुरोध: {count}",
+  "@githubRequestsRemaining": {"placeholders":{"count":{"type":"int","format":"decimalPattern"}}},
+  "githubRequestLimit": "अनुरोधों की सीमा: {count}",
+  "@githubRequestLimit": {"placeholders":{"count":{"type":"int","format":"decimalPattern"}}},
+  "githubLimitResetTime": "सीमा रीसेट होने का समय: {time}",
+  "@githubLimitResetTime": {"placeholders":{"time":{"type":"String"}}}
 }

@@ -2487,5 +2487,11 @@
   "githubTokenOptionalBody": "Optioneel. Je kunt openbare GitHub-repositories ook zonder token bekijken.",
   "githubShowToken": "Token tonen",
   "githubHideToken": "Token verbergen",
-  "githubTokenStorageNote": "Wordt op dit apparaat opgeslagen."
+  "githubTokenStorageNote": "Wordt op dit apparaat opgeslagen.",
+  "githubRequestsRemaining": "Resterende verzoeken: {count}",
+  "@githubRequestsRemaining": {"placeholders":{"count":{"type":"int","format":"decimalPattern"}}},
+  "githubRequestLimit": "Verzoeklimiet: {count}",
+  "@githubRequestLimit": {"placeholders":{"count":{"type":"int","format":"decimalPattern"}}},
+  "githubLimitResetTime": "Limiet wordt hersteld: {time}",
+  "@githubLimitResetTime": {"placeholders":{"time":{"type":"String"}}}
 }

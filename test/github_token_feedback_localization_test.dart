@@ -42,7 +42,7 @@ void main() {
     await tester.scrollUntilVisible(find.text('Connection ready'), 300,
         scrollable: find.byType(Scrollable).first);
     await tester.pumpAndSettle();
-    expect(find.text('Remaining: 59'), findsOneWidget);
+    expect(find.text('Requests left: 59'), findsOneWidget);
     final field = find.byType(TextField);
     await tester.scrollUntilVisible(field, -300,
         scrollable: find.byType(Scrollable).first);
@@ -55,8 +55,8 @@ void main() {
         scrollable: find.byType(Scrollable).first);
     await tester.pumpAndSettle();
     expect(find.text('Connection ready'), findsNothing);
-    expect(find.text('Remaining: 59'), findsNothing);
-    expect(find.text('Limit: 60'), findsNothing);
+    expect(find.text('Requests left: 59'), findsNothing);
+    expect(find.text('Request limit: 60'), findsNothing);
     expect(find.text('Token saved on this device.'), findsOneWidget);
     final prefs = await SharedPreferences.getInstance();
     expect(prefs.getString(key), 'new-test-token');

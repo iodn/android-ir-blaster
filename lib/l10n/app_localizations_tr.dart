@@ -5451,4 +5451,27 @@ class AppLocalizationsTr extends AppLocalizations {
 
   @override
   String get githubTokenStorageNote => 'Bu cihaza kaydedilir.';
+
+  @override
+  String githubRequestsRemaining(int count) {
+    final intl.NumberFormat countNumberFormat =
+        intl.NumberFormat.decimalPattern(localeName);
+    final String countString = countNumberFormat.format(count);
+
+    return 'Kalan istek: $countString';
+  }
+
+  @override
+  String githubRequestLimit(int count) {
+    final intl.NumberFormat countNumberFormat =
+        intl.NumberFormat.decimalPattern(localeName);
+    final String countString = countNumberFormat.format(count);
+
+    return 'İstek sınırı: $countString';
+  }
+
+  @override
+  String githubLimitResetTime(String time) {
+    return 'Sınırın sıfırlanma zamanı: $time';
+  }
 }

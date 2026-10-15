@@ -1629,24 +1629,13 @@ class _GitHubConnectionScreenState extends State<_GitHubConnectionScreen> {
   String? _formatResetAt(DateTime? dateTime) {
     if (dateTime == null) return null;
     final local = dateTime.toLocal();
-    final hh = local.hour % 12 == 0 ? 12 : local.hour % 12;
-    final mm = local.minute.toString().padLeft(2, '0');
-    final ampm = local.hour >= 12 ? 'PM' : 'AM';
-    final month = [
-      'Jan',
-      'Feb',
-      'Mar',
-      'Apr',
-      'May',
-      'Jun',
-      'Jul',
-      'Aug',
-      'Sep',
-      'Oct',
-      'Nov',
-      'Dec',
-    ][local.month - 1];
-    return '$month ${local.day}, $hh:$mm $ampm';
+    final material = MaterialLocalizations.of(context);
+    final date = material.formatCompactDate(local);
+    final time = material.formatTimeOfDay(
+      TimeOfDay.fromDateTime(local),
+      alwaysUse24HourFormat: MediaQuery.alwaysUse24HourFormatOf(context),
+    );
+    return '$date $time';
   }
 
   @override
@@ -1878,19 +1867,22 @@ class _GitHubConnectionScreenState extends State<_GitHubConnectionScreen> {
                                       if (_status!.remaining != null)
                                         Chip(
                                           label: Text(
-                                            'Remaining: ${_status!.remaining}',
+                                            context.l10n.githubRequestsRemaining(
+                                                _status!.remaining!),
                                           ),
                                         ),
                                       if (_status!.limit != null)
                                         Chip(
                                           label: Text(
-                                            'Limit: ${_status!.limit}',
+                                            context.l10n.githubRequestLimit(
+                                                _status!.limit!),
                                           ),
                                         ),
                                       if (_formatResetAt(_status!.resetAt) != null)
                                         Chip(
                                           label: Text(
-                                            'Reset: ${_formatResetAt(_status!.resetAt)!}',
+                                            context.l10n.githubLimitResetTime(
+                                                _formatResetAt(_status!.resetAt)!),
                                           ),
                                         ),
                                     ],

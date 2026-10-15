@@ -2473,5 +2473,11 @@
   "githubTokenOptionalBody": "Optional. Öffentliche GitHub-Repositories kannst du auch ohne Token durchsuchen.",
   "githubShowToken": "Token anzeigen",
   "githubHideToken": "Token verbergen",
-  "githubTokenStorageNote": "Wird auf diesem Gerät gespeichert."
+  "githubTokenStorageNote": "Wird auf diesem Gerät gespeichert.",
+  "githubRequestsRemaining": "Verbleibende Anfragen: {count}",
+  "@githubRequestsRemaining": {"placeholders":{"count":{"type":"int","format":"decimalPattern"}}},
+  "githubRequestLimit": "Anfragelimit: {count}",
+  "@githubRequestLimit": {"placeholders":{"count":{"type":"int","format":"decimalPattern"}}},
+  "githubLimitResetTime": "Zurücksetzung: {time}",
+  "@githubLimitResetTime": {"placeholders":{"time":{"type":"String"}}}
 }

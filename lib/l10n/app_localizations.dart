@@ -9835,6 +9835,24 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Saved on this device.'**
   String get githubTokenStorageNote;
+
+  /// No description provided for @githubRequestsRemaining.
+  ///
+  /// In en, this message translates to:
+  /// **'Requests left: {count}'**
+  String githubRequestsRemaining(int count);
+
+  /// No description provided for @githubRequestLimit.
+  ///
+  /// In en, this message translates to:
+  /// **'Request limit: {count}'**
+  String githubRequestLimit(int count);
+
+  /// No description provided for @githubLimitResetTime.
+  ///
+  /// In en, this message translates to:
+  /// **'Limit resets: {time}'**
+  String githubLimitResetTime(String time);
 }
 
 class _AppLocalizationsDelegate

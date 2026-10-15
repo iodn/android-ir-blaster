@@ -5535,4 +5535,27 @@ class AppLocalizationsRu extends AppLocalizations {
 
   @override
   String get githubTokenStorageNote => 'Сохраняется на этом устройстве.';
+
+  @override
+  String githubRequestsRemaining(int count) {
+    final intl.NumberFormat countNumberFormat =
+        intl.NumberFormat.decimalPattern(localeName);
+    final String countString = countNumberFormat.format(count);
+
+    return 'Осталось запросов: $countString';
+  }
+
+  @override
+  String githubRequestLimit(int count) {
+    final intl.NumberFormat countNumberFormat =
+        intl.NumberFormat.decimalPattern(localeName);
+    final String countString = countNumberFormat.format(count);
+
+    return 'Лимит запросов: $countString';
+  }
+
+  @override
+  String githubLimitResetTime(String time) {
+    return 'Лимит обновится: $time';
+  }
 }

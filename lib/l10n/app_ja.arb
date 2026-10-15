@@ -2487,5 +2487,11 @@
   "githubTokenOptionalBody": "任意です。GitHubの公開リポジトリは、トークンなしでも閲覧できます。",
   "githubShowToken": "トークンを表示",
   "githubHideToken": "トークンを隠す",
-  "githubTokenStorageNote": "この端末に保存されます。"
+  "githubTokenStorageNote": "この端末に保存されます。",
+  "githubRequestsRemaining": "残りリクエスト数: {count}",
+  "@githubRequestsRemaining": {"placeholders":{"count":{"type":"int","format":"decimalPattern"}}},
+  "githubRequestLimit": "リクエスト上限: {count}",
+  "@githubRequestLimit": {"placeholders":{"count":{"type":"int","format":"decimalPattern"}}},
+  "githubLimitResetTime": "制限のリセット: {time}",
+  "@githubLimitResetTime": {"placeholders":{"time":{"type":"String"}}}
 }

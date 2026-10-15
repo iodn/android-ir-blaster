@@ -2487,5 +2487,11 @@
   "githubTokenOptionalBody": "Không bắt buộc. Bạn có thể duyệt kho công khai trên GitHub mà không cần mã truy cập.",
   "githubShowToken": "Hiện mã truy cập",
   "githubHideToken": "Ẩn mã truy cập",
-  "githubTokenStorageNote": "Được lưu trên thiết bị này."
+  "githubTokenStorageNote": "Được lưu trên thiết bị này.",
+  "githubRequestsRemaining": "Số yêu cầu còn lại: {count}",
+  "@githubRequestsRemaining": {"placeholders":{"count":{"type":"int","format":"decimalPattern"}}},
+  "githubRequestLimit": "Giới hạn yêu cầu: {count}",
+  "@githubRequestLimit": {"placeholders":{"count":{"type":"int","format":"decimalPattern"}}},
+  "githubLimitResetTime": "Đặt lại giới hạn lúc: {time}",
+  "@githubLimitResetTime": {"placeholders":{"time":{"type":"String"}}}
 }

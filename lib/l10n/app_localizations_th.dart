@@ -5413,4 +5413,27 @@ class AppLocalizationsTh extends AppLocalizations {
 
   @override
   String get githubTokenStorageNote => 'บันทึกไว้ในอุปกรณ์นี้';
+
+  @override
+  String githubRequestsRemaining(int count) {
+    final intl.NumberFormat countNumberFormat =
+        intl.NumberFormat.decimalPattern(localeName);
+    final String countString = countNumberFormat.format(count);
+
+    return 'คำขอที่เหลือ: $countString';
+  }
+
+  @override
+  String githubRequestLimit(int count) {
+    final intl.NumberFormat countNumberFormat =
+        intl.NumberFormat.decimalPattern(localeName);
+    final String countString = countNumberFormat.format(count);
+
+    return 'จำนวนคำขอสูงสุด: $countString';
+  }
+
+  @override
+  String githubLimitResetTime(String time) {
+    return 'รีเซ็ตขีดจำกัด: $time';
+  }
 }

@@ -2487,5 +2487,11 @@
   "githubTokenOptionalBody": "选填。无需令牌也可以浏览GitHub的公开仓库。",
   "githubShowToken": "显示令牌",
   "githubHideToken": "隐藏令牌",
-  "githubTokenStorageNote": "保存在此设备上。"
+  "githubTokenStorageNote": "保存在此设备上。",
+  "githubRequestsRemaining": "剩余请求次数：{count}",
+  "@githubRequestsRemaining": {"placeholders":{"count":{"type":"int","format":"decimalPattern"}}},
+  "githubRequestLimit": "请求次数上限：{count}",
+  "@githubRequestLimit": {"placeholders":{"count":{"type":"int","format":"decimalPattern"}}},
+  "githubLimitResetTime": "限额重置时间：{time}",
+  "@githubLimitResetTime": {"placeholders":{"time":{"type":"String"}}}
 }

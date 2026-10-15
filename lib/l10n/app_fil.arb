@@ -2487,5 +2487,11 @@
   "githubTokenOptionalBody": "Opsyonal. Maaari mong tingnan ang mga pampublikong GitHub repository nang walang token.",
   "githubShowToken": "Ipakita ang token",
   "githubHideToken": "Itago ang token",
-  "githubTokenStorageNote": "Naka-save sa device na ito."
+  "githubTokenStorageNote": "Naka-save sa device na ito.",
+  "githubRequestsRemaining": "Natitirang request: {count}",
+  "@githubRequestsRemaining": {"placeholders":{"count":{"type":"int","format":"decimalPattern"}}},
+  "githubRequestLimit": "Limitasyon sa mga request: {count}",
+  "@githubRequestLimit": {"placeholders":{"count":{"type":"int","format":"decimalPattern"}}},
+  "githubLimitResetTime": "Magre-reset ang limitasyon: {time}",
+  "@githubLimitResetTime": {"placeholders":{"time":{"type":"String"}}}
 }

@@ -2489,5 +2489,11 @@
   "githubTokenOptionalBody": "Opcjonalny. Publiczne repozytoria GitHub można przeglądać bez tokenu.",
   "githubShowToken": "Pokaż token",
   "githubHideToken": "Ukryj token",
-  "githubTokenStorageNote": "Zapisywany na tym urządzeniu."
+  "githubTokenStorageNote": "Zapisywany na tym urządzeniu.",
+  "githubRequestsRemaining": "Pozostałe żądania: {count}",
+  "@githubRequestsRemaining": {"placeholders":{"count":{"type":"int","format":"decimalPattern"}}},
+  "githubRequestLimit": "Limit żądań: {count}",
+  "@githubRequestLimit": {"placeholders":{"count":{"type":"int","format":"decimalPattern"}}},
+  "githubLimitResetTime": "Reset limitu: {time}",
+  "@githubLimitResetTime": {"placeholders":{"time":{"type":"String"}}}
 }

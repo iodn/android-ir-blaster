@@ -5468,4 +5468,27 @@ class AppLocalizationsHi extends AppLocalizations {
 
   @override
   String get githubTokenStorageNote => 'इस डिवाइस पर सहेजा जाता है।';
+
+  @override
+  String githubRequestsRemaining(int count) {
+    final intl.NumberFormat countNumberFormat =
+        intl.NumberFormat.decimalPattern(localeName);
+    final String countString = countNumberFormat.format(count);
+
+    return 'बचे हुए अनुरोध: $countString';
+  }
+
+  @override
+  String githubRequestLimit(int count) {
+    final intl.NumberFormat countNumberFormat =
+        intl.NumberFormat.decimalPattern(localeName);
+    final String countString = countNumberFormat.format(count);
+
+    return 'अनुरोधों की सीमा: $countString';
+  }
+
+  @override
+  String githubLimitResetTime(String time) {
+    return 'सीमा रीसेट होने का समय: $time';
+  }
 }

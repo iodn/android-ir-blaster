@@ -5467,4 +5467,27 @@ class AppLocalizationsMs extends AppLocalizations {
 
   @override
   String get githubTokenStorageNote => 'Disimpan pada peranti ini.';
+
+  @override
+  String githubRequestsRemaining(int count) {
+    final intl.NumberFormat countNumberFormat =
+        intl.NumberFormat.decimalPattern(localeName);
+    final String countString = countNumberFormat.format(count);
+
+    return 'Permintaan berbaki: $countString';
+  }
+
+  @override
+  String githubRequestLimit(int count) {
+    final intl.NumberFormat countNumberFormat =
+        intl.NumberFormat.decimalPattern(localeName);
+    final String countString = countNumberFormat.format(count);
+
+    return 'Had permintaan: $countString';
+  }
+
+  @override
+  String githubLimitResetTime(String time) {
+    return 'Had ditetapkan semula: $time';
+  }
 }

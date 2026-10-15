@@ -2487,5 +2487,11 @@
   "githubTokenOptionalBody": "Необов’язково. Публічні репозиторії GitHub можна переглядати без токена.",
   "githubShowToken": "Показати токен",
   "githubHideToken": "Приховати токен",
-  "githubTokenStorageNote": "Зберігається на цьому пристрої."
+  "githubTokenStorageNote": "Зберігається на цьому пристрої.",
+  "githubRequestsRemaining": "Запитів залишилося: {count}",
+  "@githubRequestsRemaining": {"placeholders":{"count":{"type":"int","format":"decimalPattern"}}},
+  "githubRequestLimit": "Ліміт запитів: {count}",
+  "@githubRequestLimit": {"placeholders":{"count":{"type":"int","format":"decimalPattern"}}},
+  "githubLimitResetTime": "Ліміт оновиться: {time}",
+  "@githubLimitResetTime": {"placeholders":{"time":{"type":"String"}}}
 }

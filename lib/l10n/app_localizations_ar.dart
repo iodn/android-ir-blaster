@@ -5469,6 +5469,29 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String get githubTokenStorageNote => 'يُحفظ على هذا الجهاز.';
+
+  @override
+  String githubRequestsRemaining(int count) {
+    final intl.NumberFormat countNumberFormat =
+        intl.NumberFormat.decimalPattern(localeName);
+    final String countString = countNumberFormat.format(count);
+
+    return 'الطلبات المتبقية: $countString';
+  }
+
+  @override
+  String githubRequestLimit(int count) {
+    final intl.NumberFormat countNumberFormat =
+        intl.NumberFormat.decimalPattern(localeName);
+    final String countString = countNumberFormat.format(count);
+
+    return 'الحد الأقصى للطلبات: $countString';
+  }
+
+  @override
+  String githubLimitResetTime(String time) {
+    return 'إعادة تعيين الحد: $time';
+  }
 }
 
 /// The translations for Arabic, as used in Egypt (`ar_EG`).
@@ -10936,4 +10959,27 @@ class AppLocalizationsArEg extends AppLocalizationsAr {
 
   @override
   String get githubTokenStorageNote => 'بيتحفظ على الجهاز ده.';
+
+  @override
+  String githubRequestsRemaining(int count) {
+    final intl.NumberFormat countNumberFormat =
+        intl.NumberFormat.decimalPattern(localeName);
+    final String countString = countNumberFormat.format(count);
+
+    return 'الطلبات المتبقية: $countString';
+  }
+
+  @override
+  String githubRequestLimit(int count) {
+    final intl.NumberFormat countNumberFormat =
+        intl.NumberFormat.decimalPattern(localeName);
+    final String countString = countNumberFormat.format(count);
+
+    return 'الحد الأقصى للطلبات: $countString';
+  }
+
+  @override
+  String githubLimitResetTime(String time) {
+    return 'تجديد الحد: $time';
+  }
 }

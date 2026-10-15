@@ -5292,4 +5292,27 @@ class AppLocalizationsJa extends AppLocalizations {
 
   @override
   String get githubTokenStorageNote => 'この端末に保存されます。';
+
+  @override
+  String githubRequestsRemaining(int count) {
+    final intl.NumberFormat countNumberFormat =
+        intl.NumberFormat.decimalPattern(localeName);
+    final String countString = countNumberFormat.format(count);
+
+    return '残りリクエスト数: $countString';
+  }
+
+  @override
+  String githubRequestLimit(int count) {
+    final intl.NumberFormat countNumberFormat =
+        intl.NumberFormat.decimalPattern(localeName);
+    final String countString = countNumberFormat.format(count);
+
+    return 'リクエスト上限: $countString';
+  }
+
+  @override
+  String githubLimitResetTime(String time) {
+    return '制限のリセット: $time';
+  }
 }

@@ -5308,4 +5308,27 @@ class AppLocalizationsKo extends AppLocalizations {
 
   @override
   String get githubTokenStorageNote => '이 기기에 저장돼요.';
+
+  @override
+  String githubRequestsRemaining(int count) {
+    final intl.NumberFormat countNumberFormat =
+        intl.NumberFormat.decimalPattern(localeName);
+    final String countString = countNumberFormat.format(count);
+
+    return '남은 요청 수: $countString';
+  }
+
+  @override
+  String githubRequestLimit(int count) {
+    final intl.NumberFormat countNumberFormat =
+        intl.NumberFormat.decimalPattern(localeName);
+    final String countString = countNumberFormat.format(count);
+
+    return '요청 한도: $countString';
+  }
+
+  @override
+  String githubLimitResetTime(String time) {
+    return '한도 초기화: $time';
+  }
 }

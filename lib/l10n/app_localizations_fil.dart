@@ -5475,4 +5475,27 @@ class AppLocalizationsFil extends AppLocalizations {
 
   @override
   String get githubTokenStorageNote => 'Naka-save sa device na ito.';
+
+  @override
+  String githubRequestsRemaining(int count) {
+    final intl.NumberFormat countNumberFormat =
+        intl.NumberFormat.decimalPattern(localeName);
+    final String countString = countNumberFormat.format(count);
+
+    return 'Natitirang request: $countString';
+  }
+
+  @override
+  String githubRequestLimit(int count) {
+    final intl.NumberFormat countNumberFormat =
+        intl.NumberFormat.decimalPattern(localeName);
+    final String countString = countNumberFormat.format(count);
+
+    return 'Limitasyon sa mga request: $countString';
+  }
+
+  @override
+  String githubLimitResetTime(String time) {
+    return 'Magre-reset ang limitasyon: $time';
+  }
 }

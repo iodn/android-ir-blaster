@@ -2487,5 +2487,11 @@
   "githubTokenOptionalBody": "Opsional. Anda dapat menjelajahi repositori publik GitHub tanpa token.",
   "githubShowToken": "Tampilkan token",
   "githubHideToken": "Sembunyikan token",
-  "githubTokenStorageNote": "Disimpan di perangkat ini."
+  "githubTokenStorageNote": "Disimpan di perangkat ini.",
+  "githubRequestsRemaining": "Permintaan tersisa: {count}",
+  "@githubRequestsRemaining": {"placeholders":{"count":{"type":"int","format":"decimalPattern"}}},
+  "githubRequestLimit": "Batas permintaan: {count}",
+  "@githubRequestLimit": {"placeholders":{"count":{"type":"int","format":"decimalPattern"}}},
+  "githubLimitResetTime": "Batas direset: {time}",
+  "@githubLimitResetTime": {"placeholders":{"time":{"type":"String"}}}
 }

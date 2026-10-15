@@ -5454,4 +5454,27 @@ class AppLocalizationsId extends AppLocalizations {
 
   @override
   String get githubTokenStorageNote => 'Disimpan di perangkat ini.';
+
+  @override
+  String githubRequestsRemaining(int count) {
+    final intl.NumberFormat countNumberFormat =
+        intl.NumberFormat.decimalPattern(localeName);
+    final String countString = countNumberFormat.format(count);
+
+    return 'Permintaan tersisa: $countString';
+  }
+
+  @override
+  String githubRequestLimit(int count) {
+    final intl.NumberFormat countNumberFormat =
+        intl.NumberFormat.decimalPattern(localeName);
+    final String countString = countNumberFormat.format(count);
+
+    return 'Batas permintaan: $countString';
+  }
+
+  @override
+  String githubLimitResetTime(String time) {
+    return 'Batas direset: $time';
+  }
 }

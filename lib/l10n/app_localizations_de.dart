@@ -5550,4 +5550,27 @@ class AppLocalizationsDe extends AppLocalizations {
 
   @override
   String get githubTokenStorageNote => 'Wird auf diesem Gerät gespeichert.';
+
+  @override
+  String githubRequestsRemaining(int count) {
+    final intl.NumberFormat countNumberFormat =
+        intl.NumberFormat.decimalPattern(localeName);
+    final String countString = countNumberFormat.format(count);
+
+    return 'Verbleibende Anfragen: $countString';
+  }
+
+  @override
+  String githubRequestLimit(int count) {
+    final intl.NumberFormat countNumberFormat =
+        intl.NumberFormat.decimalPattern(localeName);
+    final String countString = countNumberFormat.format(count);
+
+    return 'Anfragelimit: $countString';
+  }
+
+  @override
+  String githubLimitResetTime(String time) {
+    return 'Zurücksetzung: $time';
+  }
 }

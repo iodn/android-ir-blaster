@@ -2487,5 +2487,11 @@
   "githubTokenOptionalBody": "Facultatif. Vous pouvez parcourir les dépôts publics GitHub sans jeton.",
   "githubShowToken": "Afficher le jeton",
   "githubHideToken": "Masquer le jeton",
-  "githubTokenStorageNote": "Enregistré sur cet appareil."
+  "githubTokenStorageNote": "Enregistré sur cet appareil.",
+  "githubRequestsRemaining": "Requêtes restantes : {count}",
+  "@githubRequestsRemaining": {"placeholders":{"count":{"type":"int","format":"decimalPattern"}}},
+  "githubRequestLimit": "Limite de requêtes : {count}",
+  "@githubRequestLimit": {"placeholders":{"count":{"type":"int","format":"decimalPattern"}}},
+  "githubLimitResetTime": "Réinitialisation de la limite : {time}",
+  "@githubLimitResetTime": {"placeholders":{"time":{"type":"String"}}}
 }

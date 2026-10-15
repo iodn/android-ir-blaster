@@ -5543,6 +5543,29 @@ class AppLocalizationsPt extends AppLocalizations {
 
   @override
   String get githubTokenStorageNote => 'Guardado neste dispositivo.';
+
+  @override
+  String githubRequestsRemaining(int count) {
+    final intl.NumberFormat countNumberFormat =
+        intl.NumberFormat.decimalPattern(localeName);
+    final String countString = countNumberFormat.format(count);
+
+    return 'Pedidos restantes: $countString';
+  }
+
+  @override
+  String githubRequestLimit(int count) {
+    final intl.NumberFormat countNumberFormat =
+        intl.NumberFormat.decimalPattern(localeName);
+    final String countString = countNumberFormat.format(count);
+
+    return 'Limite de pedidos: $countString';
+  }
+
+  @override
+  String githubLimitResetTime(String time) {
+    return 'Reposição do limite: $time';
+  }
 }
 
 /// The translations for Portuguese, as used in Brazil (`pt_BR`).
@@ -11078,4 +11101,27 @@ class AppLocalizationsPtBr extends AppLocalizationsPt {
 
   @override
   String get githubTokenStorageNote => 'Salvo neste dispositivo.';
+
+  @override
+  String githubRequestsRemaining(int count) {
+    final intl.NumberFormat countNumberFormat =
+        intl.NumberFormat.decimalPattern(localeName);
+    final String countString = countNumberFormat.format(count);
+
+    return 'Solicitações restantes: $countString';
+  }
+
+  @override
+  String githubRequestLimit(int count) {
+    final intl.NumberFormat countNumberFormat =
+        intl.NumberFormat.decimalPattern(localeName);
+    final String countString = countNumberFormat.format(count);
+
+    return 'Limite de solicitações: $countString';
+  }
+
+  @override
+  String githubLimitResetTime(String time) {
+    return 'Redefinição do limite: $time';
+  }
 }

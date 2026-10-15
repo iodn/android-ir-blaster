@@ -2487,5 +2487,11 @@
   "githubTokenOptionalBody": "ไม่จำเป็นต้องระบุ คุณสามารถดูคลังโค้ดสาธารณะบน GitHub ได้โดยไม่ใช้โทเค็น",
   "githubShowToken": "แสดงโทเค็น",
   "githubHideToken": "ซ่อนโทเค็น",
-  "githubTokenStorageNote": "บันทึกไว้ในอุปกรณ์นี้"
+  "githubTokenStorageNote": "บันทึกไว้ในอุปกรณ์นี้",
+  "githubRequestsRemaining": "คำขอที่เหลือ: {count}",
+  "@githubRequestsRemaining": {"placeholders":{"count":{"type":"int","format":"decimalPattern"}}},
+  "githubRequestLimit": "จำนวนคำขอสูงสุด: {count}",
+  "@githubRequestLimit": {"placeholders":{"count":{"type":"int","format":"decimalPattern"}}},
+  "githubLimitResetTime": "รีเซ็ตขีดจำกัด: {time}",
+  "@githubLimitResetTime": {"placeholders":{"time":{"type":"String"}}}
 }

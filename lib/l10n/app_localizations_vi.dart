@@ -5436,4 +5436,27 @@ class AppLocalizationsVi extends AppLocalizations {
 
   @override
   String get githubTokenStorageNote => 'Được lưu trên thiết bị này.';
+
+  @override
+  String githubRequestsRemaining(int count) {
+    final intl.NumberFormat countNumberFormat =
+        intl.NumberFormat.decimalPattern(localeName);
+    final String countString = countNumberFormat.format(count);
+
+    return 'Số yêu cầu còn lại: $countString';
+  }
+
+  @override
+  String githubRequestLimit(int count) {
+    final intl.NumberFormat countNumberFormat =
+        intl.NumberFormat.decimalPattern(localeName);
+    final String countString = countNumberFormat.format(count);
+
+    return 'Giới hạn yêu cầu: $countString';
+  }
+
+  @override
+  String githubLimitResetTime(String time) {
+    return 'Đặt lại giới hạn lúc: $time';
+  }
 }

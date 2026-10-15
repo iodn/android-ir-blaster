@@ -2487,5 +2487,11 @@
   "githubTokenOptionalBody": "İsteğe bağlı. Herkese açık GitHub depolarına belirteç olmadan göz atabilirsiniz.",
   "githubShowToken": "Belirteci göster",
   "githubHideToken": "Belirteci gizle",
-  "githubTokenStorageNote": "Bu cihaza kaydedilir."
+  "githubTokenStorageNote": "Bu cihaza kaydedilir.",
+  "githubRequestsRemaining": "Kalan istek: {count}",
+  "@githubRequestsRemaining": {"placeholders":{"count":{"type":"int","format":"decimalPattern"}}},
+  "githubRequestLimit": "İstek sınırı: {count}",
+  "@githubRequestLimit": {"placeholders":{"count":{"type":"int","format":"decimalPattern"}}},
+  "githubLimitResetTime": "Sınırın sıfırlanma zamanı: {time}",
+  "@githubLimitResetTime": {"placeholders":{"time":{"type":"String"}}}
 }

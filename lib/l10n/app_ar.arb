@@ -2487,5 +2487,11 @@
   "githubTokenOptionalBody": "اختياري. يمكنك تصفح مستودعات GitHub العامة دون رمز.",
   "githubShowToken": "إظهار الرمز",
   "githubHideToken": "إخفاء الرمز",
-  "githubTokenStorageNote": "يُحفظ على هذا الجهاز."
+  "githubTokenStorageNote": "يُحفظ على هذا الجهاز.",
+  "githubRequestsRemaining": "الطلبات المتبقية: {count}",
+  "@githubRequestsRemaining": {"placeholders":{"count":{"type":"int","format":"decimalPattern"}}},
+  "githubRequestLimit": "الحد الأقصى للطلبات: {count}",
+  "@githubRequestLimit": {"placeholders":{"count":{"type":"int","format":"decimalPattern"}}},
+  "githubLimitResetTime": "إعادة تعيين الحد: {time}",
+  "@githubLimitResetTime": {"placeholders":{"time":{"type":"String"}}}
 }

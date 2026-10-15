@@ -5207,4 +5207,27 @@ class AppLocalizationsZh extends AppLocalizations {
 
   @override
   String get githubTokenStorageNote => '保存在此设备上。';
+
+  @override
+  String githubRequestsRemaining(int count) {
+    final intl.NumberFormat countNumberFormat =
+        intl.NumberFormat.decimalPattern(localeName);
+    final String countString = countNumberFormat.format(count);
+
+    return '剩余请求次数：$countString';
+  }
+
+  @override
+  String githubRequestLimit(int count) {
+    final intl.NumberFormat countNumberFormat =
+        intl.NumberFormat.decimalPattern(localeName);
+    final String countString = countNumberFormat.format(count);
+
+    return '请求次数上限：$countString';
+  }
+
+  @override
+  String githubLimitResetTime(String time) {
+    return '限额重置时间：$time';
+  }
 }

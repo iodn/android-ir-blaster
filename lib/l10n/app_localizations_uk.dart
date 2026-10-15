@@ -5600,4 +5600,27 @@ class AppLocalizationsUk extends AppLocalizations {
 
   @override
   String get githubTokenStorageNote => 'Зберігається на цьому пристрої.';
+
+  @override
+  String githubRequestsRemaining(int count) {
+    final intl.NumberFormat countNumberFormat =
+        intl.NumberFormat.decimalPattern(localeName);
+    final String countString = countNumberFormat.format(count);
+
+    return 'Запитів залишилося: $countString';
+  }
+
+  @override
+  String githubRequestLimit(int count) {
+    final intl.NumberFormat countNumberFormat =
+        intl.NumberFormat.decimalPattern(localeName);
+    final String countString = countNumberFormat.format(count);
+
+    return 'Ліміт запитів: $countString';
+  }
+
+  @override
+  String githubLimitResetTime(String time) {
+    return 'Ліміт оновиться: $time';
+  }
 }

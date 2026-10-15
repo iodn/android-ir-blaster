@@ -2718,5 +2718,11 @@
   "githubTokenOptionalBody": "Optional. You can browse public GitHub repositories without a token.",
   "githubShowToken": "Show token",
   "githubHideToken": "Hide token",
-  "githubTokenStorageNote": "Saved on this device."
+  "githubTokenStorageNote": "Saved on this device.",
+  "githubRequestsRemaining": "Requests left: {count}",
+  "@githubRequestsRemaining": {"placeholders":{"count":{"type":"int","format":"decimalPattern"}}},
+  "githubRequestLimit": "Request limit: {count}",
+  "@githubRequestLimit": {"placeholders":{"count":{"type":"int","format":"decimalPattern"}}},
+  "githubLimitResetTime": "Limit resets: {time}",
+  "@githubLimitResetTime": {"placeholders":{"time":{"type":"String"}}}
 }

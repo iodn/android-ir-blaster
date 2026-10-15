@@ -2487,5 +2487,11 @@
   "githubTokenOptionalBody": "선택 사항이에요. 공개 GitHub 저장소는 토큰 없이도 둘러볼 수 있어요.",
   "githubShowToken": "토큰 표시",
   "githubHideToken": "토큰 숨기기",
-  "githubTokenStorageNote": "이 기기에 저장돼요."
+  "githubTokenStorageNote": "이 기기에 저장돼요.",
+  "githubRequestsRemaining": "남은 요청 수: {count}",
+  "@githubRequestsRemaining": {"placeholders":{"count":{"type":"int","format":"decimalPattern"}}},
+  "githubRequestLimit": "요청 한도: {count}",
+  "@githubRequestLimit": {"placeholders":{"count":{"type":"int","format":"decimalPattern"}}},
+  "githubLimitResetTime": "한도 초기화: {time}",
+  "@githubLimitResetTime": {"placeholders":{"time":{"type":"String"}}}
 }
