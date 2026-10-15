@@ -5515,4 +5515,24 @@ class AppLocalizationsPl extends AppLocalizations {
 
   @override
   String get githubLinkDisplayName => 'Wyświetlana nazwa';
+
+  @override
+  String get githubExampleTitle => 'Przykładowy zbiór kodów IR';
+
+  @override
+  String get githubExampleBody =>
+      'To przykładowy zbiór kodów IR. Powyżej możesz wpisać inny link do GitHuba.';
+
+  @override
+  String get githubUnopenedTitle => 'Repozytorium nie zostało jeszcze otwarte';
+
+  @override
+  String get githubUnopenedBody =>
+      'Naciśnij przycisk poniżej, aby przeglądać wybrane repozytorium GitHub.';
+
+  @override
+  String get githubBrowseExample => 'Przeglądaj przykład';
+
+  @override
+  String get githubBrowseRepository => 'Przeglądaj repozytorium';
 }

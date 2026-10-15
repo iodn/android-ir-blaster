@@ -2466,5 +2466,11 @@
   "githubSavedLinks": "Збережені посилання",
   "githubManageLinks": "Керування посиланнями",
   "githubRenameLink": "Перейменувати посилання",
-  "githubLinkDisplayName": "Відображуване ім’я"
+  "githubLinkDisplayName": "Відображуване ім’я",
+  "githubExampleTitle": "Приклад збірки ІЧ-кодів",
+  "githubExampleBody": "Цю збірку ІЧ-кодів наведено як приклад. Ви можете ввести інше посилання на GitHub вище.",
+  "githubUnopenedTitle": "Репозиторій ще не відкрито",
+  "githubUnopenedBody": "Натисніть кнопку нижче, щоб переглянути вибраний репозиторій GitHub.",
+  "githubBrowseExample": "Переглянути приклад",
+  "githubBrowseRepository": "Переглянути репозиторій"
 }

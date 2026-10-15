@@ -2466,5 +2466,11 @@
   "githubSavedLinks": "保存したリンク",
   "githubManageLinks": "リンクの管理",
   "githubRenameLink": "リンク名を変更",
-  "githubLinkDisplayName": "表示名"
+  "githubLinkDisplayName": "表示名",
+  "githubExampleTitle": "IRコード集のサンプル",
+  "githubExampleBody": "このIRコード集はサンプルです。上の欄に別のGitHubリンクを入力することもできます。",
+  "githubUnopenedTitle": "リポジトリはまだ開いていません",
+  "githubUnopenedBody": "下のボタンで、選択したGitHubリポジトリの内容を表示します。",
+  "githubBrowseExample": "サンプルを見る",
+  "githubBrowseRepository": "リポジトリを見る"
 }

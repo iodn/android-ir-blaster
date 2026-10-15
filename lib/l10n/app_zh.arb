@@ -2466,5 +2466,11 @@
   "githubSavedLinks": "已保存的链接",
   "githubManageLinks": "管理链接",
   "githubRenameLink": "重命名链接",
-  "githubLinkDisplayName": "显示名称"
+  "githubLinkDisplayName": "显示名称",
+  "githubExampleTitle": "IR代码示例库",
+  "githubExampleBody": "这是一个IR代码示例库。你也可以在上方输入其他GitHub链接。",
+  "githubUnopenedTitle": "尚未打开仓库",
+  "githubUnopenedBody": "点击下方按钮浏览所选的GitHub仓库。",
+  "githubBrowseExample": "浏览示例",
+  "githubBrowseRepository": "浏览仓库"
 }

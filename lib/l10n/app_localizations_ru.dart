@@ -5466,4 +5466,24 @@ class AppLocalizationsRu extends AppLocalizations {
 
   @override
   String get githubLinkDisplayName => 'Отображаемое имя';
+
+  @override
+  String get githubExampleTitle => 'Пример коллекции ИК-кодов';
+
+  @override
+  String get githubExampleBody =>
+      'Эта коллекция ИК-кодов приведена для примера. Вы можете ввести другую ссылку на GitHub выше.';
+
+  @override
+  String get githubUnopenedTitle => 'Репозиторий ещё не открыт';
+
+  @override
+  String get githubUnopenedBody =>
+      'Нажмите кнопку ниже, чтобы просмотреть выбранный репозиторий GitHub.';
+
+  @override
+  String get githubBrowseExample => 'Открыть пример';
+
+  @override
+  String get githubBrowseRepository => 'Открыть репозиторий';
 }

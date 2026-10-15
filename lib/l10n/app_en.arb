@@ -2697,5 +2697,11 @@
   "githubSavedLinks": "Saved links",
   "githubManageLinks": "Manage links",
   "githubRenameLink": "Rename link",
-  "githubLinkDisplayName": "Display name"
+  "githubLinkDisplayName": "Display name",
+  "githubExampleTitle": "Example IR collection",
+  "githubExampleBody": "This is an example collection of IR codes. You can enter a different GitHub link above.",
+  "githubUnopenedTitle": "Repository not opened yet",
+  "githubUnopenedBody": "Use the button below to browse the selected GitHub repository.",
+  "githubBrowseExample": "Browse example",
+  "githubBrowseRepository": "Browse repository"
 }

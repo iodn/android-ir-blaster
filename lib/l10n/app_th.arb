@@ -2466,5 +2466,11 @@
   "githubSavedLinks": "ลิงก์ที่บันทึกไว้",
   "githubManageLinks": "จัดการลิงก์",
   "githubRenameLink": "เปลี่ยนชื่อลิงก์",
-  "githubLinkDisplayName": "ชื่อที่แสดง"
+  "githubLinkDisplayName": "ชื่อที่แสดง",
+  "githubExampleTitle": "ตัวอย่างชุดรหัส IR",
+  "githubExampleBody": "นี่คือตัวอย่างชุดรหัส IR คุณสามารถป้อนลิงก์ GitHub อื่นด้านบนได้",
+  "githubUnopenedTitle": "ยังไม่ได้เปิดคลังโค้ด",
+  "githubUnopenedBody": "แตะปุ่มด้านล่างเพื่อดูคลังโค้ด GitHub ที่เลือกไว้",
+  "githubBrowseExample": "ดูตัวอย่าง",
+  "githubBrowseRepository": "ดูคลังโค้ด"
 }

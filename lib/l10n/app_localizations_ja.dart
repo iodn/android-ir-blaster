@@ -5228,4 +5228,23 @@ class AppLocalizationsJa extends AppLocalizations {
 
   @override
   String get githubLinkDisplayName => '表示名';
+
+  @override
+  String get githubExampleTitle => 'IRコード集のサンプル';
+
+  @override
+  String get githubExampleBody =>
+      'このIRコード集はサンプルです。上の欄に別のGitHubリンクを入力することもできます。';
+
+  @override
+  String get githubUnopenedTitle => 'リポジトリはまだ開いていません';
+
+  @override
+  String get githubUnopenedBody => '下のボタンで、選択したGitHubリポジトリの内容を表示します。';
+
+  @override
+  String get githubBrowseExample => 'サンプルを見る';
+
+  @override
+  String get githubBrowseRepository => 'リポジトリを見る';
 }

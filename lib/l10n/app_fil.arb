@@ -2466,5 +2466,11 @@
   "githubSavedLinks": "Mga naka-save na link",
   "githubManageLinks": "Pamahalaan ang mga link",
   "githubRenameLink": "Palitan ang pangalan ng link",
-  "githubLinkDisplayName": "Pangalang ipapakita"
+  "githubLinkDisplayName": "Pangalang ipapakita",
+  "githubExampleTitle": "Halimbawang koleksiyon ng IR code",
+  "githubExampleBody": "Halimbawa ito ng koleksiyon ng mga IR code. Maaari kang maglagay ng ibang GitHub link sa itaas.",
+  "githubUnopenedTitle": "Hindi pa nabubuksan ang repository",
+  "githubUnopenedBody": "Pindutin ang button sa ibaba para tingnan ang napiling GitHub repository.",
+  "githubBrowseExample": "Tingnan ang halimbawa",
+  "githubBrowseRepository": "Tingnan ang repository"
 }

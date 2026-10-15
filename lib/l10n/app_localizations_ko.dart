@@ -5243,4 +5243,23 @@ class AppLocalizationsKo extends AppLocalizations {
 
   @override
   String get githubLinkDisplayName => '표시 이름';
+
+  @override
+  String get githubExampleTitle => 'IR 코드 모음 예시';
+
+  @override
+  String get githubExampleBody =>
+      '예시로 제공하는 IR 코드 모음이에요. 위에 다른 GitHub 링크를 입력할 수도 있어요.';
+
+  @override
+  String get githubUnopenedTitle => '아직 저장소를 열지 않았어요';
+
+  @override
+  String get githubUnopenedBody => '아래 버튼을 눌러 선택한 GitHub 저장소를 둘러보세요.';
+
+  @override
+  String get githubBrowseExample => '예시 둘러보기';
+
+  @override
+  String get githubBrowseRepository => '저장소 둘러보기';
 }

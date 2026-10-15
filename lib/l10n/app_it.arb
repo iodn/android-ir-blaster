@@ -2466,5 +2466,11 @@
   "githubSavedLinks": "Link salvati",
   "githubManageLinks": "Gestisci link",
   "githubRenameLink": "Rinomina link",
-  "githubLinkDisplayName": "Nome visualizzato"
+  "githubLinkDisplayName": "Nome visualizzato",
+  "githubExampleTitle": "Raccolta di codici IR di esempio",
+  "githubExampleBody": "Questa raccolta di codici IR è un esempio. Puoi inserire un altro link GitHub qui sopra.",
+  "githubUnopenedTitle": "Repository non ancora aperto",
+  "githubUnopenedBody": "Tocca il pulsante qui sotto per esplorare il repository GitHub selezionato.",
+  "githubBrowseExample": "Esplora l’esempio",
+  "githubBrowseRepository": "Esplora il repository"
 }

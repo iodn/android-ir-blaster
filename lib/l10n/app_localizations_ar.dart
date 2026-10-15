@@ -5401,6 +5401,26 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String get githubLinkDisplayName => 'اسم العرض';
+
+  @override
+  String get githubExampleTitle => 'مجموعة تجريبية من رموز IR';
+
+  @override
+  String get githubExampleBody =>
+      'هذه مجموعة رموز IR يمكنك البدء بها. يمكنك إدخال رابط GitHub آخر أعلاه.';
+
+  @override
+  String get githubUnopenedTitle => 'المستودع لم يُفتح بعد';
+
+  @override
+  String get githubUnopenedBody =>
+      'اضغط على الزر أدناه لتصفح مستودع GitHub المحدد.';
+
+  @override
+  String get githubBrowseExample => 'تصفح المثال';
+
+  @override
+  String get githubBrowseRepository => 'تصفح المستودع';
 }
 
 /// The translations for Arabic, as used in Egypt (`ar_EG`).
@@ -10800,4 +10820,24 @@ class AppLocalizationsArEg extends AppLocalizationsAr {
 
   @override
   String get githubLinkDisplayName => 'الاسم الظاهر';
+
+  @override
+  String get githubExampleTitle => 'مجموعة رموز IR للتجربة';
+
+  @override
+  String get githubExampleBody =>
+      'دي مجموعة رموز IR تقدر تبدأ بيها. تقدر تدخل رابط GitHub تاني فوق.';
+
+  @override
+  String get githubUnopenedTitle => 'المستودع لسه ما اتفتحش';
+
+  @override
+  String get githubUnopenedBody =>
+      'اضغط على الزر اللي تحت لتصفح مستودع GitHub المختار.';
+
+  @override
+  String get githubBrowseExample => 'تصفح المثال';
+
+  @override
+  String get githubBrowseRepository => 'تصفح المستودع';
 }

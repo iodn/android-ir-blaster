@@ -5345,4 +5345,24 @@ class AppLocalizationsTh extends AppLocalizations {
 
   @override
   String get githubLinkDisplayName => 'ชื่อที่แสดง';
+
+  @override
+  String get githubExampleTitle => 'ตัวอย่างชุดรหัส IR';
+
+  @override
+  String get githubExampleBody =>
+      'นี่คือตัวอย่างชุดรหัส IR คุณสามารถป้อนลิงก์ GitHub อื่นด้านบนได้';
+
+  @override
+  String get githubUnopenedTitle => 'ยังไม่ได้เปิดคลังโค้ด';
+
+  @override
+  String get githubUnopenedBody =>
+      'แตะปุ่มด้านล่างเพื่อดูคลังโค้ด GitHub ที่เลือกไว้';
+
+  @override
+  String get githubBrowseExample => 'ดูตัวอย่าง';
+
+  @override
+  String get githubBrowseRepository => 'ดูคลังโค้ด';
 }

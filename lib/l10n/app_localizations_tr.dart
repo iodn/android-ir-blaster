@@ -5383,4 +5383,24 @@ class AppLocalizationsTr extends AppLocalizations {
 
   @override
   String get githubLinkDisplayName => 'Görünen ad';
+
+  @override
+  String get githubExampleTitle => 'Örnek IR kodu koleksiyonu';
+
+  @override
+  String get githubExampleBody =>
+      'Bu, örnek bir IR kodu koleksiyonudur. Yukarıya farklı bir GitHub bağlantısı girebilirsiniz.';
+
+  @override
+  String get githubUnopenedTitle => 'Depo henüz açılmadı';
+
+  @override
+  String get githubUnopenedBody =>
+      'Seçili GitHub deposuna göz atmak için aşağıdaki düğmeye dokunun.';
+
+  @override
+  String get githubBrowseExample => 'Örneğe göz at';
+
+  @override
+  String get githubBrowseRepository => 'Depoya göz at';
 }

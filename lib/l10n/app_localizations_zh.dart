@@ -5144,4 +5144,22 @@ class AppLocalizationsZh extends AppLocalizations {
 
   @override
   String get githubLinkDisplayName => '显示名称';
+
+  @override
+  String get githubExampleTitle => 'IR代码示例库';
+
+  @override
+  String get githubExampleBody => '这是一个IR代码示例库。你也可以在上方输入其他GitHub链接。';
+
+  @override
+  String get githubUnopenedTitle => '尚未打开仓库';
+
+  @override
+  String get githubUnopenedBody => '点击下方按钮浏览所选的GitHub仓库。';
+
+  @override
+  String get githubBrowseExample => '浏览示例';
+
+  @override
+  String get githubBrowseRepository => '浏览仓库';
 }

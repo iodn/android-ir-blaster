@@ -2466,5 +2466,11 @@
   "githubSavedLinks": "Pautan disimpan",
   "githubManageLinks": "Urus pautan",
   "githubRenameLink": "Namakan semula pautan",
-  "githubLinkDisplayName": "Nama paparan"
+  "githubLinkDisplayName": "Nama paparan",
+  "githubExampleTitle": "Contoh koleksi kod IR",
+  "githubExampleBody": "Ini ialah contoh koleksi kod IR. Anda boleh memasukkan pautan GitHub lain di atas.",
+  "githubUnopenedTitle": "Repositori belum dibuka",
+  "githubUnopenedBody": "Ketik butang di bawah untuk melayari repositori GitHub yang dipilih.",
+  "githubBrowseExample": "Lihat contoh",
+  "githubBrowseRepository": "Layari repositori"
 }

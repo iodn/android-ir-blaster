@@ -5531,4 +5531,24 @@ class AppLocalizationsUk extends AppLocalizations {
 
   @override
   String get githubLinkDisplayName => 'Відображуване ім’я';
+
+  @override
+  String get githubExampleTitle => 'Приклад збірки ІЧ-кодів';
+
+  @override
+  String get githubExampleBody =>
+      'Цю збірку ІЧ-кодів наведено як приклад. Ви можете ввести інше посилання на GitHub вище.';
+
+  @override
+  String get githubUnopenedTitle => 'Репозиторій ще не відкрито';
+
+  @override
+  String get githubUnopenedBody =>
+      'Натисніть кнопку нижче, щоб переглянути вибраний репозиторій GitHub.';
+
+  @override
+  String get githubBrowseExample => 'Переглянути приклад';
+
+  @override
+  String get githubBrowseRepository => 'Переглянути репозиторій';
 }

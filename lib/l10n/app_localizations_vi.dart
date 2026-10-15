@@ -5368,4 +5368,24 @@ class AppLocalizationsVi extends AppLocalizations {
 
   @override
   String get githubLinkDisplayName => 'Tên hiển thị';
+
+  @override
+  String get githubExampleTitle => 'Bộ mã IR mẫu';
+
+  @override
+  String get githubExampleBody =>
+      'Đây là một bộ mã IR mẫu. Bạn có thể nhập liên kết GitHub khác ở trên.';
+
+  @override
+  String get githubUnopenedTitle => 'Chưa mở kho mã';
+
+  @override
+  String get githubUnopenedBody =>
+      'Nhấn nút bên dưới để duyệt kho GitHub đã chọn.';
+
+  @override
+  String get githubBrowseExample => 'Duyệt bộ mã mẫu';
+
+  @override
+  String get githubBrowseRepository => 'Duyệt kho mã';
 }

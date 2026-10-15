@@ -2466,5 +2466,11 @@
   "githubSavedLinks": "Сохранённые ссылки",
   "githubManageLinks": "Управление ссылками",
   "githubRenameLink": "Переименовать ссылку",
-  "githubLinkDisplayName": "Отображаемое имя"
+  "githubLinkDisplayName": "Отображаемое имя",
+  "githubExampleTitle": "Пример коллекции ИК-кодов",
+  "githubExampleBody": "Эта коллекция ИК-кодов приведена для примера. Вы можете ввести другую ссылку на GitHub выше.",
+  "githubUnopenedTitle": "Репозиторий ещё не открыт",
+  "githubUnopenedBody": "Нажмите кнопку ниже, чтобы просмотреть выбранный репозиторий GitHub.",
+  "githubBrowseExample": "Открыть пример",
+  "githubBrowseRepository": "Открыть репозиторий"
 }

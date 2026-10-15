@@ -2466,5 +2466,11 @@
   "githubSavedLinks": "Opgeslagen links",
   "githubManageLinks": "Links beheren",
   "githubRenameLink": "Link hernoemen",
-  "githubLinkDisplayName": "Weergavenaam"
+  "githubLinkDisplayName": "Weergavenaam",
+  "githubExampleTitle": "Voorbeeldcollectie met IR-codes",
+  "githubExampleBody": "Dit is een voorbeeldcollectie met IR-codes. Je kunt hierboven ook een andere GitHub-link invoeren.",
+  "githubUnopenedTitle": "Repository nog niet geopend",
+  "githubUnopenedBody": "Tik op de knop hieronder om de geselecteerde GitHub-repository te bekijken.",
+  "githubBrowseExample": "Voorbeeld bekijken",
+  "githubBrowseRepository": "Repository bekijken"
 }

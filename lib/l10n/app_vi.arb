@@ -2466,5 +2466,11 @@
   "githubSavedLinks": "Liên kết đã lưu",
   "githubManageLinks": "Quản lý liên kết",
   "githubRenameLink": "Đổi tên liên kết",
-  "githubLinkDisplayName": "Tên hiển thị"
+  "githubLinkDisplayName": "Tên hiển thị",
+  "githubExampleTitle": "Bộ mã IR mẫu",
+  "githubExampleBody": "Đây là một bộ mã IR mẫu. Bạn có thể nhập liên kết GitHub khác ở trên.",
+  "githubUnopenedTitle": "Chưa mở kho mã",
+  "githubUnopenedBody": "Nhấn nút bên dưới để duyệt kho GitHub đã chọn.",
+  "githubBrowseExample": "Duyệt bộ mã mẫu",
+  "githubBrowseRepository": "Duyệt kho mã"
 }

@@ -5406,4 +5406,24 @@ class AppLocalizationsFil extends AppLocalizations {
 
   @override
   String get githubLinkDisplayName => 'Pangalang ipapakita';
+
+  @override
+  String get githubExampleTitle => 'Halimbawang koleksiyon ng IR code';
+
+  @override
+  String get githubExampleBody =>
+      'Halimbawa ito ng koleksiyon ng mga IR code. Maaari kang maglagay ng ibang GitHub link sa itaas.';
+
+  @override
+  String get githubUnopenedTitle => 'Hindi pa nabubuksan ang repository';
+
+  @override
+  String get githubUnopenedBody =>
+      'Pindutin ang button sa ibaba para tingnan ang napiling GitHub repository.';
+
+  @override
+  String get githubBrowseExample => 'Tingnan ang halimbawa';
+
+  @override
+  String get githubBrowseRepository => 'Tingnan ang repository';
 }

@@ -2466,5 +2466,11 @@
   "githubSavedLinks": "सहेजे गए लिंक",
   "githubManageLinks": "लिंक प्रबंधित करें",
   "githubRenameLink": "लिंक का नाम बदलें",
-  "githubLinkDisplayName": "दिखने वाला नाम"
+  "githubLinkDisplayName": "दिखने वाला नाम",
+  "githubExampleTitle": "IR कोड का नमूना संग्रह",
+  "githubExampleBody": "यह IR कोड का एक नमूना संग्रह है। आप ऊपर कोई दूसरा GitHub लिंक भी डाल सकते हैं।",
+  "githubUnopenedTitle": "रिपॉज़िटरी अभी नहीं खोली गई है",
+  "githubUnopenedBody": "चुनी हुई GitHub रिपॉज़िटरी देखने के लिए नीचे का बटन दबाएँ।",
+  "githubBrowseExample": "नमूना देखें",
+  "githubBrowseRepository": "रिपॉज़िटरी देखें"
 }

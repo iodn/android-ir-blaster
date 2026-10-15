@@ -5398,4 +5398,24 @@ class AppLocalizationsMs extends AppLocalizations {
 
   @override
   String get githubLinkDisplayName => 'Nama paparan';
+
+  @override
+  String get githubExampleTitle => 'Contoh koleksi kod IR';
+
+  @override
+  String get githubExampleBody =>
+      'Ini ialah contoh koleksi kod IR. Anda boleh memasukkan pautan GitHub lain di atas.';
+
+  @override
+  String get githubUnopenedTitle => 'Repositori belum dibuka';
+
+  @override
+  String get githubUnopenedBody =>
+      'Ketik butang di bawah untuk melayari repositori GitHub yang dipilih.';
+
+  @override
+  String get githubBrowseExample => 'Lihat contoh';
+
+  @override
+  String get githubBrowseRepository => 'Layari repositori';
 }

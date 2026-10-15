@@ -2466,5 +2466,11 @@
   "githubSavedLinks": "Kayıtlı bağlantılar",
   "githubManageLinks": "Bağlantıları yönet",
   "githubRenameLink": "Bağlantıyı yeniden adlandır",
-  "githubLinkDisplayName": "Görünen ad"
+  "githubLinkDisplayName": "Görünen ad",
+  "githubExampleTitle": "Örnek IR kodu koleksiyonu",
+  "githubExampleBody": "Bu, örnek bir IR kodu koleksiyonudur. Yukarıya farklı bir GitHub bağlantısı girebilirsiniz.",
+  "githubUnopenedTitle": "Depo henüz açılmadı",
+  "githubUnopenedBody": "Seçili GitHub deposuna göz atmak için aşağıdaki düğmeye dokunun.",
+  "githubBrowseExample": "Örneğe göz at",
+  "githubBrowseRepository": "Depoya göz at"
 }

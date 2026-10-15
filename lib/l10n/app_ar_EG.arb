@@ -2466,5 +2466,11 @@
   "githubSavedLinks": "الروابط المحفوظة",
   "githubManageLinks": "إدارة الروابط",
   "githubRenameLink": "تغيير اسم الرابط",
-  "githubLinkDisplayName": "الاسم الظاهر"
+  "githubLinkDisplayName": "الاسم الظاهر",
+  "githubExampleTitle": "مجموعة رموز IR للتجربة",
+  "githubExampleBody": "دي مجموعة رموز IR تقدر تبدأ بيها. تقدر تدخل رابط GitHub تاني فوق.",
+  "githubUnopenedTitle": "المستودع لسه ما اتفتحش",
+  "githubUnopenedBody": "اضغط على الزر اللي تحت لتصفح مستودع GitHub المختار.",
+  "githubBrowseExample": "تصفح المثال",
+  "githubBrowseRepository": "تصفح المستودع"
 }

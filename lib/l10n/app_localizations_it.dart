@@ -5473,4 +5473,24 @@ class AppLocalizationsIt extends AppLocalizations {
 
   @override
   String get githubLinkDisplayName => 'Nome visualizzato';
+
+  @override
+  String get githubExampleTitle => 'Raccolta di codici IR di esempio';
+
+  @override
+  String get githubExampleBody =>
+      'Questa raccolta di codici IR è un esempio. Puoi inserire un altro link GitHub qui sopra.';
+
+  @override
+  String get githubUnopenedTitle => 'Repository non ancora aperto';
+
+  @override
+  String get githubUnopenedBody =>
+      'Tocca il pulsante qui sotto per esplorare il repository GitHub selezionato.';
+
+  @override
+  String get githubBrowseExample => 'Esplora l’esempio';
+
+  @override
+  String get githubBrowseRepository => 'Esplora il repository';
 }

@@ -5473,6 +5473,26 @@ class AppLocalizationsPt extends AppLocalizations {
 
   @override
   String get githubLinkDisplayName => 'Nome a apresentar';
+
+  @override
+  String get githubExampleTitle => 'Exemplo de coleção de códigos IR';
+
+  @override
+  String get githubExampleBody =>
+      'Esta coleção de códigos IR serve de exemplo. Pode introduzir outra ligação do GitHub acima.';
+
+  @override
+  String get githubUnopenedTitle => 'Repositório ainda não aberto';
+
+  @override
+  String get githubUnopenedBody =>
+      'Toque no botão abaixo para explorar o repositório do GitHub selecionado.';
+
+  @override
+  String get githubBrowseExample => 'Explorar exemplo';
+
+  @override
+  String get githubBrowseRepository => 'Explorar repositório';
 }
 
 /// The translations for Portuguese, as used in Brazil (`pt_BR`).
@@ -10939,4 +10959,24 @@ class AppLocalizationsPtBr extends AppLocalizationsPt {
 
   @override
   String get githubLinkDisplayName => 'Nome de exibição';
+
+  @override
+  String get githubExampleTitle => 'Exemplo de coleção de códigos IR';
+
+  @override
+  String get githubExampleBody =>
+      'Esta coleção de códigos IR é um exemplo. Você pode inserir outro link do GitHub acima.';
+
+  @override
+  String get githubUnopenedTitle => 'Repositório ainda não aberto';
+
+  @override
+  String get githubUnopenedBody =>
+      'Toque no botão abaixo para explorar o repositório do GitHub selecionado.';
+
+  @override
+  String get githubBrowseExample => 'Explorar exemplo';
+
+  @override
+  String get githubBrowseRepository => 'Explorar repositório';
 }

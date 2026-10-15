@@ -9709,6 +9709,42 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Display name'**
   String get githubLinkDisplayName;
+
+  /// No description provided for @githubExampleTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Example IR collection'**
+  String get githubExampleTitle;
+
+  /// No description provided for @githubExampleBody.
+  ///
+  /// In en, this message translates to:
+  /// **'This is an example collection of IR codes. You can enter a different GitHub link above.'**
+  String get githubExampleBody;
+
+  /// No description provided for @githubUnopenedTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Repository not opened yet'**
+  String get githubUnopenedTitle;
+
+  /// No description provided for @githubUnopenedBody.
+  ///
+  /// In en, this message translates to:
+  /// **'Use the button below to browse the selected GitHub repository.'**
+  String get githubUnopenedBody;
+
+  /// No description provided for @githubBrowseExample.
+  ///
+  /// In en, this message translates to:
+  /// **'Browse example'**
+  String get githubBrowseExample;
+
+  /// No description provided for @githubBrowseRepository.
+  ///
+  /// In en, this message translates to:
+  /// **'Browse repository'**
+  String get githubBrowseRepository;
 }
 
 class _AppLocalizationsDelegate

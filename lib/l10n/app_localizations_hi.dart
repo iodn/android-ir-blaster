@@ -5398,4 +5398,24 @@ class AppLocalizationsHi extends AppLocalizations {
 
   @override
   String get githubLinkDisplayName => 'दिखने वाला नाम';
+
+  @override
+  String get githubExampleTitle => 'IR कोड का नमूना संग्रह';
+
+  @override
+  String get githubExampleBody =>
+      'यह IR कोड का एक नमूना संग्रह है। आप ऊपर कोई दूसरा GitHub लिंक भी डाल सकते हैं।';
+
+  @override
+  String get githubUnopenedTitle => 'रिपॉज़िटरी अभी नहीं खोली गई है';
+
+  @override
+  String get githubUnopenedBody =>
+      'चुनी हुई GitHub रिपॉज़िटरी देखने के लिए नीचे का बटन दबाएँ।';
+
+  @override
+  String get githubBrowseExample => 'नमूना देखें';
+
+  @override
+  String get githubBrowseRepository => 'रिपॉज़िटरी देखें';
 }

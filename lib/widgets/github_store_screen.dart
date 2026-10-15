@@ -458,7 +458,7 @@ class _GitHubStoreScreenState extends State<GitHubStoreScreen> {
                         mainAxisSize: MainAxisSize.min,
                         children: [
                           IconButton(
-                            tooltip: 'Pick saved source',
+                            tooltip: context.l10n.githubChooseLink,
                             onPressed:
                                 _sources.isEmpty ? null : _openSourcePicker,
                             icon: const Icon(Icons.bookmarks_outlined),
@@ -601,8 +601,8 @@ class _GitHubStoreScreenState extends State<GitHubStoreScreen> {
                       children: [
                         Text(
                           _isDefaultRepoSelected
-                              ? 'Example GitHub source'
-                              : 'Repository not loaded yet',
+                              ? context.l10n.githubExampleTitle
+                              : context.l10n.githubUnopenedTitle,
                           style: theme.textTheme.titleMedium?.copyWith(
                             fontWeight: FontWeight.w800,
                           ),
@@ -610,8 +610,8 @@ class _GitHubStoreScreenState extends State<GitHubStoreScreen> {
                         const SizedBox(height: 8),
                         Text(
                           _isDefaultRepoSelected
-                              ? 'The default repository is only an example source for IR codes.'
-                              : 'Tap the button below to load the selected GitHub repository.',
+                              ? context.l10n.githubExampleBody
+                              : context.l10n.githubUnopenedBody,
                           style: theme.textTheme.bodyMedium?.copyWith(
                             color: theme.colorScheme.onSurfaceVariant,
                           ),
@@ -622,8 +622,8 @@ class _GitHubStoreScreenState extends State<GitHubStoreScreen> {
                           icon: const Icon(Icons.cloud_download_rounded),
                           label: Text(
                             _isDefaultRepoSelected
-                                ? 'Load example repository'
-                                : 'Load repository',
+                                ? context.l10n.githubBrowseExample
+                                : context.l10n.githubBrowseRepository,
                           ),
                         ),
                       ],
