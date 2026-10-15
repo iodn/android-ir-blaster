@@ -293,12 +293,12 @@ class _RemoteListState extends State<RemoteList> {
     return await showModalBottomSheet<bool>(
       context: context,
       useSafeArea: true,
-      isScrollControlled: false,
+      isScrollControlled: true,
       shape: const RoundedRectangleBorder(
         borderRadius: BorderRadius.vertical(top: Radius.circular(18)),
       ),
       builder: (ctx) {
-        return Padding(
+        return SingleChildScrollView(
           padding: const EdgeInsets.fromLTRB(16, 14, 16, 24),
           child: Column(
             mainAxisSize: MainAxisSize.min,
@@ -608,7 +608,27 @@ class _RemoteListState extends State<RemoteList> {
     final spacing = 12.0 * (crossAxisCount - 1);
     final availableWidth = width - horizontalPadding - spacing;
     final cardWidth = availableWidth / crossAxisCount;
-    final cardHeight = cardWidth * 1.15;
+    final theme = Theme.of(context);
+    double textHeight(String text, TextStyle style) {
+      final painter = TextPainter(
+        text: TextSpan(text: text, style: style),
+        textDirection: Directionality.of(context),
+        textScaler: MediaQuery.textScalerOf(context),
+      )..layout();
+      final height = painter.height;
+      painter.dispose();
+      return height;
+    }
+    final nameHeight = textHeight(
+        'Ag\nAg',
+        theme.textTheme.titleMedium!
+            .copyWith(fontWeight: FontWeight.w900, height: 1.2));
+    final countHeight = textHeight('0',
+        theme.textTheme.labelSmall!.copyWith(fontWeight: FontWeight.w800));
+    // Card margin, padding, icon, gaps, and count-chip insets.
+    final minimumHeight = 8 + 28 + 40 + 12 + nameHeight + 8 +
+        countHeight.clamp(14.0, double.infinity) + 14;
+    final cardHeight = (cardWidth * 1.15).clamp(minimumHeight, double.infinity);
     return cardWidth / cardHeight;
   }
 
@@ -1132,6 +1152,7 @@ class RemoteSearchDelegate extends SearchDelegate {
     return await showDialog<bool>(
       context: context,
       builder: (ctx) => AlertDialog(
+        scrollable: true,
         icon: Icon(Icons.warning_amber_rounded,
             color: theme.colorScheme.error, size: 32),
         title: Text(context.l10n.deleteRemoteTitle),
