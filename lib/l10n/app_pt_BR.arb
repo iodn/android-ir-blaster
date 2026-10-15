@@ -2472,5 +2472,10 @@
   "githubUnopenedTitle": "Repositório ainda não aberto",
   "githubUnopenedBody": "Toque no botão abaixo para explorar o repositório do GitHub selecionado.",
   "githubBrowseExample": "Explorar exemplo",
-  "githubBrowseRepository": "Explorar repositório"
+  "githubBrowseRepository": "Explorar repositório",
+  "githubEnterRepositoryLink": "Insira o link de um repositório do GitHub para explorá-lo.",
+  "githubUnsupportedFileType": "Não é possível importar este tipo de arquivo.",
+  "githubNoMatchingItems": "Nenhum arquivo ou pasta correspondente.",
+  "githubFileImportLabel": "Importar",
+  "githubFileUnsupportedLabel": "Não compatível"
 }

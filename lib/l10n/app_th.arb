@@ -2472,5 +2472,10 @@
   "githubUnopenedTitle": "ยังไม่ได้เปิดคลังโค้ด",
   "githubUnopenedBody": "แตะปุ่มด้านล่างเพื่อดูคลังโค้ด GitHub ที่เลือกไว้",
   "githubBrowseExample": "ดูตัวอย่าง",
-  "githubBrowseRepository": "ดูคลังโค้ด"
+  "githubBrowseRepository": "ดูคลังโค้ด",
+  "githubEnterRepositoryLink": "ป้อนลิงก์คลังโค้ด GitHub ที่ต้องการดู",
+  "githubUnsupportedFileType": "ไม่สามารถนำเข้าไฟล์ประเภทนี้ได้",
+  "githubNoMatchingItems": "ไม่พบไฟล์หรือโฟลเดอร์ที่ตรงกัน",
+  "githubFileImportLabel": "นำเข้า",
+  "githubFileUnsupportedLabel": "ไม่รองรับ"
 }

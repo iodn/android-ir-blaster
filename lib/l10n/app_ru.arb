@@ -2472,5 +2472,10 @@
   "githubUnopenedTitle": "Репозиторий ещё не открыт",
   "githubUnopenedBody": "Нажмите кнопку ниже, чтобы просмотреть выбранный репозиторий GitHub.",
   "githubBrowseExample": "Открыть пример",
-  "githubBrowseRepository": "Открыть репозиторий"
+  "githubBrowseRepository": "Открыть репозиторий",
+  "githubEnterRepositoryLink": "Введите ссылку на репозиторий GitHub, чтобы просмотреть его.",
+  "githubUnsupportedFileType": "Этот тип файла нельзя импортировать.",
+  "githubNoMatchingItems": "Подходящих файлов или папок нет.",
+  "githubFileImportLabel": "Импорт",
+  "githubFileUnsupportedLabel": "Не поддерживается"
 }

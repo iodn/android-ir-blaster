@@ -2472,5 +2472,10 @@
   "githubUnopenedTitle": "Repositori belum dibuka",
   "githubUnopenedBody": "Ketuk tombol di bawah untuk menjelajahi repositori GitHub yang dipilih.",
   "githubBrowseExample": "Jelajahi contoh",
-  "githubBrowseRepository": "Jelajahi repositori"
+  "githubBrowseRepository": "Jelajahi repositori",
+  "githubEnterRepositoryLink": "Masukkan tautan repositori GitHub untuk menjelajahinya.",
+  "githubUnsupportedFileType": "Jenis file ini tidak dapat diimpor.",
+  "githubNoMatchingItems": "Tidak ada file atau folder yang cocok.",
+  "githubFileImportLabel": "Impor",
+  "githubFileUnsupportedLabel": "Tidak didukung"
 }

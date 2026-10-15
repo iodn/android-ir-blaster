@@ -5421,6 +5421,22 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String get githubBrowseRepository => 'تصفح المستودع';
+
+  @override
+  String get githubEnterRepositoryLink => 'أدخل رابط مستودع GitHub لتصفحه.';
+
+  @override
+  String get githubUnsupportedFileType =>
+      'لا يمكن استيراد هذا النوع من الملفات.';
+
+  @override
+  String get githubNoMatchingItems => 'لا توجد ملفات أو مجلدات مطابقة.';
+
+  @override
+  String get githubFileImportLabel => 'استيراد';
+
+  @override
+  String get githubFileUnsupportedLabel => 'غير مدعوم';
 }
 
 /// The translations for Arabic, as used in Egypt (`ar_EG`).
@@ -10840,4 +10856,20 @@ class AppLocalizationsArEg extends AppLocalizationsAr {
 
   @override
   String get githubBrowseRepository => 'تصفح المستودع';
+
+  @override
+  String get githubEnterRepositoryLink =>
+      'دخل رابط مستودع GitHub علشان تتصفحه.';
+
+  @override
+  String get githubUnsupportedFileType => 'نوع الملف ده مش مدعوم للاستيراد.';
+
+  @override
+  String get githubNoMatchingItems => 'مفيش ملفات أو مجلدات مطابقة.';
+
+  @override
+  String get githubFileImportLabel => 'استيراد';
+
+  @override
+  String get githubFileUnsupportedLabel => 'غير مدعوم';
 }

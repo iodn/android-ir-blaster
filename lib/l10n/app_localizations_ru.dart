@@ -5486,4 +5486,21 @@ class AppLocalizationsRu extends AppLocalizations {
 
   @override
   String get githubBrowseRepository => 'Открыть репозиторий';
+
+  @override
+  String get githubEnterRepositoryLink =>
+      'Введите ссылку на репозиторий GitHub, чтобы просмотреть его.';
+
+  @override
+  String get githubUnsupportedFileType =>
+      'Этот тип файла нельзя импортировать.';
+
+  @override
+  String get githubNoMatchingItems => 'Подходящих файлов или папок нет.';
+
+  @override
+  String get githubFileImportLabel => 'Импорт';
+
+  @override
+  String get githubFileUnsupportedLabel => 'Не поддерживается';
 }

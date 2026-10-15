@@ -2472,5 +2472,10 @@
   "githubUnopenedTitle": "リポジトリはまだ開いていません",
   "githubUnopenedBody": "下のボタンで、選択したGitHubリポジトリの内容を表示します。",
   "githubBrowseExample": "サンプルを見る",
-  "githubBrowseRepository": "リポジトリを見る"
+  "githubBrowseRepository": "リポジトリを見る",
+  "githubEnterRepositoryLink": "閲覧するGitHubリポジトリのリンクを入力してください。",
+  "githubUnsupportedFileType": "この形式のファイルはインポートできません。",
+  "githubNoMatchingItems": "該当するファイルやフォルダはありません。",
+  "githubFileImportLabel": "インポート",
+  "githubFileUnsupportedLabel": "非対応"
 }

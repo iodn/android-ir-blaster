@@ -5418,4 +5418,22 @@ class AppLocalizationsHi extends AppLocalizations {
 
   @override
   String get githubBrowseRepository => 'रिपॉज़िटरी देखें';
+
+  @override
+  String get githubEnterRepositoryLink =>
+      'देखने के लिए GitHub रिपॉज़िटरी का लिंक डालें।';
+
+  @override
+  String get githubUnsupportedFileType =>
+      'इस तरह की फ़ाइल इम्पोर्ट नहीं की जा सकती।';
+
+  @override
+  String get githubNoMatchingItems =>
+      'कोई मेल खाती फ़ाइल या फ़ोल्डर नहीं मिला।';
+
+  @override
+  String get githubFileImportLabel => 'इम्पोर्ट करें';
+
+  @override
+  String get githubFileUnsupportedLabel => 'समर्थित नहीं है';
 }

@@ -2472,5 +2472,10 @@
   "githubUnopenedTitle": "Hindi pa nabubuksan ang repository",
   "githubUnopenedBody": "Pindutin ang button sa ibaba para tingnan ang napiling GitHub repository.",
   "githubBrowseExample": "Tingnan ang halimbawa",
-  "githubBrowseRepository": "Tingnan ang repository"
+  "githubBrowseRepository": "Tingnan ang repository",
+  "githubEnterRepositoryLink": "Maglagay ng link sa GitHub repository para makita ang laman nito.",
+  "githubUnsupportedFileType": "Hindi maaaring i-import ang ganitong uri ng file.",
+  "githubNoMatchingItems": "Walang tumutugmang file o folder.",
+  "githubFileImportLabel": "I-import",
+  "githubFileUnsupportedLabel": "Hindi suportado"
 }

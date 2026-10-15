@@ -2472,5 +2472,10 @@
   "githubUnopenedTitle": "아직 저장소를 열지 않았어요",
   "githubUnopenedBody": "아래 버튼을 눌러 선택한 GitHub 저장소를 둘러보세요.",
   "githubBrowseExample": "예시 둘러보기",
-  "githubBrowseRepository": "저장소 둘러보기"
+  "githubBrowseRepository": "저장소 둘러보기",
+  "githubEnterRepositoryLink": "둘러볼 GitHub 저장소의 링크를 입력하세요.",
+  "githubUnsupportedFileType": "이 파일 형식은 가져올 수 없어요.",
+  "githubNoMatchingItems": "일치하는 파일이나 폴더가 없어요.",
+  "githubFileImportLabel": "가져오기",
+  "githubFileUnsupportedLabel": "지원하지 않음"
 }

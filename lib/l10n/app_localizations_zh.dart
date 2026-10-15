@@ -5162,4 +5162,19 @@ class AppLocalizationsZh extends AppLocalizations {
 
   @override
   String get githubBrowseRepository => '浏览仓库';
+
+  @override
+  String get githubEnterRepositoryLink => '请输入要浏览的GitHub仓库链接。';
+
+  @override
+  String get githubUnsupportedFileType => '无法导入此类型的文件。';
+
+  @override
+  String get githubNoMatchingItems => '没有匹配的文件或文件夹。';
+
+  @override
+  String get githubFileImportLabel => '导入';
+
+  @override
+  String get githubFileUnsupportedLabel => '不支持';
 }

@@ -5262,4 +5262,19 @@ class AppLocalizationsKo extends AppLocalizations {
 
   @override
   String get githubBrowseRepository => '저장소 둘러보기';
+
+  @override
+  String get githubEnterRepositoryLink => '둘러볼 GitHub 저장소의 링크를 입력하세요.';
+
+  @override
+  String get githubUnsupportedFileType => '이 파일 형식은 가져올 수 없어요.';
+
+  @override
+  String get githubNoMatchingItems => '일치하는 파일이나 폴더가 없어요.';
+
+  @override
+  String get githubFileImportLabel => '가져오기';
+
+  @override
+  String get githubFileUnsupportedLabel => '지원하지 않음';
 }

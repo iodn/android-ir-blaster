@@ -5388,4 +5388,20 @@ class AppLocalizationsVi extends AppLocalizations {
 
   @override
   String get githubBrowseRepository => 'Duyệt kho mã';
+
+  @override
+  String get githubEnterRepositoryLink =>
+      'Nhập liên kết kho GitHub để duyệt nội dung.';
+
+  @override
+  String get githubUnsupportedFileType => 'Không thể nhập loại tệp này.';
+
+  @override
+  String get githubNoMatchingItems => 'Không có tệp hay thư mục phù hợp.';
+
+  @override
+  String get githubFileImportLabel => 'Nhập';
+
+  @override
+  String get githubFileUnsupportedLabel => 'Không hỗ trợ';
 }

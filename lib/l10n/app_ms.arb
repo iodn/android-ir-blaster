@@ -2472,5 +2472,10 @@
   "githubUnopenedTitle": "Repositori belum dibuka",
   "githubUnopenedBody": "Ketik butang di bawah untuk melayari repositori GitHub yang dipilih.",
   "githubBrowseExample": "Lihat contoh",
-  "githubBrowseRepository": "Layari repositori"
+  "githubBrowseRepository": "Layari repositori",
+  "githubEnterRepositoryLink": "Masukkan pautan repositori GitHub untuk melayarinya.",
+  "githubUnsupportedFileType": "Jenis fail ini tidak boleh diimport.",
+  "githubNoMatchingItems": "Tiada fail atau folder yang sepadan.",
+  "githubFileImportLabel": "Import",
+  "githubFileUnsupportedLabel": "Tidak disokong"
 }

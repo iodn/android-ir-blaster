@@ -2472,5 +2472,10 @@
   "githubUnopenedTitle": "Chưa mở kho mã",
   "githubUnopenedBody": "Nhấn nút bên dưới để duyệt kho GitHub đã chọn.",
   "githubBrowseExample": "Duyệt bộ mã mẫu",
-  "githubBrowseRepository": "Duyệt kho mã"
+  "githubBrowseRepository": "Duyệt kho mã",
+  "githubEnterRepositoryLink": "Nhập liên kết kho GitHub để duyệt nội dung.",
+  "githubUnsupportedFileType": "Không thể nhập loại tệp này.",
+  "githubNoMatchingItems": "Không có tệp hay thư mục phù hợp.",
+  "githubFileImportLabel": "Nhập",
+  "githubFileUnsupportedLabel": "Không hỗ trợ"
 }

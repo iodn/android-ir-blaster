@@ -158,7 +158,7 @@ class _GitHubStoreScreenState extends State<GitHubStoreScreen> {
     final raw = _urlCtrl.text.trim();
     final parsed = parseGitHubUrl(raw);
     if (parsed == null) {
-      _showSnack('Only GitHub repository links are supported.');
+      _showSnack(context.l10n.githubEnterRepositoryLink);
       return;
     }
     setState(() {
@@ -255,7 +255,7 @@ class _GitHubStoreScreenState extends State<GitHubStoreScreen> {
       return;
     }
     if (!isSupportedImportFilename(item.name)) {
-      _showSnack('This file type is not supported for import.');
+      _showSnack(context.l10n.githubUnsupportedFileType);
       return;
     }
     if (_repo == null || !mounted) return;
@@ -688,7 +688,7 @@ class _GitHubStoreScreenState extends State<GitHubStoreScreen> {
                   child: Padding(
                     padding: const EdgeInsets.all(16),
                     child: Text(
-                      'Enter a GitHub URL to start browsing.',
+                      context.l10n.githubEnterRepositoryLink,
                       style: theme.textTheme.bodyMedium?.copyWith(
                         color: theme.colorScheme.onSurfaceVariant,
                       ),
@@ -700,7 +700,7 @@ class _GitHubStoreScreenState extends State<GitHubStoreScreen> {
                   child: Padding(
                     padding: const EdgeInsets.all(16),
                     child: Text(
-                      'No matching files or folders were found here.',
+                      context.l10n.githubNoMatchingItems,
                       style: theme.textTheme.bodyMedium?.copyWith(
                         color: theme.colorScheme.onSurfaceVariant,
                       ),
@@ -719,14 +719,23 @@ class _GitHubStoreScreenState extends State<GitHubStoreScreen> {
                                 : Icons.description_outlined,
                           ),
                           title: Text(visible[i].name),
-                          subtitle: Text(
-                            visible[i].path,
-                            maxLines: 1,
-                            overflow: TextOverflow.ellipsis,
+                          subtitle: Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              Text(
+                                visible[i].path,
+                                maxLines: 1,
+                                overflow: TextOverflow.ellipsis,
+                              ),
+                              if (visible[i].type != RepoItemType.dir) ...[
+                                const SizedBox(height: 6),
+                                _FileSupportChip(fileName: visible[i].name),
+                              ],
+                            ],
                           ),
                           trailing: visible[i].type == RepoItemType.dir
                               ? const Icon(Icons.chevron_right_rounded)
-                              : _FileSupportChip(fileName: visible[i].name),
+                              : null,
                           onTap: () => _openItem(visible[i]),
                         ),
                         if (i != visible.length - 1) const Divider(height: 1),
@@ -758,7 +767,9 @@ class _FileSupportChip extends StatelessWidget {
         borderRadius: BorderRadius.circular(999),
       ),
       child: Text(
-        supported ? 'Import' : 'Unsupported',
+        supported
+            ? context.l10n.githubFileImportLabel
+            : context.l10n.githubFileUnsupportedLabel,
         style: Theme.of(context).textTheme.labelMedium?.copyWith(
               fontWeight: FontWeight.w700,
               color: supported ? cs.onPrimaryContainer : cs.onSurfaceVariant,

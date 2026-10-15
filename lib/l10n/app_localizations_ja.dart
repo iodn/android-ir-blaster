@@ -5247,4 +5247,19 @@ class AppLocalizationsJa extends AppLocalizations {
 
   @override
   String get githubBrowseRepository => 'リポジトリを見る';
+
+  @override
+  String get githubEnterRepositoryLink => '閲覧するGitHubリポジトリのリンクを入力してください。';
+
+  @override
+  String get githubUnsupportedFileType => 'この形式のファイルはインポートできません。';
+
+  @override
+  String get githubNoMatchingItems => '該当するファイルやフォルダはありません。';
+
+  @override
+  String get githubFileImportLabel => 'インポート';
+
+  @override
+  String get githubFileUnsupportedLabel => '非対応';
 }

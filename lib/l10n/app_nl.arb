@@ -2472,5 +2472,10 @@
   "githubUnopenedTitle": "Repository nog niet geopend",
   "githubUnopenedBody": "Tik op de knop hieronder om de geselecteerde GitHub-repository te bekijken.",
   "githubBrowseExample": "Voorbeeld bekijken",
-  "githubBrowseRepository": "Repository bekijken"
+  "githubBrowseRepository": "Repository bekijken",
+  "githubEnterRepositoryLink": "Voer een link naar een GitHub-repository in om deze te bekijken.",
+  "githubUnsupportedFileType": "Dit bestandstype kan niet worden geïmporteerd.",
+  "githubNoMatchingItems": "Geen overeenkomende bestanden of mappen.",
+  "githubFileImportLabel": "Importeren",
+  "githubFileUnsupportedLabel": "Niet ondersteund"
 }

@@ -2458,5 +2458,10 @@
   "githubUnopenedTitle": "Repository noch nicht geöffnet",
   "githubUnopenedBody": "Öffne über die Schaltfläche unten das ausgewählte GitHub-Repository.",
   "githubBrowseExample": "Beispiel öffnen",
-  "githubBrowseRepository": "Repository öffnen"
+  "githubBrowseRepository": "Repository öffnen",
+  "githubEnterRepositoryLink": "Gib einen Link zu einem GitHub-Repository ein, um es zu durchsuchen.",
+  "githubUnsupportedFileType": "Dieser Dateityp lässt sich nicht importieren.",
+  "githubNoMatchingItems": "Keine passenden Dateien oder Ordner gefunden.",
+  "githubFileImportLabel": "Importieren",
+  "githubFileUnsupportedLabel": "Nicht unterstützt"
 }

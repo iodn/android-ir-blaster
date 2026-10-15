@@ -9745,6 +9745,36 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Browse repository'**
   String get githubBrowseRepository;
+
+  /// No description provided for @githubEnterRepositoryLink.
+  ///
+  /// In en, this message translates to:
+  /// **'Enter a GitHub repository link to browse.'**
+  String get githubEnterRepositoryLink;
+
+  /// No description provided for @githubUnsupportedFileType.
+  ///
+  /// In en, this message translates to:
+  /// **'This file type cannot be imported.'**
+  String get githubUnsupportedFileType;
+
+  /// No description provided for @githubNoMatchingItems.
+  ///
+  /// In en, this message translates to:
+  /// **'No matching files or folders.'**
+  String get githubNoMatchingItems;
+
+  /// No description provided for @githubFileImportLabel.
+  ///
+  /// In en, this message translates to:
+  /// **'Import'**
+  String get githubFileImportLabel;
+
+  /// No description provided for @githubFileUnsupportedLabel.
+  ///
+  /// In en, this message translates to:
+  /// **'Unsupported'**
+  String get githubFileUnsupportedLabel;
 }
 
 class _AppLocalizationsDelegate

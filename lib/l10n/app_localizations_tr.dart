@@ -5403,4 +5403,20 @@ class AppLocalizationsTr extends AppLocalizations {
 
   @override
   String get githubBrowseRepository => 'Depoya göz at';
+
+  @override
+  String get githubEnterRepositoryLink =>
+      'Göz atmak için bir GitHub deposunun bağlantısını girin.';
+
+  @override
+  String get githubUnsupportedFileType => 'Bu dosya türü içe aktarılamaz.';
+
+  @override
+  String get githubNoMatchingItems => 'Eşleşen dosya veya klasör yok.';
+
+  @override
+  String get githubFileImportLabel => 'İçe aktar';
+
+  @override
+  String get githubFileUnsupportedLabel => 'Desteklenmiyor';
 }

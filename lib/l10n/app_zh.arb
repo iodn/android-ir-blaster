@@ -2472,5 +2472,10 @@
   "githubUnopenedTitle": "尚未打开仓库",
   "githubUnopenedBody": "点击下方按钮浏览所选的GitHub仓库。",
   "githubBrowseExample": "浏览示例",
-  "githubBrowseRepository": "浏览仓库"
+  "githubBrowseRepository": "浏览仓库",
+  "githubEnterRepositoryLink": "请输入要浏览的GitHub仓库链接。",
+  "githubUnsupportedFileType": "无法导入此类型的文件。",
+  "githubNoMatchingItems": "没有匹配的文件或文件夹。",
+  "githubFileImportLabel": "导入",
+  "githubFileUnsupportedLabel": "不支持"
 }

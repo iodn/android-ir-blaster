@@ -2472,5 +2472,10 @@
   "githubUnopenedTitle": "Dépôt pas encore ouvert",
   "githubUnopenedBody": "Appuyez sur le bouton ci-dessous pour parcourir le dépôt GitHub sélectionné.",
   "githubBrowseExample": "Parcourir l’exemple",
-  "githubBrowseRepository": "Parcourir le dépôt"
+  "githubBrowseRepository": "Parcourir le dépôt",
+  "githubEnterRepositoryLink": "Saisissez le lien d’un dépôt GitHub pour le parcourir.",
+  "githubUnsupportedFileType": "Ce type de fichier ne peut pas être importé.",
+  "githubNoMatchingItems": "Aucun fichier ou dossier correspondant.",
+  "githubFileImportLabel": "Importer",
+  "githubFileUnsupportedLabel": "Non pris en charge"
 }

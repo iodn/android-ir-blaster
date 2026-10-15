@@ -5491,4 +5491,22 @@ class AppLocalizationsEs extends AppLocalizations {
 
   @override
   String get githubBrowseRepository => 'Explorar repositorio';
+
+  @override
+  String get githubEnterRepositoryLink =>
+      'Introduce un enlace a un repositorio de GitHub para explorarlo.';
+
+  @override
+  String get githubUnsupportedFileType =>
+      'No se puede importar este tipo de archivo.';
+
+  @override
+  String get githubNoMatchingItems =>
+      'No hay archivos ni carpetas que coincidan.';
+
+  @override
+  String get githubFileImportLabel => 'Importar';
+
+  @override
+  String get githubFileUnsupportedLabel => 'No compatible';
 }

@@ -5365,4 +5365,20 @@ class AppLocalizationsTh extends AppLocalizations {
 
   @override
   String get githubBrowseRepository => 'ดูคลังโค้ด';
+
+  @override
+  String get githubEnterRepositoryLink =>
+      'ป้อนลิงก์คลังโค้ด GitHub ที่ต้องการดู';
+
+  @override
+  String get githubUnsupportedFileType => 'ไม่สามารถนำเข้าไฟล์ประเภทนี้ได้';
+
+  @override
+  String get githubNoMatchingItems => 'ไม่พบไฟล์หรือโฟลเดอร์ที่ตรงกัน';
+
+  @override
+  String get githubFileImportLabel => 'นำเข้า';
+
+  @override
+  String get githubFileUnsupportedLabel => 'ไม่รองรับ';
 }

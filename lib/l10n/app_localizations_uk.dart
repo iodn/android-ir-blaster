@@ -5551,4 +5551,21 @@ class AppLocalizationsUk extends AppLocalizations {
 
   @override
   String get githubBrowseRepository => 'Переглянути репозиторій';
+
+  @override
+  String get githubEnterRepositoryLink =>
+      'Введіть посилання на репозиторій GitHub, щоб переглянути його.';
+
+  @override
+  String get githubUnsupportedFileType =>
+      'Цей тип файлу неможливо імпортувати.';
+
+  @override
+  String get githubNoMatchingItems => 'Відповідних файлів чи папок немає.';
+
+  @override
+  String get githubFileImportLabel => 'Імпортувати';
+
+  @override
+  String get githubFileUnsupportedLabel => 'Не підтримується';
 }

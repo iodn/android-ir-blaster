@@ -2472,5 +2472,10 @@
   "githubUnopenedTitle": "Depo henüz açılmadı",
   "githubUnopenedBody": "Seçili GitHub deposuna göz atmak için aşağıdaki düğmeye dokunun.",
   "githubBrowseExample": "Örneğe göz at",
-  "githubBrowseRepository": "Depoya göz at"
+  "githubBrowseRepository": "Depoya göz at",
+  "githubEnterRepositoryLink": "Göz atmak için bir GitHub deposunun bağlantısını girin.",
+  "githubUnsupportedFileType": "Bu dosya türü içe aktarılamaz.",
+  "githubNoMatchingItems": "Eşleşen dosya veya klasör yok.",
+  "githubFileImportLabel": "İçe aktar",
+  "githubFileUnsupportedLabel": "Desteklenmiyor"
 }

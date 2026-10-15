@@ -5475,4 +5475,20 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get githubBrowseRepository => 'Browse repository';
+
+  @override
+  String get githubEnterRepositoryLink =>
+      'Enter a GitHub repository link to browse.';
+
+  @override
+  String get githubUnsupportedFileType => 'This file type cannot be imported.';
+
+  @override
+  String get githubNoMatchingItems => 'No matching files or folders.';
+
+  @override
+  String get githubFileImportLabel => 'Import';
+
+  @override
+  String get githubFileUnsupportedLabel => 'Unsupported';
 }

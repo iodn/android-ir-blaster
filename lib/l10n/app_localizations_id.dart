@@ -5406,4 +5406,20 @@ class AppLocalizationsId extends AppLocalizations {
 
   @override
   String get githubBrowseRepository => 'Jelajahi repositori';
+
+  @override
+  String get githubEnterRepositoryLink =>
+      'Masukkan tautan repositori GitHub untuk menjelajahinya.';
+
+  @override
+  String get githubUnsupportedFileType => 'Jenis file ini tidak dapat diimpor.';
+
+  @override
+  String get githubNoMatchingItems => 'Tidak ada file atau folder yang cocok.';
+
+  @override
+  String get githubFileImportLabel => 'Impor';
+
+  @override
+  String get githubFileUnsupportedLabel => 'Tidak didukung';
 }

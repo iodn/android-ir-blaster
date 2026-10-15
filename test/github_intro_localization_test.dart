@@ -28,7 +28,11 @@ void main() {
               jsonEncode({
             'savedAt': DateTime.now().millisecondsSinceEpoch,
             'items': [
-              {'type': 'dir', 'name': 'TVs', 'path': 'TVs'}
+              {'type': 'dir', 'name': 'TVs', 'path': 'TVs'},
+              if (!example)
+                {'type': 'file', 'name': 'photo.png', 'path': 'photo.png'},
+              if (!example)
+                {'type': 'file', 'name': 'remote.ir', 'path': 'remote.ir'},
             ],
           }),
         });
@@ -49,6 +53,45 @@ void main() {
         ));
         await tester.pumpAndSettle();
         final l10n = await AppLocalizations.delegate.load(locale);
+        void checkText(String text) {
+          final finder = find.text(text);
+          final paragraph = tester.renderObject<RenderParagraph>(finder);
+          expect(paragraph.didExceedMaxLines, isFalse, reason: text);
+          expect(paragraph.getMaxIntrinsicHeight(paragraph.size.width),
+              lessThanOrEqualTo(paragraph.size.height + 0.1),
+              reason: text);
+          expect(finder.hitTestable(), findsOneWidget);
+        }
+
+        if (!example) {
+          final prefs = await SharedPreferences.getInstance();
+          final before = prefs.getString('irblaster.store.lastRepo');
+          final field = find.byType(TextField);
+          final messenger = ScaffoldMessenger.of(
+              tester.element(find.byType(GitHubStoreScreen)));
+          for (final invalid in [
+            '',
+            'https://example.com/remotes',
+            'https://github.com/owner'
+          ]) {
+            await tester.ensureVisible(field);
+            await tester.pumpAndSettle();
+            await tester.enterText(field, invalid);
+            await tester.testTextInput.receiveAction(TextInputAction.go);
+            await tester.pumpAndSettle();
+            checkText(l10n.githubEnterRepositoryLink);
+            expect(
+                tester
+                    .getRect(find.text(l10n.githubEnterRepositoryLink))
+                    .bottom,
+                lessThanOrEqualTo(640));
+            expect(tester.widget<TextField>(field).controller!.text, invalid);
+            expect(prefs.getString('irblaster.store.lastRepo'), before);
+            messenger.removeCurrentSnackBar();
+            await tester.pumpAndSettle();
+          }
+          await tester.enterText(field, url);
+        }
         final title =
             example ? l10n.githubExampleTitle : l10n.githubUnopenedTitle;
         final body = example ? l10n.githubExampleBody : l10n.githubUnopenedBody;
@@ -80,6 +123,52 @@ void main() {
             scrollable: find.byType(Scrollable).first);
         await tester.pumpAndSettle();
         expect(directory.hitTestable(), findsOneWidget);
+        if (!example) {
+          for (final label in [
+            l10n.githubFileImportLabel,
+            l10n.githubFileUnsupportedLabel
+          ]) {
+            await tester.scrollUntilVisible(find.text(label), 300,
+                scrollable: find.byType(Scrollable).first);
+            await tester.ensureVisible(find.text(label));
+            await tester.pumpAndSettle();
+            checkText(label);
+          }
+          final unsupported = find.byWidgetPredicate((widget) =>
+              widget is ListTile &&
+              widget.title is Text &&
+              (widget.title! as Text).data == 'photo.png');
+          await tester.scrollUntilVisible(unsupported, 300,
+              scrollable: find.byType(Scrollable).first);
+          await tester.pumpAndSettle();
+          await tester.tap(unsupported);
+          await tester.pumpAndSettle();
+          checkText(l10n.githubUnsupportedFileType);
+          expect(find.byType(GitHubStoreScreen), findsOneWidget);
+          ScaffoldMessenger.of(tester.element(find.byType(GitHubStoreScreen)))
+              .removeCurrentSnackBar();
+          await tester.pumpAndSettle();
+          final filter =
+              find.widgetWithText(TextField, l10n.githubFilterFolder);
+          await tester.scrollUntilVisible(filter, -300,
+              scrollable: find.byType(Scrollable).first);
+          await tester.pumpAndSettle();
+          await tester.enterText(filter, 'no-match');
+          await tester.testTextInput.receiveAction(TextInputAction.done);
+          await tester.pumpAndSettle();
+          final empty = find.text(l10n.githubNoMatchingItems);
+          await tester.scrollUntilVisible(empty, 300,
+              scrollable: find.byType(Scrollable).first);
+          await tester.pumpAndSettle();
+          checkText(l10n.githubNoMatchingItems);
+          expect(tester.widget<TextField>(filter).controller!.text, 'no-match');
+          await tester.enterText(filter, 'TV');
+          await tester.pumpAndSettle();
+          expect(empty, findsNothing);
+          await tester.scrollUntilVisible(directory, 300,
+              scrollable: find.byType(Scrollable).first);
+          expect(directory, findsOneWidget);
+        }
         expect(tester.takeException(), isNull);
         await tester.pumpWidget(const SizedBox());
       });

@@ -5497,4 +5497,22 @@ class AppLocalizationsNl extends AppLocalizations {
 
   @override
   String get githubBrowseRepository => 'Repository bekijken';
+
+  @override
+  String get githubEnterRepositoryLink =>
+      'Voer een link naar een GitHub-repository in om deze te bekijken.';
+
+  @override
+  String get githubUnsupportedFileType =>
+      'Dit bestandstype kan niet worden geïmporteerd.';
+
+  @override
+  String get githubNoMatchingItems =>
+      'Geen overeenkomende bestanden of mappen.';
+
+  @override
+  String get githubFileImportLabel => 'Importeren';
+
+  @override
+  String get githubFileUnsupportedLabel => 'Niet ondersteund';
 }

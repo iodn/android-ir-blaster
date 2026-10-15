@@ -5493,6 +5493,24 @@ class AppLocalizationsPt extends AppLocalizations {
 
   @override
   String get githubBrowseRepository => 'Explorar repositório';
+
+  @override
+  String get githubEnterRepositoryLink =>
+      'Introduza a ligação de um repositório do GitHub para o explorar.';
+
+  @override
+  String get githubUnsupportedFileType =>
+      'Não é possível importar este tipo de ficheiro.';
+
+  @override
+  String get githubNoMatchingItems =>
+      'Não há ficheiros ou pastas correspondentes.';
+
+  @override
+  String get githubFileImportLabel => 'Importar';
+
+  @override
+  String get githubFileUnsupportedLabel => 'Não suportado';
 }
 
 /// The translations for Portuguese, as used in Brazil (`pt_BR`).
@@ -10979,4 +10997,21 @@ class AppLocalizationsPtBr extends AppLocalizationsPt {
 
   @override
   String get githubBrowseRepository => 'Explorar repositório';
+
+  @override
+  String get githubEnterRepositoryLink =>
+      'Insira o link de um repositório do GitHub para explorá-lo.';
+
+  @override
+  String get githubUnsupportedFileType =>
+      'Não é possível importar este tipo de arquivo.';
+
+  @override
+  String get githubNoMatchingItems => 'Nenhum arquivo ou pasta correspondente.';
+
+  @override
+  String get githubFileImportLabel => 'Importar';
+
+  @override
+  String get githubFileUnsupportedLabel => 'Não compatível';
 }

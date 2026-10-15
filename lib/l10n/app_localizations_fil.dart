@@ -5426,4 +5426,21 @@ class AppLocalizationsFil extends AppLocalizations {
 
   @override
   String get githubBrowseRepository => 'Tingnan ang repository';
+
+  @override
+  String get githubEnterRepositoryLink =>
+      'Maglagay ng link sa GitHub repository para makita ang laman nito.';
+
+  @override
+  String get githubUnsupportedFileType =>
+      'Hindi maaaring i-import ang ganitong uri ng file.';
+
+  @override
+  String get githubNoMatchingItems => 'Walang tumutugmang file o folder.';
+
+  @override
+  String get githubFileImportLabel => 'I-import';
+
+  @override
+  String get githubFileUnsupportedLabel => 'Hindi suportado';
 }

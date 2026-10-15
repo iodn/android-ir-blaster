@@ -2472,5 +2472,10 @@
   "githubUnopenedTitle": "المستودع لسه ما اتفتحش",
   "githubUnopenedBody": "اضغط على الزر اللي تحت لتصفح مستودع GitHub المختار.",
   "githubBrowseExample": "تصفح المثال",
-  "githubBrowseRepository": "تصفح المستودع"
+  "githubBrowseRepository": "تصفح المستودع",
+  "githubEnterRepositoryLink": "دخل رابط مستودع GitHub علشان تتصفحه.",
+  "githubUnsupportedFileType": "نوع الملف ده مش مدعوم للاستيراد.",
+  "githubNoMatchingItems": "مفيش ملفات أو مجلدات مطابقة.",
+  "githubFileImportLabel": "استيراد",
+  "githubFileUnsupportedLabel": "غير مدعوم"
 }

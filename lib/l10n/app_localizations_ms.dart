@@ -5418,4 +5418,21 @@ class AppLocalizationsMs extends AppLocalizations {
 
   @override
   String get githubBrowseRepository => 'Layari repositori';
+
+  @override
+  String get githubEnterRepositoryLink =>
+      'Masukkan pautan repositori GitHub untuk melayarinya.';
+
+  @override
+  String get githubUnsupportedFileType =>
+      'Jenis fail ini tidak boleh diimport.';
+
+  @override
+  String get githubNoMatchingItems => 'Tiada fail atau folder yang sepadan.';
+
+  @override
+  String get githubFileImportLabel => 'Import';
+
+  @override
+  String get githubFileUnsupportedLabel => 'Tidak disokong';
 }
