@@ -729,8 +729,8 @@
   "irSignalTester": "IR Signal Tester",
   "stop": "Stop",
   "selectButton": "Select button",
-  "buttonNotFoundInRemotes": "Button not found in remotes.",
-  "sentNamed": "Sent \"{name}\".",
+  "buttonNotFoundInRemotes": "Button not found in saved remotes.",
+  "sentNamed": "Sent “{name}”.",
   "@sentNamed": {
     "placeholders": {
       "name": {}

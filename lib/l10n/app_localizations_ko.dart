@@ -1716,16 +1716,16 @@ class AppLocalizationsKo extends AppLocalizations {
   String get selectButton => '버튼 선택';
 
   @override
-  String get buttonNotFoundInRemotes => '버튼 않음 찾을 수 없음 리모컨.';
+  String get buttonNotFoundInRemotes => '저장된 리모컨에서 버튼을 찾을 수 없어요.';
 
   @override
   String sentNamed(Object name) {
-    return '\"$name\" 전송됨.';
+    return '‘$name’ 신호를 보냈어요.';
   }
 
   @override
   String sendFailed(Object error) {
-    return '전송 실패: $error';
+    return '신호를 보내지 못했어요: $error';
   }
 
   @override

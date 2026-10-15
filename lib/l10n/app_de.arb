@@ -618,8 +618,8 @@
   "irSignalTester": "IR-Signaltester",
   "stop": "Stopp",
   "selectButton": "Taste wählen",
-  "buttonNotFoundInRemotes": "Taste in den Fernbedienungen nicht gefunden.",
-  "sentNamed": "{name} gesendet.",
+  "buttonNotFoundInRemotes": "Taste in den gespeicherten Fernbedienungen nicht gefunden.",
+  "sentNamed": "„{name}“ gesendet.",
   "@sentNamed": {
     "placeholders": {
       "name": {}

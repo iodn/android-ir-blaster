@@ -1664,16 +1664,16 @@ class AppLocalizationsZh extends AppLocalizations {
   String get selectButton => '选择按钮';
 
   @override
-  String get buttonNotFoundInRemotes => '在遥控器中未找到按钮。';
+  String get buttonNotFoundInRemotes => '在已保存的遥控器中找不到该按钮。';
 
   @override
   String sentNamed(Object name) {
-    return '已发送 \"$name\"。';
+    return '已发送“$name”。';
   }
 
   @override
   String sendFailed(Object error) {
-    return '发送失败 $error';
+    return '发送失败：$error';
   }
 
   @override

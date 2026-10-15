@@ -613,14 +613,14 @@
   "irSignalTester": "Testeur de signal IR",
   "stop": "Arrêter",
   "selectButton": "Choisir un bouton",
-  "buttonNotFoundInRemotes": "Bouton introuvable dans les télécommandes.",
-  "sentNamed": "\"{name}\" envoyé.",
+  "buttonNotFoundInRemotes": "Bouton introuvable dans les télécommandes enregistrées.",
+  "sentNamed": "« {name} » envoyé.",
   "@sentNamed": {
     "placeholders": {
       "name": {}
     }
   },
-  "sendFailed": "Échec de l'envoi : {error}",
+  "sendFailed": "Échec de l’envoi : {error}",
   "@sendFailed": {
     "placeholders": {
       "error": {}

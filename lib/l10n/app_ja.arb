@@ -608,14 +608,14 @@
   "irSignalTester": "IR信号テスター",
   "stop": "停止",
   "selectButton": "ボタンを選択",
-  "buttonNotFoundInRemotes": "リモコン内にボタンが見つかりません。",
-  "sentNamed": "\"{name}\" を送信しました。",
+  "buttonNotFoundInRemotes": "保存済みのリモコンにボタンが見つかりません。",
+  "sentNamed": "「{name}」を送信しました。",
   "@sentNamed": {
     "placeholders": {
       "name": {}
     }
   },
-  "sendFailed": "送信に失敗しました: {error}",
+  "sendFailed": "送信できませんでした: {error}",
   "@sendFailed": {
     "placeholders": {
       "error": {}

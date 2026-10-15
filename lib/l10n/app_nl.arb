@@ -608,14 +608,14 @@
   "irSignalTester": "IR-signaaltester",
   "stop": "Stop",
   "selectButton": "Kies een knop",
-  "buttonNotFoundInRemotes": "Knop not found in remotes.",
-  "sentNamed": "\"{name}\" verzonden.",
+  "buttonNotFoundInRemotes": "Knop niet gevonden in de opgeslagen afstandsbedieningen.",
+  "sentNamed": "‘{name}’ verzonden.",
   "@sentNamed": {
     "placeholders": {
       "name": {}
     }
   },
-  "sendFailed": "Send mislukt: {error}",
+  "sendFailed": "Verzenden mislukt: {error}",
   "@sendFailed": {
     "placeholders": {
       "error": {}

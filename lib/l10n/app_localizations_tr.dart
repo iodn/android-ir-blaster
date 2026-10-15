@@ -1793,16 +1793,17 @@ class AppLocalizationsTr extends AppLocalizations {
   String get selectButton => 'Düğme seçin';
 
   @override
-  String get buttonNotFoundInRemotes => 'Düğme kumandalarda bulunamadı.';
+  String get buttonNotFoundInRemotes =>
+      'Düğme kayıtlı kumandalarda bulunamadı.';
 
   @override
   String sentNamed(Object name) {
-    return 'Sent \"$name\".';
+    return '“$name” gönderildi.';
   }
 
   @override
   String sendFailed(Object error) {
-    return 'Gönder başarısız: $error';
+    return 'Gönderilemedi: $error';
   }
 
   @override

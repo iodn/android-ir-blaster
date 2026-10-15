@@ -1789,16 +1789,17 @@ class AppLocalizationsId extends AppLocalizations {
   String get selectButton => 'Pilih tombol';
 
   @override
-  String get buttonNotFoundInRemotes => 'Tombol tidak ditemukan di remote.';
+  String get buttonNotFoundInRemotes =>
+      'Tombol tidak ditemukan di remote yang tersimpan.';
 
   @override
   String sentNamed(Object name) {
-    return 'Mengirim \"$name\".';
+    return '“$name” terkirim.';
   }
 
   @override
   String sendFailed(Object error) {
-    return 'Kirim gagal: $error';
+    return 'Gagal mengirim: $error';
   }
 
   @override

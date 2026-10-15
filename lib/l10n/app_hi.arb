@@ -608,14 +608,14 @@
   "irSignalTester": "IR सिग्नल टेस्टर",
   "stop": "रोकें",
   "selectButton": "बटन चुनें",
-  "buttonNotFoundInRemotes": "बटन नहीं मिला में रिमोट.",
-  "sentNamed": "भेजा गया \"{name}\".",
+  "buttonNotFoundInRemotes": "सहेजे गए रिमोट में यह बटन नहीं मिला।",
+  "sentNamed": "“{name}” भेज दिया गया।",
   "@sentNamed": {
     "placeholders": {
       "name": {}
     }
   },
-  "sendFailed": "भेजें विफल: {error}",
+  "sendFailed": "भेजा नहीं जा सका: {error}",
   "@sendFailed": {
     "placeholders": {
       "error": {}

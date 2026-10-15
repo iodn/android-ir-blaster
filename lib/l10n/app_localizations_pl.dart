@@ -1844,16 +1844,17 @@ class AppLocalizationsPl extends AppLocalizations {
   String get selectButton => 'Wybierz przycisk';
 
   @override
-  String get buttonNotFoundInRemotes => 'przycisk nie znaleziono in piloty.';
+  String get buttonNotFoundInRemotes =>
+      'Nie znaleziono przycisku w zapisanych pilotach.';
 
   @override
   String sentNamed(Object name) {
-    return 'Sent \"$name\".';
+    return 'Wysłano „$name”.';
   }
 
   @override
   String sendFailed(Object error) {
-    return 'wyślij nieudane: $error';
+    return 'Nie udało się wysłać: $error';
   }
 
   @override

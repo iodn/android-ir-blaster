@@ -608,14 +608,14 @@
   "irSignalTester": "IR إشارة Tester",
   "stop": "إيقاف",
   "selectButton": "اختار زر",
-  "buttonNotFoundInRemotes": "زر not موجود in remotes.",
-  "sentNamed": "Sent \"{name}\".",
+  "buttonNotFoundInRemotes": "الزر مش موجود في أجهزة التحكم المحفوظة.",
+  "sentNamed": "تم إرسال «{name}».",
   "@sentNamed": {
     "placeholders": {
       "name": {}
     }
   },
-  "sendFailed": "إرسال فشل: {error}",
+  "sendFailed": "الإرسال فشل: {error}",
   "@sendFailed": {
     "placeholders": {
       "error": {}

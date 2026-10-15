@@ -608,14 +608,14 @@
   "irSignalTester": "红外信号测试器",
   "stop": "停止",
   "selectButton": "选择按钮",
-  "buttonNotFoundInRemotes": "在遥控器中未找到按钮。",
-  "sentNamed": "已发送 \"{name}\"。",
+  "buttonNotFoundInRemotes": "在已保存的遥控器中找不到该按钮。",
+  "sentNamed": "已发送“{name}”。",
   "@sentNamed": {
     "placeholders": {
       "name": {}
     }
   },
-  "sendFailed": "发送失败 {error}",
+  "sendFailed": "发送失败：{error}",
   "@sendFailed": {
     "placeholders": {
       "error": {}

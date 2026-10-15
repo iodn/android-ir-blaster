@@ -608,14 +608,14 @@
   "irSignalTester": "Probador de sinal IR",
   "stop": "parar",
   "selectButton": "Escolher botão",
-  "buttonNotFoundInRemotes": "Botão não encontrado nos controles.",
-  "sentNamed": "Foi enviado \"{name}\".",
+  "buttonNotFoundInRemotes": "Botão não encontrado nos controles salvos.",
+  "sentNamed": "“{name}” enviado.",
   "@sentNamed": {
     "placeholders": {
       "name": {}
     }
   },
-  "sendFailed": "Falha no envio: {error}",
+  "sendFailed": "Não foi possível enviar: {error}",
   "@sendFailed": {
     "placeholders": {
       "error": {}

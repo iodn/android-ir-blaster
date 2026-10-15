@@ -608,14 +608,14 @@
   "irSignalTester": "Тестер ИК-сигнала",
   "stop": "Стоп",
   "selectButton": "Выберите кнопку",
-  "buttonNotFoundInRemotes": "Кнопка не найдена в пультах.",
-  "sentNamed": "Отправлено \"{name}\".",
+  "buttonNotFoundInRemotes": "Кнопка не найдена в сохранённых пультах.",
+  "sentNamed": "Команда «{name}» отправлена.",
   "@sentNamed": {
     "placeholders": {
       "name": {}
     }
   },
-  "sendFailed": "Ошибка отправки: {error}",
+  "sendFailed": "Не удалось отправить: {error}",
   "@sendFailed": {
     "placeholders": {
       "error": {}

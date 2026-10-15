@@ -608,14 +608,14 @@
   "irSignalTester": "Bộ kiểm tra tín hiệu IR",
   "stop": "Dừng",
   "selectButton": "Chọn nút",
-  "buttonNotFoundInRemotes": "Không tìm thấy nút trong các điều khiển.",
-  "sentNamed": "Đã gửi \"{name}\".",
+  "buttonNotFoundInRemotes": "Không tìm thấy nút trong các điều khiển đã lưu.",
+  "sentNamed": "Đã gửi “{name}”.",
   "@sentNamed": {
     "placeholders": {
       "name": {}
     }
   },
-  "sendFailed": "Gửi thất bại: {error}",
+  "sendFailed": "Không gửi được: {error}",
   "@sendFailed": {
     "placeholders": {
       "error": {}

@@ -1819,11 +1819,11 @@ class AppLocalizationsEn extends AppLocalizations {
   String get selectButton => 'Select button';
 
   @override
-  String get buttonNotFoundInRemotes => 'Button not found in remotes.';
+  String get buttonNotFoundInRemotes => 'Button not found in saved remotes.';
 
   @override
   String sentNamed(Object name) {
-    return 'Sent \"$name\".';
+    return 'Sent “$name”.';
   }
 
   @override

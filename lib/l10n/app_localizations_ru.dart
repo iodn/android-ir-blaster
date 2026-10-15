@@ -1820,16 +1820,17 @@ class AppLocalizationsRu extends AppLocalizations {
   String get selectButton => 'Выберите кнопку';
 
   @override
-  String get buttonNotFoundInRemotes => 'Кнопка не найдена в пультах.';
+  String get buttonNotFoundInRemotes =>
+      'Кнопка не найдена в сохранённых пультах.';
 
   @override
   String sentNamed(Object name) {
-    return 'Отправлено \"$name\".';
+    return 'Команда «$name» отправлена.';
   }
 
   @override
   String sendFailed(Object error) {
-    return 'Ошибка отправки: $error';
+    return 'Не удалось отправить: $error';
   }
 
   @override

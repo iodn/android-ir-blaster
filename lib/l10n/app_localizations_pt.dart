@@ -1832,16 +1832,17 @@ class AppLocalizationsPt extends AppLocalizations {
   String get selectButton => 'Escolher botão';
 
   @override
-  String get buttonNotFoundInRemotes => 'Botão não encontrado nos comandos.';
+  String get buttonNotFoundInRemotes =>
+      'Botão não encontrado nos comandos guardados.';
 
   @override
   String sentNamed(Object name) {
-    return 'Foi enviado \"$name\".';
+    return '«$name» enviado.';
   }
 
   @override
   String sendFailed(Object error) {
-    return 'Envio falhado: $error';
+    return 'Não foi possível enviar: $error';
   }
 
   @override
@@ -7153,16 +7154,17 @@ class AppLocalizationsPtBr extends AppLocalizationsPt {
   String get selectButton => 'Escolher botão';
 
   @override
-  String get buttonNotFoundInRemotes => 'Botão não encontrado nos controles.';
+  String get buttonNotFoundInRemotes =>
+      'Botão não encontrado nos controles salvos.';
 
   @override
   String sentNamed(Object name) {
-    return 'Foi enviado \"$name\".';
+    return '“$name” enviado.';
   }
 
   @override
   String sendFailed(Object error) {
-    return 'Falha no envio: $error';
+    return 'Não foi possível enviar: $error';
   }
 
   @override

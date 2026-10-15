@@ -608,14 +608,14 @@
   "irSignalTester": "Penguji Isyarat IR",
   "stop": "Hentikan",
   "selectButton": "Pilih butang",
-  "buttonNotFoundInRemotes": "Butang tidak ditemui di remote.",
-  "sentNamed": "Menghantar \"{name}\".",
+  "buttonNotFoundInRemotes": "Butang tidak ditemui dalam alat kawalan jauh yang disimpan.",
+  "sentNamed": "“{name}” telah dihantar.",
   "@sentNamed": {
     "placeholders": {
       "name": {}
     }
   },
-  "sendFailed": "Kirim gagal: {error}",
+  "sendFailed": "Gagal menghantar: {error}",
   "@sendFailed": {
     "placeholders": {
       "error": {}

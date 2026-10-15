@@ -613,14 +613,14 @@
   "irSignalTester": "Probador de señal IR",
   "stop": "Detener",
   "selectButton": "Elegir botón",
-  "buttonNotFoundInRemotes": "No se encontró el botón en los mandos.",
-  "sentNamed": "Se envió \"{name}\".",
+  "buttonNotFoundInRemotes": "No se encontró el botón en los mandos guardados.",
+  "sentNamed": "Se envió «{name}».",
   "@sentNamed": {
     "placeholders": {
       "name": {}
     }
   },
-  "sendFailed": "Envío fallido: {error}",
+  "sendFailed": "No se pudo enviar: {error}",
   "@sendFailed": {
     "placeholders": {
       "error": {}

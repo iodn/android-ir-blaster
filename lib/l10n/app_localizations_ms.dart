@@ -1791,16 +1791,17 @@ class AppLocalizationsMs extends AppLocalizations {
   String get selectButton => 'Pilih butang';
 
   @override
-  String get buttonNotFoundInRemotes => 'Butang tidak ditemui di remote.';
+  String get buttonNotFoundInRemotes =>
+      'Butang tidak ditemui dalam alat kawalan jauh yang disimpan.';
 
   @override
   String sentNamed(Object name) {
-    return 'Menghantar \"$name\".';
+    return '“$name” telah dihantar.';
   }
 
   @override
   String sendFailed(Object error) {
-    return 'Kirim gagal: $error';
+    return 'Gagal menghantar: $error';
   }
 
   @override

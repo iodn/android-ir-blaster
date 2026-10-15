@@ -608,8 +608,8 @@
   "irSignalTester": "Тестер ІЧ-сигналу",
   "stop": "Стоп",
   "selectButton": "Виберіть кнопку",
-  "buttonNotFoundInRemotes": "Кнопка не знайдена в пультах.",
-  "sentNamed": "Надіслано \"{name}\".",
+  "buttonNotFoundInRemotes": "Кнопку не знайдено в збережених пультах.",
+  "sentNamed": "Команду «{name}» надіслано.",
   "@sentNamed": {
     "placeholders": {
       "name": {}

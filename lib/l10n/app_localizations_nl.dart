@@ -1841,16 +1841,17 @@ class AppLocalizationsNl extends AppLocalizations {
   String get selectButton => 'Kies een knop';
 
   @override
-  String get buttonNotFoundInRemotes => 'Knop not found in remotes.';
+  String get buttonNotFoundInRemotes =>
+      'Knop niet gevonden in de opgeslagen afstandsbedieningen.';
 
   @override
   String sentNamed(Object name) {
-    return '\"$name\" verzonden.';
+    return '‘$name’ verzonden.';
   }
 
   @override
   String sendFailed(Object error) {
-    return 'Send mislukt: $error';
+    return 'Verzenden mislukt: $error';
   }
 
   @override

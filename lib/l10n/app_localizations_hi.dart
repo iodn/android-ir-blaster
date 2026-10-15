@@ -1784,16 +1784,16 @@ class AppLocalizationsHi extends AppLocalizations {
   String get selectButton => 'बटन चुनें';
 
   @override
-  String get buttonNotFoundInRemotes => 'बटन नहीं मिला में रिमोट.';
+  String get buttonNotFoundInRemotes => 'सहेजे गए रिमोट में यह बटन नहीं मिला।';
 
   @override
   String sentNamed(Object name) {
-    return 'भेजा गया \"$name\".';
+    return '“$name” भेज दिया गया।';
   }
 
   @override
   String sendFailed(Object error) {
-    return 'भेजें विफल: $error';
+    return 'भेजा नहीं जा सका: $error';
   }
 
   @override

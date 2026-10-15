@@ -1809,16 +1809,17 @@ class AppLocalizationsAr extends AppLocalizations {
   String get selectButton => 'اختر زرًا';
 
   @override
-  String get buttonNotFoundInRemotes => 'زر not موجود in remotes.';
+  String get buttonNotFoundInRemotes =>
+      'لم يُعثر على الزر في أجهزة التحكم المحفوظة.';
 
   @override
   String sentNamed(Object name) {
-    return 'Sent \"$name\".';
+    return 'تم إرسال «$name».';
   }
 
   @override
   String sendFailed(Object error) {
-    return 'إرسال فشل: $error';
+    return 'تعذّر الإرسال: $error';
   }
 
   @override
@@ -7080,16 +7081,17 @@ class AppLocalizationsArEg extends AppLocalizationsAr {
   String get selectButton => 'اختار زر';
 
   @override
-  String get buttonNotFoundInRemotes => 'زر not موجود in remotes.';
+  String get buttonNotFoundInRemotes =>
+      'الزر مش موجود في أجهزة التحكم المحفوظة.';
 
   @override
   String sentNamed(Object name) {
-    return 'Sent \"$name\".';
+    return 'تم إرسال «$name».';
   }
 
   @override
   String sendFailed(Object error) {
-    return 'إرسال فشل: $error';
+    return 'الإرسال فشل: $error';
   }
 
   @override

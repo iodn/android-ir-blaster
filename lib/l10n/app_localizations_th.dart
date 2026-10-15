@@ -1767,11 +1767,11 @@ class AppLocalizationsTh extends AppLocalizations {
   String get selectButton => 'เลือกปุ่ม';
 
   @override
-  String get buttonNotFoundInRemotes => 'ไม่พบปุ่มในรีโมต';
+  String get buttonNotFoundInRemotes => 'ไม่พบปุ่มในรีโมตที่บันทึกไว้';
 
   @override
   String sentNamed(Object name) {
-    return 'ส่ง \"$name\" แล้ว';
+    return 'ส่ง “$name” แล้ว';
   }
 
   @override

@@ -1777,16 +1777,16 @@ class AppLocalizationsVi extends AppLocalizations {
 
   @override
   String get buttonNotFoundInRemotes =>
-      'Không tìm thấy nút trong các điều khiển.';
+      'Không tìm thấy nút trong các điều khiển đã lưu.';
 
   @override
   String sentNamed(Object name) {
-    return 'Đã gửi \"$name\".';
+    return 'Đã gửi “$name”.';
   }
 
   @override
   String sendFailed(Object error) {
-    return 'Gửi thất bại: $error';
+    return 'Không gửi được: $error';
   }
 
   @override

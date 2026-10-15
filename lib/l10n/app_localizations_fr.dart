@@ -1832,16 +1832,16 @@ class AppLocalizationsFr extends AppLocalizations {
 
   @override
   String get buttonNotFoundInRemotes =>
-      'Bouton introuvable dans les télécommandes.';
+      'Bouton introuvable dans les télécommandes enregistrées.';
 
   @override
   String sentNamed(Object name) {
-    return '\"$name\" envoyé.';
+    return '« $name » envoyé.';
   }
 
   @override
   String sendFailed(Object error) {
-    return 'Échec de l\'envoi : $error';
+    return 'Échec de l’envoi : $error';
   }
 
   @override

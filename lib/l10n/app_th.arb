@@ -608,8 +608,8 @@
   "irSignalTester": "ตัวทดสอบสัญญาณ IR",
   "stop": "หยุด",
   "selectButton": "เลือกปุ่ม",
-  "buttonNotFoundInRemotes": "ไม่พบปุ่มในรีโมต",
-  "sentNamed": "ส่ง \"{name}\" แล้ว",
+  "buttonNotFoundInRemotes": "ไม่พบปุ่มในรีโมตที่บันทึกไว้",
+  "sentNamed": "ส่ง “{name}” แล้ว",
   "@sentNamed": {
     "placeholders": {
       "name": {}

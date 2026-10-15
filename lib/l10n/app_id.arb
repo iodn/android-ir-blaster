@@ -608,14 +608,14 @@
   "irSignalTester": "Penguji Sinyal IR",
   "stop": "Hentikan",
   "selectButton": "Pilih tombol",
-  "buttonNotFoundInRemotes": "Tombol tidak ditemukan di remote.",
-  "sentNamed": "Mengirim \"{name}\".",
+  "buttonNotFoundInRemotes": "Tombol tidak ditemukan di remote yang tersimpan.",
+  "sentNamed": "“{name}” terkirim.",
   "@sentNamed": {
     "placeholders": {
       "name": {}
     }
   },
-  "sendFailed": "Kirim gagal: {error}",
+  "sendFailed": "Gagal mengirim: {error}",
   "@sendFailed": {
     "placeholders": {
       "error": {}

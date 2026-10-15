@@ -1705,16 +1705,16 @@ class AppLocalizationsJa extends AppLocalizations {
   String get selectButton => 'ボタンを選択';
 
   @override
-  String get buttonNotFoundInRemotes => 'リモコン内にボタンが見つかりません。';
+  String get buttonNotFoundInRemotes => '保存済みのリモコンにボタンが見つかりません。';
 
   @override
   String sentNamed(Object name) {
-    return '\"$name\" を送信しました。';
+    return '「$name」を送信しました。';
   }
 
   @override
   String sendFailed(Object error) {
-    return '送信に失敗しました: $error';
+    return '送信できませんでした: $error';
   }
 
   @override

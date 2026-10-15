@@ -608,14 +608,14 @@
   "irSignalTester": "IR Signal Tester",
   "stop": "Ihinto",
   "selectButton": "Pumili ng pindutan",
-  "buttonNotFoundInRemotes": "Hindi nahanap ang button sa mga remote.",
-  "sentNamed": "Sent \"{name}\".",
+  "buttonNotFoundInRemotes": "Hindi makita ang pindutan sa mga naka-save na remote.",
+  "sentNamed": "Naipadala ang “{name}”.",
   "@sentNamed": {
     "placeholders": {
       "name": {}
     }
   },
-  "sendFailed": "Nabigo ang pagpapadala: {error}",
+  "sendFailed": "Hindi maipadala: {error}",
   "@sendFailed": {
     "placeholders": {
       "error": {}

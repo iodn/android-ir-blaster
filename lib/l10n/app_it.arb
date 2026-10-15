@@ -608,14 +608,14 @@
   "irSignalTester": "Tester segnale IR",
   "stop": "Stop",
   "selectButton": "Scegli pulsante",
-  "buttonNotFoundInRemotes": "Pulsante non trovato nei telecomandi.",
-  "sentNamed": "Inviato \"{name}\".",
+  "buttonNotFoundInRemotes": "Pulsante non trovato nei telecomandi salvati.",
+  "sentNamed": "«{name}» inviato.",
   "@sentNamed": {
     "placeholders": {
       "name": {}
     }
   },
-  "sendFailed": "Invio fallito: {error}",
+  "sendFailed": "Invio non riuscito: {error}",
   "@sendFailed": {
     "placeholders": {
       "error": {}

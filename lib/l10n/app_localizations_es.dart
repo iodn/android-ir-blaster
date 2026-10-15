@@ -1828,16 +1828,16 @@ class AppLocalizationsEs extends AppLocalizations {
 
   @override
   String get buttonNotFoundInRemotes =>
-      'No se encontró el botón en los mandos.';
+      'No se encontró el botón en los mandos guardados.';
 
   @override
   String sentNamed(Object name) {
-    return 'Se envió \"$name\".';
+    return 'Se envió «$name».';
   }
 
   @override
   String sendFailed(Object error) {
-    return 'Envío fallido: $error';
+    return 'No se pudo enviar: $error';
   }
 
   @override

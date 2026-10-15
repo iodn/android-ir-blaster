@@ -610,14 +610,14 @@
   "irSignalTester": "IR Signal Tester",
   "stop": "stop",
   "selectButton": "Wybierz przycisk",
-  "buttonNotFoundInRemotes": "przycisk nie znaleziono in piloty.",
-  "sentNamed": "Sent \"{name}\".",
+  "buttonNotFoundInRemotes": "Nie znaleziono przycisku w zapisanych pilotach.",
+  "sentNamed": "Wysłano „{name}”.",
   "@sentNamed": {
     "placeholders": {
       "name": {}
     }
   },
-  "sendFailed": "wyślij nieudane: {error}",
+  "sendFailed": "Nie udało się wysłać: {error}",
   "@sendFailed": {
     "placeholders": {
       "error": {}

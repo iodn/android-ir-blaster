@@ -1808,16 +1808,16 @@ class AppLocalizationsFil extends AppLocalizations {
 
   @override
   String get buttonNotFoundInRemotes =>
-      'Hindi nahanap ang button sa mga remote.';
+      'Hindi makita ang pindutan sa mga naka-save na remote.';
 
   @override
   String sentNamed(Object name) {
-    return 'Sent \"$name\".';
+    return 'Naipadala ang “$name”.';
   }
 
   @override
   String sendFailed(Object error) {
-    return 'Nabigo ang pagpapadala: $error';
+    return 'Hindi maipadala: $error';
   }
 
   @override

@@ -608,14 +608,14 @@
   "irSignalTester": "IR Sinyal Testi",
   "stop": "Durdur",
   "selectButton": "Düğme seçin",
-  "buttonNotFoundInRemotes": "Düğme kumandalarda bulunamadı.",
-  "sentNamed": "Sent \"{name}\".",
+  "buttonNotFoundInRemotes": "Düğme kayıtlı kumandalarda bulunamadı.",
+  "sentNamed": "“{name}” gönderildi.",
   "@sentNamed": {
     "placeholders": {
       "name": {}
     }
   },
-  "sendFailed": "Gönder başarısız: {error}",
+  "sendFailed": "Gönderilemedi: {error}",
   "@sendFailed": {
     "placeholders": {
       "error": {}

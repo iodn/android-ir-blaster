@@ -3255,13 +3255,13 @@ abstract class AppLocalizations {
   /// No description provided for @buttonNotFoundInRemotes.
   ///
   /// In en, this message translates to:
-  /// **'Button not found in remotes.'**
+  /// **'Button not found in saved remotes.'**
   String get buttonNotFoundInRemotes;
 
   /// No description provided for @sentNamed.
   ///
   /// In en, this message translates to:
-  /// **'Sent \"{name}\".'**
+  /// **'Sent “{name}”.'**
   String sentNamed(Object name);
 
   /// No description provided for @sendFailed.

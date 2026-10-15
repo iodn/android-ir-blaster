@@ -1848,11 +1848,12 @@ class AppLocalizationsUk extends AppLocalizations {
   String get selectButton => 'Виберіть кнопку';
 
   @override
-  String get buttonNotFoundInRemotes => 'Кнопка не знайдена в пультах.';
+  String get buttonNotFoundInRemotes =>
+      'Кнопку не знайдено в збережених пультах.';
 
   @override
   String sentNamed(Object name) {
-    return 'Надіслано \"$name\".';
+    return 'Команду «$name» надіслано.';
   }
 
   @override

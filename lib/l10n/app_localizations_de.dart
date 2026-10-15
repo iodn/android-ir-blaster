@@ -1842,11 +1842,11 @@ class AppLocalizationsDe extends AppLocalizations {
 
   @override
   String get buttonNotFoundInRemotes =>
-      'Taste in den Fernbedienungen nicht gefunden.';
+      'Taste in den gespeicherten Fernbedienungen nicht gefunden.';
 
   @override
   String sentNamed(Object name) {
-    return '$name gesendet.';
+    return '„$name“ gesendet.';
   }
 
   @override

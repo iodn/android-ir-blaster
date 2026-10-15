@@ -1834,16 +1834,17 @@ class AppLocalizationsIt extends AppLocalizations {
   String get selectButton => 'Scegli pulsante';
 
   @override
-  String get buttonNotFoundInRemotes => 'Pulsante non trovato nei telecomandi.';
+  String get buttonNotFoundInRemotes =>
+      'Pulsante non trovato nei telecomandi salvati.';
 
   @override
   String sentNamed(Object name) {
-    return 'Inviato \"$name\".';
+    return '«$name» inviato.';
   }
 
   @override
   String sendFailed(Object error) {
-    return 'Invio fallito: $error';
+    return 'Invio non riuscito: $error';
   }
 
   @override
