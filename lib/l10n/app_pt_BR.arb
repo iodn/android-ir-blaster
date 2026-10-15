@@ -2501,5 +2501,10 @@
   "githubConnectionSuccessful": "Conexão bem-sucedida",
   "githubConnectionTestFailed": "O teste de conexão falhou",
   "githubPublicAccessWorking": "É possível acessar o GitHub sem token.",
-  "githubTokenAccessWorking": "O acesso ao GitHub funciona com este token."
+  "githubTokenAccessWorking": "O acesso ao GitHub funciona com este token.",
+  "githubRateLimitLater": "O limite de solicitações do GitHub foi atingido. Tente novamente mais tarde.",
+  "githubRateLimitAfter": "O limite de solicitações do GitHub foi atingido. Tente novamente após {time}.",
+  "githubRateLimitTokenHint": "Você pode adicionar um token pessoal nas configurações de conexão com o GitHub para aumentar o limite de solicitações. Isso é opcional.",
+  "githubAuthenticationFailed": "A autenticação no GitHub falhou. Confira seu token de acesso pessoal.",
+  "@githubRateLimitAfter": {"placeholders": {"time": {"type": "String"}}}
 }

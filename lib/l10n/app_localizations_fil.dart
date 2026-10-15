@@ -5525,4 +5525,21 @@ class AppLocalizationsFil extends AppLocalizations {
   @override
   String get githubTokenAccessWorking =>
       'Gumagana ang GitHub access gamit ang token na ito.';
+
+  @override
+  String get githubRateLimitLater =>
+      'Naabot na ang limitasyon ng GitHub sa mga request. Subukan ulit mamaya.';
+
+  @override
+  String githubRateLimitAfter(String time) {
+    return 'Naabot na ang limitasyon ng GitHub sa mga request. Subukan ulit pagkalipas ng $time.';
+  }
+
+  @override
+  String get githubRateLimitTokenHint =>
+      'Kung kailangan mo ng mas mataas na limitasyon, puwede kang magdagdag ng personal na token sa mga setting ng koneksiyon sa GitHub. Opsyonal ito.';
+
+  @override
+  String get githubAuthenticationFailed =>
+      'Hindi nagtagumpay ang pagpapatunay sa GitHub. Suriin ang iyong personal na access token.';
 }

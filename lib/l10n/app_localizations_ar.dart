@@ -5517,6 +5517,23 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String get githubTokenAccessWorking => 'يمكن الوصول إلى GitHub بهذا الرمز.';
+
+  @override
+  String get githubRateLimitLater =>
+      'تم بلوغ حد طلبات GitHub. حاول مرة أخرى لاحقًا.';
+
+  @override
+  String githubRateLimitAfter(String time) {
+    return 'تم بلوغ حد طلبات GitHub. حاول مرة أخرى بعد $time.';
+  }
+
+  @override
+  String get githubRateLimitTokenHint =>
+      'يمكنك اختياريًا إضافة رمز وصول شخصي في إعدادات اتصال GitHub لزيادة حد الطلبات.';
+
+  @override
+  String get githubAuthenticationFailed =>
+      'تعذرت المصادقة على GitHub. تحقق من رمز الوصول الشخصي.';
 }
 
 /// The translations for Arabic, as used in Egypt (`ar_EG`).
@@ -11032,4 +11049,21 @@ class AppLocalizationsArEg extends AppLocalizationsAr {
 
   @override
   String get githubTokenAccessWorking => 'الاتصال بـ GitHub شغال بالرمز ده.';
+
+  @override
+  String get githubRateLimitLater =>
+      'وصلت للحد الأقصى لطلبات GitHub. حاول تاني بعد شوية.';
+
+  @override
+  String githubRateLimitAfter(String time) {
+    return 'وصلت للحد الأقصى لطلبات GitHub. حاول تاني بعد $time.';
+  }
+
+  @override
+  String get githubRateLimitTokenHint =>
+      'لو محتاج حد طلبات أعلى، تقدر تضيف رمز وصول شخصي في إعدادات اتصال GitHub. دي خطوة اختيارية.';
+
+  @override
+  String get githubAuthenticationFailed =>
+      'تعذر التحقق من بيانات الدخول لـ GitHub. راجع رمز الوصول الشخصي.';
 }

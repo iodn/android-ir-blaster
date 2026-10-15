@@ -2501,5 +2501,10 @@
   "githubConnectionSuccessful": "نجح الاتصال",
   "githubConnectionTestFailed": "فشل اختبار الاتصال",
   "githubPublicAccessWorking": "يمكن الوصول إلى GitHub دون رمز.",
-  "githubTokenAccessWorking": "يمكن الوصول إلى GitHub بهذا الرمز."
+  "githubTokenAccessWorking": "يمكن الوصول إلى GitHub بهذا الرمز.",
+  "githubRateLimitLater": "تم بلوغ حد طلبات GitHub. حاول مرة أخرى لاحقًا.",
+  "githubRateLimitAfter": "تم بلوغ حد طلبات GitHub. حاول مرة أخرى بعد {time}.",
+  "githubRateLimitTokenHint": "يمكنك اختياريًا إضافة رمز وصول شخصي في إعدادات اتصال GitHub لزيادة حد الطلبات.",
+  "githubAuthenticationFailed": "تعذرت المصادقة على GitHub. تحقق من رمز الوصول الشخصي.",
+  "@githubRateLimitAfter": {"placeholders": {"time": {"type": "String"}}}
 }

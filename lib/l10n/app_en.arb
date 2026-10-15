@@ -2732,5 +2732,10 @@
   "githubConnectionSuccessful": "Connection successful",
   "githubConnectionTestFailed": "Connection test failed",
   "githubPublicAccessWorking": "GitHub is reachable without a token.",
-  "githubTokenAccessWorking": "GitHub access works with this token."
+  "githubTokenAccessWorking": "GitHub access works with this token.",
+  "githubRateLimitLater": "GitHub’s request limit has been reached. Try again later.",
+  "githubRateLimitAfter": "GitHub’s request limit has been reached. Try again after {time}.",
+  "githubRateLimitTokenHint": "You can optionally add a personal token in GitHub connection settings for a higher request limit.",
+  "githubAuthenticationFailed": "GitHub authentication failed. Check your personal access token.",
+  "@githubRateLimitAfter": {"placeholders": {"time": {"type": "String"}}}
 }

@@ -2501,5 +2501,10 @@
   "githubConnectionSuccessful": "الاتصال ناجح",
   "githubConnectionTestFailed": "اختبار الاتصال فشل",
   "githubPublicAccessWorking": "تقدر تتصل بـ GitHub من غير رمز.",
-  "githubTokenAccessWorking": "الاتصال بـ GitHub شغال بالرمز ده."
+  "githubTokenAccessWorking": "الاتصال بـ GitHub شغال بالرمز ده.",
+  "githubRateLimitLater": "وصلت للحد الأقصى لطلبات GitHub. حاول تاني بعد شوية.",
+  "githubRateLimitAfter": "وصلت للحد الأقصى لطلبات GitHub. حاول تاني بعد {time}.",
+  "githubRateLimitTokenHint": "لو محتاج حد طلبات أعلى، تقدر تضيف رمز وصول شخصي في إعدادات اتصال GitHub. دي خطوة اختيارية.",
+  "githubAuthenticationFailed": "تعذر التحقق من بيانات الدخول لـ GitHub. راجع رمز الوصول الشخصي.",
+  "@githubRateLimitAfter": {"placeholders": {"time": {"type": "String"}}}
 }

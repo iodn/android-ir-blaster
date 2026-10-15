@@ -2501,5 +2501,10 @@
   "githubConnectionSuccessful": "Connexion réussie",
   "githubConnectionTestFailed": "Échec du test de connexion",
   "githubPublicAccessWorking": "GitHub est accessible sans jeton.",
-  "githubTokenAccessWorking": "L’accès à GitHub fonctionne avec ce jeton."
+  "githubTokenAccessWorking": "L’accès à GitHub fonctionne avec ce jeton.",
+  "githubRateLimitLater": "La limite de requêtes GitHub est atteinte. Réessayez plus tard.",
+  "githubRateLimitAfter": "La limite de requêtes GitHub est atteinte. Réessayez après {time}.",
+  "githubRateLimitTokenHint": "Vous pouvez ajouter un jeton personnel dans les paramètres de connexion à GitHub pour augmenter la limite de requêtes. C’est facultatif.",
+  "githubAuthenticationFailed": "L’authentification auprès de GitHub a échoué. Vérifiez votre jeton d’accès personnel.",
+  "@githubRateLimitAfter": {"placeholders": {"time": {"type": "String"}}}
 }

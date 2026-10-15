@@ -5649,4 +5649,21 @@ class AppLocalizationsUk extends AppLocalizations {
   @override
   String get githubTokenAccessWorking =>
       'Доступ до GitHub із цим токеном працює.';
+
+  @override
+  String get githubRateLimitLater =>
+      'Досягнуто ліміту запитів GitHub. Спробуйте пізніше.';
+
+  @override
+  String githubRateLimitAfter(String time) {
+    return 'Досягнуто ліміту запитів GitHub. Спробуйте ще раз після $time.';
+  }
+
+  @override
+  String get githubRateLimitTokenHint =>
+      'За бажанням можна додати особистий токен у налаштуваннях з’єднання з GitHub, щоб збільшити ліміт запитів.';
+
+  @override
+  String get githubAuthenticationFailed =>
+      'Не вдалося пройти автентифікацію GitHub. Перевірте особистий токен доступу.';
 }

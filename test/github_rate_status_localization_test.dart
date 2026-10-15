@@ -39,7 +39,8 @@ void main() {
         await tester.tap(find.byTooltip('GitHub connection'));
         await tester.pumpAndSettle();
         final l10n = await AppLocalizations.delegate.load(locale);
-        Future<void> checkLabel(String label) async {
+        Future<void> checkLabel(String label,
+            {bool longMessage = false}) async {
           final finder = find.text(label);
           await tester.scrollUntilVisible(finder, 300,
               scrollable: find.byType(Scrollable).first);
@@ -50,7 +51,18 @@ void main() {
           expect(paragraph.getMaxIntrinsicHeight(paragraph.size.width),
               lessThanOrEqualTo(paragraph.size.height + 0.1),
               reason: label);
-          expect(finder.hitTestable(), findsOneWidget, reason: label);
+          if (longMessage) {
+            await Scrollable.ensureVisible(tester.element(finder),
+                alignment: 0);
+            await tester.pumpAndSettle();
+            expect(tester.getRect(finder).top, greaterThanOrEqualTo(0));
+            await Scrollable.ensureVisible(tester.element(finder),
+                alignment: 1);
+            await tester.pumpAndSettle();
+            expect(tester.getRect(finder).bottom, lessThanOrEqualTo(640));
+          } else {
+            expect(finder.hitTestable(), findsOneWidget, reason: label);
+          }
         }
 
         await checkLabel(l10n.githubConnectionTestTitle);
@@ -122,6 +134,7 @@ void main() {
               () => MockClient((_) async => http.Response('{}', 401)));
           await tester.pumpAndSettle();
           await checkLabel(l10n.githubConnectionTestFailed);
+          await checkLabel(l10n.githubAuthenticationFailed, longMessage: true);
           expect(find.text(l10n.githubConnectionSuccessful), findsNothing);
           expect(
               find.text(l10n.githubRequestsRemaining(remaining)), findsNothing);
@@ -131,6 +144,27 @@ void main() {
                       find.widgetWithText(FilledButton, l10n.githubTestAccess))
                   .onPressed,
               isNotNull);
+        }
+        for (final hasResetTime in [false, true]) {
+          final retry = tester.widget<FilledButton>(
+              find.widgetWithText(FilledButton, l10n.githubTestAccess));
+          await http.runWithClient(
+              () => (retry.onPressed! as Future<void> Function())(),
+              () => MockClient((_) async => http.Response('{}', 403, headers: {
+                    if (hasResetTime)
+                      'x-ratelimit-reset':
+                          '${reset.millisecondsSinceEpoch ~/ 1000}',
+                  })));
+          await tester.pumpAndSettle();
+          final message = hasResetTime
+              ? l10n.githubRateLimitAfter(formatted)
+              : l10n.githubRateLimitLater;
+          await checkLabel(
+              use24Hour
+                  ? message
+                  : '$message\n\n${l10n.githubRateLimitTokenHint}',
+              longMessage: true);
+          expect(find.text(l10n.githubConnectionSuccessful), findsNothing);
         }
         expect(tester.takeException(), isNull);
         await tester.pumpWidget(const SizedBox());

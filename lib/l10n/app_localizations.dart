@@ -9901,6 +9901,30 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'GitHub access works with this token.'**
   String get githubTokenAccessWorking;
+
+  /// No description provided for @githubRateLimitLater.
+  ///
+  /// In en, this message translates to:
+  /// **'GitHub’s request limit has been reached. Try again later.'**
+  String get githubRateLimitLater;
+
+  /// No description provided for @githubRateLimitAfter.
+  ///
+  /// In en, this message translates to:
+  /// **'GitHub’s request limit has been reached. Try again after {time}.'**
+  String githubRateLimitAfter(String time);
+
+  /// No description provided for @githubRateLimitTokenHint.
+  ///
+  /// In en, this message translates to:
+  /// **'You can optionally add a personal token in GitHub connection settings for a higher request limit.'**
+  String get githubRateLimitTokenHint;
+
+  /// No description provided for @githubAuthenticationFailed.
+  ///
+  /// In en, this message translates to:
+  /// **'GitHub authentication failed. Check your personal access token.'**
+  String get githubAuthenticationFailed;
 }
 
 class _AppLocalizationsDelegate

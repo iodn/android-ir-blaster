@@ -2501,5 +2501,10 @@
   "githubConnectionSuccessful": "Подключение успешно",
   "githubConnectionTestFailed": "Не удалось проверить подключение",
   "githubPublicAccessWorking": "GitHub доступен без токена.",
-  "githubTokenAccessWorking": "Доступ к GitHub с этим токеном работает."
+  "githubTokenAccessWorking": "Доступ к GitHub с этим токеном работает.",
+  "githubRateLimitLater": "Достигнут лимит запросов GitHub. Повторите попытку позже.",
+  "githubRateLimitAfter": "Достигнут лимит запросов GitHub. Повторите попытку после {time}.",
+  "githubRateLimitTokenHint": "При желании можно добавить персональный токен в настройках подключения к GitHub, чтобы увеличить лимит запросов.",
+  "githubAuthenticationFailed": "Не удалось пройти аутентификацию GitHub. Проверьте персональный токен доступа.",
+  "@githubRateLimitAfter": {"placeholders": {"time": {"type": "String"}}}
 }

@@ -2501,5 +2501,10 @@
   "githubConnectionSuccessful": "Verbinding geslaagd",
   "githubConnectionTestFailed": "Verbindingstest mislukt",
   "githubPublicAccessWorking": "GitHub is bereikbaar zonder token.",
-  "githubTokenAccessWorking": "Toegang tot GitHub werkt met dit token."
+  "githubTokenAccessWorking": "Toegang tot GitHub werkt met dit token.",
+  "githubRateLimitLater": "De verzoeklimiet van GitHub is bereikt. Probeer het later opnieuw.",
+  "githubRateLimitAfter": "De verzoeklimiet van GitHub is bereikt. Probeer het na {time} opnieuw.",
+  "githubRateLimitTokenHint": "Je kunt in de GitHub-verbindingsinstellingen een persoonlijk token toevoegen voor een hogere verzoeklimiet. Dit is optioneel.",
+  "githubAuthenticationFailed": "De GitHub-authenticatie is mislukt. Controleer je persoonlijke toegangstoken.",
+  "@githubRateLimitAfter": {"placeholders": {"time": {"type": "String"}}}
 }

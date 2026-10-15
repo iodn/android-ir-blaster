@@ -5339,4 +5339,20 @@ class AppLocalizationsJa extends AppLocalizations {
 
   @override
   String get githubTokenAccessWorking => 'このトークンでGitHubに接続できます。';
+
+  @override
+  String get githubRateLimitLater => 'GitHubのリクエスト上限に達しました。しばらくしてから再試行してください。';
+
+  @override
+  String githubRateLimitAfter(String time) {
+    return 'GitHubのリクエスト上限に達しました。$time以降に再試行してください。';
+  }
+
+  @override
+  String get githubRateLimitTokenHint =>
+      '必要に応じて、GitHubの接続設定で個人トークンを追加すると、リクエスト上限を増やせます。追加は任意です。';
+
+  @override
+  String get githubAuthenticationFailed =>
+      'GitHubの認証に失敗しました。個人アクセストークンを確認してください。';
 }

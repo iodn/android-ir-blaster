@@ -5518,4 +5518,21 @@ class AppLocalizationsHi extends AppLocalizations {
   @override
   String get githubTokenAccessWorking =>
       'इस टोकन से GitHub से कनेक्ट हो पा रहे हैं।';
+
+  @override
+  String get githubRateLimitLater =>
+      'GitHub की अनुरोध सीमा पूरी हो गई है। बाद में फिर कोशिश करें।';
+
+  @override
+  String githubRateLimitAfter(String time) {
+    return 'GitHub की अनुरोध सीमा पूरी हो गई है। $time के बाद फिर कोशिश करें।';
+  }
+
+  @override
+  String get githubRateLimitTokenHint =>
+      'अधिक अनुरोधों के लिए आप GitHub कनेक्शन सेटिंग में निजी टोकन जोड़ सकते हैं। यह वैकल्पिक है।';
+
+  @override
+  String get githubAuthenticationFailed =>
+      'GitHub पर प्रमाणीकरण विफल रहा। अपना निजी एक्सेस टोकन जाँचें।';
 }

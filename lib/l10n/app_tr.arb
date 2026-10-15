@@ -2501,5 +2501,10 @@
   "githubConnectionSuccessful": "Bağlantı başarılı",
   "githubConnectionTestFailed": "Bağlantı testi başarısız",
   "githubPublicAccessWorking": "GitHub’a belirteç olmadan erişilebiliyor.",
-  "githubTokenAccessWorking": "Bu belirteçle GitHub’a erişilebiliyor."
+  "githubTokenAccessWorking": "Bu belirteçle GitHub’a erişilebiliyor.",
+  "githubRateLimitLater": "GitHub istek sınırına ulaşıldı. Daha sonra tekrar deneyin.",
+  "githubRateLimitAfter": "GitHub istek sınırına ulaşıldı. {time} sonrasında tekrar deneyin.",
+  "githubRateLimitTokenHint": "Daha yüksek bir istek sınırı için GitHub bağlantı ayarlarına kişisel belirteç ekleyebilirsiniz. Bu isteğe bağlıdır.",
+  "githubAuthenticationFailed": "GitHub kimlik doğrulaması başarısız oldu. Kişisel erişim belirtecinizi kontrol edin.",
+  "@githubRateLimitAfter": {"placeholders": {"time": {"type": "String"}}}
 }

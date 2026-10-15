@@ -5254,4 +5254,19 @@ class AppLocalizationsZh extends AppLocalizations {
 
   @override
   String get githubTokenAccessWorking => '使用此令牌可以访问GitHub。';
+
+  @override
+  String get githubRateLimitLater => '已达到GitHub请求次数上限，请稍后重试。';
+
+  @override
+  String githubRateLimitAfter(String time) {
+    return '已达到GitHub请求次数上限，请在$time之后重试。';
+  }
+
+  @override
+  String get githubRateLimitTokenHint =>
+      '如需提高请求次数上限，可以在GitHub连接设置中添加个人令牌。这是可选操作。';
+
+  @override
+  String get githubAuthenticationFailed => 'GitHub身份验证失败，请检查个人访问令牌。';
 }

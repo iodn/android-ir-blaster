@@ -2501,5 +2501,10 @@
   "githubConnectionSuccessful": "连接成功",
   "githubConnectionTestFailed": "连接测试失败",
   "githubPublicAccessWorking": "无需令牌即可访问GitHub。",
-  "githubTokenAccessWorking": "使用此令牌可以访问GitHub。"
+  "githubTokenAccessWorking": "使用此令牌可以访问GitHub。",
+  "githubRateLimitLater": "已达到GitHub请求次数上限，请稍后重试。",
+  "githubRateLimitAfter": "已达到GitHub请求次数上限，请在{time}之后重试。",
+  "githubRateLimitTokenHint": "如需提高请求次数上限，可以在GitHub连接设置中添加个人令牌。这是可选操作。",
+  "githubAuthenticationFailed": "GitHub身份验证失败，请检查个人访问令牌。",
+  "@githubRateLimitAfter": {"placeholders": {"time": {"type": "String"}}}
 }

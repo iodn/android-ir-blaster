@@ -5593,6 +5593,23 @@ class AppLocalizationsPt extends AppLocalizations {
   @override
   String get githubTokenAccessWorking =>
       'O acesso ao GitHub funciona com este token.';
+
+  @override
+  String get githubRateLimitLater =>
+      'Foi atingido o limite de pedidos do GitHub. Tente novamente mais tarde.';
+
+  @override
+  String githubRateLimitAfter(String time) {
+    return 'Foi atingido o limite de pedidos do GitHub. Tente novamente após $time.';
+  }
+
+  @override
+  String get githubRateLimitTokenHint =>
+      'Pode adicionar um token pessoal nas definições de ligação ao GitHub para aumentar o limite de pedidos. É opcional.';
+
+  @override
+  String get githubAuthenticationFailed =>
+      'A autenticação no GitHub falhou. Verifique o seu token de acesso pessoal.';
 }
 
 /// The translations for Portuguese, as used in Brazil (`pt_BR`).
@@ -11178,4 +11195,21 @@ class AppLocalizationsPtBr extends AppLocalizationsPt {
   @override
   String get githubTokenAccessWorking =>
       'O acesso ao GitHub funciona com este token.';
+
+  @override
+  String get githubRateLimitLater =>
+      'O limite de solicitações do GitHub foi atingido. Tente novamente mais tarde.';
+
+  @override
+  String githubRateLimitAfter(String time) {
+    return 'O limite de solicitações do GitHub foi atingido. Tente novamente após $time.';
+  }
+
+  @override
+  String get githubRateLimitTokenHint =>
+      'Você pode adicionar um token pessoal nas configurações de conexão com o GitHub para aumentar o limite de solicitações. Isso é opcional.';
+
+  @override
+  String get githubAuthenticationFailed =>
+      'A autenticação no GitHub falhou. Confira seu token de acesso pessoal.';
 }

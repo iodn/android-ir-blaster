@@ -2501,5 +2501,10 @@
   "githubConnectionSuccessful": "Sambungan berjaya",
   "githubConnectionTestFailed": "Ujian sambungan gagal",
   "githubPublicAccessWorking": "GitHub boleh dicapai tanpa token.",
-  "githubTokenAccessWorking": "Akses GitHub berjaya dengan token ini."
+  "githubTokenAccessWorking": "Akses GitHub berjaya dengan token ini.",
+  "githubRateLimitLater": "Had permintaan GitHub telah dicapai. Cuba lagi kemudian.",
+  "githubRateLimitAfter": "Had permintaan GitHub telah dicapai. Cuba lagi selepas {time}.",
+  "githubRateLimitTokenHint": "Jika perlu, tambah token peribadi dalam tetapan sambungan GitHub untuk mendapatkan had permintaan yang lebih tinggi. Ini pilihan sahaja.",
+  "githubAuthenticationFailed": "Pengesahan GitHub gagal. Semak token akses peribadi anda.",
+  "@githubRateLimitAfter": {"placeholders": {"time": {"type": "String"}}}
 }

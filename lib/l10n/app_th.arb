@@ -2501,5 +2501,10 @@
   "githubConnectionSuccessful": "เชื่อมต่อสำเร็จ",
   "githubConnectionTestFailed": "ทดสอบการเชื่อมต่อไม่สำเร็จ",
   "githubPublicAccessWorking": "เข้าถึง GitHub ได้โดยไม่ใช้โทเค็น",
-  "githubTokenAccessWorking": "เข้าถึง GitHub ได้ด้วยโทเค็นนี้"
+  "githubTokenAccessWorking": "เข้าถึง GitHub ได้ด้วยโทเค็นนี้",
+  "githubRateLimitLater": "ถึงขีดจำกัดคำขอของ GitHub แล้ว โปรดลองอีกครั้งภายหลัง",
+  "githubRateLimitAfter": "ถึงขีดจำกัดคำขอของ GitHub แล้ว โปรดลองอีกครั้งหลัง {time}",
+  "githubRateLimitTokenHint": "หากต้องการเพิ่มขีดจำกัดคำขอ คุณสามารถเพิ่มโทเค็นส่วนบุคคลในการตั้งค่าการเชื่อมต่อ GitHub ได้ แต่ไม่จำเป็นต้องเพิ่ม",
+  "githubAuthenticationFailed": "ยืนยันตัวตนกับ GitHub ไม่สำเร็จ โปรดตรวจสอบโทเค็นการเข้าถึงส่วนบุคคล",
+  "@githubRateLimitAfter": {"placeholders": {"time": {"type": "String"}}}
 }

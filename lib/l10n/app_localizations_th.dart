@@ -5461,4 +5461,21 @@ class AppLocalizationsTh extends AppLocalizations {
 
   @override
   String get githubTokenAccessWorking => 'เข้าถึง GitHub ได้ด้วยโทเค็นนี้';
+
+  @override
+  String get githubRateLimitLater =>
+      'ถึงขีดจำกัดคำขอของ GitHub แล้ว โปรดลองอีกครั้งภายหลัง';
+
+  @override
+  String githubRateLimitAfter(String time) {
+    return 'ถึงขีดจำกัดคำขอของ GitHub แล้ว โปรดลองอีกครั้งหลัง $time';
+  }
+
+  @override
+  String get githubRateLimitTokenHint =>
+      'หากต้องการเพิ่มขีดจำกัดคำขอ คุณสามารถเพิ่มโทเค็นส่วนบุคคลในการตั้งค่าการเชื่อมต่อ GitHub ได้ แต่ไม่จำเป็นต้องเพิ่ม';
+
+  @override
+  String get githubAuthenticationFailed =>
+      'ยืนยันตัวตนกับ GitHub ไม่สำเร็จ โปรดตรวจสอบโทเค็นการเข้าถึงส่วนบุคคล';
 }

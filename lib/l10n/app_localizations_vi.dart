@@ -5486,4 +5486,21 @@ class AppLocalizationsVi extends AppLocalizations {
   @override
   String get githubTokenAccessWorking =>
       'Truy cập GitHub thành công bằng mã này.';
+
+  @override
+  String get githubRateLimitLater =>
+      'Đã đạt giới hạn yêu cầu của GitHub. Vui lòng thử lại sau.';
+
+  @override
+  String githubRateLimitAfter(String time) {
+    return 'Đã đạt giới hạn yêu cầu của GitHub. Vui lòng thử lại sau $time.';
+  }
+
+  @override
+  String get githubRateLimitTokenHint =>
+      'Nếu cần giới hạn cao hơn, bạn có thể thêm mã truy cập cá nhân trong phần cài đặt kết nối GitHub. Đây là tùy chọn.';
+
+  @override
+  String get githubAuthenticationFailed =>
+      'Xác thực GitHub thất bại. Hãy kiểm tra mã truy cập cá nhân.';
 }

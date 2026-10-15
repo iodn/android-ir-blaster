@@ -2487,5 +2487,10 @@
   "githubConnectionSuccessful": "Verbindung erfolgreich",
   "githubConnectionTestFailed": "Verbindungstest fehlgeschlagen",
   "githubPublicAccessWorking": "GitHub ist ohne Token erreichbar.",
-  "githubTokenAccessWorking": "Der GitHub-Zugriff funktioniert mit diesem Token."
+  "githubTokenAccessWorking": "Der GitHub-Zugriff funktioniert mit diesem Token.",
+  "githubRateLimitLater": "Das GitHub-Anfragelimit ist erreicht. Versuche es später erneut.",
+  "githubRateLimitAfter": "Das GitHub-Anfragelimit ist erreicht. Versuche es nach {time} erneut.",
+  "githubRateLimitTokenHint": "Optional kannst du in den GitHub-Verbindungseinstellungen einen persönlichen Token für ein höheres Anfragelimit hinterlegen.",
+  "githubAuthenticationFailed": "Die Anmeldung bei GitHub ist fehlgeschlagen. Prüfe deinen persönlichen Zugriffstoken.",
+  "@githubRateLimitAfter": {"placeholders": {"time": {"type": "String"}}}
 }

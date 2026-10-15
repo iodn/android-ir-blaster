@@ -2501,5 +2501,10 @@
   "githubConnectionSuccessful": "接続できました",
   "githubConnectionTestFailed": "接続テストに失敗しました",
   "githubPublicAccessWorking": "トークンなしでGitHubに接続できます。",
-  "githubTokenAccessWorking": "このトークンでGitHubに接続できます。"
+  "githubTokenAccessWorking": "このトークンでGitHubに接続できます。",
+  "githubRateLimitLater": "GitHubのリクエスト上限に達しました。しばらくしてから再試行してください。",
+  "githubRateLimitAfter": "GitHubのリクエスト上限に達しました。{time}以降に再試行してください。",
+  "githubRateLimitTokenHint": "必要に応じて、GitHubの接続設定で個人トークンを追加すると、リクエスト上限を増やせます。追加は任意です。",
+  "githubAuthenticationFailed": "GitHubの認証に失敗しました。個人アクセストークンを確認してください。",
+  "@githubRateLimitAfter": {"placeholders": {"time": {"type": "String"}}}
 }

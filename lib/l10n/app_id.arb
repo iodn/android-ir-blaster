@@ -2501,5 +2501,10 @@
   "githubConnectionSuccessful": "Koneksi berhasil",
   "githubConnectionTestFailed": "Uji koneksi gagal",
   "githubPublicAccessWorking": "GitHub dapat diakses tanpa token.",
-  "githubTokenAccessWorking": "Akses GitHub berhasil dengan token ini."
+  "githubTokenAccessWorking": "Akses GitHub berhasil dengan token ini.",
+  "githubRateLimitLater": "Batas permintaan GitHub telah tercapai. Coba lagi nanti.",
+  "githubRateLimitAfter": "Batas permintaan GitHub telah tercapai. Coba lagi setelah {time}.",
+  "githubRateLimitTokenHint": "Jika perlu, tambahkan token pribadi di pengaturan koneksi GitHub untuk mendapatkan batas permintaan yang lebih tinggi. Ini opsional.",
+  "githubAuthenticationFailed": "Autentikasi GitHub gagal. Periksa token akses pribadi Anda.",
+  "@githubRateLimitAfter": {"placeholders": {"time": {"type": "String"}}}
 }

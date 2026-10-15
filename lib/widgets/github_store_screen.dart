@@ -12,42 +12,34 @@ import 'package:irblaster_controller/utils/remotes_io.dart';
 import 'package:irblaster_controller/widgets/remote_view.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
+String _formatGitHubTime(BuildContext context, DateTime dateTime) {
+  final local = dateTime.toLocal();
+  final material = MaterialLocalizations.of(context);
+  final date = material.formatCompactDate(local);
+  final time = material.formatTimeOfDay(
+    TimeOfDay.fromDateTime(local),
+    alwaysUse24HourFormat: MediaQuery.alwaysUse24HourFormatOf(context),
+  );
+  return '$date $time';
+}
+
 String _describeGitHubStoreError(
+  BuildContext context,
   Object error, {
   required bool hasSavedToken,
 }) {
+  final l10n = context.l10n;
   if (error is GitHubRateLimitException) {
     final resetAt = error.resetAt;
-    if (resetAt == null) {
-      return hasSavedToken
-          ? 'GitHub API rate limit reached. Try again later.'
-          : 'GitHub API rate limit reached. Add an optional personal token in Connection if you want higher limits on this device.';
-    }
-    final local = resetAt.toLocal();
-    final hh = local.hour % 12 == 0 ? 12 : local.hour % 12;
-    final mm = local.minute.toString().padLeft(2, '0');
-    final ampm = local.hour >= 12 ? 'PM' : 'AM';
-    final month = [
-      'Jan',
-      'Feb',
-      'Mar',
-      'Apr',
-      'May',
-      'Jun',
-      'Jul',
-      'Aug',
-      'Sep',
-      'Oct',
-      'Nov',
-      'Dec',
-    ][local.month - 1];
-    final when = '$month ${local.day}, $hh:$mm $ampm';
+    final message = resetAt == null
+        ? l10n.githubRateLimitLater
+        : l10n.githubRateLimitAfter(_formatGitHubTime(context, resetAt));
     return hasSavedToken
-        ? 'GitHub API rate limit reached. Try again after $when.'
-        : 'GitHub API rate limit reached. Try again after $when, or add an optional personal token in Connection for higher limits on this device.';
+        ? message
+        : '$message\n\n${l10n.githubRateLimitTokenHint}';
   }
   if (error is GitHubAuthException) {
-    return error.message;
+    return l10n.githubAuthenticationFailed;
   }
   return error.toString().replaceFirst('Exception: ', '');
 }
@@ -199,6 +191,7 @@ class _GitHubStoreScreenState extends State<GitHubStoreScreen> {
       if (!mounted) return;
       setState(() {
         _error = _describeGitHubStoreError(
+          context,
           e,
           hasSavedToken: _hasSavedToken,
         );
@@ -1089,10 +1082,11 @@ class _GitHubFileImportScreenState extends State<_GitHubFileImportScreen> {
           }
           if (snapshot.hasError) {
             return Center(
-              child: Padding(
+              child: SingleChildScrollView(
                 padding: const EdgeInsets.all(24),
                 child: Text(
                   _describeGitHubStoreError(
+                    context,
                     snapshot.error ?? Exception('Unknown error'),
                     hasSavedToken: widget.service.hasAuthToken,
                   ),
@@ -1613,6 +1607,7 @@ class _GitHubConnectionScreenState extends State<_GitHubConnectionScreen> {
       setState(() {
         _statusIsError = true;
         _statusMessage = _describeGitHubStoreError(
+          context,
           error,
           hasSavedToken: token.isNotEmpty,
         );
@@ -1627,15 +1622,7 @@ class _GitHubConnectionScreenState extends State<_GitHubConnectionScreen> {
   }
 
   String? _formatResetAt(DateTime? dateTime) {
-    if (dateTime == null) return null;
-    final local = dateTime.toLocal();
-    final material = MaterialLocalizations.of(context);
-    final date = material.formatCompactDate(local);
-    final time = material.formatTimeOfDay(
-      TimeOfDay.fromDateTime(local),
-      alwaysUse24HourFormat: MediaQuery.alwaysUse24HourFormatOf(context),
-    );
-    return '$date $time';
+    return dateTime == null ? null : _formatGitHubTime(context, dateTime);
   }
 
   @override

@@ -5503,4 +5503,21 @@ class AppLocalizationsId extends AppLocalizations {
   @override
   String get githubTokenAccessWorking =>
       'Akses GitHub berhasil dengan token ini.';
+
+  @override
+  String get githubRateLimitLater =>
+      'Batas permintaan GitHub telah tercapai. Coba lagi nanti.';
+
+  @override
+  String githubRateLimitAfter(String time) {
+    return 'Batas permintaan GitHub telah tercapai. Coba lagi setelah $time.';
+  }
+
+  @override
+  String get githubRateLimitTokenHint =>
+      'Jika perlu, tambahkan token pribadi di pengaturan koneksi GitHub untuk mendapatkan batas permintaan yang lebih tinggi. Ini opsional.';
+
+  @override
+  String get githubAuthenticationFailed =>
+      'Autentikasi GitHub gagal. Periksa token akses pribadi Anda.';
 }

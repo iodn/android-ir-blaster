@@ -2501,5 +2501,10 @@
   "githubConnectionSuccessful": "कनेक्शन सफल",
   "githubConnectionTestFailed": "कनेक्शन की जाँच विफल रही",
   "githubPublicAccessWorking": "बिना टोकन के GitHub से कनेक्ट हो पा रहे हैं।",
-  "githubTokenAccessWorking": "इस टोकन से GitHub से कनेक्ट हो पा रहे हैं।"
+  "githubTokenAccessWorking": "इस टोकन से GitHub से कनेक्ट हो पा रहे हैं।",
+  "githubRateLimitLater": "GitHub की अनुरोध सीमा पूरी हो गई है। बाद में फिर कोशिश करें।",
+  "githubRateLimitAfter": "GitHub की अनुरोध सीमा पूरी हो गई है। {time} के बाद फिर कोशिश करें।",
+  "githubRateLimitTokenHint": "अधिक अनुरोधों के लिए आप GitHub कनेक्शन सेटिंग में निजी टोकन जोड़ सकते हैं। यह वैकल्पिक है।",
+  "githubAuthenticationFailed": "GitHub पर प्रमाणीकरण विफल रहा। अपना निजी एक्सेस टोकन जाँचें।",
+  "@githubRateLimitAfter": {"placeholders": {"time": {"type": "String"}}}
 }

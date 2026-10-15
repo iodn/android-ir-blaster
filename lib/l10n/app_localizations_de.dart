@@ -5599,4 +5599,21 @@ class AppLocalizationsDe extends AppLocalizations {
   @override
   String get githubTokenAccessWorking =>
       'Der GitHub-Zugriff funktioniert mit diesem Token.';
+
+  @override
+  String get githubRateLimitLater =>
+      'Das GitHub-Anfragelimit ist erreicht. Versuche es später erneut.';
+
+  @override
+  String githubRateLimitAfter(String time) {
+    return 'Das GitHub-Anfragelimit ist erreicht. Versuche es nach $time erneut.';
+  }
+
+  @override
+  String get githubRateLimitTokenHint =>
+      'Optional kannst du in den GitHub-Verbindungseinstellungen einen persönlichen Token für ein höheres Anfragelimit hinterlegen.';
+
+  @override
+  String get githubAuthenticationFailed =>
+      'Die Anmeldung bei GitHub ist fehlgeschlagen. Prüfe deinen persönlichen Zugriffstoken.';
 }

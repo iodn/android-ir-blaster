@@ -5606,4 +5606,21 @@ class AppLocalizationsFr extends AppLocalizations {
   @override
   String get githubTokenAccessWorking =>
       'L’accès à GitHub fonctionne avec ce jeton.';
+
+  @override
+  String get githubRateLimitLater =>
+      'La limite de requêtes GitHub est atteinte. Réessayez plus tard.';
+
+  @override
+  String githubRateLimitAfter(String time) {
+    return 'La limite de requêtes GitHub est atteinte. Réessayez après $time.';
+  }
+
+  @override
+  String get githubRateLimitTokenHint =>
+      'Vous pouvez ajouter un jeton personnel dans les paramètres de connexion à GitHub pour augmenter la limite de requêtes. C’est facultatif.';
+
+  @override
+  String get githubAuthenticationFailed =>
+      'L’authentification auprès de GitHub a échoué. Vérifiez votre jeton d’accès personnel.';
 }

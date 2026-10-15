@@ -5501,4 +5501,21 @@ class AppLocalizationsTr extends AppLocalizations {
   @override
   String get githubTokenAccessWorking =>
       'Bu belirteçle GitHub’a erişilebiliyor.';
+
+  @override
+  String get githubRateLimitLater =>
+      'GitHub istek sınırına ulaşıldı. Daha sonra tekrar deneyin.';
+
+  @override
+  String githubRateLimitAfter(String time) {
+    return 'GitHub istek sınırına ulaşıldı. $time sonrasında tekrar deneyin.';
+  }
+
+  @override
+  String get githubRateLimitTokenHint =>
+      'Daha yüksek bir istek sınırı için GitHub bağlantı ayarlarına kişisel belirteç ekleyebilirsiniz. Bu isteğe bağlıdır.';
+
+  @override
+  String get githubAuthenticationFailed =>
+      'GitHub kimlik doğrulaması başarısız oldu. Kişisel erişim belirtecinizi kontrol edin.';
 }

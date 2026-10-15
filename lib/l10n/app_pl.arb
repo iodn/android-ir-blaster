@@ -2503,5 +2503,10 @@
   "githubConnectionSuccessful": "Połączenie działa",
   "githubConnectionTestFailed": "Test połączenia nie powiódł się",
   "githubPublicAccessWorking": "GitHub jest dostępny bez tokenu.",
-  "githubTokenAccessWorking": "Dostęp do GitHuba działa z tym tokenem."
+  "githubTokenAccessWorking": "Dostęp do GitHuba działa z tym tokenem.",
+  "githubRateLimitLater": "Osiągnięto limit żądań GitHuba. Spróbuj ponownie później.",
+  "githubRateLimitAfter": "Osiągnięto limit żądań GitHuba. Spróbuj ponownie po {time}.",
+  "githubRateLimitTokenHint": "Aby zwiększyć limit żądań, możesz dodać osobisty token w ustawieniach połączenia z GitHubem. To opcjonalne.",
+  "githubAuthenticationFailed": "Uwierzytelnienie w GitHubie nie powiodło się. Sprawdź osobisty token dostępu.",
+  "@githubRateLimitAfter": {"placeholders": {"time": {"type": "String"}}}
 }

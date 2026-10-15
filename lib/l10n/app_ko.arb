@@ -2501,5 +2501,10 @@
   "githubConnectionSuccessful": "연결 성공",
   "githubConnectionTestFailed": "연결 테스트 실패",
   "githubPublicAccessWorking": "토큰 없이 GitHub에 접속할 수 있어요.",
-  "githubTokenAccessWorking": "이 토큰으로 GitHub에 접속할 수 있어요."
+  "githubTokenAccessWorking": "이 토큰으로 GitHub에 접속할 수 있어요.",
+  "githubRateLimitLater": "GitHub 요청 한도에 도달했어요. 나중에 다시 시도해 주세요.",
+  "githubRateLimitAfter": "GitHub 요청 한도에 도달했어요. {time} 이후에 다시 시도해 주세요.",
+  "githubRateLimitTokenHint": "필요하면 GitHub 연결 설정에 개인 토큰을 추가해 요청 한도를 높일 수 있어요. 필수는 아니에요.",
+  "githubAuthenticationFailed": "GitHub 인증에 실패했어요. 개인 액세스 토큰을 확인해 주세요.",
+  "@githubRateLimitAfter": {"placeholders": {"time": {"type": "String"}}}
 }

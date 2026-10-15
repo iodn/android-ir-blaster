@@ -2501,5 +2501,10 @@
   "githubConnectionSuccessful": "Kết nối thành công",
   "githubConnectionTestFailed": "Kiểm tra kết nối thất bại",
   "githubPublicAccessWorking": "Có thể truy cập GitHub mà không cần mã truy cập.",
-  "githubTokenAccessWorking": "Truy cập GitHub thành công bằng mã này."
+  "githubTokenAccessWorking": "Truy cập GitHub thành công bằng mã này.",
+  "githubRateLimitLater": "Đã đạt giới hạn yêu cầu của GitHub. Vui lòng thử lại sau.",
+  "githubRateLimitAfter": "Đã đạt giới hạn yêu cầu của GitHub. Vui lòng thử lại sau {time}.",
+  "githubRateLimitTokenHint": "Nếu cần giới hạn cao hơn, bạn có thể thêm mã truy cập cá nhân trong phần cài đặt kết nối GitHub. Đây là tùy chọn.",
+  "githubAuthenticationFailed": "Xác thực GitHub thất bại. Hãy kiểm tra mã truy cập cá nhân.",
+  "@githubRateLimitAfter": {"placeholders": {"time": {"type": "String"}}}
 }
