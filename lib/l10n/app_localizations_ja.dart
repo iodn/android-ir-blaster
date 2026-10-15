@@ -828,7 +828,7 @@ class AppLocalizationsJa extends AppLocalizations {
   String get backupTitle => 'バックアップ';
 
   @override
-  String get backupSubtitle => 'リモコンとマクロを入出力';
+  String get backupSubtitle => 'リモコンとマクロの保存・読み込み';
 
   @override
   String get importBackup => 'ファイルから読み込む';
@@ -838,10 +838,10 @@ class AppLocalizationsJa extends AppLocalizations {
       'リモコンとマクロのバックアップ、またはFlipper Zero・LIRC・IRPLUS形式のファイルを読み込みます。';
 
   @override
-  String get bulkImportFolder => 'フォルダ一括取り込み';
+  String get bulkImportFolder => 'リモコンをまとめて読み込む';
 
   @override
-  String get bulkImportFolderSubtitle => 'フォルダから複数のリモコンを取り込み';
+  String get bulkImportFolderSubtitle => '複数のファイルからリモコンを一度に追加します。';
 
   @override
   String get exportBackup => 'バックアップを保存';

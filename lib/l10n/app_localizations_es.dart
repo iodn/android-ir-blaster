@@ -868,10 +868,10 @@ class AppLocalizationsEs extends AppLocalizations {
       'Los mandos se abrirán con la orientación normal.';
 
   @override
-  String get backupTitle => 'Copia';
+  String get backupTitle => 'Copias de seguridad';
 
   @override
-  String get backupSubtitle => 'Importar/exportar mandos y macros';
+  String get backupSubtitle => 'Guarda o importa mandos y macros';
 
   @override
   String get importBackup => 'Importar desde archivo';
@@ -881,11 +881,11 @@ class AppLocalizationsEs extends AppLocalizations {
       'Importa una copia de seguridad de mandos y macros, o archivos de Flipper Zero, LIRC o IRPLUS.';
 
   @override
-  String get bulkImportFolder => 'Importar carpeta';
+  String get bulkImportFolder => 'Importar varios mandos';
 
   @override
   String get bulkImportFolderSubtitle =>
-      'Importar varios mandos desde una carpeta';
+      'Añade mandos desde varios archivos a la vez.';
 
   @override
   String get exportBackup => 'Guardar copia de seguridad';

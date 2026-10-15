@@ -854,10 +854,10 @@ class AppLocalizationsAr extends AppLocalizations {
   String get remoteViewNormal => 'ستُفتح أجهزة التحكم بالاتجاه العادي.';
 
   @override
-  String get backupTitle => 'نسخة احتياطية';
+  String get backupTitle => 'النسخ الاحتياطية';
 
   @override
-  String get backupSubtitle => 'استيراد أو تصدير أجهزة التحكم والماكرو';
+  String get backupSubtitle => 'حفظ أجهزة التحكم والماكرو أو استيرادها';
 
   @override
   String get importBackup => 'استيراد من ملف';
@@ -867,10 +867,11 @@ class AppLocalizationsAr extends AppLocalizations {
       'استيراد نسخة احتياطية لأجهزة التحكم والماكرو، أو ملفات Flipper Zero أو LIRC أو IRPLUS.';
 
   @override
-  String get bulkImportFolder => 'Bulk import folder';
+  String get bulkImportFolder => 'استيراد عدة أجهزة تحكم';
 
   @override
-  String get bulkImportFolderSubtitle => 'استيراد multiple remotes من a folder';
+  String get bulkImportFolderSubtitle =>
+      'إضافة أجهزة تحكم من عدة ملفات دفعة واحدة.';
 
   @override
   String get exportBackup => 'حفظ نسخة احتياطية';
@@ -6128,10 +6129,10 @@ class AppLocalizationsArEg extends AppLocalizationsAr {
   String get remoteViewNormal => 'أجهزة التحكم هتفتح بالاتجاه العادي.';
 
   @override
-  String get backupTitle => 'نسخة احتياطية';
+  String get backupTitle => 'النسخ الاحتياطية';
 
   @override
-  String get backupSubtitle => 'استيراد أو تصدير أجهزة التحكم والماكرو';
+  String get backupSubtitle => 'احفظ الريموتات والماكرو أو استوردها';
 
   @override
   String get importBackup => 'استيراد من ملف';
@@ -6141,10 +6142,10 @@ class AppLocalizationsArEg extends AppLocalizationsAr {
       'استورد نسخة احتياطية للريموتات والماكرو، أو ملفات Flipper Zero أو LIRC أو IRPLUS.';
 
   @override
-  String get bulkImportFolder => 'Bulk import folder';
+  String get bulkImportFolder => 'استيراد أكتر من ريموت';
 
   @override
-  String get bulkImportFolderSubtitle => 'استيراد multiple remotes من a folder';
+  String get bulkImportFolderSubtitle => 'ضيف ريموتات من كذا ملف مرة واحدة.';
 
   @override
   String get exportBackup => 'حفظ نسخة احتياطية';

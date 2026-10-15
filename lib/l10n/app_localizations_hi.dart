@@ -866,7 +866,7 @@ class AppLocalizationsHi extends AppLocalizations {
   String get backupTitle => 'बैकअप';
 
   @override
-  String get backupSubtitle => 'आयात/निर्यात रिमोट और मैक्रो';
+  String get backupSubtitle => 'रिमोट और मैक्रो सहेजें या आयात करें';
 
   @override
   String get importBackup => 'फ़ाइल से आयात करें';
@@ -876,11 +876,10 @@ class AppLocalizationsHi extends AppLocalizations {
       'रिमोट और मैक्रो का बैकअप या Flipper Zero, LIRC या IRPLUS की फ़ाइलें आयात करें।';
 
   @override
-  String get bulkImportFolder => 'Bulk आयात फ़ोल्डर';
+  String get bulkImportFolder => 'कई रिमोट आयात करें';
 
   @override
-  String get bulkImportFolderSubtitle =>
-      'आयात करें multiple रिमोट से a फ़ोल्डर';
+  String get bulkImportFolderSubtitle => 'कई फ़ाइलों से एक साथ रिमोट जोड़ें।';
 
   @override
   String get exportBackup => 'बैकअप सहेजें';

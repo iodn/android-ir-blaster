@@ -875,7 +875,7 @@ class AppLocalizationsIt extends AppLocalizations {
   String get backupTitle => 'Backup';
 
   @override
-  String get backupSubtitle => 'Importa esporta telecomandi e macro';
+  String get backupSubtitle => 'Salva o importa telecomandi e macro';
 
   @override
   String get importBackup => 'Importa da file';
@@ -885,11 +885,11 @@ class AppLocalizationsIt extends AppLocalizations {
       'Importa un backup di telecomandi e macro, oppure file Flipper Zero, LIRC o IRPLUS.';
 
   @override
-  String get bulkImportFolder => 'Importa cartella in blocco';
+  String get bulkImportFolder => 'Importa più telecomandi';
 
   @override
   String get bulkImportFolderSubtitle =>
-      'Importa più telecomandi da una cartella';
+      'Aggiungi telecomandi da più file contemporaneamente.';
 
   @override
   String get exportBackup => 'Salva backup';

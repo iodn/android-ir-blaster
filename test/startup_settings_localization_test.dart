@@ -238,15 +238,26 @@ void main() {
       await tester.pumpAndSettle();
       await tester.scrollUntilVisible(find.text(l10n.backupTitle), 150);
       await tester.pumpAndSettle();
+      expectReadable(find.text(l10n.backupTitle));
+      expectReadable(find.text(l10n.backupSubtitle));
       await tester.ensureVisible(find.text(l10n.backupTitle));
       await tester.pumpAndSettle();
       await tester.tap(find.text(l10n.backupTitle));
       await tester.pumpAndSettle();
+      final backupHeading = find.descendant(
+          of: find.byType(AppBar), matching: find.text(l10n.backupTitle));
+      expectReadable(backupHeading);
+      expect(tester.getRect(backupHeading).bottom,
+          lessThanOrEqualTo(tester.getRect(find.byType(AppBar)).bottom));
+      expectReadable(find.text(l10n.backupTitle).last);
+      expectReadable(find.text(l10n.backupSubtitle));
       for (final label in [
         l10n.importBackup,
         l10n.importBackupSubtitle,
         l10n.exportBackup,
         l10n.exportBackupSubtitle,
+        l10n.bulkImportFolder,
+        l10n.bulkImportFolderSubtitle,
       ]) {
         final text = find.text(label);
         await tester.ensureVisible(text);
@@ -257,7 +268,11 @@ void main() {
         expect(tester.getRect(text).top, greaterThanOrEqualTo(bounds.top));
         expect(tester.getRect(text).bottom, lessThanOrEqualTo(bounds.bottom));
       }
-      for (final label in [l10n.importBackup, l10n.exportBackup]) {
+      for (final label in [
+        l10n.importBackup,
+        l10n.exportBackup,
+        l10n.bulkImportFolder,
+      ]) {
         await tester.ensureVisible(find.text(label));
         await tester.pumpAndSettle();
         expect(find.text(label).hitTestable(), findsOneWidget);

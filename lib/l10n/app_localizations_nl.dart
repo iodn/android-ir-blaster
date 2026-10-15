@@ -878,7 +878,7 @@ class AppLocalizationsNl extends AppLocalizations {
 
   @override
   String get backupSubtitle =>
-      'Afstandsbedieningen en macro\'s importeren of exporteren';
+      'Afstandsbedieningen en macro’s opslaan of importeren';
 
   @override
   String get importBackup => 'Uit bestand importeren';
@@ -888,11 +888,11 @@ class AppLocalizationsNl extends AppLocalizations {
       'Importeer een back-up van afstandsbedieningen en macro’s, of bestanden voor Flipper Zero, LIRC of IRPLUS.';
 
   @override
-  String get bulkImportFolder => 'Map in bulk importeren';
+  String get bulkImportFolder => 'Meerdere afstandsbedieningen importeren';
 
   @override
   String get bulkImportFolderSubtitle =>
-      'Importeer meerdere afstandsbedieningen uit een map';
+      'Voeg afstandsbedieningen uit meerdere bestanden tegelijk toe.';
 
   @override
   String get exportBackup => 'Back-up opslaan';

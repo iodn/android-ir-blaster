@@ -834,7 +834,7 @@ class AppLocalizationsKo extends AppLocalizations {
   String get backupTitle => '백업';
 
   @override
-  String get backupSubtitle => '리모컨과 매크로 가져오기/내보내기';
+  String get backupSubtitle => '리모컨과 매크로 저장 또는 가져오기';
 
   @override
   String get importBackup => '파일에서 가져오기';
@@ -844,10 +844,10 @@ class AppLocalizationsKo extends AppLocalizations {
       '리모컨과 매크로의 백업 또는 Flipper Zero, LIRC, IRPLUS 파일을 가져와요.';
 
   @override
-  String get bulkImportFolder => '폴더 대량 가져오기';
+  String get bulkImportFolder => '여러 리모컨 가져오기';
 
   @override
-  String get bulkImportFolderSubtitle => '폴더에서 여러 리모컨 가져오기';
+  String get bulkImportFolderSubtitle => '여러 파일에서 리모컨을 한 번에 추가해요.';
 
   @override
   String get exportBackup => '백업 저장';

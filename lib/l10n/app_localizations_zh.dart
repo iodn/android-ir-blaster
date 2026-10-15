@@ -798,7 +798,7 @@ class AppLocalizationsZh extends AppLocalizations {
   String get backupTitle => '备份';
 
   @override
-  String get backupSubtitle => '导入导出遥控器和宏';
+  String get backupSubtitle => '保存或导入遥控器和宏';
 
   @override
   String get importBackup => '从文件导入';
@@ -808,10 +808,10 @@ class AppLocalizationsZh extends AppLocalizations {
       '导入遥控器和宏的备份，或Flipper Zero、LIRC、IRPLUS格式的文件。';
 
   @override
-  String get bulkImportFolder => '批量导入文件夹';
+  String get bulkImportFolder => '批量导入遥控器';
 
   @override
-  String get bulkImportFolderSubtitle => '从文件夹导入多个遥控器';
+  String get bulkImportFolderSubtitle => '一次从多个文件中添加遥控器。';
 
   @override
   String get exportBackup => '保存备份';

@@ -866,10 +866,10 @@ class AppLocalizationsPt extends AppLocalizations {
   String get remoteViewNormal => 'Os comandos vão abrir na orientação normal.';
 
   @override
-  String get backupTitle => 'Cópia';
+  String get backupTitle => 'Cópias de segurança';
 
   @override
-  String get backupSubtitle => 'Importar/exportar comandos e macros';
+  String get backupSubtitle => 'Guarde ou importe comandos e macros';
 
   @override
   String get importBackup => 'Importar de ficheiro';
@@ -879,11 +879,11 @@ class AppLocalizationsPt extends AppLocalizations {
       'Importe uma cópia de segurança de comandos e macros, ou ficheiros Flipper Zero, LIRC ou IRPLUS.';
 
   @override
-  String get bulkImportFolder => 'Importar pasta';
+  String get bulkImportFolder => 'Importar vários comandos';
 
   @override
   String get bulkImportFolderSubtitle =>
-      'Importar vários comandos de uma pasta';
+      'Adicione comandos de vários ficheiros de uma só vez.';
 
   @override
   String get exportBackup => 'Guardar cópia de segurança';
@@ -6189,10 +6189,10 @@ class AppLocalizationsPtBr extends AppLocalizationsPt {
   String get remoteViewNormal => 'Os controles vão abrir na orientação normal.';
 
   @override
-  String get backupTitle => 'Cópia';
+  String get backupTitle => 'Backup';
 
   @override
-  String get backupSubtitle => 'Importar/exportar controles e macros';
+  String get backupSubtitle => 'Salve ou importe controles e macros';
 
   @override
   String get importBackup => 'Importar de arquivo';
@@ -6202,11 +6202,11 @@ class AppLocalizationsPtBr extends AppLocalizationsPt {
       'Importe um backup de controles e macros ou arquivos Flipper Zero, LIRC ou IRPLUS.';
 
   @override
-  String get bulkImportFolder => 'Importar pasta';
+  String get bulkImportFolder => 'Importar vários controles';
 
   @override
   String get bulkImportFolderSubtitle =>
-      'Importar vários controles de uma pasta';
+      'Adicione controles de vários arquivos de uma só vez.';
 
   @override
   String get exportBackup => 'Salvar backup';

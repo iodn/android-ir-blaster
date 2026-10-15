@@ -867,7 +867,7 @@ class AppLocalizationsPl extends AppLocalizations {
   String get backupTitle => 'Kopia zapasowa';
 
   @override
-  String get backupSubtitle => 'Import/eksport pilotów i makr';
+  String get backupSubtitle => 'Zapisuj lub importuj piloty i makra';
 
   @override
   String get importBackup => 'Importuj z pliku';
@@ -877,10 +877,11 @@ class AppLocalizationsPl extends AppLocalizations {
       'Importuj kopię zapasową pilotów i makr lub pliki Flipper Zero, LIRC albo IRPLUS.';
 
   @override
-  String get bulkImportFolder => 'Importuj folder';
+  String get bulkImportFolder => 'Importuj wiele pilotów';
 
   @override
-  String get bulkImportFolderSubtitle => 'Importuj wiele pilotów z folderu';
+  String get bulkImportFolderSubtitle =>
+      'Dodaj piloty z wielu plików jednocześnie.';
 
   @override
   String get exportBackup => 'Zapisz kopię zapasową';

@@ -874,7 +874,8 @@ class AppLocalizationsFr extends AppLocalizations {
   String get backupTitle => 'Sauvegarde';
 
   @override
-  String get backupSubtitle => 'Importer/exporter télécommandes et macros';
+  String get backupSubtitle =>
+      'Sauvegarder ou importer des télécommandes et des macros';
 
   @override
   String get importBackup => 'Importer un fichier';
@@ -884,11 +885,11 @@ class AppLocalizationsFr extends AppLocalizations {
       'Importez une sauvegarde de télécommandes et de macros, ou des fichiers Flipper Zero, LIRC ou IRPLUS.';
 
   @override
-  String get bulkImportFolder => 'Import dossier';
+  String get bulkImportFolder => 'Importer plusieurs télécommandes';
 
   @override
   String get bulkImportFolderSubtitle =>
-      'Importer plusieurs télécommandes depuis un dossier';
+      'Ajoutez des télécommandes depuis plusieurs fichiers à la fois.';
 
   @override
   String get exportBackup => 'Sauvegarder';

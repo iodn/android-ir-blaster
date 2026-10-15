@@ -861,7 +861,7 @@ class AppLocalizationsVi extends AppLocalizations {
   String get backupTitle => 'Sao lưu';
 
   @override
-  String get backupSubtitle => 'Nhập/xuất điều khiển và macro';
+  String get backupSubtitle => 'Lưu hoặc nhập điều khiển và macro';
 
   @override
   String get importBackup => 'Nhập từ tệp';
@@ -871,10 +871,11 @@ class AppLocalizationsVi extends AppLocalizations {
       'Nhập bản sao lưu điều khiển và macro, hoặc tệp Flipper Zero, LIRC hay IRPLUS.';
 
   @override
-  String get bulkImportFolder => 'Nhập hàng loạt thư mục';
+  String get bulkImportFolder => 'Nhập nhiều điều khiển';
 
   @override
-  String get bulkImportFolderSubtitle => 'Nhập nhiều điều khiển từ một thư mục';
+  String get bulkImportFolderSubtitle =>
+      'Thêm điều khiển từ nhiều tệp cùng lúc.';
 
   @override
   String get exportBackup => 'Lưu bản sao lưu';

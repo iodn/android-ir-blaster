@@ -871,7 +871,7 @@ class AppLocalizationsFil extends AppLocalizations {
   String get backupTitle => 'Backup';
 
   @override
-  String get backupSubtitle => 'Import o export ng mga remote at macro';
+  String get backupSubtitle => 'Mag-save o mag-import ng mga remote at macro';
 
   @override
   String get importBackup => 'Mag-import mula sa file';
@@ -881,11 +881,11 @@ class AppLocalizationsFil extends AppLocalizations {
       'Mag-import ng backup ng mga remote at macro, o mga file ng Flipper Zero, LIRC, o IRPLUS.';
 
   @override
-  String get bulkImportFolder => 'Bulk import folder';
+  String get bulkImportFolder => 'Mag-import ng maraming remote';
 
   @override
   String get bulkImportFolderSubtitle =>
-      'Import multiple mga remote from a folder';
+      'Magdagdag ng mga remote mula sa maraming file nang sabay-sabay.';
 
   @override
   String get exportBackup => 'I-save ang backup';

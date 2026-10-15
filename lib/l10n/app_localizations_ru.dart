@@ -863,10 +863,10 @@ class AppLocalizationsRu extends AppLocalizations {
       'Пульты будут открываться в обычной ориентации.';
 
   @override
-  String get backupTitle => 'Резервная копия';
+  String get backupTitle => 'Резервное копирование';
 
   @override
-  String get backupSubtitle => 'Импорт и экспорт пультов и макросов';
+  String get backupSubtitle => 'Сохранение и импорт пультов и макросов';
 
   @override
   String get importBackup => 'Импорт из файла';
@@ -876,11 +876,11 @@ class AppLocalizationsRu extends AppLocalizations {
       'Импортируйте резервную копию пультов и макросов или файлы Flipper Zero, LIRC либо IRPLUS.';
 
   @override
-  String get bulkImportFolder => 'Массовый импорт папки';
+  String get bulkImportFolder => 'Импорт нескольких пультов';
 
   @override
   String get bulkImportFolderSubtitle =>
-      'Импортировать несколько пультов из папки';
+      'Добавьте пульты из нескольких файлов за один раз.';
 
   @override
   String get exportBackup => 'Сохранить резервную копию';

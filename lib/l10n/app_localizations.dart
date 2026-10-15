@@ -1641,7 +1641,7 @@ abstract class AppLocalizations {
   /// No description provided for @backupSubtitle.
   ///
   /// In en, this message translates to:
-  /// **'Import/export remotes and macros'**
+  /// **'Save or import remotes and macros'**
   String get backupSubtitle;
 
   /// No description provided for @importBackup.
@@ -1659,13 +1659,13 @@ abstract class AppLocalizations {
   /// No description provided for @bulkImportFolder.
   ///
   /// In en, this message translates to:
-  /// **'Bulk import folder'**
+  /// **'Import multiple remotes'**
   String get bulkImportFolder;
 
   /// No description provided for @bulkImportFolderSubtitle.
   ///
   /// In en, this message translates to:
-  /// **'Import multiple remotes from a folder'**
+  /// **'Add remotes from several files at once.'**
   String get bulkImportFolderSubtitle;
 
   /// No description provided for @exportBackup.

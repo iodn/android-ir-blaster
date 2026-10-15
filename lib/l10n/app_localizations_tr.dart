@@ -864,10 +864,11 @@ class AppLocalizationsTr extends AppLocalizations {
   String get remoteViewNormal => 'Kumandalar normal yönde açılacak.';
 
   @override
-  String get backupTitle => 'Yedek';
+  String get backupTitle => 'Yedekleme';
 
   @override
-  String get backupSubtitle => 'Kumandaları ve makroları içe/dışa aktar';
+  String get backupSubtitle =>
+      'Kumandaları ve makroları kaydedin veya içe aktarın';
 
   @override
   String get importBackup => 'Dosyadan içe aktar';
@@ -877,11 +878,11 @@ class AppLocalizationsTr extends AppLocalizations {
       'Kumanda ve makro yedeğini veya Flipper Zero, LIRC ya da IRPLUS dosyalarını içe aktarın.';
 
   @override
-  String get bulkImportFolder => 'Bulk içe aktar klasör';
+  String get bulkImportFolder => 'Birden çok kumanda içe aktar';
 
   @override
   String get bulkImportFolderSubtitle =>
-      'Bir klasörden birden çok kumanda içe aktar';
+      'Birden fazla dosyadan aynı anda kumanda ekleyin.';
 
   @override
   String get exportBackup => 'Yedeği kaydet';

@@ -856,7 +856,7 @@ class AppLocalizationsTh extends AppLocalizations {
   String get backupTitle => 'สำรองข้อมูล';
 
   @override
-  String get backupSubtitle => 'นำเข้าและส่งออกรีโมตกับแมโคร';
+  String get backupSubtitle => 'บันทึกหรือนำเข้ารีโมตและแมโคร';
 
   @override
   String get importBackup => 'นำเข้าจากไฟล์';
@@ -866,11 +866,10 @@ class AppLocalizationsTh extends AppLocalizations {
       'นำเข้าข้อมูลสำรองรีโมตและแมโคร หรือไฟล์ Flipper Zero, LIRC หรือ IRPLUS';
 
   @override
-  String get bulkImportFolder => 'Bulk import โฟลเดอร์';
+  String get bulkImportFolder => 'นำเข้าหลายรีโมต';
 
   @override
-  String get bulkImportFolderSubtitle =>
-      'นำเข้า multiple รีโมต from a โฟลเดอร์';
+  String get bulkImportFolderSubtitle => 'เพิ่มรีโมตจากหลายไฟล์พร้อมกัน';
 
   @override
   String get exportBackup => 'บันทึกข้อมูลสำรอง';
