@@ -76,7 +76,7 @@ void main() {
     await tester.pumpWidget(app(RemoteStudioScreen(
         initialDraft: RemoteEditorDraft.fromRemote(original))));
     await tester.pumpAndSettle();
-    await tester.tap(find.text('Arrange layout'));
+    await tester.tap(find.text('Arrange buttons'));
     await tester.pumpAndSettle();
     await tester.tap(find.byKey(const ValueKey('power')));
     await tester.tap(find.byKey(const ValueKey('empty-cell-1')));

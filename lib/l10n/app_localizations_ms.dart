@@ -4975,18 +4975,18 @@ class AppLocalizationsMs extends AppLocalizations {
   String get layoutUpdated => 'Susun atur dikemas kini';
 
   @override
-  String get layoutArrange => 'Atur susun atur';
+  String get layoutArrange => 'Susun butang';
 
   @override
   String get layoutAddRow => 'Tambah baris kosong';
 
   @override
   String get layoutArrangeHint =>
-      'Seret butang, atau ketik butang kemudian ketik destinasinya. Sel yang berisi akan bertukar tempat.';
+      'Tekan lama dan seret butang, atau ketik butang kemudian kedudukan baharunya. Jika sudah ada butang di situ, kedua-duanya bertukar tempat.';
 
   @override
   String get layoutEmptyHint =>
-      'Ketik sel kosong untuk menambah butang. Tekan lama butang untuk lebih banyak pilihan.';
+      'Ketik ruang kosong untuk menambah butang atau ketik butang untuk menyuntingnya. Tekan lama butang untuk pilihan lain.';
 
   @override
   String layoutCell(int row, int column) {

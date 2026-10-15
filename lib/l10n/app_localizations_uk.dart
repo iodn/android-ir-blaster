@@ -5080,18 +5080,18 @@ class AppLocalizationsUk extends AppLocalizations {
   String get layoutUpdated => 'Макет оновлено';
 
   @override
-  String get layoutArrange => 'Налаштувати розташування';
+  String get layoutArrange => 'Розмістити кнопки';
 
   @override
   String get layoutAddRow => 'Додати порожній рядок';
 
   @override
   String get layoutArrangeHint =>
-      'Перетягніть кнопку або торкніться її, а потім потрібної клітинки. Зайняті клітинки поміняються місцями.';
+      'Утримуйте й перетягніть кнопку або торкніться її, а потім нового місця. Якщо там уже є кнопка, вони поміняються місцями.';
 
   @override
   String get layoutEmptyHint =>
-      'Торкніться порожньої клітинки, щоб додати кнопку. Утримуйте кнопку для додаткових дій.';
+      'Торкніться порожнього місця, щоб додати кнопку, або кнопки, щоб її змінити. Утримуйте кнопку для інших дій.';
 
   @override
   String layoutCell(int row, int column) {

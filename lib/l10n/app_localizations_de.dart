@@ -5010,18 +5010,18 @@ class AppLocalizationsDe extends AppLocalizations {
   String get layoutUpdated => 'Layout aktualisiert';
 
   @override
-  String get layoutArrange => 'Layout anordnen';
+  String get layoutArrange => 'Tasten anordnen';
 
   @override
   String get layoutAddRow => 'Leere Zeile hinzufügen';
 
   @override
   String get layoutArrangeHint =>
-      'Eine Taste ziehen oder erst die Taste und dann das Ziel antippen. Belegte Felder werden getauscht.';
+      'Halte eine Taste gedrückt und ziehe sie, oder tippe erst auf sie und dann auf den neuen Platz. Ist dort schon eine Taste, tauschen beide den Platz.';
 
   @override
   String get layoutEmptyHint =>
-      'Ein leeres Feld antippen, um eine Taste hinzuzufügen. Eine Taste für weitere Optionen gedrückt halten.';
+      'Tippe auf ein leeres Feld, um eine Taste hinzuzufügen, oder auf eine Taste zum Bearbeiten. Gedrückt halten öffnet weitere Optionen.';
 
   @override
   String layoutCell(int row, int column) {

@@ -9017,7 +9017,7 @@ abstract class AppLocalizations {
   /// No description provided for @layoutArrange.
   ///
   /// In en, this message translates to:
-  /// **'Arrange layout'**
+  /// **'Arrange buttons'**
   String get layoutArrange;
 
   /// No description provided for @layoutAddRow.
@@ -9029,13 +9029,13 @@ abstract class AppLocalizations {
   /// No description provided for @layoutArrangeHint.
   ///
   /// In en, this message translates to:
-  /// **'Drag a button, or tap it then tap a destination. Occupied cells swap.'**
+  /// **'Hold and drag a button, or tap it then tap its new position. Buttons swap if that position is occupied.'**
   String get layoutArrangeHint;
 
   /// No description provided for @layoutEmptyHint.
   ///
   /// In en, this message translates to:
-  /// **'Tap an empty cell to add a button. Long-press a button for more options.'**
+  /// **'Tap an empty space to add a button, or tap a button to edit it. Hold a button for more options.'**
   String get layoutEmptyHint;
 
   /// No description provided for @layoutCell.

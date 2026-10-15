@@ -4974,18 +4974,18 @@ class AppLocalizationsId extends AppLocalizations {
   String get layoutUpdated => 'Tata letak diperbarui';
 
   @override
-  String get layoutArrange => 'Atur tata letak';
+  String get layoutArrange => 'Atur tombol';
 
   @override
   String get layoutAddRow => 'Tambah baris kosong';
 
   @override
   String get layoutArrangeHint =>
-      'Seret tombol, atau ketuk tombol lalu ketuk tujuannya. Sel yang terisi akan bertukar tempat.';
+      'Tekan lama lalu seret tombol, atau ketuk tombol lalu posisi barunya. Jika sudah ada tombol di sana, keduanya bertukar tempat.';
 
   @override
   String get layoutEmptyHint =>
-      'Ketuk sel kosong untuk menambahkan tombol. Tekan lama tombol untuk opsi lainnya.';
+      'Ketuk ruang kosong untuk menambah tombol, atau ketuk tombol untuk mengeditnya. Tekan lama tombol untuk opsi lainnya.';
 
   @override
   String layoutCell(int row, int column) {

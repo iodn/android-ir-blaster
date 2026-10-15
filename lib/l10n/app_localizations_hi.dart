@@ -4964,18 +4964,18 @@ class AppLocalizationsHi extends AppLocalizations {
   String get layoutUpdated => 'लेआउट अपडेट हो गया';
 
   @override
-  String get layoutArrange => 'लेआउट व्यवस्थित करें';
+  String get layoutArrange => 'बटन व्यवस्थित करें';
 
   @override
   String get layoutAddRow => 'खाली पंक्ति जोड़ें';
 
   @override
   String get layoutArrangeHint =>
-      'बटन खींचें, या पहले उसे और फिर गंतव्य को टैप करें। भरे हुए खानों की जगह आपस में बदल जाती है।';
+      'बटन को दबाकर रखें और खींचें, या पहले उसे और फिर उसकी नई जगह को टैप करें। वहाँ दूसरा बटन हो, तो दोनों की जगह बदल जाएगी।';
 
   @override
   String get layoutEmptyHint =>
-      'बटन जोड़ने के लिए खाली खाने को टैप करें। अधिक विकल्पों के लिए बटन को देर तक दबाएँ।';
+      'बटन जोड़ने के लिए खाली जगह टैप करें। किसी बटन को बदलने के लिए उसे टैप करें। अन्य विकल्पों के लिए उसे दबाकर रखें।';
 
   @override
   String layoutCell(int row, int column) {

@@ -4951,11 +4951,11 @@ class AppLocalizationsTh extends AppLocalizations {
 
   @override
   String get layoutArrangeHint =>
-      'ลากปุ่ม หรือแตะปุ่มแล้วแตะตำแหน่งปลายทาง ช่องที่มีปุ่มอยู่แล้วจะสลับตำแหน่งกัน';
+      'กดปุ่มค้างแล้วลาก หรือแตะปุ่มแล้วแตะตำแหน่งใหม่ หากมีปุ่มอยู่แล้ว ทั้งสองปุ่มจะสลับที่กัน';
 
   @override
   String get layoutEmptyHint =>
-      'แตะช่องว่างเพื่อเพิ่มปุ่ม กดปุ่มค้างไว้เพื่อดูตัวเลือกเพิ่มเติม';
+      'แตะช่องว่างเพื่อเพิ่มปุ่ม หรือแตะปุ่มเพื่อแก้ไข กดปุ่มค้างไว้เพื่อดูตัวเลือกอื่น';
 
   @override
   String layoutCell(int row, int column) {

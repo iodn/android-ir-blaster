@@ -5005,18 +5005,18 @@ class AppLocalizationsPt extends AppLocalizations {
   String get layoutUpdated => 'Disposição atualizada';
 
   @override
-  String get layoutArrange => 'Organizar disposição';
+  String get layoutArrange => 'Organizar botões';
 
   @override
   String get layoutAddRow => 'Adicionar linha vazia';
 
   @override
   String get layoutArrangeHint =>
-      'Arraste um botão ou toque nele e depois no destino. As células ocupadas trocam de lugar.';
+      'Mantenha um botão premido e arraste-o, ou toque nele e depois na nova posição. Se já houver outro botão, trocam de lugar.';
 
   @override
   String get layoutEmptyHint =>
-      'Toque numa célula vazia para adicionar um botão. Mantenha um botão premido para mais opções.';
+      'Toque num espaço vazio para adicionar um botão ou num botão para o editar. Mantenha-o premido para ver mais opções.';
 
   @override
   String layoutCell(int row, int column) {
@@ -10285,18 +10285,18 @@ class AppLocalizationsPtBr extends AppLocalizationsPt {
   String get layoutUpdated => 'Layout atualizado';
 
   @override
-  String get layoutArrange => 'Organizar layout';
+  String get layoutArrange => 'Organizar botões';
 
   @override
   String get layoutAddRow => 'Adicionar linha vazia';
 
   @override
   String get layoutArrangeHint =>
-      'Arraste um botão ou toque nele e depois no destino. As células ocupadas trocam de lugar.';
+      'Mantenha um botão pressionado e arraste, ou toque nele e depois na nova posição. Se já houver outro botão, eles trocam de lugar.';
 
   @override
   String get layoutEmptyHint =>
-      'Toque em uma célula vazia para adicionar um botão. Mantenha um botão pressionado para mais opções.';
+      'Toque em um espaço vazio para adicionar um botão ou em um botão para editar. Mantenha o botão pressionado para ver mais opções.';
 
   @override
   String layoutCell(int row, int column) {

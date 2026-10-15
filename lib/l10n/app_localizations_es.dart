@@ -5002,18 +5002,18 @@ class AppLocalizationsEs extends AppLocalizations {
   String get layoutUpdated => 'Diseño actualizado';
 
   @override
-  String get layoutArrange => 'Organizar diseño';
+  String get layoutArrange => 'Ordenar botones';
 
   @override
   String get layoutAddRow => 'Añadir fila vacía';
 
   @override
   String get layoutArrangeHint =>
-      'Arrastra un botón o púlsalo y luego pulsa su destino. Las celdas ocupadas se intercambian.';
+      'Mantén pulsado un botón y arrástralo, o tócalo y luego toca su nueva posición. Si ya hay otro botón, intercambian posiciones.';
 
   @override
   String get layoutEmptyHint =>
-      'Pulsa una celda vacía para añadir un botón. Mantén pulsado un botón para ver más opciones.';
+      'Toca un espacio vacío para añadir un botón o un botón para editarlo. Mantenlo pulsado para ver más opciones.';
 
   @override
   String layoutCell(int row, int column) {

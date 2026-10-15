@@ -5005,18 +5005,18 @@ class AppLocalizationsNl extends AppLocalizations {
   String get layoutUpdated => 'Indeling bijgewerkt';
 
   @override
-  String get layoutArrange => 'Indeling aanpassen';
+  String get layoutArrange => 'Knoppen rangschikken';
 
   @override
   String get layoutAddRow => 'Lege rij toevoegen';
 
   @override
   String get layoutArrangeHint =>
-      'Sleep een knop of tik erop en tik daarna op de bestemming. Bezette vakken wisselen van plaats.';
+      'Houd een knop ingedrukt en sleep hem, of tik op de knop en daarna op de nieuwe plek. Staat daar al een knop, dan wisselen ze van plaats.';
 
   @override
   String get layoutEmptyHint =>
-      'Tik op een leeg vak om een knop toe te voegen. Houd een knop ingedrukt voor meer opties.';
+      'Tik op een leeg vak om een knop toe te voegen of op een knop om die te bewerken. Houd een knop ingedrukt voor meer opties.';
 
   @override
   String layoutCell(int row, int column) {

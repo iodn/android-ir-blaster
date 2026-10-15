@@ -4771,16 +4771,16 @@ class AppLocalizationsZh extends AppLocalizations {
   String get layoutUpdated => '布局已更新';
 
   @override
-  String get layoutArrange => '调整布局';
+  String get layoutArrange => '排列按钮';
 
   @override
   String get layoutAddRow => '添加空行';
 
   @override
-  String get layoutArrangeHint => '拖动按钮，或先点击按钮再点击目标位置。如果目标格已有按钮，两个按钮将交换位置。';
+  String get layoutArrangeHint => '长按并拖动按钮，或先点按钮再点新位置。如果那里已有按钮，两者会交换位置。';
 
   @override
-  String get layoutEmptyHint => '点击空格添加按钮。长按按钮查看更多选项。';
+  String get layoutEmptyHint => '点击空位添加按钮，点击按钮进行编辑。长按按钮可查看更多选项。';
 
   @override
   String layoutCell(int row, int column) {

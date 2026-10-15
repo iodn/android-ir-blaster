@@ -4941,18 +4941,18 @@ class AppLocalizationsAr extends AppLocalizations {
   String get layoutUpdated => 'تم تحديث التخطيط';
 
   @override
-  String get layoutArrange => 'ترتيب التخطيط';
+  String get layoutArrange => 'ترتيب الأزرار';
 
   @override
   String get layoutAddRow => 'إضافة صف فارغ';
 
   @override
   String get layoutArrangeHint =>
-      'اسحب الزر، أو المسه ثم المس وجهته. يتم تبديل الخلايا المشغولة.';
+      'اضغط مطولاً على زر واسحبه، أو المسه ثم المس موضعه الجديد. إذا كان هناك زر آخر، يتبادل الزران موضعيهما.';
 
   @override
   String get layoutEmptyHint =>
-      'المس خلية فارغة لإضافة زر. اضغط مطولاً على زر لعرض المزيد من الخيارات.';
+      'المس مساحة فارغة لإضافة زر، أو المس زرًا لتعديله. اضغط مطولاً على زر لعرض المزيد من الخيارات.';
 
   @override
   String layoutCell(int row, int column) {
@@ -10155,18 +10155,18 @@ class AppLocalizationsArEg extends AppLocalizationsAr {
   String get layoutUpdated => 'تم تحديث التخطيط';
 
   @override
-  String get layoutArrange => 'ترتيب التخطيط';
+  String get layoutArrange => 'ترتيب الأزرار';
 
   @override
   String get layoutAddRow => 'إضافة صف فارغ';
 
   @override
   String get layoutArrangeHint =>
-      'اسحب الزر، أو المسه ثم المس وجهته. يتم تبديل الخلايا المشغولة.';
+      'اضغط على الزر شوية واسحبه، أو دوس عليه وبعدين على مكانه الجديد. لو فيه زر تاني هناك، هيبدّلوا أماكنهم.';
 
   @override
   String get layoutEmptyHint =>
-      'المس خلية فارغة لإضافة زر. اضغط مطولاً على زر لعرض المزيد من الخيارات.';
+      'دوس على مكان فاضي عشان تضيف زر، أو على زر عشان تعدّله. اضغط على الزر شوية عشان تشوف خيارات أكتر.';
 
   @override
   String layoutCell(int row, int column) {

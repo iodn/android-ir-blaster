@@ -294,17 +294,27 @@ class _RemoteStudioScreenState extends State<RemoteStudioScreen> {
     ScaffoldMessenger.of(context)
       ..hideCurrentSnackBar()
       ..showSnackBar(SnackBar(
-        content: Text(context.l10n.layoutUpdated),
-        action: SnackBarAction(
-            label: context.l10n.undo,
-            onPressed: () {
-              if (!mounted) return;
-              setState(() {
-                _draft.gridLayout = before
-                    ?.reconcile(_draft.buttons.map((button) => button.id));
-                _selectedCell = null;
-              });
-            }),
+        persist: true,
+        content: Column(
+          mainAxisSize: MainAxisSize.min,
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Text(context.l10n.layoutUpdated),
+            Align(
+              alignment: AlignmentDirectional.centerEnd,
+              child: SnackBarAction(
+                  label: context.l10n.undo,
+                  onPressed: () {
+                    if (!mounted) return;
+                    setState(() {
+                      _draft.gridLayout = before?.reconcile(
+                          _draft.buttons.map((button) => button.id));
+                      _selectedCell = null;
+                    });
+                  }),
+            ),
+          ],
+        ),
       ));
   }
 
@@ -312,119 +322,140 @@ class _RemoteStudioScreenState extends State<RemoteStudioScreen> {
     final grid = _grid;
     final buttons = {for (final button in _draft.buttons) button.id: button};
     final cs = Theme.of(context).colorScheme;
-    return Column(children: [
-      Padding(
-        padding: const EdgeInsets.fromLTRB(12, 4, 12, 4),
-        child:
-            Column(crossAxisAlignment: CrossAxisAlignment.stretch, children: [
-          Wrap(spacing: 8, children: [
-            FilterChip(
-              label: Text(context.l10n.layoutArrange),
-              avatar: const Icon(Icons.open_with_rounded, size: 18),
-              selected: _arranging,
-              onSelected: (value) => setState(() {
-                _arranging = value;
-                _selectedCell = null;
-              }),
-            ),
-            ActionChip(
-              label: Text(context.l10n.layoutAddRow),
-              avatar: const Icon(Icons.add, size: 18),
-              onPressed: () => _changeGrid(grid.addRow()),
-            ),
-          ]),
-          Text(
-              _arranging
-                  ? context.l10n.layoutArrangeHint
-                  : context.l10n.layoutEmptyHint,
-              style: Theme.of(context).textTheme.bodySmall),
-        ]),
-      ),
-      Expanded(
-          child: RemoteCustomGrid(
-        layout: grid,
-        bottomPadding: 100,
-        itemBuilder: (context, index) {
-          final button = buttons[grid.cells[index]];
-          void tap() {
-            if (_arranging) {
-              if (_selectedCell != null && _selectedCell != index) {
-                _changeGrid(grid.swap(_selectedCell!, index));
-              } else {
-                setState(() => _selectedCell =
-                    _selectedCell == index || button == null ? null : index);
-              }
-            } else if (button != null) {
-              _editButtonAt(_draft.buttons.indexOf(button));
-            } else {
-              _addButton(cell: index);
-            }
-          }
-
-          Widget tile = button == null
-              ? OutlinedButton(
-                  key: ValueKey('empty-cell-$index'),
-                  style: OutlinedButton.styleFrom(
-                    padding: EdgeInsets.zero,
-                    side: BorderSide(color: cs.outlineVariant),
-                    shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(14)),
-                  ),
-                  onPressed: tap,
-                  child: Icon(_arranging ? Icons.crop_free : Icons.add,
-                      color: cs.onSurfaceVariant),
-                )
-              : RemoteGridButton(
-                  key: ValueKey(button.id),
-                  button: button,
-                  shape: grid.shape,
-                  selected: _selectedCell == index,
-                  onTap: tap,
-                  onLongPress: _arranging
-                      ? null
-                      : () =>
-                          _openButtonActions(_draft.buttons.indexOf(button)),
-                );
-          tile = Semantics(
-            label: context.l10n.layoutCell(
-                index ~/ grid.columns + 1, index % grid.columns + 1),
-            child: tile,
-          );
-          if (!_arranging) return tile;
-          return DragTarget<int>(
-            onWillAcceptWithDetails: (details) => details.data != index,
-            onAcceptWithDetails: (details) =>
-                _changeGrid(grid.swap(details.data, index)),
-            builder: (context, candidates, rejected) => DecoratedBox(
-              decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(14),
-                border: candidates.isEmpty
-                    ? null
-                    : Border.all(color: cs.tertiary, width: 3),
+    return LayoutBuilder(
+        builder: (context, constraints) => Column(children: [
+              ConstrainedBox(
+                constraints:
+                    BoxConstraints(maxHeight: constraints.maxHeight / 2),
+                child: SingleChildScrollView(
+                    child: Padding(
+                  padding: const EdgeInsets.fromLTRB(12, 4, 12, 4),
+                  child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.stretch,
+                      children: [
+                        Wrap(spacing: 8, children: [
+                          Semantics(
+                            toggled: _arranging,
+                            child: FilledButton.tonalIcon(
+                              label: Text(context.l10n.layoutArrange),
+                              icon: Icon(
+                                  _arranging
+                                      ? Icons.check
+                                      : Icons.open_with_rounded,
+                                  size: 18),
+                              style: _arranging
+                                  ? null
+                                  : FilledButton.styleFrom(
+                                      backgroundColor:
+                                          cs.surfaceContainerHighest),
+                              onPressed: () => setState(() {
+                                _arranging = !_arranging;
+                                _selectedCell = null;
+                              }),
+                            ),
+                          ),
+                          OutlinedButton.icon(
+                            label: Text(context.l10n.layoutAddRow),
+                            icon: const Icon(Icons.add, size: 18),
+                            onPressed: () => _changeGrid(grid.addRow()),
+                          ),
+                        ]),
+                        Text(
+                            _arranging
+                                ? context.l10n.layoutArrangeHint
+                                : context.l10n.layoutEmptyHint,
+                            style: Theme.of(context).textTheme.bodySmall),
+                      ]),
+                )),
               ),
-              child: button == null
-                  ? tile
-                  : LayoutBuilder(
-                      builder: (context, size) => LongPressDraggable<int>(
-                            data: index,
-                            maxSimultaneousDrags: 1,
-                            feedback: SizedBox(
-                                width: size.maxWidth,
-                                height: size.maxHeight,
-                                child: RemoteGridButton(
-                                    button: button,
-                                    shape: grid.shape,
-                                    selected: true,
-                                    onTap: () {})),
-                            childWhenDragging:
-                                Opacity(opacity: 0.3, child: tile),
-                            child: tile,
-                          )),
-            ),
-          );
-        },
-      )),
-    ]);
+              Expanded(
+                  child: RemoteCustomGrid(
+                layout: grid,
+                bottomPadding: 100,
+                itemBuilder: (context, index) {
+                  final button = buttons[grid.cells[index]];
+                  void tap() {
+                    if (_arranging) {
+                      if (_selectedCell != null && _selectedCell != index) {
+                        _changeGrid(grid.swap(_selectedCell!, index));
+                      } else {
+                        setState(() => _selectedCell =
+                            _selectedCell == index || button == null
+                                ? null
+                                : index);
+                      }
+                    } else if (button != null) {
+                      _editButtonAt(_draft.buttons.indexOf(button));
+                    } else {
+                      _addButton(cell: index);
+                    }
+                  }
+
+                  Widget tile = button == null
+                      ? OutlinedButton(
+                          key: ValueKey('empty-cell-$index'),
+                          style: OutlinedButton.styleFrom(
+                            padding: EdgeInsets.zero,
+                            side: BorderSide(color: cs.outlineVariant),
+                            shape: RoundedRectangleBorder(
+                                borderRadius: BorderRadius.circular(14)),
+                          ),
+                          onPressed: tap,
+                          child: Icon(_arranging ? Icons.crop_free : Icons.add,
+                              color: cs.onSurfaceVariant),
+                        )
+                      : RemoteGridButton(
+                          key: ValueKey(button.id),
+                          button: button,
+                          shape: grid.shape,
+                          selected: _selectedCell == index,
+                          onTap: tap,
+                          onLongPress: _arranging
+                              ? null
+                              : () => _openButtonActions(
+                                  _draft.buttons.indexOf(button)),
+                        );
+                  tile = Semantics(
+                    label: context.l10n.layoutCell(
+                        index ~/ grid.columns + 1, index % grid.columns + 1),
+                    child: tile,
+                  );
+                  if (!_arranging) return tile;
+                  return DragTarget<int>(
+                    onWillAcceptWithDetails: (details) => details.data != index,
+                    onAcceptWithDetails: (details) =>
+                        _changeGrid(grid.swap(details.data, index)),
+                    builder: (context, candidates, rejected) => DecoratedBox(
+                      decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(14),
+                        border: candidates.isEmpty
+                            ? null
+                            : Border.all(color: cs.tertiary, width: 3),
+                      ),
+                      child: button == null
+                          ? tile
+                          : LayoutBuilder(
+                              builder: (context, size) =>
+                                  LongPressDraggable<int>(
+                                    data: index,
+                                    maxSimultaneousDrags: 1,
+                                    feedback: SizedBox(
+                                        width: size.maxWidth,
+                                        height: size.maxHeight,
+                                        child: RemoteGridButton(
+                                            button: button,
+                                            shape: grid.shape,
+                                            selected: true,
+                                            onTap: () {})),
+                                    childWhenDragging:
+                                        Opacity(opacity: 0.3, child: tile),
+                                    child: tile,
+                                  )),
+                    ),
+                  );
+                },
+              )),
+            ]));
   }
 
   Future<void> _renameRemoteInline() async {
@@ -762,8 +793,7 @@ class _RemoteStudioScreenState extends State<RemoteStudioScreen> {
   @override
   Widget build(BuildContext context) {
     final theme = Theme.of(context);
-    final screenWidth = MediaQuery.sizeOf(context).width;
-    final compactPhone = screenWidth < 400;
+    final compactPhone = MediaQuery.sizeOf(context).shortestSide < 400;
     final title = _draft.name.trim().isEmpty
         ? context.l10n.untitledRemote
         : _draft.name.trim();

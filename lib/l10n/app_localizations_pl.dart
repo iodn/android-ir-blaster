@@ -5069,11 +5069,11 @@ class AppLocalizationsPl extends AppLocalizations {
 
   @override
   String get layoutArrangeHint =>
-      'Przeciągnij przycisk lub dotknij go, a następnie miejsca docelowego. Zajęte pola zamienią się miejscami.';
+      'Przytrzymaj przycisk i przeciągnij go albo dotknij go, a potem nowego miejsca. Jeśli jest tam inny przycisk, zamienią się miejscami.';
 
   @override
   String get layoutEmptyHint =>
-      'Dotknij pustego pola, aby dodać przycisk. Przytrzymaj przycisk, aby zobaczyć więcej opcji.';
+      'Dotknij pustego pola, aby dodać przycisk, lub przycisku, aby go edytować. Przytrzymaj przycisk, aby zobaczyć inne opcje.';
 
   @override
   String layoutCell(int row, int column) {

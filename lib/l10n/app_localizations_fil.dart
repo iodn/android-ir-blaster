@@ -4985,18 +4985,18 @@ class AppLocalizationsFil extends AppLocalizations {
   String get layoutUpdated => 'Na-update ang layout';
 
   @override
-  String get layoutArrange => 'Ayusin ang layout';
+  String get layoutArrange => 'Ayusin ang mga button';
 
   @override
   String get layoutAddRow => 'Magdagdag ng bakanteng hanay';
 
   @override
   String get layoutArrangeHint =>
-      'I-drag ang button, o i-tap ito at pagkatapos ay ang destinasyon. Magpapalitan ang mga puwestong may laman.';
+      'Pindutin nang matagal ang button at i-drag, o i-tap ito at ang bagong puwesto. Kung may button doon, magpapalitan sila ng puwesto.';
 
   @override
   String get layoutEmptyHint =>
-      'I-tap ang bakanteng puwesto para magdagdag ng button. Pindutin nang matagal ang button para sa iba pang opsyon.';
+      'I-tap ang bakanteng puwesto para magdagdag ng button, o ang button para i-edit ito. Pindutin nang matagal para sa iba pang opsyon.';
 
   @override
   String layoutCell(int row, int column) {

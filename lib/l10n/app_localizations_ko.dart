@@ -4852,17 +4852,18 @@ class AppLocalizationsKo extends AppLocalizations {
   String get layoutUpdated => '배치가 업데이트되었습니다';
 
   @override
-  String get layoutArrange => '배치 편집';
+  String get layoutArrange => '버튼 배치 변경';
 
   @override
   String get layoutAddRow => '빈 행 추가';
 
   @override
   String get layoutArrangeHint =>
-      '버튼을 드래그하거나 버튼을 탭한 다음 목적지를 탭하세요. 이미 버튼이 있는 칸은 서로 위치가 바뀝니다.';
+      '버튼을 길게 눌러 끌거나, 버튼을 누른 뒤 옮길 위치를 누르세요. 그곳에 다른 버튼이 있으면 서로 자리를 바꿉니다.';
 
   @override
-  String get layoutEmptyHint => '빈칸을 탭하여 버튼을 추가하세요. 버튼을 길게 누르면 더 많은 옵션이 표시됩니다.';
+  String get layoutEmptyHint =>
+      '빈칸을 누르면 버튼을 추가하고, 버튼을 누르면 편집합니다. 버튼을 길게 누르면 다른 옵션을 볼 수 있습니다.';
 
   @override
   String layoutCell(int row, int column) {

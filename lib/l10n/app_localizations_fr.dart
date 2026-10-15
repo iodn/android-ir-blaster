@@ -5015,18 +5015,18 @@ class AppLocalizationsFr extends AppLocalizations {
   String get layoutUpdated => 'Disposition mise à jour';
 
   @override
-  String get layoutArrange => 'Organiser la disposition';
+  String get layoutArrange => 'Déplacer les boutons';
 
   @override
   String get layoutAddRow => 'Ajouter une ligne vide';
 
   @override
   String get layoutArrangeHint =>
-      'Faites glisser un bouton, ou touchez-le puis touchez sa destination. Les cellules occupées sont échangées.';
+      'Maintenez un bouton appuyé et faites-le glisser, ou touchez-le puis touchez son nouvel emplacement. S’il y a déjà un bouton, ils échangent leur place.';
 
   @override
   String get layoutEmptyHint =>
-      'Touchez une cellule vide pour ajouter un bouton. Appuyez longuement sur un bouton pour plus d’options.';
+      'Touchez un espace vide pour ajouter un bouton, ou un bouton pour le modifier. Un appui long ouvre les autres options.';
 
   @override
   String layoutCell(int row, int column) {

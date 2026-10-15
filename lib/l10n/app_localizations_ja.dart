@@ -4837,17 +4837,18 @@ class AppLocalizationsJa extends AppLocalizations {
   String get layoutUpdated => '配置を更新しました';
 
   @override
-  String get layoutArrange => '配置を編集';
+  String get layoutArrange => 'ボタンを並べ替え';
 
   @override
   String get layoutAddRow => '空の行を追加';
 
   @override
   String get layoutArrangeHint =>
-      'ボタンをドラッグするか、ボタンをタップしてから移動先をタップします。移動先にボタンがある場合は入れ替わります。';
+      'ボタンを長押ししてドラッグするか、ボタンをタップしてから移動先をタップします。移動先にボタンがある場合は入れ替わります。';
 
   @override
-  String get layoutEmptyHint => '空のマスをタップするとボタンを追加できます。ボタンを長押しするとその他の操作を表示します。';
+  String get layoutEmptyHint =>
+      '空きマスをタップするとボタンを追加でき、ボタンをタップすると編集できます。長押しでその他の操作を表示します。';
 
   @override
   String layoutCell(int row, int column) {

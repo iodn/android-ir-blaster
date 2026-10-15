@@ -5009,18 +5009,18 @@ class AppLocalizationsEn extends AppLocalizations {
   String get layoutUpdated => 'Layout updated';
 
   @override
-  String get layoutArrange => 'Arrange layout';
+  String get layoutArrange => 'Arrange buttons';
 
   @override
   String get layoutAddRow => 'Add empty row';
 
   @override
   String get layoutArrangeHint =>
-      'Drag a button, or tap it then tap a destination. Occupied cells swap.';
+      'Hold and drag a button, or tap it then tap its new position. Buttons swap if that position is occupied.';
 
   @override
   String get layoutEmptyHint =>
-      'Tap an empty cell to add a button. Long-press a button for more options.';
+      'Tap an empty space to add a button, or tap a button to edit it. Hold a button for more options.';
 
   @override
   String layoutCell(int row, int column) {

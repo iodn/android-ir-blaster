@@ -4957,18 +4957,18 @@ class AppLocalizationsVi extends AppLocalizations {
   String get layoutUpdated => 'Đã cập nhật bố cục';
 
   @override
-  String get layoutArrange => 'Sắp xếp bố cục';
+  String get layoutArrange => 'Sắp xếp nút';
 
   @override
   String get layoutAddRow => 'Thêm hàng trống';
 
   @override
   String get layoutArrangeHint =>
-      'Kéo nút hoặc chạm vào nút rồi chạm vào vị trí đích. Các ô đã có nút sẽ đổi chỗ cho nhau.';
+      'Nhấn giữ và kéo nút, hoặc chạm vào nút rồi chạm vào vị trí mới. Nếu đã có nút ở đó, hai nút sẽ đổi chỗ.';
 
   @override
   String get layoutEmptyHint =>
-      'Chạm vào ô trống để thêm nút. Nhấn giữ nút để xem thêm tùy chọn.';
+      'Chạm vào ô trống để thêm nút hoặc chạm vào nút để chỉnh sửa. Nhấn giữ nút để xem các tùy chọn khác.';
 
   @override
   String layoutCell(int row, int column) {

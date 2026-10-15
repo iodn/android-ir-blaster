@@ -4969,18 +4969,18 @@ class AppLocalizationsTr extends AppLocalizations {
   String get layoutUpdated => 'Düzen güncellendi';
 
   @override
-  String get layoutArrange => 'Düzeni ayarla';
+  String get layoutArrange => 'Düğmeleri yerleştir';
 
   @override
   String get layoutAddRow => 'Boş satır ekle';
 
   @override
   String get layoutArrangeHint =>
-      'Bir düğmeyi sürükleyin veya önce düğmeye, sonra hedefe dokunun. Dolu hücreler yer değiştirir.';
+      'Bir düğmeye basılı tutup sürükleyin veya önce düğmeye, sonra yeni yerine dokunun. Orada başka bir düğme varsa yer değiştirirler.';
 
   @override
   String get layoutEmptyHint =>
-      'Düğme eklemek için boş bir hücreye dokunun. Daha fazla seçenek için bir düğmeye uzun basın.';
+      'Düğme eklemek için boş bir yere, düzenlemek için düğmeye dokunun. Diğer seçenekler için düğmeye basılı tutun.';
 
   @override
   String layoutCell(int row, int column) {

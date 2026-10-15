@@ -4998,18 +4998,18 @@ class AppLocalizationsIt extends AppLocalizations {
   String get layoutUpdated => 'Disposizione aggiornata';
 
   @override
-  String get layoutArrange => 'Organizza disposizione';
+  String get layoutArrange => 'Disponi i pulsanti';
 
   @override
   String get layoutAddRow => 'Aggiungi riga vuota';
 
   @override
   String get layoutArrangeHint =>
-      'Trascina un pulsante oppure toccalo e poi tocca la destinazione. Le celle occupate vengono scambiate.';
+      'Tieni premuto un pulsante e trascinalo, oppure toccalo e poi tocca la nuova posizione. Se c’è già un pulsante, si scambiano di posto.';
 
   @override
   String get layoutEmptyHint =>
-      'Tocca una cella vuota per aggiungere un pulsante. Tieni premuto un pulsante per altre opzioni.';
+      'Tocca uno spazio vuoto per aggiungere un pulsante o un pulsante per modificarlo. Tienilo premuto per altre opzioni.';
 
   @override
   String layoutCell(int row, int column) {
