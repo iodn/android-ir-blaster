@@ -754,7 +754,6 @@ class _RemoteListState extends State<RemoteList> {
                                 onReorder: (oldIndex, newIndex) async {
                                   if (!_reorderMode) return;
                                   setState(() {
-                                    if (newIndex > oldIndex) newIndex--;
                                     final Remote movedRemote =
                                         remotes.removeAt(oldIndex);
                                     remotes.insert(newIndex, movedRemote);

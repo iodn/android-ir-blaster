@@ -1911,7 +1911,6 @@ class RemoteViewState extends State<RemoteView> {
         if (!_reorderMode) return;
 
         setState(() {
-          if (newIndex > oldIndex) newIndex--;
           final moved = _remote.buttons.removeAt(oldIndex);
           _remote.buttons.insert(newIndex, moved);
         });
@@ -1951,7 +1950,6 @@ class RemoteViewState extends State<RemoteView> {
         if (!_reorderMode) return;
 
         setState(() {
-          if (newIndex > oldIndex) newIndex--;
           final moved = _remote.buttons.removeAt(oldIndex);
           _remote.buttons.insert(newIndex, moved);
         });
