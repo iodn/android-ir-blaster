@@ -2397,5 +2397,11 @@
   "updatesNoAsset": "Nessun APK verificato disponibile per questo dispositivo. Consulta le note di versione.",
   "updatesReleaseNotes": "Note di versione",
   "updatesChannel": "Fonte degli aggiornamenti: {source}",
-  "updatesDownloadConfirm": "Scaricare {size} MB da GitHub? L’installazione richiede la tua conferma."
+  "updatesDownloadConfirm": "Scaricare {size} MB da GitHub? L’installazione richiede la tua conferma.",
+  "learningModeIncompleteSignal": "Il segnale sembra incompleto. Avvicina il telecomando e riprova.",
+  "learningModeUseUsb": "Usa adattatore USB",
+  "learningModeSwitchedUsb": "Adattatore USB selezionato.",
+  "learningModeSwitchUsbFailed": "Impossibile selezionare l’adattatore USB: {error}",
+  "learningModeAudioUnavailableTitle": "Apprendimento audio non disponibile",
+  "learningModeAudioUnavailableBody": "Gli accessori IR audio possono inviare comandi, ma non apprendere segnali in questa app. Usa un ricevitore compatibile con l’apprendimento."
 }

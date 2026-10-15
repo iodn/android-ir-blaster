@@ -5154,6 +5154,28 @@ class AppLocalizationsAr extends AppLocalizations {
   String updatesDownloadConfirm(String size) {
     return 'هل تريد تنزيل $size ميغابايت من GitHub؟ يتطلب التثبيت تأكيدك.';
   }
+
+  @override
+  String get learningModeIncompleteSignal =>
+      'يبدو أن الإشارة غير مكتملة. قرّب جهاز التحكم وحاول مجددًا.';
+
+  @override
+  String get learningModeUseUsb => 'استخدام محوّل USB';
+
+  @override
+  String get learningModeSwitchedUsb => 'تم التبديل إلى محوّل USB.';
+
+  @override
+  String learningModeSwitchUsbFailed(String error) {
+    return 'تعذّر التبديل إلى محوّل USB: $error';
+  }
+
+  @override
+  String get learningModeAudioUnavailableTitle => 'التعلّم عبر الصوت غير متاح';
+
+  @override
+  String get learningModeAudioUnavailableBody =>
+      'يمكن لملحقات الأشعة تحت الحمراء المتصلة بالصوت إرسال الأوامر، لكن لا يمكنها تعلّم الإشارات في هذا التطبيق. استخدم مستقبلًا مدعومًا للتعلّم.';
 }
 
 /// The translations for Arabic, as used in Egypt (`ar_EG`).
@@ -10306,4 +10328,27 @@ class AppLocalizationsArEg extends AppLocalizationsAr {
   String updatesDownloadConfirm(String size) {
     return 'هل تريد تنزيل $size ميغابايت من GitHub؟ يتطلب التثبيت تأكيدك.';
   }
+
+  @override
+  String get learningModeIncompleteSignal =>
+      'الإشارة شكلها مش كاملة. قرّب الريموت وجرب تاني.';
+
+  @override
+  String get learningModeUseUsb => 'استخدم محوّل USB';
+
+  @override
+  String get learningModeSwitchedUsb => 'تم التحويل لمحوّل USB.';
+
+  @override
+  String learningModeSwitchUsbFailed(String error) {
+    return 'ما قدرناش نحوّل لمحوّل USB: $error';
+  }
+
+  @override
+  String get learningModeAudioUnavailableTitle =>
+      'التعلّم عن طريق الصوت مش متاح';
+
+  @override
+  String get learningModeAudioUnavailableBody =>
+      'إكسسوارات الأشعة تحت الحمراء المتوصلة بالصوت تقدر تبعت أوامر، لكن مش بتتعلّم إشارات في التطبيق ده. استخدم مستقبل بيدعم التعلّم.';
 }

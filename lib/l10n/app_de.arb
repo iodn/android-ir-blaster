@@ -2383,5 +2383,11 @@
   "updatesNoAsset": "Für dieses Gerät ist keine geprüfte APK verfügbar. Siehe Versionshinweise.",
   "updatesReleaseNotes": "Versionshinweise",
   "updatesChannel": "Update-Quelle: {source}",
-  "updatesDownloadConfirm": "{size} MB von GitHub herunterladen? Die Installation erfordert deine Bestätigung."
+  "updatesDownloadConfirm": "{size} MB von GitHub herunterladen? Die Installation erfordert deine Bestätigung.",
+  "learningModeIncompleteSignal": "Das Signal scheint unvollständig zu sein. Halten Sie die Fernbedienung näher an den Empfänger und versuchen Sie es erneut.",
+  "learningModeUseUsb": "USB-Adapter verwenden",
+  "learningModeSwitchedUsb": "Auf USB-Adapter umgeschaltet.",
+  "learningModeSwitchUsbFailed": "Umschalten auf USB-Adapter fehlgeschlagen: {error}",
+  "learningModeAudioUnavailableTitle": "Kein Anlernen über Audio",
+  "learningModeAudioUnavailableBody": "Audio-IR-Zubehör kann in dieser App Befehle senden, aber keine Signale anlernen. Verwenden Sie einen unterstützten Lernempfänger."
 }

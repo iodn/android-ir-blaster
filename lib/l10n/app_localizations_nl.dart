@@ -5224,4 +5224,27 @@ class AppLocalizationsNl extends AppLocalizations {
   String updatesDownloadConfirm(String size) {
     return '$size MB downloaden van GitHub? Installatie vereist jouw bevestiging.';
   }
+
+  @override
+  String get learningModeIncompleteSignal =>
+      'Het signaal lijkt onvolledig. Houd de afstandsbediening dichter bij de ontvanger en probeer het opnieuw.';
+
+  @override
+  String get learningModeUseUsb => 'USB-adapter gebruiken';
+
+  @override
+  String get learningModeSwitchedUsb => 'USB-adapter geselecteerd.';
+
+  @override
+  String learningModeSwitchUsbFailed(String error) {
+    return 'Kan niet overschakelen naar de USB-adapter: $error';
+  }
+
+  @override
+  String get learningModeAudioUnavailableTitle =>
+      'Leren via audio niet mogelijk';
+
+  @override
+  String get learningModeAudioUnavailableBody =>
+      'Audio-IR-accessoires kunnen in deze app opdrachten verzenden, maar geen signalen leren. Gebruik een ontvanger die de leerfunctie ondersteunt.';
 }

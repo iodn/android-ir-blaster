@@ -2397,5 +2397,11 @@
   "updatesNoAsset": "没有适用于此设备的已验证 APK。请查看发行说明。",
   "updatesReleaseNotes": "发行说明",
   "updatesChannel": "更新来源：{source}",
-  "updatesDownloadConfirm": "从 GitHub 下载 {size} MB？安装需要您确认。"
+  "updatesDownloadConfirm": "从 GitHub 下载 {size} MB？安装需要您确认。",
+  "learningModeIncompleteSignal": "信号可能未接收完整。请将遥控器靠近接收器后重试。",
+  "learningModeUseUsb": "使用 USB 适配器",
+  "learningModeSwitchedUsb": "已切换到 USB 适配器。",
+  "learningModeSwitchUsbFailed": "无法切换到 USB 适配器：{error}",
+  "learningModeAudioUnavailableTitle": "不支持音频设备学习",
+  "learningModeAudioUnavailableBody": "音频红外配件在本应用中只能发送指令，不能学习信号。请使用支持学习的接收器。"
 }

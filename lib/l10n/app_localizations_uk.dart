@@ -5298,4 +5298,27 @@ class AppLocalizationsUk extends AppLocalizations {
   String updatesDownloadConfirm(String size) {
     return 'Завантажити $size МБ із GitHub? Для встановлення потрібне ваше підтвердження.';
   }
+
+  @override
+  String get learningModeIncompleteSignal =>
+      'Сигнал, схоже, неповний. Піднесіть пульт ближче й спробуйте ще раз.';
+
+  @override
+  String get learningModeUseUsb => 'Використати USB-адаптер';
+
+  @override
+  String get learningModeSwitchedUsb => 'Вибрано USB-адаптер.';
+
+  @override
+  String learningModeSwitchUsbFailed(String error) {
+    return 'Не вдалося перемкнутися на USB-адаптер: $error';
+  }
+
+  @override
+  String get learningModeAudioUnavailableTitle =>
+      'Навчання через аудіо недоступне';
+
+  @override
+  String get learningModeAudioUnavailableBody =>
+      'ІЧ-аксесуари з аудіопідключенням можуть надсилати команди, але не запам’ятовувати сигнали в цьому застосунку. Скористайтеся сумісним приймачем із функцією навчання.';
 }

@@ -2397,5 +2397,11 @@
   "updatesNoAsset": "ไม่มี APK ที่ผ่านการตรวจสอบสำหรับอุปกรณ์นี้ โปรดดูบันทึกประจำรุ่น",
   "updatesReleaseNotes": "บันทึกประจำรุ่น",
   "updatesChannel": "แหล่งอัปเดต: {source}",
-  "updatesDownloadConfirm": "ดาวน์โหลด {size} MB จาก GitHub หรือไม่? การติดตั้งต้องได้รับการยืนยันจากคุณ"
+  "updatesDownloadConfirm": "ดาวน์โหลด {size} MB จาก GitHub หรือไม่? การติดตั้งต้องได้รับการยืนยันจากคุณ",
+  "learningModeIncompleteSignal": "ดูเหมือนจะรับสัญญาณได้ไม่ครบ ลองขยับรีโมตเข้ามาใกล้แล้วลองอีกครั้ง",
+  "learningModeUseUsb": "ใช้ดองเกิล USB",
+  "learningModeSwitchedUsb": "เปลี่ยนไปใช้ดองเกิล USB แล้ว",
+  "learningModeSwitchUsbFailed": "เปลี่ยนไปใช้ดองเกิล USB ไม่ได้: {error}",
+  "learningModeAudioUnavailableTitle": "ไม่รองรับการเรียนรู้ผ่านเสียง",
+  "learningModeAudioUnavailableBody": "อุปกรณ์ IR แบบเสียงส่งคำสั่งได้ แต่เรียนรู้สัญญาณในแอปนี้ไม่ได้ โปรดใช้ตัวรับสัญญาณที่รองรับการเรียนรู้"
 }

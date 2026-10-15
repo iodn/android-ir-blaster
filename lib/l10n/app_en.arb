@@ -2583,5 +2583,18 @@
         "type": "String"
       }
     }
+  },
+  "learningModeIncompleteSignal": "The signal looks incomplete. Move the remote closer and try again.",
+  "learningModeUseUsb": "Use USB dongle",
+  "learningModeSwitchedUsb": "Switched to USB dongle.",
+  "learningModeSwitchUsbFailed": "Could not switch to USB dongle: {error}",
+  "learningModeAudioUnavailableTitle": "Audio learning unavailable",
+  "learningModeAudioUnavailableBody": "Audio IR accessories can send commands, but cannot learn signals in this app. Use a supported learning receiver.",
+  "@learningModeSwitchUsbFailed": {
+    "placeholders": {
+      "error": {
+        "type": "String"
+      }
+    }
   }
 }

@@ -5219,4 +5219,27 @@ class AppLocalizationsEs extends AppLocalizations {
   String updatesDownloadConfirm(String size) {
     return '¿Descargar $size MB de GitHub? La instalación requiere tu confirmación.';
   }
+
+  @override
+  String get learningModeIncompleteSignal =>
+      'La señal parece incompleta. Acerca el mando y vuelve a intentarlo.';
+
+  @override
+  String get learningModeUseUsb => 'Usar adaptador USB';
+
+  @override
+  String get learningModeSwitchedUsb => 'Adaptador USB seleccionado.';
+
+  @override
+  String learningModeSwitchUsbFailed(String error) {
+    return 'No se pudo seleccionar el adaptador USB: $error';
+  }
+
+  @override
+  String get learningModeAudioUnavailableTitle =>
+      'Aprendizaje por audio no disponible';
+
+  @override
+  String get learningModeAudioUnavailableBody =>
+      'Los accesorios IR de audio pueden enviar órdenes, pero no aprender señales en esta aplicación. Usa un receptor compatible con el aprendizaje.';
 }

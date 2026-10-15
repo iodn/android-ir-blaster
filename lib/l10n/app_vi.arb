@@ -2397,5 +2397,11 @@
   "updatesNoAsset": "Không có APK đã xác minh cho thiết bị này. Hãy xem ghi chú phát hành.",
   "updatesReleaseNotes": "Ghi chú phát hành",
   "updatesChannel": "Nguồn cập nhật: {source}",
-  "updatesDownloadConfirm": "Tải {size} MB từ GitHub? Việc cài đặt cần bạn xác nhận."
+  "updatesDownloadConfirm": "Tải {size} MB từ GitHub? Việc cài đặt cần bạn xác nhận.",
+  "learningModeIncompleteSignal": "Có vẻ chưa thu đủ tín hiệu. Hãy đưa điều khiển lại gần rồi thử lại.",
+  "learningModeUseUsb": "Dùng bộ chuyển đổi USB",
+  "learningModeSwitchedUsb": "Đã chuyển sang bộ chuyển đổi USB.",
+  "learningModeSwitchUsbFailed": "Không thể chuyển sang bộ chuyển đổi USB: {error}",
+  "learningModeAudioUnavailableTitle": "Không hỗ trợ học qua âm thanh",
+  "learningModeAudioUnavailableBody": "Phụ kiện hồng ngoại qua âm thanh có thể gửi lệnh nhưng không thể học tín hiệu trong ứng dụng này. Hãy dùng bộ thu hỗ trợ học tín hiệu."
 }

@@ -2397,5 +2397,11 @@
   "updatesNoAsset": "لا يتوفر ملف APK تم التحقق منه لهذا الجهاز. راجع ملاحظات الإصدار.",
   "updatesReleaseNotes": "ملاحظات الإصدار",
   "updatesChannel": "مصدر التحديثات: {source}",
-  "updatesDownloadConfirm": "هل تريد تنزيل {size} ميغابايت من GitHub؟ يتطلب التثبيت تأكيدك."
+  "updatesDownloadConfirm": "هل تريد تنزيل {size} ميغابايت من GitHub؟ يتطلب التثبيت تأكيدك.",
+  "learningModeIncompleteSignal": "الإشارة شكلها مش كاملة. قرّب الريموت وجرب تاني.",
+  "learningModeUseUsb": "استخدم محوّل USB",
+  "learningModeSwitchedUsb": "تم التحويل لمحوّل USB.",
+  "learningModeSwitchUsbFailed": "ما قدرناش نحوّل لمحوّل USB: {error}",
+  "learningModeAudioUnavailableTitle": "التعلّم عن طريق الصوت مش متاح",
+  "learningModeAudioUnavailableBody": "إكسسوارات الأشعة تحت الحمراء المتوصلة بالصوت تقدر تبعت أوامر، لكن مش بتتعلّم إشارات في التطبيق ده. استخدم مستقبل بيدعم التعلّم."
 }

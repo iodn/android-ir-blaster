@@ -2397,5 +2397,11 @@
   "updatesNoAsset": "No hay un APK verificado para este dispositivo. Consulta las notas de la versión.",
   "updatesReleaseNotes": "Notas de la versión",
   "updatesChannel": "Origen de actualizaciones: {source}",
-  "updatesDownloadConfirm": "¿Descargar {size} MB de GitHub? La instalación requiere tu confirmación."
+  "updatesDownloadConfirm": "¿Descargar {size} MB de GitHub? La instalación requiere tu confirmación.",
+  "learningModeIncompleteSignal": "La señal parece incompleta. Acerca el mando y vuelve a intentarlo.",
+  "learningModeUseUsb": "Usar adaptador USB",
+  "learningModeSwitchedUsb": "Adaptador USB seleccionado.",
+  "learningModeSwitchUsbFailed": "No se pudo seleccionar el adaptador USB: {error}",
+  "learningModeAudioUnavailableTitle": "Aprendizaje por audio no disponible",
+  "learningModeAudioUnavailableBody": "Los accesorios IR de audio pueden enviar órdenes, pero no aprender señales en esta aplicación. Usa un receptor compatible con el aprendizaje."
 }

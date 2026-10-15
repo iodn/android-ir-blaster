@@ -5155,4 +5155,27 @@ class AppLocalizationsTh extends AppLocalizations {
   String updatesDownloadConfirm(String size) {
     return 'ดาวน์โหลด $size MB จาก GitHub หรือไม่? การติดตั้งต้องได้รับการยืนยันจากคุณ';
   }
+
+  @override
+  String get learningModeIncompleteSignal =>
+      'ดูเหมือนจะรับสัญญาณได้ไม่ครบ ลองขยับรีโมตเข้ามาใกล้แล้วลองอีกครั้ง';
+
+  @override
+  String get learningModeUseUsb => 'ใช้ดองเกิล USB';
+
+  @override
+  String get learningModeSwitchedUsb => 'เปลี่ยนไปใช้ดองเกิล USB แล้ว';
+
+  @override
+  String learningModeSwitchUsbFailed(String error) {
+    return 'เปลี่ยนไปใช้ดองเกิล USB ไม่ได้: $error';
+  }
+
+  @override
+  String get learningModeAudioUnavailableTitle =>
+      'ไม่รองรับการเรียนรู้ผ่านเสียง';
+
+  @override
+  String get learningModeAudioUnavailableBody =>
+      'อุปกรณ์ IR แบบเสียงส่งคำสั่งได้ แต่เรียนรู้สัญญาณในแอปนี้ไม่ได้ โปรดใช้ตัวรับสัญญาณที่รองรับการเรียนรู้';
 }

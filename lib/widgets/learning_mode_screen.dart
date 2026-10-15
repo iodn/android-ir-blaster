@@ -321,15 +321,14 @@ class _LearningModeScreenState extends State<LearningModeScreen>
         setState(() {
           _busy = false;
           _captureState = _LearningCaptureState.idle;
-          _errorText =
-              'The captured signal looks incomplete. Move the remote closer and try again.';
+          _errorText = context.l10n.learningModeIncompleteSignal;
         });
         ScaffoldMessenger.of(context)
           ..hideCurrentSnackBar()
           ..showSnackBar(
-            const SnackBar(
+            SnackBar(
               content: Text(
-                'The captured signal looks incomplete. Move the remote closer and try again.',
+                context.l10n.learningModeIncompleteSignal,
               ),
             ),
           );
@@ -419,14 +418,16 @@ class _LearningModeScreenState extends State<LearningModeScreen>
       messenger
         ..hideCurrentSnackBar()
         ..showSnackBar(
-          const SnackBar(content: Text('Switched to USB IR dongle')),
+          SnackBar(content: Text(context.l10n.learningModeSwitchedUsb)),
         );
     } catch (e) {
       if (!mounted) return;
       messenger
         ..hideCurrentSnackBar()
         ..showSnackBar(
-          SnackBar(content: Text('Failed to switch to USB IR dongle: $e')),
+          SnackBar(
+            content: Text(context.l10n.learningModeSwitchUsbFailed('$e')),
+          ),
         );
     } finally {
       if (mounted) setState(() => _busy = false);
@@ -702,7 +703,7 @@ class _LearningModeScreenState extends State<LearningModeScreen>
                   onPressed: () =>
                       Navigator.of(sheetContext).pop('open_remote'),
                   icon: const Icon(Icons.settings_remote_rounded),
-                  label: const Text('Open remote'),
+                  label: Text(context.l10n.open),
                 ),
                 const SizedBox(height: 10),
               ],
@@ -880,7 +881,7 @@ class _LearningModeScreenState extends State<LearningModeScreen>
   String _statusTitle(BuildContext context) {
     if (!_hardwareReady) {
       if (_audioLearningSelected) {
-        return 'Audio learning not supported';
+        return context.l10n.learningModeAudioUnavailableTitle;
       }
       return switch (_hardwareState) {
         _LearningHardwareState.permissionRequired =>
@@ -907,7 +908,7 @@ class _LearningModeScreenState extends State<LearningModeScreen>
   String _statusBody(BuildContext context) {
     if (!_hardwareReady) {
       if (_audioLearningSelected) {
-        return 'Learning Mode supports compatible USB IR dongles only. Audio IR accessories remain available for transmit.';
+        return context.l10n.learningModeAudioUnavailableBody;
       }
       return switch (_hardwareState) {
         _LearningHardwareState.permissionRequired =>
@@ -1013,7 +1014,7 @@ class _LearningModeScreenState extends State<LearningModeScreen>
               FilledButton.tonalIcon(
                 onPressed: _busy ? null : _switchToUsbLearningMode,
                 icon: const Icon(Icons.usb_rounded),
-                label: const Text('Use USB dongle'),
+                label: Text(context.l10n.learningModeUseUsb),
               ),
             ],
             if (!_audioLearningSelected &&
@@ -1082,7 +1083,7 @@ class _LearningModeScreenState extends State<LearningModeScreen>
               FilledButton.icon(
                 onPressed: _busy ? null : _switchToUsbLearningMode,
                 icon: const Icon(Icons.usb_rounded),
-                label: const Text('Use USB dongle'),
+                label: Text(context.l10n.learningModeUseUsb),
               ),
             ],
           ],

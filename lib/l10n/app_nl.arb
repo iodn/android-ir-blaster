@@ -2397,5 +2397,11 @@
   "updatesNoAsset": "Er is geen geverifieerde APK voor dit apparaat. Bekijk de releaseopmerkingen.",
   "updatesReleaseNotes": "Releaseopmerkingen",
   "updatesChannel": "Updatebron: {source}",
-  "updatesDownloadConfirm": "{size} MB downloaden van GitHub? Installatie vereist jouw bevestiging."
+  "updatesDownloadConfirm": "{size} MB downloaden van GitHub? Installatie vereist jouw bevestiging.",
+  "learningModeIncompleteSignal": "Het signaal lijkt onvolledig. Houd de afstandsbediening dichter bij de ontvanger en probeer het opnieuw.",
+  "learningModeUseUsb": "USB-adapter gebruiken",
+  "learningModeSwitchedUsb": "USB-adapter geselecteerd.",
+  "learningModeSwitchUsbFailed": "Kan niet overschakelen naar de USB-adapter: {error}",
+  "learningModeAudioUnavailableTitle": "Leren via audio niet mogelijk",
+  "learningModeAudioUnavailableBody": "Audio-IR-accessoires kunnen in deze app opdrachten verzenden, maar geen signalen leren. Gebruik een ontvanger die de leerfunctie ondersteunt."
 }

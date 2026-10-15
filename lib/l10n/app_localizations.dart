@@ -9385,6 +9385,42 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Download {size} MB from GitHub? Installation requires your confirmation.'**
   String updatesDownloadConfirm(String size);
+
+  /// No description provided for @learningModeIncompleteSignal.
+  ///
+  /// In en, this message translates to:
+  /// **'The signal looks incomplete. Move the remote closer and try again.'**
+  String get learningModeIncompleteSignal;
+
+  /// No description provided for @learningModeUseUsb.
+  ///
+  /// In en, this message translates to:
+  /// **'Use USB dongle'**
+  String get learningModeUseUsb;
+
+  /// No description provided for @learningModeSwitchedUsb.
+  ///
+  /// In en, this message translates to:
+  /// **'Switched to USB dongle.'**
+  String get learningModeSwitchedUsb;
+
+  /// No description provided for @learningModeSwitchUsbFailed.
+  ///
+  /// In en, this message translates to:
+  /// **'Could not switch to USB dongle: {error}'**
+  String learningModeSwitchUsbFailed(String error);
+
+  /// No description provided for @learningModeAudioUnavailableTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Audio learning unavailable'**
+  String get learningModeAudioUnavailableTitle;
+
+  /// No description provided for @learningModeAudioUnavailableBody.
+  ///
+  /// In en, this message translates to:
+  /// **'Audio IR accessories can send commands, but cannot learn signals in this app. Use a supported learning receiver.'**
+  String get learningModeAudioUnavailableBody;
 }
 
 class _AppLocalizationsDelegate

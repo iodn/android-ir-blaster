@@ -2397,5 +2397,11 @@
   "updatesNoAsset": "इस डिवाइस के लिए सत्यापित APK उपलब्ध नहीं है। रिलीज़ नोट्स देखें।",
   "updatesReleaseNotes": "रिलीज़ नोट्स",
   "updatesChannel": "अपडेट का स्रोत: {source}",
-  "updatesDownloadConfirm": "GitHub से {size} MB डाउनलोड करें? इंस्टॉल करने के लिए आपकी पुष्टि आवश्यक है।"
+  "updatesDownloadConfirm": "GitHub से {size} MB डाउनलोड करें? इंस्टॉल करने के लिए आपकी पुष्टि आवश्यक है।",
+  "learningModeIncompleteSignal": "लगता है पूरा सिग्नल नहीं मिला। रिमोट को पास लाकर फिर कोशिश करें।",
+  "learningModeUseUsb": "USB डोंगल इस्तेमाल करें",
+  "learningModeSwitchedUsb": "USB डोंगल चुना गया।",
+  "learningModeSwitchUsbFailed": "USB डोंगल पर स्विच नहीं हो सका: {error}",
+  "learningModeAudioUnavailableTitle": "ऑडियो से सीखना उपलब्ध नहीं",
+  "learningModeAudioUnavailableBody": "इस ऐप में ऑडियो IR उपकरण कमांड भेज सकते हैं, लेकिन सिग्नल सीख नहीं सकते। सीखने के लिए समर्थित रिसीवर इस्तेमाल करें।"
 }

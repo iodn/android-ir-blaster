@@ -5064,4 +5064,26 @@ class AppLocalizationsKo extends AppLocalizations {
   String updatesDownloadConfirm(String size) {
     return 'GitHub에서 $size MB를 다운로드할까요? 설치하려면 확인이 필요합니다.';
   }
+
+  @override
+  String get learningModeIncompleteSignal =>
+      '신호가 완전히 수신되지 않은 것 같습니다. 리모컨을 가까이 대고 다시 시도하세요.';
+
+  @override
+  String get learningModeUseUsb => 'USB 동글 사용';
+
+  @override
+  String get learningModeSwitchedUsb => 'USB 동글로 전환했습니다.';
+
+  @override
+  String learningModeSwitchUsbFailed(String error) {
+    return 'USB 동글로 전환하지 못했습니다: $error';
+  }
+
+  @override
+  String get learningModeAudioUnavailableTitle => '오디오 기기 학습 미지원';
+
+  @override
+  String get learningModeAudioUnavailableBody =>
+      '이 앱에서 오디오 IR 기기는 명령 전송만 지원하며 신호를 학습할 수 없습니다. 학습을 지원하는 수신기를 사용하세요.';
 }

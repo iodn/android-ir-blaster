@@ -5187,4 +5187,27 @@ class AppLocalizationsMs extends AppLocalizations {
   String updatesDownloadConfirm(String size) {
     return 'Muat turun $size MB daripada GitHub? Pemasangan memerlukan pengesahan anda.';
   }
+
+  @override
+  String get learningModeIncompleteSignal =>
+      'Isyarat nampaknya tidak lengkap. Dekatkan alat kawalan jauh dan cuba lagi.';
+
+  @override
+  String get learningModeUseUsb => 'Guna dongel USB';
+
+  @override
+  String get learningModeSwitchedUsb => 'Beralih ke dongel USB.';
+
+  @override
+  String learningModeSwitchUsbFailed(String error) {
+    return 'Tidak dapat beralih ke dongel USB: $error';
+  }
+
+  @override
+  String get learningModeAudioUnavailableTitle =>
+      'Pembelajaran audio tidak disokong';
+
+  @override
+  String get learningModeAudioUnavailableBody =>
+      'Aksesori IR audio boleh menghantar arahan, tetapi tidak boleh mempelajari isyarat dalam aplikasi ini. Gunakan penerima yang menyokong pembelajaran.';
 }

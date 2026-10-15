@@ -2397,5 +2397,11 @@
   "updatesNoAsset": "この端末向けの検証済みAPKはありません。リリースノートを確認してください。",
   "updatesReleaseNotes": "リリースノート",
   "updatesChannel": "更新元：{source}",
-  "updatesDownloadConfirm": "GitHubから{size} MBをダウンロードしますか？インストールには確認が必要です。"
+  "updatesDownloadConfirm": "GitHubから{size} MBをダウンロードしますか？インストールには確認が必要です。",
+  "learningModeIncompleteSignal": "信号を完全に受信できなかったようです。リモコンを近づけて、もう一度お試しください。",
+  "learningModeUseUsb": "USBアダプターを使う",
+  "learningModeSwitchedUsb": "USBアダプターに切り替えました。",
+  "learningModeSwitchUsbFailed": "USBアダプターに切り替えられませんでした：{error}",
+  "learningModeAudioUnavailableTitle": "オーディオ機器での学習は非対応",
+  "learningModeAudioUnavailableBody": "このアプリでは、オーディオ接続の赤外線機器は送信のみ対応しています。学習には対応する受信機をお使いください。"
 }

@@ -5232,4 +5232,27 @@ class AppLocalizationsFr extends AppLocalizations {
   String updatesDownloadConfirm(String size) {
     return 'Télécharger $size Mo depuis GitHub ? L’installation nécessite votre confirmation.';
   }
+
+  @override
+  String get learningModeIncompleteSignal =>
+      'Le signal semble incomplet. Rapprochez la télécommande et réessayez.';
+
+  @override
+  String get learningModeUseUsb => 'Utiliser l’adaptateur USB';
+
+  @override
+  String get learningModeSwitchedUsb => 'Adaptateur USB sélectionné.';
+
+  @override
+  String learningModeSwitchUsbFailed(String error) {
+    return 'Impossible de sélectionner l’adaptateur USB : $error';
+  }
+
+  @override
+  String get learningModeAudioUnavailableTitle =>
+      'Apprentissage audio indisponible';
+
+  @override
+  String get learningModeAudioUnavailableBody =>
+      'Les accessoires IR audio peuvent envoyer des commandes, mais pas apprendre des signaux dans cette application. Utilisez un récepteur compatible avec l’apprentissage.';
 }

@@ -5181,4 +5181,26 @@ class AppLocalizationsHi extends AppLocalizations {
   String updatesDownloadConfirm(String size) {
     return 'GitHub से $size MB डाउनलोड करें? इंस्टॉल करने के लिए आपकी पुष्टि आवश्यक है।';
   }
+
+  @override
+  String get learningModeIncompleteSignal =>
+      'लगता है पूरा सिग्नल नहीं मिला। रिमोट को पास लाकर फिर कोशिश करें।';
+
+  @override
+  String get learningModeUseUsb => 'USB डोंगल इस्तेमाल करें';
+
+  @override
+  String get learningModeSwitchedUsb => 'USB डोंगल चुना गया।';
+
+  @override
+  String learningModeSwitchUsbFailed(String error) {
+    return 'USB डोंगल पर स्विच नहीं हो सका: $error';
+  }
+
+  @override
+  String get learningModeAudioUnavailableTitle => 'ऑडियो से सीखना उपलब्ध नहीं';
+
+  @override
+  String get learningModeAudioUnavailableBody =>
+      'इस ऐप में ऑडियो IR उपकरण कमांड भेज सकते हैं, लेकिन सिग्नल सीख नहीं सकते। सीखने के लिए समर्थित रिसीवर इस्तेमाल करें।';
 }

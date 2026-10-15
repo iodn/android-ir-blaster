@@ -2397,5 +2397,11 @@
   "updatesNoAsset": "Tidak ada APK terverifikasi untuk perangkat ini. Lihat catatan rilis.",
   "updatesReleaseNotes": "Catatan rilis",
   "updatesChannel": "Sumber pembaruan: {source}",
-  "updatesDownloadConfirm": "Unduh {size} MB dari GitHub? Penginstalan memerlukan konfirmasi Anda."
+  "updatesDownloadConfirm": "Unduh {size} MB dari GitHub? Penginstalan memerlukan konfirmasi Anda.",
+  "learningModeIncompleteSignal": "Sinyal tampaknya belum lengkap. Dekatkan remote lalu coba lagi.",
+  "learningModeUseUsb": "Gunakan dongle USB",
+  "learningModeSwitchedUsb": "Beralih ke dongle USB.",
+  "learningModeSwitchUsbFailed": "Tidak dapat beralih ke dongle USB: {error}",
+  "learningModeAudioUnavailableTitle": "Belajar lewat audio tidak tersedia",
+  "learningModeAudioUnavailableBody": "Aksesori IR audio dapat mengirim perintah, tetapi tidak dapat mempelajari sinyal di aplikasi ini. Gunakan penerima yang mendukung fitur belajar."
 }

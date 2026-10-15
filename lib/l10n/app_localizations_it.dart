@@ -5217,4 +5217,27 @@ class AppLocalizationsIt extends AppLocalizations {
   String updatesDownloadConfirm(String size) {
     return 'Scaricare $size MB da GitHub? L’installazione richiede la tua conferma.';
   }
+
+  @override
+  String get learningModeIncompleteSignal =>
+      'Il segnale sembra incompleto. Avvicina il telecomando e riprova.';
+
+  @override
+  String get learningModeUseUsb => 'Usa adattatore USB';
+
+  @override
+  String get learningModeSwitchedUsb => 'Adattatore USB selezionato.';
+
+  @override
+  String learningModeSwitchUsbFailed(String error) {
+    return 'Impossibile selezionare l’adattatore USB: $error';
+  }
+
+  @override
+  String get learningModeAudioUnavailableTitle =>
+      'Apprendimento audio non disponibile';
+
+  @override
+  String get learningModeAudioUnavailableBody =>
+      'Gli accessori IR audio possono inviare comandi, ma non apprendere segnali in questa app. Usa un ricevitore compatibile con l’apprendimento.';
 }

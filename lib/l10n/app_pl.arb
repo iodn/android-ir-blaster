@@ -2399,5 +2399,11 @@
   "updatesNoAsset": "Brak zweryfikowanego APK dla tego urządzenia. Zobacz informacje o wydaniu.",
   "updatesReleaseNotes": "Informacje o wydaniu",
   "updatesChannel": "Źródło aktualizacji: {source}",
-  "updatesDownloadConfirm": "Pobrać {size} MB z GitHub? Instalacja wymaga Twojego potwierdzenia."
+  "updatesDownloadConfirm": "Pobrać {size} MB z GitHub? Instalacja wymaga Twojego potwierdzenia.",
+  "learningModeIncompleteSignal": "Sygnał wygląda na niepełny. Zbliż pilota do odbiornika i spróbuj ponownie.",
+  "learningModeUseUsb": "Użyj adaptera USB",
+  "learningModeSwitchedUsb": "Wybrano adapter USB.",
+  "learningModeSwitchUsbFailed": "Nie udało się przełączyć na adapter USB: {error}",
+  "learningModeAudioUnavailableTitle": "Uczenie przez audio niedostępne",
+  "learningModeAudioUnavailableBody": "Akcesoria IR audio mogą wysyłać polecenia, ale nie mogą uczyć się sygnałów w tej aplikacji. Użyj obsługiwanego odbiornika z funkcją uczenia."
 }

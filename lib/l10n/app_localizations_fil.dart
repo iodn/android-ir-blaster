@@ -5204,4 +5204,27 @@ class AppLocalizationsFil extends AppLocalizations {
   String updatesDownloadConfirm(String size) {
     return 'I-download ang $size MB mula sa GitHub? Kailangan ang iyong kumpirmasyon para sa pag-install.';
   }
+
+  @override
+  String get learningModeIncompleteSignal =>
+      'Mukhang hindi kumpleto ang signal. Ilapit ang remote at subukan muli.';
+
+  @override
+  String get learningModeUseUsb => 'Gamitin ang USB dongle';
+
+  @override
+  String get learningModeSwitchedUsb => 'USB dongle na ang ginagamit.';
+
+  @override
+  String learningModeSwitchUsbFailed(String error) {
+    return 'Hindi makalipat sa USB dongle: $error';
+  }
+
+  @override
+  String get learningModeAudioUnavailableTitle =>
+      'Hindi makakopya gamit ang audio';
+
+  @override
+  String get learningModeAudioUnavailableBody =>
+      'Puwedeng magpadala ng command ang mga audio IR accessory, pero hindi makakopya ng signal gamit ang app na ito. Gumamit ng receiver na sinusuportahan para sa pagkopya ng signal.';
 }

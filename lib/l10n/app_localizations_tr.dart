@@ -5183,4 +5183,26 @@ class AppLocalizationsTr extends AppLocalizations {
   String updatesDownloadConfirm(String size) {
     return 'GitHub’dan $size MB indirilsin mi? Yükleme için onayınız gerekir.';
   }
+
+  @override
+  String get learningModeIncompleteSignal =>
+      'Sinyal eksik alınmış olabilir. Kumandayı yaklaştırıp tekrar deneyin.';
+
+  @override
+  String get learningModeUseUsb => 'USB adaptörünü kullan';
+
+  @override
+  String get learningModeSwitchedUsb => 'USB adaptörüne geçildi.';
+
+  @override
+  String learningModeSwitchUsbFailed(String error) {
+    return 'USB adaptörüne geçilemedi: $error';
+  }
+
+  @override
+  String get learningModeAudioUnavailableTitle => 'Ses üzerinden öğrenme yok';
+
+  @override
+  String get learningModeAudioUnavailableBody =>
+      'Ses bağlantılı IR aksesuarları bu uygulamada komut gönderebilir ancak sinyal öğrenemez. Öğrenme özelliği desteklenen bir alıcı kullanın.';
 }

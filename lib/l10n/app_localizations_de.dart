@@ -5230,4 +5230,26 @@ class AppLocalizationsDe extends AppLocalizations {
   String updatesDownloadConfirm(String size) {
     return '$size MB von GitHub herunterladen? Die Installation erfordert deine Bestätigung.';
   }
+
+  @override
+  String get learningModeIncompleteSignal =>
+      'Das Signal scheint unvollständig zu sein. Halten Sie die Fernbedienung näher an den Empfänger und versuchen Sie es erneut.';
+
+  @override
+  String get learningModeUseUsb => 'USB-Adapter verwenden';
+
+  @override
+  String get learningModeSwitchedUsb => 'Auf USB-Adapter umgeschaltet.';
+
+  @override
+  String learningModeSwitchUsbFailed(String error) {
+    return 'Umschalten auf USB-Adapter fehlgeschlagen: $error';
+  }
+
+  @override
+  String get learningModeAudioUnavailableTitle => 'Kein Anlernen über Audio';
+
+  @override
+  String get learningModeAudioUnavailableBody =>
+      'Audio-IR-Zubehör kann in dieser App Befehle senden, aber keine Signale anlernen. Verwenden Sie einen unterstützten Lernempfänger.';
 }

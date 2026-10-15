@@ -4976,4 +4976,25 @@ class AppLocalizationsZh extends AppLocalizations {
   String updatesDownloadConfirm(String size) {
     return '从 GitHub 下载 $size MB？安装需要您确认。';
   }
+
+  @override
+  String get learningModeIncompleteSignal => '信号可能未接收完整。请将遥控器靠近接收器后重试。';
+
+  @override
+  String get learningModeUseUsb => '使用 USB 适配器';
+
+  @override
+  String get learningModeSwitchedUsb => '已切换到 USB 适配器。';
+
+  @override
+  String learningModeSwitchUsbFailed(String error) {
+    return '无法切换到 USB 适配器：$error';
+  }
+
+  @override
+  String get learningModeAudioUnavailableTitle => '不支持音频设备学习';
+
+  @override
+  String get learningModeAudioUnavailableBody =>
+      '音频红外配件在本应用中只能发送指令，不能学习信号。请使用支持学习的接收器。';
 }

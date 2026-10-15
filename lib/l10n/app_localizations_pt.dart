@@ -5222,6 +5222,29 @@ class AppLocalizationsPt extends AppLocalizations {
   String updatesDownloadConfirm(String size) {
     return 'Transferir $size MB do GitHub? A instalação requer a sua confirmação.';
   }
+
+  @override
+  String get learningModeIncompleteSignal =>
+      'O sinal parece incompleto. Aproxime o comando e tente novamente.';
+
+  @override
+  String get learningModeUseUsb => 'Usar adaptador USB';
+
+  @override
+  String get learningModeSwitchedUsb => 'Adaptador USB selecionado.';
+
+  @override
+  String learningModeSwitchUsbFailed(String error) {
+    return 'Não foi possível selecionar o adaptador USB: $error';
+  }
+
+  @override
+  String get learningModeAudioUnavailableTitle =>
+      'Aprendizagem por áudio indisponível';
+
+  @override
+  String get learningModeAudioUnavailableBody =>
+      'Os acessórios IR de áudio podem enviar comandos, mas não aprender sinais nesta aplicação. Utilize um recetor compatível com a aprendizagem.';
 }
 
 /// The translations for Portuguese, as used in Brazil (`pt_BR`).
@@ -10444,4 +10467,27 @@ class AppLocalizationsPtBr extends AppLocalizationsPt {
   String updatesDownloadConfirm(String size) {
     return 'Baixar $size MB do GitHub? A instalação exige sua confirmação.';
   }
+
+  @override
+  String get learningModeIncompleteSignal =>
+      'O sinal parece incompleto. Aproxime o controle e tente novamente.';
+
+  @override
+  String get learningModeUseUsb => 'Usar adaptador USB';
+
+  @override
+  String get learningModeSwitchedUsb => 'Adaptador USB selecionado.';
+
+  @override
+  String learningModeSwitchUsbFailed(String error) {
+    return 'Não foi possível selecionar o adaptador USB: $error';
+  }
+
+  @override
+  String get learningModeAudioUnavailableTitle =>
+      'Aprendizado por áudio indisponível';
+
+  @override
+  String get learningModeAudioUnavailableBody =>
+      'Os acessórios IR de áudio podem enviar comandos, mas não aprender sinais neste app. Use um receptor compatível com o aprendizado.';
 }

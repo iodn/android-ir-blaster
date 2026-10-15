@@ -2397,5 +2397,11 @@
   "updatesNoAsset": "Walang beripikadong APK para sa device na ito. Tingnan ang mga tala ng release.",
   "updatesReleaseNotes": "Mga tala ng release",
   "updatesChannel": "Pinagmulan ng update: {source}",
-  "updatesDownloadConfirm": "I-download ang {size} MB mula sa GitHub? Kailangan ang iyong kumpirmasyon para sa pag-install."
+  "updatesDownloadConfirm": "I-download ang {size} MB mula sa GitHub? Kailangan ang iyong kumpirmasyon para sa pag-install.",
+  "learningModeIncompleteSignal": "Mukhang hindi kumpleto ang signal. Ilapit ang remote at subukan muli.",
+  "learningModeUseUsb": "Gamitin ang USB dongle",
+  "learningModeSwitchedUsb": "USB dongle na ang ginagamit.",
+  "learningModeSwitchUsbFailed": "Hindi makalipat sa USB dongle: {error}",
+  "learningModeAudioUnavailableTitle": "Hindi makakopya gamit ang audio",
+  "learningModeAudioUnavailableBody": "Puwedeng magpadala ng command ang mga audio IR accessory, pero hindi makakopya ng signal gamit ang app na ito. Gumamit ng receiver na sinusuportahan para sa pagkopya ng signal."
 }

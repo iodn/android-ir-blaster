@@ -2397,5 +2397,11 @@
   "updatesNoAsset": "Tiada APK yang disahkan tersedia untuk peranti ini. Lihat nota keluaran.",
   "updatesReleaseNotes": "Nota keluaran",
   "updatesChannel": "Sumber kemas kini: {source}",
-  "updatesDownloadConfirm": "Muat turun {size} MB daripada GitHub? Pemasangan memerlukan pengesahan anda."
+  "updatesDownloadConfirm": "Muat turun {size} MB daripada GitHub? Pemasangan memerlukan pengesahan anda.",
+  "learningModeIncompleteSignal": "Isyarat nampaknya tidak lengkap. Dekatkan alat kawalan jauh dan cuba lagi.",
+  "learningModeUseUsb": "Guna dongel USB",
+  "learningModeSwitchedUsb": "Beralih ke dongel USB.",
+  "learningModeSwitchUsbFailed": "Tidak dapat beralih ke dongel USB: {error}",
+  "learningModeAudioUnavailableTitle": "Pembelajaran audio tidak disokong",
+  "learningModeAudioUnavailableBody": "Aksesori IR audio boleh menghantar arahan, tetapi tidak boleh mempelajari isyarat dalam aplikasi ini. Gunakan penerima yang menyokong pembelajaran."
 }

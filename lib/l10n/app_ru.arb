@@ -2397,5 +2397,11 @@
   "updatesNoAsset": "Для этого устройства нет проверенного APK. См. примечания к выпуску.",
   "updatesReleaseNotes": "Примечания к выпуску",
   "updatesChannel": "Источник обновлений: {source}",
-  "updatesDownloadConfirm": "Скачать {size} МБ с GitHub? Для установки потребуется ваше подтверждение."
+  "updatesDownloadConfirm": "Скачать {size} МБ с GitHub? Для установки потребуется ваше подтверждение.",
+  "learningModeIncompleteSignal": "Похоже, сигнал записан не полностью. Поднесите пульт ближе и попробуйте снова.",
+  "learningModeUseUsb": "Использовать USB-адаптер",
+  "learningModeSwitchedUsb": "Выбран USB-адаптер.",
+  "learningModeSwitchUsbFailed": "Не удалось переключиться на USB-адаптер: {error}",
+  "learningModeAudioUnavailableTitle": "Обучение через аудио недоступно",
+  "learningModeAudioUnavailableBody": "ИК-аксессуары с аудиоподключением могут отправлять команды, но не запоминать сигналы в этом приложении. Используйте поддерживаемый приёмник с функцией обучения."
 }

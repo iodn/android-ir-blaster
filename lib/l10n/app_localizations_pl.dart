@@ -5280,4 +5280,27 @@ class AppLocalizationsPl extends AppLocalizations {
   String updatesDownloadConfirm(String size) {
     return 'Pobrać $size MB z GitHub? Instalacja wymaga Twojego potwierdzenia.';
   }
+
+  @override
+  String get learningModeIncompleteSignal =>
+      'Sygnał wygląda na niepełny. Zbliż pilota do odbiornika i spróbuj ponownie.';
+
+  @override
+  String get learningModeUseUsb => 'Użyj adaptera USB';
+
+  @override
+  String get learningModeSwitchedUsb => 'Wybrano adapter USB.';
+
+  @override
+  String learningModeSwitchUsbFailed(String error) {
+    return 'Nie udało się przełączyć na adapter USB: $error';
+  }
+
+  @override
+  String get learningModeAudioUnavailableTitle =>
+      'Uczenie przez audio niedostępne';
+
+  @override
+  String get learningModeAudioUnavailableBody =>
+      'Akcesoria IR audio mogą wysyłać polecenia, ale nie mogą uczyć się sygnałów w tej aplikacji. Użyj obsługiwanego odbiornika z funkcją uczenia.';
 }

@@ -10,6 +10,8 @@ void main() {
     testWidgets('learning instructions fit a compact screen: $locale',
         (tester) async {
       SharedPreferences.setMockInitialValues({});
+      var incomplete = true;
+      var preferredType = 'AUDIO_2_LED';
       final messenger =
           TestDefaultBinaryMessengerBinding.instance.defaultBinaryMessenger;
       const channel = MethodChannel('org.nslabs/irtransmitter');
@@ -17,12 +19,19 @@ void main() {
       messenger.setMockMethodCallHandler(events, (_) async => null);
       messenger.setMockMethodCallHandler(channel, (call) async {
         if (call.method == 'performHaptic') return true;
-        if (call.method == 'getPreferredTransmitterType') return 'USB';
+        if (call.method == 'getPreferredTransmitterType') return preferredType;
+        if (call.method == 'setPreferredTransmitterType' ||
+            call.method == 'setTransmitterType') {
+          preferredType = call.arguments['type'] as String;
+          return preferredType;
+        }
         if (call.method == 'learnUsbSignal') {
           return {
             'family': 'elksmart',
             'frequencyHz': 38000,
-            'rawPatternUs': [9000, 4500, 560, 560, 560, 560],
+            'rawPatternUs': incomplete
+                ? [560, 560]
+                : [9000, 4500, 560, 560, 560, 560],
             'opaqueFrameBase64': 'AAAAAAAAAAAAAAAA',
             'displayPreview': 'RAW',
           };
@@ -62,6 +71,16 @@ void main() {
       await tester.pumpAndSettle();
       final l10n =
           AppLocalizations.of(tester.element(find.byType(LearningModeScreen)))!;
+      expect(find.text(l10n.learningModeAudioUnavailableTitle), findsOneWidget);
+      final useUsb =
+          find.widgetWithText(FilledButton, l10n.learningModeUseUsb).first;
+      await tester.ensureVisible(useUsb);
+      await tester.pumpAndSettle();
+      await tester.tap(useUsb);
+      await tester.pumpAndSettle();
+      expect(find.text(l10n.learningModeSwitchedUsb), findsOneWidget);
+      await tester.pump(const Duration(seconds: 5));
+      await tester.pumpAndSettle();
       expect(find.text(l10n.learningModeReadyToListenBody), findsOneWidget);
       final start =
           find.widgetWithText(FilledButton, l10n.learningModeStartListening);
@@ -69,6 +88,14 @@ void main() {
       await tester.pumpAndSettle();
       expect(tester.widget<FilledButton>(start).onPressed, isNotNull);
       expect(tester.takeException(), isNull);
+      await tester.tap(start);
+      await tester.pumpAndSettle();
+      expect(find.text(l10n.learningModeIncompleteSignal), findsWidgets);
+      expect(tester.takeException(), isNull);
+      incomplete = false;
+      await tester.pump(const Duration(seconds: 5));
+      await tester.ensureVisible(start);
+      await tester.pumpAndSettle();
       await tester.tap(start);
       await tester.pumpAndSettle();
       expect(find.text(l10n.learningModeCapturedSummary), findsWidgets);

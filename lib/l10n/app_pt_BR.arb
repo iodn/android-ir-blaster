@@ -2397,5 +2397,11 @@
   "updatesNoAsset": "Nenhum APK verificado está disponível para este dispositivo. Consulte as notas da versão.",
   "updatesReleaseNotes": "Notas da versão",
   "updatesChannel": "Fonte de atualizações: {source}",
-  "updatesDownloadConfirm": "Baixar {size} MB do GitHub? A instalação exige sua confirmação."
+  "updatesDownloadConfirm": "Baixar {size} MB do GitHub? A instalação exige sua confirmação.",
+  "learningModeIncompleteSignal": "O sinal parece incompleto. Aproxime o controle e tente novamente.",
+  "learningModeUseUsb": "Usar adaptador USB",
+  "learningModeSwitchedUsb": "Adaptador USB selecionado.",
+  "learningModeSwitchUsbFailed": "Não foi possível selecionar o adaptador USB: {error}",
+  "learningModeAudioUnavailableTitle": "Aprendizado por áudio indisponível",
+  "learningModeAudioUnavailableBody": "Os acessórios IR de áudio podem enviar comandos, mas não aprender sinais neste app. Use um receptor compatível com o aprendizado."
 }

@@ -5229,4 +5229,26 @@ class AppLocalizationsEn extends AppLocalizations {
   String updatesDownloadConfirm(String size) {
     return 'Download $size MB from GitHub? Installation requires your confirmation.';
   }
+
+  @override
+  String get learningModeIncompleteSignal =>
+      'The signal looks incomplete. Move the remote closer and try again.';
+
+  @override
+  String get learningModeUseUsb => 'Use USB dongle';
+
+  @override
+  String get learningModeSwitchedUsb => 'Switched to USB dongle.';
+
+  @override
+  String learningModeSwitchUsbFailed(String error) {
+    return 'Could not switch to USB dongle: $error';
+  }
+
+  @override
+  String get learningModeAudioUnavailableTitle => 'Audio learning unavailable';
+
+  @override
+  String get learningModeAudioUnavailableBody =>
+      'Audio IR accessories can send commands, but cannot learn signals in this app. Use a supported learning receiver.';
 }

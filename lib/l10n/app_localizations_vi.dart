@@ -5174,4 +5174,27 @@ class AppLocalizationsVi extends AppLocalizations {
   String updatesDownloadConfirm(String size) {
     return 'Tải $size MB từ GitHub? Việc cài đặt cần bạn xác nhận.';
   }
+
+  @override
+  String get learningModeIncompleteSignal =>
+      'Có vẻ chưa thu đủ tín hiệu. Hãy đưa điều khiển lại gần rồi thử lại.';
+
+  @override
+  String get learningModeUseUsb => 'Dùng bộ chuyển đổi USB';
+
+  @override
+  String get learningModeSwitchedUsb => 'Đã chuyển sang bộ chuyển đổi USB.';
+
+  @override
+  String learningModeSwitchUsbFailed(String error) {
+    return 'Không thể chuyển sang bộ chuyển đổi USB: $error';
+  }
+
+  @override
+  String get learningModeAudioUnavailableTitle =>
+      'Không hỗ trợ học qua âm thanh';
+
+  @override
+  String get learningModeAudioUnavailableBody =>
+      'Phụ kiện hồng ngoại qua âm thanh có thể gửi lệnh nhưng không thể học tín hiệu trong ứng dụng này. Hãy dùng bộ thu hỗ trợ học tín hiệu.';
 }

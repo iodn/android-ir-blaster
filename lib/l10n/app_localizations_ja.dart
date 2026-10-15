@@ -5046,4 +5046,26 @@ class AppLocalizationsJa extends AppLocalizations {
   String updatesDownloadConfirm(String size) {
     return 'GitHubから$size MBをダウンロードしますか？インストールには確認が必要です。';
   }
+
+  @override
+  String get learningModeIncompleteSignal =>
+      '信号を完全に受信できなかったようです。リモコンを近づけて、もう一度お試しください。';
+
+  @override
+  String get learningModeUseUsb => 'USBアダプターを使う';
+
+  @override
+  String get learningModeSwitchedUsb => 'USBアダプターに切り替えました。';
+
+  @override
+  String learningModeSwitchUsbFailed(String error) {
+    return 'USBアダプターに切り替えられませんでした：$error';
+  }
+
+  @override
+  String get learningModeAudioUnavailableTitle => 'オーディオ機器での学習は非対応';
+
+  @override
+  String get learningModeAudioUnavailableBody =>
+      'このアプリでは、オーディオ接続の赤外線機器は送信のみ対応しています。学習には対応する受信機をお使いください。';
 }
