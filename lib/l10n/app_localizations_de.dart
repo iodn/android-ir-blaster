@@ -2355,12 +2355,28 @@ class AppLocalizationsDe extends AppLocalizations {
 
   @override
   String millisecondsLong(int ms) {
-    return '$ms Millisekunden';
+    String _temp0 = intl.Intl.pluralLogic(
+      ms,
+      locale: localeName,
+      other: '$ms Millisekunden',
+      one: '$ms Millisekunde',
+    );
+    return '$_temp0';
   }
 
   @override
-  String secondsLong(Object seconds, Object plural) {
-    return '$seconds Sekunde$plural';
+  String secondsLong(num seconds) {
+    final intl.NumberFormat secondsNumberFormat =
+        intl.NumberFormat.decimalPattern(localeName);
+    final String secondsString = secondsNumberFormat.format(seconds);
+
+    String _temp0 = intl.Intl.pluralLogic(
+      seconds,
+      locale: localeName,
+      other: '$secondsString Sekunden',
+      one: '$secondsString Sekunde',
+    );
+    return '$_temp0';
   }
 
   @override

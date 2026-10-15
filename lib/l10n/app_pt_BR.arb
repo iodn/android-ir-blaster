@@ -979,7 +979,7 @@
   },
   "custom": "Personalizado",
   "enterCustomDelayDuration": "Digite outro tempo de espera",
-  "millisecondsLong": "{ms} milisegundos",
+  "millisecondsLong": "{ms, plural, one{{ms} milissegundo} other{{ms} milissegundos}}",
   "@millisecondsLong": {
     "placeholders": {
       "ms": {
@@ -987,11 +987,13 @@
       }
     }
   },
-  "secondsLong": "{seconds} segundo{plural}",
+  "secondsLong": "{seconds, plural, one{{seconds} segundo} other{{seconds} segundos}}",
   "@secondsLong": {
     "placeholders": {
-      "seconds": {},
-      "plural": {}
+      "seconds": {
+        "type": "num",
+        "format": "decimalPattern"
+      }
     }
   },
   "customDelay": "Espera personalizada",

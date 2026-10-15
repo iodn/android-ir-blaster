@@ -987,11 +987,13 @@
       }
     }
   },
-  "secondsLong": "{seconds} detik{plural}",
+  "secondsLong": "{seconds} detik",
   "@secondsLong": {
     "placeholders": {
-      "seconds": {},
-      "plural": {}
+      "seconds": {
+        "type": "num",
+        "format": "decimalPattern"
+      }
     }
   },
   "customDelay": "Waktu tunggu khusus",

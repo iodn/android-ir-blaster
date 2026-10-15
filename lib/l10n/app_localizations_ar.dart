@@ -2306,12 +2306,25 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String millisecondsLong(int ms) {
-    return '$ms milliseconds';
+    return '$ms ملي ثانية';
   }
 
   @override
-  String secondsLong(Object seconds, Object plural) {
-    return '$seconds ثانية$plural';
+  String secondsLong(num seconds) {
+    final intl.NumberFormat secondsNumberFormat =
+        intl.NumberFormat.decimalPattern(localeName);
+    final String secondsString = secondsNumberFormat.format(seconds);
+
+    String _temp0 = intl.Intl.pluralLogic(
+      seconds,
+      locale: localeName,
+      other: '$secondsString ثانية',
+      many: '$secondsString ثانية',
+      few: '$secondsString ثوانٍ',
+      two: 'ثانيتان',
+      one: '$secondsString ثانية',
+    );
+    return '$_temp0';
   }
 
   @override
@@ -7527,12 +7540,25 @@ class AppLocalizationsArEg extends AppLocalizationsAr {
 
   @override
   String millisecondsLong(int ms) {
-    return '$ms milliseconds';
+    return '$ms ملي ثانية';
   }
 
   @override
-  String secondsLong(Object seconds, Object plural) {
-    return '$seconds ثانية$plural';
+  String secondsLong(num seconds) {
+    final intl.NumberFormat secondsNumberFormat =
+        intl.NumberFormat.decimalPattern(localeName);
+    final String secondsString = secondsNumberFormat.format(seconds);
+
+    String _temp0 = intl.Intl.pluralLogic(
+      seconds,
+      locale: localeName,
+      other: '$secondsString ثانية',
+      many: '$secondsString ثانية',
+      few: '$secondsString ثوانٍ',
+      two: 'ثانيتان',
+      one: '$secondsString ثانية',
+    );
+    return '$_temp0';
   }
 
   @override

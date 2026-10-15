@@ -987,11 +987,13 @@
       }
     }
   },
-  "secondsLong": "{seconds} วินาที{plural}",
+  "secondsLong": "{seconds} วินาที",
   "@secondsLong": {
     "placeholders": {
-      "seconds": {},
-      "plural": {}
+      "seconds": {
+        "type": "num",
+        "format": "decimalPattern"
+      }
     }
   },
   "customDelay": "กำหนดเวลารอเอง",

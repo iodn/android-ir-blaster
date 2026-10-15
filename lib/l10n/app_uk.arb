@@ -979,7 +979,7 @@
   },
   "custom": "Власний",
   "enterCustomDelayDuration": "Введіть інший час очікування",
-  "millisecondsLong": "{ms} мілісекунд",
+  "millisecondsLong": "{ms, plural, one{{ms} мілісекунда} few{{ms} мілісекунди} many{{ms} мілісекунд} other{{ms} мілісекунди}}",
   "@millisecondsLong": {
     "placeholders": {
       "ms": {
@@ -987,11 +987,13 @@
       }
     }
   },
-  "secondsLong": "{seconds} секунда{plural}",
+  "secondsLong": "{seconds, plural, one{{seconds} секунда} few{{seconds} секунди} many{{seconds} секунд} other{{seconds} секунди}}",
   "@secondsLong": {
     "placeholders": {
-      "seconds": {},
-      "plural": {}
+      "seconds": {
+        "type": "num",
+        "format": "decimalPattern"
+      }
     }
   },
   "customDelay": "Власний час очікування",

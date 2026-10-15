@@ -979,7 +979,7 @@
   },
   "custom": "Kustom",
   "enterCustomDelayDuration": "Masukkan masa menunggu lain",
-  "millisecondsLong": "{ms} milidetik",
+  "millisecondsLong": "{ms} milisaat",
   "@millisecondsLong": {
     "placeholders": {
       "ms": {
@@ -987,11 +987,13 @@
       }
     }
   },
-  "secondsLong": "{seconds} detik{plural}",
+  "secondsLong": "{seconds} saat",
   "@secondsLong": {
     "placeholders": {
-      "seconds": {},
-      "plural": {}
+      "seconds": {
+        "type": "num",
+        "format": "decimalPattern"
+      }
     }
   },
   "customDelay": "Masa menunggu tersuai",

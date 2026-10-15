@@ -987,11 +987,13 @@
       }
     }
   },
-  "secondsLong": "{seconds} giây{plural}",
+  "secondsLong": "{seconds} giây",
   "@secondsLong": {
     "placeholders": {
-      "seconds": {},
-      "plural": {}
+      "seconds": {
+        "type": "num",
+        "format": "decimalPattern"
+      }
     }
   },
   "customDelay": "Tự đặt thời gian chờ",

@@ -987,11 +987,13 @@
       }
     }
   },
-  "secondsLong": "{seconds}초{plural}",
+  "secondsLong": "{seconds}초",
   "@secondsLong": {
     "placeholders": {
-      "seconds": {},
-      "plural": {}
+      "seconds": {
+        "type": "num",
+        "format": "decimalPattern"
+      }
     }
   },
   "customDelay": "대기 시간 직접 입력",

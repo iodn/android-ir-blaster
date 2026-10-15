@@ -2240,8 +2240,12 @@ class AppLocalizationsKo extends AppLocalizations {
   }
 
   @override
-  String secondsLong(Object seconds, Object plural) {
-    return '$seconds초$plural';
+  String secondsLong(num seconds) {
+    final intl.NumberFormat secondsNumberFormat =
+        intl.NumberFormat.decimalPattern(localeName);
+    final String secondsString = secondsNumberFormat.format(seconds);
+
+    return '$secondsString초';
   }
 
   @override

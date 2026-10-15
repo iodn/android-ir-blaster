@@ -979,7 +979,7 @@
   },
   "custom": "Aangepast",
   "enterCustomDelayDuration": "Voer een andere wachttijd in",
-  "millisecondsLong": "{ms} milliseconden",
+  "millisecondsLong": "{ms, plural, one{{ms} milliseconde} other{{ms} milliseconden}}",
   "@millisecondsLong": {
     "placeholders": {
       "ms": {
@@ -987,11 +987,13 @@
       }
     }
   },
-  "secondsLong": "{seconds} seconde{plural}",
+  "secondsLong": "{seconds, plural, one{{seconds} seconde} other{{seconds} seconden}}",
   "@secondsLong": {
     "placeholders": {
-      "seconds": {},
-      "plural": {}
+      "seconds": {
+        "type": "num",
+        "format": "decimalPattern"
+      }
     }
   },
   "customDelay": "Eigen wachttijd",

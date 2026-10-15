@@ -103,6 +103,15 @@ void main() {
       await tester.tap(find.text(l10n.millisecondsShort(1250)));
       await tester.pumpAndSettle();
       readable(l10n.keepMilliseconds(1250));
+      final duration = find.descendant(
+        of: find.byType(BottomSheet),
+        matching: find.text(l10n.secondsLong(1.25)),
+      );
+      expect(duration, findsOneWidget);
+      final durationParagraph = tester.renderObject<RenderParagraph>(duration);
+      expect(durationParagraph.didExceedMaxLines, isFalse);
+      expect(durationParagraph.getMaxIntrinsicHeight(durationParagraph.size.width),
+          lessThanOrEqualTo(durationParagraph.size.height + 0.1));
       await tester.tap(find.text(l10n.keepMilliseconds(1250)));
       await tester.pumpAndSettle();
       expect(find.byType(BottomSheet), findsNothing);

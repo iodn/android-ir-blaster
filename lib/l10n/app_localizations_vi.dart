@@ -2315,8 +2315,12 @@ class AppLocalizationsVi extends AppLocalizations {
   }
 
   @override
-  String secondsLong(Object seconds, Object plural) {
-    return '$seconds giây$plural';
+  String secondsLong(num seconds) {
+    final intl.NumberFormat secondsNumberFormat =
+        intl.NumberFormat.decimalPattern(localeName);
+    final String secondsString = secondsNumberFormat.format(seconds);
+
+    return '$secondsString giây';
   }
 
   @override

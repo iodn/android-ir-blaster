@@ -2324,12 +2324,16 @@ class AppLocalizationsMs extends AppLocalizations {
 
   @override
   String millisecondsLong(int ms) {
-    return '$ms milidetik';
+    return '$ms milisaat';
   }
 
   @override
-  String secondsLong(Object seconds, Object plural) {
-    return '$seconds detik$plural';
+  String secondsLong(num seconds) {
+    final intl.NumberFormat secondsNumberFormat =
+        intl.NumberFormat.decimalPattern(localeName);
+    final String secondsString = secondsNumberFormat.format(seconds);
+
+    return '$secondsString saat';
   }
 
   @override

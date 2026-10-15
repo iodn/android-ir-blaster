@@ -4114,14 +4114,14 @@ abstract class AppLocalizations {
   /// No description provided for @millisecondsLong.
   ///
   /// In en, this message translates to:
-  /// **'{ms} milliseconds'**
+  /// **'{ms, plural, one{{ms} millisecond} other{{ms} milliseconds}}'**
   String millisecondsLong(int ms);
 
   /// No description provided for @secondsLong.
   ///
   /// In en, this message translates to:
-  /// **'{seconds} second{plural}'**
-  String secondsLong(Object seconds, Object plural);
+  /// **'{seconds, plural, one{{seconds} second} other{{seconds} seconds}}'**
+  String secondsLong(num seconds);
 
   /// No description provided for @customDelay.
   ///

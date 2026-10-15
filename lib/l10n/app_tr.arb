@@ -979,7 +979,7 @@
   },
   "custom": "Özel",
   "enterCustomDelayDuration": "Farklı bir bekleme süresi girin",
-  "millisecondsLong": "{ms} milliseconds",
+  "millisecondsLong": "{ms} milisaniye",
   "@millisecondsLong": {
     "placeholders": {
       "ms": {
@@ -987,11 +987,13 @@
       }
     }
   },
-  "secondsLong": "{seconds} second{plural}",
+  "secondsLong": "{seconds} saniye",
   "@secondsLong": {
     "placeholders": {
-      "seconds": {},
-      "plural": {}
+      "seconds": {
+        "type": "num",
+        "format": "decimalPattern"
+      }
     }
   },
   "customDelay": "Özel bekleme süresi",

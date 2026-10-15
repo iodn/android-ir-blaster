@@ -987,11 +987,13 @@
       }
     }
   },
-  "secondsLong": "{seconds} सेकंड{plural}",
+  "secondsLong": "{seconds} सेकंड",
   "@secondsLong": {
     "placeholders": {
-      "seconds": {},
-      "plural": {}
+      "seconds": {
+        "type": "num",
+        "format": "decimalPattern"
+      }
     }
   },
   "customDelay": "अपना समय तय करें",

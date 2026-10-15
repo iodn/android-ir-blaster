@@ -979,7 +979,7 @@
   },
   "custom": "Custom",
   "enterCustomDelayDuration": "Maglagay ng ibang tagal ng paghihintay",
-  "millisecondsLong": "{ms} milliseconds",
+  "millisecondsLong": "{ms} milisegundo",
   "@millisecondsLong": {
     "placeholders": {
       "ms": {
@@ -987,11 +987,13 @@
       }
     }
   },
-  "secondsLong": "{seconds} second{plural}",
+  "secondsLong": "{seconds} segundo",
   "@secondsLong": {
     "placeholders": {
-      "seconds": {},
-      "plural": {}
+      "seconds": {
+        "type": "num",
+        "format": "decimalPattern"
+      }
     }
   },
   "customDelay": "Sariling oras ng paghihintay",

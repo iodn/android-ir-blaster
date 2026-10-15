@@ -979,7 +979,7 @@
   },
   "custom": "مخصص",
   "enterCustomDelayDuration": "أدخل وقت انتظار آخر",
-  "millisecondsLong": "{ms} milliseconds",
+  "millisecondsLong": "{ms} ملي ثانية",
   "@millisecondsLong": {
     "placeholders": {
       "ms": {
@@ -987,11 +987,13 @@
       }
     }
   },
-  "secondsLong": "{seconds} ثانية{plural}",
+  "secondsLong": "{seconds, plural, one{{seconds} ثانية} two{ثانيتان} few{{seconds} ثوانٍ} many{{seconds} ثانية} other{{seconds} ثانية}}",
   "@secondsLong": {
     "placeholders": {
-      "seconds": {},
-      "plural": {}
+      "seconds": {
+        "type": "num",
+        "format": "decimalPattern"
+      }
     }
   },
   "customDelay": "انتظار مخصص",

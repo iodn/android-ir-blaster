@@ -59,6 +59,22 @@ void main() {
     expect(saved, isNull);
   });
 
+  testWidgets('delay summaries preserve milliseconds and pluralize units',
+      (tester) async {
+    const macro = TimedMacro(id: 'timing', name: 'Timing', remoteName: 'TV', steps: [
+      MacroStep(id: 'one-ms', type: MacroStepType.delay, delayMs: 1),
+      MacroStep(id: 'one-second', type: MacroStepType.delay, delayMs: 1000),
+      MacroStep(id: 'fraction', type: MacroStepType.delay, delayMs: 1250),
+    ]);
+    await open(tester, macro: macro);
+    expect(find.text('1 millisecond'), findsOneWidget);
+    expect(find.text('1 second'), findsOneWidget);
+    expect(find.text('1.25 seconds'), findsOneWidget);
+    await tester.tap(find.widgetWithText(FilledButton, 'Save'));
+    await tester.pumpAndSettle();
+    expect(saved?.steps.map((step) => step.delayMs), [1, 1000, 1250]);
+  });
+
   testWidgets('clean cancel leaves without a dialog', (tester) async {
     await open(tester);
     await tester.tap(find.widgetWithText(OutlinedButton, 'Cancel'));

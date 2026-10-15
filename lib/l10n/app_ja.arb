@@ -987,11 +987,13 @@
       }
     }
   },
-  "secondsLong": "{seconds}秒{plural}",
+  "secondsLong": "{seconds}秒",
   "@secondsLong": {
     "placeholders": {
-      "seconds": {},
-      "plural": {}
+      "seconds": {
+        "type": "num",
+        "format": "decimalPattern"
+      }
     }
   },
   "customDelay": "待ち時間を指定",

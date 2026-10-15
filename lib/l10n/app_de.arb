@@ -981,7 +981,7 @@
   },
   "custom": "Benutzerdefiniert",
   "enterCustomDelayDuration": "Andere Wartezeit eingeben",
-  "millisecondsLong": "{ms} Millisekunden",
+  "millisecondsLong": "{ms, plural, one{{ms} Millisekunde} other{{ms} Millisekunden}}",
   "@millisecondsLong": {
     "placeholders": {
       "ms": {
@@ -989,11 +989,13 @@
       }
     }
   },
-  "secondsLong": "{seconds} Sekunde{plural}",
+  "secondsLong": "{seconds, plural, one{{seconds} Sekunde} other{{seconds} Sekunden}}",
   "@secondsLong": {
     "placeholders": {
-      "seconds": {},
-      "plural": {}
+      "seconds": {
+        "type": "num",
+        "format": "decimalPattern"
+      }
     }
   },
   "customDelay": "Eigene Wartezeit",

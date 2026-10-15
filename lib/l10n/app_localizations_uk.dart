@@ -2415,12 +2415,32 @@ class AppLocalizationsUk extends AppLocalizations {
 
   @override
   String millisecondsLong(int ms) {
-    return '$ms мілісекунд';
+    String _temp0 = intl.Intl.pluralLogic(
+      ms,
+      locale: localeName,
+      other: '$ms мілісекунди',
+      many: '$ms мілісекунд',
+      few: '$ms мілісекунди',
+      one: '$ms мілісекунда',
+    );
+    return '$_temp0';
   }
 
   @override
-  String secondsLong(Object seconds, Object plural) {
-    return '$seconds секунда$plural';
+  String secondsLong(num seconds) {
+    final intl.NumberFormat secondsNumberFormat =
+        intl.NumberFormat.decimalPattern(localeName);
+    final String secondsString = secondsNumberFormat.format(seconds);
+
+    String _temp0 = intl.Intl.pluralLogic(
+      seconds,
+      locale: localeName,
+      other: '$secondsString секунди',
+      many: '$secondsString секунд',
+      few: '$secondsString секунди',
+      one: '$secondsString секунда',
+    );
+    return '$_temp0';
   }
 
   @override

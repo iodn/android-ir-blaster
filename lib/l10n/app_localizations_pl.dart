@@ -2408,12 +2408,32 @@ class AppLocalizationsPl extends AppLocalizations {
 
   @override
   String millisecondsLong(int ms) {
-    return '$ms milisekund';
+    String _temp0 = intl.Intl.pluralLogic(
+      ms,
+      locale: localeName,
+      other: '$ms milisekundy',
+      many: '$ms milisekund',
+      few: '$ms milisekundy',
+      one: '$ms milisekunda',
+    );
+    return '$_temp0';
   }
 
   @override
-  String secondsLong(Object seconds, Object plural) {
-    return '$seconds sekund$plural';
+  String secondsLong(num seconds) {
+    final intl.NumberFormat secondsNumberFormat =
+        intl.NumberFormat.decimalPattern(localeName);
+    final String secondsString = secondsNumberFormat.format(seconds);
+
+    String _temp0 = intl.Intl.pluralLogic(
+      seconds,
+      locale: localeName,
+      other: '$secondsString sekundy',
+      many: '$secondsString sekund',
+      few: '$secondsString sekundy',
+      one: '$secondsString sekunda',
+    );
+    return '$_temp0';
   }
 
   @override

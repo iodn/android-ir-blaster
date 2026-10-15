@@ -411,8 +411,7 @@ class _MacroEditorScreenState extends State<MacroEditorScreen> {
 
   String _formatDelay(int ms) {
     if (ms < 1000) return context.l10n.millisecondsLong(ms);
-    final sec = ms / 1000;
-    return context.l10n.secondsLong(sec.toStringAsFixed(sec.truncateToDouble() == sec ? 0 : 1), sec != 1);
+    return context.l10n.secondsLong(ms / 1000);
   }
 
   Future<int?> _promptCustomDelay(BuildContext context, {int? initial}) async {

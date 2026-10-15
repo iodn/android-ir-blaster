@@ -1092,7 +1092,7 @@
   },
   "custom": "Custom",
   "enterCustomDelayDuration": "Enter a different wait time",
-  "millisecondsLong": "{ms} milliseconds",
+  "millisecondsLong": "{ms, plural, one{{ms} millisecond} other{{ms} milliseconds}}",
   "@millisecondsLong": {
     "placeholders": {
       "ms": {
@@ -1100,11 +1100,13 @@
       }
     }
   },
-  "secondsLong": "{seconds} second{plural}",
+  "secondsLong": "{seconds, plural, one{{seconds} second} other{{seconds} seconds}}",
   "@secondsLong": {
     "placeholders": {
-      "seconds": {},
-      "plural": {}
+      "seconds": {
+        "type": "num",
+        "format": "decimalPattern"
+      }
     }
   },
   "customDelay": "Custom wait",
