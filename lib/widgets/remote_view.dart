@@ -1629,27 +1629,41 @@ class RemoteViewState extends State<RemoteView> {
 
     final bool useNewStyle = _remote.useNewStyle;
     final int count = _remote.buttons.length;
+    final countLabel = context.l10n.remoteButtonCountSummary(count);
+    final countStyle = theme.textTheme.labelSmall!.copyWith(
+      color: cs.onSurface.withValues(alpha: 0.65),
+      fontWeight: FontWeight.w600,
+    );
+    final countLayout = TextPainter(
+      text: TextSpan(text: countLabel, style: countStyle),
+      textDirection: Directionality.of(context),
+      textScaler: MediaQuery.textScalerOf(context),
+    )..layout(
+        maxWidth: (MediaQuery.sizeOf(context).width - 32)
+            .clamp(1.0, double.infinity));
+    final countHeight = countLayout.height + 8;
+    final countLines = countLayout.computeLineMetrics().length;
+    countLayout.dispose();
 
     return Scaffold(
       appBar: AppBar(
         centerTitle: true,
-        title: Column(
-          mainAxisSize: MainAxisSize.min,
-          children: [
-            Text(
-              _remote.name,
-              maxLines: 1,
-              overflow: TextOverflow.ellipsis,
+        title: Text(
+          _remote.name,
+          maxLines: 1,
+          overflow: TextOverflow.ellipsis,
+        ),
+        bottom: PreferredSize(
+          preferredSize: Size.fromHeight(countHeight),
+          child: Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 4),
+            child: Text(
+              countLabel,
+              style: countStyle,
+              maxLines: countLines,
+              textAlign: TextAlign.center,
             ),
-            const SizedBox(height: 2),
-            Text(
-              context.l10n.remoteButtonCountSummary(count),
-              style: theme.textTheme.labelSmall?.copyWith(
-                color: cs.onSurface.withValues(alpha: 0.65),
-                fontWeight: FontWeight.w600,
-              ),
-            ),
-          ],
+          ),
         ),
         actions: [
           IconButton(
@@ -2486,7 +2500,7 @@ class _EmptyRemoteState extends StatelessWidget {
     final cs = theme.colorScheme;
 
     return Center(
-      child: Padding(
+      child: SingleChildScrollView(
         padding: const EdgeInsets.all(24),
         child: Column(
           mainAxisSize: MainAxisSize.min,
