@@ -2445,5 +2445,13 @@
   "githubImportUnavailable": "Importeren niet mogelijk",
   "githubImportPreviewCounts": "Afstandsbedieningen: {remoteCount}, knoppen: {buttonCount}.",
   "githubImportMoreRemotes": "Overige afstandsbedieningen: {count}",
-  "githubImportFileIssues": "Problemen met het bestand"
+  "githubImportFileIssues": "Problemen met het bestand",
+  "importPreviewJsonFormat": "JSON-back-up",
+  "importPreviewLircFormat": "LIRC-configuratie",
+  "importPreviewUnknownFormat": "Onbekend formaat",
+  "importPreviewReady": "Dit bestand bevat knoppen die je kunt importeren.",
+  "importPreviewNoJsonButtons": "Geen importeerbare knoppen gevonden in dit JSON-bestand.",
+  "importPreviewJsonGuidance": "Kies een IR Blaster-back-up met afstandsbedieningen die knoppen bevatten.",
+  "importPreviewMissingLircHeader": "De sectie \"begin remote\" ontbreekt.",
+  "importPreviewSupportedFormats": "Ondersteunde formaten: IR Blaster-JSON-back-up, Flipper .ir, IRPLUS XML en LIRC-configuratie."
 }

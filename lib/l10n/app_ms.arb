@@ -2445,5 +2445,13 @@
   "githubImportUnavailable": "Tidak dapat diimport",
   "githubImportPreviewCounts": "Alat kawalan jauh: {remoteCount}, butang: {buttonCount}.",
   "githubImportMoreRemotes": "Alat kawalan jauh lain: {count}",
-  "githubImportFileIssues": "Masalah fail"
+  "githubImportFileIssues": "Masalah fail",
+  "importPreviewJsonFormat": "Sandaran JSON",
+  "importPreviewLircFormat": "Konfigurasi LIRC",
+  "importPreviewUnknownFormat": "Format tidak diketahui",
+  "importPreviewReady": "Fail ini mengandungi butang yang boleh diimport.",
+  "importPreviewNoJsonButtons": "Tiada butang yang boleh diimport dalam fail JSON ini.",
+  "importPreviewJsonGuidance": "Pilih sandaran IR Blaster yang mengandungi alat kawalan jauh dengan butang.",
+  "importPreviewMissingLircHeader": "Bahagian \"begin remote\" tiada.",
+  "importPreviewSupportedFormats": "Format yang disokong: sandaran JSON IR Blaster, Flipper .ir, IRPLUS XML dan konfigurasi LIRC."
 }

@@ -2445,5 +2445,13 @@
   "githubImportUnavailable": "Hindi ma-import",
   "githubImportPreviewCounts": "Mga remote: {remoteCount}, mga button: {buttonCount}.",
   "githubImportMoreRemotes": "Iba pang remote: {count}",
-  "githubImportFileIssues": "Mga problema sa file"
+  "githubImportFileIssues": "Mga problema sa file",
+  "importPreviewJsonFormat": "JSON backup",
+  "importPreviewLircFormat": "LIRC configuration",
+  "importPreviewUnknownFormat": "Hindi kilalang format",
+  "importPreviewReady": "May mga button sa file na ito na puwedeng i-import.",
+  "importPreviewNoJsonButtons": "Walang makitang button na puwedeng i-import sa JSON file na ito.",
+  "importPreviewJsonGuidance": "Pumili ng IR Blaster backup na may mga remote na may button.",
+  "importPreviewMissingLircHeader": "Wala ang seksyong \"begin remote\".",
+  "importPreviewSupportedFormats": "Mga suportadong format: IR Blaster JSON backup, Flipper .ir, IRPLUS XML, at LIRC configuration."
 }

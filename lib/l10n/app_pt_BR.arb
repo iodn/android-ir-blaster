@@ -2445,5 +2445,13 @@
   "githubImportUnavailable": "Não é possível importar",
   "githubImportPreviewCounts": "Controles: {remoteCount}, botões: {buttonCount}.",
   "githubImportMoreRemotes": "Outros controles: {count}",
-  "githubImportFileIssues": "Problemas no arquivo"
+  "githubImportFileIssues": "Problemas no arquivo",
+  "importPreviewJsonFormat": "Backup JSON",
+  "importPreviewLircFormat": "Configuração LIRC",
+  "importPreviewUnknownFormat": "Formato desconhecido",
+  "importPreviewReady": "Este arquivo contém botões que você pode importar.",
+  "importPreviewNoJsonButtons": "Nenhum botão para importar foi encontrado neste arquivo JSON.",
+  "importPreviewJsonGuidance": "Escolha um backup do IR Blaster que contenha controles com botões.",
+  "importPreviewMissingLircHeader": "A seção \"begin remote\" está ausente.",
+  "importPreviewSupportedFormats": "Formatos compatíveis: backup JSON do IR Blaster, Flipper .ir, IRPLUS XML e configuração LIRC."
 }

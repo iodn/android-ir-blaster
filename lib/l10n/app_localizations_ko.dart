@@ -5178,4 +5178,30 @@ class AppLocalizationsKo extends AppLocalizations {
 
   @override
   String get githubImportFileIssues => '파일 문제';
+
+  @override
+  String get importPreviewJsonFormat => 'JSON 백업';
+
+  @override
+  String get importPreviewLircFormat => 'LIRC 설정';
+
+  @override
+  String get importPreviewUnknownFormat => '알 수 없는 형식';
+
+  @override
+  String get importPreviewReady => '이 파일에는 가져올 수 있는 버튼이 있습니다.';
+
+  @override
+  String get importPreviewNoJsonButtons => '이 JSON 파일에서 가져올 수 있는 버튼을 찾지 못했습니다.';
+
+  @override
+  String get importPreviewJsonGuidance =>
+      '버튼이 있는 리모컨을 포함한 IR Blaster 백업을 선택하세요.';
+
+  @override
+  String get importPreviewMissingLircHeader => '\"begin remote\" 구역이 없습니다.';
+
+  @override
+  String get importPreviewSupportedFormats =>
+      '지원 형식: IR Blaster JSON 백업, Flipper .ir, IRPLUS XML, LIRC 설정.';
 }

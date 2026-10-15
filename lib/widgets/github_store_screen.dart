@@ -881,12 +881,14 @@ class _GitHubFileImportScreenState extends State<_GitHubFileImportScreen> {
   }
 
   Future<_ParsedGitHubImport> _load(BuildContext context) async {
-    final fallbackRemoteName = context.l10n.importedRemoteDefaultName;
-    final fallbackButtonLabel = context.l10n.buttonFallbackTitle;
+    final l10n = context.l10n;
+    final fallbackRemoteName = l10n.importedRemoteDefaultName;
+    final fallbackButtonLabel = l10n.buttonFallbackTitle;
     final payload =
         await widget.service.fetchFileText(widget.repo, widget.item.path);
     final preview = analyzeImportedText(
       payload.text,
+      localizations: l10n,
       filename: widget.item.name,
       fallbackRemoteName: fallbackRemoteName,
       fallbackButtonLabel: fallbackButtonLabel,

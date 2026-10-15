@@ -5409,4 +5409,33 @@ class AppLocalizationsNl extends AppLocalizations {
 
   @override
   String get githubImportFileIssues => 'Problemen met het bestand';
+
+  @override
+  String get importPreviewJsonFormat => 'JSON-back-up';
+
+  @override
+  String get importPreviewLircFormat => 'LIRC-configuratie';
+
+  @override
+  String get importPreviewUnknownFormat => 'Onbekend formaat';
+
+  @override
+  String get importPreviewReady =>
+      'Dit bestand bevat knoppen die je kunt importeren.';
+
+  @override
+  String get importPreviewNoJsonButtons =>
+      'Geen importeerbare knoppen gevonden in dit JSON-bestand.';
+
+  @override
+  String get importPreviewJsonGuidance =>
+      'Kies een IR Blaster-back-up met afstandsbedieningen die knoppen bevatten.';
+
+  @override
+  String get importPreviewMissingLircHeader =>
+      'De sectie \"begin remote\" ontbreekt.';
+
+  @override
+  String get importPreviewSupportedFormats =>
+      'Ondersteunde formaten: IR Blaster-JSON-back-up, Flipper .ir, IRPLUS XML en LIRC-configuratie.';
 }

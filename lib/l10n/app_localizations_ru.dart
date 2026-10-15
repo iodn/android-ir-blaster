@@ -5398,4 +5398,33 @@ class AppLocalizationsRu extends AppLocalizations {
 
   @override
   String get githubImportFileIssues => 'Проблемы с файлом';
+
+  @override
+  String get importPreviewJsonFormat => 'Резервная копия JSON';
+
+  @override
+  String get importPreviewLircFormat => 'Конфигурация LIRC';
+
+  @override
+  String get importPreviewUnknownFormat => 'Неизвестный формат';
+
+  @override
+  String get importPreviewReady =>
+      'Этот файл содержит кнопки, которые можно импортировать.';
+
+  @override
+  String get importPreviewNoJsonButtons =>
+      'В этом JSON-файле нет кнопок для импорта.';
+
+  @override
+  String get importPreviewJsonGuidance =>
+      'Выберите резервную копию IR Blaster с пультами, содержащими кнопки.';
+
+  @override
+  String get importPreviewMissingLircHeader =>
+      'Отсутствует раздел \"begin remote\".';
+
+  @override
+  String get importPreviewSupportedFormats =>
+      'Поддерживаемые форматы: резервная копия JSON IR Blaster, Flipper .ir, IRPLUS XML и конфигурация LIRC.';
 }

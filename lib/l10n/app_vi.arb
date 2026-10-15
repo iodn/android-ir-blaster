@@ -2445,5 +2445,13 @@
   "githubImportUnavailable": "Không thể nhập",
   "githubImportPreviewCounts": "Điều khiển: {remoteCount}, nút: {buttonCount}.",
   "githubImportMoreRemotes": "Điều khiển khác: {count}",
-  "githubImportFileIssues": "Vấn đề trong tệp"
+  "githubImportFileIssues": "Vấn đề trong tệp",
+  "importPreviewJsonFormat": "Bản sao lưu JSON",
+  "importPreviewLircFormat": "Cấu hình LIRC",
+  "importPreviewUnknownFormat": "Định dạng không xác định",
+  "importPreviewReady": "Tệp này chứa các nút có thể nhập.",
+  "importPreviewNoJsonButtons": "Không tìm thấy nút nào có thể nhập trong tệp JSON này.",
+  "importPreviewJsonGuidance": "Chọn bản sao lưu IR Blaster có chứa điều khiển với các nút.",
+  "importPreviewMissingLircHeader": "Thiếu phần \"begin remote\".",
+  "importPreviewSupportedFormats": "Định dạng được hỗ trợ: bản sao lưu JSON IR Blaster, Flipper .ir, IRPLUS XML và cấu hình LIRC."
 }

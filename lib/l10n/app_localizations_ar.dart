@@ -5335,6 +5335,33 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String get githubImportFileIssues => 'مشكلات الملف';
+
+  @override
+  String get importPreviewJsonFormat => 'نسخة احتياطية بصيغة JSON';
+
+  @override
+  String get importPreviewLircFormat => 'إعدادات LIRC';
+
+  @override
+  String get importPreviewUnknownFormat => 'صيغة غير معروفة';
+
+  @override
+  String get importPreviewReady => 'يحتوي هذا الملف على أزرار يمكن استيرادها.';
+
+  @override
+  String get importPreviewNoJsonButtons =>
+      'لم يتم العثور على أزرار قابلة للاستيراد في ملف JSON.';
+
+  @override
+  String get importPreviewJsonGuidance =>
+      'اختر نسخة احتياطية من IR Blaster تحتوي على أجهزة تحكم بأزرار.';
+
+  @override
+  String get importPreviewMissingLircHeader => 'القسم \"begin remote\" مفقود.';
+
+  @override
+  String get importPreviewSupportedFormats =>
+      'الصيغ المدعومة: نسخة IR Blaster الاحتياطية بصيغة JSON، وFlipper .ir، وIRPLUS XML، وإعدادات LIRC.';
 }
 
 /// The translations for Arabic, as used in Egypt (`ar_EG`).
@@ -10667,4 +10694,32 @@ class AppLocalizationsArEg extends AppLocalizationsAr {
 
   @override
   String get githubImportFileIssues => 'مشكلات الملف';
+
+  @override
+  String get importPreviewJsonFormat => 'نسخة احتياطية بصيغة JSON';
+
+  @override
+  String get importPreviewLircFormat => 'إعدادات LIRC';
+
+  @override
+  String get importPreviewUnknownFormat => 'صيغة غير معروفة';
+
+  @override
+  String get importPreviewReady => 'الملف يحتوي على أزرار يمكن استيرادها.';
+
+  @override
+  String get importPreviewNoJsonButtons =>
+      'لم يتم العثور على أزرار يمكن استيرادها في ملف JSON.';
+
+  @override
+  String get importPreviewJsonGuidance =>
+      'اختر نسخة احتياطية من IR Blaster تحتوي على ريموتات بأزرار.';
+
+  @override
+  String get importPreviewMissingLircHeader =>
+      'القسم \"begin remote\" غير موجود.';
+
+  @override
+  String get importPreviewSupportedFormats =>
+      'الصيغ المدعومة: نسخة IR Blaster الاحتياطية بصيغة JSON، وFlipper .ir، وIRPLUS XML، وإعدادات LIRC.';
 }

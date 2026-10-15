@@ -5316,4 +5316,32 @@ class AppLocalizationsTr extends AppLocalizations {
 
   @override
   String get githubImportFileIssues => 'Dosya sorunları';
+
+  @override
+  String get importPreviewJsonFormat => 'JSON yedeği';
+
+  @override
+  String get importPreviewLircFormat => 'LIRC yapılandırması';
+
+  @override
+  String get importPreviewUnknownFormat => 'Bilinmeyen biçim';
+
+  @override
+  String get importPreviewReady =>
+      'Bu dosya içe aktarılabilecek düğmeler içeriyor.';
+
+  @override
+  String get importPreviewNoJsonButtons =>
+      'Bu JSON dosyasında içe aktarılabilecek düğme bulunamadı.';
+
+  @override
+  String get importPreviewJsonGuidance =>
+      'Düğme içeren kumandaların bulunduğu bir IR Blaster yedeği seçin.';
+
+  @override
+  String get importPreviewMissingLircHeader => '\"begin remote\" bölümü eksik.';
+
+  @override
+  String get importPreviewSupportedFormats =>
+      'Desteklenen biçimler: IR Blaster JSON yedeği, Flipper .ir, IRPLUS XML ve LIRC yapılandırması.';
 }

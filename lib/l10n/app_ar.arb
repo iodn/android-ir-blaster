@@ -2445,5 +2445,13 @@
   "githubImportUnavailable": "لا يمكن الاستيراد",
   "githubImportPreviewCounts": "أجهزة التحكم: {remoteCount}، الأزرار: {buttonCount}.",
   "githubImportMoreRemotes": "أجهزة تحكم أخرى: {count}",
-  "githubImportFileIssues": "مشكلات الملف"
+  "githubImportFileIssues": "مشكلات الملف",
+  "importPreviewJsonFormat": "نسخة احتياطية بصيغة JSON",
+  "importPreviewLircFormat": "إعدادات LIRC",
+  "importPreviewUnknownFormat": "صيغة غير معروفة",
+  "importPreviewReady": "يحتوي هذا الملف على أزرار يمكن استيرادها.",
+  "importPreviewNoJsonButtons": "لم يتم العثور على أزرار قابلة للاستيراد في ملف JSON.",
+  "importPreviewJsonGuidance": "اختر نسخة احتياطية من IR Blaster تحتوي على أجهزة تحكم بأزرار.",
+  "importPreviewMissingLircHeader": "القسم \"begin remote\" مفقود.",
+  "importPreviewSupportedFormats": "الصيغ المدعومة: نسخة IR Blaster الاحتياطية بصيغة JSON، وFlipper .ir، وIRPLUS XML، وإعدادات LIRC."
 }

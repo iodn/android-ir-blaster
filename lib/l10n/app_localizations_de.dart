@@ -5412,4 +5412,33 @@ class AppLocalizationsDe extends AppLocalizations {
 
   @override
   String get githubImportFileIssues => 'Probleme mit der Datei';
+
+  @override
+  String get importPreviewJsonFormat => 'JSON-Sicherung';
+
+  @override
+  String get importPreviewLircFormat => 'LIRC-Konfiguration';
+
+  @override
+  String get importPreviewUnknownFormat => 'Unbekanntes Format';
+
+  @override
+  String get importPreviewReady =>
+      'Diese Datei enthält Tasten, die importiert werden können.';
+
+  @override
+  String get importPreviewNoJsonButtons =>
+      'Keine importierbaren Tasten in der JSON-Datei gefunden.';
+
+  @override
+  String get importPreviewJsonGuidance =>
+      'Wähle eine IR-Blaster-Sicherung mit Fernbedienungen, die Tasten enthalten.';
+
+  @override
+  String get importPreviewMissingLircHeader =>
+      'Der Abschnitt \"begin remote\" fehlt.';
+
+  @override
+  String get importPreviewSupportedFormats =>
+      'Unterstützte Formate: IR-Blaster-JSON-Sicherung, Flipper .ir, IRPLUS XML und LIRC-Konfiguration.';
 }

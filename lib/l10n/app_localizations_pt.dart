@@ -5405,6 +5405,35 @@ class AppLocalizationsPt extends AppLocalizations {
 
   @override
   String get githubImportFileIssues => 'Problemas no ficheiro';
+
+  @override
+  String get importPreviewJsonFormat => 'Cópia de segurança JSON';
+
+  @override
+  String get importPreviewLircFormat => 'Configuração LIRC';
+
+  @override
+  String get importPreviewUnknownFormat => 'Formato desconhecido';
+
+  @override
+  String get importPreviewReady =>
+      'Este ficheiro contém botões que pode importar.';
+
+  @override
+  String get importPreviewNoJsonButtons =>
+      'Não foram encontrados botões para importar neste ficheiro JSON.';
+
+  @override
+  String get importPreviewJsonGuidance =>
+      'Escolha uma cópia de segurança do IR Blaster que contenha comandos com botões.';
+
+  @override
+  String get importPreviewMissingLircHeader =>
+      'Falta a secção \"begin remote\".';
+
+  @override
+  String get importPreviewSupportedFormats =>
+      'Formatos suportados: cópia de segurança JSON do IR Blaster, Flipper .ir, IRPLUS XML e configuração LIRC.';
 }
 
 /// The translations for Portuguese, as used in Brazil (`pt_BR`).
@@ -10803,4 +10832,33 @@ class AppLocalizationsPtBr extends AppLocalizationsPt {
 
   @override
   String get githubImportFileIssues => 'Problemas no arquivo';
+
+  @override
+  String get importPreviewJsonFormat => 'Backup JSON';
+
+  @override
+  String get importPreviewLircFormat => 'Configuração LIRC';
+
+  @override
+  String get importPreviewUnknownFormat => 'Formato desconhecido';
+
+  @override
+  String get importPreviewReady =>
+      'Este arquivo contém botões que você pode importar.';
+
+  @override
+  String get importPreviewNoJsonButtons =>
+      'Nenhum botão para importar foi encontrado neste arquivo JSON.';
+
+  @override
+  String get importPreviewJsonGuidance =>
+      'Escolha um backup do IR Blaster que contenha controles com botões.';
+
+  @override
+  String get importPreviewMissingLircHeader =>
+      'A seção \"begin remote\" está ausente.';
+
+  @override
+  String get importPreviewSupportedFormats =>
+      'Formatos compatíveis: backup JSON do IR Blaster, Flipper .ir, IRPLUS XML e configuração LIRC.';
 }

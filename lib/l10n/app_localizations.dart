@@ -9583,6 +9583,54 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'File issues'**
   String get githubImportFileIssues;
+
+  /// No description provided for @importPreviewJsonFormat.
+  ///
+  /// In en, this message translates to:
+  /// **'JSON backup'**
+  String get importPreviewJsonFormat;
+
+  /// No description provided for @importPreviewLircFormat.
+  ///
+  /// In en, this message translates to:
+  /// **'LIRC config'**
+  String get importPreviewLircFormat;
+
+  /// No description provided for @importPreviewUnknownFormat.
+  ///
+  /// In en, this message translates to:
+  /// **'Unknown'**
+  String get importPreviewUnknownFormat;
+
+  /// No description provided for @importPreviewReady.
+  ///
+  /// In en, this message translates to:
+  /// **'This file contains buttons you can import.'**
+  String get importPreviewReady;
+
+  /// No description provided for @importPreviewNoJsonButtons.
+  ///
+  /// In en, this message translates to:
+  /// **'No importable buttons were found in this JSON file.'**
+  String get importPreviewNoJsonButtons;
+
+  /// No description provided for @importPreviewJsonGuidance.
+  ///
+  /// In en, this message translates to:
+  /// **'Choose an IR Blaster backup containing remotes with buttons.'**
+  String get importPreviewJsonGuidance;
+
+  /// No description provided for @importPreviewMissingLircHeader.
+  ///
+  /// In en, this message translates to:
+  /// **'The \"begin remote\" section is missing.'**
+  String get importPreviewMissingLircHeader;
+
+  /// No description provided for @importPreviewSupportedFormats.
+  ///
+  /// In en, this message translates to:
+  /// **'Supported formats: IR Blaster JSON backup, Flipper .ir, IRPLUS XML, and LIRC config.'**
+  String get importPreviewSupportedFormats;
 }
 
 class _AppLocalizationsDelegate

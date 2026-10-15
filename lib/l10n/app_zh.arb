@@ -2445,5 +2445,13 @@
   "githubImportUnavailable": "无法导入",
   "githubImportPreviewCounts": "{remoteCount} 个遥控器，{buttonCount} 个按钮。",
   "githubImportMoreRemotes": "另有 {count} 个遥控器",
-  "githubImportFileIssues": "文件问题"
+  "githubImportFileIssues": "文件问题",
+  "importPreviewJsonFormat": "JSON 备份",
+  "importPreviewLircFormat": "LIRC 配置",
+  "importPreviewUnknownFormat": "未知格式",
+  "importPreviewReady": "此文件包含可以导入的按钮。",
+  "importPreviewNoJsonButtons": "此 JSON 文件中没有可导入的按钮。",
+  "importPreviewJsonGuidance": "请选择包含遥控器及其按钮的 IR Blaster 备份。",
+  "importPreviewMissingLircHeader": "缺少“begin remote”部分。",
+  "importPreviewSupportedFormats": "支持的格式：IR Blaster JSON 备份、Flipper .ir、IRPLUS XML 和 LIRC 配置。"
 }

@@ -5080,4 +5080,29 @@ class AppLocalizationsZh extends AppLocalizations {
 
   @override
   String get githubImportFileIssues => '文件问题';
+
+  @override
+  String get importPreviewJsonFormat => 'JSON 备份';
+
+  @override
+  String get importPreviewLircFormat => 'LIRC 配置';
+
+  @override
+  String get importPreviewUnknownFormat => '未知格式';
+
+  @override
+  String get importPreviewReady => '此文件包含可以导入的按钮。';
+
+  @override
+  String get importPreviewNoJsonButtons => '此 JSON 文件中没有可导入的按钮。';
+
+  @override
+  String get importPreviewJsonGuidance => '请选择包含遥控器及其按钮的 IR Blaster 备份。';
+
+  @override
+  String get importPreviewMissingLircHeader => '缺少“begin remote”部分。';
+
+  @override
+  String get importPreviewSupportedFormats =>
+      '支持的格式：IR Blaster JSON 备份、Flipper .ir、IRPLUS XML 和 LIRC 配置。';
 }

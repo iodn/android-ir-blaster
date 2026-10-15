@@ -5279,4 +5279,31 @@ class AppLocalizationsTh extends AppLocalizations {
 
   @override
   String get githubImportFileIssues => 'ปัญหาในไฟล์';
+
+  @override
+  String get importPreviewJsonFormat => 'ไฟล์สำรอง JSON';
+
+  @override
+  String get importPreviewLircFormat => 'การตั้งค่า LIRC';
+
+  @override
+  String get importPreviewUnknownFormat => 'ไม่ทราบรูปแบบ';
+
+  @override
+  String get importPreviewReady => 'ไฟล์นี้มีปุ่มที่นำเข้าได้';
+
+  @override
+  String get importPreviewNoJsonButtons =>
+      'ไม่พบปุ่มที่นำเข้าได้ในไฟล์ JSON นี้';
+
+  @override
+  String get importPreviewJsonGuidance =>
+      'เลือกไฟล์สำรอง IR Blaster ที่มีรีโมตพร้อมปุ่ม';
+
+  @override
+  String get importPreviewMissingLircHeader => 'ไม่มีส่วน \"begin remote\"';
+
+  @override
+  String get importPreviewSupportedFormats =>
+      'รูปแบบที่รองรับ: ไฟล์สำรอง JSON ของ IR Blaster, Flipper .ir, IRPLUS XML และการตั้งค่า LIRC';
 }

@@ -2431,5 +2431,13 @@
   "githubImportUnavailable": "Import nicht möglich",
   "githubImportPreviewCounts": "Fernbedienungen: {remoteCount}, Tasten: {buttonCount}.",
   "githubImportMoreRemotes": "Weitere Fernbedienungen: {count}",
-  "githubImportFileIssues": "Probleme mit der Datei"
+  "githubImportFileIssues": "Probleme mit der Datei",
+  "importPreviewJsonFormat": "JSON-Sicherung",
+  "importPreviewLircFormat": "LIRC-Konfiguration",
+  "importPreviewUnknownFormat": "Unbekanntes Format",
+  "importPreviewReady": "Diese Datei enthält Tasten, die importiert werden können.",
+  "importPreviewNoJsonButtons": "Keine importierbaren Tasten in der JSON-Datei gefunden.",
+  "importPreviewJsonGuidance": "Wähle eine IR-Blaster-Sicherung mit Fernbedienungen, die Tasten enthalten.",
+  "importPreviewMissingLircHeader": "Der Abschnitt \"begin remote\" fehlt.",
+  "importPreviewSupportedFormats": "Unterstützte Formate: IR-Blaster-JSON-Sicherung, Flipper .ir, IRPLUS XML und LIRC-Konfiguration."
 }

@@ -5302,4 +5302,31 @@ class AppLocalizationsVi extends AppLocalizations {
 
   @override
   String get githubImportFileIssues => 'Vấn đề trong tệp';
+
+  @override
+  String get importPreviewJsonFormat => 'Bản sao lưu JSON';
+
+  @override
+  String get importPreviewLircFormat => 'Cấu hình LIRC';
+
+  @override
+  String get importPreviewUnknownFormat => 'Định dạng không xác định';
+
+  @override
+  String get importPreviewReady => 'Tệp này chứa các nút có thể nhập.';
+
+  @override
+  String get importPreviewNoJsonButtons =>
+      'Không tìm thấy nút nào có thể nhập trong tệp JSON này.';
+
+  @override
+  String get importPreviewJsonGuidance =>
+      'Chọn bản sao lưu IR Blaster có chứa điều khiển với các nút.';
+
+  @override
+  String get importPreviewMissingLircHeader => 'Thiếu phần \"begin remote\".';
+
+  @override
+  String get importPreviewSupportedFormats =>
+      'Định dạng được hỗ trợ: bản sao lưu JSON IR Blaster, Flipper .ir, IRPLUS XML và cấu hình LIRC.';
 }

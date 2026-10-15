@@ -2445,5 +2445,13 @@
   "githubImportUnavailable": "取り込み不可",
   "githubImportPreviewCounts": "リモコン{remoteCount}件、ボタン{buttonCount}個。",
   "githubImportMoreRemotes": "ほかにリモコン{count}件",
-  "githubImportFileIssues": "ファイルの問題"
+  "githubImportFileIssues": "ファイルの問題",
+  "importPreviewJsonFormat": "JSONバックアップ",
+  "importPreviewLircFormat": "LIRC設定",
+  "importPreviewUnknownFormat": "不明な形式",
+  "importPreviewReady": "このファイルには取り込み可能なボタンが含まれています。",
+  "importPreviewNoJsonButtons": "このJSONファイルには取り込み可能なボタンがありません。",
+  "importPreviewJsonGuidance": "ボタンのあるリモコンを含むIR Blasterのバックアップを選んでください。",
+  "importPreviewMissingLircHeader": "「begin remote」セクションがありません。",
+  "importPreviewSupportedFormats": "対応形式：IR BlasterのJSONバックアップ、Flipper .ir、IRPLUS XML、LIRC設定。"
 }

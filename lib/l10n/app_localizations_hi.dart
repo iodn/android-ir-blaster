@@ -5331,4 +5331,32 @@ class AppLocalizationsHi extends AppLocalizations {
 
   @override
   String get githubImportFileIssues => 'फ़ाइल की समस्याएँ';
+
+  @override
+  String get importPreviewJsonFormat => 'JSON बैकअप';
+
+  @override
+  String get importPreviewLircFormat => 'LIRC कॉन्फ़िगरेशन';
+
+  @override
+  String get importPreviewUnknownFormat => 'अज्ञात फ़ॉर्मैट';
+
+  @override
+  String get importPreviewReady => 'इस फ़ाइल के बटन इंपोर्ट किए जा सकते हैं।';
+
+  @override
+  String get importPreviewNoJsonButtons =>
+      'इस JSON फ़ाइल में इंपोर्ट करने योग्य बटन नहीं मिले।';
+
+  @override
+  String get importPreviewJsonGuidance =>
+      'IR Blaster का ऐसा बैकअप चुनें जिसमें बटन वाले रिमोट हों।';
+
+  @override
+  String get importPreviewMissingLircHeader =>
+      '\"begin remote\" सेक्शन मौजूद नहीं है।';
+
+  @override
+  String get importPreviewSupportedFormats =>
+      'समर्थित फ़ॉर्मैट: IR Blaster JSON बैकअप, Flipper .ir, IRPLUS XML और LIRC कॉन्फ़िगरेशन।';
 }

@@ -2447,5 +2447,13 @@
   "githubImportUnavailable": "Nie można zaimportować",
   "githubImportPreviewCounts": "Piloty: {remoteCount}, przyciski: {buttonCount}.",
   "githubImportMoreRemotes": "Pozostałe piloty: {count}",
-  "githubImportFileIssues": "Problemy z plikiem"
+  "githubImportFileIssues": "Problemy z plikiem",
+  "importPreviewJsonFormat": "Kopia zapasowa JSON",
+  "importPreviewLircFormat": "Konfiguracja LIRC",
+  "importPreviewUnknownFormat": "Nieznany format",
+  "importPreviewReady": "Ten plik zawiera przyciski, które można zaimportować.",
+  "importPreviewNoJsonButtons": "W tym pliku JSON nie znaleziono przycisków do zaimportowania.",
+  "importPreviewJsonGuidance": "Wybierz kopię zapasową IR Blaster zawierającą piloty z przyciskami.",
+  "importPreviewMissingLircHeader": "Brakuje sekcji \"begin remote\".",
+  "importPreviewSupportedFormats": "Obsługiwane formaty: kopia zapasowa JSON IR Blaster, Flipper .ir, IRPLUS XML i konfiguracja LIRC."
 }

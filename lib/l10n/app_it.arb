@@ -2445,5 +2445,13 @@
   "githubImportUnavailable": "Impossibile importare",
   "githubImportPreviewCounts": "Telecomandi: {remoteCount}, pulsanti: {buttonCount}.",
   "githubImportMoreRemotes": "Altri telecomandi: {count}",
-  "githubImportFileIssues": "Problemi nel file"
+  "githubImportFileIssues": "Problemi nel file",
+  "importPreviewJsonFormat": "Backup JSON",
+  "importPreviewLircFormat": "Configurazione LIRC",
+  "importPreviewUnknownFormat": "Formato sconosciuto",
+  "importPreviewReady": "Questo file contiene pulsanti che puoi importare.",
+  "importPreviewNoJsonButtons": "Nessun pulsante importabile trovato in questo file JSON.",
+  "importPreviewJsonGuidance": "Scegli un backup di IR Blaster contenente telecomandi con pulsanti.",
+  "importPreviewMissingLircHeader": "Manca la sezione \"begin remote\".",
+  "importPreviewSupportedFormats": "Formati supportati: backup JSON di IR Blaster, Flipper .ir, IRPLUS XML e configurazione LIRC."
 }

@@ -5338,4 +5338,33 @@ class AppLocalizationsFil extends AppLocalizations {
 
   @override
   String get githubImportFileIssues => 'Mga problema sa file';
+
+  @override
+  String get importPreviewJsonFormat => 'JSON backup';
+
+  @override
+  String get importPreviewLircFormat => 'LIRC configuration';
+
+  @override
+  String get importPreviewUnknownFormat => 'Hindi kilalang format';
+
+  @override
+  String get importPreviewReady =>
+      'May mga button sa file na ito na puwedeng i-import.';
+
+  @override
+  String get importPreviewNoJsonButtons =>
+      'Walang makitang button na puwedeng i-import sa JSON file na ito.';
+
+  @override
+  String get importPreviewJsonGuidance =>
+      'Pumili ng IR Blaster backup na may mga remote na may button.';
+
+  @override
+  String get importPreviewMissingLircHeader =>
+      'Wala ang seksyong \"begin remote\".';
+
+  @override
+  String get importPreviewSupportedFormats =>
+      'Mga suportadong format: IR Blaster JSON backup, Flipper .ir, IRPLUS XML, at LIRC configuration.';
 }

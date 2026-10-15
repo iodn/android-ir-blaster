@@ -2445,5 +2445,13 @@
   "githubImportUnavailable": "Неможливо імпортувати",
   "githubImportPreviewCounts": "Пультів: {remoteCount}, кнопок: {buttonCount}.",
   "githubImportMoreRemotes": "Інших пультів: {count}",
-  "githubImportFileIssues": "Проблеми з файлом"
+  "githubImportFileIssues": "Проблеми з файлом",
+  "importPreviewJsonFormat": "Резервна копія JSON",
+  "importPreviewLircFormat": "Конфігурація LIRC",
+  "importPreviewUnknownFormat": "Невідомий формат",
+  "importPreviewReady": "Цей файл містить кнопки, які можна імпортувати.",
+  "importPreviewNoJsonButtons": "У цьому JSON-файлі немає кнопок для імпорту.",
+  "importPreviewJsonGuidance": "Виберіть резервну копію IR Blaster з пультами, що містять кнопки.",
+  "importPreviewMissingLircHeader": "Відсутній розділ \"begin remote\".",
+  "importPreviewSupportedFormats": "Підтримувані формати: резервна копія JSON IR Blaster, Flipper .ir, IRPLUS XML і конфігурація LIRC."
 }

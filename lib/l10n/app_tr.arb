@@ -2445,5 +2445,13 @@
   "githubImportUnavailable": "İçe aktarılamıyor",
   "githubImportPreviewCounts": "Kumanda sayısı: {remoteCount}, düğme sayısı: {buttonCount}.",
   "githubImportMoreRemotes": "Diğer kumanda sayısı: {count}",
-  "githubImportFileIssues": "Dosya sorunları"
+  "githubImportFileIssues": "Dosya sorunları",
+  "importPreviewJsonFormat": "JSON yedeği",
+  "importPreviewLircFormat": "LIRC yapılandırması",
+  "importPreviewUnknownFormat": "Bilinmeyen biçim",
+  "importPreviewReady": "Bu dosya içe aktarılabilecek düğmeler içeriyor.",
+  "importPreviewNoJsonButtons": "Bu JSON dosyasında içe aktarılabilecek düğme bulunamadı.",
+  "importPreviewJsonGuidance": "Düğme içeren kumandaların bulunduğu bir IR Blaster yedeği seçin.",
+  "importPreviewMissingLircHeader": "\"begin remote\" bölümü eksik.",
+  "importPreviewSupportedFormats": "Desteklenen biçimler: IR Blaster JSON yedeği, Flipper .ir, IRPLUS XML ve LIRC yapılandırması."
 }

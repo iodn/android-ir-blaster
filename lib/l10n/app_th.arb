@@ -2445,5 +2445,13 @@
   "githubImportUnavailable": "ไม่สามารถนำเข้าได้",
   "githubImportPreviewCounts": "รีโมต {remoteCount} รายการ ปุ่ม {buttonCount} ปุ่ม",
   "githubImportMoreRemotes": "รีโมตอื่นอีก {count} รายการ",
-  "githubImportFileIssues": "ปัญหาในไฟล์"
+  "githubImportFileIssues": "ปัญหาในไฟล์",
+  "importPreviewJsonFormat": "ไฟล์สำรอง JSON",
+  "importPreviewLircFormat": "การตั้งค่า LIRC",
+  "importPreviewUnknownFormat": "ไม่ทราบรูปแบบ",
+  "importPreviewReady": "ไฟล์นี้มีปุ่มที่นำเข้าได้",
+  "importPreviewNoJsonButtons": "ไม่พบปุ่มที่นำเข้าได้ในไฟล์ JSON นี้",
+  "importPreviewJsonGuidance": "เลือกไฟล์สำรอง IR Blaster ที่มีรีโมตพร้อมปุ่ม",
+  "importPreviewMissingLircHeader": "ไม่มีส่วน \"begin remote\"",
+  "importPreviewSupportedFormats": "รูปแบบที่รองรับ: ไฟล์สำรอง JSON ของ IR Blaster, Flipper .ir, IRPLUS XML และการตั้งค่า LIRC"
 }

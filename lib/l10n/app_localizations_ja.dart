@@ -5163,4 +5163,30 @@ class AppLocalizationsJa extends AppLocalizations {
 
   @override
   String get githubImportFileIssues => 'ファイルの問題';
+
+  @override
+  String get importPreviewJsonFormat => 'JSONバックアップ';
+
+  @override
+  String get importPreviewLircFormat => 'LIRC設定';
+
+  @override
+  String get importPreviewUnknownFormat => '不明な形式';
+
+  @override
+  String get importPreviewReady => 'このファイルには取り込み可能なボタンが含まれています。';
+
+  @override
+  String get importPreviewNoJsonButtons => 'このJSONファイルには取り込み可能なボタンがありません。';
+
+  @override
+  String get importPreviewJsonGuidance =>
+      'ボタンのあるリモコンを含むIR Blasterのバックアップを選んでください。';
+
+  @override
+  String get importPreviewMissingLircHeader => '「begin remote」セクションがありません。';
+
+  @override
+  String get importPreviewSupportedFormats =>
+      '対応形式：IR BlasterのJSONバックアップ、Flipper .ir、IRPLUS XML、LIRC設定。';
 }

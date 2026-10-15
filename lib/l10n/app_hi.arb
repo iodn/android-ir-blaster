@@ -2445,5 +2445,13 @@
   "githubImportUnavailable": "इंपोर्ट नहीं हो सकता",
   "githubImportPreviewCounts": "रिमोट: {remoteCount}, बटन: {buttonCount}।",
   "githubImportMoreRemotes": "अन्य रिमोट: {count}",
-  "githubImportFileIssues": "फ़ाइल की समस्याएँ"
+  "githubImportFileIssues": "फ़ाइल की समस्याएँ",
+  "importPreviewJsonFormat": "JSON बैकअप",
+  "importPreviewLircFormat": "LIRC कॉन्फ़िगरेशन",
+  "importPreviewUnknownFormat": "अज्ञात फ़ॉर्मैट",
+  "importPreviewReady": "इस फ़ाइल के बटन इंपोर्ट किए जा सकते हैं।",
+  "importPreviewNoJsonButtons": "इस JSON फ़ाइल में इंपोर्ट करने योग्य बटन नहीं मिले।",
+  "importPreviewJsonGuidance": "IR Blaster का ऐसा बैकअप चुनें जिसमें बटन वाले रिमोट हों।",
+  "importPreviewMissingLircHeader": "\"begin remote\" सेक्शन मौजूद नहीं है।",
+  "importPreviewSupportedFormats": "समर्थित फ़ॉर्मैट: IR Blaster JSON बैकअप, Flipper .ir, IRPLUS XML और LIRC कॉन्फ़िगरेशन।"
 }

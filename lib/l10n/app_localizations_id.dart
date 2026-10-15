@@ -5319,4 +5319,32 @@ class AppLocalizationsId extends AppLocalizations {
 
   @override
   String get githubImportFileIssues => 'Masalah pada file';
+
+  @override
+  String get importPreviewJsonFormat => 'Cadangan JSON';
+
+  @override
+  String get importPreviewLircFormat => 'Konfigurasi LIRC';
+
+  @override
+  String get importPreviewUnknownFormat => 'Format tidak dikenal';
+
+  @override
+  String get importPreviewReady => 'File ini berisi tombol yang dapat diimpor.';
+
+  @override
+  String get importPreviewNoJsonButtons =>
+      'Tidak ada tombol yang dapat diimpor dari file JSON ini.';
+
+  @override
+  String get importPreviewJsonGuidance =>
+      'Pilih cadangan IR Blaster yang berisi remote dengan tombol.';
+
+  @override
+  String get importPreviewMissingLircHeader =>
+      'Bagian \"begin remote\" tidak ditemukan.';
+
+  @override
+  String get importPreviewSupportedFormats =>
+      'Format yang didukung: cadangan JSON IR Blaster, Flipper .ir, IRPLUS XML, dan konfigurasi LIRC.';
 }

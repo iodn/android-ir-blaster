@@ -5330,4 +5330,33 @@ class AppLocalizationsMs extends AppLocalizations {
 
   @override
   String get githubImportFileIssues => 'Masalah fail';
+
+  @override
+  String get importPreviewJsonFormat => 'Sandaran JSON';
+
+  @override
+  String get importPreviewLircFormat => 'Konfigurasi LIRC';
+
+  @override
+  String get importPreviewUnknownFormat => 'Format tidak diketahui';
+
+  @override
+  String get importPreviewReady =>
+      'Fail ini mengandungi butang yang boleh diimport.';
+
+  @override
+  String get importPreviewNoJsonButtons =>
+      'Tiada butang yang boleh diimport dalam fail JSON ini.';
+
+  @override
+  String get importPreviewJsonGuidance =>
+      'Pilih sandaran IR Blaster yang mengandungi alat kawalan jauh dengan butang.';
+
+  @override
+  String get importPreviewMissingLircHeader =>
+      'Bahagian \"begin remote\" tiada.';
+
+  @override
+  String get importPreviewSupportedFormats =>
+      'Format yang disokong: sandaran JSON IR Blaster, Flipper .ir, IRPLUS XML dan konfigurasi LIRC.';
 }

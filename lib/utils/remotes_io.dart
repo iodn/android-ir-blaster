@@ -5,6 +5,8 @@ import 'dart:typed_data';
 
 import 'package:file_picker/file_picker.dart';
 import 'package:flutter/material.dart';
+import 'package:irblaster_controller/l10n/app_localizations.dart';
+import 'package:irblaster_controller/l10n/app_localizations_en.dart';
 import 'package:irblaster_controller/l10n/l10n.dart';
 import 'package:irblaster_controller/models/timed_macro.dart';
 import 'package:irblaster_controller/utils/macros_io.dart';
@@ -118,7 +120,9 @@ ImportPreviewResult analyzeImportedText(
   required String filename,
   required String fallbackRemoteName,
   required String fallbackButtonLabel,
+  AppLocalizations? localizations,
 }) {
+  final l10n = localizations ?? AppLocalizationsEn();
   final extLower = _extensionLower(filename);
   final nameLower = filename.toLowerCase();
   final remoteNameHint = _sanitizeRemoteNameFromFilename(
@@ -159,19 +163,19 @@ ImportPreviewResult analyzeImportedText(
     if (kind == _ImportFileKind.json) {
       if (!validRemotes(remotes)) {
         return unsupported(
-          'JSON backup',
-          'The JSON structure was recognized, but no importable IR buttons were found.',
-          issues: const <String>[
-            'Expected a top-level list or a map containing a "remotes" list.',
+          l10n.importPreviewJsonFormat,
+          l10n.importPreviewNoJsonButtons,
+          issues: <String>[
+            l10n.importPreviewJsonGuidance,
           ],
         );
       }
 
       _reassignIds(remotes);
       return ImportPreviewResult(
-        formatLabel: 'JSON backup',
+        formatLabel: l10n.importPreviewJsonFormat,
         isSupported: true,
-        supportReason: 'Compatible IR Blaster JSON backup.',
+        supportReason: l10n.importPreviewReady,
         issues: const <String>[],
         remotes: remotes,
       );
@@ -181,13 +185,13 @@ ImportPreviewResult analyzeImportedText(
       if (!validRemotes(remotes)) {
         return unsupported(
           'Flipper .ir',
-          'This .ir file could not be parsed into importable IR buttons.',
+          l10n.importFailedNoValidButtonsInIr,
         );
       }
       return ImportPreviewResult(
         formatLabel: 'Flipper .ir',
         isSupported: true,
-        supportReason: 'Compatible Flipper IR file.',
+        supportReason: l10n.importPreviewReady,
         issues: const <String>[],
         remotes: remotes,
       );
@@ -197,13 +201,13 @@ ImportPreviewResult analyzeImportedText(
       if (!validRemotes(remotes)) {
         return unsupported(
           'IRPlus XML',
-          'This XML/IRPlus file could not be parsed into importable IR buttons.',
+          l10n.importFailedInvalidIrplus,
         );
       }
       return ImportPreviewResult(
         formatLabel: 'IRPlus XML',
         isSupported: true,
-        supportReason: 'Compatible IRPlus/XML import.',
+        supportReason: l10n.importPreviewReady,
         issues: const <String>[],
         remotes: remotes,
       );
@@ -216,38 +220,38 @@ ImportPreviewResult analyzeImportedText(
       ).hasMatch(contents);
       if (!isLirc) {
         return unsupported(
-          'LIRC config',
-          'This config file does not look like a LIRC remote definition.',
-          issues: const <String>['Missing "begin remote" section.'],
+          l10n.importPreviewLircFormat,
+          l10n.importFailedInvalidLirc,
+          issues: <String>[l10n.importPreviewMissingLircHeader],
         );
       }
 
       if (!validRemotes(remotes)) {
         return unsupported(
-          'LIRC config',
-          'This LIRC file could not be parsed into importable IR buttons.',
+          l10n.importPreviewLircFormat,
+          l10n.importFailedInvalidLirc,
         );
       }
       return ImportPreviewResult(
-        formatLabel: 'LIRC config',
+        formatLabel: l10n.importPreviewLircFormat,
         isSupported: true,
-        supportReason: 'Compatible LIRC import.',
+        supportReason: l10n.importPreviewReady,
         issues: const <String>[],
         remotes: remotes,
       );
     }
 
     return unsupported(
-      'Unknown',
-      'Unsupported file type for IR Blaster import.',
-      issues: const <String>[
-        'Supported formats: IR Blaster JSON backup, Flipper .ir, IRPlus XML, and LIRC config.',
+      l10n.importPreviewUnknownFormat,
+      l10n.unsupportedFileTypeSelected,
+      issues: <String>[
+        l10n.importPreviewSupportedFormats,
       ],
     );
   } catch (e) {
     return unsupported(
-      'Unknown',
-      'The file could not be parsed safely.',
+      l10n.importPreviewUnknownFormat,
+      l10n.importFailedInvalidUnreadableFile,
       issues: <String>[e.toString()],
     );
   }

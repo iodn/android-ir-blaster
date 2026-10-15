@@ -94,10 +94,13 @@ void main() {
         await tester.pumpWidget(app());
         await tester.pumpAndSettle();
         for (final label in [
+          l10n.importPreviewJsonFormat,
           count == 0 ? l10n.githubImportUnavailable : l10n.githubImportReady,
+          count == 0 ? l10n.importPreviewNoJsonButtons : l10n.importPreviewReady,
           l10n.githubImportPreviewCounts(count, count * 2),
           if (count > 8) l10n.githubImportMoreRemotes(count - 8),
           if (count == 0) l10n.githubImportFileIssues,
+          if (count == 0) l10n.importPreviewJsonGuidance,
         ]) {
           final text = find.text(label);
           await tester.scrollUntilVisible(text, 250,

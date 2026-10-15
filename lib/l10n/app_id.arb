@@ -2445,5 +2445,13 @@
   "githubImportUnavailable": "Tidak dapat diimpor",
   "githubImportPreviewCounts": "Remote: {remoteCount}, tombol: {buttonCount}.",
   "githubImportMoreRemotes": "Remote lainnya: {count}",
-  "githubImportFileIssues": "Masalah pada file"
+  "githubImportFileIssues": "Masalah pada file",
+  "importPreviewJsonFormat": "Cadangan JSON",
+  "importPreviewLircFormat": "Konfigurasi LIRC",
+  "importPreviewUnknownFormat": "Format tidak dikenal",
+  "importPreviewReady": "File ini berisi tombol yang dapat diimpor.",
+  "importPreviewNoJsonButtons": "Tidak ada tombol yang dapat diimpor dari file JSON ini.",
+  "importPreviewJsonGuidance": "Pilih cadangan IR Blaster yang berisi remote dengan tombol.",
+  "importPreviewMissingLircHeader": "Bagian \"begin remote\" tidak ditemukan.",
+  "importPreviewSupportedFormats": "Format yang didukung: cadangan JSON IR Blaster, Flipper .ir, IRPLUS XML, dan konfigurasi LIRC."
 }
