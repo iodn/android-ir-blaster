@@ -2055,19 +2055,19 @@
   "@globalSearchTitle": {
     "description": "Title or tooltip for global search across remotes, buttons, and macros."
   },
-  "globalSearchNoResults": "No results found.",
+  "globalSearchNoResults": "見つかりませんでした。",
   "@globalSearchNoResults": {
     "description": "Empty state message for global search."
   },
-  "globalSearchTypeRemote": "REMOTE",
+  "globalSearchTypeRemote": "リモコン",
   "@globalSearchTypeRemote": {
     "description": "Badge label for a remote search result."
   },
-  "globalSearchTypeButton": "BUTTON",
+  "globalSearchTypeButton": "ボタン",
   "@globalSearchTypeButton": {
     "description": "Badge label for a button search result."
   },
-  "globalSearchTypeMacro": "MACRO",
+  "globalSearchTypeMacro": "マクロ",
   "@globalSearchTypeMacro": {
     "description": "Badge label for a macro search result."
   },

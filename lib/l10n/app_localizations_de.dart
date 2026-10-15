@@ -4583,16 +4583,16 @@ class AppLocalizationsDe extends AppLocalizations {
   String get globalSearchTitle => 'Search everything';
 
   @override
-  String get globalSearchNoResults => 'No results found.';
+  String get globalSearchNoResults => 'Keine Ergebnisse gefunden.';
 
   @override
-  String get globalSearchTypeRemote => 'REMOTE';
+  String get globalSearchTypeRemote => 'Fernbedienung';
 
   @override
-  String get globalSearchTypeButton => 'BUTTON';
+  String get globalSearchTypeButton => 'Taste';
 
   @override
-  String get globalSearchTypeMacro => 'MACRO';
+  String get globalSearchTypeMacro => 'Makro';
 
   @override
   String get learningModeCaptureFailed => 'Signal konnte nicht erfasst werden.';

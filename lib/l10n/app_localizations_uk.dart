@@ -4639,16 +4639,16 @@ class AppLocalizationsUk extends AppLocalizations {
   String get globalSearchTitle => 'Шукайте все';
 
   @override
-  String get globalSearchNoResults => 'Результатів не знайдено.';
+  String get globalSearchNoResults => 'Нічого не знайдено.';
 
   @override
-  String get globalSearchTypeRemote => 'ПУЛЬТ';
+  String get globalSearchTypeRemote => 'Пульт';
 
   @override
-  String get globalSearchTypeButton => 'КНОПКА';
+  String get globalSearchTypeButton => 'Кнопка';
 
   @override
-  String get globalSearchTypeMacro => 'МАКРОС';
+  String get globalSearchTypeMacro => 'Макрос';
 
   @override
   String get learningModeCaptureFailed => 'Не вдалося прийняти сигнал.';

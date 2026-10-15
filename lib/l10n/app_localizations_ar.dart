@@ -4534,16 +4534,16 @@ class AppLocalizationsAr extends AppLocalizations {
   String get globalSearchTitle => 'Search everything';
 
   @override
-  String get globalSearchNoResults => 'No results found.';
+  String get globalSearchNoResults => 'لا توجد نتائج.';
 
   @override
-  String get globalSearchTypeRemote => 'REMOTE';
+  String get globalSearchTypeRemote => 'جهاز تحكم';
 
   @override
-  String get globalSearchTypeButton => 'BUTTON';
+  String get globalSearchTypeButton => 'زر';
 
   @override
-  String get globalSearchTypeMacro => 'MACRO';
+  String get globalSearchTypeMacro => 'ماكرو';
 
   @override
   String get learningModeCaptureFailed => 'تعذّر استقبال الإشارة.';
@@ -9806,16 +9806,16 @@ class AppLocalizationsArEg extends AppLocalizationsAr {
   String get globalSearchTitle => 'Search everything';
 
   @override
-  String get globalSearchNoResults => 'No results found.';
+  String get globalSearchNoResults => 'مفيش نتائج.';
 
   @override
-  String get globalSearchTypeRemote => 'REMOTE';
+  String get globalSearchTypeRemote => 'جهاز تحكم';
 
   @override
-  String get globalSearchTypeButton => 'BUTTON';
+  String get globalSearchTypeButton => 'زر';
 
   @override
-  String get globalSearchTypeMacro => 'MACRO';
+  String get globalSearchTypeMacro => 'ماكرو';
 
   @override
   String get learningModeCaptureFailed => 'تعذّر استقبال الإشارة.';

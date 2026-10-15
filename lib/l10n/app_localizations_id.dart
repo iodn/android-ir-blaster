@@ -4513,16 +4513,16 @@ class AppLocalizationsId extends AppLocalizations {
   String get globalSearchTitle => 'Search everything';
 
   @override
-  String get globalSearchNoResults => 'No results found.';
+  String get globalSearchNoResults => 'Tidak ada hasil.';
 
   @override
-  String get globalSearchTypeRemote => 'REMOTE';
+  String get globalSearchTypeRemote => 'Remote';
 
   @override
-  String get globalSearchTypeButton => 'BUTTON';
+  String get globalSearchTypeButton => 'Tombol';
 
   @override
-  String get globalSearchTypeMacro => 'MACRO';
+  String get globalSearchTypeMacro => 'Makro';
 
   @override
   String get learningModeCaptureFailed => 'Sinyal tidak dapat diterima.';

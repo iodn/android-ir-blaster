@@ -4497,16 +4497,16 @@ class AppLocalizationsVi extends AppLocalizations {
   String get globalSearchTitle => 'Search everything';
 
   @override
-  String get globalSearchNoResults => 'No results found.';
+  String get globalSearchNoResults => 'Không tìm thấy kết quả.';
 
   @override
-  String get globalSearchTypeRemote => 'REMOTE';
+  String get globalSearchTypeRemote => 'Điều khiển';
 
   @override
-  String get globalSearchTypeButton => 'BUTTON';
+  String get globalSearchTypeButton => 'Nút';
 
   @override
-  String get globalSearchTypeMacro => 'MACRO';
+  String get globalSearchTypeMacro => 'Macro';
 
   @override
   String get learningModeCaptureFailed => 'Không thu được tín hiệu.';

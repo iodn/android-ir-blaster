@@ -273,29 +273,28 @@ class _SearchResultCard extends StatelessWidget {
                     const SizedBox(height: 4),
                     Text(
                       effectiveSubtitle,
-                      maxLines: 1,
-                      overflow: TextOverflow.ellipsis,
                       style: theme.textTheme.bodySmall?.copyWith(
                         color: cs.onSurface.withValues(alpha: 0.72),
                         fontWeight: FontWeight.w600,
                       ),
                     ),
+                    const SizedBox(height: 8),
+                    Container(
+                      padding: const EdgeInsets.symmetric(
+                          horizontal: 8, vertical: 5),
+                      decoration: BoxDecoration(
+                        color: cs.secondaryContainer.withValues(alpha: 0.75),
+                        borderRadius: BorderRadius.circular(999),
+                      ),
+                      child: Text(
+                        effectiveBadge,
+                        style: theme.textTheme.labelSmall?.copyWith(
+                          color: cs.onSecondaryContainer,
+                          fontWeight: FontWeight.w900,
+                        ),
+                      ),
+                    ),
                   ],
-                ),
-              ),
-              const SizedBox(width: 10),
-              Container(
-                padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 5),
-                decoration: BoxDecoration(
-                  color: cs.secondaryContainer.withValues(alpha: 0.75),
-                  borderRadius: BorderRadius.circular(999),
-                ),
-                child: Text(
-                  effectiveBadge,
-                  style: theme.textTheme.labelSmall?.copyWith(
-                    color: cs.onSecondaryContainer,
-                    fontWeight: FontWeight.w900,
-                  ),
                 ),
               ),
             ],

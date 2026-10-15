@@ -2055,19 +2055,19 @@
   "@globalSearchTitle": {
     "description": "Title or tooltip for global search across remotes, buttons, and macros."
   },
-  "globalSearchNoResults": "No results found.",
+  "globalSearchNoResults": "Không tìm thấy kết quả.",
   "@globalSearchNoResults": {
     "description": "Empty state message for global search."
   },
-  "globalSearchTypeRemote": "REMOTE",
+  "globalSearchTypeRemote": "Điều khiển",
   "@globalSearchTypeRemote": {
     "description": "Badge label for a remote search result."
   },
-  "globalSearchTypeButton": "BUTTON",
+  "globalSearchTypeButton": "Nút",
   "@globalSearchTypeButton": {
     "description": "Badge label for a button search result."
   },
-  "globalSearchTypeMacro": "MACRO",
+  "globalSearchTypeMacro": "Macro",
   "@globalSearchTypeMacro": {
     "description": "Badge label for a macro search result."
   },

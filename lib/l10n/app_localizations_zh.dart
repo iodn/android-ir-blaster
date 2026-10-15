@@ -4323,16 +4323,16 @@ class AppLocalizationsZh extends AppLocalizations {
   String get globalSearchTitle => 'Search everything';
 
   @override
-  String get globalSearchNoResults => 'No results found.';
+  String get globalSearchNoResults => '未找到结果。';
 
   @override
-  String get globalSearchTypeRemote => 'REMOTE';
+  String get globalSearchTypeRemote => '遥控器';
 
   @override
-  String get globalSearchTypeButton => 'BUTTON';
+  String get globalSearchTypeButton => '按钮';
 
   @override
-  String get globalSearchTypeMacro => 'MACRO';
+  String get globalSearchTypeMacro => '宏';
 
   @override
   String get learningModeCaptureFailed => '未能接收到信号。';

@@ -4400,16 +4400,16 @@ class AppLocalizationsKo extends AppLocalizations {
   String get globalSearchTitle => 'Search everything';
 
   @override
-  String get globalSearchNoResults => 'No results found.';
+  String get globalSearchNoResults => '검색 결과가 없어요.';
 
   @override
-  String get globalSearchTypeRemote => 'REMOTE';
+  String get globalSearchTypeRemote => '리모컨';
 
   @override
-  String get globalSearchTypeButton => 'BUTTON';
+  String get globalSearchTypeButton => '버튼';
 
   @override
-  String get globalSearchTypeMacro => 'MACRO';
+  String get globalSearchTypeMacro => '매크로';
 
   @override
   String get learningModeCaptureFailed => '신호를 수신하지 못했습니다.';

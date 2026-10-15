@@ -8249,19 +8249,19 @@ abstract class AppLocalizations {
   /// Badge label for a remote search result.
   ///
   /// In en, this message translates to:
-  /// **'REMOTE'**
+  /// **'Remote'**
   String get globalSearchTypeRemote;
 
   /// Badge label for a button search result.
   ///
   /// In en, this message translates to:
-  /// **'BUTTON'**
+  /// **'Button'**
   String get globalSearchTypeButton;
 
   /// Badge label for a macro search result.
   ///
   /// In en, this message translates to:
-  /// **'MACRO'**
+  /// **'Macro'**
   String get globalSearchTypeMacro;
 
   /// No description provided for @learningModeCaptureFailed.

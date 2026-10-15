@@ -4480,16 +4480,16 @@ class AppLocalizationsTh extends AppLocalizations {
   String get globalSearchTitle => 'Search everything';
 
   @override
-  String get globalSearchNoResults => 'No results found.';
+  String get globalSearchNoResults => 'ไม่พบผลลัพธ์';
 
   @override
-  String get globalSearchTypeRemote => 'REMOTE';
+  String get globalSearchTypeRemote => 'รีโมต';
 
   @override
-  String get globalSearchTypeButton => 'BUTTON';
+  String get globalSearchTypeButton => 'ปุ่ม';
 
   @override
-  String get globalSearchTypeMacro => 'MACRO';
+  String get globalSearchTypeMacro => 'มาโคร';
 
   @override
   String get learningModeCaptureFailed => 'รับสัญญาณไม่สำเร็จ';

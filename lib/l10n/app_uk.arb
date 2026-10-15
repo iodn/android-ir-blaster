@@ -2055,19 +2055,19 @@
   "@globalSearchTitle": {
     "description": "Title or tooltip for global search across remotes, buttons, and macros."
   },
-  "globalSearchNoResults": "Результатів не знайдено.",
+  "globalSearchNoResults": "Нічого не знайдено.",
   "@globalSearchNoResults": {
     "description": "Empty state message for global search."
   },
-  "globalSearchTypeRemote": "ПУЛЬТ",
+  "globalSearchTypeRemote": "Пульт",
   "@globalSearchTypeRemote": {
     "description": "Badge label for a remote search result."
   },
-  "globalSearchTypeButton": "КНОПКА",
+  "globalSearchTypeButton": "Кнопка",
   "@globalSearchTypeButton": {
     "description": "Badge label for a button search result."
   },
-  "globalSearchTypeMacro": "МАКРОС",
+  "globalSearchTypeMacro": "Макрос",
   "@globalSearchTypeMacro": {
     "description": "Badge label for a macro search result."
   },

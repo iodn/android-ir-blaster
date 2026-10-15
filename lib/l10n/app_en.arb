@@ -2156,15 +2156,15 @@
   "@globalSearchNoResults": {
     "description": "Empty state message for global search."
   },
-  "globalSearchTypeRemote": "REMOTE",
+  "globalSearchTypeRemote": "Remote",
   "@globalSearchTypeRemote": {
     "description": "Badge label for a remote search result."
   },
-  "globalSearchTypeButton": "BUTTON",
+  "globalSearchTypeButton": "Button",
   "@globalSearchTypeButton": {
     "description": "Badge label for a button search result."
   },
-  "globalSearchTypeMacro": "MACRO",
+  "globalSearchTypeMacro": "Macro",
   "@globalSearchTypeMacro": {
     "description": "Badge label for a macro search result."
   },

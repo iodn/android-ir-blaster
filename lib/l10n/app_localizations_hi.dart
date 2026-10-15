@@ -4504,16 +4504,16 @@ class AppLocalizationsHi extends AppLocalizations {
   String get globalSearchTitle => 'Search everything';
 
   @override
-  String get globalSearchNoResults => 'No results found.';
+  String get globalSearchNoResults => 'कोई नतीजा नहीं मिला।';
 
   @override
-  String get globalSearchTypeRemote => 'REMOTE';
+  String get globalSearchTypeRemote => 'रिमोट';
 
   @override
-  String get globalSearchTypeButton => 'BUTTON';
+  String get globalSearchTypeButton => 'बटन';
 
   @override
-  String get globalSearchTypeMacro => 'MACRO';
+  String get globalSearchTypeMacro => 'मैक्रो';
 
   @override
   String get learningModeCaptureFailed => 'सिग्नल नहीं मिल सका।';
