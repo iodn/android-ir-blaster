@@ -262,13 +262,14 @@ class AppLocalizationsZh extends AppLocalizations {
   String get cancel => '取消';
 
   @override
-  String get settingsRestoreDemoTitle => '恢复演示遥控器';
+  String get settingsRestoreDemoTitle => '恢复演示遥控器？';
 
   @override
-  String get settingsRestoreDemoMessage => '这将用内置演示遥控器替换当前遥控器。如果想保留现有列表，建议先备份。';
+  String get settingsRestoreDemoMessage =>
+      '当前所有遥控器都将被应用内的示例替换。如果想保留现有遥控器，请先保存备份。';
 
   @override
-  String get settingsRestoreDemoConfirm => '恢复演示';
+  String get settingsRestoreDemoConfirm => '恢复示例';
 
   @override
   String get settingsDemoRemotesRestored => '已恢复演示遥控器。';
@@ -823,7 +824,7 @@ class AppLocalizationsZh extends AppLocalizations {
   String get restoreDemoRemotes => '恢复演示遥控器';
 
   @override
-  String get restoreDemoRemotesSubtitle => '用内置演示替换当前遥控器';
+  String get restoreDemoRemotesSubtitle => '用应用内的示例替换当前遥控器。';
 
   @override
   String get deleteAllRemotes => '删除所有遥控器';

@@ -286,14 +286,14 @@ class AppLocalizationsPt extends AppLocalizations {
   String get cancel => 'Cancelar';
 
   @override
-  String get settingsRestoreDemoTitle => 'Restaurar comandos de demonstração?';
+  String get settingsRestoreDemoTitle => 'Restaurar comandos de exemplo?';
 
   @override
   String get settingsRestoreDemoMessage =>
-      'Isto vai substituir os seus comandos atuais pelos comandos de demonstração integrados. Recomenda-se exportar uma cópia se quiser manter a lista atual.';
+      'Todos os seus comandos atuais serão substituídos pelos exemplos da aplicação. Guarde primeiro uma cópia de segurança se quiser mantê-los.';
 
   @override
-  String get settingsRestoreDemoConfirm => 'Restaurar demo';
+  String get settingsRestoreDemoConfirm => 'Restaurar exemplos';
 
   @override
   String get settingsDemoRemotesRestored =>
@@ -893,11 +893,11 @@ class AppLocalizationsPt extends AppLocalizations {
       'Guarde os comandos e as macros num único ficheiro JSON.';
 
   @override
-  String get restoreDemoRemotes => 'Restaurar comandos de demonstração';
+  String get restoreDemoRemotes => 'Restaurar comandos de exemplo';
 
   @override
   String get restoreDemoRemotesSubtitle =>
-      'Substituir os comandos atuais pela demonstração integrada';
+      'Substitua os comandos atuais pelos exemplos da aplicação.';
 
   @override
   String get deleteAllRemotes => 'Eliminar todos os comandos';
@@ -5610,14 +5610,14 @@ class AppLocalizationsPtBr extends AppLocalizationsPt {
   String get cancel => 'Cancelar';
 
   @override
-  String get settingsRestoreDemoTitle => 'Restaurar controles de demonstração?';
+  String get settingsRestoreDemoTitle => 'Restaurar controles de exemplo?';
 
   @override
   String get settingsRestoreDemoMessage =>
-      'Isto vai substituir os seus controles atuais pelos controles de demonstração integrados. É recomendado exportar uma cópia se quiser manter a lista atual.';
+      'Todos os seus controles atuais serão substituídos pelos exemplos do app. Salve um backup antes se quiser mantê-los.';
 
   @override
-  String get settingsRestoreDemoConfirm => 'Restaurar demo';
+  String get settingsRestoreDemoConfirm => 'Restaurar exemplos';
 
   @override
   String get settingsDemoRemotesRestored =>
@@ -6216,11 +6216,11 @@ class AppLocalizationsPtBr extends AppLocalizationsPt {
       'Salve os controles e as macros juntos em um arquivo JSON.';
 
   @override
-  String get restoreDemoRemotes => 'Restaurar controles de demonstração';
+  String get restoreDemoRemotes => 'Restaurar controles de exemplo';
 
   @override
   String get restoreDemoRemotesSubtitle =>
-      'Substituir os controles atuais pela demonstração integrada';
+      'Substitua os controles atuais pelos exemplos do app.';
 
   @override
   String get deleteAllRemotes => 'Excluir todos os controles';

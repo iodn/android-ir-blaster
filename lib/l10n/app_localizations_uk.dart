@@ -290,10 +290,10 @@ class AppLocalizationsUk extends AppLocalizations {
 
   @override
   String get settingsRestoreDemoMessage =>
-      'Це замінить ваші поточні пульти на вбудовані демонстраційні пульти. Рекомендується створити резервну копію, якщо ви хочете зберегти поточний список.';
+      'Усі поточні пульти буде замінено прикладами із застосунку. Якщо хочете зберегти свої пульти, спочатку створіть резервну копію.';
 
   @override
-  String get settingsRestoreDemoConfirm => 'Відновити демо';
+  String get settingsRestoreDemoConfirm => 'Відновити приклади';
 
   @override
   String get settingsDemoRemotesRestored => 'Демо пульти відновлені.';
@@ -895,7 +895,7 @@ class AppLocalizationsUk extends AppLocalizations {
 
   @override
   String get restoreDemoRemotesSubtitle =>
-      'Замініть поточні пульти на вбудовану демонстрацію';
+      'Замінити поточні пульти прикладами із застосунку.';
 
   @override
   String get deleteAllRemotes => 'Видалити всі пульти';

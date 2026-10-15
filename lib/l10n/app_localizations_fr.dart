@@ -286,14 +286,15 @@ class AppLocalizationsFr extends AppLocalizations {
   String get cancel => 'Annuler';
 
   @override
-  String get settingsRestoreDemoTitle => 'Restaurer les démos ?';
+  String get settingsRestoreDemoTitle =>
+      'Restaurer les télécommandes de démo ?';
 
   @override
   String get settingsRestoreDemoMessage =>
-      'Cela remplacera vos télécommandes par les démos intégrées. Une sauvegarde est conseillée si vous voulez garder la liste actuelle.';
+      'Toutes vos télécommandes actuelles seront remplacées par les exemples de l’appli. Faites d’abord une sauvegarde si vous souhaitez les conserver.';
 
   @override
-  String get settingsRestoreDemoConfirm => 'Restaurer la démo';
+  String get settingsRestoreDemoConfirm => 'Restaurer les démos';
 
   @override
   String get settingsDemoRemotesRestored => 'Télécommandes démo restaurées.';
@@ -899,11 +900,11 @@ class AppLocalizationsFr extends AppLocalizations {
       'Enregistrez les télécommandes et les macros dans un seul fichier JSON.';
 
   @override
-  String get restoreDemoRemotes => 'Restaurer les démos';
+  String get restoreDemoRemotes => 'Restaurer les télécommandes de démo';
 
   @override
   String get restoreDemoRemotesSubtitle =>
-      'Remplacer les télécommandes actuelles par la démo intégrée';
+      'Remplace les télécommandes actuelles par les exemples de l’appli.';
 
   @override
   String get deleteAllRemotes => 'Supprimer toutes les télés';

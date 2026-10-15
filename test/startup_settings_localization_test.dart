@@ -6,7 +6,9 @@ import 'package:irblaster_controller/l10n/app_localizations.dart';
 import 'package:irblaster_controller/state/haptics.dart';
 import 'package:irblaster_controller/state/orientation_pref.dart';
 import 'package:irblaster_controller/state/remote_display_prefs.dart';
+import 'package:irblaster_controller/state/remotes_state.dart' as state;
 import 'package:irblaster_controller/state/startup_prefs.dart';
+import 'package:irblaster_controller/utils/remote.dart';
 import 'package:irblaster_controller/widgets/settings_screen.dart';
 import 'package:package_info_plus/package_info_plus.dart';
 import 'package:shared_preferences/shared_preferences.dart';
@@ -16,6 +18,10 @@ void main() {
     testWidgets('startup setting readable and persisted: $locale',
         (tester) async {
       SharedPreferences.setMockInitialValues({});
+      final previousRemotes = state.remotes;
+      final originalRemote = Remote(id: 1, name: 'My TV', buttons: []);
+      state.remotes = [originalRemote];
+      addTearDown(() => state.remotes = previousRemotes);
       final controller = StartupPrefsController.instance;
       await controller.load();
       final orientation = RemoteOrientationController.instance;
@@ -258,6 +264,8 @@ void main() {
         l10n.exportBackupSubtitle,
         l10n.bulkImportFolder,
         l10n.bulkImportFolderSubtitle,
+        l10n.restoreDemoRemotes,
+        l10n.restoreDemoRemotesSubtitle,
       ]) {
         final text = find.text(label);
         await tester.ensureVisible(text);
@@ -277,6 +285,40 @@ void main() {
         await tester.pumpAndSettle();
         expect(find.text(label).hitTestable(), findsOneWidget);
       }
+      await tester.ensureVisible(find.text(l10n.restoreDemoRemotes));
+      await tester.pumpAndSettle();
+      await tester.tap(find.text(l10n.restoreDemoRemotes));
+      await tester.pumpAndSettle();
+      for (final label in [
+        l10n.settingsRestoreDemoTitle,
+        l10n.settingsRestoreDemoMessage,
+        l10n.settingsRestoreDemoConfirm,
+        l10n.cancel,
+      ]) {
+        final text = find.descendant(
+            of: find.byType(AlertDialog), matching: find.text(label));
+        await tester.ensureVisible(text);
+        await tester.pumpAndSettle();
+        expectReadable(text);
+      }
+      final confirm = find.widgetWithText(
+          FilledButton, l10n.settingsRestoreDemoConfirm);
+      final warning = find.text(l10n.settingsRestoreDemoMessage);
+      await Scrollable.ensureVisible(tester.element(warning), alignment: 0);
+      await tester.pumpAndSettle();
+      expect(tester.getRect(warning).top,
+          greaterThanOrEqualTo(tester.getRect(find.byType(AlertDialog)).top));
+      await Scrollable.ensureVisible(tester.element(warning), alignment: 1);
+      await tester.pumpAndSettle();
+      expect(tester.getRect(warning).bottom,
+          lessThanOrEqualTo(tester.getRect(confirm).top));
+      expect(confirm.hitTestable(), findsOneWidget);
+      final cancel = find.widgetWithText(TextButton, l10n.cancel);
+      expect(cancel.hitTestable(), findsOneWidget);
+      await tester.tap(cancel);
+      await tester.pumpAndSettle();
+      expect(find.byType(AlertDialog), findsNothing);
+      expect(state.remotes, [originalRemote]);
       await tester.pumpWidget(const SizedBox());
       await tester.pumpAndSettle();
     });

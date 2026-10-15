@@ -284,14 +284,14 @@ class AppLocalizationsId extends AppLocalizations {
   String get cancel => 'Batal';
 
   @override
-  String get settingsRestoreDemoTitle => 'Pulihkan remote demo?';
+  String get settingsRestoreDemoTitle => 'Pulihkan remote contoh?';
 
   @override
   String get settingsRestoreDemoMessage =>
-      'Ini akan mengganti remote saat ini dengan remote demo bawaan. Cadangan disarankan jika Anda ingin menyimpan daftar saat ini.';
+      'Semua remote Anda saat ini akan diganti dengan contoh bawaan aplikasi. Simpan cadangan terlebih dahulu jika ingin mempertahankannya.';
 
   @override
-  String get settingsRestoreDemoConfirm => 'Pulihkan demo';
+  String get settingsRestoreDemoConfirm => 'Pulihkan contoh';
 
   @override
   String get settingsDemoRemotesRestored => 'Remote demo dipulihkan.';
@@ -889,11 +889,11 @@ class AppLocalizationsId extends AppLocalizations {
       'Simpan remote dan makro bersama dalam satu file JSON.';
 
   @override
-  String get restoreDemoRemotes => 'Pulihkan remote demo';
+  String get restoreDemoRemotes => 'Pulihkan remote contoh';
 
   @override
   String get restoreDemoRemotesSubtitle =>
-      'Ganti remote saat ini dengan demo bawaan';
+      'Ganti remote saat ini dengan contoh bawaan aplikasi.';
 
   @override
   String get deleteAllRemotes => 'Hapus semua remote';

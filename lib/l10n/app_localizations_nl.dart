@@ -290,10 +290,10 @@ class AppLocalizationsNl extends AppLocalizations {
 
   @override
   String get settingsRestoreDemoMessage =>
-      'Hiermee vervang je je huidige afstandsbedieningen door de ingebouwde demo-afstandsbedieningen. Een back-up is aanbevolen als je je huidige lijst wilt behouden.';
+      'Al je huidige afstandsbedieningen worden vervangen door de voorbeelden uit de app. Sla eerst een back-up op als je ze wilt behouden.';
 
   @override
-  String get settingsRestoreDemoConfirm => 'Demo herstellen';
+  String get settingsRestoreDemoConfirm => 'Demo’s herstellen';
 
   @override
   String get settingsDemoRemotesRestored =>
@@ -906,7 +906,7 @@ class AppLocalizationsNl extends AppLocalizations {
 
   @override
   String get restoreDemoRemotesSubtitle =>
-      'Vervang huidige afstandsbedieningen door de ingebouwde demo';
+      'Vervang de huidige afstandsbedieningen door de voorbeelden uit de app.';
 
   @override
   String get deleteAllRemotes => 'Alle afstandsbedieningen verwijderen';

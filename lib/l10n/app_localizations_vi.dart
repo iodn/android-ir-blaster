@@ -290,7 +290,7 @@ class AppLocalizationsVi extends AppLocalizations {
 
   @override
   String get settingsRestoreDemoMessage =>
-      'Thao tác này sẽ thay điều khiển hiện tại bằng điều khiển mẫu có sẵn. Nên sao lưu nếu bạn muốn giữ danh sách hiện tại.';
+      'Tất cả điều khiển hiện tại sẽ được thay bằng các mẫu có sẵn trong ứng dụng. Hãy lưu bản sao lưu trước nếu muốn giữ chúng.';
 
   @override
   String get settingsRestoreDemoConfirm => 'Khôi phục mẫu';
@@ -889,7 +889,7 @@ class AppLocalizationsVi extends AppLocalizations {
 
   @override
   String get restoreDemoRemotesSubtitle =>
-      'Thay điều khiển hiện tại bằng bản mẫu có sẵn';
+      'Thay điều khiển hiện tại bằng các mẫu có sẵn trong ứng dụng.';
 
   @override
   String get deleteAllRemotes => 'Xóa tất cả điều khiển';

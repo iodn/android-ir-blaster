@@ -124,6 +124,7 @@ class SettingsScreen extends StatelessWidget {
     return await showDialog<bool>(
       context: context,
       builder: (ctx) => AlertDialog(
+        scrollable: true,
         icon: Icon(
           icon,
           color:

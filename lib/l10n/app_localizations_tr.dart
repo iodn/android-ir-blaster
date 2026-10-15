@@ -286,14 +286,14 @@ class AppLocalizationsTr extends AppLocalizations {
   String get cancel => 'İptal';
 
   @override
-  String get settingsRestoreDemoTitle => 'Demo kumandalar geri yüklensin mi?';
+  String get settingsRestoreDemoTitle => 'Örnek kumandalar geri yüklensin mi?';
 
   @override
   String get settingsRestoreDemoMessage =>
-      'Bu işlem mevcut kumandalarınızı yerleşik demo kumandalarla değiştirir. Mevcut listenizi korumak istiyorsanız yedek önerilir.';
+      'Mevcut kumandalarınızın tümü uygulamadaki örneklerle değiştirilecek. Bunları saklamak istiyorsanız önce bir yedek kaydedin.';
 
   @override
-  String get settingsRestoreDemoConfirm => 'Demoyu geri yükle';
+  String get settingsRestoreDemoConfirm => 'Örnekleri geri yükle';
 
   @override
   String get settingsDemoRemotesRestored => 'Demo kumandalar geri yüklendi.';
@@ -892,11 +892,11 @@ class AppLocalizationsTr extends AppLocalizations {
       'Kumandaları ve makroları tek bir JSON dosyasında birlikte kaydedin.';
 
   @override
-  String get restoreDemoRemotes => 'Demoyu geri yükle remotes';
+  String get restoreDemoRemotes => 'Örnek kumandaları geri yükle';
 
   @override
   String get restoreDemoRemotesSubtitle =>
-      'Mevcut kumandaları yerleşik demo ile değiştir';
+      'Mevcut kumandaları uygulamadaki örneklerle değiştirin.';
 
   @override
   String get deleteAllRemotes => 'Tümünü sil remotes';

@@ -286,14 +286,14 @@ class AppLocalizationsPl extends AppLocalizations {
   String get cancel => 'Anuluj';
 
   @override
-  String get settingsRestoreDemoTitle => 'Przywrócić piloty demo?';
+  String get settingsRestoreDemoTitle => 'Przywrócić przykładowe piloty?';
 
   @override
   String get settingsRestoreDemoMessage =>
-      'To zastąpi bieżące piloty wbudowanymi pilotami demo. Jeśli chcesz zachować obecną listę, zalecamy kopię zapasową.';
+      'Wszystkie obecne piloty zostaną zastąpione przykładami z aplikacji. Jeśli chcesz je zachować, najpierw zapisz kopię zapasową.';
 
   @override
-  String get settingsRestoreDemoConfirm => 'Przywróć demo';
+  String get settingsRestoreDemoConfirm => 'Przywróć przykłady';
 
   @override
   String get settingsDemoRemotesRestored => 'Przywrócono piloty demo.';
@@ -891,11 +891,11 @@ class AppLocalizationsPl extends AppLocalizations {
       'Zapisz piloty i makra razem w jednym pliku JSON.';
 
   @override
-  String get restoreDemoRemotes => 'Przywróć piloty demo';
+  String get restoreDemoRemotes => 'Przywróć przykładowe piloty';
 
   @override
   String get restoreDemoRemotesSubtitle =>
-      'Zastąp bieżące piloty wbudowanym demo';
+      'Zastąp obecne piloty przykładami z aplikacji.';
 
   @override
   String get deleteAllRemotes => 'Usuń wszystkie piloty';

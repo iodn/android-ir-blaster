@@ -287,11 +287,11 @@ class AppLocalizationsDe extends AppLocalizations {
 
   @override
   String get settingsRestoreDemoTitle =>
-      'Demo-Fernbedienungen wiederherstellen';
+      'Demo-Fernbedienungen wiederherstellen?';
 
   @override
   String get settingsRestoreDemoMessage =>
-      'Dadurch werden deine aktuellen Fernbedienungen durch die integrierten Demo-Fernbedienungen ersetzt. Eine Sicherung wird empfohlen, wenn du deine aktuelle Liste behalten willst.';
+      'Alle aktuellen Fernbedienungen werden durch die mitgelieferten Beispiele ersetzt. Speichere zuerst eine Sicherung, wenn du sie behalten möchtest.';
 
   @override
   String get settingsRestoreDemoConfirm => 'Demo wiederherstellen';
@@ -902,7 +902,7 @@ class AppLocalizationsDe extends AppLocalizations {
 
   @override
   String get restoreDemoRemotesSubtitle =>
-      'Aktuelle Fernbedienungen durch die integrierte Demo ersetzen';
+      'Aktuelle Fernbedienungen durch die mitgelieferten Beispiele ersetzen.';
 
   @override
   String get deleteAllRemotes => 'Alle Fernbedienungen löschen';

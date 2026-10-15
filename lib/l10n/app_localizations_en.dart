@@ -288,10 +288,10 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get settingsRestoreDemoMessage =>
-      'This will replace your current remotes with the built-in demo remotes. A backup is recommended if you want to keep your current list.';
+      'All your current remotes will be replaced with the app’s built-in examples. Save a backup first if you want to keep them.';
 
   @override
-  String get settingsRestoreDemoConfirm => 'Restore demo';
+  String get settingsRestoreDemoConfirm => 'Restore demos';
 
   @override
   String get settingsDemoRemotesRestored => 'Demo remotes restored.';
@@ -889,7 +889,7 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get restoreDemoRemotesSubtitle =>
-      'Replace current remotes with the built-in demo';
+      'Replace current remotes with the app’s built-in examples.';
 
   @override
   String get deleteAllRemotes => 'Delete all remotes';

@@ -286,14 +286,14 @@ class AppLocalizationsMs extends AppLocalizations {
   String get cancel => 'Batal';
 
   @override
-  String get settingsRestoreDemoTitle => 'Pulihkan remote demo?';
+  String get settingsRestoreDemoTitle => 'Pulihkan alat kawalan jauh contoh?';
 
   @override
   String get settingsRestoreDemoMessage =>
-      'Ini akan mengganti remote semasa dengan remote demo terbina dalam. Sandaran disyorkan jika anda mahu menyimpan senarai semasa.';
+      'Semua alat kawalan jauh semasa akan digantikan dengan contoh dalam aplikasi. Simpan sandaran dahulu jika anda mahu mengekalkannya.';
 
   @override
-  String get settingsRestoreDemoConfirm => 'Pulihkan demo';
+  String get settingsRestoreDemoConfirm => 'Pulihkan contoh';
 
   @override
   String get settingsDemoRemotesRestored => 'Remote demo dipulihkan.';
@@ -891,11 +891,11 @@ class AppLocalizationsMs extends AppLocalizations {
       'Simpan alat kawalan jauh dan makro bersama dalam satu fail JSON.';
 
   @override
-  String get restoreDemoRemotes => 'Pulihkan remote demo';
+  String get restoreDemoRemotes => 'Pulihkan alat kawalan jauh contoh';
 
   @override
   String get restoreDemoRemotesSubtitle =>
-      'Ganti remote semasa dengan demo terbina dalam';
+      'Gantikan alat kawalan jauh semasa dengan contoh dalam aplikasi.';
 
   @override
   String get deleteAllRemotes => 'Hapus semua remote';

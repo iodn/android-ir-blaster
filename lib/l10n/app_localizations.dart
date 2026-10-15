@@ -615,13 +615,13 @@ abstract class AppLocalizations {
   /// No description provided for @settingsRestoreDemoMessage.
   ///
   /// In en, this message translates to:
-  /// **'This will replace your current remotes with the built-in demo remotes. A backup is recommended if you want to keep your current list.'**
+  /// **'All your current remotes will be replaced with the app’s built-in examples. Save a backup first if you want to keep them.'**
   String get settingsRestoreDemoMessage;
 
   /// No description provided for @settingsRestoreDemoConfirm.
   ///
   /// In en, this message translates to:
-  /// **'Restore demo'**
+  /// **'Restore demos'**
   String get settingsRestoreDemoConfirm;
 
   /// No description provided for @settingsDemoRemotesRestored.
@@ -1689,7 +1689,7 @@ abstract class AppLocalizations {
   /// No description provided for @restoreDemoRemotesSubtitle.
   ///
   /// In en, this message translates to:
-  /// **'Replace current remotes with the built-in demo'**
+  /// **'Replace current remotes with the app’s built-in examples.'**
   String get restoreDemoRemotesSubtitle;
 
   /// No description provided for @deleteAllRemotes.

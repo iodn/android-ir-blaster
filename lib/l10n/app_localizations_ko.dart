@@ -277,7 +277,7 @@ class AppLocalizationsKo extends AppLocalizations {
 
   @override
   String get settingsRestoreDemoMessage =>
-      '현재 리모컨이 내장 데모 리모컨으로 바뀝니다. 현재 목록을 유지하려면 백업을 권장합니다.';
+      '현재 리모컨이 모두 앱에 포함된 예제로 바뀌어요. 기존 리모컨을 보관하려면 먼저 백업을 저장하세요.';
 
   @override
   String get settingsRestoreDemoConfirm => '데모 복원';
@@ -859,7 +859,7 @@ class AppLocalizationsKo extends AppLocalizations {
   String get restoreDemoRemotes => '데모 리모컨 복원';
 
   @override
-  String get restoreDemoRemotesSubtitle => '현재 리모컨을 내장 데모로 교체';
+  String get restoreDemoRemotesSubtitle => '현재 리모컨을 앱에 포함된 예제로 바꿔요.';
 
   @override
   String get deleteAllRemotes => '모든 리모컨 삭제';

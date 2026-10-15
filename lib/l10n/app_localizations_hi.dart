@@ -286,14 +286,14 @@ class AppLocalizationsHi extends AppLocalizations {
   String get cancel => 'रद्द करें';
 
   @override
-  String get settingsRestoreDemoTitle => 'पुनर्स्थापित करें demo रिमोट?';
+  String get settingsRestoreDemoTitle => 'डेमो रिमोट वापस लाएँ?';
 
   @override
   String get settingsRestoreDemoMessage =>
-      'यह आपके वर्तमान रिमोट को अंतर्निर्मित डेमो रिमोट से बदल देगा। यदि आप अपनी मौजूदा सूची रखना चाहते हैं तो बैकअप लेना बेहतर है।';
+      'आपके सभी मौजूदा रिमोट की जगह ऐप के उदाहरण वाले रिमोट आ जाएँगे। मौजूदा रिमोट रखने के लिए पहले बैकअप सहेज लें।';
 
   @override
-  String get settingsRestoreDemoConfirm => 'पुनर्स्थापित करें demo';
+  String get settingsRestoreDemoConfirm => 'डेमो वापस लाएँ';
 
   @override
   String get settingsDemoRemotesRestored => 'डेमो रिमोट पुनर्स्थापित किए गए।';
@@ -889,11 +889,11 @@ class AppLocalizationsHi extends AppLocalizations {
       'रिमोट और मैक्रो को एक ही JSON फ़ाइल में सहेजें।';
 
   @override
-  String get restoreDemoRemotes => 'पुनर्स्थापित करें demo रिमोट';
+  String get restoreDemoRemotes => 'डेमो रिमोट वापस लाएँ';
 
   @override
   String get restoreDemoRemotesSubtitle =>
-      'Replace वर्तमान रिमोट के साथ the अंतर्निर्मित demo';
+      'मौजूदा रिमोट की जगह ऐप के उदाहरण वाले रिमोट रखें।';
 
   @override
   String get deleteAllRemotes => 'हटाएं सभी रिमोट';

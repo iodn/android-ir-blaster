@@ -271,11 +271,11 @@ class AppLocalizationsJa extends AppLocalizations {
   String get cancel => 'キャンセル';
 
   @override
-  String get settingsRestoreDemoTitle => 'デモリモコンを復元しますか?';
+  String get settingsRestoreDemoTitle => 'デモリモコンを復元しますか？';
 
   @override
   String get settingsRestoreDemoMessage =>
-      '現在のリモコンを内蔵デモリモコンに置き換えます。今の一覧を残したい場合はバックアップを推奨します。';
+      '現在のリモコンはすべてアプリ内のサンプルに置き換わります。残しておきたい場合は、先にバックアップを保存してください。';
 
   @override
   String get settingsRestoreDemoConfirm => 'デモを復元';
@@ -853,7 +853,7 @@ class AppLocalizationsJa extends AppLocalizations {
   String get restoreDemoRemotes => 'デモリモコンを復元';
 
   @override
-  String get restoreDemoRemotesSubtitle => '現在のリモコンを内蔵デモに置換';
+  String get restoreDemoRemotesSubtitle => '現在のリモコンをアプリ内のサンプルに置き換えます。';
 
   @override
   String get deleteAllRemotes => 'すべてのリモコンを削除';

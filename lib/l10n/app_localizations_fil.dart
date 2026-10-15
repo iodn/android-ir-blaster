@@ -286,14 +286,14 @@ class AppLocalizationsFil extends AppLocalizations {
   String get cancel => 'Kanselahin';
 
   @override
-  String get settingsRestoreDemoTitle => 'Restore demo mga remote?';
+  String get settingsRestoreDemoTitle => 'Ibalik ang mga sample na remote?';
 
   @override
   String get settingsRestoreDemoMessage =>
-      'Papaltan nito ang kasalukuyan mong mga remote ng built-in demo remotes. Inirerekomenda ang backup kung gusto mong panatilihin ang kasalukuyan mong listahan.';
+      'Mapapalitan ng mga sample sa app ang lahat ng kasalukuyan mong remote. Mag-save muna ng backup kung gusto mong mapanatili ang mga ito.';
 
   @override
-  String get settingsRestoreDemoConfirm => 'Restore demo';
+  String get settingsRestoreDemoConfirm => 'Ibalik ang mga sample';
 
   @override
   String get settingsDemoRemotesRestored => 'Demo mga remote restored.';
@@ -895,11 +895,11 @@ class AppLocalizationsFil extends AppLocalizations {
       'I-save nang magkasama ang mga remote at macro sa isang JSON file.';
 
   @override
-  String get restoreDemoRemotes => 'Restore demo mga remote';
+  String get restoreDemoRemotes => 'Ibalik ang mga sample na remote';
 
   @override
   String get restoreDemoRemotesSubtitle =>
-      'Replace kasalukuyang mga remote with the built-in demo';
+      'Palitan ang kasalukuyang mga remote ng mga sample sa app.';
 
   @override
   String get deleteAllRemotes => 'Delete all mga remote';

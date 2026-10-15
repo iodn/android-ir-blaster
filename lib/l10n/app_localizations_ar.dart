@@ -288,10 +288,10 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String get settingsRestoreDemoMessage =>
-      'سيؤدي هذا إلى استبدال أجهزة التحكم الحالية بالأجهزة التجريبية المدمجة. يُنصح بأخذ نسخة احتياطية إذا كنت تريد الاحتفاظ بالقائمة الحالية.';
+      'ستُستبدل جميع أجهزة التحكم الحالية بالأمثلة المرفقة بالتطبيق. احفظ نسخة احتياطية أولًا إذا أردت الاحتفاظ بها.';
 
   @override
-  String get settingsRestoreDemoConfirm => 'استعادة التجريبي';
+  String get settingsRestoreDemoConfirm => 'استعادة الأمثلة';
 
   @override
   String get settingsDemoRemotesRestored => 'تمت استعادة الأجهزة التجريبية.';
@@ -881,11 +881,11 @@ class AppLocalizationsAr extends AppLocalizations {
       'حفظ أجهزة التحكم والماكرو معًا في ملف JSON واحد.';
 
   @override
-  String get restoreDemoRemotes => 'استعادة الأجهزة التجريبية';
+  String get restoreDemoRemotes => 'استعادة أجهزة التحكم التجريبية';
 
   @override
   String get restoreDemoRemotesSubtitle =>
-      'استبدال الأجهزة الحالية بالنسخة التجريبية المدمجة';
+      'استبدال أجهزة التحكم الحالية بالأمثلة المرفقة بالتطبيق.';
 
   @override
   String get deleteAllRemotes => 'حذف all remotes';
@@ -5559,14 +5559,14 @@ class AppLocalizationsArEg extends AppLocalizationsAr {
   String get cancel => 'إلغاء';
 
   @override
-  String get settingsRestoreDemoTitle => 'استعادة أجهزة التحكم التجريبية؟';
+  String get settingsRestoreDemoTitle => 'ترجّع الريموتات التجريبية؟';
 
   @override
   String get settingsRestoreDemoMessage =>
-      'سيؤدي هذا إلى استبدال أجهزة التحكم الحالية بالأجهزة التجريبية المدمجة. يُنصح بأخذ نسخة احتياطية إذا كنت تريد الاحتفاظ بالقائمة الحالية.';
+      'كل الريموتات الحالية هتتبدّل بالأمثلة الموجودة في التطبيق. احفظ نسخة احتياطية الأول لو عايز تحتفظ بيها.';
 
   @override
-  String get settingsRestoreDemoConfirm => 'استعادة التجريبي';
+  String get settingsRestoreDemoConfirm => 'استعادة الأمثلة';
 
   @override
   String get settingsDemoRemotesRestored => 'تمت استعادة الأجهزة التجريبية.';
@@ -6155,11 +6155,11 @@ class AppLocalizationsArEg extends AppLocalizationsAr {
       'احفظ الريموتات والماكرو مع بعض في ملف JSON واحد.';
 
   @override
-  String get restoreDemoRemotes => 'استعادة الأجهزة التجريبية';
+  String get restoreDemoRemotes => 'استعادة الريموتات التجريبية';
 
   @override
   String get restoreDemoRemotesSubtitle =>
-      'استبدال الأجهزة الحالية بالنسخة التجريبية المدمجة';
+      'بدّل الريموتات الحالية بالأمثلة الموجودة في التطبيق.';
 
   @override
   String get deleteAllRemotes => 'حذف all remotes';

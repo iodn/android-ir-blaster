@@ -290,7 +290,7 @@ class AppLocalizationsIt extends AppLocalizations {
 
   @override
   String get settingsRestoreDemoMessage =>
-      'Questo sostituirà i telecomandi attuali con quelli demo integrati. È consigliato un backup se vuoi mantenere l\'elenco attuale.';
+      'Tutti i telecomandi attuali saranno sostituiti con gli esempi dell’app. Salva prima un backup se vuoi conservarli.';
 
   @override
   String get settingsRestoreDemoConfirm => 'Ripristina demo';
@@ -903,7 +903,7 @@ class AppLocalizationsIt extends AppLocalizations {
 
   @override
   String get restoreDemoRemotesSubtitle =>
-      'Sostituisci i telecomandi attuali con quelli demo integrati';
+      'Sostituisci i telecomandi attuali con gli esempi dell’app.';
 
   @override
   String get deleteAllRemotes => 'Elimina tutti i telecomandi';

@@ -286,14 +286,14 @@ class AppLocalizationsEs extends AppLocalizations {
   String get cancel => 'Cancelar';
 
   @override
-  String get settingsRestoreDemoTitle => '¿Restaurar mandos demo?';
+  String get settingsRestoreDemoTitle => '¿Restaurar mandos de ejemplo?';
 
   @override
   String get settingsRestoreDemoMessage =>
-      'Esto reemplazará tus mandos actuales por los mandos demo integrados. Se recomienda una copia si quieres conservar la lista actual.';
+      'Todos tus mandos actuales se reemplazarán por los ejemplos de la app. Guarda primero una copia de seguridad si quieres conservarlos.';
 
   @override
-  String get settingsRestoreDemoConfirm => 'Restaurar demo';
+  String get settingsRestoreDemoConfirm => 'Restaurar ejemplos';
 
   @override
   String get settingsDemoRemotesRestored => 'Mandos demo restaurados.';
@@ -895,11 +895,11 @@ class AppLocalizationsEs extends AppLocalizations {
       'Guarda los mandos y las macros juntos en un archivo JSON.';
 
   @override
-  String get restoreDemoRemotes => 'Restaurar mandos demo';
+  String get restoreDemoRemotes => 'Restaurar mandos de ejemplo';
 
   @override
   String get restoreDemoRemotesSubtitle =>
-      'Reemplazar los mandos actuales por la demo integrada';
+      'Reemplaza los mandos actuales por los ejemplos de la app.';
 
   @override
   String get deleteAllRemotes => 'Eliminar todos los mandos';

@@ -284,14 +284,14 @@ class AppLocalizationsTh extends AppLocalizations {
   String get cancel => 'ยกเลิก';
 
   @override
-  String get settingsRestoreDemoTitle => 'กู้คืนรีโมตตัวอย่าง';
+  String get settingsRestoreDemoTitle => 'คืนค่ารีโมตตัวอย่างหรือไม่?';
 
   @override
   String get settingsRestoreDemoMessage =>
-      'การดำเนินการนี้จะแทนที่รีโมตปัจจุบันของคุณด้วยรีโมตตัวอย่างในแอป แนะนำให้สำรองข้อมูลหากต้องการเก็บรายการปัจจุบันไว้';
+      'รีโมตปัจจุบันทั้งหมดจะถูกแทนที่ด้วยรีโมตตัวอย่างในแอป หากต้องการเก็บรีโมตเดิมไว้ ให้บันทึกข้อมูลสำรองก่อน';
 
   @override
-  String get settingsRestoreDemoConfirm => 'กู้คืนตัวอย่าง';
+  String get settingsRestoreDemoConfirm => 'คืนค่าตัวอย่าง';
 
   @override
   String get settingsDemoRemotesRestored => 'กู้คืนรีโมตตัวอย่างแล้ว';
@@ -879,7 +879,7 @@ class AppLocalizationsTh extends AppLocalizations {
       'บันทึกรีโมตและแมโครรวมกันในไฟล์ JSON เดียว';
 
   @override
-  String get restoreDemoRemotes => 'กู้คืนตัวอย่าง รีโมต';
+  String get restoreDemoRemotes => 'คืนค่ารีโมตตัวอย่าง';
 
   @override
   String get restoreDemoRemotesSubtitle =>

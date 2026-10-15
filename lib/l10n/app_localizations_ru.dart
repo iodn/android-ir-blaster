@@ -290,7 +290,7 @@ class AppLocalizationsRu extends AppLocalizations {
 
   @override
   String get settingsRestoreDemoMessage =>
-      'Это заменит текущие пульты встроенными демо-пультами. Если хотите сохранить текущий список, лучше сначала сделать копию.';
+      'Все текущие пульты будут заменены примерами из приложения. Если хотите сохранить свои пульты, сначала создайте резервную копию.';
 
   @override
   String get settingsRestoreDemoConfirm => 'Восстановить демо';
@@ -890,11 +890,11 @@ class AppLocalizationsRu extends AppLocalizations {
       'Сохраните пульты и макросы вместе в одном JSON-файле.';
 
   @override
-  String get restoreDemoRemotes => 'Восст. демо-пульты';
+  String get restoreDemoRemotes => 'Восстановить демо-пульты';
 
   @override
   String get restoreDemoRemotesSubtitle =>
-      'Заменить текущие пульты встроенными демо';
+      'Заменить текущие пульты примерами из приложения.';
 
   @override
   String get deleteAllRemotes => 'Удалить все пульты';
