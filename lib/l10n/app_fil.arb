@@ -487,7 +487,7 @@
       }
     }
   },
-  "importedButtonsFromExistingRemotes": "Na-import ang {count} button mula sa kasalukuyang mga remote.",
+  "importedButtonsFromExistingRemotes": "Na-import ang {count} button mula sa mga naka-save na remote.",
   "@importedButtonsFromExistingRemotes": {
     "placeholders": {
       "count": {
@@ -668,7 +668,7 @@
   "test": "Subukan",
   "allSelectedButtonsWereDuplicates": "All napiling mga button were duplicates.",
   "noButtonsImported": "Walang mga button imported.",
-  "importedButtonsSkippedDuplicates": "Imported {addedCount} button(s). Skipped {skippedCount} duplicate(s).",
+  "importedButtonsSkippedDuplicates": "Na-import ang {addedCount} button. Nilaktawan ang {skippedCount} kaparehong button.",
   "@importedButtonsSkippedDuplicates": {
     "placeholders": {
       "addedCount": {

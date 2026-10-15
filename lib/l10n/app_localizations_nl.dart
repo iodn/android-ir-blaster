@@ -1585,12 +1585,24 @@ class AppLocalizationsNl extends AppLocalizations {
 
   @override
   String importedButtonCount(int count) {
-    return 'Importerened $count knop(s).';
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: '$count knoppen geïmporteerd.',
+      one: '$count knop geïmporteerd.',
+    );
+    return '$_temp0';
   }
 
   @override
   String importedButtonsFromExistingRemotes(int count) {
-    return 'Importerened $count knop(s) from existing remotes.';
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: '$count knoppen uit opgeslagen afstandsbedieningen geïmporteerd.',
+      one: '$count knop uit opgeslagen afstandsbedieningen geïmporteerd.',
+    );
+    return '$_temp0';
   }
 
   @override
@@ -1958,7 +1970,19 @@ class AppLocalizationsNl extends AppLocalizations {
 
   @override
   String importedButtonsSkippedDuplicates(int addedCount, int skippedCount) {
-    return 'Importerened $addedCount knop(s). Overslaanped $skippedCount duplicate(s).';
+    String _temp0 = intl.Intl.pluralLogic(
+      addedCount,
+      locale: localeName,
+      other: '$addedCount knoppen geïmporteerd.',
+      one: '$addedCount knop geïmporteerd.',
+    );
+    String _temp1 = intl.Intl.pluralLogic(
+      skippedCount,
+      locale: localeName,
+      other: '$skippedCount duplicaten overgeslagen.',
+      one: '$skippedCount duplicaat overgeslagen.',
+    );
+    return '$_temp0 $_temp1';
   }
 
   @override

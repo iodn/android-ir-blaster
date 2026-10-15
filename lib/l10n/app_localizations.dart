@@ -2823,7 +2823,7 @@ abstract class AppLocalizations {
   /// No description provided for @importedButtonsFromExistingRemotes.
   ///
   /// In en, this message translates to:
-  /// **'{count, plural, one{Imported {count} button from existing remotes.} other{Imported {count} buttons from existing remotes.}}'**
+  /// **'{count, plural, one{Imported {count} button from saved remotes.} other{Imported {count} buttons from saved remotes.}}'**
   String importedButtonsFromExistingRemotes(int count);
 
   /// No description provided for @editButtonSettingsSubtitle.
@@ -3465,7 +3465,7 @@ abstract class AppLocalizations {
   /// No description provided for @importedButtonsSkippedDuplicates.
   ///
   /// In en, this message translates to:
-  /// **'Imported {addedCount} button(s). Skipped {skippedCount} duplicate(s).'**
+  /// **'{addedCount, plural, one{Imported {addedCount} button.} other{Imported {addedCount} buttons.}} {skippedCount, plural, one{Skipped {skippedCount} duplicate.} other{Skipped {skippedCount} duplicates.}}'**
   String importedButtonsSkippedDuplicates(int addedCount, int skippedCount);
 
   /// No description provided for @importAllMatchingTitle.

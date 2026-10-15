@@ -487,7 +487,7 @@
       }
     }
   },
-  "importedButtonsFromExistingRemotes": "기존 리모컨에서 버튼 {count}개를 가져왔습니다.",
+  "importedButtonsFromExistingRemotes": "저장된 리모컨에서 버튼 {count}개를 가져왔습니다.",
   "@importedButtonsFromExistingRemotes": {
     "placeholders": {
       "count": {
@@ -668,7 +668,7 @@
   "test": "테스트",
   "allSelectedButtonsWereDuplicates": "선택한 버튼이 모두 중복이었습니다.",
   "noButtonsImported": "가져온 버튼이 없습니다.",
-  "importedButtonsSkippedDuplicates": "버튼 {addedCount}개를 가져왔습니다. 중복 {skippedCount}개는 건너뛰었습니다.",
+  "importedButtonsSkippedDuplicates": "버튼 {addedCount}개를 가져왔습니다. 중복된 버튼 {skippedCount}개는 건너뛰었습니다.",
   "@importedButtonsSkippedDuplicates": {
     "placeholders": {
       "addedCount": {

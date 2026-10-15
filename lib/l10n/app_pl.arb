@@ -481,7 +481,7 @@
     }
   },
   "remove": "Usuń",
-  "importedButtonCount": "Zaimportowano {count, plural, one{{count} przycisk} few{{count} przyciski} many{{count} przycisków} other{{count} przycisków}}.",
+  "importedButtonCount": "Zaimportowano {count, plural, one{{count} przycisk} few{{count} przyciski} many{{count} przycisków} other{{count} przycisku}}.",
   "@importedButtonCount": {
     "placeholders": {
       "count": {
@@ -489,7 +489,7 @@
       }
     }
   },
-  "importedButtonsFromExistingRemotes": "Zaimportowano {count, plural, one{{count} przycisk} few{{count} przyciski} many{{count} przycisków} other{{count} przycisków}} z istniejących pilotów.",
+  "importedButtonsFromExistingRemotes": "Zaimportowano {count, plural, one{{count} przycisk} few{{count} przyciski} many{{count} przycisków} other{{count} przycisku}} z zapisanych pilotów.",
   "@importedButtonsFromExistingRemotes": {
     "placeholders": {
       "count": {
@@ -670,7 +670,7 @@
   "test": "Test",
   "allSelectedButtonsWereDuplicates": "All wybrano przyciski were duplicates.",
   "noButtonsImported": "No przyciski imported.",
-  "importedButtonsSkippedDuplicates": "Imported {addedCount} przycisk(s). Skipped {skippedCount} duplicate(s).",
+  "importedButtonsSkippedDuplicates": "Zaimportowano {addedCount, plural, one{{addedCount} przycisk} few{{addedCount} przyciski} many{{addedCount} przycisków} other{{addedCount} przycisku}}. Pominięto {skippedCount, plural, one{{skippedCount} duplikat} few{{skippedCount} duplikaty} many{{skippedCount} duplikatów} other{{skippedCount} duplikatu}}.",
   "@importedButtonsSkippedDuplicates": {
     "placeholders": {
       "addedCount": {

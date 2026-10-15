@@ -479,7 +479,7 @@
     }
   },
   "remove": "Verwijderen",
-  "importedButtonCount": "Importerened {count} knop(s).",
+  "importedButtonCount": "{count, plural, one{{count} knop geïmporteerd.} other{{count} knoppen geïmporteerd.}}",
   "@importedButtonCount": {
     "placeholders": {
       "count": {
@@ -487,7 +487,7 @@
       }
     }
   },
-  "importedButtonsFromExistingRemotes": "Importerened {count} knop(s) from existing remotes.",
+  "importedButtonsFromExistingRemotes": "{count, plural, one{{count} knop uit opgeslagen afstandsbedieningen geïmporteerd.} other{{count} knoppen uit opgeslagen afstandsbedieningen geïmporteerd.}}",
   "@importedButtonsFromExistingRemotes": {
     "placeholders": {
       "count": {
@@ -668,7 +668,7 @@
   "test": "Test",
   "allSelectedButtonsWereDuplicates": "All geselecteerd knoppen were duplicates.",
   "noButtonsImported": "Geen knoppen importerened.",
-  "importedButtonsSkippedDuplicates": "Importerened {addedCount} knop(s). Overslaanped {skippedCount} duplicate(s).",
+  "importedButtonsSkippedDuplicates": "{addedCount, plural, one{{addedCount} knop geïmporteerd.} other{{addedCount} knoppen geïmporteerd.}} {skippedCount, plural, one{{skippedCount} duplicaat overgeslagen.} other{{skippedCount} duplicaten overgeslagen.}}",
   "@importedButtonsSkippedDuplicates": {
     "placeholders": {
       "addedCount": {

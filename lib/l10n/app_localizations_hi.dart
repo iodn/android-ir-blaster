@@ -1540,12 +1540,24 @@ class AppLocalizationsHi extends AppLocalizations {
 
   @override
   String importedButtonCount(int count) {
-    return '$count बटन आयात किए गए।';
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: '$count बटन इंपोर्ट किए गए।',
+      one: '$count बटन इंपोर्ट किया गया।',
+    );
+    return '$_temp0';
   }
 
   @override
   String importedButtonsFromExistingRemotes(int count) {
-    return 'Imported $count बटन(s) से मौजूदा रिमोट.';
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: 'सहेजे गए रिमोट से $count बटन इंपोर्ट किए गए।',
+      one: 'सहेजे गए रिमोट से $count बटन इंपोर्ट किया गया।',
+    );
+    return '$_temp0';
   }
 
   @override
@@ -1904,7 +1916,19 @@ class AppLocalizationsHi extends AppLocalizations {
 
   @override
   String importedButtonsSkippedDuplicates(int addedCount, int skippedCount) {
-    return '$addedCount बटन आयात किए गए। $skippedCount डुप्लिकेट छोड़े गए।';
+    String _temp0 = intl.Intl.pluralLogic(
+      addedCount,
+      locale: localeName,
+      other: '$addedCount बटन इंपोर्ट किए गए।',
+      one: '$addedCount बटन इंपोर्ट किया गया।',
+    );
+    String _temp1 = intl.Intl.pluralLogic(
+      skippedCount,
+      locale: localeName,
+      other: '$skippedCount डुप्लिकेट छोड़ दिए गए।',
+      one: '$skippedCount डुप्लिकेट छोड़ दिया गया।',
+    );
+    return '$_temp0 $_temp1';
   }
 
   @override

@@ -1566,12 +1566,12 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String importedButtonCount(int count) {
-    return 'تم استيراد $count زر.';
+    return 'الأزرار المستوردة: $count.';
   }
 
   @override
   String importedButtonsFromExistingRemotes(int count) {
-    return 'تم استيراد $count زر من أجهزة التحكم الموجودة.';
+    return 'الأزرار المستوردة من أجهزة التحكم المحفوظة: $count.';
   }
 
   @override
@@ -1932,7 +1932,7 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String importedButtonsSkippedDuplicates(int addedCount, int skippedCount) {
-    return 'تم استيراد $addedCount زر. تم تخطي $skippedCount من النسخ المكررة.';
+    return 'الأزرار المستوردة: $addedCount. الأزرار المكررة التي تم تخطيها: $skippedCount.';
   }
 
   @override
@@ -6842,12 +6842,12 @@ class AppLocalizationsArEg extends AppLocalizationsAr {
 
   @override
   String importedButtonCount(int count) {
-    return 'تم استيراد $count زر.';
+    return 'الأزرار المستوردة: $count.';
   }
 
   @override
   String importedButtonsFromExistingRemotes(int count) {
-    return 'تم استيراد $count زر من أجهزة التحكم الموجودة.';
+    return 'الأزرار المستوردة من الريموتات المحفوظة: $count.';
   }
 
   @override
@@ -7208,7 +7208,7 @@ class AppLocalizationsArEg extends AppLocalizationsAr {
 
   @override
   String importedButtonsSkippedDuplicates(int addedCount, int skippedCount) {
-    return 'تم استيراد $addedCount زر. تم تخطي $skippedCount من النسخ المكررة.';
+    return 'الأزرار المستوردة: $addedCount. الأزرار المكررة التي تم تخطيها: $skippedCount.';
   }
 
   @override

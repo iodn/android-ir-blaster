@@ -487,7 +487,7 @@
       }
     }
   },
-  "importedButtonsFromExistingRemotes": "已从现有遥控器导入 {count} 个按钮。",
+  "importedButtonsFromExistingRemotes": "已从保存的遥控器导入 {count} 个按钮。",
   "@importedButtonsFromExistingRemotes": {
     "placeholders": {
       "count": {
@@ -668,7 +668,7 @@
   "test": "测试",
   "allSelectedButtonsWereDuplicates": "所选按钮全部为重复项。",
   "noButtonsImported": "未导入任何按钮。",
-  "importedButtonsSkippedDuplicates": "已导入 {addedCount} 个按钮。跳过 {skippedCount} 个重复项。",
+  "importedButtonsSkippedDuplicates": "已导入 {addedCount} 个按钮，跳过了 {skippedCount} 个重复按钮。",
   "@importedButtonsSkippedDuplicates": {
     "placeholders": {
       "addedCount": {

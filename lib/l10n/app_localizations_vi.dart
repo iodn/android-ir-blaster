@@ -1532,12 +1532,12 @@ class AppLocalizationsVi extends AppLocalizations {
 
   @override
   String importedButtonCount(int count) {
-    return 'Imported $count nút.';
+    return 'Đã nhập $count nút.';
   }
 
   @override
   String importedButtonsFromExistingRemotes(int count) {
-    return 'Imported $count nút from existing remotes.';
+    return 'Đã nhập $count nút từ các điều khiển đã lưu.';
   }
 
   @override
@@ -1899,7 +1899,7 @@ class AppLocalizationsVi extends AppLocalizations {
 
   @override
   String importedButtonsSkippedDuplicates(int addedCount, int skippedCount) {
-    return 'Imported $addedCount nút. Bỏ quaped $skippedCount duplicate(s).';
+    return 'Đã nhập $addedCount nút. Đã bỏ qua $skippedCount nút trùng lặp.';
   }
 
   @override

@@ -487,7 +487,7 @@
       }
     }
   },
-  "importedButtonsFromExistingRemotes": "{count, plural, one{Імпортовано {count} кнопку з наявних пультів.} few{Імпортовано {count} кнопки з наявних пультів.} many{Імпортовано {count} кнопок з наявних пультів.} other{Імпортовано {count} кнопки з наявних пультів.}}",
+  "importedButtonsFromExistingRemotes": "{count, plural, one{Імпортовано {count} кнопку зі збережених пультів.} few{Імпортовано {count} кнопки зі збережених пультів.} many{Імпортовано {count} кнопок зі збережених пультів.} other{Імпортовано {count} кнопки зі збережених пультів.}}",
   "@importedButtonsFromExistingRemotes": {
     "placeholders": {
       "count": {
@@ -668,7 +668,7 @@
   "test": "Тест",
   "allSelectedButtonsWereDuplicates": "Усі вибрані кнопки були дублікатами.",
   "noButtonsImported": "Кнопки не імпортовано.",
-  "importedButtonsSkippedDuplicates": "Імпортовані кнопки {addedCount}. Пропущений дублікат(и) {skippedCount}.",
+  "importedButtonsSkippedDuplicates": "{addedCount, plural, one{Імпортовано {addedCount} кнопку.} few{Імпортовано {addedCount} кнопки.} many{Імпортовано {addedCount} кнопок.} other{Імпортовано {addedCount} кнопки.}} Пропущено {skippedCount, plural, one{{skippedCount} дублікат} few{{skippedCount} дублікати} many{{skippedCount} дублікатів} other{{skippedCount} дубліката}}.",
   "@importedButtonsSkippedDuplicates": {
     "placeholders": {
       "addedCount": {

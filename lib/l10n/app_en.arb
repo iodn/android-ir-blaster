@@ -608,7 +608,7 @@
       }
     }
   },
-  "importedButtonsFromExistingRemotes": "{count, plural, one{Imported {count} button from existing remotes.} other{Imported {count} buttons from existing remotes.}}",
+  "importedButtonsFromExistingRemotes": "{count, plural, one{Imported {count} button from saved remotes.} other{Imported {count} buttons from saved remotes.}}",
   "@importedButtonsFromExistingRemotes": {
     "placeholders": {
       "count": {
@@ -789,7 +789,7 @@
   "test": "Test",
   "allSelectedButtonsWereDuplicates": "All selected buttons were duplicates.",
   "noButtonsImported": "No buttons imported.",
-  "importedButtonsSkippedDuplicates": "Imported {addedCount} button(s). Skipped {skippedCount} duplicate(s).",
+  "importedButtonsSkippedDuplicates": "{addedCount, plural, one{Imported {addedCount} button.} other{Imported {addedCount} buttons.}} {skippedCount, plural, one{Skipped {skippedCount} duplicate.} other{Skipped {skippedCount} duplicates.}}",
   "@importedButtonsSkippedDuplicates": {
     "placeholders": {
       "addedCount": {

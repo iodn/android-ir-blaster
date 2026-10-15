@@ -479,7 +479,7 @@
     }
   },
   "remove": "削除",
-  "importedButtonCount": "{count}個のボタンを取り込みました。",
+  "importedButtonCount": "ボタンを{count}個取り込みました。",
   "@importedButtonCount": {
     "placeholders": {
       "count": {
@@ -487,7 +487,7 @@
       }
     }
   },
-  "importedButtonsFromExistingRemotes": "既存のリモコンから{count}個のボタンを取り込みました。",
+  "importedButtonsFromExistingRemotes": "保存済みのリモコンからボタンを{count}個取り込みました。",
   "@importedButtonsFromExistingRemotes": {
     "placeholders": {
       "count": {
@@ -668,7 +668,7 @@
   "test": "テスト",
   "allSelectedButtonsWereDuplicates": "選択したボタンはすべて重複でした。",
   "noButtonsImported": "ボタンは取り込まれませんでした。",
-  "importedButtonsSkippedDuplicates": "{addedCount}個のボタンを取り込みました。重複{skippedCount}件をスキップしました。",
+  "importedButtonsSkippedDuplicates": "ボタンを{addedCount}個取り込みました。重複する{skippedCount}個は取り込んでいません。",
   "@importedButtonsSkippedDuplicates": {
     "placeholders": {
       "addedCount": {

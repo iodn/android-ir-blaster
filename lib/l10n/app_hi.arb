@@ -479,7 +479,7 @@
     }
   },
   "remove": "हटाएं",
-  "importedButtonCount": "{count} बटन आयात किए गए।",
+  "importedButtonCount": "{count, plural, =1{{count} बटन इंपोर्ट किया गया।} other{{count} बटन इंपोर्ट किए गए।}}",
   "@importedButtonCount": {
     "placeholders": {
       "count": {
@@ -487,7 +487,7 @@
       }
     }
   },
-  "importedButtonsFromExistingRemotes": "Imported {count} बटन(s) से मौजूदा रिमोट.",
+  "importedButtonsFromExistingRemotes": "{count, plural, =1{सहेजे गए रिमोट से {count} बटन इंपोर्ट किया गया।} other{सहेजे गए रिमोट से {count} बटन इंपोर्ट किए गए।}}",
   "@importedButtonsFromExistingRemotes": {
     "placeholders": {
       "count": {
@@ -668,7 +668,7 @@
   "test": "जांचें",
   "allSelectedButtonsWereDuplicates": "सभी चयनित बटन थे डुप्लिकेट.",
   "noButtonsImported": "कोई बटन आयात नहीं हुआ।",
-  "importedButtonsSkippedDuplicates": "{addedCount} बटन आयात किए गए। {skippedCount} डुप्लिकेट छोड़े गए।",
+  "importedButtonsSkippedDuplicates": "{addedCount, plural, =1{{addedCount} बटन इंपोर्ट किया गया।} other{{addedCount} बटन इंपोर्ट किए गए।}} {skippedCount, plural, =1{{skippedCount} डुप्लिकेट छोड़ दिया गया।} other{{skippedCount} डुप्लिकेट छोड़ दिए गए।}}",
   "@importedButtonsSkippedDuplicates": {
     "placeholders": {
       "addedCount": {

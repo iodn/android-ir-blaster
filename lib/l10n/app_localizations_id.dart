@@ -1543,12 +1543,12 @@ class AppLocalizationsId extends AppLocalizations {
 
   @override
   String importedButtonCount(int count) {
-    return 'Mengimpor $count tombol(s).';
+    return '$count tombol berhasil diimpor.';
   }
 
   @override
   String importedButtonsFromExistingRemotes(int count) {
-    return 'Mengimpor $count tombol dari remote yang ada.';
+    return '$count tombol diimpor dari remote yang tersimpan.';
   }
 
   @override
@@ -1911,7 +1911,7 @@ class AppLocalizationsId extends AppLocalizations {
 
   @override
   String importedButtonsSkippedDuplicates(int addedCount, int skippedCount) {
-    return 'Mengimpor $addedCount tombol(s). Skipped $skippedCount duplicate(s).';
+    return '$addedCount tombol diimpor. $skippedCount duplikat dilewati.';
   }
 
   @override

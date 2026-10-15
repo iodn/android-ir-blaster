@@ -479,7 +479,7 @@
     }
   },
   "remove": "Xóa",
-  "importedButtonCount": "Imported {count} nút.",
+  "importedButtonCount": "Đã nhập {count} nút.",
   "@importedButtonCount": {
     "placeholders": {
       "count": {
@@ -487,7 +487,7 @@
       }
     }
   },
-  "importedButtonsFromExistingRemotes": "Imported {count} nút from existing remotes.",
+  "importedButtonsFromExistingRemotes": "Đã nhập {count} nút từ các điều khiển đã lưu.",
   "@importedButtonsFromExistingRemotes": {
     "placeholders": {
       "count": {
@@ -668,7 +668,7 @@
   "test": "Kiểm tra",
   "allSelectedButtonsWereDuplicates": "Tất cả nút đã chọn đều là bản trùng.",
   "noButtonsImported": "Không nhập nút nào.",
-  "importedButtonsSkippedDuplicates": "Imported {addedCount} nút. Bỏ quaped {skippedCount} duplicate(s).",
+  "importedButtonsSkippedDuplicates": "Đã nhập {addedCount} nút. Đã bỏ qua {skippedCount} nút trùng lặp.",
   "@importedButtonsSkippedDuplicates": {
     "placeholders": {
       "addedCount": {

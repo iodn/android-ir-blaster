@@ -1602,10 +1602,10 @@ class AppLocalizationsUk extends AppLocalizations {
     String _temp0 = intl.Intl.pluralLogic(
       count,
       locale: localeName,
-      other: 'Імпортовано $count кнопки з наявних пультів.',
-      many: 'Імпортовано $count кнопок з наявних пультів.',
-      few: 'Імпортовано $count кнопки з наявних пультів.',
-      one: 'Імпортовано $count кнопку з наявних пультів.',
+      other: 'Імпортовано $count кнопки зі збережених пультів.',
+      many: 'Імпортовано $count кнопок зі збережених пультів.',
+      few: 'Імпортовано $count кнопки зі збережених пультів.',
+      one: 'Імпортовано $count кнопку зі збережених пультів.',
     );
     return '$_temp0';
   }
@@ -1972,7 +1972,23 @@ class AppLocalizationsUk extends AppLocalizations {
 
   @override
   String importedButtonsSkippedDuplicates(int addedCount, int skippedCount) {
-    return 'Імпортовані кнопки $addedCount. Пропущений дублікат(и) $skippedCount.';
+    String _temp0 = intl.Intl.pluralLogic(
+      addedCount,
+      locale: localeName,
+      other: 'Імпортовано $addedCount кнопки.',
+      many: 'Імпортовано $addedCount кнопок.',
+      few: 'Імпортовано $addedCount кнопки.',
+      one: 'Імпортовано $addedCount кнопку.',
+    );
+    String _temp1 = intl.Intl.pluralLogic(
+      skippedCount,
+      locale: localeName,
+      other: '$skippedCount дубліката',
+      many: '$skippedCount дублікатів',
+      few: '$skippedCount дублікати',
+      one: '$skippedCount дублікат',
+    );
+    return '$_temp0 Пропущено $_temp1.';
   }
 
   @override

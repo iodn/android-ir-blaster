@@ -1581,7 +1581,7 @@ class AppLocalizationsPl extends AppLocalizations {
     String _temp0 = intl.Intl.pluralLogic(
       count,
       locale: localeName,
-      other: '$count przycisków',
+      other: '$count przycisku',
       many: '$count przycisków',
       few: '$count przyciski',
       one: '$count przycisk',
@@ -1594,12 +1594,12 @@ class AppLocalizationsPl extends AppLocalizations {
     String _temp0 = intl.Intl.pluralLogic(
       count,
       locale: localeName,
-      other: '$count przycisków',
+      other: '$count przycisku',
       many: '$count przycisków',
       few: '$count przyciski',
       one: '$count przycisk',
     );
-    return 'Zaimportowano $_temp0 z istniejących pilotów.';
+    return 'Zaimportowano $_temp0 z zapisanych pilotów.';
   }
 
   @override
@@ -1963,7 +1963,23 @@ class AppLocalizationsPl extends AppLocalizations {
 
   @override
   String importedButtonsSkippedDuplicates(int addedCount, int skippedCount) {
-    return 'Imported $addedCount przycisk(s). Skipped $skippedCount duplicate(s).';
+    String _temp0 = intl.Intl.pluralLogic(
+      addedCount,
+      locale: localeName,
+      other: '$addedCount przycisku',
+      many: '$addedCount przycisków',
+      few: '$addedCount przyciski',
+      one: '$addedCount przycisk',
+    );
+    String _temp1 = intl.Intl.pluralLogic(
+      skippedCount,
+      locale: localeName,
+      other: '$skippedCount duplikatu',
+      many: '$skippedCount duplikatów',
+      few: '$skippedCount duplikaty',
+      one: '$skippedCount duplikat',
+    );
+    return 'Zaimportowano $_temp0. Pominięto $_temp1.';
   }
 
   @override

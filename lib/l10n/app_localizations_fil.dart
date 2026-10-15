@@ -1561,7 +1561,7 @@ class AppLocalizationsFil extends AppLocalizations {
 
   @override
   String importedButtonsFromExistingRemotes(int count) {
-    return 'Na-import ang $count button mula sa kasalukuyang mga remote.';
+    return 'Na-import ang $count button mula sa mga naka-save na remote.';
   }
 
   @override
@@ -1929,7 +1929,7 @@ class AppLocalizationsFil extends AppLocalizations {
 
   @override
   String importedButtonsSkippedDuplicates(int addedCount, int skippedCount) {
-    return 'Imported $addedCount button(s). Skipped $skippedCount duplicate(s).';
+    return 'Na-import ang $addedCount button. Nilaktawan ang $skippedCount kaparehong button.';
   }
 
   @override

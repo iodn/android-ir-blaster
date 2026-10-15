@@ -1584,12 +1584,24 @@ class AppLocalizationsDe extends AppLocalizations {
 
   @override
   String importedButtonCount(int count) {
-    return '$count Taste(n) importiert.';
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: '$count Tasten importiert.',
+      one: '$count Taste importiert.',
+    );
+    return '$_temp0';
   }
 
   @override
   String importedButtonsFromExistingRemotes(int count) {
-    return '$count Taste(n) aus vorhandenen Fernbedienungen importiert.';
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: '$count Tasten aus gespeicherten Fernbedienungen importiert.',
+      one: '$count Taste aus gespeicherten Fernbedienungen importiert.',
+    );
+    return '$_temp0';
   }
 
   @override
@@ -1959,7 +1971,19 @@ class AppLocalizationsDe extends AppLocalizations {
 
   @override
   String importedButtonsSkippedDuplicates(int addedCount, int skippedCount) {
-    return '$addedCount Taste(n) importiert. $skippedCount Duplikat(e) übersprungen.';
+    String _temp0 = intl.Intl.pluralLogic(
+      addedCount,
+      locale: localeName,
+      other: '$addedCount Tasten importiert.',
+      one: '$addedCount Taste importiert.',
+    );
+    String _temp1 = intl.Intl.pluralLogic(
+      skippedCount,
+      locale: localeName,
+      other: '$skippedCount Duplikate übersprungen.',
+      one: '$skippedCount Duplikat übersprungen.',
+    );
+    return '$_temp0 $_temp1';
   }
 
   @override

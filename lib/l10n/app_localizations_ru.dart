@@ -1574,12 +1574,28 @@ class AppLocalizationsRu extends AppLocalizations {
 
   @override
   String importedButtonCount(int count) {
-    return 'Импортировано кнопок: $count.';
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: 'Импортировано $count кнопки.',
+      many: 'Импортировано $count кнопок.',
+      few: 'Импортированы $count кнопки.',
+      one: 'Импортирована $count кнопка.',
+    );
+    return '$_temp0';
   }
 
   @override
   String importedButtonsFromExistingRemotes(int count) {
-    return 'Импортировано кнопок из существующих пультов: $count.';
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: 'Импортировано $count кнопки из сохранённых пультов.',
+      many: 'Импортировано $count кнопок из сохранённых пультов.',
+      few: 'Импортированы $count кнопки из сохранённых пультов.',
+      one: 'Импортирована $count кнопка из сохранённых пультов.',
+    );
+    return '$_temp0';
   }
 
   @override
@@ -1944,7 +1960,23 @@ class AppLocalizationsRu extends AppLocalizations {
 
   @override
   String importedButtonsSkippedDuplicates(int addedCount, int skippedCount) {
-    return 'Импортировано кнопок: $addedCount. Пропущено дубликатов: $skippedCount.';
+    String _temp0 = intl.Intl.pluralLogic(
+      addedCount,
+      locale: localeName,
+      other: 'Импортировано $addedCount кнопки.',
+      many: 'Импортировано $addedCount кнопок.',
+      few: 'Импортированы $addedCount кнопки.',
+      one: 'Импортирована $addedCount кнопка.',
+    );
+    String _temp1 = intl.Intl.pluralLogic(
+      skippedCount,
+      locale: localeName,
+      other: 'Пропущено $skippedCount дубликата.',
+      many: 'Пропущено $skippedCount дубликатов.',
+      few: 'Пропущены $skippedCount дубликата.',
+      one: 'Пропущен $skippedCount дубликат.',
+    );
+    return '$_temp0 $_temp1';
   }
 
   @override

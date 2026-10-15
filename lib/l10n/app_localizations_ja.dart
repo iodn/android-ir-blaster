@@ -1467,12 +1467,12 @@ class AppLocalizationsJa extends AppLocalizations {
 
   @override
   String importedButtonCount(int count) {
-    return '$count個のボタンを取り込みました。';
+    return 'ボタンを$count個取り込みました。';
   }
 
   @override
   String importedButtonsFromExistingRemotes(int count) {
-    return '既存のリモコンから$count個のボタンを取り込みました。';
+    return '保存済みのリモコンからボタンを$count個取り込みました。';
   }
 
   @override
@@ -1825,7 +1825,7 @@ class AppLocalizationsJa extends AppLocalizations {
 
   @override
   String importedButtonsSkippedDuplicates(int addedCount, int skippedCount) {
-    return '$addedCount個のボタンを取り込みました。重複$skippedCount件をスキップしました。';
+    return 'ボタンを$addedCount個取り込みました。重複する$skippedCount個は取り込んでいません。';
   }
 
   @override

@@ -1579,12 +1579,24 @@ class AppLocalizationsPt extends AppLocalizations {
 
   @override
   String importedButtonCount(int count) {
-    return 'Foram importados $count botão(es).';
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: 'Foram importados $count botões.',
+      one: 'Foi importado $count botão.',
+    );
+    return '$_temp0';
   }
 
   @override
   String importedButtonsFromExistingRemotes(int count) {
-    return 'Foram importados $count botão(ões) de comandos existentes.';
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: 'Foram importados $count botões dos comandos guardados.',
+      one: 'Foi importado $count botão dos comandos guardados.',
+    );
+    return '$_temp0';
   }
 
   @override
@@ -1952,7 +1964,19 @@ class AppLocalizationsPt extends AppLocalizations {
 
   @override
   String importedButtonsSkippedDuplicates(int addedCount, int skippedCount) {
-    return 'Foram importados $addedCount botão(es). Se omitieron $skippedCount duplicado(s).';
+    String _temp0 = intl.Intl.pluralLogic(
+      addedCount,
+      locale: localeName,
+      other: 'Foram importados $addedCount botões.',
+      one: 'Foi importado $addedCount botão.',
+    );
+    String _temp1 = intl.Intl.pluralLogic(
+      skippedCount,
+      locale: localeName,
+      other: 'Foram ignorados $skippedCount duplicados.',
+      one: 'Foi ignorado $skippedCount duplicado.',
+    );
+    return '$_temp0 $_temp1';
   }
 
   @override
@@ -6901,12 +6925,24 @@ class AppLocalizationsPtBr extends AppLocalizationsPt {
 
   @override
   String importedButtonCount(int count) {
-    return 'Foram importados $count botão(es).';
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: '$count botões importados.',
+      one: '$count botão importado.',
+    );
+    return '$_temp0';
   }
 
   @override
   String importedButtonsFromExistingRemotes(int count) {
-    return 'Foram importados $count botão(ões) de controles existentes.';
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: '$count botões importados dos controles salvos.',
+      one: '$count botão importado dos controles salvos.',
+    );
+    return '$_temp0';
   }
 
   @override
@@ -7274,7 +7310,19 @@ class AppLocalizationsPtBr extends AppLocalizationsPt {
 
   @override
   String importedButtonsSkippedDuplicates(int addedCount, int skippedCount) {
-    return 'Foram importados $addedCount botão(es). Se omitieron $skippedCount duplicado(s).';
+    String _temp0 = intl.Intl.pluralLogic(
+      addedCount,
+      locale: localeName,
+      other: '$addedCount botões importados.',
+      one: '$addedCount botão importado.',
+    );
+    String _temp1 = intl.Intl.pluralLogic(
+      skippedCount,
+      locale: localeName,
+      other: '$skippedCount duplicados ignorados.',
+      one: '$skippedCount duplicado ignorado.',
+    );
+    return '$_temp0 $_temp1';
   }
 
   @override

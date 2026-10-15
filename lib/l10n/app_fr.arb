@@ -484,7 +484,7 @@
     }
   },
   "remove": "Retirer",
-  "importedButtonCount": "{count} bouton(s) importé(s).",
+  "importedButtonCount": "{count, plural, one{{count} bouton importé.} other{{count} boutons importés.}}",
   "@importedButtonCount": {
     "placeholders": {
       "count": {
@@ -492,7 +492,7 @@
       }
     }
   },
-  "importedButtonsFromExistingRemotes": "{count} bouton(s) importé(s) depuis les télécommandes existantes.",
+  "importedButtonsFromExistingRemotes": "{count, plural, one{{count} bouton importé des télécommandes enregistrées.} other{{count} boutons importés des télécommandes enregistrées.}}",
   "@importedButtonsFromExistingRemotes": {
     "placeholders": {
       "count": {
@@ -673,7 +673,7 @@
   "test": "Tester",
   "allSelectedButtonsWereDuplicates": "Tous les boutons choisis étaient des doublons.",
   "noButtonsImported": "Aucun bouton importé.",
-  "importedButtonsSkippedDuplicates": "{addedCount} bouton(s) importé(s). {skippedCount} doublon(s) ignoré(s).",
+  "importedButtonsSkippedDuplicates": "{addedCount, plural, one{{addedCount} bouton importé.} other{{addedCount} boutons importés.}} {skippedCount, plural, one{{skippedCount} doublon ignoré.} other{{skippedCount} doublons ignorés.}}",
   "@importedButtonsSkippedDuplicates": {
     "placeholders": {
       "addedCount": {

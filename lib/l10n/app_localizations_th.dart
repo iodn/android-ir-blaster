@@ -1527,7 +1527,7 @@ class AppLocalizationsTh extends AppLocalizations {
 
   @override
   String importedButtonsFromExistingRemotes(int count) {
-    return 'นำเข้า $count ปุ่มจากรีโมตที่มีอยู่แล้ว';
+    return 'นำเข้า $count ปุ่มจากรีโมตที่บันทึกไว้แล้ว';
   }
 
   @override
@@ -1887,7 +1887,7 @@ class AppLocalizationsTh extends AppLocalizations {
 
   @override
   String importedButtonsSkippedDuplicates(int addedCount, int skippedCount) {
-    return 'นำเข้า $addedCount ปุ่ม ข้ามรายการซ้ำ $skippedCount รายการ';
+    return 'นำเข้า $addedCount ปุ่มแล้ว ข้ามปุ่มที่ซ้ำกัน $skippedCount ปุ่ม';
   }
 
   @override

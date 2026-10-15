@@ -1431,7 +1431,7 @@ class AppLocalizationsZh extends AppLocalizations {
 
   @override
   String importedButtonsFromExistingRemotes(int count) {
-    return '已从现有遥控器导入 $count 个按钮。';
+    return '已从保存的遥控器导入 $count 个按钮。';
   }
 
   @override
@@ -1781,7 +1781,7 @@ class AppLocalizationsZh extends AppLocalizations {
 
   @override
   String importedButtonsSkippedDuplicates(int addedCount, int skippedCount) {
-    return '已导入 $addedCount 个按钮。跳过 $skippedCount 个重复项。';
+    return '已导入 $addedCount 个按钮，跳过了 $skippedCount 个重复按钮。';
   }
 
   @override

@@ -479,7 +479,7 @@
     }
   },
   "remove": "Buang",
-  "importedButtonCount": "Mengimport {count} butang.",
+  "importedButtonCount": "{count} butang berjaya diimport.",
   "@importedButtonCount": {
     "placeholders": {
       "count": {
@@ -487,7 +487,7 @@
       }
     }
   },
-  "importedButtonsFromExistingRemotes": "Mengimport {count} butang dari remote sedia ada.",
+  "importedButtonsFromExistingRemotes": "{count} butang diimport daripada alat kawalan jauh yang disimpan.",
   "@importedButtonsFromExistingRemotes": {
     "placeholders": {
       "count": {
@@ -668,7 +668,7 @@
   "test": "Uji",
   "allSelectedButtonsWereDuplicates": "Semua butang terpilih adalah duplikat.",
   "noButtonsImported": "Tiada butang importted.",
-  "importedButtonsSkippedDuplicates": "Mengimport {addedCount} butang. Melangkau {skippedCount} pendua.",
+  "importedButtonsSkippedDuplicates": "{addedCount} butang diimport. {skippedCount} pendua dilangkau.",
   "@importedButtonsSkippedDuplicates": {
     "placeholders": {
       "addedCount": {

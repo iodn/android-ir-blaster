@@ -479,7 +479,7 @@
     }
   },
   "remove": "Remover",
-  "importedButtonCount": "Foram importados {count} botão(es).",
+  "importedButtonCount": "{count, plural, =1{{count} botão importado.} other{{count} botões importados.}}",
   "@importedButtonCount": {
     "placeholders": {
       "count": {
@@ -487,7 +487,7 @@
       }
     }
   },
-  "importedButtonsFromExistingRemotes": "Foram importados {count} botão(ões) de controles existentes.",
+  "importedButtonsFromExistingRemotes": "{count, plural, =1{{count} botão importado dos controles salvos.} other{{count} botões importados dos controles salvos.}}",
   "@importedButtonsFromExistingRemotes": {
     "placeholders": {
       "count": {
@@ -668,7 +668,7 @@
   "test": "Testar",
   "allSelectedButtonsWereDuplicates": "Todos os botões elegidos eran duplicados.",
   "noButtonsImported": "Nenhum botão foi importado.",
-  "importedButtonsSkippedDuplicates": "Foram importados {addedCount} botão(es). Se omitieron {skippedCount} duplicado(s).",
+  "importedButtonsSkippedDuplicates": "{addedCount, plural, =1{{addedCount} botão importado.} other{{addedCount} botões importados.}} {skippedCount, plural, =1{{skippedCount} duplicado ignorado.} other{{skippedCount} duplicados ignorados.}}",
   "@importedButtonsSkippedDuplicates": {
     "placeholders": {
       "addedCount": {

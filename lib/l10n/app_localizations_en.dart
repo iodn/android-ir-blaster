@@ -1575,8 +1575,8 @@ class AppLocalizationsEn extends AppLocalizations {
     String _temp0 = intl.Intl.pluralLogic(
       count,
       locale: localeName,
-      other: 'Imported $count buttons from existing remotes.',
-      one: 'Imported $count button from existing remotes.',
+      other: 'Imported $count buttons from saved remotes.',
+      one: 'Imported $count button from saved remotes.',
     );
     return '$_temp0';
   }
@@ -1941,7 +1941,19 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String importedButtonsSkippedDuplicates(int addedCount, int skippedCount) {
-    return 'Imported $addedCount button(s). Skipped $skippedCount duplicate(s).';
+    String _temp0 = intl.Intl.pluralLogic(
+      addedCount,
+      locale: localeName,
+      other: 'Imported $addedCount buttons.',
+      one: 'Imported $addedCount button.',
+    );
+    String _temp1 = intl.Intl.pluralLogic(
+      skippedCount,
+      locale: localeName,
+      other: 'Skipped $skippedCount duplicates.',
+      one: 'Skipped $skippedCount duplicate.',
+    );
+    return '$_temp0 $_temp1';
   }
 
   @override

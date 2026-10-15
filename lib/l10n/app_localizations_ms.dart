@@ -1548,12 +1548,12 @@ class AppLocalizationsMs extends AppLocalizations {
 
   @override
   String importedButtonCount(int count) {
-    return 'Mengimport $count butang.';
+    return '$count butang berjaya diimport.';
   }
 
   @override
   String importedButtonsFromExistingRemotes(int count) {
-    return 'Mengimport $count butang dari remote sedia ada.';
+    return '$count butang diimport daripada alat kawalan jauh yang disimpan.';
   }
 
   @override
@@ -1917,7 +1917,7 @@ class AppLocalizationsMs extends AppLocalizations {
 
   @override
   String importedButtonsSkippedDuplicates(int addedCount, int skippedCount) {
-    return 'Mengimport $addedCount butang. Melangkau $skippedCount pendua.';
+    return '$addedCount butang diimport. $skippedCount pendua dilangkau.';
   }
 
   @override

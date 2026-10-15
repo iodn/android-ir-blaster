@@ -479,7 +479,7 @@
     }
   },
   "remove": "إزالة",
-  "importedButtonCount": "تم استيراد {count} زر.",
+  "importedButtonCount": "الأزرار المستوردة: {count}.",
   "@importedButtonCount": {
     "placeholders": {
       "count": {
@@ -487,7 +487,7 @@
       }
     }
   },
-  "importedButtonsFromExistingRemotes": "تم استيراد {count} زر من أجهزة التحكم الموجودة.",
+  "importedButtonsFromExistingRemotes": "الأزرار المستوردة من الريموتات المحفوظة: {count}.",
   "@importedButtonsFromExistingRemotes": {
     "placeholders": {
       "count": {
@@ -668,7 +668,7 @@
   "test": "اختبار",
   "allSelectedButtonsWereDuplicates": "الكل المحدد أزرار were duplicates.",
   "noButtonsImported": "No أزرار imported.",
-  "importedButtonsSkippedDuplicates": "تم استيراد {addedCount} زر. تم تخطي {skippedCount} من النسخ المكررة.",
+  "importedButtonsSkippedDuplicates": "الأزرار المستوردة: {addedCount}. الأزرار المكررة التي تم تخطيها: {skippedCount}.",
   "@importedButtonsSkippedDuplicates": {
     "placeholders": {
       "addedCount": {

@@ -479,7 +479,7 @@
     }
   },
   "remove": "Rimuovi",
-  "importedButtonCount": "Importati {count} pulsanti.",
+  "importedButtonCount": "{count, plural, one{Importato {count} pulsante.} other{Importati {count} pulsanti.}}",
   "@importedButtonCount": {
     "placeholders": {
       "count": {
@@ -487,7 +487,7 @@
       }
     }
   },
-  "importedButtonsFromExistingRemotes": "Importati {count} pulsanti dai telecomandi esistenti.",
+  "importedButtonsFromExistingRemotes": "{count, plural, one{Importato {count} pulsante dai telecomandi salvati.} other{Importati {count} pulsanti dai telecomandi salvati.}}",
   "@importedButtonsFromExistingRemotes": {
     "placeholders": {
       "count": {
@@ -668,7 +668,7 @@
   "test": "Test",
   "allSelectedButtonsWereDuplicates": "Tutti i pulsanti selezionati erano duplicati.",
   "noButtonsImported": "Nessun pulsante importato.",
-  "importedButtonsSkippedDuplicates": "Importati {addedCount} pulsanti. Saltati {skippedCount} duplicati.",
+  "importedButtonsSkippedDuplicates": "{addedCount, plural, one{Importato {addedCount} pulsante.} other{Importati {addedCount} pulsanti.}} {skippedCount, plural, one{Ignorato {skippedCount} duplicato.} other{Ignorati {skippedCount} duplicati.}}",
   "@importedButtonsSkippedDuplicates": {
     "placeholders": {
       "addedCount": {

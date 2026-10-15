@@ -1479,7 +1479,7 @@ class AppLocalizationsKo extends AppLocalizations {
 
   @override
   String importedButtonsFromExistingRemotes(int count) {
-    return '기존 리모컨에서 버튼 $count개를 가져왔습니다.';
+    return '저장된 리모컨에서 버튼 $count개를 가져왔습니다.';
   }
 
   @override
@@ -1833,7 +1833,7 @@ class AppLocalizationsKo extends AppLocalizations {
 
   @override
   String importedButtonsSkippedDuplicates(int addedCount, int skippedCount) {
-    return '버튼 $addedCount개를 가져왔습니다. 중복 $skippedCount개는 건너뛰었습니다.';
+    return '버튼 $addedCount개를 가져왔습니다. 중복된 버튼 $skippedCount개는 건너뛰었습니다.';
   }
 
   @override

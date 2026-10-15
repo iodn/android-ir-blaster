@@ -489,7 +489,7 @@
     }
   },
   "remove": "Entfernen",
-  "importedButtonCount": "{count} Taste(n) importiert.",
+  "importedButtonCount": "{count, plural, one{{count} Taste importiert.} other{{count} Tasten importiert.}}",
   "@importedButtonCount": {
     "placeholders": {
       "count": {
@@ -497,7 +497,7 @@
       }
     }
   },
-  "importedButtonsFromExistingRemotes": "{count} Taste(n) aus vorhandenen Fernbedienungen importiert.",
+  "importedButtonsFromExistingRemotes": "{count, plural, one{{count} Taste aus gespeicherten Fernbedienungen importiert.} other{{count} Tasten aus gespeicherten Fernbedienungen importiert.}}",
   "@importedButtonsFromExistingRemotes": {
     "placeholders": {
       "count": {
@@ -678,7 +678,7 @@
   "test": "Test",
   "allSelectedButtonsWereDuplicates": "Alle gewählten Tasten waren Duplikate.",
   "noButtonsImported": "Keine Tasten importiert.",
-  "importedButtonsSkippedDuplicates": "{addedCount} Taste(n) importiert. {skippedCount} Duplikat(e) übersprungen.",
+  "importedButtonsSkippedDuplicates": "{addedCount, plural, one{{addedCount} Taste importiert.} other{{addedCount} Tasten importiert.}} {skippedCount, plural, one{{skippedCount} Duplikat übersprungen.} other{{skippedCount} Duplikate übersprungen.}}",
   "@importedButtonsSkippedDuplicates": {
     "placeholders": {
       "addedCount": {

@@ -1551,7 +1551,7 @@ class AppLocalizationsTr extends AppLocalizations {
 
   @override
   String importedButtonsFromExistingRemotes(int count) {
-    return 'Mevcut kumandalardan $count düğme içe aktarıldı.';
+    return 'Kayıtlı kumandalardan $count düğme içe aktarıldı.';
   }
 
   @override
@@ -1916,7 +1916,7 @@ class AppLocalizationsTr extends AppLocalizations {
 
   @override
   String importedButtonsSkippedDuplicates(int addedCount, int skippedCount) {
-    return '$addedCount düğme içe aktarıldı. $skippedCount yineleme atlandı.';
+    return '$addedCount düğme içe aktarıldı. $skippedCount yinelenen düğme atlandı.';
   }
 
   @override
