@@ -1955,6 +1955,7 @@
   "@recentlyUsedRemotesSubtitle": {
     "description": "Subtitle for the recently used remotes section on the remotes screen."
   },
+  "pinnedRemoteLabel": "مثبّت",
   "pinRemote": "تثبيت جهاز التحكم",
   "@pinRemote": {
     "description": "Action label to pin a remote for quick access."

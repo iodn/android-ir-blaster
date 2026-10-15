@@ -4435,6 +4435,9 @@ class AppLocalizationsTr extends AppLocalizations {
       'Jump back into the remotes you opened most recently.';
 
   @override
+  String get pinnedRemoteLabel => 'Sabitlendi';
+
+  @override
   String get pinRemote => 'Kumandayı sabitle';
 
   @override

@@ -4504,6 +4504,9 @@ class AppLocalizationsNl extends AppLocalizations {
       'Jump back into the remotes you opened most recently.';
 
   @override
+  String get pinnedRemoteLabel => 'Vastgezet';
+
+  @override
   String get pinRemote => 'Afstandsbediening vastzetten';
 
   @override

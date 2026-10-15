@@ -4559,6 +4559,9 @@ class AppLocalizationsUk extends AppLocalizations {
       'Поверніться до пультів, які ви нещодавно відкривали.';
 
   @override
+  String get pinnedRemoteLabel => 'Закріплено';
+
+  @override
   String get pinRemote => 'Закріпити пульт';
 
   @override

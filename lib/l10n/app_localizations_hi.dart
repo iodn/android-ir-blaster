@@ -4427,6 +4427,9 @@ class AppLocalizationsHi extends AppLocalizations {
       'Jump back into the remotes you opened most recently.';
 
   @override
+  String get pinnedRemoteLabel => 'पिन किया गया';
+
+  @override
   String get pinRemote => 'रिमोट पिन करें';
 
   @override

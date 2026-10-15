@@ -235,7 +235,7 @@ class _RemoteListState extends State<RemoteList> {
       items.add(
         _TopRemoteAccessCardData(
           icon: Icons.push_pin_rounded,
-          eyebrow: context.l10n.pinRemote,
+          eyebrow: context.l10n.pinnedRemoteLabel,
           title: remote.name,
           subtitle: context.l10n.remoteButtonCountLabel(remote.buttons.length),
           pinned: true,

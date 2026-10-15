@@ -4325,6 +4325,9 @@ class AppLocalizationsKo extends AppLocalizations {
       'Jump back into the remotes you opened most recently.';
 
   @override
+  String get pinnedRemoteLabel => '고정됨';
+
+  @override
   String get pinRemote => '리모컨 고정';
 
   @override

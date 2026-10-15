@@ -4403,6 +4403,9 @@ class AppLocalizationsTh extends AppLocalizations {
       'Jump back into the remotes you opened most recently.';
 
   @override
+  String get pinnedRemoteLabel => 'ปักหมุดแล้ว';
+
+  @override
   String get pinRemote => 'ปักหมุดรีโมต';
 
   @override

@@ -8102,6 +8102,12 @@ abstract class AppLocalizations {
   /// **'Jump back into the remotes you opened most recently.'**
   String get recentlyUsedRemotesSubtitle;
 
+  /// No description provided for @pinnedRemoteLabel.
+  ///
+  /// In en, this message translates to:
+  /// **'Pinned'**
+  String get pinnedRemoteLabel;
+
   /// Action label to pin a remote for quick access.
   ///
   /// In en, this message translates to:

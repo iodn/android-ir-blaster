@@ -4438,6 +4438,9 @@ class AppLocalizationsMs extends AppLocalizations {
       'Jump back into the remotes you opened most recently.';
 
   @override
+  String get pinnedRemoteLabel => 'Disematkan';
+
+  @override
   String get pinRemote => 'Sematkan alat kawalan jauh';
 
   @override

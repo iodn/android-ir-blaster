@@ -1950,6 +1950,7 @@
   "@recentlyUsedRemotesSubtitle": {
     "description": "Subtitle for the recently used remotes section on the remotes screen."
   },
+  "pinnedRemoteLabel": "Fijado",
   "pinRemote": "Fijar mando",
   "@pinRemote": {
     "description": "Action label to pin a remote for quick access."

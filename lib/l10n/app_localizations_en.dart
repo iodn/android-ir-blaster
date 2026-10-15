@@ -4496,6 +4496,9 @@ class AppLocalizationsEn extends AppLocalizations {
       'Jump back into the remotes you opened most recently.';
 
   @override
+  String get pinnedRemoteLabel => 'Pinned';
+
+  @override
   String get pinRemote => 'Pin remote';
 
   @override

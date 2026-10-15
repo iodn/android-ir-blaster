@@ -1950,6 +1950,7 @@
   "@recentlyUsedRemotesSubtitle": {
     "description": "Subtitle for the recently used remotes section on the remotes screen."
   },
+  "pinnedRemoteLabel": "固定済み",
   "pinRemote": "リモコンを固定",
   "@pinRemote": {
     "description": "Action label to pin a remote for quick access."

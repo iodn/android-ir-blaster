@@ -4479,6 +4479,9 @@ class AppLocalizationsRu extends AppLocalizations {
       'Jump back into the remotes you opened most recently.';
 
   @override
+  String get pinnedRemoteLabel => 'Закреплён';
+
+  @override
   String get pinRemote => 'Закрепить пульт';
 
   @override

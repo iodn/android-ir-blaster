@@ -4455,6 +4455,9 @@ class AppLocalizationsAr extends AppLocalizations {
       'Jump back into the remotes you opened most recently.';
 
   @override
+  String get pinnedRemoteLabel => 'مثبّت';
+
+  @override
   String get pinRemote => 'تثبيت جهاز التحكم';
 
   @override
@@ -9726,6 +9729,9 @@ class AppLocalizationsArEg extends AppLocalizationsAr {
   @override
   String get recentlyUsedRemotesSubtitle =>
       'Jump back into the remotes you opened most recently.';
+
+  @override
+  String get pinnedRemoteLabel => 'مثبّت';
 
   @override
   String get pinRemote => 'تثبيت جهاز التحكم';

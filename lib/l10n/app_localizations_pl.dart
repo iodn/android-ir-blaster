@@ -4547,6 +4547,9 @@ class AppLocalizationsPl extends AppLocalizations {
       'Jump back into the remotes you opened most recently.';
 
   @override
+  String get pinnedRemoteLabel => 'Przypięty';
+
+  @override
   String get pinRemote => 'Przypnij pilot';
 
   @override

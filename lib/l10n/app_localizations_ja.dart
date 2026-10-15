@@ -4310,6 +4310,9 @@ class AppLocalizationsJa extends AppLocalizations {
       'Jump back into the remotes you opened most recently.';
 
   @override
+  String get pinnedRemoteLabel => '固定済み';
+
+  @override
   String get pinRemote => 'リモコンを固定';
 
   @override

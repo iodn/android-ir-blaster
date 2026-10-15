@@ -4498,6 +4498,9 @@ class AppLocalizationsPt extends AppLocalizations {
       'Jump back into the remotes you opened most recently.';
 
   @override
+  String get pinnedRemoteLabel => 'Fixado';
+
+  @override
   String get pinRemote => 'Fixar comando';
 
   @override
@@ -9819,6 +9822,9 @@ class AppLocalizationsPtBr extends AppLocalizationsPt {
   @override
   String get recentlyUsedRemotesSubtitle =>
       'Jump back into the remotes you opened most recently.';
+
+  @override
+  String get pinnedRemoteLabel => 'Fixado';
 
   @override
   String get pinRemote => 'Fixar controle';

@@ -4450,6 +4450,9 @@ class AppLocalizationsFil extends AppLocalizations {
       'Jump back into the remotes you opened most recently.';
 
   @override
+  String get pinnedRemoteLabel => 'Naka-pin';
+
+  @override
   String get pinRemote => 'I-pin ang remote';
 
   @override

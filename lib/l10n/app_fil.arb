@@ -1955,6 +1955,7 @@
   "@recentlyUsedRemotesSubtitle": {
     "description": "Subtitle for the recently used remotes section on the remotes screen."
   },
+  "pinnedRemoteLabel": "Naka-pin",
   "pinRemote": "I-pin ang remote",
   "@pinRemote": {
     "description": "Action label to pin a remote for quick access."

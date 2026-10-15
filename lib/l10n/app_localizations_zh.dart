@@ -4250,6 +4250,9 @@ class AppLocalizationsZh extends AppLocalizations {
       'Jump back into the remotes you opened most recently.';
 
   @override
+  String get pinnedRemoteLabel => '已置顶';
+
+  @override
   String get pinRemote => '置顶遥控器';
 
   @override

@@ -4504,6 +4504,9 @@ class AppLocalizationsDe extends AppLocalizations {
       'Jump back into the remotes you opened most recently.';
 
   @override
+  String get pinnedRemoteLabel => 'Angeheftet';
+
+  @override
   String get pinRemote => 'Fernbedienung anheften';
 
   @override

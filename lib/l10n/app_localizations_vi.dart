@@ -4417,6 +4417,9 @@ class AppLocalizationsVi extends AppLocalizations {
       'Jump back into the remotes you opened most recently.';
 
   @override
+  String get pinnedRemoteLabel => 'Đã ghim';
+
+  @override
   String get pinRemote => 'Ghim điều khiển';
 
   @override
