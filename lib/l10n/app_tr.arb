@@ -852,7 +852,7 @@
     }
   },
   "invalidStepEncountered": "Bu makro geçersiz bir adım içeriyor. Tekrar denemeden önce bu adımı düzenleyin.",
-  "failedToSendNamed": "Başarısız to gönder: {name}",
+  "failedToSendNamed": "Komut gönderilemedi: {name}",
   "@failedToSendNamed": {
     "placeholders": {
       "name": {}
@@ -925,11 +925,17 @@
       }
     }
   },
-  "waiting": "Waiting",
-  "secondsRemaining": "{seconds}s remaining",
+  "waiting": "Bekleniyor",
+  "secondsRemaining": "Kalan süre: {seconds} sn",
   "@secondsRemaining": {
     "placeholders": {
-      "seconds": {}
+      "seconds": {
+        "type": "num",
+        "format": "decimalPatternDigits",
+        "optionalParameters": {
+          "decimalDigits": 1
+        }
+      }
     }
   },
   "millisecondsShort": "{ms}ms",
@@ -949,7 +955,7 @@
       "duration": {}
     }
   },
-  "sequence": "Sequence",
+  "sequence": "Adımlar",
   "waitMilliseconds": "{ms} ms bekle",
   "@waitMilliseconds": {
     "placeholders": {

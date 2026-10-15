@@ -2095,7 +2095,7 @@ class AppLocalizationsKo extends AppLocalizations {
 
   @override
   String failedToSendNamed(Object name) {
-    return '전송하지 못했습니다: $name';
+    return '명령을 전송하지 못했습니다: $name';
   }
 
   @override
@@ -2103,7 +2103,7 @@ class AppLocalizationsKo extends AppLocalizations {
 
   @override
   String buttonNotFoundNamed(Object name) {
-    return '버튼을 찾을 수 없음: $name';
+    return '버튼을 찾을 수 없습니다: $name';
   }
 
   @override
@@ -2135,7 +2135,7 @@ class AppLocalizationsKo extends AppLocalizations {
 
   @override
   String stepProgress(int current, int total) {
-    return '단계 $current/$total';
+    return '$total단계 중 $current단계';
   }
 
   @override
@@ -2159,8 +2159,13 @@ class AppLocalizationsKo extends AppLocalizations {
   String get waiting => '대기 중';
 
   @override
-  String secondsRemaining(Object seconds) {
-    return '$seconds초 남음';
+  String secondsRemaining(num seconds) {
+    final intl.NumberFormat secondsNumberFormat =
+        intl.NumberFormat.decimalPatternDigits(
+            locale: localeName, decimalDigits: 1);
+    final String secondsString = secondsNumberFormat.format(seconds);
+
+    return '$secondsString초 남음';
   }
 
   @override
@@ -2183,11 +2188,11 @@ class AppLocalizationsKo extends AppLocalizations {
   }
 
   @override
-  String get sequence => '시퀀스';
+  String get sequence => '실행 단계';
 
   @override
   String waitMilliseconds(int ms) {
-    return '대기 ${ms}ms';
+    return '$ms밀리초 대기';
   }
 
   @override

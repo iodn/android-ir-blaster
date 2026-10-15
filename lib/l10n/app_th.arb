@@ -852,7 +852,7 @@
     }
   },
   "invalidStepEncountered": "มาโครนี้มีขั้นตอนที่ไม่ถูกต้อง โปรดแก้ไขก่อนลองอีกครั้ง",
-  "failedToSendNamed": "ส่งไม่สำเร็จ: {name}",
+  "failedToSendNamed": "ส่งคำสั่งไม่สำเร็จ: {name}",
   "@failedToSendNamed": {
     "placeholders": {
       "name": {}
@@ -899,7 +899,7 @@
   "orientationFlippedTooltip": "การวางแนว: กลับด้าน แตะเพื่อกลับปกติ",
   "orientationNormalTooltip": "การวางแนว: ปกติ แตะเพื่อกลับด้าน",
   "noSteps": "ไม่มีขั้นตอน",
-  "stepProgress": "Step {current} / {total}",
+  "stepProgress": "ขั้นตอนที่ {current} จาก {total}",
   "@stepProgress": {
     "placeholders": {
       "current": {
@@ -926,10 +926,16 @@
     }
   },
   "waiting": "กำลังรอ",
-  "secondsRemaining": "เหลืออีก {seconds}ว",
+  "secondsRemaining": "เหลือ {seconds} วินาที",
   "@secondsRemaining": {
     "placeholders": {
-      "seconds": {}
+      "seconds": {
+        "type": "num",
+        "format": "decimalPatternDigits",
+        "optionalParameters": {
+          "decimalDigits": 1
+        }
+      }
     }
   },
   "millisecondsShort": "{ms}ms",
@@ -949,8 +955,8 @@
       "duration": {}
     }
   },
-  "sequence": "ลำดับ",
-  "waitMilliseconds": "รอ {ms}ms",
+  "sequence": "ขั้นตอน",
+  "waitMilliseconds": "รอ {ms} มิลลิวินาที",
   "@waitMilliseconds": {
     "placeholders": {
       "ms": {

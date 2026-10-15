@@ -2169,7 +2169,7 @@ class AppLocalizationsVi extends AppLocalizations {
 
   @override
   String failedToSendNamed(Object name) {
-    return 'Gửi thất bại: $name';
+    return 'Không gửi được lệnh: $name';
   }
 
   @override
@@ -2233,8 +2233,13 @@ class AppLocalizationsVi extends AppLocalizations {
   String get waiting => 'Đang chờ';
 
   @override
-  String secondsRemaining(Object seconds) {
-    return 'Còn ${seconds}s';
+  String secondsRemaining(num seconds) {
+    final intl.NumberFormat secondsNumberFormat =
+        intl.NumberFormat.decimalPatternDigits(
+            locale: localeName, decimalDigits: 1);
+    final String secondsString = secondsNumberFormat.format(seconds);
+
+    return 'Còn $secondsString giây';
   }
 
   @override
@@ -2258,11 +2263,11 @@ class AppLocalizationsVi extends AppLocalizations {
   }
 
   @override
-  String get sequence => 'Chuỗi';
+  String get sequence => 'Các bước';
 
   @override
   String waitMilliseconds(int ms) {
-    return 'Chờ ${ms}ms';
+    return 'Chờ $ms mili giây';
   }
 
   @override

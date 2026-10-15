@@ -852,7 +852,7 @@
     }
   },
   "invalidStepEncountered": "Macro này có bước không hợp lệ. Hãy chỉnh sửa bước đó trước khi thử lại.",
-  "failedToSendNamed": "Gửi thất bại: {name}",
+  "failedToSendNamed": "Không gửi được lệnh: {name}",
   "@failedToSendNamed": {
     "placeholders": {
       "name": {}
@@ -926,10 +926,16 @@
     }
   },
   "waiting": "Đang chờ",
-  "secondsRemaining": "Còn {seconds}s",
+  "secondsRemaining": "Còn {seconds} giây",
   "@secondsRemaining": {
     "placeholders": {
-      "seconds": {}
+      "seconds": {
+        "type": "num",
+        "format": "decimalPatternDigits",
+        "optionalParameters": {
+          "decimalDigits": 1
+        }
+      }
     }
   },
   "millisecondsShort": "{ms}ms",
@@ -949,8 +955,8 @@
       "duration": {}
     }
   },
-  "sequence": "Chuỗi",
-  "waitMilliseconds": "Chờ {ms}ms",
+  "sequence": "Các bước",
+  "waitMilliseconds": "Chờ {ms} mili giây",
   "@waitMilliseconds": {
     "placeholders": {
       "ms": {

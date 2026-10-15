@@ -901,7 +901,7 @@
   "orientationFlippedTooltip": "Orientacja: odwrócona (stuknij, aby przywrócić normalną)",
   "orientationNormalTooltip": "Orientacja: normalna (stuknij, aby odwrócić)",
   "noSteps": "Brak kroków",
-  "stepProgress": "Krok {current} / {total}",
+  "stepProgress": "Krok {current} z {total}",
   "@stepProgress": {
     "placeholders": {
       "current": {
@@ -928,10 +928,16 @@
     }
   },
   "waiting": "Oczekiwanie",
-  "secondsRemaining": "Pozostało {seconds}s",
+  "secondsRemaining": "Pozostało: {seconds} s",
   "@secondsRemaining": {
     "placeholders": {
-      "seconds": {}
+      "seconds": {
+        "type": "num",
+        "format": "decimalPatternDigits",
+        "optionalParameters": {
+          "decimalDigits": 1
+        }
+      }
     }
   },
   "millisecondsShort": "{ms}ms",
@@ -951,8 +957,8 @@
       "duration": {}
     }
   },
-  "sequence": "Sekwencja",
-  "waitMilliseconds": "Czekaj {ms} ms",
+  "sequence": "Kroki",
+  "waitMilliseconds": "Odczekaj {ms} ms",
   "@waitMilliseconds": {
     "placeholders": {
       "ms": {

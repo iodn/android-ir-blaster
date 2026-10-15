@@ -2312,7 +2312,7 @@ class AppLocalizationsPl extends AppLocalizations {
 
   @override
   String stepProgress(int current, int total) {
-    return 'Krok $current / $total';
+    return 'Krok $current z $total';
   }
 
   @override
@@ -2336,8 +2336,13 @@ class AppLocalizationsPl extends AppLocalizations {
   String get waiting => 'Oczekiwanie';
 
   @override
-  String secondsRemaining(Object seconds) {
-    return 'Pozostało ${seconds}s';
+  String secondsRemaining(num seconds) {
+    final intl.NumberFormat secondsNumberFormat =
+        intl.NumberFormat.decimalPatternDigits(
+            locale: localeName, decimalDigits: 1);
+    final String secondsString = secondsNumberFormat.format(seconds);
+
+    return 'Pozostało: $secondsString s';
   }
 
   @override
@@ -2361,11 +2366,11 @@ class AppLocalizationsPl extends AppLocalizations {
   }
 
   @override
-  String get sequence => 'Sekwencja';
+  String get sequence => 'Kroki';
 
   @override
   String waitMilliseconds(int ms) {
-    return 'Czekaj $ms ms';
+    return 'Odczekaj $ms ms';
   }
 
   @override

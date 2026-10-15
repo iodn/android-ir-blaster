@@ -2297,8 +2297,13 @@ class AppLocalizationsEn extends AppLocalizations {
   String get waiting => 'Waiting';
 
   @override
-  String secondsRemaining(Object seconds) {
-    return '${seconds}s remaining';
+  String secondsRemaining(num seconds) {
+    final intl.NumberFormat secondsNumberFormat =
+        intl.NumberFormat.decimalPatternDigits(
+            locale: localeName, decimalDigits: 1);
+    final String secondsString = secondsNumberFormat.format(seconds);
+
+    return '$secondsString s remaining';
   }
 
   @override
@@ -2322,11 +2327,11 @@ class AppLocalizationsEn extends AppLocalizations {
   }
 
   @override
-  String get sequence => 'Sequence';
+  String get sequence => 'Steps';
 
   @override
   String waitMilliseconds(int ms) {
-    return 'Wait ${ms}ms';
+    return 'Wait $ms ms';
   }
 
   @override

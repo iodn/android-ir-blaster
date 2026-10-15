@@ -864,7 +864,7 @@
     }
   },
   "buttonNotFound": "Botón no encontrado",
-  "buttonNotFoundNamed": "Botón no encontrado: {name}",
+  "buttonNotFoundNamed": "No se encontró el botón: {name}",
   "@buttonNotFoundNamed": {
     "placeholders": {
       "name": {}
@@ -904,7 +904,7 @@
   "orientationFlippedTooltip": "Orientación: invertida (toca para normal)",
   "orientationNormalTooltip": "Orientación: normal (toca para invertir)",
   "noSteps": "Sin pasos",
-  "stepProgress": "Paso {current} / {total}",
+  "stepProgress": "Paso {current} de {total}",
   "@stepProgress": {
     "placeholders": {
       "current": {
@@ -930,11 +930,17 @@
       }
     }
   },
-  "waiting": "Esperando",
-  "secondsRemaining": "Quedan {seconds}s",
+  "waiting": "En espera",
+  "secondsRemaining": "Tiempo restante: {seconds} s",
   "@secondsRemaining": {
     "placeholders": {
-      "seconds": {}
+      "seconds": {
+        "type": "num",
+        "format": "decimalPatternDigits",
+        "optionalParameters": {
+          "decimalDigits": 1
+        }
+      }
     }
   },
   "millisecondsShort": "{ms}ms",
@@ -954,8 +960,8 @@
       "duration": {}
     }
   },
-  "sequence": "Secuencia",
-  "waitMilliseconds": "Esperar {ms}ms",
+  "sequence": "Pasos",
+  "waitMilliseconds": "Esperar {ms} ms",
   "@waitMilliseconds": {
     "placeholders": {
       "ms": {

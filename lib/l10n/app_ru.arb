@@ -899,7 +899,7 @@
   "orientationFlippedTooltip": "Ориентация: перевёрнута, нажмите для норм.",
   "orientationNormalTooltip": "Ориентация: обычная, нажмите для переворота",
   "noSteps": "Нет шагов",
-  "stepProgress": "Шаг {current} / {total}",
+  "stepProgress": "Шаг {current} из {total}",
   "@stepProgress": {
     "placeholders": {
       "current": {
@@ -926,10 +926,16 @@
     }
   },
   "waiting": "Ожидание",
-  "secondsRemaining": "Осталось {seconds}с",
+  "secondsRemaining": "Осталось: {seconds} с",
   "@secondsRemaining": {
     "placeholders": {
-      "seconds": {}
+      "seconds": {
+        "type": "num",
+        "format": "decimalPatternDigits",
+        "optionalParameters": {
+          "decimalDigits": 1
+        }
+      }
     }
   },
   "millisecondsShort": "{ms}мс",
@@ -949,8 +955,8 @@
       "duration": {}
     }
   },
-  "sequence": "Последовательность",
-  "waitMilliseconds": "Ждать {ms}мс",
+  "sequence": "Шаги",
+  "waitMilliseconds": "Подождать {ms} мс",
   "@waitMilliseconds": {
     "placeholders": {
       "ms": {

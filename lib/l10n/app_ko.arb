@@ -852,14 +852,14 @@
     }
   },
   "invalidStepEncountered": "이 매크로에 잘못된 단계가 있습니다. 해당 단계를 수정한 후 다시 시도하세요.",
-  "failedToSendNamed": "전송하지 못했습니다: {name}",
+  "failedToSendNamed": "명령을 전송하지 못했습니다: {name}",
   "@failedToSendNamed": {
     "placeholders": {
       "name": {}
     }
   },
   "buttonNotFound": "버튼을 찾을 수 없음",
-  "buttonNotFoundNamed": "버튼을 찾을 수 없음: {name}",
+  "buttonNotFoundNamed": "버튼을 찾을 수 없습니다: {name}",
   "@buttonNotFoundNamed": {
     "placeholders": {
       "name": {}
@@ -899,7 +899,7 @@
   "orientationFlippedTooltip": "방향: 뒤집힘(탭하여 정상)",
   "orientationNormalTooltip": "방향: 정상(탭하여 뒤집기)",
   "noSteps": "단계 없음",
-  "stepProgress": "단계 {current}/{total}",
+  "stepProgress": "{total}단계 중 {current}단계",
   "@stepProgress": {
     "placeholders": {
       "current": {
@@ -929,7 +929,13 @@
   "secondsRemaining": "{seconds}초 남음",
   "@secondsRemaining": {
     "placeholders": {
-      "seconds": {}
+      "seconds": {
+        "type": "num",
+        "format": "decimalPatternDigits",
+        "optionalParameters": {
+          "decimalDigits": 1
+        }
+      }
     }
   },
   "millisecondsShort": "{ms}ms",
@@ -949,8 +955,8 @@
       "duration": {}
     }
   },
-  "sequence": "시퀀스",
-  "waitMilliseconds": "대기 {ms}ms",
+  "sequence": "실행 단계",
+  "waitMilliseconds": "{ms}밀리초 대기",
   "@waitMilliseconds": {
     "placeholders": {
       "ms": {

@@ -2174,7 +2174,7 @@ class AppLocalizationsHi extends AppLocalizations {
 
   @override
   String failedToSendNamed(Object name) {
-    return 'भेजें: $name विफल';
+    return 'कमांड नहीं भेजी जा सकी: $name';
   }
 
   @override
@@ -2237,11 +2237,16 @@ class AppLocalizationsHi extends AppLocalizations {
   }
 
   @override
-  String get waiting => 'Waiting';
+  String get waiting => 'प्रतीक्षा जारी है';
 
   @override
-  String secondsRemaining(Object seconds) {
-    return '${seconds}s शेष';
+  String secondsRemaining(num seconds) {
+    final intl.NumberFormat secondsNumberFormat =
+        intl.NumberFormat.decimalPatternDigits(
+            locale: localeName, decimalDigits: 1);
+    final String secondsString = secondsNumberFormat.format(seconds);
+
+    return '$secondsString सेकंड बाकी';
   }
 
   @override
@@ -2265,11 +2270,11 @@ class AppLocalizationsHi extends AppLocalizations {
   }
 
   @override
-  String get sequence => 'Sequence';
+  String get sequence => 'चरण';
 
   @override
   String waitMilliseconds(int ms) {
-    return 'प्रतीक्षा करें ${ms}ms';
+    return '$ms मिलीसेकंड प्रतीक्षा करें';
   }
 
   @override

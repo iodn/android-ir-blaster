@@ -859,7 +859,7 @@
     }
   },
   "buttonNotFound": "Knop not found",
-  "buttonNotFoundNamed": "Knop not found: {name}",
+  "buttonNotFoundNamed": "Knop niet gevonden: {name}",
   "@buttonNotFoundNamed": {
     "placeholders": {
       "name": {}
@@ -899,7 +899,7 @@
   "orientationFlippedTooltip": "Oriëntatie omgedraaid tik voor normaal",
   "orientationNormalTooltip": "Oriëntatie normaal tik om om te draaien",
   "noSteps": "Geen stappen",
-  "stepProgress": "Stap {current} / {total}",
+  "stepProgress": "Stap {current} van {total}",
   "@stepProgress": {
     "placeholders": {
       "current": {
@@ -926,10 +926,16 @@
     }
   },
   "waiting": "Wachten",
-  "secondsRemaining": "{seconds}s resterend",
+  "secondsRemaining": "Nog {seconds} s",
   "@secondsRemaining": {
     "placeholders": {
-      "seconds": {}
+      "seconds": {
+        "type": "num",
+        "format": "decimalPatternDigits",
+        "optionalParameters": {
+          "decimalDigits": 1
+        }
+      }
     }
   },
   "millisecondsShort": "{ms}ms",
@@ -949,8 +955,8 @@
       "duration": {}
     }
   },
-  "sequence": "Reeks",
-  "waitMilliseconds": "Wacht {ms}ms",
+  "sequence": "Stappen",
+  "waitMilliseconds": "Wacht {ms} ms",
   "@waitMilliseconds": {
     "placeholders": {
       "ms": {

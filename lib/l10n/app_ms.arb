@@ -852,7 +852,7 @@
     }
   },
   "invalidStepEncountered": "Makro ini mengandungi langkah yang tidak sah. Edit langkah itu sebelum mencuba lagi.",
-  "failedToSendNamed": "Gagal send: {name}",
+  "failedToSendNamed": "Gagal menghantar arahan: {name}",
   "@failedToSendNamed": {
     "placeholders": {
       "name": {}
@@ -899,7 +899,7 @@
   "orientationFlippedTooltip": "Orientasi: terbalik (tekan untuk normal)",
   "orientationNormalTooltip": "Orientasi: normal (tekan untuk balik)",
   "noSteps": "Tiada langkah",
-  "stepProgress": "Langkah {current} / {total}",
+  "stepProgress": "Langkah {current} daripada {total}",
   "@stepProgress": {
     "placeholders": {
       "current": {
@@ -926,10 +926,16 @@
     }
   },
   "waiting": "Menunggu",
-  "secondsRemaining": "Baki {seconds}s",
+  "secondsRemaining": "Masa berbaki: {seconds} saat",
   "@secondsRemaining": {
     "placeholders": {
-      "seconds": {}
+      "seconds": {
+        "type": "num",
+        "format": "decimalPatternDigits",
+        "optionalParameters": {
+          "decimalDigits": 1
+        }
+      }
     }
   },
   "millisecondsShort": "{ms}ms",
@@ -949,8 +955,8 @@
       "duration": {}
     }
   },
-  "sequence": "Urutan",
-  "waitMilliseconds": "Tunggu {ms}ms",
+  "sequence": "Langkah",
+  "waitMilliseconds": "Tunggu {ms} milisaat",
   "@waitMilliseconds": {
     "placeholders": {
       "ms": {

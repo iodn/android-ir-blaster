@@ -2199,7 +2199,7 @@ class AppLocalizationsFil extends AppLocalizations {
 
   @override
   String failedToSendNamed(Object name) {
-    return 'Nabigong magpadala: $name';
+    return 'Hindi naipadala ang command: $name';
   }
 
   @override
@@ -2207,7 +2207,7 @@ class AppLocalizationsFil extends AppLocalizations {
 
   @override
   String buttonNotFoundNamed(Object name) {
-    return 'Hindi nahanap ang button: $name';
+    return 'Hindi makita ang button: $name';
   }
 
   @override
@@ -2240,7 +2240,7 @@ class AppLocalizationsFil extends AppLocalizations {
 
   @override
   String stepProgress(int current, int total) {
-    return 'Hakbang $current / $total';
+    return 'Hakbang $current sa $total';
   }
 
   @override
@@ -2261,11 +2261,16 @@ class AppLocalizationsFil extends AppLocalizations {
   }
 
   @override
-  String get waiting => 'Waiting';
+  String get waiting => 'Naghihintay';
 
   @override
-  String secondsRemaining(Object seconds) {
-    return '${seconds}s natitira';
+  String secondsRemaining(num seconds) {
+    final intl.NumberFormat secondsNumberFormat =
+        intl.NumberFormat.decimalPatternDigits(
+            locale: localeName, decimalDigits: 1);
+    final String secondsString = secondsNumberFormat.format(seconds);
+
+    return 'Natitira: $secondsString seg.';
   }
 
   @override
@@ -2289,11 +2294,11 @@ class AppLocalizationsFil extends AppLocalizations {
   }
 
   @override
-  String get sequence => 'Sequence';
+  String get sequence => 'Mga hakbang';
 
   @override
   String waitMilliseconds(int ms) {
-    return 'Maghintay ${ms}ms';
+    return 'Maghintay nang $ms ms';
   }
 
   @override

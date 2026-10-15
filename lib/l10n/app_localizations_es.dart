@@ -2213,7 +2213,7 @@ class AppLocalizationsEs extends AppLocalizations {
 
   @override
   String buttonNotFoundNamed(Object name) {
-    return 'Botón no encontrado: $name';
+    return 'No se encontró el botón: $name';
   }
 
   @override
@@ -2247,7 +2247,7 @@ class AppLocalizationsEs extends AppLocalizations {
 
   @override
   String stepProgress(int current, int total) {
-    return 'Paso $current / $total';
+    return 'Paso $current de $total';
   }
 
   @override
@@ -2268,11 +2268,16 @@ class AppLocalizationsEs extends AppLocalizations {
   }
 
   @override
-  String get waiting => 'Esperando';
+  String get waiting => 'En espera';
 
   @override
-  String secondsRemaining(Object seconds) {
-    return 'Quedan ${seconds}s';
+  String secondsRemaining(num seconds) {
+    final intl.NumberFormat secondsNumberFormat =
+        intl.NumberFormat.decimalPatternDigits(
+            locale: localeName, decimalDigits: 1);
+    final String secondsString = secondsNumberFormat.format(seconds);
+
+    return 'Tiempo restante: $secondsString s';
   }
 
   @override
@@ -2296,11 +2301,11 @@ class AppLocalizationsEs extends AppLocalizations {
   }
 
   @override
-  String get sequence => 'Secuencia';
+  String get sequence => 'Pasos';
 
   @override
   String waitMilliseconds(int ms) {
-    return 'Esperar ${ms}ms';
+    return 'Esperar $ms ms';
   }
 
   @override

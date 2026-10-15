@@ -2224,7 +2224,7 @@ class AppLocalizationsNl extends AppLocalizations {
 
   @override
   String buttonNotFoundNamed(Object name) {
-    return 'Knop not found: $name';
+    return 'Knop niet gevonden: $name';
   }
 
   @override
@@ -2258,7 +2258,7 @@ class AppLocalizationsNl extends AppLocalizations {
 
   @override
   String stepProgress(int current, int total) {
-    return 'Stap $current / $total';
+    return 'Stap $current van $total';
   }
 
   @override
@@ -2282,8 +2282,13 @@ class AppLocalizationsNl extends AppLocalizations {
   String get waiting => 'Wachten';
 
   @override
-  String secondsRemaining(Object seconds) {
-    return '${seconds}s resterend';
+  String secondsRemaining(num seconds) {
+    final intl.NumberFormat secondsNumberFormat =
+        intl.NumberFormat.decimalPatternDigits(
+            locale: localeName, decimalDigits: 1);
+    final String secondsString = secondsNumberFormat.format(seconds);
+
+    return 'Nog $secondsString s';
   }
 
   @override
@@ -2307,11 +2312,11 @@ class AppLocalizationsNl extends AppLocalizations {
   }
 
   @override
-  String get sequence => 'Reeks';
+  String get sequence => 'Stappen';
 
   @override
   String waitMilliseconds(int ms) {
-    return 'Wacht ${ms}ms';
+    return 'Wacht $ms ms';
   }
 
   @override

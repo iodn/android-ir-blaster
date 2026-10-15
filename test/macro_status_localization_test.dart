@@ -17,7 +17,8 @@ void main() {
       tester.view.devicePixelRatio = 1;
       addTearDown(tester.view.resetPhysicalSize);
       addTearDown(tester.view.resetDevicePixelRatio);
-      Future<AppLocalizations> open(List<MacroStep> steps) async {
+      Future<AppLocalizations> open(List<MacroStep> steps,
+          {List<IRButton> buttons = const []}) async {
         await tester.pumpWidget(MaterialApp(
           locale: locale,
           supportedLocales: AppLocalizations.supportedLocales,
@@ -31,7 +32,7 @@ void main() {
             autoStart: false,
             macro: TimedMacro(
                 id: 'test', name: 'TV', remoteName: 'TV', steps: steps),
-            remote: Remote(name: 'TV', buttons: []),
+            remote: Remote(name: 'TV', buttons: buttons),
           ),
         ));
         await tester.pumpAndSettle();
@@ -56,12 +57,17 @@ void main() {
       l10n = await open(const [
         MacroStep(id: 'wait', type: MacroStepType.delay, delayMs: 5000)
       ]);
+      await readable(l10n.stepProgress(1, 1));
+      await readable(l10n.sequence);
+      await readable(l10n.waitMilliseconds(5000));
       await tester.tap(find.text(l10n.startMacro));
       await tester.pump(const Duration(milliseconds: 100));
       await readable(l10n.running);
       final waitDetails = find.descendant(
-        of: find.ancestor(of: find.text(l10n.waiting),
-            matching: find.byType(Column)).first,
+        of: find
+            .ancestor(
+                of: find.text(l10n.waiting), matching: find.byType(Column))
+            .first,
         matching: find.byType(Text),
       );
       expect(waitDetails, findsNWidgets(3));
@@ -76,6 +82,26 @@ void main() {
       await tester.tap(find.text(l10n.startMacro));
       await tester.pumpAndSettle();
       await readable(l10n.invalidStepEncountered);
+      l10n = await open(const [
+        MacroStep(id: 'missing', type: MacroStepType.send, buttonRef: 'Power')
+      ]);
+      await tester.tap(find.text(l10n.startMacro));
+      await tester.pumpAndSettle();
+      await readable(l10n.buttonNotFoundNamed('Power'));
+      const buttonName = 'Living room television and sound system power';
+      l10n = await open(const [
+        MacroStep(id: 'send', type: MacroStepType.send, buttonId: 'bad')
+      ], buttons: const [
+        IRButton(
+            id: 'bad',
+            image: buttonName,
+            isImage: false,
+            rawData: 'broken',
+            frequency: 38000),
+      ]);
+      await tester.tap(find.text(l10n.startMacro));
+      await tester.pumpAndSettle();
+      await readable(l10n.failedToSendNamed(buttonName));
       await tester.pumpWidget(const SizedBox());
       await tester.pumpAndSettle();
     });

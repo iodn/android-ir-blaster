@@ -852,7 +852,7 @@
     }
   },
   "invalidStepEncountered": "Esta macro contém uma etapa inválida. Edite-a antes de tentar novamente.",
-  "failedToSendNamed": "Falha ao enviar: {name}",
+  "failedToSendNamed": "Não foi possível enviar: {name}",
   "@failedToSendNamed": {
     "placeholders": {
       "name": {}
@@ -899,7 +899,7 @@
   "orientationFlippedTooltip": "Orientação: invertida (toque para normal)",
   "orientationNormalTooltip": "Orientação: normal (toque para inverter)",
   "noSteps": "Sem etapas",
-  "stepProgress": "Passo {current} / {total}",
+  "stepProgress": "Etapa {current} de {total}",
   "@stepProgress": {
     "placeholders": {
       "current": {
@@ -925,11 +925,17 @@
       }
     }
   },
-  "waiting": "aguardando",
-  "secondsRemaining": "Quedan {seconds}s",
+  "waiting": "Aguardando",
+  "secondsRemaining": "Tempo restante: {seconds} s",
   "@secondsRemaining": {
     "placeholders": {
-      "seconds": {}
+      "seconds": {
+        "type": "num",
+        "format": "decimalPatternDigits",
+        "optionalParameters": {
+          "decimalDigits": 1
+        }
+      }
     }
   },
   "millisecondsShort": "{ms}ms",
@@ -949,8 +955,8 @@
       "duration": {}
     }
   },
-  "sequence": "Secuencia",
-  "waitMilliseconds": "Asalvar {ms}ms",
+  "sequence": "Etapas",
+  "waitMilliseconds": "Aguardar {ms} ms",
   "@waitMilliseconds": {
     "placeholders": {
       "ms": {

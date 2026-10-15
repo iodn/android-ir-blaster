@@ -2082,7 +2082,7 @@ class AppLocalizationsJa extends AppLocalizations {
 
   @override
   String failedToSendNamed(Object name) {
-    return '送信に失敗しました: $name';
+    return '送信できませんでした：$name';
   }
 
   @override
@@ -2090,7 +2090,7 @@ class AppLocalizationsJa extends AppLocalizations {
 
   @override
   String buttonNotFoundNamed(Object name) {
-    return 'ボタンが見つかりません: $name';
+    return 'ボタンが見つかりません：$name';
   }
 
   @override
@@ -2146,8 +2146,13 @@ class AppLocalizationsJa extends AppLocalizations {
   String get waiting => '待機中';
 
   @override
-  String secondsRemaining(Object seconds) {
-    return '残り $seconds秒';
+  String secondsRemaining(num seconds) {
+    final intl.NumberFormat secondsNumberFormat =
+        intl.NumberFormat.decimalPatternDigits(
+            locale: localeName, decimalDigits: 1);
+    final String secondsString = secondsNumberFormat.format(seconds);
+
+    return '残り$secondsString秒';
   }
 
   @override
@@ -2170,11 +2175,11 @@ class AppLocalizationsJa extends AppLocalizations {
   }
 
   @override
-  String get sequence => 'シーケンス';
+  String get sequence => '実行手順';
 
   @override
   String waitMilliseconds(int ms) {
-    return '${ms}ms待機';
+    return '$msミリ秒待機';
   }
 
   @override

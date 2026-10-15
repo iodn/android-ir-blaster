@@ -2032,7 +2032,7 @@ class AppLocalizationsZh extends AppLocalizations {
 
   @override
   String failedToSendNamed(Object name) {
-    return '发送失败 $name';
+    return '发送失败：$name';
   }
 
   @override
@@ -2040,7 +2040,7 @@ class AppLocalizationsZh extends AppLocalizations {
 
   @override
   String buttonNotFoundNamed(Object name) {
-    return '未找到按钮 $name';
+    return '找不到按钮：$name';
   }
 
   @override
@@ -2072,7 +2072,7 @@ class AppLocalizationsZh extends AppLocalizations {
 
   @override
   String stepProgress(int current, int total) {
-    return '步骤 $current / $total';
+    return '第 $current 步，共 $total 步';
   }
 
   @override
@@ -2096,8 +2096,13 @@ class AppLocalizationsZh extends AppLocalizations {
   String get waiting => '等待中';
 
   @override
-  String secondsRemaining(Object seconds) {
-    return '剩余 ${seconds}s';
+  String secondsRemaining(num seconds) {
+    final intl.NumberFormat secondsNumberFormat =
+        intl.NumberFormat.decimalPatternDigits(
+            locale: localeName, decimalDigits: 1);
+    final String secondsString = secondsNumberFormat.format(seconds);
+
+    return '剩余 $secondsString 秒';
   }
 
   @override
@@ -2120,11 +2125,11 @@ class AppLocalizationsZh extends AppLocalizations {
   }
 
   @override
-  String get sequence => '序列';
+  String get sequence => '执行步骤';
 
   @override
   String waitMilliseconds(int ms) {
-    return '等待 ${ms}ms';
+    return '等待 $ms 毫秒';
   }
 
   @override

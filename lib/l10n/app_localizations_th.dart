@@ -2161,7 +2161,7 @@ class AppLocalizationsTh extends AppLocalizations {
 
   @override
   String failedToSendNamed(Object name) {
-    return 'ส่งไม่สำเร็จ: $name';
+    return 'ส่งคำสั่งไม่สำเร็จ: $name';
   }
 
   @override
@@ -2202,7 +2202,7 @@ class AppLocalizationsTh extends AppLocalizations {
 
   @override
   String stepProgress(int current, int total) {
-    return 'Step $current / $total';
+    return 'ขั้นตอนที่ $current จาก $total';
   }
 
   @override
@@ -2226,8 +2226,13 @@ class AppLocalizationsTh extends AppLocalizations {
   String get waiting => 'กำลังรอ';
 
   @override
-  String secondsRemaining(Object seconds) {
-    return 'เหลืออีก $secondsว';
+  String secondsRemaining(num seconds) {
+    final intl.NumberFormat secondsNumberFormat =
+        intl.NumberFormat.decimalPatternDigits(
+            locale: localeName, decimalDigits: 1);
+    final String secondsString = secondsNumberFormat.format(seconds);
+
+    return 'เหลือ $secondsString วินาที';
   }
 
   @override
@@ -2251,11 +2256,11 @@ class AppLocalizationsTh extends AppLocalizations {
   }
 
   @override
-  String get sequence => 'ลำดับ';
+  String get sequence => 'ขั้นตอน';
 
   @override
   String waitMilliseconds(int ms) {
-    return 'รอ ${ms}ms';
+    return 'รอ $ms มิลลิวินาที';
   }
 
   @override

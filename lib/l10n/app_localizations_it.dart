@@ -2210,7 +2210,7 @@ class AppLocalizationsIt extends AppLocalizations {
 
   @override
   String failedToSendNamed(Object name) {
-    return 'Invio fallito: $name';
+    return 'Invio non riuscito: $name';
   }
 
   @override
@@ -2252,7 +2252,7 @@ class AppLocalizationsIt extends AppLocalizations {
 
   @override
   String stepProgress(int current, int total) {
-    return 'Passo $current / $total';
+    return 'Passaggio $current di $total';
   }
 
   @override
@@ -2276,8 +2276,13 @@ class AppLocalizationsIt extends AppLocalizations {
   String get waiting => 'In attesa';
 
   @override
-  String secondsRemaining(Object seconds) {
-    return '${seconds}s rimanenti';
+  String secondsRemaining(num seconds) {
+    final intl.NumberFormat secondsNumberFormat =
+        intl.NumberFormat.decimalPatternDigits(
+            locale: localeName, decimalDigits: 1);
+    final String secondsString = secondsNumberFormat.format(seconds);
+
+    return 'Tempo rimanente: $secondsString s';
   }
 
   @override
@@ -2301,11 +2306,11 @@ class AppLocalizationsIt extends AppLocalizations {
   }
 
   @override
-  String get sequence => 'Sequenza';
+  String get sequence => 'Passaggi';
 
   @override
   String waitMilliseconds(int ms) {
-    return 'Attendi ${ms}ms';
+    return 'Attendi $ms ms';
   }
 
   @override

@@ -2182,7 +2182,7 @@ class AppLocalizationsTr extends AppLocalizations {
 
   @override
   String failedToSendNamed(Object name) {
-    return 'Başarısız to gönder: $name';
+    return 'Komut gönderilemedi: $name';
   }
 
   @override
@@ -2243,11 +2243,16 @@ class AppLocalizationsTr extends AppLocalizations {
   }
 
   @override
-  String get waiting => 'Waiting';
+  String get waiting => 'Bekleniyor';
 
   @override
-  String secondsRemaining(Object seconds) {
-    return '${seconds}s remaining';
+  String secondsRemaining(num seconds) {
+    final intl.NumberFormat secondsNumberFormat =
+        intl.NumberFormat.decimalPatternDigits(
+            locale: localeName, decimalDigits: 1);
+    final String secondsString = secondsNumberFormat.format(seconds);
+
+    return 'Kalan süre: $secondsString sn';
   }
 
   @override
@@ -2271,7 +2276,7 @@ class AppLocalizationsTr extends AppLocalizations {
   }
 
   @override
-  String get sequence => 'Sequence';
+  String get sequence => 'Adımlar';
 
   @override
   String waitMilliseconds(int ms) {

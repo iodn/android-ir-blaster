@@ -2209,7 +2209,7 @@ class AppLocalizationsPt extends AppLocalizations {
 
   @override
   String failedToSendNamed(Object name) {
-    return 'Falha ao enviar: $name';
+    return 'Não foi possível enviar: $name';
   }
 
   @override
@@ -2251,7 +2251,7 @@ class AppLocalizationsPt extends AppLocalizations {
 
   @override
   String stepProgress(int current, int total) {
-    return 'Passo $current / $total';
+    return 'Passo $current de $total';
   }
 
   @override
@@ -2275,8 +2275,13 @@ class AppLocalizationsPt extends AppLocalizations {
   String get waiting => 'A aguardar';
 
   @override
-  String secondsRemaining(Object seconds) {
-    return 'Quedan ${seconds}s';
+  String secondsRemaining(num seconds) {
+    final intl.NumberFormat secondsNumberFormat =
+        intl.NumberFormat.decimalPatternDigits(
+            locale: localeName, decimalDigits: 1);
+    final String secondsString = secondsNumberFormat.format(seconds);
+
+    return 'Tempo restante: $secondsString s';
   }
 
   @override
@@ -2300,11 +2305,11 @@ class AppLocalizationsPt extends AppLocalizations {
   }
 
   @override
-  String get sequence => 'Secuencia';
+  String get sequence => 'Passos';
 
   @override
   String waitMilliseconds(int ms) {
-    return 'Aguardar ${ms}ms';
+    return 'Aguardar $ms ms';
   }
 
   @override
@@ -7513,7 +7518,7 @@ class AppLocalizationsPtBr extends AppLocalizationsPt {
 
   @override
   String failedToSendNamed(Object name) {
-    return 'Falha ao enviar: $name';
+    return 'Não foi possível enviar: $name';
   }
 
   @override
@@ -7555,7 +7560,7 @@ class AppLocalizationsPtBr extends AppLocalizationsPt {
 
   @override
   String stepProgress(int current, int total) {
-    return 'Passo $current / $total';
+    return 'Etapa $current de $total';
   }
 
   @override
@@ -7576,11 +7581,16 @@ class AppLocalizationsPtBr extends AppLocalizationsPt {
   }
 
   @override
-  String get waiting => 'aguardando';
+  String get waiting => 'Aguardando';
 
   @override
-  String secondsRemaining(Object seconds) {
-    return 'Quedan ${seconds}s';
+  String secondsRemaining(num seconds) {
+    final intl.NumberFormat secondsNumberFormat =
+        intl.NumberFormat.decimalPatternDigits(
+            locale: localeName, decimalDigits: 1);
+    final String secondsString = secondsNumberFormat.format(seconds);
+
+    return 'Tempo restante: $secondsString s';
   }
 
   @override
@@ -7604,11 +7614,11 @@ class AppLocalizationsPtBr extends AppLocalizationsPt {
   }
 
   @override
-  String get sequence => 'Secuencia';
+  String get sequence => 'Etapas';
 
   @override
   String waitMilliseconds(int ms) {
-    return 'Asalvar ${ms}ms';
+    return 'Aguardar $ms ms';
   }
 
   @override

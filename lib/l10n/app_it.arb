@@ -852,7 +852,7 @@
     }
   },
   "invalidStepEncountered": "Questa macro contiene un passaggio non valido. Modificalo prima di riprovare.",
-  "failedToSendNamed": "Invio fallito: {name}",
+  "failedToSendNamed": "Invio non riuscito: {name}",
   "@failedToSendNamed": {
     "placeholders": {
       "name": {}
@@ -899,7 +899,7 @@
   "orientationFlippedTooltip": "Orientamento. capovolto tocca per normale",
   "orientationNormalTooltip": "Orientamento. normale tocca per capovolgere",
   "noSteps": "Nessun passaggio",
-  "stepProgress": "Passo {current} / {total}",
+  "stepProgress": "Passaggio {current} di {total}",
   "@stepProgress": {
     "placeholders": {
       "current": {
@@ -926,10 +926,16 @@
     }
   },
   "waiting": "In attesa",
-  "secondsRemaining": "{seconds}s rimanenti",
+  "secondsRemaining": "Tempo rimanente: {seconds} s",
   "@secondsRemaining": {
     "placeholders": {
-      "seconds": {}
+      "seconds": {
+        "type": "num",
+        "format": "decimalPatternDigits",
+        "optionalParameters": {
+          "decimalDigits": 1
+        }
+      }
     }
   },
   "millisecondsShort": "{ms}ms",
@@ -949,8 +955,8 @@
       "duration": {}
     }
   },
-  "sequence": "Sequenza",
-  "waitMilliseconds": "Attendi {ms}ms",
+  "sequence": "Passaggi",
+  "waitMilliseconds": "Attendi {ms} ms",
   "@waitMilliseconds": {
     "placeholders": {
       "ms": {

@@ -2232,7 +2232,7 @@ class AppLocalizationsRu extends AppLocalizations {
 
   @override
   String stepProgress(int current, int total) {
-    return 'Шаг $current / $total';
+    return 'Шаг $current из $total';
   }
 
   @override
@@ -2256,8 +2256,13 @@ class AppLocalizationsRu extends AppLocalizations {
   String get waiting => 'Ожидание';
 
   @override
-  String secondsRemaining(Object seconds) {
-    return 'Осталось $secondsс';
+  String secondsRemaining(num seconds) {
+    final intl.NumberFormat secondsNumberFormat =
+        intl.NumberFormat.decimalPatternDigits(
+            locale: localeName, decimalDigits: 1);
+    final String secondsString = secondsNumberFormat.format(seconds);
+
+    return 'Осталось: $secondsString с';
   }
 
   @override
@@ -2281,11 +2286,11 @@ class AppLocalizationsRu extends AppLocalizations {
   }
 
   @override
-  String get sequence => 'Последовательность';
+  String get sequence => 'Шаги';
 
   @override
   String waitMilliseconds(int ms) {
-    return 'Ждать $msмс';
+    return 'Подождать $ms мс';
   }
 
   @override

@@ -852,7 +852,7 @@
     }
   },
   "invalidStepEncountered": "इस मैक्रो में एक गलत चरण है। दोबारा कोशिश करने से पहले उसे ठीक करें।",
-  "failedToSendNamed": "भेजें: {name} विफल",
+  "failedToSendNamed": "कमांड नहीं भेजी जा सकी: {name}",
   "@failedToSendNamed": {
     "placeholders": {
       "name": {}
@@ -925,11 +925,17 @@
       }
     }
   },
-  "waiting": "Waiting",
-  "secondsRemaining": "{seconds}s शेष",
+  "waiting": "प्रतीक्षा जारी है",
+  "secondsRemaining": "{seconds} सेकंड बाकी",
   "@secondsRemaining": {
     "placeholders": {
-      "seconds": {}
+      "seconds": {
+        "type": "num",
+        "format": "decimalPatternDigits",
+        "optionalParameters": {
+          "decimalDigits": 1
+        }
+      }
     }
   },
   "millisecondsShort": "{ms}ms",
@@ -949,8 +955,8 @@
       "duration": {}
     }
   },
-  "sequence": "Sequence",
-  "waitMilliseconds": "प्रतीक्षा करें {ms}ms",
+  "sequence": "चरण",
+  "waitMilliseconds": "{ms} मिलीसेकंड प्रतीक्षा करें",
   "@waitMilliseconds": {
     "placeholders": {
       "ms": {

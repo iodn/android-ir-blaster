@@ -899,7 +899,7 @@
   "orientationFlippedTooltip": "Орієнтація: перевернуто (натисніть до нормального)",
   "orientationNormalTooltip": "Орієнтація: нормальна (торкніться, щоб перевернути)",
   "noSteps": "Немає кроків",
-  "stepProgress": "Крок {current} / {total}",
+  "stepProgress": "Крок {current} із {total}",
   "@stepProgress": {
     "placeholders": {
       "current": {
@@ -926,10 +926,16 @@
     }
   },
   "waiting": "Очікування",
-  "secondsRemaining": "Залишилося {seconds}s",
+  "secondsRemaining": "Залишилося: {seconds} с",
   "@secondsRemaining": {
     "placeholders": {
-      "seconds": {}
+      "seconds": {
+        "type": "num",
+        "format": "decimalPatternDigits",
+        "optionalParameters": {
+          "decimalDigits": 1
+        }
+      }
     }
   },
   "millisecondsShort": "{ms} мс",
@@ -949,8 +955,8 @@
       "duration": {}
     }
   },
-  "sequence": "Послідовність",
-  "waitMilliseconds": "Зачекайте {ms}ms",
+  "sequence": "Кроки",
+  "waitMilliseconds": "Зачекати {ms} мс",
   "@waitMilliseconds": {
     "placeholders": {
       "ms": {

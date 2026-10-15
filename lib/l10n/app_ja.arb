@@ -852,14 +852,14 @@
     }
   },
   "invalidStepEncountered": "このマクロには無効なステップがあります。修正してから再実行してください。",
-  "failedToSendNamed": "送信に失敗しました: {name}",
+  "failedToSendNamed": "送信できませんでした：{name}",
   "@failedToSendNamed": {
     "placeholders": {
       "name": {}
     }
   },
   "buttonNotFound": "ボタンが見つかりません",
-  "buttonNotFoundNamed": "ボタンが見つかりません: {name}",
+  "buttonNotFoundNamed": "ボタンが見つかりません：{name}",
   "@buttonNotFoundNamed": {
     "placeholders": {
       "name": {}
@@ -926,10 +926,16 @@
     }
   },
   "waiting": "待機中",
-  "secondsRemaining": "残り {seconds}秒",
+  "secondsRemaining": "残り{seconds}秒",
   "@secondsRemaining": {
     "placeholders": {
-      "seconds": {}
+      "seconds": {
+        "type": "num",
+        "format": "decimalPatternDigits",
+        "optionalParameters": {
+          "decimalDigits": 1
+        }
+      }
     }
   },
   "millisecondsShort": "{ms}ms",
@@ -949,8 +955,8 @@
       "duration": {}
     }
   },
-  "sequence": "シーケンス",
-  "waitMilliseconds": "{ms}ms待機",
+  "sequence": "実行手順",
+  "waitMilliseconds": "{ms}ミリ秒待機",
   "@waitMilliseconds": {
     "placeholders": {
       "ms": {

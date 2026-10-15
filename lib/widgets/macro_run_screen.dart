@@ -566,7 +566,7 @@ class _MacroRunScreenState extends State<MacroRunScreen>
   }
 
   Widget _buildDelayCard(ThemeData theme, ColorScheme cs) {
-    final sec = (_remainingMs / 1000).toStringAsFixed(1);
+    final sec = _remainingMs / 1000;
     return Card(
       elevation: 0,
       color: cs.secondaryContainer.withValues(alpha: 0.3),

@@ -852,14 +852,14 @@
     }
   },
   "invalidStepEncountered": "此宏包含无效步骤。请修正后重试。",
-  "failedToSendNamed": "发送失败 {name}",
+  "failedToSendNamed": "发送失败：{name}",
   "@failedToSendNamed": {
     "placeholders": {
       "name": {}
     }
   },
   "buttonNotFound": "未找到按钮",
-  "buttonNotFoundNamed": "未找到按钮 {name}",
+  "buttonNotFoundNamed": "找不到按钮：{name}",
   "@buttonNotFoundNamed": {
     "placeholders": {
       "name": {}
@@ -899,7 +899,7 @@
   "orientationFlippedTooltip": "方向 已翻转 点击恢复正常",
   "orientationNormalTooltip": "方向 正常 点击翻转",
   "noSteps": "无步骤",
-  "stepProgress": "步骤 {current} / {total}",
+  "stepProgress": "第 {current} 步，共 {total} 步",
   "@stepProgress": {
     "placeholders": {
       "current": {
@@ -926,10 +926,16 @@
     }
   },
   "waiting": "等待中",
-  "secondsRemaining": "剩余 {seconds}s",
+  "secondsRemaining": "剩余 {seconds} 秒",
   "@secondsRemaining": {
     "placeholders": {
-      "seconds": {}
+      "seconds": {
+        "type": "num",
+        "format": "decimalPatternDigits",
+        "optionalParameters": {
+          "decimalDigits": 1
+        }
+      }
     }
   },
   "millisecondsShort": "{ms}ms",
@@ -949,8 +955,8 @@
       "duration": {}
     }
   },
-  "sequence": "序列",
-  "waitMilliseconds": "等待 {ms}ms",
+  "sequence": "执行步骤",
+  "waitMilliseconds": "等待 {ms} 毫秒",
   "@waitMilliseconds": {
     "placeholders": {
       "ms": {

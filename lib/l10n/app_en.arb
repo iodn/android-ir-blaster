@@ -1047,10 +1047,16 @@
     }
   },
   "waiting": "Waiting",
-  "secondsRemaining": "{seconds}s remaining",
+  "secondsRemaining": "{seconds} s remaining",
   "@secondsRemaining": {
     "placeholders": {
-      "seconds": {}
+      "seconds": {
+        "type": "num",
+        "format": "decimalPatternDigits",
+        "optionalParameters": {
+          "decimalDigits": 1
+        }
+      }
     }
   },
   "millisecondsShort": "{ms}ms",
@@ -1070,8 +1076,8 @@
       "duration": {}
     }
   },
-  "sequence": "Sequence",
-  "waitMilliseconds": "Wait {ms}ms",
+  "sequence": "Steps",
+  "waitMilliseconds": "Wait {ms} ms",
   "@waitMilliseconds": {
     "placeholders": {
       "ms": {

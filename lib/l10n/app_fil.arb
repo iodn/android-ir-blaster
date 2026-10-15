@@ -852,14 +852,14 @@
     }
   },
   "invalidStepEncountered": "May hakbang na hindi wasto sa macro na ito. I-edit muna ito bago subukang muli.",
-  "failedToSendNamed": "Nabigong magpadala: {name}",
+  "failedToSendNamed": "Hindi naipadala ang command: {name}",
   "@failedToSendNamed": {
     "placeholders": {
       "name": {}
     }
   },
   "buttonNotFound": "Button not found",
-  "buttonNotFoundNamed": "Hindi nahanap ang button: {name}",
+  "buttonNotFoundNamed": "Hindi makita ang button: {name}",
   "@buttonNotFoundNamed": {
     "placeholders": {
       "name": {}
@@ -899,7 +899,7 @@
   "orientationFlippedTooltip": "Orientation: flipped (tap to normal)",
   "orientationNormalTooltip": "Orientation: normal (tap to flip)",
   "noSteps": "Walang hakbang",
-  "stepProgress": "Hakbang {current} / {total}",
+  "stepProgress": "Hakbang {current} sa {total}",
   "@stepProgress": {
     "placeholders": {
       "current": {
@@ -925,11 +925,17 @@
       }
     }
   },
-  "waiting": "Waiting",
-  "secondsRemaining": "{seconds}s natitira",
+  "waiting": "Naghihintay",
+  "secondsRemaining": "Natitira: {seconds} seg.",
   "@secondsRemaining": {
     "placeholders": {
-      "seconds": {}
+      "seconds": {
+        "type": "num",
+        "format": "decimalPatternDigits",
+        "optionalParameters": {
+          "decimalDigits": 1
+        }
+      }
     }
   },
   "millisecondsShort": "{ms}ms",
@@ -949,8 +955,8 @@
       "duration": {}
     }
   },
-  "sequence": "Sequence",
-  "waitMilliseconds": "Maghintay {ms}ms",
+  "sequence": "Mga hakbang",
+  "waitMilliseconds": "Maghintay nang {ms} ms",
   "@waitMilliseconds": {
     "placeholders": {
       "ms": {

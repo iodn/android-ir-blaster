@@ -852,14 +852,14 @@
     }
   },
   "invalidStepEncountered": "الماكرو ده فيه خطوة غير صالحة. عدّلها قبل ما تحاول تاني.",
-  "failedToSendNamed": "فشل إلى send: {name}",
+  "failedToSendNamed": "تعذّر إرسال الأمر: {name}",
   "@failedToSendNamed": {
     "placeholders": {
       "name": {}
     }
   },
   "buttonNotFound": "زر not موجود",
-  "buttonNotFoundNamed": "زر not موجود: {name}",
+  "buttonNotFoundNamed": "الزر مش موجود: {name}",
   "@buttonNotFoundNamed": {
     "placeholders": {
       "name": {}
@@ -899,7 +899,7 @@
   "orientationFlippedTooltip": "Orientation: flipped (tap إلى normal)",
   "orientationNormalTooltip": "Orientation: normal (tap إلى flip)",
   "noSteps": "مفيش خطوات",
-  "stepProgress": "خطوة {current} / {total}",
+  "stepProgress": "الخطوة {current} من {total}",
   "@stepProgress": {
     "placeholders": {
       "current": {
@@ -925,11 +925,17 @@
       }
     }
   },
-  "waiting": "Waiting",
-  "secondsRemaining": "يتبقى {seconds}s",
+  "waiting": "في الانتظار",
+  "secondsRemaining": "المتبقي: {seconds} ث",
   "@secondsRemaining": {
     "placeholders": {
-      "seconds": {}
+      "seconds": {
+        "type": "num",
+        "format": "decimalPatternDigits",
+        "optionalParameters": {
+          "decimalDigits": 1
+        }
+      }
     }
   },
   "millisecondsShort": "{ms}ms",
@@ -949,8 +955,8 @@
       "duration": {}
     }
   },
-  "sequence": "Sequence",
-  "waitMilliseconds": "Wait {ms}ms",
+  "sequence": "الخطوات",
+  "waitMilliseconds": "انتظار {ms} ملي ثانية",
   "@waitMilliseconds": {
     "placeholders": {
       "ms": {

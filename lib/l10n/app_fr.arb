@@ -904,7 +904,7 @@
   "orientationFlippedTooltip": "Orientation : inversée (appuyer pour normal)",
   "orientationNormalTooltip": "Orientation : normale (appuyer pour inverser)",
   "noSteps": "Aucune étape",
-  "stepProgress": "Étape {current} / {total}",
+  "stepProgress": "Étape {current} sur {total}",
   "@stepProgress": {
     "placeholders": {
       "current": {
@@ -930,11 +930,17 @@
       }
     }
   },
-  "waiting": "Attente",
-  "secondsRemaining": "{seconds}s restantes",
+  "waiting": "En attente",
+  "secondsRemaining": "Temps restant : {seconds} s",
   "@secondsRemaining": {
     "placeholders": {
-      "seconds": {}
+      "seconds": {
+        "type": "num",
+        "format": "decimalPatternDigits",
+        "optionalParameters": {
+          "decimalDigits": 1
+        }
+      }
     }
   },
   "millisecondsShort": "{ms}ms",
@@ -954,8 +960,8 @@
       "duration": {}
     }
   },
-  "sequence": "Séquence",
-  "waitMilliseconds": "Attendre {ms}ms",
+  "sequence": "Étapes",
+  "waitMilliseconds": "Attendre {ms} ms",
   "@waitMilliseconds": {
     "placeholders": {
       "ms": {

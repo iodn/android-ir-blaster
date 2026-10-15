@@ -2173,7 +2173,7 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String failedToSendNamed(Object name) {
-    return 'فشل إلى send: $name';
+    return 'تعذّر إرسال الأمر: $name';
   }
 
   @override
@@ -2181,7 +2181,7 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String buttonNotFoundNamed(Object name) {
-    return 'زر not موجود: $name';
+    return 'لم يتم العثور على الزر: $name';
   }
 
   @override
@@ -2214,7 +2214,7 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String stepProgress(int current, int total) {
-    return 'خطوة $current / $total';
+    return 'الخطوة $current من $total';
   }
 
   @override
@@ -2235,11 +2235,16 @@ class AppLocalizationsAr extends AppLocalizations {
   }
 
   @override
-  String get waiting => 'Waiting';
+  String get waiting => 'قيد الانتظار';
 
   @override
-  String secondsRemaining(Object seconds) {
-    return 'يتبقى ${seconds}s';
+  String secondsRemaining(num seconds) {
+    final intl.NumberFormat secondsNumberFormat =
+        intl.NumberFormat.decimalPatternDigits(
+            locale: localeName, decimalDigits: 1);
+    final String secondsString = secondsNumberFormat.format(seconds);
+
+    return 'المتبقي: $secondsString ث';
   }
 
   @override
@@ -2263,11 +2268,11 @@ class AppLocalizationsAr extends AppLocalizations {
   }
 
   @override
-  String get sequence => 'Sequence';
+  String get sequence => 'الخطوات';
 
   @override
   String waitMilliseconds(int ms) {
-    return 'Wait ${ms}ms';
+    return 'انتظار $ms ملي ثانية';
   }
 
   @override
@@ -7417,7 +7422,7 @@ class AppLocalizationsArEg extends AppLocalizationsAr {
 
   @override
   String failedToSendNamed(Object name) {
-    return 'فشل إلى send: $name';
+    return 'تعذّر إرسال الأمر: $name';
   }
 
   @override
@@ -7425,7 +7430,7 @@ class AppLocalizationsArEg extends AppLocalizationsAr {
 
   @override
   String buttonNotFoundNamed(Object name) {
-    return 'زر not موجود: $name';
+    return 'الزر مش موجود: $name';
   }
 
   @override
@@ -7458,7 +7463,7 @@ class AppLocalizationsArEg extends AppLocalizationsAr {
 
   @override
   String stepProgress(int current, int total) {
-    return 'خطوة $current / $total';
+    return 'الخطوة $current من $total';
   }
 
   @override
@@ -7479,11 +7484,16 @@ class AppLocalizationsArEg extends AppLocalizationsAr {
   }
 
   @override
-  String get waiting => 'Waiting';
+  String get waiting => 'في الانتظار';
 
   @override
-  String secondsRemaining(Object seconds) {
-    return 'يتبقى ${seconds}s';
+  String secondsRemaining(num seconds) {
+    final intl.NumberFormat secondsNumberFormat =
+        intl.NumberFormat.decimalPatternDigits(
+            locale: localeName, decimalDigits: 1);
+    final String secondsString = secondsNumberFormat.format(seconds);
+
+    return 'المتبقي: $secondsString ث';
   }
 
   @override
@@ -7507,11 +7517,11 @@ class AppLocalizationsArEg extends AppLocalizationsAr {
   }
 
   @override
-  String get sequence => 'Sequence';
+  String get sequence => 'الخطوات';
 
   @override
   String waitMilliseconds(int ms) {
-    return 'Wait ${ms}ms';
+    return 'انتظار $ms ملي ثانية';
   }
 
   @override

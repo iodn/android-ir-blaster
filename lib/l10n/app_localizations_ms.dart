@@ -2181,7 +2181,7 @@ class AppLocalizationsMs extends AppLocalizations {
 
   @override
   String failedToSendNamed(Object name) {
-    return 'Gagal send: $name';
+    return 'Gagal menghantar arahan: $name';
   }
 
   @override
@@ -2223,7 +2223,7 @@ class AppLocalizationsMs extends AppLocalizations {
 
   @override
   String stepProgress(int current, int total) {
-    return 'Langkah $current / $total';
+    return 'Langkah $current daripada $total';
   }
 
   @override
@@ -2247,8 +2247,13 @@ class AppLocalizationsMs extends AppLocalizations {
   String get waiting => 'Menunggu';
 
   @override
-  String secondsRemaining(Object seconds) {
-    return 'Baki ${seconds}s';
+  String secondsRemaining(num seconds) {
+    final intl.NumberFormat secondsNumberFormat =
+        intl.NumberFormat.decimalPatternDigits(
+            locale: localeName, decimalDigits: 1);
+    final String secondsString = secondsNumberFormat.format(seconds);
+
+    return 'Masa berbaki: $secondsString saat';
   }
 
   @override
@@ -2272,11 +2277,11 @@ class AppLocalizationsMs extends AppLocalizations {
   }
 
   @override
-  String get sequence => 'Urutan';
+  String get sequence => 'Langkah';
 
   @override
   String waitMilliseconds(int ms) {
-    return 'Tunggu ${ms}ms';
+    return 'Tunggu $ms milisaat';
   }
 
   @override

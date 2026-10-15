@@ -2319,7 +2319,7 @@ class AppLocalizationsUk extends AppLocalizations {
 
   @override
   String stepProgress(int current, int total) {
-    return 'Крок $current / $total';
+    return 'Крок $current із $total';
   }
 
   @override
@@ -2343,8 +2343,13 @@ class AppLocalizationsUk extends AppLocalizations {
   String get waiting => 'Очікування';
 
   @override
-  String secondsRemaining(Object seconds) {
-    return 'Залишилося ${seconds}s';
+  String secondsRemaining(num seconds) {
+    final intl.NumberFormat secondsNumberFormat =
+        intl.NumberFormat.decimalPatternDigits(
+            locale: localeName, decimalDigits: 1);
+    final String secondsString = secondsNumberFormat.format(seconds);
+
+    return 'Залишилося: $secondsString с';
   }
 
   @override
@@ -2368,11 +2373,11 @@ class AppLocalizationsUk extends AppLocalizations {
   }
 
   @override
-  String get sequence => 'Послідовність';
+  String get sequence => 'Кроки';
 
   @override
   String waitMilliseconds(int ms) {
-    return 'Зачекайте ${ms}ms';
+    return 'Зачекати $ms мс';
   }
 
   @override

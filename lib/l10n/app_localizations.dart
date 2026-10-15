@@ -3988,8 +3988,8 @@ abstract class AppLocalizations {
   /// No description provided for @secondsRemaining.
   ///
   /// In en, this message translates to:
-  /// **'{seconds}s remaining'**
-  String secondsRemaining(Object seconds);
+  /// **'{seconds} s remaining'**
+  String secondsRemaining(num seconds);
 
   /// No description provided for @millisecondsShort.
   ///
@@ -4024,13 +4024,13 @@ abstract class AppLocalizations {
   /// No description provided for @sequence.
   ///
   /// In en, this message translates to:
-  /// **'Sequence'**
+  /// **'Steps'**
   String get sequence;
 
   /// No description provided for @waitMilliseconds.
   ///
   /// In en, this message translates to:
-  /// **'Wait {ms}ms'**
+  /// **'Wait {ms} ms'**
   String waitMilliseconds(int ms);
 
   /// No description provided for @runAgain.
