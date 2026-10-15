@@ -1,0 +1,92 @@
+import 'package:flutter/material.dart';
+import 'package:flutter/rendering.dart';
+import 'package:flutter/services.dart';
+import 'package:flutter_test/flutter_test.dart';
+import 'package:irblaster_controller/l10n/app_localizations.dart';
+import 'package:irblaster_controller/state/startup_prefs.dart';
+import 'package:irblaster_controller/widgets/settings_screen.dart';
+import 'package:package_info_plus/package_info_plus.dart';
+import 'package:shared_preferences/shared_preferences.dart';
+
+void main() {
+  for (final locale in AppLocalizations.supportedLocales) {
+    testWidgets('startup setting readable and persisted: $locale',
+        (tester) async {
+      SharedPreferences.setMockInitialValues({});
+      final controller = StartupPrefsController.instance;
+      await controller.load();
+      PackageInfo.setMockInitialValues(
+          appName: 'IR Blaster',
+          packageName: 'org.nslabs.ir_blaster',
+          version: '3.4.1',
+          buildNumber: '44',
+          buildSignature: '');
+      final messenger = tester.binding.defaultBinaryMessenger;
+      const channel = MethodChannel('org.nslabs/irtransmitter');
+      const events = MethodChannel('org.nslabs/irtransmitter_events');
+      messenger.setMockMethodCallHandler(
+          channel,
+          (call) async => switch (call.method) {
+                'getPreferredTransmitterType' => 'INTERNAL',
+                'getTransmitterCapabilities' => {'hasInternal': true},
+                'getAutoSwitchEnabled' || 'getOpenOnUsbAttachEnabled' => false,
+                _ => null,
+              });
+      messenger.setMockMethodCallHandler(events, (_) async => null);
+      addTearDown(() {
+        messenger.setMockMethodCallHandler(channel, null);
+        messenger.setMockMethodCallHandler(events, null);
+      });
+      tester.view.physicalSize = const Size(320, 640);
+      tester.view.devicePixelRatio = 1;
+      addTearDown(tester.view.resetPhysicalSize);
+      addTearDown(tester.view.resetDevicePixelRatio);
+      await tester.pumpWidget(MaterialApp(
+        locale: locale,
+        supportedLocales: AppLocalizations.supportedLocales,
+        localizationsDelegates: AppLocalizations.localizationsDelegates,
+        builder: (context, child) => MediaQuery(
+          data: MediaQuery.of(context)
+              .copyWith(textScaler: const TextScaler.linear(2)),
+          child: child!,
+        ),
+        home: const SettingsScreen(),
+      ));
+      await tester.pumpAndSettle();
+      final l10n = await AppLocalizations.delegate.load(locale);
+      await tester.scrollUntilVisible(find.text(l10n.interactionTitle), 150);
+      await tester.pumpAndSettle();
+      await tester.ensureVisible(find.text(l10n.interactionTitle));
+      await tester.pumpAndSettle();
+      await tester.tap(find.text(l10n.interactionTitle));
+      await tester.pumpAndSettle();
+      for (final value in [
+        l10n.autoOpenLastRemoteTitle,
+        l10n.autoOpenLastRemoteSubtitle
+      ]) {
+        final text = find.text(value);
+        await tester.ensureVisible(text);
+        await tester.pumpAndSettle();
+        final paragraph = tester.renderObject<RenderParagraph>(text);
+        expect(paragraph.didExceedMaxLines, isFalse);
+        expect(paragraph.getMaxIntrinsicHeight(paragraph.size.width),
+            lessThanOrEqualTo(paragraph.size.height + 0.1));
+      }
+      final tile =
+          find.widgetWithText(SwitchListTile, l10n.autoOpenLastRemoteTitle);
+      expect(tester.widget<SwitchListTile>(tile).value, isFalse);
+      final toggle = find.descendant(of: tile, matching: find.byType(Switch));
+      for (final value in [true, false]) {
+        await tester.ensureVisible(toggle);
+        await tester.pumpAndSettle();
+        await tester.tap(toggle);
+        await tester.pumpAndSettle();
+        expect(controller.autoOpenLastRemote, value);
+        final prefs = await SharedPreferences.getInstance();
+        expect(prefs.getBool('startup_auto_open_last_remote_v1'), value);
+      }
+      await tester.pumpWidget(const SizedBox());
+      await tester.pumpAndSettle();
+    });
+  }
+}

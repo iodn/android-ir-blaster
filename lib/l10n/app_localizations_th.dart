@@ -782,11 +782,11 @@ class AppLocalizationsTh extends AppLocalizations {
   String get interactionSubtitle => 'การตอบสนองเมื่อแตะและเลย์เอาต์รีโมต';
 
   @override
-  String get autoOpenLastRemoteTitle => 'เปิดรีโมตล่าสุดเมื่อเริ่มแอป';
+  String get autoOpenLastRemoteTitle => 'เปิดรีโมตล่าสุดอีกครั้ง';
 
   @override
   String get autoOpenLastRemoteSubtitle =>
-      'เปิดรีโมตที่ใช้ล่าสุดเมื่อเริ่มแอป หากรีโมตนั้นไม่พร้อมใช้งาน จะแสดงรายการรีโมตแทน';
+      'เมื่อเปิดแอป ให้เปิดรีโมตที่ใช้ล่าสุด หากไม่พร้อมใช้งาน ให้แสดงรายการรีโมตแทน';
 
   @override
   String get hapticFeedbackTitle => 'การสั่นตอบสนอง';

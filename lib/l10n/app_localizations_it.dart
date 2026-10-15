@@ -800,11 +800,11 @@ class AppLocalizationsIt extends AppLocalizations {
   String get interactionSubtitle => 'Feedback tocco e layout telecomando';
 
   @override
-  String get autoOpenLastRemoteTitle => 'Apri l’ultimo telecomando all’avvio';
+  String get autoOpenLastRemoteTitle => 'Riapri l’ultimo telecomando';
 
   @override
   String get autoOpenLastRemoteSubtitle =>
-      'Apre il telecomando usato più di recente all’avvio dell’app. Se non è disponibile, viene mostrato l’elenco dei telecomandi.';
+      'All’avvio, apre l’ultimo telecomando usato. Se non è disponibile, mostra l’elenco dei telecomandi.';
 
   @override
   String get hapticFeedbackTitle => 'Feedback aptico';

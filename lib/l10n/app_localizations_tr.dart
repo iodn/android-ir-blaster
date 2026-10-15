@@ -792,11 +792,11 @@ class AppLocalizationsTr extends AppLocalizations {
   String get interactionSubtitle => 'Dokunma geri bildirimi ve kumanda düzeni';
 
   @override
-  String get autoOpenLastRemoteTitle => 'Başlangıçta son kumandayı aç';
+  String get autoOpenLastRemoteTitle => 'Son kumandayı yeniden aç';
 
   @override
   String get autoOpenLastRemoteSubtitle =>
-      'Uygulama başladığında en son kullanılan kumandayı açar. Kullanılamıyorsa kumanda listesi gösterilir.';
+      'Uygulama açıldığında son kullanılan kumandayı açar. Kumanda yoksa listeyi gösterir.';
 
   @override
   String get hapticFeedbackTitle => 'Haptic feedback';

@@ -783,11 +783,11 @@ class AppLocalizationsAr extends AppLocalizations {
   String get interactionSubtitle => 'استجابة اللمس وتخطيط جهاز التحكم';
 
   @override
-  String get autoOpenLastRemoteTitle => 'فتح آخر جهاز تحكم عند بدء التشغيل';
+  String get autoOpenLastRemoteTitle => 'إعادة فتح آخر جهاز تحكم';
 
   @override
   String get autoOpenLastRemoteSubtitle =>
-      'يفتح آخر جهاز تحكم تم استخدامه عند بدء التطبيق. إذا لم يعد متاحًا، فستظهر قائمة أجهزة التحكم.';
+      'عند بدء التطبيق، افتح آخر جهاز تحكم استخدمته. إذا لم يكن متاحًا، اعرض قائمة أجهزة التحكم.';
 
   @override
   String get hapticFeedbackTitle => 'Haptic feedback';
@@ -6057,11 +6057,11 @@ class AppLocalizationsArEg extends AppLocalizationsAr {
   String get interactionSubtitle => 'استجابة اللمس وتخطيط جهاز التحكم';
 
   @override
-  String get autoOpenLastRemoteTitle => 'فتح آخر جهاز تحكم عند بدء التشغيل';
+  String get autoOpenLastRemoteTitle => 'فتح آخر جهاز تحكم تاني';
 
   @override
   String get autoOpenLastRemoteSubtitle =>
-      'يفتح آخر جهاز تحكم تم استخدامه عند بدء التطبيق. إذا لم يعد متاحًا، فستظهر قائمة أجهزة التحكم.';
+      'عند فتح التطبيق، افتح آخر جهاز تحكم استخدمته. لو مش متاح، اعرض قائمة أجهزة التحكم.';
 
   @override
   String get hapticFeedbackTitle => 'Haptic feedback';

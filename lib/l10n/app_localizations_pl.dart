@@ -792,12 +792,11 @@ class AppLocalizationsPl extends AppLocalizations {
   String get interactionSubtitle => 'Informacja dotykowa i układ pilota';
 
   @override
-  String get autoOpenLastRemoteTitle =>
-      'Otwieraj ostatniego pilota przy uruchamianiu';
+  String get autoOpenLastRemoteTitle => 'Otwieraj ostatni pilot';
 
   @override
   String get autoOpenLastRemoteSubtitle =>
-      'Po uruchomieniu aplikacji otwiera ostatnio używanego pilota. Jeśli jest niedostępny, wyświetla listę pilotów.';
+      'Przy uruchamianiu aplikacji otwórz ostatnio używany pilot. Jeśli jest niedostępny, pokaż listę pilotów.';
 
   @override
   String get hapticFeedbackTitle => 'Informacja haptyczna';

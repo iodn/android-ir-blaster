@@ -793,12 +793,11 @@ class AppLocalizationsFil extends AppLocalizations {
   String get interactionSubtitle => 'Touch feedback at remote layout';
 
   @override
-  String get autoOpenLastRemoteTitle =>
-      'Buksan ang huling remote sa pagsisimula';
+  String get autoOpenLastRemoteTitle => 'Buksan muli ang huling remote';
 
   @override
   String get autoOpenLastRemoteSubtitle =>
-      'Binubuksan ang pinakahuling ginamit na remote kapag nagsimula ang app. Kung hindi ito available, ipapakita ang listahan ng mga remote.';
+      'Sa pagbukas ng app, buksan ang huling ginamit na remote. Kung wala na ito, ipakita ang listahan ng mga remote.';
 
   @override
   String get hapticFeedbackTitle => 'Haptic feedback';

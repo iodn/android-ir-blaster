@@ -796,11 +796,11 @@ class AppLocalizationsEs extends AppLocalizations {
   String get interactionSubtitle => 'Respuesta táctil y diseño del mando';
 
   @override
-  String get autoOpenLastRemoteTitle => 'Abrir el último mando al iniciar';
+  String get autoOpenLastRemoteTitle => 'Reabrir el último mando';
 
   @override
   String get autoOpenLastRemoteSubtitle =>
-      'Abre el mando usado más recientemente al iniciar la aplicación. Si no está disponible, se muestra la lista de mandos.';
+      'Al iniciar la app, abre el último mando usado. Si no está disponible, muestra la lista de mandos.';
 
   @override
   String get hapticFeedbackTitle => 'Respuesta háptica';

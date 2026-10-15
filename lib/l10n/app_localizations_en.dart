@@ -786,11 +786,11 @@ class AppLocalizationsEn extends AppLocalizations {
   String get interactionSubtitle => 'Touch feedback and remote layout';
 
   @override
-  String get autoOpenLastRemoteTitle => 'Open last remote at startup';
+  String get autoOpenLastRemoteTitle => 'Reopen last remote';
 
   @override
   String get autoOpenLastRemoteSubtitle =>
-      'Open the most recently used remote when the app starts. The remote list is shown if it is unavailable.';
+      'At startup, open the last remote you used. If unavailable, show the remote list.';
 
   @override
   String get hapticFeedbackTitle => 'Haptic feedback';

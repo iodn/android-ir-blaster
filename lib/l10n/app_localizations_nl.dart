@@ -802,12 +802,11 @@ class AppLocalizationsNl extends AppLocalizations {
       'Aanraakfeedback en lay-out van afstandsbediening';
 
   @override
-  String get autoOpenLastRemoteTitle =>
-      'Laatst gebruikte afstandsbediening openen bij opstarten';
+  String get autoOpenLastRemoteTitle => 'Laatste afstandsbediening openen';
 
   @override
   String get autoOpenLastRemoteSubtitle =>
-      'Opent de laatst gebruikte afstandsbediening wanneer de app start. Als deze niet beschikbaar is, wordt de lijst met afstandsbedieningen getoond.';
+      'Open bij het starten de laatst gebruikte afstandsbediening. Is die niet meer beschikbaar, toon dan de lijst.';
 
   @override
   String get hapticFeedbackTitle => 'Haptische feedback';

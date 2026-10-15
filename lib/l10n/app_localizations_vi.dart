@@ -787,11 +787,11 @@ class AppLocalizationsVi extends AppLocalizations {
   String get interactionSubtitle => 'Phản hồi chạm và bố cục điều khiển';
 
   @override
-  String get autoOpenLastRemoteTitle => 'Mở điều khiển gần nhất khi khởi động';
+  String get autoOpenLastRemoteTitle => 'Mở lại điều khiển gần nhất';
 
   @override
   String get autoOpenLastRemoteSubtitle =>
-      'Mở điều khiển được dùng gần đây nhất khi ứng dụng khởi động. Nếu không còn khả dụng, danh sách điều khiển sẽ được hiển thị.';
+      'Khi mở ứng dụng, mở điều khiển dùng gần nhất. Nếu không còn điều khiển đó, hiển thị danh sách điều khiển.';
 
   @override
   String get hapticFeedbackTitle => 'Phản hồi rung';

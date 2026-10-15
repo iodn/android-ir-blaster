@@ -731,11 +731,10 @@ class AppLocalizationsZh extends AppLocalizations {
   String get interactionSubtitle => '触控反馈与遥控器布局';
 
   @override
-  String get autoOpenLastRemoteTitle => '启动时打开上次使用的遥控器';
+  String get autoOpenLastRemoteTitle => '重新打开上次的遥控器';
 
   @override
-  String get autoOpenLastRemoteSubtitle =>
-      '应用启动时打开最近使用的遥控器。如果该遥控器不可用，则显示遥控器列表。';
+  String get autoOpenLastRemoteSubtitle => '启动应用时打开上次使用的遥控器。若该遥控器不可用，则显示遥控器列表。';
 
   @override
   String get hapticFeedbackTitle => '触觉反馈';

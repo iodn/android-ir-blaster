@@ -1509,13 +1509,13 @@ abstract class AppLocalizations {
   /// No description provided for @autoOpenLastRemoteTitle.
   ///
   /// In en, this message translates to:
-  /// **'Open last remote at startup'**
+  /// **'Reopen last remote'**
   String get autoOpenLastRemoteTitle;
 
   /// No description provided for @autoOpenLastRemoteSubtitle.
   ///
   /// In en, this message translates to:
-  /// **'Open the most recently used remote when the app starts. The remote list is shown if it is unavailable.'**
+  /// **'At startup, open the last remote you used. If unavailable, show the remote list.'**
   String get autoOpenLastRemoteSubtitle;
 
   /// No description provided for @hapticFeedbackTitle.
