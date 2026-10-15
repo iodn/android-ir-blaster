@@ -106,14 +106,13 @@ class AppLocalizationsPl extends AppLocalizations {
   String get homeHardwareBannerReady => 'USB jest gotowe.';
 
   @override
-  String get homeHardwareRequiredTitle =>
-      'Do wysyłania komend wymagany jest sprzęt IR';
+  String get homeHardwareRequiredTitle => 'Potrzebny nadajnik IR';
 
   @override
-  String get homeUsbDongleRecommended => 'Dongiel USB IR (zalecane)';
+  String get homeUsbDongleRecommended => 'Adapter IR USB (zalecany)';
 
   @override
-  String get homeAudioAdapterAlternative => 'Adapter audio IR (alternatywa)';
+  String get homeAudioAdapterAlternative => 'Adapter IR audio';
 
   @override
   String get homeAudioAdapterDescription =>
@@ -148,14 +147,14 @@ class AppLocalizationsPl extends AppLocalizations {
 
   @override
   String get homeHardwareTip =>
-      'Wskazówka: już teraz możesz tworzyć i porządkować piloty. Sprzęt jest potrzebny tylko do nadawania.';
+      'Możesz już przygotować swoje piloty. Nadajnik IR jest potrzebny tylko do wysyłania poleceń.';
 
   @override
   String get homeNoIrTransmitterTitle => 'Brak dostępnego nadajnika IR';
 
   @override
   String get homeHardwareRequiredBody =>
-      'IR Blaster może tworzyć i zarządzać pilotami na każdym telefonie. Aby jednak naprawdę wysyłać polecenia podczerwieni, urządzenie musi mieć jedną z poniższych opcji sprzętowych.';
+      'Możesz tworzyć i porządkować piloty bez nadajnika IR. Aby sterować urządzeniem, skorzystaj z jednej z poniższych opcji.';
 
   @override
   String get homeCanStillUseWithoutHardware =>
@@ -165,11 +164,11 @@ class AppLocalizationsPl extends AppLocalizations {
   String get homeWaysToUseIrBlaster => 'Sposoby używania IR Blaster';
 
   @override
-  String get homeBuiltInIrOptionTitle => 'Telefon z wbudowanym IR';
+  String get homeBuiltInIrOptionTitle => 'Wbudowany nadajnik IR';
 
   @override
   String get homeBuiltInIrOptionSubtitle =>
-      'Działa na obsługiwanych telefonach z wbudowanym nadajnikiem IR. Ten telefon go nie ma.';
+      'Niektóre telefony mają wbudowany nadajnik IR. Ten telefon go nie ma.';
 
   @override
   String get homeBuiltInIrUnavailable => 'Niedostępne na tym telefonie';
@@ -184,7 +183,7 @@ class AppLocalizationsPl extends AppLocalizations {
   String get homeAudioAccessoryLabel => 'Adapter audio 3,5 mm';
 
   @override
-  String get homeContinueWithoutHardware => 'Kontynuuj bez sprzętu';
+  String get homeContinueWithoutHardware => 'Kontynuuj bez nadawania';
 
   @override
   String get homeHowItWorks => 'Jak to działa';

@@ -105,14 +105,13 @@ class AppLocalizationsUk extends AppLocalizations {
   String get homeHardwareBannerReady => 'USB готовий.';
 
   @override
-  String get homeHardwareRequiredTitle =>
-      'Для надсилання команд потрібне ІЧ-обладнання';
+  String get homeHardwareRequiredTitle => 'Потрібен ІЧ-передавач';
 
   @override
-  String get homeUsbDongleRecommended => 'USB ІЧ-адаптер (рекомендовано)';
+  String get homeUsbDongleRecommended => 'ІЧ USB-адаптер (рекомендовано)';
 
   @override
-  String get homeAudioAdapterAlternative => 'Аудіо ІЧ-адаптер (альтернатива)';
+  String get homeAudioAdapterAlternative => 'ІЧ-адаптер через аудіо';
 
   @override
   String get homeAudioAdapterDescription =>
@@ -122,7 +121,7 @@ class AppLocalizationsUk extends AppLocalizations {
   String get close => 'Закрити';
 
   @override
-  String get homeChooseTransmitter => 'Виберіть передавач';
+  String get homeChooseTransmitter => 'Вибрати передавач';
 
   @override
   String get openSettings => 'Відкрити налаштування';
@@ -147,14 +146,14 @@ class AppLocalizationsUk extends AppLocalizations {
 
   @override
   String get homeHardwareTip =>
-      'Порада. Зараз ви все ще можете створювати й організовувати пульти. Апаратне забезпечення потрібне лише під час передачі.';
+      'Ви вже можете налаштувати свої пульти. ІЧ-передавач потрібен лише для надсилання команд.';
 
   @override
-  String get homeNoIrTransmitterTitle => 'ІЧ-передавач недоступний';
+  String get homeNoIrTransmitterTitle => 'Немає доступного ІЧ-передавача';
 
   @override
   String get homeHardwareRequiredBody =>
-      'IR Blaster може створювати та керувати пультами на будь-якому телефоні. Щоб фактично надсилати команди через ІЧ-порт, вашому пристрою потрібен один із наведених нижче параметрів обладнання.';
+      'Ви можете створювати й упорядковувати пульти без ІЧ-передавача. Щоб керувати пристроєм, скористайтеся одним із варіантів нижче.';
 
   @override
   String get homeCanStillUseWithoutHardware =>
@@ -164,11 +163,11 @@ class AppLocalizationsUk extends AppLocalizations {
   String get homeWaysToUseIrBlaster => 'Способи використання IR Blaster';
 
   @override
-  String get homeBuiltInIrOptionTitle => 'Телефон із вбудованим ІЧ-передавачем';
+  String get homeBuiltInIrOptionTitle => 'Вбудований ІЧ-передавач';
 
   @override
   String get homeBuiltInIrOptionSubtitle =>
-      'Працює на підтримуваних телефонах із вбудованим ІЧ-передавачем. У цьому телефоні його немає.';
+      'Деякі телефони мають вбудований ІЧ-передавач. У цьому телефоні його немає.';
 
   @override
   String get homeBuiltInIrUnavailable => 'Недоступно на цьому телефоні';
@@ -183,7 +182,7 @@ class AppLocalizationsUk extends AppLocalizations {
   String get homeAudioAccessoryLabel => 'Аудіоадаптер 3,5 мм';
 
   @override
-  String get homeContinueWithoutHardware => 'Продовжити без обладнання';
+  String get homeContinueWithoutHardware => 'Продовжити без надсилання';
 
   @override
   String get homeHowItWorks => 'Як це працює';

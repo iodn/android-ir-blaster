@@ -105,13 +105,13 @@ class AppLocalizationsFr extends AppLocalizations {
   String get homeHardwareBannerReady => 'USB prêt.';
 
   @override
-  String get homeHardwareRequiredTitle => 'Matériel IR requis pour envoyer';
+  String get homeHardwareRequiredTitle => 'Un émetteur IR est nécessaire';
 
   @override
-  String get homeUsbDongleRecommended => 'Dongle IR USB (recommandé)';
+  String get homeUsbDongleRecommended => 'Adaptateur IR USB (recommandé)';
 
   @override
-  String get homeAudioAdapterAlternative => 'Adaptateur IR audio (altern.)';
+  String get homeAudioAdapterAlternative => 'Adaptateur IR audio';
 
   @override
   String get homeAudioAdapterDescription =>
@@ -121,7 +121,7 @@ class AppLocalizationsFr extends AppLocalizations {
   String get close => 'Fermer';
 
   @override
-  String get homeChooseTransmitter => 'Choisir un émetteur';
+  String get homeChooseTransmitter => 'Choisir l’émetteur';
 
   @override
   String get openSettings => 'Ouvrir Réglages';
@@ -146,14 +146,14 @@ class AppLocalizationsFr extends AppLocalizations {
 
   @override
   String get homeHardwareTip =>
-      'Astuce : vous pouvez déjà créer et organiser vos télécommandes. Le matériel n\'est requis qu\'à l\'envoi.';
+      'Vous pouvez déjà préparer vos télécommandes. Un émetteur IR n’est nécessaire que pour envoyer des commandes.';
 
   @override
-  String get homeNoIrTransmitterTitle => 'Aucun émetteur IR dispo';
+  String get homeNoIrTransmitterTitle => 'Aucun émetteur IR disponible';
 
   @override
   String get homeHardwareRequiredBody =>
-      'IR Blaster permet de créer et de gérer des télécommandes sur n\'importe quel téléphone. Pour envoyer réellement des commandes infrarouges, votre appareil a besoin de l\'une des options matérielles ci-dessous.';
+      'Vous pouvez créer et organiser vos télécommandes sans émetteur IR. Pour piloter un appareil, choisissez l’une des solutions ci-dessous.';
 
   @override
   String get homeCanStillUseWithoutHardware =>
@@ -163,11 +163,11 @@ class AppLocalizationsFr extends AppLocalizations {
   String get homeWaysToUseIrBlaster => 'Façons d\'utiliser IR Blaster';
 
   @override
-  String get homeBuiltInIrOptionTitle => 'Téléphone avec IR intégré';
+  String get homeBuiltInIrOptionTitle => 'Émetteur IR intégré';
 
   @override
   String get homeBuiltInIrOptionSubtitle =>
-      'Fonctionne sur les téléphones compatibles dotés d\'un émetteur IR intégré. Ce téléphone n\'en possède pas.';
+      'Certains téléphones ont un émetteur IR intégré. Ce téléphone n’en possède pas.';
 
   @override
   String get homeBuiltInIrUnavailable => 'Non disponible sur ce téléphone';
@@ -182,7 +182,7 @@ class AppLocalizationsFr extends AppLocalizations {
   String get homeAudioAccessoryLabel => 'Adaptateur audio 3,5 mm';
 
   @override
-  String get homeContinueWithoutHardware => 'Continuer sans matériel';
+  String get homeContinueWithoutHardware => 'Continuer sans envoyer';
 
   @override
   String get homeHowItWorks => 'Comment ça marche';

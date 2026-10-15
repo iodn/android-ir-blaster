@@ -101,13 +101,13 @@ class AppLocalizationsAr extends AppLocalizations {
   String get homeHardwareBannerReady => 'USB جاهز.';
 
   @override
-  String get homeHardwareRequiredTitle => 'يلزم عتاد IR لإرسال الأوامر';
+  String get homeHardwareRequiredTitle => 'يلزم مرسل للأشعة تحت الحمراء';
 
   @override
-  String get homeUsbDongleRecommended => 'دونجل IR عبر USB، موصى به';
+  String get homeUsbDongleRecommended => 'محوّل IR USB (موصى به)';
 
   @override
-  String get homeAudioAdapterAlternative => 'محول IR صوتي (بديل)';
+  String get homeAudioAdapterAlternative => 'محوّل IR عبر الصوت';
 
   @override
   String get homeAudioAdapterDescription =>
@@ -117,7 +117,7 @@ class AppLocalizationsAr extends AppLocalizations {
   String get close => 'إغلاق';
 
   @override
-  String get homeChooseTransmitter => 'اختر مرسلاً';
+  String get homeChooseTransmitter => 'اختيار المرسل';
 
   @override
   String get openSettings => 'فتح الإعدادات';
@@ -141,14 +141,14 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String get homeHardwareTip =>
-      'ملاحظة: ما زال بإمكانك إنشاء أجهزة التحكم وتنظيمها الآن. يلزم العتاد فقط عند الإرسال.';
+      'يمكنك إعداد أجهزة التحكم الآن. تحتاج إلى مرسل IR فقط عند إرسال الأوامر.';
 
   @override
   String get homeNoIrTransmitterTitle => 'لا يوجد مرسل IR متاح';
 
   @override
   String get homeHardwareRequiredBody =>
-      'يمكن لتطبيق IR Blaster إنشاء وإدارة أجهزة التحكم على أي هاتف. لكن لإرسال أوامر الأشعة تحت الحمراء فعليًا، يحتاج جهازك إلى أحد خيارات العتاد أدناه.';
+      'يمكنك إنشاء أجهزة التحكم وتنظيمها دون مرسل IR. للتحكم في جهاز، استخدم أحد الخيارات أدناه.';
 
   @override
   String get homeCanStillUseWithoutHardware =>
@@ -158,11 +158,11 @@ class AppLocalizationsAr extends AppLocalizations {
   String get homeWaysToUseIrBlaster => 'طرق استخدام IR Blaster';
 
   @override
-  String get homeBuiltInIrOptionTitle => 'هاتف مزود بـ IR مدمج';
+  String get homeBuiltInIrOptionTitle => 'مرسل IR مدمج';
 
   @override
   String get homeBuiltInIrOptionSubtitle =>
-      'يعمل على الهواتف المدعومة التي تحتوي على مرسل IR مدمج. هذا الهاتف لا يحتوي على واحد.';
+      'تحتوي بعض الهواتف على مرسل IR مدمج. هذا الهاتف لا يحتوي عليه.';
 
   @override
   String get homeBuiltInIrUnavailable => 'غير متاح على هذا الهاتف';
@@ -177,10 +177,10 @@ class AppLocalizationsAr extends AppLocalizations {
   String get homeAudioAccessoryLabel => 'محوّل صوت 3.5 مم';
 
   @override
-  String get homeContinueWithoutHardware => 'المتابعة بدون عتاد';
+  String get homeContinueWithoutHardware => 'المتابعة دون إرسال';
 
   @override
-  String get homeHowItWorks => 'كيف يعمل';
+  String get homeHowItWorks => 'طريقة الاستخدام';
 
   @override
   String get settingsNavLabel => 'الإعدادات';
@@ -5314,13 +5314,13 @@ class AppLocalizationsArEg extends AppLocalizationsAr {
   String get homeHardwareBannerReady => 'USB جاهز.';
 
   @override
-  String get homeHardwareRequiredTitle => 'محتاج هاردوير IR عشان تبعت أوامر';
+  String get homeHardwareRequiredTitle => 'محتاج مرسل أشعة تحت الحمراء';
 
   @override
-  String get homeUsbDongleRecommended => 'دونجل IR عبر USB، موصى به';
+  String get homeUsbDongleRecommended => 'محوّل IR USB (بننصح بيه)';
 
   @override
-  String get homeAudioAdapterAlternative => 'محول IR صوتي (بديل)';
+  String get homeAudioAdapterAlternative => 'محوّل IR عن طريق الصوت';
 
   @override
   String get homeAudioAdapterDescription =>
@@ -5330,7 +5330,7 @@ class AppLocalizationsArEg extends AppLocalizationsAr {
   String get close => 'إغلاق';
 
   @override
-  String get homeChooseTransmitter => 'اختار مرسل';
+  String get homeChooseTransmitter => 'اختار المرسل';
 
   @override
   String get openSettings => 'فتح الإعدادات';
@@ -5354,14 +5354,14 @@ class AppLocalizationsArEg extends AppLocalizationsAr {
 
   @override
   String get homeHardwareTip =>
-      'ملاحظة: ما زال بإمكانك إنشاء أجهزة التحكم وتنظيمها الآن. يلزم العتاد فقط عند الإرسال.';
+      'تقدر تجهز ريموتاتك دلوقتي. هتحتاج مرسل IR بس لما تبعت أوامر.';
 
   @override
   String get homeNoIrTransmitterTitle => 'مافيش مرسل IR متاح';
 
   @override
   String get homeHardwareRequiredBody =>
-      'يقدر IR Blaster ينشئ ويدير الريموتات على أي موبايل. لكن عشان ترسل أوامر الأشعة تحت الحمراء فعليًا، جهازك محتاج واحد من خيارات الهاردوير اللي تحت.';
+      'تقدر تعمل ريموتات وترتبها من غير مرسل IR. عشان تتحكم في جهاز، استخدم واحد من الاختيارات اللي تحت.';
 
   @override
   String get homeCanStillUseWithoutHardware =>
@@ -5371,11 +5371,11 @@ class AppLocalizationsArEg extends AppLocalizationsAr {
   String get homeWaysToUseIrBlaster => 'طرق استخدام IR Blaster';
 
   @override
-  String get homeBuiltInIrOptionTitle => 'موبايل فيه IR مدمج';
+  String get homeBuiltInIrOptionTitle => 'مرسل IR مدمج';
 
   @override
   String get homeBuiltInIrOptionSubtitle =>
-      'يشتغل على الموبايلات المدعومة اللي فيها مرسل IR مدمج. الموبايل ده ما فيهوش واحد.';
+      'بعض الموبايلات فيها مرسل IR مدمج، لكن الموبايل ده مافيهوش.';
 
   @override
   String get homeBuiltInIrUnavailable => 'غير متاح على هذا الهاتف';
@@ -5390,10 +5390,10 @@ class AppLocalizationsArEg extends AppLocalizationsAr {
   String get homeAudioAccessoryLabel => 'محول صوت 3.5 مم';
 
   @override
-  String get homeContinueWithoutHardware => 'كمل بدون هاردوير';
+  String get homeContinueWithoutHardware => 'كمّل من غير إرسال';
 
   @override
-  String get homeHowItWorks => 'كيف يعمل';
+  String get homeHowItWorks => 'طريقة الاستخدام';
 
   @override
   String get settingsNavLabel => 'الإعدادات';

@@ -106,14 +106,13 @@ class AppLocalizationsNl extends AppLocalizations {
   String get homeHardwareBannerReady => 'USB is klaar.';
 
   @override
-  String get homeHardwareRequiredTitle =>
-      'IR-hardware nodig om opdrachten te verzenden';
+  String get homeHardwareRequiredTitle => 'IR-zender nodig';
 
   @override
-  String get homeUsbDongleRecommended => 'USB-IR-dongle aanbevolen';
+  String get homeUsbDongleRecommended => 'USB-IR-adapter (aanbevolen)';
 
   @override
-  String get homeAudioAdapterAlternative => 'Audio-IR-adapter alternatief';
+  String get homeAudioAdapterAlternative => 'Audio-IR-adapter';
 
   @override
   String get homeAudioAdapterDescription =>
@@ -123,7 +122,7 @@ class AppLocalizationsNl extends AppLocalizations {
   String get close => 'Sluiten';
 
   @override
-  String get homeChooseTransmitter => 'Kies een zender';
+  String get homeChooseTransmitter => 'Zender kiezen';
 
   @override
   String get openSettings => 'Open Instellingen';
@@ -148,14 +147,14 @@ class AppLocalizationsNl extends AppLocalizations {
 
   @override
   String get homeHardwareTip =>
-      'Tip: je kunt nu al afstandsbedieningen maken en ordenen. Hardware is alleen nodig bij verzenden.';
+      'Je kunt je afstandsbedieningen alvast instellen. Een IR-zender is alleen nodig om opdrachten te verzenden.';
 
   @override
   String get homeNoIrTransmitterTitle => 'Geen IR-zender beschikbaar';
 
   @override
   String get homeHardwareRequiredBody =>
-      'IR Blaster kan op elke telefoon afstandsbedieningen maken en beheren. Om daadwerkelijk infraroodcommando\'s te verzenden, heeft je apparaat een van de onderstaande hardwareopties nodig.';
+      'Zonder IR-zender kun je al afstandsbedieningen maken en ordenen. Gebruik een van de onderstaande opties om een apparaat te bedienen.';
 
   @override
   String get homeCanStillUseWithoutHardware =>
@@ -165,11 +164,11 @@ class AppLocalizationsNl extends AppLocalizations {
   String get homeWaysToUseIrBlaster => 'Manieren om IR Blaster te gebruiken';
 
   @override
-  String get homeBuiltInIrOptionTitle => 'Telefoon met ingebouwde IR';
+  String get homeBuiltInIrOptionTitle => 'Ingebouwde IR-zender';
 
   @override
   String get homeBuiltInIrOptionSubtitle =>
-      'Werkt op ondersteunde telefoons met een ingebouwde IR-zender. Deze telefoon heeft er geen.';
+      'Sommige telefoons hebben een ingebouwde IR-zender. Deze telefoon heeft er geen.';
 
   @override
   String get homeBuiltInIrUnavailable => 'Niet beschikbaar op deze telefoon';
@@ -184,10 +183,10 @@ class AppLocalizationsNl extends AppLocalizations {
   String get homeAudioAccessoryLabel => '3,5 mm audio-adapter';
 
   @override
-  String get homeContinueWithoutHardware => 'Doorgaan zonder hardware';
+  String get homeContinueWithoutHardware => 'Doorgaan zonder zenden';
 
   @override
-  String get homeHowItWorks => 'Hoe het werkt';
+  String get homeHowItWorks => 'Hoe werkt het?';
 
   @override
   String get settingsNavLabel => 'Instellingen';

@@ -105,13 +105,13 @@ class AppLocalizationsVi extends AppLocalizations {
   String get homeHardwareBannerReady => 'USB đã sẵn sàng.';
 
   @override
-  String get homeHardwareRequiredTitle => 'Cần phần cứng IR để gửi lệnh';
+  String get homeHardwareRequiredTitle => 'Cần bộ phát hồng ngoại';
 
   @override
-  String get homeUsbDongleRecommended => 'USB IR dongle (khuyên dùng)';
+  String get homeUsbDongleRecommended => 'Bộ chuyển đổi USB IR (khuyên dùng)';
 
   @override
-  String get homeAudioAdapterAlternative => 'Bộ chuyển IR audio (thay thế)';
+  String get homeAudioAdapterAlternative => 'Bộ chuyển đổi IR qua âm thanh';
 
   @override
   String get homeAudioAdapterDescription =>
@@ -145,14 +145,14 @@ class AppLocalizationsVi extends AppLocalizations {
 
   @override
   String get homeHardwareTip =>
-      'Mẹo: Bạn vẫn có thể tạo và sắp xếp điều khiển ngay bây giờ. Chỉ cần phần cứng khi truyền tín hiệu.';
+      'Bạn có thể chuẩn bị các điều khiển ngay bây giờ. Chỉ cần bộ phát hồng ngoại khi gửi lệnh.';
 
   @override
-  String get homeNoIrTransmitterTitle => 'Không có bộ phát IR khả dụng';
+  String get homeNoIrTransmitterTitle => 'Không có bộ phát hồng ngoại';
 
   @override
   String get homeHardwareRequiredBody =>
-      'IR Blaster có thể tạo và quản lý điều khiển từ xa trên bất kỳ điện thoại nào. Nhưng để thực sự gửi lệnh hồng ngoại, thiết bị của bạn cần một trong các tùy chọn phần cứng bên dưới.';
+      'Bạn vẫn có thể tạo và sắp xếp điều khiển khi chưa có bộ phát hồng ngoại. Để điều khiển thiết bị, hãy dùng một trong các cách dưới đây.';
 
   @override
   String get homeCanStillUseWithoutHardware =>
@@ -162,11 +162,11 @@ class AppLocalizationsVi extends AppLocalizations {
   String get homeWaysToUseIrBlaster => 'Các cách dùng IR Blaster';
 
   @override
-  String get homeBuiltInIrOptionTitle => 'Điện thoại có IR tích hợp';
+  String get homeBuiltInIrOptionTitle => 'Bộ phát hồng ngoại tích hợp';
 
   @override
   String get homeBuiltInIrOptionSubtitle =>
-      'Hoạt động trên các điện thoại được hỗ trợ có bộ phát IR tích hợp. Điện thoại này không có.';
+      'Một số điện thoại có bộ phát hồng ngoại tích hợp. Điện thoại này không có.';
 
   @override
   String get homeBuiltInIrUnavailable => 'Không có trên điện thoại này';
@@ -181,10 +181,10 @@ class AppLocalizationsVi extends AppLocalizations {
   String get homeAudioAccessoryLabel => 'Bộ chuyển âm thanh 3,5 mm';
 
   @override
-  String get homeContinueWithoutHardware => 'Tiếp tục không cần phần cứng';
+  String get homeContinueWithoutHardware => 'Tiếp tục mà không phát tín hiệu';
 
   @override
-  String get homeHowItWorks => 'Cách hoạt động';
+  String get homeHowItWorks => 'Cách sử dụng';
 
   @override
   String get settingsNavLabel => 'Cài đặt';

@@ -106,14 +106,13 @@ class AppLocalizationsFil extends AppLocalizations {
   String get homeHardwareBannerReady => 'Handa na ang USB.';
 
   @override
-  String get homeHardwareRequiredTitle =>
-      'Kailangan ang IR hardware para makapagpadala ng mga command';
+  String get homeHardwareRequiredTitle => 'Kailangan ng IR transmitter';
 
   @override
-  String get homeUsbDongleRecommended => 'USB IR dongle (inirerekomenda)';
+  String get homeUsbDongleRecommended => 'USB IR adapter (inirerekomenda)';
 
   @override
-  String get homeAudioAdapterAlternative => 'Audio IR adapter (alternatibo)';
+  String get homeAudioAdapterAlternative => 'Audio IR adapter';
 
   @override
   String get homeAudioAdapterDescription =>
@@ -148,14 +147,14 @@ class AppLocalizationsFil extends AppLocalizations {
 
   @override
   String get homeHardwareTip =>
-      'Tip. Maaari ka nang gumawa at mag-ayos ng mga remote ngayon. Kailangan lang ang hardware kapag magpapadala na.';
+      'Puwede mo nang ihanda ang mga remote mo. Kailangan lang ng IR transmitter kapag magpapadala ng command.';
 
   @override
-  String get homeNoIrTransmitterTitle => 'Walang available na IR transmitter';
+  String get homeNoIrTransmitterTitle => 'Walang magagamit na IR transmitter';
 
   @override
   String get homeHardwareRequiredBody =>
-      'Kayang gumawa at mamahala ng IR Blaster ng mga remote sa anumang telepono. Pero para aktuwal na makapagpadala ng infrared command, kailangan ng iyong device ang isa sa mga hardware option sa ibaba.';
+      'Puwede kang gumawa at mag-ayos ng mga remote kahit walang IR transmitter. Para makontrol ang isang device, gamitin ang isa sa mga opsyon sa ibaba.';
 
   @override
   String get homeCanStillUseWithoutHardware =>
@@ -165,11 +164,11 @@ class AppLocalizationsFil extends AppLocalizations {
   String get homeWaysToUseIrBlaster => 'Mga paraan para gamitin ang IR Blaster';
 
   @override
-  String get homeBuiltInIrOptionTitle => 'Teleponong may built-in IR';
+  String get homeBuiltInIrOptionTitle => 'Built-in na IR transmitter';
 
   @override
   String get homeBuiltInIrOptionSubtitle =>
-      'Gumagana sa mga suportadong teleponong may built-in IR blaster. Wala nito ang teleponong ito.';
+      'May built-in na IR transmitter ang ilang phone. Wala nito ang phone na ito.';
 
   @override
   String get homeBuiltInIrUnavailable => 'Hindi available sa teleponong ito';
@@ -184,10 +183,10 @@ class AppLocalizationsFil extends AppLocalizations {
   String get homeAudioAccessoryLabel => '3.5 mm na audio adapter';
 
   @override
-  String get homeContinueWithoutHardware => 'Magpatuloy nang walang hardware';
+  String get homeContinueWithoutHardware => 'Magpatuloy nang walang IR';
 
   @override
-  String get homeHowItWorks => 'Paano ito gumagana';
+  String get homeHowItWorks => 'Paano gamitin';
 
   @override
   String get settingsNavLabel => 'Mga Setting';

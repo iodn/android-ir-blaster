@@ -102,15 +102,13 @@ class AppLocalizationsEs extends AppLocalizations {
   String get homeHardwareBannerReady => 'USB está listo.';
 
   @override
-  String get homeHardwareRequiredTitle =>
-      'Se requiere hardware IR para enviar comandos';
+  String get homeHardwareRequiredTitle => 'Se necesita un emisor IR';
 
   @override
-  String get homeUsbDongleRecommended => 'Dongle IR USB (recomendado)';
+  String get homeUsbDongleRecommended => 'Adaptador IR USB (recomendado)';
 
   @override
-  String get homeAudioAdapterAlternative =>
-      'Adaptador IR por audio (alternativa)';
+  String get homeAudioAdapterAlternative => 'Adaptador IR de audio';
 
   @override
   String get homeAudioAdapterDescription =>
@@ -120,7 +118,7 @@ class AppLocalizationsEs extends AppLocalizations {
   String get close => 'Cerrar';
 
   @override
-  String get homeChooseTransmitter => 'Elige un emisor';
+  String get homeChooseTransmitter => 'Elegir emisor';
 
   @override
   String get openSettings => 'Abrir Ajustes';
@@ -145,14 +143,14 @@ class AppLocalizationsEs extends AppLocalizations {
 
   @override
   String get homeHardwareTip =>
-      'Consejo: aún puedes crear y ordenar mandos. El hardware solo se necesita al transmitir.';
+      'Puedes preparar tus mandos ahora. Solo necesitas un emisor IR para enviar órdenes.';
 
   @override
   String get homeNoIrTransmitterTitle => 'No hay emisor IR disponible';
 
   @override
   String get homeHardwareRequiredBody =>
-      'IR Blaster puede crear y gestionar mandos en cualquier teléfono. Para enviar comandos por infrarrojos, tu dispositivo necesita una de las opciones de hardware de abajo.';
+      'Puedes crear y organizar mandos sin un emisor IR. Para controlar un dispositivo, usa una de las opciones siguientes.';
 
   @override
   String get homeCanStillUseWithoutHardware =>
@@ -162,11 +160,11 @@ class AppLocalizationsEs extends AppLocalizations {
   String get homeWaysToUseIrBlaster => 'Formas de usar IR Blaster';
 
   @override
-  String get homeBuiltInIrOptionTitle => 'Teléfono con IR integrado';
+  String get homeBuiltInIrOptionTitle => 'Emisor IR integrado';
 
   @override
   String get homeBuiltInIrOptionSubtitle =>
-      'Funciona en teléfonos compatibles con emisor IR integrado. Este teléfono no incluye uno.';
+      'Algunos teléfonos tienen un emisor IR integrado. Este teléfono no tiene uno.';
 
   @override
   String get homeBuiltInIrUnavailable => 'No disponible en este teléfono';
@@ -181,7 +179,7 @@ class AppLocalizationsEs extends AppLocalizations {
   String get homeAudioAccessoryLabel => 'Adaptador de audio de 3,5 mm';
 
   @override
-  String get homeContinueWithoutHardware => 'Continuar sin hardware';
+  String get homeContinueWithoutHardware => 'Continuar sin enviar';
 
   @override
   String get homeHowItWorks => 'Cómo funciona';

@@ -105,14 +105,13 @@ class AppLocalizationsRu extends AppLocalizations {
   String get homeHardwareBannerReady => 'USB готов.';
 
   @override
-  String get homeHardwareRequiredTitle =>
-      'Для отправки команд нужно ИК-оборудование';
+  String get homeHardwareRequiredTitle => 'Нужен ИК-передатчик';
 
   @override
-  String get homeUsbDongleRecommended => 'USB ИК-адаптер, рекомендуется';
+  String get homeUsbDongleRecommended => 'ИК USB-адаптер (рекомендуется)';
 
   @override
-  String get homeAudioAdapterAlternative => 'Аудио ИК-адаптер, альтернатива';
+  String get homeAudioAdapterAlternative => 'ИК-адаптер через аудио';
 
   @override
   String get homeAudioAdapterDescription =>
@@ -122,7 +121,7 @@ class AppLocalizationsRu extends AppLocalizations {
   String get close => 'Закрыть';
 
   @override
-  String get homeChooseTransmitter => 'Выберите передатчик';
+  String get homeChooseTransmitter => 'Выбрать передатчик';
 
   @override
   String get openSettings => 'Открыть настройки';
@@ -147,14 +146,14 @@ class AppLocalizationsRu extends AppLocalizations {
 
   @override
   String get homeHardwareTip =>
-      'Подсказка: вы уже можете создавать и упорядочивать пульты. Оборудование нужно только для передачи.';
+      'Вы уже можете настроить свои пульты. ИК-передатчик нужен только для отправки команд.';
 
   @override
-  String get homeNoIrTransmitterTitle => 'Нет ИК-передатчика';
+  String get homeNoIrTransmitterTitle => 'Нет доступного ИК-передатчика';
 
   @override
   String get homeHardwareRequiredBody =>
-      'IR Blaster может создавать и управлять пультами на любом телефоне. Но для отправки инфракрасных команд устройству нужен один из вариантов оборудования ниже.';
+      'Вы можете создавать и упорядочивать пульты без ИК-передатчика. Чтобы управлять устройством, используйте один из вариантов ниже.';
 
   @override
   String get homeCanStillUseWithoutHardware =>
@@ -164,11 +163,11 @@ class AppLocalizationsRu extends AppLocalizations {
   String get homeWaysToUseIrBlaster => 'Как использовать IR Blaster';
 
   @override
-  String get homeBuiltInIrOptionTitle => 'Телефон со встроенным ИК';
+  String get homeBuiltInIrOptionTitle => 'Встроенный ИК-передатчик';
 
   @override
   String get homeBuiltInIrOptionSubtitle =>
-      'Работает на поддерживаемых телефонах со встроенным ИК-передатчиком. В этом телефоне его нет.';
+      'В некоторых телефонах есть встроенный ИК-передатчик. В этом телефоне его нет.';
 
   @override
   String get homeBuiltInIrUnavailable => 'Недоступно на этом телефоне';
@@ -183,7 +182,7 @@ class AppLocalizationsRu extends AppLocalizations {
   String get homeAudioAccessoryLabel => 'Аудиоадаптер 3,5 мм';
 
   @override
-  String get homeContinueWithoutHardware => 'Продолжить без оборудования';
+  String get homeContinueWithoutHardware => 'Продолжить без отправки';
 
   @override
   String get homeHowItWorks => 'Как это работает';

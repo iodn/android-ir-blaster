@@ -100,13 +100,13 @@ class AppLocalizationsKo extends AppLocalizations {
   String get homeHardwareBannerReady => 'USB 준비됨.';
 
   @override
-  String get homeHardwareRequiredTitle => 'IR 명령 전송에는 하드웨어가 필요합니다';
+  String get homeHardwareRequiredTitle => 'IR 송신기 필요';
 
   @override
-  String get homeUsbDongleRecommended => 'USB IR 동글(권장)';
+  String get homeUsbDongleRecommended => 'USB IR 어댑터 (권장)';
 
   @override
-  String get homeAudioAdapterAlternative => '오디오 IR 어댑터(대안)';
+  String get homeAudioAdapterAlternative => '오디오 IR 어댑터';
 
   @override
   String get homeAudioAdapterDescription =>
@@ -139,15 +139,14 @@ class AppLocalizationsKo extends AppLocalizations {
   String get requestUsbPermission => '요청 USB 권한';
 
   @override
-  String get homeHardwareTip =>
-      '팁: 지금도 리모컨을 만들고 정리할 수 있습니다. 하드웨어는 IR 송신 시에만 필요합니다.';
+  String get homeHardwareTip => '지금 리모컨을 준비해 두세요. IR 송신기는 명령을 전송할 때만 필요합니다.';
 
   @override
-  String get homeNoIrTransmitterTitle => '사용 가능한 IR 송신기가 없습니다';
+  String get homeNoIrTransmitterTitle => '사용 가능한 IR 송신기 없음';
 
   @override
   String get homeHardwareRequiredBody =>
-      'IR Blaster는 어떤 휴대폰에서도 리모컨을 만들고 관리할 수 있습니다. 하지만 실제로 적외선 명령을 보내려면 아래 하드웨어 옵션 중 하나가 필요합니다.';
+      'IR 송신기 없이도 리모컨을 만들고 정리할 수 있습니다. 기기를 제어하려면 아래 방법 중 하나를 사용하세요.';
 
   @override
   String get homeCanStillUseWithoutHardware =>
@@ -157,11 +156,11 @@ class AppLocalizationsKo extends AppLocalizations {
   String get homeWaysToUseIrBlaster => 'IR Blaster 사용 방법';
 
   @override
-  String get homeBuiltInIrOptionTitle => 'IR 내장 휴대폰';
+  String get homeBuiltInIrOptionTitle => '내장 IR 송신기';
 
   @override
   String get homeBuiltInIrOptionSubtitle =>
-      '내장 IR 블래스터가 있는 지원 휴대폰에서 작동합니다. 이 휴대폰에는 해당 기능이 없습니다.';
+      '일부 휴대전화에는 IR 송신기가 내장되어 있지만, 이 휴대전화에는 없습니다.';
 
   @override
   String get homeBuiltInIrUnavailable => '이 휴대폰에서는 사용할 수 없음';
@@ -176,10 +175,10 @@ class AppLocalizationsKo extends AppLocalizations {
   String get homeAudioAccessoryLabel => '3.5mm 오디오 어댑터';
 
   @override
-  String get homeContinueWithoutHardware => '하드웨어 없이 계속';
+  String get homeContinueWithoutHardware => '전송 없이 계속';
 
   @override
-  String get homeHowItWorks => '작동 방식';
+  String get homeHowItWorks => '사용 방법';
 
   @override
   String get settingsNavLabel => '설정';

@@ -97,13 +97,13 @@ class AppLocalizationsZh extends AppLocalizations {
   String get homeHardwareBannerReady => 'USB 已就绪。';
 
   @override
-  String get homeHardwareRequiredTitle => '发送命令需要红外硬件';
+  String get homeHardwareRequiredTitle => '需要红外发射设备';
 
   @override
-  String get homeUsbDongleRecommended => 'USB 红外 dongle 推荐';
+  String get homeUsbDongleRecommended => 'USB 红外适配器（推荐）';
 
   @override
-  String get homeAudioAdapterAlternative => '音频红外适配器 备选';
+  String get homeAudioAdapterAlternative => '音频红外适配器';
 
   @override
   String get homeAudioAdapterDescription =>
@@ -134,14 +134,13 @@ class AppLocalizationsZh extends AppLocalizations {
   String get requestUsbPermission => '申请 USB 权限';
 
   @override
-  String get homeHardwareTip => '提示 你现在仍可创建和整理遥控器。只有发送时才需要硬件。';
+  String get homeHardwareTip => '你现在就可以配置遥控器，只有发送指令时才需要红外发射设备。';
 
   @override
   String get homeNoIrTransmitterTitle => '没有可用的红外发射器';
 
   @override
-  String get homeHardwareRequiredBody =>
-      'IR Blaster 可以在任何手机上创建和管理遥控器。但若要真正发送红外命令，设备需要具备下列其中一种硬件方式。';
+  String get homeHardwareRequiredBody => '没有红外发射器也能创建和整理遥控器。要控制设备，请使用以下任一方式。';
 
   @override
   String get homeCanStillUseWithoutHardware => '你现在仍然可以创建、导入和整理遥控器。';
@@ -150,10 +149,10 @@ class AppLocalizationsZh extends AppLocalizations {
   String get homeWaysToUseIrBlaster => '使用 IR Blaster 的方式';
 
   @override
-  String get homeBuiltInIrOptionTitle => '带内置红外的手机';
+  String get homeBuiltInIrOptionTitle => '内置红外发射器';
 
   @override
-  String get homeBuiltInIrOptionSubtitle => '可在带有内置红外发射器的受支持手机上使用。这部手机不具备该功能。';
+  String get homeBuiltInIrOptionSubtitle => '部分手机内置红外发射器，但这部手机没有。';
 
   @override
   String get homeBuiltInIrUnavailable => '此手机不可用';
@@ -168,10 +167,10 @@ class AppLocalizationsZh extends AppLocalizations {
   String get homeAudioAccessoryLabel => '3.5 毫米音频适配器';
 
   @override
-  String get homeContinueWithoutHardware => '无硬件继续';
+  String get homeContinueWithoutHardware => '暂不发送，继续使用';
 
   @override
-  String get homeHowItWorks => '工作原理';
+  String get homeHowItWorks => '查看使用方法';
 
   @override
   String get settingsNavLabel => '设置';

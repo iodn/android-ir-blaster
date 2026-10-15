@@ -104,14 +104,13 @@ class AppLocalizationsHi extends AppLocalizations {
   String get homeHardwareBannerReady => 'USB तैयार है।';
 
   @override
-  String get homeHardwareRequiredTitle =>
-      'कमांड भेजने के लिए IR हार्डवेयर आवश्यक';
+  String get homeHardwareRequiredTitle => 'IR ट्रांसमीटर चाहिए';
 
   @override
-  String get homeUsbDongleRecommended => 'USB IR डोंगल (अनुशंसित)';
+  String get homeUsbDongleRecommended => 'USB IR अडैप्टर (सुझाया गया)';
 
   @override
-  String get homeAudioAdapterAlternative => 'ऑडियो IR एडेप्टर (विकल्प)';
+  String get homeAudioAdapterAlternative => 'ऑडियो IR अडैप्टर';
 
   @override
   String get homeAudioAdapterDescription =>
@@ -121,7 +120,7 @@ class AppLocalizationsHi extends AppLocalizations {
   String get close => 'बंद करें';
 
   @override
-  String get homeChooseTransmitter => 'एक प्रेषक चुनें';
+  String get homeChooseTransmitter => 'ट्रांसमीटर चुनें';
 
   @override
   String get openSettings => 'खोलें सेटिंग्स';
@@ -145,14 +144,14 @@ class AppLocalizationsHi extends AppLocalizations {
 
   @override
   String get homeHardwareTip =>
-      'सुझाव: आप अभी भी रिमोट बना और व्यवस्थित कर सकते हैं। हार्डवेयर केवल IR भेजते समय आवश्यक है।';
+      'आप अभी अपने रिमोट तैयार कर सकते हैं। IR ट्रांसमीटर की ज़रूरत केवल कमांड भेजते समय होती है।';
 
   @override
-  String get homeNoIrTransmitterTitle => 'कोई IR प्रेषक उपलब्ध नहीं';
+  String get homeNoIrTransmitterTitle => 'कोई IR ट्रांसमीटर उपलब्ध नहीं';
 
   @override
   String get homeHardwareRequiredBody =>
-      'IR Blaster किसी भी फ़ोन पर रिमोट बना और प्रबंधित कर सकता है। लेकिन वास्तव में इन्फ्रारेड कमांड भेजने के लिए आपके डिवाइस में नीचे दिए गए हार्डवेयर विकल्पों में से एक होना ज़रूरी है।';
+      'IR ट्रांसमीटर के बिना भी रिमोट बना सकते हैं और व्यवस्थित कर सकते हैं। किसी उपकरण को चलाने के लिए नीचे दिए गए विकल्पों में से एक चुनें।';
 
   @override
   String get homeCanStillUseWithoutHardware =>
@@ -162,11 +161,11 @@ class AppLocalizationsHi extends AppLocalizations {
   String get homeWaysToUseIrBlaster => 'IR Blaster इस्तेमाल करने के तरीके';
 
   @override
-  String get homeBuiltInIrOptionTitle => 'बिल्ट-इन IR वाला फ़ोन';
+  String get homeBuiltInIrOptionTitle => 'फ़ोन में लगा IR ट्रांसमीटर';
 
   @override
   String get homeBuiltInIrOptionSubtitle =>
-      'बिल्ट-इन IR ब्लास्टर वाले समर्थित फ़ोन पर काम करता है। इस फ़ोन में यह नहीं है।';
+      'कुछ फ़ोन में IR ट्रांसमीटर लगा होता है। इस फ़ोन में नहीं है।';
 
   @override
   String get homeBuiltInIrUnavailable => 'इस फ़ोन पर उपलब्ध नहीं';
@@ -181,10 +180,10 @@ class AppLocalizationsHi extends AppLocalizations {
   String get homeAudioAccessoryLabel => '3.5 mm ऑडियो एडेप्टर';
 
   @override
-  String get homeContinueWithoutHardware => 'हार्डवेयर के बिना जारी रखें';
+  String get homeContinueWithoutHardware => 'बिना सिग्नल भेजे आगे बढ़ें';
 
   @override
-  String get homeHowItWorks => 'यह कैसे काम करता है';
+  String get homeHowItWorks => 'इस्तेमाल का तरीका';
 
   @override
   String get settingsNavLabel => 'सेटिंग्स';

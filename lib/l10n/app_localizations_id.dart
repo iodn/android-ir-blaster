@@ -102,14 +102,13 @@ class AppLocalizationsId extends AppLocalizations {
   String get homeHardwareBannerReady => 'USB siap.';
 
   @override
-  String get homeHardwareRequiredTitle =>
-      'Perlu perangkat IR untuk kirim perintah';
+  String get homeHardwareRequiredTitle => 'Perlu pemancar IR';
 
   @override
-  String get homeUsbDongleRecommended => 'Dongle IR USB (disarankan)';
+  String get homeUsbDongleRecommended => 'Adaptor IR USB (disarankan)';
 
   @override
-  String get homeAudioAdapterAlternative => 'Adaptor IR audio (alternatif)';
+  String get homeAudioAdapterAlternative => 'Adaptor IR audio';
 
   @override
   String get homeAudioAdapterDescription =>
@@ -143,14 +142,14 @@ class AppLocalizationsId extends AppLocalizations {
 
   @override
   String get homeHardwareTip =>
-      'Tip: Anda masih bisa membuat dan mengatur remote sekarang. Perangkat keras hanya diperlukan saat mengirim.';
+      'Anda bisa menyiapkan remote sekarang. Pemancar IR hanya diperlukan untuk mengirim perintah.';
 
   @override
   String get homeNoIrTransmitterTitle => 'Tidak ada pemancar IR';
 
   @override
   String get homeHardwareRequiredBody =>
-      'IR Blaster dapat membuat dan mengelola remote di ponsel apa pun. Namun untuk benar-benar mengirim perintah inframerah, perangkat Anda memerlukan salah satu opsi perangkat keras di bawah ini.';
+      'Anda tetap bisa membuat dan menata remote tanpa pemancar IR. Untuk mengendalikan perangkat, gunakan salah satu pilihan berikut.';
 
   @override
   String get homeCanStillUseWithoutHardware =>
@@ -160,11 +159,11 @@ class AppLocalizationsId extends AppLocalizations {
   String get homeWaysToUseIrBlaster => 'Cara menggunakan IR Blaster';
 
   @override
-  String get homeBuiltInIrOptionTitle => 'Ponsel dengan IR bawaan';
+  String get homeBuiltInIrOptionTitle => 'Pemancar IR bawaan';
 
   @override
   String get homeBuiltInIrOptionSubtitle =>
-      'Berfungsi pada ponsel yang didukung dengan pemancar IR bawaan. Ponsel ini tidak memilikinya.';
+      'Sebagian ponsel memiliki pemancar IR bawaan. Ponsel ini tidak memilikinya.';
 
   @override
   String get homeBuiltInIrUnavailable => 'Tidak tersedia di ponsel ini';
@@ -179,10 +178,10 @@ class AppLocalizationsId extends AppLocalizations {
   String get homeAudioAccessoryLabel => 'Adaptor audio 3,5 mm';
 
   @override
-  String get homeContinueWithoutHardware => 'Lanjutkan tanpa perangkat keras';
+  String get homeContinueWithoutHardware => 'Lanjut tanpa mengirim';
 
   @override
-  String get homeHowItWorks => 'Cara kerjanya';
+  String get homeHowItWorks => 'Cara menggunakan';
 
   @override
   String get settingsNavLabel => 'Setelan';

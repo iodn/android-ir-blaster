@@ -303,19 +303,19 @@ abstract class AppLocalizations {
   /// No description provided for @homeHardwareRequiredTitle.
   ///
   /// In en, this message translates to:
-  /// **'IR hardware required to send commands'**
+  /// **'IR hardware needed'**
   String get homeHardwareRequiredTitle;
 
   /// No description provided for @homeUsbDongleRecommended.
   ///
   /// In en, this message translates to:
-  /// **'USB IR dongle (recommended)'**
+  /// **'USB IR adapter (recommended)'**
   String get homeUsbDongleRecommended;
 
   /// No description provided for @homeAudioAdapterAlternative.
   ///
   /// In en, this message translates to:
-  /// **'Audio IR adapter (alternative)'**
+  /// **'Audio IR adapter'**
   String get homeAudioAdapterAlternative;
 
   /// No description provided for @homeAudioAdapterDescription.
@@ -333,7 +333,7 @@ abstract class AppLocalizations {
   /// No description provided for @homeChooseTransmitter.
   ///
   /// In en, this message translates to:
-  /// **'Choose a transmitter'**
+  /// **'Choose transmitter'**
   String get homeChooseTransmitter;
 
   /// No description provided for @openSettings.
@@ -375,7 +375,7 @@ abstract class AppLocalizations {
   /// No description provided for @homeHardwareTip.
   ///
   /// In en, this message translates to:
-  /// **'Tip: You can still build and organize remotes now. Hardware is only required when transmitting.'**
+  /// **'You can set up your remotes now. IR hardware is only needed to send commands.'**
   String get homeHardwareTip;
 
   /// No description provided for @homeNoIrTransmitterTitle.
@@ -387,7 +387,7 @@ abstract class AppLocalizations {
   /// No description provided for @homeHardwareRequiredBody.
   ///
   /// In en, this message translates to:
-  /// **'IR Blaster can create and manage remotes on any phone. To actually send infrared commands, your device needs one of the hardware options below.'**
+  /// **'You can create and organize remotes without an IR transmitter. To control a device, use one of the options below.'**
   String get homeHardwareRequiredBody;
 
   /// No description provided for @homeCanStillUseWithoutHardware.
@@ -405,13 +405,13 @@ abstract class AppLocalizations {
   /// No description provided for @homeBuiltInIrOptionTitle.
   ///
   /// In en, this message translates to:
-  /// **'Phone with built-in IR'**
+  /// **'Built-in IR transmitter'**
   String get homeBuiltInIrOptionTitle;
 
   /// No description provided for @homeBuiltInIrOptionSubtitle.
   ///
   /// In en, this message translates to:
-  /// **'Works on supported phones with a built-in IR blaster. This phone does not include one.'**
+  /// **'Some phones have an IR transmitter built in. This phone does not.'**
   String get homeBuiltInIrOptionSubtitle;
 
   /// No description provided for @homeBuiltInIrUnavailable.
@@ -441,7 +441,7 @@ abstract class AppLocalizations {
   /// No description provided for @homeContinueWithoutHardware.
   ///
   /// In en, this message translates to:
-  /// **'Continue without hardware'**
+  /// **'Continue without sending'**
   String get homeContinueWithoutHardware;
 
   /// No description provided for @homeHowItWorks.

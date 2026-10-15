@@ -106,13 +106,13 @@ class AppLocalizationsDe extends AppLocalizations {
   String get homeHardwareBannerReady => 'USB ist bereit.';
 
   @override
-  String get homeHardwareRequiredTitle => 'IR-Hardware zum Senden nötig';
+  String get homeHardwareRequiredTitle => 'IR-Hardware erforderlich';
 
   @override
-  String get homeUsbDongleRecommended => 'USB-IR-Dongle empfohlen';
+  String get homeUsbDongleRecommended => 'USB-IR-Adapter (empfohlen)';
 
   @override
-  String get homeAudioAdapterAlternative => 'Audio-IR-Adapter alternativ';
+  String get homeAudioAdapterAlternative => 'Audio-IR-Adapter';
 
   @override
   String get homeAudioAdapterDescription =>
@@ -147,14 +147,14 @@ class AppLocalizationsDe extends AppLocalizations {
 
   @override
   String get homeHardwareTip =>
-      'Tipp: Du kannst Fernbedienungen schon jetzt erstellen und sortieren. Hardware ist nur zum Senden nötig.';
+      'Sie können Ihre Fernbedienungen schon jetzt einrichten. IR-Hardware benötigen Sie erst zum Senden.';
 
   @override
   String get homeNoIrTransmitterTitle => 'Kein IR-Sender verfügbar';
 
   @override
   String get homeHardwareRequiredBody =>
-      'IR Blaster kann Fernbedienungen auf jedem Telefon erstellen und verwalten. Um tatsächlich Infrarotbefehle zu senden, benötigt Ihr Gerät eine der unten aufgeführten Hardware-Optionen.';
+      'Auch ohne IR-Sender können Sie Fernbedienungen erstellen und verwalten. Um Geräte zu steuern, benötigen Sie eine der folgenden Lösungen.';
 
   @override
   String get homeCanStillUseWithoutHardware =>
@@ -164,11 +164,11 @@ class AppLocalizationsDe extends AppLocalizations {
   String get homeWaysToUseIrBlaster => 'So können Sie IR Blaster nutzen';
 
   @override
-  String get homeBuiltInIrOptionTitle => 'Telefon mit integriertem IR';
+  String get homeBuiltInIrOptionTitle => 'Integrierter IR-Sender';
 
   @override
   String get homeBuiltInIrOptionSubtitle =>
-      'Funktioniert auf unterstützten Telefonen mit integriertem IR-Sender. Dieses Telefon hat keinen.';
+      'Manche Handys haben einen integrierten IR-Sender. Dieses Handy hat keinen.';
 
   @override
   String get homeBuiltInIrUnavailable => 'Auf diesem Telefon nicht verfügbar';
@@ -183,7 +183,7 @@ class AppLocalizationsDe extends AppLocalizations {
   String get homeAudioAccessoryLabel => '3,5-mm-Audioadapter';
 
   @override
-  String get homeContinueWithoutHardware => 'Ohne Hardware fortfahren';
+  String get homeContinueWithoutHardware => 'Ohne Senden fortfahren';
 
   @override
   String get homeHowItWorks => 'So funktioniert es';

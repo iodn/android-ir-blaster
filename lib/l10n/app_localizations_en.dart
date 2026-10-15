@@ -106,14 +106,13 @@ class AppLocalizationsEn extends AppLocalizations {
   String get homeHardwareBannerReady => 'USB is ready.';
 
   @override
-  String get homeHardwareRequiredTitle =>
-      'IR hardware required to send commands';
+  String get homeHardwareRequiredTitle => 'IR hardware needed';
 
   @override
-  String get homeUsbDongleRecommended => 'USB IR dongle (recommended)';
+  String get homeUsbDongleRecommended => 'USB IR adapter (recommended)';
 
   @override
-  String get homeAudioAdapterAlternative => 'Audio IR adapter (alternative)';
+  String get homeAudioAdapterAlternative => 'Audio IR adapter';
 
   @override
   String get homeAudioAdapterDescription =>
@@ -123,7 +122,7 @@ class AppLocalizationsEn extends AppLocalizations {
   String get close => 'Close';
 
   @override
-  String get homeChooseTransmitter => 'Choose a transmitter';
+  String get homeChooseTransmitter => 'Choose transmitter';
 
   @override
   String get openSettings => 'Open Settings';
@@ -148,14 +147,14 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get homeHardwareTip =>
-      'Tip: You can still build and organize remotes now. Hardware is only required when transmitting.';
+      'You can set up your remotes now. IR hardware is only needed to send commands.';
 
   @override
   String get homeNoIrTransmitterTitle => 'No IR transmitter available';
 
   @override
   String get homeHardwareRequiredBody =>
-      'IR Blaster can create and manage remotes on any phone. To actually send infrared commands, your device needs one of the hardware options below.';
+      'You can create and organize remotes without an IR transmitter. To control a device, use one of the options below.';
 
   @override
   String get homeCanStillUseWithoutHardware =>
@@ -165,11 +164,11 @@ class AppLocalizationsEn extends AppLocalizations {
   String get homeWaysToUseIrBlaster => 'Ways to use IR Blaster';
 
   @override
-  String get homeBuiltInIrOptionTitle => 'Phone with built-in IR';
+  String get homeBuiltInIrOptionTitle => 'Built-in IR transmitter';
 
   @override
   String get homeBuiltInIrOptionSubtitle =>
-      'Works on supported phones with a built-in IR blaster. This phone does not include one.';
+      'Some phones have an IR transmitter built in. This phone does not.';
 
   @override
   String get homeBuiltInIrUnavailable => 'Not available on this phone';
@@ -184,7 +183,7 @@ class AppLocalizationsEn extends AppLocalizations {
   String get homeAudioAccessoryLabel => '3.5 mm audio adapter';
 
   @override
-  String get homeContinueWithoutHardware => 'Continue without hardware';
+  String get homeContinueWithoutHardware => 'Continue without sending';
 
   @override
   String get homeHowItWorks => 'How it works';

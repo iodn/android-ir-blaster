@@ -102,13 +102,13 @@ class AppLocalizationsTh extends AppLocalizations {
   String get homeHardwareBannerReady => 'USB พร้อมแล้ว';
 
   @override
-  String get homeHardwareRequiredTitle => 'ต้องมีฮาร์ดแวร์ IR เพื่อส่งคำสั่ง';
+  String get homeHardwareRequiredTitle => 'ต้องมีตัวส่งสัญญาณ IR';
 
   @override
-  String get homeUsbDongleRecommended => 'ดองเกิล IR USB แนะนำ';
+  String get homeUsbDongleRecommended => 'อะแดปเตอร์ USB IR (แนะนำ)';
 
   @override
-  String get homeAudioAdapterAlternative => 'อะแดปเตอร์ IR เสียง ทางเลือก';
+  String get homeAudioAdapterAlternative => 'อะแดปเตอร์ IR แบบเสียง';
 
   @override
   String get homeAudioAdapterDescription =>
@@ -142,14 +142,14 @@ class AppLocalizationsTh extends AppLocalizations {
 
   @override
   String get homeHardwareTip =>
-      'เคล็ดลับ คุณยังสร้างและจัดรีโมตได้ตอนนี้ ฮาร์ดแวร์จำเป็นเฉพาะตอนส่งเท่านั้น';
+      'คุณเตรียมรีโมตไว้ก่อนได้ ตัวส่ง IR จำเป็นเฉพาะตอนส่งคำสั่งเท่านั้น';
 
   @override
-  String get homeNoIrTransmitterTitle => 'ไม่มีตัวส่ง IR';
+  String get homeNoIrTransmitterTitle => 'ไม่มีตัวส่ง IR ที่ใช้งานได้';
 
   @override
   String get homeHardwareRequiredBody =>
-      'IR Blaster สามารถสร้างและจัดการรีโมตได้บนโทรศัพท์ทุกรุ่น แต่หากต้องการส่งคำสั่งอินฟราเรดจริง อุปกรณ์ของคุณต้องมีฮาร์ดแวร์อย่างใดอย่างหนึ่งด้านล่างนี้';
+      'คุณสร้างและจัดระเบียบรีโมตได้แม้ไม่มีตัวส่ง IR แต่หากต้องการควบคุมอุปกรณ์ ให้ใช้วิธีใดวิธีหนึ่งด้านล่าง';
 
   @override
   String get homeCanStillUseWithoutHardware =>
@@ -159,11 +159,11 @@ class AppLocalizationsTh extends AppLocalizations {
   String get homeWaysToUseIrBlaster => 'วิธีใช้งาน IR Blaster';
 
   @override
-  String get homeBuiltInIrOptionTitle => 'โทรศัพท์ที่มี IR ในตัว';
+  String get homeBuiltInIrOptionTitle => 'ตัวส่ง IR ในตัว';
 
   @override
   String get homeBuiltInIrOptionSubtitle =>
-      'ใช้งานได้กับโทรศัพท์ที่รองรับและมีตัวส่ง IR ในตัว โทรศัพท์เครื่องนี้ไม่มี';
+      'โทรศัพท์บางรุ่นมีตัวส่ง IR ในตัว แต่เครื่องนี้ไม่มี';
 
   @override
   String get homeBuiltInIrUnavailable => 'ไม่พร้อมใช้งานบนโทรศัพท์เครื่องนี้';
@@ -178,10 +178,10 @@ class AppLocalizationsTh extends AppLocalizations {
   String get homeAudioAccessoryLabel => 'อะแดปเตอร์เสียง 3.5 มม.';
 
   @override
-  String get homeContinueWithoutHardware => 'ใช้งานต่อโดยไม่มีฮาร์ดแวร์';
+  String get homeContinueWithoutHardware => 'ใช้งานต่อโดยไม่ส่งสัญญาณ';
 
   @override
-  String get homeHowItWorks => 'วิธีการทำงาน';
+  String get homeHowItWorks => 'วิธีใช้งาน';
 
   @override
   String get settingsNavLabel => 'การตั้งค่า';

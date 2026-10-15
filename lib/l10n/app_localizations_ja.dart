@@ -98,13 +98,13 @@ class AppLocalizationsJa extends AppLocalizations {
   String get homeHardwareBannerReady => 'USBは使用可能です。';
 
   @override
-  String get homeHardwareRequiredTitle => 'コマンド送信にはIRハードが必要です';
+  String get homeHardwareRequiredTitle => '赤外線の送信機器が必要です';
 
   @override
-  String get homeUsbDongleRecommended => 'USB IRドングル 推奨';
+  String get homeUsbDongleRecommended => 'USB赤外線アダプター（推奨）';
 
   @override
-  String get homeAudioAdapterAlternative => '音声IRアダプタ 代替';
+  String get homeAudioAdapterAlternative => 'オーディオ接続の赤外線アダプター';
 
   @override
   String get homeAudioAdapterDescription =>
@@ -114,7 +114,7 @@ class AppLocalizationsJa extends AppLocalizations {
   String get close => '閉じる';
 
   @override
-  String get homeChooseTransmitter => '送信機を選択';
+  String get homeChooseTransmitter => '送信機を選ぶ';
 
   @override
   String get openSettings => '設定を開く';
@@ -137,14 +137,14 @@ class AppLocalizationsJa extends AppLocalizations {
   String get requestUsbPermission => 'USB権限を要求';
 
   @override
-  String get homeHardwareTip => 'ヒント リモコンの作成や整理は今でも可能です。ハードが必要なのは送信時だけです。';
+  String get homeHardwareTip => 'リモコンの準備は今すぐできます。赤外線の送信機器が必要なのは、コマンドを送るときだけです。';
 
   @override
-  String get homeNoIrTransmitterTitle => 'IR送信機がありません';
+  String get homeNoIrTransmitterTitle => '赤外線送信機がありません';
 
   @override
   String get homeHardwareRequiredBody =>
-      'IR Blaster はどのスマートフォンでもリモコンの作成と管理ができます。実際に赤外線コマンドを送信するには、下記のいずれかのハードウェアが必要です。';
+      '赤外線送信機がなくても、リモコンの作成や整理はできます。機器を操作するには、以下のいずれかが必要です。';
 
   @override
   String get homeCanStillUseWithoutHardware => '今すぐリモコンの作成、インポート、整理は行えます。';
@@ -153,11 +153,10 @@ class AppLocalizationsJa extends AppLocalizations {
   String get homeWaysToUseIrBlaster => 'IR Blaster の使い方';
 
   @override
-  String get homeBuiltInIrOptionTitle => 'IR 内蔵スマートフォン';
+  String get homeBuiltInIrOptionTitle => '内蔵の赤外線送信機';
 
   @override
-  String get homeBuiltInIrOptionSubtitle =>
-      '内蔵 IR ブラスターを備えた対応スマートフォンで動作します。このスマートフォンには搭載されていません。';
+  String get homeBuiltInIrOptionSubtitle => '赤外線送信機を内蔵した端末もありますが、この端末にはありません。';
 
   @override
   String get homeBuiltInIrUnavailable => 'このスマートフォンでは利用できません';
@@ -172,10 +171,10 @@ class AppLocalizationsJa extends AppLocalizations {
   String get homeAudioAccessoryLabel => '3.5 mm オーディオアダプター';
 
   @override
-  String get homeContinueWithoutHardware => 'ハードウェアなしで続ける';
+  String get homeContinueWithoutHardware => '送信せずに続ける';
 
   @override
-  String get homeHowItWorks => '仕組みを見る';
+  String get homeHowItWorks => '使い方を見る';
 
   @override
   String get settingsNavLabel => '設定';

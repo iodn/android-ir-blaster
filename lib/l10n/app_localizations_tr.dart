@@ -103,14 +103,13 @@ class AppLocalizationsTr extends AppLocalizations {
   String get homeHardwareBannerReady => 'USB hazır.';
 
   @override
-  String get homeHardwareRequiredTitle =>
-      'Komut göndermek için IR donanımı gerekli';
+  String get homeHardwareRequiredTitle => 'IR verici gerekli';
 
   @override
-  String get homeUsbDongleRecommended => 'USB IR dongle (önerilen)';
+  String get homeUsbDongleRecommended => 'USB IR adaptörü (önerilen)';
 
   @override
-  String get homeAudioAdapterAlternative => 'Ses IR adaptörü (alternatif)';
+  String get homeAudioAdapterAlternative => 'Ses bağlantılı IR adaptörü';
 
   @override
   String get homeAudioAdapterDescription =>
@@ -120,7 +119,7 @@ class AppLocalizationsTr extends AppLocalizations {
   String get close => 'Kapat';
 
   @override
-  String get homeChooseTransmitter => 'Bir verici seçin';
+  String get homeChooseTransmitter => 'Verici seç';
 
   @override
   String get openSettings => 'Ayarları Aç';
@@ -144,14 +143,14 @@ class AppLocalizationsTr extends AppLocalizations {
 
   @override
   String get homeHardwareTip =>
-      'İpucu: Kumandaları şimdi de oluşturup düzenleyebilirsiniz. Donanım yalnızca gönderimde gerekir.';
+      'Kumandalarınızı şimdiden hazırlayabilirsiniz. IR verici yalnızca komut göndermek için gerekir.';
 
   @override
-  String get homeNoIrTransmitterTitle => 'IR verici yok';
+  String get homeNoIrTransmitterTitle => 'Kullanılabilir IR verici yok';
 
   @override
   String get homeHardwareRequiredBody =>
-      'IR Blaster herhangi bir telefonda kumandalar oluşturup yönetebilir. Ancak gerçekten kızılötesi komut göndermek için cihazınızın aşağıdaki donanım seçeneklerinden birine sahip olması gerekir.';
+      'IR verici olmadan da kumanda oluşturup düzenleyebilirsiniz. Bir cihazı kontrol etmek için aşağıdaki seçeneklerden birini kullanın.';
 
   @override
   String get homeCanStillUseWithoutHardware =>
@@ -161,11 +160,11 @@ class AppLocalizationsTr extends AppLocalizations {
   String get homeWaysToUseIrBlaster => 'IR Blaster kullanma yolları';
 
   @override
-  String get homeBuiltInIrOptionTitle => 'Dahili IR bulunan telefon';
+  String get homeBuiltInIrOptionTitle => 'Dahili IR verici';
 
   @override
   String get homeBuiltInIrOptionSubtitle =>
-      'Dahili IR vericisi olan desteklenen telefonlarda çalışır. Bu telefonda yok.';
+      'Bazı telefonlarda dahili IR verici bulunur. Bu telefonda bulunmuyor.';
 
   @override
   String get homeBuiltInIrUnavailable => 'Bu telefonda mevcut değil';
@@ -180,10 +179,10 @@ class AppLocalizationsTr extends AppLocalizations {
   String get homeAudioAccessoryLabel => '3,5 mm ses adaptörü';
 
   @override
-  String get homeContinueWithoutHardware => 'Donanım olmadan devam et';
+  String get homeContinueWithoutHardware => 'Göndermeden devam et';
 
   @override
-  String get homeHowItWorks => 'Nasıl çalışır';
+  String get homeHowItWorks => 'Nasıl kullanılır';
 
   @override
   String get settingsNavLabel => 'Ayarlar';
