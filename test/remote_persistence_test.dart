@@ -1,4 +1,5 @@
 import 'dart:async';
+import 'dart:convert';
 import 'dart:io';
 
 import 'package:flutter/services.dart';
@@ -65,5 +66,30 @@ void main() {
     await writeRemotelist([remote('Recovered')]);
     expect((await readRemotes()).single.name, 'Recovered');
     expect(await File('${dir.path}/remotes.json.tmp').exists(), isFalse);
+  });
+
+  test('failed migration save does not hide readable legacy remotes', () async {
+    final legacy = remote('Legacy TV').toJson();
+    legacy['buttons'] = [
+      {'image': 'Power', 'isImage': false, 'code': 123},
+    ];
+    final file = File('${dir.path}/remotes.json');
+    final original = jsonEncode([legacy]);
+    await file.writeAsString(original);
+    final obstruction =
+        await Directory('${dir.path}/remotes.json.tmp').create();
+
+    final loaded = await readRemotes();
+    expect(loaded, hasLength(1));
+    expect(loaded.single.name, 'Legacy TV');
+    expect(loaded.single.buttons.single.code, 123);
+    expect(loaded.single.buttons.single.id, isNotEmpty);
+    expect(await file.readAsString(), original);
+
+    await obstruction.delete();
+    final recovered = await readRemotes();
+    final persisted = jsonDecode(await file.readAsString()) as List;
+    expect(persisted.single['buttons'][0]['id'],
+        recovered.single.buttons.single.id);
   });
 }

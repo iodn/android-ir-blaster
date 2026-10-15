@@ -258,7 +258,12 @@ Future<List<Remote>> readRemotes() async {
     }
 
     if (mutated) {
-      await writeRemotelist(remotes);
+      try {
+        await writeRemotelist(remotes);
+      } on FileSystemException {
+        // A failed migration write must not turn readable remotes into an
+        // empty collection. Keep them usable and retry on the next load/save.
+      }
     }
 
     return remotes;
