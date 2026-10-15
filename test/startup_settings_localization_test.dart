@@ -3,6 +3,7 @@ import 'package:flutter/rendering.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:irblaster_controller/l10n/app_localizations.dart';
+import 'package:irblaster_controller/state/haptics.dart';
 import 'package:irblaster_controller/state/orientation_pref.dart';
 import 'package:irblaster_controller/state/startup_prefs.dart';
 import 'package:irblaster_controller/widgets/settings_screen.dart';
@@ -36,6 +37,7 @@ void main() {
                 _ => null,
               });
       messenger.setMockMethodCallHandler(events, (_) async => null);
+      await HapticsController.instance.load();
       addTearDown(() {
         messenger.setMockMethodCallHandler(channel, null);
         messenger.setMockMethodCallHandler(events, null);
@@ -130,6 +132,37 @@ void main() {
         expectReadable(feedback);
         ScaffoldMessenger.of(tester.element(feedback)).removeCurrentSnackBar();
         await tester.pumpAndSettle();
+      }
+      for (final label in [
+        l10n.hapticFeedbackTitle,
+        l10n.hapticFeedbackSubtitle,
+        l10n.intensity,
+      ]) {
+        await tester.ensureVisible(find.text(label));
+        await tester.pumpAndSettle();
+        expectReadable(find.text(label));
+      }
+      final levels = [
+        l10n.intensityLight,
+        l10n.intensityMedium,
+        l10n.intensityStrong
+      ];
+      for (var index = 0; index < levels.length; index++) {
+        final label = find.text(levels[index]);
+        await tester.ensureVisible(label);
+        await tester.pumpAndSettle();
+        expectReadable(label);
+        final segment =
+            find.ancestor(of: label, matching: find.byType(TextButton));
+        expect(tester.getRect(label).left,
+            greaterThanOrEqualTo(tester.getRect(segment).left));
+        expect(tester.getRect(label).right,
+            lessThanOrEqualTo(tester.getRect(segment).right));
+        await tester.tap(label);
+        await tester.pumpAndSettle();
+        expect(HapticsController.instance.intensity, index + 1);
+        final prefs = await SharedPreferences.getInstance();
+        expect(prefs.getInt('haptics_intensity_v1'), index + 1);
       }
       await tester.pumpWidget(const SizedBox());
       await tester.pumpAndSettle();

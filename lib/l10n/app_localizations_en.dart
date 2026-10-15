@@ -794,7 +794,7 @@ class AppLocalizationsEn extends AppLocalizations {
       'At startup, open the last remote you used. If unavailable, show the remote list.';
 
   @override
-  String get hapticFeedbackTitle => 'Haptic feedback';
+  String get hapticFeedbackTitle => 'Vibration feedback';
 
   @override
   String get hapticFeedbackSubtitle => 'Vibrate on taps and actions';
@@ -819,7 +819,7 @@ class AppLocalizationsEn extends AppLocalizations {
       'This device reports no vibrator hardware, so in-app vibration cannot work.';
 
   @override
-  String get intensity => 'Intensity';
+  String get intensity => 'Strength';
 
   @override
   String get intensityLight => 'Light';

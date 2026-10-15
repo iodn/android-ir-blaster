@@ -808,10 +808,10 @@ class AppLocalizationsIt extends AppLocalizations {
       'All’avvio, apre l’ultimo telecomando usato. Se non è disponibile, mostra l’elenco dei telecomandi.';
 
   @override
-  String get hapticFeedbackTitle => 'Feedback aptico';
+  String get hapticFeedbackTitle => 'Feedback con vibrazione';
 
   @override
-  String get hapticFeedbackSubtitle => 'Vibra su tocchi e azioni';
+  String get hapticFeedbackSubtitle => 'Vibra ai tocchi e durante le azioni';
 
   @override
   String get forceInAppVibrationTitle => 'Forza la vibrazione nell\'app';

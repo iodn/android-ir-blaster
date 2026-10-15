@@ -803,7 +803,7 @@ class AppLocalizationsPt extends AppLocalizations {
       'Ao iniciar a aplicação, abre o último comando utilizado. Se não estiver disponível, mostra a lista de comandos.';
 
   @override
-  String get hapticFeedbackTitle => 'Respuesta háptica';
+  String get hapticFeedbackTitle => 'Resposta por vibração';
 
   @override
   String get hapticFeedbackSubtitle => 'Vibrar ao tocar e ao executar ações';
@@ -828,16 +828,16 @@ class AppLocalizationsPt extends AppLocalizations {
       'Este dispositivo não indica hardware de vibração, por isso a vibração na aplicação não pode funcionar.';
 
   @override
-  String get intensity => 'Intensidad';
+  String get intensity => 'Intensidade';
 
   @override
-  String get intensityLight => 'Claro';
+  String get intensityLight => 'Suave';
 
   @override
-  String get intensityMedium => 'Media';
+  String get intensityMedium => 'Média';
 
   @override
-  String get intensityStrong => 'Fuerte';
+  String get intensityStrong => 'Forte';
 
   @override
   String get remoteButtonMetadataTitle =>
@@ -6129,10 +6129,10 @@ class AppLocalizationsPtBr extends AppLocalizationsPt {
       'Ao abrir o app, abre o último controle usado. Se não estiver disponível, mostra a lista de controles.';
 
   @override
-  String get hapticFeedbackTitle => 'Respuesta háptica';
+  String get hapticFeedbackTitle => 'Resposta por vibração';
 
   @override
-  String get hapticFeedbackSubtitle => 'Vibrar ao tocar e ao executar ações';
+  String get hapticFeedbackSubtitle => 'Vibrar ao tocar e realizar ações';
 
   @override
   String get forceInAppVibrationTitle => 'Forçar vibração no app';
@@ -6154,16 +6154,16 @@ class AppLocalizationsPtBr extends AppLocalizationsPt {
       'Este dispositivo não informa hardware de vibração, então a vibração no app não pode funcionar.';
 
   @override
-  String get intensity => 'Intensidad';
+  String get intensity => 'Intensidade';
 
   @override
-  String get intensityLight => 'Claro';
+  String get intensityLight => 'Suave';
 
   @override
-  String get intensityMedium => 'Media';
+  String get intensityMedium => 'Média';
 
   @override
-  String get intensityStrong => 'Fuerte';
+  String get intensityStrong => 'Forte';
 
   @override
   String get remoteButtonMetadataTitle =>

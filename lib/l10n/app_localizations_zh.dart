@@ -737,7 +737,7 @@ class AppLocalizationsZh extends AppLocalizations {
   String get autoOpenLastRemoteSubtitle => '启动应用时打开上次使用的遥控器。若该遥控器不可用，则显示遥控器列表。';
 
   @override
-  String get hapticFeedbackTitle => '触觉反馈';
+  String get hapticFeedbackTitle => '振动反馈';
 
   @override
   String get hapticFeedbackSubtitle => '点击和操作时振动';
@@ -759,10 +759,10 @@ class AppLocalizationsZh extends AppLocalizations {
   String get forceInAppVibrationNoVibratorWarning => '此设备未报告振动硬件，因此应用内振动无法工作。';
 
   @override
-  String get intensity => '强度';
+  String get intensity => '振动强度';
 
   @override
-  String get intensityLight => '轻';
+  String get intensityLight => '弱';
 
   @override
   String get intensityMedium => '中';

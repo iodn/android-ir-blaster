@@ -798,10 +798,11 @@ class AppLocalizationsId extends AppLocalizations {
       'Saat aplikasi dibuka, buka remote yang terakhir digunakan. Jika tidak tersedia, tampilkan daftar remote.';
 
   @override
-  String get hapticFeedbackTitle => 'Umpan balik haptik';
+  String get hapticFeedbackTitle => 'Umpan balik getaran';
 
   @override
-  String get hapticFeedbackSubtitle => 'Getar saat sentuh dan aksi';
+  String get hapticFeedbackSubtitle =>
+      'Bergetar saat mengetuk dan melakukan tindakan';
 
   @override
   String get forceInAppVibrationTitle => 'Paksa getaran di aplikasi';
@@ -823,10 +824,10 @@ class AppLocalizationsId extends AppLocalizations {
       'Perangkat ini tidak melaporkan perangkat keras getar, sehingga getaran di aplikasi tidak dapat berfungsi.';
 
   @override
-  String get intensity => 'Intensitas';
+  String get intensity => 'Kekuatan';
 
   @override
-  String get intensityLight => 'Terang';
+  String get intensityLight => 'Ringan';
 
   @override
   String get intensityMedium => 'Sedang';

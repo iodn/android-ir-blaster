@@ -798,7 +798,7 @@ class AppLocalizationsRu extends AppLocalizations {
       'При запуске приложения открывать последний использованный пульт. Если он недоступен, показывать список пультов.';
 
   @override
-  String get hapticFeedbackTitle => 'Тактильный отклик';
+  String get hapticFeedbackTitle => 'Виброотклик';
 
   @override
   String get hapticFeedbackSubtitle => 'Вибрация при нажатиях и действиях';
@@ -823,10 +823,10 @@ class AppLocalizationsRu extends AppLocalizations {
       'Это устройство не сообщает о наличии вибромотора, поэтому вибрация в приложении не может работать.';
 
   @override
-  String get intensity => 'Интенсивность';
+  String get intensity => 'Сила вибрации';
 
   @override
-  String get intensityLight => 'Светлая';
+  String get intensityLight => 'Слабая';
 
   @override
   String get intensityMedium => 'Средняя';

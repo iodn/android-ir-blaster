@@ -800,10 +800,11 @@ class AppLocalizationsPl extends AppLocalizations {
       'Przy uruchamianiu aplikacji otwórz ostatnio używany pilot. Jeśli jest niedostępny, pokaż listę pilotów.';
 
   @override
-  String get hapticFeedbackTitle => 'Informacja haptyczna';
+  String get hapticFeedbackTitle => 'Wibracje przy dotyku';
 
   @override
-  String get hapticFeedbackSubtitle => 'Wibruj przy stuknięciach i akcjach';
+  String get hapticFeedbackSubtitle =>
+      'Wibruj przy dotknięciach i wykonywaniu działań';
 
   @override
   String get forceInAppVibrationTitle => 'Wymuś wibracje w aplikacji';
@@ -825,16 +826,16 @@ class AppLocalizationsPl extends AppLocalizations {
       'To urządzenie nie zgłasza sprzętu wibracyjnego, więc wibracje w aplikacji nie mogą działać.';
 
   @override
-  String get intensity => 'Intensywność';
+  String get intensity => 'Siła wibracji';
 
   @override
-  String get intensityLight => 'Lekka';
+  String get intensityLight => 'Słaba';
 
   @override
   String get intensityMedium => 'Średnia';
 
   @override
-  String get intensityStrong => 'Mocna';
+  String get intensityStrong => 'Silna';
 
   @override
   String get remoteButtonMetadataTitle =>

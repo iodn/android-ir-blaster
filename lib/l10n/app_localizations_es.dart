@@ -804,10 +804,10 @@ class AppLocalizationsEs extends AppLocalizations {
       'Al iniciar la app, abre el último mando usado. Si no está disponible, muestra la lista de mandos.';
 
   @override
-  String get hapticFeedbackTitle => 'Respuesta háptica';
+  String get hapticFeedbackTitle => 'Vibración al tocar';
 
   @override
-  String get hapticFeedbackSubtitle => 'Vibrar al tocar y al ejecutar acciones';
+  String get hapticFeedbackSubtitle => 'Vibrar al tocar y realizar acciones';
 
   @override
   String get forceInAppVibrationTitle => 'Forzar vibración en la app';
@@ -832,7 +832,7 @@ class AppLocalizationsEs extends AppLocalizations {
   String get intensity => 'Intensidad';
 
   @override
-  String get intensityLight => 'Claro';
+  String get intensityLight => 'Suave';
 
   @override
   String get intensityMedium => 'Media';

@@ -770,10 +770,10 @@ class AppLocalizationsKo extends AppLocalizations {
       '앱을 시작하면 마지막으로 사용한 리모컨을 열어요. 사용할 수 없으면 리모컨 목록을 표시해요.';
 
   @override
-  String get hapticFeedbackTitle => '햅틱 피드백';
+  String get hapticFeedbackTitle => '터치 진동';
 
   @override
-  String get hapticFeedbackSubtitle => '탭과 동작 시 진동';
+  String get hapticFeedbackSubtitle => '탭하거나 작업할 때 진동해요';
 
   @override
   String get forceInAppVibrationTitle => '앱 내 진동 강제 사용';
@@ -794,16 +794,16 @@ class AppLocalizationsKo extends AppLocalizations {
       '이 기기는 진동 하드웨어를 보고하지 않으므로 앱 내 진동을 사용할 수 없습니다.';
 
   @override
-  String get intensity => '강도';
+  String get intensity => '진동 세기';
 
   @override
-  String get intensityLight => '라이트';
+  String get intensityLight => '약하게';
 
   @override
-  String get intensityMedium => '중간';
+  String get intensityMedium => '보통';
 
   @override
-  String get intensityStrong => '강함';
+  String get intensityStrong => '강하게';
 
   @override
   String get remoteButtonMetadataTitle => '버튼 기술 라벨 표시';

@@ -801,10 +801,11 @@ class AppLocalizationsFil extends AppLocalizations {
       'Sa pagbukas ng app, buksan ang huling ginamit na remote. Kung wala na ito, ipakita ang listahan ng mga remote.';
 
   @override
-  String get hapticFeedbackTitle => 'Haptic feedback';
+  String get hapticFeedbackTitle => 'Panginginig sa pagpindot';
 
   @override
-  String get hapticFeedbackSubtitle => 'Vibrate on taps at actions';
+  String get hapticFeedbackSubtitle =>
+      'Mag-vibrate kapag pumipindot o may ginagawa sa app';
 
   @override
   String get forceInAppVibrationTitle => 'Pilitin ang vibration sa app';
@@ -826,16 +827,16 @@ class AppLocalizationsFil extends AppLocalizations {
       'Walang vibration hardware na iniulat ang device na ito, kaya hindi gagana ang in-app vibration.';
 
   @override
-  String get intensity => 'Intensity';
+  String get intensity => 'Lakas';
 
   @override
-  String get intensityLight => 'Maliwanag';
+  String get intensityLight => 'Mahina';
 
   @override
-  String get intensityMedium => 'Medium';
+  String get intensityMedium => 'Katamtaman';
 
   @override
-  String get intensityStrong => 'Strong';
+  String get intensityStrong => 'Malakas';
 
   @override
   String get remoteButtonMetadataTitle =>

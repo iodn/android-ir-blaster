@@ -1521,7 +1521,7 @@ abstract class AppLocalizations {
   /// No description provided for @hapticFeedbackTitle.
   ///
   /// In en, this message translates to:
-  /// **'Haptic feedback'**
+  /// **'Vibration feedback'**
   String get hapticFeedbackTitle;
 
   /// No description provided for @hapticFeedbackSubtitle.
@@ -1563,7 +1563,7 @@ abstract class AppLocalizations {
   /// No description provided for @intensity.
   ///
   /// In en, this message translates to:
-  /// **'Intensity'**
+  /// **'Strength'**
   String get intensity;
 
   /// No description provided for @intensityLight.

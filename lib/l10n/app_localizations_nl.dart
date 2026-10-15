@@ -809,7 +809,7 @@ class AppLocalizationsNl extends AppLocalizations {
       'Open bij het starten de laatst gebruikte afstandsbediening. Is die niet meer beschikbaar, toon dan de lijst.';
 
   @override
-  String get hapticFeedbackTitle => 'Haptische feedback';
+  String get hapticFeedbackTitle => 'Trilfeedback';
 
   @override
   String get hapticFeedbackSubtitle => 'Trillen bij tikken en acties';
@@ -834,13 +834,13 @@ class AppLocalizationsNl extends AppLocalizations {
       'Dit apparaat meldt geen trilhardware, dus trilling in de app kan niet werken.';
 
   @override
-  String get intensity => 'Intensiteit';
+  String get intensity => 'Sterkte';
 
   @override
   String get intensityLight => 'Licht';
 
   @override
-  String get intensityMedium => 'Middel';
+  String get intensityMedium => 'Gemiddeld';
 
   @override
   String get intensityStrong => 'Sterk';

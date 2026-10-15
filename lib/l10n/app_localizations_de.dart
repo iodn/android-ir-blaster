@@ -805,7 +805,7 @@ class AppLocalizationsDe extends AppLocalizations {
       'Öffnet beim App-Start die zuletzt verwendete Fernbedienung. Ist sie nicht verfügbar, erscheint die Liste.';
 
   @override
-  String get hapticFeedbackTitle => 'Haptisches Feedback';
+  String get hapticFeedbackTitle => 'Vibration';
 
   @override
   String get hapticFeedbackSubtitle => 'Bei Tippen und Aktionen vibrieren';
@@ -830,7 +830,7 @@ class AppLocalizationsDe extends AppLocalizations {
       'Dieses Gerät meldet keine Vibrationshardware, daher kann die In-App-Vibration nicht funktionieren.';
 
   @override
-  String get intensity => 'Intensität';
+  String get intensity => 'Stärke';
 
   @override
   String get intensityLight => 'Leicht';

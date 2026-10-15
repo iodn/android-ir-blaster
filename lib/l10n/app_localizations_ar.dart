@@ -791,10 +791,10 @@ class AppLocalizationsAr extends AppLocalizations {
       'عند بدء التطبيق، افتح آخر جهاز تحكم استخدمته. إذا لم يكن متاحًا، اعرض قائمة أجهزة التحكم.';
 
   @override
-  String get hapticFeedbackTitle => 'Haptic feedback';
+  String get hapticFeedbackTitle => 'اهتزاز اللمس';
 
   @override
-  String get hapticFeedbackSubtitle => 'اهتزاز عند اللمس والإجراءات';
+  String get hapticFeedbackSubtitle => 'اهتزاز عند النقر وإجراء العمليات';
 
   @override
   String get forceInAppVibrationTitle => 'فرض الاهتزاز داخل التطبيق';
@@ -816,16 +816,16 @@ class AppLocalizationsAr extends AppLocalizations {
       'لا يبلّغ هذا الجهاز عن وجود محرك اهتزاز، لذلك لا يمكن أن يعمل الاهتزاز داخل التطبيق.';
 
   @override
-  String get intensity => 'Intensity';
+  String get intensity => 'قوة الاهتزاز';
 
   @override
-  String get intensityLight => 'فاتح';
+  String get intensityLight => 'خفيف';
 
   @override
-  String get intensityMedium => 'Medium';
+  String get intensityMedium => 'متوسط';
 
   @override
-  String get intensityStrong => 'Strong';
+  String get intensityStrong => 'قوي';
 
   @override
   String get remoteButtonMetadataTitle => 'إظهار التسميات التقنية للأزرار';
@@ -6066,10 +6066,10 @@ class AppLocalizationsArEg extends AppLocalizationsAr {
       'عند فتح التطبيق، افتح آخر جهاز تحكم استخدمته. لو مش متاح، اعرض قائمة أجهزة التحكم.';
 
   @override
-  String get hapticFeedbackTitle => 'Haptic feedback';
+  String get hapticFeedbackTitle => 'اهتزاز اللمس';
 
   @override
-  String get hapticFeedbackSubtitle => 'اهتزاز عند اللمس والإجراءات';
+  String get hapticFeedbackSubtitle => 'اهتزاز لما تضغط أو تعمل إجراء';
 
   @override
   String get forceInAppVibrationTitle => 'فرض الاهتزاز داخل التطبيق';
@@ -6091,16 +6091,16 @@ class AppLocalizationsArEg extends AppLocalizationsAr {
       'الجهاز ده لا يبلّغ عن وجود محرك اهتزاز، لذلك لا يمكن أن يعمل الاهتزاز داخل التطبيق.';
 
   @override
-  String get intensity => 'Intensity';
+  String get intensity => 'قوة الاهتزاز';
 
   @override
-  String get intensityLight => 'فاتح';
+  String get intensityLight => 'خفيف';
 
   @override
-  String get intensityMedium => 'Medium';
+  String get intensityMedium => 'متوسط';
 
   @override
-  String get intensityStrong => 'Strong';
+  String get intensityStrong => 'قوي';
 
   @override
   String get remoteButtonMetadataTitle => 'إظهار التسميات التقنية للأزرار';

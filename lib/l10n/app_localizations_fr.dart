@@ -806,10 +806,10 @@ class AppLocalizationsFr extends AppLocalizations {
       'Au démarrage, ouvrez la dernière télécommande utilisée. Si elle n’est plus disponible, affichez la liste.';
 
   @override
-  String get hapticFeedbackTitle => 'Retour haptique';
+  String get hapticFeedbackTitle => 'Retour par vibration';
 
   @override
-  String get hapticFeedbackSubtitle => 'Vibrer aux touches et actions';
+  String get hapticFeedbackSubtitle => 'Vibrer lors des appuis et des actions';
 
   @override
   String get forceInAppVibrationTitle => 'Forcer la vibration dans l’appli';
@@ -834,13 +834,13 @@ class AppLocalizationsFr extends AppLocalizations {
   String get intensity => 'Intensité';
 
   @override
-  String get intensityLight => 'Léger';
+  String get intensityLight => 'Faible';
 
   @override
-  String get intensityMedium => 'Moyen';
+  String get intensityMedium => 'Moyenne';
 
   @override
-  String get intensityStrong => 'Fort';
+  String get intensityStrong => 'Forte';
 
   @override
   String get remoteButtonMetadataTitle => 'Afficher les libellés techniques';

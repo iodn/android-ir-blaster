@@ -764,10 +764,10 @@ class AppLocalizationsJa extends AppLocalizations {
       '起動時に前回使ったリモコンを開きます。利用できない場合はリモコン一覧を表示します。';
 
   @override
-  String get hapticFeedbackTitle => '触覚フィードバック';
+  String get hapticFeedbackTitle => '操作時の振動';
 
   @override
-  String get hapticFeedbackSubtitle => 'タップや操作で振動';
+  String get hapticFeedbackSubtitle => 'タップや操作に合わせて振動します';
 
   @override
   String get forceInAppVibrationTitle => 'アプリ内の振動を強制する';
@@ -788,7 +788,7 @@ class AppLocalizationsJa extends AppLocalizations {
       'この端末は振動ハードウェアを報告していないため、アプリ内の振動は動作しません。';
 
   @override
-  String get intensity => '強さ';
+  String get intensity => '振動の強さ';
 
   @override
   String get intensityLight => '弱';

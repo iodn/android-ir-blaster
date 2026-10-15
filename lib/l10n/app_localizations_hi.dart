@@ -799,10 +799,11 @@ class AppLocalizationsHi extends AppLocalizations {
       'ऐप खुलने पर पिछली बार इस्तेमाल किया गया रिमोट खोलें। वह उपलब्ध न हो तो रिमोट की सूची दिखाएँ।';
 
   @override
-  String get hapticFeedbackTitle => 'हैप्टिक फीडबैक';
+  String get hapticFeedbackTitle => 'छूने पर कंपन';
 
   @override
-  String get hapticFeedbackSubtitle => 'टैप और क्रियाओं पर कंपन करें';
+  String get hapticFeedbackSubtitle =>
+      'टैप करने और अन्य कार्रवाइयों पर कंपन करें';
 
   @override
   String get forceInAppVibrationTitle => 'ऐप के भीतर कंपन को बाध्य करें';
@@ -824,16 +825,16 @@ class AppLocalizationsHi extends AppLocalizations {
       'यह डिवाइस वाइब्रेशन हार्डवेयर रिपोर्ट नहीं करता, इसलिए ऐप के अंदर वाइब्रेशन काम नहीं कर सकता।';
 
   @override
-  String get intensity => 'तीव्रता';
+  String get intensity => 'कंपन की तीव्रता';
 
   @override
   String get intensityLight => 'हल्का';
 
   @override
-  String get intensityMedium => 'Medium';
+  String get intensityMedium => 'मध्यम';
 
   @override
-  String get intensityStrong => 'Strong';
+  String get intensityStrong => 'तेज़';
 
   @override
   String get remoteButtonMetadataTitle => 'बटन के तकनीकी लेबल दिखाएँ';

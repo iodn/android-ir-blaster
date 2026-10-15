@@ -793,7 +793,7 @@ class AppLocalizationsTh extends AppLocalizations {
   String get hapticFeedbackTitle => 'การสั่นตอบสนอง';
 
   @override
-  String get hapticFeedbackSubtitle => 'สั่นเมื่อแตะและเมื่อทำงาน';
+  String get hapticFeedbackSubtitle => 'สั่นเมื่อแตะหรือใช้งานแอป';
 
   @override
   String get forceInAppVibrationTitle => 'บังคับการสั่นในแอป';
@@ -815,16 +815,16 @@ class AppLocalizationsTh extends AppLocalizations {
       'อุปกรณ์นี้ไม่รายงานว่ามีฮาร์ดแวร์สั่น ดังนั้นการสั่นภายในแอปจึงไม่สามารถทำงานได้';
 
   @override
-  String get intensity => 'ความเข้ม';
+  String get intensity => 'ความแรง';
 
   @override
-  String get intensityLight => 'สว่าง';
+  String get intensityLight => 'เบา';
 
   @override
-  String get intensityMedium => 'Medium';
+  String get intensityMedium => 'ปานกลาง';
 
   @override
-  String get intensityStrong => 'Strong';
+  String get intensityStrong => 'แรง';
 
   @override
   String get remoteButtonMetadataTitle => 'แสดงป้ายเทคนิคของปุ่ม';

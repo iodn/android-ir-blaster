@@ -798,10 +798,11 @@ class AppLocalizationsMs extends AppLocalizations {
       'Apabila aplikasi dibuka, buka alat kawalan jauh yang terakhir digunakan. Jika tiada, paparkan senarai alat kawalan jauh.';
 
   @override
-  String get hapticFeedbackTitle => 'Umpan balik haptik';
+  String get hapticFeedbackTitle => 'Maklum balas getaran';
 
   @override
-  String get hapticFeedbackSubtitle => 'Getar saat sentuh dan aksi';
+  String get hapticFeedbackSubtitle =>
+      'Bergetar apabila mengetik dan melakukan tindakan';
 
   @override
   String get forceInAppVibrationTitle => 'Paksa getaran dalam aplikasi';
@@ -823,13 +824,13 @@ class AppLocalizationsMs extends AppLocalizations {
       'Peranti ini tidak melaporkan perkakasan getaran, jadi getaran dalam aplikasi tidak boleh berfungsi.';
 
   @override
-  String get intensity => 'Intensitas';
+  String get intensity => 'Kekuatan';
 
   @override
-  String get intensityLight => 'Cerah';
+  String get intensityLight => 'Ringan';
 
   @override
-  String get intensityMedium => 'Sedang';
+  String get intensityMedium => 'Sederhana';
 
   @override
   String get intensityStrong => 'Kuat';

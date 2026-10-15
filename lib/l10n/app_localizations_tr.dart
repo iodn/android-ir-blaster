@@ -800,10 +800,10 @@ class AppLocalizationsTr extends AppLocalizations {
       'Uygulama açıldığında son kullanılan kumandayı açar. Kumanda yoksa listeyi gösterir.';
 
   @override
-  String get hapticFeedbackTitle => 'Haptic feedback';
+  String get hapticFeedbackTitle => 'Titreşimli geri bildirim';
 
   @override
-  String get hapticFeedbackSubtitle => 'Dokunuşlarda ve eylemlerde titreşim';
+  String get hapticFeedbackSubtitle => 'Dokunuşlarda ve işlemlerde titreşim';
 
   @override
   String get forceInAppVibrationTitle => 'Uygulama içi titreşimi zorla';
@@ -825,16 +825,16 @@ class AppLocalizationsTr extends AppLocalizations {
       'Bu cihaz titreşim donanımı bildirmiyor, bu yüzden uygulama içi titreşim çalışamaz.';
 
   @override
-  String get intensity => 'Intensity';
+  String get intensity => 'Şiddet';
 
   @override
-  String get intensityLight => 'Açık';
+  String get intensityLight => 'Hafif';
 
   @override
-  String get intensityMedium => 'Medium';
+  String get intensityMedium => 'Orta';
 
   @override
-  String get intensityStrong => 'Strong';
+  String get intensityStrong => 'Güçlü';
 
   @override
   String get remoteButtonMetadataTitle => 'Düğme teknik etiketlerini göster';

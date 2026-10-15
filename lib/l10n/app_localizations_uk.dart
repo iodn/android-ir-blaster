@@ -799,10 +799,10 @@ class AppLocalizationsUk extends AppLocalizations {
       'Під час запуску застосунку відкривати останній використаний пульт. Якщо він недоступний, показувати список пультів.';
 
   @override
-  String get hapticFeedbackTitle => 'Тактильний зворотний зв\'язок';
+  String get hapticFeedbackTitle => 'Вібровідгук';
 
   @override
-  String get hapticFeedbackSubtitle => 'Вібрувати під час натискань і дій';
+  String get hapticFeedbackSubtitle => 'Вібрація під час натискань і дій';
 
   @override
   String get forceInAppVibrationTitle => 'Примусова вібрація в програмі';
@@ -824,16 +824,16 @@ class AppLocalizationsUk extends AppLocalizations {
       'Цей пристрій повідомляє про відсутність апаратного вібратора, тому вібрація в програмі не працює.';
 
   @override
-  String get intensity => 'Інтенсивність';
+  String get intensity => 'Сила вібрації';
 
   @override
-  String get intensityLight => 'Низька';
+  String get intensityLight => 'Слабка';
 
   @override
   String get intensityMedium => 'Середня';
 
   @override
-  String get intensityStrong => 'Висока';
+  String get intensityStrong => 'Сильна';
 
   @override
   String get remoteButtonMetadataTitle => 'Показувати технічні мітки кнопок';
