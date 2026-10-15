@@ -866,7 +866,7 @@
     }
   },
   "unknownButton": "ปุ่มที่ไม่รู้จัก",
-  "durationSecondsShort": "{seconds}ว",
+  "durationSecondsShort": "{seconds} วินาที",
   "@durationSecondsShort": {
     "placeholders": {
       "seconds": {
@@ -874,7 +874,7 @@
       }
     }
   },
-  "durationMinutesSecondsShort": "{minutes}น {seconds}ว",
+  "durationMinutesSecondsShort": "{minutes} นาที {seconds} วินาที",
   "@durationMinutesSecondsShort": {
     "placeholders": {
       "minutes": {
@@ -885,7 +885,7 @@
       }
     }
   },
-  "durationHoursMinutesShort": "{hours}ชม {minutes}น",
+  "durationHoursMinutesShort": "{hours} ชม. {minutes} นาที",
   "@durationHoursMinutesShort": {
     "placeholders": {
       "hours": {
@@ -938,7 +938,7 @@
       }
     }
   },
-  "millisecondsShort": "{ms}ms",
+  "millisecondsShort": "{ms} ms",
   "@millisecondsShort": {
     "placeholders": {
       "ms": {

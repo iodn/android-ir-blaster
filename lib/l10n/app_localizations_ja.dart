@@ -2157,7 +2157,7 @@ class AppLocalizationsJa extends AppLocalizations {
 
   @override
   String millisecondsShort(int ms) {
-    return '${ms}ms';
+    return '$ms ms';
   }
 
   @override

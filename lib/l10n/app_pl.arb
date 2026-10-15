@@ -868,7 +868,7 @@
     }
   },
   "unknownButton": "Nieznany przycisk",
-  "durationSecondsShort": "{seconds}s",
+  "durationSecondsShort": "{seconds} s",
   "@durationSecondsShort": {
     "placeholders": {
       "seconds": {
@@ -876,7 +876,7 @@
       }
     }
   },
-  "durationMinutesSecondsShort": "{minutes}m {seconds}s",
+  "durationMinutesSecondsShort": "{minutes} min {seconds} s",
   "@durationMinutesSecondsShort": {
     "placeholders": {
       "minutes": {
@@ -887,7 +887,7 @@
       }
     }
   },
-  "durationHoursMinutesShort": "{hours}h {minutes}m",
+  "durationHoursMinutesShort": "{hours} godz. {minutes} min",
   "@durationHoursMinutesShort": {
     "placeholders": {
       "hours": {
@@ -940,7 +940,7 @@
       }
     }
   },
-  "millisecondsShort": "{ms}ms",
+  "millisecondsShort": "{ms} ms",
   "@millisecondsShort": {
     "placeholders": {
       "ms": {

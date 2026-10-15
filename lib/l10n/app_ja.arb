@@ -938,7 +938,7 @@
       }
     }
   },
-  "millisecondsShort": "{ms}ms",
+  "millisecondsShort": "{ms} ms",
   "@millisecondsShort": {
     "placeholders": {
       "ms": {

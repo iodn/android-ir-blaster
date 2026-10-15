@@ -866,7 +866,7 @@
     }
   },
   "unknownButton": "Bilinmeyen düğme",
-  "durationSecondsShort": "{seconds}s",
+  "durationSecondsShort": "{seconds} sn",
   "@durationSecondsShort": {
     "placeholders": {
       "seconds": {
@@ -874,7 +874,7 @@
       }
     }
   },
-  "durationMinutesSecondsShort": "{minutes}m {seconds}s",
+  "durationMinutesSecondsShort": "{minutes} dk {seconds} sn",
   "@durationMinutesSecondsShort": {
     "placeholders": {
       "minutes": {
@@ -885,7 +885,7 @@
       }
     }
   },
-  "durationHoursMinutesShort": "{hours}h {minutes}m",
+  "durationHoursMinutesShort": "{hours} sa {minutes} dk",
   "@durationHoursMinutesShort": {
     "placeholders": {
       "hours": {
@@ -938,7 +938,7 @@
       }
     }
   },
-  "millisecondsShort": "{ms}ms",
+  "millisecondsShort": "{ms} ms",
   "@millisecondsShort": {
     "placeholders": {
       "ms": {

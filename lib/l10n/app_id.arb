@@ -866,7 +866,7 @@
     }
   },
   "unknownButton": "Tombol tidak dikenal",
-  "durationSecondsShort": "{seconds}s",
+  "durationSecondsShort": "{seconds} dtk",
   "@durationSecondsShort": {
     "placeholders": {
       "seconds": {
@@ -874,7 +874,7 @@
       }
     }
   },
-  "durationMinutesSecondsShort": "{minutes}m {seconds}s",
+  "durationMinutesSecondsShort": "{minutes} mnt {seconds} dtk",
   "@durationMinutesSecondsShort": {
     "placeholders": {
       "minutes": {
@@ -885,7 +885,7 @@
       }
     }
   },
-  "durationHoursMinutesShort": "{hours}h {minutes}m",
+  "durationHoursMinutesShort": "{hours} jam {minutes} mnt",
   "@durationHoursMinutesShort": {
     "placeholders": {
       "hours": {
@@ -938,7 +938,7 @@
       }
     }
   },
-  "millisecondsShort": "{ms}ms",
+  "millisecondsShort": "{ms} ms",
   "@millisecondsShort": {
     "placeholders": {
       "ms": {

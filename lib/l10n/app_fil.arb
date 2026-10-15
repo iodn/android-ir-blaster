@@ -866,7 +866,7 @@
     }
   },
   "unknownButton": "Hindi kilalang button",
-  "durationSecondsShort": "{seconds}s",
+  "durationSecondsShort": "{seconds} seg.",
   "@durationSecondsShort": {
     "placeholders": {
       "seconds": {
@@ -874,7 +874,7 @@
       }
     }
   },
-  "durationMinutesSecondsShort": "{minutes}m {seconds}s",
+  "durationMinutesSecondsShort": "{minutes} min {seconds} seg.",
   "@durationMinutesSecondsShort": {
     "placeholders": {
       "minutes": {
@@ -885,7 +885,7 @@
       }
     }
   },
-  "durationHoursMinutesShort": "{hours}h {minutes}m",
+  "durationHoursMinutesShort": "{hours} oras {minutes} min",
   "@durationHoursMinutesShort": {
     "placeholders": {
       "hours": {
@@ -938,7 +938,7 @@
       }
     }
   },
-  "millisecondsShort": "{ms}ms",
+  "millisecondsShort": "{ms} ms",
   "@millisecondsShort": {
     "placeholders": {
       "ms": {

@@ -866,7 +866,7 @@
     }
   },
   "unknownButton": "Неизвестная кнопка",
-  "durationSecondsShort": "{seconds}с",
+  "durationSecondsShort": "{seconds} с",
   "@durationSecondsShort": {
     "placeholders": {
       "seconds": {
@@ -874,7 +874,7 @@
       }
     }
   },
-  "durationMinutesSecondsShort": "{minutes}м {seconds}с",
+  "durationMinutesSecondsShort": "{minutes} мин {seconds} с",
   "@durationMinutesSecondsShort": {
     "placeholders": {
       "minutes": {
@@ -885,7 +885,7 @@
       }
     }
   },
-  "durationHoursMinutesShort": "{hours}ч {minutes}м",
+  "durationHoursMinutesShort": "{hours} ч {minutes} мин",
   "@durationHoursMinutesShort": {
     "placeholders": {
       "hours": {
@@ -938,7 +938,7 @@
       }
     }
   },
-  "millisecondsShort": "{ms}мс",
+  "millisecondsShort": "{ms} мс",
   "@millisecondsShort": {
     "placeholders": {
       "ms": {

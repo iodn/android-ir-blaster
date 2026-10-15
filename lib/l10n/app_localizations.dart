@@ -3910,19 +3910,19 @@ abstract class AppLocalizations {
   /// No description provided for @durationSecondsShort.
   ///
   /// In en, this message translates to:
-  /// **'{seconds}s'**
+  /// **'{seconds} s'**
   String durationSecondsShort(int seconds);
 
   /// No description provided for @durationMinutesSecondsShort.
   ///
   /// In en, this message translates to:
-  /// **'{minutes}m {seconds}s'**
+  /// **'{minutes} min {seconds} s'**
   String durationMinutesSecondsShort(int minutes, int seconds);
 
   /// No description provided for @durationHoursMinutesShort.
   ///
   /// In en, this message translates to:
-  /// **'{hours}h {minutes}m'**
+  /// **'{hours} h {minutes} min'**
   String durationHoursMinutesShort(int hours, int minutes);
 
   /// No description provided for @orientationFlippedTooltip.
@@ -3994,7 +3994,7 @@ abstract class AppLocalizations {
   /// No description provided for @millisecondsShort.
   ///
   /// In en, this message translates to:
-  /// **'{ms}ms'**
+  /// **'{ms} ms'**
   String millisecondsShort(int ms);
 
   /// No description provided for @tapContinueWhenReady.

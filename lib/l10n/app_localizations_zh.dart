@@ -2048,17 +2048,17 @@ class AppLocalizationsZh extends AppLocalizations {
 
   @override
   String durationSecondsShort(int seconds) {
-    return '${seconds}s';
+    return '$seconds秒';
   }
 
   @override
   String durationMinutesSecondsShort(int minutes, int seconds) {
-    return '${minutes}m ${seconds}s';
+    return '$minutes分 $seconds秒';
   }
 
   @override
   String durationHoursMinutesShort(int hours, int minutes) {
-    return '${hours}h ${minutes}m';
+    return '$hours小时 $minutes分';
   }
 
   @override
@@ -2107,7 +2107,7 @@ class AppLocalizationsZh extends AppLocalizations {
 
   @override
   String millisecondsShort(int ms) {
-    return '${ms}ms';
+    return '$ms ms';
   }
 
   @override

@@ -2226,17 +2226,17 @@ class AppLocalizationsFr extends AppLocalizations {
 
   @override
   String durationSecondsShort(int seconds) {
-    return '${seconds}s';
+    return '$seconds s';
   }
 
   @override
   String durationMinutesSecondsShort(int minutes, int seconds) {
-    return '${minutes}min ${seconds}s';
+    return '$minutes min $seconds s';
   }
 
   @override
   String durationHoursMinutesShort(int hours, int minutes) {
-    return '${hours}h ${minutes}min';
+    return '$hours h $minutes min';
   }
 
   @override
@@ -2287,7 +2287,7 @@ class AppLocalizationsFr extends AppLocalizations {
 
   @override
   String millisecondsShort(int ms) {
-    return '${ms}ms';
+    return '$ms ms';
   }
 
   @override

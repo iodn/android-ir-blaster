@@ -496,24 +496,30 @@ class _MacroRunScreenState extends State<MacroRunScreen>
                     ],
                   ),
                 ),
-                if (elapsed != null)
-                  Container(
-                    padding:
-                        const EdgeInsets.symmetric(horizontal: 12, vertical: 8),
-                    decoration: BoxDecoration(
-                      color: cs.primaryContainer.withValues(alpha: 0.5),
-                      borderRadius: BorderRadius.circular(12),
-                    ),
-                    child: Row(
-                      mainAxisSize: MainAxisSize.min,
-                      children: [
-                        Icon(
-                          Icons.timer_outlined,
-                          size: 16,
-                          color: cs.onPrimaryContainer,
-                        ),
-                        const SizedBox(width: 6),
-                        Text(
+              ],
+            ),
+            if (elapsed != null) ...[
+              const SizedBox(height: 8),
+              Align(
+                alignment: AlignmentDirectional.centerEnd,
+                child: Container(
+                  padding:
+                      const EdgeInsets.symmetric(horizontal: 12, vertical: 8),
+                  decoration: BoxDecoration(
+                    color: cs.primaryContainer.withValues(alpha: 0.5),
+                    borderRadius: BorderRadius.circular(12),
+                  ),
+                  child: Row(
+                    mainAxisSize: MainAxisSize.min,
+                    children: [
+                      Icon(
+                        Icons.timer_outlined,
+                        size: 16,
+                        color: cs.onPrimaryContainer,
+                      ),
+                      const SizedBox(width: 6),
+                      Flexible(
+                        child: Text(
                           _formatDuration(elapsed),
                           style: TextStyle(
                             color: cs.onPrimaryContainer,
@@ -521,11 +527,12 @@ class _MacroRunScreenState extends State<MacroRunScreen>
                             fontSize: 13,
                           ),
                         ),
-                      ],
-                    ),
+                      ),
+                    ],
                   ),
-              ],
-            ),
+                ),
+              ),
+            ],
             const SizedBox(height: 20),
             ClipRRect(
               borderRadius: BorderRadius.circular(8),

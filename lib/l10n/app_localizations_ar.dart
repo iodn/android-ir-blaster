@@ -2189,17 +2189,17 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String durationSecondsShort(int seconds) {
-    return '${seconds}s';
+    return '$seconds ث';
   }
 
   @override
   String durationMinutesSecondsShort(int minutes, int seconds) {
-    return '${minutes}m ${seconds}s';
+    return '$minutes د $seconds ث';
   }
 
   @override
   String durationHoursMinutesShort(int hours, int minutes) {
-    return '${hours}h ${minutes}m';
+    return '$hours س $minutes د';
   }
 
   @override
@@ -2249,7 +2249,7 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String millisecondsShort(int ms) {
-    return '${ms}ms';
+    return '$ms ms';
   }
 
   @override
@@ -7438,17 +7438,17 @@ class AppLocalizationsArEg extends AppLocalizationsAr {
 
   @override
   String durationSecondsShort(int seconds) {
-    return '${seconds}s';
+    return '$seconds ث';
   }
 
   @override
   String durationMinutesSecondsShort(int minutes, int seconds) {
-    return '${minutes}m ${seconds}s';
+    return '$minutes د $seconds ث';
   }
 
   @override
   String durationHoursMinutesShort(int hours, int minutes) {
-    return '${hours}h ${minutes}m';
+    return '$hours س $minutes د';
   }
 
   @override
@@ -7498,7 +7498,7 @@ class AppLocalizationsArEg extends AppLocalizationsAr {
 
   @override
   String millisecondsShort(int ms) {
-    return '${ms}ms';
+    return '$ms ms';
   }
 
   @override

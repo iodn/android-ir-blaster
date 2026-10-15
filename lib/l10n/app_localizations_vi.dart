@@ -2185,17 +2185,17 @@ class AppLocalizationsVi extends AppLocalizations {
 
   @override
   String durationSecondsShort(int seconds) {
-    return '${seconds}s';
+    return '$seconds giây';
   }
 
   @override
   String durationMinutesSecondsShort(int minutes, int seconds) {
-    return '${minutes}p ${seconds}s';
+    return '$minutes phút $seconds giây';
   }
 
   @override
   String durationHoursMinutesShort(int hours, int minutes) {
-    return '${hours}g ${minutes}p';
+    return '$hours giờ $minutes phút';
   }
 
   @override
@@ -2244,7 +2244,7 @@ class AppLocalizationsVi extends AppLocalizations {
 
   @override
   String millisecondsShort(int ms) {
-    return '${ms}ms';
+    return '$ms ms';
   }
 
   @override

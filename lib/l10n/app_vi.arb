@@ -866,7 +866,7 @@
     }
   },
   "unknownButton": "Nút không xác định",
-  "durationSecondsShort": "{seconds}s",
+  "durationSecondsShort": "{seconds} giây",
   "@durationSecondsShort": {
     "placeholders": {
       "seconds": {
@@ -874,7 +874,7 @@
       }
     }
   },
-  "durationMinutesSecondsShort": "{minutes}p {seconds}s",
+  "durationMinutesSecondsShort": "{minutes} phút {seconds} giây",
   "@durationMinutesSecondsShort": {
     "placeholders": {
       "minutes": {
@@ -885,7 +885,7 @@
       }
     }
   },
-  "durationHoursMinutesShort": "{hours}g {minutes}p",
+  "durationHoursMinutesShort": "{hours} giờ {minutes} phút",
   "@durationHoursMinutesShort": {
     "placeholders": {
       "hours": {
@@ -938,7 +938,7 @@
       }
     }
   },
-  "millisecondsShort": "{ms}ms",
+  "millisecondsShort": "{ms} ms",
   "@millisecondsShort": {
     "placeholders": {
       "ms": {

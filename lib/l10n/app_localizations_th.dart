@@ -2177,17 +2177,17 @@ class AppLocalizationsTh extends AppLocalizations {
 
   @override
   String durationSecondsShort(int seconds) {
-    return '$secondsว';
+    return '$seconds วินาที';
   }
 
   @override
   String durationMinutesSecondsShort(int minutes, int seconds) {
-    return '$minutesน $secondsว';
+    return '$minutes นาที $seconds วินาที';
   }
 
   @override
   String durationHoursMinutesShort(int hours, int minutes) {
-    return '$hoursชม $minutesน';
+    return '$hours ชม. $minutes นาที';
   }
 
   @override
@@ -2237,7 +2237,7 @@ class AppLocalizationsTh extends AppLocalizations {
 
   @override
   String millisecondsShort(int ms) {
-    return '${ms}ms';
+    return '$ms ms';
   }
 
   @override

@@ -866,7 +866,7 @@
     }
   },
   "unknownButton": "زر غير معروف",
-  "durationSecondsShort": "{seconds}s",
+  "durationSecondsShort": "{seconds} ث",
   "@durationSecondsShort": {
     "placeholders": {
       "seconds": {
@@ -874,7 +874,7 @@
       }
     }
   },
-  "durationMinutesSecondsShort": "{minutes}m {seconds}s",
+  "durationMinutesSecondsShort": "{minutes} د {seconds} ث",
   "@durationMinutesSecondsShort": {
     "placeholders": {
       "minutes": {
@@ -885,7 +885,7 @@
       }
     }
   },
-  "durationHoursMinutesShort": "{hours}h {minutes}m",
+  "durationHoursMinutesShort": "{hours} س {minutes} د",
   "@durationHoursMinutesShort": {
     "placeholders": {
       "hours": {
@@ -938,7 +938,7 @@
       }
     }
   },
-  "millisecondsShort": "{ms}ms",
+  "millisecondsShort": "{ms} ms",
   "@millisecondsShort": {
     "placeholders": {
       "ms": {
