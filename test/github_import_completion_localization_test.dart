@@ -81,14 +81,66 @@ void main() {
             );
         await tester.pumpWidget(app());
         await tester.pumpAndSettle();
-        await tester.ensureVisible(find.text('Browse'));
-        await tester.tap(find.text('Browse'));
+        final l10n = await AppLocalizations.delegate.load(locale);
+        if (count == 0) {
+          tester.view.physicalSize = const Size(320, 640);
+          scale = 2;
+          await tester.pumpWidget(app());
+          await tester.pumpAndSettle();
+          for (final label in [
+            l10n.githubRepositoryUrl,
+            l10n.githubBrowse,
+            l10n.githubSaveRepository
+          ]) {
+            final text = find.text(label);
+            await tester.ensureVisible(text);
+            await tester.pumpAndSettle();
+            final paragraph = tester.renderObject<RenderParagraph>(text);
+            expect(paragraph.didExceedMaxLines, isFalse);
+            expect(paragraph.size.height, lessThanOrEqualTo(160),
+                reason: label);
+            expect(text.hitTestable(), findsOneWidget);
+          }
+        }
+        await tester.ensureVisible(find.text(l10n.githubBrowse));
         await tester.pumpAndSettle();
+        await tester.tap(find.text(l10n.githubBrowse));
+        await tester.pumpAndSettle();
+        if (count == 0) {
+          final filter =
+              find.widgetWithText(TextField, l10n.githubFilterFolder);
+          await tester.scrollUntilVisible(filter, 300,
+              scrollable: find.byType(Scrollable).first);
+          await tester.ensureVisible(filter);
+          await tester.pumpAndSettle();
+          final hint = tester.renderObject<RenderParagraph>(
+              find.text(l10n.githubFilterFolder));
+          expect(hint.didExceedMaxLines, isFalse);
+          expect(hint.getMaxIntrinsicHeight(hint.size.width),
+              lessThanOrEqualTo(hint.size.height + 0.1));
+          final parent = find.text(l10n.githubParentFolder);
+          await tester.ensureVisible(parent);
+          await tester.pumpAndSettle();
+          final p = tester.renderObject<RenderParagraph>(parent);
+          expect(p.didExceedMaxLines, isFalse);
+          expect(p.getMaxIntrinsicHeight(p.size.width),
+              lessThanOrEqualTo(p.size.height + 0.1));
+          await tester.enterText(filter, 'does-not-exist');
+          await tester.pumpAndSettle();
+          expect(find.widgetWithText(ListTile, 'remote.json'), findsNothing);
+          await tester.enterText(filter, 'remote');
+          await tester.testTextInput.receiveAction(TextInputAction.done);
+          await tester.pumpAndSettle();
+          expect(tester.widget<TextField>(filter).controller!.text, 'remote');
+          tester.view.physicalSize = const Size(800, 1000);
+          scale = 1;
+          await tester.pumpWidget(app());
+          await tester.pumpAndSettle();
+        }
         await tester
             .ensureVisible(find.widgetWithText(ListTile, 'remote.json').first);
         await tester.tap(find.widgetWithText(ListTile, 'remote.json').first);
         await tester.pumpAndSettle();
-        final l10n = await AppLocalizations.delegate.load(locale);
         tester.view.physicalSize = const Size(320, 640);
         scale = 2;
         await tester.pumpWidget(app());
@@ -96,7 +148,9 @@ void main() {
         for (final label in [
           l10n.importPreviewJsonFormat,
           count == 0 ? l10n.githubImportUnavailable : l10n.githubImportReady,
-          count == 0 ? l10n.importPreviewNoJsonButtons : l10n.importPreviewReady,
+          count == 0
+              ? l10n.importPreviewNoJsonButtons
+              : l10n.importPreviewReady,
           l10n.githubImportPreviewCounts(count, count * 2),
           if (count > 8) l10n.githubImportMoreRemotes(count - 8),
           if (count == 0) l10n.githubImportFileIssues,

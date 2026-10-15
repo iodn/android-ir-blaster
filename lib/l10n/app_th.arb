@@ -2453,5 +2453,10 @@
   "importPreviewNoJsonButtons": "ไม่พบปุ่มที่นำเข้าได้ในไฟล์ JSON นี้",
   "importPreviewJsonGuidance": "เลือกไฟล์สำรอง IR Blaster ที่มีรีโมตพร้อมปุ่ม",
   "importPreviewMissingLircHeader": "ไม่มีส่วน \"begin remote\"",
-  "importPreviewSupportedFormats": "รูปแบบที่รองรับ: ไฟล์สำรอง JSON ของ IR Blaster, Flipper .ir, IRPLUS XML และการตั้งค่า LIRC"
+  "importPreviewSupportedFormats": "รูปแบบที่รองรับ: ไฟล์สำรอง JSON ของ IR Blaster, Flipper .ir, IRPLUS XML และการตั้งค่า LIRC",
+  "githubRepositoryUrl": "ลิงก์ GitHub",
+  "githubBrowse": "เรียกดู",
+  "githubSaveRepository": "บันทึกลิงก์",
+  "githubParentFolder": "โฟลเดอร์ระดับบน",
+  "githubFilterFolder": "กรองในโฟลเดอร์นี้"
 }

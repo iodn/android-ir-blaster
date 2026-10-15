@@ -5367,4 +5367,19 @@ class AppLocalizationsFil extends AppLocalizations {
   @override
   String get importPreviewSupportedFormats =>
       'Mga suportadong format: IR Blaster JSON backup, Flipper .ir, IRPLUS XML, at LIRC configuration.';
+
+  @override
+  String get githubRepositoryUrl => 'GitHub link';
+
+  @override
+  String get githubBrowse => 'Mag-browse';
+
+  @override
+  String get githubSaveRepository => 'I-save ang link';
+
+  @override
+  String get githubParentFolder => 'Folder sa itaas';
+
+  @override
+  String get githubFilterFolder => 'Salain ang folder na ito';
 }

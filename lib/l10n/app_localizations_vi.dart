@@ -5329,4 +5329,19 @@ class AppLocalizationsVi extends AppLocalizations {
   @override
   String get importPreviewSupportedFormats =>
       'Định dạng được hỗ trợ: bản sao lưu JSON IR Blaster, Flipper .ir, IRPLUS XML và cấu hình LIRC.';
+
+  @override
+  String get githubRepositoryUrl => 'Liên kết GitHub';
+
+  @override
+  String get githubBrowse => 'Duyệt';
+
+  @override
+  String get githubSaveRepository => 'Lưu liên kết';
+
+  @override
+  String get githubParentFolder => 'Thư mục cha';
+
+  @override
+  String get githubFilterFolder => 'Lọc thư mục này';
 }

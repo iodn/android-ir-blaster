@@ -2453,5 +2453,10 @@
   "importPreviewNoJsonButtons": "Walang makitang button na puwedeng i-import sa JSON file na ito.",
   "importPreviewJsonGuidance": "Pumili ng IR Blaster backup na may mga remote na may button.",
   "importPreviewMissingLircHeader": "Wala ang seksyong \"begin remote\".",
-  "importPreviewSupportedFormats": "Mga suportadong format: IR Blaster JSON backup, Flipper .ir, IRPLUS XML, at LIRC configuration."
+  "importPreviewSupportedFormats": "Mga suportadong format: IR Blaster JSON backup, Flipper .ir, IRPLUS XML, at LIRC configuration.",
+  "githubRepositoryUrl": "GitHub link",
+  "githubBrowse": "Mag-browse",
+  "githubSaveRepository": "I-save ang link",
+  "githubParentFolder": "Folder sa itaas",
+  "githubFilterFolder": "Salain ang folder na ito"
 }

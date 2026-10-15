@@ -2453,5 +2453,10 @@
   "importPreviewNoJsonButtons": "इस JSON फ़ाइल में इंपोर्ट करने योग्य बटन नहीं मिले।",
   "importPreviewJsonGuidance": "IR Blaster का ऐसा बैकअप चुनें जिसमें बटन वाले रिमोट हों।",
   "importPreviewMissingLircHeader": "\"begin remote\" सेक्शन मौजूद नहीं है।",
-  "importPreviewSupportedFormats": "समर्थित फ़ॉर्मैट: IR Blaster JSON बैकअप, Flipper .ir, IRPLUS XML और LIRC कॉन्फ़िगरेशन।"
+  "importPreviewSupportedFormats": "समर्थित फ़ॉर्मैट: IR Blaster JSON बैकअप, Flipper .ir, IRPLUS XML और LIRC कॉन्फ़िगरेशन।",
+  "githubRepositoryUrl": "GitHub लिंक",
+  "githubBrowse": "ब्राउज़ करें",
+  "githubSaveRepository": "लिंक सहेजें",
+  "githubParentFolder": "ऊपर वाला फ़ोल्डर",
+  "githubFilterFolder": "इस फ़ोल्डर में फ़िल्टर करें"
 }

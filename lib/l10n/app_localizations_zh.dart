@@ -5105,4 +5105,19 @@ class AppLocalizationsZh extends AppLocalizations {
   @override
   String get importPreviewSupportedFormats =>
       '支持的格式：IR Blaster JSON 备份、Flipper .ir、IRPLUS XML 和 LIRC 配置。';
+
+  @override
+  String get githubRepositoryUrl => 'GitHub 链接';
+
+  @override
+  String get githubBrowse => '浏览';
+
+  @override
+  String get githubSaveRepository => '保存链接';
+
+  @override
+  String get githubParentFolder => '上级文件夹';
+
+  @override
+  String get githubFilterFolder => '筛选当前文件夹';
 }

@@ -491,39 +491,41 @@ class _GitHubStoreScreenState extends State<GitHubStoreScreen> {
                               ),
                             ),
                             const SizedBox(height: 10),
-                            TextField(
-                              controller: _urlCtrl,
-                              keyboardType: TextInputType.url,
-                              textInputAction: TextInputAction.go,
-                              onSubmitted: (_) => _browseFromUrl(),
-                              decoration: const InputDecoration(
-                                labelText: 'GitHub URL',
-                                hintText:
-                                    'https://github.com/OWNER/REPO[/tree/BRANCH/path]',
-                                prefixIcon: Icon(Icons.link_rounded),
-                                border: OutlineInputBorder(),
+                            Text(context.l10n.githubRepositoryUrl),
+                            const SizedBox(height: 6),
+                            Semantics(
+                              label: context.l10n.githubRepositoryUrl,
+                              child: TextField(
+                                controller: _urlCtrl,
+                                keyboardType: TextInputType.url,
+                                textInputAction: TextInputAction.go,
+                                onSubmitted: (_) => _browseFromUrl(),
+                                decoration: const InputDecoration(
+                                  hintText:
+                                      'https://github.com/OWNER/REPO[/tree/BRANCH/path]',
+                                  prefixIcon: Icon(Icons.link_rounded),
+                                  border: OutlineInputBorder(),
+                                ),
                               ),
                             ),
                             const SizedBox(height: 10),
-                            Row(
+                            OverflowBar(
+                              spacing: 10,
+                              overflowSpacing: 10,
+                              overflowAlignment: OverflowBarAlignment.start,
                               children: [
-                                Expanded(
-                                  child: FilledButton.icon(
-                                    onPressed: _loading ? null : _browseFromUrl,
-                                    icon: const Icon(Icons.storefront_rounded),
-                                    label: const Text('Browse'),
-                                  ),
+                                FilledButton.icon(
+                                  onPressed: _loading ? null : _browseFromUrl,
+                                  icon: const Icon(Icons.storefront_rounded),
+                                  label: Text(context.l10n.githubBrowse),
                                 ),
-                                const SizedBox(width: 10),
-                                Expanded(
-                                  child: OutlinedButton.icon(
-                                    onPressed: repo == null
-                                        ? null
-                                        : _saveCurrentSource,
-                                    icon:
-                                        const Icon(Icons.bookmark_add_outlined),
-                                    label: const Text('Save source'),
-                                  ),
+                                OutlinedButton.icon(
+                                  onPressed: repo == null
+                                      ? null
+                                      : _saveCurrentSource,
+                                  icon:
+                                      const Icon(Icons.bookmark_add_outlined),
+                                  label: Text(context.l10n.githubSaveRepository),
                                 ),
                               ],
                             ),
@@ -541,20 +543,20 @@ class _GitHubStoreScreenState extends State<GitHubStoreScreen> {
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                        Row(
+                        Wrap(
+                          spacing: 8,
+                          runSpacing: 8,
                           children: [
-                            Expanded(
-                              child: Text(
-                                '${repo.owner}/${repo.repo}',
-                                style: theme.textTheme.titleSmall?.copyWith(
-                                  fontWeight: FontWeight.w800,
-                                ),
+                            Text(
+                              '${repo.owner}/${repo.repo}',
+                              style: theme.textTheme.titleSmall?.copyWith(
+                                fontWeight: FontWeight.w800,
                               ),
                             ),
                             TextButton.icon(
                               onPressed: _canNavigateUp ? _navigateUp : null,
                               icon: const Icon(Icons.arrow_upward_rounded),
-                              label: const Text('Up'),
+                              label: Text(context.l10n.githubParentFolder),
                             ),
                           ],
                         ),
@@ -568,11 +570,15 @@ class _GitHubStoreScreenState extends State<GitHubStoreScreen> {
                         const SizedBox(height: 12),
                         TextField(
                           controller: _searchCtrl,
+                          minLines: 1,
+                          maxLines: null,
+                          keyboardType: TextInputType.text,
+                          textInputAction: TextInputAction.done,
                           onChanged: (_) => setState(() {}),
-                          decoration: const InputDecoration(
-                            prefixIcon: Icon(Icons.search_rounded),
-                            hintText: 'Filter current folder',
-                            border: OutlineInputBorder(),
+                          decoration: InputDecoration(
+                            prefixIcon: const Icon(Icons.search_rounded),
+                            hintText: context.l10n.githubFilterFolder,
+                            border: const OutlineInputBorder(),
                           ),
                         ),
                       ],

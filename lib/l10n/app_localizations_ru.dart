@@ -5427,4 +5427,19 @@ class AppLocalizationsRu extends AppLocalizations {
   @override
   String get importPreviewSupportedFormats =>
       'Поддерживаемые форматы: резервная копия JSON IR Blaster, Flipper .ir, IRPLUS XML и конфигурация LIRC.';
+
+  @override
+  String get githubRepositoryUrl => 'Ссылка на GitHub';
+
+  @override
+  String get githubBrowse => 'Обзор';
+
+  @override
+  String get githubSaveRepository => 'Сохранить ссылку';
+
+  @override
+  String get githubParentFolder => 'На папку выше';
+
+  @override
+  String get githubFilterFolder => 'Фильтр в этой папке';
 }

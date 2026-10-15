@@ -5492,4 +5492,19 @@ class AppLocalizationsUk extends AppLocalizations {
   @override
   String get importPreviewSupportedFormats =>
       'Підтримувані формати: резервна копія JSON IR Blaster, Flipper .ir, IRPLUS XML і конфігурація LIRC.';
+
+  @override
+  String get githubRepositoryUrl => 'Посилання на GitHub';
+
+  @override
+  String get githubBrowse => 'Переглянути';
+
+  @override
+  String get githubSaveRepository => 'Зберегти посилання';
+
+  @override
+  String get githubParentFolder => 'На теку вище';
+
+  @override
+  String get githubFilterFolder => 'Фільтр у цій теці';
 }

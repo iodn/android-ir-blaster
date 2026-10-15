@@ -2453,5 +2453,10 @@
   "importPreviewNoJsonButtons": "В этом JSON-файле нет кнопок для импорта.",
   "importPreviewJsonGuidance": "Выберите резервную копию IR Blaster с пультами, содержащими кнопки.",
   "importPreviewMissingLircHeader": "Отсутствует раздел \"begin remote\".",
-  "importPreviewSupportedFormats": "Поддерживаемые форматы: резервная копия JSON IR Blaster, Flipper .ir, IRPLUS XML и конфигурация LIRC."
+  "importPreviewSupportedFormats": "Поддерживаемые форматы: резервная копия JSON IR Blaster, Flipper .ir, IRPLUS XML и конфигурация LIRC.",
+  "githubRepositoryUrl": "Ссылка на GitHub",
+  "githubBrowse": "Обзор",
+  "githubSaveRepository": "Сохранить ссылку",
+  "githubParentFolder": "На папку выше",
+  "githubFilterFolder": "Фильтр в этой папке"
 }

@@ -2453,5 +2453,10 @@
   "importPreviewNoJsonButtons": "Không tìm thấy nút nào có thể nhập trong tệp JSON này.",
   "importPreviewJsonGuidance": "Chọn bản sao lưu IR Blaster có chứa điều khiển với các nút.",
   "importPreviewMissingLircHeader": "Thiếu phần \"begin remote\".",
-  "importPreviewSupportedFormats": "Định dạng được hỗ trợ: bản sao lưu JSON IR Blaster, Flipper .ir, IRPLUS XML và cấu hình LIRC."
+  "importPreviewSupportedFormats": "Định dạng được hỗ trợ: bản sao lưu JSON IR Blaster, Flipper .ir, IRPLUS XML và cấu hình LIRC.",
+  "githubRepositoryUrl": "Liên kết GitHub",
+  "githubBrowse": "Duyệt",
+  "githubSaveRepository": "Lưu liên kết",
+  "githubParentFolder": "Thư mục cha",
+  "githubFilterFolder": "Lọc thư mục này"
 }

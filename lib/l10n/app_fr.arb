@@ -2453,5 +2453,10 @@
   "importPreviewNoJsonButtons": "Aucun bouton importable n’a été trouvé dans ce fichier JSON.",
   "importPreviewJsonGuidance": "Choisissez une sauvegarde IR Blaster contenant des télécommandes avec des boutons.",
   "importPreviewMissingLircHeader": "La section \"begin remote\" est absente.",
-  "importPreviewSupportedFormats": "Formats pris en charge : sauvegarde JSON d’IR Blaster, Flipper .ir, IRPLUS XML et configuration LIRC."
+  "importPreviewSupportedFormats": "Formats pris en charge : sauvegarde JSON d’IR Blaster, Flipper .ir, IRPLUS XML et configuration LIRC.",
+  "githubRepositoryUrl": "Adresse GitHub",
+  "githubBrowse": "Parcourir",
+  "githubSaveRepository": "Enregistrer le lien",
+  "githubParentFolder": "Dossier parent",
+  "githubFilterFolder": "Filtrer ce dossier"
 }

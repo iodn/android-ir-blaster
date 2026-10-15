@@ -5204,4 +5204,19 @@ class AppLocalizationsKo extends AppLocalizations {
   @override
   String get importPreviewSupportedFormats =>
       '지원 형식: IR Blaster JSON 백업, Flipper .ir, IRPLUS XML, LIRC 설정.';
+
+  @override
+  String get githubRepositoryUrl => 'GitHub 주소';
+
+  @override
+  String get githubBrowse => '둘러보기';
+
+  @override
+  String get githubSaveRepository => '링크 저장';
+
+  @override
+  String get githubParentFolder => '상위 폴더';
+
+  @override
+  String get githubFilterFolder => '이 폴더에서 필터링';
 }

@@ -2453,5 +2453,10 @@
   "importPreviewNoJsonButtons": "Bu JSON dosyasında içe aktarılabilecek düğme bulunamadı.",
   "importPreviewJsonGuidance": "Düğme içeren kumandaların bulunduğu bir IR Blaster yedeği seçin.",
   "importPreviewMissingLircHeader": "\"begin remote\" bölümü eksik.",
-  "importPreviewSupportedFormats": "Desteklenen biçimler: IR Blaster JSON yedeği, Flipper .ir, IRPLUS XML ve LIRC yapılandırması."
+  "importPreviewSupportedFormats": "Desteklenen biçimler: IR Blaster JSON yedeği, Flipper .ir, IRPLUS XML ve LIRC yapılandırması.",
+  "githubRepositoryUrl": "GitHub adresi",
+  "githubBrowse": "Göz at",
+  "githubSaveRepository": "Bağlantıyı kaydet",
+  "githubParentFolder": "Üst klasör",
+  "githubFilterFolder": "Bu klasörü filtrele"
 }

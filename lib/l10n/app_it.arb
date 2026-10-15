@@ -2453,5 +2453,10 @@
   "importPreviewNoJsonButtons": "Nessun pulsante importabile trovato in questo file JSON.",
   "importPreviewJsonGuidance": "Scegli un backup di IR Blaster contenente telecomandi con pulsanti.",
   "importPreviewMissingLircHeader": "Manca la sezione \"begin remote\".",
-  "importPreviewSupportedFormats": "Formati supportati: backup JSON di IR Blaster, Flipper .ir, IRPLUS XML e configurazione LIRC."
+  "importPreviewSupportedFormats": "Formati supportati: backup JSON di IR Blaster, Flipper .ir, IRPLUS XML e configurazione LIRC.",
+  "githubRepositoryUrl": "Indirizzo GitHub",
+  "githubBrowse": "Esplora",
+  "githubSaveRepository": "Salva link",
+  "githubParentFolder": "Cartella superiore",
+  "githubFilterFolder": "Filtra questa cartella"
 }

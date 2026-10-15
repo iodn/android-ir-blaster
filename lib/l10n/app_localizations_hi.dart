@@ -5359,4 +5359,19 @@ class AppLocalizationsHi extends AppLocalizations {
   @override
   String get importPreviewSupportedFormats =>
       'समर्थित फ़ॉर्मैट: IR Blaster JSON बैकअप, Flipper .ir, IRPLUS XML और LIRC कॉन्फ़िगरेशन।';
+
+  @override
+  String get githubRepositoryUrl => 'GitHub लिंक';
+
+  @override
+  String get githubBrowse => 'ब्राउज़ करें';
+
+  @override
+  String get githubSaveRepository => 'लिंक सहेजें';
+
+  @override
+  String get githubParentFolder => 'ऊपर वाला फ़ोल्डर';
+
+  @override
+  String get githubFilterFolder => 'इस फ़ोल्डर में फ़िल्टर करें';
 }

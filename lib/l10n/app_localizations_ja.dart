@@ -5189,4 +5189,19 @@ class AppLocalizationsJa extends AppLocalizations {
   @override
   String get importPreviewSupportedFormats =>
       '対応形式：IR BlasterのJSONバックアップ、Flipper .ir、IRPLUS XML、LIRC設定。';
+
+  @override
+  String get githubRepositoryUrl => 'GitHubのURL';
+
+  @override
+  String get githubBrowse => '参照';
+
+  @override
+  String get githubSaveRepository => 'リンクを保存';
+
+  @override
+  String get githubParentFolder => '上のフォルダへ';
+
+  @override
+  String get githubFilterFolder => 'このフォルダ内を絞り込む';
 }

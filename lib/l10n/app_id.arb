@@ -2453,5 +2453,10 @@
   "importPreviewNoJsonButtons": "Tidak ada tombol yang dapat diimpor dari file JSON ini.",
   "importPreviewJsonGuidance": "Pilih cadangan IR Blaster yang berisi remote dengan tombol.",
   "importPreviewMissingLircHeader": "Bagian \"begin remote\" tidak ditemukan.",
-  "importPreviewSupportedFormats": "Format yang didukung: cadangan JSON IR Blaster, Flipper .ir, IRPLUS XML, dan konfigurasi LIRC."
+  "importPreviewSupportedFormats": "Format yang didukung: cadangan JSON IR Blaster, Flipper .ir, IRPLUS XML, dan konfigurasi LIRC.",
+  "githubRepositoryUrl": "Tautan GitHub",
+  "githubBrowse": "Jelajahi",
+  "githubSaveRepository": "Simpan tautan",
+  "githubParentFolder": "Folder induk",
+  "githubFilterFolder": "Filter folder ini"
 }

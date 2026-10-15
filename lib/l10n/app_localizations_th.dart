@@ -5306,4 +5306,19 @@ class AppLocalizationsTh extends AppLocalizations {
   @override
   String get importPreviewSupportedFormats =>
       'รูปแบบที่รองรับ: ไฟล์สำรอง JSON ของ IR Blaster, Flipper .ir, IRPLUS XML และการตั้งค่า LIRC';
+
+  @override
+  String get githubRepositoryUrl => 'ลิงก์ GitHub';
+
+  @override
+  String get githubBrowse => 'เรียกดู';
+
+  @override
+  String get githubSaveRepository => 'บันทึกลิงก์';
+
+  @override
+  String get githubParentFolder => 'โฟลเดอร์ระดับบน';
+
+  @override
+  String get githubFilterFolder => 'กรองในโฟลเดอร์นี้';
 }

@@ -2453,5 +2453,10 @@
   "importPreviewNoJsonButtons": "Não foram encontrados botões para importar neste ficheiro JSON.",
   "importPreviewJsonGuidance": "Escolha uma cópia de segurança do IR Blaster que contenha comandos com botões.",
   "importPreviewMissingLircHeader": "Falta a secção \"begin remote\".",
-  "importPreviewSupportedFormats": "Formatos suportados: cópia de segurança JSON do IR Blaster, Flipper .ir, IRPLUS XML e configuração LIRC."
+  "importPreviewSupportedFormats": "Formatos suportados: cópia de segurança JSON do IR Blaster, Flipper .ir, IRPLUS XML e configuração LIRC.",
+  "githubRepositoryUrl": "Endereço do GitHub",
+  "githubBrowse": "Explorar",
+  "githubSaveRepository": "Guardar ligação",
+  "githubParentFolder": "Pasta superior",
+  "githubFilterFolder": "Filtrar esta pasta"
 }

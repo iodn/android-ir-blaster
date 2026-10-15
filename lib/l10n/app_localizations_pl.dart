@@ -5476,4 +5476,19 @@ class AppLocalizationsPl extends AppLocalizations {
   @override
   String get importPreviewSupportedFormats =>
       'Obsługiwane formaty: kopia zapasowa JSON IR Blaster, Flipper .ir, IRPLUS XML i konfiguracja LIRC.';
+
+  @override
+  String get githubRepositoryUrl => 'Adres GitHub';
+
+  @override
+  String get githubBrowse => 'Przeglądaj';
+
+  @override
+  String get githubSaveRepository => 'Zapisz link';
+
+  @override
+  String get githubParentFolder => 'Folder nadrzędny';
+
+  @override
+  String get githubFilterFolder => 'Filtruj ten folder';
 }

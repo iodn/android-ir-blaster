@@ -5347,4 +5347,19 @@ class AppLocalizationsId extends AppLocalizations {
   @override
   String get importPreviewSupportedFormats =>
       'Format yang didukung: cadangan JSON IR Blaster, Flipper .ir, IRPLUS XML, dan konfigurasi LIRC.';
+
+  @override
+  String get githubRepositoryUrl => 'Tautan GitHub';
+
+  @override
+  String get githubBrowse => 'Jelajahi';
+
+  @override
+  String get githubSaveRepository => 'Simpan tautan';
+
+  @override
+  String get githubParentFolder => 'Folder induk';
+
+  @override
+  String get githubFilterFolder => 'Filter folder ini';
 }

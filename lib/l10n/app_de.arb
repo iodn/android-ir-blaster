@@ -2439,5 +2439,10 @@
   "importPreviewNoJsonButtons": "Keine importierbaren Tasten in der JSON-Datei gefunden.",
   "importPreviewJsonGuidance": "Wähle eine IR-Blaster-Sicherung mit Fernbedienungen, die Tasten enthalten.",
   "importPreviewMissingLircHeader": "Der Abschnitt \"begin remote\" fehlt.",
-  "importPreviewSupportedFormats": "Unterstützte Formate: IR-Blaster-JSON-Sicherung, Flipper .ir, IRPLUS XML und LIRC-Konfiguration."
+  "importPreviewSupportedFormats": "Unterstützte Formate: IR-Blaster-JSON-Sicherung, Flipper .ir, IRPLUS XML und LIRC-Konfiguration.",
+  "githubRepositoryUrl": "GitHub-Adresse",
+  "githubBrowse": "Durchsuchen",
+  "githubSaveRepository": "Link speichern",
+  "githubParentFolder": "Übergeordneter Ordner",
+  "githubFilterFolder": "Diesen Ordner filtern"
 }

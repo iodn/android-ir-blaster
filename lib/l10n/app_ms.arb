@@ -2453,5 +2453,10 @@
   "importPreviewNoJsonButtons": "Tiada butang yang boleh diimport dalam fail JSON ini.",
   "importPreviewJsonGuidance": "Pilih sandaran IR Blaster yang mengandungi alat kawalan jauh dengan butang.",
   "importPreviewMissingLircHeader": "Bahagian \"begin remote\" tiada.",
-  "importPreviewSupportedFormats": "Format yang disokong: sandaran JSON IR Blaster, Flipper .ir, IRPLUS XML dan konfigurasi LIRC."
+  "importPreviewSupportedFormats": "Format yang disokong: sandaran JSON IR Blaster, Flipper .ir, IRPLUS XML dan konfigurasi LIRC.",
+  "githubRepositoryUrl": "Pautan GitHub",
+  "githubBrowse": "Semak imbas",
+  "githubSaveRepository": "Simpan pautan",
+  "githubParentFolder": "Folder induk",
+  "githubFilterFolder": "Tapis folder ini"
 }

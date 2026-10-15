@@ -2455,5 +2455,10 @@
   "importPreviewNoJsonButtons": "W tym pliku JSON nie znaleziono przycisków do zaimportowania.",
   "importPreviewJsonGuidance": "Wybierz kopię zapasową IR Blaster zawierającą piloty z przyciskami.",
   "importPreviewMissingLircHeader": "Brakuje sekcji \"begin remote\".",
-  "importPreviewSupportedFormats": "Obsługiwane formaty: kopia zapasowa JSON IR Blaster, Flipper .ir, IRPLUS XML i konfiguracja LIRC."
+  "importPreviewSupportedFormats": "Obsługiwane formaty: kopia zapasowa JSON IR Blaster, Flipper .ir, IRPLUS XML i konfiguracja LIRC.",
+  "githubRepositoryUrl": "Adres GitHub",
+  "githubBrowse": "Przeglądaj",
+  "githubSaveRepository": "Zapisz link",
+  "githubParentFolder": "Folder nadrzędny",
+  "githubFilterFolder": "Filtruj ten folder"
 }

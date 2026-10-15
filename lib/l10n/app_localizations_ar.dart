@@ -5362,6 +5362,21 @@ class AppLocalizationsAr extends AppLocalizations {
   @override
   String get importPreviewSupportedFormats =>
       'الصيغ المدعومة: نسخة IR Blaster الاحتياطية بصيغة JSON، وFlipper .ir، وIRPLUS XML، وإعدادات LIRC.';
+
+  @override
+  String get githubRepositoryUrl => 'رابط GitHub';
+
+  @override
+  String get githubBrowse => 'تصفح';
+
+  @override
+  String get githubSaveRepository => 'حفظ الرابط';
+
+  @override
+  String get githubParentFolder => 'المجلد الأعلى';
+
+  @override
+  String get githubFilterFolder => 'تصفية هذا المجلد';
 }
 
 /// The translations for Arabic, as used in Egypt (`ar_EG`).
@@ -10722,4 +10737,19 @@ class AppLocalizationsArEg extends AppLocalizationsAr {
   @override
   String get importPreviewSupportedFormats =>
       'الصيغ المدعومة: نسخة IR Blaster الاحتياطية بصيغة JSON، وFlipper .ir، وIRPLUS XML، وإعدادات LIRC.';
+
+  @override
+  String get githubRepositoryUrl => 'رابط GitHub';
+
+  @override
+  String get githubBrowse => 'تصفح';
+
+  @override
+  String get githubSaveRepository => 'حفظ الرابط';
+
+  @override
+  String get githubParentFolder => 'المجلد الأعلى';
+
+  @override
+  String get githubFilterFolder => 'تصفية المجلد الحالي';
 }

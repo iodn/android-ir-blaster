@@ -2453,5 +2453,10 @@
   "importPreviewNoJsonButtons": "Geen importeerbare knoppen gevonden in dit JSON-bestand.",
   "importPreviewJsonGuidance": "Kies een IR Blaster-back-up met afstandsbedieningen die knoppen bevatten.",
   "importPreviewMissingLircHeader": "De sectie \"begin remote\" ontbreekt.",
-  "importPreviewSupportedFormats": "Ondersteunde formaten: IR Blaster-JSON-back-up, Flipper .ir, IRPLUS XML en LIRC-configuratie."
+  "importPreviewSupportedFormats": "Ondersteunde formaten: IR Blaster-JSON-back-up, Flipper .ir, IRPLUS XML en LIRC-configuratie.",
+  "githubRepositoryUrl": "GitHub-adres",
+  "githubBrowse": "Bladeren",
+  "githubSaveRepository": "Link opslaan",
+  "githubParentFolder": "Bovenliggende map",
+  "githubFilterFolder": "Deze map filteren"
 }

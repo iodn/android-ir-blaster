@@ -5434,6 +5434,21 @@ class AppLocalizationsPt extends AppLocalizations {
   @override
   String get importPreviewSupportedFormats =>
       'Formatos suportados: cópia de segurança JSON do IR Blaster, Flipper .ir, IRPLUS XML e configuração LIRC.';
+
+  @override
+  String get githubRepositoryUrl => 'Endereço do GitHub';
+
+  @override
+  String get githubBrowse => 'Explorar';
+
+  @override
+  String get githubSaveRepository => 'Guardar ligação';
+
+  @override
+  String get githubParentFolder => 'Pasta superior';
+
+  @override
+  String get githubFilterFolder => 'Filtrar esta pasta';
 }
 
 /// The translations for Portuguese, as used in Brazil (`pt_BR`).
@@ -10861,4 +10876,19 @@ class AppLocalizationsPtBr extends AppLocalizationsPt {
   @override
   String get importPreviewSupportedFormats =>
       'Formatos compatíveis: backup JSON do IR Blaster, Flipper .ir, IRPLUS XML e configuração LIRC.';
+
+  @override
+  String get githubRepositoryUrl => 'Endereço do GitHub';
+
+  @override
+  String get githubBrowse => 'Explorar';
+
+  @override
+  String get githubSaveRepository => 'Salvar link';
+
+  @override
+  String get githubParentFolder => 'Pasta superior';
+
+  @override
+  String get githubFilterFolder => 'Filtrar esta pasta';
 }

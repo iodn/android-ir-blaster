@@ -5438,4 +5438,19 @@ class AppLocalizationsNl extends AppLocalizations {
   @override
   String get importPreviewSupportedFormats =>
       'Ondersteunde formaten: IR Blaster-JSON-back-up, Flipper .ir, IRPLUS XML en LIRC-configuratie.';
+
+  @override
+  String get githubRepositoryUrl => 'GitHub-adres';
+
+  @override
+  String get githubBrowse => 'Bladeren';
+
+  @override
+  String get githubSaveRepository => 'Link opslaan';
+
+  @override
+  String get githubParentFolder => 'Bovenliggende map';
+
+  @override
+  String get githubFilterFolder => 'Deze map filteren';
 }

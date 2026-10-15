@@ -2684,5 +2684,10 @@
   "importPreviewNoJsonButtons": "No importable buttons were found in this JSON file.",
   "importPreviewJsonGuidance": "Choose an IR Blaster backup containing remotes with buttons.",
   "importPreviewMissingLircHeader": "The \"begin remote\" section is missing.",
-  "importPreviewSupportedFormats": "Supported formats: IR Blaster JSON backup, Flipper .ir, IRPLUS XML, and LIRC config."
+  "importPreviewSupportedFormats": "Supported formats: IR Blaster JSON backup, Flipper .ir, IRPLUS XML, and LIRC config.",
+  "githubRepositoryUrl": "GitHub URL",
+  "githubBrowse": "Browse",
+  "githubSaveRepository": "Save link",
+  "githubParentFolder": "Parent folder",
+  "githubFilterFolder": "Filter this folder"
 }

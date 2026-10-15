@@ -2453,5 +2453,10 @@
   "importPreviewNoJsonButtons": "このJSONファイルには取り込み可能なボタンがありません。",
   "importPreviewJsonGuidance": "ボタンのあるリモコンを含むIR Blasterのバックアップを選んでください。",
   "importPreviewMissingLircHeader": "「begin remote」セクションがありません。",
-  "importPreviewSupportedFormats": "対応形式：IR BlasterのJSONバックアップ、Flipper .ir、IRPLUS XML、LIRC設定。"
+  "importPreviewSupportedFormats": "対応形式：IR BlasterのJSONバックアップ、Flipper .ir、IRPLUS XML、LIRC設定。",
+  "githubRepositoryUrl": "GitHubのURL",
+  "githubBrowse": "参照",
+  "githubSaveRepository": "リンクを保存",
+  "githubParentFolder": "上のフォルダへ",
+  "githubFilterFolder": "このフォルダ内を絞り込む"
 }

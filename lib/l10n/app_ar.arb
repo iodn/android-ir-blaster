@@ -2453,5 +2453,10 @@
   "importPreviewNoJsonButtons": "لم يتم العثور على أزرار قابلة للاستيراد في ملف JSON.",
   "importPreviewJsonGuidance": "اختر نسخة احتياطية من IR Blaster تحتوي على أجهزة تحكم بأزرار.",
   "importPreviewMissingLircHeader": "القسم \"begin remote\" مفقود.",
-  "importPreviewSupportedFormats": "الصيغ المدعومة: نسخة IR Blaster الاحتياطية بصيغة JSON، وFlipper .ir، وIRPLUS XML، وإعدادات LIRC."
+  "importPreviewSupportedFormats": "الصيغ المدعومة: نسخة IR Blaster الاحتياطية بصيغة JSON، وFlipper .ir، وIRPLUS XML، وإعدادات LIRC.",
+  "githubRepositoryUrl": "رابط GitHub",
+  "githubBrowse": "تصفح",
+  "githubSaveRepository": "حفظ الرابط",
+  "githubParentFolder": "المجلد الأعلى",
+  "githubFilterFolder": "تصفية هذا المجلد"
 }

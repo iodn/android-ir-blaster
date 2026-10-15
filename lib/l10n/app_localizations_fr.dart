@@ -5449,4 +5449,19 @@ class AppLocalizationsFr extends AppLocalizations {
   @override
   String get importPreviewSupportedFormats =>
       'Formats pris en charge : sauvegarde JSON d’IR Blaster, Flipper .ir, IRPLUS XML et configuration LIRC.';
+
+  @override
+  String get githubRepositoryUrl => 'Adresse GitHub';
+
+  @override
+  String get githubBrowse => 'Parcourir';
+
+  @override
+  String get githubSaveRepository => 'Enregistrer le lien';
+
+  @override
+  String get githubParentFolder => 'Dossier parent';
+
+  @override
+  String get githubFilterFolder => 'Filtrer ce dossier';
 }

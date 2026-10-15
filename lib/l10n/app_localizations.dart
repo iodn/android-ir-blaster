@@ -9631,6 +9631,36 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Supported formats: IR Blaster JSON backup, Flipper .ir, IRPLUS XML, and LIRC config.'**
   String get importPreviewSupportedFormats;
+
+  /// No description provided for @githubRepositoryUrl.
+  ///
+  /// In en, this message translates to:
+  /// **'GitHub URL'**
+  String get githubRepositoryUrl;
+
+  /// No description provided for @githubBrowse.
+  ///
+  /// In en, this message translates to:
+  /// **'Browse'**
+  String get githubBrowse;
+
+  /// No description provided for @githubSaveRepository.
+  ///
+  /// In en, this message translates to:
+  /// **'Save link'**
+  String get githubSaveRepository;
+
+  /// No description provided for @githubParentFolder.
+  ///
+  /// In en, this message translates to:
+  /// **'Parent folder'**
+  String get githubParentFolder;
+
+  /// No description provided for @githubFilterFolder.
+  ///
+  /// In en, this message translates to:
+  /// **'Filter this folder'**
+  String get githubFilterFolder;
 }
 
 class _AppLocalizationsDelegate

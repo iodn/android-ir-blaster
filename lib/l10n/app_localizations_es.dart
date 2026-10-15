@@ -5432,4 +5432,19 @@ class AppLocalizationsEs extends AppLocalizations {
   @override
   String get importPreviewSupportedFormats =>
       'Formatos admitidos: copia de seguridad JSON de IR Blaster, Flipper .ir, IRPLUS XML y configuración LIRC.';
+
+  @override
+  String get githubRepositoryUrl => 'Enlace de GitHub';
+
+  @override
+  String get githubBrowse => 'Explorar';
+
+  @override
+  String get githubSaveRepository => 'Guardar enlace';
+
+  @override
+  String get githubParentFolder => 'Carpeta superior';
+
+  @override
+  String get githubFilterFolder => 'Filtrar esta carpeta';
 }

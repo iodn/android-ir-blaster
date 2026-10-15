@@ -5344,4 +5344,19 @@ class AppLocalizationsTr extends AppLocalizations {
   @override
   String get importPreviewSupportedFormats =>
       'Desteklenen biçimler: IR Blaster JSON yedeği, Flipper .ir, IRPLUS XML ve LIRC yapılandırması.';
+
+  @override
+  String get githubRepositoryUrl => 'GitHub adresi';
+
+  @override
+  String get githubBrowse => 'Göz at';
+
+  @override
+  String get githubSaveRepository => 'Bağlantıyı kaydet';
+
+  @override
+  String get githubParentFolder => 'Üst klasör';
+
+  @override
+  String get githubFilterFolder => 'Bu klasörü filtrele';
 }

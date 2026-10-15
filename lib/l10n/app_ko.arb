@@ -2453,5 +2453,10 @@
   "importPreviewNoJsonButtons": "이 JSON 파일에서 가져올 수 있는 버튼을 찾지 못했습니다.",
   "importPreviewJsonGuidance": "버튼이 있는 리모컨을 포함한 IR Blaster 백업을 선택하세요.",
   "importPreviewMissingLircHeader": "\"begin remote\" 구역이 없습니다.",
-  "importPreviewSupportedFormats": "지원 형식: IR Blaster JSON 백업, Flipper .ir, IRPLUS XML, LIRC 설정."
+  "importPreviewSupportedFormats": "지원 형식: IR Blaster JSON 백업, Flipper .ir, IRPLUS XML, LIRC 설정.",
+  "githubRepositoryUrl": "GitHub 주소",
+  "githubBrowse": "둘러보기",
+  "githubSaveRepository": "링크 저장",
+  "githubParentFolder": "상위 폴더",
+  "githubFilterFolder": "이 폴더에서 필터링"
 }

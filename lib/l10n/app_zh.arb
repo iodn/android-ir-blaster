@@ -2453,5 +2453,10 @@
   "importPreviewNoJsonButtons": "此 JSON 文件中没有可导入的按钮。",
   "importPreviewJsonGuidance": "请选择包含遥控器及其按钮的 IR Blaster 备份。",
   "importPreviewMissingLircHeader": "缺少“begin remote”部分。",
-  "importPreviewSupportedFormats": "支持的格式：IR Blaster JSON 备份、Flipper .ir、IRPLUS XML 和 LIRC 配置。"
+  "importPreviewSupportedFormats": "支持的格式：IR Blaster JSON 备份、Flipper .ir、IRPLUS XML 和 LIRC 配置。",
+  "githubRepositoryUrl": "GitHub 链接",
+  "githubBrowse": "浏览",
+  "githubSaveRepository": "保存链接",
+  "githubParentFolder": "上级文件夹",
+  "githubFilterFolder": "筛选当前文件夹"
 }
