@@ -2713,5 +2713,10 @@
   "githubTokenRemoved": "Token removed. The app will access GitHub without a token.",
   "githubSettingsSaved": "Settings saved",
   "githubSaveToken": "Save token",
-  "githubUpdateToken": "Update token"
+  "githubUpdateToken": "Update token",
+  "githubTokenTitle": "Personal access token",
+  "githubTokenOptionalBody": "Optional. You can browse public GitHub repositories without a token.",
+  "githubShowToken": "Show token",
+  "githubHideToken": "Hide token",
+  "githubTokenStorageNote": "Saved on this device."
 }

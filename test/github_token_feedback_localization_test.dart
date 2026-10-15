@@ -96,20 +96,52 @@ void main() {
         await tester.pumpAndSettle();
       }
 
-      Future<void> checkMessage(String text) async {
+      Future<void> checkMessage(String text, {bool tooltip = false}) async {
         final finder = find.text(text);
-        await reveal(finder, 300);
+        if (!tooltip) await reveal(finder, 300);
         final paragraph = tester.renderObject<RenderParagraph>(finder);
         expect(paragraph.didExceedMaxLines, isFalse, reason: text);
         expect(paragraph.getMaxIntrinsicHeight(paragraph.size.width),
             lessThanOrEqualTo(paragraph.size.height + 0.1),
             reason: text);
-        expect(finder.hitTestable(), findsOneWidget, reason: text);
+        if (tooltip) {
+          final rect = tester.getRect(finder);
+          expect(rect.top, greaterThanOrEqualTo(0));
+          expect(rect.bottom, lessThanOrEqualTo(640));
+          expect(rect.left, greaterThanOrEqualTo(0));
+          expect(rect.right, lessThanOrEqualTo(320));
+        } else {
+          expect(finder.hitTestable(), findsOneWidget, reason: text);
+        }
       }
 
       final field = find.byType(TextField);
       await reveal(field, 300);
       expect(tester.widget<TextField>(field).obscureText, isTrue);
+      await checkMessage(l10n.githubTokenTitle);
+      await checkMessage(l10n.githubTokenOptionalBody);
+      await reveal(field, 300);
+      await tester.enterText(field, 'visibility-test');
+      await tester.longPress(find.byTooltip(l10n.githubShowToken));
+      await tester.pumpAndSettle();
+      await checkMessage(l10n.githubShowToken, tooltip: true);
+      await tester.pump(const Duration(seconds: 3));
+      await tester.pumpAndSettle();
+      await tester.tap(find.byTooltip(l10n.githubShowToken));
+      await tester.pumpAndSettle();
+      expect(tester.widget<TextField>(field).obscureText, isFalse);
+      expect(
+          tester.widget<TextField>(field).controller!.text, 'visibility-test');
+      await tester.longPress(find.byTooltip(l10n.githubHideToken));
+      await tester.pumpAndSettle();
+      await checkMessage(l10n.githubHideToken, tooltip: true);
+      await tester.pump(const Duration(seconds: 3));
+      await tester.pumpAndSettle();
+      await tester.tap(find.byTooltip(l10n.githubHideToken));
+      await tester.pumpAndSettle();
+      expect(tester.widget<TextField>(field).obscureText, isTrue);
+      expect(prefs.containsKey(key), isFalse);
+      await checkMessage(l10n.githubTokenStorageNote);
       for (final (token, label) in [
         ('test-token', l10n.githubSaveToken),
         ('updated-token', l10n.githubUpdateToken),

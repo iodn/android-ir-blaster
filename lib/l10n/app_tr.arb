@@ -2482,5 +2482,10 @@
   "githubTokenRemoved": "Belirteç kaldırıldı. Uygulama GitHub’a belirteç olmadan erişecek.",
   "githubSettingsSaved": "Ayarlar kaydedildi",
   "githubSaveToken": "Belirteci kaydet",
-  "githubUpdateToken": "Belirteci güncelle"
+  "githubUpdateToken": "Belirteci güncelle",
+  "githubTokenTitle": "Kişisel erişim belirteci",
+  "githubTokenOptionalBody": "İsteğe bağlı. Herkese açık GitHub depolarına belirteç olmadan göz atabilirsiniz.",
+  "githubShowToken": "Belirteci göster",
+  "githubHideToken": "Belirteci gizle",
+  "githubTokenStorageNote": "Bu cihaza kaydedilir."
 }

@@ -5507,4 +5507,20 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get githubUpdateToken => 'Update token';
+
+  @override
+  String get githubTokenTitle => 'Personal access token';
+
+  @override
+  String get githubTokenOptionalBody =>
+      'Optional. You can browse public GitHub repositories without a token.';
+
+  @override
+  String get githubShowToken => 'Show token';
+
+  @override
+  String get githubHideToken => 'Hide token';
+
+  @override
+  String get githubTokenStorageNote => 'Saved on this device.';
 }

@@ -5435,4 +5435,20 @@ class AppLocalizationsTr extends AppLocalizations {
 
   @override
   String get githubUpdateToken => 'Belirteci güncelle';
+
+  @override
+  String get githubTokenTitle => 'Kişisel erişim belirteci';
+
+  @override
+  String get githubTokenOptionalBody =>
+      'İsteğe bağlı. Herkese açık GitHub depolarına belirteç olmadan göz atabilirsiniz.';
+
+  @override
+  String get githubShowToken => 'Belirteci göster';
+
+  @override
+  String get githubHideToken => 'Belirteci gizle';
+
+  @override
+  String get githubTokenStorageNote => 'Bu cihaza kaydedilir.';
 }

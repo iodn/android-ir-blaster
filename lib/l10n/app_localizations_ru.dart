@@ -5519,4 +5519,20 @@ class AppLocalizationsRu extends AppLocalizations {
 
   @override
   String get githubUpdateToken => 'Обновить токен';
+
+  @override
+  String get githubTokenTitle => 'Персональный токен доступа';
+
+  @override
+  String get githubTokenOptionalBody =>
+      'Необязательно. Публичные репозитории GitHub можно просматривать без токена.';
+
+  @override
+  String get githubShowToken => 'Показать токен';
+
+  @override
+  String get githubHideToken => 'Скрыть токен';
+
+  @override
+  String get githubTokenStorageNote => 'Сохраняется на этом устройстве.';
 }

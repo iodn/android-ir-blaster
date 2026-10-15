@@ -2482,5 +2482,10 @@
   "githubTokenRemoved": "Naalis na ang token. Gagamit ang app ng GitHub nang walang token.",
   "githubSettingsSaved": "Na-save ang mga setting",
   "githubSaveToken": "I-save ang token",
-  "githubUpdateToken": "I-update ang token"
+  "githubUpdateToken": "I-update ang token",
+  "githubTokenTitle": "Personal na access token",
+  "githubTokenOptionalBody": "Opsyonal. Maaari mong tingnan ang mga pampublikong GitHub repository nang walang token.",
+  "githubShowToken": "Ipakita ang token",
+  "githubHideToken": "Itago ang token",
+  "githubTokenStorageNote": "Naka-save sa device na ito."
 }

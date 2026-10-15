@@ -2482,5 +2482,10 @@
   "githubTokenRemoved": "Đã xóa mã truy cập. Ứng dụng sẽ truy cập GitHub mà không dùng mã.",
   "githubSettingsSaved": "Đã lưu cài đặt",
   "githubSaveToken": "Lưu mã truy cập",
-  "githubUpdateToken": "Cập nhật mã truy cập"
+  "githubUpdateToken": "Cập nhật mã truy cập",
+  "githubTokenTitle": "Mã truy cập cá nhân",
+  "githubTokenOptionalBody": "Không bắt buộc. Bạn có thể duyệt kho công khai trên GitHub mà không cần mã truy cập.",
+  "githubShowToken": "Hiện mã truy cập",
+  "githubHideToken": "Ẩn mã truy cập",
+  "githubTokenStorageNote": "Được lưu trên thiết bị này."
 }

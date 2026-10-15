@@ -2482,5 +2482,10 @@
   "githubTokenRemoved": "Token dihapus. Aplikasi akan mengakses GitHub tanpa token.",
   "githubSettingsSaved": "Pengaturan disimpan",
   "githubSaveToken": "Simpan token",
-  "githubUpdateToken": "Perbarui token"
+  "githubUpdateToken": "Perbarui token",
+  "githubTokenTitle": "Token akses pribadi",
+  "githubTokenOptionalBody": "Opsional. Anda dapat menjelajahi repositori publik GitHub tanpa token.",
+  "githubShowToken": "Tampilkan token",
+  "githubHideToken": "Sembunyikan token",
+  "githubTokenStorageNote": "Disimpan di perangkat ini."
 }

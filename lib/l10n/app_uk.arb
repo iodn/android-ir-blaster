@@ -2482,5 +2482,10 @@
   "githubTokenRemoved": "Токен видалено. Застосунок звертатиметься до GitHub без токена.",
   "githubSettingsSaved": "Налаштування збережено",
   "githubSaveToken": "Зберегти токен",
-  "githubUpdateToken": "Оновити токен"
+  "githubUpdateToken": "Оновити токен",
+  "githubTokenTitle": "Особистий токен доступу",
+  "githubTokenOptionalBody": "Необов’язково. Публічні репозиторії GitHub можна переглядати без токена.",
+  "githubShowToken": "Показати токен",
+  "githubHideToken": "Приховати токен",
+  "githubTokenStorageNote": "Зберігається на цьому пристрої."
 }

@@ -5292,4 +5292,20 @@ class AppLocalizationsKo extends AppLocalizations {
 
   @override
   String get githubUpdateToken => '토큰 업데이트';
+
+  @override
+  String get githubTokenTitle => '개인 액세스 토큰';
+
+  @override
+  String get githubTokenOptionalBody =>
+      '선택 사항이에요. 공개 GitHub 저장소는 토큰 없이도 둘러볼 수 있어요.';
+
+  @override
+  String get githubShowToken => '토큰 표시';
+
+  @override
+  String get githubHideToken => '토큰 숨기기';
+
+  @override
+  String get githubTokenStorageNote => '이 기기에 저장돼요.';
 }

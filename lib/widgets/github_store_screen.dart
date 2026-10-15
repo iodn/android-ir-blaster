@@ -1719,40 +1719,44 @@ class _GitHubConnectionScreenState extends State<_GitHubConnectionScreen> {
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         Text(
-                          'Personal access token',
+                          context.l10n.githubTokenTitle,
                           style: theme.textTheme.titleMedium?.copyWith(
                             fontWeight: FontWeight.w800,
                           ),
                         ),
                         const SizedBox(height: 6),
                         Text(
-                          'Optional. If you leave this empty, the app keeps using public GitHub access.',
+                          context.l10n.githubTokenOptionalBody,
                           style: theme.textTheme.bodyMedium?.copyWith(
                             color: cs.onSurfaceVariant,
                           ),
                         ),
                         const SizedBox(height: 12),
-                        TextField(
-                          controller: _tokenCtrl,
-                          obscureText: !_showToken,
-                          autocorrect: false,
-                          enableSuggestions: false,
-                          decoration: InputDecoration(
-                            labelText: 'GitHub personal access token',
-                            hintText: 'ghp_...',
-                            border: const OutlineInputBorder(),
-                            prefixIcon: const Icon(Icons.key_rounded),
-                            suffixIcon: IconButton(
-                              tooltip: _showToken ? 'Hide token' : 'Show token',
-                              onPressed: () {
-                                setState(() {
-                                  _showToken = !_showToken;
-                                });
-                              },
-                              icon: Icon(
-                                _showToken
-                                    ? Icons.visibility_off_rounded
-                                    : Icons.visibility_rounded,
+                        Semantics(
+                          label: context.l10n.githubTokenTitle,
+                          child: TextField(
+                            controller: _tokenCtrl,
+                            obscureText: !_showToken,
+                            autocorrect: false,
+                            enableSuggestions: false,
+                            decoration: InputDecoration(
+                              hintText: 'ghp_...',
+                              border: const OutlineInputBorder(),
+                              prefixIcon: const Icon(Icons.key_rounded),
+                              suffixIcon: IconButton(
+                                tooltip: _showToken
+                                    ? context.l10n.githubHideToken
+                                    : context.l10n.githubShowToken,
+                                onPressed: () {
+                                  setState(() {
+                                    _showToken = !_showToken;
+                                  });
+                                },
+                                icon: Icon(
+                                  _showToken
+                                      ? Icons.visibility_off_rounded
+                                      : Icons.visibility_rounded,
+                                ),
                               ),
                             ),
                           ),
@@ -1784,7 +1788,7 @@ class _GitHubConnectionScreenState extends State<_GitHubConnectionScreen> {
                         ),
                         const SizedBox(height: 8),
                         Text(
-                          'Stored on this device only.',
+                          context.l10n.githubTokenStorageNote,
                           style: theme.textTheme.bodySmall?.copyWith(
                             color: cs.onSurfaceVariant,
                           ),

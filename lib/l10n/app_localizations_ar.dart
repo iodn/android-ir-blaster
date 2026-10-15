@@ -5453,6 +5453,22 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String get githubUpdateToken => 'تحديث الرمز';
+
+  @override
+  String get githubTokenTitle => 'رمز وصول شخصي';
+
+  @override
+  String get githubTokenOptionalBody =>
+      'اختياري. يمكنك تصفح مستودعات GitHub العامة دون رمز.';
+
+  @override
+  String get githubShowToken => 'إظهار الرمز';
+
+  @override
+  String get githubHideToken => 'إخفاء الرمز';
+
+  @override
+  String get githubTokenStorageNote => 'يُحفظ على هذا الجهاز.';
 }
 
 /// The translations for Arabic, as used in Egypt (`ar_EG`).
@@ -10904,4 +10920,20 @@ class AppLocalizationsArEg extends AppLocalizationsAr {
 
   @override
   String get githubUpdateToken => 'تحديث الرمز';
+
+  @override
+  String get githubTokenTitle => 'رمز وصول شخصي';
+
+  @override
+  String get githubTokenOptionalBody =>
+      'اختياري. تقدر تتصفح مستودعات GitHub العامة من غير رمز.';
+
+  @override
+  String get githubShowToken => 'إظهار الرمز';
+
+  @override
+  String get githubHideToken => 'إخفاء الرمز';
+
+  @override
+  String get githubTokenStorageNote => 'بيتحفظ على الجهاز ده.';
 }

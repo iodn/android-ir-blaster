@@ -5527,6 +5527,22 @@ class AppLocalizationsPt extends AppLocalizations {
 
   @override
   String get githubUpdateToken => 'Atualizar token';
+
+  @override
+  String get githubTokenTitle => 'Token de acesso pessoal';
+
+  @override
+  String get githubTokenOptionalBody =>
+      'Opcional. Pode explorar repositórios públicos do GitHub sem um token.';
+
+  @override
+  String get githubShowToken => 'Mostrar token';
+
+  @override
+  String get githubHideToken => 'Ocultar token';
+
+  @override
+  String get githubTokenStorageNote => 'Guardado neste dispositivo.';
 }
 
 /// The translations for Portuguese, as used in Brazil (`pt_BR`).
@@ -11046,4 +11062,20 @@ class AppLocalizationsPtBr extends AppLocalizationsPt {
 
   @override
   String get githubUpdateToken => 'Atualizar token';
+
+  @override
+  String get githubTokenTitle => 'Token de acesso pessoal';
+
+  @override
+  String get githubTokenOptionalBody =>
+      'Opcional. Você pode explorar repositórios públicos do GitHub sem um token.';
+
+  @override
+  String get githubShowToken => 'Mostrar token';
+
+  @override
+  String get githubHideToken => 'Ocultar token';
+
+  @override
+  String get githubTokenStorageNote => 'Salvo neste dispositivo.';
 }

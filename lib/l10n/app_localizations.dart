@@ -9805,6 +9805,36 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Update token'**
   String get githubUpdateToken;
+
+  /// No description provided for @githubTokenTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Personal access token'**
+  String get githubTokenTitle;
+
+  /// No description provided for @githubTokenOptionalBody.
+  ///
+  /// In en, this message translates to:
+  /// **'Optional. You can browse public GitHub repositories without a token.'**
+  String get githubTokenOptionalBody;
+
+  /// No description provided for @githubShowToken.
+  ///
+  /// In en, this message translates to:
+  /// **'Show token'**
+  String get githubShowToken;
+
+  /// No description provided for @githubHideToken.
+  ///
+  /// In en, this message translates to:
+  /// **'Hide token'**
+  String get githubHideToken;
+
+  /// No description provided for @githubTokenStorageNote.
+  ///
+  /// In en, this message translates to:
+  /// **'Saved on this device.'**
+  String get githubTokenStorageNote;
 }
 
 class _AppLocalizationsDelegate

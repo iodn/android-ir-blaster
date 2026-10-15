@@ -2482,5 +2482,10 @@
   "githubTokenRemoved": "Jeton supprimé. L’application accédera à GitHub sans jeton.",
   "githubSettingsSaved": "Paramètres enregistrés",
   "githubSaveToken": "Enregistrer le jeton",
-  "githubUpdateToken": "Mettre à jour le jeton"
+  "githubUpdateToken": "Mettre à jour le jeton",
+  "githubTokenTitle": "Jeton d’accès personnel",
+  "githubTokenOptionalBody": "Facultatif. Vous pouvez parcourir les dépôts publics GitHub sans jeton.",
+  "githubShowToken": "Afficher le jeton",
+  "githubHideToken": "Masquer le jeton",
+  "githubTokenStorageNote": "Enregistré sur cet appareil."
 }

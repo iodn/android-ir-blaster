@@ -5459,4 +5459,20 @@ class AppLocalizationsFil extends AppLocalizations {
 
   @override
   String get githubUpdateToken => 'I-update ang token';
+
+  @override
+  String get githubTokenTitle => 'Personal na access token';
+
+  @override
+  String get githubTokenOptionalBody =>
+      'Opsyonal. Maaari mong tingnan ang mga pampublikong GitHub repository nang walang token.';
+
+  @override
+  String get githubShowToken => 'Ipakita ang token';
+
+  @override
+  String get githubHideToken => 'Itago ang token';
+
+  @override
+  String get githubTokenStorageNote => 'Naka-save sa device na ito.';
 }

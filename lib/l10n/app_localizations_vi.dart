@@ -5420,4 +5420,20 @@ class AppLocalizationsVi extends AppLocalizations {
 
   @override
   String get githubUpdateToken => 'Cập nhật mã truy cập';
+
+  @override
+  String get githubTokenTitle => 'Mã truy cập cá nhân';
+
+  @override
+  String get githubTokenOptionalBody =>
+      'Không bắt buộc. Bạn có thể duyệt kho công khai trên GitHub mà không cần mã truy cập.';
+
+  @override
+  String get githubShowToken => 'Hiện mã truy cập';
+
+  @override
+  String get githubHideToken => 'Ẩn mã truy cập';
+
+  @override
+  String get githubTokenStorageNote => 'Được lưu trên thiết bị này.';
 }

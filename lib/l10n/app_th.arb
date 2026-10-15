@@ -2482,5 +2482,10 @@
   "githubTokenRemoved": "ลบโทเค็นแล้ว แอปจะเข้าถึง GitHub โดยไม่ใช้โทเค็น",
   "githubSettingsSaved": "บันทึกการตั้งค่าแล้ว",
   "githubSaveToken": "บันทึกโทเค็น",
-  "githubUpdateToken": "อัปเดตโทเค็น"
+  "githubUpdateToken": "อัปเดตโทเค็น",
+  "githubTokenTitle": "โทเค็นการเข้าถึงส่วนบุคคล",
+  "githubTokenOptionalBody": "ไม่จำเป็นต้องระบุ คุณสามารถดูคลังโค้ดสาธารณะบน GitHub ได้โดยไม่ใช้โทเค็น",
+  "githubShowToken": "แสดงโทเค็น",
+  "githubHideToken": "ซ่อนโทเค็น",
+  "githubTokenStorageNote": "บันทึกไว้ในอุปกรณ์นี้"
 }

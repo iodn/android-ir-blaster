@@ -2482,5 +2482,10 @@
   "githubTokenRemoved": "トークンを削除しました。トークンなしでGitHubにアクセスします。",
   "githubSettingsSaved": "設定を保存しました",
   "githubSaveToken": "トークンを保存",
-  "githubUpdateToken": "トークンを更新"
+  "githubUpdateToken": "トークンを更新",
+  "githubTokenTitle": "個人アクセストークン",
+  "githubTokenOptionalBody": "任意です。GitHubの公開リポジトリは、トークンなしでも閲覧できます。",
+  "githubShowToken": "トークンを表示",
+  "githubHideToken": "トークンを隠す",
+  "githubTokenStorageNote": "この端末に保存されます。"
 }

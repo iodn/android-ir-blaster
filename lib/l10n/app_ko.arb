@@ -2482,5 +2482,10 @@
   "githubTokenRemoved": "토큰을 삭제했어요. 이제 토큰 없이 GitHub에 접속해요.",
   "githubSettingsSaved": "설정을 저장했어요",
   "githubSaveToken": "토큰 저장",
-  "githubUpdateToken": "토큰 업데이트"
+  "githubUpdateToken": "토큰 업데이트",
+  "githubTokenTitle": "개인 액세스 토큰",
+  "githubTokenOptionalBody": "선택 사항이에요. 공개 GitHub 저장소는 토큰 없이도 둘러볼 수 있어요.",
+  "githubShowToken": "토큰 표시",
+  "githubHideToken": "토큰 숨기기",
+  "githubTokenStorageNote": "이 기기에 저장돼요."
 }

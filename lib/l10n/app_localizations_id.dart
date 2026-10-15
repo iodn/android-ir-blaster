@@ -5438,4 +5438,20 @@ class AppLocalizationsId extends AppLocalizations {
 
   @override
   String get githubUpdateToken => 'Perbarui token';
+
+  @override
+  String get githubTokenTitle => 'Token akses pribadi';
+
+  @override
+  String get githubTokenOptionalBody =>
+      'Opsional. Anda dapat menjelajahi repositori publik GitHub tanpa token.';
+
+  @override
+  String get githubShowToken => 'Tampilkan token';
+
+  @override
+  String get githubHideToken => 'Sembunyikan token';
+
+  @override
+  String get githubTokenStorageNote => 'Disimpan di perangkat ini.';
 }

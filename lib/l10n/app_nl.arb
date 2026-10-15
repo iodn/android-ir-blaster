@@ -2482,5 +2482,10 @@
   "githubTokenRemoved": "Token verwijderd. De app gebruikt GitHub nu zonder token.",
   "githubSettingsSaved": "Instellingen opgeslagen",
   "githubSaveToken": "Token opslaan",
-  "githubUpdateToken": "Token bijwerken"
+  "githubUpdateToken": "Token bijwerken",
+  "githubTokenTitle": "Persoonlijk toegangstoken",
+  "githubTokenOptionalBody": "Optioneel. Je kunt openbare GitHub-repositories ook zonder token bekijken.",
+  "githubShowToken": "Token tonen",
+  "githubHideToken": "Token verbergen",
+  "githubTokenStorageNote": "Wordt op dit apparaat opgeslagen."
 }

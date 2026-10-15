@@ -5452,4 +5452,20 @@ class AppLocalizationsHi extends AppLocalizations {
 
   @override
   String get githubUpdateToken => 'टोकन अपडेट करें';
+
+  @override
+  String get githubTokenTitle => 'निजी एक्सेस टोकन';
+
+  @override
+  String get githubTokenOptionalBody =>
+      'वैकल्पिक। आप बिना टोकन के GitHub की सार्वजनिक रिपॉज़िटरी देख सकते हैं।';
+
+  @override
+  String get githubShowToken => 'टोकन दिखाएँ';
+
+  @override
+  String get githubHideToken => 'टोकन छिपाएँ';
+
+  @override
+  String get githubTokenStorageNote => 'इस डिवाइस पर सहेजा जाता है।';
 }

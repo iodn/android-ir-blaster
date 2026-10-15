@@ -5541,4 +5541,20 @@ class AppLocalizationsFr extends AppLocalizations {
 
   @override
   String get githubUpdateToken => 'Mettre à jour le jeton';
+
+  @override
+  String get githubTokenTitle => 'Jeton d’accès personnel';
+
+  @override
+  String get githubTokenOptionalBody =>
+      'Facultatif. Vous pouvez parcourir les dépôts publics GitHub sans jeton.';
+
+  @override
+  String get githubShowToken => 'Afficher le jeton';
+
+  @override
+  String get githubHideToken => 'Masquer le jeton';
+
+  @override
+  String get githubTokenStorageNote => 'Enregistré sur cet appareil.';
 }

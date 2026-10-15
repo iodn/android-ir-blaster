@@ -5277,4 +5277,19 @@ class AppLocalizationsJa extends AppLocalizations {
 
   @override
   String get githubUpdateToken => 'トークンを更新';
+
+  @override
+  String get githubTokenTitle => '個人アクセストークン';
+
+  @override
+  String get githubTokenOptionalBody => '任意です。GitHubの公開リポジトリは、トークンなしでも閲覧できます。';
+
+  @override
+  String get githubShowToken => 'トークンを表示';
+
+  @override
+  String get githubHideToken => 'トークンを隠す';
+
+  @override
+  String get githubTokenStorageNote => 'この端末に保存されます。';
 }

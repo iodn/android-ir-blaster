@@ -5397,4 +5397,20 @@ class AppLocalizationsTh extends AppLocalizations {
 
   @override
   String get githubUpdateToken => 'อัปเดตโทเค็น';
+
+  @override
+  String get githubTokenTitle => 'โทเค็นการเข้าถึงส่วนบุคคล';
+
+  @override
+  String get githubTokenOptionalBody =>
+      'ไม่จำเป็นต้องระบุ คุณสามารถดูคลังโค้ดสาธารณะบน GitHub ได้โดยไม่ใช้โทเค็น';
+
+  @override
+  String get githubShowToken => 'แสดงโทเค็น';
+
+  @override
+  String get githubHideToken => 'ซ่อนโทเค็น';
+
+  @override
+  String get githubTokenStorageNote => 'บันทึกไว้ในอุปกรณ์นี้';
 }

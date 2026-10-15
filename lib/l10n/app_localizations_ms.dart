@@ -5451,4 +5451,20 @@ class AppLocalizationsMs extends AppLocalizations {
 
   @override
   String get githubUpdateToken => 'Kemas kini token';
+
+  @override
+  String get githubTokenTitle => 'Token akses peribadi';
+
+  @override
+  String get githubTokenOptionalBody =>
+      'Pilihan. Anda boleh melayari repositori awam GitHub tanpa token.';
+
+  @override
+  String get githubShowToken => 'Tunjukkan token';
+
+  @override
+  String get githubHideToken => 'Sembunyikan token';
+
+  @override
+  String get githubTokenStorageNote => 'Disimpan pada peranti ini.';
 }

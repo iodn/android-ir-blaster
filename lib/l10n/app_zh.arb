@@ -2482,5 +2482,10 @@
   "githubTokenRemoved": "已移除令牌。应用将不使用令牌访问GitHub。",
   "githubSettingsSaved": "设置已保存",
   "githubSaveToken": "保存令牌",
-  "githubUpdateToken": "更新令牌"
+  "githubUpdateToken": "更新令牌",
+  "githubTokenTitle": "个人访问令牌",
+  "githubTokenOptionalBody": "选填。无需令牌也可以浏览GitHub的公开仓库。",
+  "githubShowToken": "显示令牌",
+  "githubHideToken": "隐藏令牌",
+  "githubTokenStorageNote": "保存在此设备上。"
 }

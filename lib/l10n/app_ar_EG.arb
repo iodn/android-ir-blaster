@@ -2482,5 +2482,10 @@
   "githubTokenRemoved": "الرمز اتشال. التطبيق هيستخدم GitHub من غير رمز.",
   "githubSettingsSaved": "الإعدادات اتحفظت",
   "githubSaveToken": "حفظ الرمز",
-  "githubUpdateToken": "تحديث الرمز"
+  "githubUpdateToken": "تحديث الرمز",
+  "githubTokenTitle": "رمز وصول شخصي",
+  "githubTokenOptionalBody": "اختياري. تقدر تتصفح مستودعات GitHub العامة من غير رمز.",
+  "githubShowToken": "إظهار الرمز",
+  "githubHideToken": "إخفاء الرمز",
+  "githubTokenStorageNote": "بيتحفظ على الجهاز ده."
 }

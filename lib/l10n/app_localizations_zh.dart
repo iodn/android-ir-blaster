@@ -5192,4 +5192,19 @@ class AppLocalizationsZh extends AppLocalizations {
 
   @override
   String get githubUpdateToken => '更新令牌';
+
+  @override
+  String get githubTokenTitle => '个人访问令牌';
+
+  @override
+  String get githubTokenOptionalBody => '选填。无需令牌也可以浏览GitHub的公开仓库。';
+
+  @override
+  String get githubShowToken => '显示令牌';
+
+  @override
+  String get githubHideToken => '隐藏令牌';
+
+  @override
+  String get githubTokenStorageNote => '保存在此设备上。';
 }

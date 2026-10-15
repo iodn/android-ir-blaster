@@ -5584,4 +5584,20 @@ class AppLocalizationsUk extends AppLocalizations {
 
   @override
   String get githubUpdateToken => 'Оновити токен';
+
+  @override
+  String get githubTokenTitle => 'Особистий токен доступу';
+
+  @override
+  String get githubTokenOptionalBody =>
+      'Необов’язково. Публічні репозиторії GitHub можна переглядати без токена.';
+
+  @override
+  String get githubShowToken => 'Показати токен';
+
+  @override
+  String get githubHideToken => 'Приховати токен';
+
+  @override
+  String get githubTokenStorageNote => 'Зберігається на цьому пристрої.';
 }

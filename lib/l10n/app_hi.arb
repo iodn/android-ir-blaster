@@ -2482,5 +2482,10 @@
   "githubTokenRemoved": "टोकन हटा दिया गया। ऐप अब बिना टोकन के GitHub का इस्तेमाल करेगा।",
   "githubSettingsSaved": "सेटिंग सहेजी गईं",
   "githubSaveToken": "टोकन सहेजें",
-  "githubUpdateToken": "टोकन अपडेट करें"
+  "githubUpdateToken": "टोकन अपडेट करें",
+  "githubTokenTitle": "निजी एक्सेस टोकन",
+  "githubTokenOptionalBody": "वैकल्पिक। आप बिना टोकन के GitHub की सार्वजनिक रिपॉज़िटरी देख सकते हैं।",
+  "githubShowToken": "टोकन दिखाएँ",
+  "githubHideToken": "टोकन छिपाएँ",
+  "githubTokenStorageNote": "इस डिवाइस पर सहेजा जाता है।"
 }

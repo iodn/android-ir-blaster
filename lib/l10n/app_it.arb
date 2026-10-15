@@ -2482,5 +2482,10 @@
   "githubTokenRemoved": "Token rimosso. L’app accederà a GitHub senza token.",
   "githubSettingsSaved": "Impostazioni salvate",
   "githubSaveToken": "Salva token",
-  "githubUpdateToken": "Aggiorna token"
+  "githubUpdateToken": "Aggiorna token",
+  "githubTokenTitle": "Token di accesso personale",
+  "githubTokenOptionalBody": "Facoltativo. Puoi esplorare i repository pubblici di GitHub senza un token.",
+  "githubShowToken": "Mostra token",
+  "githubHideToken": "Nascondi token",
+  "githubTokenStorageNote": "Salvato su questo dispositivo."
 }
