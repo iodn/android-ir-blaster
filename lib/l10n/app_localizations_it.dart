@@ -256,16 +256,16 @@ class AppLocalizationsIt extends AppLocalizations {
 
   @override
   String remoteDeleteFailed(Object error) {
-    return 'Eliminazione fallita: $error';
+    return 'Impossibile eliminare il telecomando: $error';
   }
 
   @override
   String get remoteNotFoundSavedList =>
-      'Telecomando non trovato nell\'elenco salvato.';
+      'Questo telecomando non è presente nell’elenco dei telecomandi salvati.';
 
   @override
   String remoteDeletedNamed(Object name) {
-    return 'Eliminato \"$name\".';
+    return 'Telecomando «$name» eliminato.';
   }
 
   @override
@@ -1220,7 +1220,7 @@ class AppLocalizationsIt extends AppLocalizations {
 
   @override
   String deletedRemoteUndoUnavailable(Object name) {
-    return 'Eliminato \"$name\". Questa azione non può essere annullata.';
+    return 'Telecomando «$name» eliminato. L’operazione non può essere annullata.';
   }
 
   @override
@@ -1467,7 +1467,7 @@ class AppLocalizationsIt extends AppLocalizations {
 
   @override
   String remoteUpdatedNamedButton(Object name) {
-    return 'Aggiornato \"$name\".';
+    return 'Pulsante «$name» aggiornato.';
   }
 
   @override

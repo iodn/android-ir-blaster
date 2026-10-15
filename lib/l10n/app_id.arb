@@ -95,14 +95,14 @@
       "name": {}
     }
   },
-  "remoteDeleteFailed": "Gagal menghapus: {error}",
+  "remoteDeleteFailed": "Remote tidak dapat dihapus: {error}",
   "@remoteDeleteFailed": {
     "placeholders": {
       "error": {}
     }
   },
-  "remoteNotFoundSavedList": "Remote tidak ditemukan di daftar tersimpan.",
-  "remoteDeletedNamed": "Dihapus \"{name}\".",
+  "remoteNotFoundSavedList": "Remote ini tidak ditemukan dalam daftar remote tersimpan.",
+  "remoteDeletedNamed": "Remote “{name}” dihapus.",
   "@remoteDeletedNamed": {
     "placeholders": {
       "name": {}
@@ -330,7 +330,7 @@
   "skip": "Lewati",
   "add": "Tambah",
   "addedToDeviceControls": "Ditambahkan ke Kontrol Perangkat.",
-  "deletedRemoteUndoUnavailable": "Dihapus \"{name}\". Tindakan ini tidak bisa dibatalkan.",
+  "deletedRemoteUndoUnavailable": "Remote “{name}” dihapus. Tindakan ini tidak dapat diurungkan.",
   "@deletedRemoteUndoUnavailable": {
     "placeholders": {
       "name": {}
@@ -430,7 +430,7 @@
   "remoteNoButtonsDescription": "Edit remote ini untuk menambah atau mengatur tombol.",
   "editRemote": "Ubah remote",
   "editRemoteActionsSubtitle": "Ganti nama remote, susun dan edit tombol",
-  "remoteUpdatedNamedButton": "Diperbarui \"{name}\".",
+  "remoteUpdatedNamedButton": "Tombol “{name}” diperbarui.",
   "@remoteUpdatedNamedButton": {
     "placeholders": {
       "name": {}

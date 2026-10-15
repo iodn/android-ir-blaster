@@ -256,15 +256,16 @@ class AppLocalizationsFil extends AppLocalizations {
 
   @override
   String remoteDeleteFailed(Object error) {
-    return 'Nabigo ang pagbura: $error';
+    return 'Hindi mabura ang remote: $error';
   }
 
   @override
-  String get remoteNotFoundSavedList => 'Remote not found in saved list.';
+  String get remoteNotFoundSavedList =>
+      'Hindi makita ang remote na ito sa mga naka-save na remote.';
 
   @override
   String remoteDeletedNamed(Object name) {
-    return 'Nabura ang \"$name\".';
+    return 'Nabura ang “$name”.';
   }
 
   @override
@@ -1216,7 +1217,7 @@ class AppLocalizationsFil extends AppLocalizations {
 
   @override
   String deletedRemoteUndoUnavailable(Object name) {
-    return 'Deleted \"$name\". Ang action hindi na mababawi.';
+    return 'Nabura ang “$name”. Hindi ito maibabalik.';
   }
 
   @override
@@ -1445,7 +1446,7 @@ class AppLocalizationsFil extends AppLocalizations {
 
   @override
   String remoteUpdatedNamedButton(Object name) {
-    return 'Na-update ang \"$name\".';
+    return 'Na-update ang pindutang “$name”.';
   }
 
   @override

@@ -95,14 +95,14 @@
       "name": {}
     }
   },
-  "remoteDeleteFailed": "ลบไม่สำเร็จ: {error}",
+  "remoteDeleteFailed": "ลบรีโมตไม่สำเร็จ: {error}",
   "@remoteDeleteFailed": {
     "placeholders": {
       "error": {}
     }
   },
-  "remoteNotFoundSavedList": "รีโมต not found in ที่บันทึกไว้ list.",
-  "remoteDeletedNamed": "ลบ \"{name}\" แล้ว",
+  "remoteNotFoundSavedList": "ไม่พบรีโมตนี้ในรายการที่บันทึกไว้",
+  "remoteDeletedNamed": "ลบรีโมต “{name}” แล้ว",
   "@remoteDeletedNamed": {
     "placeholders": {
       "name": {}
@@ -330,7 +330,7 @@
   "skip": "Skip",
   "add": "เพิ่ม",
   "addedToDeviceControls": "เพิ่มในการควบคุมอุปกรณ์แล้ว",
-  "deletedRemoteUndoUnavailable": "ลบ \"{name}\" แล้ว การกระทำนี้ยกเลิกไม่ได้",
+  "deletedRemoteUndoUnavailable": "ลบรีโมต “{name}” แล้ว และไม่สามารถกู้คืนได้",
   "@deletedRemoteUndoUnavailable": {
     "placeholders": {
       "name": {}
@@ -430,7 +430,7 @@
   "remoteNoButtonsDescription": "แก้ไขรีโมตนี้เพื่อเพิ่มหรือตั้งค่าปุ่ม",
   "editRemote": "แก้ไข remote",
   "editRemoteActionsSubtitle": "เปลี่ยนชื่อรีโมต จัดวางและแก้ไขปุ่ม",
-  "remoteUpdatedNamedButton": "อัปเดต \"{name}\" แล้ว",
+  "remoteUpdatedNamedButton": "อัปเดตปุ่ม “{name}” แล้ว",
   "@remoteUpdatedNamedButton": {
     "placeholders": {
       "name": {}

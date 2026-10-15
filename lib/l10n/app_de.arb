@@ -95,14 +95,14 @@
       "name": {}
     }
   },
-  "remoteDeleteFailed": "Löschen fehlgeschlagen: {error}",
+  "remoteDeleteFailed": "Fernbedienung konnte nicht gelöscht werden: {error}",
   "@remoteDeleteFailed": {
     "placeholders": {
       "error": {}
     }
   },
-  "remoteNotFoundSavedList": "Fernbedienung in der gespeicherten Liste nicht gefunden.",
-  "remoteDeletedNamed": "{name} gelöscht.",
+  "remoteNotFoundSavedList": "Diese Fernbedienung wurde nicht in der gespeicherten Liste gefunden.",
+  "remoteDeletedNamed": "„{name}“ gelöscht.",
   "@remoteDeletedNamed": {
     "placeholders": {
       "name": {}
@@ -330,7 +330,7 @@
   "skip": "Überspringen",
   "add": "Hinzufügen",
   "addedToDeviceControls": "Zur Gerätesteuerung hinzugefügt.",
-  "deletedRemoteUndoUnavailable": "{name} gelöscht. Diese Aktion kann nicht rückgängig gemacht werden.",
+  "deletedRemoteUndoUnavailable": "„{name}“ gelöscht. Das lässt sich nicht rückgängig machen.",
   "@deletedRemoteUndoUnavailable": {
     "placeholders": {
       "name": {}
@@ -440,7 +440,7 @@
   "remoteNoButtonsDescription": "Bearbeite diese Fernbedienung, um Tasten hinzuzufügen oder einzurichten.",
   "editRemote": "Fernbedienung bearbeiten",
   "editRemoteActionsSubtitle": "Namen ändern, Tasten anordnen und bearbeiten",
-  "remoteUpdatedNamedButton": "{name} aktualisiert.",
+  "remoteUpdatedNamedButton": "Taste „{name}“ aktualisiert.",
   "@remoteUpdatedNamedButton": {
     "placeholders": {
       "name": {}

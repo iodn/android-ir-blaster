@@ -256,16 +256,16 @@ class AppLocalizationsDe extends AppLocalizations {
 
   @override
   String remoteDeleteFailed(Object error) {
-    return 'Löschen fehlgeschlagen: $error';
+    return 'Fernbedienung konnte nicht gelöscht werden: $error';
   }
 
   @override
   String get remoteNotFoundSavedList =>
-      'Fernbedienung in der gespeicherten Liste nicht gefunden.';
+      'Diese Fernbedienung wurde nicht in der gespeicherten Liste gefunden.';
 
   @override
   String remoteDeletedNamed(Object name) {
-    return '$name gelöscht.';
+    return '„$name“ gelöscht.';
   }
 
   @override
@@ -1223,7 +1223,7 @@ class AppLocalizationsDe extends AppLocalizations {
 
   @override
   String deletedRemoteUndoUnavailable(Object name) {
-    return '$name gelöscht. Diese Aktion kann nicht rückgängig gemacht werden.';
+    return '„$name“ gelöscht. Das lässt sich nicht rückgängig machen.';
   }
 
   @override
@@ -1471,7 +1471,7 @@ class AppLocalizationsDe extends AppLocalizations {
 
   @override
   String remoteUpdatedNamedButton(Object name) {
-    return '$name aktualisiert.';
+    return 'Taste „$name“ aktualisiert.';
   }
 
   @override

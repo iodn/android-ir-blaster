@@ -254,15 +254,16 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String remoteDeleteFailed(Object error) {
-    return 'Delete failed: $error';
+    return 'Could not delete the remote: $error';
   }
 
   @override
-  String get remoteNotFoundSavedList => 'Remote not found in saved list.';
+  String get remoteNotFoundSavedList =>
+      'This remote was not found in your saved remotes.';
 
   @override
   String remoteDeletedNamed(Object name) {
-    return 'Deleted \"$name\".';
+    return 'Deleted “$name”.';
   }
 
   @override
@@ -1199,7 +1200,7 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String deletedRemoteUndoUnavailable(Object name) {
-    return 'Deleted \"$name\". This action can\'t be undone.';
+    return 'Deleted “$name”. This cannot be undone.';
   }
 
   @override
@@ -1445,7 +1446,7 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String remoteUpdatedNamedButton(Object name) {
-    return 'Updated \"$name\".';
+    return 'Updated button “$name”.';
   }
 
   @override

@@ -95,14 +95,14 @@
       "name": {}
     }
   },
-  "remoteDeleteFailed": "Eliminazione fallita: {error}",
+  "remoteDeleteFailed": "Impossibile eliminare il telecomando: {error}",
   "@remoteDeleteFailed": {
     "placeholders": {
       "error": {}
     }
   },
-  "remoteNotFoundSavedList": "Telecomando non trovato nell'elenco salvato.",
-  "remoteDeletedNamed": "Eliminato \"{name}\".",
+  "remoteNotFoundSavedList": "Questo telecomando non è presente nell’elenco dei telecomandi salvati.",
+  "remoteDeletedNamed": "Telecomando «{name}» eliminato.",
   "@remoteDeletedNamed": {
     "placeholders": {
       "name": {}
@@ -330,7 +330,7 @@
   "skip": "Salta",
   "add": "Aggiungi",
   "addedToDeviceControls": "Aggiunto ai controlli dispositivo.",
-  "deletedRemoteUndoUnavailable": "Eliminato \"{name}\". Questa azione non può essere annullata.",
+  "deletedRemoteUndoUnavailable": "Telecomando «{name}» eliminato. L’operazione non può essere annullata.",
   "@deletedRemoteUndoUnavailable": {
     "placeholders": {
       "name": {}
@@ -430,7 +430,7 @@
   "remoteNoButtonsDescription": "Modifica questo telecomando per aggiungere o configurare i pulsanti.",
   "editRemote": "Modifica telecomando",
   "editRemoteActionsSubtitle": "Rinomina il telecomando, disponi e modifica i pulsanti",
-  "remoteUpdatedNamedButton": "Aggiornato \"{name}\".",
+  "remoteUpdatedNamedButton": "Pulsante «{name}» aggiornato.",
   "@remoteUpdatedNamedButton": {
     "placeholders": {
       "name": {}

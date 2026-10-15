@@ -95,14 +95,14 @@
       "name": {}
     }
   },
-  "remoteDeleteFailed": "Suppression échouée : {error}",
+  "remoteDeleteFailed": "Impossible de supprimer la télécommande : {error}",
   "@remoteDeleteFailed": {
     "placeholders": {
       "error": {}
     }
   },
-  "remoteNotFoundSavedList": "Télécommande introuvable dans la liste.",
-  "remoteDeletedNamed": "\"{name}\" supprimé.",
+  "remoteNotFoundSavedList": "Cette télécommande ne figure pas dans la liste enregistrée.",
+  "remoteDeletedNamed": "Télécommande « {name} » supprimée.",
   "@remoteDeletedNamed": {
     "placeholders": {
       "name": {}
@@ -335,7 +335,7 @@
   "skip": "Passer",
   "add": "Ajouter",
   "addedToDeviceControls": "Ajouté aux contrôles appareil.",
-  "deletedRemoteUndoUnavailable": "\"{name}\" supprimé. Cette action est irréversible.",
+  "deletedRemoteUndoUnavailable": "Télécommande « {name} » supprimée. Cette action est irréversible.",
   "@deletedRemoteUndoUnavailable": {
     "placeholders": {
       "name": {}
@@ -435,7 +435,7 @@
   "remoteNoButtonsDescription": "Modifiez cette télécommande pour ajouter ou configurer des boutons.",
   "editRemote": "Modifier la télécommande",
   "editRemoteActionsSubtitle": "Renommer la télécommande, organiser et modifier les boutons",
-  "remoteUpdatedNamedButton": "\"{name}\" mis à jour.",
+  "remoteUpdatedNamedButton": "Bouton « {name} » mis à jour.",
   "@remoteUpdatedNamedButton": {
     "placeholders": {
       "name": {}

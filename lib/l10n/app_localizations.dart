@@ -561,19 +561,19 @@ abstract class AppLocalizations {
   /// No description provided for @remoteDeleteFailed.
   ///
   /// In en, this message translates to:
-  /// **'Delete failed: {error}'**
+  /// **'Could not delete the remote: {error}'**
   String remoteDeleteFailed(Object error);
 
   /// No description provided for @remoteNotFoundSavedList.
   ///
   /// In en, this message translates to:
-  /// **'Remote not found in saved list.'**
+  /// **'This remote was not found in your saved remotes.'**
   String get remoteNotFoundSavedList;
 
   /// No description provided for @remoteDeletedNamed.
   ///
   /// In en, this message translates to:
-  /// **'Deleted \"{name}\".'**
+  /// **'Deleted “{name}”.'**
   String remoteDeletedNamed(Object name);
 
   /// No description provided for @buttonFallbackTitle.
@@ -2229,7 +2229,7 @@ abstract class AppLocalizations {
   /// No description provided for @deletedRemoteUndoUnavailable.
   ///
   /// In en, this message translates to:
-  /// **'Deleted \"{name}\". This action can\'t be undone.'**
+  /// **'Deleted “{name}”. This cannot be undone.'**
   String deletedRemoteUndoUnavailable(Object name);
 
   /// No description provided for @remoteLayoutSummary.
@@ -2613,7 +2613,7 @@ abstract class AppLocalizations {
   /// No description provided for @remoteUpdatedNamedButton.
   ///
   /// In en, this message translates to:
-  /// **'Updated \"{name}\".'**
+  /// **'Updated button “{name}”.'**
   String remoteUpdatedNamedButton(Object name);
 
   /// No description provided for @buttonAddedNamed.

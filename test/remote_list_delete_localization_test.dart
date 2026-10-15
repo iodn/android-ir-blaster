@@ -30,7 +30,7 @@ void main() {
           localizationsDelegates: AppLocalizations.localizationsDelegates,
           builder: (context, child) => MediaQuery(
             data: MediaQuery.of(context)
-                  .copyWith(textScaler: const TextScaler.linear(2)),
+                .copyWith(textScaler: const TextScaler.linear(2)),
             child: child!,
           ),
           home: search
@@ -98,6 +98,14 @@ void main() {
           expect(deletions, confirm ? 1 : 0);
           expect(state.remotes, [remote]);
           expect(surface, findsNothing);
+          if (confirm) {
+            final feedback = find.text(l10n.deletedRemoteUndoUnavailable(name));
+            expect(feedback, findsOneWidget);
+            final paragraph = tester.renderObject<RenderParagraph>(feedback);
+            expect(paragraph.didExceedMaxLines, isFalse);
+            expect(paragraph.getMaxIntrinsicHeight(paragraph.size.width),
+                lessThanOrEqualTo(paragraph.size.height + 0.1));
+          }
         }
         await tester.pumpWidget(const SizedBox());
         await tester.pumpAndSettle();

@@ -256,16 +256,16 @@ class AppLocalizationsPl extends AppLocalizations {
 
   @override
   String remoteDeleteFailed(Object error) {
-    return 'Usuwanie nieudane: $error';
+    return 'Nie udało się usunąć pilota: $error';
   }
 
   @override
   String get remoteNotFoundSavedList =>
-      'Nie znaleziono pilota na zapisanej liście.';
+      'Nie znaleziono tego pilota na liście zapisanych pilotów.';
 
   @override
   String remoteDeletedNamed(Object name) {
-    return 'Usunięto \"$name\".';
+    return 'Usunięto pilot „$name”.';
   }
 
   @override
@@ -1213,7 +1213,7 @@ class AppLocalizationsPl extends AppLocalizations {
 
   @override
   String deletedRemoteUndoUnavailable(Object name) {
-    return 'Usunięto \"$name\". This action can\'t be undone.';
+    return 'Usunięto pilot „$name”. Tej czynności nie można cofnąć.';
   }
 
   @override
@@ -1467,7 +1467,7 @@ class AppLocalizationsPl extends AppLocalizations {
 
   @override
   String remoteUpdatedNamedButton(Object name) {
-    return 'Zaktualizowano \"$name\".';
+    return 'Zaktualizowano przycisk „$name”.';
   }
 
   @override

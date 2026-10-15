@@ -256,16 +256,16 @@ class AppLocalizationsVi extends AppLocalizations {
 
   @override
   String remoteDeleteFailed(Object error) {
-    return 'Xóa thất bại: $error';
+    return 'Không thể xóa điều khiển: $error';
   }
 
   @override
   String get remoteNotFoundSavedList =>
-      'Không tìm thấy điều khiển trong danh sách đã lưu.';
+      'Không tìm thấy điều khiển này trong danh sách đã lưu.';
 
   @override
   String remoteDeletedNamed(Object name) {
-    return 'Đã xóa \"$name\".';
+    return 'Đã xóa điều khiển “$name”.';
   }
 
   @override
@@ -1198,7 +1198,7 @@ class AppLocalizationsVi extends AppLocalizations {
 
   @override
   String deletedRemoteUndoUnavailable(Object name) {
-    return 'Đã xóa \"$name\". This action can\'t be undone.';
+    return 'Đã xóa điều khiển “$name”. Không thể hoàn tác thao tác này.';
   }
 
   @override
@@ -1424,7 +1424,7 @@ class AppLocalizationsVi extends AppLocalizations {
 
   @override
   String remoteUpdatedNamedButton(Object name) {
-    return 'Đã cập nhật \"$name\".';
+    return 'Đã cập nhật nút “$name”.';
   }
 
   @override

@@ -254,15 +254,16 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String remoteDeleteFailed(Object error) {
-    return 'حذف فشل: $error';
+    return 'تعذّر حذف جهاز التحكم: $error';
   }
 
   @override
-  String get remoteNotFoundSavedList => 'جهاز التحكم not موجود in saved list.';
+  String get remoteNotFoundSavedList =>
+      'لم يُعثر على جهاز التحكم في القائمة المحفوظة.';
 
   @override
   String remoteDeletedNamed(Object name) {
-    return 'تم حذف \"$name\".';
+    return 'حُذف جهاز التحكم «$name».';
   }
 
   @override
@@ -1191,7 +1192,7 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String deletedRemoteUndoUnavailable(Object name) {
-    return 'Deleted \"$name\". This action can\'t be undone.';
+    return 'حُذف جهاز التحكم «$name». لا يمكن التراجع عن الحذف.';
   }
 
   @override
@@ -1446,7 +1447,7 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String remoteUpdatedNamedButton(Object name) {
-    return 'تم تحديث \"$name\".';
+    return 'حُدّث الزر «$name».';
   }
 
   @override
@@ -5519,15 +5520,16 @@ class AppLocalizationsArEg extends AppLocalizationsAr {
 
   @override
   String remoteDeleteFailed(Object error) {
-    return 'حذف فشل: $error';
+    return 'تعذّر حذف جهاز التحكم: $error';
   }
 
   @override
-  String get remoteNotFoundSavedList => 'جهاز التحكم not موجود in saved list.';
+  String get remoteNotFoundSavedList =>
+      'لم يُعثر على جهاز التحكم في القائمة المحفوظة.';
 
   @override
   String remoteDeletedNamed(Object name) {
-    return 'تم حذف \"$name\".';
+    return 'حُذف جهاز التحكم «$name».';
   }
 
   @override
@@ -6456,7 +6458,7 @@ class AppLocalizationsArEg extends AppLocalizationsAr {
 
   @override
   String deletedRemoteUndoUnavailable(Object name) {
-    return 'Deleted \"$name\". This action can\'t be undone.';
+    return 'حُذف جهاز التحكم «$name». لا يمكن التراجع عن الحذف.';
   }
 
   @override
@@ -6711,7 +6713,7 @@ class AppLocalizationsArEg extends AppLocalizationsAr {
 
   @override
   String remoteUpdatedNamedButton(Object name) {
-    return 'تم تحديث \"$name\".';
+    return 'حُدّث الزر «$name».';
   }
 
   @override

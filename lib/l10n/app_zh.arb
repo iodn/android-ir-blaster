@@ -95,14 +95,14 @@
       "name": {}
     }
   },
-  "remoteDeleteFailed": "删除 失败: {error}",
+  "remoteDeleteFailed": "无法删除遥控器：{error}",
   "@remoteDeleteFailed": {
     "placeholders": {
       "error": {}
     }
   },
-  "remoteNotFoundSavedList": "在已保存列表中未找到遥控器。",
-  "remoteDeletedNamed": "已删除 \"{name}\"。",
+  "remoteNotFoundSavedList": "在已保存的遥控器列表中找不到此遥控器。",
+  "remoteDeletedNamed": "已删除遥控器“{name}”。",
   "@remoteDeletedNamed": {
     "placeholders": {
       "name": {}
@@ -330,7 +330,7 @@
   "skip": "跳过",
   "add": "添加",
   "addedToDeviceControls": "已添加到设备控制。",
-  "deletedRemoteUndoUnavailable": "已删除 \"{name}\"。此操作无法撤销。",
+  "deletedRemoteUndoUnavailable": "已删除遥控器“{name}”。此操作无法撤销。",
   "@deletedRemoteUndoUnavailable": {
     "placeholders": {
       "name": {}
@@ -430,7 +430,7 @@
   "remoteNoButtonsDescription": "编辑此遥控器以添加或设置按钮。",
   "editRemote": "编辑遥控器",
   "editRemoteActionsSubtitle": "重命名遥控器、排列和编辑按钮",
-  "remoteUpdatedNamedButton": "已更新 \"{name}\"。",
+  "remoteUpdatedNamedButton": "已更新按钮“{name}”。",
   "@remoteUpdatedNamedButton": {
     "placeholders": {
       "name": {}

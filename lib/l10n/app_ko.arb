@@ -95,14 +95,14 @@
       "name": {}
     }
   },
-  "remoteDeleteFailed": "삭제 실패: {error}",
+  "remoteDeleteFailed": "리모컨을 삭제하지 못했습니다: {error}",
   "@remoteDeleteFailed": {
     "placeholders": {
       "error": {}
     }
   },
-  "remoteNotFoundSavedList": "리모컨을 저장 목록에서 찾을 수 없습니다.",
-  "remoteDeletedNamed": "\"{name}\" 삭제됨.",
+  "remoteNotFoundSavedList": "저장된 리모컨 목록에서 이 리모컨을 찾지 못했습니다.",
+  "remoteDeletedNamed": "“{name}” 리모컨을 삭제했습니다.",
   "@remoteDeletedNamed": {
     "placeholders": {
       "name": {}
@@ -330,7 +330,7 @@
   "skip": "건너뛰기",
   "add": "추가",
   "addedToDeviceControls": "기기 제어에 추가됨.",
-  "deletedRemoteUndoUnavailable": "\"{name}\"을(를) 삭제했습니다. 이 작업은 되돌릴 수 없습니다.",
+  "deletedRemoteUndoUnavailable": "“{name}” 리모컨을 삭제했습니다. 이 작업은 되돌릴 수 없습니다.",
   "@deletedRemoteUndoUnavailable": {
     "placeholders": {
       "name": {}
@@ -430,7 +430,7 @@
   "remoteNoButtonsDescription": "이 리모컨을 편집하여 버튼을 추가하거나 설정하세요.",
   "editRemote": "리모컨 편집",
   "editRemoteActionsSubtitle": "리모컨 이름 변경, 버튼 배치 및 편집",
-  "remoteUpdatedNamedButton": "\"{name}\" 업데이트됨.",
+  "remoteUpdatedNamedButton": "“{name}” 버튼을 업데이트했습니다.",
   "@remoteUpdatedNamedButton": {
     "placeholders": {
       "name": {}

@@ -256,15 +256,16 @@ class AppLocalizationsHi extends AppLocalizations {
 
   @override
   String remoteDeleteFailed(Object error) {
-    return 'हटाएं विफल: $error';
+    return 'रिमोट मिटाया नहीं जा सका: $error';
   }
 
   @override
-  String get remoteNotFoundSavedList => 'रिमोट नहीं मिला में सहेजा गया सूची.';
+  String get remoteNotFoundSavedList =>
+      'यह रिमोट सहेजे गए रिमोट की सूची में नहीं मिला।';
 
   @override
   String remoteDeletedNamed(Object name) {
-    return '\"$name\" हटाया गया।';
+    return '“$name” रिमोट मिटा दिया गया।';
   }
 
   @override
@@ -1205,7 +1206,7 @@ class AppLocalizationsHi extends AppLocalizations {
 
   @override
   String deletedRemoteUndoUnavailable(Object name) {
-    return 'हटाया गया \"$name\". यह action सकता है\'t हो undone.';
+    return '“$name” रिमोट मिटा दिया गया। इसे वापस नहीं लाया जा सकेगा।';
   }
 
   @override
@@ -1432,7 +1433,7 @@ class AppLocalizationsHi extends AppLocalizations {
 
   @override
   String remoteUpdatedNamedButton(Object name) {
-    return '\"$name\" अपडेट किया गया।';
+    return '“$name” बटन अपडेट किया गया।';
   }
 
   @override

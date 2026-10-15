@@ -95,14 +95,14 @@
       "name": {}
     }
   },
-  "remoteDeleteFailed": "Nabigo ang pagbura: {error}",
+  "remoteDeleteFailed": "Hindi mabura ang remote: {error}",
   "@remoteDeleteFailed": {
     "placeholders": {
       "error": {}
     }
   },
-  "remoteNotFoundSavedList": "Remote not found in saved list.",
-  "remoteDeletedNamed": "Nabura ang \"{name}\".",
+  "remoteNotFoundSavedList": "Hindi makita ang remote na ito sa mga naka-save na remote.",
+  "remoteDeletedNamed": "Nabura ang “{name}”.",
   "@remoteDeletedNamed": {
     "placeholders": {
       "name": {}
@@ -330,7 +330,7 @@
   "skip": "Skip",
   "add": "Add",
   "addedToDeviceControls": "Naidagdag sa Mga Control ng Device.",
-  "deletedRemoteUndoUnavailable": "Deleted \"{name}\". Ang action hindi na mababawi.",
+  "deletedRemoteUndoUnavailable": "Nabura ang “{name}”. Hindi ito maibabalik.",
   "@deletedRemoteUndoUnavailable": {
     "placeholders": {
       "name": {}
@@ -430,7 +430,7 @@
   "remoteNoButtonsDescription": "I-edit ang remote na ito para magdagdag o mag-ayos ng mga pindutan.",
   "editRemote": "I-edit remote",
   "editRemoteActionsSubtitle": "Palitan ang pangalan ng remote, ayusin at i-edit ang mga pindutan",
-  "remoteUpdatedNamedButton": "Na-update ang \"{name}\".",
+  "remoteUpdatedNamedButton": "Na-update ang pindutang “{name}”.",
   "@remoteUpdatedNamedButton": {
     "placeholders": {
       "name": {}

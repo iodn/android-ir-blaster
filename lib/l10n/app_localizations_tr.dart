@@ -256,15 +256,16 @@ class AppLocalizationsTr extends AppLocalizations {
 
   @override
   String remoteDeleteFailed(Object error) {
-    return 'Sil başarısız: $error';
+    return 'Kumanda silinemedi: $error';
   }
 
   @override
-  String get remoteNotFoundSavedList => 'Kumanda kayıtlı listede bulunamadı.';
+  String get remoteNotFoundSavedList =>
+      'Bu kumanda kayıtlı kumandalar arasında bulunamadı.';
 
   @override
   String remoteDeletedNamed(Object name) {
-    return '\"$name\" silindi.';
+    return '“$name” kumandası silindi.';
   }
 
   @override
@@ -1206,7 +1207,7 @@ class AppLocalizationsTr extends AppLocalizations {
 
   @override
   String deletedRemoteUndoUnavailable(Object name) {
-    return '\"$name\" silindi. Bu işlem geri alınamaz.';
+    return '“$name” kumandası silindi. Bu işlem geri alınamaz.';
   }
 
   @override
@@ -1434,7 +1435,7 @@ class AppLocalizationsTr extends AppLocalizations {
 
   @override
   String remoteUpdatedNamedButton(Object name) {
-    return 'Güncellendi \"$name\".';
+    return '“$name” düğmesi güncellendi.';
   }
 
   @override

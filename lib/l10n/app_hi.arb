@@ -95,14 +95,14 @@
       "name": {}
     }
   },
-  "remoteDeleteFailed": "हटाएं विफल: {error}",
+  "remoteDeleteFailed": "रिमोट मिटाया नहीं जा सका: {error}",
   "@remoteDeleteFailed": {
     "placeholders": {
       "error": {}
     }
   },
-  "remoteNotFoundSavedList": "रिमोट नहीं मिला में सहेजा गया सूची.",
-  "remoteDeletedNamed": "\"{name}\" हटाया गया।",
+  "remoteNotFoundSavedList": "यह रिमोट सहेजे गए रिमोट की सूची में नहीं मिला।",
+  "remoteDeletedNamed": "“{name}” रिमोट मिटा दिया गया।",
   "@remoteDeletedNamed": {
     "placeholders": {
       "name": {}
@@ -330,7 +330,7 @@
   "skip": "छोड़ें",
   "add": "जोड़ें",
   "addedToDeviceControls": "जोड़ा गया तक डिवाइस नियंत्रण.",
-  "deletedRemoteUndoUnavailable": "हटाया गया \"{name}\". यह action सकता है't हो undone.",
+  "deletedRemoteUndoUnavailable": "“{name}” रिमोट मिटा दिया गया। इसे वापस नहीं लाया जा सकेगा।",
   "@deletedRemoteUndoUnavailable": {
     "placeholders": {
       "name": {}
@@ -430,7 +430,7 @@
   "remoteNoButtonsDescription": "बटन जोड़ने या सेट करने के लिए इस रिमोट को संपादित करें।",
   "editRemote": "रिमोट संपादित करें",
   "editRemoteActionsSubtitle": "रिमोट का नाम बदलें, बटन व्यवस्थित करें और संपादित करें",
-  "remoteUpdatedNamedButton": "\"{name}\" अपडेट किया गया।",
+  "remoteUpdatedNamedButton": "“{name}” बटन अपडेट किया गया।",
   "@remoteUpdatedNamedButton": {
     "placeholders": {
       "name": {}

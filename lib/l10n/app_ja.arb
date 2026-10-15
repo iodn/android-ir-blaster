@@ -95,14 +95,14 @@
       "name": {}
     }
   },
-  "remoteDeleteFailed": "削除に失敗しました: {error}",
+  "remoteDeleteFailed": "リモコンを削除できませんでした：{error}",
   "@remoteDeleteFailed": {
     "placeholders": {
       "error": {}
     }
   },
-  "remoteNotFoundSavedList": "保存済み一覧にリモコンが見つかりません。",
-  "remoteDeletedNamed": "\"{name}\" を削除しました。",
+  "remoteNotFoundSavedList": "保存済みのリモコン一覧に、このリモコンが見つかりません。",
+  "remoteDeletedNamed": "リモコン「{name}」を削除しました。",
   "@remoteDeletedNamed": {
     "placeholders": {
       "name": {}
@@ -330,7 +330,7 @@
   "skip": "スキップ",
   "add": "追加",
   "addedToDeviceControls": "デバイスコントロールに追加しました",
-  "deletedRemoteUndoUnavailable": "\"{name}\" を削除しました。元に戻せません。",
+  "deletedRemoteUndoUnavailable": "リモコン「{name}」を削除しました。この操作は元に戻せません。",
   "@deletedRemoteUndoUnavailable": {
     "placeholders": {
       "name": {}
@@ -430,7 +430,7 @@
   "remoteNoButtonsDescription": "このリモコンを編集して、ボタンを追加・設定できます。",
   "editRemote": "リモコンを編集",
   "editRemoteActionsSubtitle": "リモコン名の変更、ボタンの配置・編集",
-  "remoteUpdatedNamedButton": "\"{name}\" を更新しました。",
+  "remoteUpdatedNamedButton": "ボタン「{name}」を更新しました。",
   "@remoteUpdatedNamedButton": {
     "placeholders": {
       "name": {}

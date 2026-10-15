@@ -95,14 +95,14 @@
       "name": {}
     }
   },
-  "remoteDeleteFailed": "Не вдалося видалити: {error}",
+  "remoteDeleteFailed": "Не вдалося видалити пульт: {error}",
   "@remoteDeleteFailed": {
     "placeholders": {
       "error": {}
     }
   },
-  "remoteNotFoundSavedList": "Пульт не знайдено в збереженому списку.",
-  "remoteDeletedNamed": "Видалено \"{name}\".",
+  "remoteNotFoundSavedList": "Цей пульт не знайдено в списку збережених пультів.",
+  "remoteDeletedNamed": "Пульт «{name}» видалено.",
   "@remoteDeletedNamed": {
     "placeholders": {
       "name": {}
@@ -330,7 +330,7 @@
   "skip": "Пропустити",
   "add": "додати",
   "addedToDeviceControls": "Додано до елементів керування пристроєм.",
-  "deletedRemoteUndoUnavailable": "Видалено \"{name}\". Цю дію не можна скасувати.",
+  "deletedRemoteUndoUnavailable": "Пульт «{name}» видалено. Цю дію неможливо скасувати.",
   "@deletedRemoteUndoUnavailable": {
     "placeholders": {
       "name": {}
@@ -430,7 +430,7 @@
   "remoteNoButtonsDescription": "Відредагуйте цей пульт, щоб додати або налаштувати кнопки.",
   "editRemote": "Редагувати пульт",
   "editRemoteActionsSubtitle": "Перейменувати пульт, розташувати й редагувати кнопки",
-  "remoteUpdatedNamedButton": "Оновлено \"{name}\".",
+  "remoteUpdatedNamedButton": "Кнопку «{name}» оновлено.",
   "@remoteUpdatedNamedButton": {
     "placeholders": {
       "name": {}

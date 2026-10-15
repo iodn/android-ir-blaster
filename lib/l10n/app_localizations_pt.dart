@@ -256,16 +256,16 @@ class AppLocalizationsPt extends AppLocalizations {
 
   @override
   String remoteDeleteFailed(Object error) {
-    return 'Falha ao eliminar: $error';
+    return 'Não foi possível eliminar o comando: $error';
   }
 
   @override
   String get remoteNotFoundSavedList =>
-      'Não foi encontrado o comando na lista guardada.';
+      'Este comando não foi encontrado na lista de comandos guardados.';
 
   @override
   String remoteDeletedNamed(Object name) {
-    return 'Foi eliminado \"$name\".';
+    return 'Comando «$name» eliminado.';
   }
 
   @override
@@ -1219,7 +1219,7 @@ class AppLocalizationsPt extends AppLocalizations {
 
   @override
   String deletedRemoteUndoUnavailable(Object name) {
-    return 'Foi eliminado \"$name\". Esta ação não pode ser anulada.';
+    return 'Comando «$name» eliminado. Esta ação não pode ser anulada.';
   }
 
   @override
@@ -1466,7 +1466,7 @@ class AppLocalizationsPt extends AppLocalizations {
 
   @override
   String remoteUpdatedNamedButton(Object name) {
-    return 'Foi atualizado \"$name\".';
+    return 'Botão «$name» atualizado.';
   }
 
   @override
@@ -5578,16 +5578,16 @@ class AppLocalizationsPtBr extends AppLocalizationsPt {
 
   @override
   String remoteDeleteFailed(Object error) {
-    return 'Falha ao excluir: $error';
+    return 'Não foi possível excluir o controle: $error';
   }
 
   @override
   String get remoteNotFoundSavedList =>
-      'Não foi encontrado o controle na lista salva.';
+      'Este controle não foi encontrado na lista de controles salvos.';
 
   @override
   String remoteDeletedNamed(Object name) {
-    return 'Foi excluído \"$name\".';
+    return 'Controle “$name” excluído.';
   }
 
   @override
@@ -6541,7 +6541,7 @@ class AppLocalizationsPtBr extends AppLocalizationsPt {
 
   @override
   String deletedRemoteUndoUnavailable(Object name) {
-    return '\"$name\" foi removido. Esta ação não pode ser desfeita.';
+    return 'Controle “$name” excluído. Esta ação não pode ser desfeita.';
   }
 
   @override
@@ -6788,7 +6788,7 @@ class AppLocalizationsPtBr extends AppLocalizationsPt {
 
   @override
   String remoteUpdatedNamedButton(Object name) {
-    return 'Foi atualizado \"$name\".';
+    return 'Botão “$name” atualizado.';
   }
 
   @override

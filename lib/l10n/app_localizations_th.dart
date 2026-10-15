@@ -255,15 +255,15 @@ class AppLocalizationsTh extends AppLocalizations {
 
   @override
   String remoteDeleteFailed(Object error) {
-    return 'ลบไม่สำเร็จ: $error';
+    return 'ลบรีโมตไม่สำเร็จ: $error';
   }
 
   @override
-  String get remoteNotFoundSavedList => 'รีโมต not found in ที่บันทึกไว้ list.';
+  String get remoteNotFoundSavedList => 'ไม่พบรีโมตนี้ในรายการที่บันทึกไว้';
 
   @override
   String remoteDeletedNamed(Object name) {
-    return 'ลบ \"$name\" แล้ว';
+    return 'ลบรีโมต “$name” แล้ว';
   }
 
   @override
@@ -1195,7 +1195,7 @@ class AppLocalizationsTh extends AppLocalizations {
 
   @override
   String deletedRemoteUndoUnavailable(Object name) {
-    return 'ลบ \"$name\" แล้ว การกระทำนี้ยกเลิกไม่ได้';
+    return 'ลบรีโมต “$name” แล้ว และไม่สามารถกู้คืนได้';
   }
 
   @override
@@ -1420,7 +1420,7 @@ class AppLocalizationsTh extends AppLocalizations {
 
   @override
   String remoteUpdatedNamedButton(Object name) {
-    return 'อัปเดต \"$name\" แล้ว';
+    return 'อัปเดตปุ่ม “$name” แล้ว';
   }
 
   @override

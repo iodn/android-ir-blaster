@@ -95,14 +95,14 @@
       "name": {}
     }
   },
-  "remoteDeleteFailed": "Gagal menghapus: {error}",
+  "remoteDeleteFailed": "Alat kawalan jauh tidak dapat dipadam: {error}",
   "@remoteDeleteFailed": {
     "placeholders": {
       "error": {}
     }
   },
-  "remoteNotFoundSavedList": "Remote tidak ditemui di daftar tersimpan.",
-  "remoteDeletedNamed": "Dihapus \"{name}\".",
+  "remoteNotFoundSavedList": "Alat kawalan jauh ini tidak ditemui dalam senarai yang disimpan.",
+  "remoteDeletedNamed": "Alat kawalan jauh “{name}” dipadam.",
   "@remoteDeletedNamed": {
     "placeholders": {
       "name": {}
@@ -330,7 +330,7 @@
   "skip": "Lewati",
   "add": "Tambah",
   "addedToDeviceControls": "Ditambahkan ke Kawalan Peranti.",
-  "deletedRemoteUndoUnavailable": "Dihapus \"{name}\". Tindakan ini tidak boleh dibatalkan.",
+  "deletedRemoteUndoUnavailable": "Alat kawalan jauh “{name}” dipadam. Tindakan ini tidak boleh dibuat asal.",
   "@deletedRemoteUndoUnavailable": {
     "placeholders": {
       "name": {}
@@ -430,7 +430,7 @@
   "remoteNoButtonsDescription": "Sunting alat kawalan jauh ini untuk menambah atau menetapkan butang.",
   "editRemote": "Ubah remote",
   "editRemoteActionsSubtitle": "Namakan semula alat kawalan jauh, susun dan sunting butang",
-  "remoteUpdatedNamedButton": "Diperbarui \"{name}\".",
+  "remoteUpdatedNamedButton": "Butang “{name}” dikemas kini.",
   "@remoteUpdatedNamedButton": {
     "placeholders": {
       "name": {}

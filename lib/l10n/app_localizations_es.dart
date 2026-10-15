@@ -256,16 +256,16 @@ class AppLocalizationsEs extends AppLocalizations {
 
   @override
   String remoteDeleteFailed(Object error) {
-    return 'Falló el borrado: $error';
+    return 'No se pudo eliminar el mando: $error';
   }
 
   @override
   String get remoteNotFoundSavedList =>
-      'No se encontró el mando en la lista guardada.';
+      'No se encontró este mando entre los mandos guardados.';
 
   @override
   String remoteDeletedNamed(Object name) {
-    return 'Se eliminó \"$name\".';
+    return 'Se eliminó «$name».';
   }
 
   @override
@@ -1217,7 +1217,7 @@ class AppLocalizationsEs extends AppLocalizations {
 
   @override
   String deletedRemoteUndoUnavailable(Object name) {
-    return 'Se eliminó \"$name\". Esta acción no se puede deshacer.';
+    return 'Se eliminó «$name». Esta acción no se puede deshacer.';
   }
 
   @override
@@ -1464,7 +1464,7 @@ class AppLocalizationsEs extends AppLocalizations {
 
   @override
   String remoteUpdatedNamedButton(Object name) {
-    return 'Se actualizó \"$name\".';
+    return 'Se actualizó el botón «$name».';
   }
 
   @override

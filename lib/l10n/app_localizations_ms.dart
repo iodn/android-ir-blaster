@@ -256,16 +256,16 @@ class AppLocalizationsMs extends AppLocalizations {
 
   @override
   String remoteDeleteFailed(Object error) {
-    return 'Gagal menghapus: $error';
+    return 'Alat kawalan jauh tidak dapat dipadam: $error';
   }
 
   @override
   String get remoteNotFoundSavedList =>
-      'Remote tidak ditemui di daftar tersimpan.';
+      'Alat kawalan jauh ini tidak ditemui dalam senarai yang disimpan.';
 
   @override
   String remoteDeletedNamed(Object name) {
-    return 'Dihapus \"$name\".';
+    return 'Alat kawalan jauh “$name” dipadam.';
   }
 
   @override
@@ -1206,7 +1206,7 @@ class AppLocalizationsMs extends AppLocalizations {
 
   @override
   String deletedRemoteUndoUnavailable(Object name) {
-    return 'Dihapus \"$name\". Tindakan ini tidak boleh dibatalkan.';
+    return 'Alat kawalan jauh “$name” dipadam. Tindakan ini tidak boleh dibuat asal.';
   }
 
   @override
@@ -1434,7 +1434,7 @@ class AppLocalizationsMs extends AppLocalizations {
 
   @override
   String remoteUpdatedNamedButton(Object name) {
-    return 'Diperbarui \"$name\".';
+    return 'Butang “$name” dikemas kini.';
   }
 
   @override

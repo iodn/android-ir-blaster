@@ -256,15 +256,16 @@ class AppLocalizationsRu extends AppLocalizations {
 
   @override
   String remoteDeleteFailed(Object error) {
-    return 'Не удалось удалить: $error';
+    return 'Не удалось удалить пульт: $error';
   }
 
   @override
-  String get remoteNotFoundSavedList => 'Пульт не найден в сохранённом списке.';
+  String get remoteNotFoundSavedList =>
+      'Этот пульт не найден в списке сохранённых пультов.';
 
   @override
   String remoteDeletedNamed(Object name) {
-    return 'Удалено \"$name\".';
+    return 'Пульт «$name» удалён.';
   }
 
   @override
@@ -1204,7 +1205,7 @@ class AppLocalizationsRu extends AppLocalizations {
 
   @override
   String deletedRemoteUndoUnavailable(Object name) {
-    return 'Удалено \"$name\". Это действие нельзя отменить.';
+    return 'Пульт «$name» удалён. Это действие нельзя отменить.';
   }
 
   @override
@@ -1456,7 +1457,7 @@ class AppLocalizationsRu extends AppLocalizations {
 
   @override
   String remoteUpdatedNamedButton(Object name) {
-    return 'Обновлено \"$name\".';
+    return 'Кнопка «$name» обновлена.';
   }
 
   @override

@@ -95,14 +95,14 @@
       "name": {}
     }
   },
-  "remoteDeleteFailed": "Falló el borrado: {error}",
+  "remoteDeleteFailed": "No se pudo eliminar el mando: {error}",
   "@remoteDeleteFailed": {
     "placeholders": {
       "error": {}
     }
   },
-  "remoteNotFoundSavedList": "No se encontró el mando en la lista guardada.",
-  "remoteDeletedNamed": "Se eliminó \"{name}\".",
+  "remoteNotFoundSavedList": "No se encontró este mando entre los mandos guardados.",
+  "remoteDeletedNamed": "Se eliminó «{name}».",
   "@remoteDeletedNamed": {
     "placeholders": {
       "name": {}
@@ -335,7 +335,7 @@
   "skip": "Omitir",
   "add": "Añadir",
   "addedToDeviceControls": "Añadido a Controles del dispositivo.",
-  "deletedRemoteUndoUnavailable": "Se eliminó \"{name}\". Esta acción no se puede deshacer.",
+  "deletedRemoteUndoUnavailable": "Se eliminó «{name}». Esta acción no se puede deshacer.",
   "@deletedRemoteUndoUnavailable": {
     "placeholders": {
       "name": {}
@@ -435,7 +435,7 @@
   "remoteNoButtonsDescription": "Edita este mando para añadir o configurar botones.",
   "editRemote": "Editar mando",
   "editRemoteActionsSubtitle": "Cambiar el nombre del mando, ordenar y editar botones",
-  "remoteUpdatedNamedButton": "Se actualizó \"{name}\".",
+  "remoteUpdatedNamedButton": "Se actualizó el botón «{name}».",
   "@remoteUpdatedNamedButton": {
     "placeholders": {
       "name": {}

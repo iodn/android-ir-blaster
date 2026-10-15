@@ -233,15 +233,15 @@ class AppLocalizationsZh extends AppLocalizations {
 
   @override
   String remoteDeleteFailed(Object error) {
-    return '删除 失败: $error';
+    return '无法删除遥控器：$error';
   }
 
   @override
-  String get remoteNotFoundSavedList => '在已保存列表中未找到遥控器。';
+  String get remoteNotFoundSavedList => '在已保存的遥控器列表中找不到此遥控器。';
 
   @override
   String remoteDeletedNamed(Object name) {
-    return '已删除 \"$name\"。';
+    return '已删除遥控器“$name”。';
   }
 
   @override
@@ -1112,7 +1112,7 @@ class AppLocalizationsZh extends AppLocalizations {
 
   @override
   String deletedRemoteUndoUnavailable(Object name) {
-    return '已删除 \"$name\"。此操作无法撤销。';
+    return '已删除遥控器“$name”。此操作无法撤销。';
   }
 
   @override
@@ -1324,7 +1324,7 @@ class AppLocalizationsZh extends AppLocalizations {
 
   @override
   String remoteUpdatedNamedButton(Object name) {
-    return '已更新 \"$name\"。';
+    return '已更新按钮“$name”。';
   }
 
   @override

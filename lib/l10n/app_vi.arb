@@ -95,14 +95,14 @@
       "name": {}
     }
   },
-  "remoteDeleteFailed": "Xóa thất bại: {error}",
+  "remoteDeleteFailed": "Không thể xóa điều khiển: {error}",
   "@remoteDeleteFailed": {
     "placeholders": {
       "error": {}
     }
   },
-  "remoteNotFoundSavedList": "Không tìm thấy điều khiển trong danh sách đã lưu.",
-  "remoteDeletedNamed": "Đã xóa \"{name}\".",
+  "remoteNotFoundSavedList": "Không tìm thấy điều khiển này trong danh sách đã lưu.",
+  "remoteDeletedNamed": "Đã xóa điều khiển “{name}”.",
   "@remoteDeletedNamed": {
     "placeholders": {
       "name": {}
@@ -330,7 +330,7 @@
   "skip": "Bỏ qua",
   "add": "Thêm",
   "addedToDeviceControls": "Đã thêm vào Điều khiển thiết bị.",
-  "deletedRemoteUndoUnavailable": "Đã xóa \"{name}\". This action can't be undone.",
+  "deletedRemoteUndoUnavailable": "Đã xóa điều khiển “{name}”. Không thể hoàn tác thao tác này.",
   "@deletedRemoteUndoUnavailable": {
     "placeholders": {
       "name": {}
@@ -430,7 +430,7 @@
   "remoteNoButtonsDescription": "Chỉnh sửa điều khiển này để thêm hoặc thiết lập các nút.",
   "editRemote": "Sửa điều khiển",
   "editRemoteActionsSubtitle": "Đổi tên điều khiển, sắp xếp và chỉnh sửa các nút",
-  "remoteUpdatedNamedButton": "Đã cập nhật \"{name}\".",
+  "remoteUpdatedNamedButton": "Đã cập nhật nút “{name}”.",
   "@remoteUpdatedNamedButton": {
     "placeholders": {
       "name": {}

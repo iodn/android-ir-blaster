@@ -95,14 +95,14 @@
       "name": {}
     }
   },
-  "remoteDeleteFailed": "Verwijderen mislukt: {error}",
+  "remoteDeleteFailed": "De afstandsbediening kon niet worden verwijderd: {error}",
   "@remoteDeleteFailed": {
     "placeholders": {
       "error": {}
     }
   },
-  "remoteNotFoundSavedList": "Afstandsbediening niet gevonden in de opgeslagen lijst.",
-  "remoteDeletedNamed": "\"{name}\" verwijderd.",
+  "remoteNotFoundSavedList": "Deze afstandsbediening staat niet in de opgeslagen lijst.",
+  "remoteDeletedNamed": "‘{name}’ verwijderd.",
   "@remoteDeletedNamed": {
     "placeholders": {
       "name": {}
@@ -330,7 +330,7 @@
   "skip": "Overslaan",
   "add": "Toevoegen",
   "addedToDeviceControls": "Toegevoegd aan apparaatbediening.",
-  "deletedRemoteUndoUnavailable": "\"{name}\" verwijderd. Deze actie kan niet ongedaan worden gemaakt.",
+  "deletedRemoteUndoUnavailable": "‘{name}’ verwijderd. Dit kan niet ongedaan worden gemaakt.",
   "@deletedRemoteUndoUnavailable": {
     "placeholders": {
       "name": {}
@@ -430,7 +430,7 @@
   "remoteNoButtonsDescription": "Bewerk deze afstandsbediening om knoppen toe te voegen of in te stellen.",
   "editRemote": "Afstandsbediening bewerken",
   "editRemoteActionsSubtitle": "Afstandsbediening hernoemen, knoppen rangschikken en bewerken",
-  "remoteUpdatedNamedButton": "\"{name}\" bijgewerkt.",
+  "remoteUpdatedNamedButton": "Knop ‘{name}’ bijgewerkt.",
   "@remoteUpdatedNamedButton": {
     "placeholders": {
       "name": {}

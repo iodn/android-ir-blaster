@@ -242,15 +242,15 @@ class AppLocalizationsJa extends AppLocalizations {
 
   @override
   String remoteDeleteFailed(Object error) {
-    return '削除に失敗しました: $error';
+    return 'リモコンを削除できませんでした：$error';
   }
 
   @override
-  String get remoteNotFoundSavedList => '保存済み一覧にリモコンが見つかりません。';
+  String get remoteNotFoundSavedList => '保存済みのリモコン一覧に、このリモコンが見つかりません。';
 
   @override
   String remoteDeletedNamed(Object name) {
-    return '\"$name\" を削除しました。';
+    return 'リモコン「$name」を削除しました。';
   }
 
   @override
@@ -1149,7 +1149,7 @@ class AppLocalizationsJa extends AppLocalizations {
 
   @override
   String deletedRemoteUndoUnavailable(Object name) {
-    return '\"$name\" を削除しました。元に戻せません。';
+    return 'リモコン「$name」を削除しました。この操作は元に戻せません。';
   }
 
   @override
@@ -1363,7 +1363,7 @@ class AppLocalizationsJa extends AppLocalizations {
 
   @override
   String remoteUpdatedNamedButton(Object name) {
-    return '\"$name\" を更新しました。';
+    return 'ボタン「$name」を更新しました。';
   }
 
   @override

@@ -256,16 +256,16 @@ class AppLocalizationsUk extends AppLocalizations {
 
   @override
   String remoteDeleteFailed(Object error) {
-    return 'Не вдалося видалити: $error';
+    return 'Не вдалося видалити пульт: $error';
   }
 
   @override
   String get remoteNotFoundSavedList =>
-      'Пульт не знайдено в збереженому списку.';
+      'Цей пульт не знайдено в списку збережених пультів.';
 
   @override
   String remoteDeletedNamed(Object name) {
-    return 'Видалено \"$name\".';
+    return 'Пульт «$name» видалено.';
   }
 
   @override
@@ -1214,7 +1214,7 @@ class AppLocalizationsUk extends AppLocalizations {
 
   @override
   String deletedRemoteUndoUnavailable(Object name) {
-    return 'Видалено \"$name\". Цю дію не можна скасувати.';
+    return 'Пульт «$name» видалено. Цю дію неможливо скасувати.';
   }
 
   @override
@@ -1469,7 +1469,7 @@ class AppLocalizationsUk extends AppLocalizations {
 
   @override
   String remoteUpdatedNamedButton(Object name) {
-    return 'Оновлено \"$name\".';
+    return 'Кнопку «$name» оновлено.';
   }
 
   @override

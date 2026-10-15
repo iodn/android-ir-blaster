@@ -256,16 +256,16 @@ class AppLocalizationsFr extends AppLocalizations {
 
   @override
   String remoteDeleteFailed(Object error) {
-    return 'Suppression échouée : $error';
+    return 'Impossible de supprimer la télécommande : $error';
   }
 
   @override
   String get remoteNotFoundSavedList =>
-      'Télécommande introuvable dans la liste.';
+      'Cette télécommande ne figure pas dans la liste enregistrée.';
 
   @override
   String remoteDeletedNamed(Object name) {
-    return '\"$name\" supprimé.';
+    return 'Télécommande « $name » supprimée.';
   }
 
   @override
@@ -1217,7 +1217,7 @@ class AppLocalizationsFr extends AppLocalizations {
 
   @override
   String deletedRemoteUndoUnavailable(Object name) {
-    return '\"$name\" supprimé. Cette action est irréversible.';
+    return 'Télécommande « $name » supprimée. Cette action est irréversible.';
   }
 
   @override
@@ -1464,7 +1464,7 @@ class AppLocalizationsFr extends AppLocalizations {
 
   @override
   String remoteUpdatedNamedButton(Object name) {
-    return '\"$name\" mis à jour.';
+    return 'Bouton « $name » mis à jour.';
   }
 
   @override

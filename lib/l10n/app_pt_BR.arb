@@ -95,14 +95,14 @@
       "name": {}
     }
   },
-  "remoteDeleteFailed": "Falha ao excluir: {error}",
+  "remoteDeleteFailed": "Não foi possível excluir o controle: {error}",
   "@remoteDeleteFailed": {
     "placeholders": {
       "error": {}
     }
   },
-  "remoteNotFoundSavedList": "Não foi encontrado o controle na lista salva.",
-  "remoteDeletedNamed": "Foi excluído \"{name}\".",
+  "remoteNotFoundSavedList": "Este controle não foi encontrado na lista de controles salvos.",
+  "remoteDeletedNamed": "Controle “{name}” excluído.",
   "@remoteDeletedNamed": {
     "placeholders": {
       "name": {}
@@ -330,7 +330,7 @@
   "skip": "Omitir",
   "add": "Adicionar",
   "addedToDeviceControls": "Adicionado aos controles do dispositivo.",
-  "deletedRemoteUndoUnavailable": "\"{name}\" foi removido. Esta ação não pode ser desfeita.",
+  "deletedRemoteUndoUnavailable": "Controle “{name}” excluído. Esta ação não pode ser desfeita.",
   "@deletedRemoteUndoUnavailable": {
     "placeholders": {
       "name": {}
@@ -430,7 +430,7 @@
   "remoteNoButtonsDescription": "Edite este controle para adicionar ou configurar botões.",
   "editRemote": "Editar controle",
   "editRemoteActionsSubtitle": "Renomear o controle, organizar e editar botões",
-  "remoteUpdatedNamedButton": "Foi atualizado \"{name}\".",
+  "remoteUpdatedNamedButton": "Botão “{name}” atualizado.",
   "@remoteUpdatedNamedButton": {
     "placeholders": {
       "name": {}

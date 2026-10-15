@@ -256,16 +256,16 @@ class AppLocalizationsNl extends AppLocalizations {
 
   @override
   String remoteDeleteFailed(Object error) {
-    return 'Verwijderen mislukt: $error';
+    return 'De afstandsbediening kon niet worden verwijderd: $error';
   }
 
   @override
   String get remoteNotFoundSavedList =>
-      'Afstandsbediening niet gevonden in de opgeslagen lijst.';
+      'Deze afstandsbediening staat niet in de opgeslagen lijst.';
 
   @override
   String remoteDeletedNamed(Object name) {
-    return '\"$name\" verwijderd.';
+    return '‘$name’ verwijderd.';
   }
 
   @override
@@ -1228,7 +1228,7 @@ class AppLocalizationsNl extends AppLocalizations {
 
   @override
   String deletedRemoteUndoUnavailable(Object name) {
-    return '\"$name\" verwijderd. Deze actie kan niet ongedaan worden gemaakt.';
+    return '‘$name’ verwijderd. Dit kan niet ongedaan worden gemaakt.';
   }
 
   @override
@@ -1475,7 +1475,7 @@ class AppLocalizationsNl extends AppLocalizations {
 
   @override
   String remoteUpdatedNamedButton(Object name) {
-    return '\"$name\" bijgewerkt.';
+    return 'Knop ‘$name’ bijgewerkt.';
   }
 
   @override

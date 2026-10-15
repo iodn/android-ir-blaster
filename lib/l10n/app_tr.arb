@@ -95,14 +95,14 @@
       "name": {}
     }
   },
-  "remoteDeleteFailed": "Sil başarısız: {error}",
+  "remoteDeleteFailed": "Kumanda silinemedi: {error}",
   "@remoteDeleteFailed": {
     "placeholders": {
       "error": {}
     }
   },
-  "remoteNotFoundSavedList": "Kumanda kayıtlı listede bulunamadı.",
-  "remoteDeletedNamed": "\"{name}\" silindi.",
+  "remoteNotFoundSavedList": "Bu kumanda kayıtlı kumandalar arasında bulunamadı.",
+  "remoteDeletedNamed": "“{name}” kumandası silindi.",
   "@remoteDeletedNamed": {
     "placeholders": {
       "name": {}
@@ -330,7 +330,7 @@
   "skip": "Skip",
   "add": "Ekle",
   "addedToDeviceControls": "Eklendi to Cihaz Kontrolleri.",
-  "deletedRemoteUndoUnavailable": "\"{name}\" silindi. Bu işlem geri alınamaz.",
+  "deletedRemoteUndoUnavailable": "“{name}” kumandası silindi. Bu işlem geri alınamaz.",
   "@deletedRemoteUndoUnavailable": {
     "placeholders": {
       "name": {}
@@ -430,7 +430,7 @@
   "remoteNoButtonsDescription": "Düğme eklemek veya ayarlamak için bu kumandayı düzenleyin.",
   "editRemote": "Düzenle kumanda",
   "editRemoteActionsSubtitle": "Kumandayı yeniden adlandırın, düğmeleri yerleştirin ve düzenleyin",
-  "remoteUpdatedNamedButton": "Güncellendi \"{name}\".",
+  "remoteUpdatedNamedButton": "“{name}” düğmesi güncellendi.",
   "@remoteUpdatedNamedButton": {
     "placeholders": {
       "name": {}

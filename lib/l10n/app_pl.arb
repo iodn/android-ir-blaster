@@ -95,14 +95,14 @@
       "name": {}
     }
   },
-  "remoteDeleteFailed": "Usuwanie nieudane: {error}",
+  "remoteDeleteFailed": "Nie udało się usunąć pilota: {error}",
   "@remoteDeleteFailed": {
     "placeholders": {
       "error": {}
     }
   },
-  "remoteNotFoundSavedList": "Nie znaleziono pilota na zapisanej liście.",
-  "remoteDeletedNamed": "Usunięto \"{name}\".",
+  "remoteNotFoundSavedList": "Nie znaleziono tego pilota na liście zapisanych pilotów.",
+  "remoteDeletedNamed": "Usunięto pilot „{name}”.",
   "@remoteDeletedNamed": {
     "placeholders": {
       "name": {}
@@ -330,7 +330,7 @@
   "skip": "Pomiń",
   "add": "Dodaj",
   "addedToDeviceControls": "Dodano do sterowania urządzeniem.",
-  "deletedRemoteUndoUnavailable": "Usunięto \"{name}\". This action can't be undone.",
+  "deletedRemoteUndoUnavailable": "Usunięto pilot „{name}”. Tej czynności nie można cofnąć.",
   "@deletedRemoteUndoUnavailable": {
     "placeholders": {
       "name": {}
@@ -432,7 +432,7 @@
   "remoteNoButtonsDescription": "Edytuj ten pilot, aby dodać lub skonfigurować przyciski.",
   "editRemote": "Edytuj pilot",
   "editRemoteActionsSubtitle": "Zmień nazwę pilota, rozmieść i edytuj przyciski",
-  "remoteUpdatedNamedButton": "Zaktualizowano \"{name}\".",
+  "remoteUpdatedNamedButton": "Zaktualizowano przycisk „{name}”.",
   "@remoteUpdatedNamedButton": {
     "placeholders": {
       "name": {}

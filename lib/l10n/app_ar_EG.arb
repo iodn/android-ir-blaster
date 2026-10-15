@@ -95,14 +95,14 @@
       "name": {}
     }
   },
-  "remoteDeleteFailed": "حذف فشل: {error}",
+  "remoteDeleteFailed": "تعذّر حذف جهاز التحكم: {error}",
   "@remoteDeleteFailed": {
     "placeholders": {
       "error": {}
     }
   },
-  "remoteNotFoundSavedList": "جهاز التحكم not موجود in saved list.",
-  "remoteDeletedNamed": "تم حذف \"{name}\".",
+  "remoteNotFoundSavedList": "لم يُعثر على جهاز التحكم في القائمة المحفوظة.",
+  "remoteDeletedNamed": "حُذف جهاز التحكم «{name}».",
   "@remoteDeletedNamed": {
     "placeholders": {
       "name": {}
@@ -330,7 +330,7 @@
   "skip": "تخطي",
   "add": "إضافة",
   "addedToDeviceControls": "Added إلى الجهاز Controls.",
-  "deletedRemoteUndoUnavailable": "Deleted \"{name}\". This action can't be undone.",
+  "deletedRemoteUndoUnavailable": "حُذف جهاز التحكم «{name}». لا يمكن التراجع عن الحذف.",
   "@deletedRemoteUndoUnavailable": {
     "placeholders": {
       "name": {}
@@ -430,7 +430,7 @@
   "remoteNoButtonsDescription": "عدّل جهاز التحكم لإضافة الأزرار أو إعدادها.",
   "editRemote": "تعديل جهاز التحكم",
   "editRemoteActionsSubtitle": "تغيير الاسم وترتيب الأزرار وتعديلها",
-  "remoteUpdatedNamedButton": "تم تحديث \"{name}\".",
+  "remoteUpdatedNamedButton": "حُدّث الزر «{name}».",
   "@remoteUpdatedNamedButton": {
     "placeholders": {
       "name": {}

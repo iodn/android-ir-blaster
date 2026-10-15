@@ -95,14 +95,14 @@
       "name": {}
     }
   },
-  "remoteDeleteFailed": "Delete failed: {error}",
+  "remoteDeleteFailed": "Could not delete the remote: {error}",
   "@remoteDeleteFailed": {
     "placeholders": {
       "error": {}
     }
   },
-  "remoteNotFoundSavedList": "Remote not found in saved list.",
-  "remoteDeletedNamed": "Deleted \"{name}\".",
+  "remoteNotFoundSavedList": "This remote was not found in your saved remotes.",
+  "remoteDeletedNamed": "Deleted “{name}”.",
   "@remoteDeletedNamed": {
     "placeholders": {
       "name": {}
@@ -441,7 +441,7 @@
   "skip": "Skip",
   "add": "Add",
   "addedToDeviceControls": "Added to Device Controls.",
-  "deletedRemoteUndoUnavailable": "Deleted \"{name}\". This action can't be undone.",
+  "deletedRemoteUndoUnavailable": "Deleted “{name}”. This cannot be undone.",
   "@deletedRemoteUndoUnavailable": {
     "placeholders": {
       "name": {}
@@ -551,7 +551,7 @@
   "remoteNoButtonsDescription": "Edit this remote to add or configure buttons.",
   "editRemote": "Edit remote",
   "editRemoteActionsSubtitle": "Rename the remote, arrange and edit buttons",
-  "remoteUpdatedNamedButton": "Updated \"{name}\".",
+  "remoteUpdatedNamedButton": "Updated button “{name}”.",
   "@remoteUpdatedNamedButton": {
     "placeholders": {
       "name": {}

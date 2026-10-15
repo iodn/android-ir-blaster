@@ -244,15 +244,15 @@ class AppLocalizationsKo extends AppLocalizations {
 
   @override
   String remoteDeleteFailed(Object error) {
-    return '삭제 실패: $error';
+    return '리모컨을 삭제하지 못했습니다: $error';
   }
 
   @override
-  String get remoteNotFoundSavedList => '리모컨을 저장 목록에서 찾을 수 없습니다.';
+  String get remoteNotFoundSavedList => '저장된 리모컨 목록에서 이 리모컨을 찾지 못했습니다.';
 
   @override
   String remoteDeletedNamed(Object name) {
-    return '\"$name\" 삭제됨.';
+    return '“$name” 리모컨을 삭제했습니다.';
   }
 
   @override
@@ -1157,7 +1157,7 @@ class AppLocalizationsKo extends AppLocalizations {
 
   @override
   String deletedRemoteUndoUnavailable(Object name) {
-    return '\"$name\"을(를) 삭제했습니다. 이 작업은 되돌릴 수 없습니다.';
+    return '“$name” 리모컨을 삭제했습니다. 이 작업은 되돌릴 수 없습니다.';
   }
 
   @override
@@ -1372,7 +1372,7 @@ class AppLocalizationsKo extends AppLocalizations {
 
   @override
   String remoteUpdatedNamedButton(Object name) {
-    return '\"$name\" 업데이트됨.';
+    return '“$name” 버튼을 업데이트했습니다.';
   }
 
   @override
