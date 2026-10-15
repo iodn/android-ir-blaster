@@ -15,6 +15,7 @@ void main() {
       tester.view.devicePixelRatio = 1;
       addTearDown(tester.view.resetPhysicalSize);
       addTearDown(tester.view.resetDevicePixelRatio);
+      addTearDown(tester.view.resetViewInsets);
       await tester.pumpWidget(MaterialApp(
         locale: locale,
         supportedLocales: AppLocalizations.supportedLocales,
@@ -92,6 +93,61 @@ void main() {
       await tester.pumpAndSettle();
       expect(find.byType(BottomSheet), findsNothing);
       expect(prefs.getString(key), stored);
+
+      await tester.tap(find.byTooltip(l10n.githubManageLinks));
+      await tester.pumpAndSettle();
+      checkReadable(l10n.githubSavedLinks);
+      checkReadable(l10n.done);
+      await tester.tap(find.byTooltip(l10n.githubRenameLink));
+      await tester.pumpAndSettle();
+      for (final label in [
+        l10n.githubRenameLink,
+        l10n.githubLinkDisplayName,
+        l10n.cancel,
+        l10n.saveAction
+      ]) {
+        await tester.ensureVisible(find.text(label));
+        await tester.pumpAndSettle();
+        checkReadable(label);
+      }
+      final nameField = find.descendant(
+          of: find.byType(BottomSheet), matching: find.byType(TextField));
+      await tester.enterText(nameField, 'My IR links');
+      await tester.ensureVisible(find.text(l10n.cancel));
+      await tester.pumpAndSettle();
+      await tester.tap(find.text(l10n.cancel));
+      await tester.pumpAndSettle();
+      expect(find.text('My IR links'), findsNothing);
+      expect(prefs.getString(key), stored);
+
+      tester.view.viewInsets = const FakeViewPadding(bottom: 240);
+      await tester.tap(find.byTooltip(l10n.githubRenameLink));
+      await tester.pumpAndSettle();
+      await tester.enterText(nameField, 'My IR links');
+      await tester.ensureVisible(find.text(l10n.saveAction));
+      await tester.pumpAndSettle();
+      checkReadable(l10n.saveAction);
+      expect(tester.getRect(find.text(l10n.saveAction)).bottom,
+          lessThanOrEqualTo(400));
+      await tester.tap(find.text(l10n.saveAction));
+      await tester.pumpAndSettle();
+      tester.view.resetViewInsets();
+      await tester.pumpAndSettle();
+      expect(find.text('My IR links'), findsOneWidget);
+      await tester.tap(find.text(l10n.done));
+      await tester.pumpAndSettle();
+      final renamed = jsonDecode(prefs.getString(key)!) as List;
+      expect(renamed.single['alias'], 'My IR links');
+      expect(renamed.single['originalUrl'], sources.single['originalUrl']);
+
+      await tester.tap(find.byTooltip(l10n.githubManageLinks));
+      await tester.pumpAndSettle();
+      await tester.tap(find.byTooltip(l10n.remove));
+      await tester.pumpAndSettle();
+      checkReadable(l10n.githubNoSavedLinks);
+      await tester.tap(find.text(l10n.done));
+      await tester.pumpAndSettle();
+      expect(jsonDecode(prefs.getString(key)!), isEmpty);
       expect(tester.takeException(), isNull);
       await tester.pumpWidget(const SizedBox());
     });

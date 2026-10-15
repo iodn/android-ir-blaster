@@ -5374,4 +5374,13 @@ class AppLocalizationsTr extends AppLocalizations {
 
   @override
   String get githubSavedLinks => 'Kayıtlı bağlantılar';
+
+  @override
+  String get githubManageLinks => 'Bağlantıları yönet';
+
+  @override
+  String get githubRenameLink => 'Bağlantıyı yeniden adlandır';
+
+  @override
+  String get githubLinkDisplayName => 'Görünen ad';
 }

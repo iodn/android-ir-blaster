@@ -5457,4 +5457,13 @@ class AppLocalizationsRu extends AppLocalizations {
 
   @override
   String get githubSavedLinks => 'Сохранённые ссылки';
+
+  @override
+  String get githubManageLinks => 'Управление ссылками';
+
+  @override
+  String get githubRenameLink => 'Переименовать ссылку';
+
+  @override
+  String get githubLinkDisplayName => 'Отображаемое имя';
 }

@@ -5397,4 +5397,13 @@ class AppLocalizationsFil extends AppLocalizations {
 
   @override
   String get githubSavedLinks => 'Mga naka-save na link';
+
+  @override
+  String get githubManageLinks => 'Pamahalaan ang mga link';
+
+  @override
+  String get githubRenameLink => 'Palitan ang pangalan ng link';
+
+  @override
+  String get githubLinkDisplayName => 'Pangalang ipapakita';
 }

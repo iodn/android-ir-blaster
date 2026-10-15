@@ -5219,4 +5219,13 @@ class AppLocalizationsJa extends AppLocalizations {
 
   @override
   String get githubSavedLinks => '保存したリンク';
+
+  @override
+  String get githubManageLinks => 'リンクの管理';
+
+  @override
+  String get githubRenameLink => 'リンク名を変更';
+
+  @override
+  String get githubLinkDisplayName => '表示名';
 }

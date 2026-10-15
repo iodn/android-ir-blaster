@@ -2463,5 +2463,8 @@
   "githubLinkAlreadySaved": "Este enlace ya está guardado.",
   "githubNoSavedLinks": "Aún no hay enlaces guardados.",
   "githubChooseLink": "Elegir un enlace",
-  "githubSavedLinks": "Enlaces guardados"
+  "githubSavedLinks": "Enlaces guardados",
+  "githubManageLinks": "Gestionar enlaces",
+  "githubRenameLink": "Cambiar nombre del enlace",
+  "githubLinkDisplayName": "Nombre para mostrar"
 }

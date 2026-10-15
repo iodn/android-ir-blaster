@@ -5389,4 +5389,13 @@ class AppLocalizationsMs extends AppLocalizations {
 
   @override
   String get githubSavedLinks => 'Pautan disimpan';
+
+  @override
+  String get githubManageLinks => 'Urus pautan';
+
+  @override
+  String get githubRenameLink => 'Namakan semula pautan';
+
+  @override
+  String get githubLinkDisplayName => 'Nama paparan';
 }

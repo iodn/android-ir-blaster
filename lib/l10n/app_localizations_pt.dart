@@ -5464,6 +5464,15 @@ class AppLocalizationsPt extends AppLocalizations {
 
   @override
   String get githubSavedLinks => 'Ligações guardadas';
+
+  @override
+  String get githubManageLinks => 'Gerir ligações';
+
+  @override
+  String get githubRenameLink => 'Mudar nome da ligação';
+
+  @override
+  String get githubLinkDisplayName => 'Nome a apresentar';
 }
 
 /// The translations for Portuguese, as used in Brazil (`pt_BR`).
@@ -10921,4 +10930,13 @@ class AppLocalizationsPtBr extends AppLocalizationsPt {
 
   @override
   String get githubSavedLinks => 'Links salvos';
+
+  @override
+  String get githubManageLinks => 'Gerenciar links';
+
+  @override
+  String get githubRenameLink => 'Renomear link';
+
+  @override
+  String get githubLinkDisplayName => 'Nome de exibição';
 }

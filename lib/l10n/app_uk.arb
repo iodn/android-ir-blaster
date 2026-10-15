@@ -2463,5 +2463,8 @@
   "githubLinkAlreadySaved": "Це посилання вже збережено.",
   "githubNoSavedLinks": "Збережених посилань ще немає.",
   "githubChooseLink": "Виберіть посилання",
-  "githubSavedLinks": "Збережені посилання"
+  "githubSavedLinks": "Збережені посилання",
+  "githubManageLinks": "Керування посиланнями",
+  "githubRenameLink": "Перейменувати посилання",
+  "githubLinkDisplayName": "Відображуване ім’я"
 }

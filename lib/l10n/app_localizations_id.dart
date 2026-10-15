@@ -5377,4 +5377,13 @@ class AppLocalizationsId extends AppLocalizations {
 
   @override
   String get githubSavedLinks => 'Tautan tersimpan';
+
+  @override
+  String get githubManageLinks => 'Kelola tautan';
+
+  @override
+  String get githubRenameLink => 'Ubah nama tautan';
+
+  @override
+  String get githubLinkDisplayName => 'Nama tampilan';
 }

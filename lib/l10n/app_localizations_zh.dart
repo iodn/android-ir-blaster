@@ -5135,4 +5135,13 @@ class AppLocalizationsZh extends AppLocalizations {
 
   @override
   String get githubSavedLinks => '已保存的链接';
+
+  @override
+  String get githubManageLinks => '管理链接';
+
+  @override
+  String get githubRenameLink => '重命名链接';
+
+  @override
+  String get githubLinkDisplayName => '显示名称';
 }

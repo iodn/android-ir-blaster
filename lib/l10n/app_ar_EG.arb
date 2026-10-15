@@ -2463,5 +2463,8 @@
   "githubLinkAlreadySaved": "الرابط ده محفوظ بالفعل.",
   "githubNoSavedLinks": "لسه مفيش روابط محفوظة.",
   "githubChooseLink": "اختار رابط",
-  "githubSavedLinks": "الروابط المحفوظة"
+  "githubSavedLinks": "الروابط المحفوظة",
+  "githubManageLinks": "إدارة الروابط",
+  "githubRenameLink": "تغيير اسم الرابط",
+  "githubLinkDisplayName": "الاسم الظاهر"
 }

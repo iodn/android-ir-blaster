@@ -2463,5 +2463,8 @@
   "githubLinkAlreadySaved": "Bu bağlantı zaten kayıtlı.",
   "githubNoSavedLinks": "Henüz kayıtlı bağlantı yok.",
   "githubChooseLink": "Bağlantı seç",
-  "githubSavedLinks": "Kayıtlı bağlantılar"
+  "githubSavedLinks": "Kayıtlı bağlantılar",
+  "githubManageLinks": "Bağlantıları yönet",
+  "githubRenameLink": "Bağlantıyı yeniden adlandır",
+  "githubLinkDisplayName": "Görünen ad"
 }

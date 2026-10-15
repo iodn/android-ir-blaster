@@ -2463,5 +2463,8 @@
   "githubLinkAlreadySaved": "Naka-save na ang link na ito.",
   "githubNoSavedLinks": "Wala pang naka-save na link.",
   "githubChooseLink": "Pumili ng link",
-  "githubSavedLinks": "Mga naka-save na link"
+  "githubSavedLinks": "Mga naka-save na link",
+  "githubManageLinks": "Pamahalaan ang mga link",
+  "githubRenameLink": "Palitan ang pangalan ng link",
+  "githubLinkDisplayName": "Pangalang ipapakita"
 }

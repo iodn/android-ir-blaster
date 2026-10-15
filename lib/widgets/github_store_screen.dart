@@ -318,7 +318,7 @@ class _GitHubStoreScreenState extends State<GitHubStoreScreen> {
                     ),
                   ),
                   IconButton(
-                    tooltip: 'Manage',
+                    tooltip: context.l10n.githubManageLinks,
                     onPressed: () => Navigator.of(context).pop(),
                     icon: const Icon(Icons.settings_outlined),
                   ),
@@ -421,7 +421,7 @@ class _GitHubStoreScreenState extends State<GitHubStoreScreen> {
               icon: const FaIcon(FontAwesomeIcons.github),
             ),
             IconButton(
-              tooltip: 'Manage sources',
+              tooltip: context.l10n.githubManageLinks,
               onPressed: _openManageSources,
               icon: const Icon(Icons.tune_rounded),
             ),
@@ -1361,38 +1361,44 @@ class _ManageSourcesScreenState extends State<_ManageSourcesScreen> {
       showDragHandle: true,
       builder: (context) {
         final inset = MediaQuery.of(context).viewInsets.bottom;
-        return Padding(
+        return SingleChildScrollView(
           padding: EdgeInsets.fromLTRB(16, 12, 16, 16 + inset),
           child: Column(
             mainAxisSize: MainAxisSize.min,
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Text(
-                'Rename source',
+                context.l10n.githubRenameLink,
                 style: Theme.of(context).textTheme.titleLarge,
               ),
               const SizedBox(height: 12),
-              TextField(
-                controller: controller,
-                autofocus: true,
-                decoration: const InputDecoration(
-                  labelText: 'Alias',
-                  border: OutlineInputBorder(),
+              Text(context.l10n.githubLinkDisplayName),
+              const SizedBox(height: 6),
+              Semantics(
+                label: context.l10n.githubLinkDisplayName,
+                child: TextField(
+                  controller: controller,
+                  autofocus: true,
+                  decoration: const InputDecoration(
+                    border: OutlineInputBorder(),
+                  ),
                 ),
               ),
               const SizedBox(height: 12),
-              Row(
+              OverflowBar(
+                alignment: MainAxisAlignment.end,
+                spacing: 8,
+                overflowSpacing: 8,
+                overflowAlignment: OverflowBarAlignment.end,
                 children: [
-                  const Spacer(),
                   TextButton(
                     onPressed: () => Navigator.of(context).pop(),
-                    child: const Text('Cancel'),
+                    child: Text(context.l10n.cancel),
                   ),
-                  const SizedBox(width: 8),
                   FilledButton(
                     onPressed: () =>
                         Navigator.of(context).pop(controller.text.trim()),
-                    child: const Text('Save'),
+                    child: Text(context.l10n.saveAction),
                   ),
                 ],
               ),
@@ -1414,75 +1420,88 @@ class _ManageSourcesScreenState extends State<_ManageSourcesScreen> {
 
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Manage Sources'),
         actions: [
           TextButton(
             onPressed: () => Navigator.of(context).pop(_sources),
-            child: const Text('Done'),
+            child: Text(context.l10n.done),
           ),
         ],
       ),
-      body: _sources.isEmpty
-          ? Center(
-              child: Padding(
-                padding: const EdgeInsets.all(24),
-                child: Text(
-                  'No sources saved yet.',
-                  style: theme.textTheme.bodyMedium?.copyWith(
-                    color: theme.colorScheme.onSurfaceVariant,
-                  ),
-                ),
-              ),
-            )
-          : ReorderableListView.builder(
-              padding: const EdgeInsets.symmetric(vertical: 8),
-              itemCount: _sources.length,
-              onReorder: (oldIndex, newIndex) {
-                setState(() {
-                  var target = newIndex;
-                  if (target > oldIndex) target -= 1;
-                  final item = _sources.removeAt(oldIndex);
-                  _sources.insert(target, item);
-                });
-              },
-              itemBuilder: (context, index) {
-                final source = _sources[index];
-                final title = source.alias?.trim().isNotEmpty == true
-                    ? source.alias!.trim()
-                    : '${source.owner}/${source.repo}';
-                return ListTile(
-                  key: ValueKey(
-                    '${source.owner}/${source.repo}/${source.branch}/${source.path}',
-                  ),
-                  leading: const Icon(Icons.drag_handle_rounded),
-                  title: Text(title),
-                  subtitle: Text(
-                    source.originalUrl,
-                    maxLines: 1,
-                    overflow: TextOverflow.ellipsis,
-                  ),
-                  trailing: Row(
-                    mainAxisSize: MainAxisSize.min,
-                    children: [
-                      IconButton(
-                        tooltip: 'Rename',
-                        onPressed: () => _rename(index),
-                        icon: const Icon(Icons.edit_outlined),
-                      ),
-                      IconButton(
-                        tooltip: 'Delete',
-                        onPressed: () {
-                          setState(() {
-                            _sources.removeAt(index);
-                          });
-                        },
-                        icon: const Icon(Icons.delete_outline),
-                      ),
-                    ],
-                  ),
-                );
-              },
+      body: Column(
+        crossAxisAlignment: CrossAxisAlignment.stretch,
+        children: [
+          Padding(
+            padding: const EdgeInsets.fromLTRB(16, 8, 16, 8),
+            child: Text(
+              context.l10n.githubSavedLinks,
+              style: theme.textTheme.titleLarge,
             ),
+          ),
+          Expanded(
+            child: _sources.isEmpty
+                ? Center(
+                    child: Padding(
+                      padding: const EdgeInsets.all(24),
+                      child: Text(
+                        context.l10n.githubNoSavedLinks,
+                        style: theme.textTheme.bodyMedium?.copyWith(
+                          color: theme.colorScheme.onSurfaceVariant,
+                        ),
+                      ),
+                    ),
+                  )
+                : ReorderableListView.builder(
+                    padding: const EdgeInsets.symmetric(vertical: 8),
+                    itemCount: _sources.length,
+                    onReorder: (oldIndex, newIndex) {
+                      setState(() {
+                        var target = newIndex;
+                        if (target > oldIndex) target -= 1;
+                        final item = _sources.removeAt(oldIndex);
+                        _sources.insert(target, item);
+                      });
+                    },
+                    itemBuilder: (context, index) {
+                      final source = _sources[index];
+                      final title = source.alias?.trim().isNotEmpty == true
+                          ? source.alias!.trim()
+                          : '${source.owner}/${source.repo}';
+                      return ListTile(
+                        key: ValueKey(
+                          '${source.owner}/${source.repo}/${source.branch}/${source.path}',
+                        ),
+                        leading: const Icon(Icons.drag_handle_rounded),
+                        title: Text(title),
+                        subtitle: Text(
+                          source.originalUrl,
+                          maxLines: 1,
+                          overflow: TextOverflow.ellipsis,
+                        ),
+                        trailing: Row(
+                          mainAxisSize: MainAxisSize.min,
+                          children: [
+                            IconButton(
+                              tooltip: context.l10n.githubRenameLink,
+                              onPressed: () => _rename(index),
+                              icon: const Icon(Icons.edit_outlined),
+                            ),
+                            IconButton(
+                              tooltip: context.l10n.remove,
+                              onPressed: () {
+                                setState(() {
+                                  _sources.removeAt(index);
+                                });
+                              },
+                              icon: const Icon(Icons.delete_outline),
+                            ),
+                          ],
+                        ),
+                      );
+                    },
+                  ),
+          ),
+        ],
+      ),
     );
   }
 }

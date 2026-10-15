@@ -2463,5 +2463,8 @@
   "githubLinkAlreadySaved": "यह लिंक पहले से सहेजा गया है।",
   "githubNoSavedLinks": "अभी कोई लिंक सहेजा नहीं गया है।",
   "githubChooseLink": "लिंक चुनें",
-  "githubSavedLinks": "सहेजे गए लिंक"
+  "githubSavedLinks": "सहेजे गए लिंक",
+  "githubManageLinks": "लिंक प्रबंधित करें",
+  "githubRenameLink": "लिंक का नाम बदलें",
+  "githubLinkDisplayName": "दिखने वाला नाम"
 }

@@ -5234,4 +5234,13 @@ class AppLocalizationsKo extends AppLocalizations {
 
   @override
   String get githubSavedLinks => '저장된 링크';
+
+  @override
+  String get githubManageLinks => '링크 관리';
+
+  @override
+  String get githubRenameLink => '링크 이름 변경';
+
+  @override
+  String get githubLinkDisplayName => '표시 이름';
 }

@@ -5462,4 +5462,13 @@ class AppLocalizationsEs extends AppLocalizations {
 
   @override
   String get githubSavedLinks => 'Enlaces guardados';
+
+  @override
+  String get githubManageLinks => 'Gestionar enlaces';
+
+  @override
+  String get githubRenameLink => 'Cambiar nombre del enlace';
+
+  @override
+  String get githubLinkDisplayName => 'Nombre para mostrar';
 }

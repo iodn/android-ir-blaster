@@ -2465,5 +2465,8 @@
   "githubLinkAlreadySaved": "Ten link jest już zapisany.",
   "githubNoSavedLinks": "Nie ma jeszcze zapisanych linków.",
   "githubChooseLink": "Wybierz link",
-  "githubSavedLinks": "Zapisane linki"
+  "githubSavedLinks": "Zapisane linki",
+  "githubManageLinks": "Zarządzaj linkami",
+  "githubRenameLink": "Zmień nazwę linku",
+  "githubLinkDisplayName": "Wyświetlana nazwa"
 }

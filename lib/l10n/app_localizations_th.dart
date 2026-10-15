@@ -5336,4 +5336,13 @@ class AppLocalizationsTh extends AppLocalizations {
 
   @override
   String get githubSavedLinks => 'ลิงก์ที่บันทึกไว้';
+
+  @override
+  String get githubManageLinks => 'จัดการลิงก์';
+
+  @override
+  String get githubRenameLink => 'เปลี่ยนชื่อลิงก์';
+
+  @override
+  String get githubLinkDisplayName => 'ชื่อที่แสดง';
 }

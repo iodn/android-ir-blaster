@@ -5392,6 +5392,15 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String get githubSavedLinks => 'الروابط المحفوظة';
+
+  @override
+  String get githubManageLinks => 'إدارة الروابط';
+
+  @override
+  String get githubRenameLink => 'إعادة تسمية الرابط';
+
+  @override
+  String get githubLinkDisplayName => 'اسم العرض';
 }
 
 /// The translations for Arabic, as used in Egypt (`ar_EG`).
@@ -10782,4 +10791,13 @@ class AppLocalizationsArEg extends AppLocalizationsAr {
 
   @override
   String get githubSavedLinks => 'الروابط المحفوظة';
+
+  @override
+  String get githubManageLinks => 'إدارة الروابط';
+
+  @override
+  String get githubRenameLink => 'تغيير اسم الرابط';
+
+  @override
+  String get githubLinkDisplayName => 'الاسم الظاهر';
 }

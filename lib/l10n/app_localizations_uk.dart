@@ -5522,4 +5522,13 @@ class AppLocalizationsUk extends AppLocalizations {
 
   @override
   String get githubSavedLinks => 'Збережені посилання';
+
+  @override
+  String get githubManageLinks => 'Керування посиланнями';
+
+  @override
+  String get githubRenameLink => 'Перейменувати посилання';
+
+  @override
+  String get githubLinkDisplayName => 'Відображуване ім’я';
 }

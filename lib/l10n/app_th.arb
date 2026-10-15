@@ -2463,5 +2463,8 @@
   "githubLinkAlreadySaved": "บันทึกลิงก์นี้ไว้แล้ว",
   "githubNoSavedLinks": "ยังไม่มีลิงก์ที่บันทึกไว้",
   "githubChooseLink": "เลือกลิงก์",
-  "githubSavedLinks": "ลิงก์ที่บันทึกไว้"
+  "githubSavedLinks": "ลิงก์ที่บันทึกไว้",
+  "githubManageLinks": "จัดการลิงก์",
+  "githubRenameLink": "เปลี่ยนชื่อลิงก์",
+  "githubLinkDisplayName": "ชื่อที่แสดง"
 }

@@ -2463,5 +2463,8 @@
   "githubLinkAlreadySaved": "このリンクは保存済みです。",
   "githubNoSavedLinks": "保存したリンクはまだありません。",
   "githubChooseLink": "リンクを選択",
-  "githubSavedLinks": "保存したリンク"
+  "githubSavedLinks": "保存したリンク",
+  "githubManageLinks": "リンクの管理",
+  "githubRenameLink": "リンク名を変更",
+  "githubLinkDisplayName": "表示名"
 }

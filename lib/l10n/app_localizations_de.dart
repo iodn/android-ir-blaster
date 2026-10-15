@@ -5471,4 +5471,13 @@ class AppLocalizationsDe extends AppLocalizations {
 
   @override
   String get githubSavedLinks => 'Gespeicherte Links';
+
+  @override
+  String get githubManageLinks => 'Links verwalten';
+
+  @override
+  String get githubRenameLink => 'Link umbenennen';
+
+  @override
+  String get githubLinkDisplayName => 'Anzeigename';
 }

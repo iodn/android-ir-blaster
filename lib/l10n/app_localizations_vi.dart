@@ -5359,4 +5359,13 @@ class AppLocalizationsVi extends AppLocalizations {
 
   @override
   String get githubSavedLinks => 'Liên kết đã lưu';
+
+  @override
+  String get githubManageLinks => 'Quản lý liên kết';
+
+  @override
+  String get githubRenameLink => 'Đổi tên liên kết';
+
+  @override
+  String get githubLinkDisplayName => 'Tên hiển thị';
 }

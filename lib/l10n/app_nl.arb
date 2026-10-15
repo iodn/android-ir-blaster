@@ -2463,5 +2463,8 @@
   "githubLinkAlreadySaved": "Deze link is al opgeslagen.",
   "githubNoSavedLinks": "Nog geen opgeslagen links.",
   "githubChooseLink": "Kies een link",
-  "githubSavedLinks": "Opgeslagen links"
+  "githubSavedLinks": "Opgeslagen links",
+  "githubManageLinks": "Links beheren",
+  "githubRenameLink": "Link hernoemen",
+  "githubLinkDisplayName": "Weergavenaam"
 }

@@ -2463,5 +2463,8 @@
   "githubLinkAlreadySaved": "Pautan ini sudah disimpan.",
   "githubNoSavedLinks": "Belum ada pautan disimpan.",
   "githubChooseLink": "Pilih pautan",
-  "githubSavedLinks": "Pautan disimpan"
+  "githubSavedLinks": "Pautan disimpan",
+  "githubManageLinks": "Urus pautan",
+  "githubRenameLink": "Namakan semula pautan",
+  "githubLinkDisplayName": "Nama paparan"
 }

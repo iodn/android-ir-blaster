@@ -9691,6 +9691,24 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Saved links'**
   String get githubSavedLinks;
+
+  /// No description provided for @githubManageLinks.
+  ///
+  /// In en, this message translates to:
+  /// **'Manage links'**
+  String get githubManageLinks;
+
+  /// No description provided for @githubRenameLink.
+  ///
+  /// In en, this message translates to:
+  /// **'Rename link'**
+  String get githubRenameLink;
+
+  /// No description provided for @githubLinkDisplayName.
+  ///
+  /// In en, this message translates to:
+  /// **'Display name'**
+  String get githubLinkDisplayName;
 }
 
 class _AppLocalizationsDelegate

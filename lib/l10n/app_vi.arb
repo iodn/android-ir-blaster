@@ -2463,5 +2463,8 @@
   "githubLinkAlreadySaved": "Liên kết này đã được lưu.",
   "githubNoSavedLinks": "Chưa có liên kết nào được lưu.",
   "githubChooseLink": "Chọn liên kết",
-  "githubSavedLinks": "Liên kết đã lưu"
+  "githubSavedLinks": "Liên kết đã lưu",
+  "githubManageLinks": "Quản lý liên kết",
+  "githubRenameLink": "Đổi tên liên kết",
+  "githubLinkDisplayName": "Tên hiển thị"
 }

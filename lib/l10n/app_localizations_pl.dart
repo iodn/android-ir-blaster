@@ -5506,4 +5506,13 @@ class AppLocalizationsPl extends AppLocalizations {
 
   @override
   String get githubSavedLinks => 'Zapisane linki';
+
+  @override
+  String get githubManageLinks => 'Zarządzaj linkami';
+
+  @override
+  String get githubRenameLink => 'Zmień nazwę linku';
+
+  @override
+  String get githubLinkDisplayName => 'Wyświetlana nazwa';
 }
