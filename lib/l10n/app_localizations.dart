@@ -2379,55 +2379,55 @@ abstract class AppLocalizations {
   /// No description provided for @macroFeatureToysTitle.
   ///
   /// In en, this message translates to:
-  /// **'Perfect for Interactive Toys'**
+  /// **'For IR-controlled toys'**
   String get macroFeatureToysTitle;
 
   /// No description provided for @macroFeatureToysDescription.
   ///
   /// In en, this message translates to:
-  /// **'Control devices like i-cybie robot dogs, i-sobot robots, and other toys that need time between commands to process actions.'**
+  /// **'Give a toy time to finish an action before sending the next command.'**
   String get macroFeatureToysDescription;
 
   /// No description provided for @macroFeatureTimingTitle.
   ///
   /// In en, this message translates to:
-  /// **'Precise Timing Control'**
+  /// **'Adjustable waits'**
   String get macroFeatureTimingTitle;
 
   /// No description provided for @macroFeatureTimingDescription.
   ///
   /// In en, this message translates to:
-  /// **'Add delays between commands (250ms to custom durations) so your device has time to respond before the next action.'**
+  /// **'Set the wait between commands to give your device time to respond.'**
   String get macroFeatureTimingDescription;
 
   /// No description provided for @macroFeatureManualTitle.
   ///
   /// In en, this message translates to:
-  /// **'Manual Continue Steps'**
+  /// **'Wait for confirmation'**
   String get macroFeatureManualTitle;
 
   /// No description provided for @macroFeatureManualDescription.
   ///
   /// In en, this message translates to:
-  /// **'Pause execution and wait for your confirmation when animation length varies or you need visual feedback.'**
+  /// **'Waits until you tap Continue before moving to the next step.'**
   String get macroFeatureManualDescription;
 
   /// No description provided for @exampleUseCase.
   ///
   /// In en, this message translates to:
-  /// **'Example Use Case'**
+  /// **'Example'**
   String get exampleUseCase;
 
   /// No description provided for @macroExampleText.
   ///
   /// In en, this message translates to:
-  /// **'i-cybie Advanced Mode:\n1. Send \"Mode\" command\n2. Wait 1000ms (toy processes)\n3. Send \"Action 1\"\n4. Wait 1000ms\n5. Send \"Action 2\"\n…and so on automatically!'**
+  /// **'1. Send the first command\n2. Wait 1 second\n3. Send the next command'**
   String get macroExampleText;
 
   /// No description provided for @createFirstMacro.
   ///
   /// In en, this message translates to:
-  /// **'Create Your First Macro'**
+  /// **'Create your first macro'**
   String get createFirstMacro;
 
   /// No description provided for @noRemote.

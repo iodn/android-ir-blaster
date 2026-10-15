@@ -1308,35 +1308,35 @@ class AppLocalizationsPt extends AppLocalizations {
       'Escolha um comando e adicione ações e pausas para criar a sua primeira macro.';
 
   @override
-  String get macroFeatureToysTitle => 'Perfecto para brinquedos interactivos';
+  String get macroFeatureToysTitle => 'Para brinquedos controlados por IR';
 
   @override
   String get macroFeatureToysDescription =>
-      'Controla dispositivos como cães robôs i-cybie, robôs i-sobot e outros brinquedos que precisam de tempo entre comandos para processar ações.';
+      'Dê ao brinquedo tempo para concluir uma ação antes de enviar o comando seguinte.';
 
   @override
-  String get macroFeatureTimingTitle => 'Controlo preciso do tempo';
+  String get macroFeatureTimingTitle => 'Pausas ajustáveis';
 
   @override
   String get macroFeatureTimingDescription =>
-      'Adicione pausas entre comandos (de 250 ms até durações personalizadas) para que o dispositivo responda antes da próxima ação.';
+      'Defina a pausa entre comandos para dar ao dispositivo tempo para responder.';
 
   @override
-  String get macroFeatureManualTitle => 'Passos con continuación manual';
+  String get macroFeatureManualTitle => 'Aguardar confirmação';
 
   @override
   String get macroFeatureManualDescription =>
-      'Pausa a execução e espera o seu confirmación quando a animación varía o precisas confirmación visual.';
+      'Aguarda que toque em Continuar antes de avançar para o passo seguinte.';
 
   @override
-  String get exampleUseCase => 'Exemplo de uso';
+  String get exampleUseCase => 'Exemplo';
 
   @override
   String get macroExampleText =>
-      'Modo avançado do i-cybie:\n1. Enviar comando \"Mode\"\n2. Aguardar 1000 ms (o brinquedo processa)\n3. Enviar \"Action 1\"\n4. Aguardar 1000 ms\n5. Enviar \"Action 2\"\n...e assim sucessivamente de forma automática.';
+      '1. Envie o primeiro comando\n2. Aguarde um segundo\n3. Envie o comando seguinte';
 
   @override
-  String get createFirstMacro => 'Crie a sua primeira macro';
+  String get createFirstMacro => 'Criar a primeira macro';
 
   @override
   String get noRemote => 'Sem comando';
@@ -6589,35 +6589,35 @@ class AppLocalizationsPtBr extends AppLocalizationsPt {
       'Escolha um controle e adicione comandos e pausas para criar sua primeira macro.';
 
   @override
-  String get macroFeatureToysTitle => 'Perfecto para brinquedos interactivos';
+  String get macroFeatureToysTitle => 'Para brinquedos controlados por IR';
 
   @override
   String get macroFeatureToysDescription =>
-      'Controla dispositivos como cães robôs i-cybie, robôs i-sobot e outros brinquedos que precisam de tempo entre comandos para processar ações.';
+      'Dê ao brinquedo tempo para concluir uma ação antes de enviar o próximo comando.';
 
   @override
-  String get macroFeatureTimingTitle => 'Controle preciso do tempo';
+  String get macroFeatureTimingTitle => 'Pausas ajustáveis';
 
   @override
   String get macroFeatureTimingDescription =>
-      'Adicione pausas entre comandos (de 250 ms até durações personalizadas) para que o dispositivo responda antes da próxima ação.';
+      'Defina a pausa entre comandos para dar ao dispositivo tempo para responder.';
 
   @override
-  String get macroFeatureManualTitle => 'Passos con continuación manual';
+  String get macroFeatureManualTitle => 'Aguardar confirmação';
 
   @override
   String get macroFeatureManualDescription =>
-      'Pausa a execução e espera o seu confirmación quando a animación varía o precisas confirmación visual.';
+      'Aguarda você tocar em Continuar antes de avançar para a próxima etapa.';
 
   @override
-  String get exampleUseCase => 'Exemplo de uso';
+  String get exampleUseCase => 'Exemplo';
 
   @override
   String get macroExampleText =>
-      'Modo avançado do i-cybie:\n1. Enviar comando \"Mode\"\n2. Aguardar 1000 ms (o brinquedo processa)\n3. Enviar \"Action 1\"\n4. Aguardar 1000 ms\n5. Enviar \"Action 2\"\n...e assim por diante automaticamente.';
+      '1. Envie o primeiro comando\n2. Aguarde um segundo\n3. Envie o próximo comando';
 
   @override
-  String get createFirstMacro => 'Crie sua primeira macro';
+  String get createFirstMacro => 'Criar sua primeira macro';
 
   @override
   String get noRemote => 'Sem controle';

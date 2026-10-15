@@ -1312,32 +1312,32 @@ class AppLocalizationsPl extends AppLocalizations {
       'Wybierz pilot, a następnie dodaj polecenia i przerwy, aby utworzyć pierwsze makro.';
 
   @override
-  String get macroFeatureToysTitle => 'Idealne do interaktywnych zabawek';
+  String get macroFeatureToysTitle => 'Do zabawek sterowanych podczerwienią';
 
   @override
   String get macroFeatureToysDescription =>
-      'Steruj urządzeniami takimi jak robotyczne psy i-cybie, roboty i-sobot i inne zabawki, które potrzebują czasu między komendami, aby przetworzyć akcje.';
+      'Daj zabawce czas na zakończenie ruchu przed wysłaniem następnego polecenia.';
 
   @override
-  String get macroFeatureTimingTitle => 'Precyzyjna kontrola czasu';
+  String get macroFeatureTimingTitle => 'Regulowane przerwy';
 
   @override
   String get macroFeatureTimingDescription =>
-      'Dodawaj opóźnienia między komendami (od 250 ms do własnych wartości), aby urządzenie miało czas na reakcję przed następną akcją.';
+      'Ustaw przerwy między poleceniami, aby urządzenie miało czas na reakcję.';
 
   @override
-  String get macroFeatureManualTitle => 'Kroki z ręcznym wznowieniem';
+  String get macroFeatureManualTitle => 'Czekaj na potwierdzenie';
 
   @override
   String get macroFeatureManualDescription =>
-      'Wstrzymaj wykonanie i czekaj na potwierdzenie, gdy długość animacji się zmienia lub potrzebujesz wizualnej kontroli.';
+      'Czeka na stuknięcie Dalej przed przejściem do następnego kroku.';
 
   @override
-  String get exampleUseCase => 'Przykład użycia';
+  String get exampleUseCase => 'Przykład';
 
   @override
   String get macroExampleText =>
-      'i-cybie Advanced Mode:\n1. wyślij \"Mode\" komenda\n2. Wait 1000ms (toy processes)\n3. wyślij \"Action 1\"\n4. Wait 1000ms\n5. wyślij \"Action 2\"\n…i so na automatically!';
+      '1. Wyślij pierwsze polecenie\n2. Odczekaj sekundę\n3. Wyślij następne polecenie';
 
   @override
   String get createFirstMacro => 'Utwórz pierwsze makro';

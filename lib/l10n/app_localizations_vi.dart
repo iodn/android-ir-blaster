@@ -1286,32 +1286,32 @@ class AppLocalizationsVi extends AppLocalizations {
       'Chọn điều khiển, rồi thêm lệnh và thời gian chờ để tạo macro đầu tiên.';
 
   @override
-  String get macroFeatureToysTitle => 'Rất hợp cho đồ chơi tương tác';
+  String get macroFeatureToysTitle => 'Dành cho đồ chơi điều khiển bằng IR';
 
   @override
   String get macroFeatureToysDescription =>
-      'Điều khiển các thiết bị như chó robot i-cybie, robot i-sobot và các đồ chơi khác cần thời gian giữa các lệnh để xử lý thao tác.';
+      'Cho đồ chơi đủ thời gian hoàn thành thao tác trước khi gửi lệnh tiếp theo.';
 
   @override
-  String get macroFeatureTimingTitle => 'Điều khiển thời gian chính xác';
+  String get macroFeatureTimingTitle => 'Điều chỉnh thời gian chờ';
 
   @override
   String get macroFeatureTimingDescription =>
-      'Thêm độ trễ giữa các lệnh (250ms đến thời lượng tùy chỉnh) để thiết bị có thời gian phản hồi trước thao tác tiếp theo.';
+      'Đặt thời gian chờ giữa các lệnh để thiết bị có thời gian phản hồi.';
 
   @override
-  String get macroFeatureManualTitle => 'Bước tiếp tục thủ công';
+  String get macroFeatureManualTitle => 'Chờ xác nhận';
 
   @override
   String get macroFeatureManualDescription =>
-      'Tạm dừng thực thi và chờ bạn xác nhận khi độ dài hoạt ảnh thay đổi hoặc khi cần phản hồi trực quan.';
+      'Chờ bạn nhấn Tiếp tục trước khi sang bước tiếp theo.';
 
   @override
-  String get exampleUseCase => 'Ví dụ sử dụng';
+  String get exampleUseCase => 'Ví dụ';
 
   @override
   String get macroExampleText =>
-      'Chế độ nâng cao i-cybie:\n1. Gửi lệnh \"Mode\"\n2. Chờ 1000ms (đồ chơi xử lý)\n3. Gửi \"Action 1\"\n4. Chờ 1000ms\n5. Gửi \"Action 2\"\n…và cứ thế tự động!';
+      '1. Gửi lệnh đầu tiên\n2. Chờ một giây\n3. Gửi lệnh tiếp theo';
 
   @override
   String get createFirstMacro => 'Tạo macro đầu tiên';

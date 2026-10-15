@@ -1306,35 +1306,35 @@ class AppLocalizationsFil extends AppLocalizations {
       'Pumili ng remote, saka magdagdag ng mga command at oras ng paghihintay para sa una mong macro.';
 
   @override
-  String get macroFeatureToysTitle => 'Perfect para sa Interactive Toys';
+  String get macroFeatureToysTitle => 'Para sa mga laruang kontrolado ng IR';
 
   @override
   String get macroFeatureToysDescription =>
-      'Kontrolin ang mga device tulad ng i-cybie robot dogs, i-sobot robots, at iba pang laruan na kailangan ng pagitan sa bawat command para maproseso ang kilos.';
+      'Bigyan ng oras ang laruan na tapusin ang isang kilos bago ipadala ang susunod na command.';
 
   @override
-  String get macroFeatureTimingTitle => 'Precise Timing Control';
+  String get macroFeatureTimingTitle => 'Naaayos na oras ng paghihintay';
 
   @override
   String get macroFeatureTimingDescription =>
-      'Magdagdag ng delay sa pagitan ng mga command mula 250ms hanggang custom na haba para may oras ang device na tumugon bago ang susunod na kilos.';
+      'Itakda ang pagitan ng mga command para may oras na tumugon ang device.';
 
   @override
-  String get macroFeatureManualTitle => 'Manual Continue Steps';
+  String get macroFeatureManualTitle => 'Hintayin ang kumpirmasyon';
 
   @override
   String get macroFeatureManualDescription =>
-      'I-pause ang pagpapatakbo at hintayin ang kumpirmasyon mo kapag pabago-bago ang haba ng animation o kailangan mo ng visual feedback.';
+      'Naghihintay hanggang i-tap mo ang Magpatuloy bago ang susunod na hakbang.';
 
   @override
-  String get exampleUseCase => 'Example Use Case';
+  String get exampleUseCase => 'Halimbawa';
 
   @override
   String get macroExampleText =>
-      'i-cybie Advanced Mode:\n1. Ipadala ang utos na \"Mode\"\n2. Maghintay ng 1000ms, pinoproseso ng laruan\n3. Ipadala ang \"Action 1\"\n4. Maghintay ng 1000ms\n5. Ipadala ang \"Action 2\"\n…at tuloy-tuloy nang awtomatiko!';
+      '1. Ipadala ang unang command\n2. Maghintay ng isang segundo\n3. Ipadala ang susunod na command';
 
   @override
-  String get createFirstMacro => 'Create Ang iyong First Macro';
+  String get createFirstMacro => 'Gumawa ng unang macro';
 
   @override
   String get noRemote => 'Walang remote';

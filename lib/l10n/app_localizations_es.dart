@@ -1306,35 +1306,35 @@ class AppLocalizationsEs extends AppLocalizations {
       'Elige un mando y añade comandos y pausas para crear tu primera macro.';
 
   @override
-  String get macroFeatureToysTitle => 'Perfecto para juguetes interactivos';
+  String get macroFeatureToysTitle => 'Para juguetes con control IR';
 
   @override
   String get macroFeatureToysDescription =>
-      'Controla dispositivos como perros robot i-cybie, robots i-sobot y otros juguetes que necesitan tiempo entre comandos para procesar acciones.';
+      'Dale tiempo al juguete para terminar una acción antes de enviar el siguiente comando.';
 
   @override
-  String get macroFeatureTimingTitle => 'Control preciso del tiempo';
+  String get macroFeatureTimingTitle => 'Pausas ajustables';
 
   @override
   String get macroFeatureTimingDescription =>
-      'Añade pausas entre comandos (de 250 ms a duraciones personalizadas) para que tu dispositivo responda antes de la siguiente acción.';
+      'Ajusta la pausa entre comandos para que el dispositivo tenga tiempo de responder.';
 
   @override
-  String get macroFeatureManualTitle => 'Pasos con continuación manual';
+  String get macroFeatureManualTitle => 'Esperar confirmación';
 
   @override
   String get macroFeatureManualDescription =>
-      'Pausa la ejecución y espera tu confirmación cuando la animación varía o necesitas confirmación visual.';
+      'Espera a que toques Continuar antes de pasar al siguiente paso.';
 
   @override
-  String get exampleUseCase => 'Ejemplo de uso';
+  String get exampleUseCase => 'Ejemplo';
 
   @override
   String get macroExampleText =>
-      'Modo avanzado de i-cybie:\n1. Enviar comando \"Mode\"\n2. Esperar 1000 ms (el juguete procesa)\n3. Enviar \"Action 1\"\n4. Esperar 1000 ms\n5. Enviar \"Action 2\"\n…y así sucesivamente de forma automática.';
+      '1. Envía el primer comando\n2. Espera un segundo\n3. Envía el siguiente comando';
 
   @override
-  String get createFirstMacro => 'Crea tu primera macro';
+  String get createFirstMacro => 'Crear tu primera macro';
 
   @override
   String get noRemote => 'Sin mando';

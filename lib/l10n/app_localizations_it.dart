@@ -1310,32 +1310,32 @@ class AppLocalizationsIt extends AppLocalizations {
       'Scegli un telecomando, poi aggiungi comandi e attese per creare la tua prima macro.';
 
   @override
-  String get macroFeatureToysTitle => 'Perfette per giocattoli interattivi';
+  String get macroFeatureToysTitle => 'Per giocattoli con comando IR';
 
   @override
   String get macroFeatureToysDescription =>
-      'Controlla dispositivi come cani robot i-cybie, robot i-sobot e altri giocattoli che richiedono tempo tra i comandi per elaborare le azioni.';
+      'Lascia al giocattolo il tempo di completare un’azione prima di inviare il comando successivo.';
 
   @override
-  String get macroFeatureTimingTitle => 'Controllo tempi preciso';
+  String get macroFeatureTimingTitle => 'Attese regolabili';
 
   @override
   String get macroFeatureTimingDescription =>
-      'Aggiungi ritardi tra i comandi, da 250 ms a durate personalizzate, così il dispositivo ha tempo di rispondere prima dell\'azione successiva.';
+      'Imposta l’attesa tra i comandi per dare al dispositivo il tempo di rispondere.';
 
   @override
-  String get macroFeatureManualTitle => 'Passi con continua manuale';
+  String get macroFeatureManualTitle => 'Attendi conferma';
 
   @override
   String get macroFeatureManualDescription =>
-      'Metti in pausa l\'esecuzione e attendi la tua conferma quando la durata dell\'animazione varia o serve un feedback visivo.';
+      'Attende che tocchi Continua prima di passare al passaggio successivo.';
 
   @override
-  String get exampleUseCase => 'Esempio d\'uso';
+  String get exampleUseCase => 'Esempio';
 
   @override
   String get macroExampleText =>
-      'Modalità avanzata i-cybie:\n1. Invia il comando \"Modalità\"\n2. Attendi 1000 ms il giocattolo elabora\n3. Invia \"Azione 1\"\n4. Attendi 1000 ms\n5. Invia \"Azione 2\"\n…e così via automaticamente!';
+      '1. Invia il primo comando\n2. Attendi un secondo\n3. Invia il comando successivo';
 
   @override
   String get createFirstMacro => 'Crea la tua prima macro';

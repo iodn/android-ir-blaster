@@ -1293,35 +1293,35 @@ class AppLocalizationsHi extends AppLocalizations {
       'अपना पहला मैक्रो बनाने के लिए रिमोट चुनें, फिर कमांड और रुकने का समय जोड़ें।';
 
   @override
-  String get macroFeatureToysTitle => 'के लिए उपयुक्त Interactive खिलौने';
+  String get macroFeatureToysTitle => 'IR से चलने वाले खिलौनों के लिए';
 
   @override
   String get macroFeatureToysDescription =>
-      'i-cybie robot dogs, i-sobot robots और अन्य खिलौना उपकरण नियंत्रित करें जिन्हें कमांडों के बीच क्रिया संसाधित करने के लिए समय चाहिए।';
+      'अगला कमांड भेजने से पहले खिलौने को अपनी क्रिया पूरी करने का समय दें।';
 
   @override
-  String get macroFeatureTimingTitle => 'सटीक समय-नियंत्रण नियंत्रित करें';
+  String get macroFeatureTimingTitle => 'रुकने का समय तय करें';
 
   @override
   String get macroFeatureTimingDescription =>
-      'कमांडों के बीच विलंब जोड़ें (250ms से कस्टम durations तक) ताकि अगली क्रिया से पहले आपका उपकरण प्रतिक्रिया दे सके।';
+      'कमांड के बीच रुकने का समय तय करें, ताकि डिवाइस को प्रतिक्रिया देने का समय मिले।';
 
   @override
-  String get macroFeatureManualTitle => 'मैनुअल जारी रखें चरण';
+  String get macroFeatureManualTitle => 'पुष्टि का इंतज़ार';
 
   @override
   String get macroFeatureManualDescription =>
-      'जब animation की लंबाई बदलती हो या आपको दृश्य प्रतिक्रिया चाहिए, निष्पादन रोकें और आपकी पुष्टि की प्रतीक्षा करें।';
+      'अगले चरण से पहले आपके जारी रखें पर टैप करने का इंतज़ार करता है।';
 
   @override
-  String get exampleUseCase => 'उदाहरण उपयोग करें Case';
+  String get exampleUseCase => 'उदाहरण';
 
   @override
   String get macroExampleText =>
-      'i-cybie उन्नत मोड:\n1. \"मोड\" कमांड भेजें\n2. 1000ms प्रतीक्षा करें (खिलौना प्रक्रिया करता है)\n3. \"Action 1\" भेजें\n4. 1000ms प्रतीक्षा करें\n5. \"Action 2\" भेजें\n…और इसी तरह स्वतः!';
+      '1. पहला कमांड भेजें\n2. एक सेकंड रुकें\n3. अगला कमांड भेजें';
 
   @override
-  String get createFirstMacro => 'बनाएं आपकी पहले मैक्रो';
+  String get createFirstMacro => 'पहला मैक्रो बनाएँ';
 
   @override
   String get noRemote => 'नहीं रिमोट';

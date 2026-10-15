@@ -1294,35 +1294,35 @@ class AppLocalizationsMs extends AppLocalizations {
       'Pilih alat kawalan jauh, kemudian tambah arahan dan masa menunggu untuk mencipta makro pertama anda.';
 
   @override
-  String get macroFeatureToysTitle => 'Cocok untuk Mainan Interaktif';
+  String get macroFeatureToysTitle => 'Untuk mainan kawalan IR';
 
   @override
   String get macroFeatureToysDescription =>
-      'Kendalikan peranti seperti anjing robot i-cybie, robot i-sobot, dan mainan lain yang memerlukan jeda antarperintah untuk memproses aksi.';
+      'Beri mainan masa untuk menyelesaikan gerakan sebelum menghantar arahan seterusnya.';
 
   @override
-  String get macroFeatureTimingTitle => 'Kawalan Waktu Presisi';
+  String get macroFeatureTimingTitle => 'Masa menunggu boleh laras';
 
   @override
   String get macroFeatureTimingDescription =>
-      'Tambahkan jeda antarperintah (250ms hingga durasi kustom) agar peranti punya waktu merespons sebelum aksi berikutnya.';
+      'Tetapkan masa menunggu antara arahan supaya peranti sempat bertindak balas.';
 
   @override
-  String get macroFeatureManualTitle => 'Langkah Lanjut Manual';
+  String get macroFeatureManualTitle => 'Tunggu pengesahan';
 
   @override
   String get macroFeatureManualDescription =>
-      'Jeda eksekusi dan tunggu konfirmasi Anda saat durasi animasi berubah atau Anda perlu umpan balik visual.';
+      'Menunggu sehingga anda mengetik Teruskan sebelum langkah seterusnya.';
 
   @override
-  String get exampleUseCase => 'Contoh Penggunaan';
+  String get exampleUseCase => 'Contoh';
 
   @override
   String get macroExampleText =>
-      'Mode Lanjut i-cybie:\n1. Kirim perintah \"Mode\"\n2. Tunggu 1000ms (mainan memproses)\n3. Kirim \"Aksi 1\"\n4. Tunggu 1000ms\n5. Kirim \"Aksi 2\"\n…dan seterusnya automatik!';
+      '1. Hantar arahan pertama\n2. Tunggu satu saat\n3. Hantar arahan seterusnya';
 
   @override
-  String get createFirstMacro => 'Buat Makro Pertama';
+  String get createFirstMacro => 'Cipta makro pertama';
 
   @override
   String get noRemote => 'Tiada remote';

@@ -1198,34 +1198,31 @@ class AppLocalizationsZh extends AppLocalizations {
   String get timedMacrosNextStep => '选择遥控器，然后添加命令和等待时间，即可创建第一个宏。';
 
   @override
-  String get macroFeatureToysTitle => '非常适合互动玩具';
+  String get macroFeatureToysTitle => '适用于红外遥控玩具';
 
   @override
-  String get macroFeatureToysDescription =>
-      '控制 i-cybie 机器狗、i-sobot 机器人等需要在命令间留出处理时间的设备。';
+  String get macroFeatureToysDescription => '给玩具留出完成动作的时间，再发送下一条命令。';
 
   @override
-  String get macroFeatureTimingTitle => '精确定时控制';
+  String get macroFeatureTimingTitle => '可调等待时间';
 
   @override
-  String get macroFeatureTimingDescription =>
-      '在命令之间添加延迟 250ms 到自定义时长，让设备有时间在下一步前作出响应。';
+  String get macroFeatureTimingDescription => '设置命令之间的等待时间，让设备有时间响应。';
 
   @override
-  String get macroFeatureManualTitle => '手动继续步骤';
+  String get macroFeatureManualTitle => '等待确认';
 
   @override
-  String get macroFeatureManualDescription => '当动画时长不固定或你需要视觉反馈时，暂停执行并等待你的确认。';
+  String get macroFeatureManualDescription => '等待您点击“继续”后，再执行下一步。';
 
   @override
-  String get exampleUseCase => '示例用例';
+  String get exampleUseCase => '使用示例';
 
   @override
-  String get macroExampleText =>
-      'i-cybie 高级模式\n1. 发送 “Mode” 命令\n2. 等待 1000ms 玩具处理\n3. 发送 “Action 1”\n4. 等待 1000ms\n5. 发送 “Action 2”\n…随后自动继续。';
+  String get macroExampleText => '1. 发送第一条命令\n2. 等待1秒\n3. 发送下一条命令';
 
   @override
-  String get createFirstMacro => '创建你的第一个宏';
+  String get createFirstMacro => '创建第一个宏';
 
   @override
   String get noRemote => '没有遥控器';

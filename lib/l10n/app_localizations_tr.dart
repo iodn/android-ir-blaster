@@ -1295,35 +1295,35 @@ class AppLocalizationsTr extends AppLocalizations {
       'İlk makronuzu oluşturmak için bir kumanda seçin, ardından komutlar ve bekleme süreleri ekleyin.';
 
   @override
-  String get macroFeatureToysTitle => 'Etkileşimli oyuncaklar için ideal';
+  String get macroFeatureToysTitle => 'IR kumandalı oyuncaklar için';
 
   @override
   String get macroFeatureToysDescription =>
-      'Komutlar arasında işlem süresi gereken i-cybie robot köpekler, i-sobot robotlar ve benzeri oyuncakları kontrol edin.';
+      'Sonraki komutu göndermeden önce oyuncağa hareketini tamamlaması için zaman tanıyın.';
 
   @override
-  String get macroFeatureTimingTitle => 'Hassas Zamanlama Kontrolü';
+  String get macroFeatureTimingTitle => 'Ayarlanabilir bekleme';
 
   @override
   String get macroFeatureTimingDescription =>
-      'Cihazınızın sonraki eylemden önce yanıt verebilmesi için komutlar arasına gecikmeler ekleyin (250 ms\'den özel sürelere kadar).';
+      'Cihazın yanıt vermesi için komutlar arasındaki bekleme süresini ayarlayın.';
 
   @override
-  String get macroFeatureManualTitle => 'Elle Devam Et adımları';
+  String get macroFeatureManualTitle => 'Onay bekle';
 
   @override
   String get macroFeatureManualDescription =>
-      'Animasyon süresi değiştiğinde veya görsel geri bildirim gerektiğinde yürütmeyi duraklatır ve onayınızı bekler.';
+      'Sonraki adıma geçmeden önce Devam et\'e dokunmanızı bekler.';
 
   @override
-  String get exampleUseCase => 'Örnek Kullanım Senaryosu';
+  String get exampleUseCase => 'Örnek';
 
   @override
   String get macroExampleText =>
-      'i-cybie Gelişmiş Mod\n1. \"Mode\" komutunu gönder\n2. 1000 ms bekle (oyuncak işler)\n3. \"Action 1\" gönder\n4. 1000 ms bekle\n5. \"Action 2\" gönder\n… ve bu şekilde otomatik devam eder!';
+      '1. İlk komutu gönderin\n2. Bir saniye bekleyin\n3. Sonraki komutu gönderin';
 
   @override
-  String get createFirstMacro => 'İlk Makronu Oluştur';
+  String get createFirstMacro => 'İlk makronuzu oluşturun';
 
   @override
   String get noRemote => 'No kumanda';

@@ -1294,32 +1294,32 @@ class AppLocalizationsRu extends AppLocalizations {
       'Выберите пульт, затем добавьте команды и паузы, чтобы создать первый макрос.';
 
   @override
-  String get macroFeatureToysTitle => 'Идеально для интерактивных игрушек';
+  String get macroFeatureToysTitle => 'Для игрушек с ИК-управлением';
 
   @override
   String get macroFeatureToysDescription =>
-      'Управляйте устройствами вроде робособак i-cybie, роботов i-sobot и других игрушек, которым нужно время между командами для обработки действий.';
+      'Дайте игрушке закончить действие, прежде чем отправлять следующую команду.';
 
   @override
-  String get macroFeatureTimingTitle => 'Точный контроль тайминга';
+  String get macroFeatureTimingTitle => 'Настраиваемые паузы';
 
   @override
   String get macroFeatureTimingDescription =>
-      'Добавляйте задержки между командами, от 250 мс до произвольной длины, чтобы устройство успевало ответить перед следующим шагом.';
+      'Задайте паузы между командами, чтобы устройство успевало реагировать.';
 
   @override
-  String get macroFeatureManualTitle => 'Шаги с ручным продолжением';
+  String get macroFeatureManualTitle => 'Ждать подтверждения';
 
   @override
   String get macroFeatureManualDescription =>
-      'Приостанавливает выполнение и ждёт подтверждения, когда длина анимации меняется или нужен визуальный контроль.';
+      'Ждёт нажатия «Продолжить» перед переходом к следующему шагу.';
 
   @override
-  String get exampleUseCase => 'Пример использования';
+  String get exampleUseCase => 'Пример';
 
   @override
   String get macroExampleText =>
-      'Режим i-cybie Advanced:\n1. Отправить команду \"Mode\"\n2. Ждать 1000 мс, игрушка обрабатывает\n3. Отправить \"Action 1\"\n4. Ждать 1000 мс\n5. Отправить \"Action 2\"\n…и так далее автоматически!';
+      '1. Отправьте первую команду\n2. Подождите одну секунду\n3. Отправьте следующую команду';
 
   @override
   String get createFirstMacro => 'Создать первый макрос';

@@ -48,10 +48,20 @@ void main() {
       for (final text in [
         l10n.timedMacrosTitle,
         l10n.timedMacrosSubtitle,
-        l10n.timedMacrosNextStep
+        l10n.timedMacrosNextStep,
+        l10n.macroFeatureToysTitle,
+        l10n.macroFeatureToysDescription,
+        l10n.macroFeatureTimingTitle,
+        l10n.macroFeatureTimingDescription,
+        l10n.macroFeatureManualTitle,
+        l10n.macroFeatureManualDescription,
+        l10n.exampleUseCase,
+        l10n.macroExampleText,
+        l10n.createFirstMacro,
       ]) {
         await readable(text);
       }
+      expect(find.text(l10n.createFirstMacro).hitTestable(), findsOneWidget);
       setMacros([
         const TimedMacro(
             id: 'one',

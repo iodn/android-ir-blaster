@@ -1242,32 +1242,29 @@ class AppLocalizationsKo extends AppLocalizations {
   String get timedMacrosNextStep => '리모컨을 선택하고 명령과 대기 시간을 추가해 첫 매크로를 만들어 보세요.';
 
   @override
-  String get macroFeatureToysTitle => '인터랙티브 장난감에 적합';
+  String get macroFeatureToysTitle => '적외선으로 조종하는 장난감';
 
   @override
-  String get macroFeatureToysDescription =>
-      'i-cybie 로봇 강아지, i-sobot 로봇처럼 명령 사이에 동작 처리 시간이 필요한 장치를 제어합니다.';
+  String get macroFeatureToysDescription => '장난감이 동작을 마칠 시간을 준 뒤 다음 명령을 보내세요.';
 
   @override
-  String get macroFeatureTimingTitle => '정밀 타이밍 제어';
+  String get macroFeatureTimingTitle => '대기 시간 조절';
 
   @override
   String get macroFeatureTimingDescription =>
-      '명령 사이에 지연을 추가해(250ms부터 사용자 지정 시간까지) 기기가 다음 동작 전에 반응할 시간을 줍니다.';
+      '기기가 반응할 수 있도록 명령 사이의 대기 시간을 설정하세요.';
 
   @override
-  String get macroFeatureManualTitle => '수동 계속 단계';
+  String get macroFeatureManualTitle => '확인 대기';
 
   @override
-  String get macroFeatureManualDescription =>
-      '애니메이션 길이가 일정하지 않거나 시각적 확인이 필요할 때 실행을 일시정지하고 확인을 기다립니다.';
+  String get macroFeatureManualDescription => '계속을 누를 때까지 기다린 뒤 다음 단계로 넘어갑니다.';
 
   @override
   String get exampleUseCase => '사용 예';
 
   @override
-  String get macroExampleText =>
-      'i-cybie 고급 모드:\n1. \"Mode\" 명령 보내기\n2. 1000ms 대기(장난감 처리)\n3. \"Action 1\" 보내기\n4. 1000ms 대기\n5. \"Action 2\" 보내기\n…이후 자동 계속!';
+  String get macroExampleText => '1. 첫 번째 명령 보내기\n2. 1초 기다리기\n3. 다음 명령 보내기';
 
   @override
   String get createFirstMacro => '첫 매크로 만들기';

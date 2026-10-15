@@ -1285,35 +1285,35 @@ class AppLocalizationsTh extends AppLocalizations {
       'เลือกรีโมต แล้วเพิ่มคำสั่งและเวลารอเพื่อสร้างมาโครแรกของคุณ';
 
   @override
-  String get macroFeatureToysTitle => 'เหมาะสำหรับของเล่นแบบโต้ตอบ';
+  String get macroFeatureToysTitle => 'สำหรับของเล่นที่ควบคุมด้วยอินฟราเรด';
 
   @override
   String get macroFeatureToysDescription =>
-      'Control อุปกรณ์s like i-cybie robot dogs, i-sobot robots, and other toys that need time between commands to process actions.';
+      'ให้เวลาของเล่นทำงานจนเสร็จก่อนส่งคำสั่งถัดไป';
 
   @override
-  String get macroFeatureTimingTitle => 'ควบคุมเวลาได้แม่นยำ';
+  String get macroFeatureTimingTitle => 'ปรับเวลารอได้';
 
   @override
   String get macroFeatureTimingDescription =>
-      'เพิ่มช่วงหน่วงระหว่างคำสั่ง ตั้งแต่ 250ms ถึงค่าที่กำหนดเอง เพื่อให้อุปกรณ์มีเวลาตอบสนองก่อนการทำงานถัดไป';
+      'ตั้งเวลารอระหว่างคำสั่ง เพื่อให้อุปกรณ์มีเวลาตอบสนอง';
 
   @override
-  String get macroFeatureManualTitle => 'ขั้นตอนทำต่อด้วยตนเอง';
+  String get macroFeatureManualTitle => 'รอการยืนยัน';
 
   @override
   String get macroFeatureManualDescription =>
-      'หยุดการทำงานและรอการยืนยันจากคุณเมื่อความยาวแอนิเมชันไม่แน่นอนหรือเมื่อคุณต้องการดูผลลัพธ์';
+      'รอจนกว่าคุณจะแตะ ดำเนินการต่อ ก่อนทำขั้นตอนถัดไป';
 
   @override
-  String get exampleUseCase => 'ตัวอย่างการใช้งาน';
+  String get exampleUseCase => 'ตัวอย่าง';
 
   @override
   String get macroExampleText =>
-      'i-cybie Advanced Mode:\n1. Send \"Mode\" command\n2. Wait 1000ms (toy processes)\n3. Send \"Action 1\"\n4. Wait 1000ms\n5. Send \"Action 2\"\n…and so on automatically!';
+      '1. ส่งคำสั่งแรก\n2. รอ 1 วินาที\n3. ส่งคำสั่งถัดไป';
 
   @override
-  String get createFirstMacro => 'สร้างแมโครแรกของคุณ';
+  String get createFirstMacro => 'สร้างมาโครแรก';
 
   @override
   String get noRemote => 'ไม่มีรีโมต';

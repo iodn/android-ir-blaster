@@ -1279,35 +1279,35 @@ class AppLocalizationsAr extends AppLocalizations {
       'اختر جهاز تحكم، ثم أضف أوامر وفترات انتظار لإنشاء أول ماكرو.';
 
   @override
-  String get macroFeatureToysTitle => 'مثالي للألعاب التفاعلية';
+  String get macroFeatureToysTitle => 'للألعاب التي تعمل بالأشعة تحت الحمراء';
 
   @override
   String get macroFeatureToysDescription =>
-      'تحكم في أجهزة مثل كلاب i-cybie الروبوتية وروبوتات i-sobot وغيرها من الألعاب التي تحتاج وقتاً بين الأوامر لمعالجة الإجراءات.';
+      'امنح اللعبة وقتاً لإنهاء الحركة قبل إرسال الأمر التالي.';
 
   @override
-  String get macroFeatureTimingTitle => 'تحكم دقيق بالتوقيت';
+  String get macroFeatureTimingTitle => 'فترات انتظار قابلة للتعديل';
 
   @override
   String get macroFeatureTimingDescription =>
-      'أضف تأخيرات بين الأوامر، من 250ms إلى مدد مخصصة، حتى يجد جهازك وقتاً للاستجابة قبل الأمر التالي.';
+      'حدد وقت الانتظار بين الأوامر ليتمكن جهازك من الاستجابة.';
 
   @override
-  String get macroFeatureManualTitle => 'خطوات متابعة يدوية';
+  String get macroFeatureManualTitle => 'انتظار التأكيد';
 
   @override
   String get macroFeatureManualDescription =>
-      'أوقف التنفيذ وانتظر تأكيدك عندما تختلف مدة الحركة أو عندما تحتاج إلى ملاحظة مرئية.';
+      'ينتظر حتى تضغط على متابعة للانتقال إلى الخطوة التالية.';
 
   @override
-  String get exampleUseCase => 'مثال Use Case';
+  String get exampleUseCase => 'مثال';
 
   @override
   String get macroExampleText =>
-      'وضع i-cybie المتقدم:\n1. أرسل أمر الوضع\n2. انتظر 1000ms، اللعبة تعالج\n3. أرسل الإجراء 1\n4. انتظر 1000ms\n5. أرسل الإجراء 2\n…وهكذا تلقائياً';
+      '1. أرسل الأمر الأول\n2. انتظر ثانية واحدة\n3. أرسل الأمر التالي';
 
   @override
-  String get createFirstMacro => 'أنشئ أول ماكرو';
+  String get createFirstMacro => 'إنشاء أول ماكرو';
 
   @override
   String get noRemote => 'لا يوجد جهاز تحكم';
@@ -6498,35 +6498,35 @@ class AppLocalizationsArEg extends AppLocalizationsAr {
       'اختار ريموت، وبعدها ضيف أوامر وأوقات انتظار عشان تعمل أول ماكرو.';
 
   @override
-  String get macroFeatureToysTitle => 'مثالي للألعاب التفاعلية';
+  String get macroFeatureToysTitle => 'للألعاب اللي بتشتغل بالأشعة تحت الحمراء';
 
   @override
   String get macroFeatureToysDescription =>
-      'تحكم في أجهزة مثل كلاب i-cybie الروبوتية وروبوتات i-sobot وغيرها من الألعاب التي تحتاج وقتاً بين الأوامر لمعالجة الإجراءات.';
+      'سيب للعبة وقت تخلّص الحركة قبل ما تبعت الأمر اللي بعده.';
 
   @override
-  String get macroFeatureTimingTitle => 'تحكم دقيق بالتوقيت';
+  String get macroFeatureTimingTitle => 'وقت انتظار حسب احتياجك';
 
   @override
   String get macroFeatureTimingDescription =>
-      'أضف تأخيرات بين الأوامر، من 250ms إلى مدد مخصصة، حتى يجد جهازك وقتاً للاستجابة قبل الأمر التالي.';
+      'حدد وقت الانتظار بين الأوامر عشان الجهاز يلحق يستجيب.';
 
   @override
-  String get macroFeatureManualTitle => 'خطوات متابعة يدوية';
+  String get macroFeatureManualTitle => 'انتظار التأكيد';
 
   @override
   String get macroFeatureManualDescription =>
-      'أوقف التنفيذ وانتظر تأكيدك عندما تختلف مدة الحركة أو عندما تحتاج إلى ملاحظة مرئية.';
+      'بيستنى لحد ما تضغط على متابعة عشان يروح للخطوة اللي بعدها.';
 
   @override
-  String get exampleUseCase => 'مثال Use Case';
+  String get exampleUseCase => 'مثال';
 
   @override
   String get macroExampleText =>
-      'وضع i-cybie المتقدم:\n1. أرسل أمر الوضع\n2. انتظر 1000ms، اللعبة تعالج\n3. أرسل الإجراء 1\n4. انتظر 1000ms\n5. أرسل الإجراء 2\n…وهكذا تلقائياً';
+      '1. ابعت أول أمر\n2. استنى ثانية\n3. ابعت الأمر اللي بعده';
 
   @override
-  String get createFirstMacro => 'أنشئ أول ماكرو';
+  String get createFirstMacro => 'إنشاء أول ماكرو';
 
   @override
   String get noRemote => 'لا يوجد جهاز تحكم';

@@ -1306,32 +1306,32 @@ class AppLocalizationsFr extends AppLocalizations {
       'Choisissez une télécommande, puis ajoutez des commandes et des temps d’attente pour créer votre première macro.';
 
   @override
-  String get macroFeatureToysTitle => 'Parfait pour les jouets interactifs';
+  String get macroFeatureToysTitle => 'Pour les jouets à commande IR';
 
   @override
   String get macroFeatureToysDescription =>
-      'Contrôlez des appareils comme les chiens robots i-cybie, les robots i-sobot et d\'autres jouets qui ont besoin de temps entre les commandes.';
+      'Laissez au jouet le temps de terminer une action avant d’envoyer la commande suivante.';
 
   @override
-  String get macroFeatureTimingTitle => 'Contrôle précis du timing';
+  String get macroFeatureTimingTitle => 'Temps d’attente réglables';
 
   @override
   String get macroFeatureTimingDescription =>
-      'Ajoutez des délais entre les commandes (250 ms à durée libre) pour laisser le temps à l\'appareil de réagir avant l\'action suivante.';
+      'Réglez l’attente entre les commandes pour laisser à l’appareil le temps de réagir.';
 
   @override
-  String get macroFeatureManualTitle => 'Étapes avec reprise manuelle';
+  String get macroFeatureManualTitle => 'Attendre la confirmation';
 
   @override
   String get macroFeatureManualDescription =>
-      'Met l\'exécution en pause et attend votre confirmation quand l\'animation varie ou qu\'un retour visuel est utile.';
+      'Attend que vous appuyiez sur Continuer avant de passer à l’étape suivante.';
 
   @override
-  String get exampleUseCase => 'Exemple d\'usage';
+  String get exampleUseCase => 'Exemple';
 
   @override
   String get macroExampleText =>
-      'Mode avancé i-cybie :\n1. Envoyer la commande \"Mode\"\n2. Attendre 1000 ms (traitement)\n3. Envoyer \"Action 1\"\n4. Attendre 1000 ms\n5. Envoyer \"Action 2\"\n…et ainsi de suite automatiquement !';
+      '1. Envoyer la première commande\n2. Attendre une seconde\n3. Envoyer la commande suivante';
 
   @override
   String get createFirstMacro => 'Créer votre première macro';

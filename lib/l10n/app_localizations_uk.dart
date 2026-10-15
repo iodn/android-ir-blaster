@@ -1313,36 +1313,35 @@ class AppLocalizationsUk extends AppLocalizations {
       'Виберіть пульт, а потім додайте команди й паузи, щоб створити перший макрос.';
 
   @override
-  String get macroFeatureToysTitle =>
-      'Ідеально підходить для інтерактивних іграшок';
+  String get macroFeatureToysTitle => 'Для іграшок з ІЧ-керуванням';
 
   @override
   String get macroFeatureToysDescription =>
-      'Керуйте такими пристроями, як собаки-роботи i-cybie, роботи i-sobot та іншими іграшками, яким потрібен час між командами для обробки дій.';
+      'Дайте іграшці завершити дію, перш ніж надсилати наступну команду.';
 
   @override
-  String get macroFeatureTimingTitle => 'Точний контроль часу';
+  String get macroFeatureTimingTitle => 'Налаштування пауз';
 
   @override
   String get macroFeatureTimingDescription =>
-      'Додайте затримки між командами (від 250 мс до спеціальної тривалості), щоб ваш пристрій мав час відповісти до наступної дії.';
+      'Задайте паузи між командами, щоб пристрій устигав реагувати.';
 
   @override
-  String get macroFeatureManualTitle => 'Продовжити кроки вручну';
+  String get macroFeatureManualTitle => 'Чекати підтвердження';
 
   @override
   String get macroFeatureManualDescription =>
-      'Призупиніть виконання та дочекайтеся вашого підтвердження, коли тривалість анімації змінюється або вам потрібен візуальний зворотний зв’язок.';
+      'Чекає на натискання «Продовжити» перед переходом до наступного кроку.';
 
   @override
-  String get exampleUseCase => 'Приклад використання';
+  String get exampleUseCase => 'Приклад';
 
   @override
   String get macroExampleText =>
-      'Розширений режим i-cybie:\n1. Надіслати команду «Режим».\n2. Зачекайте 1000 мс (іграшкові процеси)\n3. Надіслати \"Дію 1\"\n4. Зачекайте 1000 мс\n5. Надіслати «Дію 2»\n…і так далі автоматично!';
+      '1. Надішліть першу команду\n2. Зачекайте одну секунду\n3. Надішліть наступну команду';
 
   @override
-  String get createFirstMacro => 'Створіть свій перший макрос';
+  String get createFirstMacro => 'Створити перший макрос';
 
   @override
   String get noRemote => 'Без пульта';

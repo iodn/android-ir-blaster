@@ -1234,32 +1234,29 @@ class AppLocalizationsJa extends AppLocalizations {
   String get timedMacrosNextStep => 'リモコンを選び、コマンドや待ち時間を追加して最初のマクロを作成しましょう。';
 
   @override
-  String get macroFeatureToysTitle => 'インタラクティブ玩具に最適';
+  String get macroFeatureToysTitle => '赤外線で動くおもちゃに';
 
   @override
-  String get macroFeatureToysDescription =>
-      'i-cybieやi-sobotなど コマンド間に処理時間が必要なおもちゃを操作できます。';
+  String get macroFeatureToysDescription => 'おもちゃの動作が終わるのを待ってから、次のコマンドを送れます。';
 
   @override
-  String get macroFeatureTimingTitle => '高精度タイミング制御';
+  String get macroFeatureTimingTitle => '待ち時間を調整';
 
   @override
   String get macroFeatureTimingDescription =>
-      'コマンド間に待機 250msから任意 を入れ 次の動作前にデバイスが応答する時間を確保します。';
+      '機器が反応する時間を確保できるよう、コマンド間の待ち時間を設定します。';
 
   @override
-  String get macroFeatureManualTitle => '手動続行ステップ';
+  String get macroFeatureManualTitle => '確認待ち';
 
   @override
-  String get macroFeatureManualDescription =>
-      'アニメ時間が一定でない場合や目視確認が必要な場合に 一時停止して確認を待ちます。';
+  String get macroFeatureManualDescription => '「続行」をタップするまで待ってから、次のステップに進みます。';
 
   @override
   String get exampleUseCase => '使用例';
 
   @override
-  String get macroExampleText =>
-      'i-cybie 高度モード\n1. \"Mode\" コマンドを送信\n2. 1000ms待機 おもちゃが処理\n3. \"Action 1\" を送信\n4. 1000ms待機\n5. \"Action 2\" を送信\n…以降も自動で続行';
+  String get macroExampleText => '1. 最初のコマンドを送信\n2. 1秒待機\n3. 次のコマンドを送信';
 
   @override
   String get createFirstMacro => '最初のマクロを作成';

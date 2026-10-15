@@ -1312,35 +1312,35 @@ class AppLocalizationsDe extends AppLocalizations {
       'Wähle eine Fernbedienung und füge Befehle und Wartezeiten für dein erstes Makro hinzu.';
 
   @override
-  String get macroFeatureToysTitle => 'Perfekt für interaktive Spielzeuge';
+  String get macroFeatureToysTitle => 'Für IR-gesteuertes Spielzeug';
 
   @override
   String get macroFeatureToysDescription =>
-      'Steuere Geräte wie i-cybie Roboterhunde, i-sobot Roboter und andere Spielzeuge, die zwischen Befehlen Zeit zur Verarbeitung brauchen.';
+      'Gib dem Spielzeug Zeit, eine Aktion zu beenden, bevor der nächste Befehl gesendet wird.';
 
   @override
-  String get macroFeatureTimingTitle => 'Präzise Zeitsteuerung';
+  String get macroFeatureTimingTitle => 'Anpassbare Wartezeiten';
 
   @override
   String get macroFeatureTimingDescription =>
-      'Füge zwischen Befehlen Pausen hinzu von 250 ms bis zu eigenen Werten, damit dein Gerät vor der nächsten Aktion reagieren kann.';
+      'Lege Wartezeiten zwischen Befehlen fest, damit dein Gerät reagieren kann.';
 
   @override
-  String get macroFeatureManualTitle => 'Manuelle Fortsetzungsschritte';
+  String get macroFeatureManualTitle => 'Auf Bestätigung warten';
 
   @override
   String get macroFeatureManualDescription =>
-      'Pausiert die Ausführung und wartet auf deine Bestätigung, wenn die Animationslänge variiert oder du visuelles Feedback brauchst.';
+      'Wartet, bis du auf Weiter tippst, bevor der nächste Schritt beginnt.';
 
   @override
   String get exampleUseCase => 'Beispiel';
 
   @override
   String get macroExampleText =>
-      'i-cybie erweiterter Modus\n1. Befehl Modus senden\n2. 1000 ms warten Gerät verarbeitet\n3. Aktion 1 senden\n4. 1000 ms warten\n5. Aktion 2 senden\n… und so weiter automatisch';
+      '1. Ersten Befehl senden\n2. Eine Sekunde warten\n3. Nächsten Befehl senden';
 
   @override
-  String get createFirstMacro => 'Dein erstes Makro erstellen';
+  String get createFirstMacro => 'Erstes Makro erstellen';
 
   @override
   String get noRemote => 'Keine Fernbedienung';

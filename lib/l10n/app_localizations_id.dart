@@ -1296,35 +1296,35 @@ class AppLocalizationsId extends AppLocalizations {
       'Pilih remote, lalu tambahkan perintah dan jeda untuk membuat makro pertama Anda.';
 
   @override
-  String get macroFeatureToysTitle => 'Cocok untuk Mainan Interaktif';
+  String get macroFeatureToysTitle => 'Untuk mainan dengan kendali IR';
 
   @override
   String get macroFeatureToysDescription =>
-      'Kendalikan perangkat seperti anjing robot i-cybie, robot i-sobot, dan mainan lain yang memerlukan jeda antarperintah untuk memproses aksi.';
+      'Beri mainan waktu untuk menyelesaikan gerakan sebelum mengirim perintah berikutnya.';
 
   @override
-  String get macroFeatureTimingTitle => 'Kontrol Waktu Presisi';
+  String get macroFeatureTimingTitle => 'Jeda yang bisa diatur';
 
   @override
   String get macroFeatureTimingDescription =>
-      'Tambahkan jeda antarperintah (250ms hingga durasi kustom) agar perangkat punya waktu merespons sebelum aksi berikutnya.';
+      'Atur jeda antarperintah agar perangkat punya waktu untuk merespons.';
 
   @override
-  String get macroFeatureManualTitle => 'Langkah Lanjut Manual';
+  String get macroFeatureManualTitle => 'Tunggu konfirmasi';
 
   @override
   String get macroFeatureManualDescription =>
-      'Jeda eksekusi dan tunggu konfirmasi Anda saat durasi animasi berubah atau Anda perlu umpan balik visual.';
+      'Menunggu hingga Anda mengetuk Lanjut sebelum langkah berikutnya.';
 
   @override
-  String get exampleUseCase => 'Contoh Penggunaan';
+  String get exampleUseCase => 'Contoh';
 
   @override
   String get macroExampleText =>
-      'Mode Lanjut i-cybie:\n1. Kirim perintah \"Mode\"\n2. Tunggu 1000ms (mainan memproses)\n3. Kirim \"Aksi 1\"\n4. Tunggu 1000ms\n5. Kirim \"Aksi 2\"\n…dan seterusnya otomatis!';
+      '1. Kirim perintah pertama\n2. Tunggu satu detik\n3. Kirim perintah berikutnya';
 
   @override
-  String get createFirstMacro => 'Buat Makro Pertama';
+  String get createFirstMacro => 'Buat makro pertama';
 
   @override
   String get noRemote => 'Tidak ada remote';

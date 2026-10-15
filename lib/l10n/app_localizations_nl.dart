@@ -1317,32 +1317,32 @@ class AppLocalizationsNl extends AppLocalizations {
       'Kies een afstandsbediening en voeg opdrachten en wachttijden toe om je eerste macro te maken.';
 
   @override
-  String get macroFeatureToysTitle => 'Perfect voor interactief speelgoed';
+  String get macroFeatureToysTitle => 'Voor speelgoed met IR-bediening';
 
   @override
   String get macroFeatureToysDescription =>
-      'Bestuur apparaten zoals i-cybie-robothonden, i-sobot-robots en ander speelgoed dat tijd nodig heeft tussen opdrachten om acties te verwerken.';
+      'Geef het speelgoed tijd om een actie af te maken voordat je de volgende opdracht verstuurt.';
 
   @override
-  String get macroFeatureTimingTitle => 'Nauwkeurige tijdregeling';
+  String get macroFeatureTimingTitle => 'Instelbare wachttijden';
 
   @override
   String get macroFeatureTimingDescription =>
-      'Voeg vertragingen tussen opdrachten toe van 250 ms tot aangepaste duur zodat je apparaat tijd heeft om te reageren voor de volgende actie.';
+      'Stel de wachttijd tussen opdrachten in, zodat je apparaat tijd heeft om te reageren.';
 
   @override
-  String get macroFeatureManualTitle => 'Handmatige vervolgsteps';
+  String get macroFeatureManualTitle => 'Wacht op bevestiging';
 
   @override
   String get macroFeatureManualDescription =>
-      'Pauzeer de uitvoering en wacht op je bevestiging wanneer de animatielengte varieert of je visuele feedback nodig hebt.';
+      'Wacht tot je op Doorgaan tikt voordat de volgende stap begint.';
 
   @override
   String get exampleUseCase => 'Voorbeeld';
 
   @override
   String get macroExampleText =>
-      'i-cybie geavanceerde modus:\n1. Verzend opdracht \"Mode\"\n2. Wacht 1000ms speelgoed verwerkt\n3. Verzend \"Action 1\"\n4. Wacht 1000ms\n5. Verzend \"Action 2\"\n…enzovoort automatisch!';
+      '1. Verzend de eerste opdracht\n2. Wacht één seconde\n3. Verzend de volgende opdracht';
 
   @override
   String get createFirstMacro => 'Maak je eerste macro';
