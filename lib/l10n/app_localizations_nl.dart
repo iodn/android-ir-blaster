@@ -1351,12 +1351,17 @@ class AppLocalizationsNl extends AppLocalizations {
   String get noRemote => 'Geen remote';
 
   @override
+  String macroCopyName(String name) {
+    return '$name (kopie)';
+  }
+
+  @override
   String macroStepCountLabel(int count) {
     String _temp0 = intl.Intl.pluralLogic(
       count,
       locale: localeName,
-      other: '$count steps',
-      one: '$count step',
+      other: '$count stappen',
+      one: '$count stap',
     );
     return '$_temp0';
   }
@@ -2206,7 +2211,8 @@ class AppLocalizationsNl extends AppLocalizations {
   }
 
   @override
-  String get invalidStepEncountered => 'Ongeldige stap aangetroffen';
+  String get invalidStepEncountered =>
+      'Deze macro bevat een ongeldige stap. Bewerk die stap voordat je het opnieuw probeert.';
 
   @override
   String failedToSendNamed(Object name) {
@@ -2248,7 +2254,7 @@ class AppLocalizationsNl extends AppLocalizations {
       'Oriëntatie normaal tik om om te draaien';
 
   @override
-  String get noSteps => 'Geen steps';
+  String get noSteps => 'Geen stappen';
 
   @override
   String stepProgress(int current, int total) {
@@ -2259,17 +2265,17 @@ class AppLocalizationsNl extends AppLocalizations {
   String get completed => 'Voltooid';
 
   @override
-  String get paused => 'Pauzed';
+  String get paused => 'Gepauzeerd';
 
   @override
-  String get running => 'Actief';
+  String get running => 'Wordt uitgevoerd';
 
   @override
-  String get ready => 'Klaar';
+  String get ready => 'Gereed';
 
   @override
   String stepsProgress(int current, int total) {
-    return '$current / $total stappen';
+    return 'Stappen: $current / $total';
   }
 
   @override
@@ -2438,7 +2444,7 @@ class AppLocalizationsNl extends AppLocalizations {
 
   @override
   String deleteStep(int index) {
-    return 'Verwijderen step $index';
+    return 'Stap $index verwijderen';
   }
 
   @override

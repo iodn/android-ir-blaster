@@ -851,7 +851,7 @@
       }
     }
   },
-  "invalidStepEncountered": "พบขั้นตอนที่ไม่ถูกต้อง",
+  "invalidStepEncountered": "มาโครนี้มีขั้นตอนที่ไม่ถูกต้อง โปรดแก้ไขก่อนลองอีกครั้ง",
   "failedToSendNamed": "ส่งไม่สำเร็จ: {name}",
   "@failedToSendNamed": {
     "placeholders": {
@@ -911,10 +911,10 @@
     }
   },
   "completed": "เสร็จสิ้น",
-  "paused": "หยุดชั่วคราวd",
-  "running": "ทำงานning",
+  "paused": "หยุดชั่วคราว",
+  "running": "กำลังทำงาน",
   "ready": "พร้อม",
-  "stepsProgress": "{current} / {total} ขั้นตอน",
+  "stepsProgress": "ขั้นตอน: {current} / {total}",
   "@stepsProgress": {
     "placeholders": {
       "current": {
@@ -1005,7 +1005,7 @@
   "remote": "รีโมต",
   "macroName": "ชื่อมาโคร",
   "macroNameHint": "เช่น คืนดูหนัง",
-  "stepsTitleCount": "ขั้นตอน {count}",
+  "stepsTitleCount": "ขั้นตอน ({count})",
   "@stepsTitleCount": {
     "placeholders": {
       "count": {
@@ -1017,7 +1017,7 @@
   "addCommandsAndDelaysHint": "เพิ่มคำสั่ง เวลารอ หรือการหยุดรอการยืนยัน ขั้นตอนจะทำงานตามลำดับที่แสดง",
   "addStep": "เพิ่มขั้นตอน",
   "reorderStepsHint": "ลากที่จับเพื่อเปลี่ยนลำดับขั้นตอน แตะขั้นตอนเพื่อแก้ไข",
-  "reorderStep": "จัดลำดับขั้นตอน {index}",
+  "reorderStep": "ย้ายขั้นตอนที่ {index}",
   "@reorderStep": {
     "placeholders": {
       "index": {
@@ -1026,7 +1026,7 @@
     }
   },
   "pressAndDragToChangeStepOrder": "กดค้างแล้วลากเพื่อย้ายขั้นตอน",
-  "deleteStep": "ลบขั้นตอน {index}",
+  "deleteStep": "ลบขั้นตอนที่ {index}",
   "@deleteStep": {
     "placeholders": {
       "index": {
@@ -1880,7 +1880,15 @@
       }
     }
   },
-  "macroStepCountLabel": "{count, plural, one{{count} step} other{{count} steps}}",
+  "macroCopyName": "{name} (สำเนา)",
+  "@macroCopyName": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
+  "macroStepCountLabel": "{count} ขั้นตอน",
   "@macroStepCountLabel": {
     "placeholders": {
       "count": {

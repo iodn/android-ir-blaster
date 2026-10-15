@@ -851,7 +851,7 @@
       }
     }
   },
-  "invalidStepEncountered": "Ongeldige stap aangetroffen",
+  "invalidStepEncountered": "Deze macro bevat een ongeldige stap. Bewerk die stap voordat je het opnieuw probeert.",
   "failedToSendNamed": "Verzenden mislukt: {name}",
   "@failedToSendNamed": {
     "placeholders": {
@@ -898,7 +898,7 @@
   },
   "orientationFlippedTooltip": "Oriëntatie omgedraaid tik voor normaal",
   "orientationNormalTooltip": "Oriëntatie normaal tik om om te draaien",
-  "noSteps": "Geen steps",
+  "noSteps": "Geen stappen",
   "stepProgress": "Stap {current} / {total}",
   "@stepProgress": {
     "placeholders": {
@@ -911,10 +911,10 @@
     }
   },
   "completed": "Voltooid",
-  "paused": "Pauzed",
-  "running": "Actief",
-  "ready": "Klaar",
-  "stepsProgress": "{current} / {total} stappen",
+  "paused": "Gepauzeerd",
+  "running": "Wordt uitgevoerd",
+  "ready": "Gereed",
+  "stepsProgress": "Stappen: {current} / {total}",
   "@stepsProgress": {
     "placeholders": {
       "current": {
@@ -1026,7 +1026,7 @@
     }
   },
   "pressAndDragToChangeStepOrder": "Houd ingedrukt en sleep om de stap te verplaatsen",
-  "deleteStep": "Verwijderen step {index}",
+  "deleteStep": "Stap {index} verwijderen",
   "@deleteStep": {
     "placeholders": {
       "index": {
@@ -1880,7 +1880,15 @@
       }
     }
   },
-  "macroStepCountLabel": "{count, plural, one{{count} step} other{{count} steps}}",
+  "macroCopyName": "{name} (kopie)",
+  "@macroCopyName": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
+  "macroStepCountLabel": "{count, plural, one{{count} stap} other{{count} stappen}}",
   "@macroStepCountLabel": {
     "placeholders": {
       "count": {

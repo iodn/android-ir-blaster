@@ -851,7 +851,7 @@
       }
     }
   },
-  "invalidStepEncountered": "잘못된 단계를 발견했습니다",
+  "invalidStepEncountered": "이 매크로에 잘못된 단계가 있습니다. 해당 단계를 수정한 후 다시 시도하세요.",
   "failedToSendNamed": "전송하지 못했습니다: {name}",
   "@failedToSendNamed": {
     "placeholders": {
@@ -898,7 +898,7 @@
   },
   "orientationFlippedTooltip": "방향: 뒤집힘(탭하여 정상)",
   "orientationNormalTooltip": "방향: 정상(탭하여 뒤집기)",
-  "noSteps": "없음 단계",
+  "noSteps": "단계 없음",
   "stepProgress": "단계 {current}/{total}",
   "@stepProgress": {
     "placeholders": {
@@ -911,10 +911,10 @@
     }
   },
   "completed": "완료됨",
-  "paused": "일시정지됨",
+  "paused": "일시 정지",
   "running": "실행 중",
   "ready": "준비됨",
-  "stepsProgress": "{current}/{total} 단계",
+  "stepsProgress": "단계: {current} / {total}",
   "@stepsProgress": {
     "placeholders": {
       "current": {
@@ -1017,7 +1017,7 @@
   "addCommandsAndDelaysHint": "명령, 대기 시간 또는 확인 대기를 추가하세요. 표시된 순서대로 실행됩니다.",
   "addStep": "단계 추가",
   "reorderStepsHint": "핸들을 드래그하면 순서를 바꿀 수 있습니다. 단계를 누르면 편집할 수 있습니다.",
-  "reorderStep": "단계 {index} 순서 변경",
+  "reorderStep": "{index}단계 이동",
   "@reorderStep": {
     "placeholders": {
       "index": {
@@ -1026,7 +1026,7 @@
     }
   },
   "pressAndDragToChangeStepOrder": "길게 누른 채 드래그하여 단계 순서를 바꾸세요",
-  "deleteStep": "삭제 단계 {index}",
+  "deleteStep": "{index}단계 삭제",
   "@deleteStep": {
     "placeholders": {
       "index": {
@@ -1880,7 +1880,15 @@
       }
     }
   },
-  "macroStepCountLabel": "{count, plural, one{{count} step} other{{count} steps}}",
+  "macroCopyName": "{name} (복사본)",
+  "@macroCopyName": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
+  "macroStepCountLabel": "{count}개 단계",
   "@macroStepCountLabel": {
     "placeholders": {
       "count": {

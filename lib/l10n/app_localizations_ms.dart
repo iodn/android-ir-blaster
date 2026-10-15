@@ -1328,14 +1328,13 @@ class AppLocalizationsMs extends AppLocalizations {
   String get noRemote => 'Tiada remote';
 
   @override
+  String macroCopyName(String name) {
+    return '$name (Salinan)';
+  }
+
+  @override
   String macroStepCountLabel(int count) {
-    String _temp0 = intl.Intl.pluralLogic(
-      count,
-      locale: localeName,
-      other: '$count steps',
-      one: '$count step',
-    );
-    return '$_temp0';
+    return '$count langkah';
   }
 
   @override
@@ -2177,7 +2176,8 @@ class AppLocalizationsMs extends AppLocalizations {
   }
 
   @override
-  String get invalidStepEncountered => 'Insah langkah encountered';
+  String get invalidStepEncountered =>
+      'Makro ini mengandungi langkah yang tidak sah. Edit langkah itu sebelum mencuba lagi.';
 
   @override
   String failedToSendNamed(Object name) {
@@ -2233,14 +2233,14 @@ class AppLocalizationsMs extends AppLocalizations {
   String get paused => 'Dijeda';
 
   @override
-  String get running => 'Berjalan';
+  String get running => 'Sedang berjalan';
 
   @override
   String get ready => 'Sedia';
 
   @override
   String stepsProgress(int current, int total) {
-    return '$current / $total langkah';
+    return 'Langkah: $current / $total';
   }
 
   @override
@@ -2388,7 +2388,7 @@ class AppLocalizationsMs extends AppLocalizations {
 
   @override
   String reorderStep(int index) {
-    return 'Reorder langkah $index';
+    return 'Alihkan langkah $index';
   }
 
   @override
@@ -2397,7 +2397,7 @@ class AppLocalizationsMs extends AppLocalizations {
 
   @override
   String deleteStep(int index) {
-    return 'Hapus langkah $index';
+    return 'Padam langkah $index';
   }
 
   @override

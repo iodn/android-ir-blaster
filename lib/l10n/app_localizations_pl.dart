@@ -1346,6 +1346,11 @@ class AppLocalizationsPl extends AppLocalizations {
   String get noRemote => 'Brak pilota';
 
   @override
+  String macroCopyName(String name) {
+    return '$name (kopia)';
+  }
+
+  @override
   String macroStepCountLabel(int count) {
     String _temp0 = intl.Intl.pluralLogic(
       count,
@@ -2260,7 +2265,8 @@ class AppLocalizationsPl extends AppLocalizations {
   }
 
   @override
-  String get invalidStepEncountered => 'Napotkano nieprawidłowy krok';
+  String get invalidStepEncountered =>
+      'To makro zawiera nieprawidłowy krok. Popraw go przed ponownym uruchomieniem.';
 
   @override
   String failedToSendNamed(Object name) {
@@ -2316,14 +2322,14 @@ class AppLocalizationsPl extends AppLocalizations {
   String get paused => 'Wstrzymano';
 
   @override
-  String get running => 'Trwa';
+  String get running => 'W trakcie';
 
   @override
   String get ready => 'Gotowe';
 
   @override
   String stepsProgress(int current, int total) {
-    return '$current / $total kroków';
+    return 'Kroki: $current / $total';
   }
 
   @override
@@ -2467,7 +2473,7 @@ class AppLocalizationsPl extends AppLocalizations {
 
   @override
   String stepsTitleCount(int count) {
-    return 'kroki ($count)';
+    return 'Kroki ($count)';
   }
 
   @override
@@ -2486,7 +2492,7 @@ class AppLocalizationsPl extends AppLocalizations {
 
   @override
   String reorderStep(int index) {
-    return 'Zmień kolejność kroku $index';
+    return 'Przenieś krok $index';
   }
 
   @override

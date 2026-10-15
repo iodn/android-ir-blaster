@@ -851,7 +851,7 @@
       }
     }
   },
-  "invalidStepEncountered": "Виявлено недійсний крок",
+  "invalidStepEncountered": "У цьому макросі є некоректний крок. Виправте його перед повторним запуском.",
   "failedToSendNamed": "Не вдалося надіслати: {name}",
   "@failedToSendNamed": {
     "placeholders": {
@@ -898,7 +898,7 @@
   },
   "orientationFlippedTooltip": "Орієнтація: перевернуто (натисніть до нормального)",
   "orientationNormalTooltip": "Орієнтація: нормальна (торкніться, щоб перевернути)",
-  "noSteps": "Без кроків",
+  "noSteps": "Немає кроків",
   "stepProgress": "Крок {current} / {total}",
   "@stepProgress": {
     "placeholders": {
@@ -912,9 +912,9 @@
   },
   "completed": "Виконано",
   "paused": "Призупинено",
-  "running": "Біг",
-  "ready": "Готовий",
-  "stepsProgress": "Кроки {current} / {total}",
+  "running": "Виконується",
+  "ready": "Готово",
+  "stepsProgress": "Кроки: {current} / {total}",
   "@stepsProgress": {
     "placeholders": {
       "current": {
@@ -1017,7 +1017,7 @@
   "addCommandsAndDelaysHint": "Додайте команди, час очікування або паузи для підтвердження. Кроки виконуються в показаному порядку.",
   "addStep": "Додати крок",
   "reorderStepsHint": "Перетягніть крок за значок, щоб змінити порядок. Торкніться кроку, щоб відредагувати його.",
-  "reorderStep": "Змініть порядок кроку {index}",
+  "reorderStep": "Перемістити крок {index}",
   "@reorderStep": {
     "placeholders": {
       "index": {
@@ -1880,7 +1880,15 @@
       }
     }
   },
-  "macroStepCountLabel": "{count, plural, one{{count} крок} few{{count} кроки} many{{count} кроків} other{{count} кроку}}",
+  "macroCopyName": "{name} (копія)",
+  "@macroCopyName": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
+  "macroStepCountLabel": "{count, plural, one{{count} крок} few{{count} кроки} many{{count} кроків} other{{count} кроків}}",
   "@macroStepCountLabel": {
     "placeholders": {
       "count": {

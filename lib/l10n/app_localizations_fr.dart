@@ -1340,12 +1340,17 @@ class AppLocalizationsFr extends AppLocalizations {
   String get noRemote => 'Aucune télécommande';
 
   @override
+  String macroCopyName(String name) {
+    return '$name (copie)';
+  }
+
+  @override
   String macroStepCountLabel(int count) {
     String _temp0 = intl.Intl.pluralLogic(
       count,
       locale: localeName,
-      other: '$count steps',
-      one: '$count step',
+      other: '$count étapes',
+      one: '$count étape',
     );
     return '$_temp0';
   }
@@ -2200,7 +2205,8 @@ class AppLocalizationsFr extends AppLocalizations {
   }
 
   @override
-  String get invalidStepEncountered => 'Étape invalide détectée';
+  String get invalidStepEncountered =>
+      'Cette macro contient une étape non valide. Modifiez-la avant de réessayer.';
 
   @override
   String failedToSendNamed(Object name) {
@@ -2263,7 +2269,7 @@ class AppLocalizationsFr extends AppLocalizations {
 
   @override
   String stepsProgress(int current, int total) {
-    return '$current / $total étapes';
+    return 'Étapes : $current / $total';
   }
 
   @override
@@ -2423,7 +2429,7 @@ class AppLocalizationsFr extends AppLocalizations {
 
   @override
   String reorderStep(int index) {
-    return 'Réorganiser l’étape $index';
+    return 'Déplacer l’étape $index';
   }
 
   @override

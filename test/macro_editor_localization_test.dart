@@ -89,11 +89,20 @@ void main() {
       await tester.pumpAndSettle();
       tester.state<ScrollableState>(scrollable).position.jumpTo(0);
       await tester.pumpAndSettle();
+      await tester.scrollUntilVisible(find.text(l10n.stepsTitleCount(1)), 120,
+          scrollable: scrollable);
+      await tester.pumpAndSettle();
+      readable(l10n.stepsTitleCount(1));
       await tester.scrollUntilVisible(
           find.text(l10n.waitForUserConfirmation), 120,
           scrollable: scrollable);
       await tester.pumpAndSettle();
       readable(l10n.waitForUserConfirmation);
+      for (final label in [l10n.reorderStep(1), l10n.deleteStep(1)]) {
+        expect(find.byWidgetPredicate(
+            (widget) => widget is Semantics && widget.properties.label == label),
+            findsOneWidget);
+      }
       await tester.tap(find.byType(BackButton));
       await tester.pumpAndSettle();
       for (final label in [

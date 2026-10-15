@@ -1320,14 +1320,13 @@ class AppLocalizationsVi extends AppLocalizations {
   String get noRemote => 'Không có điều khiển';
 
   @override
+  String macroCopyName(String name) {
+    return '$name (bản sao)';
+  }
+
+  @override
   String macroStepCountLabel(int count) {
-    String _temp0 = intl.Intl.pluralLogic(
-      count,
-      locale: localeName,
-      other: '$count steps',
-      one: '$count step',
-    );
-    return '$_temp0';
+    return '$count bước';
   }
 
   @override
@@ -2165,7 +2164,8 @@ class AppLocalizationsVi extends AppLocalizations {
   }
 
   @override
-  String get invalidStepEncountered => 'Gặp bước không hợp lệ';
+  String get invalidStepEncountered =>
+      'Macro này có bước không hợp lệ. Hãy chỉnh sửa bước đó trước khi thử lại.';
 
   @override
   String failedToSendNamed(Object name) {
@@ -2205,7 +2205,7 @@ class AppLocalizationsVi extends AppLocalizations {
   String get orientationNormalTooltip => 'Hướng: bình thường (chạm để lật)';
 
   @override
-  String get noSteps => 'Không có bước';
+  String get noSteps => 'Không có bước nào';
 
   @override
   String stepProgress(int current, int total) {
@@ -2226,7 +2226,7 @@ class AppLocalizationsVi extends AppLocalizations {
 
   @override
   String stepsProgress(int current, int total) {
-    return '$current / $total bước';
+    return 'Các bước: $current / $total';
   }
 
   @override
@@ -2353,7 +2353,7 @@ class AppLocalizationsVi extends AppLocalizations {
 
   @override
   String stepsTitleCount(int count) {
-    return 'Bước ($count)';
+    return 'Các bước ($count)';
   }
 
   @override
@@ -2372,7 +2372,7 @@ class AppLocalizationsVi extends AppLocalizations {
 
   @override
   String reorderStep(int index) {
-    return 'Sắp xếp lại bước $index';
+    return 'Di chuyển bước $index';
   }
 
   @override

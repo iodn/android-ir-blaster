@@ -617,7 +617,7 @@ class _MacrosTabState extends State<MacrosTab> {
     final nowId = DateTime.now().millisecondsSinceEpoch.toString();
     final dup = original.copyWith(
       id: nowId,
-      name: '${original.name} (Copy)',
+      name: context.l10n.macroCopyName(original.name),
     );
     final next = List<TimedMacro>.from(macros)..insert(index + 1, dup);
     await _persistAndNotify(next);

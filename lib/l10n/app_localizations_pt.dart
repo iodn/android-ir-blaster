@@ -1342,12 +1342,17 @@ class AppLocalizationsPt extends AppLocalizations {
   String get noRemote => 'Sem comando';
 
   @override
+  String macroCopyName(String name) {
+    return '$name (cópia)';
+  }
+
+  @override
   String macroStepCountLabel(int count) {
     String _temp0 = intl.Intl.pluralLogic(
       count,
       locale: localeName,
-      other: '$count steps',
-      one: '$count step',
+      other: '$count passos',
+      one: '$count passo',
     );
     return '$_temp0';
   }
@@ -2199,7 +2204,8 @@ class AppLocalizationsPt extends AppLocalizations {
   }
 
   @override
-  String get invalidStepEncountered => 'Foi encontrado um passo inválido';
+  String get invalidStepEncountered =>
+      'Esta macro contém um passo inválido. Edite-o antes de tentar novamente.';
 
   @override
   String failedToSendNamed(Object name) {
@@ -2255,14 +2261,14 @@ class AppLocalizationsPt extends AppLocalizations {
   String get paused => 'Em pausa';
 
   @override
-  String get running => 'En curso';
+  String get running => 'Em execução';
 
   @override
   String get ready => 'Pronto';
 
   @override
   String stepsProgress(int current, int total) {
-    return '$current / $total passos';
+    return 'Passos: $current / $total';
   }
 
   @override
@@ -2421,7 +2427,7 @@ class AppLocalizationsPt extends AppLocalizations {
 
   @override
   String reorderStep(int index) {
-    return 'Reordenar passo $index';
+    return 'Mover o passo $index';
   }
 
   @override
@@ -2430,7 +2436,7 @@ class AppLocalizationsPt extends AppLocalizations {
 
   @override
   String deleteStep(int index) {
-    return 'Eliminar passo $index';
+    return 'Eliminar o passo $index';
   }
 
   @override
@@ -6640,12 +6646,17 @@ class AppLocalizationsPtBr extends AppLocalizationsPt {
   String get noRemote => 'Sem controle';
 
   @override
+  String macroCopyName(String name) {
+    return '$name (cópia)';
+  }
+
+  @override
   String macroStepCountLabel(int count) {
     String _temp0 = intl.Intl.pluralLogic(
       count,
       locale: localeName,
-      other: '$count steps',
-      one: '$count step',
+      other: '$count etapas',
+      one: '$count etapa',
     );
     return '$_temp0';
   }
@@ -7497,7 +7508,8 @@ class AppLocalizationsPtBr extends AppLocalizationsPt {
   }
 
   @override
-  String get invalidStepEncountered => 'Foi encontrado um passo inválido';
+  String get invalidStepEncountered =>
+      'Esta macro contém uma etapa inválida. Edite-a antes de tentar novamente.';
 
   @override
   String failedToSendNamed(Object name) {
@@ -7539,7 +7551,7 @@ class AppLocalizationsPtBr extends AppLocalizationsPt {
       'Orientação: normal (toque para inverter)';
 
   @override
-  String get noSteps => 'Sem passos';
+  String get noSteps => 'Sem etapas';
 
   @override
   String stepProgress(int current, int total) {
@@ -7553,14 +7565,14 @@ class AppLocalizationsPtBr extends AppLocalizationsPt {
   String get paused => 'Pausado';
 
   @override
-  String get running => 'En curso';
+  String get running => 'Em execução';
 
   @override
   String get ready => 'Pronto';
 
   @override
   String stepsProgress(int current, int total) {
-    return '$current / $total passos';
+    return 'Etapas: $current / $total';
   }
 
   @override
@@ -7700,7 +7712,7 @@ class AppLocalizationsPtBr extends AppLocalizationsPt {
 
   @override
   String stepsTitleCount(int count) {
-    return 'Passos ($count)';
+    return 'Etapas ($count)';
   }
 
   @override
@@ -7719,7 +7731,7 @@ class AppLocalizationsPtBr extends AppLocalizationsPt {
 
   @override
   String reorderStep(int index) {
-    return 'Reordenar passo $index';
+    return 'Mover a etapa $index';
   }
 
   @override
@@ -7728,7 +7740,7 @@ class AppLocalizationsPtBr extends AppLocalizationsPt {
 
   @override
   String deleteStep(int index) {
-    return 'Excluir passo $index';
+    return 'Excluir a etapa $index';
   }
 
   @override

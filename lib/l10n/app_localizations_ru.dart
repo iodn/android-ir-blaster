@@ -1328,12 +1328,19 @@ class AppLocalizationsRu extends AppLocalizations {
   String get noRemote => 'Нет пульта';
 
   @override
+  String macroCopyName(String name) {
+    return '$name (копия)';
+  }
+
+  @override
   String macroStepCountLabel(int count) {
     String _temp0 = intl.Intl.pluralLogic(
       count,
       locale: localeName,
-      other: '$count steps',
-      one: '$count step',
+      other: '$count шагов',
+      many: '$count шагов',
+      few: '$count шага',
+      one: '$count шаг',
     );
     return '$_temp0';
   }
@@ -2178,7 +2185,8 @@ class AppLocalizationsRu extends AppLocalizations {
   }
 
   @override
-  String get invalidStepEncountered => 'Найден неверный шаг';
+  String get invalidStepEncountered =>
+      'В этом макросе есть некорректный шаг. Исправьте его перед повторным запуском.';
 
   @override
   String failedToSendNamed(Object name) {
@@ -2241,7 +2249,7 @@ class AppLocalizationsRu extends AppLocalizations {
 
   @override
   String stepsProgress(int current, int total) {
-    return '$current / $total шагов';
+    return 'Шаги: $current / $total';
   }
 
   @override
@@ -2385,7 +2393,7 @@ class AppLocalizationsRu extends AppLocalizations {
 
   @override
   String stepsTitleCount(int count) {
-    return 'Шаги, $count';
+    return 'Шаги ($count)';
   }
 
   @override
@@ -2404,7 +2412,7 @@ class AppLocalizationsRu extends AppLocalizations {
 
   @override
   String reorderStep(int index) {
-    return 'Переставить шаг $index';
+    return 'Переместить шаг $index';
   }
 
   @override

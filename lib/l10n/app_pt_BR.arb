@@ -851,7 +851,7 @@
       }
     }
   },
-  "invalidStepEncountered": "Foi encontrado um passo inválido",
+  "invalidStepEncountered": "Esta macro contém uma etapa inválida. Edite-a antes de tentar novamente.",
   "failedToSendNamed": "Falha ao enviar: {name}",
   "@failedToSendNamed": {
     "placeholders": {
@@ -898,7 +898,7 @@
   },
   "orientationFlippedTooltip": "Orientação: invertida (toque para normal)",
   "orientationNormalTooltip": "Orientação: normal (toque para inverter)",
-  "noSteps": "Sem passos",
+  "noSteps": "Sem etapas",
   "stepProgress": "Passo {current} / {total}",
   "@stepProgress": {
     "placeholders": {
@@ -912,9 +912,9 @@
   },
   "completed": "Completado",
   "paused": "Pausado",
-  "running": "En curso",
+  "running": "Em execução",
   "ready": "Pronto",
-  "stepsProgress": "{current} / {total} passos",
+  "stepsProgress": "Etapas: {current} / {total}",
   "@stepsProgress": {
     "placeholders": {
       "current": {
@@ -1005,7 +1005,7 @@
   "remote": "Controle",
   "macroName": "Nome da macro",
   "macroNameHint": "ex. Noite de cinema",
-  "stepsTitleCount": "Passos ({count})",
+  "stepsTitleCount": "Etapas ({count})",
   "@stepsTitleCount": {
     "placeholders": {
       "count": {
@@ -1017,7 +1017,7 @@
   "addCommandsAndDelaysHint": "Adicione comandos, tempos de espera ou pausas para confirmação. As etapas são executadas na ordem exibida.",
   "addStep": "Adicionar etapa",
   "reorderStepsHint": "Arraste a alça para mudar a ordem das etapas. Toque em uma etapa para editá-la.",
-  "reorderStep": "Reordenar passo {index}",
+  "reorderStep": "Mover a etapa {index}",
   "@reorderStep": {
     "placeholders": {
       "index": {
@@ -1026,7 +1026,7 @@
     }
   },
   "pressAndDragToChangeStepOrder": "Mantenha pressionado e arraste para mover a etapa",
-  "deleteStep": "Excluir passo {index}",
+  "deleteStep": "Excluir a etapa {index}",
   "@deleteStep": {
     "placeholders": {
       "index": {
@@ -1880,7 +1880,15 @@
       }
     }
   },
-  "macroStepCountLabel": "{count, plural, one{{count} step} other{{count} steps}}",
+  "macroCopyName": "{name} (cópia)",
+  "@macroCopyName": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
+  "macroStepCountLabel": "{count, plural, one{{count} etapa} other{{count} etapas}}",
   "@macroStepCountLabel": {
     "placeholders": {
       "count": {

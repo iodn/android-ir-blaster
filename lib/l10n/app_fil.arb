@@ -851,7 +851,7 @@
       }
     }
   },
-  "invalidStepEncountered": "Invalid hakbang encountered",
+  "invalidStepEncountered": "May hakbang na hindi wasto sa macro na ito. I-edit muna ito bago subukang muli.",
   "failedToSendNamed": "Nabigong magpadala: {name}",
   "@failedToSendNamed": {
     "placeholders": {
@@ -898,7 +898,7 @@
   },
   "orientationFlippedTooltip": "Orientation: flipped (tap to normal)",
   "orientationNormalTooltip": "Orientation: normal (tap to flip)",
-  "noSteps": "Walang mga hakbang",
+  "noSteps": "Walang hakbang",
   "stepProgress": "Hakbang {current} / {total}",
   "@stepProgress": {
     "placeholders": {
@@ -911,10 +911,10 @@
     }
   },
   "completed": "Completed",
-  "paused": "Paused",
-  "running": "Running",
-  "ready": "Ready",
-  "stepsProgress": "{current} / {total} mga hakbang",
+  "paused": "Naka-pause",
+  "running": "Tumatakbo",
+  "ready": "Handa",
+  "stepsProgress": "Mga hakbang: {current} / {total}",
   "@stepsProgress": {
     "placeholders": {
       "current": {
@@ -1005,7 +1005,7 @@
   "remote": "Remote",
   "macroName": "Pangalan ng macro",
   "macroNameHint": "hal. Panonood ng pelikula",
-  "stepsTitleCount": "Steps ({count})",
+  "stepsTitleCount": "Mga hakbang ({count})",
   "@stepsTitleCount": {
     "placeholders": {
       "count": {
@@ -1017,7 +1017,7 @@
   "addCommandsAndDelaysHint": "Magdagdag ng mga utos, oras ng paghihintay, o paghinto para sa kumpirmasyon. Susundin ang pagkakasunod na ipinapakita.",
   "addStep": "Magdagdag ng hakbang",
   "reorderStepsHint": "I-drag ang hawakan para baguhin ang pagkakasunod-sunod ng mga hakbang. I-tap ang hakbang para i-edit ito.",
-  "reorderStep": "Reorder hakbang {index}",
+  "reorderStep": "Ilipat ang hakbang {index}",
   "@reorderStep": {
     "placeholders": {
       "index": {
@@ -1026,7 +1026,7 @@
     }
   },
   "pressAndDragToChangeStepOrder": "Pindutin at i-drag para ilipat ang hakbang",
-  "deleteStep": "Delete hakbang {index}",
+  "deleteStep": "Burahin ang hakbang {index}",
   "@deleteStep": {
     "placeholders": {
       "index": {
@@ -1885,7 +1885,15 @@
       }
     }
   },
-  "macroStepCountLabel": "{count, plural, one{{count} step} other{{count} steps}}",
+  "macroCopyName": "{name} (Kopya)",
+  "@macroCopyName": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
+  "macroStepCountLabel": "{count} hakbang",
   "@macroStepCountLabel": {
     "placeholders": {
       "count": {

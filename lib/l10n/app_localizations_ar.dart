@@ -1313,12 +1313,21 @@ class AppLocalizationsAr extends AppLocalizations {
   String get noRemote => 'لا يوجد جهاز تحكم';
 
   @override
+  String macroCopyName(String name) {
+    return '$name (نسخة)';
+  }
+
+  @override
   String macroStepCountLabel(int count) {
     String _temp0 = intl.Intl.pluralLogic(
       count,
       locale: localeName,
-      other: '$count steps',
-      one: '$count step',
+      other: '$count خطوة',
+      many: '$count خطوة',
+      few: '$count خطوات',
+      two: 'خطوتان',
+      one: 'خطوة واحدة',
+      zero: '$count خطوة',
     );
     return '$_temp0';
   }
@@ -2159,7 +2168,8 @@ class AppLocalizationsAr extends AppLocalizations {
   }
 
   @override
-  String get invalidStepEncountered => 'تم العثور على خطوة غير صالحة';
+  String get invalidStepEncountered =>
+      'يحتوي هذا الماكرو على خطوة غير صالحة. عدّلها قبل المحاولة مجددًا.';
 
   @override
   String failedToSendNamed(Object name) {
@@ -2211,17 +2221,17 @@ class AppLocalizationsAr extends AppLocalizations {
   String get completed => 'Completed';
 
   @override
-  String get paused => 'Paused';
+  String get paused => 'متوقف مؤقتًا';
 
   @override
-  String get running => 'Running';
+  String get running => 'قيد التنفيذ';
 
   @override
   String get ready => 'جاهز';
 
   @override
   String stepsProgress(int current, int total) {
-    return '$current / $total خطوات';
+    return 'الخطوات: $current / $total';
   }
 
   @override
@@ -2357,7 +2367,7 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String stepsTitleCount(int count) {
-    return 'خطوات ($count)';
+    return 'الخطوات ($count)';
   }
 
   @override
@@ -2376,7 +2386,7 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String reorderStep(int index) {
-    return 'إعادة ترتيب الخطوة $index';
+    return 'نقل الخطوة $index';
   }
 
   @override
@@ -6547,12 +6557,21 @@ class AppLocalizationsArEg extends AppLocalizationsAr {
   String get noRemote => 'لا يوجد جهاز تحكم';
 
   @override
+  String macroCopyName(String name) {
+    return '$name (نسخة)';
+  }
+
+  @override
   String macroStepCountLabel(int count) {
     String _temp0 = intl.Intl.pluralLogic(
       count,
       locale: localeName,
-      other: '$count steps',
-      one: '$count step',
+      other: '$count خطوة',
+      many: '$count خطوة',
+      few: '$count خطوات',
+      two: 'خطوتان',
+      one: 'خطوة واحدة',
+      zero: '$count خطوة',
     );
     return '$_temp0';
   }
@@ -7393,7 +7412,8 @@ class AppLocalizationsArEg extends AppLocalizationsAr {
   }
 
   @override
-  String get invalidStepEncountered => 'تم العثور على خطوة غير صالحة';
+  String get invalidStepEncountered =>
+      'الماكرو ده فيه خطوة غير صالحة. عدّلها قبل ما تحاول تاني.';
 
   @override
   String failedToSendNamed(Object name) {
@@ -7434,7 +7454,7 @@ class AppLocalizationsArEg extends AppLocalizationsAr {
   String get orientationNormalTooltip => 'Orientation: normal (tap إلى flip)';
 
   @override
-  String get noSteps => 'لا توجد خطوات';
+  String get noSteps => 'مفيش خطوات';
 
   @override
   String stepProgress(int current, int total) {
@@ -7445,17 +7465,17 @@ class AppLocalizationsArEg extends AppLocalizationsAr {
   String get completed => 'Completed';
 
   @override
-  String get paused => 'Paused';
+  String get paused => 'متوقف مؤقتًا';
 
   @override
-  String get running => 'Running';
+  String get running => 'قيد التنفيذ';
 
   @override
   String get ready => 'جاهز';
 
   @override
   String stepsProgress(int current, int total) {
-    return '$current / $total خطوات';
+    return 'الخطوات: $current / $total';
   }
 
   @override
@@ -7591,7 +7611,7 @@ class AppLocalizationsArEg extends AppLocalizationsAr {
 
   @override
   String stepsTitleCount(int count) {
-    return 'خطوات ($count)';
+    return 'الخطوات ($count)';
   }
 
   @override
@@ -7610,7 +7630,7 @@ class AppLocalizationsArEg extends AppLocalizationsAr {
 
   @override
   String reorderStep(int index) {
-    return 'إعادة ترتيب الخطوة $index';
+    return 'نقل الخطوة $index';
   }
 
   @override

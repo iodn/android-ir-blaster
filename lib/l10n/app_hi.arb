@@ -851,7 +851,7 @@
       }
     }
   },
-  "invalidStepEncountered": "अमान्य चरण मिला",
+  "invalidStepEncountered": "इस मैक्रो में एक गलत चरण है। दोबारा कोशिश करने से पहले उसे ठीक करें।",
   "failedToSendNamed": "भेजें: {name} विफल",
   "@failedToSendNamed": {
     "placeholders": {
@@ -911,10 +911,10 @@
     }
   },
   "completed": "पूर्ण",
-  "paused": "Paused",
-  "running": "Running",
+  "paused": "रुका हुआ",
+  "running": "चल रहा है",
   "ready": "तैयार",
-  "stepsProgress": "{current} / {total} चरण",
+  "stepsProgress": "चरण: {current} / {total}",
   "@stepsProgress": {
     "placeholders": {
       "current": {
@@ -1017,7 +1017,7 @@
   "addCommandsAndDelaysHint": "कमांड, इंतज़ार का समय या पुष्टि के लिए विराम जोड़ें। चरण दिखाए गए क्रम में चलेंगे।",
   "addStep": "चरण जोड़ें",
   "reorderStepsHint": "चरणों का क्रम बदलने के लिए हैंडल खींचें। किसी चरण को बदलने के लिए उस पर टैप करें।",
-  "reorderStep": "पुन:क्रमित करें चरण {index}",
+  "reorderStep": "चरण {index} का क्रम बदलें",
   "@reorderStep": {
     "placeholders": {
       "index": {
@@ -1026,7 +1026,7 @@
     }
   },
   "pressAndDragToChangeStepOrder": "चरण का क्रम बदलने के लिए दबाकर खींचें",
-  "deleteStep": "हटाएं चरण {index}",
+  "deleteStep": "चरण {index} हटाएँ",
   "@deleteStep": {
     "placeholders": {
       "index": {
@@ -1885,7 +1885,15 @@
       }
     }
   },
-  "macroStepCountLabel": "{count, plural, one{{count} step} other{{count} steps}}",
+  "macroCopyName": "{name} (कॉपी)",
+  "@macroCopyName": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
+  "macroStepCountLabel": "{count} चरण",
   "@macroStepCountLabel": {
     "placeholders": {
       "count": {

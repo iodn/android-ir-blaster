@@ -1347,11 +1347,16 @@ class AppLocalizationsUk extends AppLocalizations {
   String get noRemote => 'Без пульта';
 
   @override
+  String macroCopyName(String name) {
+    return '$name (копія)';
+  }
+
+  @override
   String macroStepCountLabel(int count) {
     String _temp0 = intl.Intl.pluralLogic(
       count,
       locale: localeName,
-      other: '$count кроку',
+      other: '$count кроків',
       many: '$count кроків',
       few: '$count кроки',
       one: '$count крок',
@@ -2267,7 +2272,8 @@ class AppLocalizationsUk extends AppLocalizations {
   }
 
   @override
-  String get invalidStepEncountered => 'Виявлено недійсний крок';
+  String get invalidStepEncountered =>
+      'У цьому макросі є некоректний крок. Виправте його перед повторним запуском.';
 
   @override
   String failedToSendNamed(Object name) {
@@ -2309,7 +2315,7 @@ class AppLocalizationsUk extends AppLocalizations {
       'Орієнтація: нормальна (торкніться, щоб перевернути)';
 
   @override
-  String get noSteps => 'Без кроків';
+  String get noSteps => 'Немає кроків';
 
   @override
   String stepProgress(int current, int total) {
@@ -2323,14 +2329,14 @@ class AppLocalizationsUk extends AppLocalizations {
   String get paused => 'Призупинено';
 
   @override
-  String get running => 'Біг';
+  String get running => 'Виконується';
 
   @override
-  String get ready => 'Готовий';
+  String get ready => 'Готово';
 
   @override
   String stepsProgress(int current, int total) {
-    return 'Кроки $current / $total';
+    return 'Кроки: $current / $total';
   }
 
   @override
@@ -2492,7 +2498,7 @@ class AppLocalizationsUk extends AppLocalizations {
 
   @override
   String reorderStep(int index) {
-    return 'Змініть порядок кроку $index';
+    return 'Перемістити крок $index';
   }
 
   @override

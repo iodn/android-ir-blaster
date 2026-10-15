@@ -57,9 +57,12 @@ void main() {
       }
 
       readable(l10n.startMacro);
+      readable(l10n.ready);
+      readable(l10n.stepsProgress(0, 1));
       await tester.tap(find.text(l10n.startMacro));
       await tester.pumpAndSettle();
       readable(l10n.continueAction);
+      readable(l10n.paused);
       await tester.ensureVisible(find.text(l10n.tapContinueWhenReady));
       await tester.pumpAndSettle();
       readable(l10n.tapContinueWhenReady);

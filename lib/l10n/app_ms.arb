@@ -851,7 +851,7 @@
       }
     }
   },
-  "invalidStepEncountered": "Insah langkah encountered",
+  "invalidStepEncountered": "Makro ini mengandungi langkah yang tidak sah. Edit langkah itu sebelum mencuba lagi.",
   "failedToSendNamed": "Gagal send: {name}",
   "@failedToSendNamed": {
     "placeholders": {
@@ -912,9 +912,9 @@
   },
   "completed": "Selesai",
   "paused": "Dijeda",
-  "running": "Berjalan",
+  "running": "Sedang berjalan",
   "ready": "Sedia",
-  "stepsProgress": "{current} / {total} langkah",
+  "stepsProgress": "Langkah: {current} / {total}",
   "@stepsProgress": {
     "placeholders": {
       "current": {
@@ -1017,7 +1017,7 @@
   "addCommandsAndDelaysHint": "Tambah arahan, masa menunggu atau jeda untuk pengesahan. Langkah dijalankan mengikut urutan yang dipaparkan.",
   "addStep": "Tambah langkah",
   "reorderStepsHint": "Seret pemegang untuk menyusun semula langkah. Ketik langkah untuk mengeditnya.",
-  "reorderStep": "Reorder langkah {index}",
+  "reorderStep": "Alihkan langkah {index}",
   "@reorderStep": {
     "placeholders": {
       "index": {
@@ -1026,7 +1026,7 @@
     }
   },
   "pressAndDragToChangeStepOrder": "Tekan dan seret untuk mengalihkan langkah",
-  "deleteStep": "Hapus langkah {index}",
+  "deleteStep": "Padam langkah {index}",
   "@deleteStep": {
     "placeholders": {
       "index": {
@@ -1880,7 +1880,15 @@
       }
     }
   },
-  "macroStepCountLabel": "{count, plural, one{{count} step} other{{count} steps}}",
+  "macroCopyName": "{name} (Salinan)",
+  "@macroCopyName": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
+  "macroStepCountLabel": "{count} langkah",
   "@macroStepCountLabel": {
     "placeholders": {
       "count": {

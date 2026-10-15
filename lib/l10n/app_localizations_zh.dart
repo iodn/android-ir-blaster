@@ -1228,14 +1228,13 @@ class AppLocalizationsZh extends AppLocalizations {
   String get noRemote => '没有遥控器';
 
   @override
+  String macroCopyName(String name) {
+    return '$name（副本）';
+  }
+
+  @override
   String macroStepCountLabel(int count) {
-    String _temp0 = intl.Intl.pluralLogic(
-      count,
-      locale: localeName,
-      other: '$count steps',
-      one: '$count step',
-    );
-    return '$_temp0';
+    return '$count 步';
   }
 
   @override
@@ -2029,7 +2028,7 @@ class AppLocalizationsZh extends AppLocalizations {
   }
 
   @override
-  String get invalidStepEncountered => '遇到无效步骤';
+  String get invalidStepEncountered => '此宏包含无效步骤。请修正后重试。';
 
   @override
   String failedToSendNamed(Object name) {
@@ -2069,7 +2068,7 @@ class AppLocalizationsZh extends AppLocalizations {
   String get orientationNormalTooltip => '方向 正常 点击翻转';
 
   @override
-  String get noSteps => '没有步骤';
+  String get noSteps => '无步骤';
 
   @override
   String stepProgress(int current, int total) {
@@ -2090,7 +2089,7 @@ class AppLocalizationsZh extends AppLocalizations {
 
   @override
   String stepsProgress(int current, int total) {
-    return '$current / $total 步骤';
+    return '步骤：$current / $total';
   }
 
   @override
@@ -2215,7 +2214,7 @@ class AppLocalizationsZh extends AppLocalizations {
 
   @override
   String stepsTitleCount(int count) {
-    return '步骤 $count';
+    return '步骤（$count）';
   }
 
   @override
@@ -2232,7 +2231,7 @@ class AppLocalizationsZh extends AppLocalizations {
 
   @override
   String reorderStep(int index) {
-    return '重排步骤 $index';
+    return '移动第 $index 步';
   }
 
   @override
@@ -2240,7 +2239,7 @@ class AppLocalizationsZh extends AppLocalizations {
 
   @override
   String deleteStep(int index) {
-    return '删除步骤 $index';
+    return '删除第 $index 步';
   }
 
   @override

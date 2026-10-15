@@ -1327,14 +1327,13 @@ class AppLocalizationsHi extends AppLocalizations {
   String get noRemote => 'नहीं रिमोट';
 
   @override
+  String macroCopyName(String name) {
+    return '$name (कॉपी)';
+  }
+
+  @override
   String macroStepCountLabel(int count) {
-    String _temp0 = intl.Intl.pluralLogic(
-      count,
-      locale: localeName,
-      other: '$count steps',
-      one: '$count step',
-    );
-    return '$_temp0';
+    return '$count चरण';
   }
 
   @override
@@ -2170,7 +2169,8 @@ class AppLocalizationsHi extends AppLocalizations {
   }
 
   @override
-  String get invalidStepEncountered => 'अमान्य चरण मिला';
+  String get invalidStepEncountered =>
+      'इस मैक्रो में एक गलत चरण है। दोबारा कोशिश करने से पहले उसे ठीक करें।';
 
   @override
   String failedToSendNamed(Object name) {
@@ -2223,17 +2223,17 @@ class AppLocalizationsHi extends AppLocalizations {
   String get completed => 'पूर्ण';
 
   @override
-  String get paused => 'Paused';
+  String get paused => 'रुका हुआ';
 
   @override
-  String get running => 'Running';
+  String get running => 'चल रहा है';
 
   @override
   String get ready => 'तैयार';
 
   @override
   String stepsProgress(int current, int total) {
-    return '$current / $total चरण';
+    return 'चरण: $current / $total';
   }
 
   @override
@@ -2380,7 +2380,7 @@ class AppLocalizationsHi extends AppLocalizations {
 
   @override
   String reorderStep(int index) {
-    return 'पुन:क्रमित करें चरण $index';
+    return 'चरण $index का क्रम बदलें';
   }
 
   @override
@@ -2389,7 +2389,7 @@ class AppLocalizationsHi extends AppLocalizations {
 
   @override
   String deleteStep(int index) {
-    return 'हटाएं चरण $index';
+    return 'चरण $index हटाएँ';
   }
 
   @override

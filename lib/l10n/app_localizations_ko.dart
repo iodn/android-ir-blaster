@@ -1273,14 +1273,13 @@ class AppLocalizationsKo extends AppLocalizations {
   String get noRemote => '없음 리모컨';
 
   @override
+  String macroCopyName(String name) {
+    return '$name (복사본)';
+  }
+
+  @override
   String macroStepCountLabel(int count) {
-    String _temp0 = intl.Intl.pluralLogic(
-      count,
-      locale: localeName,
-      other: '$count steps',
-      one: '$count step',
-    );
-    return '$_temp0';
+    return '$count개 단계';
   }
 
   @override
@@ -2091,7 +2090,8 @@ class AppLocalizationsKo extends AppLocalizations {
   }
 
   @override
-  String get invalidStepEncountered => '잘못된 단계를 발견했습니다';
+  String get invalidStepEncountered =>
+      '이 매크로에 잘못된 단계가 있습니다. 해당 단계를 수정한 후 다시 시도하세요.';
 
   @override
   String failedToSendNamed(Object name) {
@@ -2131,7 +2131,7 @@ class AppLocalizationsKo extends AppLocalizations {
   String get orientationNormalTooltip => '방향: 정상(탭하여 뒤집기)';
 
   @override
-  String get noSteps => '없음 단계';
+  String get noSteps => '단계 없음';
 
   @override
   String stepProgress(int current, int total) {
@@ -2142,7 +2142,7 @@ class AppLocalizationsKo extends AppLocalizations {
   String get completed => '완료됨';
 
   @override
-  String get paused => '일시정지됨';
+  String get paused => '일시 정지';
 
   @override
   String get running => '실행 중';
@@ -2152,7 +2152,7 @@ class AppLocalizationsKo extends AppLocalizations {
 
   @override
   String stepsProgress(int current, int total) {
-    return '$current/$total 단계';
+    return '단계: $current / $total';
   }
 
   @override
@@ -2295,7 +2295,7 @@ class AppLocalizationsKo extends AppLocalizations {
 
   @override
   String reorderStep(int index) {
-    return '단계 $index 순서 변경';
+    return '$index단계 이동';
   }
 
   @override
@@ -2303,7 +2303,7 @@ class AppLocalizationsKo extends AppLocalizations {
 
   @override
   String deleteStep(int index) {
-    return '삭제 단계 $index';
+    return '$index단계 삭제';
   }
 
   @override

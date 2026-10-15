@@ -1344,12 +1344,17 @@ class AppLocalizationsIt extends AppLocalizations {
   String get noRemote => 'Nessun telecomando';
 
   @override
+  String macroCopyName(String name) {
+    return '$name (copia)';
+  }
+
+  @override
   String macroStepCountLabel(int count) {
     String _temp0 = intl.Intl.pluralLogic(
       count,
       locale: localeName,
-      other: '$count steps',
-      one: '$count step',
+      other: '$count passaggi',
+      one: '$count passaggio',
     );
     return '$_temp0';
   }
@@ -2200,7 +2205,8 @@ class AppLocalizationsIt extends AppLocalizations {
   }
 
   @override
-  String get invalidStepEncountered => 'Passaggio non valido rilevato';
+  String get invalidStepEncountered =>
+      'Questa macro contiene un passaggio non valido. Modificalo prima di riprovare.';
 
   @override
   String failedToSendNamed(Object name) {
@@ -2263,7 +2269,7 @@ class AppLocalizationsIt extends AppLocalizations {
 
   @override
   String stepsProgress(int current, int total) {
-    return '$current / $total passi';
+    return 'Passaggi: $current / $total';
   }
 
   @override
@@ -2404,7 +2410,7 @@ class AppLocalizationsIt extends AppLocalizations {
 
   @override
   String stepsTitleCount(int count) {
-    return 'Passi ($count)';
+    return 'Passaggi ($count)';
   }
 
   @override
@@ -2423,7 +2429,7 @@ class AppLocalizationsIt extends AppLocalizations {
 
   @override
   String reorderStep(int index) {
-    return 'Riordina passo $index';
+    return 'Sposta il passaggio $index';
   }
 
   @override
@@ -2432,7 +2438,7 @@ class AppLocalizationsIt extends AppLocalizations {
 
   @override
   String deleteStep(int index) {
-    return 'Elimina passo $index';
+    return 'Elimina il passaggio $index';
   }
 
   @override

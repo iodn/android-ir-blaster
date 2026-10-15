@@ -851,7 +851,7 @@
       }
     }
   },
-  "invalidStepEncountered": "Geçersiz adımla karşılaşıldı",
+  "invalidStepEncountered": "Bu makro geçersiz bir adım içeriyor. Tekrar denemeden önce bu adımı düzenleyin.",
   "failedToSendNamed": "Başarısız to gönder: {name}",
   "@failedToSendNamed": {
     "placeholders": {
@@ -898,7 +898,7 @@
   },
   "orientationFlippedTooltip": "Yön: ters (dokun to normal)",
   "orientationNormalTooltip": "Yön: normal (dokun to flip)",
-  "noSteps": "No steps",
+  "noSteps": "Adım yok",
   "stepProgress": "Adım {current} / {total}",
   "@stepProgress": {
     "placeholders": {
@@ -912,9 +912,9 @@
   },
   "completed": "Completed",
   "paused": "Duraklatıldı",
-  "running": "Çalıştırning",
+  "running": "Çalışıyor",
   "ready": "Hazır",
-  "stepsProgress": "{current} / {total} steps",
+  "stepsProgress": "Adımlar: {current} / {total}",
   "@stepsProgress": {
     "placeholders": {
       "current": {
@@ -1005,7 +1005,7 @@
   "remote": "Kumanda",
   "macroName": "Makro adı",
   "macroNameHint": "örn. Film gecesi",
-  "stepsTitleCount": "Steps ({count})",
+  "stepsTitleCount": "Adımlar ({count})",
   "@stepsTitleCount": {
     "placeholders": {
       "count": {
@@ -1017,7 +1017,7 @@
   "addCommandsAndDelaysHint": "Komut, bekleme süresi veya onay bekleme adımı ekleyin. Adımlar gösterilen sırayla çalışır.",
   "addStep": "Adım ekle",
   "reorderStepsHint": "Adımları sıralamak için tutamacı sürükleyin. Düzenlemek için adıma dokunun.",
-  "reorderStep": "{index}. adımı yeniden sırala",
+  "reorderStep": "{index}. adımı taşı",
   "@reorderStep": {
     "placeholders": {
       "index": {
@@ -1885,7 +1885,15 @@
       }
     }
   },
-  "macroStepCountLabel": "{count, plural, one{{count} step} other{{count} steps}}",
+  "macroCopyName": "{name} (Kopya)",
+  "@macroCopyName": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
+  "macroStepCountLabel": "{count} adım",
   "@macroStepCountLabel": {
     "placeholders": {
       "count": {

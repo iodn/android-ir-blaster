@@ -1340,14 +1340,13 @@ class AppLocalizationsFil extends AppLocalizations {
   String get noRemote => 'Walang remote';
 
   @override
+  String macroCopyName(String name) {
+    return '$name (Kopya)';
+  }
+
+  @override
   String macroStepCountLabel(int count) {
-    String _temp0 = intl.Intl.pluralLogic(
-      count,
-      locale: localeName,
-      other: '$count steps',
-      one: '$count step',
-    );
-    return '$_temp0';
+    return '$count hakbang';
   }
 
   @override
@@ -2195,7 +2194,8 @@ class AppLocalizationsFil extends AppLocalizations {
   }
 
   @override
-  String get invalidStepEncountered => 'Invalid hakbang encountered';
+  String get invalidStepEncountered =>
+      'May hakbang na hindi wasto sa macro na ito. I-edit muna ito bago subukang muli.';
 
   @override
   String failedToSendNamed(Object name) {
@@ -2236,7 +2236,7 @@ class AppLocalizationsFil extends AppLocalizations {
   String get orientationNormalTooltip => 'Orientation: normal (tap to flip)';
 
   @override
-  String get noSteps => 'Walang mga hakbang';
+  String get noSteps => 'Walang hakbang';
 
   @override
   String stepProgress(int current, int total) {
@@ -2247,17 +2247,17 @@ class AppLocalizationsFil extends AppLocalizations {
   String get completed => 'Completed';
 
   @override
-  String get paused => 'Paused';
+  String get paused => 'Naka-pause';
 
   @override
-  String get running => 'Running';
+  String get running => 'Tumatakbo';
 
   @override
-  String get ready => 'Ready';
+  String get ready => 'Handa';
 
   @override
   String stepsProgress(int current, int total) {
-    return '$current / $total mga hakbang';
+    return 'Mga hakbang: $current / $total';
   }
 
   @override
@@ -2387,7 +2387,7 @@ class AppLocalizationsFil extends AppLocalizations {
 
   @override
   String stepsTitleCount(int count) {
-    return 'Steps ($count)';
+    return 'Mga hakbang ($count)';
   }
 
   @override
@@ -2406,7 +2406,7 @@ class AppLocalizationsFil extends AppLocalizations {
 
   @override
   String reorderStep(int index) {
-    return 'Reorder hakbang $index';
+    return 'Ilipat ang hakbang $index';
   }
 
   @override
@@ -2415,7 +2415,7 @@ class AppLocalizationsFil extends AppLocalizations {
 
   @override
   String deleteStep(int index) {
-    return 'Delete hakbang $index';
+    return 'Burahin ang hakbang $index';
   }
 
   @override

@@ -851,7 +851,7 @@
       }
     }
   },
-  "invalidStepEncountered": "Найден неверный шаг",
+  "invalidStepEncountered": "В этом макросе есть некорректный шаг. Исправьте его перед повторным запуском.",
   "failedToSendNamed": "Не удалось отправить: {name}",
   "@failedToSendNamed": {
     "placeholders": {
@@ -914,7 +914,7 @@
   "paused": "Пауза",
   "running": "Выполняется",
   "ready": "Готово",
-  "stepsProgress": "{current} / {total} шагов",
+  "stepsProgress": "Шаги: {current} / {total}",
   "@stepsProgress": {
     "placeholders": {
       "current": {
@@ -1005,7 +1005,7 @@
   "remote": "Пульт",
   "macroName": "Название макроса",
   "macroNameHint": "например, Киновечер",
-  "stepsTitleCount": "Шаги, {count}",
+  "stepsTitleCount": "Шаги ({count})",
   "@stepsTitleCount": {
     "placeholders": {
       "count": {
@@ -1017,7 +1017,7 @@
   "addCommandsAndDelaysHint": "Добавьте команды, время ожидания или паузы для подтверждения. Шаги выполняются в указанном порядке.",
   "addStep": "Добавить шаг",
   "reorderStepsHint": "Перетащите шаг за значок, чтобы изменить порядок. Нажмите на шаг, чтобы отредактировать его.",
-  "reorderStep": "Переставить шаг {index}",
+  "reorderStep": "Переместить шаг {index}",
   "@reorderStep": {
     "placeholders": {
       "index": {
@@ -1880,7 +1880,15 @@
       }
     }
   },
-  "macroStepCountLabel": "{count, plural, one{{count} step} other{{count} steps}}",
+  "macroCopyName": "{name} (копия)",
+  "@macroCopyName": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
+  "macroStepCountLabel": "{count, plural, one{{count} шаг} few{{count} шага} many{{count} шагов} other{{count} шагов}}",
   "@macroStepCountLabel": {
     "placeholders": {
       "count": {

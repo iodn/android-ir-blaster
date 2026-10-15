@@ -1340,12 +1340,17 @@ class AppLocalizationsEs extends AppLocalizations {
   String get noRemote => 'Sin mando';
 
   @override
+  String macroCopyName(String name) {
+    return '$name (copia)';
+  }
+
+  @override
   String macroStepCountLabel(int count) {
     String _temp0 = intl.Intl.pluralLogic(
       count,
       locale: localeName,
-      other: '$count steps',
-      one: '$count step',
+      other: '$count pasos',
+      one: '$count paso',
     );
     return '$_temp0';
   }
@@ -2195,7 +2200,8 @@ class AppLocalizationsEs extends AppLocalizations {
   }
 
   @override
-  String get invalidStepEncountered => 'Se encontró un paso no válido';
+  String get invalidStepEncountered =>
+      'Esta macro contiene un paso no válido. Edítalo antes de volver a intentarlo.';
 
   @override
   String failedToSendNamed(Object name) {
@@ -2258,7 +2264,7 @@ class AppLocalizationsEs extends AppLocalizations {
 
   @override
   String stepsProgress(int current, int total) {
-    return '$current / $total pasos';
+    return 'Pasos: $current / $total';
   }
 
   @override
@@ -2418,7 +2424,7 @@ class AppLocalizationsEs extends AppLocalizations {
 
   @override
   String reorderStep(int index) {
-    return 'Reordenar paso $index';
+    return 'Mover el paso $index';
   }
 
   @override
@@ -2427,7 +2433,7 @@ class AppLocalizationsEs extends AppLocalizations {
 
   @override
   String deleteStep(int index) {
-    return 'Eliminar paso $index';
+    return 'Eliminar el paso $index';
   }
 
   @override

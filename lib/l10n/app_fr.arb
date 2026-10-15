@@ -856,7 +856,7 @@
       }
     }
   },
-  "invalidStepEncountered": "Étape invalide détectée",
+  "invalidStepEncountered": "Cette macro contient une étape non valide. Modifiez-la avant de réessayer.",
   "failedToSendNamed": "Échec de l’envoi : {name}",
   "@failedToSendNamed": {
     "placeholders": {
@@ -919,7 +919,7 @@
   "paused": "En pause",
   "running": "En cours",
   "ready": "Prêt",
-  "stepsProgress": "{current} / {total} étapes",
+  "stepsProgress": "Étapes : {current} / {total}",
   "@stepsProgress": {
     "placeholders": {
       "current": {
@@ -1022,7 +1022,7 @@
   "addCommandsAndDelaysHint": "Ajoutez des commandes, des délais ou des pauses pour confirmation. Les étapes s’exécutent dans l’ordre affiché.",
   "addStep": "Ajouter une étape",
   "reorderStepsHint": "Faites glisser la poignée pour déplacer une étape. Touchez une étape pour la modifier.",
-  "reorderStep": "Réorganiser l’étape {index}",
+  "reorderStep": "Déplacer l’étape {index}",
   "@reorderStep": {
     "placeholders": {
       "index": {
@@ -1880,7 +1880,15 @@
       }
     }
   },
-  "macroStepCountLabel": "{count, plural, one{{count} step} other{{count} steps}}",
+  "macroCopyName": "{name} (copie)",
+  "@macroCopyName": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
+  "macroStepCountLabel": "{count, plural, one{{count} étape} other{{count} étapes}}",
   "@macroStepCountLabel": {
     "placeholders": {
       "count": {

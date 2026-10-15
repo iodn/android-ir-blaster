@@ -385,6 +385,14 @@
   "macroExampleText": "1. Ersten Befehl senden\n2. Eine Sekunde warten\n3. Nächsten Befehl senden",
   "createFirstMacro": "Erstes Makro erstellen",
   "noRemote": "Keine Fernbedienung",
+  "macroCopyName": "{name} (Kopie)",
+  "@macroCopyName": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
   "macroStepCountLabel": "{count, plural, one{{count} Schritt} other{{count} Schritte}}",
   "@macroStepCountLabel": {
     "placeholders": {
@@ -853,7 +861,7 @@
       }
     }
   },
-  "invalidStepEncountered": "Ungültiger Schritt gefunden",
+  "invalidStepEncountered": "Dieses Makro enthält einen ungültigen Schritt. Bearbeite ihn und versuche es erneut.",
   "failedToSendNamed": "Senden fehlgeschlagen: {name}",
   "@failedToSendNamed": {
     "placeholders": {
@@ -916,7 +924,7 @@
   "paused": "Pausiert",
   "running": "Läuft",
   "ready": "Bereit",
-  "stepsProgress": "{current} / {total} Schritte",
+  "stepsProgress": "Schritte: {current} / {total}",
   "@stepsProgress": {
     "placeholders": {
       "current": {
@@ -1007,7 +1015,7 @@
   "remote": "Fernbedienung",
   "macroName": "Makroname",
   "macroNameHint": "z. B. Filmabend",
-  "stepsTitleCount": "Schritte {count}",
+  "stepsTitleCount": "Schritte ({count})",
   "@stepsTitleCount": {
     "placeholders": {
       "count": {
@@ -1019,7 +1027,7 @@
   "addCommandsAndDelaysHint": "Füge Befehle, Wartezeiten oder Pausen zur Bestätigung hinzu. Die Schritte laufen in der angezeigten Reihenfolge ab.",
   "addStep": "Schritt hinzufügen",
   "reorderStepsHint": "Ziehe am Griff, um Schritte zu verschieben. Tippe auf einen Schritt, um ihn zu bearbeiten.",
-  "reorderStep": "Schritt {index} neu anordnen",
+  "reorderStep": "Schritt {index} verschieben",
   "@reorderStep": {
     "placeholders": {
       "index": {

@@ -851,7 +851,7 @@
       }
     }
   },
-  "invalidStepEncountered": "Foi encontrado um passo inválido",
+  "invalidStepEncountered": "Esta macro contém um passo inválido. Edite-o antes de tentar novamente.",
   "failedToSendNamed": "Falha ao enviar: {name}",
   "@failedToSendNamed": {
     "placeholders": {
@@ -912,9 +912,9 @@
   },
   "completed": "Completado",
   "paused": "Em pausa",
-  "running": "En curso",
+  "running": "Em execução",
   "ready": "Pronto",
-  "stepsProgress": "{current} / {total} passos",
+  "stepsProgress": "Passos: {current} / {total}",
   "@stepsProgress": {
     "placeholders": {
       "current": {
@@ -1017,7 +1017,7 @@
   "addCommandsAndDelaysHint": "Adicione comandos, tempos de espera ou pausas para confirmação. Os passos são executados pela ordem apresentada.",
   "addStep": "Adicionar passo",
   "reorderStepsHint": "Arraste a pega para mudar a ordem dos passos. Toque num passo para o editar.",
-  "reorderStep": "Reordenar passo {index}",
+  "reorderStep": "Mover o passo {index}",
   "@reorderStep": {
     "placeholders": {
       "index": {
@@ -1026,7 +1026,7 @@
     }
   },
   "pressAndDragToChangeStepOrder": "Mantenha premido e arraste para mover o passo",
-  "deleteStep": "Eliminar passo {index}",
+  "deleteStep": "Eliminar o passo {index}",
   "@deleteStep": {
     "placeholders": {
       "index": {
@@ -1880,7 +1880,15 @@
       }
     }
   },
-  "macroStepCountLabel": "{count, plural, one{{count} step} other{{count} steps}}",
+  "macroCopyName": "{name} (cópia)",
+  "@macroCopyName": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
+  "macroStepCountLabel": "{count, plural, one{{count} passo} other{{count} passos}}",
   "@macroStepCountLabel": {
     "placeholders": {
       "count": {

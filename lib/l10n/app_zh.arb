@@ -851,7 +851,7 @@
       }
     }
   },
-  "invalidStepEncountered": "遇到无效步骤",
+  "invalidStepEncountered": "此宏包含无效步骤。请修正后重试。",
   "failedToSendNamed": "发送失败 {name}",
   "@failedToSendNamed": {
     "placeholders": {
@@ -898,7 +898,7 @@
   },
   "orientationFlippedTooltip": "方向 已翻转 点击恢复正常",
   "orientationNormalTooltip": "方向 正常 点击翻转",
-  "noSteps": "没有步骤",
+  "noSteps": "无步骤",
   "stepProgress": "步骤 {current} / {total}",
   "@stepProgress": {
     "placeholders": {
@@ -914,7 +914,7 @@
   "paused": "已暂停",
   "running": "运行中",
   "ready": "就绪",
-  "stepsProgress": "{current} / {total} 步骤",
+  "stepsProgress": "步骤：{current} / {total}",
   "@stepsProgress": {
     "placeholders": {
       "current": {
@@ -1005,7 +1005,7 @@
   "remote": "遥控器",
   "macroName": "宏名称",
   "macroNameHint": "例如：观影之夜",
-  "stepsTitleCount": "步骤 {count}",
+  "stepsTitleCount": "步骤（{count}）",
   "@stepsTitleCount": {
     "placeholders": {
       "count": {
@@ -1017,7 +1017,7 @@
   "addCommandsAndDelaysHint": "添加命令、等待时间或确认等待。各步骤将按显示顺序执行。",
   "addStep": "添加步骤",
   "reorderStepsHint": "拖动手柄可调整步骤顺序。点击步骤可编辑。",
-  "reorderStep": "重排步骤 {index}",
+  "reorderStep": "移动第 {index} 步",
   "@reorderStep": {
     "placeholders": {
       "index": {
@@ -1026,7 +1026,7 @@
     }
   },
   "pressAndDragToChangeStepOrder": "按住并拖动以调整步骤顺序",
-  "deleteStep": "删除步骤 {index}",
+  "deleteStep": "删除第 {index} 步",
   "@deleteStep": {
     "placeholders": {
       "index": {
@@ -1880,7 +1880,15 @@
       }
     }
   },
-  "macroStepCountLabel": "{count, plural, one{{count} step} other{{count} steps}}",
+  "macroCopyName": "{name}（副本）",
+  "@macroCopyName": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
+  "macroStepCountLabel": "{count} 步",
   "@macroStepCountLabel": {
     "placeholders": {
       "count": {

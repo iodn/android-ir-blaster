@@ -853,7 +853,7 @@
       }
     }
   },
-  "invalidStepEncountered": "Napotkano nieprawidłowy krok",
+  "invalidStepEncountered": "To makro zawiera nieprawidłowy krok. Popraw go przed ponownym uruchomieniem.",
   "failedToSendNamed": "Nie udało się wysłać: {name}",
   "@failedToSendNamed": {
     "placeholders": {
@@ -914,9 +914,9 @@
   },
   "completed": "Zakończono",
   "paused": "Wstrzymano",
-  "running": "Trwa",
+  "running": "W trakcie",
   "ready": "Gotowe",
-  "stepsProgress": "{current} / {total} kroków",
+  "stepsProgress": "Kroki: {current} / {total}",
   "@stepsProgress": {
     "placeholders": {
       "current": {
@@ -1007,7 +1007,7 @@
   "remote": "Pilot",
   "macroName": "Nazwa makra",
   "macroNameHint": "np. Wieczór filmowy",
-  "stepsTitleCount": "kroki ({count})",
+  "stepsTitleCount": "Kroki ({count})",
   "@stepsTitleCount": {
     "placeholders": {
       "count": {
@@ -1019,7 +1019,7 @@
   "addCommandsAndDelaysHint": "Dodaj polecenia, czas oczekiwania lub pauzy na potwierdzenie. Kroki wykonają się w pokazanej kolejności.",
   "addStep": "Dodaj krok",
   "reorderStepsHint": "Przeciągnij uchwyt, aby zmienić kolejność kroków. Dotknij kroku, aby go edytować.",
-  "reorderStep": "Zmień kolejność kroku {index}",
+  "reorderStep": "Przenieś krok {index}",
   "@reorderStep": {
     "placeholders": {
       "index": {
@@ -1879,6 +1879,14 @@
     "placeholders": {
       "count": {
         "type": "int"
+      }
+    }
+  },
+  "macroCopyName": "{name} (kopia)",
+  "@macroCopyName": {
+    "placeholders": {
+      "name": {
+        "type": "String"
       }
     }
   },

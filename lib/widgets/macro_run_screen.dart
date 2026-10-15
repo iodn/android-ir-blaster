@@ -609,15 +609,16 @@ class _MacroRunScreenState extends State<MacroRunScreen>
                       fontWeight: FontWeight.w600,
                     ),
                   ),
+                  const SizedBox(height: 8),
+                  Text(
+                    context.l10n.millisecondsShort(_remainingMs),
+                    style: theme.textTheme.titleLarge?.copyWith(
+                      fontWeight: FontWeight.w900,
+                      color: cs.onSecondaryContainer,
+                      fontFeatures: [const FontFeature.tabularFigures()],
+                    ),
+                  ),
                 ],
-              ),
-            ),
-            Text(
-              context.l10n.millisecondsShort(_remainingMs),
-              style: theme.textTheme.titleLarge?.copyWith(
-                fontWeight: FontWeight.w900,
-                color: cs.onSecondaryContainer,
-                fontFeatures: [const FontFeature.tabularFigures()],
               ),
             ),
           ],

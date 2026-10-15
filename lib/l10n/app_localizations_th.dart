@@ -1319,14 +1319,13 @@ class AppLocalizationsTh extends AppLocalizations {
   String get noRemote => 'ไม่มีรีโมต';
 
   @override
+  String macroCopyName(String name) {
+    return '$name (สำเนา)';
+  }
+
+  @override
   String macroStepCountLabel(int count) {
-    String _temp0 = intl.Intl.pluralLogic(
-      count,
-      locale: localeName,
-      other: '$count steps',
-      one: '$count step',
-    );
-    return '$_temp0';
+    return '$count ขั้นตอน';
   }
 
   @override
@@ -2157,7 +2156,8 @@ class AppLocalizationsTh extends AppLocalizations {
   }
 
   @override
-  String get invalidStepEncountered => 'พบขั้นตอนที่ไม่ถูกต้อง';
+  String get invalidStepEncountered =>
+      'มาโครนี้มีขั้นตอนที่ไม่ถูกต้อง โปรดแก้ไขก่อนลองอีกครั้ง';
 
   @override
   String failedToSendNamed(Object name) {
@@ -2209,17 +2209,17 @@ class AppLocalizationsTh extends AppLocalizations {
   String get completed => 'เสร็จสิ้น';
 
   @override
-  String get paused => 'หยุดชั่วคราวd';
+  String get paused => 'หยุดชั่วคราว';
 
   @override
-  String get running => 'ทำงานning';
+  String get running => 'กำลังทำงาน';
 
   @override
   String get ready => 'พร้อม';
 
   @override
   String stepsProgress(int current, int total) {
-    return '$current / $total ขั้นตอน';
+    return 'ขั้นตอน: $current / $total';
   }
 
   @override
@@ -2346,7 +2346,7 @@ class AppLocalizationsTh extends AppLocalizations {
 
   @override
   String stepsTitleCount(int count) {
-    return 'ขั้นตอน $count';
+    return 'ขั้นตอน ($count)';
   }
 
   @override
@@ -2365,7 +2365,7 @@ class AppLocalizationsTh extends AppLocalizations {
 
   @override
   String reorderStep(int index) {
-    return 'จัดลำดับขั้นตอน $index';
+    return 'ย้ายขั้นตอนที่ $index';
   }
 
   @override
@@ -2373,7 +2373,7 @@ class AppLocalizationsTh extends AppLocalizations {
 
   @override
   String deleteStep(int index) {
-    return 'ลบขั้นตอน $index';
+    return 'ลบขั้นตอนที่ $index';
   }
 
   @override

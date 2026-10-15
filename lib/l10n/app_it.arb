@@ -851,7 +851,7 @@
       }
     }
   },
-  "invalidStepEncountered": "Passaggio non valido rilevato",
+  "invalidStepEncountered": "Questa macro contiene un passaggio non valido. Modificalo prima di riprovare.",
   "failedToSendNamed": "Invio fallito: {name}",
   "@failedToSendNamed": {
     "placeholders": {
@@ -914,7 +914,7 @@
   "paused": "In pausa",
   "running": "In esecuzione",
   "ready": "Pronto",
-  "stepsProgress": "{current} / {total} passi",
+  "stepsProgress": "Passaggi: {current} / {total}",
   "@stepsProgress": {
     "placeholders": {
       "current": {
@@ -1005,7 +1005,7 @@
   "remote": "Telecomando",
   "macroName": "Nome della macro",
   "macroNameHint": "es. Serata cinema",
-  "stepsTitleCount": "Passi ({count})",
+  "stepsTitleCount": "Passaggi ({count})",
   "@stepsTitleCount": {
     "placeholders": {
       "count": {
@@ -1017,7 +1017,7 @@
   "addCommandsAndDelaysHint": "Aggiungi comandi, attese o pause per la conferma. I passaggi vengono eseguiti nell’ordine mostrato.",
   "addStep": "Aggiungi passaggio",
   "reorderStepsHint": "Trascina la maniglia per spostare un passaggio. Tocca un passaggio per modificarlo.",
-  "reorderStep": "Riordina passo {index}",
+  "reorderStep": "Sposta il passaggio {index}",
   "@reorderStep": {
     "placeholders": {
       "index": {
@@ -1026,7 +1026,7 @@
     }
   },
   "pressAndDragToChangeStepOrder": "Tieni premuto e trascina per spostare il passaggio",
-  "deleteStep": "Elimina passo {index}",
+  "deleteStep": "Elimina il passaggio {index}",
   "@deleteStep": {
     "placeholders": {
       "index": {
@@ -1880,7 +1880,15 @@
       }
     }
   },
-  "macroStepCountLabel": "{count, plural, one{{count} step} other{{count} steps}}",
+  "macroCopyName": "{name} (copia)",
+  "@macroCopyName": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
+  "macroStepCountLabel": "{count, plural, one{{count} passaggio} other{{count} passaggi}}",
   "@macroStepCountLabel": {
     "placeholders": {
       "count": {

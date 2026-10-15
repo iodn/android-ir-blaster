@@ -851,7 +851,7 @@
       }
     }
   },
-  "invalidStepEncountered": "Gặp bước không hợp lệ",
+  "invalidStepEncountered": "Macro này có bước không hợp lệ. Hãy chỉnh sửa bước đó trước khi thử lại.",
   "failedToSendNamed": "Gửi thất bại: {name}",
   "@failedToSendNamed": {
     "placeholders": {
@@ -898,7 +898,7 @@
   },
   "orientationFlippedTooltip": "Hướng: lật (chạm để về bình thường)",
   "orientationNormalTooltip": "Hướng: bình thường (chạm để lật)",
-  "noSteps": "Không có bước",
+  "noSteps": "Không có bước nào",
   "stepProgress": "Bước {current} / {total}",
   "@stepProgress": {
     "placeholders": {
@@ -914,7 +914,7 @@
   "paused": "Đã tạm dừng",
   "running": "Đang chạy",
   "ready": "Sẵn sàng",
-  "stepsProgress": "{current} / {total} bước",
+  "stepsProgress": "Các bước: {current} / {total}",
   "@stepsProgress": {
     "placeholders": {
       "current": {
@@ -1005,7 +1005,7 @@
   "remote": "Điều khiển",
   "macroName": "Tên macro",
   "macroNameHint": "ví dụ: Tối xem phim",
-  "stepsTitleCount": "Bước ({count})",
+  "stepsTitleCount": "Các bước ({count})",
   "@stepsTitleCount": {
     "placeholders": {
       "count": {
@@ -1017,7 +1017,7 @@
   "addCommandsAndDelaysHint": "Thêm lệnh, thời gian chờ hoặc bước chờ xác nhận. Các bước chạy theo thứ tự hiển thị.",
   "addStep": "Thêm bước",
   "reorderStepsHint": "Kéo tay nắm để đổi thứ tự các bước. Chạm vào một bước để chỉnh sửa.",
-  "reorderStep": "Sắp xếp lại bước {index}",
+  "reorderStep": "Di chuyển bước {index}",
   "@reorderStep": {
     "placeholders": {
       "index": {
@@ -1880,7 +1880,15 @@
       }
     }
   },
-  "macroStepCountLabel": "{count, plural, one{{count} step} other{{count} steps}}",
+  "macroCopyName": "{name} (bản sao)",
+  "@macroCopyName": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
+  "macroStepCountLabel": "{count} bước",
   "@macroStepCountLabel": {
     "placeholders": {
       "count": {

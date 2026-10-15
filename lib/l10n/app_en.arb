@@ -496,6 +496,14 @@
   "macroExampleText": "1. Send the first command\n2. Wait 1 second\n3. Send the next command",
   "createFirstMacro": "Create your first macro",
   "noRemote": "No remote",
+  "macroCopyName": "{name} (Copy)",
+  "@macroCopyName": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
   "macroStepCountLabel": "{count, plural, one{{count} step} other{{count} steps}}",
   "@macroStepCountLabel": {
     "placeholders": {
@@ -964,7 +972,7 @@
       }
     }
   },
-  "invalidStepEncountered": "Invalid step encountered",
+  "invalidStepEncountered": "This macro contains an invalid step. Edit it before trying again.",
   "failedToSendNamed": "Failed to send: {name}",
   "@failedToSendNamed": {
     "placeholders": {
@@ -1027,7 +1035,7 @@
   "paused": "Paused",
   "running": "Running",
   "ready": "Ready",
-  "stepsProgress": "{current} / {total} steps",
+  "stepsProgress": "Steps: {current} / {total}",
   "@stepsProgress": {
     "placeholders": {
       "current": {

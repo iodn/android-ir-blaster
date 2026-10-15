@@ -851,7 +851,7 @@
       }
     }
   },
-  "invalidStepEncountered": "無効なステップがあります",
+  "invalidStepEncountered": "このマクロには無効なステップがあります。修正してから再実行してください。",
   "failedToSendNamed": "送信に失敗しました: {name}",
   "@failedToSendNamed": {
     "placeholders": {
@@ -898,7 +898,7 @@
   },
   "orientationFlippedTooltip": "向き 反転中 タップで通常",
   "orientationNormalTooltip": "向き 通常 タップで反転",
-  "noSteps": "No ステップ",
+  "noSteps": "ステップなし",
   "stepProgress": "ステップ {current} / {total}",
   "@stepProgress": {
     "placeholders": {
@@ -911,10 +911,10 @@
     }
   },
   "completed": "完了",
-  "paused": "一時停止",
+  "paused": "一時停止中",
   "running": "実行中",
   "ready": "準備完了",
-  "stepsProgress": "{current} / {total} ステップ",
+  "stepsProgress": "ステップ：{current} / {total}",
   "@stepsProgress": {
     "placeholders": {
       "current": {
@@ -1005,7 +1005,7 @@
   "remote": "リモコン",
   "macroName": "マクロ名",
   "macroNameHint": "例：映画鑑賞",
-  "stepsTitleCount": "ステップ {count}",
+  "stepsTitleCount": "ステップ（{count}）",
   "@stepsTitleCount": {
     "placeholders": {
       "count": {
@@ -1017,7 +1017,7 @@
   "addCommandsAndDelaysHint": "コマンド、待機時間、確認待ちを追加してください。表示順に実行されます。",
   "addStep": "ステップを追加",
   "reorderStepsHint": "ハンドルをドラッグすると順番を変更できます。ステップをタップすると編集できます。",
-  "reorderStep": "ステップ{index}を並べ替え",
+  "reorderStep": "ステップ{index}を移動",
   "@reorderStep": {
     "placeholders": {
       "index": {
@@ -1880,7 +1880,15 @@
       }
     }
   },
-  "macroStepCountLabel": "{count, plural, one{{count} step} other{{count} steps}}",
+  "macroCopyName": "{name}（コピー）",
+  "@macroCopyName": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
+  "macroStepCountLabel": "{count}ステップ",
   "@macroStepCountLabel": {
     "placeholders": {
       "count": {

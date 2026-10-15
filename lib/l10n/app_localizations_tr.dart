@@ -1329,14 +1329,13 @@ class AppLocalizationsTr extends AppLocalizations {
   String get noRemote => 'No kumanda';
 
   @override
+  String macroCopyName(String name) {
+    return '$name (Kopya)';
+  }
+
+  @override
   String macroStepCountLabel(int count) {
-    String _temp0 = intl.Intl.pluralLogic(
-      count,
-      locale: localeName,
-      other: '$count steps',
-      one: '$count step',
-    );
-    return '$_temp0';
+    return '$count adım';
   }
 
   @override
@@ -2178,7 +2177,8 @@ class AppLocalizationsTr extends AppLocalizations {
   }
 
   @override
-  String get invalidStepEncountered => 'Geçersiz adımla karşılaşıldı';
+  String get invalidStepEncountered =>
+      'Bu makro geçersiz bir adım içeriyor. Tekrar denemeden önce bu adımı düzenleyin.';
 
   @override
   String failedToSendNamed(Object name) {
@@ -2218,7 +2218,7 @@ class AppLocalizationsTr extends AppLocalizations {
   String get orientationNormalTooltip => 'Yön: normal (dokun to flip)';
 
   @override
-  String get noSteps => 'No steps';
+  String get noSteps => 'Adım yok';
 
   @override
   String stepProgress(int current, int total) {
@@ -2232,14 +2232,14 @@ class AppLocalizationsTr extends AppLocalizations {
   String get paused => 'Duraklatıldı';
 
   @override
-  String get running => 'Çalıştırning';
+  String get running => 'Çalışıyor';
 
   @override
   String get ready => 'Hazır';
 
   @override
   String stepsProgress(int current, int total) {
-    return '$current / $total steps';
+    return 'Adımlar: $current / $total';
   }
 
   @override
@@ -2366,7 +2366,7 @@ class AppLocalizationsTr extends AppLocalizations {
 
   @override
   String stepsTitleCount(int count) {
-    return 'Steps ($count)';
+    return 'Adımlar ($count)';
   }
 
   @override
@@ -2385,7 +2385,7 @@ class AppLocalizationsTr extends AppLocalizations {
 
   @override
   String reorderStep(int index) {
-    return '$index. adımı yeniden sırala';
+    return '$index. adımı taşı';
   }
 
   @override

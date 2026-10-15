@@ -1265,14 +1265,13 @@ class AppLocalizationsJa extends AppLocalizations {
   String get noRemote => 'リモコンなし';
 
   @override
+  String macroCopyName(String name) {
+    return '$name（コピー）';
+  }
+
+  @override
   String macroStepCountLabel(int count) {
-    String _temp0 = intl.Intl.pluralLogic(
-      count,
-      locale: localeName,
-      other: '$count steps',
-      one: '$count step',
-    );
-    return '$_temp0';
+    return '$countステップ';
   }
 
   @override
@@ -2079,7 +2078,7 @@ class AppLocalizationsJa extends AppLocalizations {
   }
 
   @override
-  String get invalidStepEncountered => '無効なステップがあります';
+  String get invalidStepEncountered => 'このマクロには無効なステップがあります。修正してから再実行してください。';
 
   @override
   String failedToSendNamed(Object name) {
@@ -2119,7 +2118,7 @@ class AppLocalizationsJa extends AppLocalizations {
   String get orientationNormalTooltip => '向き 通常 タップで反転';
 
   @override
-  String get noSteps => 'No ステップ';
+  String get noSteps => 'ステップなし';
 
   @override
   String stepProgress(int current, int total) {
@@ -2130,7 +2129,7 @@ class AppLocalizationsJa extends AppLocalizations {
   String get completed => '完了';
 
   @override
-  String get paused => '一時停止';
+  String get paused => '一時停止中';
 
   @override
   String get running => '実行中';
@@ -2140,7 +2139,7 @@ class AppLocalizationsJa extends AppLocalizations {
 
   @override
   String stepsProgress(int current, int total) {
-    return '$current / $total ステップ';
+    return 'ステップ：$current / $total';
   }
 
   @override
@@ -2266,7 +2265,7 @@ class AppLocalizationsJa extends AppLocalizations {
 
   @override
   String stepsTitleCount(int count) {
-    return 'ステップ $count';
+    return 'ステップ（$count）';
   }
 
   @override
@@ -2283,7 +2282,7 @@ class AppLocalizationsJa extends AppLocalizations {
 
   @override
   String reorderStep(int index) {
-    return 'ステップ$indexを並べ替え';
+    return 'ステップ$indexを移動';
   }
 
   @override

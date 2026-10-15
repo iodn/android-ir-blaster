@@ -851,7 +851,7 @@
       }
     }
   },
-  "invalidStepEncountered": "تم العثور على خطوة غير صالحة",
+  "invalidStepEncountered": "الماكرو ده فيه خطوة غير صالحة. عدّلها قبل ما تحاول تاني.",
   "failedToSendNamed": "فشل إلى send: {name}",
   "@failedToSendNamed": {
     "placeholders": {
@@ -898,7 +898,7 @@
   },
   "orientationFlippedTooltip": "Orientation: flipped (tap إلى normal)",
   "orientationNormalTooltip": "Orientation: normal (tap إلى flip)",
-  "noSteps": "لا توجد خطوات",
+  "noSteps": "مفيش خطوات",
   "stepProgress": "خطوة {current} / {total}",
   "@stepProgress": {
     "placeholders": {
@@ -911,10 +911,10 @@
     }
   },
   "completed": "Completed",
-  "paused": "Paused",
-  "running": "Running",
+  "paused": "متوقف مؤقتًا",
+  "running": "قيد التنفيذ",
   "ready": "جاهز",
-  "stepsProgress": "{current} / {total} خطوات",
+  "stepsProgress": "الخطوات: {current} / {total}",
   "@stepsProgress": {
     "placeholders": {
       "current": {
@@ -1005,7 +1005,7 @@
   "remote": "جهاز التحكم",
   "macroName": "اسم الماكرو",
   "macroNameHint": "مثلاً: سهرة أفلام",
-  "stepsTitleCount": "خطوات ({count})",
+  "stepsTitleCount": "الخطوات ({count})",
   "@stepsTitleCount": {
     "placeholders": {
       "count": {
@@ -1017,7 +1017,7 @@
   "addCommandsAndDelaysHint": "ضيف أوامر أو وقت انتظار أو وقفة للتأكيد. الخطوات هتشتغل بالترتيب المعروض.",
   "addStep": "إضافة خطوة",
   "reorderStepsHint": "اسحب مقبض الخطوة عشان تغيّر ترتيبها. اضغط على الخطوة عشان تعدّلها.",
-  "reorderStep": "إعادة ترتيب الخطوة {index}",
+  "reorderStep": "نقل الخطوة {index}",
   "@reorderStep": {
     "placeholders": {
       "index": {
@@ -1885,7 +1885,15 @@
       }
     }
   },
-  "macroStepCountLabel": "{count, plural, one{{count} step} other{{count} steps}}",
+  "macroCopyName": "{name} (نسخة)",
+  "@macroCopyName": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
+  "macroStepCountLabel": "{count, plural, zero{{count} خطوة} one{خطوة واحدة} two{خطوتان} few{{count} خطوات} many{{count} خطوة} other{{count} خطوة}}",
   "@macroStepCountLabel": {
     "placeholders": {
       "count": {

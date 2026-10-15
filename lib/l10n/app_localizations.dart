@@ -2436,6 +2436,12 @@ abstract class AppLocalizations {
   /// **'No remote'**
   String get noRemote;
 
+  /// No description provided for @macroCopyName.
+  ///
+  /// In en, this message translates to:
+  /// **'{name} (Copy)'**
+  String macroCopyName(String name);
+
   /// No description provided for @macroStepCountLabel.
   ///
   /// In en, this message translates to:
@@ -3874,7 +3880,7 @@ abstract class AppLocalizations {
   /// No description provided for @invalidStepEncountered.
   ///
   /// In en, this message translates to:
-  /// **'Invalid step encountered'**
+  /// **'This macro contains an invalid step. Edit it before trying again.'**
   String get invalidStepEncountered;
 
   /// No description provided for @failedToSendNamed.
@@ -3970,7 +3976,7 @@ abstract class AppLocalizations {
   /// No description provided for @stepsProgress.
   ///
   /// In en, this message translates to:
-  /// **'{current} / {total} steps'**
+  /// **'Steps: {current} / {total}'**
   String stepsProgress(int current, int total);
 
   /// No description provided for @waiting.

@@ -1346,6 +1346,11 @@ class AppLocalizationsDe extends AppLocalizations {
   String get noRemote => 'Keine Fernbedienung';
 
   @override
+  String macroCopyName(String name) {
+    return '$name (Kopie)';
+  }
+
+  @override
   String macroStepCountLabel(int count) {
     String _temp0 = intl.Intl.pluralLogic(
       count,
@@ -2207,7 +2212,8 @@ class AppLocalizationsDe extends AppLocalizations {
   }
 
   @override
-  String get invalidStepEncountered => 'Ungültiger Schritt gefunden';
+  String get invalidStepEncountered =>
+      'Dieses Makro enthält einen ungültigen Schritt. Bearbeite ihn und versuche es erneut.';
 
   @override
   String failedToSendNamed(Object name) {
@@ -2270,7 +2276,7 @@ class AppLocalizationsDe extends AppLocalizations {
 
   @override
   String stepsProgress(int current, int total) {
-    return '$current / $total Schritte';
+    return 'Schritte: $current / $total';
   }
 
   @override
@@ -2411,7 +2417,7 @@ class AppLocalizationsDe extends AppLocalizations {
 
   @override
   String stepsTitleCount(int count) {
-    return 'Schritte $count';
+    return 'Schritte ($count)';
   }
 
   @override
@@ -2430,7 +2436,7 @@ class AppLocalizationsDe extends AppLocalizations {
 
   @override
   String reorderStep(int index) {
-    return 'Schritt $index neu anordnen';
+    return 'Schritt $index verschieben';
   }
 
   @override
