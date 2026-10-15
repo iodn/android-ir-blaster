@@ -1883,11 +1883,11 @@
   "demoRemoteName": "Demo-Fernbedienung",
   "protocolFieldsInvalid": "Fülle die Pflichtfelder des Protokolls aus und stelle sicher, dass die Frequenz falls gesetzt 15k bis 60k ist.",
   "unknownProtocolSelected": "Unbekanntes Protokoll gewählt.",
-  "forceInAppVibrationTitle": "Vibration in der App erzwingen",
+  "forceInAppVibrationTitle": "Vibration erzwingen",
   "forceInAppVibrationSubtitle": "Den Vibrator direkt verwenden, auch wenn das System-Tastfeedback deaktiviert ist",
   "forceInAppVibrationWarning": "Erweiterte Option. Die App kann dadurch vibrieren, auch wenn das Android-Tastfeedback global deaktiviert ist.",
-  "forceInAppVibrationBlockedMasterWarning": "Die Android-Systemvibration ist deaktiviert. Erzwungene In-App-Vibration kann dies auf diesem Gerät nicht umgehen.",
-  "forceInAppVibrationNoVibratorWarning": "Dieses Gerät meldet keine Vibrationshardware, daher kann die In-App-Vibration nicht funktionieren.",
+  "forceInAppVibrationBlockedMasterWarning": "Vibration ist in Android ausgeschaltet. Die App kann diese Einstellung auf deinem Gerät nicht umgehen.",
+  "forceInAppVibrationNoVibratorWarning": "Kein Vibrationsmotor erkannt. Vibration ist in der App nicht verfügbar.",
   "continueSectionTitle": "Continue",
   "@continueSectionTitle": {
     "description": "Title for the recent continue strip on the remotes screen."

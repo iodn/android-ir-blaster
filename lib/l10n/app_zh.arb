@@ -1876,8 +1876,8 @@
   "forceInAppVibrationTitle": "强制应用内振动",
   "forceInAppVibrationSubtitle": "即使系统触觉反馈已关闭，也直接使用振动器",
   "forceInAppVibrationWarning": "高级选项。即使 Android 全局触觉反馈已关闭，应用也可能振动。",
-  "forceInAppVibrationBlockedMasterWarning": "Android 系统振动已关闭。此设备上无法通过应用内强制振动覆盖该设置。",
-  "forceInAppVibrationNoVibratorWarning": "此设备未报告振动硬件，因此应用内振动无法工作。",
+  "forceInAppVibrationBlockedMasterWarning": "Android设置中已关闭振动。在此设备上，应用无法绕过这项设置。",
+  "forceInAppVibrationNoVibratorWarning": "未检测到振动马达，无法使用应用内振动。",
   "remoteButtonCountLabel": "{count} 个按钮",
   "@remoteButtonCountLabel": {
     "placeholders": {

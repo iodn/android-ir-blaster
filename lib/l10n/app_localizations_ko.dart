@@ -776,7 +776,7 @@ class AppLocalizationsKo extends AppLocalizations {
   String get hapticFeedbackSubtitle => '탭하거나 작업할 때 진동해요';
 
   @override
-  String get forceInAppVibrationTitle => '앱 내 진동 강제 사용';
+  String get forceInAppVibrationTitle => '앱 진동 강제 사용';
 
   @override
   String get forceInAppVibrationSubtitle => '시스템 터치 피드백이 꺼져 있어도 진동기를 직접 사용합니다';
@@ -787,11 +787,11 @@ class AppLocalizationsKo extends AppLocalizations {
 
   @override
   String get forceInAppVibrationBlockedMasterWarning =>
-      'Android 시스템 진동이 비활성화되어 있습니다. 이 기기에서는 앱 내 강제 진동으로 이를 무시할 수 없습니다.';
+      'Android 설정에서 진동이 꺼져 있어요. 이 기기에서는 앱이 이 설정을 무시할 수 없어요.';
 
   @override
   String get forceInAppVibrationNoVibratorWarning =>
-      '이 기기는 진동 하드웨어를 보고하지 않으므로 앱 내 진동을 사용할 수 없습니다.';
+      '진동 모터가 감지되지 않았어요. 앱에서 진동을 사용할 수 없어요.';
 
   @override
   String get intensity => '진동 세기';

@@ -804,7 +804,7 @@ class AppLocalizationsRu extends AppLocalizations {
   String get hapticFeedbackSubtitle => 'Вибрация при нажатиях и действиях';
 
   @override
-  String get forceInAppVibrationTitle => 'Принудительная вибрация в приложении';
+  String get forceInAppVibrationTitle => 'Принудительная вибрация';
 
   @override
   String get forceInAppVibrationSubtitle =>
@@ -816,11 +816,11 @@ class AppLocalizationsRu extends AppLocalizations {
 
   @override
   String get forceInAppVibrationBlockedMasterWarning =>
-      'Системная вибрация Android отключена. Принудительная вибрация в приложении не может обойти это на данном устройстве.';
+      'Вибрация выключена в настройках Android. На вашем устройстве приложение не может обойти эту настройку.';
 
   @override
   String get forceInAppVibrationNoVibratorWarning =>
-      'Это устройство не сообщает о наличии вибромотора, поэтому вибрация в приложении не может работать.';
+      'Вибромотор не обнаружен. Вибрация в приложении недоступна.';
 
   @override
   String get intensity => 'Сила вибрации';

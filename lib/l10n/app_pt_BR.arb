@@ -1876,8 +1876,8 @@
   "forceInAppVibrationTitle": "Forçar vibração no app",
   "forceInAppVibrationSubtitle": "Usar o vibrador diretamente mesmo que o feedback tátil do sistema esteja desligado",
   "forceInAppVibrationWarning": "Opção avançada. O app pode vibrar mesmo quando o feedback tátil do Android estiver desativado globalmente.",
-  "forceInAppVibrationBlockedMasterWarning": "A vibração do sistema Android está desativada. A vibração forçada no app não pode substituí-la neste dispositivo.",
-  "forceInAppVibrationNoVibratorWarning": "Este dispositivo não informa hardware de vibração, então a vibração no app não pode funcionar.",
+  "forceInAppVibrationBlockedMasterWarning": "A vibração está desativada nas configurações do Android. O app não consegue ignorar essa configuração no seu dispositivo.",
+  "forceInAppVibrationNoVibratorWarning": "Nenhum motor de vibração detectado. A vibração não está disponível no app.",
   "remoteButtonCountLabel": "{count, plural, one{{count} botão} other{{count} botões}}",
   "@remoteButtonCountLabel": {
     "placeholders": {

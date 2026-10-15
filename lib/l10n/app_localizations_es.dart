@@ -822,11 +822,11 @@ class AppLocalizationsEs extends AppLocalizations {
 
   @override
   String get forceInAppVibrationBlockedMasterWarning =>
-      'La vibración del sistema Android está desactivada. La vibración forzada en la app no puede anularla en este dispositivo.';
+      'La vibración está desactivada en Android. La app no puede omitir este ajuste en tu dispositivo.';
 
   @override
   String get forceInAppVibrationNoVibratorWarning =>
-      'Este dispositivo no informa hardware de vibración, por lo que la vibración en la app no puede funcionar.';
+      'No se detectó un motor de vibración. La app no podrá vibrar.';
 
   @override
   String get intensity => 'Intensidad';

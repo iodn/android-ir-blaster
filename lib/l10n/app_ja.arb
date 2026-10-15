@@ -1873,11 +1873,11 @@
   "demoRemoteName": "デモリモコン",
   "protocolFieldsInvalid": "必須のプロトコル項目を埋め 周波数を設定する場合は15kから60kにしてください",
   "unknownProtocolSelected": "不明なプロトコルが選択されました",
-  "forceInAppVibrationTitle": "アプリ内の振動を強制する",
+  "forceInAppVibrationTitle": "アプリの振動を強制的に有効化",
   "forceInAppVibrationSubtitle": "システムのタッチフィードバックがオフでもバイブレータを直接使用する",
   "forceInAppVibrationWarning": "高度なオプションです。Android のタッチフィードバックが全体で無効でも、アプリが振動する場合があります。",
-  "forceInAppVibrationBlockedMasterWarning": "Androidのシステム振動が無効です。この端末ではアプリ内の強制振動で上書きできません。",
-  "forceInAppVibrationNoVibratorWarning": "この端末は振動ハードウェアを報告していないため、アプリ内の振動は動作しません。",
+  "forceInAppVibrationBlockedMasterWarning": "Androidの設定で振動がオフになっています。この端末ではアプリからこの設定を無視することはできません。",
+  "forceInAppVibrationNoVibratorWarning": "振動モーターが検出されませんでした。アプリの振動機能は使えません。",
   "remoteButtonCountLabel": "ボタン{count}個",
   "@remoteButtonCountLabel": {
     "placeholders": {

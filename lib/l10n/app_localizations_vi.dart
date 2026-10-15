@@ -801,7 +801,7 @@ class AppLocalizationsVi extends AppLocalizations {
   String get hapticFeedbackSubtitle => 'Rung khi chạm và thao tác';
 
   @override
-  String get forceInAppVibrationTitle => 'Buộc rung trong ứng dụng';
+  String get forceInAppVibrationTitle => 'Buộc ứng dụng rung';
 
   @override
   String get forceInAppVibrationSubtitle =>
@@ -813,11 +813,11 @@ class AppLocalizationsVi extends AppLocalizations {
 
   @override
   String get forceInAppVibrationBlockedMasterWarning =>
-      'Rung hệ thống Android đã bị tắt. Rung cưỡng bức trong ứng dụng không thể ghi đè điều này trên thiết bị này.';
+      'Chế độ rung đã tắt trong phần cài đặt Android. Ứng dụng không thể bỏ qua cài đặt này trên thiết bị của bạn.';
 
   @override
   String get forceInAppVibrationNoVibratorWarning =>
-      'Thiết bị này không báo có phần cứng rung, nên rung trong ứng dụng không thể hoạt động.';
+      'Không phát hiện mô-tơ rung. Không thể dùng tính năng rung trong ứng dụng.';
 
   @override
   String get intensity => 'Cường độ';

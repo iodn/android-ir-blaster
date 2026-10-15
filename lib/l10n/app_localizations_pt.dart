@@ -821,11 +821,11 @@ class AppLocalizationsPt extends AppLocalizations {
 
   @override
   String get forceInAppVibrationBlockedMasterWarning =>
-      'A vibração do sistema Android está desativada. A vibração forçada na aplicação não a pode substituir neste dispositivo.';
+      'A vibração está desligada nas definições do Android. A aplicação não consegue contornar esta definição no seu dispositivo.';
 
   @override
   String get forceInAppVibrationNoVibratorWarning =>
-      'Este dispositivo não indica hardware de vibração, por isso a vibração na aplicação não pode funcionar.';
+      'Não foi detetado um motor de vibração. A vibração não está disponível na aplicação.';
 
   @override
   String get intensity => 'Intensidade';
@@ -6147,11 +6147,11 @@ class AppLocalizationsPtBr extends AppLocalizationsPt {
 
   @override
   String get forceInAppVibrationBlockedMasterWarning =>
-      'A vibração do sistema Android está desativada. A vibração forçada no app não pode substituí-la neste dispositivo.';
+      'A vibração está desativada nas configurações do Android. O app não consegue ignorar essa configuração no seu dispositivo.';
 
   @override
   String get forceInAppVibrationNoVibratorWarning =>
-      'Este dispositivo não informa hardware de vibração, então a vibração no app não pode funcionar.';
+      'Nenhum motor de vibração detectado. A vibração não está disponível no app.';
 
   @override
   String get intensity => 'Intensidade';

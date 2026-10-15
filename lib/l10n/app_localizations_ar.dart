@@ -797,7 +797,7 @@ class AppLocalizationsAr extends AppLocalizations {
   String get hapticFeedbackSubtitle => 'اهتزاز عند النقر وإجراء العمليات';
 
   @override
-  String get forceInAppVibrationTitle => 'فرض الاهتزاز داخل التطبيق';
+  String get forceInAppVibrationTitle => 'فرض اهتزاز التطبيق';
 
   @override
   String get forceInAppVibrationSubtitle =>
@@ -809,11 +809,11 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String get forceInAppVibrationBlockedMasterWarning =>
-      'تم تعطيل اهتزاز النظام في أندرويد. لا يمكن للاهتزاز داخل التطبيق تجاوزه على هذا الجهاز.';
+      'الاهتزاز معطّل في إعدادات Android. لا يمكن للتطبيق تجاوز هذا الإعداد على جهازك.';
 
   @override
   String get forceInAppVibrationNoVibratorWarning =>
-      'لا يبلّغ هذا الجهاز عن وجود محرك اهتزاز، لذلك لا يمكن أن يعمل الاهتزاز داخل التطبيق.';
+      'لم يُكتشف محرك اهتزاز. الاهتزاز غير متاح في التطبيق.';
 
   @override
   String get intensity => 'قوة الاهتزاز';
@@ -6072,7 +6072,7 @@ class AppLocalizationsArEg extends AppLocalizationsAr {
   String get hapticFeedbackSubtitle => 'اهتزاز لما تضغط أو تعمل إجراء';
 
   @override
-  String get forceInAppVibrationTitle => 'فرض الاهتزاز داخل التطبيق';
+  String get forceInAppVibrationTitle => 'فرض اهتزاز التطبيق';
 
   @override
   String get forceInAppVibrationSubtitle =>
@@ -6084,11 +6084,11 @@ class AppLocalizationsArEg extends AppLocalizationsAr {
 
   @override
   String get forceInAppVibrationBlockedMasterWarning =>
-      'تم تعطيل اهتزاز النظام في أندرويد. لا يمكن للاهتزاز داخل التطبيق تجاوزه على هذا الجهاز.';
+      'الاهتزاز مقفول في إعدادات Android. التطبيق مش قادر يتخطّى الإعداد ده على جهازك.';
 
   @override
   String get forceInAppVibrationNoVibratorWarning =>
-      'الجهاز ده لا يبلّغ عن وجود محرك اهتزاز، لذلك لا يمكن أن يعمل الاهتزاز داخل التطبيق.';
+      'مفيش محرك اهتزاز تم اكتشافه. الاهتزاز مش متاح في التطبيق.';
 
   @override
   String get intensity => 'قوة الاهتزاز';

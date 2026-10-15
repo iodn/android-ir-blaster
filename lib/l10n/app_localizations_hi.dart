@@ -806,7 +806,7 @@ class AppLocalizationsHi extends AppLocalizations {
       'टैप करने और अन्य कार्रवाइयों पर कंपन करें';
 
   @override
-  String get forceInAppVibrationTitle => 'ऐप के भीतर कंपन को बाध्य करें';
+  String get forceInAppVibrationTitle => 'ऐप में कंपन चालू रखने की कोशिश करें';
 
   @override
   String get forceInAppVibrationSubtitle =>
@@ -818,11 +818,11 @@ class AppLocalizationsHi extends AppLocalizations {
 
   @override
   String get forceInAppVibrationBlockedMasterWarning =>
-      'Android सिस्टम वाइब्रेशन बंद है। इस डिवाइस पर ऐप के अंदर जबरन वाइब्रेशन इसे ओवरराइड नहीं कर सकता।';
+      'Android की सेटिंग में कंपन बंद है। आपके डिवाइस पर ऐप इस सेटिंग के बावजूद कंपन नहीं कर सकता।';
 
   @override
   String get forceInAppVibrationNoVibratorWarning =>
-      'यह डिवाइस वाइब्रेशन हार्डवेयर रिपोर्ट नहीं करता, इसलिए ऐप के अंदर वाइब्रेशन काम नहीं कर सकता।';
+      'कंपन मोटर नहीं मिली। ऐप में कंपन उपलब्ध नहीं है।';
 
   @override
   String get intensity => 'कंपन की तीव्रता';

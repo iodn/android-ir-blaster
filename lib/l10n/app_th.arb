@@ -1873,11 +1873,11 @@
   "demoRemoteName": "Demo รีโมต",
   "protocolFieldsInvalid": "Fill required โปรโตคอล fields and ensure ความถี่ is 15k–60k if set.",
   "unknownProtocolSelected": "เลือกโปรโตคอลที่ไม่ทราบ",
-  "forceInAppVibrationTitle": "บังคับการสั่นในแอป",
+  "forceInAppVibrationTitle": "บังคับสั่นในแอป",
   "forceInAppVibrationSubtitle": "ใช้ตัวสั่นโดยตรงแม้ว่าการตอบสนองการสัมผัสของระบบจะปิดอยู่",
   "forceInAppVibrationWarning": "ตัวเลือกขั้นสูง แอปอาจสั่นได้แม้ว่าการตอบสนองการสัมผัสของ Android จะถูกปิดไว้ทั้งระบบ",
-  "forceInAppVibrationBlockedMasterWarning": "การสั่นของระบบ Android ถูกปิดอยู่ การบังคับสั่นภายในแอปไม่สามารถข้ามข้อจำกัดนี้บนอุปกรณ์นี้ได้",
-  "forceInAppVibrationNoVibratorWarning": "อุปกรณ์นี้ไม่รายงานว่ามีฮาร์ดแวร์สั่น ดังนั้นการสั่นภายในแอปจึงไม่สามารถทำงานได้",
+  "forceInAppVibrationBlockedMasterWarning": "ปิดการสั่นไว้ในการตั้งค่า Android แอปไม่สามารถข้ามการตั้งค่านี้บนอุปกรณ์ของคุณได้",
+  "forceInAppVibrationNoVibratorWarning": "ไม่พบมอเตอร์สั่น จึงใช้การสั่นในแอปไม่ได้",
   "remoteButtonCountLabel": "{count} ปุ่ม",
   "@remoteButtonCountLabel": {
     "placeholders": {

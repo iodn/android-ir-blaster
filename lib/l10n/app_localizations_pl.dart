@@ -819,11 +819,11 @@ class AppLocalizationsPl extends AppLocalizations {
 
   @override
   String get forceInAppVibrationBlockedMasterWarning =>
-      'Wibracje systemu Android są wyłączone. Wymuszone wibracje w aplikacji nie mogą tego obejść na tym urządzeniu.';
+      'Wibracje są wyłączone w ustawieniach Androida. Na tym urządzeniu aplikacja nie może ominąć tego ustawienia.';
 
   @override
   String get forceInAppVibrationNoVibratorWarning =>
-      'To urządzenie nie zgłasza sprzętu wibracyjnego, więc wibracje w aplikacji nie mogą działać.';
+      'Nie wykryto silnika wibracyjnego. Wibracje w aplikacji są niedostępne.';
 
   @override
   String get intensity => 'Siła wibracji';

@@ -1873,11 +1873,11 @@
   "demoRemoteName": "Demo Afstandsbediening",
   "protocolFieldsInvalid": "Fill vereist protocol fields and ensure frequency is 15k–60k if set.",
   "unknownProtocolSelected": "Onbekend protocol geselecteerd.",
-  "forceInAppVibrationTitle": "Trilling in de app forceren",
+  "forceInAppVibrationTitle": "Trillen afdwingen",
   "forceInAppVibrationSubtitle": "Gebruik de vibrator rechtstreeks, zelfs als systeemaanraakfeedback uit staat",
   "forceInAppVibrationWarning": "Geavanceerde optie. Hierdoor kan de app trillen, zelfs wanneer Android-aanraakfeedback globaal is uitgeschakeld.",
-  "forceInAppVibrationBlockedMasterWarning": "Android-systeemtrilling is uitgeschakeld. Geforceerde trilling in de app kan dit op dit apparaat niet omzeilen.",
-  "forceInAppVibrationNoVibratorWarning": "Dit apparaat meldt geen trilhardware, dus trilling in de app kan niet werken.",
+  "forceInAppVibrationBlockedMasterWarning": "Trillen staat uit in de Android-instellingen. De app kan deze instelling op je apparaat niet omzeilen.",
+  "forceInAppVibrationNoVibratorWarning": "Geen trilmotor gevonden. Trillen is niet beschikbaar in de app.",
   "remoteButtonCountLabel": "{count, plural, one{{count} knop} other{{count} knoppen}}",
   "@remoteButtonCountLabel": {
     "placeholders": {

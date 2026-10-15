@@ -1873,11 +1873,11 @@
   "demoRemoteName": "Демонстраційний пульт",
   "protocolFieldsInvalid": "Заповніть необхідні поля протоколу та переконайтеся, що частота становить 15–60 тисяч, якщо встановлено.",
   "unknownProtocolSelected": "Вибрано невідомий протокол.",
-  "forceInAppVibrationTitle": "Примусова вібрація в програмі",
+  "forceInAppVibrationTitle": "Примусова вібрація",
   "forceInAppVibrationSubtitle": "Використовуйте вібратор безпосередньо, навіть якщо зворотний зв’язок системи від дотику вимкнено",
   "forceInAppVibrationWarning": "Розширений варіант. Це може змусити програму вібрувати, навіть якщо сенсорний зворотній зв’язок Android вимкнено глобально.",
-  "forceInAppVibrationBlockedMasterWarning": "Вібрація системи Android вимкнена. Примусова вібрація в програмі не може замінити її на цьому пристрої.",
-  "forceInAppVibrationNoVibratorWarning": "Цей пристрій повідомляє про відсутність апаратного вібратора, тому вібрація в програмі не працює.",
+  "forceInAppVibrationBlockedMasterWarning": "Вібрацію вимкнено в налаштуваннях Android. На вашому пристрої застосунок не може обійти це налаштування.",
+  "forceInAppVibrationNoVibratorWarning": "Вібромотор не виявлено. Вібрація в застосунку недоступна.",
   "remoteButtonCountLabel": "{count, plural, one{{count} кнопка} few{{count} кнопки} many{{count} кнопок} other{{count} кнопки}}",
   "@remoteButtonCountLabel": {
     "placeholders": {

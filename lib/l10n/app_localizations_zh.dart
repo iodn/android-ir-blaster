@@ -753,10 +753,10 @@ class AppLocalizationsZh extends AppLocalizations {
 
   @override
   String get forceInAppVibrationBlockedMasterWarning =>
-      'Android 系统振动已关闭。此设备上无法通过应用内强制振动覆盖该设置。';
+      'Android设置中已关闭振动。在此设备上，应用无法绕过这项设置。';
 
   @override
-  String get forceInAppVibrationNoVibratorWarning => '此设备未报告振动硬件，因此应用内振动无法工作。';
+  String get forceInAppVibrationNoVibratorWarning => '未检测到振动马达，无法使用应用内振动。';
 
   @override
   String get intensity => '振动强度';

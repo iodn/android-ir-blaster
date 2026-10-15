@@ -28,11 +28,19 @@ void main() {
       final messenger = tester.binding.defaultBinaryMessenger;
       const channel = MethodChannel('org.nslabs/irtransmitter');
       const events = MethodChannel('org.nslabs/irtransmitter_events');
+      String? vibrationBlockReason;
       messenger.setMockMethodCallHandler(
           channel,
           (call) async => switch (call.method) {
                 'getPreferredTransmitterType' => 'INTERNAL',
                 'getTransmitterCapabilities' => {'hasInternal': true},
+                'getHapticDiagnostics' => {
+                    'hasVibrator': vibrationBlockReason != 'no_vibrator',
+                    'masterVibrationEnabled':
+                        vibrationBlockReason != 'master_vibration_disabled',
+                    'forceOverrideLikelyBlocked': vibrationBlockReason != null,
+                    'reasonCode': vibrationBlockReason,
+                  },
                 'getAutoSwitchEnabled' || 'getOpenOnUsbAttachEnabled' => false,
                 _ => null,
               });
@@ -163,6 +171,37 @@ void main() {
         expect(HapticsController.instance.intensity, index + 1);
         final prefs = await SharedPreferences.getInstance();
         expect(prefs.getInt('haptics_intensity_v1'), index + 1);
+      }
+      final overrideTile = find.widgetWithText(
+          SwitchListTile, l10n.forceInAppVibrationTitle);
+      final overrideToggle =
+          find.descendant(of: overrideTile, matching: find.byType(Switch));
+      for (final reason in ['no_vibrator', 'master_vibration_disabled']) {
+        vibrationBlockReason = reason;
+        await tester.ensureVisible(overrideToggle);
+        await tester.pumpAndSettle();
+        expectReadable(find.text(l10n.forceInAppVibrationTitle));
+        await tester.tap(overrideToggle);
+        await tester.pumpAndSettle();
+        final message = reason == 'no_vibrator'
+            ? l10n.forceInAppVibrationNoVibratorWarning
+            : l10n.forceInAppVibrationBlockedMasterWarning;
+        final notification = find.descendant(
+            of: find.byType(SnackBar), matching: find.text(message));
+        expectReadable(notification);
+        ScaffoldMessenger.of(tester.element(notification)).removeCurrentSnackBar();
+        await tester.pumpAndSettle();
+        final inline = find.text(message);
+        await tester.ensureVisible(inline);
+        await tester.pumpAndSettle();
+        expectReadable(inline);
+        expect(HapticsController.instance.forceVibrationOverride, isTrue);
+        await tester.ensureVisible(overrideToggle);
+        await tester.pumpAndSettle();
+        await tester.tap(overrideToggle);
+        await tester.pumpAndSettle();
+        expect(find.text(message), findsNothing);
+        expect(HapticsController.instance.forceVibrationOverride, isFalse);
       }
       await tester.pumpWidget(const SizedBox());
       await tester.pumpAndSettle();

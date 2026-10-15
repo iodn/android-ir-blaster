@@ -808,7 +808,7 @@ class AppLocalizationsFil extends AppLocalizations {
       'Mag-vibrate kapag pumipindot o may ginagawa sa app';
 
   @override
-  String get forceInAppVibrationTitle => 'Pilitin ang vibration sa app';
+  String get forceInAppVibrationTitle => 'Pilitin ang pag-vibrate';
 
   @override
   String get forceInAppVibrationSubtitle =>
@@ -820,11 +820,11 @@ class AppLocalizationsFil extends AppLocalizations {
 
   @override
   String get forceInAppVibrationBlockedMasterWarning =>
-      'Naka-disable ang vibration ng Android system. Hindi ito ma-o-override ng sapilitang in-app vibration sa device na ito.';
+      'Naka-off ang vibration sa mga setting ng Android. Hindi ito kayang lampasan ng app sa device mo.';
 
   @override
   String get forceInAppVibrationNoVibratorWarning =>
-      'Walang vibration hardware na iniulat ang device na ito, kaya hindi gagana ang in-app vibration.';
+      'Walang natukoy na vibration motor. Hindi makakapag-vibrate ang app.';
 
   @override
   String get intensity => 'Lakas';

@@ -796,7 +796,7 @@ class AppLocalizationsTh extends AppLocalizations {
   String get hapticFeedbackSubtitle => 'สั่นเมื่อแตะหรือใช้งานแอป';
 
   @override
-  String get forceInAppVibrationTitle => 'บังคับการสั่นในแอป';
+  String get forceInAppVibrationTitle => 'บังคับสั่นในแอป';
 
   @override
   String get forceInAppVibrationSubtitle =>
@@ -808,11 +808,11 @@ class AppLocalizationsTh extends AppLocalizations {
 
   @override
   String get forceInAppVibrationBlockedMasterWarning =>
-      'การสั่นของระบบ Android ถูกปิดอยู่ การบังคับสั่นภายในแอปไม่สามารถข้ามข้อจำกัดนี้บนอุปกรณ์นี้ได้';
+      'ปิดการสั่นไว้ในการตั้งค่า Android แอปไม่สามารถข้ามการตั้งค่านี้บนอุปกรณ์ของคุณได้';
 
   @override
   String get forceInAppVibrationNoVibratorWarning =>
-      'อุปกรณ์นี้ไม่รายงานว่ามีฮาร์ดแวร์สั่น ดังนั้นการสั่นภายในแอปจึงไม่สามารถทำงานได้';
+      'ไม่พบมอเตอร์สั่น จึงใช้การสั่นในแอปไม่ได้';
 
   @override
   String get intensity => 'ความแรง';

@@ -812,11 +812,11 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get forceInAppVibrationBlockedMasterWarning =>
-      'Android system vibration is disabled. Force in-app vibration cannot override it on this device.';
+      'Vibration is turned off in Android settings. The app cannot bypass this setting on your device.';
 
   @override
   String get forceInAppVibrationNoVibratorWarning =>
-      'This device reports no vibrator hardware, so in-app vibration cannot work.';
+      'No vibration motor detected. In-app vibration is unavailable.';
 
   @override
   String get intensity => 'Strength';

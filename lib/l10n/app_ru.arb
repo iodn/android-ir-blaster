@@ -1873,11 +1873,11 @@
   "demoRemoteName": "Демо-пульт",
   "protocolFieldsInvalid": "Заполните обязательные поля протокола и убедитесь, что частота, если задана, находится в диапазоне 15–60 кГц.",
   "unknownProtocolSelected": "Выбран неизвестный протокол.",
-  "forceInAppVibrationTitle": "Принудительная вибрация в приложении",
+  "forceInAppVibrationTitle": "Принудительная вибрация",
   "forceInAppVibrationSubtitle": "Использовать вибромотор напрямую, даже если системный тактильный отклик отключён",
   "forceInAppVibrationWarning": "Расширенная опция. Приложение может вибрировать, даже если тактильный отклик Android глобально отключён.",
-  "forceInAppVibrationBlockedMasterWarning": "Системная вибрация Android отключена. Принудительная вибрация в приложении не может обойти это на данном устройстве.",
-  "forceInAppVibrationNoVibratorWarning": "Это устройство не сообщает о наличии вибромотора, поэтому вибрация в приложении не может работать.",
+  "forceInAppVibrationBlockedMasterWarning": "Вибрация выключена в настройках Android. На вашем устройстве приложение не может обойти эту настройку.",
+  "forceInAppVibrationNoVibratorWarning": "Вибромотор не обнаружен. Вибрация в приложении недоступна.",
   "remoteButtonCountLabel": "{count, plural, one{{count} кнопка} few{{count} кнопки} many{{count} кнопок} other{{count} кнопки}}",
   "@remoteButtonCountLabel": {
     "placeholders": {

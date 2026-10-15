@@ -1873,11 +1873,11 @@
   "demoRemoteName": "Điều khiển mẫu",
   "protocolFieldsInvalid": "Điền các trường giao thức bắt buộc và bảo đảm tần số là 15k–60k nếu có đặt.",
   "unknownProtocolSelected": "Đã chọn giao thức không rõ.",
-  "forceInAppVibrationTitle": "Buộc rung trong ứng dụng",
+  "forceInAppVibrationTitle": "Buộc ứng dụng rung",
   "forceInAppVibrationSubtitle": "Dùng trực tiếp bộ rung ngay cả khi phản hồi chạm của hệ thống đã tắt",
   "forceInAppVibrationWarning": "Tùy chọn nâng cao. Ứng dụng có thể rung ngay cả khi phản hồi chạm của Android bị tắt trên toàn hệ thống.",
-  "forceInAppVibrationBlockedMasterWarning": "Rung hệ thống Android đã bị tắt. Rung cưỡng bức trong ứng dụng không thể ghi đè điều này trên thiết bị này.",
-  "forceInAppVibrationNoVibratorWarning": "Thiết bị này không báo có phần cứng rung, nên rung trong ứng dụng không thể hoạt động.",
+  "forceInAppVibrationBlockedMasterWarning": "Chế độ rung đã tắt trong phần cài đặt Android. Ứng dụng không thể bỏ qua cài đặt này trên thiết bị của bạn.",
+  "forceInAppVibrationNoVibratorWarning": "Không phát hiện mô-tơ rung. Không thể dùng tính năng rung trong ứng dụng.",
   "remoteButtonCountLabel": "{count} nút",
   "@remoteButtonCountLabel": {
     "placeholders": {

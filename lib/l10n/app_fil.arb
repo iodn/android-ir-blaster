@@ -1878,11 +1878,11 @@
   "demoRemoteName": "Demo Remote",
   "protocolFieldsInvalid": "Fill kailangan protocol fields at ensure frequency is 15k–60k if set.",
   "unknownProtocolSelected": "Hindi kilala protocol selected.",
-  "forceInAppVibrationTitle": "Pilitin ang vibration sa app",
+  "forceInAppVibrationTitle": "Pilitin ang pag-vibrate",
   "forceInAppVibrationSubtitle": "Direktang gamitin ang vibrator kahit naka-off ang system touch feedback",
   "forceInAppVibrationWarning": "Advanced na opsyon. Maaari nitong paganahin ang vibration ng app kahit naka-disable ang Android touch feedback sa buong system.",
-  "forceInAppVibrationBlockedMasterWarning": "Naka-disable ang vibration ng Android system. Hindi ito ma-o-override ng sapilitang in-app vibration sa device na ito.",
-  "forceInAppVibrationNoVibratorWarning": "Walang vibration hardware na iniulat ang device na ito, kaya hindi gagana ang in-app vibration.",
+  "forceInAppVibrationBlockedMasterWarning": "Naka-off ang vibration sa mga setting ng Android. Hindi ito kayang lampasan ng app sa device mo.",
+  "forceInAppVibrationNoVibratorWarning": "Walang natukoy na vibration motor. Hindi makakapag-vibrate ang app.",
   "remoteButtonCountLabel": "{count} pindutan",
   "@remoteButtonCountLabel": {
     "placeholders": {

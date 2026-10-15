@@ -814,7 +814,7 @@ class AppLocalizationsIt extends AppLocalizations {
   String get hapticFeedbackSubtitle => 'Vibra ai tocchi e durante le azioni';
 
   @override
-  String get forceInAppVibrationTitle => 'Forza la vibrazione nell\'app';
+  String get forceInAppVibrationTitle => 'Forza vibrazione nell’app';
 
   @override
   String get forceInAppVibrationSubtitle =>
@@ -826,11 +826,11 @@ class AppLocalizationsIt extends AppLocalizations {
 
   @override
   String get forceInAppVibrationBlockedMasterWarning =>
-      'La vibrazione di sistema Android è disattivata. La vibrazione forzata nell’app non può aggirarla su questo dispositivo.';
+      'La vibrazione è disattivata nelle impostazioni Android. Su questo dispositivo l’app non può ignorare questa impostazione.';
 
   @override
   String get forceInAppVibrationNoVibratorWarning =>
-      'Questo dispositivo non segnala hardware di vibrazione, quindi la vibrazione nell’app non può funzionare.';
+      'Nessun motore di vibrazione rilevato. La vibrazione nell’app non è disponibile.';
 
   @override
   String get intensity => 'Intensità';

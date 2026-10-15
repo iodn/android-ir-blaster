@@ -1878,11 +1878,11 @@
   "demoRemoteName": "Demo جهاز التحكم",
   "protocolFieldsInvalid": "املأ حقول البروتوكول المطلوبة وتأكد أن التردد بين 15k و 60k إذا تم ضبطه.",
   "unknownProtocolSelected": "تم تحديد بروتوكول غير معروف.",
-  "forceInAppVibrationTitle": "فرض الاهتزاز داخل التطبيق",
+  "forceInAppVibrationTitle": "فرض اهتزاز التطبيق",
   "forceInAppVibrationSubtitle": "استخدام الهزاز مباشرة حتى إذا كان اللمس الارتدادي للنظام معطلاً",
   "forceInAppVibrationWarning": "خيار متقدم. قد يجعل التطبيق يهتز حتى عندما يكون اللمس الارتدادي في أندرويد معطلاً على مستوى النظام.",
-  "forceInAppVibrationBlockedMasterWarning": "تم تعطيل اهتزاز النظام في أندرويد. لا يمكن للاهتزاز داخل التطبيق تجاوزه على هذا الجهاز.",
-  "forceInAppVibrationNoVibratorWarning": "الجهاز ده لا يبلّغ عن وجود محرك اهتزاز، لذلك لا يمكن أن يعمل الاهتزاز داخل التطبيق.",
+  "forceInAppVibrationBlockedMasterWarning": "الاهتزاز مقفول في إعدادات Android. التطبيق مش قادر يتخطّى الإعداد ده على جهازك.",
+  "forceInAppVibrationNoVibratorWarning": "مفيش محرك اهتزاز تم اكتشافه. الاهتزاز مش متاح في التطبيق.",
   "remoteButtonCountLabel": "{count, plural, zero{لا أزرار} one{زر واحد} two{زران} few{{count} أزرار} many{{count} زرًا} other{{count} زر}}",
   "@remoteButtonCountLabel": {
     "placeholders": {

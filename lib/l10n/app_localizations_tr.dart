@@ -806,7 +806,7 @@ class AppLocalizationsTr extends AppLocalizations {
   String get hapticFeedbackSubtitle => 'Dokunuşlarda ve işlemlerde titreşim';
 
   @override
-  String get forceInAppVibrationTitle => 'Uygulama içi titreşimi zorla';
+  String get forceInAppVibrationTitle => 'Uygulamada titreşimi zorla';
 
   @override
   String get forceInAppVibrationSubtitle =>
@@ -818,11 +818,11 @@ class AppLocalizationsTr extends AppLocalizations {
 
   @override
   String get forceInAppVibrationBlockedMasterWarning =>
-      'Android sistem titreşimi devre dışı. Uygulama içi zorunlu titreşim bu cihazda bunu geçersiz kılamaz.';
+      'Android ayarlarında titreşim kapalı. Uygulama, cihazınızda bu ayarı aşamaz.';
 
   @override
   String get forceInAppVibrationNoVibratorWarning =>
-      'Bu cihaz titreşim donanımı bildirmiyor, bu yüzden uygulama içi titreşim çalışamaz.';
+      'Titreşim motoru algılanmadı. Uygulamada titreşim kullanılamıyor.';
 
   @override
   String get intensity => 'Şiddet';

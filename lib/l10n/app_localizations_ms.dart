@@ -805,7 +805,7 @@ class AppLocalizationsMs extends AppLocalizations {
       'Bergetar apabila mengetik dan melakukan tindakan';
 
   @override
-  String get forceInAppVibrationTitle => 'Paksa getaran dalam aplikasi';
+  String get forceInAppVibrationTitle => 'Paksa getaran aplikasi';
 
   @override
   String get forceInAppVibrationSubtitle =>
@@ -817,11 +817,11 @@ class AppLocalizationsMs extends AppLocalizations {
 
   @override
   String get forceInAppVibrationBlockedMasterWarning =>
-      'Getaran sistem Android dilumpuhkan. Getaran paksa dalam aplikasi tidak boleh mengatasinya pada peranti ini.';
+      'Getaran dimatikan dalam tetapan Android. Aplikasi tidak dapat mengabaikan tetapan ini pada peranti anda.';
 
   @override
   String get forceInAppVibrationNoVibratorWarning =>
-      'Peranti ini tidak melaporkan perkakasan getaran, jadi getaran dalam aplikasi tidak boleh berfungsi.';
+      'Motor getaran tidak dikesan. Getaran dalam aplikasi tidak tersedia.';
 
   @override
   String get intensity => 'Kekuatan';

@@ -1878,11 +1878,11 @@
   "demoRemoteName": "Demo रिमोट",
   "protocolFieldsInvalid": "Fill आवश्यक प्रोटोकॉल fields और ensure फ़्रीक्वेंसी है 15k–60k यदि set.",
   "unknownProtocolSelected": "अज्ञात प्रोटोकॉल चयनित.",
-  "forceInAppVibrationTitle": "ऐप के भीतर कंपन को बाध्य करें",
+  "forceInAppVibrationTitle": "ऐप में कंपन चालू रखने की कोशिश करें",
   "forceInAppVibrationSubtitle": "सिस्टम टच फ़ीडबैक बंद होने पर भी सीधे वाइब्रेटर का उपयोग करें",
   "forceInAppVibrationWarning": "उन्नत विकल्प। इससे ऐप तब भी कंपन कर सकता है जब Android का टच फ़ीडबैक वैश्विक रूप से बंद हो।",
-  "forceInAppVibrationBlockedMasterWarning": "Android सिस्टम वाइब्रेशन बंद है। इस डिवाइस पर ऐप के अंदर जबरन वाइब्रेशन इसे ओवरराइड नहीं कर सकता।",
-  "forceInAppVibrationNoVibratorWarning": "यह डिवाइस वाइब्रेशन हार्डवेयर रिपोर्ट नहीं करता, इसलिए ऐप के अंदर वाइब्रेशन काम नहीं कर सकता।",
+  "forceInAppVibrationBlockedMasterWarning": "Android की सेटिंग में कंपन बंद है। आपके डिवाइस पर ऐप इस सेटिंग के बावजूद कंपन नहीं कर सकता।",
+  "forceInAppVibrationNoVibratorWarning": "कंपन मोटर नहीं मिली। ऐप में कंपन उपलब्ध नहीं है।",
   "remoteButtonCountLabel": "{count} बटन",
   "@remoteButtonCountLabel": {
     "placeholders": {

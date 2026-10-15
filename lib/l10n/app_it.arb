@@ -1873,11 +1873,11 @@
   "demoRemoteName": "Telecomando demo",
   "protocolFieldsInvalid": "Compila i campi protocollo richiesti e assicurati che la frequenza sia 15k–60k se impostata.",
   "unknownProtocolSelected": "Sconosciuto protocol selezionati.",
-  "forceInAppVibrationTitle": "Forza la vibrazione nell'app",
+  "forceInAppVibrationTitle": "Forza vibrazione nell’app",
   "forceInAppVibrationSubtitle": "Usa direttamente il vibratore anche se il feedback tattile di sistema è disattivato",
   "forceInAppVibrationWarning": "Opzione avanzata. L'app può vibrare anche quando il feedback tattile di Android è disattivato globalmente.",
-  "forceInAppVibrationBlockedMasterWarning": "La vibrazione di sistema Android è disattivata. La vibrazione forzata nell’app non può aggirarla su questo dispositivo.",
-  "forceInAppVibrationNoVibratorWarning": "Questo dispositivo non segnala hardware di vibrazione, quindi la vibrazione nell’app non può funzionare.",
+  "forceInAppVibrationBlockedMasterWarning": "La vibrazione è disattivata nelle impostazioni Android. Su questo dispositivo l’app non può ignorare questa impostazione.",
+  "forceInAppVibrationNoVibratorWarning": "Nessun motore di vibrazione rilevato. La vibrazione nell’app non è disponibile.",
   "remoteButtonCountLabel": "{count, plural, one{{count} pulsante} other{{count} pulsanti}}",
   "@remoteButtonCountLabel": {
     "placeholders": {

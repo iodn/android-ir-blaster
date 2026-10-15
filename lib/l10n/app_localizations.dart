@@ -1551,13 +1551,13 @@ abstract class AppLocalizations {
   /// No description provided for @forceInAppVibrationBlockedMasterWarning.
   ///
   /// In en, this message translates to:
-  /// **'Android system vibration is disabled. Force in-app vibration cannot override it on this device.'**
+  /// **'Vibration is turned off in Android settings. The app cannot bypass this setting on your device.'**
   String get forceInAppVibrationBlockedMasterWarning;
 
   /// No description provided for @forceInAppVibrationNoVibratorWarning.
   ///
   /// In en, this message translates to:
-  /// **'This device reports no vibrator hardware, so in-app vibration cannot work.'**
+  /// **'No vibration motor detected. In-app vibration is unavailable.'**
   String get forceInAppVibrationNoVibratorWarning;
 
   /// No description provided for @intensity.

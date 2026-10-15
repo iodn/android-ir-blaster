@@ -1873,11 +1873,11 @@
   "demoRemoteName": "데모 리모컨",
   "protocolFieldsInvalid": "Fill 필수 프로토콜 fields 및 ensure frequency 15k–60k if set.",
   "unknownProtocolSelected": "알 수 없는 프로토콜이 선택되었습니다.",
-  "forceInAppVibrationTitle": "앱 내 진동 강제 사용",
+  "forceInAppVibrationTitle": "앱 진동 강제 사용",
   "forceInAppVibrationSubtitle": "시스템 터치 피드백이 꺼져 있어도 진동기를 직접 사용합니다",
   "forceInAppVibrationWarning": "고급 옵션입니다. Android 터치 피드백이 전역으로 꺼져 있어도 앱이 진동할 수 있습니다.",
-  "forceInAppVibrationBlockedMasterWarning": "Android 시스템 진동이 비활성화되어 있습니다. 이 기기에서는 앱 내 강제 진동으로 이를 무시할 수 없습니다.",
-  "forceInAppVibrationNoVibratorWarning": "이 기기는 진동 하드웨어를 보고하지 않으므로 앱 내 진동을 사용할 수 없습니다.",
+  "forceInAppVibrationBlockedMasterWarning": "Android 설정에서 진동이 꺼져 있어요. 이 기기에서는 앱이 이 설정을 무시할 수 없어요.",
+  "forceInAppVibrationNoVibratorWarning": "진동 모터가 감지되지 않았어요. 앱에서 진동을 사용할 수 없어요.",
   "remoteButtonCountLabel": "버튼 {count}개",
   "@remoteButtonCountLabel": {
     "placeholders": {

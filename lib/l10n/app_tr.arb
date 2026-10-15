@@ -1878,11 +1878,11 @@
   "demoRemoteName": "Demo Kumanda",
   "protocolFieldsInvalid": "Gerekli protokol alanlarını doldurun ve ayarlıysa frekansın 15k–60k olduğundan emin olun.",
   "unknownProtocolSelected": "Bilinmeyen protokol seçildi.",
-  "forceInAppVibrationTitle": "Uygulama içi titreşimi zorla",
+  "forceInAppVibrationTitle": "Uygulamada titreşimi zorla",
   "forceInAppVibrationSubtitle": "Sistem dokunma geri bildirimi kapalı olsa bile titreşimi doğrudan kullan",
   "forceInAppVibrationWarning": "Gelişmiş seçenek. Android dokunma geri bildirimi genel olarak kapalı olsa bile uygulama titreşebilir.",
-  "forceInAppVibrationBlockedMasterWarning": "Android sistem titreşimi devre dışı. Uygulama içi zorunlu titreşim bu cihazda bunu geçersiz kılamaz.",
-  "forceInAppVibrationNoVibratorWarning": "Bu cihaz titreşim donanımı bildirmiyor, bu yüzden uygulama içi titreşim çalışamaz.",
+  "forceInAppVibrationBlockedMasterWarning": "Android ayarlarında titreşim kapalı. Uygulama, cihazınızda bu ayarı aşamaz.",
+  "forceInAppVibrationNoVibratorWarning": "Titreşim motoru algılanmadı. Uygulamada titreşim kullanılamıyor.",
   "remoteButtonCountLabel": "{count} düğme",
   "@remoteButtonCountLabel": {
     "placeholders": {

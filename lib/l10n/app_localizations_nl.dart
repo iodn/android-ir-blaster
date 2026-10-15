@@ -815,7 +815,7 @@ class AppLocalizationsNl extends AppLocalizations {
   String get hapticFeedbackSubtitle => 'Trillen bij tikken en acties';
 
   @override
-  String get forceInAppVibrationTitle => 'Trilling in de app forceren';
+  String get forceInAppVibrationTitle => 'Trillen afdwingen';
 
   @override
   String get forceInAppVibrationSubtitle =>
@@ -827,11 +827,11 @@ class AppLocalizationsNl extends AppLocalizations {
 
   @override
   String get forceInAppVibrationBlockedMasterWarning =>
-      'Android-systeemtrilling is uitgeschakeld. Geforceerde trilling in de app kan dit op dit apparaat niet omzeilen.';
+      'Trillen staat uit in de Android-instellingen. De app kan deze instelling op je apparaat niet omzeilen.';
 
   @override
   String get forceInAppVibrationNoVibratorWarning =>
-      'Dit apparaat meldt geen trilhardware, dus trilling in de app kan niet werken.';
+      'Geen trilmotor gevonden. Trillen is niet beschikbaar in de app.';
 
   @override
   String get intensity => 'Sterkte';
