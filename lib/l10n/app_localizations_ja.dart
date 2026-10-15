@@ -1119,7 +1119,7 @@ class AppLocalizationsJa extends AppLocalizations {
   String get iconFallback => 'アイコン';
 
   @override
-  String get remoteListReorderHint => '並べ替えモード 長押ししてカードをドラッグすると移動できます。';
+  String get remoteListReorderHint => 'リモコンを長押しして、移動先までドラッグしてください。';
 
   @override
   String get deleteRemoteTitle => 'リモコンを削除しますか？';

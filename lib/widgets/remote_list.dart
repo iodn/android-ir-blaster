@@ -176,15 +176,6 @@ class _RemoteListState extends State<RemoteList> {
     if (_reorderMode == v) return;
     setState(() => _reorderMode = v);
     Haptics.selectionClick();
-    if (v && mounted) {
-      ScaffoldMessenger.of(context).hideCurrentSnackBar();
-      ScaffoldMessenger.of(context).showSnackBar(
-        SnackBar(
-          content: Text(context.l10n.remoteListReorderHint),
-          duration: Duration(seconds: 2),
-        ),
-      );
-    }
   }
 
   Future<void> _openLastRemote(LastRemoteContext ctx) async {
@@ -792,24 +783,31 @@ class _ReorderHintBanner extends StatelessWidget {
       color: cs.secondaryContainer.withValues(alpha: 0.55),
       child: Padding(
         padding: const EdgeInsets.fromLTRB(16, 10, 12, 10),
-        child: Row(
+        child: Column(
           children: [
-            Icon(Icons.drag_indicator_rounded,
-                color: cs.onSecondaryContainer.withValues(alpha: 0.9)),
-            const SizedBox(width: 10),
-            Expanded(
-              child: Text(
-                context.l10n.remoteListReorderHint,
-                style: theme.textTheme.bodyMedium?.copyWith(
-                  fontWeight: FontWeight.w700,
-                  color: cs.onSecondaryContainer.withValues(alpha: 0.92),
+            Row(
+              children: [
+                Icon(Icons.drag_indicator_rounded,
+                    color: cs.onSecondaryContainer.withValues(alpha: 0.9)),
+                const SizedBox(width: 10),
+                Expanded(
+                  child: Text(
+                    context.l10n.remoteListReorderHint,
+                    style: theme.textTheme.bodyMedium?.copyWith(
+                      fontWeight: FontWeight.w700,
+                      color: cs.onSecondaryContainer.withValues(alpha: 0.92),
+                    ),
+                  ),
                 ),
-              ),
+              ],
             ),
-            const SizedBox(width: 8),
-            FilledButton.tonal(
-              onPressed: onDone,
-              child: Text(context.l10n.done),
+            const SizedBox(height: 8),
+            Align(
+              alignment: AlignmentDirectional.centerEnd,
+              child: FilledButton.tonal(
+                onPressed: onDone,
+                child: Text(context.l10n.done),
+              ),
             ),
           ],
         ),
@@ -894,7 +892,7 @@ class _RemoteCard extends StatelessWidget {
                     )
                   else
                     Tooltip(
-                      message: 'Reorder mode',
+                      message: context.l10n.reorderRemotes,
                       child: Container(
                         padding: const EdgeInsets.all(8),
                         decoration: BoxDecoration(

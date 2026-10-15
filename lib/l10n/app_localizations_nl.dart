@@ -1197,7 +1197,7 @@ class AppLocalizationsNl extends AppLocalizations {
 
   @override
   String get remoteListReorderHint =>
-      'Sorteermodus druk lang op een kaart en sleep om te verplaatsen.';
+      'Houd een afstandsbediening ingedrukt en sleep deze naar de gewenste plek.';
 
   @override
   String get deleteRemoteTitle => 'Afstandsbediening verwijderen?';
@@ -1267,7 +1267,7 @@ class AppLocalizationsNl extends AppLocalizations {
   String get searchRemotes => 'Zoek afstandsbedieningen';
 
   @override
-  String get reorderRemotes => 'Afstandsbedieningen sorteren';
+  String get reorderRemotes => 'Afstandsbedieningen ordenen';
 
   @override
   String get addRemote => 'Afstandsbediening toevoegen';

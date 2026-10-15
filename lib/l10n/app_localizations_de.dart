@@ -1192,7 +1192,7 @@ class AppLocalizationsDe extends AppLocalizations {
 
   @override
   String get remoteListReorderHint =>
-      'Sortiermodus: Karte lange drücken und ziehen, um sie zu verschieben.';
+      'Halte eine Fernbedienung gedrückt und ziehe sie an die gewünschte Stelle.';
 
   @override
   String get deleteRemoteTitle => 'Fernbedienung löschen?';
@@ -1262,7 +1262,7 @@ class AppLocalizationsDe extends AppLocalizations {
   String get searchRemotes => 'Fernbedienungen suchen';
 
   @override
-  String get reorderRemotes => 'Fernbedienungen sortieren';
+  String get reorderRemotes => 'Fernbedienungen anordnen';
 
   @override
   String get addRemote => 'Fernbedienung hinzufügen';

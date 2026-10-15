@@ -1182,7 +1182,7 @@ class AppLocalizationsPl extends AppLocalizations {
 
   @override
   String get remoteListReorderHint =>
-      'Reorder mode: long-press i drag a card do move go.';
+      'Przytrzymaj pilot i przeciągnij go w nowe miejsce.';
 
   @override
   String get deleteRemoteTitle => 'Usunąć pilot?';

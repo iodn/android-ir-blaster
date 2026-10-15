@@ -1174,7 +1174,7 @@ class AppLocalizationsRu extends AppLocalizations {
 
   @override
   String get remoteListReorderHint =>
-      'Режим сортировки: зажмите и перетащите карточку.';
+      'Нажмите и удерживайте пульт, затем перетащите его на новое место.';
 
   @override
   String get deleteRemoteTitle => 'Удалить пульт?';

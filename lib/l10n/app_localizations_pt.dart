@@ -1186,7 +1186,7 @@ class AppLocalizationsPt extends AppLocalizations {
 
   @override
   String get remoteListReorderHint =>
-      'Modo reordenar: mantenha premido e arraste uma cartão para moverla.';
+      'Mantenha um comando premido e arraste-o para a nova posição.';
 
   @override
   String get deleteRemoteTitle => 'Eliminar comando?';
@@ -6508,7 +6508,7 @@ class AppLocalizationsPtBr extends AppLocalizationsPt {
 
   @override
   String get remoteListReorderHint =>
-      'Modo reordenar: mantenha pressionado e arraste uma cartão para moverla.';
+      'Toque e segure um controle, depois arraste para a nova posição.';
 
   @override
   String get deleteRemoteTitle => 'Excluir controle?';

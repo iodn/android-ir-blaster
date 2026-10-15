@@ -1161,7 +1161,7 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String get remoteListReorderHint =>
-      'وضع إعادة الترتيب: اضغط مطولاً واسحب البطاقة لتحريكها.';
+      'اضغط مطولاً على جهاز تحكم واسحبه لتغيير ترتيبه.';
 
   @override
   String get deleteRemoteTitle => 'حذف جهاز التحكم؟';
@@ -1235,7 +1235,7 @@ class AppLocalizationsAr extends AppLocalizations {
   String get searchRemotes => 'ابحث أجهزة التحكم';
 
   @override
-  String get reorderRemotes => 'Reorder remotes';
+  String get reorderRemotes => 'ترتيب أجهزة التحكم';
 
   @override
   String get addRemote => 'إضافة جهاز تحكم';
@@ -6427,7 +6427,7 @@ class AppLocalizationsArEg extends AppLocalizationsAr {
 
   @override
   String get remoteListReorderHint =>
-      'وضع إعادة الترتيب: اضغط مطولاً واسحب البطاقة لتحريكها.';
+      'اضغط مطوّلًا على جهاز تحكم واسحبه لتغيير ترتيبه.';
 
   @override
   String get deleteRemoteTitle => 'حذف جهاز التحكم؟';
@@ -6501,7 +6501,7 @@ class AppLocalizationsArEg extends AppLocalizationsAr {
   String get searchRemotes => 'ابحث أجهزة التحكم';
 
   @override
-  String get reorderRemotes => 'Reorder remotes';
+  String get reorderRemotes => 'ترتيب أجهزة التحكم';
 
   @override
   String get addRemote => 'إضافة جهاز تحكم';

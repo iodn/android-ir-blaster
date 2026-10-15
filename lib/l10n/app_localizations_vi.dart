@@ -1167,7 +1167,7 @@ class AppLocalizationsVi extends AppLocalizations {
 
   @override
   String get remoteListReorderHint =>
-      'Chế độ sắp xếp lại: nhấn giữ và kéo thẻ để di chuyển.';
+      'Nhấn giữ điều khiển rồi kéo đến vị trí mới.';
 
   @override
   String get deleteRemoteTitle => 'Xóa điều khiển?';
@@ -1231,7 +1231,7 @@ class AppLocalizationsVi extends AppLocalizations {
   String get searchRemotes => 'Tìm điều khiển';
 
   @override
-  String get reorderRemotes => 'Sắp xếp lại điều khiển';
+  String get reorderRemotes => 'Sắp xếp điều khiển';
 
   @override
   String get addRemote => 'Thêm điều khiển';

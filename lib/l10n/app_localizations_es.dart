@@ -1186,7 +1186,7 @@ class AppLocalizationsEs extends AppLocalizations {
 
   @override
   String get remoteListReorderHint =>
-      'Modo reordenar: mantén pulsado y arrastra una tarjeta para moverla.';
+      'Mantén pulsado un mando y arrástralo a su nueva posición.';
 
   @override
   String get deleteRemoteTitle => '¿Eliminar mando?';

@@ -316,7 +316,7 @@
   "failedToUpdateSetting": "Falha ao atualizar a definição.",
   "unnamedButton": "Botão sem nome",
   "iconFallback": "Ícone",
-  "remoteListReorderHint": "Modo reordenar: mantenha premido e arraste uma cartão para moverla.",
+  "remoteListReorderHint": "Mantenha um comando premido e arraste-o para a nova posição.",
   "deleteRemoteTitle": "Eliminar comando?",
   "deleteRemoteMessage": "O comando «{name}» será eliminado permanentemente. Esta ação não pode ser anulada.",
   "@deleteRemoteMessage": {

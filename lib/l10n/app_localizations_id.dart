@@ -1176,7 +1176,7 @@ class AppLocalizationsId extends AppLocalizations {
 
   @override
   String get remoteListReorderHint =>
-      'Mode urut ulang: tekan lama dan seret kartu untuk memindahkannya.';
+      'Tekan lama remote, lalu seret ke posisi baru.';
 
   @override
   String get deleteRemoteTitle => 'Hapus remote?';
@@ -1240,7 +1240,7 @@ class AppLocalizationsId extends AppLocalizations {
   String get searchRemotes => 'Cari Remote';
 
   @override
-  String get reorderRemotes => 'Urutkan ulang remote';
+  String get reorderRemotes => 'Atur urutan remote';
 
   @override
   String get addRemote => 'Tambah remote';

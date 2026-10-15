@@ -1181,7 +1181,7 @@ class AppLocalizationsUk extends AppLocalizations {
 
   @override
   String get remoteListReorderHint =>
-      'Режим зміни порядку: натисніть і перетягніть картку, щоб перемістити її.';
+      'Натисніть і утримуйте пульт, а потім перетягніть його на нове місце.';
 
   @override
   String get deleteRemoteTitle => 'Видалити пульт?';
@@ -1255,7 +1255,7 @@ class AppLocalizationsUk extends AppLocalizations {
   String get searchRemotes => 'Пошук пультів';
 
   @override
-  String get reorderRemotes => 'Змінити замовлення пультів';
+  String get reorderRemotes => 'Змінити порядок пультів';
 
   @override
   String get addRemote => 'Додати пульт';

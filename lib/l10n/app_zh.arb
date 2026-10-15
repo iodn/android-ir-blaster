@@ -316,7 +316,7 @@
   "failedToUpdateSetting": "更新设置失败。",
   "unnamedButton": "未命名按钮",
   "iconFallback": "图标",
-  "remoteListReorderHint": "排序模式 长按并拖动卡片以移动。",
+  "remoteListReorderHint": "长按遥控器，然后拖到新位置。",
   "deleteRemoteTitle": "删除遥控器？",
   "deleteRemoteMessage": "将永久删除“{name}”。此操作无法撤销。",
   "@deleteRemoteMessage": {
@@ -353,7 +353,7 @@
   "editRemoteSubtitle": "重命名并编辑按钮",
   "thisCannotBeUndone": "此操作无法撤销",
   "searchRemotes": "搜索遥控器",
-  "reorderRemotes": "重排 遥控器",
+  "reorderRemotes": "调整遥控器顺序",
   "addRemote": "添加 遥控器",
   "more": "更多",
   "reorderMode": "排序模式",

@@ -1082,7 +1082,7 @@ class AppLocalizationsZh extends AppLocalizations {
   String get iconFallback => '图标';
 
   @override
-  String get remoteListReorderHint => '排序模式 长按并拖动卡片以移动。';
+  String get remoteListReorderHint => '长按遥控器，然后拖到新位置。';
 
   @override
   String get deleteRemoteTitle => '删除遥控器？';
@@ -1145,7 +1145,7 @@ class AppLocalizationsZh extends AppLocalizations {
   String get searchRemotes => '搜索遥控器';
 
   @override
-  String get reorderRemotes => '重排 遥控器';
+  String get reorderRemotes => '调整遥控器顺序';
 
   @override
   String get addRemote => '添加 遥控器';

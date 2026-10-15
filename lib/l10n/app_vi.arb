@@ -316,7 +316,7 @@
   "failedToUpdateSetting": "Không cập nhật được cài đặt.",
   "unnamedButton": "Nút chưa đặt tên",
   "iconFallback": "Biểu tượng",
-  "remoteListReorderHint": "Chế độ sắp xếp lại: nhấn giữ và kéo thẻ để di chuyển.",
+  "remoteListReorderHint": "Nhấn giữ điều khiển rồi kéo đến vị trí mới.",
   "deleteRemoteTitle": "Xóa điều khiển?",
   "deleteRemoteMessage": "“{name}” sẽ bị xóa vĩnh viễn. Không thể hoàn tác thao tác này.",
   "@deleteRemoteMessage": {
@@ -353,7 +353,7 @@
   "editRemoteSubtitle": "Đổi tên và sửa nút",
   "thisCannotBeUndone": "Không thể hoàn tác thao tác này",
   "searchRemotes": "Tìm điều khiển",
-  "reorderRemotes": "Sắp xếp lại điều khiển",
+  "reorderRemotes": "Sắp xếp điều khiển",
   "addRemote": "Thêm điều khiển",
   "more": "Thêm",
   "reorderMode": "Chế độ sắp xếp lại",

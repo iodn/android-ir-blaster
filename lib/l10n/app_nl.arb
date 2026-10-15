@@ -316,7 +316,7 @@
   "failedToUpdateSetting": "Instelling bijwerken mislukt.",
   "unnamedButton": "Naamloze knop",
   "iconFallback": "Pictogram",
-  "remoteListReorderHint": "Sorteermodus druk lang op een kaart en sleep om te verplaatsen.",
+  "remoteListReorderHint": "Houd een afstandsbediening ingedrukt en sleep deze naar de gewenste plek.",
   "deleteRemoteTitle": "Afstandsbediening verwijderen?",
   "deleteRemoteMessage": "‘{name}’ wordt definitief verwijderd. Dit kan niet ongedaan worden gemaakt.",
   "@deleteRemoteMessage": {
@@ -353,7 +353,7 @@
   "editRemoteSubtitle": "Hernoemen en knoppen bewerken",
   "thisCannotBeUndone": "Dit kan niet ongedaan worden gemaakt",
   "searchRemotes": "Zoek afstandsbedieningen",
-  "reorderRemotes": "Afstandsbedieningen sorteren",
+  "reorderRemotes": "Afstandsbedieningen ordenen",
   "addRemote": "Afstandsbediening toevoegen",
   "more": "Meer",
   "reorderMode": "Sorteermodus",

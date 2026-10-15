@@ -2175,7 +2175,7 @@ abstract class AppLocalizations {
   /// No description provided for @remoteListReorderHint.
   ///
   /// In en, this message translates to:
-  /// **'Reorder mode: long-press and drag a card to move it.'**
+  /// **'Touch and hold a remote, then drag it to a new position.'**
   String get remoteListReorderHint;
 
   /// No description provided for @deleteRemoteTitle.

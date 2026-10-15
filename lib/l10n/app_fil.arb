@@ -316,7 +316,7 @@
   "failedToUpdateSetting": "Nabigong i-update ang setting.",
   "unnamedButton": "Button na walang pangalan",
   "iconFallback": "Icon",
-  "remoteListReorderHint": "Reorder mode: long-press at drag a card to move it.",
+  "remoteListReorderHint": "Pindutin nang matagal ang remote, saka i-drag sa bagong puwesto.",
   "deleteRemoteTitle": "Burahin ang remote?",
   "deleteRemoteMessage": "Permanenteng mabubura ang “{name}”. Hindi ito maibabalik.",
   "@deleteRemoteMessage": {
@@ -353,7 +353,7 @@
   "editRemoteSubtitle": "Palitan ang pangalan at i-edit ang mga button",
   "thisCannotBeUndone": "Hindi ito maibabalik",
   "searchRemotes": "Search Remotes",
-  "reorderRemotes": "Reorder mga remote",
+  "reorderRemotes": "Ayusin ang mga remote",
   "addRemote": "Add remote",
   "more": "More",
   "reorderMode": "Reorder mode",

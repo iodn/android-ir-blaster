@@ -316,7 +316,7 @@
   "failedToUpdateSetting": "Başarısız to update setting.",
   "unnamedButton": "Adsız düğme",
   "iconFallback": "Icon",
-  "remoteListReorderHint": "Yeniden sıralama modu: taşımak için bir karta uzun basıp sürükleyin.",
+  "remoteListReorderHint": "Bir kumandaya basılı tutup yeni konumuna sürükleyin.",
   "deleteRemoteTitle": "Kumanda silinsin mi?",
   "deleteRemoteMessage": "“{name}” kalıcı olarak silinecek. Bu işlem geri alınamaz.",
   "@deleteRemoteMessage": {
@@ -353,7 +353,7 @@
   "editRemoteSubtitle": "Yeniden adlandırın ve düğmeleri düzenleyin",
   "thisCannotBeUndone": "Bu işlem geri alınamaz",
   "searchRemotes": "Ara Kumandalar",
-  "reorderRemotes": "Reorder remotes",
+  "reorderRemotes": "Kumandaları sırala",
   "addRemote": "Ekle kumanda",
   "more": "Daha",
   "reorderMode": "Reorder mod",

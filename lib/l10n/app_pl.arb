@@ -316,7 +316,7 @@
   "failedToUpdateSetting": "Nie udało się zaktualizować ustawienia.",
   "unnamedButton": "Przycisk bez nazwy",
   "iconFallback": "Ikona",
-  "remoteListReorderHint": "Reorder mode: long-press i drag a card do move go.",
+  "remoteListReorderHint": "Przytrzymaj pilot i przeciągnij go w nowe miejsce.",
   "deleteRemoteTitle": "Usunąć pilot?",
   "deleteRemoteMessage": "Pilot „{name}” zostanie trwale usunięty. Tej czynności nie można cofnąć.",
   "@deleteRemoteMessage": {

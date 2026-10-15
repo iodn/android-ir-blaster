@@ -316,7 +316,7 @@
   "failedToUpdateSetting": "設定の更新に失敗しました。",
   "unnamedButton": "名前のないボタン",
   "iconFallback": "アイコン",
-  "remoteListReorderHint": "並べ替えモード 長押ししてカードをドラッグすると移動できます。",
+  "remoteListReorderHint": "リモコンを長押しして、移動先までドラッグしてください。",
   "deleteRemoteTitle": "リモコンを削除しますか？",
   "deleteRemoteMessage": "「{name}」を完全に削除します。この操作は元に戻せません。",
   "@deleteRemoteMessage": {

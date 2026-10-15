@@ -316,7 +316,7 @@
   "failedToUpdateSetting": "Aggiornamento impostazione fallito.",
   "unnamedButton": "Pulsante senza nome",
   "iconFallback": "Icona",
-  "remoteListReorderHint": "Modalità riordino. Tieni premuto e trascina una scheda per spostarla.",
+  "remoteListReorderHint": "Tieni premuto un telecomando e trascinalo nella nuova posizione.",
   "deleteRemoteTitle": "Eliminare il telecomando?",
   "deleteRemoteMessage": "«{name}» verrà eliminato definitivamente. Non sarà possibile annullare l’operazione.",
   "@deleteRemoteMessage": {

@@ -1186,7 +1186,7 @@ class AppLocalizationsFr extends AppLocalizations {
 
   @override
   String get remoteListReorderHint =>
-      'Mode réorganisation : appui long puis glisser une carte pour la déplacer.';
+      'Maintenez une télécommande appuyée, puis faites-la glisser.';
 
   @override
   String get deleteRemoteTitle => 'Supprimer la télécommande ?';
@@ -1256,7 +1256,7 @@ class AppLocalizationsFr extends AppLocalizations {
   String get searchRemotes => 'Rechercher des télés';
 
   @override
-  String get reorderRemotes => 'Réorganiser les télés';
+  String get reorderRemotes => 'Réorganiser les télécommandes';
 
   @override
   String get addRemote => 'Ajouter une télécommande';

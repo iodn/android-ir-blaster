@@ -316,7 +316,7 @@
   "failedToUpdateSetting": "Falha ao atualizar a configuração.",
   "unnamedButton": "Botão sem nome",
   "iconFallback": "Ícone",
-  "remoteListReorderHint": "Modo reordenar: mantenha pressionado e arraste uma cartão para moverla.",
+  "remoteListReorderHint": "Toque e segure um controle, depois arraste para a nova posição.",
   "deleteRemoteTitle": "Excluir controle?",
   "deleteRemoteMessage": "O controle “{name}” será excluído permanentemente. Esta ação não pode ser desfeita.",
   "@deleteRemoteMessage": {

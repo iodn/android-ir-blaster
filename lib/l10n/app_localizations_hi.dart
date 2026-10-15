@@ -1175,7 +1175,7 @@ class AppLocalizationsHi extends AppLocalizations {
 
   @override
   String get remoteListReorderHint =>
-      'पुन:क्रमित करें मोड: लंबा दबाएं और खींचें a कार्ड तक स्थानांतरित करें it.';
+      'रिमोट को दबाकर रखें, फिर खींचकर नई जगह पर ले जाएँ।';
 
   @override
   String get deleteRemoteTitle => 'रिमोट मिटाएँ?';
@@ -1239,7 +1239,7 @@ class AppLocalizationsHi extends AppLocalizations {
   String get searchRemotes => 'खोजें रिमोट';
 
   @override
-  String get reorderRemotes => 'पुन:क्रमित करें रिमोट';
+  String get reorderRemotes => 'रिमोट का क्रम बदलें';
 
   @override
   String get addRemote => 'जोड़ें रिमोट';

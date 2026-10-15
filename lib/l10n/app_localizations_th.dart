@@ -1163,8 +1163,7 @@ class AppLocalizationsTh extends AppLocalizations {
   String get iconFallback => 'Icon';
 
   @override
-  String get remoteListReorderHint =>
-      'โหมดจัดลำดับ: กดค้างและลากการ์ดเพื่อย้าย';
+  String get remoteListReorderHint => 'กดรีโมตค้างไว้ แล้วลากไปยังตำแหน่งใหม่';
 
   @override
   String get deleteRemoteTitle => 'ลบรีโมตหรือไม่?';

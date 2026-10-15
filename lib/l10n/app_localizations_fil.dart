@@ -1186,7 +1186,7 @@ class AppLocalizationsFil extends AppLocalizations {
 
   @override
   String get remoteListReorderHint =>
-      'Reorder mode: long-press at drag a card to move it.';
+      'Pindutin nang matagal ang remote, saka i-drag sa bagong puwesto.';
 
   @override
   String get deleteRemoteTitle => 'Burahin ang remote?';
@@ -1251,7 +1251,7 @@ class AppLocalizationsFil extends AppLocalizations {
   String get searchRemotes => 'Search Remotes';
 
   @override
-  String get reorderRemotes => 'Reorder mga remote';
+  String get reorderRemotes => 'Ayusin ang mga remote';
 
   @override
   String get addRemote => 'Add remote';

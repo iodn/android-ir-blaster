@@ -316,7 +316,7 @@
   "failedToUpdateSetting": "Не вдалося оновити налаштування.",
   "unnamedButton": "Кнопка без назви",
   "iconFallback": "значок",
-  "remoteListReorderHint": "Режим зміни порядку: натисніть і перетягніть картку, щоб перемістити її.",
+  "remoteListReorderHint": "Натисніть і утримуйте пульт, а потім перетягніть його на нове місце.",
   "deleteRemoteTitle": "Видалити пульт?",
   "deleteRemoteMessage": "Пульт «{name}» буде видалено назавжди. Цю дію неможливо скасувати.",
   "@deleteRemoteMessage": {
@@ -353,7 +353,7 @@
   "editRemoteSubtitle": "Кнопки перейменування та редагування",
   "thisCannotBeUndone": "Цю дію неможливо скасувати",
   "searchRemotes": "Пошук пультів",
-  "reorderRemotes": "Змінити замовлення пультів",
+  "reorderRemotes": "Змінити порядок пультів",
   "addRemote": "Додати пульт",
   "more": "більше",
   "reorderMode": "Режим зміни порядку",

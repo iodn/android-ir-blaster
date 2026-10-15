@@ -316,7 +316,7 @@
   "failedToUpdateSetting": "Einstellung konnte nicht aktualisiert werden.",
   "unnamedButton": "Unbenannte Taste",
   "iconFallback": "Symbol",
-  "remoteListReorderHint": "Sortiermodus: Karte lange drücken und ziehen, um sie zu verschieben.",
+  "remoteListReorderHint": "Halte eine Fernbedienung gedrückt und ziehe sie an die gewünschte Stelle.",
   "deleteRemoteTitle": "Fernbedienung löschen?",
   "deleteRemoteMessage": "„{name}“ wird dauerhaft gelöscht. Das lässt sich nicht rückgängig machen.",
   "@deleteRemoteMessage": {
@@ -353,7 +353,7 @@
   "editRemoteSubtitle": "Umbenennen und Tasten bearbeiten",
   "thisCannotBeUndone": "Kann nicht rückgängig gemacht werden",
   "searchRemotes": "Fernbedienungen suchen",
-  "reorderRemotes": "Fernbedienungen sortieren",
+  "reorderRemotes": "Fernbedienungen anordnen",
   "addRemote": "Fernbedienung hinzufügen",
   "more": "Mehr",
   "reorderMode": "Sortiermodus",

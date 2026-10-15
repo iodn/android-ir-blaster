@@ -1127,7 +1127,7 @@ class AppLocalizationsKo extends AppLocalizations {
   String get iconFallback => '아이콘';
 
   @override
-  String get remoteListReorderHint => '순서 변경 모드: 카드를 길게 누르고 드래그해 이동하세요.';
+  String get remoteListReorderHint => '리모컨을 길게 누른 뒤 원하는 위치로 끌어 놓으세요.';
 
   @override
   String get deleteRemoteTitle => '리모컨을 삭제할까요?';

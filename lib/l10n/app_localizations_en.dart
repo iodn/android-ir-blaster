@@ -1169,7 +1169,7 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get remoteListReorderHint =>
-      'Reorder mode: long-press and drag a card to move it.';
+      'Touch and hold a remote, then drag it to a new position.';
 
   @override
   String get deleteRemoteTitle => 'Delete remote?';

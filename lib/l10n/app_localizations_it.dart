@@ -1189,7 +1189,7 @@ class AppLocalizationsIt extends AppLocalizations {
 
   @override
   String get remoteListReorderHint =>
-      'Modalità riordino. Tieni premuto e trascina una scheda per spostarla.';
+      'Tieni premuto un telecomando e trascinalo nella nuova posizione.';
 
   @override
   String get deleteRemoteTitle => 'Eliminare il telecomando?';

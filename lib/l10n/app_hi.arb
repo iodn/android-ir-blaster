@@ -316,7 +316,7 @@
   "failedToUpdateSetting": "सेटिंग अपडेट विफल।",
   "unnamedButton": "बिना नाम का बटन",
   "iconFallback": "आइकन",
-  "remoteListReorderHint": "पुन:क्रमित करें मोड: लंबा दबाएं और खींचें a कार्ड तक स्थानांतरित करें it.",
+  "remoteListReorderHint": "रिमोट को दबाकर रखें, फिर खींचकर नई जगह पर ले जाएँ।",
   "deleteRemoteTitle": "रिमोट मिटाएँ?",
   "deleteRemoteMessage": "“{name}” हमेशा के लिए मिट जाएगा। इसे वापस नहीं लाया जा सकेगा।",
   "@deleteRemoteMessage": {
@@ -353,7 +353,7 @@
   "editRemoteSubtitle": "Rename, और संपादित करें बटन",
   "thisCannotBeUndone": "इसे वापस नहीं लाया जा सकेगा",
   "searchRemotes": "खोजें रिमोट",
-  "reorderRemotes": "पुन:क्रमित करें रिमोट",
+  "reorderRemotes": "रिमोट का क्रम बदलें",
   "addRemote": "जोड़ें रिमोट",
   "more": "More",
   "reorderMode": "पुन:क्रमित करें मोड",

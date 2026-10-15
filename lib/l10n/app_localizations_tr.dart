@@ -1176,7 +1176,7 @@ class AppLocalizationsTr extends AppLocalizations {
 
   @override
   String get remoteListReorderHint =>
-      'Yeniden sıralama modu: taşımak için bir karta uzun basıp sürükleyin.';
+      'Bir kumandaya basılı tutup yeni konumuna sürükleyin.';
 
   @override
   String get deleteRemoteTitle => 'Kumanda silinsin mi?';
@@ -1240,7 +1240,7 @@ class AppLocalizationsTr extends AppLocalizations {
   String get searchRemotes => 'Ara Kumandalar';
 
   @override
-  String get reorderRemotes => 'Reorder remotes';
+  String get reorderRemotes => 'Kumandaları sırala';
 
   @override
   String get addRemote => 'Ekle kumanda';

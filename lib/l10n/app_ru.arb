@@ -316,7 +316,7 @@
   "failedToUpdateSetting": "Не удалось обновить настройку.",
   "unnamedButton": "Кнопка без названия",
   "iconFallback": "Иконка",
-  "remoteListReorderHint": "Режим сортировки: зажмите и перетащите карточку.",
+  "remoteListReorderHint": "Нажмите и удерживайте пульт, затем перетащите его на новое место.",
   "deleteRemoteTitle": "Удалить пульт?",
   "deleteRemoteMessage": "Пульт «{name}» будет удалён навсегда. Это действие нельзя отменить.",
   "@deleteRemoteMessage": {

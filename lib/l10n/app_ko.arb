@@ -316,7 +316,7 @@
   "failedToUpdateSetting": "설정을 업데이트하지 못했습니다.",
   "unnamedButton": "이름 없는 버튼",
   "iconFallback": "아이콘",
-  "remoteListReorderHint": "순서 변경 모드: 카드를 길게 누르고 드래그해 이동하세요.",
+  "remoteListReorderHint": "리모컨을 길게 누른 뒤 원하는 위치로 끌어 놓으세요.",
   "deleteRemoteTitle": "리모컨을 삭제할까요?",
   "deleteRemoteMessage": "“{name}” 리모컨을 영구적으로 삭제합니다. 이 작업은 되돌릴 수 없습니다.",
   "@deleteRemoteMessage": {

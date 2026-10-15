@@ -316,7 +316,7 @@
   "failedToUpdateSetting": "ไม่สำเร็จในการupdate setting.",
   "unnamedButton": "ปุ่มไม่มีชื่อ",
   "iconFallback": "Icon",
-  "remoteListReorderHint": "โหมดจัดลำดับ: กดค้างและลากการ์ดเพื่อย้าย",
+  "remoteListReorderHint": "กดรีโมตค้างไว้ แล้วลากไปยังตำแหน่งใหม่",
   "deleteRemoteTitle": "ลบรีโมตหรือไม่?",
   "deleteRemoteMessage": "รีโมต “{name}” จะถูกลบอย่างถาวร และไม่สามารถกู้คืนได้",
   "@deleteRemoteMessage": {

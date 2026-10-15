@@ -316,7 +316,7 @@
   "failedToUpdateSetting": "فشل إلى update setting.",
   "unnamedButton": "زر من غير اسم",
   "iconFallback": "أيقونة",
-  "remoteListReorderHint": "وضع إعادة الترتيب: اضغط مطولاً واسحب البطاقة لتحريكها.",
+  "remoteListReorderHint": "اضغط مطوّلًا على جهاز تحكم واسحبه لتغيير ترتيبه.",
   "deleteRemoteTitle": "حذف جهاز التحكم؟",
   "deleteRemoteMessage": "سيُحذف جهاز التحكم «{name}» نهائيًا. لا يمكن التراجع عن هذا الإجراء.",
   "@deleteRemoteMessage": {
@@ -353,7 +353,7 @@
   "editRemoteSubtitle": "إعادة التسمية وتعديل الأزرار",
   "thisCannotBeUndone": "لا يمكن التراجع عن الحذف",
   "searchRemotes": "ابحث أجهزة التحكم",
-  "reorderRemotes": "Reorder remotes",
+  "reorderRemotes": "ترتيب أجهزة التحكم",
   "addRemote": "إضافة جهاز تحكم",
   "more": "المزيد",
   "reorderMode": "Reorder mode",

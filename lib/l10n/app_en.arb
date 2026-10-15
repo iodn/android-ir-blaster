@@ -427,7 +427,7 @@
   "failedToUpdateSetting": "Failed to update setting.",
   "unnamedButton": "Unnamed button",
   "iconFallback": "Icon",
-  "remoteListReorderHint": "Reorder mode: long-press and drag a card to move it.",
+  "remoteListReorderHint": "Touch and hold a remote, then drag it to a new position.",
   "deleteRemoteTitle": "Delete remote?",
   "deleteRemoteMessage": "“{name}” will be permanently deleted. This cannot be undone.",
   "@deleteRemoteMessage": {

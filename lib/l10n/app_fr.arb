@@ -321,7 +321,7 @@
   "failedToUpdateSetting": "Échec de la mise à jour du réglage.",
   "unnamedButton": "Bouton sans nom",
   "iconFallback": "Icône",
-  "remoteListReorderHint": "Mode réorganisation : appui long puis glisser une carte pour la déplacer.",
+  "remoteListReorderHint": "Maintenez une télécommande appuyée, puis faites-la glisser.",
   "deleteRemoteTitle": "Supprimer la télécommande ?",
   "deleteRemoteMessage": "« {name} » sera supprimée définitivement. Cette action est irréversible.",
   "@deleteRemoteMessage": {
@@ -358,7 +358,7 @@
   "editRemoteSubtitle": "Renommer et modifier les boutons",
   "thisCannotBeUndone": "Cette action est irréversible",
   "searchRemotes": "Rechercher des télés",
-  "reorderRemotes": "Réorganiser les télés",
+  "reorderRemotes": "Réorganiser les télécommandes",
   "addRemote": "Ajouter une télécommande",
   "more": "Plus",
   "reorderMode": "Mode réorganisation",

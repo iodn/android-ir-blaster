@@ -321,7 +321,7 @@
   "failedToUpdateSetting": "No se pudo actualizar el ajuste.",
   "unnamedButton": "Botón sin nombre",
   "iconFallback": "Icono",
-  "remoteListReorderHint": "Modo reordenar: mantén pulsado y arrastra una tarjeta para moverla.",
+  "remoteListReorderHint": "Mantén pulsado un mando y arrástralo a su nueva posición.",
   "deleteRemoteTitle": "¿Eliminar mando?",
   "deleteRemoteMessage": "«{name}» se eliminará permanentemente. Esta acción no se puede deshacer.",
   "@deleteRemoteMessage": {
