@@ -968,8 +968,8 @@
   "unknownCommand": "不明なコマンド",
   "unnamedCommand": "無名のコマンド",
   "iconCommand": "アイコンコマンド",
-  "selectDelay": "待機時間を選択",
-  "keepMilliseconds": "保持 {ms}ms",
+  "selectDelay": "待ち時間を選択",
+  "keepMilliseconds": "{ms}ミリ秒のままにする",
   "@keepMilliseconds": {
     "placeholders": {
       "ms": {
@@ -978,7 +978,7 @@
     }
   },
   "custom": "カスタム",
-  "enterCustomDelayDuration": "カスタム待機時間を入力",
+  "enterCustomDelayDuration": "別の待ち時間を入力",
   "millisecondsLong": "{ms}ミリ秒",
   "@millisecondsLong": {
     "placeholders": {
@@ -994,11 +994,11 @@
       "plural": {}
     }
   },
-  "customDelay": "カスタム待機",
-  "delayMillisecondsLabel": "待機 ミリ秒",
-  "delayMillisecondsHint": "e.g., 3000",
-  "recommendedDelayRange": "多くの機器では250から5000msを推奨",
-  "enterValidPositiveNumber": "有効な正の数を入力してください",
+  "customDelay": "待ち時間を指定",
+  "delayMillisecondsLabel": "待ち時間（ミリ秒）",
+  "delayMillisecondsHint": "3000",
+  "recommendedDelayRange": "1,000ミリ秒は1秒です。機器が反応するのに十分な待ち時間を設定してください。",
+  "enterValidPositiveNumber": "0より大きい整数を入力してください。",
   "ok": "OK",
   "remote": "リモコン",
   "macroName": "マクロ名",

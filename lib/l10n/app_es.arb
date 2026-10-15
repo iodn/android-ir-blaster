@@ -973,8 +973,8 @@
   "unknownCommand": "Desconocido Command",
   "unnamedCommand": "Comando sin nombre",
   "iconCommand": "Comando de icono",
-  "selectDelay": "Seleccionar Delay",
-  "keepMilliseconds": "Mantener: {ms}ms",
+  "selectDelay": "Elegir tiempo de espera",
+  "keepMilliseconds": "Mantener {ms} ms",
   "@keepMilliseconds": {
     "placeholders": {
       "ms": {
@@ -983,7 +983,7 @@
     }
   },
   "custom": "Personalizado",
-  "enterCustomDelayDuration": "Introduce una duración personalizada de pausa",
+  "enterCustomDelayDuration": "Introduce otro tiempo de espera",
   "millisecondsLong": "{ms} milisegundos",
   "@millisecondsLong": {
     "placeholders": {
@@ -999,11 +999,11 @@
       "plural": {}
     }
   },
-  "customDelay": "Pausa personalizada",
-  "delayMillisecondsLabel": "Pausa (milisegundos)",
-  "delayMillisecondsHint": "p. ej., 3000",
-  "recommendedDelayRange": "Recommended: 250-5000ms for most dispositivos",
-  "enterValidPositiveNumber": "Introduce un número positivo válido",
+  "customDelay": "Espera personalizada",
+  "delayMillisecondsLabel": "Espera (ms)",
+  "delayMillisecondsHint": "3000",
+  "recommendedDelayRange": "1.000 milisegundos = 1 segundo. Deja tiempo suficiente para que el dispositivo responda.",
+  "enterValidPositiveNumber": "Introduce un número entero mayor que cero.",
   "ok": "OK",
   "remote": "Mando",
   "macroName": "Nombre de la macro",

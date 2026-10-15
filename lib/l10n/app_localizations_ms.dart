@@ -2309,18 +2309,18 @@ class AppLocalizationsMs extends AppLocalizations {
   String get iconCommand => 'Ikon Arahan';
 
   @override
-  String get selectDelay => 'Pilih Jeda';
+  String get selectDelay => 'Pilih masa menunggu';
 
   @override
   String keepMilliseconds(int ms) {
-    return 'Pertahankan: ${ms}ms';
+    return 'Kekalkan $ms ms';
   }
 
   @override
   String get custom => 'Kustom';
 
   @override
-  String get enterCustomDelayDuration => 'Masukkan durasi jeda kustom';
+  String get enterCustomDelayDuration => 'Masukkan masa menunggu lain';
 
   @override
   String millisecondsLong(int ms) {
@@ -2333,20 +2333,21 @@ class AppLocalizationsMs extends AppLocalizations {
   }
 
   @override
-  String get customDelay => 'Custom Jeda';
+  String get customDelay => 'Masa menunggu tersuai';
 
   @override
-  String get delayMillisecondsLabel => 'Jeda (milliseconds)';
+  String get delayMillisecondsLabel => 'Masa menunggu (ms)';
 
   @override
-  String get delayMillisecondsHint => 'cth. 3000';
+  String get delayMillisecondsHint => '3000';
 
   @override
   String get recommendedDelayRange =>
-      'Disyorkan: 250-5000ms untuk sebagian besar peranti';
+      '1,000 milisaat = 1 saat. Beri peranti masa yang cukup untuk bertindak balas.';
 
   @override
-  String get enterValidPositiveNumber => 'Masukkan angka positif yang sah';
+  String get enterValidPositiveNumber =>
+      'Masukkan nombor bulat yang lebih besar daripada sifar.';
 
   @override
   String get ok => 'OK';

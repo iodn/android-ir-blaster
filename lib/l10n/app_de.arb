@@ -970,8 +970,8 @@
   "unknownCommand": "Unbekannter Befehl",
   "unnamedCommand": "Unbenannter Befehl",
   "iconCommand": "Symbolbefehl",
-  "selectDelay": "Verzögerung wählen",
-  "keepMilliseconds": "Beibehalten: {ms}ms",
+  "selectDelay": "Wartezeit wählen",
+  "keepMilliseconds": "{ms} ms beibehalten",
   "@keepMilliseconds": {
     "placeholders": {
       "ms": {
@@ -980,7 +980,7 @@
     }
   },
   "custom": "Benutzerdefiniert",
-  "enterCustomDelayDuration": "Eigene Verzögerung eingeben",
+  "enterCustomDelayDuration": "Andere Wartezeit eingeben",
   "millisecondsLong": "{ms} Millisekunden",
   "@millisecondsLong": {
     "placeholders": {
@@ -996,11 +996,11 @@
       "plural": {}
     }
   },
-  "customDelay": "Eigene Verzögerung",
-  "delayMillisecondsLabel": "Verzögerung Millisekunden",
-  "delayMillisecondsHint": "z. B. 3000",
-  "recommendedDelayRange": "Empfohlen: 250 bis 5000 ms für die meisten Geräte",
-  "enterValidPositiveNumber": "Bitte eine gültige positive Zahl eingeben",
+  "customDelay": "Eigene Wartezeit",
+  "delayMillisecondsLabel": "Wartezeit (ms)",
+  "delayMillisecondsHint": "3000",
+  "recommendedDelayRange": "1.000 Millisekunden = 1 Sekunde. Lass deinem Gerät genug Zeit zum Reagieren.",
+  "enterValidPositiveNumber": "Gib eine ganze Zahl größer als null ein.",
   "ok": "OK",
   "remote": "Fernbedienung",
   "macroName": "Makroname",

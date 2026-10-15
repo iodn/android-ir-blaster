@@ -2209,18 +2209,18 @@ class AppLocalizationsJa extends AppLocalizations {
   String get iconCommand => 'アイコンコマンド';
 
   @override
-  String get selectDelay => '待機時間を選択';
+  String get selectDelay => '待ち時間を選択';
 
   @override
   String keepMilliseconds(int ms) {
-    return '保持 ${ms}ms';
+    return '$msミリ秒のままにする';
   }
 
   @override
   String get custom => 'カスタム';
 
   @override
-  String get enterCustomDelayDuration => 'カスタム待機時間を入力';
+  String get enterCustomDelayDuration => '別の待ち時間を入力';
 
   @override
   String millisecondsLong(int ms) {
@@ -2233,19 +2233,20 @@ class AppLocalizationsJa extends AppLocalizations {
   }
 
   @override
-  String get customDelay => 'カスタム待機';
+  String get customDelay => '待ち時間を指定';
 
   @override
-  String get delayMillisecondsLabel => '待機 ミリ秒';
+  String get delayMillisecondsLabel => '待ち時間（ミリ秒）';
 
   @override
-  String get delayMillisecondsHint => 'e.g., 3000';
+  String get delayMillisecondsHint => '3000';
 
   @override
-  String get recommendedDelayRange => '多くの機器では250から5000msを推奨';
+  String get recommendedDelayRange =>
+      '1,000ミリ秒は1秒です。機器が反応するのに十分な待ち時間を設定してください。';
 
   @override
-  String get enterValidPositiveNumber => '有効な正の数を入力してください';
+  String get enterValidPositiveNumber => '0より大きい整数を入力してください。';
 
   @override
   String get ok => 'OK';

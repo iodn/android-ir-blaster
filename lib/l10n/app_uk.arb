@@ -968,8 +968,8 @@
   "unknownCommand": "Невідома команда",
   "unnamedCommand": "Безіменна команда",
   "iconCommand": "Команда значка",
-  "selectDelay": "Виберіть Затримка",
-  "keepMilliseconds": "Зберегти: {ms}ms",
+  "selectDelay": "Виберіть час очікування",
+  "keepMilliseconds": "Залишити {ms} мс",
   "@keepMilliseconds": {
     "placeholders": {
       "ms": {
@@ -978,7 +978,7 @@
     }
   },
   "custom": "Власний",
-  "enterCustomDelayDuration": "Введіть спеціальну тривалість затримки",
+  "enterCustomDelayDuration": "Введіть інший час очікування",
   "millisecondsLong": "{ms} мілісекунд",
   "@millisecondsLong": {
     "placeholders": {
@@ -994,11 +994,11 @@
       "plural": {}
     }
   },
-  "customDelay": "Спеціальна затримка",
-  "delayMillisecondsLabel": "Затримка (мілісекунди)",
-  "delayMillisecondsHint": "наприклад, 3000",
-  "recommendedDelayRange": "Рекомендовано: 250-5000 мс для більшості пристроїв",
-  "enterValidPositiveNumber": "Введіть дійсне позитивне число",
+  "customDelay": "Власний час очікування",
+  "delayMillisecondsLabel": "Очікування (мс)",
+  "delayMillisecondsHint": "3000",
+  "recommendedDelayRange": "1000 мілісекунд = 1 секунда. Дайте пристрою достатньо часу на реакцію.",
+  "enterValidPositiveNumber": "Введіть ціле число більше нуля.",
   "ok": "добре",
   "remote": "Пульт",
   "macroName": "Назва макросу",

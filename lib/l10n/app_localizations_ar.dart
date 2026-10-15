@@ -2291,18 +2291,18 @@ class AppLocalizationsAr extends AppLocalizations {
   String get iconCommand => 'Icon Command';
 
   @override
-  String get selectDelay => 'اختر تأخير';
+  String get selectDelay => 'اختر وقت الانتظار';
 
   @override
   String keepMilliseconds(int ms) {
-    return 'Keep: ${ms}ms';
+    return 'الإبقاء على $ms مللي ثانية';
   }
 
   @override
   String get custom => 'مخصص';
 
   @override
-  String get enterCustomDelayDuration => 'Enter a custom delay duration';
+  String get enterCustomDelayDuration => 'أدخل وقت انتظار آخر';
 
   @override
   String millisecondsLong(int ms) {
@@ -2315,19 +2315,20 @@ class AppLocalizationsAr extends AppLocalizations {
   }
 
   @override
-  String get customDelay => 'Custom تأخير';
+  String get customDelay => 'انتظار مخصص';
 
   @override
-  String get delayMillisecondsLabel => 'تأخير (milliseconds)';
+  String get delayMillisecondsLabel => 'الانتظار (مللي ثانية)';
 
   @override
-  String get delayMillisecondsHint => 'e.g., 3000';
+  String get delayMillisecondsHint => '3000';
 
   @override
-  String get recommendedDelayRange => 'Recommended: 250-5000ms for most أجهزة';
+  String get recommendedDelayRange =>
+      '1000 مللي ثانية = ثانية واحدة. اختر وقتاً يسمح لجهازك بالاستجابة.';
 
   @override
-  String get enterValidPositiveNumber => 'Please enter a valid positive number';
+  String get enterValidPositiveNumber => 'أدخل عدداً صحيحاً أكبر من صفر.';
 
   @override
   String get ok => 'موافق';
@@ -7511,18 +7512,18 @@ class AppLocalizationsArEg extends AppLocalizationsAr {
   String get iconCommand => 'Icon Command';
 
   @override
-  String get selectDelay => 'اختر تأخير';
+  String get selectDelay => 'اختار وقت الانتظار';
 
   @override
   String keepMilliseconds(int ms) {
-    return 'Keep: ${ms}ms';
+    return 'خليها $ms مللي ثانية';
   }
 
   @override
   String get custom => 'مخصص';
 
   @override
-  String get enterCustomDelayDuration => 'Enter a custom delay duration';
+  String get enterCustomDelayDuration => 'اكتب وقت انتظار مختلف';
 
   @override
   String millisecondsLong(int ms) {
@@ -7535,19 +7536,20 @@ class AppLocalizationsArEg extends AppLocalizationsAr {
   }
 
   @override
-  String get customDelay => 'Custom تأخير';
+  String get customDelay => 'وقت انتظار مخصص';
 
   @override
-  String get delayMillisecondsLabel => 'تأخير (milliseconds)';
+  String get delayMillisecondsLabel => 'الانتظار (مللي ثانية)';
 
   @override
-  String get delayMillisecondsHint => 'e.g., 3000';
+  String get delayMillisecondsHint => '3000';
 
   @override
-  String get recommendedDelayRange => 'Recommended: 250-5000ms for most أجهزة';
+  String get recommendedDelayRange =>
+      '1000 مللي ثانية = ثانية واحدة. اختار وقت يدي الجهاز فرصة يستجيب.';
 
   @override
-  String get enterValidPositiveNumber => 'Please enter a valid positive number';
+  String get enterValidPositiveNumber => 'اكتب عدد صحيح أكبر من صفر.';
 
   @override
   String get ok => 'موافق';

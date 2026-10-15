@@ -2340,18 +2340,18 @@ class AppLocalizationsDe extends AppLocalizations {
   String get iconCommand => 'Symbolbefehl';
 
   @override
-  String get selectDelay => 'Verzögerung wählen';
+  String get selectDelay => 'Wartezeit wählen';
 
   @override
   String keepMilliseconds(int ms) {
-    return 'Beibehalten: ${ms}ms';
+    return '$ms ms beibehalten';
   }
 
   @override
   String get custom => 'Benutzerdefiniert';
 
   @override
-  String get enterCustomDelayDuration => 'Eigene Verzögerung eingeben';
+  String get enterCustomDelayDuration => 'Andere Wartezeit eingeben';
 
   @override
   String millisecondsLong(int ms) {
@@ -2364,21 +2364,21 @@ class AppLocalizationsDe extends AppLocalizations {
   }
 
   @override
-  String get customDelay => 'Eigene Verzögerung';
+  String get customDelay => 'Eigene Wartezeit';
 
   @override
-  String get delayMillisecondsLabel => 'Verzögerung Millisekunden';
+  String get delayMillisecondsLabel => 'Wartezeit (ms)';
 
   @override
-  String get delayMillisecondsHint => 'z. B. 3000';
+  String get delayMillisecondsHint => '3000';
 
   @override
   String get recommendedDelayRange =>
-      'Empfohlen: 250 bis 5000 ms für die meisten Geräte';
+      '1.000 Millisekunden = 1 Sekunde. Lass deinem Gerät genug Zeit zum Reagieren.';
 
   @override
   String get enterValidPositiveNumber =>
-      'Bitte eine gültige positive Zahl eingeben';
+      'Gib eine ganze Zahl größer als null ein.';
 
   @override
   String get ok => 'OK';

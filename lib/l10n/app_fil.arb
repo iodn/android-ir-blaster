@@ -968,8 +968,8 @@
   "unknownCommand": "Hindi kilala Command",
   "unnamedCommand": "Unnamed Command",
   "iconCommand": "Icon Command",
-  "selectDelay": "Select Delay",
-  "keepMilliseconds": "Keep: {ms}ms",
+  "selectDelay": "Piliin ang oras ng paghihintay",
+  "keepMilliseconds": "Panatilihin ang {ms} ms",
   "@keepMilliseconds": {
     "placeholders": {
       "ms": {
@@ -978,7 +978,7 @@
     }
   },
   "custom": "Custom",
-  "enterCustomDelayDuration": "Enter a custom delay duration",
+  "enterCustomDelayDuration": "Maglagay ng ibang tagal ng paghihintay",
   "millisecondsLong": "{ms} milliseconds",
   "@millisecondsLong": {
     "placeholders": {
@@ -994,11 +994,11 @@
       "plural": {}
     }
   },
-  "customDelay": "Custom Delay",
-  "delayMillisecondsLabel": "Delay (milliseconds)",
-  "delayMillisecondsHint": "e.g., 3000",
-  "recommendedDelayRange": "Recommended: 250-5000ms para sa most mga device",
-  "enterValidPositiveNumber": "Please enter a valid positive number",
+  "customDelay": "Sariling oras ng paghihintay",
+  "delayMillisecondsLabel": "Paghihintay (ms)",
+  "delayMillisecondsHint": "3000",
+  "recommendedDelayRange": "1,000 millisecond = 1 segundo. Bigyan ng sapat na oras ang device para tumugon.",
+  "enterValidPositiveNumber": "Maglagay ng buong bilang na higit sa zero.",
   "ok": "OK",
   "remote": "Remote",
   "macroName": "Pangalan ng macro",

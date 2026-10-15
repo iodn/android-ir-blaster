@@ -2332,19 +2332,18 @@ class AppLocalizationsPt extends AppLocalizations {
   String get iconCommand => 'Comando de ícone';
 
   @override
-  String get selectDelay => 'Selecionar Delay';
+  String get selectDelay => 'Escolher tempo de espera';
 
   @override
   String keepMilliseconds(int ms) {
-    return 'Manter: ${ms}ms';
+    return 'Manter $ms ms';
   }
 
   @override
   String get custom => 'Personalizado';
 
   @override
-  String get enterCustomDelayDuration =>
-      'Introduza uma duración personalizada de pausa';
+  String get enterCustomDelayDuration => 'Introduza outro tempo de espera';
 
   @override
   String millisecondsLong(int ms) {
@@ -2357,20 +2356,21 @@ class AppLocalizationsPt extends AppLocalizations {
   }
 
   @override
-  String get customDelay => 'Pausa personalizada';
+  String get customDelay => 'Espera personalizada';
 
   @override
-  String get delayMillisecondsLabel => 'Pausa (milisegundos)';
+  String get delayMillisecondsLabel => 'Espera (ms)';
 
   @override
-  String get delayMillisecondsHint => 'p. ej., 3000';
+  String get delayMillisecondsHint => '3000';
 
   @override
   String get recommendedDelayRange =>
-      'Recommended: 250-5000ms for most dispositivos';
+      '1 000 milissegundos = 1 segundo. Dê ao dispositivo tempo suficiente para responder.';
 
   @override
-  String get enterValidPositiveNumber => 'Introduza um número positivo válido';
+  String get enterValidPositiveNumber =>
+      'Introduza um número inteiro maior que zero.';
 
   @override
   String get ok => 'OK';
@@ -7614,19 +7614,18 @@ class AppLocalizationsPtBr extends AppLocalizationsPt {
   String get iconCommand => 'Comando de ícone';
 
   @override
-  String get selectDelay => 'Selecionar Delay';
+  String get selectDelay => 'Escolher tempo de espera';
 
   @override
   String keepMilliseconds(int ms) {
-    return 'Manter: ${ms}ms';
+    return 'Manter $ms ms';
   }
 
   @override
   String get custom => 'Personalizado';
 
   @override
-  String get enterCustomDelayDuration =>
-      'Introduza uma duración personalizada de pausa';
+  String get enterCustomDelayDuration => 'Digite outro tempo de espera';
 
   @override
   String millisecondsLong(int ms) {
@@ -7639,20 +7638,21 @@ class AppLocalizationsPtBr extends AppLocalizationsPt {
   }
 
   @override
-  String get customDelay => 'Pausa personalizada';
+  String get customDelay => 'Espera personalizada';
 
   @override
-  String get delayMillisecondsLabel => 'Pausa (milisegundos)';
+  String get delayMillisecondsLabel => 'Espera (ms)';
 
   @override
-  String get delayMillisecondsHint => 'p. ej., 3000';
+  String get delayMillisecondsHint => '3000';
 
   @override
   String get recommendedDelayRange =>
-      'Recommended: 250-5000ms for most dispositivos';
+      '1.000 milissegundos = 1 segundo. Dê ao dispositivo tempo suficiente para responder.';
 
   @override
-  String get enterValidPositiveNumber => 'Digite um número positivo válido';
+  String get enterValidPositiveNumber =>
+      'Digite um número inteiro maior que zero.';
 
   @override
   String get ok => 'OK';

@@ -968,8 +968,8 @@
   "unknownCommand": "Lệnh không rõ",
   "unnamedCommand": "Lệnh chưa tên",
   "iconCommand": "Biểu tượng Command",
-  "selectDelay": "Chọn độ trễ",
-  "keepMilliseconds": "Giữ: {ms}ms",
+  "selectDelay": "Chọn thời gian chờ",
+  "keepMilliseconds": "Giữ {ms} ms",
   "@keepMilliseconds": {
     "placeholders": {
       "ms": {
@@ -978,7 +978,7 @@
     }
   },
   "custom": "Tùy chỉnh",
-  "enterCustomDelayDuration": "Nhập thời lượng trễ tùy chỉnh",
+  "enterCustomDelayDuration": "Nhập thời gian chờ khác",
   "millisecondsLong": "{ms} mili giây",
   "@millisecondsLong": {
     "placeholders": {
@@ -994,11 +994,11 @@
       "plural": {}
     }
   },
-  "customDelay": "Tùy chỉnh Delay",
-  "delayMillisecondsLabel": "Độ trễ (mili giây)",
-  "delayMillisecondsHint": "vd. 3000",
-  "recommendedDelayRange": "Khuyên dùng: 250-5000ms cho đa số thiết bị",
-  "enterValidPositiveNumber": "Vui lòng nhập số dương hợp lệ",
+  "customDelay": "Tự đặt thời gian chờ",
+  "delayMillisecondsLabel": "Thời gian chờ (ms)",
+  "delayMillisecondsHint": "3000",
+  "recommendedDelayRange": "1.000 mili giây = 1 giây. Cho thiết bị đủ thời gian phản hồi.",
+  "enterValidPositiveNumber": "Nhập số nguyên lớn hơn 0.",
   "ok": "OK",
   "remote": "Điều khiển",
   "macroName": "Tên macro",

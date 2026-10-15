@@ -968,8 +968,8 @@
   "unknownCommand": "غير معروف Command",
   "unnamedCommand": "Unnamed Command",
   "iconCommand": "Icon Command",
-  "selectDelay": "اختر تأخير",
-  "keepMilliseconds": "Keep: {ms}ms",
+  "selectDelay": "اختار وقت الانتظار",
+  "keepMilliseconds": "خليها {ms} مللي ثانية",
   "@keepMilliseconds": {
     "placeholders": {
       "ms": {
@@ -978,7 +978,7 @@
     }
   },
   "custom": "مخصص",
-  "enterCustomDelayDuration": "Enter a custom delay duration",
+  "enterCustomDelayDuration": "اكتب وقت انتظار مختلف",
   "millisecondsLong": "{ms} milliseconds",
   "@millisecondsLong": {
     "placeholders": {
@@ -994,11 +994,11 @@
       "plural": {}
     }
   },
-  "customDelay": "Custom تأخير",
-  "delayMillisecondsLabel": "تأخير (milliseconds)",
-  "delayMillisecondsHint": "e.g., 3000",
-  "recommendedDelayRange": "Recommended: 250-5000ms for most أجهزة",
-  "enterValidPositiveNumber": "Please enter a valid positive number",
+  "customDelay": "وقت انتظار مخصص",
+  "delayMillisecondsLabel": "الانتظار (مللي ثانية)",
+  "delayMillisecondsHint": "3000",
+  "recommendedDelayRange": "1000 مللي ثانية = ثانية واحدة. اختار وقت يدي الجهاز فرصة يستجيب.",
+  "enterValidPositiveNumber": "اكتب عدد صحيح أكبر من صفر.",
   "ok": "موافق",
   "remote": "جهاز التحكم",
   "macroName": "اسم الماكرو",

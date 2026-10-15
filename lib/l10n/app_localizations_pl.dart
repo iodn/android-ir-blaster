@@ -2393,18 +2393,18 @@ class AppLocalizationsPl extends AppLocalizations {
   String get iconCommand => 'Komenda ikony';
 
   @override
-  String get selectDelay => 'Wybierz opóźnienie';
+  String get selectDelay => 'Wybierz czas oczekiwania';
 
   @override
   String keepMilliseconds(int ms) {
-    return 'Zachowaj: $ms ms';
+    return 'Zachowaj $ms ms';
   }
 
   @override
   String get custom => 'Własne';
 
   @override
-  String get enterCustomDelayDuration => 'Wpisz własne opóźnienie';
+  String get enterCustomDelayDuration => 'Wpisz inny czas oczekiwania';
 
   @override
   String millisecondsLong(int ms) {
@@ -2417,20 +2417,21 @@ class AppLocalizationsPl extends AppLocalizations {
   }
 
   @override
-  String get customDelay => 'Własne opóźnienie';
+  String get customDelay => 'Własny czas oczekiwania';
 
   @override
-  String get delayMillisecondsLabel => 'Opóźnienie (ms)';
+  String get delayMillisecondsLabel => 'Czas oczekiwania (ms)';
 
   @override
-  String get delayMillisecondsHint => 'e.g., 3000';
+  String get delayMillisecondsHint => '3000';
 
   @override
   String get recommendedDelayRange =>
-      'Zalecane: 250-5000 ms dla większości urządzeń';
+      '1000 milisekund = 1 sekunda. Daj urządzeniu wystarczająco dużo czasu na reakcję.';
 
   @override
-  String get enterValidPositiveNumber => 'Wpisz poprawną dodatnią liczbę';
+  String get enterValidPositiveNumber =>
+      'Wpisz liczbę całkowitą większą od zera.';
 
   @override
   String get ok => 'OK';

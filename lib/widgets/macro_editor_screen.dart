@@ -299,6 +299,7 @@ class _MacroEditorScreenState extends State<MacroEditorScreen> {
     final presets = <int>[250, 500, 1000, 1500, 2000, 3000, 5000];
     return showModalBottomSheet<int>(
       context: context,
+      isScrollControlled: true,
       useSafeArea: true,
       showDragHandle: true,
       builder: (ctx) {
@@ -311,10 +312,12 @@ class _MacroEditorScreenState extends State<MacroEditorScreen> {
                 children: [
                   Icon(Icons.timer_rounded, color: theme.colorScheme.primary),
                   const SizedBox(width: 12),
-                  Text(
-                    context.l10n.selectDelay,
-                    style: theme.textTheme.titleLarge?.copyWith(
-                      fontWeight: FontWeight.w900,
+                  Expanded(
+                    child: Text(
+                      context.l10n.selectDelay,
+                      style: theme.textTheme.titleLarge?.copyWith(
+                        fontWeight: FontWeight.w900,
+                      ),
                     ),
                   ),
                 ],
@@ -419,22 +422,27 @@ class _MacroEditorScreenState extends State<MacroEditorScreen> {
       context: context,
       builder: (ctx) {
         return AlertDialog(
+          scrollable: true,
           title: Text(context.l10n.customDelay),
           content: Column(
             mainAxisSize: MainAxisSize.min,
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              TextField(
-                controller: ctl,
-                keyboardType: TextInputType.number,
-                inputFormatters: [FilteringTextInputFormatter.digitsOnly],
-                decoration: InputDecoration(
-                  labelText: context.l10n.delayMillisecondsLabel,
-                  hintText: context.l10n.delayMillisecondsHint,
-                  border: const OutlineInputBorder(),
-                  prefixIcon: const Icon(Icons.timer_rounded),
+              Text(context.l10n.delayMillisecondsLabel),
+              const SizedBox(height: 8),
+              Semantics(
+                label: context.l10n.delayMillisecondsLabel,
+                child: TextField(
+                  controller: ctl,
+                  keyboardType: TextInputType.number,
+                  inputFormatters: [FilteringTextInputFormatter.digitsOnly],
+                  decoration: InputDecoration(
+                    hintText: context.l10n.delayMillisecondsHint,
+                    border: const OutlineInputBorder(),
+                    prefixIcon: const Icon(Icons.timer_rounded),
+                  ),
+                  autofocus: true,
                 ),
-                autofocus: true,
               ),
               const SizedBox(height: 12),
               Container(

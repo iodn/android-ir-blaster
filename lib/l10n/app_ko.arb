@@ -968,8 +968,8 @@
   "unknownCommand": "알 수 없음 명령",
   "unnamedCommand": "이름 없음 명령",
   "iconCommand": "아이콘 명령",
-  "selectDelay": "선택 지연",
-  "keepMilliseconds": "유지: {ms}ms",
+  "selectDelay": "대기 시간 선택",
+  "keepMilliseconds": "{ms}ms 유지",
   "@keepMilliseconds": {
     "placeholders": {
       "ms": {
@@ -978,7 +978,7 @@
     }
   },
   "custom": "사용자 지정",
-  "enterCustomDelayDuration": "사용자 지정 지연 시간을 입력하세요",
+  "enterCustomDelayDuration": "다른 대기 시간 입력",
   "millisecondsLong": "{ms}밀리초",
   "@millisecondsLong": {
     "placeholders": {
@@ -994,11 +994,11 @@
       "plural": {}
     }
   },
-  "customDelay": "사용자 지정 지연",
-  "delayMillisecondsLabel": "지연(밀리초)",
-  "delayMillisecondsHint": "예:, 3000",
-  "recommendedDelayRange": "권장: 대부분 기기에서 250-5000ms",
-  "enterValidPositiveNumber": "유효한 양수를 입력하세요",
+  "customDelay": "대기 시간 직접 입력",
+  "delayMillisecondsLabel": "대기 시간(ms)",
+  "delayMillisecondsHint": "3000",
+  "recommendedDelayRange": "1,000밀리초는 1초입니다. 기기가 반응할 시간을 충분히 주세요.",
+  "enterValidPositiveNumber": "0보다 큰 정수를 입력하세요.",
   "ok": "OK",
   "remote": "리모컨",
   "macroName": "매크로 이름",

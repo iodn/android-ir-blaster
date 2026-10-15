@@ -2400,19 +2400,18 @@ class AppLocalizationsUk extends AppLocalizations {
   String get iconCommand => 'Команда значка';
 
   @override
-  String get selectDelay => 'Виберіть Затримка';
+  String get selectDelay => 'Виберіть час очікування';
 
   @override
   String keepMilliseconds(int ms) {
-    return 'Зберегти: ${ms}ms';
+    return 'Залишити $ms мс';
   }
 
   @override
   String get custom => 'Власний';
 
   @override
-  String get enterCustomDelayDuration =>
-      'Введіть спеціальну тривалість затримки';
+  String get enterCustomDelayDuration => 'Введіть інший час очікування';
 
   @override
   String millisecondsLong(int ms) {
@@ -2425,20 +2424,20 @@ class AppLocalizationsUk extends AppLocalizations {
   }
 
   @override
-  String get customDelay => 'Спеціальна затримка';
+  String get customDelay => 'Власний час очікування';
 
   @override
-  String get delayMillisecondsLabel => 'Затримка (мілісекунди)';
+  String get delayMillisecondsLabel => 'Очікування (мс)';
 
   @override
-  String get delayMillisecondsHint => 'наприклад, 3000';
+  String get delayMillisecondsHint => '3000';
 
   @override
   String get recommendedDelayRange =>
-      'Рекомендовано: 250-5000 мс для більшості пристроїв';
+      '1000 мілісекунд = 1 секунда. Дайте пристрою достатньо часу на реакцію.';
 
   @override
-  String get enterValidPositiveNumber => 'Введіть дійсне позитивне число';
+  String get enterValidPositiveNumber => 'Введіть ціле число більше нуля.';
 
   @override
   String get ok => 'добре';

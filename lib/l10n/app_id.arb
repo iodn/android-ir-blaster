@@ -968,8 +968,8 @@
   "unknownCommand": "Tidak dikenal Command",
   "unnamedCommand": "Perintah tanpa nama",
   "iconCommand": "Ikon Command",
-  "selectDelay": "Pilih Jeda",
-  "keepMilliseconds": "Pertahankan: {ms}ms",
+  "selectDelay": "Pilih waktu tunggu",
+  "keepMilliseconds": "Pertahankan {ms} ms",
   "@keepMilliseconds": {
     "placeholders": {
       "ms": {
@@ -978,7 +978,7 @@
     }
   },
   "custom": "Kustom",
-  "enterCustomDelayDuration": "Masukkan durasi jeda kustom",
+  "enterCustomDelayDuration": "Masukkan waktu tunggu lain",
   "millisecondsLong": "{ms} milidetik",
   "@millisecondsLong": {
     "placeholders": {
@@ -994,11 +994,11 @@
       "plural": {}
     }
   },
-  "customDelay": "Custom Jeda",
-  "delayMillisecondsLabel": "Jeda (milliseconds)",
-  "delayMillisecondsHint": "mis. 3000",
-  "recommendedDelayRange": "Disarankan: 250-5000ms untuk sebagian besar perangkat",
-  "enterValidPositiveNumber": "Masukkan angka positif yang valid",
+  "customDelay": "Waktu tunggu khusus",
+  "delayMillisecondsLabel": "Waktu tunggu (ms)",
+  "delayMillisecondsHint": "3000",
+  "recommendedDelayRange": "1.000 milidetik = 1 detik. Beri perangkat waktu yang cukup untuk merespons.",
+  "enterValidPositiveNumber": "Masukkan bilangan bulat lebih dari nol.",
   "ok": "OK",
   "remote": "Remote",
   "macroName": "Nama makro",

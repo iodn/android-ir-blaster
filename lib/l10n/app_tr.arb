@@ -968,8 +968,8 @@
   "unknownCommand": "Bilinmeyen Komut",
   "unnamedCommand": "Adsız Komut",
   "iconCommand": "Simge Komutu",
-  "selectDelay": "Seç Delay",
-  "keepMilliseconds": "Koru: {ms} ms",
+  "selectDelay": "Bekleme süresini seçin",
+  "keepMilliseconds": "{ms} ms olarak tut",
   "@keepMilliseconds": {
     "placeholders": {
       "ms": {
@@ -978,7 +978,7 @@
     }
   },
   "custom": "Özel",
-  "enterCustomDelayDuration": "Özel gecikme süresi girin",
+  "enterCustomDelayDuration": "Farklı bir bekleme süresi girin",
   "millisecondsLong": "{ms} milliseconds",
   "@millisecondsLong": {
     "placeholders": {
@@ -994,11 +994,11 @@
       "plural": {}
     }
   },
-  "customDelay": "Özel Delay",
-  "delayMillisecondsLabel": "Delay (milliseconds)",
-  "delayMillisecondsHint": "e.g., 3000",
-  "recommendedDelayRange": "Önerilen: çoğu cihaz için 250-5000 ms",
-  "enterValidPositiveNumber": "Please enter a valid positive number",
+  "customDelay": "Özel bekleme süresi",
+  "delayMillisecondsLabel": "Bekleme (ms)",
+  "delayMillisecondsHint": "3000",
+  "recommendedDelayRange": "1.000 milisaniye = 1 saniye. Cihaza yanıt vermesi için yeterli zaman tanıyın.",
+  "enterValidPositiveNumber": "Sıfırdan büyük bir tam sayı girin.",
   "ok": "OK",
   "remote": "Kumanda",
   "macroName": "Makro adı",

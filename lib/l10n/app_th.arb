@@ -968,8 +968,8 @@
   "unknownCommand": "คำสั่งที่ไม่ทราบ",
   "unnamedCommand": "คำสั่งไม่มีชื่อ",
   "iconCommand": "คำสั่งไอคอน",
-  "selectDelay": "เลือกระยะหน่วง",
-  "keepMilliseconds": "คงไว้ {ms}ms",
+  "selectDelay": "เลือกเวลารอ",
+  "keepMilliseconds": "ใช้ {ms} มิลลิวินาทีตามเดิม",
   "@keepMilliseconds": {
     "placeholders": {
       "ms": {
@@ -978,7 +978,7 @@
     }
   },
   "custom": "Custom",
-  "enterCustomDelayDuration": "ใส่ระยะเวลาหน่วงแบบกำหนดเอง",
+  "enterCustomDelayDuration": "กรอกเวลารออื่น",
   "millisecondsLong": "{ms} มิลลิวินาที",
   "@millisecondsLong": {
     "placeholders": {
@@ -994,11 +994,11 @@
       "plural": {}
     }
   },
-  "customDelay": "หน่วงเวลาแบบกำหนดเอง",
-  "delayMillisecondsLabel": "หน่วงเวลา มิลลิวินาที",
-  "delayMillisecondsHint": "เช่น 3000",
-  "recommendedDelayRange": "Recommended: 250-5000ms for most อุปกรณ์s",
-  "enterValidPositiveNumber": "โปรดใส่ตัวเลขบวกที่ถูกต้อง",
+  "customDelay": "กำหนดเวลารอเอง",
+  "delayMillisecondsLabel": "เวลารอ (มิลลิวินาที)",
+  "delayMillisecondsHint": "3000",
+  "recommendedDelayRange": "1,000 มิลลิวินาที = 1 วินาที ควรให้อุปกรณ์มีเวลาตอบสนองเพียงพอ",
+  "enterValidPositiveNumber": "กรอกจำนวนเต็มที่มากกว่าศูนย์",
   "ok": "OK",
   "remote": "รีโมต",
   "macroName": "ชื่อมาโคร",

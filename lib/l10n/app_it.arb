@@ -968,8 +968,8 @@
   "unknownCommand": "Comando sconosciuto",
   "unnamedCommand": "Comando senza nome",
   "iconCommand": "Comando icona",
-  "selectDelay": "Seleziona ritardo",
-  "keepMilliseconds": "Mantieni: {ms}ms",
+  "selectDelay": "Scegli il tempo di attesa",
+  "keepMilliseconds": "Mantieni {ms} ms",
   "@keepMilliseconds": {
     "placeholders": {
       "ms": {
@@ -978,7 +978,7 @@
     }
   },
   "custom": "Personalizzato",
-  "enterCustomDelayDuration": "Inserisci durata ritardo personalizzata",
+  "enterCustomDelayDuration": "Inserisci un altro tempo di attesa",
   "millisecondsLong": "{ms} millisecondi",
   "@millisecondsLong": {
     "placeholders": {
@@ -994,11 +994,11 @@
       "plural": {}
     }
   },
-  "customDelay": "Ritardo personalizzato",
-  "delayMillisecondsLabel": "Ritardo millisecondi",
-  "delayMillisecondsHint": "es. 3000",
-  "recommendedDelayRange": "Consigliato. 250 5000 ms per la maggior parte dei dispositivi",
-  "enterValidPositiveNumber": "Inserisci un numero positivo valido",
+  "customDelay": "Attesa personalizzata",
+  "delayMillisecondsLabel": "Attesa (ms)",
+  "delayMillisecondsHint": "3000",
+  "recommendedDelayRange": "1.000 millisecondi = 1 secondo. Lascia al dispositivo il tempo di rispondere.",
+  "enterValidPositiveNumber": "Inserisci un numero intero maggiore di zero.",
   "ok": "OK",
   "remote": "Telecomando",
   "macroName": "Nome della macro",

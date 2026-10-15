@@ -1081,8 +1081,8 @@
   "unknownCommand": "Unknown Command",
   "unnamedCommand": "Unnamed Command",
   "iconCommand": "Icon Command",
-  "selectDelay": "Select Delay",
-  "keepMilliseconds": "Keep: {ms}ms",
+  "selectDelay": "Choose wait time",
+  "keepMilliseconds": "Keep {ms} ms",
   "@keepMilliseconds": {
     "placeholders": {
       "ms": {
@@ -1091,7 +1091,7 @@
     }
   },
   "custom": "Custom",
-  "enterCustomDelayDuration": "Enter a custom delay duration",
+  "enterCustomDelayDuration": "Enter a different wait time",
   "millisecondsLong": "{ms} milliseconds",
   "@millisecondsLong": {
     "placeholders": {
@@ -1107,11 +1107,11 @@
       "plural": {}
     }
   },
-  "customDelay": "Custom Delay",
-  "delayMillisecondsLabel": "Delay (milliseconds)",
-  "delayMillisecondsHint": "e.g., 3000",
-  "recommendedDelayRange": "Recommended: 250-5000ms for most devices",
-  "enterValidPositiveNumber": "Please enter a valid positive number",
+  "customDelay": "Custom wait",
+  "delayMillisecondsLabel": "Wait (ms)",
+  "delayMillisecondsHint": "3000",
+  "recommendedDelayRange": "1,000 milliseconds = 1 second. Choose a wait that gives your device time to respond.",
+  "enterValidPositiveNumber": "Enter a whole number greater than zero.",
   "ok": "OK",
   "remote": "Remote",
   "macroName": "Macro name",

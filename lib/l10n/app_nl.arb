@@ -968,8 +968,8 @@
   "unknownCommand": "Onbekend Command",
   "unnamedCommand": "Naamloze opdracht",
   "iconCommand": "Pictogram Command",
-  "selectDelay": "Selecteer Delay",
-  "keepMilliseconds": "Houd {ms}ms",
+  "selectDelay": "Wachttijd kiezen",
+  "keepMilliseconds": "{ms} ms behouden",
   "@keepMilliseconds": {
     "placeholders": {
       "ms": {
@@ -978,7 +978,7 @@
     }
   },
   "custom": "Aangepast",
-  "enterCustomDelayDuration": "Voer een aangepaste vertraging in",
+  "enterCustomDelayDuration": "Voer een andere wachttijd in",
   "millisecondsLong": "{ms} milliseconden",
   "@millisecondsLong": {
     "placeholders": {
@@ -994,11 +994,11 @@
       "plural": {}
     }
   },
-  "customDelay": "Aangepaste vertraging",
-  "delayMillisecondsLabel": "Vertraging milliseconden",
-  "delayMillisecondsHint": "bijv. 3000",
-  "recommendedDelayRange": "Recommended: 250-5000ms for most apparaten",
-  "enterValidPositiveNumber": "Voer een geldig positief getal in",
+  "customDelay": "Eigen wachttijd",
+  "delayMillisecondsLabel": "Wachttijd (ms)",
+  "delayMillisecondsHint": "3000",
+  "recommendedDelayRange": "1.000 milliseconden = 1 seconde. Geef je apparaat voldoende tijd om te reageren.",
+  "enterValidPositiveNumber": "Voer een geheel getal groter dan nul in.",
   "ok": "OK",
   "remote": "Afstandsbediening",
   "macroName": "Macronaam",

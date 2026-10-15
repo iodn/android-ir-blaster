@@ -2303,18 +2303,18 @@ class AppLocalizationsHi extends AppLocalizations {
   String get iconCommand => 'आइकन कमांड';
 
   @override
-  String get selectDelay => 'चुनें विलंब';
+  String get selectDelay => 'रुकने का समय चुनें';
 
   @override
   String keepMilliseconds(int ms) {
-    return 'रखें: ${ms}ms';
+    return '$ms मिलीसेकंड रखें';
   }
 
   @override
   String get custom => 'कस्टम';
 
   @override
-  String get enterCustomDelayDuration => 'दर्ज करें a कस्टम विलंब अवधि';
+  String get enterCustomDelayDuration => 'रुकने का अलग समय दर्ज करें';
 
   @override
   String millisecondsLong(int ms) {
@@ -2327,20 +2327,21 @@ class AppLocalizationsHi extends AppLocalizations {
   }
 
   @override
-  String get customDelay => 'कस्टम विलंब';
+  String get customDelay => 'अपना समय तय करें';
 
   @override
-  String get delayMillisecondsLabel => 'विलंब (मिलीसेकंड)';
+  String get delayMillisecondsLabel => 'समय (मिलीसेकंड)';
 
   @override
-  String get delayMillisecondsHint => 'e.g., 3000';
+  String get delayMillisecondsHint => '3000';
 
   @override
-  String get recommendedDelayRange => 'अनुशंसित: 250-5000ms के लिए most डिवाइस';
+  String get recommendedDelayRange =>
+      '1,000 मिलीसेकंड = 1 सेकंड। डिवाइस को प्रतिक्रिया देने के लिए पर्याप्त समय दें।';
 
   @override
   String get enterValidPositiveNumber =>
-      'Please दर्ज करें a valid धनात्मक संख्या';
+      'शून्य से बड़ी पूर्ण संख्या दर्ज करें।';
 
   @override
   String get ok => 'ठीक है';

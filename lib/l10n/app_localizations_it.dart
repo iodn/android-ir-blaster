@@ -2333,19 +2333,18 @@ class AppLocalizationsIt extends AppLocalizations {
   String get iconCommand => 'Comando icona';
 
   @override
-  String get selectDelay => 'Seleziona ritardo';
+  String get selectDelay => 'Scegli il tempo di attesa';
 
   @override
   String keepMilliseconds(int ms) {
-    return 'Mantieni: ${ms}ms';
+    return 'Mantieni $ms ms';
   }
 
   @override
   String get custom => 'Personalizzato';
 
   @override
-  String get enterCustomDelayDuration =>
-      'Inserisci durata ritardo personalizzata';
+  String get enterCustomDelayDuration => 'Inserisci un altro tempo di attesa';
 
   @override
   String millisecondsLong(int ms) {
@@ -2358,20 +2357,21 @@ class AppLocalizationsIt extends AppLocalizations {
   }
 
   @override
-  String get customDelay => 'Ritardo personalizzato';
+  String get customDelay => 'Attesa personalizzata';
 
   @override
-  String get delayMillisecondsLabel => 'Ritardo millisecondi';
+  String get delayMillisecondsLabel => 'Attesa (ms)';
 
   @override
-  String get delayMillisecondsHint => 'es. 3000';
+  String get delayMillisecondsHint => '3000';
 
   @override
   String get recommendedDelayRange =>
-      'Consigliato. 250 5000 ms per la maggior parte dei dispositivi';
+      '1.000 millisecondi = 1 secondo. Lascia al dispositivo il tempo di rispondere.';
 
   @override
-  String get enterValidPositiveNumber => 'Inserisci un numero positivo valido';
+  String get enterValidPositiveNumber =>
+      'Inserisci un numero intero maggiore di zero.';
 
   @override
   String get ok => 'OK';

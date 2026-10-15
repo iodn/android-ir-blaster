@@ -2326,18 +2326,19 @@ class AppLocalizationsFil extends AppLocalizations {
   String get iconCommand => 'Icon Command';
 
   @override
-  String get selectDelay => 'Select Delay';
+  String get selectDelay => 'Piliin ang oras ng paghihintay';
 
   @override
   String keepMilliseconds(int ms) {
-    return 'Keep: ${ms}ms';
+    return 'Panatilihin ang $ms ms';
   }
 
   @override
   String get custom => 'Custom';
 
   @override
-  String get enterCustomDelayDuration => 'Enter a custom delay duration';
+  String get enterCustomDelayDuration =>
+      'Maglagay ng ibang tagal ng paghihintay';
 
   @override
   String millisecondsLong(int ms) {
@@ -2350,20 +2351,21 @@ class AppLocalizationsFil extends AppLocalizations {
   }
 
   @override
-  String get customDelay => 'Custom Delay';
+  String get customDelay => 'Sariling oras ng paghihintay';
 
   @override
-  String get delayMillisecondsLabel => 'Delay (milliseconds)';
+  String get delayMillisecondsLabel => 'Paghihintay (ms)';
 
   @override
-  String get delayMillisecondsHint => 'e.g., 3000';
+  String get delayMillisecondsHint => '3000';
 
   @override
   String get recommendedDelayRange =>
-      'Recommended: 250-5000ms para sa most mga device';
+      '1,000 millisecond = 1 segundo. Bigyan ng sapat na oras ang device para tumugon.';
 
   @override
-  String get enterValidPositiveNumber => 'Please enter a valid positive number';
+  String get enterValidPositiveNumber =>
+      'Maglagay ng buong bilang na higit sa zero.';
 
   @override
   String get ok => 'OK';

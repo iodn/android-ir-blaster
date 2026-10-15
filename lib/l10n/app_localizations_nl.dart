@@ -2339,18 +2339,18 @@ class AppLocalizationsNl extends AppLocalizations {
   String get iconCommand => 'Pictogram Command';
 
   @override
-  String get selectDelay => 'Selecteer Delay';
+  String get selectDelay => 'Wachttijd kiezen';
 
   @override
   String keepMilliseconds(int ms) {
-    return 'Houd ${ms}ms';
+    return '$ms ms behouden';
   }
 
   @override
   String get custom => 'Aangepast';
 
   @override
-  String get enterCustomDelayDuration => 'Voer een aangepaste vertraging in';
+  String get enterCustomDelayDuration => 'Voer een andere wachttijd in';
 
   @override
   String millisecondsLong(int ms) {
@@ -2363,20 +2363,21 @@ class AppLocalizationsNl extends AppLocalizations {
   }
 
   @override
-  String get customDelay => 'Aangepaste vertraging';
+  String get customDelay => 'Eigen wachttijd';
 
   @override
-  String get delayMillisecondsLabel => 'Vertraging milliseconden';
+  String get delayMillisecondsLabel => 'Wachttijd (ms)';
 
   @override
-  String get delayMillisecondsHint => 'bijv. 3000';
+  String get delayMillisecondsHint => '3000';
 
   @override
   String get recommendedDelayRange =>
-      'Recommended: 250-5000ms for most apparaten';
+      '1.000 milliseconden = 1 seconde. Geef je apparaat voldoende tijd om te reageren.';
 
   @override
-  String get enterValidPositiveNumber => 'Voer een geldig positief getal in';
+  String get enterValidPositiveNumber =>
+      'Voer een geheel getal groter dan nul in.';
 
   @override
   String get ok => 'OK';

@@ -970,8 +970,8 @@
   "unknownCommand": "Nieznana komenda",
   "unnamedCommand": "Komenda bez nazwy",
   "iconCommand": "Komenda ikony",
-  "selectDelay": "Wybierz opóźnienie",
-  "keepMilliseconds": "Zachowaj: {ms} ms",
+  "selectDelay": "Wybierz czas oczekiwania",
+  "keepMilliseconds": "Zachowaj {ms} ms",
   "@keepMilliseconds": {
     "placeholders": {
       "ms": {
@@ -980,7 +980,7 @@
     }
   },
   "custom": "Własne",
-  "enterCustomDelayDuration": "Wpisz własne opóźnienie",
+  "enterCustomDelayDuration": "Wpisz inny czas oczekiwania",
   "millisecondsLong": "{ms} milisekund",
   "@millisecondsLong": {
     "placeholders": {
@@ -996,11 +996,11 @@
       "plural": {}
     }
   },
-  "customDelay": "Własne opóźnienie",
-  "delayMillisecondsLabel": "Opóźnienie (ms)",
-  "delayMillisecondsHint": "e.g., 3000",
-  "recommendedDelayRange": "Zalecane: 250-5000 ms dla większości urządzeń",
-  "enterValidPositiveNumber": "Wpisz poprawną dodatnią liczbę",
+  "customDelay": "Własny czas oczekiwania",
+  "delayMillisecondsLabel": "Czas oczekiwania (ms)",
+  "delayMillisecondsHint": "3000",
+  "recommendedDelayRange": "1000 milisekund = 1 sekunda. Daj urządzeniu wystarczająco dużo czasu na reakcję.",
+  "enterValidPositiveNumber": "Wpisz liczbę całkowitą większą od zera.",
   "ok": "OK",
   "remote": "Pilot",
   "macroName": "Nazwa makra",

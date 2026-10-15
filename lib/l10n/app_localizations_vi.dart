@@ -2296,18 +2296,18 @@ class AppLocalizationsVi extends AppLocalizations {
   String get iconCommand => 'Biểu tượng Command';
 
   @override
-  String get selectDelay => 'Chọn độ trễ';
+  String get selectDelay => 'Chọn thời gian chờ';
 
   @override
   String keepMilliseconds(int ms) {
-    return 'Giữ: ${ms}ms';
+    return 'Giữ $ms ms';
   }
 
   @override
   String get custom => 'Tùy chỉnh';
 
   @override
-  String get enterCustomDelayDuration => 'Nhập thời lượng trễ tùy chỉnh';
+  String get enterCustomDelayDuration => 'Nhập thời gian chờ khác';
 
   @override
   String millisecondsLong(int ms) {
@@ -2320,20 +2320,20 @@ class AppLocalizationsVi extends AppLocalizations {
   }
 
   @override
-  String get customDelay => 'Tùy chỉnh Delay';
+  String get customDelay => 'Tự đặt thời gian chờ';
 
   @override
-  String get delayMillisecondsLabel => 'Độ trễ (mili giây)';
+  String get delayMillisecondsLabel => 'Thời gian chờ (ms)';
 
   @override
-  String get delayMillisecondsHint => 'vd. 3000';
+  String get delayMillisecondsHint => '3000';
 
   @override
   String get recommendedDelayRange =>
-      'Khuyên dùng: 250-5000ms cho đa số thiết bị';
+      '1.000 mili giây = 1 giây. Cho thiết bị đủ thời gian phản hồi.';
 
   @override
-  String get enterValidPositiveNumber => 'Vui lòng nhập số dương hợp lệ';
+  String get enterValidPositiveNumber => 'Nhập số nguyên lớn hơn 0.';
 
   @override
   String get ok => 'OK';

@@ -2289,18 +2289,18 @@ class AppLocalizationsTh extends AppLocalizations {
   String get iconCommand => 'คำสั่งไอคอน';
 
   @override
-  String get selectDelay => 'เลือกระยะหน่วง';
+  String get selectDelay => 'เลือกเวลารอ';
 
   @override
   String keepMilliseconds(int ms) {
-    return 'คงไว้ ${ms}ms';
+    return 'ใช้ $ms มิลลิวินาทีตามเดิม';
   }
 
   @override
   String get custom => 'Custom';
 
   @override
-  String get enterCustomDelayDuration => 'ใส่ระยะเวลาหน่วงแบบกำหนดเอง';
+  String get enterCustomDelayDuration => 'กรอกเวลารออื่น';
 
   @override
   String millisecondsLong(int ms) {
@@ -2313,20 +2313,20 @@ class AppLocalizationsTh extends AppLocalizations {
   }
 
   @override
-  String get customDelay => 'หน่วงเวลาแบบกำหนดเอง';
+  String get customDelay => 'กำหนดเวลารอเอง';
 
   @override
-  String get delayMillisecondsLabel => 'หน่วงเวลา มิลลิวินาที';
+  String get delayMillisecondsLabel => 'เวลารอ (มิลลิวินาที)';
 
   @override
-  String get delayMillisecondsHint => 'เช่น 3000';
+  String get delayMillisecondsHint => '3000';
 
   @override
   String get recommendedDelayRange =>
-      'Recommended: 250-5000ms for most อุปกรณ์s';
+      '1,000 มิลลิวินาที = 1 วินาที ควรให้อุปกรณ์มีเวลาตอบสนองเพียงพอ';
 
   @override
-  String get enterValidPositiveNumber => 'โปรดใส่ตัวเลขบวกที่ถูกต้อง';
+  String get enterValidPositiveNumber => 'กรอกจำนวนเต็มที่มากกว่าศูนย์';
 
   @override
   String get ok => 'OK';

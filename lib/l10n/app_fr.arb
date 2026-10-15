@@ -973,8 +973,8 @@
   "unknownCommand": "Commande inconnue",
   "unnamedCommand": "Commande sans nom",
   "iconCommand": "Icône commande",
-  "selectDelay": "Choisir un délai",
-  "keepMilliseconds": "Conserver : {ms}ms",
+  "selectDelay": "Choisir le temps d’attente",
+  "keepMilliseconds": "Conserver {ms} ms",
   "@keepMilliseconds": {
     "placeholders": {
       "ms": {
@@ -983,7 +983,7 @@
     }
   },
   "custom": "Personnalisé",
-  "enterCustomDelayDuration": "Entrer une durée de délai personnalisée",
+  "enterCustomDelayDuration": "Saisir un autre temps d’attente",
   "millisecondsLong": "{ms} millisecondes",
   "@millisecondsLong": {
     "placeholders": {
@@ -999,11 +999,11 @@
       "plural": {}
     }
   },
-  "customDelay": "Délai personnalisé",
-  "delayMillisecondsLabel": "Délai (millisecondes)",
-  "delayMillisecondsHint": "ex. 3000",
-  "recommendedDelayRange": "Recommandé : 250 à 5000 ms pour la plupart des appareils",
-  "enterValidPositiveNumber": "Veuillez entrer un nombre positif valide",
+  "customDelay": "Attente personnalisée",
+  "delayMillisecondsLabel": "Attente (ms)",
+  "delayMillisecondsHint": "3000",
+  "recommendedDelayRange": "1 000 millisecondes = 1 seconde. Laissez à l’appareil le temps de réagir.",
+  "enterValidPositiveNumber": "Saisissez un nombre entier supérieur à zéro.",
   "ok": "OK",
   "remote": "Télécommande",
   "macroName": "Nom de la macro",

@@ -2309,18 +2309,18 @@ class AppLocalizationsTr extends AppLocalizations {
   String get iconCommand => 'Simge Komutu';
 
   @override
-  String get selectDelay => 'Seç Delay';
+  String get selectDelay => 'Bekleme süresini seçin';
 
   @override
   String keepMilliseconds(int ms) {
-    return 'Koru: $ms ms';
+    return '$ms ms olarak tut';
   }
 
   @override
   String get custom => 'Özel';
 
   @override
-  String get enterCustomDelayDuration => 'Özel gecikme süresi girin';
+  String get enterCustomDelayDuration => 'Farklı bir bekleme süresi girin';
 
   @override
   String millisecondsLong(int ms) {
@@ -2333,19 +2333,20 @@ class AppLocalizationsTr extends AppLocalizations {
   }
 
   @override
-  String get customDelay => 'Özel Delay';
+  String get customDelay => 'Özel bekleme süresi';
 
   @override
-  String get delayMillisecondsLabel => 'Delay (milliseconds)';
+  String get delayMillisecondsLabel => 'Bekleme (ms)';
 
   @override
-  String get delayMillisecondsHint => 'e.g., 3000';
+  String get delayMillisecondsHint => '3000';
 
   @override
-  String get recommendedDelayRange => 'Önerilen: çoğu cihaz için 250-5000 ms';
+  String get recommendedDelayRange =>
+      '1.000 milisaniye = 1 saniye. Cihaza yanıt vermesi için yeterli zaman tanıyın.';
 
   @override
-  String get enterValidPositiveNumber => 'Please enter a valid positive number';
+  String get enterValidPositiveNumber => 'Sıfırdan büyük bir tam sayı girin.';
 
   @override
   String get ok => 'OK';

@@ -2221,18 +2221,18 @@ class AppLocalizationsKo extends AppLocalizations {
   String get iconCommand => '아이콘 명령';
 
   @override
-  String get selectDelay => '선택 지연';
+  String get selectDelay => '대기 시간 선택';
 
   @override
   String keepMilliseconds(int ms) {
-    return '유지: ${ms}ms';
+    return '${ms}ms 유지';
   }
 
   @override
   String get custom => '사용자 지정';
 
   @override
-  String get enterCustomDelayDuration => '사용자 지정 지연 시간을 입력하세요';
+  String get enterCustomDelayDuration => '다른 대기 시간 입력';
 
   @override
   String millisecondsLong(int ms) {
@@ -2245,19 +2245,19 @@ class AppLocalizationsKo extends AppLocalizations {
   }
 
   @override
-  String get customDelay => '사용자 지정 지연';
+  String get customDelay => '대기 시간 직접 입력';
 
   @override
-  String get delayMillisecondsLabel => '지연(밀리초)';
+  String get delayMillisecondsLabel => '대기 시간(ms)';
 
   @override
-  String get delayMillisecondsHint => '예:, 3000';
+  String get delayMillisecondsHint => '3000';
 
   @override
-  String get recommendedDelayRange => '권장: 대부분 기기에서 250-5000ms';
+  String get recommendedDelayRange => '1,000밀리초는 1초입니다. 기기가 반응할 시간을 충분히 주세요.';
 
   @override
-  String get enterValidPositiveNumber => '유효한 양수를 입력하세요';
+  String get enterValidPositiveNumber => '0보다 큰 정수를 입력하세요.';
 
   @override
   String get ok => 'OK';

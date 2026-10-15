@@ -2159,18 +2159,18 @@ class AppLocalizationsZh extends AppLocalizations {
   String get iconCommand => '图标命令';
 
   @override
-  String get selectDelay => '选择延迟';
+  String get selectDelay => '选择等待时间';
 
   @override
   String keepMilliseconds(int ms) {
-    return '保留 ${ms}ms';
+    return '保留$ms毫秒';
   }
 
   @override
   String get custom => '自定义';
 
   @override
-  String get enterCustomDelayDuration => '输入自定义延迟时长';
+  String get enterCustomDelayDuration => '输入其他等待时间';
 
   @override
   String millisecondsLong(int ms) {
@@ -2183,19 +2183,19 @@ class AppLocalizationsZh extends AppLocalizations {
   }
 
   @override
-  String get customDelay => '自定义延迟';
+  String get customDelay => '自定义等待时间';
 
   @override
-  String get delayMillisecondsLabel => '延迟 毫秒';
+  String get delayMillisecondsLabel => '等待时间（毫秒）';
 
   @override
-  String get delayMillisecondsHint => '例如 3000';
+  String get delayMillisecondsHint => '3000';
 
   @override
-  String get recommendedDelayRange => '建议 大多数设备为 250 到 5000ms';
+  String get recommendedDelayRange => '1,000毫秒等于1秒。请留出足够时间，让设备完成响应。';
 
   @override
-  String get enterValidPositiveNumber => '请输入有效的正数';
+  String get enterValidPositiveNumber => '请输入大于0的整数。';
 
   @override
   String get ok => '确定';

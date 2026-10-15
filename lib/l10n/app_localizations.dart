@@ -4090,13 +4090,13 @@ abstract class AppLocalizations {
   /// No description provided for @selectDelay.
   ///
   /// In en, this message translates to:
-  /// **'Select Delay'**
+  /// **'Choose wait time'**
   String get selectDelay;
 
   /// No description provided for @keepMilliseconds.
   ///
   /// In en, this message translates to:
-  /// **'Keep: {ms}ms'**
+  /// **'Keep {ms} ms'**
   String keepMilliseconds(int ms);
 
   /// No description provided for @custom.
@@ -4108,7 +4108,7 @@ abstract class AppLocalizations {
   /// No description provided for @enterCustomDelayDuration.
   ///
   /// In en, this message translates to:
-  /// **'Enter a custom delay duration'**
+  /// **'Enter a different wait time'**
   String get enterCustomDelayDuration;
 
   /// No description provided for @millisecondsLong.
@@ -4126,31 +4126,31 @@ abstract class AppLocalizations {
   /// No description provided for @customDelay.
   ///
   /// In en, this message translates to:
-  /// **'Custom Delay'**
+  /// **'Custom wait'**
   String get customDelay;
 
   /// No description provided for @delayMillisecondsLabel.
   ///
   /// In en, this message translates to:
-  /// **'Delay (milliseconds)'**
+  /// **'Wait (ms)'**
   String get delayMillisecondsLabel;
 
   /// No description provided for @delayMillisecondsHint.
   ///
   /// In en, this message translates to:
-  /// **'e.g., 3000'**
+  /// **'3000'**
   String get delayMillisecondsHint;
 
   /// No description provided for @recommendedDelayRange.
   ///
   /// In en, this message translates to:
-  /// **'Recommended: 250-5000ms for most devices'**
+  /// **'1,000 milliseconds = 1 second. Choose a wait that gives your device time to respond.'**
   String get recommendedDelayRange;
 
   /// No description provided for @enterValidPositiveNumber.
   ///
   /// In en, this message translates to:
-  /// **'Please enter a valid positive number'**
+  /// **'Enter a whole number greater than zero.'**
   String get enterValidPositiveNumber;
 
   /// No description provided for @ok.

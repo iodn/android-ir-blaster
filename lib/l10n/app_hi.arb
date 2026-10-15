@@ -968,8 +968,8 @@
   "unknownCommand": "अज्ञात कमांड",
   "unnamedCommand": "बिना नाम की कमांड",
   "iconCommand": "आइकन कमांड",
-  "selectDelay": "चुनें विलंब",
-  "keepMilliseconds": "रखें: {ms}ms",
+  "selectDelay": "रुकने का समय चुनें",
+  "keepMilliseconds": "{ms} मिलीसेकंड रखें",
   "@keepMilliseconds": {
     "placeholders": {
       "ms": {
@@ -978,7 +978,7 @@
     }
   },
   "custom": "कस्टम",
-  "enterCustomDelayDuration": "दर्ज करें a कस्टम विलंब अवधि",
+  "enterCustomDelayDuration": "रुकने का अलग समय दर्ज करें",
   "millisecondsLong": "{ms} मिलीसेकंड",
   "@millisecondsLong": {
     "placeholders": {
@@ -994,11 +994,11 @@
       "plural": {}
     }
   },
-  "customDelay": "कस्टम विलंब",
-  "delayMillisecondsLabel": "विलंब (मिलीसेकंड)",
-  "delayMillisecondsHint": "e.g., 3000",
-  "recommendedDelayRange": "अनुशंसित: 250-5000ms के लिए most डिवाइस",
-  "enterValidPositiveNumber": "Please दर्ज करें a valid धनात्मक संख्या",
+  "customDelay": "अपना समय तय करें",
+  "delayMillisecondsLabel": "समय (मिलीसेकंड)",
+  "delayMillisecondsHint": "3000",
+  "recommendedDelayRange": "1,000 मिलीसेकंड = 1 सेकंड। डिवाइस को प्रतिक्रिया देने के लिए पर्याप्त समय दें।",
+  "enterValidPositiveNumber": "शून्य से बड़ी पूर्ण संख्या दर्ज करें।",
   "ok": "ठीक है",
   "remote": "रिमोट",
   "macroName": "मैक्रो का नाम",
