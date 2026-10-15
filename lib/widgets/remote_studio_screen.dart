@@ -57,6 +57,7 @@ class _RemoteStudioScreenState extends State<RemoteStudioScreen> {
     final result = await showDialog<bool>(
       context: context,
       builder: (dialogContext) => AlertDialog(
+        scrollable: true,
         title: Text(context.l10n.unsavedChangesTitle),
         content: Text(context.l10n.unsavedRemoteStudioChangesMessage),
         actions: [
@@ -228,25 +229,16 @@ class _RemoteStudioScreenState extends State<RemoteStudioScreen> {
                 final previousGrid = _draft.gridLayout;
                 final removedButton = _draft.removeButtonAt(index);
                 setState(() {});
-                ScaffoldMessenger.of(context).hideCurrentSnackBar();
-                ScaffoldMessenger.of(context).showSnackBar(
-                  SnackBar(
-                    content: Text(context.l10n.buttonRemoved),
-                    action: SnackBarAction(
-                      label: context.l10n.undo,
-                      onPressed: () {
-                        if (!mounted) return;
-                        setState(() {
-                          final restoreAt =
-                              removedIndex.clamp(0, _draft.buttons.length);
-                          _draft.insertButton(restoreAt, removedButton);
-                          _draft.gridLayout = previousGrid?.reconcile(
-                              _draft.buttons.map((button) => button.id));
-                        });
-                      },
-                    ),
-                  ),
-                );
+                _showUndoSnack(context.l10n.buttonRemoved, () {
+                  if (!mounted) return;
+                  setState(() {
+                    final restoreAt =
+                        removedIndex.clamp(0, _draft.buttons.length);
+                    _draft.insertButton(restoreAt, removedButton);
+                    _draft.gridLayout = previousGrid?.reconcile(
+                        _draft.buttons.map((button) => button.id));
+                  });
+                });
               },
             ),
           ],
@@ -291,6 +283,17 @@ class _RemoteStudioScreenState extends State<RemoteStudioScreen> {
       _draft.gridLayout = grid;
       _selectedCell = null;
     });
+    _showUndoSnack(context.l10n.layoutUpdated, () {
+      if (!mounted) return;
+      setState(() {
+        _draft.gridLayout =
+            before?.reconcile(_draft.buttons.map((button) => button.id));
+        _selectedCell = null;
+      });
+    });
+  }
+
+  void _showUndoSnack(String message, VoidCallback onUndo) {
     ScaffoldMessenger.of(context)
       ..hideCurrentSnackBar()
       ..showSnackBar(SnackBar(
@@ -299,19 +302,11 @@ class _RemoteStudioScreenState extends State<RemoteStudioScreen> {
           mainAxisSize: MainAxisSize.min,
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Text(context.l10n.layoutUpdated),
+            Text(message),
             Align(
               alignment: AlignmentDirectional.centerEnd,
               child: SnackBarAction(
-                  label: context.l10n.undo,
-                  onPressed: () {
-                    if (!mounted) return;
-                    setState(() {
-                      _draft.gridLayout = before?.reconcile(
-                          _draft.buttons.map((button) => button.id));
-                      _selectedCell = null;
-                    });
-                  }),
+                  label: context.l10n.undo, onPressed: onUndo),
             ),
           ],
         ),
@@ -794,6 +789,19 @@ class _RemoteStudioScreenState extends State<RemoteStudioScreen> {
   Widget build(BuildContext context) {
     final theme = Theme.of(context);
     final compactPhone = MediaQuery.sizeOf(context).shortestSide < 400;
+    final saveActionWidth = MediaQuery.sizeOf(context).width / 2;
+    var toolbarHeight = kToolbarHeight;
+    if (compactPhone) {
+      final label = TextPainter(
+        text: TextSpan(
+            text: context.l10n.saveAction,
+            style: theme.textTheme.labelLarge),
+        textDirection: Directionality.of(context),
+        textScaler: MediaQuery.textScalerOf(context),
+      )..layout(maxWidth: saveActionWidth - 32);
+      toolbarHeight = (label.height + 16).clamp(kToolbarHeight, double.infinity);
+      label.dispose();
+    }
     final title = _draft.name.trim().isEmpty
         ? context.l10n.untitledRemote
         : _draft.name.trim();
@@ -810,6 +818,7 @@ class _RemoteStudioScreenState extends State<RemoteStudioScreen> {
       },
       child: Scaffold(
         appBar: AppBar(
+          toolbarHeight: compactPhone ? toolbarHeight : null,
           titleSpacing: 0,
           title: compactPhone
               ? InkWell(
@@ -869,9 +878,12 @@ class _RemoteStudioScreenState extends State<RemoteStudioScreen> {
               icon: const Icon(Icons.tune_rounded),
             ),
             if (compactPhone)
-              TextButton(
-                onPressed: _finish,
-                child: Text(context.l10n.saveAction),
+              ConstrainedBox(
+                constraints: BoxConstraints(maxWidth: saveActionWidth),
+                child: TextButton(
+                  onPressed: _finish,
+                  child: Text(context.l10n.saveAction),
+                ),
               )
             else
               TextButton.icon(

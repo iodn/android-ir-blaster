@@ -1493,13 +1493,14 @@ class AppLocalizationsJa extends AppLocalizations {
   String get duplicateAndEditButtonSubtitle => '複製を作成してすぐ編集';
 
   @override
-  String get undoAvailableInNextSnackbar => '次のスナックバーから元に戻せます';
+  String get undoAvailableInNextSnackbar =>
+      '削除後に表示されるメッセージの「元に戻す」をタップすると、ボタンを復元できます。';
 
   @override
-  String get buttonRemoved => 'ボタンを削除しました';
+  String get buttonRemoved => 'ボタンを削除しました。';
 
   @override
-  String get remoteNameCannotBeEmpty => 'リモコン名は空にできません。';
+  String get remoteNameCannotBeEmpty => 'リモコンの名前を入力してください。';
 
   @override
   String get saveRemote => 'リモコンを保存';
@@ -2335,10 +2336,10 @@ class AppLocalizationsJa extends AppLocalizations {
   String get discard => '破棄';
 
   @override
-  String get continueEditing => 'Continue editing';
+  String get continueEditing => '編集を続ける';
 
   @override
-  String get unsavedChangesTitle => 'Unsaved changes';
+  String get unsavedChangesTitle => '未保存の変更';
 
   @override
   String get unsavedMacroChangesMessage =>
@@ -4443,7 +4444,8 @@ class AppLocalizationsJa extends AppLocalizations {
       '新しいリモコンの設定を破棄しますか？変更内容は保存されません。';
 
   @override
-  String get unsavedRemoteStudioChangesMessage => 'リモコンの変更を破棄してこの画面を閉じますか？';
+  String get unsavedRemoteStudioChangesMessage =>
+      'このリモコンの変更を破棄しますか？変更内容は保存されません。';
 
   @override
   String get firstButtonAdded => '最初のボタンを追加しました。';

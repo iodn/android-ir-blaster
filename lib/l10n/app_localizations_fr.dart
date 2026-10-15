@@ -1581,14 +1581,14 @@ class AppLocalizationsFr extends AppLocalizations {
 
   @override
   String get undoAvailableInNextSnackbar =>
-      'Vous pourrez annuler via la prochaine snackbar';
+      'Après le retrait du bouton, appuyez sur Annuler dans le message qui s’affiche.';
 
   @override
   String get buttonRemoved => 'Bouton retiré.';
 
   @override
   String get remoteNameCannotBeEmpty =>
-      'Le nom de la télécommande ne peut pas être vide.';
+      'Saisissez un nom pour la télécommande.';
 
   @override
   String get saveRemote => 'Enregistrer la télécommande';
@@ -2457,13 +2457,13 @@ class AppLocalizationsFr extends AppLocalizations {
   String get proceed => 'Continuer';
 
   @override
-  String get discard => 'Ignorer';
+  String get discard => 'Abandonner';
 
   @override
-  String get continueEditing => 'Continue editing';
+  String get continueEditing => 'Continuer à modifier';
 
   @override
-  String get unsavedChangesTitle => 'Unsaved changes';
+  String get unsavedChangesTitle => 'Modifications non enregistrées';
 
   @override
   String get unsavedMacroChangesMessage =>
@@ -4602,7 +4602,7 @@ class AppLocalizationsFr extends AppLocalizations {
 
   @override
   String get unsavedRemoteStudioChangesMessage =>
-      'Abandonner les modifications de la télécommande et quitter cet écran ?';
+      'Abandonner les modifications de cette télécommande ? Elles ne seront pas enregistrées.';
 
   @override
   String get firstButtonAdded => 'Premier bouton ajouté.';

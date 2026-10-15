@@ -1568,13 +1568,13 @@ class AppLocalizationsRu extends AppLocalizations {
 
   @override
   String get undoAvailableInNextSnackbar =>
-      'Можно отменить из следующего уведомления';
+      'После удаления кнопки нажмите «Отменить» в появившемся сообщении.';
 
   @override
   String get buttonRemoved => 'Кнопка удалена.';
 
   @override
-  String get remoteNameCannotBeEmpty => 'Имя пульта не может быть пустым.';
+  String get remoteNameCannotBeEmpty => 'Введите название пульта.';
 
   @override
   String get saveRemote => 'Сохранить пульт';
@@ -2437,10 +2437,10 @@ class AppLocalizationsRu extends AppLocalizations {
   String get discard => 'Отменить';
 
   @override
-  String get continueEditing => 'Continue editing';
+  String get continueEditing => 'Продолжить редактирование';
 
   @override
-  String get unsavedChangesTitle => 'Unsaved changes';
+  String get unsavedChangesTitle => 'Несохранённые изменения';
 
   @override
   String get unsavedMacroChangesMessage =>
@@ -4565,7 +4565,7 @@ class AppLocalizationsRu extends AppLocalizations {
 
   @override
   String get unsavedRemoteStudioChangesMessage =>
-      'Отменить изменения пульта и выйти с этого экрана?';
+      'Отменить изменения этого пульта? Они не будут сохранены.';
 
   @override
   String get firstButtonAdded => 'Первая кнопка добавлена.';

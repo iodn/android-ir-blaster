@@ -1555,13 +1555,13 @@ class AppLocalizationsVi extends AppLocalizations {
 
   @override
   String get undoAvailableInNextSnackbar =>
-      'Bạn có thể hoàn tác từ snackbar tiếp theo';
+      'Sau khi xóa nút, nhấn Hoàn tác trong thông báo xuất hiện.';
 
   @override
   String get buttonRemoved => 'Đã xóa nút.';
 
   @override
-  String get remoteNameCannotBeEmpty => 'Tên điều khiển không được để trống.';
+  String get remoteNameCannotBeEmpty => 'Nhập tên cho điều khiển.';
 
   @override
   String get saveRemote => 'Lưu điều khiển';
@@ -2419,10 +2419,10 @@ class AppLocalizationsVi extends AppLocalizations {
   String get discard => 'Bỏ';
 
   @override
-  String get continueEditing => 'Continue editing';
+  String get continueEditing => 'Tiếp tục chỉnh sửa';
 
   @override
-  String get unsavedChangesTitle => 'Unsaved changes';
+  String get unsavedChangesTitle => 'Thay đổi chưa lưu';
 
   @override
   String get unsavedMacroChangesMessage =>
@@ -4549,7 +4549,7 @@ class AppLocalizationsVi extends AppLocalizations {
 
   @override
   String get unsavedRemoteStudioChangesMessage =>
-      'Hủy các thay đổi của điều khiển và rời khỏi màn hình?';
+      'Bỏ các thay đổi của điều khiển này? Các thay đổi sẽ không được lưu.';
 
   @override
   String get firstButtonAdded => 'Đã thêm nút đầu tiên.';

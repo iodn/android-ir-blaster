@@ -1590,14 +1590,14 @@ class AppLocalizationsDe extends AppLocalizations {
 
   @override
   String get undoAvailableInNextSnackbar =>
-      'Du kannst dies über die nächste Snackbar rückgängig machen';
+      'Nach dem Entfernen kannst du in der angezeigten Meldung auf Rückgängig tippen.';
 
   @override
   String get buttonRemoved => 'Taste entfernt.';
 
   @override
   String get remoteNameCannotBeEmpty =>
-      'Name der Fernbedienung darf nicht leer sein.';
+      'Gib einen Namen für die Fernbedienung ein.';
 
   @override
   String get saveRemote => 'Fernbedienung speichern';
@@ -2466,10 +2466,10 @@ class AppLocalizationsDe extends AppLocalizations {
   String get discard => 'Verwerfen';
 
   @override
-  String get continueEditing => 'Continue editing';
+  String get continueEditing => 'Weiter bearbeiten';
 
   @override
-  String get unsavedChangesTitle => 'Unsaved changes';
+  String get unsavedChangesTitle => 'Ungespeicherte Änderungen';
 
   @override
   String get unsavedMacroChangesMessage =>
@@ -4600,7 +4600,7 @@ class AppLocalizationsDe extends AppLocalizations {
 
   @override
   String get unsavedRemoteStudioChangesMessage =>
-      'Änderungen an der Fernbedienung verwerfen und diesen Bildschirm verlassen?';
+      'Änderungen an dieser Fernbedienung verwerfen? Sie werden nicht gespeichert.';
 
   @override
   String get firstButtonAdded => 'Erste Taste hinzugefügt.';

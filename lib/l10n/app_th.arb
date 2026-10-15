@@ -407,7 +407,7 @@
       "name": {}
     }
   },
-  "undo": "Undo",
+  "undo": "เลิกทำ",
   "failedToRestoreMacro": "ไม่สำเร็จในการrestore แมโคร.",
   "deleteMacroTitle": "ลบแมโคร",
   "deleteMacroMessage": "คุณยกเลิกได้จาก snackbar ถัดไป",
@@ -498,9 +498,9 @@
   "editButtonSettingsSubtitle": "เปลี่ยนชื่อ สัญญาณ และการตั้งค่าขั้นสูง",
   "createButtonCopySubtitle": "สร้างสำเนาของปุ่มนี้",
   "duplicateAndEditButtonSubtitle": "สร้างสำเนาและแก้ไขทันที",
-  "undoAvailableInNextSnackbar": "คุณยกเลิกได้จาก snackbar ถัดไป",
-  "buttonRemoved": "ลบปุ่มแล้ว",
-  "remoteNameCannotBeEmpty": "ชื่อรีโมตห้ามว่าง",
+  "undoAvailableInNextSnackbar": "หลังจากนำปุ่มออก ให้แตะเลิกทำในข้อความที่ปรากฏเพื่อนำปุ่มกลับมา",
+  "buttonRemoved": "นำปุ่มออกแล้ว",
+  "remoteNameCannotBeEmpty": "กรอกชื่อรีโมต",
   "saveRemote": "บันทึกรีโมต",
   "remoteName": "ชื่อรีโมต",
   "remoteNameHint": "เช่น ทีวีหรือเครื่องปรับอากาศ",
@@ -842,7 +842,7 @@
     }
   },
   "clearAction": "Clear",
-  "saveAction": "Save",
+  "saveAction": "บันทึก",
   "buttonsTitleCount": "ปุ่ม {count}",
   "@buttonsTitleCount": {
     "placeholders": {
@@ -2055,8 +2055,8 @@
   "@globalSearchTypeMacro": {
     "description": "Badge label for a macro search result."
   },
-  "continueEditing": "Continue editing",
-  "unsavedChangesTitle": "Unsaved changes",
+  "continueEditing": "แก้ไขต่อ",
+  "unsavedChangesTitle": "การเปลี่ยนแปลงที่ยังไม่ได้บันทึก",
   "unsavedMacroChangesMessage": "Discard your macro changes and leave this screen?",
   "stopMacroBeforeLeaving": "Stop the macro before leaving this screen.",
   "stopTestingBeforeLeaving": "Stop testing before leaving this screen.",
@@ -2168,7 +2168,7 @@
   "addFirstButton": "เพิ่มปุ่มแรก",
   "moreWaysToStart": "วิธีอื่นในการเพิ่มปุ่ม",
   "unsavedRemoteSetupChangesMessage": "ยกเลิกการตั้งค่ารีโมตใหม่นี้หรือไม่? การเปลี่ยนแปลงจะไม่ถูกบันทึก",
-  "unsavedRemoteStudioChangesMessage": "ละทิ้งการเปลี่ยนแปลงของรีโมตและออกจากหน้านี้หรือไม่?",
+  "unsavedRemoteStudioChangesMessage": "ละทิ้งการเปลี่ยนแปลงของรีโมตนี้หรือไม่? การเปลี่ยนแปลงจะไม่ถูกบันทึก",
   "firstButtonAdded": "เพิ่มปุ่มแรกแล้ว",
   "iconColorTitle": "สีไอคอน",
   "iconColorHelper": "เลือกสีสัญลักษณ์ที่ยังมองเห็นได้ชัดบนพื้นหลังปุ่ม",

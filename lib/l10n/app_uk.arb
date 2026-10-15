@@ -498,9 +498,9 @@
   "editButtonSettingsSubtitle": "Змініть мітку, сигнал і розширені налаштування",
   "createButtonCopySubtitle": "Створіть копію цієї кнопки",
   "duplicateAndEditButtonSubtitle": "Створіть копію та негайно відредагуйте її",
-  "undoAvailableInNextSnackbar": "Ви можете скасувати з наступної панелі завантажень",
-  "buttonRemoved": "Кнопка знята.",
-  "remoteNameCannotBeEmpty": "Назва пульта не може бути порожньою.",
+  "undoAvailableInNextSnackbar": "Після видалення кнопки натисніть «Скасувати» в повідомленні, що з’явиться.",
+  "buttonRemoved": "Кнопку видалено.",
+  "remoteNameCannotBeEmpty": "Введіть назву пульта.",
   "saveRemote": "Зберегти пульт",
   "remoteName": "Назва пульта",
   "remoteNameHint": "Наприклад, телевізор або кондиціонер",
@@ -842,7 +842,7 @@
     }
   },
   "clearAction": "ясно",
-  "saveAction": "зберегти",
+  "saveAction": "Зберегти",
   "buttonsTitleCount": "Кнопки ({count})",
   "@buttonsTitleCount": {
     "placeholders": {
@@ -2055,7 +2055,7 @@
   "@globalSearchTypeMacro": {
     "description": "Badge label for a macro search result."
   },
-  "continueEditing": "Продовжити редагування",
+  "continueEditing": "Редагувати далі",
   "unsavedChangesTitle": "Незбережені зміни",
   "unsavedMacroChangesMessage": "Скасувати зміни макросу та залишити цей екран?",
   "stopMacroBeforeLeaving": "Зупиніть макрос, перш ніж залишити цей екран.",
@@ -2168,7 +2168,7 @@
   "addFirstButton": "Додати першу кнопку",
   "moreWaysToStart": "Інші способи додати кнопки",
   "unsavedRemoteSetupChangesMessage": "Скасувати налаштування нового пульта? Зміни не буде збережено.",
-  "unsavedRemoteStudioChangesMessage": "Скасувати внесені зміни пульта та залишити цей екран?",
+  "unsavedRemoteStudioChangesMessage": "Відкинути зміни цього пульта? Їх не буде збережено.",
   "firstButtonAdded": "Додано першу кнопку.",
   "iconColorTitle": "Колір значка",
   "iconColorHelper": "Виберіть колір символу, який залишатиметься видимим на фоні кнопки.",

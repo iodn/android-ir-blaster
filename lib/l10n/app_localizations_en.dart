@@ -1586,13 +1586,13 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get undoAvailableInNextSnackbar =>
-      'You can undo from the next snackbar';
+      'After removal, tap Undo in the message that appears.';
 
   @override
   String get buttonRemoved => 'Button removed.';
 
   @override
-  String get remoteNameCannotBeEmpty => 'Remote name can\'t be empty.';
+  String get remoteNameCannotBeEmpty => 'Enter a name for the remote.';
 
   @override
   String get saveRemote => 'Save remote';
@@ -4602,7 +4602,7 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get unsavedRemoteStudioChangesMessage =>
-      'Discard your remote changes and leave this screen?';
+      'Discard your changes to this remote? They will not be saved.';
 
   @override
   String get firstButtonAdded => 'First button added.';

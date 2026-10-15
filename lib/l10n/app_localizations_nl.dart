@@ -1592,14 +1592,14 @@ class AppLocalizationsNl extends AppLocalizations {
 
   @override
   String get undoAvailableInNextSnackbar =>
-      'Je kunt dit ongedaan maken via de volgende snackbar';
+      'Tik na het verwijderen op Ongedaan maken in de melding die verschijnt.';
 
   @override
   String get buttonRemoved => 'Knop verwijderd.';
 
   @override
   String get remoteNameCannotBeEmpty =>
-      'Afstandsbediening name can\'t be empty.';
+      'Voer een naam voor de afstandsbediening in.';
 
   @override
   String get saveRemote => 'Opslaan remote';
@@ -2464,10 +2464,10 @@ class AppLocalizationsNl extends AppLocalizations {
   String get discard => 'Verwerpen';
 
   @override
-  String get continueEditing => 'Continue editing';
+  String get continueEditing => 'Verder bewerken';
 
   @override
-  String get unsavedChangesTitle => 'Unsaved changes';
+  String get unsavedChangesTitle => 'Niet-opgeslagen wijzigingen';
 
   @override
   String get unsavedMacroChangesMessage =>
@@ -4598,7 +4598,7 @@ class AppLocalizationsNl extends AppLocalizations {
 
   @override
   String get unsavedRemoteStudioChangesMessage =>
-      'Wijzigingen aan de afstandsbediening verwijderen en dit scherm verlaten?';
+      'Wijzigingen aan deze afstandsbediening verwerpen? Ze worden niet opgeslagen.';
 
   @override
   String get firstButtonAdded => 'Eerste knop toegevoegd.';

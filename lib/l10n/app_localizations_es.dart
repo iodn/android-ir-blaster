@@ -1581,14 +1581,13 @@ class AppLocalizationsEs extends AppLocalizations {
 
   @override
   String get undoAvailableInNextSnackbar =>
-      'Puedes deshacerlo desde el próximo mensaje';
+      'Después de quitar el botón, pulsa Deshacer en el mensaje que aparece.';
 
   @override
   String get buttonRemoved => 'Botón quitado.';
 
   @override
-  String get remoteNameCannotBeEmpty =>
-      'El nombre del mando no puede estar vacío.';
+  String get remoteNameCannotBeEmpty => 'Introduce un nombre para el mando.';
 
   @override
   String get saveRemote => 'Guardar mando';
@@ -2455,10 +2454,10 @@ class AppLocalizationsEs extends AppLocalizations {
   String get discard => 'Descartar';
 
   @override
-  String get continueEditing => 'Continue editing';
+  String get continueEditing => 'Seguir editando';
 
   @override
-  String get unsavedChangesTitle => 'Unsaved changes';
+  String get unsavedChangesTitle => 'Cambios sin guardar';
 
   @override
   String get unsavedMacroChangesMessage =>
@@ -4589,7 +4588,7 @@ class AppLocalizationsEs extends AppLocalizations {
 
   @override
   String get unsavedRemoteStudioChangesMessage =>
-      '¿Descartar los cambios del mando y salir de esta pantalla?';
+      '¿Descartar los cambios de este mando? No se guardarán.';
 
   @override
   String get firstButtonAdded => 'Primer botón añadido.';

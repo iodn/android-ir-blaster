@@ -1368,7 +1368,7 @@ class AppLocalizationsTh extends AppLocalizations {
   }
 
   @override
-  String get undo => 'Undo';
+  String get undo => 'เลิกทำ';
 
   @override
   String get failedToRestoreMacro => 'ไม่สำเร็จในการrestore แมโคร.';
@@ -1550,13 +1550,14 @@ class AppLocalizationsTh extends AppLocalizations {
   String get duplicateAndEditButtonSubtitle => 'สร้างสำเนาและแก้ไขทันที';
 
   @override
-  String get undoAvailableInNextSnackbar => 'คุณยกเลิกได้จาก snackbar ถัดไป';
+  String get undoAvailableInNextSnackbar =>
+      'หลังจากนำปุ่มออก ให้แตะเลิกทำในข้อความที่ปรากฏเพื่อนำปุ่มกลับมา';
 
   @override
-  String get buttonRemoved => 'ลบปุ่มแล้ว';
+  String get buttonRemoved => 'นำปุ่มออกแล้ว';
 
   @override
-  String get remoteNameCannotBeEmpty => 'ชื่อรีโมตห้ามว่าง';
+  String get remoteNameCannotBeEmpty => 'กรอกชื่อรีโมต';
 
   @override
   String get saveRemote => 'บันทึกรีโมต';
@@ -2147,7 +2148,7 @@ class AppLocalizationsTh extends AppLocalizations {
   String get clearAction => 'Clear';
 
   @override
-  String get saveAction => 'Save';
+  String get saveAction => 'บันทึก';
 
   @override
   String buttonsTitleCount(int count) {
@@ -2412,10 +2413,10 @@ class AppLocalizationsTh extends AppLocalizations {
   String get discard => 'ละทิ้ง';
 
   @override
-  String get continueEditing => 'Continue editing';
+  String get continueEditing => 'แก้ไขต่อ';
 
   @override
-  String get unsavedChangesTitle => 'Unsaved changes';
+  String get unsavedChangesTitle => 'การเปลี่ยนแปลงที่ยังไม่ได้บันทึก';
 
   @override
   String get unsavedMacroChangesMessage =>
@@ -4537,7 +4538,7 @@ class AppLocalizationsTh extends AppLocalizations {
 
   @override
   String get unsavedRemoteStudioChangesMessage =>
-      'ละทิ้งการเปลี่ยนแปลงของรีโมตและออกจากหน้านี้หรือไม่?';
+      'ละทิ้งการเปลี่ยนแปลงของรีโมตนี้หรือไม่? การเปลี่ยนแปลงจะไม่ถูกบันทึก';
 
   @override
   String get firstButtonAdded => 'เพิ่มปุ่มแรกแล้ว';

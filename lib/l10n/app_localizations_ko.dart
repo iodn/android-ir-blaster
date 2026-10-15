@@ -1502,13 +1502,14 @@ class AppLocalizationsKo extends AppLocalizations {
   String get duplicateAndEditButtonSubtitle => '복사본을 만들고 바로 편집';
 
   @override
-  String get undoAvailableInNextSnackbar => '다음 스낵바에서 실행 취소할 수 있습니다';
+  String get undoAvailableInNextSnackbar =>
+      '버튼을 제거한 뒤 나타나는 메시지에서 실행 취소를 누르면 복원할 수 있습니다.';
 
   @override
-  String get buttonRemoved => '버튼이 제거되었습니다.';
+  String get buttonRemoved => '버튼을 제거했습니다.';
 
   @override
-  String get remoteNameCannotBeEmpty => '리모컨 이름은 비워 둘 수 없습니다.';
+  String get remoteNameCannotBeEmpty => '리모컨 이름을 입력하세요.';
 
   @override
   String get saveRemote => '저장 리모컨';
@@ -2346,10 +2347,10 @@ class AppLocalizationsKo extends AppLocalizations {
   String get discard => '버리기';
 
   @override
-  String get continueEditing => 'Continue editing';
+  String get continueEditing => '계속 편집';
 
   @override
-  String get unsavedChangesTitle => 'Unsaved changes';
+  String get unsavedChangesTitle => '저장하지 않은 변경 사항';
 
   @override
   String get unsavedMacroChangesMessage =>
@@ -4456,7 +4457,7 @@ class AppLocalizationsKo extends AppLocalizations {
 
   @override
   String get unsavedRemoteStudioChangesMessage =>
-      '리모컨 변경사항을 버리고 이 화면을 나가시겠습니까?';
+      '이 리모컨의 변경 사항을 버릴까요? 변경 사항은 저장되지 않습니다.';
 
   @override
   String get firstButtonAdded => '첫 버튼을 추가했습니다.';

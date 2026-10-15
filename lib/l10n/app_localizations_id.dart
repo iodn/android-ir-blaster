@@ -1569,13 +1569,13 @@ class AppLocalizationsId extends AppLocalizations {
 
   @override
   String get undoAvailableInNextSnackbar =>
-      'Anda bisa membatalkan dari snackbar berikutnya';
+      'Setelah tombol dihapus, ketuk Urungkan pada pesan yang muncul.';
 
   @override
-  String get buttonRemoved => 'Tombol removed.';
+  String get buttonRemoved => 'Tombol dihapus.';
 
   @override
-  String get remoteNameCannotBeEmpty => 'Nama remote tidak boleh kosong.';
+  String get remoteNameCannotBeEmpty => 'Masukkan nama remote.';
 
   @override
   String get saveRemote => 'Simpan remote';
@@ -2436,10 +2436,10 @@ class AppLocalizationsId extends AppLocalizations {
   String get discard => 'Buang';
 
   @override
-  String get continueEditing => 'Continue editing';
+  String get continueEditing => 'Lanjutkan mengedit';
 
   @override
-  String get unsavedChangesTitle => 'Unsaved changes';
+  String get unsavedChangesTitle => 'Perubahan belum disimpan';
 
   @override
   String get unsavedMacroChangesMessage =>
@@ -4565,7 +4565,7 @@ class AppLocalizationsId extends AppLocalizations {
 
   @override
   String get unsavedRemoteStudioChangesMessage =>
-      'Buang perubahan remote dan tinggalkan layar ini?';
+      'Buang perubahan pada remote ini? Perubahan tidak akan disimpan.';
 
   @override
   String get firstButtonAdded => 'Tombol pertama ditambahkan.';

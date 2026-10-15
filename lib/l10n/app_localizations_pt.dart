@@ -1583,14 +1583,13 @@ class AppLocalizationsPt extends AppLocalizations {
 
   @override
   String get undoAvailableInNextSnackbar =>
-      'Pode desfazer isto na próxima mensagem';
+      'Depois de remover o botão, toque em Anular na mensagem apresentada.';
 
   @override
   String get buttonRemoved => 'Botão removido.';
 
   @override
-  String get remoteNameCannotBeEmpty =>
-      'O nome do comando não pode estar vazio.';
+  String get remoteNameCannotBeEmpty => 'Introduza um nome para o comando.';
 
   @override
   String get saveRemote => 'Guardar comando';
@@ -2459,10 +2458,10 @@ class AppLocalizationsPt extends AppLocalizations {
   String get discard => 'Descartar';
 
   @override
-  String get continueEditing => 'Continue editing';
+  String get continueEditing => 'Continuar a editar';
 
   @override
-  String get unsavedChangesTitle => 'Unsaved changes';
+  String get unsavedChangesTitle => 'Alterações por guardar';
 
   @override
   String get unsavedMacroChangesMessage =>
@@ -4595,7 +4594,7 @@ class AppLocalizationsPt extends AppLocalizations {
 
   @override
   String get unsavedRemoteStudioChangesMessage =>
-      'Descartar as alterações do comando e sair deste ecrã?';
+      'Descartar as alterações deste comando? Não serão guardadas.';
 
   @override
   String get firstButtonAdded => 'Primeiro botão adicionado.';
@@ -6674,7 +6673,7 @@ class AppLocalizationsPtBr extends AppLocalizationsPt {
   }
 
   @override
-  String get undo => 'desfazer';
+  String get undo => 'Desfazer';
 
   @override
   String get failedToRestoreMacro => 'Falha ao restaurar a macro.';
@@ -6866,14 +6865,13 @@ class AppLocalizationsPtBr extends AppLocalizationsPt {
 
   @override
   String get undoAvailableInNextSnackbar =>
-      'Você pode desfazer isso na próxima mensagem';
+      'Depois de remover o botão, toque em Desfazer na mensagem que aparecer.';
 
   @override
   String get buttonRemoved => 'Botão removido.';
 
   @override
-  String get remoteNameCannotBeEmpty =>
-      'O nome do controle não pode estar vazio.';
+  String get remoteNameCannotBeEmpty => 'Digite um nome para o controle.';
 
   @override
   String get saveRemote => 'Salvar controle';
@@ -7742,10 +7740,10 @@ class AppLocalizationsPtBr extends AppLocalizationsPt {
   String get discard => 'Descartar';
 
   @override
-  String get continueEditing => 'Continue editing';
+  String get continueEditing => 'Continuar editando';
 
   @override
-  String get unsavedChangesTitle => 'Unsaved changes';
+  String get unsavedChangesTitle => 'Alterações não salvas';
 
   @override
   String get unsavedMacroChangesMessage =>
@@ -9877,7 +9875,7 @@ class AppLocalizationsPtBr extends AppLocalizationsPt {
 
   @override
   String get unsavedRemoteStudioChangesMessage =>
-      'Descartar as alterações do controle e sair desta tela?';
+      'Descartar as alterações deste controle? Elas não serão salvas.';
 
   @override
   String get firstButtonAdded => 'Primeiro botão adicionado.';

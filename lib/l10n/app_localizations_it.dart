@@ -1586,14 +1586,13 @@ class AppLocalizationsIt extends AppLocalizations {
 
   @override
   String get undoAvailableInNextSnackbar =>
-      'Puoi annullare dal prossimo snackbar';
+      'Dopo aver rimosso il pulsante, tocca Annulla nel messaggio che compare.';
 
   @override
   String get buttonRemoved => 'Pulsante rimosso.';
 
   @override
-  String get remoteNameCannotBeEmpty =>
-      'Il nome telecomando non può essere vuoto.';
+  String get remoteNameCannotBeEmpty => 'Inserisci un nome per il telecomando.';
 
   @override
   String get saveRemote => 'Salva telecomando';
@@ -2460,10 +2459,10 @@ class AppLocalizationsIt extends AppLocalizations {
   String get discard => 'Scarta';
 
   @override
-  String get continueEditing => 'Continue editing';
+  String get continueEditing => 'Continua a modificare';
 
   @override
-  String get unsavedChangesTitle => 'Unsaved changes';
+  String get unsavedChangesTitle => 'Modifiche non salvate';
 
   @override
   String get unsavedMacroChangesMessage =>
@@ -4589,7 +4588,7 @@ class AppLocalizationsIt extends AppLocalizations {
 
   @override
   String get unsavedRemoteStudioChangesMessage =>
-      'Vuoi scartare le modifiche al telecomando e lasciare questa schermata?';
+      'Scartare le modifiche a questo telecomando? Non verranno salvate.';
 
   @override
   String get firstButtonAdded => 'Primo pulsante aggiunto.';

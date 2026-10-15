@@ -1617,13 +1617,13 @@ class AppLocalizationsUk extends AppLocalizations {
 
   @override
   String get undoAvailableInNextSnackbar =>
-      'Ви можете скасувати з наступної панелі завантажень';
+      'Після видалення кнопки натисніть «Скасувати» в повідомленні, що з’явиться.';
 
   @override
-  String get buttonRemoved => 'Кнопка знята.';
+  String get buttonRemoved => 'Кнопку видалено.';
 
   @override
-  String get remoteNameCannotBeEmpty => 'Назва пульта не може бути порожньою.';
+  String get remoteNameCannotBeEmpty => 'Введіть назву пульта.';
 
   @override
   String get saveRemote => 'Зберегти пульт';
@@ -2260,7 +2260,7 @@ class AppLocalizationsUk extends AppLocalizations {
   String get clearAction => 'ясно';
 
   @override
-  String get saveAction => 'зберегти';
+  String get saveAction => 'Зберегти';
 
   @override
   String buttonsTitleCount(int count) {
@@ -2529,7 +2529,7 @@ class AppLocalizationsUk extends AppLocalizations {
   String get discard => 'Відкинути';
 
   @override
-  String get continueEditing => 'Продовжити редагування';
+  String get continueEditing => 'Редагувати далі';
 
   @override
   String get unsavedChangesTitle => 'Незбережені зміни';
@@ -4667,7 +4667,7 @@ class AppLocalizationsUk extends AppLocalizations {
 
   @override
   String get unsavedRemoteStudioChangesMessage =>
-      'Скасувати внесені зміни пульта та залишити цей екран?';
+      'Відкинути зміни цього пульта? Їх не буде збережено.';
 
   @override
   String get firstButtonAdded => 'Додано першу кнопку.';

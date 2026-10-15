@@ -53,6 +53,7 @@ class _RemoteSetupScreenState extends State<RemoteSetupScreen> {
     final result = await showDialog<bool>(
       context: context,
       builder: (dialogContext) => AlertDialog(
+        scrollable: true,
         title: Text(context.l10n.unsavedChangesTitle),
         content: Text(context.l10n.unsavedRemoteSetupChangesMessage),
         actions: [

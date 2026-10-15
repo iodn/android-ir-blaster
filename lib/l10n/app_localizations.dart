@@ -2841,7 +2841,7 @@ abstract class AppLocalizations {
   /// No description provided for @undoAvailableInNextSnackbar.
   ///
   /// In en, this message translates to:
-  /// **'You can undo from the next snackbar'**
+  /// **'After removal, tap Undo in the message that appears.'**
   String get undoAvailableInNextSnackbar;
 
   /// No description provided for @buttonRemoved.
@@ -2853,7 +2853,7 @@ abstract class AppLocalizations {
   /// No description provided for @remoteNameCannotBeEmpty.
   ///
   /// In en, this message translates to:
-  /// **'Remote name can\'t be empty.'**
+  /// **'Enter a name for the remote.'**
   String get remoteNameCannotBeEmpty;
 
   /// No description provided for @saveRemote.
@@ -8345,7 +8345,7 @@ abstract class AppLocalizations {
   /// No description provided for @unsavedRemoteStudioChangesMessage.
   ///
   /// In en, this message translates to:
-  /// **'Discard your remote changes and leave this screen?'**
+  /// **'Discard your changes to this remote? They will not be saved.'**
   String get unsavedRemoteStudioChangesMessage;
 
   /// No description provided for @firstButtonAdded.

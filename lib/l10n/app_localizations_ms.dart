@@ -1377,7 +1377,7 @@ class AppLocalizationsMs extends AppLocalizations {
   }
 
   @override
-  String get undo => 'Urungkan';
+  String get undo => 'Buat asal';
 
   @override
   String get failedToRestoreMacro => 'Gagal restore makro.';
@@ -1568,13 +1568,13 @@ class AppLocalizationsMs extends AppLocalizations {
 
   @override
   String get undoAvailableInNextSnackbar =>
-      'Anda boleh membatalkan dari snackbar berikutnya';
+      'Selepas butang dibuang, ketik Buat asal pada mesej yang muncul.';
 
   @override
-  String get buttonRemoved => 'Butang removed.';
+  String get buttonRemoved => 'Butang dibuang.';
 
   @override
-  String get remoteNameCannotBeEmpty => 'Nama remote tidak boleh kosong.';
+  String get remoteNameCannotBeEmpty => 'Masukkan nama alat kawalan jauh.';
 
   @override
   String get saveRemote => 'Simpan remote';
@@ -2431,13 +2431,13 @@ class AppLocalizationsMs extends AppLocalizations {
   String get proceed => 'Lanjut';
 
   @override
-  String get discard => 'Buang';
+  String get discard => 'Abaikan';
 
   @override
-  String get continueEditing => 'Continue editing';
+  String get continueEditing => 'Teruskan menyunting';
 
   @override
-  String get unsavedChangesTitle => 'Unsaved changes';
+  String get unsavedChangesTitle => 'Perubahan belum disimpan';
 
   @override
   String get unsavedMacroChangesMessage =>
@@ -4567,7 +4567,7 @@ class AppLocalizationsMs extends AppLocalizations {
 
   @override
   String get unsavedRemoteStudioChangesMessage =>
-      'Buang perubahan alat kawalan jauh dan tinggalkan skrin ini?';
+      'Abaikan perubahan pada alat kawalan jauh ini? Perubahan tidak akan disimpan.';
 
   @override
   String get firstButtonAdded => 'Butang pertama ditambah.';

@@ -1390,7 +1390,7 @@ class AppLocalizationsFil extends AppLocalizations {
   }
 
   @override
-  String get undo => 'Undo';
+  String get undo => 'Ibalik';
 
   @override
   String get failedToRestoreMacro => 'Nabigong ibalik ang macro.';
@@ -1580,13 +1580,13 @@ class AppLocalizationsFil extends AppLocalizations {
 
   @override
   String get undoAvailableInNextSnackbar =>
-      'You can undo from the next snackbar';
+      'Pagkaalis ng button, i-tap ang Ibalik sa mensaheng lalabas.';
 
   @override
-  String get buttonRemoved => 'Button removed.';
+  String get buttonRemoved => 'Naalis ang button.';
 
   @override
-  String get remoteNameCannotBeEmpty => 'Remote pangalan can\'t be empty.';
+  String get remoteNameCannotBeEmpty => 'Maglagay ng pangalan ng remote.';
 
   @override
   String get saveRemote => 'I-save ang remote';
@@ -2446,13 +2446,13 @@ class AppLocalizationsFil extends AppLocalizations {
   String get proceed => 'Proceed';
 
   @override
-  String get discard => 'Discard';
+  String get discard => 'Alisin';
 
   @override
-  String get continueEditing => 'Continue editing';
+  String get continueEditing => 'Ituloy ang pag-edit';
 
   @override
-  String get unsavedChangesTitle => 'Unsaved changes';
+  String get unsavedChangesTitle => 'Mga pagbabagong hindi pa na-save';
 
   @override
   String get unsavedMacroChangesMessage =>
@@ -4575,7 +4575,7 @@ class AppLocalizationsFil extends AppLocalizations {
 
   @override
   String get unsavedRemoteStudioChangesMessage =>
-      'Itapon ang mga pagbabago sa remote at umalis sa screen na ito?';
+      'Alisin ang mga pagbabago sa remote na ito? Hindi mase-save ang mga ito.';
 
   @override
   String get firstButtonAdded => 'Naidagdag ang unang button.';

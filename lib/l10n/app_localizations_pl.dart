@@ -1613,13 +1613,13 @@ class AppLocalizationsPl extends AppLocalizations {
 
   @override
   String get undoAvailableInNextSnackbar =>
-      'Możesz do cofnąć z następnego paska powiadomienia';
+      'Po usunięciu przycisku dotknij Cofnij w wyświetlonym komunikacie.';
 
   @override
-  String get buttonRemoved => 'Przycisk usunięty.';
+  String get buttonRemoved => 'Usunięto przycisk.';
 
   @override
-  String get remoteNameCannotBeEmpty => 'Nazwa pilota nie może być pusta.';
+  String get remoteNameCannotBeEmpty => 'Wpisz nazwę pilota.';
 
   @override
   String get saveRemote => 'Zapisz pilot';
@@ -2520,10 +2520,10 @@ class AppLocalizationsPl extends AppLocalizations {
   String get discard => 'Odrzuć';
 
   @override
-  String get continueEditing => 'Continue editing';
+  String get continueEditing => 'Edytuj dalej';
 
   @override
-  String get unsavedChangesTitle => 'Unsaved changes';
+  String get unsavedChangesTitle => 'Niezapisane zmiany';
 
   @override
   String get unsavedMacroChangesMessage =>
@@ -4654,7 +4654,7 @@ class AppLocalizationsPl extends AppLocalizations {
 
   @override
   String get unsavedRemoteStudioChangesMessage =>
-      'Odrzucić zmiany pilota i opuścić ten ekran?';
+      'Odrzucić zmiany w tym pilocie? Nie zostaną zapisane.';
 
   @override
   String get firstButtonAdded => 'Dodano pierwszy przycisk.';

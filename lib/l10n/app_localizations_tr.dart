@@ -1378,7 +1378,7 @@ class AppLocalizationsTr extends AppLocalizations {
   }
 
   @override
-  String get undo => 'Undo';
+  String get undo => 'Geri al';
 
   @override
   String get failedToRestoreMacro => 'Başarısız to geri yükle macro.';
@@ -1568,13 +1568,13 @@ class AppLocalizationsTr extends AppLocalizations {
 
   @override
   String get undoAvailableInNextSnackbar =>
-      'Bir sonraki alt bildirimden geri alabilirsiniz';
+      'Düğmeyi kaldırdıktan sonra çıkan mesajda Geri al seçeneğine dokunabilirsiniz.';
 
   @override
-  String get buttonRemoved => 'Düğme removed.';
+  String get buttonRemoved => 'Düğme kaldırıldı.';
 
   @override
-  String get remoteNameCannotBeEmpty => 'Kumanda name can\'t be empty.';
+  String get remoteNameCannotBeEmpty => 'Kumanda için bir ad girin.';
 
   @override
   String get saveRemote => 'Kaydet kumanda';
@@ -2430,13 +2430,13 @@ class AppLocalizationsTr extends AppLocalizations {
   String get proceed => 'Proceed';
 
   @override
-  String get discard => 'Discard';
+  String get discard => 'Vazgeç';
 
   @override
-  String get continueEditing => 'Continue editing';
+  String get continueEditing => 'Düzenlemeye devam et';
 
   @override
-  String get unsavedChangesTitle => 'Unsaved changes';
+  String get unsavedChangesTitle => 'Kaydedilmemiş değişiklikler';
 
   @override
   String get unsavedMacroChangesMessage =>
@@ -4562,7 +4562,7 @@ class AppLocalizationsTr extends AppLocalizations {
 
   @override
   String get unsavedRemoteStudioChangesMessage =>
-      'Kumanda değişikliklerini silip bu ekrandan çıkmak istiyor musunuz?';
+      'Bu kumandadaki değişiklikler silinsin mi? Değişiklikler kaydedilmeyecek.';
 
   @override
   String get firstButtonAdded => 'İlk düğme eklendi.';

@@ -1454,13 +1454,13 @@ class AppLocalizationsZh extends AppLocalizations {
   String get duplicateAndEditButtonSubtitle => '创建副本并立即编辑';
 
   @override
-  String get undoAvailableInNextSnackbar => '你可以在接下来的提示条中撤销';
+  String get undoAvailableInNextSnackbar => '移除按钮后，点击提示消息中的“撤销”即可恢复。';
 
   @override
-  String get buttonRemoved => '按钮已移除。';
+  String get buttonRemoved => '已移除按钮。';
 
   @override
-  String get remoteNameCannotBeEmpty => '遥控器名称不能为空。';
+  String get remoteNameCannotBeEmpty => '请输入遥控器名称。';
 
   @override
   String get saveRemote => '保存遥控器';
@@ -2281,13 +2281,13 @@ class AppLocalizationsZh extends AppLocalizations {
   String get proceed => '继续';
 
   @override
-  String get discard => '丢弃';
+  String get discard => '放弃';
 
   @override
-  String get continueEditing => 'Continue editing';
+  String get continueEditing => '继续编辑';
 
   @override
-  String get unsavedChangesTitle => 'Unsaved changes';
+  String get unsavedChangesTitle => '未保存的更改';
 
   @override
   String get unsavedMacroChangesMessage =>
@@ -4381,7 +4381,7 @@ class AppLocalizationsZh extends AppLocalizations {
   String get unsavedRemoteSetupChangesMessage => '放弃设置新遥控器吗？更改将不会保存。';
 
   @override
-  String get unsavedRemoteStudioChangesMessage => '要放弃遥控器更改并离开此页面吗？';
+  String get unsavedRemoteStudioChangesMessage => '放弃对此遥控器的更改吗？更改将不会保存。';
 
   @override
   String get firstButtonAdded => '已添加第一个按钮。';

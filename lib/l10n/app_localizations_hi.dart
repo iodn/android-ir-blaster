@@ -1565,13 +1565,13 @@ class AppLocalizationsHi extends AppLocalizations {
 
   @override
   String get undoAvailableInNextSnackbar =>
-      'You सकता है पूर्ववत करें से the अगला snackbar';
+      'बटन हटाने के बाद दिखने वाले संदेश में पूर्ववत करें पर टैप करके उसे वापस ला सकते हैं।';
 
   @override
-  String get buttonRemoved => 'बटन हटाया गया.';
+  String get buttonRemoved => 'बटन हटा दिया गया।';
 
   @override
-  String get remoteNameCannotBeEmpty => 'रिमोट नाम सकता है\'t हो empty.';
+  String get remoteNameCannotBeEmpty => 'रिमोट का नाम दर्ज करें।';
 
   @override
   String get saveRemote => 'सहेजें रिमोट';
@@ -2426,13 +2426,13 @@ class AppLocalizationsHi extends AppLocalizations {
   String get proceed => 'Proceed';
 
   @override
-  String get discard => 'Discard';
+  String get discard => 'छोड़ दें';
 
   @override
-  String get continueEditing => 'Continue editing';
+  String get continueEditing => 'संपादन जारी रखें';
 
   @override
-  String get unsavedChangesTitle => 'Unsaved changes';
+  String get unsavedChangesTitle => 'बदलाव सहेजे नहीं गए';
 
   @override
   String get unsavedMacroChangesMessage =>
@@ -4557,7 +4557,7 @@ class AppLocalizationsHi extends AppLocalizations {
 
   @override
   String get unsavedRemoteStudioChangesMessage =>
-      'क्या रिमोट के बदलाव छोड़कर इस स्क्रीन से बाहर निकलना है?';
+      'इस रिमोट के बदलाव छोड़ दें? ये बदलाव सहेजे नहीं जाएंगे।';
 
   @override
   String get firstButtonAdded => 'पहला बटन जोड़ दिया गया।';

@@ -1361,7 +1361,7 @@ class AppLocalizationsAr extends AppLocalizations {
   }
 
   @override
-  String get undo => 'Undo';
+  String get undo => 'تراجع';
 
   @override
   String get failedToRestoreMacro => 'فشل استعادة الماكرو.';
@@ -1547,13 +1547,14 @@ class AppLocalizationsAr extends AppLocalizations {
   String get duplicateAndEditButtonSubtitle => 'أنشئ نسخة وعدلها فوراً';
 
   @override
-  String get undoAvailableInNextSnackbar => 'يمكنك التراجع من الشريط التالي';
+  String get undoAvailableInNextSnackbar =>
+      'بعد إزالة الزر، اضغط على تراجع في الرسالة التي تظهر.';
 
   @override
-  String get buttonRemoved => 'زر removed.';
+  String get buttonRemoved => 'تمت إزالة الزر.';
 
   @override
-  String get remoteNameCannotBeEmpty => 'جهاز التحكم name can\'t be empty.';
+  String get remoteNameCannotBeEmpty => 'أدخل اسماً لجهاز التحكم.';
 
   @override
   String get saveRemote => 'حفظ جهاز التحكم';
@@ -2407,13 +2408,13 @@ class AppLocalizationsAr extends AppLocalizations {
   String get proceed => 'Proceed';
 
   @override
-  String get discard => 'Discard';
+  String get discard => 'تجاهل';
 
   @override
-  String get continueEditing => 'Continue editing';
+  String get continueEditing => 'متابعة التعديل';
 
   @override
-  String get unsavedChangesTitle => 'Unsaved changes';
+  String get unsavedChangesTitle => 'تغييرات غير محفوظة';
 
   @override
   String get unsavedMacroChangesMessage =>
@@ -4535,7 +4536,7 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String get unsavedRemoteStudioChangesMessage =>
-      'هل تريد تجاهل تغييرات الريموت ومغادرة هذه الشاشة؟';
+      'هل تريد تجاهل تغييرات جهاز التحكم؟ لن تُحفظ هذه التغييرات.';
 
   @override
   String get firstButtonAdded => 'تمت إضافة الزر الأول.';
@@ -6576,7 +6577,7 @@ class AppLocalizationsArEg extends AppLocalizationsAr {
   }
 
   @override
-  String get undo => 'Undo';
+  String get undo => 'تراجع';
 
   @override
   String get failedToRestoreMacro => 'فشل استعادة الماكرو.';
@@ -6762,13 +6763,14 @@ class AppLocalizationsArEg extends AppLocalizationsAr {
   String get duplicateAndEditButtonSubtitle => 'أنشئ نسخة وعدلها فوراً';
 
   @override
-  String get undoAvailableInNextSnackbar => 'يمكنك التراجع من الشريط التالي';
+  String get undoAvailableInNextSnackbar =>
+      'بعد إزالة الزر، اضغط على تراجع في الرسالة اللي هتظهر.';
 
   @override
-  String get buttonRemoved => 'زر removed.';
+  String get buttonRemoved => 'تمت إزالة الزر.';
 
   @override
-  String get remoteNameCannotBeEmpty => 'جهاز التحكم name can\'t be empty.';
+  String get remoteNameCannotBeEmpty => 'اكتب اسم للريموت.';
 
   @override
   String get saveRemote => 'حفظ جهاز التحكم';
@@ -7622,13 +7624,13 @@ class AppLocalizationsArEg extends AppLocalizationsAr {
   String get proceed => 'Proceed';
 
   @override
-  String get discard => 'Discard';
+  String get discard => 'تجاهل';
 
   @override
-  String get continueEditing => 'Continue editing';
+  String get continueEditing => 'كمّل التعديل';
 
   @override
-  String get unsavedChangesTitle => 'Unsaved changes';
+  String get unsavedChangesTitle => 'تغييرات مش محفوظة';
 
   @override
   String get unsavedMacroChangesMessage =>
@@ -9749,7 +9751,7 @@ class AppLocalizationsArEg extends AppLocalizationsAr {
 
   @override
   String get unsavedRemoteStudioChangesMessage =>
-      'هل تريد تجاهل تغييرات الريموت ومغادرة هذه الشاشة؟';
+      'تتجاهل تغييرات الريموت؟ التغييرات دي مش هتتحفظ.';
 
   @override
   String get firstButtonAdded => 'تمت إضافة الزر الأول.';

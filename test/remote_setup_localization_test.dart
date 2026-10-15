@@ -80,6 +80,18 @@ void main() {
       await tester.tap(find.byType(BackButton));
       await tester.pumpAndSettle();
       expect(find.text(l10n.unsavedRemoteSetupChangesMessage), findsOneWidget);
+      for (final label in [
+        l10n.unsavedChangesTitle,
+        l10n.unsavedRemoteSetupChangesMessage,
+        l10n.continueEditing,
+        l10n.discard
+      ]) {
+        final paragraph =
+            tester.renderObject<RenderParagraph>(find.text(label));
+        expect(paragraph.getMaxIntrinsicHeight(paragraph.size.width),
+            lessThanOrEqualTo(paragraph.size.height + 0.1),
+            reason: label);
+      }
       expect(tester.takeException(), isNull);
       await tester.tap(find.text(l10n.discard));
       await tester.pumpAndSettle();
