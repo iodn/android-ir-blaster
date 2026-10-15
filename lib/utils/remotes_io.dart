@@ -289,7 +289,7 @@ Future<void> exportRemotesToDownloads(
     final tempFile = File(tempPath);
     await tempFile.writeAsString(jsonString, flush: true);
 
-    await mediaStore.saveFile(
+    final saved = await mediaStore.saveFile(
       tempFilePath: tempPath,
       dirType: DirType.download,
       dirName: DirName.download,
@@ -298,6 +298,8 @@ Future<void> exportRemotesToDownloads(
     try {
       await tempFile.delete();
     } catch (_) {}
+
+    if (saved == null) throw StateError('MediaStore did not confirm the export');
 
     if (!context.mounted) return;
     ScaffoldMessenger.of(context).showSnackBar(

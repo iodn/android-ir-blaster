@@ -148,7 +148,7 @@ Future<void> exportMacrosToDownloads(
     final tempFile = File(tempPath);
     await tempFile.writeAsString(jsonString, flush: true);
 
-    await mediaStore.saveFile(
+    final saved = await mediaStore.saveFile(
       tempFilePath: tempPath,
       dirType: DirType.download,
       dirName: DirName.download,
@@ -157,6 +157,8 @@ Future<void> exportMacrosToDownloads(
     try {
       await tempFile.delete();
     } catch (_) {}
+
+    if (saved == null) throw StateError('MediaStore did not confirm the export');
 
     if (!context.mounted) return;
     ScaffoldMessenger.of(context).showSnackBar(
