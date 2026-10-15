@@ -5242,4 +5242,22 @@ class AppLocalizationsTh extends AppLocalizations {
 
   @override
   String get githubImportContinueBrowsing => 'ค้นหาต่อ';
+
+  @override
+  String get githubFilePreview => 'ตัวอย่างไฟล์';
+
+  @override
+  String get githubWrapLines => 'ตัดบรรทัดที่ยาวให้พอดีจอ';
+
+  @override
+  String get githubUnwrapLines => 'ปิดการตัดบรรทัดอัตโนมัติ';
+
+  @override
+  String get githubImportNewRemote => 'นำเข้าเป็นรีโมตใหม่';
+
+  @override
+  String get githubImportNewRemotes => 'นำเข้าเป็นรีโมตใหม่';
+
+  @override
+  String get githubImportIntoRemote => 'เพิ่มปุ่มในรีโมตที่บันทึกไว้';
 }

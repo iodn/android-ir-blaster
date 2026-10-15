@@ -2434,5 +2434,11 @@
   "githubImportNextStep": "Kumandayı açabilir veya GitHub'a göz atmaya devam edebilirsiniz.",
   "githubImportRemoteCount": "İçe aktarılan kumanda sayısı: {count}.",
   "githubImportOpenRemote": "Kumandayı aç",
-  "githubImportContinueBrowsing": "Göz atmaya devam et"
+  "githubImportContinueBrowsing": "Göz atmaya devam et",
+  "githubFilePreview": "Dosya önizlemesi",
+  "githubWrapLines": "Uzun satırları kaydır",
+  "githubUnwrapLines": "Satır kaydırmayı kapat",
+  "githubImportNewRemote": "Yeni kumanda olarak içe aktar",
+  "githubImportNewRemotes": "Yeni kumandalar olarak içe aktar",
+  "githubImportIntoRemote": "Kayıtlı kumandaya düğme ekle"
 }

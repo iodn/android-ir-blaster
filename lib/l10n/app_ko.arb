@@ -2434,5 +2434,11 @@
   "githubImportNextStep": "리모컨을 열거나 GitHub에서 계속 찾아볼 수 있습니다.",
   "githubImportRemoteCount": "리모컨 {count}개를 가져왔습니다.",
   "githubImportOpenRemote": "리모컨 열기",
-  "githubImportContinueBrowsing": "계속 둘러보기"
+  "githubImportContinueBrowsing": "계속 둘러보기",
+  "githubFilePreview": "파일 미리보기",
+  "githubWrapLines": "긴 줄 자동 줄바꿈",
+  "githubUnwrapLines": "자동 줄바꿈 끄기",
+  "githubImportNewRemote": "새 리모컨으로 가져오기",
+  "githubImportNewRemotes": "새 리모컨으로 가져오기",
+  "githubImportIntoRemote": "저장된 리모컨에 버튼 추가"
 }

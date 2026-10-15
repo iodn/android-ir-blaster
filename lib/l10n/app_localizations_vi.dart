@@ -5265,4 +5265,22 @@ class AppLocalizationsVi extends AppLocalizations {
 
   @override
   String get githubImportContinueBrowsing => 'Tiếp tục tìm';
+
+  @override
+  String get githubFilePreview => 'Xem trước tệp';
+
+  @override
+  String get githubWrapLines => 'Tự xuống dòng khi quá dài';
+
+  @override
+  String get githubUnwrapLines => 'Tắt tự động xuống dòng';
+
+  @override
+  String get githubImportNewRemote => 'Nhập thành điều khiển mới';
+
+  @override
+  String get githubImportNewRemotes => 'Nhập thành các điều khiển mới';
+
+  @override
+  String get githubImportIntoRemote => 'Thêm nút vào điều khiển đã lưu';
 }

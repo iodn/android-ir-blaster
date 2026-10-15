@@ -2420,5 +2420,11 @@
   "githubImportNextStep": "Du kannst die Fernbedienung jetzt öffnen oder weiter auf GitHub stöbern.",
   "githubImportRemoteCount": "Importierte Fernbedienungen: {count}.",
   "githubImportOpenRemote": "Fernbedienung öffnen",
-  "githubImportContinueBrowsing": "Weiter stöbern"
+  "githubImportContinueBrowsing": "Weiter stöbern",
+  "githubFilePreview": "Dateivorschau",
+  "githubWrapLines": "Lange Zeilen umbrechen",
+  "githubUnwrapLines": "Zeilenumbruch ausschalten",
+  "githubImportNewRemote": "Als neue Fernbedienung importieren",
+  "githubImportNewRemotes": "Als neue Fernbedienungen importieren",
+  "githubImportIntoRemote": "Tasten zu gespeicherter Fernbedienung hinzufügen"
 }

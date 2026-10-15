@@ -9517,6 +9517,42 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Keep browsing'**
   String get githubImportContinueBrowsing;
+
+  /// No description provided for @githubFilePreview.
+  ///
+  /// In en, this message translates to:
+  /// **'File preview'**
+  String get githubFilePreview;
+
+  /// No description provided for @githubWrapLines.
+  ///
+  /// In en, this message translates to:
+  /// **'Wrap long lines'**
+  String get githubWrapLines;
+
+  /// No description provided for @githubUnwrapLines.
+  ///
+  /// In en, this message translates to:
+  /// **'Turn off line wrapping'**
+  String get githubUnwrapLines;
+
+  /// No description provided for @githubImportNewRemote.
+  ///
+  /// In en, this message translates to:
+  /// **'Import as new remote'**
+  String get githubImportNewRemote;
+
+  /// No description provided for @githubImportNewRemotes.
+  ///
+  /// In en, this message translates to:
+  /// **'Import as new remotes'**
+  String get githubImportNewRemotes;
+
+  /// No description provided for @githubImportIntoRemote.
+  ///
+  /// In en, this message translates to:
+  /// **'Add buttons to saved remote'**
+  String get githubImportIntoRemote;
 }
 
 class _AppLocalizationsDelegate

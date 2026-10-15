@@ -2434,5 +2434,11 @@
   "githubImportNextStep": "Откройте пульт или продолжите поиск на GitHub.",
   "githubImportRemoteCount": "Импортировано пультов: {count}.",
   "githubImportOpenRemote": "Открыть пульт",
-  "githubImportContinueBrowsing": "Продолжить поиск"
+  "githubImportContinueBrowsing": "Продолжить поиск",
+  "githubFilePreview": "Просмотр файла",
+  "githubWrapLines": "Переносить длинные строки",
+  "githubUnwrapLines": "Отключить перенос строк",
+  "githubImportNewRemote": "Импортировать как новый пульт",
+  "githubImportNewRemotes": "Импортировать как новые пульты",
+  "githubImportIntoRemote": "Добавить кнопки в сохранённый пульт"
 }

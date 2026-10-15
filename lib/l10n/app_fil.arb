@@ -2434,5 +2434,11 @@
   "githubImportNextStep": "Maaari mong buksan ang remote o maghanap pa sa GitHub.",
   "githubImportRemoteCount": "Mga remote na na-import: {count}.",
   "githubImportOpenRemote": "Buksan ang remote",
-  "githubImportContinueBrowsing": "Maghanap pa"
+  "githubImportContinueBrowsing": "Maghanap pa",
+  "githubFilePreview": "Nilalaman ng file",
+  "githubWrapLines": "I-wrap ang mahahabang linya",
+  "githubUnwrapLines": "Huwag i-wrap ang mga linya",
+  "githubImportNewRemote": "I-import bilang bagong remote",
+  "githubImportNewRemotes": "I-import bilang mga bagong remote",
+  "githubImportIntoRemote": "Idagdag ang mga button sa naka-save na remote"
 }

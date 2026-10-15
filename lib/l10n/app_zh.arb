@@ -2434,5 +2434,11 @@
   "githubImportNextStep": "现在可以打开遥控器，也可以继续浏览 GitHub。",
   "githubImportRemoteCount": "已导入 {count} 个遥控器。",
   "githubImportOpenRemote": "打开遥控器",
-  "githubImportContinueBrowsing": "继续浏览"
+  "githubImportContinueBrowsing": "继续浏览",
+  "githubFilePreview": "文件预览",
+  "githubWrapLines": "自动折行",
+  "githubUnwrapLines": "关闭自动折行",
+  "githubImportNewRemote": "导入为新遥控器",
+  "githubImportNewRemotes": "导入为新遥控器",
+  "githubImportIntoRemote": "将按钮添加到已保存的遥控器"
 }

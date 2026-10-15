@@ -5374,4 +5374,23 @@ class AppLocalizationsDe extends AppLocalizations {
 
   @override
   String get githubImportContinueBrowsing => 'Weiter stöbern';
+
+  @override
+  String get githubFilePreview => 'Dateivorschau';
+
+  @override
+  String get githubWrapLines => 'Lange Zeilen umbrechen';
+
+  @override
+  String get githubUnwrapLines => 'Zeilenumbruch ausschalten';
+
+  @override
+  String get githubImportNewRemote => 'Als neue Fernbedienung importieren';
+
+  @override
+  String get githubImportNewRemotes => 'Als neue Fernbedienungen importieren';
+
+  @override
+  String get githubImportIntoRemote =>
+      'Tasten zu gespeicherter Fernbedienung hinzufügen';
 }

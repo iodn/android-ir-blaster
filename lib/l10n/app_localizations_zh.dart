@@ -5043,4 +5043,22 @@ class AppLocalizationsZh extends AppLocalizations {
 
   @override
   String get githubImportContinueBrowsing => '继续浏览';
+
+  @override
+  String get githubFilePreview => '文件预览';
+
+  @override
+  String get githubWrapLines => '自动折行';
+
+  @override
+  String get githubUnwrapLines => '关闭自动折行';
+
+  @override
+  String get githubImportNewRemote => '导入为新遥控器';
+
+  @override
+  String get githubImportNewRemotes => '导入为新遥控器';
+
+  @override
+  String get githubImportIntoRemote => '将按钮添加到已保存的遥控器';
 }

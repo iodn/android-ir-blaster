@@ -2434,5 +2434,11 @@
   "githubImportNextStep": "يمكنك فتح الريموت الآن أو متابعة التصفح في GitHub.",
   "githubImportRemoteCount": "الريموتات المستوردة: {count}.",
   "githubImportOpenRemote": "فتح الريموت",
-  "githubImportContinueBrowsing": "متابعة التصفح"
+  "githubImportContinueBrowsing": "متابعة التصفح",
+  "githubFilePreview": "محتوى الملف",
+  "githubWrapLines": "التفاف السطور الطويلة",
+  "githubUnwrapLines": "عرض السطور بدون التفاف",
+  "githubImportNewRemote": "استيراد كريموت جديد",
+  "githubImportNewRemotes": "استيراد كريموتات جديدة",
+  "githubImportIntoRemote": "إضافة الأزرار لريموت محفوظ"
 }

@@ -5300,4 +5300,23 @@ class AppLocalizationsFil extends AppLocalizations {
 
   @override
   String get githubImportContinueBrowsing => 'Maghanap pa';
+
+  @override
+  String get githubFilePreview => 'Nilalaman ng file';
+
+  @override
+  String get githubWrapLines => 'I-wrap ang mahahabang linya';
+
+  @override
+  String get githubUnwrapLines => 'Huwag i-wrap ang mga linya';
+
+  @override
+  String get githubImportNewRemote => 'I-import bilang bagong remote';
+
+  @override
+  String get githubImportNewRemotes => 'I-import bilang mga bagong remote';
+
+  @override
+  String get githubImportIntoRemote =>
+      'Idagdag ang mga button sa naka-save na remote';
 }

@@ -5370,4 +5370,24 @@ class AppLocalizationsNl extends AppLocalizations {
 
   @override
   String get githubImportContinueBrowsing => 'Verder zoeken';
+
+  @override
+  String get githubFilePreview => 'Bestandsvoorbeeld';
+
+  @override
+  String get githubWrapLines => 'Lange regels afbreken';
+
+  @override
+  String get githubUnwrapLines => 'Regelafbreking uitschakelen';
+
+  @override
+  String get githubImportNewRemote => 'Als nieuwe afstandsbediening importeren';
+
+  @override
+  String get githubImportNewRemotes =>
+      'Als nieuwe afstandsbedieningen importeren';
+
+  @override
+  String get githubImportIntoRemote =>
+      'Knoppen aan opgeslagen afstandsbediening toevoegen';
 }

@@ -5426,4 +5426,22 @@ class AppLocalizationsUk extends AppLocalizations {
 
   @override
   String get githubImportContinueBrowsing => 'Продовжити пошук';
+
+  @override
+  String get githubFilePreview => 'Перегляд файлу';
+
+  @override
+  String get githubWrapLines => 'Переносити довгі рядки';
+
+  @override
+  String get githubUnwrapLines => 'Вимкнути перенесення рядків';
+
+  @override
+  String get githubImportNewRemote => 'Імпортувати як новий пульт';
+
+  @override
+  String get githubImportNewRemotes => 'Імпортувати як нові пульти';
+
+  @override
+  String get githubImportIntoRemote => 'Додати кнопки до збереженого пульта';
 }

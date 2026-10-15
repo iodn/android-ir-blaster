@@ -2434,5 +2434,11 @@
   "githubImportNextStep": "Buka alat kawalan jauh sekarang atau teruskan carian di GitHub.",
   "githubImportRemoteCount": "Alat kawalan jauh yang diimport: {count}.",
   "githubImportOpenRemote": "Buka alat kawalan jauh",
-  "githubImportContinueBrowsing": "Teruskan carian"
+  "githubImportContinueBrowsing": "Teruskan carian",
+  "githubFilePreview": "Pratonton fail",
+  "githubWrapLines": "Balut baris panjang",
+  "githubUnwrapLines": "Matikan balutan baris",
+  "githubImportNewRemote": "Import sebagai alat kawalan jauh baharu",
+  "githubImportNewRemotes": "Import sebagai alat kawalan jauh baharu",
+  "githubImportIntoRemote": "Tambah butang ke alat kawalan jauh tersimpan"
 }

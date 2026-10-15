@@ -2434,5 +2434,11 @@
   "githubImportNextStep": "Bạn có thể mở điều khiển hoặc tiếp tục tìm trên GitHub.",
   "githubImportRemoteCount": "Đã nhập {count} điều khiển.",
   "githubImportOpenRemote": "Mở điều khiển",
-  "githubImportContinueBrowsing": "Tiếp tục tìm"
+  "githubImportContinueBrowsing": "Tiếp tục tìm",
+  "githubFilePreview": "Xem trước tệp",
+  "githubWrapLines": "Tự xuống dòng khi quá dài",
+  "githubUnwrapLines": "Tắt tự động xuống dòng",
+  "githubImportNewRemote": "Nhập thành điều khiển mới",
+  "githubImportNewRemotes": "Nhập thành các điều khiển mới",
+  "githubImportIntoRemote": "Thêm nút vào điều khiển đã lưu"
 }

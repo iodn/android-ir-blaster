@@ -1227,14 +1227,16 @@ class _GitHubFileImportScreenState extends State<_GitHubFileImportScreen> {
                         children: [
                           Expanded(
                             child: Text(
-                              'File preview',
+                              context.l10n.githubFilePreview,
                               style: theme.textTheme.titleSmall?.copyWith(
                                 fontWeight: FontWeight.w800,
                               ),
                             ),
                           ),
                           IconButton(
-                            tooltip: _wrap ? 'Disable wrap' : 'Enable wrap',
+                            tooltip: _wrap
+                                ? context.l10n.githubUnwrapLines
+                                : context.l10n.githubWrapLines,
                             onPressed: () => setState(() => _wrap = !_wrap),
                             icon: Icon(
                               _wrap
@@ -1268,8 +1270,8 @@ class _GitHubFileImportScreenState extends State<_GitHubFileImportScreen> {
                 icon: const Icon(Icons.add_box_outlined),
                 label: Text(
                   preview.remotes.length == 1
-                      ? 'Create new remote'
-                      : 'Create new remotes',
+                      ? context.l10n.githubImportNewRemote
+                      : context.l10n.githubImportNewRemotes,
                 ),
               ),
               const SizedBox(height: 12),
@@ -1278,7 +1280,7 @@ class _GitHubFileImportScreenState extends State<_GitHubFileImportScreen> {
                     ? null
                     : () => _saveIntoExisting(parsed),
                 icon: const Icon(Icons.playlist_add_rounded),
-                label: const Text('Add buttons to existing remote'),
+                label: Text(context.l10n.githubImportIntoRemote),
               ),
             ],
           );

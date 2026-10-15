@@ -5367,4 +5367,23 @@ class AppLocalizationsIt extends AppLocalizations {
 
   @override
   String get githubImportContinueBrowsing => 'Continua a esplorare';
+
+  @override
+  String get githubFilePreview => 'Anteprima del file';
+
+  @override
+  String get githubWrapLines => 'Vai a capo nelle righe lunghe';
+
+  @override
+  String get githubUnwrapLines => 'Disattiva l’a capo automatico';
+
+  @override
+  String get githubImportNewRemote => 'Importa come nuovo telecomando';
+
+  @override
+  String get githubImportNewRemotes => 'Importa come nuovi telecomandi';
+
+  @override
+  String get githubImportIntoRemote =>
+      'Aggiungi pulsanti a un telecomando salvato';
 }

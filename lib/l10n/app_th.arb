@@ -2434,5 +2434,11 @@
   "githubImportNextStep": "เปิดรีโมตได้เลย หรือค้นหาต่อใน GitHub",
   "githubImportRemoteCount": "นำเข้ารีโมตแล้ว {count} รายการ",
   "githubImportOpenRemote": "เปิดรีโมต",
-  "githubImportContinueBrowsing": "ค้นหาต่อ"
+  "githubImportContinueBrowsing": "ค้นหาต่อ",
+  "githubFilePreview": "ตัวอย่างไฟล์",
+  "githubWrapLines": "ตัดบรรทัดที่ยาวให้พอดีจอ",
+  "githubUnwrapLines": "ปิดการตัดบรรทัดอัตโนมัติ",
+  "githubImportNewRemote": "นำเข้าเป็นรีโมตใหม่",
+  "githubImportNewRemotes": "นำเข้าเป็นรีโมตใหม่",
+  "githubImportIntoRemote": "เพิ่มปุ่มในรีโมตที่บันทึกไว้"
 }

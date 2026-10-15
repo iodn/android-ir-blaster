@@ -2434,5 +2434,11 @@
   "githubImportNextStep": "Puoi aprire il telecomando o continuare a esplorare GitHub.",
   "githubImportRemoteCount": "Telecomandi importati: {count}.",
   "githubImportOpenRemote": "Apri telecomando",
-  "githubImportContinueBrowsing": "Continua a esplorare"
+  "githubImportContinueBrowsing": "Continua a esplorare",
+  "githubFilePreview": "Anteprima del file",
+  "githubWrapLines": "Vai a capo nelle righe lunghe",
+  "githubUnwrapLines": "Disattiva l’a capo automatico",
+  "githubImportNewRemote": "Importa come nuovo telecomando",
+  "githubImportNewRemotes": "Importa come nuovi telecomandi",
+  "githubImportIntoRemote": "Aggiungi pulsanti a un telecomando salvato"
 }

@@ -86,10 +86,65 @@ void main() {
             .ensureVisible(find.widgetWithText(ListTile, 'remote.json').first);
         await tester.tap(find.widgetWithText(ListTile, 'remote.json').first);
         await tester.pumpAndSettle();
-        final save = find.widgetWithText(FilledButton,
-            count == 1 ? 'Create new remote' : 'Create new remotes');
-        await tester.scrollUntilVisible(save, 400,
+        final l10n = await AppLocalizations.delegate.load(locale);
+        tester.view.physicalSize = const Size(320, 640);
+        scale = 2;
+        await tester.pumpWidget(app());
+        await tester.pumpAndSettle();
+        final previewTitle = find.text(l10n.githubFilePreview);
+        await tester.scrollUntilVisible(previewTitle, 300,
             scrollable: find.byType(Scrollable).first);
+        await tester.pumpAndSettle();
+        final titleParagraph =
+            tester.renderObject<RenderParagraph>(previewTitle);
+        expect(titleParagraph.didExceedMaxLines, isFalse);
+        expect(titleParagraph.getMaxIntrinsicHeight(titleParagraph.size.width),
+            lessThanOrEqualTo(titleParagraph.size.height + 0.1));
+        for (final tooltip in [l10n.githubUnwrapLines, l10n.githubWrapLines]) {
+          final toggle = find.byTooltip(tooltip);
+          await tester.ensureVisible(toggle);
+          await tester.pumpAndSettle();
+          expect(toggle.hitTestable(), findsOneWidget);
+          await tester.longPress(toggle);
+          await tester.pumpAndSettle();
+          final tooltipText = find.text(tooltip);
+          final paragraph = tester.renderObject<RenderParagraph>(tooltipText);
+          expect(paragraph.didExceedMaxLines, isFalse);
+          expect(paragraph.getMaxIntrinsicHeight(paragraph.size.width),
+              lessThanOrEqualTo(paragraph.size.height + 0.1));
+          Tooltip.dismissAllToolTips();
+          await tester.pumpAndSettle();
+          await tester.tap(toggle);
+          await tester.pumpAndSettle();
+          final horizontalPreview = find.byWidgetPredicate((widget) =>
+              widget is SingleChildScrollView &&
+              widget.scrollDirection == Axis.horizontal);
+          expect(
+              horizontalPreview,
+              tooltip == l10n.githubUnwrapLines
+                  ? findsOneWidget
+                  : findsNothing);
+        }
+        final newRemoteLabel = count == 1
+            ? l10n.githubImportNewRemote
+            : l10n.githubImportNewRemotes;
+        for (final label in [newRemoteLabel, l10n.githubImportIntoRemote]) {
+          final text = find.text(label);
+          await tester.scrollUntilVisible(text, 300,
+              scrollable: find.byType(Scrollable).first);
+          await tester.ensureVisible(text);
+          await tester.pumpAndSettle();
+          final paragraph = tester.renderObject<RenderParagraph>(text);
+          expect(paragraph.didExceedMaxLines, isFalse, reason: label);
+          expect(paragraph.getMaxIntrinsicHeight(paragraph.size.width),
+              lessThanOrEqualTo(paragraph.size.height + 0.1),
+              reason: label);
+          expect(text.hitTestable(), findsOneWidget);
+          expect(tester.getRect(text).top, greaterThanOrEqualTo(0));
+          expect(tester.getRect(text).bottom, lessThanOrEqualTo(640));
+        }
+        final save = find.widgetWithText(FilledButton, newRemoteLabel);
+        await tester.ensureVisible(save);
         await tester.runAsync(() async {
           tester.widget<FilledButton>(save).onPressed!();
         });
@@ -106,7 +161,6 @@ void main() {
         scale = 2;
         await tester.pumpWidget(app());
         await tester.pumpAndSettle();
-        final l10n = await AppLocalizations.delegate.load(locale);
         final sheet = find.byType(BottomSheet);
         expect(sheet, findsOneWidget);
         for (final label in [

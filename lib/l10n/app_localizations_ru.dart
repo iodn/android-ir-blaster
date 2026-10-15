@@ -5361,4 +5361,22 @@ class AppLocalizationsRu extends AppLocalizations {
 
   @override
   String get githubImportContinueBrowsing => 'Продолжить поиск';
+
+  @override
+  String get githubFilePreview => 'Просмотр файла';
+
+  @override
+  String get githubWrapLines => 'Переносить длинные строки';
+
+  @override
+  String get githubUnwrapLines => 'Отключить перенос строк';
+
+  @override
+  String get githubImportNewRemote => 'Импортировать как новый пульт';
+
+  @override
+  String get githubImportNewRemotes => 'Импортировать как новые пульты';
+
+  @override
+  String get githubImportIntoRemote => 'Добавить кнопки в сохранённый пульт';
 }

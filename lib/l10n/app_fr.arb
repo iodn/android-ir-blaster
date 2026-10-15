@@ -2434,5 +2434,11 @@
   "githubImportNextStep": "Vous pouvez ouvrir la télécommande ou continuer à parcourir GitHub.",
   "githubImportRemoteCount": "Télécommandes importées : {count}.",
   "githubImportOpenRemote": "Ouvrir la télécommande",
-  "githubImportContinueBrowsing": "Continuer à parcourir"
+  "githubImportContinueBrowsing": "Continuer à parcourir",
+  "githubFilePreview": "Aperçu du fichier",
+  "githubWrapLines": "Activer le retour à la ligne",
+  "githubUnwrapLines": "Désactiver le retour à la ligne",
+  "githubImportNewRemote": "Importer comme nouvelle télécommande",
+  "githubImportNewRemotes": "Importer comme nouvelles télécommandes",
+  "githubImportIntoRemote": "Ajouter les boutons à une télécommande enregistrée"
 }

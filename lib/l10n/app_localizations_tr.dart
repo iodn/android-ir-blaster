@@ -5279,4 +5279,22 @@ class AppLocalizationsTr extends AppLocalizations {
 
   @override
   String get githubImportContinueBrowsing => 'Göz atmaya devam et';
+
+  @override
+  String get githubFilePreview => 'Dosya önizlemesi';
+
+  @override
+  String get githubWrapLines => 'Uzun satırları kaydır';
+
+  @override
+  String get githubUnwrapLines => 'Satır kaydırmayı kapat';
+
+  @override
+  String get githubImportNewRemote => 'Yeni kumanda olarak içe aktar';
+
+  @override
+  String get githubImportNewRemotes => 'Yeni kumandalar olarak içe aktar';
+
+  @override
+  String get githubImportIntoRemote => 'Kayıtlı kumandaya düğme ekle';
 }

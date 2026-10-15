@@ -5351,4 +5351,22 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get githubImportContinueBrowsing => 'Keep browsing';
+
+  @override
+  String get githubFilePreview => 'File preview';
+
+  @override
+  String get githubWrapLines => 'Wrap long lines';
+
+  @override
+  String get githubUnwrapLines => 'Turn off line wrapping';
+
+  @override
+  String get githubImportNewRemote => 'Import as new remote';
+
+  @override
+  String get githubImportNewRemotes => 'Import as new remotes';
+
+  @override
+  String get githubImportIntoRemote => 'Add buttons to saved remote';
 }

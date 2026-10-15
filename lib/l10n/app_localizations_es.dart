@@ -5366,4 +5366,22 @@ class AppLocalizationsEs extends AppLocalizations {
 
   @override
   String get githubImportContinueBrowsing => 'Seguir explorando';
+
+  @override
+  String get githubFilePreview => 'Vista previa del archivo';
+
+  @override
+  String get githubWrapLines => 'Ajustar líneas largas';
+
+  @override
+  String get githubUnwrapLines => 'Desactivar ajuste de línea';
+
+  @override
+  String get githubImportNewRemote => 'Importar como mando nuevo';
+
+  @override
+  String get githubImportNewRemotes => 'Importar como mandos nuevos';
+
+  @override
+  String get githubImportIntoRemote => 'Añadir botones a un mando guardado';
 }

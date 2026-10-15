@@ -5294,4 +5294,22 @@ class AppLocalizationsHi extends AppLocalizations {
 
   @override
   String get githubImportContinueBrowsing => 'और खोजें';
+
+  @override
+  String get githubFilePreview => 'फ़ाइल की झलक';
+
+  @override
+  String get githubWrapLines => 'लंबी पंक्तियाँ अगली पंक्ति में दिखाएँ';
+
+  @override
+  String get githubUnwrapLines => 'पंक्तियों का रैप बंद करें';
+
+  @override
+  String get githubImportNewRemote => 'नए रिमोट के रूप में इंपोर्ट करें';
+
+  @override
+  String get githubImportNewRemotes => 'नए रिमोटों के रूप में इंपोर्ट करें';
+
+  @override
+  String get githubImportIntoRemote => 'सहेजे गए रिमोट में बटन जोड़ें';
 }

@@ -5298,6 +5298,24 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String get githubImportContinueBrowsing => 'متابعة التصفح';
+
+  @override
+  String get githubFilePreview => 'محتوى الملف';
+
+  @override
+  String get githubWrapLines => 'التفاف الأسطر الطويلة';
+
+  @override
+  String get githubUnwrapLines => 'عرض الأسطر دون التفاف';
+
+  @override
+  String get githubImportNewRemote => 'استيراد كجهاز تحكم جديد';
+
+  @override
+  String get githubImportNewRemotes => 'استيراد كأجهزة تحكم جديدة';
+
+  @override
+  String get githubImportIntoRemote => 'إضافة الأزرار إلى جهاز تحكم محفوظ';
 }
 
 /// The translations for Arabic, as used in Egypt (`ar_EG`).
@@ -10593,4 +10611,22 @@ class AppLocalizationsArEg extends AppLocalizationsAr {
 
   @override
   String get githubImportContinueBrowsing => 'متابعة التصفح';
+
+  @override
+  String get githubFilePreview => 'محتوى الملف';
+
+  @override
+  String get githubWrapLines => 'التفاف السطور الطويلة';
+
+  @override
+  String get githubUnwrapLines => 'عرض السطور بدون التفاف';
+
+  @override
+  String get githubImportNewRemote => 'استيراد كريموت جديد';
+
+  @override
+  String get githubImportNewRemotes => 'استيراد كريموتات جديدة';
+
+  @override
+  String get githubImportIntoRemote => 'إضافة الأزرار لريموت محفوظ';
 }

@@ -5282,4 +5282,22 @@ class AppLocalizationsId extends AppLocalizations {
 
   @override
   String get githubImportContinueBrowsing => 'Lanjutkan penelusuran';
+
+  @override
+  String get githubFilePreview => 'Pratinjau file';
+
+  @override
+  String get githubWrapLines => 'Bungkus baris panjang';
+
+  @override
+  String get githubUnwrapLines => 'Nonaktifkan pembungkusan baris';
+
+  @override
+  String get githubImportNewRemote => 'Impor sebagai remote baru';
+
+  @override
+  String get githubImportNewRemotes => 'Impor sebagai remote baru';
+
+  @override
+  String get githubImportIntoRemote => 'Tambahkan tombol ke remote tersimpan';
 }

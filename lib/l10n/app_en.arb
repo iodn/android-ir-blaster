@@ -2663,5 +2663,11 @@
   "githubImportRemoteCount": "Remotes imported: {count}.",
   "githubImportOpenRemote": "Open remote",
   "githubImportContinueBrowsing": "Keep browsing",
-  "@githubImportRemoteCount": {"placeholders": {"count": {"type": "int"}}}
+  "@githubImportRemoteCount": {"placeholders": {"count": {"type": "int"}}},
+  "githubFilePreview": "File preview",
+  "githubWrapLines": "Wrap long lines",
+  "githubUnwrapLines": "Turn off line wrapping",
+  "githubImportNewRemote": "Import as new remote",
+  "githubImportNewRemotes": "Import as new remotes",
+  "githubImportIntoRemote": "Add buttons to saved remote"
 }

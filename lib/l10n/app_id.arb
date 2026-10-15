@@ -2434,5 +2434,11 @@
   "githubImportNextStep": "Buka remote sekarang atau lanjutkan penelusuran di GitHub.",
   "githubImportRemoteCount": "Remote yang diimpor: {count}.",
   "githubImportOpenRemote": "Buka remote",
-  "githubImportContinueBrowsing": "Lanjutkan penelusuran"
+  "githubImportContinueBrowsing": "Lanjutkan penelusuran",
+  "githubFilePreview": "Pratinjau file",
+  "githubWrapLines": "Bungkus baris panjang",
+  "githubUnwrapLines": "Nonaktifkan pembungkusan baris",
+  "githubImportNewRemote": "Impor sebagai remote baru",
+  "githubImportNewRemotes": "Impor sebagai remote baru",
+  "githubImportIntoRemote": "Tambahkan tombol ke remote tersimpan"
 }

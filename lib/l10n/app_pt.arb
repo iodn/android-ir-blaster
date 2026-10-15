@@ -2434,5 +2434,11 @@
   "githubImportNextStep": "Pode abrir o comando ou continuar a explorar o GitHub.",
   "githubImportRemoteCount": "Comandos importados: {count}.",
   "githubImportOpenRemote": "Abrir comando",
-  "githubImportContinueBrowsing": "Continuar a explorar"
+  "githubImportContinueBrowsing": "Continuar a explorar",
+  "githubFilePreview": "Pré-visualização do ficheiro",
+  "githubWrapLines": "Ajustar linhas longas",
+  "githubUnwrapLines": "Desativar ajuste de linha",
+  "githubImportNewRemote": "Importar como novo comando",
+  "githubImportNewRemotes": "Importar como novos comandos",
+  "githubImportIntoRemote": "Adicionar botões a um comando guardado"
 }

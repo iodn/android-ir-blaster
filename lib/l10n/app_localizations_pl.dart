@@ -5410,4 +5410,22 @@ class AppLocalizationsPl extends AppLocalizations {
 
   @override
   String get githubImportContinueBrowsing => 'Przeglądaj dalej';
+
+  @override
+  String get githubFilePreview => 'Podgląd pliku';
+
+  @override
+  String get githubWrapLines => 'Zawijaj długie wiersze';
+
+  @override
+  String get githubUnwrapLines => 'Wyłącz zawijanie wierszy';
+
+  @override
+  String get githubImportNewRemote => 'Importuj jako nowy pilot';
+
+  @override
+  String get githubImportNewRemotes => 'Importuj jako nowe piloty';
+
+  @override
+  String get githubImportIntoRemote => 'Dodaj przyciski do zapisanego pilota';
 }

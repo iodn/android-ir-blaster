@@ -5291,4 +5291,24 @@ class AppLocalizationsMs extends AppLocalizations {
 
   @override
   String get githubImportContinueBrowsing => 'Teruskan carian';
+
+  @override
+  String get githubFilePreview => 'Pratonton fail';
+
+  @override
+  String get githubWrapLines => 'Balut baris panjang';
+
+  @override
+  String get githubUnwrapLines => 'Matikan balutan baris';
+
+  @override
+  String get githubImportNewRemote => 'Import sebagai alat kawalan jauh baharu';
+
+  @override
+  String get githubImportNewRemotes =>
+      'Import sebagai alat kawalan jauh baharu';
+
+  @override
+  String get githubImportIntoRemote =>
+      'Tambah butang ke alat kawalan jauh tersimpan';
 }

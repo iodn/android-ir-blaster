@@ -5126,4 +5126,22 @@ class AppLocalizationsJa extends AppLocalizations {
 
   @override
   String get githubImportContinueBrowsing => '続けて探す';
+
+  @override
+  String get githubFilePreview => 'ファイルのプレビュー';
+
+  @override
+  String get githubWrapLines => '長い行を折り返す';
+
+  @override
+  String get githubUnwrapLines => '行の折り返しを解除';
+
+  @override
+  String get githubImportNewRemote => '新しいリモコンとして取り込む';
+
+  @override
+  String get githubImportNewRemotes => '新しいリモコンとして取り込む';
+
+  @override
+  String get githubImportIntoRemote => '保存済みリモコンにボタンを追加';
 }

@@ -2434,5 +2434,11 @@
   "githubImportNextStep": "Open de afstandsbediening of zoek verder op GitHub.",
   "githubImportRemoteCount": "Geïmporteerde afstandsbedieningen: {count}.",
   "githubImportOpenRemote": "Afstandsbediening openen",
-  "githubImportContinueBrowsing": "Verder zoeken"
+  "githubImportContinueBrowsing": "Verder zoeken",
+  "githubFilePreview": "Bestandsvoorbeeld",
+  "githubWrapLines": "Lange regels afbreken",
+  "githubUnwrapLines": "Regelafbreking uitschakelen",
+  "githubImportNewRemote": "Als nieuwe afstandsbediening importeren",
+  "githubImportNewRemotes": "Als nieuwe afstandsbedieningen importeren",
+  "githubImportIntoRemote": "Knoppen aan opgeslagen afstandsbediening toevoegen"
 }

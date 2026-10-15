@@ -5141,4 +5141,22 @@ class AppLocalizationsKo extends AppLocalizations {
 
   @override
   String get githubImportContinueBrowsing => '계속 둘러보기';
+
+  @override
+  String get githubFilePreview => '파일 미리보기';
+
+  @override
+  String get githubWrapLines => '긴 줄 자동 줄바꿈';
+
+  @override
+  String get githubUnwrapLines => '자동 줄바꿈 끄기';
+
+  @override
+  String get githubImportNewRemote => '새 리모컨으로 가져오기';
+
+  @override
+  String get githubImportNewRemotes => '새 리모컨으로 가져오기';
+
+  @override
+  String get githubImportIntoRemote => '저장된 리모컨에 버튼 추가';
 }

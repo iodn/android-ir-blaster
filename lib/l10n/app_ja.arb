@@ -2434,5 +2434,11 @@
   "githubImportNextStep": "リモコンを開くか、GitHubで引き続き探せます。",
   "githubImportRemoteCount": "リモコンを{count}件取り込みました。",
   "githubImportOpenRemote": "リモコンを開く",
-  "githubImportContinueBrowsing": "続けて探す"
+  "githubImportContinueBrowsing": "続けて探す",
+  "githubFilePreview": "ファイルのプレビュー",
+  "githubWrapLines": "長い行を折り返す",
+  "githubUnwrapLines": "行の折り返しを解除",
+  "githubImportNewRemote": "新しいリモコンとして取り込む",
+  "githubImportNewRemotes": "新しいリモコンとして取り込む",
+  "githubImportIntoRemote": "保存済みリモコンにボタンを追加"
 }

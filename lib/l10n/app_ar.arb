@@ -2434,5 +2434,11 @@
   "githubImportNextStep": "يمكنك فتح جهاز التحكم الآن أو متابعة التصفح في GitHub.",
   "githubImportRemoteCount": "أجهزة التحكم المستوردة: {count}.",
   "githubImportOpenRemote": "فتح جهاز التحكم",
-  "githubImportContinueBrowsing": "متابعة التصفح"
+  "githubImportContinueBrowsing": "متابعة التصفح",
+  "githubFilePreview": "محتوى الملف",
+  "githubWrapLines": "التفاف الأسطر الطويلة",
+  "githubUnwrapLines": "عرض الأسطر دون التفاف",
+  "githubImportNewRemote": "استيراد كجهاز تحكم جديد",
+  "githubImportNewRemotes": "استيراد كأجهزة تحكم جديدة",
+  "githubImportIntoRemote": "إضافة الأزرار إلى جهاز تحكم محفوظ"
 }

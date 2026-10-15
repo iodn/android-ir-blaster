@@ -5368,6 +5368,24 @@ class AppLocalizationsPt extends AppLocalizations {
 
   @override
   String get githubImportContinueBrowsing => 'Continuar a explorar';
+
+  @override
+  String get githubFilePreview => 'Pré-visualização do ficheiro';
+
+  @override
+  String get githubWrapLines => 'Ajustar linhas longas';
+
+  @override
+  String get githubUnwrapLines => 'Desativar ajuste de linha';
+
+  @override
+  String get githubImportNewRemote => 'Importar como novo comando';
+
+  @override
+  String get githubImportNewRemotes => 'Importar como novos comandos';
+
+  @override
+  String get githubImportIntoRemote => 'Adicionar botões a um comando guardado';
 }
 
 /// The translations for Portuguese, as used in Brazil (`pt_BR`).
@@ -10729,4 +10747,22 @@ class AppLocalizationsPtBr extends AppLocalizationsPt {
 
   @override
   String get githubImportContinueBrowsing => 'Continuar explorando';
+
+  @override
+  String get githubFilePreview => 'Prévia do arquivo';
+
+  @override
+  String get githubWrapLines => 'Quebrar linhas longas';
+
+  @override
+  String get githubUnwrapLines => 'Desativar quebra de linha';
+
+  @override
+  String get githubImportNewRemote => 'Importar como novo controle';
+
+  @override
+  String get githubImportNewRemotes => 'Importar como novos controles';
+
+  @override
+  String get githubImportIntoRemote => 'Adicionar botões a um controle salvo';
 }

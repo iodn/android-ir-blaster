@@ -2436,5 +2436,11 @@
   "githubImportNextStep": "Możesz otworzyć pilota lub dalej przeglądać GitHub.",
   "githubImportRemoteCount": "Zaimportowane piloty: {count}.",
   "githubImportOpenRemote": "Otwórz pilota",
-  "githubImportContinueBrowsing": "Przeglądaj dalej"
+  "githubImportContinueBrowsing": "Przeglądaj dalej",
+  "githubFilePreview": "Podgląd pliku",
+  "githubWrapLines": "Zawijaj długie wiersze",
+  "githubUnwrapLines": "Wyłącz zawijanie wierszy",
+  "githubImportNewRemote": "Importuj jako nowy pilot",
+  "githubImportNewRemotes": "Importuj jako nowe piloty",
+  "githubImportIntoRemote": "Dodaj przyciski do zapisanego pilota"
 }

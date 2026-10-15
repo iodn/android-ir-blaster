@@ -2434,5 +2434,11 @@
   "githubImportNextStep": "रिमोट अभी खोलें या GitHub पर और रिमोट खोजें।",
   "githubImportRemoteCount": "इंपोर्ट किए गए रिमोट: {count}।",
   "githubImportOpenRemote": "रिमोट खोलें",
-  "githubImportContinueBrowsing": "और खोजें"
+  "githubImportContinueBrowsing": "और खोजें",
+  "githubFilePreview": "फ़ाइल की झलक",
+  "githubWrapLines": "लंबी पंक्तियाँ अगली पंक्ति में दिखाएँ",
+  "githubUnwrapLines": "पंक्तियों का रैप बंद करें",
+  "githubImportNewRemote": "नए रिमोट के रूप में इंपोर्ट करें",
+  "githubImportNewRemotes": "नए रिमोटों के रूप में इंपोर्ट करें",
+  "githubImportIntoRemote": "सहेजे गए रिमोट में बटन जोड़ें"
 }

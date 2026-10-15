@@ -5382,4 +5382,23 @@ class AppLocalizationsFr extends AppLocalizations {
 
   @override
   String get githubImportContinueBrowsing => 'Continuer à parcourir';
+
+  @override
+  String get githubFilePreview => 'Aperçu du fichier';
+
+  @override
+  String get githubWrapLines => 'Activer le retour à la ligne';
+
+  @override
+  String get githubUnwrapLines => 'Désactiver le retour à la ligne';
+
+  @override
+  String get githubImportNewRemote => 'Importer comme nouvelle télécommande';
+
+  @override
+  String get githubImportNewRemotes => 'Importer comme nouvelles télécommandes';
+
+  @override
+  String get githubImportIntoRemote =>
+      'Ajouter les boutons à une télécommande enregistrée';
 }
