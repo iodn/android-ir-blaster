@@ -854,17 +854,19 @@ class AppLocalizationsFil extends AppLocalizations {
       'Nakatago ang teknikal na label ng button.';
 
   @override
-  String get flipRemoteDefaultTitle => 'Flip Remote View by default';
+  String get flipRemoteDefaultTitle => 'Iikot ang mga remote nang 180°';
 
   @override
   String get flipRemoteDefaultSubtitle =>
-      'Open Remote screens rotated 180° (for bottom-mounted USB dongles).';
+      'Buksan ang mga remote nang nakabaligtad. Para ito sa USB adapter na nakakabit sa ibaba ng telepono.';
 
   @override
-  String get remoteViewFlipped => 'Remote View will open flipped.';
+  String get remoteViewFlipped =>
+      'Bubukas ang mga remote nang nakaikot nang 180°.';
 
   @override
-  String get remoteViewNormal => 'Remote View will open normally.';
+  String get remoteViewNormal =>
+      'Bubukas ang mga remote sa normal na oryentasyon.';
 
   @override
   String get backupTitle => 'Backup';

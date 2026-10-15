@@ -857,19 +857,19 @@ class AppLocalizationsDe extends AppLocalizations {
       'Technische Tastenlabels werden ausgeblendet.';
 
   @override
-  String get flipRemoteDefaultTitle =>
-      'Fernbedienungsansicht standardmäßig drehen';
+  String get flipRemoteDefaultTitle => 'Fernbedienungen um 180° drehen';
 
   @override
   String get flipRemoteDefaultSubtitle =>
-      'Fernbedienungsbildschirme um 180° gedreht öffnen für unten montierte USB-Dongles.';
+      'Öffnet Fernbedienungen um 180° gedreht. Praktisch für USB-Adapter an der Unterseite des Handys.';
 
   @override
   String get remoteViewFlipped =>
-      'Fernbedienungsansicht wird gedreht geöffnet.';
+      'Fernbedienungen öffnen sich um 180° gedreht.';
 
   @override
-  String get remoteViewNormal => 'Fernbedienungsansicht wird normal geöffnet.';
+  String get remoteViewNormal =>
+      'Fernbedienungen öffnen sich normal ausgerichtet.';
 
   @override
   String get backupTitle => 'Sicherung';

@@ -844,17 +844,18 @@ class AppLocalizationsEn extends AppLocalizations {
   String get remoteButtonMetadataHidden => 'Button technical labels hidden.';
 
   @override
-  String get flipRemoteDefaultTitle => 'Flip Remote View by default';
+  String get flipRemoteDefaultTitle => 'Rotate remotes 180°';
 
   @override
   String get flipRemoteDefaultSubtitle =>
-      'Open Remote screens rotated 180° (for bottom-mounted USB dongles).';
+      'Open remote screens rotated 180°. Useful for USB adapters connected at the bottom of the phone.';
 
   @override
-  String get remoteViewFlipped => 'Remote View will open flipped.';
+  String get remoteViewFlipped => 'Remotes will open rotated 180°.';
 
   @override
-  String get remoteViewNormal => 'Remote View will open normally.';
+  String get remoteViewNormal =>
+      'Remotes will open in their normal orientation.';
 
   @override
   String get backupTitle => 'Backup';

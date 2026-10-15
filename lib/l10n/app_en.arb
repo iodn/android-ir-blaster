@@ -312,10 +312,10 @@
   "@remoteButtonMetadataHidden": {
     "description": "Snackbar shown when remote button technical metadata is disabled."
   },
-  "flipRemoteDefaultTitle": "Flip Remote View by default",
-  "flipRemoteDefaultSubtitle": "Open Remote screens rotated 180° (for bottom-mounted USB dongles).",
-  "remoteViewFlipped": "Remote View will open flipped.",
-  "remoteViewNormal": "Remote View will open normally.",
+  "flipRemoteDefaultTitle": "Rotate remotes 180°",
+  "flipRemoteDefaultSubtitle": "Open remote screens rotated 180°. Useful for USB adapters connected at the bottom of the phone.",
+  "remoteViewFlipped": "Remotes will open rotated 180°.",
+  "remoteViewNormal": "Remotes will open in their normal orientation.",
   "backupTitle": "Backup",
   "backupSubtitle": "Import/export remotes and macros",
   "importBackup": "Import backup",

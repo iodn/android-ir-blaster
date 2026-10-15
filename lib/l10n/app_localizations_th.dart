@@ -840,17 +840,17 @@ class AppLocalizationsTh extends AppLocalizations {
   String get remoteButtonMetadataHidden => 'ซ่อนป้ายเทคนิคของปุ่มแล้ว';
 
   @override
-  String get flipRemoteDefaultTitle => 'พลิกมุมมองรีโมตเป็นค่าเริ่มต้น';
+  String get flipRemoteDefaultTitle => 'หมุนรีโมต 180°';
 
   @override
   String get flipRemoteDefaultSubtitle =>
-      'เปิด รีโมต screens rotated 180° (for bottom-mounted USB dongles).';
+      'เปิดหน้าจอรีโมตโดยหมุน 180° เหมาะกับอะแดปเตอร์ USB ที่เสียบด้านล่างของโทรศัพท์';
 
   @override
-  String get remoteViewFlipped => 'มุมมองรีโมตจะเปิดแบบกลับด้าน';
+  String get remoteViewFlipped => 'รีโมตจะเปิดโดยหมุน 180°';
 
   @override
-  String get remoteViewNormal => 'มุมมองรีโมตจะเปิดแบบปกติ';
+  String get remoteViewNormal => 'รีโมตจะเปิดในแนวปกติ';
 
   @override
   String get backupTitle => 'สำรองข้อมูล';

@@ -848,17 +848,19 @@ class AppLocalizationsRu extends AppLocalizations {
   String get remoteButtonMetadataHidden => 'Технические метки кнопок скрыты.';
 
   @override
-  String get flipRemoteDefaultTitle => 'По умолчанию переворачивать пульт';
+  String get flipRemoteDefaultTitle => 'Поворачивать пульты на 180°';
 
   @override
   String get flipRemoteDefaultSubtitle =>
-      'Открывать экран пульта, повернув его на 180°, для USB-адаптеров снизу.';
+      'Открывать экраны пультов с поворотом на 180°. Удобно для USB-адаптеров, подключённых снизу телефона.';
 
   @override
-  String get remoteViewFlipped => 'Экран пульта будет открыт перевёрнутым.';
+  String get remoteViewFlipped =>
+      'Пульты будут открываться с поворотом на 180°.';
 
   @override
-  String get remoteViewNormal => 'Экран пульта будет открыт обычно.';
+  String get remoteViewNormal =>
+      'Пульты будут открываться в обычной ориентации.';
 
   @override
   String get backupTitle => 'Резервная копия';

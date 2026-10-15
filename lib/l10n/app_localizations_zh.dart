@@ -783,16 +783,16 @@ class AppLocalizationsZh extends AppLocalizations {
   String get remoteButtonMetadataHidden => '已隐藏按钮技术标签。';
 
   @override
-  String get flipRemoteDefaultTitle => '默认翻转遥控器视图';
+  String get flipRemoteDefaultTitle => '将遥控器旋转180°';
 
   @override
-  String get flipRemoteDefaultSubtitle => '打开遥控器页面时旋转 180° 适用于底部 USB dongle。';
+  String get flipRemoteDefaultSubtitle => '打开遥控器时将界面旋转180°，适合在手机底部连接USB适配器时使用。';
 
   @override
-  String get remoteViewFlipped => '遥控器视图将以翻转方式打开。';
+  String get remoteViewFlipped => '遥控器将旋转180°打开。';
 
   @override
-  String get remoteViewNormal => '遥控器视图将正常打开。';
+  String get remoteViewNormal => '遥控器将以正常方向打开。';
 
   @override
   String get backupTitle => '备份';

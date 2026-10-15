@@ -818,17 +818,17 @@ class AppLocalizationsKo extends AppLocalizations {
   String get remoteButtonMetadataHidden => '버튼 기술 라벨을 숨겼습니다.';
 
   @override
-  String get flipRemoteDefaultTitle => '기본으로 리모컨 보기 뒤집기';
+  String get flipRemoteDefaultTitle => '리모컨 180° 회전';
 
   @override
   String get flipRemoteDefaultSubtitle =>
-      '리모컨 화면을 180° 회전된 상태로 엽니다(하단 장착 USB 동글용).';
+      '리모컨 화면을 180° 회전해서 열어요. 휴대전화 아래쪽에 USB 어댑터를 연결할 때 유용해요.';
 
   @override
-  String get remoteViewFlipped => '리모컨 보기가 뒤집힌 상태로 열립니다.';
+  String get remoteViewFlipped => '리모컨을 180° 회전해서 열어요.';
 
   @override
-  String get remoteViewNormal => '리모컨 보기가 정상으로 열립니다.';
+  String get remoteViewNormal => '리모컨을 기본 방향으로 열어요.';
 
   @override
   String get backupTitle => '백업';

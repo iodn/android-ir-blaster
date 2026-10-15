@@ -848,17 +848,17 @@ class AppLocalizationsId extends AppLocalizations {
   String get remoteButtonMetadataHidden => 'Label teknis tombol disembunyikan.';
 
   @override
-  String get flipRemoteDefaultTitle => 'Balik Tampilan Remote default';
+  String get flipRemoteDefaultTitle => 'Putar remote 180°';
 
   @override
   String get flipRemoteDefaultSubtitle =>
-      'Buka layar Remote diputar 180° (untuk dongle USB yang terpasang di bawah).';
+      'Buka layar remote dengan rotasi 180°. Berguna untuk adaptor USB yang terhubung di bagian bawah ponsel.';
 
   @override
-  String get remoteViewFlipped => 'Tampilan Remote akan terbuka terbalik.';
+  String get remoteViewFlipped => 'Remote akan terbuka dengan rotasi 180°.';
 
   @override
-  String get remoteViewNormal => 'Tampilan Remote akan terbuka normal.';
+  String get remoteViewNormal => 'Remote akan terbuka dengan orientasi normal.';
 
   @override
   String get backupTitle => 'Cadangan';

@@ -856,17 +856,17 @@ class AppLocalizationsPt extends AppLocalizations {
       'Etiquetas técnicas dos botões ocultas.';
 
   @override
-  String get flipRemoteDefaultTitle => 'Inverter vista do comando por defecto';
+  String get flipRemoteDefaultTitle => 'Rodar comandos 180°';
 
   @override
   String get flipRemoteDefaultSubtitle =>
-      'Abre os ecrãs do comando rodados 180° (para dongles USB montados em baixo).';
+      'Abre os comandos rodados 180°. Útil para adaptadores USB ligados na parte inferior do telemóvel.';
 
   @override
-  String get remoteViewFlipped => 'A vista do comando vai abrir invertida.';
+  String get remoteViewFlipped => 'Os comandos vão abrir rodados 180°.';
 
   @override
-  String get remoteViewNormal => 'A vista do comando vai abrir normal.';
+  String get remoteViewNormal => 'Os comandos vão abrir na orientação normal.';
 
   @override
   String get backupTitle => 'Cópia';
@@ -6182,18 +6182,17 @@ class AppLocalizationsPtBr extends AppLocalizationsPt {
       'Etiquetas técnicas dos botões ocultas.';
 
   @override
-  String get flipRemoteDefaultTitle => 'Inverter vista do controle por defecto';
+  String get flipRemoteDefaultTitle => 'Girar controles em 180°';
 
   @override
   String get flipRemoteDefaultSubtitle =>
-      'Abre as telas do controle giradas em 180° (para dongles USB montados embaixo).';
+      'Abre os controles girados em 180°. Útil para adaptadores USB conectados na parte de baixo do celular.';
 
   @override
-  String get remoteViewFlipped =>
-      'A visualização do controle vai abrir invertida.';
+  String get remoteViewFlipped => 'Os controles vão abrir girados em 180°.';
 
   @override
-  String get remoteViewNormal => 'A visualização do controle vai abrir normal.';
+  String get remoteViewNormal => 'Os controles vão abrir na orientação normal.';
 
   @override
   String get backupTitle => 'Cópia';

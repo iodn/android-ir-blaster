@@ -860,17 +860,18 @@ class AppLocalizationsIt extends AppLocalizations {
       'Etichette tecniche pulsanti nascoste.';
 
   @override
-  String get flipRemoteDefaultTitle => 'Capovolgi Telecomando per default';
+  String get flipRemoteDefaultTitle => 'Ruota i telecomandi di 180°';
 
   @override
   String get flipRemoteDefaultSubtitle =>
-      'Apri le schermate Telecomando ruotate di 180° per i dongle USB montati in basso.';
+      'Apri i telecomandi ruotati di 180°. Utile per gli adattatori USB collegati nella parte inferiore del telefono.';
 
   @override
-  String get remoteViewFlipped => 'La vista Telecomando si aprirà capovolta.';
+  String get remoteViewFlipped => 'I telecomandi si apriranno ruotati di 180°.';
 
   @override
-  String get remoteViewNormal => 'La vista Telecomando si aprirà normale.';
+  String get remoteViewNormal =>
+      'I telecomandi si apriranno con l’orientamento normale.';
 
   @override
   String get backupTitle => 'Backup';

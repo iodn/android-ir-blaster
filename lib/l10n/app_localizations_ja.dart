@@ -812,16 +812,17 @@ class AppLocalizationsJa extends AppLocalizations {
   String get remoteButtonMetadataHidden => 'ボタンの技術ラベルを非表示にしました。';
 
   @override
-  String get flipRemoteDefaultTitle => 'リモコン表示を既定で反転';
+  String get flipRemoteDefaultTitle => 'リモコンを180°回転';
 
   @override
-  String get flipRemoteDefaultSubtitle => 'リモコン画面を180°回転して開きます 下部接続のUSBドングル向け';
+  String get flipRemoteDefaultSubtitle =>
+      'リモコン画面を180°回転して開きます。スマートフォンの下部にUSBアダプターを接続する場合に便利です。';
 
   @override
-  String get remoteViewFlipped => 'リモコン表示は反転して開きます';
+  String get remoteViewFlipped => 'リモコン画面を180°回転して開きます。';
 
   @override
-  String get remoteViewNormal => 'リモコン表示は通常で開きます';
+  String get remoteViewNormal => 'リモコン画面を通常の向きで開きます。';
 
   @override
   String get backupTitle => 'バックアップ';

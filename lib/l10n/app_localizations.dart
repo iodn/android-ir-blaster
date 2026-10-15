@@ -1611,25 +1611,25 @@ abstract class AppLocalizations {
   /// No description provided for @flipRemoteDefaultTitle.
   ///
   /// In en, this message translates to:
-  /// **'Flip Remote View by default'**
+  /// **'Rotate remotes 180°'**
   String get flipRemoteDefaultTitle;
 
   /// No description provided for @flipRemoteDefaultSubtitle.
   ///
   /// In en, this message translates to:
-  /// **'Open Remote screens rotated 180° (for bottom-mounted USB dongles).'**
+  /// **'Open remote screens rotated 180°. Useful for USB adapters connected at the bottom of the phone.'**
   String get flipRemoteDefaultSubtitle;
 
   /// No description provided for @remoteViewFlipped.
   ///
   /// In en, this message translates to:
-  /// **'Remote View will open flipped.'**
+  /// **'Remotes will open rotated 180°.'**
   String get remoteViewFlipped;
 
   /// No description provided for @remoteViewNormal.
   ///
   /// In en, this message translates to:
-  /// **'Remote View will open normally.'**
+  /// **'Remotes will open in their normal orientation.'**
   String get remoteViewNormal;
 
   /// No description provided for @backupTitle.

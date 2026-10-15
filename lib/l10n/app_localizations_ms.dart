@@ -849,17 +849,19 @@ class AppLocalizationsMs extends AppLocalizations {
       'Label teknikal butang disembunyikan.';
 
   @override
-  String get flipRemoteDefaultTitle => 'Balik Tampilan Remote default';
+  String get flipRemoteDefaultTitle => 'Putar kawalan jauh 180°';
 
   @override
   String get flipRemoteDefaultSubtitle =>
-      'Buka layar Remote diputar 180° (untuk dongel USB yang terpasang di bawah).';
+      'Buka skrin alat kawalan jauh dengan putaran 180°. Berguna untuk penyesuai USB yang disambungkan di bahagian bawah telefon.';
 
   @override
-  String get remoteViewFlipped => 'Tampilan Remote akan terbuka terbalik.';
+  String get remoteViewFlipped =>
+      'Alat kawalan jauh akan dibuka dengan putaran 180°.';
 
   @override
-  String get remoteViewNormal => 'Tampilan Remote akan terbuka normal.';
+  String get remoteViewNormal =>
+      'Alat kawalan jauh akan dibuka dalam orientasi biasa.';
 
   @override
   String get backupTitle => 'Sandaran';

@@ -3,6 +3,7 @@ import 'package:flutter/rendering.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:irblaster_controller/l10n/app_localizations.dart';
+import 'package:irblaster_controller/state/orientation_pref.dart';
 import 'package:irblaster_controller/state/startup_prefs.dart';
 import 'package:irblaster_controller/widgets/settings_screen.dart';
 import 'package:package_info_plus/package_info_plus.dart';
@@ -15,6 +16,8 @@ void main() {
       SharedPreferences.setMockInitialValues({});
       final controller = StartupPrefsController.instance;
       await controller.load();
+      final orientation = RemoteOrientationController.instance;
+      await orientation.load();
       PackageInfo.setMockInitialValues(
           appName: 'IR Blaster',
           packageName: 'org.nslabs.ir_blaster',
@@ -100,6 +103,33 @@ void main() {
         expect(controller.autoOpenLastRemote, value);
         final prefs = await SharedPreferences.getInstance();
         expect(prefs.getBool('startup_auto_open_last_remote_v1'), value);
+      }
+      for (final value in [
+        l10n.flipRemoteDefaultTitle,
+        l10n.flipRemoteDefaultSubtitle,
+      ]) {
+        await tester.ensureVisible(find.text(value));
+        await tester.pumpAndSettle();
+        expectReadable(find.text(value));
+      }
+      final orientationTile =
+          find.widgetWithText(SwitchListTile, l10n.flipRemoteDefaultTitle);
+      expect(tester.widget<SwitchListTile>(orientationTile).value, isFalse);
+      final orientationToggle =
+          find.descendant(of: orientationTile, matching: find.byType(Switch));
+      for (final value in [true, false]) {
+        await tester.ensureVisible(orientationToggle);
+        await tester.pumpAndSettle();
+        await tester.tap(orientationToggle);
+        await tester.pumpAndSettle();
+        expect(orientation.flipped, value);
+        final prefs = await SharedPreferences.getInstance();
+        expect(prefs.getBool('remote_view_flipped_v1'), value);
+        final feedback = find.text(
+            value ? l10n.remoteViewFlipped : l10n.remoteViewNormal);
+        expectReadable(feedback);
+        ScaffoldMessenger.of(tester.element(feedback)).removeCurrentSnackBar();
+        await tester.pumpAndSettle();
       }
       await tester.pumpWidget(const SizedBox());
       await tester.pumpAndSettle();

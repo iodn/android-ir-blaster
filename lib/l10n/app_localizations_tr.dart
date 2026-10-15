@@ -851,17 +851,18 @@ class AppLocalizationsTr extends AppLocalizations {
   String get remoteButtonMetadataHidden => 'Düğme teknik etiketleri gizlendi.';
 
   @override
-  String get flipRemoteDefaultTitle => 'Flip Kumanda Görünüm by default';
+  String get flipRemoteDefaultTitle => 'Kumandaları 180° döndür';
 
   @override
   String get flipRemoteDefaultSubtitle =>
-      'Kumanda ekranlarını 180° döndürerek açar (alta takılan USB dongle\'lar için).';
+      'Kumanda ekranlarını 180° döndürerek açar. Telefonun altına bağlanan USB adaptörleri için kullanışlıdır.';
 
   @override
-  String get remoteViewFlipped => 'Kumanda görünümü ters açılacak.';
+  String get remoteViewFlipped =>
+      'Kumandalar 180° döndürülmüş olarak açılacak.';
 
   @override
-  String get remoteViewNormal => 'Kumanda görünümü normal açılacak.';
+  String get remoteViewNormal => 'Kumandalar normal yönde açılacak.';
 
   @override
   String get backupTitle => 'Yedek';

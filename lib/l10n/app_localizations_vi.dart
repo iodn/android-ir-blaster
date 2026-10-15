@@ -845,17 +845,17 @@ class AppLocalizationsVi extends AppLocalizations {
   String get remoteButtonMetadataHidden => 'Đã ẩn nhãn kỹ thuật của nút.';
 
   @override
-  String get flipRemoteDefaultTitle => 'Mặc định lật màn hình điều khiển';
+  String get flipRemoteDefaultTitle => 'Xoay điều khiển 180°';
 
   @override
   String get flipRemoteDefaultSubtitle =>
-      'Mở màn hình điều khiển xoay 180° (cho USB dongle gắn dưới).';
+      'Mở màn hình điều khiển xoay 180°. Hữu ích khi cắm bộ chuyển đổi USB ở cạnh dưới điện thoại.';
 
   @override
-  String get remoteViewFlipped => 'Màn hình điều khiển sẽ mở ở chế độ lật.';
+  String get remoteViewFlipped => 'Điều khiển sẽ mở với góc xoay 180°.';
 
   @override
-  String get remoteViewNormal => 'Màn hình điều khiển sẽ mở bình thường.';
+  String get remoteViewNormal => 'Điều khiển sẽ mở theo hướng bình thường.';
 
   @override
   String get backupTitle => 'Sao lưu';

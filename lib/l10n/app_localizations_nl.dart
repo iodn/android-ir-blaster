@@ -861,20 +861,19 @@ class AppLocalizationsNl extends AppLocalizations {
       'Technische knoplabels zijn verborgen.';
 
   @override
-  String get flipRemoteDefaultTitle =>
-      'Afstandsbedieningsweergave standaard omdraaien';
+  String get flipRemoteDefaultTitle => 'Afstandsbedieningen 180° draaien';
 
   @override
   String get flipRemoteDefaultSubtitle =>
-      'Open schermen van de afstandsbediening 180° gedraaid voor USB-dongles aan de onderkant.';
+      'Open afstandsbedieningen 180° gedraaid. Handig voor USB-adapters aan de onderkant van de telefoon.';
 
   @override
   String get remoteViewFlipped =>
-      'Weergave van afstandsbediening opent omgedraaid.';
+      'Afstandsbedieningen worden 180° gedraaid geopend.';
 
   @override
   String get remoteViewNormal =>
-      'Weergave van afstandsbediening opent normaal.';
+      'Afstandsbedieningen worden in de normale stand geopend.';
 
   @override
   String get backupTitle => 'Back-up';

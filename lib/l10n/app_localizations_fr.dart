@@ -856,17 +856,19 @@ class AppLocalizationsFr extends AppLocalizations {
   String get remoteButtonMetadataHidden => 'Libellés techniques masqués.';
 
   @override
-  String get flipRemoteDefaultTitle => 'Vue télécommande inversée par défaut';
+  String get flipRemoteDefaultTitle => 'Tourner les télécommandes à 180°';
 
   @override
   String get flipRemoteDefaultSubtitle =>
-      'Ouvre les écrans Télécommande avec rotation 180° (pour dongles USB montés en bas).';
+      'Ouvre les télécommandes tournées à 180°. Utile pour un adaptateur USB branché en bas du téléphone.';
 
   @override
-  String get remoteViewFlipped => 'La vue télécommande sera inversée.';
+  String get remoteViewFlipped =>
+      'Les télécommandes s’ouvriront tournées à 180°.';
 
   @override
-  String get remoteViewNormal => 'La vue télécommande sera normale.';
+  String get remoteViewNormal =>
+      'Les télécommandes s’ouvriront dans le sens habituel.';
 
   @override
   String get backupTitle => 'Sauvegarde';

@@ -841,17 +841,17 @@ class AppLocalizationsAr extends AppLocalizations {
   String get remoteButtonMetadataHidden => 'تم إخفاء التسميات التقنية للأزرار.';
 
   @override
-  String get flipRemoteDefaultTitle => 'Flip جهاز التحكم عرض by default';
+  String get flipRemoteDefaultTitle => 'تدوير أجهزة التحكم 180°';
 
   @override
   String get flipRemoteDefaultSubtitle =>
-      'فتح جهاز التحكم screens rotated 180° (for bottom-mounted USB dongles).';
+      'افتح شاشة جهاز التحكم بعد تدويرها 180°. مناسب لمحوّل USB المتصل بأسفل الهاتف.';
 
   @override
-  String get remoteViewFlipped => 'سيفتح عرض جهاز التحكم بوضع مقلوب.';
+  String get remoteViewFlipped => 'ستُفتح أجهزة التحكم بعد تدويرها 180°.';
 
   @override
-  String get remoteViewNormal => 'سيفتح عرض جهاز التحكم بشكل عادي.';
+  String get remoteViewNormal => 'ستُفتح أجهزة التحكم بالاتجاه العادي.';
 
   @override
   String get backupTitle => 'نسخة احتياطية';
@@ -6116,17 +6116,17 @@ class AppLocalizationsArEg extends AppLocalizationsAr {
   String get remoteButtonMetadataHidden => 'تم إخفاء التسميات التقنية للأزرار.';
 
   @override
-  String get flipRemoteDefaultTitle => 'Flip جهاز التحكم عرض by default';
+  String get flipRemoteDefaultTitle => 'تدوير أجهزة التحكم 180°';
 
   @override
   String get flipRemoteDefaultSubtitle =>
-      'فتح جهاز التحكم screens rotated 180° (for bottom-mounted USB dongles).';
+      'افتح شاشة جهاز التحكم مقلوبة 180°. مفيد لمحوّل USB المتوصل بأسفل الموبايل.';
 
   @override
-  String get remoteViewFlipped => 'سيفتح عرض جهاز التحكم بوضع مقلوب.';
+  String get remoteViewFlipped => 'أجهزة التحكم هتفتح مقلوبة 180°.';
 
   @override
-  String get remoteViewNormal => 'سيفتح عرض جهاز التحكم بشكل عادي.';
+  String get remoteViewNormal => 'أجهزة التحكم هتفتح بالاتجاه العادي.';
 
   @override
   String get backupTitle => 'نسخة احتياطية';

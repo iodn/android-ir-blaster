@@ -849,17 +849,17 @@ class AppLocalizationsHi extends AppLocalizations {
   String get remoteButtonMetadataHidden => 'बटन के तकनीकी लेबल छिपे हैं.';
 
   @override
-  String get flipRemoteDefaultTitle => 'Flip रिमोट दृश्य द्वारा डिफ़ॉल्ट';
+  String get flipRemoteDefaultTitle => 'रिमोट को 180° घुमाएँ';
 
   @override
   String get flipRemoteDefaultSubtitle =>
-      'रिमोट स्क्रीन 180° घुमाकर खोलें (नीचे लगे USB डोंगल के लिए)।';
+      'रिमोट की स्क्रीन 180° घुमाकर खोलें। फ़ोन के नीचे जुड़े USB अडैप्टर के लिए उपयोगी है।';
 
   @override
-  String get remoteViewFlipped => 'रिमोट दृश्य होगा खोलें उल्टा.';
+  String get remoteViewFlipped => 'रिमोट 180° घूमे हुए खुलेंगे।';
 
   @override
-  String get remoteViewNormal => 'रिमोट दृश्य सामान्य रूप से खुलेगा।';
+  String get remoteViewNormal => 'रिमोट सामान्य दिशा में खुलेंगे।';
 
   @override
   String get backupTitle => 'बैकअप';

@@ -853,17 +853,17 @@ class AppLocalizationsPl extends AppLocalizations {
       'Techniczne etykiety przycisków są ukryte.';
 
   @override
-  String get flipRemoteDefaultTitle => 'Domyślnie odwróć widok pilota';
+  String get flipRemoteDefaultTitle => 'Obracaj piloty o 180°';
 
   @override
   String get flipRemoteDefaultSubtitle =>
-      'Otwieraj ekrany pilota obrócone o 180° (dla dongli USB montowanych na dole).';
+      'Otwieraj piloty obrócone o 180°. Przydatne przy adapterze USB podłączonym od dołu telefonu.';
 
   @override
-  String get remoteViewFlipped => 'Widok pilota będzie otwierany odwrócony.';
+  String get remoteViewFlipped => 'Piloty będą otwierane obrócone o 180°.';
 
   @override
-  String get remoteViewNormal => 'Widok pilota będzie otwierany normalnie.';
+  String get remoteViewNormal => 'Piloty będą otwierane w zwykłej orientacji.';
 
   @override
   String get backupTitle => 'Kopia zapasowa';

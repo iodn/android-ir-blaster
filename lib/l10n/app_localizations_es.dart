@@ -857,17 +857,18 @@ class AppLocalizationsEs extends AppLocalizations {
       'Etiquetas técnicas de botones ocultas.';
 
   @override
-  String get flipRemoteDefaultTitle => 'Invertir vista del mando por defecto';
+  String get flipRemoteDefaultTitle => 'Girar mandos 180°';
 
   @override
   String get flipRemoteDefaultSubtitle =>
-      'Abre las pantallas del mando giradas 180° (para dongles USB montados abajo).';
+      'Abre los mandos girados 180°. Útil si el adaptador USB se conecta en la parte inferior del teléfono.';
 
   @override
-  String get remoteViewFlipped => 'La vista del mando se abrirá invertida.';
+  String get remoteViewFlipped => 'Los mandos se abrirán girados 180°.';
 
   @override
-  String get remoteViewNormal => 'La vista del mando se abrirá normal.';
+  String get remoteViewNormal =>
+      'Los mandos se abrirán con la orientación normal.';
 
   @override
   String get backupTitle => 'Copia';
