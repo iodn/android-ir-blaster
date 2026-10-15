@@ -1554,14 +1554,15 @@ class AppLocalizationsDe extends AppLocalizations {
   String get editRemoteTitle => 'Fernbedienung bearbeiten';
 
   @override
-  String get removeButtonTitle => 'Taste entfernen';
+  String get removeButtonTitle => 'Taste entfernen?';
 
   @override
-  String get imageButtonRemovedMessage => 'Diese Bildtaste wird entfernt.';
+  String get imageButtonRemovedMessage =>
+      'Diese Taste wird aus der Fernbedienung entfernt.';
 
   @override
   String namedButtonRemovedMessage(Object name) {
-    return '$name wird entfernt.';
+    return '„$name“ wird aus der Fernbedienung entfernt.';
   }
 
   @override
@@ -1579,14 +1580,14 @@ class AppLocalizationsDe extends AppLocalizations {
 
   @override
   String get editButtonSettingsSubtitle =>
-      'Beschriftung, Signal und erweiterte Einstellungen ändern';
+      'Beschriftung, Farben oder IR-Signal ändern';
 
   @override
   String get createButtonCopySubtitle => 'Eine Kopie dieser Taste erstellen';
 
   @override
   String get duplicateAndEditButtonSubtitle =>
-      'Eine Kopie erstellen und sofort bearbeiten';
+      'Eine Kopie erstellen und direkt bearbeiten';
 
   @override
   String get undoAvailableInNextSnackbar =>

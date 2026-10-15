@@ -470,9 +470,9 @@
   "untitledRemote": "Remote tanpa nama",
   "createRemoteTitle": "Buat remote",
   "editRemoteTitle": "Ubah remote",
-  "removeButtonTitle": "Remove tombol?",
-  "imageButtonRemovedMessage": "Tombol gambar ini akan dihapus.",
-  "namedButtonRemovedMessage": "\"{name}\" akan dihapus.",
+  "removeButtonTitle": "Hapus tombol?",
+  "imageButtonRemovedMessage": "Tombol ini akan dihapus dari remote.",
+  "namedButtonRemovedMessage": "\"{name}\" akan dihapus dari remote.",
   "@namedButtonRemovedMessage": {
     "placeholders": {
       "name": {}
@@ -495,7 +495,7 @@
       }
     }
   },
-  "editButtonSettingsSubtitle": "Ubah label, sinyal, dan setelan lanjutan",
+  "editButtonSettingsSubtitle": "Ubah label, warna, atau sinyal IR",
   "createButtonCopySubtitle": "Buat salinan tombol ini",
   "duplicateAndEditButtonSubtitle": "Buat salinan lalu langsung ubah",
   "undoAvailableInNextSnackbar": "Setelah tombol dihapus, ketuk Urungkan pada pesan yang muncul.",

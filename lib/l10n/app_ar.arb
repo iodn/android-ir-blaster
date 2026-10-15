@@ -452,7 +452,7 @@
   "editButtonSubtitle": "تعديل التسمية والكود والبروتوكول والتردد",
   "newButton": "زر جديد",
   "newButtonSubtitle": "أنشئ زراً جديداً بعد هذا الزر",
-  "duplicate": "Duplicate",
+  "duplicate": "إنشاء نسخة",
   "duplicateButtonSubtitle": "أنشئ نسخة من هذا الزر",
   "removeFromDeviceControls": "إزالة من عناصر تحكم الجهاز",
   "addToDeviceControls": "إضافة إلى عناصر تحكم الجهاز",
@@ -471,14 +471,14 @@
   "createRemoteTitle": "إنشاء جهاز تحكم",
   "editRemoteTitle": "تعديل جهاز التحكم",
   "removeButtonTitle": "إزالة الزر؟",
-  "imageButtonRemovedMessage": "سيتم حذف زر الصورة هذا.",
-  "namedButtonRemovedMessage": "\"{name}\" will be removed.",
+  "imageButtonRemovedMessage": "ستتم إزالة هذا الزر من جهاز التحكم.",
+  "namedButtonRemovedMessage": "ستتم إزالة «{name}» من جهاز التحكم.",
   "@namedButtonRemovedMessage": {
     "placeholders": {
       "name": {}
     }
   },
-  "remove": "Remove",
+  "remove": "إزالة",
   "importedButtonCount": "تم استيراد {count} زر.",
   "@importedButtonCount": {
     "placeholders": {
@@ -495,9 +495,9 @@
       }
     }
   },
-  "editButtonSettingsSubtitle": "غيّر التسمية والإشارة والإعدادات المتقدمة",
+  "editButtonSettingsSubtitle": "غيّر التسمية أو الألوان أو إشارة الأشعة تحت الحمراء",
   "createButtonCopySubtitle": "أنشئ نسخة من هذا الزر",
-  "duplicateAndEditButtonSubtitle": "أنشئ نسخة وعدلها فوراً",
+  "duplicateAndEditButtonSubtitle": "أنشئ نسخة وافتحها للتعديل",
   "undoAvailableInNextSnackbar": "بعد إزالة الزر، اضغط على تراجع في الرسالة التي تظهر.",
   "buttonRemoved": "تمت إزالة الزر.",
   "remoteNameCannotBeEmpty": "أدخل اسماً لجهاز التحكم.",

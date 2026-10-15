@@ -1460,14 +1460,14 @@ class AppLocalizationsJa extends AppLocalizations {
   String get editRemoteTitle => 'リモコンを編集';
 
   @override
-  String get removeButtonTitle => 'ボタンを削除しますか?';
+  String get removeButtonTitle => 'ボタンを削除しますか？';
 
   @override
-  String get imageButtonRemovedMessage => 'この画像ボタンは削除されます。';
+  String get imageButtonRemovedMessage => 'このボタンをリモコンから削除します。';
 
   @override
   String namedButtonRemovedMessage(Object name) {
-    return '\"$name\" は削除されます。';
+    return '「$name」をリモコンから削除します。';
   }
 
   @override
@@ -1484,13 +1484,13 @@ class AppLocalizationsJa extends AppLocalizations {
   }
 
   @override
-  String get editButtonSettingsSubtitle => 'ラベル 信号 詳細設定を変更';
+  String get editButtonSettingsSubtitle => 'ラベル、色、赤外線信号を変更';
 
   @override
   String get createButtonCopySubtitle => 'このボタンの複製を作成';
 
   @override
-  String get duplicateAndEditButtonSubtitle => '複製を作成してすぐ編集';
+  String get duplicateAndEditButtonSubtitle => '複製したボタンをすぐに編集';
 
   @override
   String get undoAvailableInNextSnackbar =>

@@ -2793,13 +2793,13 @@ abstract class AppLocalizations {
   /// No description provided for @imageButtonRemovedMessage.
   ///
   /// In en, this message translates to:
-  /// **'This image button will be removed.'**
+  /// **'This button will be removed from the remote.'**
   String get imageButtonRemovedMessage;
 
   /// No description provided for @namedButtonRemovedMessage.
   ///
   /// In en, this message translates to:
-  /// **'\"{name}\" will be removed.'**
+  /// **'\"{name}\" will be removed from the remote.'**
   String namedButtonRemovedMessage(Object name);
 
   /// No description provided for @remove.
@@ -2823,7 +2823,7 @@ abstract class AppLocalizations {
   /// No description provided for @editButtonSettingsSubtitle.
   ///
   /// In en, this message translates to:
-  /// **'Change label, signal, and advanced settings'**
+  /// **'Change the label, colors, or IR signal'**
   String get editButtonSettingsSubtitle;
 
   /// No description provided for @createButtonCopySubtitle.

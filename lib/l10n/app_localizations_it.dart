@@ -1549,15 +1549,15 @@ class AppLocalizationsIt extends AppLocalizations {
   String get editRemoteTitle => 'Modifica telecomando';
 
   @override
-  String get removeButtonTitle => 'Rimuovere pulsante?';
+  String get removeButtonTitle => 'Rimuovere il pulsante?';
 
   @override
   String get imageButtonRemovedMessage =>
-      'Questo pulsante immagine sarà rimosso.';
+      'Questo pulsante verrà rimosso dal telecomando.';
 
   @override
   String namedButtonRemovedMessage(Object name) {
-    return '\"$name\" sarà rimosso.';
+    return '«$name» verrà rimosso dal telecomando.';
   }
 
   @override
@@ -1575,7 +1575,7 @@ class AppLocalizationsIt extends AppLocalizations {
 
   @override
   String get editButtonSettingsSubtitle =>
-      'Cambia etichetta, segnale e impostazioni avanzate';
+      'Cambia etichetta, colori o segnale IR';
 
   @override
   String get createButtonCopySubtitle => 'Crea una copia di questo pulsante';

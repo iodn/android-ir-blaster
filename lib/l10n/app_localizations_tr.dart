@@ -1532,14 +1532,14 @@ class AppLocalizationsTr extends AppLocalizations {
   String get editRemoteTitle => 'Düzenle kumanda';
 
   @override
-  String get removeButtonTitle => 'Kaldır düğme?';
+  String get removeButtonTitle => 'Düğme kaldırılsın mı?';
 
   @override
-  String get imageButtonRemovedMessage => 'Bu resim düğmesi kaldırılacak.';
+  String get imageButtonRemovedMessage => 'Bu düğme kumandadan kaldırılacak.';
 
   @override
   String namedButtonRemovedMessage(Object name) {
-    return '\"$name\" kaldırılacak.';
+    return '\"$name\" kumandadan kaldırılacak.';
   }
 
   @override
@@ -1557,7 +1557,7 @@ class AppLocalizationsTr extends AppLocalizations {
 
   @override
   String get editButtonSettingsSubtitle =>
-      'Etiketi, sinyali ve gelişmiş ayarları değiştirin';
+      'Etiketi, renkleri veya kızılötesi sinyali değiştirin';
 
   @override
   String get createButtonCopySubtitle => 'Bu düğmenin bir kopyasını oluştur';

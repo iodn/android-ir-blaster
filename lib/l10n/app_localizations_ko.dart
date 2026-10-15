@@ -1469,14 +1469,14 @@ class AppLocalizationsKo extends AppLocalizations {
   String get editRemoteTitle => '리모컨 편집';
 
   @override
-  String get removeButtonTitle => '제거 버튼?';
+  String get removeButtonTitle => '버튼을 제거할까요?';
 
   @override
-  String get imageButtonRemovedMessage => '이 이미지 버튼이 제거됩니다.';
+  String get imageButtonRemovedMessage => '이 버튼을 리모컨에서 제거합니다.';
 
   @override
   String namedButtonRemovedMessage(Object name) {
-    return '\"$name\"이(가) 제거됩니다.';
+    return '리모컨에서 ‘$name’ 버튼을 제거합니다.';
   }
 
   @override
@@ -1493,7 +1493,7 @@ class AppLocalizationsKo extends AppLocalizations {
   }
 
   @override
-  String get editButtonSettingsSubtitle => '레이블, 신호 및 고급 설정 변경';
+  String get editButtonSettingsSubtitle => '레이블, 색상 또는 적외선 신호 변경';
 
   @override
   String get createButtonCopySubtitle => '이 버튼의 복사본 만들기';

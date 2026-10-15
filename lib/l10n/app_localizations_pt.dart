@@ -1547,14 +1547,15 @@ class AppLocalizationsPt extends AppLocalizations {
   String get editRemoteTitle => 'Editar comando';
 
   @override
-  String get removeButtonTitle => 'Remover botão?';
+  String get removeButtonTitle => 'Remover o botão?';
 
   @override
-  String get imageButtonRemovedMessage => 'Este botão de imagem será removido.';
+  String get imageButtonRemovedMessage =>
+      'Este botão será removido do comando.';
 
   @override
   String namedButtonRemovedMessage(Object name) {
-    return '\"$name\" será removido.';
+    return '«$name» será removido do comando.';
   }
 
   @override
@@ -1572,7 +1573,7 @@ class AppLocalizationsPt extends AppLocalizations {
 
   @override
   String get editButtonSettingsSubtitle =>
-      'Cambiar etiqueta, sinal e definições avanzados';
+      'Alterar a etiqueta, as cores ou o sinal IR';
 
   @override
   String get createButtonCopySubtitle => 'Criar uma cópia deste botão';
@@ -6829,14 +6830,15 @@ class AppLocalizationsPtBr extends AppLocalizationsPt {
   String get editRemoteTitle => 'Editar controle';
 
   @override
-  String get removeButtonTitle => 'Remover botão?';
+  String get removeButtonTitle => 'Remover o botão?';
 
   @override
-  String get imageButtonRemovedMessage => 'Este botão de imagem será removido.';
+  String get imageButtonRemovedMessage =>
+      'Este botão será removido do controle.';
 
   @override
   String namedButtonRemovedMessage(Object name) {
-    return '\"$name\" será removido.';
+    return '\"$name\" será removido do controle.';
   }
 
   @override
@@ -6854,7 +6856,7 @@ class AppLocalizationsPtBr extends AppLocalizationsPt {
 
   @override
   String get editButtonSettingsSubtitle =>
-      'Cambiar etiqueta, sinal e configurações avanzados';
+      'Alterar o rótulo, as cores ou o sinal IR';
 
   @override
   String get createButtonCopySubtitle => 'Criar uma cópia deste botão';

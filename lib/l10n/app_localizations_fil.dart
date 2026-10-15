@@ -1486,7 +1486,7 @@ class AppLocalizationsFil extends AppLocalizations {
   String get newButtonSubtitle => 'Gumawa ng bagong button pagkatapos nito';
 
   @override
-  String get duplicate => 'Duplicate';
+  String get duplicate => 'Gumawa ng kopya';
 
   @override
   String get duplicateButtonSubtitle => 'Gumawa ng kopya ng button na ito';
@@ -1523,7 +1523,7 @@ class AppLocalizationsFil extends AppLocalizations {
       'Na-pin sa mga paboritong mabilisang tile.';
 
   @override
-  String get duplicateAndEdit => 'Duplicate at edit';
+  String get duplicateAndEdit => 'Kopyahin at i-edit';
 
   @override
   String get duplicateAndEditSubtitle => 'Gumawa ng kopya at i-edit agad ito';
@@ -1544,18 +1544,19 @@ class AppLocalizationsFil extends AppLocalizations {
   String get editRemoteTitle => 'I-edit remote';
 
   @override
-  String get removeButtonTitle => 'Remove button?';
+  String get removeButtonTitle => 'Alisin ang button?';
 
   @override
-  String get imageButtonRemovedMessage => 'Ang image button will be removed.';
+  String get imageButtonRemovedMessage =>
+      'Aalisin ang button na ito sa remote.';
 
   @override
   String namedButtonRemovedMessage(Object name) {
-    return '\"$name\" will be removed.';
+    return 'Aalisin ang \"$name\" sa remote.';
   }
 
   @override
-  String get remove => 'Remove';
+  String get remove => 'Alisin';
 
   @override
   String importedButtonCount(int count) {
@@ -1569,7 +1570,7 @@ class AppLocalizationsFil extends AppLocalizations {
 
   @override
   String get editButtonSettingsSubtitle =>
-      'Change label, signal, at advanced settings';
+      'Palitan ang label, mga kulay, o IR signal';
 
   @override
   String get createButtonCopySubtitle => 'Gumawa ng kopya ng button na ito';

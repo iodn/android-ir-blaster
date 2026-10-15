@@ -281,7 +281,7 @@ class AppLocalizationsTh extends AppLocalizations {
   }
 
   @override
-  String get cancel => 'Cancel';
+  String get cancel => 'ยกเลิก';
 
   @override
   String get settingsRestoreDemoTitle => 'กู้คืนรีโมตตัวอย่าง';
@@ -1461,7 +1461,7 @@ class AppLocalizationsTh extends AppLocalizations {
   String get newButtonSubtitle => 'สร้างปุ่มใหม่ต่อจากปุ่มนี้';
 
   @override
-  String get duplicate => 'ทำซ้ำ';
+  String get duplicate => 'สร้างสำเนา';
 
   @override
   String get duplicateButtonSubtitle => 'สร้างสำเนาของปุ่มนี้';
@@ -1495,7 +1495,7 @@ class AppLocalizationsTh extends AppLocalizations {
   String get pinnedToQuickTileFavorites => 'ปักหมุดไว้ในรายการโปรดไทล์ด่วนแล้ว';
 
   @override
-  String get duplicateAndEdit => 'ทำซ้ำและแก้ไข';
+  String get duplicateAndEdit => 'สร้างสำเนาและแก้ไข';
 
   @override
   String get duplicateAndEditSubtitle => 'สร้างสำเนาและแก้ไขทันที';
@@ -1516,14 +1516,14 @@ class AppLocalizationsTh extends AppLocalizations {
   String get editRemoteTitle => 'แก้ไข remote';
 
   @override
-  String get removeButtonTitle => 'นำปุ่มออก';
+  String get removeButtonTitle => 'นำปุ่มออกหรือไม่?';
 
   @override
-  String get imageButtonRemovedMessage => 'ปุ่มรูปภาพนี้จะถูกลบ';
+  String get imageButtonRemovedMessage => 'ปุ่มนี้จะถูกนำออกจากรีโมต';
 
   @override
   String namedButtonRemovedMessage(Object name) {
-    return '\"$name\" จะถูกลบ';
+    return 'จะนำปุ่ม \"$name\" ออกจากรีโมต';
   }
 
   @override
@@ -1540,8 +1540,7 @@ class AppLocalizationsTh extends AppLocalizations {
   }
 
   @override
-  String get editButtonSettingsSubtitle =>
-      'เปลี่ยนชื่อ สัญญาณ และการตั้งค่าขั้นสูง';
+  String get editButtonSettingsSubtitle => 'เปลี่ยนชื่อ สี หรือสัญญาณอินฟราเรด';
 
   @override
   String get createButtonCopySubtitle => 'สร้างสำเนาของปุ่มนี้';

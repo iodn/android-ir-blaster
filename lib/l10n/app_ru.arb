@@ -463,7 +463,7 @@
   "quickTileButtonSubtitle": "Показывает эту кнопку вверху выбора быстрых плиток",
   "removedFromQuickTileFavorites": "Удалено из избранных быстрых плиток.",
   "pinnedToQuickTileFavorites": "Закреплено в избранных быстрых плитках.",
-  "duplicateAndEdit": "Дублировать и изм.",
+  "duplicateAndEdit": "Дублировать и изменить",
   "duplicateAndEditSubtitle": "Создать копию и сразу изменить",
   "done": "Готово",
   "run": "Запуск",
@@ -471,8 +471,8 @@
   "createRemoteTitle": "Создать пульт",
   "editRemoteTitle": "Изменить пульт",
   "removeButtonTitle": "Удалить кнопку?",
-  "imageButtonRemovedMessage": "Эта кнопка с изображением будет удалена.",
-  "namedButtonRemovedMessage": "\"{name}\" будет удалено.",
+  "imageButtonRemovedMessage": "Эта кнопка будет удалена с пульта.",
+  "namedButtonRemovedMessage": "Кнопка «{name}» будет удалена с пульта.",
   "@namedButtonRemovedMessage": {
     "placeholders": {
       "name": {}
@@ -495,9 +495,9 @@
       }
     }
   },
-  "editButtonSettingsSubtitle": "Изменить метку, сигнал и доп. настройки",
+  "editButtonSettingsSubtitle": "Изменить подпись, цвета или ИК-сигнал",
   "createButtonCopySubtitle": "Создать копию этой кнопки",
-  "duplicateAndEditButtonSubtitle": "Создать копию и сразу изменить",
+  "duplicateAndEditButtonSubtitle": "Создать копию и сразу изменить её",
   "undoAvailableInNextSnackbar": "После удаления кнопки нажмите «Отменить» в появившемся сообщении.",
   "buttonRemoved": "Кнопка удалена.",
   "remoteNameCannotBeEmpty": "Введите название пульта.",

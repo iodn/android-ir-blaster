@@ -472,9 +472,9 @@
   "untitledRemote": "Unbenannte Fernbedienung",
   "createRemoteTitle": "Fernbedienung erstellen",
   "editRemoteTitle": "Fernbedienung bearbeiten",
-  "removeButtonTitle": "Taste entfernen",
-  "imageButtonRemovedMessage": "Diese Bildtaste wird entfernt.",
-  "namedButtonRemovedMessage": "{name} wird entfernt.",
+  "removeButtonTitle": "Taste entfernen?",
+  "imageButtonRemovedMessage": "Diese Taste wird aus der Fernbedienung entfernt.",
+  "namedButtonRemovedMessage": "„{name}“ wird aus der Fernbedienung entfernt.",
   "@namedButtonRemovedMessage": {
     "placeholders": {
       "name": {}
@@ -497,9 +497,9 @@
       }
     }
   },
-  "editButtonSettingsSubtitle": "Beschriftung, Signal und erweiterte Einstellungen ändern",
+  "editButtonSettingsSubtitle": "Beschriftung, Farben oder IR-Signal ändern",
   "createButtonCopySubtitle": "Eine Kopie dieser Taste erstellen",
-  "duplicateAndEditButtonSubtitle": "Eine Kopie erstellen und sofort bearbeiten",
+  "duplicateAndEditButtonSubtitle": "Eine Kopie erstellen und direkt bearbeiten",
   "undoAvailableInNextSnackbar": "Nach dem Entfernen kannst du in der angezeigten Meldung auf Rückgängig tippen.",
   "buttonRemoved": "Taste entfernt.",
   "remoteNameCannotBeEmpty": "Gib einen Namen für die Fernbedienung ein.",

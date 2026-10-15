@@ -117,7 +117,7 @@
       "error": {}
     }
   },
-  "cancel": "Cancel",
+  "cancel": "ยกเลิก",
   "settingsRestoreDemoTitle": "กู้คืนรีโมตตัวอย่าง",
   "settingsRestoreDemoMessage": "การดำเนินการนี้จะแทนที่รีโมตปัจจุบันของคุณด้วยรีโมตตัวอย่างในแอป แนะนำให้สำรองข้อมูลหากต้องการเก็บรายการปัจจุบันไว้",
   "settingsRestoreDemoConfirm": "กู้คืนตัวอย่าง",
@@ -452,7 +452,7 @@
   "editButtonSubtitle": "แก้ไขชื่อ โค้ด โปรโตคอล และความถี่",
   "newButton": "New ปุ่ม",
   "newButtonSubtitle": "สร้างปุ่มใหม่ต่อจากปุ่มนี้",
-  "duplicate": "ทำซ้ำ",
+  "duplicate": "สร้างสำเนา",
   "duplicateButtonSubtitle": "สร้างสำเนาของปุ่มนี้",
   "removeFromDeviceControls": "นำออกจากการควบคุมอุปกรณ์",
   "addToDeviceControls": "เพิ่มในการควบคุมอุปกรณ์",
@@ -463,16 +463,16 @@
   "quickTileButtonSubtitle": "แสดงปุ่มนี้ด้านบนของตัวเลือกไทล์ด่วน",
   "removedFromQuickTileFavorites": "นำออกจากรายการโปรดไทล์ด่วนแล้ว",
   "pinnedToQuickTileFavorites": "ปักหมุดไว้ในรายการโปรดไทล์ด่วนแล้ว",
-  "duplicateAndEdit": "ทำซ้ำและแก้ไข",
+  "duplicateAndEdit": "สร้างสำเนาและแก้ไข",
   "duplicateAndEditSubtitle": "สร้างสำเนาและแก้ไขทันที",
   "done": "Done",
   "run": "ทำงาน",
   "untitledRemote": "รีโมตไม่มีชื่อ",
   "createRemoteTitle": "สร้างรีโมต",
   "editRemoteTitle": "แก้ไข remote",
-  "removeButtonTitle": "นำปุ่มออก",
-  "imageButtonRemovedMessage": "ปุ่มรูปภาพนี้จะถูกลบ",
-  "namedButtonRemovedMessage": "\"{name}\" จะถูกลบ",
+  "removeButtonTitle": "นำปุ่มออกหรือไม่?",
+  "imageButtonRemovedMessage": "ปุ่มนี้จะถูกนำออกจากรีโมต",
+  "namedButtonRemovedMessage": "จะนำปุ่ม \"{name}\" ออกจากรีโมต",
   "@namedButtonRemovedMessage": {
     "placeholders": {
       "name": {}
@@ -495,7 +495,7 @@
       }
     }
   },
-  "editButtonSettingsSubtitle": "เปลี่ยนชื่อ สัญญาณ และการตั้งค่าขั้นสูง",
+  "editButtonSettingsSubtitle": "เปลี่ยนชื่อ สี หรือสัญญาณอินฟราเรด",
   "createButtonCopySubtitle": "สร้างสำเนาของปุ่มนี้",
   "duplicateAndEditButtonSubtitle": "สร้างสำเนาและแก้ไขทันที",
   "undoAvailableInNextSnackbar": "หลังจากนำปุ่มออก ให้แตะเลิกทำในข้อความที่ปรากฏเพื่อนำปุ่มกลับมา",

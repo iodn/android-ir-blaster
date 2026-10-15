@@ -1534,7 +1534,7 @@ class AppLocalizationsNl extends AppLocalizations {
       'Vastgezet aan favorieten van Snelle tegel.';
 
   @override
-  String get duplicateAndEdit => 'Duplicate and bewerken';
+  String get duplicateAndEdit => 'Dupliceren en bewerken';
 
   @override
   String get duplicateAndEditSubtitle => 'Maak een kopie en bewerk die meteen';
@@ -1555,15 +1555,15 @@ class AppLocalizationsNl extends AppLocalizations {
   String get editRemoteTitle => 'Afstandsbediening bewerken';
 
   @override
-  String get removeButtonTitle => 'Verwijderen knop?';
+  String get removeButtonTitle => 'Knop verwijderen?';
 
   @override
   String get imageButtonRemovedMessage =>
-      'Deze afbeeldingsknop wordt verwijderd.';
+      'Deze knop wordt uit de afstandsbediening verwijderd.';
 
   @override
   String namedButtonRemovedMessage(Object name) {
-    return '\"$name\" wordt verwijderd.';
+    return '‘$name’ wordt uit de afstandsbediening verwijderd.';
   }
 
   @override
@@ -1581,7 +1581,7 @@ class AppLocalizationsNl extends AppLocalizations {
 
   @override
   String get editButtonSettingsSubtitle =>
-      'Wijzig label, signaal en geavanceerde instellingen';
+      'Label, kleuren of IR-signaal wijzigen';
 
   @override
   String get createButtonCopySubtitle => 'Maak een kopie van deze knop';

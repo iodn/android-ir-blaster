@@ -463,7 +463,7 @@
   "quickTileButtonSubtitle": "Hiển thị nút này ở đầu bộ chọn ô nhanh",
   "removedFromQuickTileFavorites": "Đã bỏ khỏi mục yêu thích Ô nhanh.",
   "pinnedToQuickTileFavorites": "Đã ghim vào mục yêu thích Ô nhanh.",
-  "duplicateAndEdit": "Nhân bản and edit",
+  "duplicateAndEdit": "Nhân bản và sửa",
   "duplicateAndEditSubtitle": "Tạo bản sao và sửa ngay",
   "done": "Xong",
   "run": "Chạy",
@@ -471,8 +471,8 @@
   "createRemoteTitle": "Tạo điều khiển",
   "editRemoteTitle": "Sửa điều khiển",
   "removeButtonTitle": "Xóa nút?",
-  "imageButtonRemovedMessage": "Nút hình ảnh này sẽ bị xóa.",
-  "namedButtonRemovedMessage": "\"{name}\" sẽ bị xóa.",
+  "imageButtonRemovedMessage": "Nút này sẽ bị xóa khỏi điều khiển.",
+  "namedButtonRemovedMessage": "Nút \"{name}\" sẽ bị xóa khỏi điều khiển.",
   "@namedButtonRemovedMessage": {
     "placeholders": {
       "name": {}
@@ -495,7 +495,7 @@
       }
     }
   },
-  "editButtonSettingsSubtitle": "Đổi nhãn, tín hiệu và cài đặt nâng cao",
+  "editButtonSettingsSubtitle": "Đổi nhãn, màu sắc hoặc tín hiệu hồng ngoại",
   "createButtonCopySubtitle": "Tạo bản sao của nút này",
   "duplicateAndEditButtonSubtitle": "Tạo bản sao và sửa ngay",
   "undoAvailableInNextSnackbar": "Sau khi xóa nút, nhấn Hoàn tác trong thông báo xuất hiện.",

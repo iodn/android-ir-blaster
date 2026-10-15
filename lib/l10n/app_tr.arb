@@ -470,9 +470,9 @@
   "untitledRemote": "Adsız kumanda",
   "createRemoteTitle": "Kumanda oluştur",
   "editRemoteTitle": "Düzenle kumanda",
-  "removeButtonTitle": "Kaldır düğme?",
-  "imageButtonRemovedMessage": "Bu resim düğmesi kaldırılacak.",
-  "namedButtonRemovedMessage": "\"{name}\" kaldırılacak.",
+  "removeButtonTitle": "Düğme kaldırılsın mı?",
+  "imageButtonRemovedMessage": "Bu düğme kumandadan kaldırılacak.",
+  "namedButtonRemovedMessage": "\"{name}\" kumandadan kaldırılacak.",
   "@namedButtonRemovedMessage": {
     "placeholders": {
       "name": {}
@@ -495,7 +495,7 @@
       }
     }
   },
-  "editButtonSettingsSubtitle": "Etiketi, sinyali ve gelişmiş ayarları değiştirin",
+  "editButtonSettingsSubtitle": "Etiketi, renkleri veya kızılötesi sinyali değiştirin",
   "createButtonCopySubtitle": "Bu düğmenin bir kopyasını oluştur",
   "duplicateAndEditButtonSubtitle": "Bir kopya oluştur ve hemen düzenle",
   "undoAvailableInNextSnackbar": "Düğmeyi kaldırdıktan sonra çıkan mesajda Geri al seçeneğine dokunabilirsiniz.",

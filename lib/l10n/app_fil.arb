@@ -452,7 +452,7 @@
   "editButtonSubtitle": "Modify label, code, protocol, frequency",
   "newButton": "New button",
   "newButtonSubtitle": "Gumawa ng bagong button pagkatapos nito",
-  "duplicate": "Duplicate",
+  "duplicate": "Gumawa ng kopya",
   "duplicateButtonSubtitle": "Gumawa ng kopya ng button na ito",
   "removeFromDeviceControls": "Alisin sa Mga Kontrol ng Device",
   "addToDeviceControls": "Idagdag sa Mga Kontrol ng Device",
@@ -463,22 +463,22 @@
   "quickTileButtonSubtitle": "Ipinapakita ang button na ito sa itaas ng tagapili ng mabilisang tile",
   "removedFromQuickTileFavorites": "Inalis sa mga paboritong Quick Tile.",
   "pinnedToQuickTileFavorites": "Na-pin sa mga paboritong mabilisang tile.",
-  "duplicateAndEdit": "Duplicate at edit",
+  "duplicateAndEdit": "Kopyahin at i-edit",
   "duplicateAndEditSubtitle": "Gumawa ng kopya at i-edit agad ito",
   "done": "Tapos",
   "run": "Run",
   "untitledRemote": "Remote na walang pangalan",
   "createRemoteTitle": "Gumawa ng remote",
   "editRemoteTitle": "I-edit remote",
-  "removeButtonTitle": "Remove button?",
-  "imageButtonRemovedMessage": "Ang image button will be removed.",
-  "namedButtonRemovedMessage": "\"{name}\" will be removed.",
+  "removeButtonTitle": "Alisin ang button?",
+  "imageButtonRemovedMessage": "Aalisin ang button na ito sa remote.",
+  "namedButtonRemovedMessage": "Aalisin ang \"{name}\" sa remote.",
   "@namedButtonRemovedMessage": {
     "placeholders": {
       "name": {}
     }
   },
-  "remove": "Remove",
+  "remove": "Alisin",
   "importedButtonCount": "Na-import ang {count} button.",
   "@importedButtonCount": {
     "placeholders": {
@@ -495,7 +495,7 @@
       }
     }
   },
-  "editButtonSettingsSubtitle": "Change label, signal, at advanced settings",
+  "editButtonSettingsSubtitle": "Palitan ang label, mga kulay, o IR signal",
   "createButtonCopySubtitle": "Gumawa ng kopya ng button na ito",
   "duplicateAndEditButtonSubtitle": "Gumawa ng kopya at i-edit agad ito",
   "undoAvailableInNextSnackbar": "Pagkaalis ng button, i-tap ang Ibalik sa mensaheng lalabas.",

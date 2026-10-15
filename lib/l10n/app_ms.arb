@@ -349,7 +349,7 @@
   "layoutCompact": "Padat",
   "open": "Buka",
   "useThisRemote": "Gunakan remote ini",
-  "edit": "Ubah",
+  "edit": "Sunting",
   "editRemoteSubtitle": "Ganti nama dan ubah butang",
   "thisCannotBeUndone": "Ini tidak boleh dibatalkan",
   "searchRemotes": "Cari Remote",
@@ -452,7 +452,7 @@
   "editButtonSubtitle": "Modify label, kod, protokol, frequency",
   "newButton": "New butang",
   "newButtonSubtitle": "Buat butang baru setelah butang ini",
-  "duplicate": "Duplikat",
+  "duplicate": "Gandakan",
   "duplicateButtonSubtitle": "Buat salinan butang ini",
   "removeFromDeviceControls": "Hapus dari Kawalan Peranti",
   "addToDeviceControls": "Tambah ke Kawalan Peranti",
@@ -463,22 +463,22 @@
   "quickTileButtonSubtitle": "Menampilkan butang ini di bagian atas pemilih jubin pantas",
   "removedFromQuickTileFavorites": "Dihapus dari kegemaran Jubin Pantas.",
   "pinnedToQuickTileFavorites": "Disematkan ke kegemaran Jubin Pantas.",
-  "duplicateAndEdit": "Duplikat dan ubah",
+  "duplicateAndEdit": "Gandakan dan sunting",
   "duplicateAndEditSubtitle": "Buat salinan kemudian langsung ubah",
   "done": "Selesai",
   "run": "Jalankan",
   "untitledRemote": "Alat kawalan jauh tanpa nama",
   "createRemoteTitle": "Cipta alat kawalan jauh",
   "editRemoteTitle": "Ubah remote",
-  "removeButtonTitle": "Remove butang?",
-  "imageButtonRemovedMessage": "Butang gambar ini akan dihapus.",
-  "namedButtonRemovedMessage": "\"{name}\" akan dihapus.",
+  "removeButtonTitle": "Buang butang?",
+  "imageButtonRemovedMessage": "Butang ini akan dibuang daripada alat kawalan jauh.",
+  "namedButtonRemovedMessage": "\"{name}\" akan dibuang daripada alat kawalan jauh.",
   "@namedButtonRemovedMessage": {
     "placeholders": {
       "name": {}
     }
   },
-  "remove": "Hapus",
+  "remove": "Buang",
   "importedButtonCount": "Mengimport {count} butang.",
   "@importedButtonCount": {
     "placeholders": {
@@ -495,9 +495,9 @@
       }
     }
   },
-  "editButtonSettingsSubtitle": "Ubah label, isyarat, dan tetapan lanjutan",
+  "editButtonSettingsSubtitle": "Tukar label, warna atau isyarat IR",
   "createButtonCopySubtitle": "Buat salinan butang ini",
-  "duplicateAndEditButtonSubtitle": "Buat salinan kemudian langsung ubah",
+  "duplicateAndEditButtonSubtitle": "Buat salinan dan terus sunting",
   "undoAvailableInNextSnackbar": "Selepas butang dibuang, ketik Buat asal pada mesej yang muncul.",
   "buttonRemoved": "Butang dibuang.",
   "remoteNameCannotBeEmpty": "Masukkan nama alat kawalan jauh.",

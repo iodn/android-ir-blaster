@@ -1548,11 +1548,12 @@ class AppLocalizationsFr extends AppLocalizations {
   String get removeButtonTitle => 'Retirer le bouton ?';
 
   @override
-  String get imageButtonRemovedMessage => 'Ce bouton image sera retiré.';
+  String get imageButtonRemovedMessage =>
+      'Ce bouton sera retiré de la télécommande.';
 
   @override
   String namedButtonRemovedMessage(Object name) {
-    return '\"$name\" sera retiré.';
+    return '« $name » sera retiré de la télécommande.';
   }
 
   @override
@@ -1570,7 +1571,7 @@ class AppLocalizationsFr extends AppLocalizations {
 
   @override
   String get editButtonSettingsSubtitle =>
-      'Changer le libellé, le signal et les réglages avancés';
+      'Modifier le libellé, les couleurs ou le signal IR';
 
   @override
   String get createButtonCopySubtitle => 'Créer une copie de ce bouton';

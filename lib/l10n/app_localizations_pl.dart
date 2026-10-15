@@ -1560,15 +1560,15 @@ class AppLocalizationsPl extends AppLocalizations {
   String get editRemoteTitle => 'Edytuj pilot';
 
   @override
-  String get removeButtonTitle => 'usuń przycisk?';
+  String get removeButtonTitle => 'Usunąć przycisk?';
 
   @override
   String get imageButtonRemovedMessage =>
-      'Ten przycisk obrazu zostanie usunięty.';
+      'Ten przycisk zostanie usunięty z pilota.';
 
   @override
   String namedButtonRemovedMessage(Object name) {
-    return '\"$name\" will be removed.';
+    return 'Przycisk „$name” zostanie usunięty z pilota.';
   }
 
   @override
@@ -1602,7 +1602,7 @@ class AppLocalizationsPl extends AppLocalizations {
 
   @override
   String get editButtonSettingsSubtitle =>
-      'Change etykieta, signal, i advanced ustawienia';
+      'Zmień etykietę, kolory lub sygnał IR';
 
   @override
   String get createButtonCopySubtitle => 'Utwórz kopię tego przycisku';

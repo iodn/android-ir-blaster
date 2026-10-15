@@ -1548,11 +1548,11 @@ class AppLocalizationsEs extends AppLocalizations {
   String get removeButtonTitle => '¿Quitar botón?';
 
   @override
-  String get imageButtonRemovedMessage => 'Este botón de imagen se eliminará.';
+  String get imageButtonRemovedMessage => 'Este botón se quitará del mando.';
 
   @override
   String namedButtonRemovedMessage(Object name) {
-    return 'Se eliminará \"$name\".';
+    return 'Se quitará «$name» del mando.';
   }
 
   @override
@@ -1570,7 +1570,7 @@ class AppLocalizationsEs extends AppLocalizations {
 
   @override
   String get editButtonSettingsSubtitle =>
-      'Cambiar etiqueta, señal y ajustes avanzados';
+      'Cambiar la etiqueta, los colores o la señal IR';
 
   @override
   String get createButtonCopySubtitle => 'Crear una copia de este botón';

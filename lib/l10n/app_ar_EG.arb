@@ -452,7 +452,7 @@
   "editButtonSubtitle": "تعديل التسمية والكود والبروتوكول والتردد",
   "newButton": "زر جديد",
   "newButtonSubtitle": "أنشئ زراً جديداً بعد هذا الزر",
-  "duplicate": "Duplicate",
+  "duplicate": "عمل نسخة",
   "duplicateButtonSubtitle": "أنشئ نسخة من هذا الزر",
   "removeFromDeviceControls": "إزالة من عناصر تحكم الجهاز",
   "addToDeviceControls": "إضافة إلى عناصر تحكم الجهاز",
@@ -470,15 +470,15 @@
   "untitledRemote": "ريموت من غير اسم",
   "createRemoteTitle": "إنشاء ريموت",
   "editRemoteTitle": "تعديل جهاز التحكم",
-  "removeButtonTitle": "إزالة الزر؟",
-  "imageButtonRemovedMessage": "سيتم حذف زر الصورة هذا.",
-  "namedButtonRemovedMessage": "\"{name}\" will be removed.",
+  "removeButtonTitle": "تشيل الزر؟",
+  "imageButtonRemovedMessage": "الزر ده هيتشال من الريموت.",
+  "namedButtonRemovedMessage": "«{name}» هيتشال من الريموت.",
   "@namedButtonRemovedMessage": {
     "placeholders": {
       "name": {}
     }
   },
-  "remove": "Remove",
+  "remove": "إزالة",
   "importedButtonCount": "تم استيراد {count} زر.",
   "@importedButtonCount": {
     "placeholders": {
@@ -495,9 +495,9 @@
       }
     }
   },
-  "editButtonSettingsSubtitle": "غيّر التسمية والإشارة والإعدادات المتقدمة",
-  "createButtonCopySubtitle": "أنشئ نسخة من هذا الزر",
-  "duplicateAndEditButtonSubtitle": "أنشئ نسخة وعدلها فوراً",
+  "editButtonSettingsSubtitle": "غيّر اسم الزر أو ألوانه أو إشارة الأشعة تحت الحمراء",
+  "createButtonCopySubtitle": "اعمل نسخة من الزر ده",
+  "duplicateAndEditButtonSubtitle": "اعمل نسخة وافتحها للتعديل",
   "undoAvailableInNextSnackbar": "بعد إزالة الزر، اضغط على تراجع في الرسالة اللي هتظهر.",
   "buttonRemoved": "تمت إزالة الزر.",
   "remoteNameCannotBeEmpty": "اكتب اسم للريموت.",

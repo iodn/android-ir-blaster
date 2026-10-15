@@ -476,8 +476,8 @@
   "createRemoteTitle": "Créer une télécommande",
   "editRemoteTitle": "Modifier la télécommande",
   "removeButtonTitle": "Retirer le bouton ?",
-  "imageButtonRemovedMessage": "Ce bouton image sera retiré.",
-  "namedButtonRemovedMessage": "\"{name}\" sera retiré.",
+  "imageButtonRemovedMessage": "Ce bouton sera retiré de la télécommande.",
+  "namedButtonRemovedMessage": "« {name} » sera retiré de la télécommande.",
   "@namedButtonRemovedMessage": {
     "placeholders": {
       "name": {}
@@ -500,7 +500,7 @@
       }
     }
   },
-  "editButtonSettingsSubtitle": "Changer le libellé, le signal et les réglages avancés",
+  "editButtonSettingsSubtitle": "Modifier le libellé, les couleurs ou le signal IR",
   "createButtonCopySubtitle": "Créer une copie de ce bouton",
   "duplicateAndEditButtonSubtitle": "Créer une copie et la modifier tout de suite",
   "undoAvailableInNextSnackbar": "Après le retrait du bouton, appuyez sur Annuler dans le message qui s’affiche.",

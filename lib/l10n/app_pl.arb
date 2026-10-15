@@ -472,9 +472,9 @@
   "untitledRemote": "Pilot bez nazwy",
   "createRemoteTitle": "Utwórz pilot",
   "editRemoteTitle": "Edytuj pilot",
-  "removeButtonTitle": "usuń przycisk?",
-  "imageButtonRemovedMessage": "Ten przycisk obrazu zostanie usunięty.",
-  "namedButtonRemovedMessage": "\"{name}\" will be removed.",
+  "removeButtonTitle": "Usunąć przycisk?",
+  "imageButtonRemovedMessage": "Ten przycisk zostanie usunięty z pilota.",
+  "namedButtonRemovedMessage": "Przycisk „{name}” zostanie usunięty z pilota.",
   "@namedButtonRemovedMessage": {
     "placeholders": {
       "name": {}
@@ -497,7 +497,7 @@
       }
     }
   },
-  "editButtonSettingsSubtitle": "Change etykieta, signal, i advanced ustawienia",
+  "editButtonSettingsSubtitle": "Zmień etykietę, kolory lub sygnał IR",
   "createButtonCopySubtitle": "Utwórz kopię tego przycisku",
   "duplicateAndEditButtonSubtitle": "Utwórz kopię i od razu ją edytuj",
   "undoAvailableInNextSnackbar": "Po usunięciu przycisku dotknij Cofnij w wyświetlonym komunikacie.",

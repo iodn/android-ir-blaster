@@ -584,8 +584,8 @@
   "createRemoteTitle": "Create remote",
   "editRemoteTitle": "Edit remote",
   "removeButtonTitle": "Remove button?",
-  "imageButtonRemovedMessage": "This image button will be removed.",
-  "namedButtonRemovedMessage": "\"{name}\" will be removed.",
+  "imageButtonRemovedMessage": "This button will be removed from the remote.",
+  "namedButtonRemovedMessage": "\"{name}\" will be removed from the remote.",
   "@namedButtonRemovedMessage": {
     "placeholders": {
       "name": {}
@@ -608,7 +608,7 @@
       }
     }
   },
-  "editButtonSettingsSubtitle": "Change label, signal, and advanced settings",
+  "editButtonSettingsSubtitle": "Change the label, colors, or IR signal",
   "createButtonCopySubtitle": "Create a copy of this button",
   "duplicateAndEditButtonSubtitle": "Create a copy and edit it immediately",
   "undoAvailableInNextSnackbar": "After removal, tap Undo in the message that appears.",

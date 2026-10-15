@@ -452,7 +452,7 @@
   "editButtonSubtitle": "Змінити мітку, код, протокол, частоту",
   "newButton": "Нова кнопка",
   "newButtonSubtitle": "Створіть нову кнопку після цієї",
-  "duplicate": "дублікат",
+  "duplicate": "Дублювати",
   "duplicateButtonSubtitle": "Створіть копію цієї кнопки",
   "removeFromDeviceControls": "Видалити з елементів керування пристроєм",
   "addToDeviceControls": "Додати до елементів керування пристроєм",
@@ -463,7 +463,7 @@
   "quickTileButtonSubtitle": "Показує цю кнопку у верхній частині швидкого вибору плитки",
   "removedFromQuickTileFavorites": "Видалено з вибраного Quick Tile.",
   "pinnedToQuickTileFavorites": "Закріплено у вибраному Quick Tile.",
-  "duplicateAndEdit": "Скопіюйте та відредагуйте",
+  "duplicateAndEdit": "Дублювати й редагувати",
   "duplicateAndEditSubtitle": "Створіть копію та негайно відредагуйте її",
   "done": "Готово",
   "run": "бігти",
@@ -471,14 +471,14 @@
   "createRemoteTitle": "Створити пульт",
   "editRemoteTitle": "Редагувати пульт",
   "removeButtonTitle": "Видалити кнопку?",
-  "imageButtonRemovedMessage": "Ця кнопка із зображенням буде видалена.",
-  "namedButtonRemovedMessage": "\"{name}\" буде видалено.",
+  "imageButtonRemovedMessage": "Цю кнопку буде видалено з пульта.",
+  "namedButtonRemovedMessage": "Кнопку «{name}» буде видалено з пульта.",
   "@namedButtonRemovedMessage": {
     "placeholders": {
       "name": {}
     }
   },
-  "remove": "видалити",
+  "remove": "Видалити",
   "importedButtonCount": "{count, plural, one{Імпортовано {count} кнопку.} few{Імпортовано {count} кнопки.} many{Імпортовано {count} кнопок.} other{Імпортовано {count} кнопки.}}",
   "@importedButtonCount": {
     "placeholders": {
@@ -495,9 +495,9 @@
       }
     }
   },
-  "editButtonSettingsSubtitle": "Змініть мітку, сигнал і розширені налаштування",
-  "createButtonCopySubtitle": "Створіть копію цієї кнопки",
-  "duplicateAndEditButtonSubtitle": "Створіть копію та негайно відредагуйте її",
+  "editButtonSettingsSubtitle": "Змінити підпис, кольори або ІЧ-сигнал",
+  "createButtonCopySubtitle": "Створити копію цієї кнопки",
+  "duplicateAndEditButtonSubtitle": "Створити копію й одразу її відредагувати",
   "undoAvailableInNextSnackbar": "Після видалення кнопки натисніть «Скасувати» в повідомленні, що з’явиться.",
   "buttonRemoved": "Кнопку видалено.",
   "remoteNameCannotBeEmpty": "Введіть назву пульта.",

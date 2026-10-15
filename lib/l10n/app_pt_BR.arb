@@ -470,9 +470,9 @@
   "untitledRemote": "Controle sem nome",
   "createRemoteTitle": "Criar controle",
   "editRemoteTitle": "Editar controle",
-  "removeButtonTitle": "Remover botão?",
-  "imageButtonRemovedMessage": "Este botão de imagem será removido.",
-  "namedButtonRemovedMessage": "\"{name}\" será removido.",
+  "removeButtonTitle": "Remover o botão?",
+  "imageButtonRemovedMessage": "Este botão será removido do controle.",
+  "namedButtonRemovedMessage": "\"{name}\" será removido do controle.",
   "@namedButtonRemovedMessage": {
     "placeholders": {
       "name": {}
@@ -495,7 +495,7 @@
       }
     }
   },
-  "editButtonSettingsSubtitle": "Cambiar etiqueta, sinal e configurações avanzados",
+  "editButtonSettingsSubtitle": "Alterar o rótulo, as cores ou o sinal IR",
   "createButtonCopySubtitle": "Criar uma cópia deste botão",
   "duplicateAndEditButtonSubtitle": "Criar uma cópia e editá-la imediatamente",
   "undoAvailableInNextSnackbar": "Depois de remover o botão, toque em Desfazer na mensagem que aparecer.",

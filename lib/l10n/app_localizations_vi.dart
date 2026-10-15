@@ -1499,7 +1499,7 @@ class AppLocalizationsVi extends AppLocalizations {
   String get pinnedToQuickTileFavorites => 'Đã ghim vào mục yêu thích Ô nhanh.';
 
   @override
-  String get duplicateAndEdit => 'Nhân bản and edit';
+  String get duplicateAndEdit => 'Nhân bản và sửa';
 
   @override
   String get duplicateAndEditSubtitle => 'Tạo bản sao và sửa ngay';
@@ -1523,11 +1523,11 @@ class AppLocalizationsVi extends AppLocalizations {
   String get removeButtonTitle => 'Xóa nút?';
 
   @override
-  String get imageButtonRemovedMessage => 'Nút hình ảnh này sẽ bị xóa.';
+  String get imageButtonRemovedMessage => 'Nút này sẽ bị xóa khỏi điều khiển.';
 
   @override
   String namedButtonRemovedMessage(Object name) {
-    return '\"$name\" sẽ bị xóa.';
+    return 'Nút \"$name\" sẽ bị xóa khỏi điều khiển.';
   }
 
   @override
@@ -1545,7 +1545,7 @@ class AppLocalizationsVi extends AppLocalizations {
 
   @override
   String get editButtonSettingsSubtitle =>
-      'Đổi nhãn, tín hiệu và cài đặt nâng cao';
+      'Đổi nhãn, màu sắc hoặc tín hiệu hồng ngoại';
 
   @override
   String get createButtonCopySubtitle => 'Tạo bản sao của nút này';

@@ -1504,7 +1504,7 @@ class AppLocalizationsUk extends AppLocalizations {
   String get newButtonSubtitle => 'Створіть нову кнопку після цієї';
 
   @override
-  String get duplicate => 'дублікат';
+  String get duplicate => 'Дублювати';
 
   @override
   String get duplicateButtonSubtitle => 'Створіть копію цієї кнопки';
@@ -1542,7 +1542,7 @@ class AppLocalizationsUk extends AppLocalizations {
   String get pinnedToQuickTileFavorites => 'Закріплено у вибраному Quick Tile.';
 
   @override
-  String get duplicateAndEdit => 'Скопіюйте та відредагуйте';
+  String get duplicateAndEdit => 'Дублювати й редагувати';
 
   @override
   String get duplicateAndEditSubtitle =>
@@ -1567,16 +1567,15 @@ class AppLocalizationsUk extends AppLocalizations {
   String get removeButtonTitle => 'Видалити кнопку?';
 
   @override
-  String get imageButtonRemovedMessage =>
-      'Ця кнопка із зображенням буде видалена.';
+  String get imageButtonRemovedMessage => 'Цю кнопку буде видалено з пульта.';
 
   @override
   String namedButtonRemovedMessage(Object name) {
-    return '\"$name\" буде видалено.';
+    return 'Кнопку «$name» буде видалено з пульта.';
   }
 
   @override
-  String get remove => 'видалити';
+  String get remove => 'Видалити';
 
   @override
   String importedButtonCount(int count) {
@@ -1606,14 +1605,14 @@ class AppLocalizationsUk extends AppLocalizations {
 
   @override
   String get editButtonSettingsSubtitle =>
-      'Змініть мітку, сигнал і розширені налаштування';
+      'Змінити підпис, кольори або ІЧ-сигнал';
 
   @override
-  String get createButtonCopySubtitle => 'Створіть копію цієї кнопки';
+  String get createButtonCopySubtitle => 'Створити копію цієї кнопки';
 
   @override
   String get duplicateAndEditButtonSubtitle =>
-      'Створіть копію та негайно відредагуйте її';
+      'Створити копію й одразу її відредагувати';
 
   @override
   String get undoAvailableInNextSnackbar =>

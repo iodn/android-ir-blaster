@@ -1456,7 +1456,7 @@ class AppLocalizationsAr extends AppLocalizations {
   String get newButtonSubtitle => 'أنشئ زراً جديداً بعد هذا الزر';
 
   @override
-  String get duplicate => 'Duplicate';
+  String get duplicate => 'إنشاء نسخة';
 
   @override
   String get duplicateButtonSubtitle => 'أنشئ نسخة من هذا الزر';
@@ -1516,15 +1516,15 @@ class AppLocalizationsAr extends AppLocalizations {
   String get removeButtonTitle => 'إزالة الزر؟';
 
   @override
-  String get imageButtonRemovedMessage => 'سيتم حذف زر الصورة هذا.';
+  String get imageButtonRemovedMessage => 'ستتم إزالة هذا الزر من جهاز التحكم.';
 
   @override
   String namedButtonRemovedMessage(Object name) {
-    return '\"$name\" will be removed.';
+    return 'ستتم إزالة «$name» من جهاز التحكم.';
   }
 
   @override
-  String get remove => 'Remove';
+  String get remove => 'إزالة';
 
   @override
   String importedButtonCount(int count) {
@@ -1538,13 +1538,13 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String get editButtonSettingsSubtitle =>
-      'غيّر التسمية والإشارة والإعدادات المتقدمة';
+      'غيّر التسمية أو الألوان أو إشارة الأشعة تحت الحمراء';
 
   @override
   String get createButtonCopySubtitle => 'أنشئ نسخة من هذا الزر';
 
   @override
-  String get duplicateAndEditButtonSubtitle => 'أنشئ نسخة وعدلها فوراً';
+  String get duplicateAndEditButtonSubtitle => 'أنشئ نسخة وافتحها للتعديل';
 
   @override
   String get undoAvailableInNextSnackbar =>
@@ -6672,7 +6672,7 @@ class AppLocalizationsArEg extends AppLocalizationsAr {
   String get newButtonSubtitle => 'أنشئ زراً جديداً بعد هذا الزر';
 
   @override
-  String get duplicate => 'Duplicate';
+  String get duplicate => 'عمل نسخة';
 
   @override
   String get duplicateButtonSubtitle => 'أنشئ نسخة من هذا الزر';
@@ -6729,18 +6729,18 @@ class AppLocalizationsArEg extends AppLocalizationsAr {
   String get editRemoteTitle => 'تعديل جهاز التحكم';
 
   @override
-  String get removeButtonTitle => 'إزالة الزر؟';
+  String get removeButtonTitle => 'تشيل الزر؟';
 
   @override
-  String get imageButtonRemovedMessage => 'سيتم حذف زر الصورة هذا.';
+  String get imageButtonRemovedMessage => 'الزر ده هيتشال من الريموت.';
 
   @override
   String namedButtonRemovedMessage(Object name) {
-    return '\"$name\" will be removed.';
+    return '«$name» هيتشال من الريموت.';
   }
 
   @override
-  String get remove => 'Remove';
+  String get remove => 'إزالة';
 
   @override
   String importedButtonCount(int count) {
@@ -6754,13 +6754,13 @@ class AppLocalizationsArEg extends AppLocalizationsAr {
 
   @override
   String get editButtonSettingsSubtitle =>
-      'غيّر التسمية والإشارة والإعدادات المتقدمة';
+      'غيّر اسم الزر أو ألوانه أو إشارة الأشعة تحت الحمراء';
 
   @override
-  String get createButtonCopySubtitle => 'أنشئ نسخة من هذا الزر';
+  String get createButtonCopySubtitle => 'اعمل نسخة من الزر ده';
 
   @override
-  String get duplicateAndEditButtonSubtitle => 'أنشئ نسخة وعدلها فوراً';
+  String get duplicateAndEditButtonSubtitle => 'اعمل نسخة وافتحها للتعديل';
 
   @override
   String get undoAvailableInNextSnackbar =>

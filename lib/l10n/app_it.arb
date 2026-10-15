@@ -470,9 +470,9 @@
   "untitledRemote": "Telecomando senza nome",
   "createRemoteTitle": "Crea telecomando",
   "editRemoteTitle": "Modifica telecomando",
-  "removeButtonTitle": "Rimuovere pulsante?",
-  "imageButtonRemovedMessage": "Questo pulsante immagine sarà rimosso.",
-  "namedButtonRemovedMessage": "\"{name}\" sarà rimosso.",
+  "removeButtonTitle": "Rimuovere il pulsante?",
+  "imageButtonRemovedMessage": "Questo pulsante verrà rimosso dal telecomando.",
+  "namedButtonRemovedMessage": "«{name}» verrà rimosso dal telecomando.",
   "@namedButtonRemovedMessage": {
     "placeholders": {
       "name": {}
@@ -495,7 +495,7 @@
       }
     }
   },
-  "editButtonSettingsSubtitle": "Cambia etichetta, segnale e impostazioni avanzate",
+  "editButtonSettingsSubtitle": "Cambia etichetta, colori o segnale IR",
   "createButtonCopySubtitle": "Crea una copia di questo pulsante",
   "duplicateAndEditButtonSubtitle": "Crea una copia e modificala subito",
   "undoAvailableInNextSnackbar": "Dopo aver rimosso il pulsante, tocca Annulla nel messaggio che compare.",

@@ -476,8 +476,8 @@
   "createRemoteTitle": "Crear mando",
   "editRemoteTitle": "Editar mando",
   "removeButtonTitle": "¿Quitar botón?",
-  "imageButtonRemovedMessage": "Este botón de imagen se eliminará.",
-  "namedButtonRemovedMessage": "Se eliminará \"{name}\".",
+  "imageButtonRemovedMessage": "Este botón se quitará del mando.",
+  "namedButtonRemovedMessage": "Se quitará «{name}» del mando.",
   "@namedButtonRemovedMessage": {
     "placeholders": {
       "name": {}
@@ -500,7 +500,7 @@
       }
     }
   },
-  "editButtonSettingsSubtitle": "Cambiar etiqueta, señal y ajustes avanzados",
+  "editButtonSettingsSubtitle": "Cambiar la etiqueta, los colores o la señal IR",
   "createButtonCopySubtitle": "Crear una copia de este botón",
   "duplicateAndEditButtonSubtitle": "Crear una copia y editarla al instante",
   "undoAvailableInNextSnackbar": "Después de quitar el botón, pulsa Deshacer en el mensaje que aparece.",

@@ -1511,7 +1511,7 @@ class AppLocalizationsRu extends AppLocalizations {
       'Закреплено в избранных быстрых плитках.';
 
   @override
-  String get duplicateAndEdit => 'Дублировать и изм.';
+  String get duplicateAndEdit => 'Дублировать и изменить';
 
   @override
   String get duplicateAndEditSubtitle => 'Создать копию и сразу изменить';
@@ -1535,12 +1535,11 @@ class AppLocalizationsRu extends AppLocalizations {
   String get removeButtonTitle => 'Удалить кнопку?';
 
   @override
-  String get imageButtonRemovedMessage =>
-      'Эта кнопка с изображением будет удалена.';
+  String get imageButtonRemovedMessage => 'Эта кнопка будет удалена с пульта.';
 
   @override
   String namedButtonRemovedMessage(Object name) {
-    return '\"$name\" будет удалено.';
+    return 'Кнопка «$name» будет удалена с пульта.';
   }
 
   @override
@@ -1558,13 +1557,14 @@ class AppLocalizationsRu extends AppLocalizations {
 
   @override
   String get editButtonSettingsSubtitle =>
-      'Изменить метку, сигнал и доп. настройки';
+      'Изменить подпись, цвета или ИК-сигнал';
 
   @override
   String get createButtonCopySubtitle => 'Создать копию этой кнопки';
 
   @override
-  String get duplicateAndEditButtonSubtitle => 'Создать копию и сразу изменить';
+  String get duplicateAndEditButtonSubtitle =>
+      'Создать копию и сразу изменить её';
 
   @override
   String get undoAvailableInNextSnackbar =>

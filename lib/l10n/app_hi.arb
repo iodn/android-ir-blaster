@@ -452,7 +452,7 @@
   "editButtonSubtitle": "बदलें लेबल, कोड, प्रोटोकॉल, फ़्रीक्वेंसी",
   "newButton": "नया बटन",
   "newButtonSubtitle": "बनाएं a नया बटन बाद यह एक",
-  "duplicate": "डुप्लिकेट",
+  "duplicate": "कॉपी बनाएं",
   "duplicateButtonSubtitle": "इस बटन की कॉपी बनाएं",
   "removeFromDeviceControls": "से डिवाइस नियंत्रण हटाएं",
   "addToDeviceControls": "डिवाइस नियंत्रण में जोड़ें",
@@ -463,16 +463,16 @@
   "quickTileButtonSubtitle": "इस बटन को त्वरित टाइल चयनकर्ता के ऊपर दिखाता है",
   "removedFromQuickTileFavorites": "हटाया गया से त्वरित Tile पसंदीदा.",
   "pinnedToQuickTileFavorites": "Pinned तक त्वरित Tile पसंदीदा.",
-  "duplicateAndEdit": "डुप्लिकेट और संपादित करें",
+  "duplicateAndEdit": "कॉपी बनाकर संपादित करें",
   "duplicateAndEditSubtitle": "कॉपी बनाएं और तुरंत संपादित करें",
   "done": "पूर्ण",
   "run": "चलाएं",
   "untitledRemote": "बिना नाम का रिमोट",
   "createRemoteTitle": "रिमोट बनाएँ",
   "editRemoteTitle": "रिमोट संपादित करें",
-  "removeButtonTitle": "बटन? हटाएं",
-  "imageButtonRemovedMessage": "यह छवि बटन होगा हो हटाया गया.",
-  "namedButtonRemovedMessage": "\"{name}\" होगा हो हटाया गया.",
+  "removeButtonTitle": "बटन हटाएं?",
+  "imageButtonRemovedMessage": "यह बटन रिमोट से हटा दिया जाएगा।",
+  "namedButtonRemovedMessage": "\"{name}\" को रिमोट से हटा दिया जाएगा।",
   "@namedButtonRemovedMessage": {
     "placeholders": {
       "name": {}
@@ -495,7 +495,7 @@
       }
     }
   },
-  "editButtonSettingsSubtitle": "बदलें लेबल, सिग्नल, और advanced सेटिंग्स",
+  "editButtonSettingsSubtitle": "लेबल, रंग या IR सिग्नल बदलें",
   "createButtonCopySubtitle": "इस बटन की कॉपी बनाएं",
   "duplicateAndEditButtonSubtitle": "कॉपी बनाएं और तुरंत संपादित करें",
   "undoAvailableInNextSnackbar": "बटन हटाने के बाद दिखने वाले संदेश में पूर्ववत करें पर टैप करके उसे वापस ला सकते हैं।",

@@ -1225,7 +1225,7 @@ class AppLocalizationsMs extends AppLocalizations {
   String get useThisRemote => 'Gunakan remote ini';
 
   @override
-  String get edit => 'Ubah';
+  String get edit => 'Sunting';
 
   @override
   String get editRemoteSubtitle => 'Ganti nama dan ubah butang';
@@ -1474,7 +1474,7 @@ class AppLocalizationsMs extends AppLocalizations {
   String get newButtonSubtitle => 'Buat butang baru setelah butang ini';
 
   @override
-  String get duplicate => 'Duplikat';
+  String get duplicate => 'Gandakan';
 
   @override
   String get duplicateButtonSubtitle => 'Buat salinan butang ini';
@@ -1511,7 +1511,7 @@ class AppLocalizationsMs extends AppLocalizations {
       'Disematkan ke kegemaran Jubin Pantas.';
 
   @override
-  String get duplicateAndEdit => 'Duplikat dan ubah';
+  String get duplicateAndEdit => 'Gandakan dan sunting';
 
   @override
   String get duplicateAndEditSubtitle => 'Buat salinan kemudian langsung ubah';
@@ -1532,18 +1532,19 @@ class AppLocalizationsMs extends AppLocalizations {
   String get editRemoteTitle => 'Ubah remote';
 
   @override
-  String get removeButtonTitle => 'Remove butang?';
+  String get removeButtonTitle => 'Buang butang?';
 
   @override
-  String get imageButtonRemovedMessage => 'Butang gambar ini akan dihapus.';
+  String get imageButtonRemovedMessage =>
+      'Butang ini akan dibuang daripada alat kawalan jauh.';
 
   @override
   String namedButtonRemovedMessage(Object name) {
-    return '\"$name\" akan dihapus.';
+    return '\"$name\" akan dibuang daripada alat kawalan jauh.';
   }
 
   @override
-  String get remove => 'Hapus';
+  String get remove => 'Buang';
 
   @override
   String importedButtonCount(int count) {
@@ -1556,15 +1557,13 @@ class AppLocalizationsMs extends AppLocalizations {
   }
 
   @override
-  String get editButtonSettingsSubtitle =>
-      'Ubah label, isyarat, dan tetapan lanjutan';
+  String get editButtonSettingsSubtitle => 'Tukar label, warna atau isyarat IR';
 
   @override
   String get createButtonCopySubtitle => 'Buat salinan butang ini';
 
   @override
-  String get duplicateAndEditButtonSubtitle =>
-      'Buat salinan kemudian langsung ubah';
+  String get duplicateAndEditButtonSubtitle => 'Buat salinan dan terus sunting';
 
   @override
   String get undoAvailableInNextSnackbar =>

@@ -73,6 +73,19 @@ void main() {
         readable(l10n.saveAction);
         await tester.longPress(find.byKey(const ValueKey('power')));
         await tester.pumpAndSettle();
+        for (final label in [
+          l10n.edit,
+          l10n.editButtonSettingsSubtitle,
+          l10n.duplicate,
+          l10n.createButtonCopySubtitle,
+          l10n.duplicateAndEdit,
+          l10n.duplicateAndEditButtonSubtitle,
+        ]) {
+          await Scrollable.ensureVisible(tester.element(find.text(label)),
+              alignment: 0.5);
+          await tester.pumpAndSettle();
+          readable(label);
+        }
         await tester.ensureVisible(find.text(l10n.undoAvailableInNextSnackbar));
         await tester.pumpAndSettle();
         readable(l10n.undoAvailableInNextSnackbar);

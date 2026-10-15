@@ -1533,14 +1533,15 @@ class AppLocalizationsId extends AppLocalizations {
   String get editRemoteTitle => 'Ubah remote';
 
   @override
-  String get removeButtonTitle => 'Remove tombol?';
+  String get removeButtonTitle => 'Hapus tombol?';
 
   @override
-  String get imageButtonRemovedMessage => 'Tombol gambar ini akan dihapus.';
+  String get imageButtonRemovedMessage =>
+      'Tombol ini akan dihapus dari remote.';
 
   @override
   String namedButtonRemovedMessage(Object name) {
-    return '\"$name\" akan dihapus.';
+    return '\"$name\" akan dihapus dari remote.';
   }
 
   @override
@@ -1557,8 +1558,7 @@ class AppLocalizationsId extends AppLocalizations {
   }
 
   @override
-  String get editButtonSettingsSubtitle =>
-      'Ubah label, sinyal, dan setelan lanjutan';
+  String get editButtonSettingsSubtitle => 'Ubah label, warna, atau sinyal IR';
 
   @override
   String get createButtonCopySubtitle => 'Buat salinan tombol ini';

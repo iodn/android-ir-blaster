@@ -1421,14 +1421,14 @@ class AppLocalizationsZh extends AppLocalizations {
   String get editRemoteTitle => '编辑遥控器';
 
   @override
-  String get removeButtonTitle => '移除按钮';
+  String get removeButtonTitle => '移除按钮？';
 
   @override
-  String get imageButtonRemovedMessage => '此图片按钮将被移除。';
+  String get imageButtonRemovedMessage => '此按钮将从遥控器中移除。';
 
   @override
   String namedButtonRemovedMessage(Object name) {
-    return '\"$name\" 将被移除。';
+    return '将从遥控器中移除“$name”。';
   }
 
   @override
@@ -1445,7 +1445,7 @@ class AppLocalizationsZh extends AppLocalizations {
   }
 
   @override
-  String get editButtonSettingsSubtitle => '更改标签、信号和高级设置';
+  String get editButtonSettingsSubtitle => '更改标签、颜色或红外信号';
 
   @override
   String get createButtonCopySubtitle => '创建此按钮的副本';

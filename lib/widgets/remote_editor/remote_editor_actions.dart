@@ -53,10 +53,11 @@ class RemoteEditorActions {
     final result = await showDialog<bool>(
       context: context,
       builder: (dialogContext) => AlertDialog(
+        scrollable: true,
         icon: const Icon(Icons.warning_amber_rounded),
         title: Text(context.l10n.removeButtonTitle),
         content: Text(
-          button.isImage
+          button.isImage || button.image.trim().isEmpty
               ? context.l10n.imageButtonRemovedMessage
               : context.l10n.namedButtonRemovedMessage(button.image),
         ),

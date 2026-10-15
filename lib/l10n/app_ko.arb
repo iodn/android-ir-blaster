@@ -470,9 +470,9 @@
   "untitledRemote": "이름 없는 리모컨",
   "createRemoteTitle": "리모컨 만들기",
   "editRemoteTitle": "리모컨 편집",
-  "removeButtonTitle": "제거 버튼?",
-  "imageButtonRemovedMessage": "이 이미지 버튼이 제거됩니다.",
-  "namedButtonRemovedMessage": "\"{name}\"이(가) 제거됩니다.",
+  "removeButtonTitle": "버튼을 제거할까요?",
+  "imageButtonRemovedMessage": "이 버튼을 리모컨에서 제거합니다.",
+  "namedButtonRemovedMessage": "리모컨에서 ‘{name}’ 버튼을 제거합니다.",
   "@namedButtonRemovedMessage": {
     "placeholders": {
       "name": {}
@@ -495,7 +495,7 @@
       }
     }
   },
-  "editButtonSettingsSubtitle": "레이블, 신호 및 고급 설정 변경",
+  "editButtonSettingsSubtitle": "레이블, 색상 또는 적외선 신호 변경",
   "createButtonCopySubtitle": "이 버튼의 복사본 만들기",
   "duplicateAndEditButtonSubtitle": "복사본을 만들고 바로 편집",
   "undoAvailableInNextSnackbar": "버튼을 제거한 뒤 나타나는 메시지에서 실행 취소를 누르면 복원할 수 있습니다.",

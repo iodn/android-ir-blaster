@@ -1472,7 +1472,7 @@ class AppLocalizationsHi extends AppLocalizations {
   String get newButtonSubtitle => 'बनाएं a नया बटन बाद यह एक';
 
   @override
-  String get duplicate => 'डुप्लिकेट';
+  String get duplicate => 'कॉपी बनाएं';
 
   @override
   String get duplicateButtonSubtitle => 'इस बटन की कॉपी बनाएं';
@@ -1508,7 +1508,7 @@ class AppLocalizationsHi extends AppLocalizations {
   String get pinnedToQuickTileFavorites => 'Pinned तक त्वरित Tile पसंदीदा.';
 
   @override
-  String get duplicateAndEdit => 'डुप्लिकेट और संपादित करें';
+  String get duplicateAndEdit => 'कॉपी बनाकर संपादित करें';
 
   @override
   String get duplicateAndEditSubtitle => 'कॉपी बनाएं और तुरंत संपादित करें';
@@ -1529,14 +1529,14 @@ class AppLocalizationsHi extends AppLocalizations {
   String get editRemoteTitle => 'रिमोट संपादित करें';
 
   @override
-  String get removeButtonTitle => 'बटन? हटाएं';
+  String get removeButtonTitle => 'बटन हटाएं?';
 
   @override
-  String get imageButtonRemovedMessage => 'यह छवि बटन होगा हो हटाया गया.';
+  String get imageButtonRemovedMessage => 'यह बटन रिमोट से हटा दिया जाएगा।';
 
   @override
   String namedButtonRemovedMessage(Object name) {
-    return '\"$name\" होगा हो हटाया गया.';
+    return '\"$name\" को रिमोट से हटा दिया जाएगा।';
   }
 
   @override
@@ -1553,8 +1553,7 @@ class AppLocalizationsHi extends AppLocalizations {
   }
 
   @override
-  String get editButtonSettingsSubtitle =>
-      'बदलें लेबल, सिग्नल, और advanced सेटिंग्स';
+  String get editButtonSettingsSubtitle => 'लेबल, रंग या IR सिग्नल बदलें';
 
   @override
   String get createButtonCopySubtitle => 'इस बटन की कॉपी बनाएं';

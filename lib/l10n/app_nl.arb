@@ -463,16 +463,16 @@
   "quickTileButtonSubtitle": "Toont deze knop bovenaan de snelle-tegelkiezer",
   "removedFromQuickTileFavorites": "Verwijderd uit favorieten van Snelle tegel.",
   "pinnedToQuickTileFavorites": "Vastgezet aan favorieten van Snelle tegel.",
-  "duplicateAndEdit": "Duplicate and bewerken",
+  "duplicateAndEdit": "Dupliceren en bewerken",
   "duplicateAndEditSubtitle": "Maak een kopie en bewerk die meteen",
   "done": "Klaar",
   "run": "Uitvoeren",
   "untitledRemote": "Naamloze afstandsbediening",
   "createRemoteTitle": "Afstandsbediening maken",
   "editRemoteTitle": "Afstandsbediening bewerken",
-  "removeButtonTitle": "Verwijderen knop?",
-  "imageButtonRemovedMessage": "Deze afbeeldingsknop wordt verwijderd.",
-  "namedButtonRemovedMessage": "\"{name}\" wordt verwijderd.",
+  "removeButtonTitle": "Knop verwijderen?",
+  "imageButtonRemovedMessage": "Deze knop wordt uit de afstandsbediening verwijderd.",
+  "namedButtonRemovedMessage": "‘{name}’ wordt uit de afstandsbediening verwijderd.",
   "@namedButtonRemovedMessage": {
     "placeholders": {
       "name": {}
@@ -495,7 +495,7 @@
       }
     }
   },
-  "editButtonSettingsSubtitle": "Wijzig label, signaal en geavanceerde instellingen",
+  "editButtonSettingsSubtitle": "Label, kleuren of IR-signaal wijzigen",
   "createButtonCopySubtitle": "Maak een kopie van deze knop",
   "duplicateAndEditButtonSubtitle": "Maak een kopie en bewerk die meteen",
   "undoAvailableInNextSnackbar": "Tik na het verwijderen op Ongedaan maken in de melding die verschijnt.",

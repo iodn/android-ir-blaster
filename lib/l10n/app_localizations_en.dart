@@ -1541,11 +1541,12 @@ class AppLocalizationsEn extends AppLocalizations {
   String get removeButtonTitle => 'Remove button?';
 
   @override
-  String get imageButtonRemovedMessage => 'This image button will be removed.';
+  String get imageButtonRemovedMessage =>
+      'This button will be removed from the remote.';
 
   @override
   String namedButtonRemovedMessage(Object name) {
-    return '\"$name\" will be removed.';
+    return '\"$name\" will be removed from the remote.';
   }
 
   @override
@@ -1575,7 +1576,7 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get editButtonSettingsSubtitle =>
-      'Change label, signal, and advanced settings';
+      'Change the label, colors, or IR signal';
 
   @override
   String get createButtonCopySubtitle => 'Create a copy of this button';
