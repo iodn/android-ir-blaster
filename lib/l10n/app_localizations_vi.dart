@@ -477,14 +477,14 @@ class AppLocalizationsVi extends AppLocalizations {
   String get irTransmitterSubtitle => 'Chọn phần cứng gửi lệnh IR';
 
   @override
-  String get learningModeEntryTitle => 'Chế độ học tập';
+  String get learningModeEntryTitle => 'Học tín hiệu';
 
   @override
   String get learningModeEntrySubtitle =>
       'Sao chép tín hiệu hồng ngoại của một nút trên điều khiển.';
 
   @override
-  String get learningModeTitle => 'Chế độ học tập';
+  String get learningModeTitle => 'Học tín hiệu';
 
   @override
   String get learningModeHeroTitle =>
@@ -545,7 +545,7 @@ class AppLocalizationsVi extends AppLocalizations {
 
   @override
   String get learningModeCheckingHardwareBody =>
-      'Kiểm tra trạng thái bộ phát và bộ thu USB khả dụng.';
+      'Đang kiểm tra bộ phát và bộ thu hồng ngoại.';
 
   @override
   String get learningModeHardwareReadyBody =>
@@ -557,7 +557,7 @@ class AppLocalizationsVi extends AppLocalizations {
 
   @override
   String get learningModeHardwareSetupBody =>
-      'Một dongle được phát hiện một phần nhưng vẫn cần thiết lập hoặc kết nối lại trước khi quá trình học có thể bắt đầu một cách đáng tin cậy.';
+      'Bộ thu chưa sẵn sàng. Kiểm tra thiết lập hoặc kết nối lại rồi thử lại.';
 
   @override
   String get learningModeHardwareNoReceiverBody =>
@@ -585,7 +585,7 @@ class AppLocalizationsVi extends AppLocalizations {
   String get learningModeButtonNameLabel => 'Tên nút';
 
   @override
-  String get learningModeButtonNameHint => 'Ví dụ: HDMI 1, Nguồn, Menu';
+  String get learningModeButtonNameHint => 'Ví dụ: Nguồn, HDMI 1, Menu';
 
   @override
   String get learningModeSinglePress => 'Bấm một lần';
@@ -630,7 +630,7 @@ class AppLocalizationsVi extends AppLocalizations {
       'Bạn vẫn có thể xem lại quy trình ngay bây giờ nhưng quá trình chụp phải đợi cho đến khi bộ thu sẵn sàng.';
 
   @override
-  String get learningModeStartListening => 'Bắt đầu nghe';
+  String get learningModeStartListening => 'Bắt đầu thu';
 
   @override
   String get learningModeCaptureStubTitle => 'Chụp phụ trợ tiếp theo';
@@ -644,28 +644,28 @@ class AppLocalizationsVi extends AppLocalizations {
       'Chụp học tập chưa được kết nối. Màn hình này sẽ dàn dựng toàn bộ luồng đầu tiên.';
 
   @override
-  String get learningModeUnnamedCapture => 'Ảnh chụp không tên';
+  String get learningModeUnnamedCapture => 'Tín hiệu chưa đặt tên';
 
   @override
-  String get learningModeStatusCheckingTitle => 'Kiểm tra máy thu';
+  String get learningModeStatusCheckingTitle => 'Đang kiểm tra bộ thu';
 
   @override
   String get learningModeStatusNoReceiverTitle => 'Bộ thu chưa sẵn sàng';
 
   @override
-  String get learningModeStatusPermissionTitle => 'Cần có sự cho phép của USB';
+  String get learningModeStatusPermissionTitle => 'Cần cấp quyền USB';
 
   @override
-  String get learningModeStatusSetupTitle => 'Người nhận cần thiết lập';
+  String get learningModeStatusSetupTitle => 'Cần thiết lập bộ thu';
 
   @override
-  String get learningModeStatusReadyTitle => 'Sẵn sàng học hỏi';
+  String get learningModeStatusReadyTitle => 'Sẵn sàng học tín hiệu';
 
   @override
-  String get learningModeStatusListeningTitle => 'Lắng nghe tín hiệu';
+  String get learningModeStatusListeningTitle => 'Đang chờ tín hiệu';
 
   @override
-  String get learningModeStatusCapturedTitle => 'Đã bắt được tín hiệu';
+  String get learningModeStatusCapturedTitle => 'Đã thu tín hiệu';
 
   @override
   String get learningModeStatusReadyBody =>
@@ -677,7 +677,7 @@ class AppLocalizationsVi extends AppLocalizations {
 
   @override
   String learningModeStatusCapturedBody(Object buttonName) {
-    return 'Bản xem trước tín hiệu đã học đã sẵn sàng cho $buttonName. Phát lại nó, xác nhận nó hoạt động, sau đó lưu nó vào thư viện của bạn.';
+    return 'Đã thu tín hiệu cho $buttonName. Gửi lại để kiểm tra thiết bị có phản hồi không, rồi lưu.';
   }
 
   @override
@@ -695,14 +695,14 @@ class AppLocalizationsVi extends AppLocalizations {
       'Đặt nhãn trước nếu bạn muốn, sau đó bắt đầu nghe và nhấn nút trên điều khiển từ xa gốc.';
 
   @override
-  String get learningModeReadyToListenTitle => 'Sẵn sàng lắng nghe';
+  String get learningModeReadyToListenTitle => 'Sẵn sàng nhận tín hiệu';
 
   @override
   String get learningModeReadyToListenBody =>
       'Hướng điều khiển gốc vào bộ thu rồi bắt đầu nhận tín hiệu.';
 
   @override
-  String get learningModeListeningNowTitle => 'Đang nghe';
+  String get learningModeListeningNowTitle => 'Đang chờ tín hiệu';
 
   @override
   String get learningModeListeningNowBody =>
@@ -715,14 +715,14 @@ class AppLocalizationsVi extends AppLocalizations {
   String get learningModeCapturedSummary => 'Tín hiệu đã thu';
 
   @override
-  String get learningModeResultActionsTitle => 'Kiểm tra và lưu';
+  String get learningModeResultActionsTitle => 'Thử và lưu';
 
   @override
   String get learningModeResultActionsBody =>
-      'Phát lại tín hiệu đã học, xác minh phản hồi của thiết bị đích, sau đó lưu dưới dạng nút có thể sử dụng lại.';
+      'Gửi lại tín hiệu và kiểm tra thiết bị có phản hồi trước khi lưu nút.';
 
   @override
-  String get learningModeReplayAction => 'Phát lại';
+  String get learningModeReplayAction => 'Gửi lại';
 
   @override
   String get learningModeReplayStubMessage =>
@@ -743,13 +743,13 @@ class AppLocalizationsVi extends AppLocalizations {
       'Xác nhận những gì đã học được, sau đó chọn nơi nó sẽ tồn tại trong thư viện từ xa của bạn.';
 
   @override
-  String get learningModeSaveToExistingRemote => 'Điều khiển từ xa hiện có';
+  String get learningModeSaveToExistingRemote => 'Điều khiển đã lưu';
 
   @override
-  String get learningModeCreateNewRemote => 'Điều khiển từ xa mới';
+  String get learningModeCreateNewRemote => 'Điều khiển mới';
 
   @override
-  String get learningModeProtocolPreviewTitle => 'Xem trước giao thức';
+  String get learningModeProtocolPreviewTitle => 'Thông tin giao thức';
 
   @override
   String get learningModeProtocolPreviewBody =>
@@ -763,7 +763,7 @@ class AppLocalizationsVi extends AppLocalizations {
       'Nếu quá trình giải mã chưa hoàn tất, bản ghi thời gian thô sẽ vẫn có sẵn ở đây để xem lại và lưu.';
 
   @override
-  String get learningModeSaveCapture => 'Lưu ảnh chụp';
+  String get learningModeSaveCapture => 'Lưu tín hiệu';
 
   @override
   String get learningModeReviewTipTitle => 'Chuyện này sẽ đi tới đâu tiếp theo';
@@ -4503,31 +4503,29 @@ class AppLocalizationsVi extends AppLocalizations {
   String get globalSearchTypeMacro => 'MACRO';
 
   @override
-  String get learningModeCaptureFailed =>
-      'Ghi lại quá trình học tập không thành công.';
+  String get learningModeCaptureFailed => 'Không thu được tín hiệu.';
 
   @override
-  String get learningModeReplaySent => 'Tín hiệu đã học được phát lại.';
+  String get learningModeReplaySent => 'Đã gửi tín hiệu.';
 
   @override
-  String get learningModeReplayFailed =>
-      'Tín hiệu đã học không thể được phát lại.';
+  String get learningModeReplayFailed => 'Không gửi được tín hiệu đã thu.';
 
   @override
   String get learningModeNoRemotesAvailable =>
-      'Chưa có điều khiển từ xa nào được lưu.';
+      'Chưa có điều khiển nào được lưu.';
 
   @override
-  String get learningModeChooseRemoteTitle => 'Chọn điều khiển từ xa';
+  String get learningModeChooseRemoteTitle => 'Chọn điều khiển';
 
   @override
-  String get learningModeNewRemoteTitle => 'Tạo một điều khiển từ xa mới';
+  String get learningModeNewRemoteTitle => 'Tạo điều khiển';
 
   @override
-  String get learningModeSaveSuccess => 'Đã lưu nút đã học.';
+  String get learningModeSaveSuccess => 'Đã lưu nút.';
 
   @override
-  String get learningModeSaveFailed => 'Không thể lưu nút đã học.';
+  String get learningModeSaveFailed => 'Không lưu được nút.';
 
   @override
   String get remoteSetupIntro =>

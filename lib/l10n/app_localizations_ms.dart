@@ -476,14 +476,14 @@ class AppLocalizationsMs extends AppLocalizations {
   String get irTransmitterSubtitle => 'Pilih peranti yang menghantar arahan IR';
 
   @override
-  String get learningModeEntryTitle => 'Mod Pembelajaran';
+  String get learningModeEntryTitle => 'Pembelajaran IR';
 
   @override
   String get learningModeEntrySubtitle =>
       'Salin isyarat IR daripada butang alat kawalan jauh anda.';
 
   @override
-  String get learningModeTitle => 'Mod Pembelajaran';
+  String get learningModeTitle => 'Pembelajaran IR';
 
   @override
   String get learningModeHeroTitle => 'Belajar butang jauh dengan bersih';
@@ -544,7 +544,7 @@ class AppLocalizationsMs extends AppLocalizations {
 
   @override
   String get learningModeCheckingHardwareBody =>
-      'Memeriksa keadaan pemancar dan penerima USB yang tersedia.';
+      'Memeriksa pemancar dan penerima IR.';
 
   @override
   String get learningModeHardwareReadyBody =>
@@ -556,7 +556,7 @@ class AppLocalizationsMs extends AppLocalizations {
 
   @override
   String get learningModeHardwareSetupBody =>
-      'Dongle sebahagiannya dikesan, tetapi ia masih memerlukan persediaan atau penyambungan semula sebelum pembelajaran boleh bermula dengan pasti.';
+      'Penerima belum sedia. Semak tetapannya atau sambungkan semula, kemudian cuba lagi.';
 
   @override
   String get learningModeHardwareNoReceiverBody =>
@@ -583,7 +583,7 @@ class AppLocalizationsMs extends AppLocalizations {
   String get learningModeButtonNameLabel => 'Nama butang';
 
   @override
-  String get learningModeButtonNameHint => 'Contohnya: HDMI 1, Kuasa, Menu';
+  String get learningModeButtonNameHint => 'Contohnya: Kuasa, HDMI 1, Menu';
 
   @override
   String get learningModeSinglePress => 'Akhbar tunggal';
@@ -628,7 +628,7 @@ class AppLocalizationsMs extends AppLocalizations {
       'Anda masih boleh menyemak aliran sekarang, tetapi tangkapan hendaklah menunggu sehingga penerima sedia.';
 
   @override
-  String get learningModeStartListening => 'Mula mendengar';
+  String get learningModeStartListening => 'Terima isyarat';
 
   @override
   String get learningModeCaptureStubTitle =>
@@ -643,28 +643,28 @@ class AppLocalizationsMs extends AppLocalizations {
       'Belajar menangkap belum berwayar lagi. Skrin ini perancah aliran penuh terlebih dahulu.';
 
   @override
-  String get learningModeUnnamedCapture => 'Tangkapan tanpa nama';
+  String get learningModeUnnamedCapture => 'Isyarat tanpa nama';
 
   @override
   String get learningModeStatusCheckingTitle => 'Memeriksa penerima';
 
   @override
-  String get learningModeStatusNoReceiverTitle => 'Penerima tidak bersedia';
+  String get learningModeStatusNoReceiverTitle => 'Penerima belum sedia';
 
   @override
   String get learningModeStatusPermissionTitle => 'Kebenaran USB diperlukan';
 
   @override
-  String get learningModeStatusSetupTitle => 'Penerima memerlukan persediaan';
+  String get learningModeStatusSetupTitle => 'Sediakan penerima';
 
   @override
-  String get learningModeStatusReadyTitle => 'Bersedia untuk belajar';
+  String get learningModeStatusReadyTitle => 'Sedia untuk belajar';
 
   @override
-  String get learningModeStatusListeningTitle => 'Mendengar isyarat';
+  String get learningModeStatusListeningTitle => 'Menunggu isyarat';
 
   @override
-  String get learningModeStatusCapturedTitle => 'Isyarat ditangkap';
+  String get learningModeStatusCapturedTitle => 'Isyarat diterima';
 
   @override
   String get learningModeStatusReadyBody =>
@@ -676,7 +676,7 @@ class AppLocalizationsMs extends AppLocalizations {
 
   @override
   String learningModeStatusCapturedBody(Object buttonName) {
-    return 'Pratonton isyarat yang dipelajari sedia untuk $buttonName. Main semula, sahkan ia berfungsi, kemudian simpan ke dalam pustaka anda.';
+    return 'Isyarat untuk $buttonName telah diterima. Hantar semula untuk memastikan peranti bertindak balas, kemudian simpan.';
   }
 
   @override
@@ -694,14 +694,14 @@ class AppLocalizationsMs extends AppLocalizations {
       'Tetapkan label dahulu jika anda mahu, kemudian mula mendengar dan tekan butang pada alat kawalan jauh asal.';
 
   @override
-  String get learningModeReadyToListenTitle => 'Sedia untuk mendengar';
+  String get learningModeReadyToListenTitle => 'Sedia menerima isyarat';
 
   @override
   String get learningModeReadyToListenBody =>
       'Halakan alat kawalan jauh asal ke penerima, kemudian mulakan penerimaan isyarat.';
 
   @override
-  String get learningModeListeningNowTitle => 'Mendengar sekarang';
+  String get learningModeListeningNowTitle => 'Menunggu isyarat';
 
   @override
   String get learningModeListeningNowBody =>
@@ -719,10 +719,10 @@ class AppLocalizationsMs extends AppLocalizations {
 
   @override
   String get learningModeResultActionsBody =>
-      'Main semula isyarat yang dipelajari, sahkan peranti sasaran bertindak balas, kemudian simpannya sebagai butang boleh guna semula.';
+      'Hantar semula isyarat dan pastikan peranti bertindak balas sebelum menyimpan butang.';
 
   @override
-  String get learningModeReplayAction => 'Main semula';
+  String get learningModeReplayAction => 'Hantar semula';
 
   @override
   String get learningModeReplayStubMessage =>
@@ -743,10 +743,10 @@ class AppLocalizationsMs extends AppLocalizations {
       'Sahkan apa yang telah dipelajari, kemudian pilih tempat ia harus tinggal di perpustakaan jauh anda.';
 
   @override
-  String get learningModeSaveToExistingRemote => 'Jauh sedia ada';
+  String get learningModeSaveToExistingRemote => 'Kawalan jauh tersimpan';
 
   @override
-  String get learningModeCreateNewRemote => 'Alat kawalan jauh baharu';
+  String get learningModeCreateNewRemote => 'Kawalan jauh baharu';
 
   @override
   String get learningModeProtocolPreviewTitle => 'Pratonton protokol';
@@ -763,7 +763,7 @@ class AppLocalizationsMs extends AppLocalizations {
       'Jika penyahkodan tidak lengkap, tangkapan masa mentah masih tersedia di sini untuk semakan dan simpanan.';
 
   @override
-  String get learningModeSaveCapture => 'Simpan tangkapan';
+  String get learningModeSaveCapture => 'Simpan isyarat';
 
   @override
   String get learningModeReviewTipTitle => 'Ke mana ini akan pergi seterusnya';
@@ -4516,32 +4516,30 @@ class AppLocalizationsMs extends AppLocalizations {
   String get globalSearchTypeMacro => 'MACRO';
 
   @override
-  String get learningModeCaptureFailed => 'Gagal menangkap pembelajaran.';
+  String get learningModeCaptureFailed => 'Isyarat tidak dapat diterima.';
 
   @override
-  String get learningModeReplaySent =>
-      'Isyarat yang dipelajari dimainkan semula.';
+  String get learningModeReplaySent => 'Isyarat dihantar.';
 
   @override
   String get learningModeReplayFailed =>
-      'Isyarat yang dipelajari tidak dapat dimainkan semula.';
+      'Isyarat yang diterima tidak dapat dihantar.';
 
   @override
   String get learningModeNoRemotesAvailable =>
-      'Masih belum ada alat kawalan jauh yang disimpan.';
+      'Belum ada alat kawalan jauh yang disimpan.';
 
   @override
-  String get learningModeChooseRemoteTitle => 'Pilih alat kawalan jauh';
+  String get learningModeChooseRemoteTitle => 'Pilih kawalan jauh';
 
   @override
-  String get learningModeNewRemoteTitle => 'Buat alat kawalan jauh baharu';
+  String get learningModeNewRemoteTitle => 'Cipta kawalan jauh';
 
   @override
-  String get learningModeSaveSuccess => 'Butang yang dipelajari disimpan.';
+  String get learningModeSaveSuccess => 'Butang disimpan.';
 
   @override
-  String get learningModeSaveFailed =>
-      'Butang yang dipelajari tidak dapat disimpan.';
+  String get learningModeSaveFailed => 'Butang tidak dapat disimpan.';
 
   @override
   String get remoteSetupIntro =>

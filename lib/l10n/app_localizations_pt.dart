@@ -483,14 +483,14 @@ class AppLocalizationsPt extends AppLocalizations {
   String get irTransmitterSubtitle => 'Escolha que hardware envia comandos IR';
 
   @override
-  String get learningModeEntryTitle => 'Modo de aprendizagem';
+  String get learningModeEntryTitle => 'Aprendizagem IR';
 
   @override
   String get learningModeEntrySubtitle =>
       'Copie o sinal IR de um botão do comando.';
 
   @override
-  String get learningModeTitle => 'Modo de aprendizagem';
+  String get learningModeTitle => 'Aprendizagem IR';
 
   @override
   String get learningModeHeroTitle => 'Aprenda um botão remoto de forma limpa';
@@ -551,7 +551,7 @@ class AppLocalizationsPt extends AppLocalizations {
 
   @override
   String get learningModeCheckingHardwareBody =>
-      'Verificando o estado do transmissor disponível e do receptor USB.';
+      'A verificar o emissor e o recetor IR.';
 
   @override
   String get learningModeHardwareReadyBody =>
@@ -563,7 +563,7 @@ class AppLocalizationsPt extends AppLocalizations {
 
   @override
   String get learningModeHardwareSetupBody =>
-      'Um dongle foi parcialmente detectado, mas ainda precisa ser configurado ou reconectado antes que o aprendizado possa começar de forma confiável.';
+      'O recetor não está pronto. Verifique a configuração ou volte a ligá-lo e tente novamente.';
 
   @override
   String get learningModeHardwareNoReceiverBody =>
@@ -592,7 +592,7 @@ class AppLocalizationsPt extends AppLocalizations {
 
   @override
   String get learningModeButtonNameHint =>
-      'Por exemplo: HDMI 1, Alimentação, Menu';
+      'Por exemplo: Ligar/Desligar, HDMI 1, Menu';
 
   @override
   String get learningModeSinglePress => 'Pressão única';
@@ -638,7 +638,7 @@ class AppLocalizationsPt extends AppLocalizations {
       'Você ainda pode revisar o fluxo agora, mas a captura deverá aguardar até que o receptor esteja pronto.';
 
   @override
-  String get learningModeStartListening => 'Comece a ouvir';
+  String get learningModeStartListening => 'Receber sinal';
 
   @override
   String get learningModeCaptureStubTitle =>
@@ -653,26 +653,25 @@ class AppLocalizationsPt extends AppLocalizations {
       'A captura de aprendizagem ainda não está conectada. Esta tela estrutura o fluxo completo primeiro.';
 
   @override
-  String get learningModeUnnamedCapture => 'Captura sem nome';
+  String get learningModeUnnamedCapture => 'Sinal sem nome';
 
   @override
-  String get learningModeStatusCheckingTitle => 'Verificando o receptor';
+  String get learningModeStatusCheckingTitle => 'A verificar o recetor';
 
   @override
-  String get learningModeStatusNoReceiverTitle => 'Receptor não está pronto';
+  String get learningModeStatusNoReceiverTitle => 'Recetor não preparado';
 
   @override
-  String get learningModeStatusPermissionTitle => 'Permissão USB necessária';
+  String get learningModeStatusPermissionTitle => 'É necessária permissão USB';
 
   @override
-  String get learningModeStatusSetupTitle =>
-      'O receptor precisa de configuração';
+  String get learningModeStatusSetupTitle => 'Configure o recetor';
 
   @override
   String get learningModeStatusReadyTitle => 'Pronto para aprender';
 
   @override
-  String get learningModeStatusListeningTitle => 'Ouvindo um sinal';
+  String get learningModeStatusListeningTitle => 'À espera do sinal';
 
   @override
   String get learningModeStatusCapturedTitle => 'Sinal capturado';
@@ -687,7 +686,7 @@ class AppLocalizationsPt extends AppLocalizations {
 
   @override
   String learningModeStatusCapturedBody(Object buttonName) {
-    return 'Uma visualização do sinal aprendido está pronta para $buttonName. Reproduza-o, confirme se funciona e salve-o em sua biblioteca.';
+    return 'Sinal capturado para $buttonName. Reenvie-o para confirmar que o aparelho responde e depois guarde-o.';
   }
 
   @override
@@ -705,14 +704,14 @@ class AppLocalizationsPt extends AppLocalizations {
       'Defina primeiro um rótulo, se desejar, depois comece a ouvir e pressione o botão no controle remoto original.';
 
   @override
-  String get learningModeReadyToListenTitle => 'Pronto para ouvir';
+  String get learningModeReadyToListenTitle => 'Pronto para receber';
 
   @override
   String get learningModeReadyToListenBody =>
       'Aponte o comando original para o recetor e inicie a captura.';
 
   @override
-  String get learningModeListeningNowTitle => 'Ouvindo agora';
+  String get learningModeListeningNowTitle => 'À espera do sinal';
 
   @override
   String get learningModeListeningNowBody =>
@@ -725,14 +724,14 @@ class AppLocalizationsPt extends AppLocalizations {
   String get learningModeCapturedSummary => 'Sinal capturado';
 
   @override
-  String get learningModeResultActionsTitle => 'Teste e salve';
+  String get learningModeResultActionsTitle => 'Testar e guardar';
 
   @override
   String get learningModeResultActionsBody =>
-      'Reproduza o sinal aprendido, verifique se o dispositivo alvo responde e salve-o como um botão reutilizável.';
+      'Reenvie o sinal e confirme que o aparelho responde antes de guardar o botão.';
 
   @override
-  String get learningModeReplayAction => 'Repetir';
+  String get learningModeReplayAction => 'Reenviar';
 
   @override
   String get learningModeReplayStubMessage =>
@@ -753,13 +752,14 @@ class AppLocalizationsPt extends AppLocalizations {
       'Confirme o que foi aprendido e escolha onde ele deve ficar na sua biblioteca remota.';
 
   @override
-  String get learningModeSaveToExistingRemote => 'Remoto existente';
+  String get learningModeSaveToExistingRemote => 'Comando guardado';
 
   @override
-  String get learningModeCreateNewRemote => 'Novo controle remoto';
+  String get learningModeCreateNewRemote => 'Novo comando';
 
   @override
-  String get learningModeProtocolPreviewTitle => 'Visualização do protocolo';
+  String get learningModeProtocolPreviewTitle =>
+      'Pré-visualização do protocolo';
 
   @override
   String get learningModeProtocolPreviewBody =>
@@ -773,7 +773,7 @@ class AppLocalizationsPt extends AppLocalizations {
       'Se a decodificação estiver incompleta, a captura de tempo bruto ainda estará disponível aqui para revisão e salvamento.';
 
   @override
-  String get learningModeSaveCapture => 'Salvar captura';
+  String get learningModeSaveCapture => 'Guardar sinal';
 
   @override
   String get learningModeReviewTipTitle => 'Para onde isso irá a seguir';
@@ -4548,30 +4548,30 @@ class AppLocalizationsPt extends AppLocalizations {
   String get globalSearchTypeMacro => 'MACRO';
 
   @override
-  String get learningModeCaptureFailed => 'A captura de aprendizagem falhou.';
+  String get learningModeCaptureFailed => 'Não foi possível captar o sinal.';
 
   @override
-  String get learningModeReplaySent => 'Sinal aprendido repetido.';
+  String get learningModeReplaySent => 'Sinal enviado.';
 
   @override
   String get learningModeReplayFailed =>
-      'O sinal aprendido não pôde ser reproduzido.';
+      'Não foi possível enviar o sinal capturado.';
 
   @override
   String get learningModeNoRemotesAvailable =>
-      'Ainda não há controles remotos salvos.';
+      'Ainda não há comandos guardados.';
 
   @override
-  String get learningModeChooseRemoteTitle => 'Escolha um controle remoto';
+  String get learningModeChooseRemoteTitle => 'Escolher comando';
 
   @override
-  String get learningModeNewRemoteTitle => 'Crie um novo controle remoto';
+  String get learningModeNewRemoteTitle => 'Criar comando';
 
   @override
-  String get learningModeSaveSuccess => 'Botão aprendido salvo.';
+  String get learningModeSaveSuccess => 'Botão guardado.';
 
   @override
-  String get learningModeSaveFailed => 'O botão aprendido não pôde ser salvo.';
+  String get learningModeSaveFailed => 'Não foi possível guardar o botão.';
 
   @override
   String get remoteSetupIntro =>
@@ -5704,14 +5704,14 @@ class AppLocalizationsPtBr extends AppLocalizationsPt {
   String get irTransmitterSubtitle => 'Escolha que hardware envia controles IR';
 
   @override
-  String get learningModeEntryTitle => 'Modo de aprendizagem';
+  String get learningModeEntryTitle => 'Aprendizado IR';
 
   @override
   String get learningModeEntrySubtitle =>
       'Copie o sinal IR de um botão do controle remoto.';
 
   @override
-  String get learningModeTitle => 'Modo de aprendizagem';
+  String get learningModeTitle => 'Aprendizado IR';
 
   @override
   String get learningModeHeroTitle => 'Aprenda um botão remoto de forma limpa';
@@ -5772,7 +5772,7 @@ class AppLocalizationsPtBr extends AppLocalizationsPt {
 
   @override
   String get learningModeCheckingHardwareBody =>
-      'Verificando o estado do transmissor disponível e do receptor USB.';
+      'Verificando o transmissor e o receptor IR.';
 
   @override
   String get learningModeHardwareReadyBody =>
@@ -5784,7 +5784,7 @@ class AppLocalizationsPtBr extends AppLocalizationsPt {
 
   @override
   String get learningModeHardwareSetupBody =>
-      'Um dongle foi parcialmente detectado, mas ainda precisa ser configurado ou reconectado antes que o aprendizado possa começar de forma confiável.';
+      'O receptor não está pronto. Confira a configuração ou reconecte-o e tente novamente.';
 
   @override
   String get learningModeHardwareNoReceiverBody =>
@@ -5813,7 +5813,7 @@ class AppLocalizationsPtBr extends AppLocalizationsPt {
 
   @override
   String get learningModeButtonNameHint =>
-      'Por exemplo: HDMI 1, Alimentação, Menu';
+      'Por exemplo: Ligar/Desligar, HDMI 1, Menu';
 
   @override
   String get learningModeSinglePress => 'Pressão única';
@@ -5859,7 +5859,7 @@ class AppLocalizationsPtBr extends AppLocalizationsPt {
       'Você ainda pode revisar o fluxo agora, mas a captura deverá aguardar até que o receptor esteja pronto.';
 
   @override
-  String get learningModeStartListening => 'Comece a ouvir';
+  String get learningModeStartListening => 'Receber sinal';
 
   @override
   String get learningModeCaptureStubTitle =>
@@ -5874,7 +5874,7 @@ class AppLocalizationsPtBr extends AppLocalizationsPt {
       'A captura de aprendizagem ainda não está conectada. Esta tela estrutura o fluxo completo primeiro.';
 
   @override
-  String get learningModeUnnamedCapture => 'Captura sem nome';
+  String get learningModeUnnamedCapture => 'Sinal sem nome';
 
   @override
   String get learningModeStatusCheckingTitle => 'Verificando o receptor';
@@ -5886,14 +5886,13 @@ class AppLocalizationsPtBr extends AppLocalizationsPt {
   String get learningModeStatusPermissionTitle => 'Permissão USB necessária';
 
   @override
-  String get learningModeStatusSetupTitle =>
-      'O receptor precisa de configuração';
+  String get learningModeStatusSetupTitle => 'Configure o receptor';
 
   @override
   String get learningModeStatusReadyTitle => 'Pronto para aprender';
 
   @override
-  String get learningModeStatusListeningTitle => 'Ouvindo um sinal';
+  String get learningModeStatusListeningTitle => 'Aguardando sinal';
 
   @override
   String get learningModeStatusCapturedTitle => 'Sinal capturado';
@@ -5908,7 +5907,7 @@ class AppLocalizationsPtBr extends AppLocalizationsPt {
 
   @override
   String learningModeStatusCapturedBody(Object buttonName) {
-    return 'Uma visualização do sinal aprendido está pronta para $buttonName. Reproduza-o, confirme se funciona e salve-o em sua biblioteca.';
+    return 'Sinal capturado para $buttonName. Reenvie para conferir se o aparelho responde e depois salve.';
   }
 
   @override
@@ -5926,14 +5925,14 @@ class AppLocalizationsPtBr extends AppLocalizationsPt {
       'Defina primeiro um rótulo, se desejar, depois comece a ouvir e pressione o botão no controle remoto original.';
 
   @override
-  String get learningModeReadyToListenTitle => 'Pronto para ouvir';
+  String get learningModeReadyToListenTitle => 'Pronto para receber';
 
   @override
   String get learningModeReadyToListenBody =>
       'Aponte o controle remoto original para o receptor e inicie a captura.';
 
   @override
-  String get learningModeListeningNowTitle => 'Ouvindo agora';
+  String get learningModeListeningNowTitle => 'Aguardando sinal';
 
   @override
   String get learningModeListeningNowBody =>
@@ -5946,14 +5945,14 @@ class AppLocalizationsPtBr extends AppLocalizationsPt {
   String get learningModeCapturedSummary => 'Sinal capturado';
 
   @override
-  String get learningModeResultActionsTitle => 'Teste e salve';
+  String get learningModeResultActionsTitle => 'Testar e salvar';
 
   @override
   String get learningModeResultActionsBody =>
-      'Reproduza o sinal aprendido, verifique se o dispositivo alvo responde e salve-o como um botão reutilizável.';
+      'Reenvie o sinal e confira se o aparelho responde antes de salvar o botão.';
 
   @override
-  String get learningModeReplayAction => 'Repetir';
+  String get learningModeReplayAction => 'Reenviar';
 
   @override
   String get learningModeReplayStubMessage =>
@@ -5974,13 +5973,13 @@ class AppLocalizationsPtBr extends AppLocalizationsPt {
       'Confirme o que foi aprendido e escolha onde ele deve ficar na sua biblioteca remota.';
 
   @override
-  String get learningModeSaveToExistingRemote => 'Remoto existente';
+  String get learningModeSaveToExistingRemote => 'Controle salvo';
 
   @override
-  String get learningModeCreateNewRemote => 'Novo controle remoto';
+  String get learningModeCreateNewRemote => 'Novo controle';
 
   @override
-  String get learningModeProtocolPreviewTitle => 'Visualização do protocolo';
+  String get learningModeProtocolPreviewTitle => 'Prévia do protocolo';
 
   @override
   String get learningModeProtocolPreviewBody =>
@@ -5994,7 +5993,7 @@ class AppLocalizationsPtBr extends AppLocalizationsPt {
       'Se a decodificação estiver incompleta, a captura de tempo bruto ainda estará disponível aqui para revisão e salvamento.';
 
   @override
-  String get learningModeSaveCapture => 'Salvar captura';
+  String get learningModeSaveCapture => 'Salvar sinal';
 
   @override
   String get learningModeReviewTipTitle => 'Para onde isso irá a seguir';
@@ -9774,30 +9773,29 @@ class AppLocalizationsPtBr extends AppLocalizationsPt {
   String get globalSearchTypeMacro => 'MACRO';
 
   @override
-  String get learningModeCaptureFailed => 'A captura de aprendizagem falhou.';
+  String get learningModeCaptureFailed => 'Não foi possível capturar o sinal.';
 
   @override
-  String get learningModeReplaySent => 'Sinal aprendido repetido.';
+  String get learningModeReplaySent => 'Sinal enviado.';
 
   @override
   String get learningModeReplayFailed =>
-      'O sinal aprendido não pôde ser reproduzido.';
+      'Não foi possível enviar o sinal capturado.';
 
   @override
-  String get learningModeNoRemotesAvailable =>
-      'Ainda não há controles remotos salvos.';
+  String get learningModeNoRemotesAvailable => 'Ainda não há controles salvos.';
 
   @override
-  String get learningModeChooseRemoteTitle => 'Escolha um controle remoto';
+  String get learningModeChooseRemoteTitle => 'Escolha um controle';
 
   @override
-  String get learningModeNewRemoteTitle => 'Crie um novo controle remoto';
+  String get learningModeNewRemoteTitle => 'Criar controle';
 
   @override
-  String get learningModeSaveSuccess => 'Botão aprendido salvo.';
+  String get learningModeSaveSuccess => 'Botão salvo.';
 
   @override
-  String get learningModeSaveFailed => 'O botão aprendido não pôde ser salvo.';
+  String get learningModeSaveFailed => 'Não foi possível salvar o botão.';
 
   @override
   String get remoteSetupIntro =>

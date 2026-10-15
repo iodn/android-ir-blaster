@@ -521,8 +521,7 @@ class AppLocalizationsJa extends AppLocalizations {
   String get learningModeReceiverStatusLabel => '学習状況';
 
   @override
-  String get learningModeCheckingHardwareBody =>
-      '利用可能なトランスミッターとUSBレシーバーの状態を確認しています。';
+  String get learningModeCheckingHardwareBody => '送信機と赤外線受信機を確認しています。';
 
   @override
   String get learningModeHardwareReadyBody =>
@@ -534,7 +533,7 @@ class AppLocalizationsJa extends AppLocalizations {
 
   @override
   String get learningModeHardwareSetupBody =>
-      'ドングルは部分的に検出されていますが、学習を確実に開始するにはセットアップまたは再接続が必要です。';
+      '受信機の準備ができていません。設定を確認するか接続し直してから、もう一度お試しください。';
 
   @override
   String get learningModeHardwareNoReceiverBody =>
@@ -561,7 +560,7 @@ class AppLocalizationsJa extends AppLocalizations {
   String get learningModeButtonNameLabel => 'ボタン名';
 
   @override
-  String get learningModeButtonNameHint => '例: HDMI 1、電源、メニュー';
+  String get learningModeButtonNameHint => '例：電源、HDMI 1、メニュー';
 
   @override
   String get learningModeSinglePress => '1回押す';
@@ -606,7 +605,7 @@ class AppLocalizationsJa extends AppLocalizations {
       '今でもフローを確認できますが、キャプチャはレシーバーの準備ができるまで待つ必要があります。';
 
   @override
-  String get learningModeStartListening => '聞き始める';
+  String get learningModeStartListening => '受信開始';
 
   @override
   String get learningModeCaptureStubTitle => '次はキャプチャ バックエンドです';
@@ -620,7 +619,7 @@ class AppLocalizationsJa extends AppLocalizations {
       '学習キャプチャはまだ配線されていません。この画面は、最初に完全なフローの足場を築きます。';
 
   @override
-  String get learningModeUnnamedCapture => '名前のないキャプチャ';
+  String get learningModeUnnamedCapture => '名前のない信号';
 
   @override
   String get learningModeStatusCheckingTitle => '受信機を確認中';
@@ -629,19 +628,19 @@ class AppLocalizationsJa extends AppLocalizations {
   String get learningModeStatusNoReceiverTitle => '受信機の準備ができていません';
 
   @override
-  String get learningModeStatusPermissionTitle => 'USB許可が必要です';
+  String get learningModeStatusPermissionTitle => 'USBへのアクセス許可が必要です';
 
   @override
-  String get learningModeStatusSetupTitle => '受信機にはセットアップが必要です';
+  String get learningModeStatusSetupTitle => '受信機の設定が必要です';
 
   @override
-  String get learningModeStatusReadyTitle => '学ぶ準備ができています';
+  String get learningModeStatusReadyTitle => '学習の準備完了';
 
   @override
-  String get learningModeStatusListeningTitle => '信号を聞いています';
+  String get learningModeStatusListeningTitle => '信号を待っています';
 
   @override
-  String get learningModeStatusCapturedTitle => '信号を捕捉';
+  String get learningModeStatusCapturedTitle => '信号を受信しました';
 
   @override
   String get learningModeStatusReadyBody =>
@@ -652,7 +651,7 @@ class AppLocalizationsJa extends AppLocalizations {
 
   @override
   String learningModeStatusCapturedBody(Object buttonName) {
-    return '$buttonName では、学習された信号のプレビューが用意されています。再生して動作を確認し、ライブラリに保存します。';
+    return '$buttonNameの信号を受信しました。再送信して機器が反応することを確認してから、保存してください。';
   }
 
   @override
@@ -670,13 +669,13 @@ class AppLocalizationsJa extends AppLocalizations {
       '必要に応じて最初にラベルを設定してから、聞き始めて元のリモコンのボタンを押します。';
 
   @override
-  String get learningModeReadyToListenTitle => '聞く準備ができています';
+  String get learningModeReadyToListenTitle => '受信の準備完了';
 
   @override
   String get learningModeReadyToListenBody => '元のリモコンを受信機に向けてから、受信を開始してください。';
 
   @override
-  String get learningModeListeningNowTitle => '今聞いています';
+  String get learningModeListeningNowTitle => '信号を待っています';
 
   @override
   String get learningModeListeningNowBody =>
@@ -689,14 +688,14 @@ class AppLocalizationsJa extends AppLocalizations {
   String get learningModeCapturedSummary => '受信した信号';
 
   @override
-  String get learningModeResultActionsTitle => 'テストして保存する';
+  String get learningModeResultActionsTitle => 'テストして保存';
 
   @override
   String get learningModeResultActionsBody =>
-      '学習した信号を再生し、ターゲット デバイスが応答することを確認してから、再利用可能なボタンとして保存します。';
+      '信号を再送信して機器が反応することを確認してから、ボタンを保存してください。';
 
   @override
-  String get learningModeReplayAction => 'リプレイ';
+  String get learningModeReplayAction => '再送信';
 
   @override
   String get learningModeReplayStubMessage =>
@@ -717,13 +716,13 @@ class AppLocalizationsJa extends AppLocalizations {
       '学習内容を確認し、それをリモート ライブラリのどこに保存するかを選択します。';
 
   @override
-  String get learningModeSaveToExistingRemote => '既存のリモート';
+  String get learningModeSaveToExistingRemote => '既存のリモコン';
 
   @override
   String get learningModeCreateNewRemote => '新しいリモコン';
 
   @override
-  String get learningModeProtocolPreviewTitle => 'プロトコルのプレビュー';
+  String get learningModeProtocolPreviewTitle => 'プロトコル情報';
 
   @override
   String get learningModeProtocolPreviewBody =>
@@ -737,7 +736,7 @@ class AppLocalizationsJa extends AppLocalizations {
       'デコードが不完全な場合でも、生のタイミング キャプチャをここで確認して保存することができます。';
 
   @override
-  String get learningModeSaveCapture => 'キャプチャの保存';
+  String get learningModeSaveCapture => '信号を保存';
 
   @override
   String get learningModeReviewTipTitle => 'これが次にどこに行くのか';
@@ -4404,28 +4403,28 @@ class AppLocalizationsJa extends AppLocalizations {
   String get globalSearchTypeMacro => 'MACRO';
 
   @override
-  String get learningModeCaptureFailed => '学習キャプチャに失敗しました。';
+  String get learningModeCaptureFailed => '信号を受信できませんでした。';
 
   @override
-  String get learningModeReplaySent => '学習した信号が再生されました。';
+  String get learningModeReplaySent => '信号を送信しました。';
 
   @override
-  String get learningModeReplayFailed => '学習した信号を再生できませんでした。';
+  String get learningModeReplayFailed => '受信した信号を送信できませんでした。';
 
   @override
-  String get learningModeNoRemotesAvailable => '保存されたリモコンはまだありません。';
+  String get learningModeNoRemotesAvailable => '保存済みのリモコンはありません。';
 
   @override
-  String get learningModeChooseRemoteTitle => 'リモコンを選択してください';
+  String get learningModeChooseRemoteTitle => 'リモコンを選択';
 
   @override
-  String get learningModeNewRemoteTitle => '新しいリモコンを作成する';
+  String get learningModeNewRemoteTitle => 'リモコンを作成';
 
   @override
-  String get learningModeSaveSuccess => '学習ボタンが保存されました。';
+  String get learningModeSaveSuccess => 'ボタンを保存しました。';
 
   @override
-  String get learningModeSaveFailed => '学習したボタンを保存できませんでした。';
+  String get learningModeSaveFailed => 'ボタンを保存できませんでした。';
 
   @override
   String get remoteSetupIntro => 'まず名前とレイアウトを選択します。ボタンはあとから追加できます。';

@@ -558,7 +558,7 @@ class AppLocalizationsNl extends AppLocalizations {
 
   @override
   String get learningModeCheckingHardwareBody =>
-      'Beschikbare zender- en USB-ontvangerstatus controleren.';
+      'Zender en IR-ontvanger worden gecontroleerd.';
 
   @override
   String get learningModeHardwareReadyBody =>
@@ -570,7 +570,7 @@ class AppLocalizationsNl extends AppLocalizations {
 
   @override
   String get learningModeHardwareSetupBody =>
-      'Een dongle wordt gedeeltelijk gedetecteerd, maar moet nog steeds worden ingesteld of opnieuw worden aangesloten voordat het leren betrouwbaar kan beginnen.';
+      'De ontvanger is niet klaar. Controleer de instellingen of sluit hem opnieuw aan en probeer het nogmaals.';
 
   @override
   String get learningModeHardwareNoReceiverBody =>
@@ -599,7 +599,7 @@ class AppLocalizationsNl extends AppLocalizations {
 
   @override
   String get learningModeButtonNameHint =>
-      'Bijvoorbeeld: HDMI 1, Voeding, Menu';
+      'Bijvoorbeeld: Aan/uit, HDMI 1, Menu';
 
   @override
   String get learningModeSinglePress => 'Enkele druk';
@@ -644,7 +644,7 @@ class AppLocalizationsNl extends AppLocalizations {
       'U kunt de stroom nu nog steeds bekijken, maar het vastleggen moet wachten totdat de ontvanger gereed is.';
 
   @override
-  String get learningModeStartListening => 'Begin met luisteren';
+  String get learningModeStartListening => 'Ontvangst starten';
 
   @override
   String get learningModeCaptureStubTitle =>
@@ -659,7 +659,7 @@ class AppLocalizationsNl extends AppLocalizations {
       'Leren vastleggen is nog niet bedraad. Dit scherm ondersteunt eerst de volledige stroom.';
 
   @override
-  String get learningModeUnnamedCapture => 'Naamloze opname';
+  String get learningModeUnnamedCapture => 'Naamloos signaal';
 
   @override
   String get learningModeStatusCheckingTitle => 'Ontvanger controleren';
@@ -668,19 +668,19 @@ class AppLocalizationsNl extends AppLocalizations {
   String get learningModeStatusNoReceiverTitle => 'Ontvanger niet gereed';
 
   @override
-  String get learningModeStatusPermissionTitle => 'USB-toestemming vereist';
+  String get learningModeStatusPermissionTitle => 'USB-toestemming nodig';
 
   @override
-  String get learningModeStatusSetupTitle => 'Ontvanger moet worden ingesteld';
+  String get learningModeStatusSetupTitle => 'Ontvanger instellen';
 
   @override
-  String get learningModeStatusReadyTitle => 'Klaar om te leren';
+  String get learningModeStatusReadyTitle => 'Klaar om aan te leren';
 
   @override
-  String get learningModeStatusListeningTitle => 'Luisteren naar een signaal';
+  String get learningModeStatusListeningTitle => 'Wachten op signaal';
 
   @override
-  String get learningModeStatusCapturedTitle => 'Signaal vastgelegd';
+  String get learningModeStatusCapturedTitle => 'Signaal ontvangen';
 
   @override
   String get learningModeStatusReadyBody =>
@@ -692,7 +692,7 @@ class AppLocalizationsNl extends AppLocalizations {
 
   @override
   String learningModeStatusCapturedBody(Object buttonName) {
-    return 'Een geleerd signaalvoorbeeld is gereed voor $buttonName. Speel het opnieuw af, bevestig dat het werkt en sla het vervolgens op in uw bibliotheek.';
+    return 'Signaal voor $buttonName ontvangen. Verzend het opnieuw om te controleren of je apparaat reageert en sla het daarna op.';
   }
 
   @override
@@ -710,14 +710,14 @@ class AppLocalizationsNl extends AppLocalizations {
       'Stel desgewenst eerst een label in, begin dan met luisteren en druk op de knop op de originele afstandsbediening.';
 
   @override
-  String get learningModeReadyToListenTitle => 'Klaar om te luisteren';
+  String get learningModeReadyToListenTitle => 'Klaar voor ontvangst';
 
   @override
   String get learningModeReadyToListenBody =>
       'Richt de originele afstandsbediening op de ontvanger en start de opname.';
 
   @override
-  String get learningModeListeningNowTitle => 'Ik ben nu aan het luisteren';
+  String get learningModeListeningNowTitle => 'Wachten op signaal';
 
   @override
   String get learningModeListeningNowBody =>
@@ -735,10 +735,10 @@ class AppLocalizationsNl extends AppLocalizations {
 
   @override
   String get learningModeResultActionsBody =>
-      'Speel het geleerde signaal opnieuw af, controleer of het doelapparaat reageert en sla het vervolgens op als een herbruikbare knop.';
+      'Verzend het signaal opnieuw en controleer of je apparaat reageert voordat je de knop opslaat.';
 
   @override
-  String get learningModeReplayAction => 'Opnieuw afspelen';
+  String get learningModeReplayAction => 'Opnieuw verzenden';
 
   @override
   String get learningModeReplayStubMessage =>
@@ -779,7 +779,7 @@ class AppLocalizationsNl extends AppLocalizations {
       'Als de decodering onvolledig is, is de onbewerkte timingopname hier nog steeds beschikbaar om te bekijken en op te slaan.';
 
   @override
-  String get learningModeSaveCapture => 'Opname opslaan';
+  String get learningModeSaveCapture => 'Signaal opslaan';
 
   @override
   String get learningModeReviewTipTitle =>
@@ -4553,31 +4553,31 @@ class AppLocalizationsNl extends AppLocalizations {
   String get globalSearchTypeMacro => 'MACRO';
 
   @override
-  String get learningModeCaptureFailed => 'Leren vastleggen is mislukt.';
+  String get learningModeCaptureFailed =>
+      'Het signaal kon niet worden ontvangen.';
 
   @override
-  String get learningModeReplaySent => 'Geleerd signaal opnieuw afgespeeld.';
+  String get learningModeReplaySent => 'Signaal verzonden.';
 
   @override
   String get learningModeReplayFailed =>
-      'Het geleerde signaal kon niet opnieuw worden afgespeeld.';
+      'Het opgenomen signaal kon niet worden verzonden.';
 
   @override
   String get learningModeNoRemotesAvailable =>
-      'Er zijn nog geen opgeslagen afstandsbedieningen.';
+      'Er zijn nog geen afstandsbedieningen opgeslagen.';
 
   @override
   String get learningModeChooseRemoteTitle => 'Kies een afstandsbediening';
 
   @override
-  String get learningModeNewRemoteTitle => 'Maak een nieuwe afstandsbediening';
+  String get learningModeNewRemoteTitle => 'Afstandsbediening maken';
 
   @override
-  String get learningModeSaveSuccess => 'Knop Geleerd opgeslagen.';
+  String get learningModeSaveSuccess => 'Knop opgeslagen.';
 
   @override
-  String get learningModeSaveFailed =>
-      'De geleerde knop kon niet worden opgeslagen.';
+  String get learningModeSaveFailed => 'De knop kon niet worden opgeslagen.';
 
   @override
   String get remoteSetupIntro =>

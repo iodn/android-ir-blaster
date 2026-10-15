@@ -483,14 +483,14 @@ class AppLocalizationsFil extends AppLocalizations {
       'Piliin ang which hardware sends IR commands';
 
   @override
-  String get learningModeEntryTitle => 'Mode ng Pag-aaral';
+  String get learningModeEntryTitle => 'Pagkopya ng signal';
 
   @override
   String get learningModeEntrySubtitle =>
       'Kopyahin ang IR signal ng isang button sa remote mo.';
 
   @override
-  String get learningModeTitle => 'Mode ng Pag-aaral';
+  String get learningModeTitle => 'Pagkopya ng signal';
 
   @override
   String get learningModeHeroTitle => 'Malinis na matuto ng remote na button';
@@ -552,7 +552,7 @@ class AppLocalizationsFil extends AppLocalizations {
 
   @override
   String get learningModeCheckingHardwareBody =>
-      'Sinusuri ang available na transmiter at USB receiver state.';
+      'Sinusuri ang transmitter at IR receiver.';
 
   @override
   String get learningModeHardwareReadyBody =>
@@ -564,7 +564,7 @@ class AppLocalizationsFil extends AppLocalizations {
 
   @override
   String get learningModeHardwareSetupBody =>
-      'Bahagyang natukoy ang isang dongle, ngunit kailangan pa rin nitong i-setup o muling kumonekta bago makapagsimula nang mapagkakatiwalaan ang pag-aaral.';
+      'Hindi pa handa ang receiver. Suriin ang setup o ikonekta itong muli, saka subukan ulit.';
 
   @override
   String get learningModeHardwareNoReceiverBody =>
@@ -591,7 +591,7 @@ class AppLocalizationsFil extends AppLocalizations {
   String get learningModeButtonNameLabel => 'Pangalan ng button';
 
   @override
-  String get learningModeButtonNameHint => 'Halimbawa: HDMI 1, Power, Menu';
+  String get learningModeButtonNameHint => 'Halimbawa: Power, HDMI 1, Menu';
 
   @override
   String get learningModeSinglePress => 'Single press';
@@ -636,7 +636,7 @@ class AppLocalizationsFil extends AppLocalizations {
       'Maaari mo pa ring suriin ang daloy ngayon, ngunit ang pagkuha ay dapat maghintay hanggang ang receiver ay handa na.';
 
   @override
-  String get learningModeStartListening => 'Simulan ang pakikinig';
+  String get learningModeStartListening => 'Kumuha ng signal';
 
   @override
   String get learningModeCaptureStubTitle => 'Susunod ang pagkuha ng backend';
@@ -650,26 +650,26 @@ class AppLocalizationsFil extends AppLocalizations {
       'Hindi pa naka-wire ang learning capture. Ang screen na ito ay scaffolds muna ang buong daloy.';
 
   @override
-  String get learningModeUnnamedCapture => 'Hindi pinangalanang pagkuha';
+  String get learningModeUnnamedCapture => 'Signal na walang pangalan';
 
   @override
   String get learningModeStatusCheckingTitle => 'Sinusuri ang receiver';
 
   @override
-  String get learningModeStatusNoReceiverTitle => 'Hindi handa ang receiver';
+  String get learningModeStatusNoReceiverTitle => 'Hindi pa handa ang receiver';
 
   @override
   String get learningModeStatusPermissionTitle =>
-      'Kinakailangan ang pahintulot sa USB';
+      'Kailangan ng pahintulot sa USB';
 
   @override
-  String get learningModeStatusSetupTitle => 'Kailangang i-setup ang receiver';
+  String get learningModeStatusSetupTitle => 'I-setup ang receiver';
 
   @override
-  String get learningModeStatusReadyTitle => 'Handa nang matuto';
+  String get learningModeStatusReadyTitle => 'Handa nang kumopya';
 
   @override
-  String get learningModeStatusListeningTitle => 'Nakikinig ng signal';
+  String get learningModeStatusListeningTitle => 'Naghihintay ng signal';
 
   @override
   String get learningModeStatusCapturedTitle => 'Nakuha ang signal';
@@ -684,7 +684,7 @@ class AppLocalizationsFil extends AppLocalizations {
 
   @override
   String learningModeStatusCapturedBody(Object buttonName) {
-    return 'Ang isang natutunang preview ng signal ay handa na para sa $buttonName. I-replay ito, kumpirmahin na gumagana ito, pagkatapos ay i-save ito sa iyong library.';
+    return 'Nakuha ang signal para sa $buttonName. Ipadala ito ulit para tingnan kung tumutugon ang device, saka i-save.';
   }
 
   @override
@@ -702,14 +702,14 @@ class AppLocalizationsFil extends AppLocalizations {
       'Magtakda muna ng label kung gusto mo, pagkatapos ay simulan ang pakikinig at pindutin ang button sa orihinal na remote.';
 
   @override
-  String get learningModeReadyToListenTitle => 'Handa nang makinig';
+  String get learningModeReadyToListenTitle => 'Handa nang tumanggap';
 
   @override
   String get learningModeReadyToListenBody =>
       'Itutok ang orihinal na remote sa receiver, saka simulan ang pagkuha ng signal.';
 
   @override
-  String get learningModeListeningNowTitle => 'Nakikinig ngayon';
+  String get learningModeListeningNowTitle => 'Naghihintay ng signal';
 
   @override
   String get learningModeListeningNowBody =>
@@ -727,10 +727,10 @@ class AppLocalizationsFil extends AppLocalizations {
 
   @override
   String get learningModeResultActionsBody =>
-      'I-replay ang natutunang signal, i-verify na tumutugon ang target na device, pagkatapos ay i-save ito bilang isang reusable na button.';
+      'Ipadala ulit ang signal at tiyaking tumutugon ang device bago i-save ang button.';
 
   @override
-  String get learningModeReplayAction => 'I-replay';
+  String get learningModeReplayAction => 'Ipadala ulit';
 
   @override
   String get learningModeReplayStubMessage =>
@@ -751,7 +751,7 @@ class AppLocalizationsFil extends AppLocalizations {
       'Kumpirmahin kung ano ang natutunan, pagkatapos ay piliin kung saan ito dapat tumira sa iyong malayong library.';
 
   @override
-  String get learningModeSaveToExistingRemote => 'Umiiral na remote';
+  String get learningModeSaveToExistingRemote => 'Naka-save na remote';
 
   @override
   String get learningModeCreateNewRemote => 'Bagong remote';
@@ -771,7 +771,7 @@ class AppLocalizationsFil extends AppLocalizations {
       'Kung hindi kumpleto ang pag-decode, magiging available pa rin dito ang raw timing capture para sa pagsusuri at pag-save.';
 
   @override
-  String get learningModeSaveCapture => 'I-save ang pagkuha';
+  String get learningModeSaveCapture => 'I-save ang signal';
 
   @override
   String get learningModeReviewTipTitle => 'Kung saan ito mapupunta';
@@ -4531,14 +4531,13 @@ class AppLocalizationsFil extends AppLocalizations {
   String get globalSearchTypeMacro => 'MACRO';
 
   @override
-  String get learningModeCaptureFailed => 'Nabigo ang pag-aaral ng pagkuha.';
+  String get learningModeCaptureFailed => 'Hindi makuha ang signal.';
 
   @override
-  String get learningModeReplaySent => 'Ang natutunang signal ay na-replay.';
+  String get learningModeReplaySent => 'Naipadala ang signal.';
 
   @override
-  String get learningModeReplayFailed =>
-      'Hindi ma-replay ang natutunang signal.';
+  String get learningModeReplayFailed => 'Hindi maipadala ang nakuhang signal.';
 
   @override
   String get learningModeNoRemotesAvailable => 'Wala pang naka-save na remote.';
@@ -4547,13 +4546,13 @@ class AppLocalizationsFil extends AppLocalizations {
   String get learningModeChooseRemoteTitle => 'Pumili ng remote';
 
   @override
-  String get learningModeNewRemoteTitle => 'Gumawa ng bagong remote';
+  String get learningModeNewRemoteTitle => 'Gumawa ng remote';
 
   @override
-  String get learningModeSaveSuccess => 'Na-save ang natutunan na button.';
+  String get learningModeSaveSuccess => 'Na-save ang button.';
 
   @override
-  String get learningModeSaveFailed => 'Hindi ma-save ang button na natutunan.';
+  String get learningModeSaveFailed => 'Hindi ma-save ang button.';
 
   @override
   String get remoteSetupIntro =>

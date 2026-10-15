@@ -471,14 +471,14 @@ class AppLocalizationsAr extends AppLocalizations {
   String get irTransmitterSubtitle => 'اختر التي hardware sends IR commands';
 
   @override
-  String get learningModeEntryTitle => 'وضع التعلم';
+  String get learningModeEntryTitle => 'تعلّم الإشارات';
 
   @override
   String get learningModeEntrySubtitle =>
       'انسخ إشارة الأشعة تحت الحمراء لأحد أزرار جهاز التحكم.';
 
   @override
-  String get learningModeTitle => 'وضع التعلم';
+  String get learningModeTitle => 'تعلّم الإشارات';
 
   @override
   String get learningModeHeroTitle => 'تعلم زر التحكم عن بعد بشكل نظيف';
@@ -539,7 +539,7 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String get learningModeCheckingHardwareBody =>
-      'التحقق من حالة جهاز الإرسال وجهاز استقبال USB المتاحين.';
+      'جارٍ فحص المرسل ومستقبل الأشعة تحت الحمراء.';
 
   @override
   String get learningModeHardwareReadyBody =>
@@ -551,7 +551,7 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String get learningModeHardwareSetupBody =>
-      'تم اكتشاف جهاز دونجل جزئيًا، لكنه لا يزال بحاجة إلى الإعداد أو إعادة الاتصال قبل أن يبدأ التعلم بشكل موثوق.';
+      'المستقبل غير جاهز. تحقّق من إعداده أو أعد توصيله، ثم حاول مجددًا.';
 
   @override
   String get learningModeHardwareNoReceiverBody =>
@@ -578,8 +578,7 @@ class AppLocalizationsAr extends AppLocalizations {
   String get learningModeButtonNameLabel => 'اسم الزر';
 
   @override
-  String get learningModeButtonNameHint =>
-      'على سبيل المثال: HDMI 1، الطاقة، القائمة';
+  String get learningModeButtonNameHint => 'مثل: التشغيل، HDMI 1، القائمة';
 
   @override
   String get learningModeSinglePress => 'ضغطة واحدة';
@@ -624,7 +623,7 @@ class AppLocalizationsAr extends AppLocalizations {
       'لا يزال بإمكانك مراجعة التدفق الآن، ولكن يجب أن ينتظر الالتقاط حتى يصبح جهاز الاستقبال جاهزًا.';
 
   @override
-  String get learningModeStartListening => 'ابدأ بالاستماع';
+  String get learningModeStartListening => 'بدء الاستقبال';
 
   @override
   String get learningModeCaptureStubTitle => 'التقاط الخلفية يأتي بعد ذلك';
@@ -638,28 +637,28 @@ class AppLocalizationsAr extends AppLocalizations {
       'التقاط التعلم ليس سلكيًا بعد. تعمل هذه الشاشة على دعم التدفق الكامل أولاً.';
 
   @override
-  String get learningModeUnnamedCapture => 'التقاط بدون اسم';
+  String get learningModeUnnamedCapture => 'إشارة بلا اسم';
 
   @override
-  String get learningModeStatusCheckingTitle => 'فحص المتلقي';
+  String get learningModeStatusCheckingTitle => 'جارٍ فحص المستقبل';
 
   @override
-  String get learningModeStatusNoReceiverTitle => 'المتلقي غير جاهز';
+  String get learningModeStatusNoReceiverTitle => 'المستقبل غير جاهز';
 
   @override
-  String get learningModeStatusPermissionTitle => 'مطلوب إذن USB';
+  String get learningModeStatusPermissionTitle => 'يلزم إذن USB';
 
   @override
-  String get learningModeStatusSetupTitle => 'يحتاج المتلقي إلى الإعداد';
+  String get learningModeStatusSetupTitle => 'يلزم إعداد المستقبل';
 
   @override
-  String get learningModeStatusReadyTitle => 'جاهز للتعلم';
+  String get learningModeStatusReadyTitle => 'جاهز للتعلّم';
 
   @override
-  String get learningModeStatusListeningTitle => 'الاستماع للإشارة';
+  String get learningModeStatusListeningTitle => 'بانتظار الإشارة';
 
   @override
-  String get learningModeStatusCapturedTitle => 'تم التقاط الإشارة';
+  String get learningModeStatusCapturedTitle => 'تم استقبال الإشارة';
 
   @override
   String get learningModeStatusReadyBody =>
@@ -671,7 +670,7 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String learningModeStatusCapturedBody(Object buttonName) {
-    return 'معاينة الإشارة المكتسبة جاهزة لـ $buttonName. أعد تشغيله، وتأكد من أنه يعمل، ثم احفظه في مكتبتك.';
+    return 'تم استقبال إشارة $buttonName. أرسلها للتأكد من استجابة الجهاز، ثم احفظها.';
   }
 
   @override
@@ -689,14 +688,14 @@ class AppLocalizationsAr extends AppLocalizations {
       'قم بتعيين الملصق أولاً إذا كنت تريد ذلك، ثم ابدأ الاستماع واضغط على الزر الموجود على جهاز التحكم عن بعد الأصلي.';
 
   @override
-  String get learningModeReadyToListenTitle => 'جاهز للاستماع';
+  String get learningModeReadyToListenTitle => 'جاهز للاستقبال';
 
   @override
   String get learningModeReadyToListenBody =>
       'وجّه جهاز التحكم الأصلي نحو المستقبل، ثم ابدأ استقبال الإشارة.';
 
   @override
-  String get learningModeListeningNowTitle => 'الاستماع الآن';
+  String get learningModeListeningNowTitle => 'بانتظار الإشارة';
 
   @override
   String get learningModeListeningNowBody =>
@@ -713,10 +712,10 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String get learningModeResultActionsBody =>
-      'أعد تشغيل الإشارة التي تم تعلمها، وتأكد من استجابة الجهاز المستهدف، ثم احفظها كزر قابل لإعادة الاستخدام.';
+      'أرسل الإشارة وتأكد من استجابة الجهاز قبل حفظ الزر.';
 
   @override
-  String get learningModeReplayAction => 'إعادة التشغيل';
+  String get learningModeReplayAction => 'إرسال مجددًا';
 
   @override
   String get learningModeReplayStubMessage =>
@@ -737,10 +736,10 @@ class AppLocalizationsAr extends AppLocalizations {
       'قم بتأكيد ما تعلمته، ثم اختر المكان الذي يجب أن يكون موجودًا فيه في مكتبتك البعيدة.';
 
   @override
-  String get learningModeSaveToExistingRemote => 'البعيد الموجود';
+  String get learningModeSaveToExistingRemote => 'جهاز تحكم محفوظ';
 
   @override
-  String get learningModeCreateNewRemote => 'ريموت جديد';
+  String get learningModeCreateNewRemote => 'جهاز تحكم جديد';
 
   @override
   String get learningModeProtocolPreviewTitle => 'معاينة البروتوكول';
@@ -757,7 +756,7 @@ class AppLocalizationsAr extends AppLocalizations {
       'إذا لم يكتمل فك التشفير، فسيظل التقاط التوقيت الأولي متاحًا هنا للمراجعة والحفظ.';
 
   @override
-  String get learningModeSaveCapture => 'حفظ الالتقاط';
+  String get learningModeSaveCapture => 'حفظ الإشارة';
 
   @override
   String get learningModeReviewTipTitle => 'أين سيذهب هذا بعد ذلك';
@@ -4489,30 +4488,28 @@ class AppLocalizationsAr extends AppLocalizations {
   String get globalSearchTypeMacro => 'MACRO';
 
   @override
-  String get learningModeCaptureFailed => 'فشل التقاط التعلم.';
+  String get learningModeCaptureFailed => 'تعذّر استقبال الإشارة.';
 
   @override
-  String get learningModeReplaySent => 'تم إعادة تشغيل الإشارة المستفادة.';
+  String get learningModeReplaySent => 'تم إرسال الإشارة.';
 
   @override
-  String get learningModeReplayFailed =>
-      'لا يمكن إعادة تشغيل الإشارة التي تم تعلمها.';
+  String get learningModeReplayFailed => 'تعذّر إرسال الإشارة المستقبلة.';
 
   @override
-  String get learningModeNoRemotesAvailable =>
-      'لا توجد أجهزة التحكم عن بعد المحفوظة حتى الآن.';
+  String get learningModeNoRemotesAvailable => 'لا توجد أجهزة تحكم محفوظة بعد.';
 
   @override
-  String get learningModeChooseRemoteTitle => 'اختر جهاز التحكم عن بعد';
+  String get learningModeChooseRemoteTitle => 'اختر جهاز تحكم';
 
   @override
-  String get learningModeNewRemoteTitle => 'إنشاء جهاز تحكم عن بعد جديد';
+  String get learningModeNewRemoteTitle => 'إنشاء جهاز تحكم';
 
   @override
-  String get learningModeSaveSuccess => 'تم حفظ الزر الذي تم تعلمه.';
+  String get learningModeSaveSuccess => 'تم حفظ الزر.';
 
   @override
-  String get learningModeSaveFailed => 'لا يمكن حفظ الزر الذي تم التعرف عليه.';
+  String get learningModeSaveFailed => 'تعذّر حفظ الزر.';
 
   @override
   String get remoteSetupIntro =>
@@ -5626,14 +5623,14 @@ class AppLocalizationsArEg extends AppLocalizationsAr {
   String get irTransmitterSubtitle => 'اختر التي hardware sends IR commands';
 
   @override
-  String get learningModeEntryTitle => 'وضع التعلم';
+  String get learningModeEntryTitle => 'تعلّم الإشارات';
 
   @override
   String get learningModeEntrySubtitle =>
       'انسخ إشارة الأشعة تحت الحمراء لزر من الريموت.';
 
   @override
-  String get learningModeTitle => 'وضع التعلم';
+  String get learningModeTitle => 'تعلّم الإشارات';
 
   @override
   String get learningModeHeroTitle => 'تعلم زر التحكم عن بعد بشكل نظيف';
@@ -5694,7 +5691,7 @@ class AppLocalizationsArEg extends AppLocalizationsAr {
 
   @override
   String get learningModeCheckingHardwareBody =>
-      'التحقق من حالة جهاز الإرسال وجهاز استقبال USB المتاحين.';
+      'جاري فحص المرسل ومستقبل الأشعة تحت الحمراء.';
 
   @override
   String get learningModeHardwareReadyBody =>
@@ -5706,7 +5703,7 @@ class AppLocalizationsArEg extends AppLocalizationsAr {
 
   @override
   String get learningModeHardwareSetupBody =>
-      'تم اكتشاف جهاز دونجل جزئيًا، لكنه لا يزال بحاجة إلى الإعداد أو إعادة الاتصال قبل أن يبدأ التعلم بشكل موثوق.';
+      'المستقبل مش جاهز. راجع إعداده أو وصّله من جديد، وبعدها جرّب تاني.';
 
   @override
   String get learningModeHardwareNoReceiverBody =>
@@ -5733,8 +5730,7 @@ class AppLocalizationsArEg extends AppLocalizationsAr {
   String get learningModeButtonNameLabel => 'اسم الزر';
 
   @override
-  String get learningModeButtonNameHint =>
-      'على سبيل المثال: HDMI 1، الطاقة، القائمة';
+  String get learningModeButtonNameHint => 'زي: التشغيل، HDMI 1، القائمة';
 
   @override
   String get learningModeSinglePress => 'ضغطة واحدة';
@@ -5779,7 +5775,7 @@ class AppLocalizationsArEg extends AppLocalizationsAr {
       'لا يزال بإمكانك مراجعة التدفق الآن، ولكن يجب أن ينتظر الالتقاط حتى يصبح جهاز الاستقبال جاهزًا.';
 
   @override
-  String get learningModeStartListening => 'ابدأ بالاستماع';
+  String get learningModeStartListening => 'بدء الاستقبال';
 
   @override
   String get learningModeCaptureStubTitle => 'التقاط الخلفية يأتي بعد ذلك';
@@ -5793,28 +5789,28 @@ class AppLocalizationsArEg extends AppLocalizationsAr {
       'التقاط التعلم ليس سلكيًا بعد. تعمل هذه الشاشة على دعم التدفق الكامل أولاً.';
 
   @override
-  String get learningModeUnnamedCapture => 'التقاط بدون اسم';
+  String get learningModeUnnamedCapture => 'إشارة من غير اسم';
 
   @override
-  String get learningModeStatusCheckingTitle => 'فحص المتلقي';
+  String get learningModeStatusCheckingTitle => 'جاري فحص المستقبل';
 
   @override
-  String get learningModeStatusNoReceiverTitle => 'المتلقي غير جاهز';
+  String get learningModeStatusNoReceiverTitle => 'المستقبل مش جاهز';
 
   @override
   String get learningModeStatusPermissionTitle => 'مطلوب إذن USB';
 
   @override
-  String get learningModeStatusSetupTitle => 'يحتاج المتلقي إلى الإعداد';
+  String get learningModeStatusSetupTitle => 'المستقبل محتاج إعداد';
 
   @override
-  String get learningModeStatusReadyTitle => 'جاهز للتعلم';
+  String get learningModeStatusReadyTitle => 'جاهز للتعلّم';
 
   @override
-  String get learningModeStatusListeningTitle => 'الاستماع للإشارة';
+  String get learningModeStatusListeningTitle => 'في انتظار الإشارة';
 
   @override
-  String get learningModeStatusCapturedTitle => 'تم التقاط الإشارة';
+  String get learningModeStatusCapturedTitle => 'تم استقبال الإشارة';
 
   @override
   String get learningModeStatusReadyBody =>
@@ -5826,7 +5822,7 @@ class AppLocalizationsArEg extends AppLocalizationsAr {
 
   @override
   String learningModeStatusCapturedBody(Object buttonName) {
-    return 'معاينة الإشارة المكتسبة جاهزة لـ $buttonName. أعد تشغيله، وتأكد من أنه يعمل، ثم احفظه في مكتبتك.';
+    return 'تم استقبال إشارة $buttonName. ابعتها عشان تتأكد إن الجهاز بيستجيب، وبعدها احفظها.';
   }
 
   @override
@@ -5844,14 +5840,14 @@ class AppLocalizationsArEg extends AppLocalizationsAr {
       'قم بتعيين الملصق أولاً إذا كنت تريد ذلك، ثم ابدأ الاستماع واضغط على الزر الموجود على جهاز التحكم عن بعد الأصلي.';
 
   @override
-  String get learningModeReadyToListenTitle => 'جاهز للاستماع';
+  String get learningModeReadyToListenTitle => 'جاهز للاستقبال';
 
   @override
   String get learningModeReadyToListenBody =>
       'وجّه الريموت الأصلي ناحية المستقبل، وبعدها ابدأ استقبال الإشارة.';
 
   @override
-  String get learningModeListeningNowTitle => 'الاستماع الآن';
+  String get learningModeListeningNowTitle => 'في انتظار الإشارة';
 
   @override
   String get learningModeListeningNowBody =>
@@ -5868,10 +5864,10 @@ class AppLocalizationsArEg extends AppLocalizationsAr {
 
   @override
   String get learningModeResultActionsBody =>
-      'أعد تشغيل الإشارة التي تم تعلمها، وتأكد من استجابة الجهاز المستهدف، ثم احفظها كزر قابل لإعادة الاستخدام.';
+      'ابعت الإشارة واتأكد إن الجهاز بيستجيب قبل ما تحفظ الزر.';
 
   @override
-  String get learningModeReplayAction => 'إعادة التشغيل';
+  String get learningModeReplayAction => 'إرسال تاني';
 
   @override
   String get learningModeReplayStubMessage =>
@@ -5892,7 +5888,7 @@ class AppLocalizationsArEg extends AppLocalizationsAr {
       'قم بتأكيد ما تعلمته، ثم اختر المكان الذي يجب أن يكون موجودًا فيه في مكتبتك البعيدة.';
 
   @override
-  String get learningModeSaveToExistingRemote => 'البعيد الموجود';
+  String get learningModeSaveToExistingRemote => 'ريموت محفوظ';
 
   @override
   String get learningModeCreateNewRemote => 'ريموت جديد';
@@ -5912,7 +5908,7 @@ class AppLocalizationsArEg extends AppLocalizationsAr {
       'إذا لم يكتمل فك التشفير، فسيظل التقاط التوقيت الأولي متاحًا هنا للمراجعة والحفظ.';
 
   @override
-  String get learningModeSaveCapture => 'حفظ الالتقاط';
+  String get learningModeSaveCapture => 'حفظ الإشارة';
 
   @override
   String get learningModeReviewTipTitle => 'أين سيذهب هذا بعد ذلك';
@@ -9644,30 +9640,28 @@ class AppLocalizationsArEg extends AppLocalizationsAr {
   String get globalSearchTypeMacro => 'MACRO';
 
   @override
-  String get learningModeCaptureFailed => 'فشل التقاط التعلم.';
+  String get learningModeCaptureFailed => 'تعذّر استقبال الإشارة.';
 
   @override
-  String get learningModeReplaySent => 'تم إعادة تشغيل الإشارة المستفادة.';
+  String get learningModeReplaySent => 'تم إرسال الإشارة.';
 
   @override
-  String get learningModeReplayFailed =>
-      'لا يمكن إعادة تشغيل الإشارة التي تم تعلمها.';
+  String get learningModeReplayFailed => 'تعذّر إرسال الإشارة المستقبلة.';
 
   @override
-  String get learningModeNoRemotesAvailable =>
-      'لا توجد أجهزة التحكم عن بعد المحفوظة حتى الآن.';
+  String get learningModeNoRemotesAvailable => 'لسه مفيش ريموتات محفوظة.';
 
   @override
-  String get learningModeChooseRemoteTitle => 'اختر جهاز التحكم عن بعد';
+  String get learningModeChooseRemoteTitle => 'اختار ريموت';
 
   @override
-  String get learningModeNewRemoteTitle => 'إنشاء جهاز تحكم عن بعد جديد';
+  String get learningModeNewRemoteTitle => 'إنشاء ريموت';
 
   @override
-  String get learningModeSaveSuccess => 'تم حفظ الزر الذي تم تعلمه.';
+  String get learningModeSaveSuccess => 'تم حفظ الزر.';
 
   @override
-  String get learningModeSaveFailed => 'لا يمكن حفظ الزر الذي تم التعرف عليه.';
+  String get learningModeSaveFailed => 'تعذّر حفظ الزر.';
 
   @override
   String get remoteSetupIntro =>

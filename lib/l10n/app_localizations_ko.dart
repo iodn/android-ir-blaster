@@ -463,13 +463,13 @@ class AppLocalizationsKo extends AppLocalizations {
   String get irTransmitterSubtitle => 'IR 명령을 보낼 하드웨어를 선택하세요';
 
   @override
-  String get learningModeEntryTitle => '학습 모드';
+  String get learningModeEntryTitle => '신호 학습';
 
   @override
   String get learningModeEntrySubtitle => '리모컨 버튼의 적외선 신호를 복사합니다.';
 
   @override
-  String get learningModeTitle => '학습 모드';
+  String get learningModeTitle => '신호 학습';
 
   @override
   String get learningModeHeroTitle => '리모컨 버튼을 깔끔하게 익히기';
@@ -528,8 +528,7 @@ class AppLocalizationsKo extends AppLocalizations {
   String get learningModeReceiverStatusLabel => '학습상태';
 
   @override
-  String get learningModeCheckingHardwareBody =>
-      '사용 가능한 송신기 및 USB 수신기 상태를 확인합니다.';
+  String get learningModeCheckingHardwareBody => '송신기와 적외선 수신기를 확인하고 있습니다.';
 
   @override
   String get learningModeHardwareReadyBody =>
@@ -541,7 +540,7 @@ class AppLocalizationsKo extends AppLocalizations {
 
   @override
   String get learningModeHardwareSetupBody =>
-      '동글이 부분적으로 감지되었지만 학습을 안정적으로 시작하려면 여전히 설정하거나 다시 연결해야 합니다.';
+      '수신기가 준비되지 않았습니다. 설정을 확인하거나 다시 연결한 뒤 시도하세요.';
 
   @override
   String get learningModeHardwareNoReceiverBody =>
@@ -568,7 +567,7 @@ class AppLocalizationsKo extends AppLocalizations {
   String get learningModeButtonNameLabel => '버튼 이름';
 
   @override
-  String get learningModeButtonNameHint => '예: HDMI 1, 전원, 메뉴';
+  String get learningModeButtonNameHint => '예: 전원, HDMI 1, 메뉴';
 
   @override
   String get learningModeSinglePress => '한 번 누르기';
@@ -612,7 +611,7 @@ class AppLocalizationsKo extends AppLocalizations {
       '지금도 흐름을 검토할 수 있지만 캡처는 수신자가 준비될 때까지 기다려야 합니다.';
 
   @override
-  String get learningModeStartListening => '듣기 시작';
+  String get learningModeStartListening => '수신 시작';
 
   @override
   String get learningModeCaptureStubTitle => '캡처 백엔드가 다음 단계';
@@ -626,28 +625,28 @@ class AppLocalizationsKo extends AppLocalizations {
       '학습 캡처가 아직 연결되지 않았습니다. 이 화면은 먼저 전체 흐름을 스캐폴딩합니다.';
 
   @override
-  String get learningModeUnnamedCapture => '이름 없는 캡처';
+  String get learningModeUnnamedCapture => '이름 없는 신호';
 
   @override
   String get learningModeStatusCheckingTitle => '수신기 확인 중';
 
   @override
-  String get learningModeStatusNoReceiverTitle => '수신기가 준비되지 않았습니다.';
+  String get learningModeStatusNoReceiverTitle => '수신기 준비 안 됨';
 
   @override
-  String get learningModeStatusPermissionTitle => 'USB 권한이 필요합니다';
+  String get learningModeStatusPermissionTitle => 'USB 접근 허용 필요';
 
   @override
   String get learningModeStatusSetupTitle => '수신기 설정 필요';
 
   @override
-  String get learningModeStatusReadyTitle => '학습 준비';
+  String get learningModeStatusReadyTitle => '학습 준비 완료';
 
   @override
-  String get learningModeStatusListeningTitle => '신호 듣기';
+  String get learningModeStatusListeningTitle => '신호 대기 중';
 
   @override
-  String get learningModeStatusCapturedTitle => '신호 캡처';
+  String get learningModeStatusCapturedTitle => '신호 수신 완료';
 
   @override
   String get learningModeStatusReadyBody =>
@@ -659,7 +658,7 @@ class AppLocalizationsKo extends AppLocalizations {
 
   @override
   String learningModeStatusCapturedBody(Object buttonName) {
-    return '$buttonName에 대해 학습된 신호 미리보기가 준비되었습니다. 재생하고 작동하는지 확인한 다음 라이브러리에 저장하세요.';
+    return '$buttonName 신호를 수신했습니다. 다시 전송해 기기가 반응하는지 확인한 뒤 저장하세요.';
   }
 
   @override
@@ -677,14 +676,14 @@ class AppLocalizationsKo extends AppLocalizations {
       '원하는 경우 먼저 라벨을 설정한 다음 청취를 시작하고 원래 리모컨의 버튼을 누르세요.';
 
   @override
-  String get learningModeReadyToListenTitle => '들을 준비가 되었습니다';
+  String get learningModeReadyToListenTitle => '수신 준비 완료';
 
   @override
   String get learningModeReadyToListenBody =>
       '기존 리모컨을 수신기로 향하게 한 뒤 신호 수신을 시작하세요.';
 
   @override
-  String get learningModeListeningNowTitle => '지금 듣고 있어요';
+  String get learningModeListeningNowTitle => '신호 대기 중';
 
   @override
   String get learningModeListeningNowBody =>
@@ -701,10 +700,10 @@ class AppLocalizationsKo extends AppLocalizations {
 
   @override
   String get learningModeResultActionsBody =>
-      '학습된 신호를 재생하고 대상 장치가 응답하는지 확인한 다음 재사용 가능한 버튼으로 저장합니다.';
+      '신호를 다시 전송해 기기가 반응하는지 확인한 뒤 버튼을 저장하세요.';
 
   @override
-  String get learningModeReplayAction => '다시 하다';
+  String get learningModeReplayAction => '다시 전송';
 
   @override
   String get learningModeReplayStubMessage =>
@@ -725,10 +724,10 @@ class AppLocalizationsKo extends AppLocalizations {
       '학습한 내용을 확인한 다음 원격 라이브러리에서 해당 내용을 저장할 위치를 선택하세요.';
 
   @override
-  String get learningModeSaveToExistingRemote => '기존 리모콘';
+  String get learningModeSaveToExistingRemote => '기존 리모컨';
 
   @override
-  String get learningModeCreateNewRemote => '새로운 리모컨';
+  String get learningModeCreateNewRemote => '새 리모컨';
 
   @override
   String get learningModeProtocolPreviewTitle => '프로토콜 미리보기';
@@ -745,7 +744,7 @@ class AppLocalizationsKo extends AppLocalizations {
       '디코딩이 완료되지 않은 경우 원시 타이밍 캡처를 여기에서 계속 검토하고 저장할 수 있습니다.';
 
   @override
-  String get learningModeSaveCapture => '캡처 저장';
+  String get learningModeSaveCapture => '신호 저장';
 
   @override
   String get learningModeReviewTipTitle => '다음엔 이게 어디로 갈지';
@@ -4418,28 +4417,28 @@ class AppLocalizationsKo extends AppLocalizations {
   String get globalSearchTypeMacro => 'MACRO';
 
   @override
-  String get learningModeCaptureFailed => '학습 캡처에 실패했습니다.';
+  String get learningModeCaptureFailed => '신호를 수신하지 못했습니다.';
 
   @override
-  String get learningModeReplaySent => '학습된 신호가 재생되었습니다.';
+  String get learningModeReplaySent => '신호를 전송했습니다.';
 
   @override
-  String get learningModeReplayFailed => '학습된 신호를 재생할 수 없습니다.';
+  String get learningModeReplayFailed => '수신한 신호를 전송하지 못했습니다.';
 
   @override
   String get learningModeNoRemotesAvailable => '아직 저장된 리모컨이 없습니다.';
 
   @override
-  String get learningModeChooseRemoteTitle => '리모컨을 선택하세요';
+  String get learningModeChooseRemoteTitle => '리모컨 선택';
 
   @override
-  String get learningModeNewRemoteTitle => '새 리모컨 만들기';
+  String get learningModeNewRemoteTitle => '리모컨 만들기';
 
   @override
-  String get learningModeSaveSuccess => '학습된 버튼이 저장되었습니다.';
+  String get learningModeSaveSuccess => '버튼을 저장했습니다.';
 
   @override
-  String get learningModeSaveFailed => '학습된 버튼을 저장할 수 없습니다.';
+  String get learningModeSaveFailed => '버튼을 저장하지 못했습니다.';
 
   @override
   String get remoteSetupIntro => '먼저 이름과 레이아웃을 선택하세요. 버튼은 나중에 추가할 수 있습니다.';

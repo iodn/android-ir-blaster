@@ -451,13 +451,13 @@ class AppLocalizationsZh extends AppLocalizations {
   String get irTransmitterSubtitle => '选择用于发送红外命令的硬件';
 
   @override
-  String get learningModeEntryTitle => '学习模式';
+  String get learningModeEntryTitle => '信号学习';
 
   @override
   String get learningModeEntrySubtitle => '复制实体遥控器上某个按键的红外信号。';
 
   @override
-  String get learningModeTitle => '学习模式';
+  String get learningModeTitle => '信号学习';
 
   @override
   String get learningModeHeroTitle => '干净利落地学会一个遥控按钮';
@@ -515,7 +515,7 @@ class AppLocalizationsZh extends AppLocalizations {
   String get learningModeReceiverStatusLabel => '学习状况';
 
   @override
-  String get learningModeCheckingHardwareBody => '检查可用的发射器和 USB 接收器状态。';
+  String get learningModeCheckingHardwareBody => '正在检查发射器和红外接收器。';
 
   @override
   String get learningModeHardwareReadyBody =>
@@ -525,8 +525,7 @@ class AppLocalizationsZh extends AppLocalizations {
   String get learningModeHardwarePermissionBody => '请允许访问 USB 适配器，然后开始学习信号。';
 
   @override
-  String get learningModeHardwareSetupBody =>
-      '加密狗已被部分检测到，但仍需要设置或重新连接才能可靠地开始学习。';
+  String get learningModeHardwareSetupBody => '接收器尚未就绪。请检查设置或重新连接，然后重试。';
 
   @override
   String get learningModeHardwareNoReceiverBody => '请连接兼容的红外接收器，以学习遥控信号。';
@@ -549,10 +548,10 @@ class AppLocalizationsZh extends AppLocalizations {
       '确定您要学习的内容，然后将原来的遥控器保持稳定并靠近接收器。';
 
   @override
-  String get learningModeButtonNameLabel => '按钮名称';
+  String get learningModeButtonNameLabel => '按键名称';
 
   @override
-  String get learningModeButtonNameHint => '例如：HDMI 1、电源、菜单';
+  String get learningModeButtonNameHint => '例如：电源、HDMI 1、菜单';
 
   @override
   String get learningModeSinglePress => '单按';
@@ -592,7 +591,7 @@ class AppLocalizationsZh extends AppLocalizations {
   String get learningModeCaptureBlockedBody => '您现在仍然可以查看流程，但捕获应等到接收器准备就绪。';
 
   @override
-  String get learningModeStartListening => '开始聆听';
+  String get learningModeStartListening => '开始接收';
 
   @override
   String get learningModeCaptureStubTitle => '接下来是捕获后端';
@@ -605,28 +604,28 @@ class AppLocalizationsZh extends AppLocalizations {
   String get learningModeCaptureStubMessage => '学习捕捉还没有连线。该屏幕首先支撑整个流程。';
 
   @override
-  String get learningModeUnnamedCapture => '无名捕获';
+  String get learningModeUnnamedCapture => '未命名信号';
 
   @override
-  String get learningModeStatusCheckingTitle => '检查接收器';
+  String get learningModeStatusCheckingTitle => '正在检查接收器';
 
   @override
-  String get learningModeStatusNoReceiverTitle => '接收器未准备好';
+  String get learningModeStatusNoReceiverTitle => '接收器尚未就绪';
 
   @override
-  String get learningModeStatusPermissionTitle => '需要USB权限';
+  String get learningModeStatusPermissionTitle => '需要 USB 访问权限';
 
   @override
-  String get learningModeStatusSetupTitle => '接收器需要设置';
+  String get learningModeStatusSetupTitle => '请设置接收器';
 
   @override
-  String get learningModeStatusReadyTitle => '准备学习';
+  String get learningModeStatusReadyTitle => '可以开始学习';
 
   @override
-  String get learningModeStatusListeningTitle => '监听信号';
+  String get learningModeStatusListeningTitle => '等待信号';
 
   @override
-  String get learningModeStatusCapturedTitle => '捕获信号';
+  String get learningModeStatusCapturedTitle => '已接收信号';
 
   @override
   String get learningModeStatusReadyBody => '为按钮命名，将原始遥控器指向接收器，准备好后开始收听。';
@@ -636,7 +635,7 @@ class AppLocalizationsZh extends AppLocalizations {
 
   @override
   String learningModeStatusCapturedBody(Object buttonName) {
-    return '已为 $buttonName 准备好学习的信号预览。重播它，确认它有效，然后将其保存到您的库中。';
+    return '已接收 $buttonName 的信号。请重新发送，确认设备有响应后再保存。';
   }
 
   @override
@@ -653,13 +652,13 @@ class AppLocalizationsZh extends AppLocalizations {
   String get learningModeListenCardBody => '如果需要，请先设置标签，然后开始收听并按下原始遥控器上的按钮。';
 
   @override
-  String get learningModeReadyToListenTitle => '准备好聆听';
+  String get learningModeReadyToListenTitle => '可以开始接收';
 
   @override
   String get learningModeReadyToListenBody => '将原遥控器对准接收器，再开始接收信号。';
 
   @override
-  String get learningModeListeningNowTitle => '现在听';
+  String get learningModeListeningNowTitle => '等待信号';
 
   @override
   String get learningModeListeningNowBody =>
@@ -675,11 +674,10 @@ class AppLocalizationsZh extends AppLocalizations {
   String get learningModeResultActionsTitle => '测试并保存';
 
   @override
-  String get learningModeResultActionsBody =>
-      '重放学习到的信号，验证目标设备响应，然后将其保存为可重复使用的按钮。';
+  String get learningModeResultActionsBody => '保存按键前，请重新发送信号，确认设备有响应。';
 
   @override
-  String get learningModeReplayAction => '重播';
+  String get learningModeReplayAction => '重新发送';
 
   @override
   String get learningModeReplayStubMessage => '重播尚未有线。这是最终学习、测试和保存流程的 UI 支架。';
@@ -698,10 +696,10 @@ class AppLocalizationsZh extends AppLocalizations {
   String get learningModeStepReviewSubtitle => '确认学到的内容，然后选择它在远程图书馆中的存放位置。';
 
   @override
-  String get learningModeSaveToExistingRemote => '现有遥控器';
+  String get learningModeSaveToExistingRemote => '已有遥控器';
 
   @override
-  String get learningModeCreateNewRemote => '新遥控器';
+  String get learningModeCreateNewRemote => '新建遥控器';
 
   @override
   String get learningModeProtocolPreviewTitle => '协议预览';
@@ -717,7 +715,7 @@ class AppLocalizationsZh extends AppLocalizations {
   String get learningModeRawPreviewBody => '如果解码不完整，原始时序捕获仍可在此处进行查看和保存。';
 
   @override
-  String get learningModeSaveCapture => '保存捕获';
+  String get learningModeSaveCapture => '保存信号';
 
   @override
   String get learningModeReviewTipTitle => '接下来会去哪里';
@@ -4347,28 +4345,28 @@ class AppLocalizationsZh extends AppLocalizations {
   String get globalSearchTypeMacro => 'MACRO';
 
   @override
-  String get learningModeCaptureFailed => '学习捕捉失败。';
+  String get learningModeCaptureFailed => '未能接收到信号。';
 
   @override
-  String get learningModeReplaySent => '已获悉的信号已重播。';
+  String get learningModeReplaySent => '信号已发送。';
 
   @override
-  String get learningModeReplayFailed => '无法重放学习到的信号。';
+  String get learningModeReplayFailed => '无法发送已接收的信号。';
 
   @override
-  String get learningModeNoRemotesAvailable => '还没有保存的遥控器。';
+  String get learningModeNoRemotesAvailable => '尚未保存任何遥控器。';
 
   @override
   String get learningModeChooseRemoteTitle => '选择遥控器';
 
   @override
-  String get learningModeNewRemoteTitle => '创建一个新的远程';
+  String get learningModeNewRemoteTitle => '创建遥控器';
 
   @override
-  String get learningModeSaveSuccess => '已学会的按钮已保存。';
+  String get learningModeSaveSuccess => '按键已保存。';
 
   @override
-  String get learningModeSaveFailed => '无法保存学习到的按钮。';
+  String get learningModeSaveFailed => '无法保存按键。';
 
   @override
   String get remoteSetupIntro => '先选择名称和布局，之后可以再添加按钮。';

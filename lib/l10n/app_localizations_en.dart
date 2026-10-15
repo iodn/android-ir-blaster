@@ -550,7 +550,7 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get learningModeCheckingHardwareBody =>
-      'Checking available transmitter and USB receiver state.';
+      'Checking the transmitter and IR receiver.';
 
   @override
   String get learningModeHardwareReadyBody =>
@@ -562,7 +562,7 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get learningModeHardwareSetupBody =>
-      'A dongle is partially detected, but it still needs setup or reconnecting before learning can begin reliably.';
+      'The receiver is not ready. Check its setup or reconnect it, then try again.';
 
   @override
   String get learningModeHardwareNoReceiverBody =>
@@ -589,7 +589,7 @@ class AppLocalizationsEn extends AppLocalizations {
   String get learningModeButtonNameLabel => 'Button name';
 
   @override
-  String get learningModeButtonNameHint => 'For example: HDMI 1, Power, Menu';
+  String get learningModeButtonNameHint => 'For example: Power, HDMI 1, Menu';
 
   @override
   String get learningModeSinglePress => 'Single press';
@@ -681,7 +681,7 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String learningModeStatusCapturedBody(Object buttonName) {
-    return 'A learned signal preview is ready for $buttonName. Replay it, confirm it works, then save it into your library.';
+    return 'Signal captured for $buttonName. Replay it to check that your device responds, then save it.';
   }
 
   @override
@@ -723,7 +723,7 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get learningModeResultActionsBody =>
-      'Replay the learned signal, verify the target device responds, then save it as a reusable button.';
+      'Replay the signal and check that your device responds before saving the button.';
 
   @override
   String get learningModeReplayAction => 'Replay';
@@ -4560,30 +4560,28 @@ class AppLocalizationsEn extends AppLocalizations {
   String get globalSearchTypeMacro => 'MACRO';
 
   @override
-  String get learningModeCaptureFailed => 'Learning capture failed.';
+  String get learningModeCaptureFailed => 'Could not capture a signal.';
 
   @override
-  String get learningModeReplaySent => 'Learned signal replayed.';
+  String get learningModeReplaySent => 'Signal sent.';
 
   @override
-  String get learningModeReplayFailed =>
-      'The learned signal could not be replayed.';
+  String get learningModeReplayFailed => 'Could not send the captured signal.';
 
   @override
-  String get learningModeNoRemotesAvailable =>
-      'There are no saved remotes yet.';
+  String get learningModeNoRemotesAvailable => 'No saved remotes yet.';
 
   @override
   String get learningModeChooseRemoteTitle => 'Choose a remote';
 
   @override
-  String get learningModeNewRemoteTitle => 'Create a new remote';
+  String get learningModeNewRemoteTitle => 'Create a remote';
 
   @override
-  String get learningModeSaveSuccess => 'Learned button saved.';
+  String get learningModeSaveSuccess => 'Button saved.';
 
   @override
-  String get learningModeSaveFailed => 'The learned button could not be saved.';
+  String get learningModeSaveFailed => 'Could not save the button.';
 
   @override
   String get remoteSetupIntro =>

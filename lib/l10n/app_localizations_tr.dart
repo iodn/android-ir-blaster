@@ -478,14 +478,14 @@ class AppLocalizationsTr extends AppLocalizations {
   String get irTransmitterSubtitle => 'Choose which donanım sends IR commands';
 
   @override
-  String get learningModeEntryTitle => 'Öğrenme Modu';
+  String get learningModeEntryTitle => 'Sinyal öğrenme';
 
   @override
   String get learningModeEntrySubtitle =>
       'Kumandanızdaki bir tuşun kızılötesi sinyalini kopyalayın.';
 
   @override
-  String get learningModeTitle => 'Öğrenme Modu';
+  String get learningModeTitle => 'Sinyal öğrenme';
 
   @override
   String get learningModeHeroTitle =>
@@ -547,7 +547,7 @@ class AppLocalizationsTr extends AppLocalizations {
 
   @override
   String get learningModeCheckingHardwareBody =>
-      'Mevcut verici ve USB alıcı durumu kontrol ediliyor.';
+      'Verici ve IR alıcısı kontrol ediliyor.';
 
   @override
   String get learningModeHardwareReadyBody =>
@@ -559,7 +559,7 @@ class AppLocalizationsTr extends AppLocalizations {
 
   @override
   String get learningModeHardwareSetupBody =>
-      'Bir donanım kilidi kısmen algılandı ancak öğrenmenin güvenilir bir şekilde başlayabilmesi için yine de kurulumu veya yeniden bağlanması gerekiyor.';
+      'Alıcı hazır değil. Ayarlarını kontrol edin veya yeniden bağlayıp tekrar deneyin.';
 
   @override
   String get learningModeHardwareNoReceiverBody =>
@@ -584,10 +584,10 @@ class AppLocalizationsTr extends AppLocalizations {
       'Ne öğreneceğinize karar verin, ardından orijinal uzaktan kumandayı sabit ve alıcıya yakın tutun.';
 
   @override
-  String get learningModeButtonNameLabel => 'Düğme adı';
+  String get learningModeButtonNameLabel => 'Tuş adı';
 
   @override
-  String get learningModeButtonNameHint => 'Örneğin: HDMI 1, Güç, Menü';
+  String get learningModeButtonNameHint => 'Örneğin: Güç, HDMI 1, Menü';
 
   @override
   String get learningModeSinglePress => 'Tek basış';
@@ -632,7 +632,7 @@ class AppLocalizationsTr extends AppLocalizations {
       'Akışı şimdi inceleyebilirsiniz ancak yakalama işlemi, alıcı hazır olana kadar beklemelidir.';
 
   @override
-  String get learningModeStartListening => 'Dinlemeye başla';
+  String get learningModeStartListening => 'Sinyal al';
 
   @override
   String get learningModeCaptureStubTitle =>
@@ -647,7 +647,7 @@ class AppLocalizationsTr extends AppLocalizations {
       'Öğrenme yakalama henüz kablolu değil. Bu ekran ilk önce tam akışın iskelesini oluşturur.';
 
   @override
-  String get learningModeUnnamedCapture => 'Adsız yakalama';
+  String get learningModeUnnamedCapture => 'Adsız sinyal';
 
   @override
   String get learningModeStatusCheckingTitle => 'Alıcı kontrol ediliyor';
@@ -659,16 +659,16 @@ class AppLocalizationsTr extends AppLocalizations {
   String get learningModeStatusPermissionTitle => 'USB izni gerekli';
 
   @override
-  String get learningModeStatusSetupTitle => 'Alıcının kuruluma ihtiyacı var';
+  String get learningModeStatusSetupTitle => 'Alıcıyı ayarlayın';
 
   @override
   String get learningModeStatusReadyTitle => 'Öğrenmeye hazır';
 
   @override
-  String get learningModeStatusListeningTitle => 'Bir sinyalin dinlenmesi';
+  String get learningModeStatusListeningTitle => 'Sinyal bekleniyor';
 
   @override
-  String get learningModeStatusCapturedTitle => 'Yakalanan sinyal';
+  String get learningModeStatusCapturedTitle => 'Sinyal alındı';
 
   @override
   String get learningModeStatusReadyBody =>
@@ -680,7 +680,7 @@ class AppLocalizationsTr extends AppLocalizations {
 
   @override
   String learningModeStatusCapturedBody(Object buttonName) {
-    return '$buttonName için öğrenilmiş bir sinyal önizlemesi hazır. Tekrar oynatın, çalıştığını onaylayın ve ardından kitaplığınıza kaydedin.';
+    return '$buttonName için sinyal alındı. Cihazınızın tepki verdiğini kontrol etmek için yeniden gönderin, ardından kaydedin.';
   }
 
   @override
@@ -698,14 +698,14 @@ class AppLocalizationsTr extends AppLocalizations {
       'İsterseniz önce bir etiket belirleyin, ardından dinlemeye başlayın ve orijinal uzaktan kumandadaki düğmeye basın.';
 
   @override
-  String get learningModeReadyToListenTitle => 'Dinlemeye hazır';
+  String get learningModeReadyToListenTitle => 'Sinyal almaya hazır';
 
   @override
   String get learningModeReadyToListenBody =>
       'Orijinal kumandayı alıcıya doğrultun, ardından sinyal alımını başlatın.';
 
   @override
-  String get learningModeListeningNowTitle => 'Şimdi dinliyorum';
+  String get learningModeListeningNowTitle => 'Sinyal bekleniyor';
 
   @override
   String get learningModeListeningNowBody =>
@@ -718,14 +718,14 @@ class AppLocalizationsTr extends AppLocalizations {
   String get learningModeCapturedSummary => 'Alınan sinyal';
 
   @override
-  String get learningModeResultActionsTitle => 'Test edin ve kaydedin';
+  String get learningModeResultActionsTitle => 'Dene ve kaydet';
 
   @override
   String get learningModeResultActionsBody =>
-      'Öğrenilen sinyali yeniden oynatın, hedef cihazın yanıt verdiğini doğrulayın ve ardından onu yeniden kullanılabilir bir düğme olarak kaydedin.';
+      'Tuşu kaydetmeden önce sinyali yeniden gönderip cihazınızın tepki verdiğini kontrol edin.';
 
   @override
-  String get learningModeReplayAction => 'Tekrar oynat';
+  String get learningModeReplayAction => 'Yeniden gönder';
 
   @override
   String get learningModeReplayStubMessage =>
@@ -746,10 +746,10 @@ class AppLocalizationsTr extends AppLocalizations {
       'Öğrenilenleri onaylayın ve ardından uzak kitaplığınızda nerede saklanacağını seçin.';
 
   @override
-  String get learningModeSaveToExistingRemote => 'Mevcut uzaktan kumanda';
+  String get learningModeSaveToExistingRemote => 'Kayıtlı kumanda';
 
   @override
-  String get learningModeCreateNewRemote => 'Yeni uzaktan kumanda';
+  String get learningModeCreateNewRemote => 'Yeni kumanda';
 
   @override
   String get learningModeProtocolPreviewTitle => 'Protokol önizlemesi';
@@ -766,7 +766,7 @@ class AppLocalizationsTr extends AppLocalizations {
       'Kod çözme tamamlanmadıysa ham zamanlama yakalaması incelenmek ve kaydedilmek üzere burada mevcut olacaktır.';
 
   @override
-  String get learningModeSaveCapture => 'Yakalamayı kaydet';
+  String get learningModeSaveCapture => 'Sinyali kaydet';
 
   @override
   String get learningModeReviewTipTitle => 'Bu bundan sonra nereye gidecek';
@@ -4515,30 +4515,28 @@ class AppLocalizationsTr extends AppLocalizations {
   String get globalSearchTypeMacro => 'MACRO';
 
   @override
-  String get learningModeCaptureFailed => 'Yakalamayı öğrenme başarısız oldu.';
+  String get learningModeCaptureFailed => 'Sinyal alınamadı.';
 
   @override
-  String get learningModeReplaySent => 'Öğrenilen sinyal tekrarlandı.';
+  String get learningModeReplaySent => 'Sinyal gönderildi.';
 
   @override
-  String get learningModeReplayFailed =>
-      'Öğrenilen sinyal tekrar oynatılamadı.';
+  String get learningModeReplayFailed => 'Alınan sinyal gönderilemedi.';
 
   @override
-  String get learningModeNoRemotesAvailable =>
-      'Henüz kayıtlı uzaktan kumanda yok.';
+  String get learningModeNoRemotesAvailable => 'Henüz kayıtlı kumanda yok.';
 
   @override
-  String get learningModeChooseRemoteTitle => 'Bir uzaktan kumanda seçin';
+  String get learningModeChooseRemoteTitle => 'Kumanda seçin';
 
   @override
-  String get learningModeNewRemoteTitle => 'Yeni bir uzaktan kumanda oluştur';
+  String get learningModeNewRemoteTitle => 'Kumanda oluştur';
 
   @override
-  String get learningModeSaveSuccess => 'Öğrenilen düğme kaydedildi.';
+  String get learningModeSaveSuccess => 'Tuş kaydedildi.';
 
   @override
-  String get learningModeSaveFailed => 'Öğrenilen düğme kaydedilemedi.';
+  String get learningModeSaveFailed => 'Tuş kaydedilemedi.';
 
   @override
   String get remoteSetupIntro =>

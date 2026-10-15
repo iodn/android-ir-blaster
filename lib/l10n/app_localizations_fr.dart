@@ -484,14 +484,14 @@ class AppLocalizationsFr extends AppLocalizations {
       'Choisissez le matériel qui envoie les commandes IR';
 
   @override
-  String get learningModeEntryTitle => 'Mode d\'apprentissage';
+  String get learningModeEntryTitle => 'Apprentissage IR';
 
   @override
   String get learningModeEntrySubtitle =>
       'Copiez le signal d\'une touche de votre télécommande.';
 
   @override
-  String get learningModeTitle => 'Mode d\'apprentissage';
+  String get learningModeTitle => 'Apprentissage IR';
 
   @override
   String get learningModeHeroTitle =>
@@ -554,7 +554,7 @@ class AppLocalizationsFr extends AppLocalizations {
 
   @override
   String get learningModeCheckingHardwareBody =>
-      'Vérification de l\'état de l\'émetteur et du récepteur USB disponibles.';
+      'Vérification de l\'émetteur et du récepteur IR.';
 
   @override
   String get learningModeHardwareReadyBody =>
@@ -566,7 +566,7 @@ class AppLocalizationsFr extends AppLocalizations {
 
   @override
   String get learningModeHardwareSetupBody =>
-      'Un dongle est partiellement détecté, mais il doit encore être configuré ou reconnecté avant que l\'apprentissage puisse commencer de manière fiable.';
+      'Le récepteur n\'est pas prêt. Vérifiez sa configuration ou rebranchez-le, puis réessayez.';
 
   @override
   String get learningModeHardwareNoReceiverBody =>
@@ -591,11 +591,11 @@ class AppLocalizationsFr extends AppLocalizations {
       'Décidez de ce que vous apprenez, puis gardez la télécommande d\'origine stable et proche du récepteur.';
 
   @override
-  String get learningModeButtonNameLabel => 'Nom du bouton';
+  String get learningModeButtonNameLabel => 'Nom de la touche';
 
   @override
   String get learningModeButtonNameHint =>
-      'Par exemple : HDMI 1, Alimentation, Menu';
+      'Par exemple : Marche/Arrêt, HDMI 1, Menu';
 
   @override
   String get learningModeSinglePress => 'Une seule pression';
@@ -641,7 +641,7 @@ class AppLocalizationsFr extends AppLocalizations {
       'Vous pouvez toujours consulter le flux maintenant, mais la capture doit attendre que le récepteur soit prêt.';
 
   @override
-  String get learningModeStartListening => 'Commencez à écouter';
+  String get learningModeStartListening => 'Recevoir un signal';
 
   @override
   String get learningModeCaptureStubTitle =>
@@ -656,26 +656,25 @@ class AppLocalizationsFr extends AppLocalizations {
       'La capture d\'apprentissage n\'est pas encore câblée. Cet écran échafaude d’abord le flux complet.';
 
   @override
-  String get learningModeUnnamedCapture => 'Capture sans nom';
+  String get learningModeUnnamedCapture => 'Signal sans nom';
 
   @override
   String get learningModeStatusCheckingTitle => 'Vérification du récepteur';
 
   @override
-  String get learningModeStatusNoReceiverTitle =>
-      'Le récepteur n\'est pas prêt';
+  String get learningModeStatusNoReceiverTitle => 'Récepteur non prêt';
 
   @override
   String get learningModeStatusPermissionTitle => 'Autorisation USB requise';
 
   @override
-  String get learningModeStatusSetupTitle => 'Le récepteur doit être configuré';
+  String get learningModeStatusSetupTitle => 'Configurer le récepteur';
 
   @override
   String get learningModeStatusReadyTitle => 'Prêt à apprendre';
 
   @override
-  String get learningModeStatusListeningTitle => 'À l\'écoute d\'un signal';
+  String get learningModeStatusListeningTitle => 'En attente d\'un signal';
 
   @override
   String get learningModeStatusCapturedTitle => 'Signal capturé';
@@ -690,7 +689,7 @@ class AppLocalizationsFr extends AppLocalizations {
 
   @override
   String learningModeStatusCapturedBody(Object buttonName) {
-    return 'Un aperçu du signal appris est prêt pour $buttonName. Rejouez-le, confirmez qu\'il fonctionne, puis enregistrez-le dans votre bibliothèque.';
+    return 'Signal capturé pour $buttonName. Renvoyez-le pour vérifier que votre appareil réagit, puis enregistrez-le.';
   }
 
   @override
@@ -708,14 +707,14 @@ class AppLocalizationsFr extends AppLocalizations {
       'Définissez d\'abord une étiquette si vous le souhaitez, puis commencez à écouter et appuyez sur le bouton de la télécommande d\'origine.';
 
   @override
-  String get learningModeReadyToListenTitle => 'Prêt à écouter';
+  String get learningModeReadyToListenTitle => 'Prêt à recevoir';
 
   @override
   String get learningModeReadyToListenBody =>
       'Pointez la télécommande d\'origine vers le récepteur, puis lancez l\'écoute.';
 
   @override
-  String get learningModeListeningNowTitle => 'En écoute maintenant';
+  String get learningModeListeningNowTitle => 'En attente d\'un signal';
 
   @override
   String get learningModeListeningNowBody =>
@@ -728,14 +727,14 @@ class AppLocalizationsFr extends AppLocalizations {
   String get learningModeCapturedSummary => 'Signal capturé';
 
   @override
-  String get learningModeResultActionsTitle => 'Testez et enregistrez';
+  String get learningModeResultActionsTitle => 'Tester et enregistrer';
 
   @override
   String get learningModeResultActionsBody =>
-      'Rejouez le signal appris, vérifiez que l\'appareil cible répond, puis enregistrez-le en tant que bouton réutilisable.';
+      'Renvoyez le signal et vérifiez que votre appareil réagit avant d\'enregistrer la touche.';
 
   @override
-  String get learningModeReplayAction => 'Rejouer';
+  String get learningModeReplayAction => 'Renvoyer';
 
   @override
   String get learningModeReplayStubMessage =>
@@ -776,7 +775,7 @@ class AppLocalizationsFr extends AppLocalizations {
       'Si le décodage est incomplet, la capture temporelle brute sera toujours disponible ici pour examen et sauvegarde.';
 
   @override
-  String get learningModeSaveCapture => 'Enregistrer la capture';
+  String get learningModeSaveCapture => 'Enregistrer le signal';
 
   @override
   String get learningModeReviewTipTitle => 'Où cela ira ensuite';
@@ -4556,32 +4555,30 @@ class AppLocalizationsFr extends AppLocalizations {
   String get globalSearchTypeMacro => 'MACRO';
 
   @override
-  String get learningModeCaptureFailed =>
-      'La capture d’apprentissage a échoué.';
+  String get learningModeCaptureFailed => 'Impossible de recevoir le signal.';
 
   @override
-  String get learningModeReplaySent => 'Signal appris rejoué.';
+  String get learningModeReplaySent => 'Signal envoyé.';
 
   @override
   String get learningModeReplayFailed =>
-      'Le signal appris n\'a pas pu être rejoué.';
+      'Impossible d\'envoyer le signal capturé.';
 
   @override
   String get learningModeNoRemotesAvailable =>
-      'Il n\'y a pas encore de télécommandes enregistrées.';
+      'Aucune télécommande enregistrée pour le moment.';
 
   @override
-  String get learningModeChooseRemoteTitle => 'Choisissez une télécommande';
+  String get learningModeChooseRemoteTitle => 'Choisir une télécommande';
 
   @override
-  String get learningModeNewRemoteTitle => 'Créer une nouvelle télécommande';
+  String get learningModeNewRemoteTitle => 'Créer une télécommande';
 
   @override
-  String get learningModeSaveSuccess => 'Bouton appris enregistré.';
+  String get learningModeSaveSuccess => 'Touche enregistrée.';
 
   @override
-  String get learningModeSaveFailed =>
-      'Le bouton appris n\'a pas pu être enregistré.';
+  String get learningModeSaveFailed => 'Impossible d\'enregistrer la touche.';
 
   @override
   String get remoteSetupIntro =>

@@ -1089,7 +1089,7 @@ abstract class AppLocalizations {
   /// No description provided for @learningModeCheckingHardwareBody.
   ///
   /// In en, this message translates to:
-  /// **'Checking available transmitter and USB receiver state.'**
+  /// **'Checking the transmitter and IR receiver.'**
   String get learningModeCheckingHardwareBody;
 
   /// No description provided for @learningModeHardwareReadyBody.
@@ -1107,7 +1107,7 @@ abstract class AppLocalizations {
   /// No description provided for @learningModeHardwareSetupBody.
   ///
   /// In en, this message translates to:
-  /// **'A dongle is partially detected, but it still needs setup or reconnecting before learning can begin reliably.'**
+  /// **'The receiver is not ready. Check its setup or reconnect it, then try again.'**
   String get learningModeHardwareSetupBody;
 
   /// No description provided for @learningModeHardwareNoReceiverBody.
@@ -1155,7 +1155,7 @@ abstract class AppLocalizations {
   /// No description provided for @learningModeButtonNameHint.
   ///
   /// In en, this message translates to:
-  /// **'For example: HDMI 1, Power, Menu'**
+  /// **'For example: Power, HDMI 1, Menu'**
   String get learningModeButtonNameHint;
 
   /// No description provided for @learningModeSinglePress.
@@ -1317,7 +1317,7 @@ abstract class AppLocalizations {
   /// No description provided for @learningModeStatusCapturedBody.
   ///
   /// In en, this message translates to:
-  /// **'A learned signal preview is ready for {buttonName}. Replay it, confirm it works, then save it into your library.'**
+  /// **'Signal captured for {buttonName}. Replay it to check that your device responds, then save it.'**
   String learningModeStatusCapturedBody(Object buttonName);
 
   /// No description provided for @learningModeConnectReceiverTitle.
@@ -1389,7 +1389,7 @@ abstract class AppLocalizations {
   /// No description provided for @learningModeResultActionsBody.
   ///
   /// In en, this message translates to:
-  /// **'Replay the learned signal, verify the target device responds, then save it as a reusable button.'**
+  /// **'Replay the signal and check that your device responds before saving the button.'**
   String get learningModeResultActionsBody;
 
   /// No description provided for @learningModeReplayAction.
@@ -8261,25 +8261,25 @@ abstract class AppLocalizations {
   /// No description provided for @learningModeCaptureFailed.
   ///
   /// In en, this message translates to:
-  /// **'Learning capture failed.'**
+  /// **'Could not capture a signal.'**
   String get learningModeCaptureFailed;
 
   /// No description provided for @learningModeReplaySent.
   ///
   /// In en, this message translates to:
-  /// **'Learned signal replayed.'**
+  /// **'Signal sent.'**
   String get learningModeReplaySent;
 
   /// No description provided for @learningModeReplayFailed.
   ///
   /// In en, this message translates to:
-  /// **'The learned signal could not be replayed.'**
+  /// **'Could not send the captured signal.'**
   String get learningModeReplayFailed;
 
   /// No description provided for @learningModeNoRemotesAvailable.
   ///
   /// In en, this message translates to:
-  /// **'There are no saved remotes yet.'**
+  /// **'No saved remotes yet.'**
   String get learningModeNoRemotesAvailable;
 
   /// No description provided for @learningModeChooseRemoteTitle.
@@ -8291,19 +8291,19 @@ abstract class AppLocalizations {
   /// No description provided for @learningModeNewRemoteTitle.
   ///
   /// In en, this message translates to:
-  /// **'Create a new remote'**
+  /// **'Create a remote'**
   String get learningModeNewRemoteTitle;
 
   /// No description provided for @learningModeSaveSuccess.
   ///
   /// In en, this message translates to:
-  /// **'Learned button saved.'**
+  /// **'Button saved.'**
   String get learningModeSaveSuccess;
 
   /// No description provided for @learningModeSaveFailed.
   ///
   /// In en, this message translates to:
-  /// **'The learned button could not be saved.'**
+  /// **'Could not save the button.'**
   String get learningModeSaveFailed;
 
   /// No description provided for @remoteSetupIntro.
