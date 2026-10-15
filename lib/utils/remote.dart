@@ -139,6 +139,10 @@ class Remote {
 
   static int _nextId = 1;
 
+  static void reserveIdsThrough(int id) {
+    if (_nextId <= id) _nextId = id + 1;
+  }
+
   Remote({
     int? id,
     required this.buttons,

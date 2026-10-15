@@ -514,7 +514,7 @@ Future<ImportResult?> importRemotesFromPicker(
       }
 
       final next = <Remote>[...current, remoteFromIr];
-      _reassignIds(next);
+      _reassignIds(next, preserveFirst: current.length);
       return ImportResult(
         remotes: next,
         macros: null,
@@ -540,7 +540,7 @@ Future<ImportResult?> importRemotesFromPicker(
       }
 
       final next = <Remote>[...current, remoteFromIrplus];
-      _reassignIds(next);
+      _reassignIds(next, preserveFirst: current.length);
       return ImportResult(
         remotes: next,
         macros: null,
@@ -570,7 +570,7 @@ Future<ImportResult?> importRemotesFromPicker(
       }
 
       final next = <Remote>[...current, remoteFromLirc];
-      _reassignIds(next);
+      _reassignIds(next, preserveFirst: current.length);
       return ImportResult(
         remotes: next,
         macros: null,
@@ -701,7 +701,7 @@ Future<ImportResult?> importRemotesFromFolderPicker(
     }
 
     final List<Remote> next = <Remote>[...current, ...imported];
-    _reassignIds(next);
+    _reassignIds(next, preserveFirst: current.length);
 
     final int skipped = skippedUnsupported + skippedBroken;
     return ImportResult(
@@ -816,7 +816,7 @@ Future<ImportResult> _bulkImportFromPlatformFiles(
   }
 
   final List<Remote> next = <Remote>[...current, ...imported];
-  _reassignIds(next);
+  _reassignIds(next, preserveFirst: current.length);
 
   final int skipped = skippedUnsupported + skippedBroken;
   return ImportResult(
@@ -2610,8 +2610,14 @@ BigInt? _parseBigIntLoose(String s) {
   }
 }
 
-void _reassignIds(List<Remote> remotes) {
-  for (int i = 0; i < remotes.length; i++) {
-    remotes[i].id = i + 1;
+void _reassignIds(List<Remote> remotes, {int preserveFirst = 0}) {
+  // Append imports must preserve IDs used by pins and last-remote shortcuts.
+  var nextId = remotes.take(preserveFirst).fold<int>(
+        0,
+        (maxId, remote) => remote.id > maxId ? remote.id : maxId,
+      ) + 1;
+  for (int i = preserveFirst; i < remotes.length; i++) {
+    remotes[i].id = nextId++;
   }
+  Remote.reserveIdsThrough(nextId - 1);
 }
