@@ -1371,25 +1371,25 @@ class AppLocalizationsTr extends AppLocalizations {
   String get gotIt => 'Got it';
 
   @override
-  String get failedToSaveMacros => 'Başarısız to kaydet macros.';
+  String get failedToSaveMacros => 'Makrolar kaydedilemedi.';
 
   @override
   String deletedMacroNamed(Object name) {
-    return '\"$name\" silindi.';
+    return '“$name” silindi.';
   }
 
   @override
   String get undo => 'Geri al';
 
   @override
-  String get failedToRestoreMacro => 'Başarısız to geri yükle macro.';
+  String get failedToRestoreMacro => 'Makro geri yüklenemedi.';
 
   @override
-  String get deleteMacroTitle => 'Sil macro?';
+  String get deleteMacroTitle => 'Makro silinsin mi?';
 
   @override
   String get deleteMacroMessage =>
-      'Bunu bir sonraki alt bildirimden geri alabilirsiniz.';
+      'Sildikten sonra çıkan mesajda Geri al seçeneğine dokunarak makroyu geri yükleyebilirsiniz.';
 
   @override
   String get noRemotesAvailable => 'No remotes mevcut.';

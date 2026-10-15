@@ -403,7 +403,7 @@
   "manualContinueDescription": "Czeka na stuknięcie Dalej przed przejściem do następnego kroku.",
   "gotIt": "Rozumiem",
   "failedToSaveMacros": "Nie udało się zapisać makr.",
-  "deletedMacroNamed": "Usunięto \"{name}\".",
+  "deletedMacroNamed": "Usunięto „{name}”.",
   "@deletedMacroNamed": {
     "placeholders": {
       "name": {}
@@ -412,7 +412,7 @@
   "undo": "Cofnij",
   "failedToRestoreMacro": "Nie udało się przywrócić makra.",
   "deleteMacroTitle": "Usunąć makro?",
-  "deleteMacroMessage": "Możesz do cofnąć z następnego paska powiadomienia.",
+  "deleteMacroMessage": "Po usunięciu dotknij Cofnij w wyświetlonym komunikacie, aby przywrócić makro.",
   "noRemotesAvailable": "Brak dostępnych pilotów.",
   "remoteButtonCountSummary": "{count, plural, one{{count} przycisk} few{{count} przyciski} many{{count} przycisków} other{{count} przycisków}}",
   "@remoteButtonCountSummary": {

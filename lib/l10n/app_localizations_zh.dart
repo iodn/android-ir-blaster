@@ -1266,24 +1266,24 @@ class AppLocalizationsZh extends AppLocalizations {
   String get gotIt => '知道了';
 
   @override
-  String get failedToSaveMacros => '保存宏失败。';
+  String get failedToSaveMacros => '无法保存宏。';
 
   @override
   String deletedMacroNamed(Object name) {
-    return '已删除 \"$name\"。';
+    return '已删除“$name”。';
   }
 
   @override
   String get undo => '撤销';
 
   @override
-  String get failedToRestoreMacro => '恢复宏失败。';
+  String get failedToRestoreMacro => '无法恢复宏。';
 
   @override
-  String get deleteMacroTitle => '删除宏';
+  String get deleteMacroTitle => '删除宏？';
 
   @override
-  String get deleteMacroMessage => '你可以在接下来的提示条中撤销此操作。';
+  String get deleteMacroMessage => '删除后，点击提示消息中的“撤销”即可恢复宏。';
 
   @override
   String get noRemotesAvailable => '没有可用遥控器。';

@@ -400,17 +400,17 @@
   "manualContinue": "Tunggu pengesahan",
   "manualContinueDescription": "Menunggu sehingga anda mengetik Teruskan sebelum langkah seterusnya.",
   "gotIt": "Mengerti",
-  "failedToSaveMacros": "Gagal simpan makro.",
-  "deletedMacroNamed": "Dihapus \"{name}\".",
+  "failedToSaveMacros": "Makro tidak dapat disimpan.",
+  "deletedMacroNamed": "“{name}” telah dipadam.",
   "@deletedMacroNamed": {
     "placeholders": {
       "name": {}
     }
   },
   "undo": "Buat asal",
-  "failedToRestoreMacro": "Gagal restore makro.",
-  "deleteMacroTitle": "Hapus makro?",
-  "deleteMacroMessage": "Anda boleh membatalkannya dari snackbar berikutnya.",
+  "failedToRestoreMacro": "Makro tidak dapat dipulihkan.",
+  "deleteMacroTitle": "Padam makro?",
+  "deleteMacroMessage": "Selepas dipadam, ketik Buat asal pada mesej yang muncul untuk memulihkan makro.",
   "noRemotesAvailable": "Tiada remote tersedia.",
   "remoteButtonCountSummary": "{count} butang(s)",
   "@remoteButtonCountSummary": {

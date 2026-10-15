@@ -1355,24 +1355,25 @@ class AppLocalizationsAr extends AppLocalizations {
   String get gotIt => 'فهمت';
 
   @override
-  String get failedToSaveMacros => 'فشل حفظ الماكرو.';
+  String get failedToSaveMacros => 'تعذّر حفظ الماكرو.';
 
   @override
   String deletedMacroNamed(Object name) {
-    return 'تم حذف \"$name\".';
+    return 'تم حذف «$name».';
   }
 
   @override
   String get undo => 'تراجع';
 
   @override
-  String get failedToRestoreMacro => 'فشل استعادة الماكرو.';
+  String get failedToRestoreMacro => 'تعذّرت استعادة الماكرو.';
 
   @override
   String get deleteMacroTitle => 'حذف الماكرو؟';
 
   @override
-  String get deleteMacroMessage => 'يمكنك التراجع عن ذلك من الشريط التالي.';
+  String get deleteMacroMessage =>
+      'بعد الحذف، اضغط على تراجع في الرسالة التي تظهر لاستعادة الماكرو.';
 
   @override
   String get noRemotesAvailable => 'No remotes available.';
@@ -6574,24 +6575,25 @@ class AppLocalizationsArEg extends AppLocalizationsAr {
   String get gotIt => 'فهمت';
 
   @override
-  String get failedToSaveMacros => 'فشل حفظ الماكرو.';
+  String get failedToSaveMacros => 'ماقدرناش نحفظ الماكرو.';
 
   @override
   String deletedMacroNamed(Object name) {
-    return 'تم حذف \"$name\".';
+    return 'اتحذف «$name».';
   }
 
   @override
   String get undo => 'تراجع';
 
   @override
-  String get failedToRestoreMacro => 'فشل استعادة الماكرو.';
+  String get failedToRestoreMacro => 'ماقدرناش نرجّع الماكرو.';
 
   @override
-  String get deleteMacroTitle => 'حذف الماكرو؟';
+  String get deleteMacroTitle => 'تحذف الماكرو؟';
 
   @override
-  String get deleteMacroMessage => 'يمكنك التراجع عن ذلك من الشريط التالي.';
+  String get deleteMacroMessage =>
+      'بعد الحذف، اضغط على تراجع في الرسالة اللي هتظهر عشان ترجّع الماكرو.';
 
   @override
   String get noRemotesAvailable => 'No remotes available.';

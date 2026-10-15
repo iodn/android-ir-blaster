@@ -400,17 +400,17 @@
   "manualContinue": "Attendi conferma",
   "manualContinueDescription": "Attende che tocchi Continua prima di passare al passaggio successivo.",
   "gotIt": "Capito",
-  "failedToSaveMacros": "Salvataggio macro fallito.",
-  "deletedMacroNamed": "Eliminato \"{name}\".",
+  "failedToSaveMacros": "Impossibile salvare le macro.",
+  "deletedMacroNamed": "Macro «{name}» eliminata.",
   "@deletedMacroNamed": {
     "placeholders": {
       "name": {}
     }
   },
   "undo": "Annulla",
-  "failedToRestoreMacro": "Ripristino macro fallito.",
-  "deleteMacroTitle": "Eliminare macro?",
-  "deleteMacroMessage": "Puoi annullarlo dal prossimo snackbar.",
+  "failedToRestoreMacro": "Impossibile ripristinare la macro.",
+  "deleteMacroTitle": "Eliminare la macro?",
+  "deleteMacroMessage": "Dopo l’eliminazione, tocca Annulla nel messaggio che compare per ripristinare la macro.",
   "noRemotesAvailable": "Nessun telecomando disponibile.",
   "remoteButtonCountSummary": "{count} pulsante/i",
   "@remoteButtonCountSummary": {

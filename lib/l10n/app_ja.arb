@@ -400,17 +400,17 @@
   "manualContinue": "確認待ち",
   "manualContinueDescription": "「続行」をタップするまで待ってから、次のステップに進みます。",
   "gotIt": "了解",
-  "failedToSaveMacros": "マクロの保存に失敗しました。",
-  "deletedMacroNamed": "\"{name}\" を削除しました。",
+  "failedToSaveMacros": "マクロを保存できませんでした。",
+  "deletedMacroNamed": "「{name}」を削除しました。",
   "@deletedMacroNamed": {
     "placeholders": {
       "name": {}
     }
   },
   "undo": "元に戻す",
-  "failedToRestoreMacro": "マクロの復元に失敗しました。",
-  "deleteMacroTitle": "マクロを削除しますか?",
-  "deleteMacroMessage": "次のスナックバーから元に戻せます。",
+  "failedToRestoreMacro": "マクロを復元できませんでした。",
+  "deleteMacroTitle": "マクロを削除しますか？",
+  "deleteMacroMessage": "削除後に表示されるメッセージの「元に戻す」をタップすると、マクロを復元できます。",
   "noRemotesAvailable": "利用可能なリモコンがありません",
   "remoteButtonCountSummary": "{count}個のボタン",
   "@remoteButtonCountSummary": {

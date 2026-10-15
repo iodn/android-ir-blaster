@@ -400,17 +400,17 @@
   "manualContinue": "Hintayin ang kumpirmasyon",
   "manualContinueDescription": "Naghihintay hanggang i-tap mo ang Magpatuloy bago ang susunod na hakbang.",
   "gotIt": "Got it",
-  "failedToSaveMacros": "Nabigong i-save ang mga macro.",
-  "deletedMacroNamed": "Nabura ang \"{name}\".",
+  "failedToSaveMacros": "Hindi na-save ang mga macro.",
+  "deletedMacroNamed": "Na-delete ang “{name}”.",
   "@deletedMacroNamed": {
     "placeholders": {
       "name": {}
     }
   },
   "undo": "Ibalik",
-  "failedToRestoreMacro": "Nabigong ibalik ang macro.",
-  "deleteMacroTitle": "Delete macro?",
-  "deleteMacroMessage": "You can undo this from the next snackbar.",
+  "failedToRestoreMacro": "Hindi naibalik ang macro.",
+  "deleteMacroTitle": "I-delete ang macro?",
+  "deleteMacroMessage": "Pagka-delete, i-tap ang Ibalik sa mensaheng lalabas para maibalik ang macro.",
   "noRemotesAvailable": "Walang mga remote available.",
   "remoteButtonCountSummary": "{count} button(s)",
   "@remoteButtonCountSummary": {

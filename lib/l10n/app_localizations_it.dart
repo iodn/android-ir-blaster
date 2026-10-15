@@ -1386,24 +1386,25 @@ class AppLocalizationsIt extends AppLocalizations {
   String get gotIt => 'Capito';
 
   @override
-  String get failedToSaveMacros => 'Salvataggio macro fallito.';
+  String get failedToSaveMacros => 'Impossibile salvare le macro.';
 
   @override
   String deletedMacroNamed(Object name) {
-    return 'Eliminato \"$name\".';
+    return 'Macro «$name» eliminata.';
   }
 
   @override
   String get undo => 'Annulla';
 
   @override
-  String get failedToRestoreMacro => 'Ripristino macro fallito.';
+  String get failedToRestoreMacro => 'Impossibile ripristinare la macro.';
 
   @override
-  String get deleteMacroTitle => 'Eliminare macro?';
+  String get deleteMacroTitle => 'Eliminare la macro?';
 
   @override
-  String get deleteMacroMessage => 'Puoi annullarlo dal prossimo snackbar.';
+  String get deleteMacroMessage =>
+      'Dopo l’eliminazione, tocca Annulla nel messaggio che compare per ripristinare la macro.';
 
   @override
   String get noRemotesAvailable => 'Nessun telecomando disponibile.';

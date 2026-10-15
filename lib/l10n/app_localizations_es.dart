@@ -1386,7 +1386,7 @@ class AppLocalizationsEs extends AppLocalizations {
 
   @override
   String deletedMacroNamed(Object name) {
-    return 'Se eliminó \"$name\".';
+    return 'Se eliminó «$name».';
   }
 
   @override
@@ -1400,7 +1400,7 @@ class AppLocalizationsEs extends AppLocalizations {
 
   @override
   String get deleteMacroMessage =>
-      'Puedes deshacer esto desde el próximo mensaje.';
+      'Tras eliminarla, toca Deshacer en el mensaje que aparece para restaurar la macro.';
 
   @override
   String get noRemotesAvailable => 'No hay mandos disponibles.';

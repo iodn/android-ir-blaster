@@ -1384,24 +1384,25 @@ class AppLocalizationsPt extends AppLocalizations {
   String get gotIt => 'Entendido';
 
   @override
-  String get failedToSaveMacros => 'Falha ao guardar macros.';
+  String get failedToSaveMacros => 'Não foi possível guardar as macros.';
 
   @override
   String deletedMacroNamed(Object name) {
-    return 'Foi eliminado \"$name\".';
+    return 'Macro «$name» eliminada.';
   }
 
   @override
   String get undo => 'Anular';
 
   @override
-  String get failedToRestoreMacro => 'Falha ao restaurar a macro.';
+  String get failedToRestoreMacro => 'Não foi possível restaurar a macro.';
 
   @override
   String get deleteMacroTitle => 'Eliminar macro?';
 
   @override
-  String get deleteMacroMessage => 'Pode anular isto na próxima mensagem.';
+  String get deleteMacroMessage =>
+      'Depois de eliminar, toque em Anular na mensagem apresentada para restaurar a macro.';
 
   @override
   String get noRemotesAvailable => 'Ainda não há comandos disponíveis.';
@@ -6665,25 +6666,25 @@ class AppLocalizationsPtBr extends AppLocalizationsPt {
   String get gotIt => 'Entendido';
 
   @override
-  String get failedToSaveMacros => 'Falha ao salvar macros.';
+  String get failedToSaveMacros => 'Não foi possível salvar as macros.';
 
   @override
   String deletedMacroNamed(Object name) {
-    return 'Foi eliminado \"$name\".';
+    return 'Macro “$name” excluída.';
   }
 
   @override
   String get undo => 'Desfazer';
 
   @override
-  String get failedToRestoreMacro => 'Falha ao restaurar a macro.';
+  String get failedToRestoreMacro => 'Não foi possível restaurar a macro.';
 
   @override
   String get deleteMacroTitle => 'Excluir macro?';
 
   @override
   String get deleteMacroMessage =>
-      'Você pode desfazer isso na próxima mensagem.';
+      'Após excluir, toque em Desfazer na mensagem que aparecer para restaurar a macro.';
 
   @override
   String get noRemotesAvailable => 'Não há controles disponíveis.';

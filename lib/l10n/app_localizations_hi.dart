@@ -1369,25 +1369,25 @@ class AppLocalizationsHi extends AppLocalizations {
   String get gotIt => 'Got it';
 
   @override
-  String get failedToSaveMacros => 'सहेजें मैक्रो. विफल';
+  String get failedToSaveMacros => 'मैक्रो सेव नहीं हो सके।';
 
   @override
   String deletedMacroNamed(Object name) {
-    return '\"$name\" हटाया गया।';
+    return '“$name” हटा दिया गया।';
   }
 
   @override
   String get undo => 'पूर्ववत करें';
 
   @override
-  String get failedToRestoreMacro => 'पुनर्स्थापित करें मैक्रो. विफल';
+  String get failedToRestoreMacro => 'मैक्रो वापस नहीं लाया जा सका।';
 
   @override
-  String get deleteMacroTitle => 'हटाएं मैक्रो?';
+  String get deleteMacroTitle => 'मैक्रो हटाएँ?';
 
   @override
   String get deleteMacroMessage =>
-      'You सकता है पूर्ववत करें यह से the अगला snackbar.';
+      'हटाने के बाद दिखने वाले संदेश में पूर्ववत करें पर टैप करके मैक्रो वापस ला सकते हैं।';
 
   @override
   String get noRemotesAvailable => 'नहीं रिमोट उपलब्ध.';

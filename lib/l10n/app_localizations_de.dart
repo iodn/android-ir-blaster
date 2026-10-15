@@ -1392,7 +1392,7 @@ class AppLocalizationsDe extends AppLocalizations {
 
   @override
   String deletedMacroNamed(Object name) {
-    return '$name gelöscht.';
+    return '„$name“ gelöscht.';
   }
 
   @override
@@ -1403,11 +1403,11 @@ class AppLocalizationsDe extends AppLocalizations {
       'Makro konnte nicht wiederhergestellt werden.';
 
   @override
-  String get deleteMacroTitle => 'Makro löschen';
+  String get deleteMacroTitle => 'Makro löschen?';
 
   @override
   String get deleteMacroMessage =>
-      'Du kannst dies über die nächste Snackbar rückgängig machen.';
+      'Tippe nach dem Löschen in der angezeigten Meldung auf Rückgängig, um das Makro wiederherzustellen.';
 
   @override
   String get noRemotesAvailable => 'Keine Fernbedienungen verfügbar.';

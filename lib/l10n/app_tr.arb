@@ -400,17 +400,17 @@
   "manualContinue": "Onay bekle",
   "manualContinueDescription": "Sonraki adıma geçmeden önce Devam et'e dokunmanızı bekler.",
   "gotIt": "Got it",
-  "failedToSaveMacros": "Başarısız to kaydet macros.",
-  "deletedMacroNamed": "\"{name}\" silindi.",
+  "failedToSaveMacros": "Makrolar kaydedilemedi.",
+  "deletedMacroNamed": "“{name}” silindi.",
   "@deletedMacroNamed": {
     "placeholders": {
       "name": {}
     }
   },
   "undo": "Geri al",
-  "failedToRestoreMacro": "Başarısız to geri yükle macro.",
-  "deleteMacroTitle": "Sil macro?",
-  "deleteMacroMessage": "Bunu bir sonraki alt bildirimden geri alabilirsiniz.",
+  "failedToRestoreMacro": "Makro geri yüklenemedi.",
+  "deleteMacroTitle": "Makro silinsin mi?",
+  "deleteMacroMessage": "Sildikten sonra çıkan mesajda Geri al seçeneğine dokunarak makroyu geri yükleyebilirsiniz.",
   "noRemotesAvailable": "No remotes mevcut.",
   "remoteButtonCountSummary": "{count} düğme(s)",
   "@remoteButtonCountSummary": {

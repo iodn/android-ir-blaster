@@ -400,17 +400,17 @@
   "manualContinue": "पुष्टि का इंतज़ार",
   "manualContinueDescription": "अगले चरण से पहले आपके जारी रखें पर टैप करने का इंतज़ार करता है।",
   "gotIt": "Got it",
-  "failedToSaveMacros": "सहेजें मैक्रो. विफल",
-  "deletedMacroNamed": "\"{name}\" हटाया गया।",
+  "failedToSaveMacros": "मैक्रो सेव नहीं हो सके।",
+  "deletedMacroNamed": "“{name}” हटा दिया गया।",
   "@deletedMacroNamed": {
     "placeholders": {
       "name": {}
     }
   },
   "undo": "पूर्ववत करें",
-  "failedToRestoreMacro": "पुनर्स्थापित करें मैक्रो. विफल",
-  "deleteMacroTitle": "हटाएं मैक्रो?",
-  "deleteMacroMessage": "You सकता है पूर्ववत करें यह से the अगला snackbar.",
+  "failedToRestoreMacro": "मैक्रो वापस नहीं लाया जा सका।",
+  "deleteMacroTitle": "मैक्रो हटाएँ?",
+  "deleteMacroMessage": "हटाने के बाद दिखने वाले संदेश में पूर्ववत करें पर टैप करके मैक्रो वापस ला सकते हैं।",
   "noRemotesAvailable": "नहीं रिमोट उपलब्ध.",
   "remoteButtonCountSummary": "{count} बटन",
   "@remoteButtonCountSummary": {

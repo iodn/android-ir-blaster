@@ -1393,25 +1393,25 @@ class AppLocalizationsNl extends AppLocalizations {
   String get gotIt => 'Begrepen';
 
   @override
-  String get failedToSaveMacros => 'Macro\'s opslaan mislukt.';
+  String get failedToSaveMacros => 'Macro’s konden niet worden opgeslagen.';
 
   @override
   String deletedMacroNamed(Object name) {
-    return 'Verwijderend \"$name\".';
+    return '‘$name’ verwijderd.';
   }
 
   @override
   String get undo => 'Ongedaan maken';
 
   @override
-  String get failedToRestoreMacro => 'Macro herstellen mislukt.';
+  String get failedToRestoreMacro => 'De macro kon niet worden hersteld.';
 
   @override
-  String get deleteMacroTitle => 'Verwijderen macro?';
+  String get deleteMacroTitle => 'Macro verwijderen?';
 
   @override
   String get deleteMacroMessage =>
-      'Je kunt dit ongedaan maken via de volgende snackbar.';
+      'Tik na het verwijderen op Ongedaan maken in de melding om de macro te herstellen.';
 
   @override
   String get noRemotesAvailable => 'Geen remotes available.';

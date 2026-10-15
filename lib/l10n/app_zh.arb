@@ -400,17 +400,17 @@
   "manualContinue": "等待确认",
   "manualContinueDescription": "等待您点击“继续”后，再执行下一步。",
   "gotIt": "知道了",
-  "failedToSaveMacros": "保存宏失败。",
-  "deletedMacroNamed": "已删除 \"{name}\"。",
+  "failedToSaveMacros": "无法保存宏。",
+  "deletedMacroNamed": "已删除“{name}”。",
   "@deletedMacroNamed": {
     "placeholders": {
       "name": {}
     }
   },
   "undo": "撤销",
-  "failedToRestoreMacro": "恢复宏失败。",
-  "deleteMacroTitle": "删除宏",
-  "deleteMacroMessage": "你可以在接下来的提示条中撤销此操作。",
+  "failedToRestoreMacro": "无法恢复宏。",
+  "deleteMacroTitle": "删除宏？",
+  "deleteMacroMessage": "删除后，点击提示消息中的“撤销”即可恢复宏。",
   "noRemotesAvailable": "没有可用遥控器。",
   "remoteButtonCountSummary": "{count} 个按钮",
   "@remoteButtonCountSummary": {

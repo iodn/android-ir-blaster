@@ -1394,7 +1394,7 @@ class AppLocalizationsPl extends AppLocalizations {
 
   @override
   String deletedMacroNamed(Object name) {
-    return 'Usunięto \"$name\".';
+    return 'Usunięto „$name”.';
   }
 
   @override
@@ -1408,7 +1408,7 @@ class AppLocalizationsPl extends AppLocalizations {
 
   @override
   String get deleteMacroMessage =>
-      'Możesz do cofnąć z następnego paska powiadomienia.';
+      'Po usunięciu dotknij Cofnij w wyświetlonym komunikacie, aby przywrócić makro.';
 
   @override
   String get noRemotesAvailable => 'Brak dostępnych pilotów.';

@@ -401,7 +401,7 @@
   "manualContinueDescription": "Ждёт нажатия «Продолжить» перед переходом к следующему шагу.",
   "gotIt": "Понятно",
   "failedToSaveMacros": "Не удалось сохранить макросы.",
-  "deletedMacroNamed": "Удалено \"{name}\".",
+  "deletedMacroNamed": "«{name}» удалён.",
   "@deletedMacroNamed": {
     "placeholders": {
       "name": {}
@@ -410,7 +410,7 @@
   "undo": "Отменить",
   "failedToRestoreMacro": "Не удалось восстановить макрос.",
   "deleteMacroTitle": "Удалить макрос?",
-  "deleteMacroMessage": "Это можно отменить из следующего уведомления.",
+  "deleteMacroMessage": "После удаления нажмите «Отменить» в появившемся сообщении, чтобы восстановить макрос.",
   "noRemotesAvailable": "Нет доступных пультов.",
   "remoteButtonCountSummary": "{count} кноп.",
   "@remoteButtonCountSummary": {

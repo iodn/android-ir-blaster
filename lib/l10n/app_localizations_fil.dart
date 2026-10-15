@@ -1382,24 +1382,25 @@ class AppLocalizationsFil extends AppLocalizations {
   String get gotIt => 'Got it';
 
   @override
-  String get failedToSaveMacros => 'Nabigong i-save ang mga macro.';
+  String get failedToSaveMacros => 'Hindi na-save ang mga macro.';
 
   @override
   String deletedMacroNamed(Object name) {
-    return 'Nabura ang \"$name\".';
+    return 'Na-delete ang “$name”.';
   }
 
   @override
   String get undo => 'Ibalik';
 
   @override
-  String get failedToRestoreMacro => 'Nabigong ibalik ang macro.';
+  String get failedToRestoreMacro => 'Hindi naibalik ang macro.';
 
   @override
-  String get deleteMacroTitle => 'Delete macro?';
+  String get deleteMacroTitle => 'I-delete ang macro?';
 
   @override
-  String get deleteMacroMessage => 'You can undo this from the next snackbar.';
+  String get deleteMacroMessage =>
+      'Pagka-delete, i-tap ang Ibalik sa mensaheng lalabas para maibalik ang macro.';
 
   @override
   String get noRemotesAvailable => 'Walang mga remote available.';

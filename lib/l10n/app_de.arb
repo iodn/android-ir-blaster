@@ -403,7 +403,7 @@
   "manualContinueDescription": "Wartet, bis du auf Weiter tippst, bevor der nächste Schritt beginnt.",
   "gotIt": "Verstanden",
   "failedToSaveMacros": "Makros konnten nicht gespeichert werden.",
-  "deletedMacroNamed": "{name} gelöscht.",
+  "deletedMacroNamed": "„{name}“ gelöscht.",
   "@deletedMacroNamed": {
     "placeholders": {
       "name": {}
@@ -411,8 +411,8 @@
   },
   "undo": "Rückgängig",
   "failedToRestoreMacro": "Makro konnte nicht wiederhergestellt werden.",
-  "deleteMacroTitle": "Makro löschen",
-  "deleteMacroMessage": "Du kannst dies über die nächste Snackbar rückgängig machen.",
+  "deleteMacroTitle": "Makro löschen?",
+  "deleteMacroMessage": "Tippe nach dem Löschen in der angezeigten Meldung auf Rückgängig, um das Makro wiederherzustellen.",
   "noRemotesAvailable": "Keine Fernbedienungen verfügbar.",
   "remoteButtonCountSummary": "{count} Taste(n)",
   "@remoteButtonCountSummary": {

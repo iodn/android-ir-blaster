@@ -400,17 +400,17 @@
   "manualContinue": "Wacht op bevestiging",
   "manualContinueDescription": "Wacht tot je op Doorgaan tikt voordat de volgende stap begint.",
   "gotIt": "Begrepen",
-  "failedToSaveMacros": "Macro's opslaan mislukt.",
-  "deletedMacroNamed": "Verwijderend \"{name}\".",
+  "failedToSaveMacros": "Macro’s konden niet worden opgeslagen.",
+  "deletedMacroNamed": "‘{name}’ verwijderd.",
   "@deletedMacroNamed": {
     "placeholders": {
       "name": {}
     }
   },
   "undo": "Ongedaan maken",
-  "failedToRestoreMacro": "Macro herstellen mislukt.",
-  "deleteMacroTitle": "Verwijderen macro?",
-  "deleteMacroMessage": "Je kunt dit ongedaan maken via de volgende snackbar.",
+  "failedToRestoreMacro": "De macro kon niet worden hersteld.",
+  "deleteMacroTitle": "Macro verwijderen?",
+  "deleteMacroMessage": "Tik na het verwijderen op Ongedaan maken in de melding om de macro te herstellen.",
   "noRemotesAvailable": "Geen remotes available.",
   "remoteButtonCountSummary": "{count} knop(s)",
   "@remoteButtonCountSummary": {

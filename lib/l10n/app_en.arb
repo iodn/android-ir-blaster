@@ -523,7 +523,7 @@
   "undo": "Undo",
   "failedToRestoreMacro": "Failed to restore macro.",
   "deleteMacroTitle": "Delete macro?",
-  "deleteMacroMessage": "You can undo this from the next snackbar.",
+  "deleteMacroMessage": "After deletion, tap Undo in the message that appears to restore the macro.",
   "noRemotesAvailable": "No remotes available.",
   "remoteButtonCountSummary": "{count, plural, one{{count} button} other{{count} buttons}}",
   "@remoteButtonCountSummary": {

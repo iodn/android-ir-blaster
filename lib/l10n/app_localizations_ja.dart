@@ -1304,24 +1304,24 @@ class AppLocalizationsJa extends AppLocalizations {
   String get gotIt => '了解';
 
   @override
-  String get failedToSaveMacros => 'マクロの保存に失敗しました。';
+  String get failedToSaveMacros => 'マクロを保存できませんでした。';
 
   @override
   String deletedMacroNamed(Object name) {
-    return '\"$name\" を削除しました。';
+    return '「$name」を削除しました。';
   }
 
   @override
   String get undo => '元に戻す';
 
   @override
-  String get failedToRestoreMacro => 'マクロの復元に失敗しました。';
+  String get failedToRestoreMacro => 'マクロを復元できませんでした。';
 
   @override
-  String get deleteMacroTitle => 'マクロを削除しますか?';
+  String get deleteMacroTitle => 'マクロを削除しますか？';
 
   @override
-  String get deleteMacroMessage => '次のスナックバーから元に戻せます。';
+  String get deleteMacroMessage => '削除後に表示されるメッセージの「元に戻す」をタップすると、マクロを復元できます。';
 
   @override
   String get noRemotesAvailable => '利用可能なリモコンがありません';

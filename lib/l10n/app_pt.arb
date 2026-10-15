@@ -400,17 +400,17 @@
   "manualContinue": "Aguardar confirmação",
   "manualContinueDescription": "Aguarda que toque em Continuar antes de avançar para o passo seguinte.",
   "gotIt": "Entendido",
-  "failedToSaveMacros": "Falha ao guardar macros.",
-  "deletedMacroNamed": "Foi eliminado \"{name}\".",
+  "failedToSaveMacros": "Não foi possível guardar as macros.",
+  "deletedMacroNamed": "Macro «{name}» eliminada.",
   "@deletedMacroNamed": {
     "placeholders": {
       "name": {}
     }
   },
   "undo": "Anular",
-  "failedToRestoreMacro": "Falha ao restaurar a macro.",
+  "failedToRestoreMacro": "Não foi possível restaurar a macro.",
   "deleteMacroTitle": "Eliminar macro?",
-  "deleteMacroMessage": "Pode anular isto na próxima mensagem.",
+  "deleteMacroMessage": "Depois de eliminar, toque em Anular na mensagem apresentada para restaurar a macro.",
   "noRemotesAvailable": "Ainda não há comandos disponíveis.",
   "remoteButtonCountSummary": "{count} botão(es)",
   "@remoteButtonCountSummary": {

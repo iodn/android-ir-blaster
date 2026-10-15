@@ -2529,7 +2529,7 @@ abstract class AppLocalizations {
   /// No description provided for @deleteMacroMessage.
   ///
   /// In en, this message translates to:
-  /// **'You can undo this from the next snackbar.'**
+  /// **'After deletion, tap Undo in the message that appears to restore the macro.'**
   String get deleteMacroMessage;
 
   /// No description provided for @noRemotesAvailable.

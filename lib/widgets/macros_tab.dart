@@ -634,15 +634,25 @@ class _MacrosTabState extends State<MacrosTab> {
     ScaffoldMessenger.of(context).hideCurrentSnackBar();
     ScaffoldMessenger.of(context).showSnackBar(
       SnackBar(
-        content: Text(context.l10n.deletedMacroNamed(removedMacro.name)),
-        action: SnackBarAction(
-          label: context.l10n.undo,
-          onPressed: () async {
-            if (!mounted || macros.any((m) => m.id == removedMacro.id)) return;
-            final restored = List<TimedMacro>.from(macros)
-              ..insert(removedIndex.clamp(0, macros.length), removedMacro);
-            await _persistAndNotify(restored);
-          },
+        persist: true,
+        content: Column(
+          mainAxisSize: MainAxisSize.min,
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Text(context.l10n.deletedMacroNamed(removedMacro.name)),
+            Align(
+              alignment: AlignmentDirectional.centerEnd,
+              child: SnackBarAction(
+                label: context.l10n.undo,
+                onPressed: () async {
+                  if (!mounted || macros.any((m) => m.id == removedMacro.id)) return;
+                  final restored = List<TimedMacro>.from(macros)
+                    ..insert(removedIndex.clamp(0, macros.length), removedMacro);
+                  await _persistAndNotify(restored);
+                },
+              ),
+            ),
+          ],
         ),
       ),
     );
@@ -653,6 +663,7 @@ class _MacrosTabState extends State<MacrosTab> {
       context: context,
       builder: (ctx) {
         return AlertDialog(
+          scrollable: true,
           title: Text(context.l10n.deleteMacroTitle),
           content: Text(context.l10n.deleteMacroMessage),
           actions: [

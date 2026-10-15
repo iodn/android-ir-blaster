@@ -406,7 +406,7 @@
   "manualContinueDescription": "Espera a que toques Continuar antes de pasar al siguiente paso.",
   "gotIt": "Entendido",
   "failedToSaveMacros": "No se pudieron guardar las macros.",
-  "deletedMacroNamed": "Se eliminó \"{name}\".",
+  "deletedMacroNamed": "Se eliminó «{name}».",
   "@deletedMacroNamed": {
     "placeholders": {
       "name": {}
@@ -415,7 +415,7 @@
   "undo": "Deshacer",
   "failedToRestoreMacro": "No se pudo restaurar la macro.",
   "deleteMacroTitle": "¿Eliminar macro?",
-  "deleteMacroMessage": "Puedes deshacer esto desde el próximo mensaje.",
+  "deleteMacroMessage": "Tras eliminarla, toca Deshacer en el mensaje que aparece para restaurar la macro.",
   "noRemotesAvailable": "No hay mandos disponibles.",
   "remoteButtonCountSummary": "{count} botón(es)",
   "@remoteButtonCountSummary": {

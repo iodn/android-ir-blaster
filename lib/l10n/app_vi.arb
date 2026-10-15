@@ -401,7 +401,7 @@
   "manualContinueDescription": "Chờ bạn nhấn Tiếp tục trước khi sang bước tiếp theo.",
   "gotIt": "Đã hiểu",
   "failedToSaveMacros": "Không lưu được macro.",
-  "deletedMacroNamed": "Đã xóa \"{name}\".",
+  "deletedMacroNamed": "Đã xóa “{name}”.",
   "@deletedMacroNamed": {
     "placeholders": {
       "name": {}
@@ -410,7 +410,7 @@
   "undo": "Hoàn tác",
   "failedToRestoreMacro": "Không khôi phục được macro.",
   "deleteMacroTitle": "Xóa macro?",
-  "deleteMacroMessage": "Bạn có thể hoàn tác từ snackbar tiếp theo.",
+  "deleteMacroMessage": "Sau khi xóa, nhấn Hoàn tác trong thông báo xuất hiện để khôi phục macro.",
   "noRemotesAvailable": "Không có điều khiểns available.",
   "remoteButtonCountSummary": "{count} nút",
   "@remoteButtonCountSummary": {

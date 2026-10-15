@@ -405,17 +405,17 @@
   "manualContinue": "Attendre la confirmation",
   "manualContinueDescription": "Attend que vous appuyiez sur Continuer avant de passer à l’étape suivante.",
   "gotIt": "J'ai compris",
-  "failedToSaveMacros": "Échec de l'enregistrement des macros.",
-  "deletedMacroNamed": "\"{name}\" supprimé.",
+  "failedToSaveMacros": "Impossible d’enregistrer les macros.",
+  "deletedMacroNamed": "Macro « {name} » supprimée.",
   "@deletedMacroNamed": {
     "placeholders": {
       "name": {}
     }
   },
   "undo": "Annuler",
-  "failedToRestoreMacro": "Échec de la restauration de la macro.",
+  "failedToRestoreMacro": "Impossible de restaurer la macro.",
   "deleteMacroTitle": "Supprimer la macro ?",
-  "deleteMacroMessage": "Vous pourrez annuler via la prochaine snackbar.",
+  "deleteMacroMessage": "Après la suppression, appuyez sur Annuler dans le message qui s’affiche pour restaurer la macro.",
   "noRemotesAvailable": "Aucune télécommande disponible.",
   "remoteButtonCountSummary": "{count} bouton(s)",
   "@remoteButtonCountSummary": {

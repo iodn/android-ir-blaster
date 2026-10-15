@@ -1370,25 +1370,25 @@ class AppLocalizationsMs extends AppLocalizations {
   String get gotIt => 'Mengerti';
 
   @override
-  String get failedToSaveMacros => 'Gagal simpan makro.';
+  String get failedToSaveMacros => 'Makro tidak dapat disimpan.';
 
   @override
   String deletedMacroNamed(Object name) {
-    return 'Dihapus \"$name\".';
+    return '“$name” telah dipadam.';
   }
 
   @override
   String get undo => 'Buat asal';
 
   @override
-  String get failedToRestoreMacro => 'Gagal restore makro.';
+  String get failedToRestoreMacro => 'Makro tidak dapat dipulihkan.';
 
   @override
-  String get deleteMacroTitle => 'Hapus makro?';
+  String get deleteMacroTitle => 'Padam makro?';
 
   @override
   String get deleteMacroMessage =>
-      'Anda boleh membatalkannya dari snackbar berikutnya.';
+      'Selepas dipadam, ketik Buat asal pada mesej yang muncul untuk memulihkan makro.';
 
   @override
   String get noRemotesAvailable => 'Tiada remote tersedia.';

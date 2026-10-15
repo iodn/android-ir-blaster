@@ -1374,7 +1374,7 @@ class AppLocalizationsRu extends AppLocalizations {
 
   @override
   String deletedMacroNamed(Object name) {
-    return 'Удалено \"$name\".';
+    return '«$name» удалён.';
   }
 
   @override
@@ -1388,7 +1388,7 @@ class AppLocalizationsRu extends AppLocalizations {
 
   @override
   String get deleteMacroMessage =>
-      'Это можно отменить из следующего уведомления.';
+      'После удаления нажмите «Отменить» в появившемся сообщении, чтобы восстановить макрос.';
 
   @override
   String get noRemotesAvailable => 'Нет доступных пультов.';

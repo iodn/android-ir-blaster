@@ -1366,7 +1366,7 @@ class AppLocalizationsVi extends AppLocalizations {
 
   @override
   String deletedMacroNamed(Object name) {
-    return 'Đã xóa \"$name\".';
+    return 'Đã xóa “$name”.';
   }
 
   @override
@@ -1379,7 +1379,8 @@ class AppLocalizationsVi extends AppLocalizations {
   String get deleteMacroTitle => 'Xóa macro?';
 
   @override
-  String get deleteMacroMessage => 'Bạn có thể hoàn tác từ snackbar tiếp theo.';
+  String get deleteMacroMessage =>
+      'Sau khi xóa, nhấn Hoàn tác trong thông báo xuất hiện để khôi phục macro.';
 
   @override
   String get noRemotesAvailable => 'Không có điều khiểns available.';

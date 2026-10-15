@@ -400,17 +400,17 @@
   "manualContinue": "รอการยืนยัน",
   "manualContinueDescription": "รอจนกว่าคุณจะแตะ ดำเนินการต่อ ก่อนทำขั้นตอนถัดไป",
   "gotIt": "Got it",
-  "failedToSaveMacros": "ไม่สำเร็จในการบันทึก แมโครs.",
-  "deletedMacroNamed": "ลบ \"{name}\" แล้ว",
+  "failedToSaveMacros": "บันทึกมาโครไม่สำเร็จ",
+  "deletedMacroNamed": "ลบ “{name}” แล้ว",
   "@deletedMacroNamed": {
     "placeholders": {
       "name": {}
     }
   },
   "undo": "เลิกทำ",
-  "failedToRestoreMacro": "ไม่สำเร็จในการrestore แมโคร.",
-  "deleteMacroTitle": "ลบแมโคร",
-  "deleteMacroMessage": "คุณยกเลิกได้จาก snackbar ถัดไป",
+  "failedToRestoreMacro": "กู้คืนมาโครไม่สำเร็จ",
+  "deleteMacroTitle": "ลบมาโครหรือไม่?",
+  "deleteMacroMessage": "หลังจากลบ ให้แตะเลิกทำในข้อความที่ปรากฏเพื่อกู้คืนมาโคร",
   "noRemotesAvailable": "ไม่มีรีโมต",
   "remoteButtonCountSummary": "{count} ปุ่ม",
   "@remoteButtonCountSummary": {

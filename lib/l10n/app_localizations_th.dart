@@ -1360,24 +1360,25 @@ class AppLocalizationsTh extends AppLocalizations {
   String get gotIt => 'Got it';
 
   @override
-  String get failedToSaveMacros => 'ไม่สำเร็จในการบันทึก แมโครs.';
+  String get failedToSaveMacros => 'บันทึกมาโครไม่สำเร็จ';
 
   @override
   String deletedMacroNamed(Object name) {
-    return 'ลบ \"$name\" แล้ว';
+    return 'ลบ “$name” แล้ว';
   }
 
   @override
   String get undo => 'เลิกทำ';
 
   @override
-  String get failedToRestoreMacro => 'ไม่สำเร็จในการrestore แมโคร.';
+  String get failedToRestoreMacro => 'กู้คืนมาโครไม่สำเร็จ';
 
   @override
-  String get deleteMacroTitle => 'ลบแมโคร';
+  String get deleteMacroTitle => 'ลบมาโครหรือไม่?';
 
   @override
-  String get deleteMacroMessage => 'คุณยกเลิกได้จาก snackbar ถัดไป';
+  String get deleteMacroMessage =>
+      'หลังจากลบ ให้แตะเลิกทำในข้อความที่ปรากฏเพื่อกู้คืนมาโคร';
 
   @override
   String get noRemotesAvailable => 'ไม่มีรีโมต';

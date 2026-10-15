@@ -1382,25 +1382,25 @@ class AppLocalizationsFr extends AppLocalizations {
   String get gotIt => 'J\'ai compris';
 
   @override
-  String get failedToSaveMacros => 'Échec de l\'enregistrement des macros.';
+  String get failedToSaveMacros => 'Impossible d’enregistrer les macros.';
 
   @override
   String deletedMacroNamed(Object name) {
-    return '\"$name\" supprimé.';
+    return 'Macro « $name » supprimée.';
   }
 
   @override
   String get undo => 'Annuler';
 
   @override
-  String get failedToRestoreMacro => 'Échec de la restauration de la macro.';
+  String get failedToRestoreMacro => 'Impossible de restaurer la macro.';
 
   @override
   String get deleteMacroTitle => 'Supprimer la macro ?';
 
   @override
   String get deleteMacroMessage =>
-      'Vous pourrez annuler via la prochaine snackbar.';
+      'Après la suppression, appuyez sur Annuler dans le message qui s’affiche pour restaurer la macro.';
 
   @override
   String get noRemotesAvailable => 'Aucune télécommande disponible.';

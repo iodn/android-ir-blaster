@@ -400,17 +400,17 @@
   "manualContinue": "انتظار التأكيد",
   "manualContinueDescription": "بيستنى لحد ما تضغط على متابعة عشان يروح للخطوة اللي بعدها.",
   "gotIt": "فهمت",
-  "failedToSaveMacros": "فشل حفظ الماكرو.",
-  "deletedMacroNamed": "تم حذف \"{name}\".",
+  "failedToSaveMacros": "ماقدرناش نحفظ الماكرو.",
+  "deletedMacroNamed": "اتحذف «{name}».",
   "@deletedMacroNamed": {
     "placeholders": {
       "name": {}
     }
   },
   "undo": "تراجع",
-  "failedToRestoreMacro": "فشل استعادة الماكرو.",
-  "deleteMacroTitle": "حذف الماكرو؟",
-  "deleteMacroMessage": "يمكنك التراجع عن ذلك من الشريط التالي.",
+  "failedToRestoreMacro": "ماقدرناش نرجّع الماكرو.",
+  "deleteMacroTitle": "تحذف الماكرو؟",
+  "deleteMacroMessage": "بعد الحذف، اضغط على تراجع في الرسالة اللي هتظهر عشان ترجّع الماكرو.",
   "noRemotesAvailable": "No remotes available.",
   "remoteButtonCountSummary": "{count} زر",
   "@remoteButtonCountSummary": {

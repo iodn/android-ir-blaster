@@ -1389,7 +1389,8 @@ class AppLocalizationsEn extends AppLocalizations {
   String get deleteMacroTitle => 'Delete macro?';
 
   @override
-  String get deleteMacroMessage => 'You can undo this from the next snackbar.';
+  String get deleteMacroMessage =>
+      'After deletion, tap Undo in the message that appears to restore the macro.';
 
   @override
   String get noRemotesAvailable => 'No remotes available.';

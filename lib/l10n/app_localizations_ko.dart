@@ -1316,7 +1316,7 @@ class AppLocalizationsKo extends AppLocalizations {
 
   @override
   String deletedMacroNamed(Object name) {
-    return '\"$name\" 삭제됨.';
+    return '‘$name’ 삭제 완료';
   }
 
   @override
@@ -1329,7 +1329,8 @@ class AppLocalizationsKo extends AppLocalizations {
   String get deleteMacroTitle => '매크로를 삭제할까요?';
 
   @override
-  String get deleteMacroMessage => '다음 스낵바에서 실행 취소할 수 있습니다.';
+  String get deleteMacroMessage =>
+      '삭제 후 나타나는 메시지에서 실행 취소를 누르면 매크로를 복원할 수 있습니다.';
 
   @override
   String get noRemotesAvailable => '사용 가능한 리모컨이 없습니다.';
