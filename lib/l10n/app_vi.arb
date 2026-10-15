@@ -2477,5 +2477,10 @@
   "githubUnsupportedFileType": "Không thể nhập loại tệp này.",
   "githubNoMatchingItems": "Không có tệp hay thư mục phù hợp.",
   "githubFileImportLabel": "Nhập",
-  "githubFileUnsupportedLabel": "Không hỗ trợ"
+  "githubFileUnsupportedLabel": "Không hỗ trợ",
+  "githubTokenSaved": "Đã lưu mã truy cập trên thiết bị này.",
+  "githubTokenRemoved": "Đã xóa mã truy cập. Ứng dụng sẽ truy cập GitHub mà không dùng mã.",
+  "githubSettingsSaved": "Đã lưu cài đặt",
+  "githubSaveToken": "Lưu mã truy cập",
+  "githubUpdateToken": "Cập nhật mã truy cập"
 }

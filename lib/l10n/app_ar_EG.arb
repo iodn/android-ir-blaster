@@ -2477,5 +2477,10 @@
   "githubUnsupportedFileType": "نوع الملف ده مش مدعوم للاستيراد.",
   "githubNoMatchingItems": "مفيش ملفات أو مجلدات مطابقة.",
   "githubFileImportLabel": "استيراد",
-  "githubFileUnsupportedLabel": "غير مدعوم"
+  "githubFileUnsupportedLabel": "غير مدعوم",
+  "githubTokenSaved": "الرمز اتحفظ على الجهاز ده.",
+  "githubTokenRemoved": "الرمز اتشال. التطبيق هيستخدم GitHub من غير رمز.",
+  "githubSettingsSaved": "الإعدادات اتحفظت",
+  "githubSaveToken": "حفظ الرمز",
+  "githubUpdateToken": "تحديث الرمز"
 }

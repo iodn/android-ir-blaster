@@ -5515,4 +5515,20 @@ class AppLocalizationsNl extends AppLocalizations {
 
   @override
   String get githubFileUnsupportedLabel => 'Niet ondersteund';
+
+  @override
+  String get githubTokenSaved => 'Token opgeslagen op dit apparaat.';
+
+  @override
+  String get githubTokenRemoved =>
+      'Token verwijderd. De app gebruikt GitHub nu zonder token.';
+
+  @override
+  String get githubSettingsSaved => 'Instellingen opgeslagen';
+
+  @override
+  String get githubSaveToken => 'Token opslaan';
+
+  @override
+  String get githubUpdateToken => 'Token bijwerken';
 }

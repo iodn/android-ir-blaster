@@ -2477,5 +2477,10 @@
   "githubUnsupportedFileType": "Цей тип файлу неможливо імпортувати.",
   "githubNoMatchingItems": "Відповідних файлів чи папок немає.",
   "githubFileImportLabel": "Імпортувати",
-  "githubFileUnsupportedLabel": "Не підтримується"
+  "githubFileUnsupportedLabel": "Не підтримується",
+  "githubTokenSaved": "Токен збережено на цьому пристрої.",
+  "githubTokenRemoved": "Токен видалено. Застосунок звертатиметься до GitHub без токена.",
+  "githubSettingsSaved": "Налаштування збережено",
+  "githubSaveToken": "Зберегти токен",
+  "githubUpdateToken": "Оновити токен"
 }

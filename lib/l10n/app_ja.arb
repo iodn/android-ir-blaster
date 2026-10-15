@@ -2477,5 +2477,10 @@
   "githubUnsupportedFileType": "この形式のファイルはインポートできません。",
   "githubNoMatchingItems": "該当するファイルやフォルダはありません。",
   "githubFileImportLabel": "インポート",
-  "githubFileUnsupportedLabel": "非対応"
+  "githubFileUnsupportedLabel": "非対応",
+  "githubTokenSaved": "この端末にトークンを保存しました。",
+  "githubTokenRemoved": "トークンを削除しました。トークンなしでGitHubにアクセスします。",
+  "githubSettingsSaved": "設定を保存しました",
+  "githubSaveToken": "トークンを保存",
+  "githubUpdateToken": "トークンを更新"
 }

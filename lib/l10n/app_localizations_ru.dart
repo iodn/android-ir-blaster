@@ -5503,4 +5503,20 @@ class AppLocalizationsRu extends AppLocalizations {
 
   @override
   String get githubFileUnsupportedLabel => 'Не поддерживается';
+
+  @override
+  String get githubTokenSaved => 'Токен сохранён на этом устройстве.';
+
+  @override
+  String get githubTokenRemoved =>
+      'Токен удалён. Приложение будет обращаться к GitHub без токена.';
+
+  @override
+  String get githubSettingsSaved => 'Настройки сохранены';
+
+  @override
+  String get githubSaveToken => 'Сохранить токен';
+
+  @override
+  String get githubUpdateToken => 'Обновить токен';
 }

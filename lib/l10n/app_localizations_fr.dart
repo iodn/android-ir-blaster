@@ -5525,4 +5525,20 @@ class AppLocalizationsFr extends AppLocalizations {
 
   @override
   String get githubFileUnsupportedLabel => 'Non pris en charge';
+
+  @override
+  String get githubTokenSaved => 'Jeton enregistré sur cet appareil.';
+
+  @override
+  String get githubTokenRemoved =>
+      'Jeton supprimé. L’application accédera à GitHub sans jeton.';
+
+  @override
+  String get githubSettingsSaved => 'Paramètres enregistrés';
+
+  @override
+  String get githubSaveToken => 'Enregistrer le jeton';
+
+  @override
+  String get githubUpdateToken => 'Mettre à jour le jeton';
 }

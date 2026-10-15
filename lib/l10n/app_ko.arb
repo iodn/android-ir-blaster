@@ -2477,5 +2477,10 @@
   "githubUnsupportedFileType": "이 파일 형식은 가져올 수 없어요.",
   "githubNoMatchingItems": "일치하는 파일이나 폴더가 없어요.",
   "githubFileImportLabel": "가져오기",
-  "githubFileUnsupportedLabel": "지원하지 않음"
+  "githubFileUnsupportedLabel": "지원하지 않음",
+  "githubTokenSaved": "이 기기에 토큰을 저장했어요.",
+  "githubTokenRemoved": "토큰을 삭제했어요. 이제 토큰 없이 GitHub에 접속해요.",
+  "githubSettingsSaved": "설정을 저장했어요",
+  "githubSaveToken": "토큰 저장",
+  "githubUpdateToken": "토큰 업데이트"
 }

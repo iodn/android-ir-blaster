@@ -2477,5 +2477,10 @@
   "githubUnsupportedFileType": "No se puede importar este tipo de archivo.",
   "githubNoMatchingItems": "No hay archivos ni carpetas que coincidan.",
   "githubFileImportLabel": "Importar",
-  "githubFileUnsupportedLabel": "No compatible"
+  "githubFileUnsupportedLabel": "No compatible",
+  "githubTokenSaved": "Token guardado en este dispositivo.",
+  "githubTokenRemoved": "Token eliminado. La app accederá a GitHub sin token.",
+  "githubSettingsSaved": "Ajustes guardados",
+  "githubSaveToken": "Guardar token",
+  "githubUpdateToken": "Actualizar token"
 }

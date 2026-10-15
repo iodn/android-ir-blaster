@@ -5552,4 +5552,20 @@ class AppLocalizationsPl extends AppLocalizations {
 
   @override
   String get githubFileUnsupportedLabel => 'Nieobsługiwany';
+
+  @override
+  String get githubTokenSaved => 'Token zapisano na tym urządzeniu.';
+
+  @override
+  String get githubTokenRemoved =>
+      'Usunięto token. Aplikacja będzie korzystać z GitHuba bez tokenu.';
+
+  @override
+  String get githubSettingsSaved => 'Zapisano ustawienia';
+
+  @override
+  String get githubSaveToken => 'Zapisz token';
+
+  @override
+  String get githubUpdateToken => 'Zaktualizuj token';
 }

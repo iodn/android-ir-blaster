@@ -5177,4 +5177,19 @@ class AppLocalizationsZh extends AppLocalizations {
 
   @override
   String get githubFileUnsupportedLabel => '不支持';
+
+  @override
+  String get githubTokenSaved => '已在此设备上保存令牌。';
+
+  @override
+  String get githubTokenRemoved => '已移除令牌。应用将不使用令牌访问GitHub。';
+
+  @override
+  String get githubSettingsSaved => '设置已保存';
+
+  @override
+  String get githubSaveToken => '保存令牌';
+
+  @override
+  String get githubUpdateToken => '更新令牌';
 }

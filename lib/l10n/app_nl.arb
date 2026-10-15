@@ -2477,5 +2477,10 @@
   "githubUnsupportedFileType": "Dit bestandstype kan niet worden geïmporteerd.",
   "githubNoMatchingItems": "Geen overeenkomende bestanden of mappen.",
   "githubFileImportLabel": "Importeren",
-  "githubFileUnsupportedLabel": "Niet ondersteund"
+  "githubFileUnsupportedLabel": "Niet ondersteund",
+  "githubTokenSaved": "Token opgeslagen op dit apparaat.",
+  "githubTokenRemoved": "Token verwijderd. De app gebruikt GitHub nu zonder token.",
+  "githubSettingsSaved": "Instellingen opgeslagen",
+  "githubSaveToken": "Token opslaan",
+  "githubUpdateToken": "Token bijwerken"
 }

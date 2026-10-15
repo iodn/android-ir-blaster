@@ -2477,5 +2477,10 @@
   "githubUnsupportedFileType": "Jenis fail ini tidak boleh diimport.",
   "githubNoMatchingItems": "Tiada fail atau folder yang sepadan.",
   "githubFileImportLabel": "Import",
-  "githubFileUnsupportedLabel": "Tidak disokong"
+  "githubFileUnsupportedLabel": "Tidak disokong",
+  "githubTokenSaved": "Token disimpan pada peranti ini.",
+  "githubTokenRemoved": "Token dibuang. Aplikasi akan mengakses GitHub tanpa token.",
+  "githubSettingsSaved": "Tetapan disimpan",
+  "githubSaveToken": "Simpan token",
+  "githubUpdateToken": "Kemas kini token"
 }

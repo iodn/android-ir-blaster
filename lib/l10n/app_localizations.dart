@@ -9775,6 +9775,36 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Unsupported'**
   String get githubFileUnsupportedLabel;
+
+  /// No description provided for @githubTokenSaved.
+  ///
+  /// In en, this message translates to:
+  /// **'Token saved on this device.'**
+  String get githubTokenSaved;
+
+  /// No description provided for @githubTokenRemoved.
+  ///
+  /// In en, this message translates to:
+  /// **'Token removed. The app will access GitHub without a token.'**
+  String get githubTokenRemoved;
+
+  /// No description provided for @githubSettingsSaved.
+  ///
+  /// In en, this message translates to:
+  /// **'Settings saved'**
+  String get githubSettingsSaved;
+
+  /// No description provided for @githubSaveToken.
+  ///
+  /// In en, this message translates to:
+  /// **'Save token'**
+  String get githubSaveToken;
+
+  /// No description provided for @githubUpdateToken.
+  ///
+  /// In en, this message translates to:
+  /// **'Update token'**
+  String get githubUpdateToken;
 }
 
 class _AppLocalizationsDelegate

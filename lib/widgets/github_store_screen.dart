@@ -1576,9 +1576,10 @@ class _GitHubConnectionScreenState extends State<_GitHubConnectionScreen> {
     if (!mounted) return;
     setState(() {
       _hasSavedToken = token.isNotEmpty;
+      _status = null;
       _statusMessage = token.isEmpty
-          ? 'Personal token removed. The app is using public GitHub access.'
-          : 'Personal token saved on this device.';
+          ? context.l10n.githubTokenRemoved
+          : context.l10n.githubTokenSaved;
       _statusIsError = false;
     });
   }
@@ -1757,27 +1758,27 @@ class _GitHubConnectionScreenState extends State<_GitHubConnectionScreen> {
                           ),
                         ),
                         const SizedBox(height: 12),
-                        Row(
+                        OverflowBar(
+                          spacing: 10,
+                          overflowSpacing: 10,
+                          overflowAlignment: OverflowBarAlignment.start,
                           children: [
-                            Expanded(
-                              child: FilledButton.icon(
-                                onPressed: _saveToken,
-                                icon: const Icon(Icons.save_outlined),
-                                label: Text(
-                                  _hasSavedToken ? 'Update token' : 'Save token',
-                                ),
+                            FilledButton.icon(
+                              onPressed: _saveToken,
+                              icon: const Icon(Icons.save_outlined),
+                              label: Text(
+                                _hasSavedToken
+                                    ? context.l10n.githubUpdateToken
+                                    : context.l10n.githubSaveToken,
                               ),
                             ),
-                            const SizedBox(width: 10),
-                            Expanded(
-                              child: OutlinedButton.icon(
-                                onPressed: _hasSavedToken ||
-                                        _tokenCtrl.text.trim().isNotEmpty
-                                    ? _removeToken
-                                    : null,
-                                icon: const Icon(Icons.delete_outline),
-                                label: const Text('Remove'),
-                              ),
+                            OutlinedButton.icon(
+                              onPressed: _hasSavedToken ||
+                                      _tokenCtrl.text.trim().isNotEmpty
+                                  ? _removeToken
+                                  : null,
+                              icon: const Icon(Icons.delete_outline),
+                              label: Text(context.l10n.remove),
                             ),
                           ],
                         ),
@@ -1843,7 +1844,11 @@ class _GitHubConnectionScreenState extends State<_GitHubConnectionScreen> {
                               crossAxisAlignment: CrossAxisAlignment.start,
                               children: [
                                 Text(
-                                  _statusIsError ? 'Connection issue' : 'Connection ready',
+                                  _statusIsError
+                                      ? 'Connection issue'
+                                      : _status == null
+                                          ? context.l10n.githubSettingsSaved
+                                          : 'Connection ready',
                                   style: theme.textTheme.titleSmall?.copyWith(
                                     fontWeight: FontWeight.w800,
                                     color: _statusIsError

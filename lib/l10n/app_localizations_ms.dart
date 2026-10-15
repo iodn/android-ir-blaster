@@ -5435,4 +5435,20 @@ class AppLocalizationsMs extends AppLocalizations {
 
   @override
   String get githubFileUnsupportedLabel => 'Tidak disokong';
+
+  @override
+  String get githubTokenSaved => 'Token disimpan pada peranti ini.';
+
+  @override
+  String get githubTokenRemoved =>
+      'Token dibuang. Aplikasi akan mengakses GitHub tanpa token.';
+
+  @override
+  String get githubSettingsSaved => 'Tetapan disimpan';
+
+  @override
+  String get githubSaveToken => 'Simpan token';
+
+  @override
+  String get githubUpdateToken => 'Kemas kini token';
 }

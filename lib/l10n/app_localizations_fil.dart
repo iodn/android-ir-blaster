@@ -5443,4 +5443,20 @@ class AppLocalizationsFil extends AppLocalizations {
 
   @override
   String get githubFileUnsupportedLabel => 'Hindi suportado';
+
+  @override
+  String get githubTokenSaved => 'Na-save ang token sa device na ito.';
+
+  @override
+  String get githubTokenRemoved =>
+      'Naalis na ang token. Gagamit ang app ng GitHub nang walang token.';
+
+  @override
+  String get githubSettingsSaved => 'Na-save ang mga setting';
+
+  @override
+  String get githubSaveToken => 'I-save ang token';
+
+  @override
+  String get githubUpdateToken => 'I-update ang token';
 }

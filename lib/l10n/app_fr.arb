@@ -2477,5 +2477,10 @@
   "githubUnsupportedFileType": "Ce type de fichier ne peut pas être importé.",
   "githubNoMatchingItems": "Aucun fichier ou dossier correspondant.",
   "githubFileImportLabel": "Importer",
-  "githubFileUnsupportedLabel": "Non pris en charge"
+  "githubFileUnsupportedLabel": "Non pris en charge",
+  "githubTokenSaved": "Jeton enregistré sur cet appareil.",
+  "githubTokenRemoved": "Jeton supprimé. L’application accédera à GitHub sans jeton.",
+  "githubSettingsSaved": "Paramètres enregistrés",
+  "githubSaveToken": "Enregistrer le jeton",
+  "githubUpdateToken": "Mettre à jour le jeton"
 }

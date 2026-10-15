@@ -5437,6 +5437,22 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String get githubFileUnsupportedLabel => 'غير مدعوم';
+
+  @override
+  String get githubTokenSaved => 'تم حفظ الرمز على هذا الجهاز.';
+
+  @override
+  String get githubTokenRemoved =>
+      'تمت إزالة الرمز. سيستخدم التطبيق GitHub دون رمز.';
+
+  @override
+  String get githubSettingsSaved => 'تم حفظ الإعدادات';
+
+  @override
+  String get githubSaveToken => 'حفظ الرمز';
+
+  @override
+  String get githubUpdateToken => 'تحديث الرمز';
 }
 
 /// The translations for Arabic, as used in Egypt (`ar_EG`).
@@ -10872,4 +10888,20 @@ class AppLocalizationsArEg extends AppLocalizationsAr {
 
   @override
   String get githubFileUnsupportedLabel => 'غير مدعوم';
+
+  @override
+  String get githubTokenSaved => 'الرمز اتحفظ على الجهاز ده.';
+
+  @override
+  String get githubTokenRemoved =>
+      'الرمز اتشال. التطبيق هيستخدم GitHub من غير رمز.';
+
+  @override
+  String get githubSettingsSaved => 'الإعدادات اتحفظت';
+
+  @override
+  String get githubSaveToken => 'حفظ الرمز';
+
+  @override
+  String get githubUpdateToken => 'تحديث الرمز';
 }

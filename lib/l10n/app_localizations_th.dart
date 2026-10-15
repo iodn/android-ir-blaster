@@ -5381,4 +5381,20 @@ class AppLocalizationsTh extends AppLocalizations {
 
   @override
   String get githubFileUnsupportedLabel => 'ไม่รองรับ';
+
+  @override
+  String get githubTokenSaved => 'บันทึกโทเค็นในอุปกรณ์นี้แล้ว';
+
+  @override
+  String get githubTokenRemoved =>
+      'ลบโทเค็นแล้ว แอปจะเข้าถึง GitHub โดยไม่ใช้โทเค็น';
+
+  @override
+  String get githubSettingsSaved => 'บันทึกการตั้งค่าแล้ว';
+
+  @override
+  String get githubSaveToken => 'บันทึกโทเค็น';
+
+  @override
+  String get githubUpdateToken => 'อัปเดตโทเค็น';
 }

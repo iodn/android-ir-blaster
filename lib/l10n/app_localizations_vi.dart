@@ -5404,4 +5404,20 @@ class AppLocalizationsVi extends AppLocalizations {
 
   @override
   String get githubFileUnsupportedLabel => 'Không hỗ trợ';
+
+  @override
+  String get githubTokenSaved => 'Đã lưu mã truy cập trên thiết bị này.';
+
+  @override
+  String get githubTokenRemoved =>
+      'Đã xóa mã truy cập. Ứng dụng sẽ truy cập GitHub mà không dùng mã.';
+
+  @override
+  String get githubSettingsSaved => 'Đã lưu cài đặt';
+
+  @override
+  String get githubSaveToken => 'Lưu mã truy cập';
+
+  @override
+  String get githubUpdateToken => 'Cập nhật mã truy cập';
 }

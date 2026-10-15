@@ -2477,5 +2477,10 @@
   "githubUnsupportedFileType": "ไม่สามารถนำเข้าไฟล์ประเภทนี้ได้",
   "githubNoMatchingItems": "ไม่พบไฟล์หรือโฟลเดอร์ที่ตรงกัน",
   "githubFileImportLabel": "นำเข้า",
-  "githubFileUnsupportedLabel": "ไม่รองรับ"
+  "githubFileUnsupportedLabel": "ไม่รองรับ",
+  "githubTokenSaved": "บันทึกโทเค็นในอุปกรณ์นี้แล้ว",
+  "githubTokenRemoved": "ลบโทเค็นแล้ว แอปจะเข้าถึง GitHub โดยไม่ใช้โทเค็น",
+  "githubSettingsSaved": "บันทึกการตั้งค่าแล้ว",
+  "githubSaveToken": "บันทึกโทเค็น",
+  "githubUpdateToken": "อัปเดตโทเค็น"
 }

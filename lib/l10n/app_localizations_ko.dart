@@ -5277,4 +5277,19 @@ class AppLocalizationsKo extends AppLocalizations {
 
   @override
   String get githubFileUnsupportedLabel => '지원하지 않음';
+
+  @override
+  String get githubTokenSaved => '이 기기에 토큰을 저장했어요.';
+
+  @override
+  String get githubTokenRemoved => '토큰을 삭제했어요. 이제 토큰 없이 GitHub에 접속해요.';
+
+  @override
+  String get githubSettingsSaved => '설정을 저장했어요';
+
+  @override
+  String get githubSaveToken => '토큰 저장';
+
+  @override
+  String get githubUpdateToken => '토큰 업데이트';
 }

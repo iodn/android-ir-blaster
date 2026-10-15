@@ -5422,4 +5422,20 @@ class AppLocalizationsId extends AppLocalizations {
 
   @override
   String get githubFileUnsupportedLabel => 'Tidak didukung';
+
+  @override
+  String get githubTokenSaved => 'Token disimpan di perangkat ini.';
+
+  @override
+  String get githubTokenRemoved =>
+      'Token dihapus. Aplikasi akan mengakses GitHub tanpa token.';
+
+  @override
+  String get githubSettingsSaved => 'Pengaturan disimpan';
+
+  @override
+  String get githubSaveToken => 'Simpan token';
+
+  @override
+  String get githubUpdateToken => 'Perbarui token';
 }

@@ -5262,4 +5262,19 @@ class AppLocalizationsJa extends AppLocalizations {
 
   @override
   String get githubFileUnsupportedLabel => '非対応';
+
+  @override
+  String get githubTokenSaved => 'この端末にトークンを保存しました。';
+
+  @override
+  String get githubTokenRemoved => 'トークンを削除しました。トークンなしでGitHubにアクセスします。';
+
+  @override
+  String get githubSettingsSaved => '設定を保存しました';
+
+  @override
+  String get githubSaveToken => 'トークンを保存';
+
+  @override
+  String get githubUpdateToken => 'トークンを更新';
 }

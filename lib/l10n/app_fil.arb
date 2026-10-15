@@ -2477,5 +2477,10 @@
   "githubUnsupportedFileType": "Hindi maaaring i-import ang ganitong uri ng file.",
   "githubNoMatchingItems": "Walang tumutugmang file o folder.",
   "githubFileImportLabel": "I-import",
-  "githubFileUnsupportedLabel": "Hindi suportado"
+  "githubFileUnsupportedLabel": "Hindi suportado",
+  "githubTokenSaved": "Na-save ang token sa device na ito.",
+  "githubTokenRemoved": "Naalis na ang token. Gagamit ang app ng GitHub nang walang token.",
+  "githubSettingsSaved": "Na-save ang mga setting",
+  "githubSaveToken": "I-save ang token",
+  "githubUpdateToken": "I-update ang token"
 }

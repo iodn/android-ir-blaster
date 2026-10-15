@@ -2477,5 +2477,10 @@
   "githubUnsupportedFileType": "Jenis file ini tidak dapat diimpor.",
   "githubNoMatchingItems": "Tidak ada file atau folder yang cocok.",
   "githubFileImportLabel": "Impor",
-  "githubFileUnsupportedLabel": "Tidak didukung"
+  "githubFileUnsupportedLabel": "Tidak didukung",
+  "githubTokenSaved": "Token disimpan di perangkat ini.",
+  "githubTokenRemoved": "Token dihapus. Aplikasi akan mengakses GitHub tanpa token.",
+  "githubSettingsSaved": "Pengaturan disimpan",
+  "githubSaveToken": "Simpan token",
+  "githubUpdateToken": "Perbarui token"
 }

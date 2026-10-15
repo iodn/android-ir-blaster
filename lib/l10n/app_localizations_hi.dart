@@ -5436,4 +5436,20 @@ class AppLocalizationsHi extends AppLocalizations {
 
   @override
   String get githubFileUnsupportedLabel => 'समर्थित नहीं है';
+
+  @override
+  String get githubTokenSaved => 'टोकन इस डिवाइस पर सहेजा गया।';
+
+  @override
+  String get githubTokenRemoved =>
+      'टोकन हटा दिया गया। ऐप अब बिना टोकन के GitHub का इस्तेमाल करेगा।';
+
+  @override
+  String get githubSettingsSaved => 'सेटिंग सहेजी गईं';
+
+  @override
+  String get githubSaveToken => 'टोकन सहेजें';
+
+  @override
+  String get githubUpdateToken => 'टोकन अपडेट करें';
 }

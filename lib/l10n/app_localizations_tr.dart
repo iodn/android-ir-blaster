@@ -5419,4 +5419,20 @@ class AppLocalizationsTr extends AppLocalizations {
 
   @override
   String get githubFileUnsupportedLabel => 'Desteklenmiyor';
+
+  @override
+  String get githubTokenSaved => 'Belirteç bu cihaza kaydedildi.';
+
+  @override
+  String get githubTokenRemoved =>
+      'Belirteç kaldırıldı. Uygulama GitHub’a belirteç olmadan erişecek.';
+
+  @override
+  String get githubSettingsSaved => 'Ayarlar kaydedildi';
+
+  @override
+  String get githubSaveToken => 'Belirteci kaydet';
+
+  @override
+  String get githubUpdateToken => 'Belirteci güncelle';
 }

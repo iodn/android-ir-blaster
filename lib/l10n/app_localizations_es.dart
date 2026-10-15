@@ -5509,4 +5509,20 @@ class AppLocalizationsEs extends AppLocalizations {
 
   @override
   String get githubFileUnsupportedLabel => 'No compatible';
+
+  @override
+  String get githubTokenSaved => 'Token guardado en este dispositivo.';
+
+  @override
+  String get githubTokenRemoved =>
+      'Token eliminado. La app accederá a GitHub sin token.';
+
+  @override
+  String get githubSettingsSaved => 'Ajustes guardados';
+
+  @override
+  String get githubSaveToken => 'Guardar token';
+
+  @override
+  String get githubUpdateToken => 'Actualizar token';
 }

@@ -2479,5 +2479,10 @@
   "githubUnsupportedFileType": "Nie można zaimportować tego typu pliku.",
   "githubNoMatchingItems": "Brak pasujących plików lub folderów.",
   "githubFileImportLabel": "Importuj",
-  "githubFileUnsupportedLabel": "Nieobsługiwany"
+  "githubFileUnsupportedLabel": "Nieobsługiwany",
+  "githubTokenSaved": "Token zapisano na tym urządzeniu.",
+  "githubTokenRemoved": "Usunięto token. Aplikacja będzie korzystać z GitHuba bez tokenu.",
+  "githubSettingsSaved": "Zapisano ustawienia",
+  "githubSaveToken": "Zapisz token",
+  "githubUpdateToken": "Zaktualizuj token"
 }

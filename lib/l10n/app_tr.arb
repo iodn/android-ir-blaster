@@ -2477,5 +2477,10 @@
   "githubUnsupportedFileType": "Bu dosya türü içe aktarılamaz.",
   "githubNoMatchingItems": "Eşleşen dosya veya klasör yok.",
   "githubFileImportLabel": "İçe aktar",
-  "githubFileUnsupportedLabel": "Desteklenmiyor"
+  "githubFileUnsupportedLabel": "Desteklenmiyor",
+  "githubTokenSaved": "Belirteç bu cihaza kaydedildi.",
+  "githubTokenRemoved": "Belirteç kaldırıldı. Uygulama GitHub’a belirteç olmadan erişecek.",
+  "githubSettingsSaved": "Ayarlar kaydedildi",
+  "githubSaveToken": "Belirteci kaydet",
+  "githubUpdateToken": "Belirteci güncelle"
 }

@@ -2477,5 +2477,10 @@
   "githubUnsupportedFileType": "इस तरह की फ़ाइल इम्पोर्ट नहीं की जा सकती।",
   "githubNoMatchingItems": "कोई मेल खाती फ़ाइल या फ़ोल्डर नहीं मिला।",
   "githubFileImportLabel": "इम्पोर्ट करें",
-  "githubFileUnsupportedLabel": "समर्थित नहीं है"
+  "githubFileUnsupportedLabel": "समर्थित नहीं है",
+  "githubTokenSaved": "टोकन इस डिवाइस पर सहेजा गया।",
+  "githubTokenRemoved": "टोकन हटा दिया गया। ऐप अब बिना टोकन के GitHub का इस्तेमाल करेगा।",
+  "githubSettingsSaved": "सेटिंग सहेजी गईं",
+  "githubSaveToken": "टोकन सहेजें",
+  "githubUpdateToken": "टोकन अपडेट करें"
 }
