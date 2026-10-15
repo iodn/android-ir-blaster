@@ -5321,4 +5321,21 @@ class AppLocalizationsUk extends AppLocalizations {
   @override
   String get learningModeAudioUnavailableBody =>
       'ІЧ-аксесуари з аудіопідключенням можуть надсилати команди, але не запам’ятовувати сигнали в цьому застосунку. Скористайтеся сумісним приймачем із функцією навчання.';
+
+  @override
+  String learningModeBuiltInReceiver(String brand) {
+    return 'Вбудований ІЧ-приймач $brand';
+  }
+
+  @override
+  String get learningModeUsbReceiver => 'USB-приймач із навчанням';
+
+  @override
+  String learningModeDefaultRemoteName(String buttonName) {
+    return 'Пульт $buttonName';
+  }
+
+  @override
+  String get learningModeSupportedReceivers =>
+      'Використовуйте приймач, який підтримує цей застосунок:\n• Сумісний ІЧ USB-адаптер Tiqiaa, ZaZa або ElkSmart\n• Підтримуваний телефон Huawei / Honor з ІЧ-приймачем\n• Підтримуваний телефон LG з UEI Quickset\n\nНе всі моделі підтримують навчання.';
 }

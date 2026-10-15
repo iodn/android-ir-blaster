@@ -5252,4 +5252,21 @@ class AppLocalizationsDe extends AppLocalizations {
   @override
   String get learningModeAudioUnavailableBody =>
       'Audio-IR-Zubehör kann in dieser App Befehle senden, aber keine Signale anlernen. Verwenden Sie einen unterstützten Lernempfänger.';
+
+  @override
+  String learningModeBuiltInReceiver(String brand) {
+    return 'Integrierter IR-Empfänger von $brand';
+  }
+
+  @override
+  String get learningModeUsbReceiver => 'USB-Lernempfänger';
+
+  @override
+  String learningModeDefaultRemoteName(String buttonName) {
+    return 'Fernbedienung $buttonName';
+  }
+
+  @override
+  String get learningModeSupportedReceivers =>
+      'Verwenden Sie einen von der App unterstützten Empfänger:\n• Einen kompatiblen USB-IR-Adapter von Tiqiaa, ZaZa oder ElkSmart\n• Ein unterstütztes Huawei-/Honor-Handy mit IR-Empfang\n• Ein unterstütztes LG-Handy mit UEI Quickset\n\nNicht alle Modelle können Signale anlernen.';
 }

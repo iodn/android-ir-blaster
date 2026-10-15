@@ -72,6 +72,8 @@ void main() {
       final l10n =
           AppLocalizations.of(tester.element(find.byType(LearningModeScreen)))!;
       expect(find.text(l10n.learningModeAudioUnavailableTitle), findsOneWidget);
+      expect(find.text(l10n.transmitterAudio2), findsOneWidget);
+      expect(find.text(l10n.learningModeSupportedReceivers), findsOneWidget);
       final useUsb =
           find.widgetWithText(FilledButton, l10n.learningModeUseUsb).first;
       await tester.ensureVisible(useUsb);
@@ -82,6 +84,7 @@ void main() {
       await tester.pump(const Duration(seconds: 5));
       await tester.pumpAndSettle();
       expect(find.text(l10n.learningModeReadyToListenBody), findsOneWidget);
+      expect(find.textContaining(l10n.learningModeUsbReceiver), findsOneWidget);
       final start =
           find.widgetWithText(FilledButton, l10n.learningModeStartListening);
       await tester.ensureVisible(start);

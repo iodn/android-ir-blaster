@@ -2403,5 +2403,9 @@
   "learningModeSwitchedUsb": "Вибрано USB-адаптер.",
   "learningModeSwitchUsbFailed": "Не вдалося перемкнутися на USB-адаптер: {error}",
   "learningModeAudioUnavailableTitle": "Навчання через аудіо недоступне",
-  "learningModeAudioUnavailableBody": "ІЧ-аксесуари з аудіопідключенням можуть надсилати команди, але не запам’ятовувати сигнали в цьому застосунку. Скористайтеся сумісним приймачем із функцією навчання."
+  "learningModeAudioUnavailableBody": "ІЧ-аксесуари з аудіопідключенням можуть надсилати команди, але не запам’ятовувати сигнали в цьому застосунку. Скористайтеся сумісним приймачем із функцією навчання.",
+  "learningModeBuiltInReceiver": "Вбудований ІЧ-приймач {brand}",
+  "learningModeUsbReceiver": "USB-приймач із навчанням",
+  "learningModeDefaultRemoteName": "Пульт {buttonName}",
+  "learningModeSupportedReceivers": "Використовуйте приймач, який підтримує цей застосунок:\n• Сумісний ІЧ USB-адаптер Tiqiaa, ZaZa або ElkSmart\n• Підтримуваний телефон Huawei / Honor з ІЧ-приймачем\n• Підтримуваний телефон LG з UEI Quickset\n\nНе всі моделі підтримують навчання."
 }

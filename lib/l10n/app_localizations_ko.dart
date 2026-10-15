@@ -5086,4 +5086,21 @@ class AppLocalizationsKo extends AppLocalizations {
   @override
   String get learningModeAudioUnavailableBody =>
       '이 앱에서 오디오 IR 기기는 명령 전송만 지원하며 신호를 학습할 수 없습니다. 학습을 지원하는 수신기를 사용하세요.';
+
+  @override
+  String learningModeBuiltInReceiver(String brand) {
+    return '$brand 내장 IR 수신기';
+  }
+
+  @override
+  String get learningModeUsbReceiver => 'USB 학습용 수신기';
+
+  @override
+  String learningModeDefaultRemoteName(String buttonName) {
+    return '$buttonName 리모컨';
+  }
+
+  @override
+  String get learningModeSupportedReceivers =>
+      '이 앱에서 지원하는 수신기를 사용하세요.\n• 호환되는 Tiqiaa, ZaZa 또는 ElkSmart USB IR 동글\n• IR 수신이 가능한 지원 대상 Huawei / Honor 휴대전화\n• UEI Quickset을 갖춘 지원 대상 LG 휴대전화\n\n모든 모델이 학습을 지원하는 것은 아닙니다.';
 }

@@ -5205,4 +5205,21 @@ class AppLocalizationsTr extends AppLocalizations {
   @override
   String get learningModeAudioUnavailableBody =>
       'Ses bağlantılı IR aksesuarları bu uygulamada komut gönderebilir ancak sinyal öğrenemez. Öğrenme özelliği desteklenen bir alıcı kullanın.';
+
+  @override
+  String learningModeBuiltInReceiver(String brand) {
+    return '$brand dahili IR alıcısı';
+  }
+
+  @override
+  String get learningModeUsbReceiver => 'Öğrenme özellikli USB alıcı';
+
+  @override
+  String learningModeDefaultRemoteName(String buttonName) {
+    return '$buttonName kumandası';
+  }
+
+  @override
+  String get learningModeSupportedReceivers =>
+      'Bu uygulamanın desteklediği bir alıcı kullanın:\n• Uyumlu bir Tiqiaa, ZaZa veya ElkSmart USB IR adaptörü\n• IR sinyali alabilen, desteklenen bir Huawei / Honor telefon\n• UEI Quickset bulunan, desteklenen bir LG telefon\n\nHer model öğrenme özelliğini desteklemez.';
 }

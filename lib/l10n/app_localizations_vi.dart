@@ -5197,4 +5197,21 @@ class AppLocalizationsVi extends AppLocalizations {
   @override
   String get learningModeAudioUnavailableBody =>
       'Phụ kiện hồng ngoại qua âm thanh có thể gửi lệnh nhưng không thể học tín hiệu trong ứng dụng này. Hãy dùng bộ thu hỗ trợ học tín hiệu.';
+
+  @override
+  String learningModeBuiltInReceiver(String brand) {
+    return 'Bộ thu hồng ngoại tích hợp của $brand';
+  }
+
+  @override
+  String get learningModeUsbReceiver => 'Bộ thu USB để học tín hiệu';
+
+  @override
+  String learningModeDefaultRemoteName(String buttonName) {
+    return 'Điều khiển $buttonName';
+  }
+
+  @override
+  String get learningModeSupportedReceivers =>
+      'Dùng bộ thu được ứng dụng hỗ trợ:\n• Bộ chuyển đổi hồng ngoại USB Tiqiaa, ZaZa hoặc ElkSmart tương thích\n• Điện thoại Huawei / Honor được hỗ trợ và có khả năng thu hồng ngoại\n• Điện thoại LG được hỗ trợ, có UEI Quickset\n\nKhông phải mẫu máy nào cũng học được tín hiệu.';
 }

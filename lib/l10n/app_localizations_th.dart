@@ -5178,4 +5178,21 @@ class AppLocalizationsTh extends AppLocalizations {
   @override
   String get learningModeAudioUnavailableBody =>
       'อุปกรณ์ IR แบบเสียงส่งคำสั่งได้ แต่เรียนรู้สัญญาณในแอปนี้ไม่ได้ โปรดใช้ตัวรับสัญญาณที่รองรับการเรียนรู้';
+
+  @override
+  String learningModeBuiltInReceiver(String brand) {
+    return 'ตัวรับ IR ในตัวของ $brand';
+  }
+
+  @override
+  String get learningModeUsbReceiver => 'ตัวรับ USB สำหรับเรียนรู้สัญญาณ';
+
+  @override
+  String learningModeDefaultRemoteName(String buttonName) {
+    return 'รีโมต $buttonName';
+  }
+
+  @override
+  String get learningModeSupportedReceivers =>
+      'ใช้ตัวรับสัญญาณที่แอปนี้รองรับ:\n• ดองเกิล USB IR รุ่นที่รองรับของ Tiqiaa, ZaZa หรือ ElkSmart\n• โทรศัพท์ Huawei / Honor รุ่นที่รองรับและรับสัญญาณ IR ได้\n• โทรศัพท์ LG รุ่นที่รองรับและมี UEI Quickset\n\nไม่ใช่ทุกรุ่นที่เรียนรู้สัญญาณได้';
 }

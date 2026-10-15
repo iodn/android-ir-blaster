@@ -4997,4 +4997,21 @@ class AppLocalizationsZh extends AppLocalizations {
   @override
   String get learningModeAudioUnavailableBody =>
       '音频红外配件在本应用中只能发送指令，不能学习信号。请使用支持学习的接收器。';
+
+  @override
+  String learningModeBuiltInReceiver(String brand) {
+    return '$brand 内置红外接收器';
+  }
+
+  @override
+  String get learningModeUsbReceiver => 'USB 学习接收器';
+
+  @override
+  String learningModeDefaultRemoteName(String buttonName) {
+    return '$buttonName遥控器';
+  }
+
+  @override
+  String get learningModeSupportedReceivers =>
+      '请使用本应用支持的接收器：\n• 兼容的 Tiqiaa、ZaZa 或 ElkSmart USB 红外适配器\n• 受支持且具备红外接收功能的华为 / 荣耀手机\n• 受支持且安装了 UEI Quickset 的 LG 手机\n\n并非所有型号都支持学习。';
 }

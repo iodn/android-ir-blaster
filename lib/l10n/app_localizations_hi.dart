@@ -5203,4 +5203,21 @@ class AppLocalizationsHi extends AppLocalizations {
   @override
   String get learningModeAudioUnavailableBody =>
       'इस ऐप में ऑडियो IR उपकरण कमांड भेज सकते हैं, लेकिन सिग्नल सीख नहीं सकते। सीखने के लिए समर्थित रिसीवर इस्तेमाल करें।';
+
+  @override
+  String learningModeBuiltInReceiver(String brand) {
+    return '$brand का बिल्ट-इन IR रिसीवर';
+  }
+
+  @override
+  String get learningModeUsbReceiver => 'सिग्नल सीखने वाला USB रिसीवर';
+
+  @override
+  String learningModeDefaultRemoteName(String buttonName) {
+    return '$buttonName रिमोट';
+  }
+
+  @override
+  String get learningModeSupportedReceivers =>
+      'ऐसा रिसीवर इस्तेमाल करें जिसे यह ऐप सपोर्ट करता हो:\n• संगत Tiqiaa, ZaZa या ElkSmart USB IR डोंगल\n• IR रिसीवर वाला समर्थित Huawei / Honor फ़ोन\n• UEI Quickset वाला समर्थित LG फ़ोन\n\nहर मॉडल में सिग्नल सीखने की सुविधा नहीं होती।';
 }

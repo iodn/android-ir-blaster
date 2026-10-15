@@ -5245,6 +5245,23 @@ class AppLocalizationsPt extends AppLocalizations {
   @override
   String get learningModeAudioUnavailableBody =>
       'Os acessórios IR de áudio podem enviar comandos, mas não aprender sinais nesta aplicação. Utilize um recetor compatível com a aprendizagem.';
+
+  @override
+  String learningModeBuiltInReceiver(String brand) {
+    return 'Recetor IR integrado $brand';
+  }
+
+  @override
+  String get learningModeUsbReceiver => 'Recetor USB de aprendizagem';
+
+  @override
+  String learningModeDefaultRemoteName(String buttonName) {
+    return 'Comando $buttonName';
+  }
+
+  @override
+  String get learningModeSupportedReceivers =>
+      'Utilize um recetor suportado pela aplicação:\n• Um adaptador IR USB compatível Tiqiaa, ZaZa ou ElkSmart\n• Um telemóvel Huawei / Honor suportado com receção IR\n• Um telemóvel LG suportado com UEI Quickset\n\nNem todos os modelos permitem aprender sinais.';
 }
 
 /// The translations for Portuguese, as used in Brazil (`pt_BR`).
@@ -10490,4 +10507,21 @@ class AppLocalizationsPtBr extends AppLocalizationsPt {
   @override
   String get learningModeAudioUnavailableBody =>
       'Os acessórios IR de áudio podem enviar comandos, mas não aprender sinais neste app. Use um receptor compatível com o aprendizado.';
+
+  @override
+  String learningModeBuiltInReceiver(String brand) {
+    return 'Receptor IR integrado $brand';
+  }
+
+  @override
+  String get learningModeUsbReceiver => 'Receptor USB de aprendizado';
+
+  @override
+  String learningModeDefaultRemoteName(String buttonName) {
+    return 'Controle $buttonName';
+  }
+
+  @override
+  String get learningModeSupportedReceivers =>
+      'Use um receptor compatível com o app:\n• Um adaptador IR USB compatível Tiqiaa, ZaZa ou ElkSmart\n• Um celular Huawei / Honor compatível com recepção IR\n• Um celular LG compatível com UEI Quickset\n\nNem todos os modelos permitem aprender sinais.';
 }

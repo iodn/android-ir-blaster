@@ -5176,6 +5176,23 @@ class AppLocalizationsAr extends AppLocalizations {
   @override
   String get learningModeAudioUnavailableBody =>
       'يمكن لملحقات الأشعة تحت الحمراء المتصلة بالصوت إرسال الأوامر، لكن لا يمكنها تعلّم الإشارات في هذا التطبيق. استخدم مستقبلًا مدعومًا للتعلّم.';
+
+  @override
+  String learningModeBuiltInReceiver(String brand) {
+    return 'مستقبل IR مدمج من $brand';
+  }
+
+  @override
+  String get learningModeUsbReceiver => 'مستقبل USB للتعلّم';
+
+  @override
+  String learningModeDefaultRemoteName(String buttonName) {
+    return 'جهاز تحكم $buttonName';
+  }
+
+  @override
+  String get learningModeSupportedReceivers =>
+      'استخدم مستقبلًا يدعمه هذا التطبيق:\n• محوّل IR USB متوافق من Tiqiaa أو ZaZa أو ElkSmart\n• هاتف Huawei / Honor مدعوم يمكنه استقبال الأشعة تحت الحمراء\n• هاتف LG مدعوم مزوّد بخدمة UEI Quickset\n\nليست كل الطرازات قادرة على التعلّم.';
 }
 
 /// The translations for Arabic, as used in Egypt (`ar_EG`).
@@ -10351,4 +10368,21 @@ class AppLocalizationsArEg extends AppLocalizationsAr {
   @override
   String get learningModeAudioUnavailableBody =>
       'إكسسوارات الأشعة تحت الحمراء المتوصلة بالصوت تقدر تبعت أوامر، لكن مش بتتعلّم إشارات في التطبيق ده. استخدم مستقبل بيدعم التعلّم.';
+
+  @override
+  String learningModeBuiltInReceiver(String brand) {
+    return 'مستقبل IR مدمج من $brand';
+  }
+
+  @override
+  String get learningModeUsbReceiver => 'مستقبل USB للتعلّم';
+
+  @override
+  String learningModeDefaultRemoteName(String buttonName) {
+    return 'ريموت $buttonName';
+  }
+
+  @override
+  String get learningModeSupportedReceivers =>
+      'استخدم مستقبل بيدعمه التطبيق:\n• محوّل IR USB متوافق من Tiqiaa أو ZaZa أو ElkSmart\n• موبايل Huawei / Honor مدعوم بيستقبل أشعة تحت الحمراء\n• موبايل LG مدعوم وعليه خدمة UEI Quickset\n\nمش كل الموديلات بتدعم التعلّم.';
 }

@@ -2403,5 +2403,9 @@
   "learningModeSwitchedUsb": "Đã chuyển sang bộ chuyển đổi USB.",
   "learningModeSwitchUsbFailed": "Không thể chuyển sang bộ chuyển đổi USB: {error}",
   "learningModeAudioUnavailableTitle": "Không hỗ trợ học qua âm thanh",
-  "learningModeAudioUnavailableBody": "Phụ kiện hồng ngoại qua âm thanh có thể gửi lệnh nhưng không thể học tín hiệu trong ứng dụng này. Hãy dùng bộ thu hỗ trợ học tín hiệu."
+  "learningModeAudioUnavailableBody": "Phụ kiện hồng ngoại qua âm thanh có thể gửi lệnh nhưng không thể học tín hiệu trong ứng dụng này. Hãy dùng bộ thu hỗ trợ học tín hiệu.",
+  "learningModeBuiltInReceiver": "Bộ thu hồng ngoại tích hợp của {brand}",
+  "learningModeUsbReceiver": "Bộ thu USB để học tín hiệu",
+  "learningModeDefaultRemoteName": "Điều khiển {buttonName}",
+  "learningModeSupportedReceivers": "Dùng bộ thu được ứng dụng hỗ trợ:\n• Bộ chuyển đổi hồng ngoại USB Tiqiaa, ZaZa hoặc ElkSmart tương thích\n• Điện thoại Huawei / Honor được hỗ trợ và có khả năng thu hồng ngoại\n• Điện thoại LG được hỗ trợ, có UEI Quickset\n\nKhông phải mẫu máy nào cũng học được tín hiệu."
 }

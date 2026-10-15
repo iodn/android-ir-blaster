@@ -5068,4 +5068,21 @@ class AppLocalizationsJa extends AppLocalizations {
   @override
   String get learningModeAudioUnavailableBody =>
       'このアプリでは、オーディオ接続の赤外線機器は送信のみ対応しています。学習には対応する受信機をお使いください。';
+
+  @override
+  String learningModeBuiltInReceiver(String brand) {
+    return '$brandの内蔵赤外線受信機';
+  }
+
+  @override
+  String get learningModeUsbReceiver => 'USB学習用受信機';
+
+  @override
+  String learningModeDefaultRemoteName(String buttonName) {
+    return '$buttonName用リモコン';
+  }
+
+  @override
+  String get learningModeSupportedReceivers =>
+      'このアプリに対応した受信機をお使いください。\n• 対応するTiqiaa、ZaZa、ElkSmartのUSB赤外線アダプター\n• 赤外線受信に対応したHuawei / Honor端末\n• UEI Quicksetを搭載した対応LG端末\n\nすべての機種が学習に対応しているわけではありません。';
 }

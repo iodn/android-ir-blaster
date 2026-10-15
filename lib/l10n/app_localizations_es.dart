@@ -5242,4 +5242,21 @@ class AppLocalizationsEs extends AppLocalizations {
   @override
   String get learningModeAudioUnavailableBody =>
       'Los accesorios IR de audio pueden enviar órdenes, pero no aprender señales en esta aplicación. Usa un receptor compatible con el aprendizaje.';
+
+  @override
+  String learningModeBuiltInReceiver(String brand) {
+    return 'Receptor IR integrado de $brand';
+  }
+
+  @override
+  String get learningModeUsbReceiver => 'Receptor USB de aprendizaje';
+
+  @override
+  String learningModeDefaultRemoteName(String buttonName) {
+    return 'Mando $buttonName';
+  }
+
+  @override
+  String get learningModeSupportedReceivers =>
+      'Usa un receptor compatible con esta aplicación:\n• Un adaptador IR USB compatible de Tiqiaa, ZaZa o ElkSmart\n• Un teléfono Huawei / Honor compatible con recepción IR\n• Un teléfono LG compatible con UEI Quickset\n\nNo todos los modelos permiten aprender señales.';
 }

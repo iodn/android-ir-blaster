@@ -2403,5 +2403,9 @@
   "learningModeSwitchedUsb": "Adaptador USB seleccionado.",
   "learningModeSwitchUsbFailed": "No se pudo seleccionar el adaptador USB: {error}",
   "learningModeAudioUnavailableTitle": "Aprendizaje por audio no disponible",
-  "learningModeAudioUnavailableBody": "Los accesorios IR de audio pueden enviar órdenes, pero no aprender señales en esta aplicación. Usa un receptor compatible con el aprendizaje."
+  "learningModeAudioUnavailableBody": "Los accesorios IR de audio pueden enviar órdenes, pero no aprender señales en esta aplicación. Usa un receptor compatible con el aprendizaje.",
+  "learningModeBuiltInReceiver": "Receptor IR integrado de {brand}",
+  "learningModeUsbReceiver": "Receptor USB de aprendizaje",
+  "learningModeDefaultRemoteName": "Mando {buttonName}",
+  "learningModeSupportedReceivers": "Usa un receptor compatible con esta aplicación:\n• Un adaptador IR USB compatible de Tiqiaa, ZaZa o ElkSmart\n• Un teléfono Huawei / Honor compatible con recepción IR\n• Un teléfono LG compatible con UEI Quickset\n\nNo todos los modelos permiten aprender señales."
 }

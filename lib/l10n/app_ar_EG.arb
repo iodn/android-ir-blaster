@@ -2403,5 +2403,9 @@
   "learningModeSwitchedUsb": "تم التحويل لمحوّل USB.",
   "learningModeSwitchUsbFailed": "ما قدرناش نحوّل لمحوّل USB: {error}",
   "learningModeAudioUnavailableTitle": "التعلّم عن طريق الصوت مش متاح",
-  "learningModeAudioUnavailableBody": "إكسسوارات الأشعة تحت الحمراء المتوصلة بالصوت تقدر تبعت أوامر، لكن مش بتتعلّم إشارات في التطبيق ده. استخدم مستقبل بيدعم التعلّم."
+  "learningModeAudioUnavailableBody": "إكسسوارات الأشعة تحت الحمراء المتوصلة بالصوت تقدر تبعت أوامر، لكن مش بتتعلّم إشارات في التطبيق ده. استخدم مستقبل بيدعم التعلّم.",
+  "learningModeBuiltInReceiver": "مستقبل IR مدمج من {brand}",
+  "learningModeUsbReceiver": "مستقبل USB للتعلّم",
+  "learningModeDefaultRemoteName": "ريموت {buttonName}",
+  "learningModeSupportedReceivers": "استخدم مستقبل بيدعمه التطبيق:\n• محوّل IR USB متوافق من Tiqiaa أو ZaZa أو ElkSmart\n• موبايل Huawei / Honor مدعوم بيستقبل أشعة تحت الحمراء\n• موبايل LG مدعوم وعليه خدمة UEI Quickset\n\nمش كل الموديلات بتدعم التعلّم."
 }

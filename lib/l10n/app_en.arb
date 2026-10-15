@@ -2596,5 +2596,23 @@
         "type": "String"
       }
     }
+  },
+  "learningModeBuiltInReceiver": "{brand} built-in IR receiver",
+  "learningModeUsbReceiver": "USB learning receiver",
+  "learningModeDefaultRemoteName": "{buttonName} remote",
+  "learningModeSupportedReceivers": "Use a receiver supported by this app:\n• A compatible Tiqiaa, ZaZa, or ElkSmart USB IR dongle\n• A supported Huawei / Honor phone with IR reception\n• A supported LG phone with UEI Quickset\n\nNot all models support learning.",
+  "@learningModeBuiltInReceiver": {
+    "placeholders": {
+      "brand": {
+        "type": "String"
+      }
+    }
+  },
+  "@learningModeDefaultRemoteName": {
+    "placeholders": {
+      "buttonName": {
+        "type": "String"
+      }
+    }
   }
 }

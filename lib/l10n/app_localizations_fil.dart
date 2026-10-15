@@ -5227,4 +5227,21 @@ class AppLocalizationsFil extends AppLocalizations {
   @override
   String get learningModeAudioUnavailableBody =>
       'Puwedeng magpadala ng command ang mga audio IR accessory, pero hindi makakopya ng signal gamit ang app na ito. Gumamit ng receiver na sinusuportahan para sa pagkopya ng signal.';
+
+  @override
+  String learningModeBuiltInReceiver(String brand) {
+    return 'Built-in na IR receiver ng $brand';
+  }
+
+  @override
+  String get learningModeUsbReceiver => 'USB receiver para kumopya ng signal';
+
+  @override
+  String learningModeDefaultRemoteName(String buttonName) {
+    return 'Remote na $buttonName';
+  }
+
+  @override
+  String get learningModeSupportedReceivers =>
+      'Gumamit ng receiver na sinusuportahan ng app:\n• Compatible na Tiqiaa, ZaZa, o ElkSmart USB IR dongle\n• Suportadong Huawei / Honor phone na nakakatanggap ng IR\n• Suportadong LG phone na may UEI Quickset\n\nHindi lahat ng modelo ay kayang kumopya ng signal.';
 }

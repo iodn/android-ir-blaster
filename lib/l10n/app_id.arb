@@ -2403,5 +2403,9 @@
   "learningModeSwitchedUsb": "Beralih ke dongle USB.",
   "learningModeSwitchUsbFailed": "Tidak dapat beralih ke dongle USB: {error}",
   "learningModeAudioUnavailableTitle": "Belajar lewat audio tidak tersedia",
-  "learningModeAudioUnavailableBody": "Aksesori IR audio dapat mengirim perintah, tetapi tidak dapat mempelajari sinyal di aplikasi ini. Gunakan penerima yang mendukung fitur belajar."
+  "learningModeAudioUnavailableBody": "Aksesori IR audio dapat mengirim perintah, tetapi tidak dapat mempelajari sinyal di aplikasi ini. Gunakan penerima yang mendukung fitur belajar.",
+  "learningModeBuiltInReceiver": "Penerima IR bawaan {brand}",
+  "learningModeUsbReceiver": "Penerima USB untuk belajar sinyal",
+  "learningModeDefaultRemoteName": "Remote {buttonName}",
+  "learningModeSupportedReceivers": "Gunakan penerima yang didukung aplikasi ini:\n• Dongle IR USB Tiqiaa, ZaZa, atau ElkSmart yang kompatibel\n• Ponsel Huawei / Honor yang didukung dan bisa menerima IR\n• Ponsel LG yang didukung dengan UEI Quickset\n\nTidak semua model mendukung fitur belajar sinyal."
 }

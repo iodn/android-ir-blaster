@@ -2403,5 +2403,9 @@
   "learningModeSwitchedUsb": "USB 동글로 전환했습니다.",
   "learningModeSwitchUsbFailed": "USB 동글로 전환하지 못했습니다: {error}",
   "learningModeAudioUnavailableTitle": "오디오 기기 학습 미지원",
-  "learningModeAudioUnavailableBody": "이 앱에서 오디오 IR 기기는 명령 전송만 지원하며 신호를 학습할 수 없습니다. 학습을 지원하는 수신기를 사용하세요."
+  "learningModeAudioUnavailableBody": "이 앱에서 오디오 IR 기기는 명령 전송만 지원하며 신호를 학습할 수 없습니다. 학습을 지원하는 수신기를 사용하세요.",
+  "learningModeBuiltInReceiver": "{brand} 내장 IR 수신기",
+  "learningModeUsbReceiver": "USB 학습용 수신기",
+  "learningModeDefaultRemoteName": "{buttonName} 리모컨",
+  "learningModeSupportedReceivers": "이 앱에서 지원하는 수신기를 사용하세요.\n• 호환되는 Tiqiaa, ZaZa 또는 ElkSmart USB IR 동글\n• IR 수신이 가능한 지원 대상 Huawei / Honor 휴대전화\n• UEI Quickset을 갖춘 지원 대상 LG 휴대전화\n\n모든 모델이 학습을 지원하는 것은 아닙니다."
 }

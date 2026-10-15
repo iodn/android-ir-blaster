@@ -5210,4 +5210,21 @@ class AppLocalizationsId extends AppLocalizations {
   @override
   String get learningModeAudioUnavailableBody =>
       'Aksesori IR audio dapat mengirim perintah, tetapi tidak dapat mempelajari sinyal di aplikasi ini. Gunakan penerima yang mendukung fitur belajar.';
+
+  @override
+  String learningModeBuiltInReceiver(String brand) {
+    return 'Penerima IR bawaan $brand';
+  }
+
+  @override
+  String get learningModeUsbReceiver => 'Penerima USB untuk belajar sinyal';
+
+  @override
+  String learningModeDefaultRemoteName(String buttonName) {
+    return 'Remote $buttonName';
+  }
+
+  @override
+  String get learningModeSupportedReceivers =>
+      'Gunakan penerima yang didukung aplikasi ini:\n• Dongle IR USB Tiqiaa, ZaZa, atau ElkSmart yang kompatibel\n• Ponsel Huawei / Honor yang didukung dan bisa menerima IR\n• Ponsel LG yang didukung dengan UEI Quickset\n\nTidak semua model mendukung fitur belajar sinyal.';
 }

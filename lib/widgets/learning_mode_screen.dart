@@ -265,24 +265,25 @@ class _LearningModeScreenState extends State<LearningModeScreen>
     if (_audioLearningSelected) {
       final selectedType = _preferredType ?? _caps?.currentType;
       return selectedType == IrTransmitterType.audio2Led
-          ? 'Audio 2 LED'
-          : 'Audio 1 LED';
+          ? context.l10n.transmitterAudio2
+          : context.l10n.transmitterAudio1;
     }
     if (_huaweiInternalSelected) {
-      return 'Huawei built-in IR receiver';
+      return context.l10n.learningModeBuiltInReceiver('Huawei');
     }
     if (_lgInternalSelected) {
-      return 'LG built-in IR receiver (UEI Quickset)';
+      return '${context.l10n.learningModeBuiltInReceiver('LG')} (UEI Quickset)';
     }
     if (_caps == null) {
-      return 'Checking device…';
+      return context.l10n.learningModeStatusCheckingTitle;
     }
     if (_learningDevices.isEmpty) {
-      return 'No learning receiver detected';
+      return context.l10n.learningModeStatusNoReceiverTitle;
     }
     final device = _learningDevices.first;
-    final productName =
-        device.productName.isEmpty ? 'USB learning dongle' : device.productName;
+    final productName = device.productName.isEmpty
+        ? context.l10n.learningModeUsbReceiver
+        : device.productName;
     return '$productName (${device.vendorId.toRadixString(16)}:${device.productId.toRadixString(16)})';
   }
 
@@ -822,7 +823,9 @@ class _LearningModeScreenState extends State<LearningModeScreen>
   }
 
   Future<String?> _promptForNewRemoteName() async {
-    final ctrl = TextEditingController(text: '${_buttonLabel(context)} Remote');
+    final ctrl = TextEditingController(
+      text: context.l10n.learningModeDefaultRemoteName(_buttonLabel(context)),
+    );
     try {
       return showDialog<String>(
         context: context,
@@ -1052,21 +1055,14 @@ class _LearningModeScreenState extends State<LearningModeScreen>
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Text(
-              _audioLearningSelected
-                  ? 'USB learning only'
-                  : context.l10n.learningModeConnectReceiverTitle,
+              context.l10n.learningModeConnectReceiverTitle,
               style: Theme.of(context).textTheme.titleMedium?.copyWith(
                     fontWeight: FontWeight.w800,
                   ),
             ),
             const SizedBox(height: 6),
             Text(
-              _audioLearningSelected
-                  ? 'Switch to a compatible USB learning dongle such as Tiqiaa, ZaZa, or ElkSmart to use Learning Mode.'
-                  : 'No compatible learning receiver was detected.\n\n'
-                      '• Plug in a Tiqiaa, ZaZa, or ElkSmart USB IR dongle, or\n'
-                      '• Use a Huawei / Honor phone with a built-in IR receiver, or\n'
-                      '• Use an LG phone with the UEI Quickset service installed.',
+              context.l10n.learningModeSupportedReceivers,
               style: Theme.of(context).textTheme.bodyMedium?.copyWith(
                     color: cs.onSurfaceVariant,
                     height: 1.35,

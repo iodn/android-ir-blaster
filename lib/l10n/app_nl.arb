@@ -2403,5 +2403,9 @@
   "learningModeSwitchedUsb": "USB-adapter geselecteerd.",
   "learningModeSwitchUsbFailed": "Kan niet overschakelen naar de USB-adapter: {error}",
   "learningModeAudioUnavailableTitle": "Leren via audio niet mogelijk",
-  "learningModeAudioUnavailableBody": "Audio-IR-accessoires kunnen in deze app opdrachten verzenden, maar geen signalen leren. Gebruik een ontvanger die de leerfunctie ondersteunt."
+  "learningModeAudioUnavailableBody": "Audio-IR-accessoires kunnen in deze app opdrachten verzenden, maar geen signalen leren. Gebruik een ontvanger die de leerfunctie ondersteunt.",
+  "learningModeBuiltInReceiver": "Ingebouwde IR-ontvanger van {brand}",
+  "learningModeUsbReceiver": "USB-ontvanger met leerfunctie",
+  "learningModeDefaultRemoteName": "Afstandsbediening {buttonName}",
+  "learningModeSupportedReceivers": "Gebruik een ontvanger die deze app ondersteunt:\n• Een compatibele USB-IR-adapter van Tiqiaa, ZaZa of ElkSmart\n• Een ondersteunde Huawei-/Honor-telefoon met IR-ontvangst\n• Een ondersteunde LG-telefoon met UEI Quickset\n\nNiet alle modellen hebben een leerfunctie."
 }

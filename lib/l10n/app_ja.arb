@@ -2403,5 +2403,9 @@
   "learningModeSwitchedUsb": "USBアダプターに切り替えました。",
   "learningModeSwitchUsbFailed": "USBアダプターに切り替えられませんでした：{error}",
   "learningModeAudioUnavailableTitle": "オーディオ機器での学習は非対応",
-  "learningModeAudioUnavailableBody": "このアプリでは、オーディオ接続の赤外線機器は送信のみ対応しています。学習には対応する受信機をお使いください。"
+  "learningModeAudioUnavailableBody": "このアプリでは、オーディオ接続の赤外線機器は送信のみ対応しています。学習には対応する受信機をお使いください。",
+  "learningModeBuiltInReceiver": "{brand}の内蔵赤外線受信機",
+  "learningModeUsbReceiver": "USB学習用受信機",
+  "learningModeDefaultRemoteName": "{buttonName}用リモコン",
+  "learningModeSupportedReceivers": "このアプリに対応した受信機をお使いください。\n• 対応するTiqiaa、ZaZa、ElkSmartのUSB赤外線アダプター\n• 赤外線受信に対応したHuawei / Honor端末\n• UEI Quicksetを搭載した対応LG端末\n\nすべての機種が学習に対応しているわけではありません。"
 }

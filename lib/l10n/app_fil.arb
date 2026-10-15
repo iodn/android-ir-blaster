@@ -2403,5 +2403,9 @@
   "learningModeSwitchedUsb": "USB dongle na ang ginagamit.",
   "learningModeSwitchUsbFailed": "Hindi makalipat sa USB dongle: {error}",
   "learningModeAudioUnavailableTitle": "Hindi makakopya gamit ang audio",
-  "learningModeAudioUnavailableBody": "Puwedeng magpadala ng command ang mga audio IR accessory, pero hindi makakopya ng signal gamit ang app na ito. Gumamit ng receiver na sinusuportahan para sa pagkopya ng signal."
+  "learningModeAudioUnavailableBody": "Puwedeng magpadala ng command ang mga audio IR accessory, pero hindi makakopya ng signal gamit ang app na ito. Gumamit ng receiver na sinusuportahan para sa pagkopya ng signal.",
+  "learningModeBuiltInReceiver": "Built-in na IR receiver ng {brand}",
+  "learningModeUsbReceiver": "USB receiver para kumopya ng signal",
+  "learningModeDefaultRemoteName": "Remote na {buttonName}",
+  "learningModeSupportedReceivers": "Gumamit ng receiver na sinusuportahan ng app:\n• Compatible na Tiqiaa, ZaZa, o ElkSmart USB IR dongle\n• Suportadong Huawei / Honor phone na nakakatanggap ng IR\n• Suportadong LG phone na may UEI Quickset\n\nHindi lahat ng modelo ay kayang kumopya ng signal."
 }

@@ -2403,5 +2403,9 @@
   "learningModeSwitchedUsb": "เปลี่ยนไปใช้ดองเกิล USB แล้ว",
   "learningModeSwitchUsbFailed": "เปลี่ยนไปใช้ดองเกิล USB ไม่ได้: {error}",
   "learningModeAudioUnavailableTitle": "ไม่รองรับการเรียนรู้ผ่านเสียง",
-  "learningModeAudioUnavailableBody": "อุปกรณ์ IR แบบเสียงส่งคำสั่งได้ แต่เรียนรู้สัญญาณในแอปนี้ไม่ได้ โปรดใช้ตัวรับสัญญาณที่รองรับการเรียนรู้"
+  "learningModeAudioUnavailableBody": "อุปกรณ์ IR แบบเสียงส่งคำสั่งได้ แต่เรียนรู้สัญญาณในแอปนี้ไม่ได้ โปรดใช้ตัวรับสัญญาณที่รองรับการเรียนรู้",
+  "learningModeBuiltInReceiver": "ตัวรับ IR ในตัวของ {brand}",
+  "learningModeUsbReceiver": "ตัวรับ USB สำหรับเรียนรู้สัญญาณ",
+  "learningModeDefaultRemoteName": "รีโมต {buttonName}",
+  "learningModeSupportedReceivers": "ใช้ตัวรับสัญญาณที่แอปนี้รองรับ:\n• ดองเกิล USB IR รุ่นที่รองรับของ Tiqiaa, ZaZa หรือ ElkSmart\n• โทรศัพท์ Huawei / Honor รุ่นที่รองรับและรับสัญญาณ IR ได้\n• โทรศัพท์ LG รุ่นที่รองรับและมี UEI Quickset\n\nไม่ใช่ทุกรุ่นที่เรียนรู้สัญญาณได้"
 }

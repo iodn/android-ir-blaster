@@ -5213,4 +5213,21 @@ class AppLocalizationsRu extends AppLocalizations {
   @override
   String get learningModeAudioUnavailableBody =>
       'ИК-аксессуары с аудиоподключением могут отправлять команды, но не запоминать сигналы в этом приложении. Используйте поддерживаемый приёмник с функцией обучения.';
+
+  @override
+  String learningModeBuiltInReceiver(String brand) {
+    return 'Встроенный ИК-приёмник $brand';
+  }
+
+  @override
+  String get learningModeUsbReceiver => 'USB-приёмник с обучением';
+
+  @override
+  String learningModeDefaultRemoteName(String buttonName) {
+    return 'Пульт $buttonName';
+  }
+
+  @override
+  String get learningModeSupportedReceivers =>
+      'Используйте приёмник, поддерживаемый приложением:\n• Совместимый ИК USB-адаптер Tiqiaa, ZaZa или ElkSmart\n• Поддерживаемый телефон Huawei / Honor с ИК-приёмником\n• Поддерживаемый телефон LG с UEI Quickset\n\nНе все модели поддерживают обучение.';
 }

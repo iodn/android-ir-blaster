@@ -5247,4 +5247,21 @@ class AppLocalizationsNl extends AppLocalizations {
   @override
   String get learningModeAudioUnavailableBody =>
       'Audio-IR-accessoires kunnen in deze app opdrachten verzenden, maar geen signalen leren. Gebruik een ontvanger die de leerfunctie ondersteunt.';
+
+  @override
+  String learningModeBuiltInReceiver(String brand) {
+    return 'Ingebouwde IR-ontvanger van $brand';
+  }
+
+  @override
+  String get learningModeUsbReceiver => 'USB-ontvanger met leerfunctie';
+
+  @override
+  String learningModeDefaultRemoteName(String buttonName) {
+    return 'Afstandsbediening $buttonName';
+  }
+
+  @override
+  String get learningModeSupportedReceivers =>
+      'Gebruik een ontvanger die deze app ondersteunt:\n• Een compatibele USB-IR-adapter van Tiqiaa, ZaZa of ElkSmart\n• Een ondersteunde Huawei-/Honor-telefoon met IR-ontvangst\n• Een ondersteunde LG-telefoon met UEI Quickset\n\nNiet alle modellen hebben een leerfunctie.';
 }
