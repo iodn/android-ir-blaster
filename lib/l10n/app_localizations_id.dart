@@ -5362,4 +5362,19 @@ class AppLocalizationsId extends AppLocalizations {
 
   @override
   String get githubFilterFolder => 'Filter folder ini';
+
+  @override
+  String get githubLinkSaved => 'Tautan disimpan.';
+
+  @override
+  String get githubLinkAlreadySaved => 'Tautan ini sudah disimpan.';
+
+  @override
+  String get githubNoSavedLinks => 'Belum ada tautan tersimpan.';
+
+  @override
+  String get githubChooseLink => 'Pilih tautan';
+
+  @override
+  String get githubSavedLinks => 'Tautan tersimpan';
 }

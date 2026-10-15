@@ -5204,4 +5204,19 @@ class AppLocalizationsJa extends AppLocalizations {
 
   @override
   String get githubFilterFolder => 'このフォルダ内を絞り込む';
+
+  @override
+  String get githubLinkSaved => 'リンクを保存しました。';
+
+  @override
+  String get githubLinkAlreadySaved => 'このリンクは保存済みです。';
+
+  @override
+  String get githubNoSavedLinks => '保存したリンクはまだありません。';
+
+  @override
+  String get githubChooseLink => 'リンクを選択';
+
+  @override
+  String get githubSavedLinks => '保存したリンク';
 }

@@ -5344,4 +5344,19 @@ class AppLocalizationsVi extends AppLocalizations {
 
   @override
   String get githubFilterFolder => 'Lọc thư mục này';
+
+  @override
+  String get githubLinkSaved => 'Đã lưu liên kết.';
+
+  @override
+  String get githubLinkAlreadySaved => 'Liên kết này đã được lưu.';
+
+  @override
+  String get githubNoSavedLinks => 'Chưa có liên kết nào được lưu.';
+
+  @override
+  String get githubChooseLink => 'Chọn liên kết';
+
+  @override
+  String get githubSavedLinks => 'Liên kết đã lưu';
 }

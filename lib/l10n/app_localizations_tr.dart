@@ -5359,4 +5359,19 @@ class AppLocalizationsTr extends AppLocalizations {
 
   @override
   String get githubFilterFolder => 'Bu klasörü filtrele';
+
+  @override
+  String get githubLinkSaved => 'Bağlantı kaydedildi.';
+
+  @override
+  String get githubLinkAlreadySaved => 'Bu bağlantı zaten kayıtlı.';
+
+  @override
+  String get githubNoSavedLinks => 'Henüz kayıtlı bağlantı yok.';
+
+  @override
+  String get githubChooseLink => 'Bağlantı seç';
+
+  @override
+  String get githubSavedLinks => 'Kayıtlı bağlantılar';
 }

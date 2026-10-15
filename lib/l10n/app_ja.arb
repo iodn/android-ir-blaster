@@ -2458,5 +2458,10 @@
   "githubBrowse": "参照",
   "githubSaveRepository": "リンクを保存",
   "githubParentFolder": "上のフォルダへ",
-  "githubFilterFolder": "このフォルダ内を絞り込む"
+  "githubFilterFolder": "このフォルダ内を絞り込む",
+  "githubLinkSaved": "リンクを保存しました。",
+  "githubLinkAlreadySaved": "このリンクは保存済みです。",
+  "githubNoSavedLinks": "保存したリンクはまだありません。",
+  "githubChooseLink": "リンクを選択",
+  "githubSavedLinks": "保存したリンク"
 }

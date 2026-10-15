@@ -5464,4 +5464,19 @@ class AppLocalizationsFr extends AppLocalizations {
 
   @override
   String get githubFilterFolder => 'Filtrer ce dossier';
+
+  @override
+  String get githubLinkSaved => 'Lien enregistré.';
+
+  @override
+  String get githubLinkAlreadySaved => 'Ce lien est déjà enregistré.';
+
+  @override
+  String get githubNoSavedLinks => 'Aucun lien enregistré pour le moment.';
+
+  @override
+  String get githubChooseLink => 'Choisir un lien';
+
+  @override
+  String get githubSavedLinks => 'Liens enregistrés';
 }

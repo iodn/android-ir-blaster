@@ -2458,5 +2458,10 @@
   "githubBrowse": "เรียกดู",
   "githubSaveRepository": "บันทึกลิงก์",
   "githubParentFolder": "โฟลเดอร์ระดับบน",
-  "githubFilterFolder": "กรองในโฟลเดอร์นี้"
+  "githubFilterFolder": "กรองในโฟลเดอร์นี้",
+  "githubLinkSaved": "บันทึกลิงก์แล้ว",
+  "githubLinkAlreadySaved": "บันทึกลิงก์นี้ไว้แล้ว",
+  "githubNoSavedLinks": "ยังไม่มีลิงก์ที่บันทึกไว้",
+  "githubChooseLink": "เลือกลิงก์",
+  "githubSavedLinks": "ลิงก์ที่บันทึกไว้"
 }

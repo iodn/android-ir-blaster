@@ -2460,5 +2460,10 @@
   "githubBrowse": "Przeglądaj",
   "githubSaveRepository": "Zapisz link",
   "githubParentFolder": "Folder nadrzędny",
-  "githubFilterFolder": "Filtruj ten folder"
+  "githubFilterFolder": "Filtruj ten folder",
+  "githubLinkSaved": "Zapisano link.",
+  "githubLinkAlreadySaved": "Ten link jest już zapisany.",
+  "githubNoSavedLinks": "Nie ma jeszcze zapisanych linków.",
+  "githubChooseLink": "Wybierz link",
+  "githubSavedLinks": "Zapisane linki"
 }

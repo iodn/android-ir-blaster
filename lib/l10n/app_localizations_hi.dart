@@ -5374,4 +5374,19 @@ class AppLocalizationsHi extends AppLocalizations {
 
   @override
   String get githubFilterFolder => 'इस फ़ोल्डर में फ़िल्टर करें';
+
+  @override
+  String get githubLinkSaved => 'लिंक सहेजा गया।';
+
+  @override
+  String get githubLinkAlreadySaved => 'यह लिंक पहले से सहेजा गया है।';
+
+  @override
+  String get githubNoSavedLinks => 'अभी कोई लिंक सहेजा नहीं गया है।';
+
+  @override
+  String get githubChooseLink => 'लिंक चुनें';
+
+  @override
+  String get githubSavedLinks => 'सहेजे गए लिंक';
 }

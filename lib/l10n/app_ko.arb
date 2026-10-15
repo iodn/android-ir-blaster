@@ -2458,5 +2458,10 @@
   "githubBrowse": "둘러보기",
   "githubSaveRepository": "링크 저장",
   "githubParentFolder": "상위 폴더",
-  "githubFilterFolder": "이 폴더에서 필터링"
+  "githubFilterFolder": "이 폴더에서 필터링",
+  "githubLinkSaved": "링크를 저장했어요.",
+  "githubLinkAlreadySaved": "이미 저장된 링크예요.",
+  "githubNoSavedLinks": "아직 저장된 링크가 없어요.",
+  "githubChooseLink": "링크 선택",
+  "githubSavedLinks": "저장된 링크"
 }

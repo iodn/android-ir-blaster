@@ -2444,5 +2444,10 @@
   "githubBrowse": "Durchsuchen",
   "githubSaveRepository": "Link speichern",
   "githubParentFolder": "Übergeordneter Ordner",
-  "githubFilterFolder": "Diesen Ordner filtern"
+  "githubFilterFolder": "Diesen Ordner filtern",
+  "githubLinkSaved": "Link gespeichert.",
+  "githubLinkAlreadySaved": "Dieser Link ist bereits gespeichert.",
+  "githubNoSavedLinks": "Noch keine Links gespeichert.",
+  "githubChooseLink": "Link auswählen",
+  "githubSavedLinks": "Gespeicherte Links"
 }

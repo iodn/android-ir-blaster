@@ -5321,4 +5321,19 @@ class AppLocalizationsTh extends AppLocalizations {
 
   @override
   String get githubFilterFolder => 'กรองในโฟลเดอร์นี้';
+
+  @override
+  String get githubLinkSaved => 'บันทึกลิงก์แล้ว';
+
+  @override
+  String get githubLinkAlreadySaved => 'บันทึกลิงก์นี้ไว้แล้ว';
+
+  @override
+  String get githubNoSavedLinks => 'ยังไม่มีลิงก์ที่บันทึกไว้';
+
+  @override
+  String get githubChooseLink => 'เลือกลิงก์';
+
+  @override
+  String get githubSavedLinks => 'ลิงก์ที่บันทึกไว้';
 }

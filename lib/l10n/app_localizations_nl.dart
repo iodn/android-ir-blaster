@@ -5453,4 +5453,19 @@ class AppLocalizationsNl extends AppLocalizations {
 
   @override
   String get githubFilterFolder => 'Deze map filteren';
+
+  @override
+  String get githubLinkSaved => 'Link opgeslagen.';
+
+  @override
+  String get githubLinkAlreadySaved => 'Deze link is al opgeslagen.';
+
+  @override
+  String get githubNoSavedLinks => 'Nog geen opgeslagen links.';
+
+  @override
+  String get githubChooseLink => 'Kies een link';
+
+  @override
+  String get githubSavedLinks => 'Opgeslagen links';
 }

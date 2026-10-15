@@ -2458,5 +2458,10 @@
   "githubBrowse": "浏览",
   "githubSaveRepository": "保存链接",
   "githubParentFolder": "上级文件夹",
-  "githubFilterFolder": "筛选当前文件夹"
+  "githubFilterFolder": "筛选当前文件夹",
+  "githubLinkSaved": "链接已保存。",
+  "githubLinkAlreadySaved": "此链接已保存，无需重复添加。",
+  "githubNoSavedLinks": "还没有保存的链接。",
+  "githubChooseLink": "选择链接",
+  "githubSavedLinks": "已保存的链接"
 }

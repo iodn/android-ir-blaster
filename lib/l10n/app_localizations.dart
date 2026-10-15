@@ -9661,6 +9661,36 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Filter this folder'**
   String get githubFilterFolder;
+
+  /// No description provided for @githubLinkSaved.
+  ///
+  /// In en, this message translates to:
+  /// **'Link saved.'**
+  String get githubLinkSaved;
+
+  /// No description provided for @githubLinkAlreadySaved.
+  ///
+  /// In en, this message translates to:
+  /// **'This link is already saved.'**
+  String get githubLinkAlreadySaved;
+
+  /// No description provided for @githubNoSavedLinks.
+  ///
+  /// In en, this message translates to:
+  /// **'No saved links yet.'**
+  String get githubNoSavedLinks;
+
+  /// No description provided for @githubChooseLink.
+  ///
+  /// In en, this message translates to:
+  /// **'Choose a link'**
+  String get githubChooseLink;
+
+  /// No description provided for @githubSavedLinks.
+  ///
+  /// In en, this message translates to:
+  /// **'Saved links'**
+  String get githubSavedLinks;
 }
 
 class _AppLocalizationsDelegate

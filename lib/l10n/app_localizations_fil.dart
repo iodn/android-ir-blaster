@@ -5382,4 +5382,19 @@ class AppLocalizationsFil extends AppLocalizations {
 
   @override
   String get githubFilterFolder => 'Salain ang folder na ito';
+
+  @override
+  String get githubLinkSaved => 'Na-save na ang link.';
+
+  @override
+  String get githubLinkAlreadySaved => 'Naka-save na ang link na ito.';
+
+  @override
+  String get githubNoSavedLinks => 'Wala pang naka-save na link.';
+
+  @override
+  String get githubChooseLink => 'Pumili ng link';
+
+  @override
+  String get githubSavedLinks => 'Mga naka-save na link';
 }

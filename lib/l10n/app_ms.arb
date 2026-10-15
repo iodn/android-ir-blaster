@@ -2458,5 +2458,10 @@
   "githubBrowse": "Semak imbas",
   "githubSaveRepository": "Simpan pautan",
   "githubParentFolder": "Folder induk",
-  "githubFilterFolder": "Tapis folder ini"
+  "githubFilterFolder": "Tapis folder ini",
+  "githubLinkSaved": "Pautan disimpan.",
+  "githubLinkAlreadySaved": "Pautan ini sudah disimpan.",
+  "githubNoSavedLinks": "Belum ada pautan disimpan.",
+  "githubChooseLink": "Pilih pautan",
+  "githubSavedLinks": "Pautan disimpan"
 }

@@ -5447,4 +5447,19 @@ class AppLocalizationsEs extends AppLocalizations {
 
   @override
   String get githubFilterFolder => 'Filtrar esta carpeta';
+
+  @override
+  String get githubLinkSaved => 'Enlace guardado.';
+
+  @override
+  String get githubLinkAlreadySaved => 'Este enlace ya está guardado.';
+
+  @override
+  String get githubNoSavedLinks => 'Aún no hay enlaces guardados.';
+
+  @override
+  String get githubChooseLink => 'Elegir un enlace';
+
+  @override
+  String get githubSavedLinks => 'Enlaces guardados';
 }

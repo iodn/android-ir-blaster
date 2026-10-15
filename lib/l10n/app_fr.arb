@@ -2458,5 +2458,10 @@
   "githubBrowse": "Parcourir",
   "githubSaveRepository": "Enregistrer le lien",
   "githubParentFolder": "Dossier parent",
-  "githubFilterFolder": "Filtrer ce dossier"
+  "githubFilterFolder": "Filtrer ce dossier",
+  "githubLinkSaved": "Lien enregistré.",
+  "githubLinkAlreadySaved": "Ce lien est déjà enregistré.",
+  "githubNoSavedLinks": "Aucun lien enregistré pour le moment.",
+  "githubChooseLink": "Choisir un lien",
+  "githubSavedLinks": "Liens enregistrés"
 }

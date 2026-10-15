@@ -2458,5 +2458,10 @@
   "githubBrowse": "Explorar",
   "githubSaveRepository": "Salvar link",
   "githubParentFolder": "Pasta superior",
-  "githubFilterFolder": "Filtrar esta pasta"
+  "githubFilterFolder": "Filtrar esta pasta",
+  "githubLinkSaved": "Link salvo.",
+  "githubLinkAlreadySaved": "Este link já está salvo.",
+  "githubNoSavedLinks": "Ainda não há links salvos.",
+  "githubChooseLink": "Escolher um link",
+  "githubSavedLinks": "Links salvos"
 }

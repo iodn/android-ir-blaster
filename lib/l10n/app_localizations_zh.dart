@@ -5120,4 +5120,19 @@ class AppLocalizationsZh extends AppLocalizations {
 
   @override
   String get githubFilterFolder => '筛选当前文件夹';
+
+  @override
+  String get githubLinkSaved => '链接已保存。';
+
+  @override
+  String get githubLinkAlreadySaved => '此链接已保存，无需重复添加。';
+
+  @override
+  String get githubNoSavedLinks => '还没有保存的链接。';
+
+  @override
+  String get githubChooseLink => '选择链接';
+
+  @override
+  String get githubSavedLinks => '已保存的链接';
 }

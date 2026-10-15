@@ -5449,6 +5449,21 @@ class AppLocalizationsPt extends AppLocalizations {
 
   @override
   String get githubFilterFolder => 'Filtrar esta pasta';
+
+  @override
+  String get githubLinkSaved => 'Ligação guardada.';
+
+  @override
+  String get githubLinkAlreadySaved => 'Esta ligação já está guardada.';
+
+  @override
+  String get githubNoSavedLinks => 'Ainda não há ligações guardadas.';
+
+  @override
+  String get githubChooseLink => 'Escolher uma ligação';
+
+  @override
+  String get githubSavedLinks => 'Ligações guardadas';
 }
 
 /// The translations for Portuguese, as used in Brazil (`pt_BR`).
@@ -10891,4 +10906,19 @@ class AppLocalizationsPtBr extends AppLocalizationsPt {
 
   @override
   String get githubFilterFolder => 'Filtrar esta pasta';
+
+  @override
+  String get githubLinkSaved => 'Link salvo.';
+
+  @override
+  String get githubLinkAlreadySaved => 'Este link já está salvo.';
+
+  @override
+  String get githubNoSavedLinks => 'Ainda não há links salvos.';
+
+  @override
+  String get githubChooseLink => 'Escolher um link';
+
+  @override
+  String get githubSavedLinks => 'Links salvos';
 }

@@ -2458,5 +2458,10 @@
   "githubBrowse": "Mag-browse",
   "githubSaveRepository": "I-save ang link",
   "githubParentFolder": "Folder sa itaas",
-  "githubFilterFolder": "Salain ang folder na ito"
+  "githubFilterFolder": "Salain ang folder na ito",
+  "githubLinkSaved": "Na-save na ang link.",
+  "githubLinkAlreadySaved": "Naka-save na ang link na ito.",
+  "githubNoSavedLinks": "Wala pang naka-save na link.",
+  "githubChooseLink": "Pumili ng link",
+  "githubSavedLinks": "Mga naka-save na link"
 }

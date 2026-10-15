@@ -2458,5 +2458,10 @@
   "githubBrowse": "Bladeren",
   "githubSaveRepository": "Link opslaan",
   "githubParentFolder": "Bovenliggende map",
-  "githubFilterFolder": "Deze map filteren"
+  "githubFilterFolder": "Deze map filteren",
+  "githubLinkSaved": "Link opgeslagen.",
+  "githubLinkAlreadySaved": "Deze link is al opgeslagen.",
+  "githubNoSavedLinks": "Nog geen opgeslagen links.",
+  "githubChooseLink": "Kies een link",
+  "githubSavedLinks": "Opgeslagen links"
 }

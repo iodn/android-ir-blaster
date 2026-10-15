@@ -2458,5 +2458,10 @@
   "githubBrowse": "تصفح",
   "githubSaveRepository": "حفظ الرابط",
   "githubParentFolder": "المجلد الأعلى",
-  "githubFilterFolder": "تصفية هذا المجلد"
+  "githubFilterFolder": "تصفية هذا المجلد",
+  "githubLinkSaved": "تم حفظ الرابط.",
+  "githubLinkAlreadySaved": "هذا الرابط محفوظ بالفعل.",
+  "githubNoSavedLinks": "لا توجد روابط محفوظة بعد.",
+  "githubChooseLink": "اختر رابطًا",
+  "githubSavedLinks": "الروابط المحفوظة"
 }

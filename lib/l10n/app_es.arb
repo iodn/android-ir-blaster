@@ -2458,5 +2458,10 @@
   "githubBrowse": "Explorar",
   "githubSaveRepository": "Guardar enlace",
   "githubParentFolder": "Carpeta superior",
-  "githubFilterFolder": "Filtrar esta carpeta"
+  "githubFilterFolder": "Filtrar esta carpeta",
+  "githubLinkSaved": "Enlace guardado.",
+  "githubLinkAlreadySaved": "Este enlace ya está guardado.",
+  "githubNoSavedLinks": "Aún no hay enlaces guardados.",
+  "githubChooseLink": "Elegir un enlace",
+  "githubSavedLinks": "Enlaces guardados"
 }

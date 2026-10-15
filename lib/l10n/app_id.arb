@@ -2458,5 +2458,10 @@
   "githubBrowse": "Jelajahi",
   "githubSaveRepository": "Simpan tautan",
   "githubParentFolder": "Folder induk",
-  "githubFilterFolder": "Filter folder ini"
+  "githubFilterFolder": "Filter folder ini",
+  "githubLinkSaved": "Tautan disimpan.",
+  "githubLinkAlreadySaved": "Tautan ini sudah disimpan.",
+  "githubNoSavedLinks": "Belum ada tautan tersimpan.",
+  "githubChooseLink": "Pilih tautan",
+  "githubSavedLinks": "Tautan tersimpan"
 }

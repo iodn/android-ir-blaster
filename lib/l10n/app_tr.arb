@@ -2458,5 +2458,10 @@
   "githubBrowse": "Göz at",
   "githubSaveRepository": "Bağlantıyı kaydet",
   "githubParentFolder": "Üst klasör",
-  "githubFilterFolder": "Bu klasörü filtrele"
+  "githubFilterFolder": "Bu klasörü filtrele",
+  "githubLinkSaved": "Bağlantı kaydedildi.",
+  "githubLinkAlreadySaved": "Bu bağlantı zaten kayıtlı.",
+  "githubNoSavedLinks": "Henüz kayıtlı bağlantı yok.",
+  "githubChooseLink": "Bağlantı seç",
+  "githubSavedLinks": "Kayıtlı bağlantılar"
 }

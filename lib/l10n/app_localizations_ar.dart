@@ -5377,6 +5377,21 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String get githubFilterFolder => 'تصفية هذا المجلد';
+
+  @override
+  String get githubLinkSaved => 'تم حفظ الرابط.';
+
+  @override
+  String get githubLinkAlreadySaved => 'هذا الرابط محفوظ بالفعل.';
+
+  @override
+  String get githubNoSavedLinks => 'لا توجد روابط محفوظة بعد.';
+
+  @override
+  String get githubChooseLink => 'اختر رابطًا';
+
+  @override
+  String get githubSavedLinks => 'الروابط المحفوظة';
 }
 
 /// The translations for Arabic, as used in Egypt (`ar_EG`).
@@ -10752,4 +10767,19 @@ class AppLocalizationsArEg extends AppLocalizationsAr {
 
   @override
   String get githubFilterFolder => 'تصفية المجلد الحالي';
+
+  @override
+  String get githubLinkSaved => 'تم حفظ الرابط.';
+
+  @override
+  String get githubLinkAlreadySaved => 'الرابط ده محفوظ بالفعل.';
+
+  @override
+  String get githubNoSavedLinks => 'لسه مفيش روابط محفوظة.';
+
+  @override
+  String get githubChooseLink => 'اختار رابط';
+
+  @override
+  String get githubSavedLinks => 'الروابط المحفوظة';
 }

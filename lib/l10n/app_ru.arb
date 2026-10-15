@@ -2458,5 +2458,10 @@
   "githubBrowse": "Обзор",
   "githubSaveRepository": "Сохранить ссылку",
   "githubParentFolder": "На папку выше",
-  "githubFilterFolder": "Фильтр в этой папке"
+  "githubFilterFolder": "Фильтр в этой папке",
+  "githubLinkSaved": "Ссылка сохранена.",
+  "githubLinkAlreadySaved": "Эта ссылка уже сохранена.",
+  "githubNoSavedLinks": "Пока нет сохранённых ссылок.",
+  "githubChooseLink": "Выберите ссылку",
+  "githubSavedLinks": "Сохранённые ссылки"
 }

@@ -2689,5 +2689,10 @@
   "githubBrowse": "Browse",
   "githubSaveRepository": "Save link",
   "githubParentFolder": "Parent folder",
-  "githubFilterFolder": "Filter this folder"
+  "githubFilterFolder": "Filter this folder",
+  "githubLinkSaved": "Link saved.",
+  "githubLinkAlreadySaved": "This link is already saved.",
+  "githubNoSavedLinks": "No saved links yet.",
+  "githubChooseLink": "Choose a link",
+  "githubSavedLinks": "Saved links"
 }

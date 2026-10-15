@@ -5374,4 +5374,19 @@ class AppLocalizationsMs extends AppLocalizations {
 
   @override
   String get githubFilterFolder => 'Tapis folder ini';
+
+  @override
+  String get githubLinkSaved => 'Pautan disimpan.';
+
+  @override
+  String get githubLinkAlreadySaved => 'Pautan ini sudah disimpan.';
+
+  @override
+  String get githubNoSavedLinks => 'Belum ada pautan disimpan.';
+
+  @override
+  String get githubChooseLink => 'Pilih pautan';
+
+  @override
+  String get githubSavedLinks => 'Pautan disimpan';
 }

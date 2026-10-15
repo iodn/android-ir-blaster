@@ -5219,4 +5219,19 @@ class AppLocalizationsKo extends AppLocalizations {
 
   @override
   String get githubFilterFolder => '이 폴더에서 필터링';
+
+  @override
+  String get githubLinkSaved => '링크를 저장했어요.';
+
+  @override
+  String get githubLinkAlreadySaved => '이미 저장된 링크예요.';
+
+  @override
+  String get githubNoSavedLinks => '아직 저장된 링크가 없어요.';
+
+  @override
+  String get githubChooseLink => '링크 선택';
+
+  @override
+  String get githubSavedLinks => '저장된 링크';
 }

@@ -2458,5 +2458,10 @@
   "githubBrowse": "ब्राउज़ करें",
   "githubSaveRepository": "लिंक सहेजें",
   "githubParentFolder": "ऊपर वाला फ़ोल्डर",
-  "githubFilterFolder": "इस फ़ोल्डर में फ़िल्टर करें"
+  "githubFilterFolder": "इस फ़ोल्डर में फ़िल्टर करें",
+  "githubLinkSaved": "लिंक सहेजा गया।",
+  "githubLinkAlreadySaved": "यह लिंक पहले से सहेजा गया है।",
+  "githubNoSavedLinks": "अभी कोई लिंक सहेजा नहीं गया है।",
+  "githubChooseLink": "लिंक चुनें",
+  "githubSavedLinks": "सहेजे गए लिंक"
 }

@@ -275,7 +275,7 @@ class _GitHubStoreScreenState extends State<GitHubStoreScreen> {
     if (repo == null) return;
     final exists = _sources.any((source) => _sameSource(source, repo));
     if (exists) {
-      _showSnack('Source already saved.');
+      _showSnack(context.l10n.githubLinkAlreadySaved);
       return;
     }
     final alias = repo.alias?.trim().isNotEmpty == true
@@ -291,12 +291,12 @@ class _GitHubStoreScreenState extends State<GitHubStoreScreen> {
       _sources = updated;
       _repo = repo.copyWith(alias: alias);
     });
-    _showSnack('Source saved.');
+    _showSnack(context.l10n.githubLinkSaved);
   }
 
   Future<void> _openSourcePicker() async {
     if (_sources.isEmpty) {
-      _showSnack('No saved sources yet.');
+      _showSnack(context.l10n.githubNoSavedLinks);
       return;
     }
     final chosen = await showModalBottomSheet<RepoRef>(
@@ -313,7 +313,7 @@ class _GitHubStoreScreenState extends State<GitHubStoreScreen> {
                 children: [
                   Expanded(
                     child: Text(
-                      'Choose source',
+                      context.l10n.githubChooseLink,
                       style: Theme.of(context).textTheme.titleLarge,
                     ),
                   ),
@@ -411,7 +411,7 @@ class _GitHubStoreScreenState extends State<GitHubStoreScreen> {
           title: const Text('GitHub Store'),
           actions: [
             IconButton(
-              tooltip: 'Saved sources',
+              tooltip: context.l10n.githubSavedLinks,
               onPressed: _sources.isEmpty ? null : _openSourcePicker,
               icon: const Icon(Icons.bookmarks_outlined),
             ),

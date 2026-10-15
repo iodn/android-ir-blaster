@@ -2458,5 +2458,10 @@
   "githubBrowse": "Переглянути",
   "githubSaveRepository": "Зберегти посилання",
   "githubParentFolder": "На теку вище",
-  "githubFilterFolder": "Фільтр у цій теці"
+  "githubFilterFolder": "Фільтр у цій теці",
+  "githubLinkSaved": "Посилання збережено.",
+  "githubLinkAlreadySaved": "Це посилання вже збережено.",
+  "githubNoSavedLinks": "Збережених посилань ще немає.",
+  "githubChooseLink": "Виберіть посилання",
+  "githubSavedLinks": "Збережені посилання"
 }

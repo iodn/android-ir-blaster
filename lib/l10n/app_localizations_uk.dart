@@ -5507,4 +5507,19 @@ class AppLocalizationsUk extends AppLocalizations {
 
   @override
   String get githubFilterFolder => 'Фільтр у цій теці';
+
+  @override
+  String get githubLinkSaved => 'Посилання збережено.';
+
+  @override
+  String get githubLinkAlreadySaved => 'Це посилання вже збережено.';
+
+  @override
+  String get githubNoSavedLinks => 'Збережених посилань ще немає.';
+
+  @override
+  String get githubChooseLink => 'Виберіть посилання';
+
+  @override
+  String get githubSavedLinks => 'Збережені посилання';
 }
