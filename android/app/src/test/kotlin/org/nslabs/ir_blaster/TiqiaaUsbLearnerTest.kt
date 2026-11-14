@@ -96,6 +96,21 @@ class TiqiaaUsbLearnerTest {
         assertArrayEquals(intArrayOf(4064, 16, 16), preview(hex("5354014400ffff0181454e")))
     }
 
+    @Test fun dFrameWithoutMetaByteKeepsItsFirstMark() {
+        // Captured from a ZaZa/Tiqiaa dongle (10c4:8468): the timings start right after 'D'.
+        val timings = "b836b935f036b836b836b86df135b86db836f036b8" + "7f7f"
+        val frame = hex("53540044$timings" + "454e")
+        val parsed = requireNotNull(parse(frame))
+        assertArrayEquals(frame, payload(parsed))
+        val expected = intArrayOf(
+            896, 864, 912, 848, 1792, 864, 896, 864, 896, 864, 896,
+            1744, 1808, 848, 896, 1744, 896, 864, 1792, 864, 896, 4064,
+        )
+        assertArrayEquals(expected, preview(frame))
+        // The same timings behind an explicit zero meta byte decode identically.
+        assertArrayEquals(expected, preview(hex("5354004400$timings" + "454e")))
+    }
+
     @Test fun unrelatedAckCannotCompleteCapture() {
         assertNull(feed(packet(1, 2, 1, first())))
         val ack = hex("5354025213454e")
