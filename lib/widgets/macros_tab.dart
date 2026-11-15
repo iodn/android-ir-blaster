@@ -68,6 +68,7 @@ class _MacrosTabState extends State<MacrosTab> {
               ],
             ),
             floatingActionButton: FloatingActionButton.extended(
+              heroTag: 'macros_add',
               onPressed: _addMacro,
               icon: const Icon(Icons.add_rounded),
               label: Text(context.l10n.createMacro),
