@@ -190,6 +190,60 @@ class MainActivityUsbLifecycleTest {
         }
     }
 
+    private fun transmitter() = getField<UsbIrTransmitter?>(activity, "usbTransmitter")
+
+    /** What [UsbIdleCleanup] does shortly after onStop: the connection is released. */
+    private fun releaseAsInBackground() {
+        invoke("resetUsbTransmitter")
+        assertNull(transmitter())
+        assertFalse(UsbDeviceAccess.isOwned(device.deviceName))
+    }
+
+    @Test fun firstSendRightAfterReturningUsesTheReopenedTransmitterForBothFamilies() {
+        for (elk in listOf(true, false)) {
+            shadowOf(manager).removeUsbDevice(device)
+            device = usbDevice("/dev/bus/usb/001/002", if (elk) 0x045c else 0x10c4, if (elk) 0x0134 else 0x8468)
+            shadowOf(manager).addOrUpdateUsbDevice(device, true)
+            assertNotNull(invoke("getOrOpenUsbTransmitterOrRequest"))
+            releaseAsInBackground()
+
+            val opensBefore = RecordingUsbConnection.opens.get()
+            invoke("reopenUsbAfterBackground")
+            val reopened = transmitter()
+            assertNotNull(reopened)
+            assertEquals(opensBefore + 1, RecordingUsbConnection.opens.get())
+
+            // A button tapped immediately afterwards goes through the same acquire path.
+            val acquired = invoke("getOrOpenUsbTransmitterOrRequest") as UsbIrTransmitter?
+            assertSame(reopened, acquired)
+            assertTrue(acquired!!.transmitRaw(38000, intArrayOf(9000, 4500, 560, 560, 560, 560)))
+            assertEquals(opensBefore + 1, RecordingUsbConnection.opens.get())
+            releaseAsInBackground()
+        }
+    }
+
+    @Test fun reopenAfterAFirstSendDoesNotClaimTheDongleAgain() {
+        val sent = invoke("getOrOpenUsbTransmitterOrRequest") as UsbIrTransmitter?
+        assertNotNull(sent)
+        val opens = RecordingUsbConnection.opens.get()
+        invoke("reopenUsbAfterBackground")
+        assertSame(sent, transmitter())
+        assertEquals(opens, RecordingUsbConnection.opens.get())
+    }
+
+    @Test fun reopenIsSkippedWithoutPermissionOrDuringLearning() {
+        shadowOf(manager).addOrUpdateUsbDevice(device, false)
+        invoke("reopenUsbAfterBackground")
+        assertNull(transmitter())
+        assertEquals(0, RecordingUsbConnection.opens.get())
+
+        shadowOf(manager).addOrUpdateUsbDevice(device, true)
+        assertEquals(device, begin())
+        invoke("reopenUsbAfterBackground")
+        assertNull(transmitter())
+        assertEquals(0, RecordingUsbConnection.opens.get())
+    }
+
     private class Result : MethodChannel.Result {
         var completed = false
         var value: Any? = null
