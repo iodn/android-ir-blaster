@@ -1697,29 +1697,40 @@ class _CapturedSignalPreviewTabs extends StatelessWidget {
             ),
           ),
           const SizedBox(height: 12),
-          SizedBox(
-            height: hasWaveform ? 410 : 260,
-            child: TabBarView(
-              children: [
-                _CapturedWaveformTab(
-                  signal: signal,
-                  hasWaveform: hasWaveform,
-                  protocolPreview: protocolPreview,
-                  replaying: replaying,
-                  looping: looping,
-                  replayAnimation: replayAnimation,
-                  replayWaveformActive: replayWaveformActive,
-                  frequencyHz: frequencyHz,
-                  onReplay: onReplay,
-                  onToggleLoop: onToggleLoop,
-                ),
-                if (hasRaw)
-                  _RawFallbackTab(
-                    rawPreview: rawPreview,
-                    onCopyRaw: onCopyRaw,
-                  ),
-              ],
-            ),
+          // The tab content used to live in a fixed-height TabBarView whose waveform tab
+          // was an inner vertical ListView. Dragging over it scrolled that inner list
+          // instead of the page, which made the Replay buttons and everything below the
+          // card hard to reach. Show the selected tab at its natural height instead.
+          Builder(
+            builder: (context) {
+              final controller = DefaultTabController.of(context);
+              return AnimatedBuilder(
+                animation: controller,
+                builder: (context, _) {
+                  if (hasRaw && controller.index == 1) {
+                    return SizedBox(
+                      height: 260,
+                      child: _RawFallbackTab(
+                        rawPreview: rawPreview,
+                        onCopyRaw: onCopyRaw,
+                      ),
+                    );
+                  }
+                  return _CapturedWaveformTab(
+                    signal: signal,
+                    hasWaveform: hasWaveform,
+                    protocolPreview: protocolPreview,
+                    replaying: replaying,
+                    looping: looping,
+                    replayAnimation: replayAnimation,
+                    replayWaveformActive: replayWaveformActive,
+                    frequencyHz: frequencyHz,
+                    onReplay: onReplay,
+                    onToggleLoop: onToggleLoop,
+                  );
+                },
+              );
+            },
           ),
         ],
       ),
@@ -1754,8 +1765,9 @@ class _CapturedWaveformTab extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return ListView(
-      padding: EdgeInsets.zero,
+    return Column(
+      mainAxisSize: MainAxisSize.min,
+      crossAxisAlignment: CrossAxisAlignment.stretch,
       children: [
         if (hasWaveform)
           AnimatedBuilder(
