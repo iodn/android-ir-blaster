@@ -129,9 +129,16 @@ class _HomeShellState extends State<HomeShell> {
 
     WidgetsBinding.instance.addPostFrameCallback((_) {
       final liveCtx = _startupSheetContext;
-      if (!_startupSheetOpen || liveCtx == null) return;
+      if (!_startupSheetOpen || liveCtx == null || !liveCtx.mounted) return;
 
       try {
+        // A close can be requested twice in the same frame: once by the capabilities
+        // event and once by the sheet rebuild that event triggers. The sheet stays
+        // "open" until its closing animation ends, so a second pop would remove the
+        // Home route and leave a black screen. Only pop while the sheet is still the
+        // current route.
+        final route = ModalRoute.of(liveCtx);
+        if (route == null || !route.isCurrent) return;
         Navigator.of(liveCtx).pop();
       } catch (_) {
         // ignore
