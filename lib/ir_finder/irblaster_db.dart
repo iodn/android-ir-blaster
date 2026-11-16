@@ -4,6 +4,7 @@ import 'dart:typed_data';
 
 import 'package:flutter/services.dart' show rootBundle;
 import 'package:irblaster_controller/ir_finder/ir_finder_models.dart';
+import 'package:irblaster_controller/ir_finder/ir_signal_matcher.dart';
 import 'package:path/path.dart' as p;
 import 'package:sqflite/sqflite.dart';
 
@@ -347,6 +348,173 @@ class IrBlasterDb {
     return rows.map((r) => (r['model'] as String)).toList(growable: false);
   }
 
+  bool _signalIndexReady = false;
+
+  Future<void> _ensureSignalIndex(Database db) async {
+    if (_signalIndexReady) return;
+    try {
+      await db.execute(
+        'CREATE INDEX IF NOT EXISTS idx_keys_protocol_hex ON keys(protocol, hexcode);',
+      );
+    } catch (_) {
+      // Best effort: the lookups still work, just slower.
+    }
+    _signalIndexReady = true;
+  }
+
+  /// `SELECT id FROM keys ... INTERSECT ...`: the ids of the remotes that contain
+  /// every one of [codes].
+  _RemoteIdsQuery _remoteIdsContaining(List<DecodedIrSignal> codes) {
+    final parts = <String>[];
+    final args = <Object?>[];
+    for (final code in codes) {
+      final String marks =
+          List<String>.filled(code.hexcodes.length, '?').join(',');
+      parts.add(
+        'SELECT id FROM keys WHERE protocol = ? AND hexcode IN ($marks)',
+      );
+      args.add(code.protocol);
+      args.addAll(code.hexcodes);
+    }
+    return _RemoteIdsQuery(parts.join(' INTERSECT '), args);
+  }
+
+  /// Brands and models whose remote contains *all* of [codes], most models first.
+  /// Each code is a `(protocol, hexcodes)` pair; [hexcodes] are alternative
+  /// encodings of the same code.
+  Future<IrDbSignalMatches> findBrandsForCodes({
+    required List<DecodedIrSignal> codes,
+    int brandLimit = 6,
+    int sampleModels = 3,
+  }) async {
+    if (codes.isEmpty || codes.any((c) => c.hexcodes.isEmpty)) {
+      return IrDbSignalMatches.empty;
+    }
+    await ensureInitialized();
+    final db = _requireDb();
+    await _ensureSignalIndex(db);
+    final q = _remoteIdsContaining(codes);
+
+    final totals = await db.rawQuery(
+      'SELECT COUNT(DISTINCT m.brand) AS brands, '
+      "COUNT(DISTINCT m.brand || '|' || m.model) AS models "
+      'FROM models m WHERE m.id IN (${q.sql});',
+      q.args,
+    );
+    final int totalBrands = (totals.first['brands'] as int?) ?? 0;
+    final int totalModels = (totals.first['models'] as int?) ?? 0;
+    if (totalBrands == 0) return IrDbSignalMatches.empty;
+
+    // Usual label of the newest code among the matching remotes.
+    final last = codes.last;
+    final String lastMarks =
+        List<String>.filled(last.hexcodes.length, '?').join(',');
+    final labelRows = await db.rawQuery(
+      'SELECT k.label AS label, COUNT(*) AS c FROM keys k '
+      'WHERE k.protocol = ? AND k.hexcode IN ($lastMarks) '
+      'AND k.id IN (${q.sql}) '
+      'GROUP BY k.label ORDER BY c DESC LIMIT 3;',
+      <Object?>[last.protocol, ...last.hexcodes, ...q.args],
+    );
+    final List<String> labels = labelRows
+        .map((r) => (r['label'] as String?)?.trim() ?? '')
+        .where((l) => l.isNotEmpty)
+        .toList(growable: false);
+
+    final brandRows = await db.rawQuery(
+      'SELECT m.brand AS brand, COUNT(DISTINCT m.model) AS models '
+      'FROM models m WHERE m.id IN (${q.sql}) '
+      'GROUP BY m.brand ORDER BY models DESC, m.brand ASC LIMIT ?;',
+      <Object?>[...q.args, brandLimit],
+    );
+
+    final brands = <IrDbBrandMatch>[];
+    for (final row in brandRows) {
+      final String brand = (row['brand'] as String?) ?? '';
+      if (brand.isEmpty) continue;
+      final modelRows = await db.rawQuery(
+        'SELECT DISTINCT m.model AS model FROM models m '
+        'WHERE m.id IN (${q.sql}) AND m.brand = ? '
+        'ORDER BY m.model LIMIT ?;',
+        <Object?>[...q.args, brand, sampleModels],
+      );
+      brands.add(
+        IrDbBrandMatch(
+          brand: brand,
+          modelCount: (row['models'] as int?) ?? 0,
+          sampleModels: modelRows
+              .map((r) => (r['model'] as String?) ?? '')
+              .where((m) => m.isNotEmpty)
+              .toList(growable: false),
+        ),
+      );
+    }
+
+    return IrDbSignalMatches(
+      totalBrands: totalBrands,
+      totalModels: totalModels,
+      commonLabels: labels,
+      brands: brands,
+    );
+  }
+
+  /// Models of [brand] whose remote contains all of [codes], with the remote id.
+  Future<List<IrDbModelMatch>> listModelsForCodes({
+    required String brand,
+    required List<DecodedIrSignal> codes,
+    int limit = 300,
+  }) async {
+    if (codes.isEmpty || codes.any((c) => c.hexcodes.isEmpty)) {
+      return <IrDbModelMatch>[];
+    }
+    await ensureInitialized();
+    final db = _requireDb();
+    await _ensureSignalIndex(db);
+    final q = _remoteIdsContaining(codes);
+    final rows = await db.rawQuery(
+      'SELECT m.model AS model, m.id AS remote_id FROM models m '
+      'WHERE m.id IN (${q.sql}) AND m.brand = ? '
+      'GROUP BY m.model, m.id ORDER BY m.model LIMIT ?;',
+      <Object?>[...q.args, brand, limit],
+    );
+    return rows
+        .map(
+          (r) => IrDbModelMatch(
+            model: (r['model'] as String?) ?? '',
+            remoteId: (r['remote_id'] as int?) ?? 0,
+          ),
+        )
+        .where((m) => m.model.isNotEmpty && m.remoteId > 0)
+        .toList(growable: false);
+  }
+
+  /// Keys of one database remote. Some remotes mix protocols (for example TV and
+  /// DVD codes); pass [protocol] to keep only the keys of the matched protocol.
+  Future<List<IrDbKeyCandidate>> fetchRemoteKeys(
+    int remoteId, {
+    String? protocol,
+  }) async {
+    await ensureInitialized();
+    final db = _requireDb();
+    final rows = await db.rawQuery(
+      'SELECT label, hexcode, protocol FROM keys WHERE id = ? '
+      '${protocol == null ? '' : 'AND protocol = ? '}'
+      'ORDER BY label COLLATE NOCASE, hexcode;',
+      <Object?>[remoteId, if (protocol != null) protocol],
+    );
+    return rows
+        .map(
+          (r) => IrDbKeyCandidate(
+            id: remoteId,
+            protocol: (r['protocol'] as String?) ?? '',
+            hexcode: (r['hexcode'] as String?) ?? '',
+            remoteId: remoteId,
+            label: r['label'] as String?,
+          ),
+        )
+        .toList(growable: false);
+  }
+
   Future<List<IrDbKeyCandidate>> fetchCandidateKeys({
     required String brand,
     String? model,
@@ -553,4 +721,11 @@ class _ProtocolFilter {
     required this.normalizedKey,
     required this.canonicalDbValue,
   });
+}
+
+class _RemoteIdsQuery {
+  const _RemoteIdsQuery(this.sql, this.args);
+
+  final String sql;
+  final List<Object?> args;
 }

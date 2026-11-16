@@ -6,10 +6,13 @@ import 'package:flutter/material.dart';
 import '../sharing/sharing_screen.dart';
 import 'package:flutter/services.dart';
 import 'package:irblaster_controller/ir/ir_protocol_registry.dart';
+import 'package:irblaster_controller/ir_finder/ir_signal_matcher.dart';
+import 'package:irblaster_controller/ir_finder/irblaster_db.dart';
 import 'package:irblaster_controller/l10n/l10n.dart';
 import 'package:irblaster_controller/state/haptics.dart';
 import 'package:irblaster_controller/state/orientation_pref.dart';
 import 'package:irblaster_controller/state/remotes_state.dart';
+import 'package:irblaster_controller/utils/db_button_import.dart';
 import 'package:irblaster_controller/utils/ir.dart';
 import 'package:irblaster_controller/utils/ir_transmitter_platform.dart';
 import 'package:irblaster_controller/utils/remote.dart';
@@ -20,7 +23,9 @@ class LearningModeScreen extends StatefulWidget {
   const LearningModeScreen({super.key, this.returnButtonMode = false});
 
   /// When true the screen was opened from the remote editor: saving pops the
-  /// learned [IRButton]s back to the caller instead of writing them to a remote.
+  /// learned [IRButton] back to the caller (as a one-item list) instead of writing
+  /// it to a remote, and a database suggestion can be tapped to pop all buttons of
+  /// that remote instead.
   final bool returnButtonMode;
 
   @override
@@ -50,6 +55,13 @@ class _LearningModeScreenState extends State<LearningModeScreen>
   IrTransmitterType? _preferredType;
   LearnedUsbSignal? _capturedSignal;
   final List<IRButton> _collectedButtons = <IRButton>[];
+  final List<DecodedIrSignal> _collectedCodes = <DecodedIrSignal>[];
+  List<DecodedIrSignal> _dbMatchCodes = const <DecodedIrSignal>[];
+  bool _dbMatchFellBack = false;
+  DecodedIrSignal? _decodedSignal;
+  IrDbSignalMatches? _dbMatches;
+  bool _dbMatchesLoading = false;
+  int _dbMatchGeneration = 0;
   bool _busy = false;
   int _usbLearningGeneration = 0;
   bool _usbListening = false;
@@ -359,11 +371,16 @@ class _LearningModeScreenState extends State<LearningModeScreen>
           );
         return;
       }
+      final decoded = IrSignalDecoder.decode(learned.rawPatternUs);
       setState(() {
         _busy = false;
         _capturedSignal = learned;
         _captureState = _LearningCaptureState.captured;
+        _decodedSignal = decoded;
+        _dbMatches = null;
+        _dbMatchesLoading = decoded != null;
       });
+      if (decoded != null) unawaited(_loadDbMatches(decoded));
       await Haptics.selectionClick();
     } catch (e) {
       if (!mounted || (usb && generation != _usbLearningGeneration)) return;
@@ -582,10 +599,280 @@ class _LearningModeScreenState extends State<LearningModeScreen>
     await Haptics.selectionClick();
   }
 
+  /// The codes of the buttons already added in this session plus the new capture,
+  /// each exact code once. A remote must contain all of them to be suggested.
+  List<DecodedIrSignal> _codesForMatching(DecodedIrSignal current) {
+    final seen = <String>{};
+    final codes = <DecodedIrSignal>[];
+    for (final code in <DecodedIrSignal>[..._collectedCodes, current]) {
+      if (seen.add(code.key)) codes.add(code);
+    }
+    return codes;
+  }
+
+  Future<void> _loadDbMatches(DecodedIrSignal decoded) async {
+    final generation = ++_dbMatchGeneration;
+    try {
+      var codes = _codesForMatching(decoded);
+      var matches = await IrBlasterDb.instance.findBrandsForCodes(codes: codes);
+      var fellBack = false;
+      if (matches.totalBrands == 0 && codes.length > 1) {
+        // No single database remote has every learned button (they may come from
+        // different remotes): show the matches of this button alone.
+        codes = <DecodedIrSignal>[decoded];
+        matches = await IrBlasterDb.instance.findBrandsForCodes(codes: codes);
+        fellBack = true;
+      }
+      if (!mounted || generation != _dbMatchGeneration) return;
+      setState(() {
+        _dbMatches = matches;
+        _dbMatchCodes = codes;
+        _dbMatchFellBack = fellBack;
+        _dbMatchesLoading = false;
+      });
+    } catch (_) {
+      if (!mounted || generation != _dbMatchGeneration) return;
+      setState(() => _dbMatchesLoading = false);
+    }
+  }
+
+  List<Widget> _buildDbMatchesSection(BuildContext context) {
+    final decoded = _decodedSignal;
+    if (decoded == null) return const <Widget>[];
+    final theme = Theme.of(context);
+    final cs = theme.colorScheme;
+    final matches = _dbMatches;
+
+    final children = <Widget>[
+      Text(
+        'Database suggestions',
+        style: theme.textTheme.titleMedium?.copyWith(
+          fontWeight: FontWeight.w800,
+        ),
+      ),
+      const SizedBox(height: 4),
+      Text(
+        'Detected ${decoded.description}',
+        style: theme.textTheme.bodyMedium?.copyWith(
+          color: cs.onSurfaceVariant,
+        ),
+      ),
+      const SizedBox(height: 12),
+    ];
+
+    if (_dbMatchesLoading) {
+      children.add(const LinearProgressIndicator());
+    } else if (matches == null || matches.totalBrands == 0) {
+      children.add(
+        Text(
+          'No remote in the database uses this code.',
+          style: theme.textTheme.bodyMedium,
+        ),
+      );
+    } else {
+      final labels = matches.commonLabels.isEmpty
+          ? ''
+          : ' Usually labeled ${matches.commonLabels.join(', ')}.';
+      final codeCount = _dbMatchCodes.length;
+      final scope =
+          codeCount > 1 ? 'contain all $codeCount learned buttons' : 'use this code';
+      if (_dbMatchFellBack) {
+        children.add(
+          Text(
+            'No remote in the database contains all the buttons learned so far, '
+            'so these are matches for this button only.',
+            style: theme.textTheme.bodySmall?.copyWith(color: cs.error),
+          ),
+        );
+        children.add(const SizedBox(height: 6));
+      }
+      children.add(
+        Text(
+          '${matches.totalModels} models from ${matches.totalBrands} brands '
+          '$scope.$labels',
+          style: theme.textTheme.bodyMedium,
+        ),
+      );
+      if (matches.totalBrands > 20) {
+        children.add(const SizedBox(height: 4));
+        children.add(
+          Text(
+            widget.returnButtonMode
+                ? 'Shared by many brands. Learn more buttons with "Add & learn '
+                    'next" (the less common, the better) to narrow it down. '
+                    'Most likely first:'
+                : 'This code is shared by many brands, so one button cannot '
+                    'tell them apart. Most likely first:',
+            style: theme.textTheme.bodySmall?.copyWith(
+              color: cs.onSurfaceVariant,
+            ),
+          ),
+        );
+      }
+      if (widget.returnButtonMode) {
+        children.add(const SizedBox(height: 4));
+        children.add(
+          Text(
+            'Tap a brand to add all buttons of one of its remotes.',
+            style: theme.textTheme.bodySmall?.copyWith(
+              color: cs.onSurfaceVariant,
+            ),
+          ),
+        );
+      }
+      children.add(const SizedBox(height: 8));
+      for (final brand in matches.brands) {
+        children.add(
+          ListTile(
+            dense: true,
+            contentPadding: EdgeInsets.zero,
+            enabled: !_busy,
+            onTap: widget.returnButtonMode ? () => _importFromBrand(brand) : null,
+            leading: const Icon(Icons.storage_rounded),
+            title: Text(brand.brand),
+            subtitle: brand.sampleModels.isEmpty
+                ? null
+                : Text(
+                    brand.sampleModels.join(', '),
+                    maxLines: 1,
+                    overflow: TextOverflow.ellipsis,
+                  ),
+            trailing: widget.returnButtonMode
+                ? Row(
+                    mainAxisSize: MainAxisSize.min,
+                    children: [
+                      Text('${brand.modelCount} models'),
+                      const Icon(Icons.chevron_right_rounded),
+                    ],
+                  )
+                : Text('${brand.modelCount} models'),
+          ),
+        );
+      }
+    }
+
+    return <Widget>[
+      Card(
+        elevation: 0,
+        color: cs.surfaceContainerHighest.withValues(alpha: 0.5),
+        shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.circular(20),
+          side: BorderSide(color: cs.outlineVariant.withValues(alpha: 0.45)),
+        ),
+        child: Padding(
+          padding: const EdgeInsets.all(18),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: children,
+          ),
+        ),
+      ),
+      const SizedBox(height: 14),
+    ];
+  }
+
+  Future<void> _importFromBrand(IrDbBrandMatch brand) async {
+    final decoded = _decodedSignal;
+    if (decoded == null || !widget.returnButtonMode || _busy) return;
+    final unnamed = context.l10n.unnamedKey;
+    final messenger = ScaffoldMessenger.of(context);
+    try {
+      final models = await IrBlasterDb.instance.listModelsForCodes(
+        brand: brand.brand,
+        codes: _dbMatchCodes.isEmpty ? <DecodedIrSignal>[decoded] : _dbMatchCodes,
+      );
+      if (!mounted || models.isEmpty) return;
+      final chosen = await showModalBottomSheet<IrDbModelMatch>(
+        context: context,
+        isScrollControlled: true,
+        useSafeArea: true,
+        showDragHandle: true,
+        builder: (sheetContext) {
+          final theme = Theme.of(sheetContext);
+          return ConstrainedBox(
+            constraints: BoxConstraints(
+              maxHeight: MediaQuery.sizeOf(sheetContext).height * 0.7,
+            ),
+            child: Column(
+              mainAxisSize: MainAxisSize.min,
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Padding(
+                  padding: const EdgeInsets.fromLTRB(20, 0, 20, 8),
+                  child: Text(
+                    '${brand.brand} · choose a model',
+                    style: theme.textTheme.titleMedium?.copyWith(
+                      fontWeight: FontWeight.w800,
+                    ),
+                  ),
+                ),
+                Flexible(
+                  child: ListView.builder(
+                    shrinkWrap: true,
+                    itemCount: models.length,
+                    itemBuilder: (_, index) {
+                      final model = models[index];
+                      return ListTile(
+                        title: Text(model.model),
+                        onTap: () => Navigator.of(sheetContext).pop(model),
+                      );
+                    },
+                  ),
+                ),
+              ],
+            ),
+          );
+        },
+      );
+      if (chosen == null || !mounted) return;
+
+      setState(() => _busy = true);
+      final rows = await IrBlasterDb.instance.fetchRemoteKeys(
+        chosen.remoteId,
+        protocol: decoded.protocol,
+      );
+      final buttons = <IRButton>[];
+      for (final row in rows) {
+        final button = buildButtonFromDbRow(row, unnamedLabel: unnamed);
+        if (button != null) buttons.add(button);
+      }
+      if (!mounted) return;
+      if (buttons.isEmpty) {
+        setState(() => _busy = false);
+        messenger
+          ..hideCurrentSnackBar()
+          ..showSnackBar(
+            const SnackBar(content: Text('This remote has no usable buttons.')),
+          );
+        return;
+      }
+      _stopReplayLoop();
+      // The imported remote already contains every button learned so far, unless the
+      // matches fell back to the last button alone: then keep the learned ones too.
+      Navigator.of(context).pop<List<IRButton>>(
+        <IRButton>[if (_dbMatchFellBack) ..._collectedButtons, ...buttons],
+      );
+    } catch (_) {
+      if (!mounted) return;
+      setState(() => _busy = false);
+      messenger
+        ..hideCurrentSnackBar()
+        ..showSnackBar(
+          const SnackBar(
+            content: Text('Could not load the remote from the database.'),
+          ),
+        );
+    }
+  }
+
   Future<void> _learnAnother() async {
     _stopReplayLoop();
+    _dbMatchGeneration++;
     setState(() {
       _capturedSignal = null;
+      _decodedSignal = null;
+      _dbMatches = null;
+      _dbMatchesLoading = false;
       _captureState = _LearningCaptureState.idle;
       _errorText = null;
     });
@@ -609,7 +896,11 @@ class _LearningModeScreenState extends State<LearningModeScreen>
       if (!mounted) return;
       final learned = _buildSavedButton(signal, buttonName);
       if (learnNext) {
-        setState(() => _collectedButtons.add(learned));
+        final learnedCode = _decodedSignal;
+        setState(() {
+          _collectedButtons.add(learned);
+          if (learnedCode != null) _collectedCodes.add(learnedCode);
+        });
         _buttonNameCtrl.clear();
         ScaffoldMessenger.of(context)
           ..hideCurrentSnackBar()
@@ -1352,6 +1643,7 @@ class _LearningModeScreenState extends State<LearningModeScreen>
           ),
         ),
         const SizedBox(height: 14),
+        ..._buildDbMatchesSection(context),
         Card(
           elevation: 0,
           color: cs.surfaceContainerHighest.withValues(alpha: 0.5),
