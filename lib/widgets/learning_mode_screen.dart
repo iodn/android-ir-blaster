@@ -17,7 +17,11 @@ import 'package:irblaster_controller/widgets/ir_waveform_view.dart';
 import 'package:irblaster_controller/widgets/remote_view.dart';
 
 class LearningModeScreen extends StatefulWidget {
-  const LearningModeScreen({super.key});
+  const LearningModeScreen({super.key, this.returnButtonMode = false});
+
+  /// When true the screen was opened from the remote editor: saving pops the
+  /// learned [IRButton]s back to the caller instead of writing them to a remote.
+  final bool returnButtonMode;
 
   @override
   State<LearningModeScreen> createState() => _LearningModeScreenState();
@@ -45,6 +49,7 @@ class _LearningModeScreenState extends State<LearningModeScreen>
   IrTransmitterCapabilities? _caps;
   IrTransmitterType? _preferredType;
   LearnedUsbSignal? _capturedSignal;
+  final List<IRButton> _collectedButtons = <IRButton>[];
   bool _busy = false;
   int _usbLearningGeneration = 0;
   bool _usbListening = false;
@@ -587,13 +592,40 @@ class _LearningModeScreenState extends State<LearningModeScreen>
     await Haptics.selectionClick();
   }
 
-  Future<void> _saveCapture() async {
+  Future<void> _saveCapture({bool learnNext = false}) async {
     final signal = _capturedSignal;
     if (signal == null || _busy) return;
     final l10n = context.l10n;
     final buttonName = _buttonNameCtrl.text.trim().isEmpty
         ? context.l10n.learningModeUnnamedCapture
         : _buttonNameCtrl.text.trim();
+    if (widget.returnButtonMode) {
+      _stopReplayLoop();
+      await Haptics.mediumImpact();
+      if (!mounted) return;
+      final learned = _buildSavedButton(signal, buttonName);
+      if (learnNext) {
+        setState(() => _collectedButtons.add(learned));
+        _buttonNameCtrl.clear();
+        ScaffoldMessenger.of(context)
+          ..hideCurrentSnackBar()
+          ..showSnackBar(
+            SnackBar(
+              content: Text(
+                'Added "$buttonName" (${_collectedButtons.length} so far). '
+                'Press the next button on your remote.',
+              ),
+            ),
+          );
+        await _learnAnother();
+        if (mounted) unawaited(_startListening());
+        return;
+      }
+      Navigator.of(context).pop<List<IRButton>>(
+        <IRButton>[..._collectedButtons, learned],
+      );
+      return;
+    }
     setState(() => _busy = true);
     try {
       final existingRemotes = await readRemotes();
@@ -1359,6 +1391,7 @@ class _LearningModeScreenState extends State<LearningModeScreen>
                   ),
                 ),
                 const SizedBox(height: 16),
+                if (!widget.returnButtonMode) ...[
                 SegmentedButton<_LearningSaveTarget>(
                   segments: [
                     ButtonSegment<_LearningSaveTarget>(
@@ -1381,6 +1414,7 @@ class _LearningModeScreenState extends State<LearningModeScreen>
                         },
                 ),
                 const SizedBox(height: 16),
+                ],
                 Row(
                   children: [
                     Expanded(
@@ -1390,14 +1424,16 @@ class _LearningModeScreenState extends State<LearningModeScreen>
                         label: Text(context.l10n.learningModeReplayAction),
                       ),
                     ),
-                    const SizedBox(width: 10),
-                    Expanded(
-                      child: FilledButton.icon(
-                        onPressed: _busy ? null : _saveCapture,
-                        icon: const Icon(Icons.save_alt_rounded),
-                        label: Text(context.l10n.learningModeSaveCapture),
+                    if (!widget.returnButtonMode) ...[
+                      const SizedBox(width: 10),
+                      Expanded(
+                        child: FilledButton.icon(
+                          onPressed: _busy ? null : _saveCapture,
+                          icon: const Icon(Icons.save_alt_rounded),
+                          label: Text(context.l10n.learningModeSaveCapture),
+                        ),
                       ),
-                    ),
+                    ],
                   ],
                 ),
                 const SizedBox(height: 10),
@@ -1417,8 +1453,56 @@ class _LearningModeScreenState extends State<LearningModeScreen>
     );
   }
 
+  /// Sticky action bar of the editor mode: the buttons used to sit below the
+  /// waveform and the suggestions and were easy to miss.
+  Widget? _buildReturnModeBar(BuildContext context) {
+    if (!widget.returnButtonMode ||
+        !_hardwareReady ||
+        _captureState != _LearningCaptureState.captured) {
+      return null;
+    }
+    return SafeArea(
+      child: Padding(
+        padding: const EdgeInsets.fromLTRB(16, 8, 16, 12),
+        child: Row(
+          children: [
+            Expanded(
+              child: OutlinedButton.icon(
+                onPressed: _busy ? null : () => _saveCapture(learnNext: true),
+                icon: const Icon(Icons.add_circle_outline_rounded),
+                label: const Text('Add & learn next'),
+              ),
+            ),
+            const SizedBox(width: 10),
+            Expanded(
+              child: FilledButton.icon(
+                onPressed: _busy ? null : _saveCapture,
+                icon: const Icon(Icons.check_rounded),
+                label: Text(context.l10n.addButton),
+              ),
+            ),
+          ],
+        ),
+      ),
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
+    return PopScope(
+      // Going back after "Add & learn next" must not lose the collected buttons.
+      canPop: _collectedButtons.isEmpty,
+      onPopInvokedWithResult: (didPop, result) {
+        if (didPop || _collectedButtons.isEmpty) return;
+        Navigator.of(context).pop<List<IRButton>>(
+          List<IRButton>.of(_collectedButtons),
+        );
+      },
+      child: _buildScaffold(context),
+    );
+  }
+
+  Widget _buildScaffold(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
         title: Text(context.l10n.learningModeTitle),
@@ -1456,6 +1540,7 @@ class _LearningModeScreenState extends State<LearningModeScreen>
           ),
         ),
       ),
+      bottomNavigationBar: _buildReturnModeBar(context),
     );
   }
 }

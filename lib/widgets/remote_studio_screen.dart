@@ -10,6 +10,7 @@ import 'package:irblaster_controller/utils/button_label.dart';
 import 'package:irblaster_controller/utils/ir.dart';
 import 'package:irblaster_controller/utils/remote.dart';
 import 'package:irblaster_controller/utils/remote_grid_layout.dart';
+import 'package:irblaster_controller/widgets/learning_mode_screen.dart';
 import 'package:irblaster_controller/widgets/remote_editor/remote_custom_grid.dart';
 import 'package:irblaster_controller/widgets/remote_editor/remote_grid_button.dart';
 import 'package:irblaster_controller/widgets/remote_editor/add_button_sheet.dart';
@@ -106,6 +107,22 @@ class _RemoteStudioScreenState extends State<RemoteStudioScreen> {
     _showSnack(context.l10n.importedButtonCount(imported.length));
   }
 
+  Future<void> _openLearning() async {
+    final wasEmpty = _draft.buttonCount == 0;
+    final learned = await Navigator.of(context).push<List<IRButton>>(
+      MaterialPageRoute<List<IRButton>>(
+        builder: (_) => const LearningModeScreen(returnButtonMode: true),
+      ),
+    );
+    if (learned == null || learned.isEmpty || !mounted) return;
+    setState(() => _draft.addButtons(learned));
+    if (wasEmpty && learned.length == 1) {
+      _showSnack(context.l10n.firstButtonAdded);
+    } else {
+      _showSnack(context.l10n.importedButtonCount(learned.length));
+    }
+  }
+
   Future<void> _openImportFromExistingRemotes() async {
     final imported = await RemoteEditorActions.importFromExistingRemotes(
       context,
@@ -141,6 +158,9 @@ class _RemoteStudioScreenState extends State<RemoteStudioScreen> {
         break;
       case AddButtonSheetAction.importFromDatabase:
         await _openBulkImport();
+        break;
+      case AddButtonSheetAction.learnFromRemote:
+        await _openLearning();
         break;
       case AddButtonSheetAction.browseGithubStore:
         await _openGitHubStore();
@@ -761,6 +781,11 @@ class _RemoteStudioScreenState extends State<RemoteStudioScreen> {
                   onPressed: _addButton,
                   icon: const Icon(Icons.edit_note_rounded),
                   label: Text(context.l10n.addButton),
+                ),
+                FilledButton.tonalIcon(
+                  onPressed: _openLearning,
+                  icon: const Icon(Icons.sensors_rounded),
+                  label: Text(context.l10n.learningModeEntryTitle),
                 ),
                 OutlinedButton.icon(
                   onPressed: _openImportFromExistingRemotes,
