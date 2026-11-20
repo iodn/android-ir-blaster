@@ -6,6 +6,7 @@ import 'dart:typed_data';
 import 'package:file_picker/file_picker.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart' show PlatformException;
+import 'package:irblaster_controller/ir/pronto_hex.dart';
 import 'package:irblaster_controller/l10n/app_localizations.dart';
 import 'package:irblaster_controller/l10n/app_localizations_en.dart';
 import 'package:irblaster_controller/l10n/l10n.dart';
@@ -1444,68 +1445,6 @@ String _encodeFlipperNec42Raw({
   return pattern.join(' ');
 }
 
-class _ProntoParsed {
-  final int frequencyHz;
-  final String rawDurations;
-  const _ProntoParsed({required this.frequencyHz, required this.rawDurations});
-}
-
-_ProntoParsed? _tryParseProntoHexToRaw(String payload) {
-  final cleaned = payload.replaceAll('\r', ' ').replaceAll('\n', ' ').trim();
-  if (cleaned.isEmpty) return null;
-
-  final tokens =
-      cleaned.split(RegExp(r'\s+')).where((e) => e.isNotEmpty).toList();
-  if (tokens.length < 6) return null;
-
-  bool looksHex = true;
-  for (final t in tokens.take(4)) {
-    if (!RegExp(r'^[0-9A-Fa-f]{4}$').hasMatch(t)) {
-      looksHex = false;
-      break;
-    }
-  }
-  if (!looksHex) return null;
-
-  final List<int> words = <int>[];
-  for (final t in tokens) {
-    final v = int.tryParse(t, radix: 16);
-    if (v == null) return null;
-    words.add(v);
-  }
-
-  final int type = words[0];
-  final int freqWord = words[1];
-  if (type != 0x0000 && type != 0x0100) return null;
-  if (freqWord <= 0) return null;
-
-  final int seq1 = words[2];
-  final int seq2 = words[3];
-  final int totalPairs = (seq1 + seq2) * 2;
-  final int requiredWords = 4 + totalPairs;
-  if (words.length < requiredWords) return null;
-
-  final double carrierPeriodUs = freqWord * 0.241246;
-  if (carrierPeriodUs <= 0) return null;
-
-  final int freqHz = (1000000.0 / carrierPeriodUs).round().clamp(10000, 200000);
-  final List<int> durations = <int>[];
-
-  for (int i = 4; i < requiredWords; i++) {
-    final int w = words[i];
-    if (w <= 0) return null;
-    final int us = (w * carrierPeriodUs).round();
-    if (us <= 0) return null;
-    durations.add(us);
-  }
-
-  if (durations.length < 6) return null;
-  return _ProntoParsed(
-    frequencyHz: freqHz,
-    rawDurations: durations.join(' '),
-  );
-}
-
 Remote? _parseIrplusXml(
   String content, {
   String? filename,
@@ -1660,7 +1599,7 @@ Remote? _parseIrplusXml(
         continue;
       }
 
-      final _ProntoParsed? pronto = _tryParseProntoHexToRaw(payload);
+      final ProntoRawSignal? pronto = tryParseProntoHexToRaw(payload);
       if (pronto != null) {
         buttons.add(
           IRButton(
@@ -2472,7 +2411,13 @@ String? _encodeLircSpaceEncToRaw({
 
   final int gapUs = (gap != null && gap > 0) ? gap : 0;
   if (gapUs > 0) {
-    _appendOff(pat, gapUs);
+    if (f.contains('CONST_LENGTH')) {
+      final elapsedUs = pat.fold(0, (total, duration) => total + duration);
+      final remainingUs = gapUs - elapsedUs;
+      if (remainingUs > 0) _appendOff(pat, remainingUs);
+    } else {
+      _appendOff(pat, gapUs);
+    }
   } else {
     if (pat.isNotEmpty && pat.length.isOdd) {
       _appendOff(pat, 10000);
@@ -2496,6 +2441,9 @@ bool _lircShouldUseLsbFirst({
   required int codeBits,
 }) {
   if (flags.contains('REVERSE')) return true;
+
+  // LIRC JVC values already encode the transmitted bit order.
+  if (codeBits == 16 && _looksJvc(header)) return false;
 
   if (header == null || one == null || zero == null) return false;
   if (header.length != 2 || one.length != 2 || zero.length != 2) return false;

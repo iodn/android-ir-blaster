@@ -6,6 +6,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:irblaster_controller/ir/ir_protocol_registry.dart';
 import 'package:irblaster_controller/ir/ir_protocol_types.dart';
+import 'package:irblaster_controller/ir/pronto_hex.dart';
 import 'package:irblaster_controller/ir_finder/irblaster_db.dart';
 import 'package:irblaster_controller/ir_finder/ir_finder_models.dart';
 import 'package:irblaster_controller/l10n/l10n.dart';
@@ -333,8 +334,19 @@ class _CreateButtonState extends State<CreateButton> {
     return parsed != null;
   }
 
+  ProntoRawSignal? get _rawPronto {
+    final text = rawDataController.text.trim();
+    if (!RegExp(r'^0000\s').hasMatch(text)) return null;
+    return tryParseProntoHexToRaw(text);
+  }
+
   bool get _rawLooksValid {
     if (_signalType != _SignalType.raw) return true;
+    final pronto = _rawPronto;
+    if (pronto != null) {
+      return pronto.frequencyHz >= kMinIrFrequencyHz &&
+          pronto.frequencyHz <= kMaxIrFrequencyHz;
+    }
     if (rawDataController.text.trim().isEmpty) return false;
     if (freqController.text.trim().isEmpty) return false;
 
@@ -349,7 +361,8 @@ class _CreateButtonState extends State<CreateButton> {
         .toList();
     if (parts.isEmpty) return false;
     for (final p in parts) {
-      if (int.tryParse(p) == null) return false;
+      final duration = int.tryParse(p);
+      if (duration == null || duration <= 0) return false;
     }
     return true;
   }
@@ -1361,12 +1374,13 @@ class _CreateButtonState extends State<CreateButton> {
     }
 
     if (_signalType == _SignalType.raw) {
-      final int freq =
+      final pronto = _rawPronto;
+      final int freq = pronto?.frequencyHz ??
           int.tryParse(freqController.text.trim()) ?? kDefaultNecFrequencyHz;
       return IRButton(
         id: _buttonId,
         code: null,
-        rawData: rawDataController.text.trim(),
+        rawData: pronto?.rawDurations ?? rawDataController.text.trim(),
         frequency: freq,
         image: labelValue,
         isImage: _labelType == _LabelType.image,
@@ -2985,12 +2999,14 @@ class _CreateButtonState extends State<CreateButton> {
         return;
       }
 
-      final int freq = int.parse(freqController.text.trim());
+      final pronto = _rawPronto;
+      final int freq =
+          pronto?.frequencyHz ?? int.parse(freqController.text.trim());
 
       final button = IRButton(
         id: _buttonId,
         code: null,
-        rawData: rawDataController.text.trim(),
+        rawData: pronto?.rawDurations ?? rawDataController.text.trim(),
         frequency: freq,
         image: labelValue,
         isImage: _labelType == _LabelType.image,
