@@ -462,7 +462,7 @@ class _HomeShellState extends State<HomeShell> {
                           child: OutlinedButton.icon(
                             onPressed: () {
                               Navigator.of(ctx).pop();
-                              setState(() => _index = 3);
+                              unawaited(SettingsScreen.openHardware(context));
                               Haptics.selectionClick();
                             },
                             icon: const Icon(Icons.tune_rounded),
@@ -614,7 +614,7 @@ class _HomeShellState extends State<HomeShell> {
                         ),
                         FilledButton.tonalIcon(
                           onPressed: () {
-                            setState(() => _index = 3);
+                            unawaited(SettingsScreen.openHardware(context));
                             Haptics.selectionClick();
                           },
                           icon: const Icon(Icons.settings_rounded),

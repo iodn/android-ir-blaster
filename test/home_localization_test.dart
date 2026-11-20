@@ -110,6 +110,23 @@ void main() {
         };
         expect(find.text(message), findsWidgets);
         expect(tester.takeException(), isNull);
+        if (locale.languageCode == 'en' && status == 'NO_DEVICE') {
+          final setup = find.widgetWithText(OutlinedButton, l10n.openSettings);
+          await tester.ensureVisible(setup);
+          await tester.pumpAndSettle();
+          await tester.tap(setup);
+          await tester.pumpAndSettle();
+          expect(find.widgetWithText(AppBar, l10n.settingsHardwareTitle),
+              findsOneWidget);
+          expect(find.text(l10n.irTransmitterTitle), findsOneWidget);
+          await tester.tap(find.byType(BackButton));
+          await tester.pumpAndSettle();
+          final help = find.text(l10n.homeHowItWorks);
+          await tester.ensureVisible(help);
+          await tester.pumpAndSettle();
+          await tester.tap(help);
+          await tester.pumpAndSettle();
+        }
         if (['PERMISSION_REQUIRED', 'PERMISSION_DENIED', 'OPEN_FAILED']
             .contains(status)) {
           final request =

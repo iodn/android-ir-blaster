@@ -27,6 +27,7 @@ import 'package:irblaster_controller/widgets/remote_editor/remote_editor_draft.d
 import 'package:irblaster_controller/widgets/remote_editor/remote_custom_grid.dart';
 import 'package:irblaster_controller/widgets/remote_editor/remote_grid_button.dart';
 import 'package:irblaster_controller/widgets/remote_studio_screen.dart';
+import 'package:irblaster_controller/widgets/settings_screen.dart';
 import 'package:reorderable_grid_view/reorderable_grid_view.dart';
 import 'package:uuid/uuid.dart';
 
@@ -98,9 +99,13 @@ class RemoteViewState extends State<RemoteView> {
 
   Future<void> _maybeShowNoEmitterDialog() async {
     final hasUsableOrSelectedEmitter = await _hasUsableOrSelectedEmitter();
-    if (hasUsableOrSelectedEmitter || !mounted) return;
+    if (hasUsableOrSelectedEmitter ||
+        !mounted ||
+        ModalRoute.of(context)?.isCurrent != true) {
+      return;
+    }
 
-    await showDialog<void>(
+    final openHardware = await showDialog<bool>(
       context: context,
       barrierDismissible: false,
       builder: (BuildContext context) {
@@ -120,14 +125,16 @@ class RemoteViewState extends State<RemoteView> {
               onPressed: () => Navigator.of(context).pop(),
             ),
             TextButton(
-              child: Text(context.l10n.remoteClose),
-              onPressed: () =>
-                  SystemChannels.platform.invokeMethod('SystemNavigator.pop'),
+              child: Text(context.l10n.openSettings),
+              onPressed: () => Navigator.of(context).pop(true),
             ),
           ],
         );
       },
     );
+    if (openHardware == true && mounted) {
+      await SettingsScreen.openHardware(context);
+    }
   }
 
   Future<bool> _hasUsableOrSelectedEmitter() async {

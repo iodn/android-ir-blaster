@@ -35,6 +35,11 @@ import 'package:url_launcher/url_launcher.dart';
 class SettingsScreen extends StatelessWidget {
   const SettingsScreen({super.key});
 
+  static Future<void> openHardware(BuildContext context) =>
+      Navigator.of(context).push<void>(MaterialPageRoute<void>(
+        builder: const SettingsScreen()._buildHardwarePage,
+      ));
+
   static const String _repoUrl = 'https://github.com/iodn/android-ir-blaster';
   static const String _issuesUrl =
       'https://github.com/iodn/android-ir-blaster/issues';
@@ -479,10 +484,7 @@ class SettingsScreen extends StatelessWidget {
                   icon: Icons.settings_input_antenna_rounded,
                   title: (l10n) => l10n.settingsHardwareTitle,
                   subtitle: context.l10n.settingsHardwareSubtitle,
-                  sections: (ctx) => [
-                    _buildIrTransmitterSection(ctx, Theme.of(ctx).colorScheme),
-                    _buildLearningSection(ctx, Theme.of(ctx).colorScheme),
-                  ],
+                  pageBuilder: _buildHardwarePage,
                 ),
                 _categoryTile(
                   context,
@@ -578,50 +580,56 @@ class SettingsScreen extends StatelessWidget {
         onTap: () => Navigator.of(context).push(
           MaterialPageRoute<void>(
             builder: pageBuilder ??
-                (ctx) {
-                  final label = title(ctx.l10n);
-                  final theme = Theme.of(ctx);
-                  final style = theme.appBarTheme.titleTextStyle ??
-                      theme.textTheme.titleLarge!;
-                  final media = MediaQuery.of(ctx);
-                  final spacing = theme.appBarTheme.titleSpacing ?? 16.0;
-                  final painter = TextPainter(
-                    text: TextSpan(text: label, style: style),
-                    textDirection: Directionality.of(ctx),
-                    textScaler: media.textScaler,
-                  )..layout(
-                      maxWidth: (media.size.width -
-                              media.padding.horizontal -
-                              56 -
-                              spacing * 2)
-                          .clamp(1.0, double.infinity));
-                  final height = (painter.height + 16)
-                      .clamp(kToolbarHeight, double.infinity);
-                  final lines = painter.computeLineMetrics().length;
-                  painter.dispose();
-                  return Scaffold(
-                    appBar: AppBar(
-                      toolbarHeight: height,
-                      title: Text(label, style: style, maxLines: lines),
-                    ),
-                    body: SafeArea(
-                      child: Center(
-                        child: ConstrainedBox(
-                          constraints: const BoxConstraints(maxWidth: 760),
-                          child: ListView(
-                            padding: const EdgeInsets.symmetric(vertical: 12),
-                            children: [
-                              for (final section in sections!(ctx)) ...[
-                                section,
-                                const SizedBox(height: 10),
-                              ],
-                            ],
-                          ),
-                        ),
-                      ),
-                    ),
-                  );
-                },
+                (ctx) => _buildCategoryPage(ctx, title(ctx.l10n), sections!(ctx)),
+          ),
+        ),
+      ),
+    );
+  }
+
+  Widget _buildHardwarePage(BuildContext context) {
+    final colors = Theme.of(context).colorScheme;
+    return _buildCategoryPage(context, context.l10n.settingsHardwareTitle, [
+      _buildIrTransmitterSection(context, colors),
+      _buildLearningSection(context, colors),
+    ]);
+  }
+
+  Widget _buildCategoryPage(
+      BuildContext context, String label, List<Widget> sections) {
+    final theme = Theme.of(context);
+    final style = theme.appBarTheme.titleTextStyle ?? theme.textTheme.titleLarge!;
+    final media = MediaQuery.of(context);
+    final spacing = theme.appBarTheme.titleSpacing ?? 16.0;
+    final painter = TextPainter(
+      text: TextSpan(text: label, style: style),
+      textDirection: Directionality.of(context),
+      textScaler: media.textScaler,
+    )..layout(
+        maxWidth:
+            (media.size.width - media.padding.horizontal - 56 - spacing * 2)
+                .clamp(1.0, double.infinity));
+    final height = (painter.height + 16).clamp(kToolbarHeight, double.infinity);
+    final lines = painter.computeLineMetrics().length;
+    painter.dispose();
+    return Scaffold(
+      appBar: AppBar(
+        toolbarHeight: height,
+        title: Text(label, style: style, maxLines: lines),
+      ),
+      body: SafeArea(
+        child: Center(
+          child: ConstrainedBox(
+            constraints: const BoxConstraints(maxWidth: 760),
+            child: ListView(
+              padding: const EdgeInsets.symmetric(vertical: 12),
+              children: [
+                for (final section in sections) ...[
+                  section,
+                  const SizedBox(height: 10),
+                ],
+              ],
+            ),
           ),
         ),
       ),

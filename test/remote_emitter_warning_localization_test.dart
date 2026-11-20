@@ -48,13 +48,13 @@ void main() {
       await open();
       final l10n =
           AppLocalizations.of(tester.element(find.byType(AlertDialog)))!;
-      expect(l10n.remoteDismiss, isNot(l10n.remoteClose));
+      expect(l10n.remoteDismiss, isNot(l10n.openSettings));
       for (final message in [
         l10n.remoteNoIrEmitterTitle,
         l10n.remoteNoIrEmitterMessage,
         l10n.remoteNoIrEmitterNeedsEmitter,
         l10n.remoteDismiss,
-        l10n.remoteClose,
+        l10n.openSettings,
       ]) {
         final text = find.descendant(
             of: find.byType(AlertDialog), matching: find.text(message));
@@ -77,9 +77,15 @@ void main() {
       await tester.pumpWidget(const SizedBox());
       await tester.pumpAndSettle();
       await open();
-      await tester.tap(find.text(l10n.remoteClose));
+      await tester.tap(find.text(l10n.openSettings));
       await tester.pumpAndSettle();
-      expect(exits, 1);
+      expect(find.widgetWithText(AppBar, l10n.settingsHardwareTitle),
+          findsOneWidget);
+      await tester.tap(find.byType(BackButton));
+      await tester.pumpAndSettle();
+      expect(find.byType(RemoteView), findsOneWidget);
+      expect(find.byType(AlertDialog), findsNothing);
+      expect(exits, 0);
       await tester.pumpWidget(const SizedBox());
       await tester.pumpAndSettle();
     });
