@@ -138,16 +138,9 @@ void main() {
         final previewText = family == 'lge_ir'
             ? l10n.learningModeLgReplayRestriction
             : l10n.learningModeTimingCount(6);
-        await tester.scrollUntilVisible(
-          find.textContaining(previewText),
-          100,
-          scrollable: find.descendant(
-            of: find.byType(TabBarView),
-            matching: find.byWidgetPredicate((widget) =>
-                widget is Scrollable &&
-                widget.axisDirection == AxisDirection.down),
-          ).first,
-        );
+        // The selected preview tab is laid out at its natural height inside the
+        // page, so the page itself scrolls to it (there is no inner scroll view).
+        await tester.ensureVisible(find.textContaining(previewText).first);
         await tester.pumpAndSettle();
         expect(find.textContaining('Native English preview'), findsNothing);
         if (family == 'lge_ir') {

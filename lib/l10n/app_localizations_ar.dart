@@ -5534,6 +5534,14 @@ class AppLocalizationsAr extends AppLocalizations {
   @override
   String get githubAuthenticationFailed =>
       'تعذرت المصادقة على GitHub. تحقق من رمز الوصول الشخصي.';
+
+  @override
+  String get learningModeAddAndLearnNext => 'إضافة وتعلّم التالي';
+
+  @override
+  String learningModeAddedLearnNext(String name, int count) {
+    return 'تمت إضافة \"$name\" ($count حتى الآن). اضغط الزر التالي على جهاز التحكم.';
+  }
 }
 
 /// The translations for Arabic, as used in Egypt (`ar_EG`).
@@ -11066,4 +11074,12 @@ class AppLocalizationsArEg extends AppLocalizationsAr {
   @override
   String get githubAuthenticationFailed =>
       'تعذر التحقق من بيانات الدخول لـ GitHub. راجع رمز الوصول الشخصي.';
+
+  @override
+  String get learningModeAddAndLearnNext => 'إضافة وتعلّم اللي بعده';
+
+  @override
+  String learningModeAddedLearnNext(String name, int count) {
+    return 'اتضاف \"$name\" ($count لحد دلوقتي). دوس على الزر اللي بعده في الريموت.';
+  }
 }

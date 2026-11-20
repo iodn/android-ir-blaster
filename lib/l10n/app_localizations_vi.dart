@@ -5503,4 +5503,12 @@ class AppLocalizationsVi extends AppLocalizations {
   @override
   String get githubAuthenticationFailed =>
       'Xác thực GitHub thất bại. Hãy kiểm tra mã truy cập cá nhân.';
+
+  @override
+  String get learningModeAddAndLearnNext => 'Thêm và học nút tiếp theo';
+
+  @override
+  String learningModeAddedLearnNext(String name, int count) {
+    return 'Đã thêm \"$name\" (đến giờ $count). Hãy nhấn nút tiếp theo trên điều khiển.';
+  }
 }

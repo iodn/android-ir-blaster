@@ -2508,5 +2508,8 @@
   "githubRateLimitAfter": "Osiągnięto limit żądań GitHuba. Spróbuj ponownie po {time}.",
   "githubRateLimitTokenHint": "Aby zwiększyć limit żądań, możesz dodać osobisty token w ustawieniach połączenia z GitHubem. To opcjonalne.",
   "githubAuthenticationFailed": "Uwierzytelnienie w GitHubie nie powiodło się. Sprawdź osobisty token dostępu.",
-  "@githubRateLimitAfter": {"placeholders": {"time": {"type": "String"}}}
+  "@githubRateLimitAfter": {"placeholders": {"time": {"type": "String"}}},
+  "learningModeAddAndLearnNext": "Dodaj i ucz następny",
+  "learningModeAddedLearnNext": "Dodano „{name}” (dotąd: {count}). Naciśnij następny przycisk na pilocie.",
+  "@learningModeAddedLearnNext": {"placeholders": {"name": {"type": "String"}, "count": {"type": "int"}}}
 }

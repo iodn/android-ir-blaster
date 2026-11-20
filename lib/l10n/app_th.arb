@@ -2506,5 +2506,8 @@
   "githubRateLimitAfter": "ถึงขีดจำกัดคำขอของ GitHub แล้ว โปรดลองอีกครั้งหลัง {time}",
   "githubRateLimitTokenHint": "หากต้องการเพิ่มขีดจำกัดคำขอ คุณสามารถเพิ่มโทเค็นส่วนบุคคลในการตั้งค่าการเชื่อมต่อ GitHub ได้ แต่ไม่จำเป็นต้องเพิ่ม",
   "githubAuthenticationFailed": "ยืนยันตัวตนกับ GitHub ไม่สำเร็จ โปรดตรวจสอบโทเค็นการเข้าถึงส่วนบุคคล",
-  "@githubRateLimitAfter": {"placeholders": {"time": {"type": "String"}}}
+  "@githubRateLimitAfter": {"placeholders": {"time": {"type": "String"}}},
+  "learningModeAddAndLearnNext": "เพิ่มและเรียนรู้ปุ่มถัดไป",
+  "learningModeAddedLearnNext": "เพิ่ม \"{name}\" แล้ว (ตอนนี้ {count} ปุ่ม) กดปุ่มถัดไปบนรีโมต",
+  "@learningModeAddedLearnNext": {"placeholders": {"name": {"type": "String"}, "count": {"type": "int"}}}
 }

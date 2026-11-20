@@ -5371,4 +5371,12 @@ class AppLocalizationsKo extends AppLocalizations {
   @override
   String get githubAuthenticationFailed =>
       'GitHub 인증에 실패했어요. 개인 액세스 토큰을 확인해 주세요.';
+
+  @override
+  String get learningModeAddAndLearnNext => '추가 후 다음 학습';
+
+  @override
+  String learningModeAddedLearnNext(String name, int count) {
+    return '\"$name\" 추가됨(지금까지 $count개). 리모컨의 다음 버튼을 누르세요.';
+  }
 }

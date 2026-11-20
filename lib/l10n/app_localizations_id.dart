@@ -5520,4 +5520,12 @@ class AppLocalizationsId extends AppLocalizations {
   @override
   String get githubAuthenticationFailed =>
       'Autentikasi GitHub gagal. Periksa token akses pribadi Anda.';
+
+  @override
+  String get learningModeAddAndLearnNext => 'Tambah & pelajari berikutnya';
+
+  @override
+  String learningModeAddedLearnNext(String name, int count) {
+    return '\"$name\" ditambahkan ($count sejauh ini). Tekan tombol berikutnya di remote Anda.';
+  }
 }

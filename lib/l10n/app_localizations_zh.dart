@@ -5269,4 +5269,12 @@ class AppLocalizationsZh extends AppLocalizations {
 
   @override
   String get githubAuthenticationFailed => 'GitHub身份验证失败，请检查个人访问令牌。';
+
+  @override
+  String get learningModeAddAndLearnNext => '添加并学习下一个';
+
+  @override
+  String learningModeAddedLearnNext(String name, int count) {
+    return '已添加“$name”（目前共 $count 个）。请按遥控器上的下一个按钮。';
+  }
 }

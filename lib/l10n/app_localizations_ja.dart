@@ -5355,4 +5355,12 @@ class AppLocalizationsJa extends AppLocalizations {
   @override
   String get githubAuthenticationFailed =>
       'GitHubの認証に失敗しました。個人アクセストークンを確認してください。';
+
+  @override
+  String get learningModeAddAndLearnNext => '追加して次を学習';
+
+  @override
+  String learningModeAddedLearnNext(String name, int count) {
+    return '「$name」を追加しました（現在$count個）。リモコンの次のボタンを押してください。';
+  }
 }

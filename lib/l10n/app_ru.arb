@@ -2506,5 +2506,8 @@
   "githubRateLimitAfter": "Достигнут лимит запросов GitHub. Повторите попытку после {time}.",
   "githubRateLimitTokenHint": "При желании можно добавить персональный токен в настройках подключения к GitHub, чтобы увеличить лимит запросов.",
   "githubAuthenticationFailed": "Не удалось пройти аутентификацию GitHub. Проверьте персональный токен доступа.",
-  "@githubRateLimitAfter": {"placeholders": {"time": {"type": "String"}}}
+  "@githubRateLimitAfter": {"placeholders": {"time": {"type": "String"}}},
+  "learningModeAddAndLearnNext": "Добавить и обучить следующую",
+  "learningModeAddedLearnNext": "«{name}» добавлена (всего: {count}). Нажмите следующую кнопку на пульте.",
+  "@learningModeAddedLearnNext": {"placeholders": {"name": {"type": "String"}, "count": {"type": "int"}}}
 }

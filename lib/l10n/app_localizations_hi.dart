@@ -5535,4 +5535,12 @@ class AppLocalizationsHi extends AppLocalizations {
   @override
   String get githubAuthenticationFailed =>
       'GitHub पर प्रमाणीकरण विफल रहा। अपना निजी एक्सेस टोकन जाँचें।';
+
+  @override
+  String get learningModeAddAndLearnNext => 'जोड़ें और अगला सीखें';
+
+  @override
+  String learningModeAddedLearnNext(String name, int count) {
+    return '\"$name\" जोड़ा गया (अब तक $count)। अपने रिमोट का अगला बटन दबाएँ।';
+  }
 }

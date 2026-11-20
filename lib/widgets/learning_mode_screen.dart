@@ -17,7 +17,11 @@ import 'package:irblaster_controller/widgets/ir_waveform_view.dart';
 import 'package:irblaster_controller/widgets/remote_view.dart';
 
 class LearningModeScreen extends StatefulWidget {
-  const LearningModeScreen({super.key});
+  const LearningModeScreen({super.key, this.returnButtonMode = false});
+
+  /// When true the screen was opened from the remote editor: saving pops the
+  /// learned [IRButton]s back to the caller instead of writing them to a remote.
+  final bool returnButtonMode;
 
   @override
   State<LearningModeScreen> createState() => _LearningModeScreenState();
@@ -45,6 +49,7 @@ class _LearningModeScreenState extends State<LearningModeScreen>
   IrTransmitterCapabilities? _caps;
   IrTransmitterType? _preferredType;
   LearnedUsbSignal? _capturedSignal;
+  final List<IRButton> _collectedButtons = <IRButton>[];
   bool _busy = false;
   int _usbLearningGeneration = 0;
   bool _usbListening = false;
@@ -587,13 +592,51 @@ class _LearningModeScreenState extends State<LearningModeScreen>
     await Haptics.selectionClick();
   }
 
-  Future<void> _saveCapture() async {
+  Future<void> _saveCapture({bool learnNext = false}) async {
     final signal = _capturedSignal;
     if (signal == null || _busy) return;
     final l10n = context.l10n;
     final buttonName = _buttonNameCtrl.text.trim().isEmpty
         ? context.l10n.learningModeUnnamedCapture
         : _buttonNameCtrl.text.trim();
+    if (widget.returnButtonMode) {
+      // Mark the screen busy before the first await: a second tap on "Add & learn
+      // next" or "Add button" is then ignored instead of adding the same capture
+      // twice or popping the editor as well.
+      setState(() => _busy = true);
+      _stopReplayLoop();
+      await Haptics.mediumImpact();
+      if (!mounted) return;
+      final learned = _buildSavedButton(signal, buttonName);
+      if (learnNext) {
+        setState(() => _collectedButtons.add(learned));
+        _buttonNameCtrl.clear();
+        ScaffoldMessenger.of(context)
+          ..hideCurrentSnackBar()
+          ..showSnackBar(
+            SnackBar(
+              content: Text(
+                l10n.learningModeAddedLearnNext(
+                  buttonName,
+                  _collectedButtons.length,
+                ),
+              ),
+            ),
+          );
+        await _learnAnother();
+        if (!mounted) return;
+        // _startListening() refuses to start while busy; it marks the screen busy
+        // again itself for the whole capture.
+        setState(() => _busy = false);
+        unawaited(_startListening());
+        return;
+      }
+      // Stays busy: the screen is closing.
+      Navigator.of(context).pop<List<IRButton>>(
+        <IRButton>[..._collectedButtons, learned],
+      );
+      return;
+    }
     setState(() => _busy = true);
     try {
       final existingRemotes = await readRemotes();
@@ -1359,6 +1402,7 @@ class _LearningModeScreenState extends State<LearningModeScreen>
                   ),
                 ),
                 const SizedBox(height: 16),
+                if (!widget.returnButtonMode) ...[
                 SegmentedButton<_LearningSaveTarget>(
                   segments: [
                     ButtonSegment<_LearningSaveTarget>(
@@ -1381,6 +1425,7 @@ class _LearningModeScreenState extends State<LearningModeScreen>
                         },
                 ),
                 const SizedBox(height: 16),
+                ],
                 Row(
                   children: [
                     Expanded(
@@ -1390,14 +1435,16 @@ class _LearningModeScreenState extends State<LearningModeScreen>
                         label: Text(context.l10n.learningModeReplayAction),
                       ),
                     ),
-                    const SizedBox(width: 10),
-                    Expanded(
-                      child: FilledButton.icon(
-                        onPressed: _busy ? null : _saveCapture,
-                        icon: const Icon(Icons.save_alt_rounded),
-                        label: Text(context.l10n.learningModeSaveCapture),
+                    if (!widget.returnButtonMode) ...[
+                      const SizedBox(width: 10),
+                      Expanded(
+                        child: FilledButton.icon(
+                          onPressed: _busy ? null : _saveCapture,
+                          icon: const Icon(Icons.save_alt_rounded),
+                          label: Text(context.l10n.learningModeSaveCapture),
+                        ),
                       ),
-                    ),
+                    ],
                   ],
                 ),
                 const SizedBox(height: 10),
@@ -1417,8 +1464,56 @@ class _LearningModeScreenState extends State<LearningModeScreen>
     );
   }
 
+  /// Sticky action bar of the editor mode: the buttons used to sit below the
+  /// waveform and the suggestions and were easy to miss.
+  Widget? _buildReturnModeBar(BuildContext context) {
+    if (!widget.returnButtonMode ||
+        !_hardwareReady ||
+        _captureState != _LearningCaptureState.captured) {
+      return null;
+    }
+    return SafeArea(
+      child: Padding(
+        padding: const EdgeInsets.fromLTRB(16, 8, 16, 12),
+        child: Row(
+          children: [
+            Expanded(
+              child: OutlinedButton.icon(
+                onPressed: _busy ? null : () => _saveCapture(learnNext: true),
+                icon: const Icon(Icons.add_circle_outline_rounded),
+                label: Text(context.l10n.learningModeAddAndLearnNext),
+              ),
+            ),
+            const SizedBox(width: 10),
+            Expanded(
+              child: FilledButton.icon(
+                onPressed: _busy ? null : _saveCapture,
+                icon: const Icon(Icons.check_rounded),
+                label: Text(context.l10n.addButton),
+              ),
+            ),
+          ],
+        ),
+      ),
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
+    return PopScope(
+      // Going back after "Add & learn next" must not lose the collected buttons.
+      canPop: _collectedButtons.isEmpty,
+      onPopInvokedWithResult: (didPop, result) {
+        if (didPop || _collectedButtons.isEmpty) return;
+        Navigator.of(context).pop<List<IRButton>>(
+          List<IRButton>.of(_collectedButtons),
+        );
+      },
+      child: _buildScaffold(context),
+    );
+  }
+
+  Widget _buildScaffold(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
         title: Text(context.l10n.learningModeTitle),
@@ -1456,6 +1551,7 @@ class _LearningModeScreenState extends State<LearningModeScreen>
           ),
         ),
       ),
+      bottomNavigationBar: _buildReturnModeBar(context),
     );
   }
 }
@@ -1612,29 +1708,40 @@ class _CapturedSignalPreviewTabs extends StatelessWidget {
             ),
           ),
           const SizedBox(height: 12),
-          SizedBox(
-            height: hasWaveform ? 410 : 260,
-            child: TabBarView(
-              children: [
-                _CapturedWaveformTab(
-                  signal: signal,
-                  hasWaveform: hasWaveform,
-                  protocolPreview: protocolPreview,
-                  replaying: replaying,
-                  looping: looping,
-                  replayAnimation: replayAnimation,
-                  replayWaveformActive: replayWaveformActive,
-                  frequencyHz: frequencyHz,
-                  onReplay: onReplay,
-                  onToggleLoop: onToggleLoop,
-                ),
-                if (hasRaw)
-                  _RawFallbackTab(
-                    rawPreview: rawPreview,
-                    onCopyRaw: onCopyRaw,
-                  ),
-              ],
-            ),
+          // The tab content used to live in a fixed-height TabBarView whose waveform tab
+          // was an inner vertical ListView. Dragging over it scrolled that inner list
+          // instead of the page, which made the Replay buttons and everything below the
+          // card hard to reach. Show the selected tab at its natural height instead.
+          Builder(
+            builder: (context) {
+              final controller = DefaultTabController.of(context);
+              return AnimatedBuilder(
+                animation: controller,
+                builder: (context, _) {
+                  if (hasRaw && controller.index == 1) {
+                    return SizedBox(
+                      height: 260,
+                      child: _RawFallbackTab(
+                        rawPreview: rawPreview,
+                        onCopyRaw: onCopyRaw,
+                      ),
+                    );
+                  }
+                  return _CapturedWaveformTab(
+                    signal: signal,
+                    hasWaveform: hasWaveform,
+                    protocolPreview: protocolPreview,
+                    replaying: replaying,
+                    looping: looping,
+                    replayAnimation: replayAnimation,
+                    replayWaveformActive: replayWaveformActive,
+                    frequencyHz: frequencyHz,
+                    onReplay: onReplay,
+                    onToggleLoop: onToggleLoop,
+                  );
+                },
+              );
+            },
           ),
         ],
       ),
@@ -1669,8 +1776,9 @@ class _CapturedWaveformTab extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return ListView(
-      padding: EdgeInsets.zero,
+    return Column(
+      mainAxisSize: MainAxisSize.min,
+      crossAxisAlignment: CrossAxisAlignment.stretch,
       children: [
         if (hasWaveform)
           AnimatedBuilder(

@@ -2506,5 +2506,8 @@
   "githubRateLimitAfter": "Had permintaan GitHub telah dicapai. Cuba lagi selepas {time}.",
   "githubRateLimitTokenHint": "Jika perlu, tambah token peribadi dalam tetapan sambungan GitHub untuk mendapatkan had permintaan yang lebih tinggi. Ini pilihan sahaja.",
   "githubAuthenticationFailed": "Pengesahan GitHub gagal. Semak token akses peribadi anda.",
-  "@githubRateLimitAfter": {"placeholders": {"time": {"type": "String"}}}
+  "@githubRateLimitAfter": {"placeholders": {"time": {"type": "String"}}},
+  "learningModeAddAndLearnNext": "Tambah & pelajari seterusnya",
+  "learningModeAddedLearnNext": "\"{name}\" ditambah ({count} setakat ini). Tekan butang seterusnya pada alat kawalan jauh anda.",
+  "@learningModeAddedLearnNext": {"placeholders": {"name": {"type": "String"}, "count": {"type": "int"}}}
 }

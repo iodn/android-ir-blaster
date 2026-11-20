@@ -5589,4 +5589,12 @@ class AppLocalizationsEn extends AppLocalizations {
   @override
   String get githubAuthenticationFailed =>
       'GitHub authentication failed. Check your personal access token.';
+
+  @override
+  String get learningModeAddAndLearnNext => 'Add & learn next';
+
+  @override
+  String learningModeAddedLearnNext(String name, int count) {
+    return 'Added \"$name\" ($count so far). Press the next button on your remote.';
+  }
 }

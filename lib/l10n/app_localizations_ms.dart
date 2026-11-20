@@ -5533,4 +5533,12 @@ class AppLocalizationsMs extends AppLocalizations {
   @override
   String get githubAuthenticationFailed =>
       'Pengesahan GitHub gagal. Semak token akses peribadi anda.';
+
+  @override
+  String get learningModeAddAndLearnNext => 'Tambah & pelajari seterusnya';
+
+  @override
+  String learningModeAddedLearnNext(String name, int count) {
+    return '\"$name\" ditambah ($count setakat ini). Tekan butang seterusnya pada alat kawalan jauh anda.';
+  }
 }

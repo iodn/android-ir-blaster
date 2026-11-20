@@ -2506,5 +2506,8 @@
   "githubRateLimitAfter": "تم بلوغ حد طلبات GitHub. حاول مرة أخرى بعد {time}.",
   "githubRateLimitTokenHint": "يمكنك اختياريًا إضافة رمز وصول شخصي في إعدادات اتصال GitHub لزيادة حد الطلبات.",
   "githubAuthenticationFailed": "تعذرت المصادقة على GitHub. تحقق من رمز الوصول الشخصي.",
-  "@githubRateLimitAfter": {"placeholders": {"time": {"type": "String"}}}
+  "@githubRateLimitAfter": {"placeholders": {"time": {"type": "String"}}},
+  "learningModeAddAndLearnNext": "إضافة وتعلّم التالي",
+  "learningModeAddedLearnNext": "تمت إضافة \"{name}\" ({count} حتى الآن). اضغط الزر التالي على جهاز التحكم.",
+  "@learningModeAddedLearnNext": {"placeholders": {"name": {"type": "String"}, "count": {"type": "int"}}}
 }

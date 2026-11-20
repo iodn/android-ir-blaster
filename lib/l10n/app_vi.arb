@@ -2506,5 +2506,8 @@
   "githubRateLimitAfter": "Đã đạt giới hạn yêu cầu của GitHub. Vui lòng thử lại sau {time}.",
   "githubRateLimitTokenHint": "Nếu cần giới hạn cao hơn, bạn có thể thêm mã truy cập cá nhân trong phần cài đặt kết nối GitHub. Đây là tùy chọn.",
   "githubAuthenticationFailed": "Xác thực GitHub thất bại. Hãy kiểm tra mã truy cập cá nhân.",
-  "@githubRateLimitAfter": {"placeholders": {"time": {"type": "String"}}}
+  "@githubRateLimitAfter": {"placeholders": {"time": {"type": "String"}}},
+  "learningModeAddAndLearnNext": "Thêm và học nút tiếp theo",
+  "learningModeAddedLearnNext": "Đã thêm \"{name}\" (đến giờ {count}). Hãy nhấn nút tiếp theo trên điều khiển.",
+  "@learningModeAddedLearnNext": {"placeholders": {"name": {"type": "String"}, "count": {"type": "int"}}}
 }

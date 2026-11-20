@@ -2492,5 +2492,8 @@
   "githubRateLimitAfter": "Das GitHub-Anfragelimit ist erreicht. Versuche es nach {time} erneut.",
   "githubRateLimitTokenHint": "Optional kannst du in den GitHub-Verbindungseinstellungen einen persönlichen Token für ein höheres Anfragelimit hinterlegen.",
   "githubAuthenticationFailed": "Die Anmeldung bei GitHub ist fehlgeschlagen. Prüfe deinen persönlichen Zugriffstoken.",
-  "@githubRateLimitAfter": {"placeholders": {"time": {"type": "String"}}}
+  "@githubRateLimitAfter": {"placeholders": {"time": {"type": "String"}}},
+  "learningModeAddAndLearnNext": "Hinzufügen & nächste lernen",
+  "learningModeAddedLearnNext": "„{name}“ hinzugefügt (bisher {count}). Drücke die nächste Taste auf deiner Fernbedienung.",
+  "@learningModeAddedLearnNext": {"placeholders": {"name": {"type": "String"}, "count": {"type": "int"}}}
 }

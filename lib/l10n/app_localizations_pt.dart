@@ -5610,6 +5610,14 @@ class AppLocalizationsPt extends AppLocalizations {
   @override
   String get githubAuthenticationFailed =>
       'A autenticação no GitHub falhou. Verifique o seu token de acesso pessoal.';
+
+  @override
+  String get learningModeAddAndLearnNext => 'Adicionar e aprender o seguinte';
+
+  @override
+  String learningModeAddedLearnNext(String name, int count) {
+    return '\"$name\" adicionado ($count até agora). Prima o botão seguinte do comando.';
+  }
 }
 
 /// The translations for Portuguese, as used in Brazil (`pt_BR`).
@@ -11212,4 +11220,12 @@ class AppLocalizationsPtBr extends AppLocalizationsPt {
   @override
   String get githubAuthenticationFailed =>
       'A autenticação no GitHub falhou. Confira seu token de acesso pessoal.';
+
+  @override
+  String get learningModeAddAndLearnNext => 'Adicionar e aprender o próximo';
+
+  @override
+  String learningModeAddedLearnNext(String name, int count) {
+    return '\"$name\" adicionado ($count até agora). Pressione o próximo botão do controle remoto.';
+  }
 }

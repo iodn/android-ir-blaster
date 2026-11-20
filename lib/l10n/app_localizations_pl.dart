@@ -5650,4 +5650,12 @@ class AppLocalizationsPl extends AppLocalizations {
   @override
   String get githubAuthenticationFailed =>
       'Uwierzytelnienie w GitHubie nie powiodło się. Sprawdź osobisty token dostępu.';
+
+  @override
+  String get learningModeAddAndLearnNext => 'Dodaj i ucz następny';
+
+  @override
+  String learningModeAddedLearnNext(String name, int count) {
+    return 'Dodano „$name” (dotąd: $count). Naciśnij następny przycisk na pilocie.';
+  }
 }
