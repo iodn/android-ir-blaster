@@ -13,6 +13,7 @@ void main() {
   const channel = MethodChannel('org.nslabs/irtransmitter');
   const events = MethodChannel('org.nslabs/irtransmitter_events');
   final captures = <Completer<Object?>>[];
+  Completer<Object?>? haptic;
 
   Map<String, Object?> capture(List<int> pattern) => {
         'family': 'elksmart',
@@ -25,13 +26,14 @@ void main() {
   setUp(() {
     SharedPreferences.setMockInitialValues({});
     captures.clear();
+    haptic = null;
     final messenger =
         TestDefaultBinaryMessengerBinding.instance.defaultBinaryMessenger;
     messenger.setMockMethodCallHandler(events, (_) async => null);
     messenger.setMockMethodCallHandler(channel, (call) async {
       switch (call.method) {
         case 'performHaptic':
-          return true;
+          return haptic?.future ?? true;
         case 'getTransmitterCapabilities':
           return {
             'hasUsb': true,
@@ -150,6 +152,25 @@ void main() {
     expect(tester.takeException(), isNull);
     await finish(tester);
   });
+
+  testWidgets('Back during Add leaves the editor route intact', (tester) async {
+    await openFromEditor(tester);
+    await learn(tester, [9000, 4500, 560, 560, 560, 560]);
+    final pendingHaptic = haptic = Completer<Object?>();
+
+    await tester.tap(find.text(l10n.addButton));
+    await tester.pump();
+    await tester.binding.handlePopRoute();
+    await tester.pump();
+    pendingHaptic.complete(true);
+    await tester.pumpAndSettle();
+
+    expect(find.text('Editor'), findsOneWidget);
+    expect(pops, 1);
+    expect(returned, isNull);
+    expect(tester.takeException(), isNull);
+    await finish(tester);
+  }, variant: TargetPlatformVariant.only(TargetPlatform.android));
 
   testWidgets('a double tap on Add & learn next collects the capture once',
       (tester) async {

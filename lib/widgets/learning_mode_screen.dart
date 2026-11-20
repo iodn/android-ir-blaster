@@ -798,6 +798,7 @@ class _LearningModeScreenState extends State<LearningModeScreen>
     }
     final l10n = context.l10n;
     final messenger = ScaffoldMessenger.of(context);
+    final route = ModalRoute.of(context);
     // Busy from the first tap on: a second tap must not open a second sheet.
     setState(() => _busy = true);
     var closing = false;
@@ -806,7 +807,7 @@ class _LearningModeScreenState extends State<LearningModeScreen>
         brand: brand.brand,
         codes: _dbMatchCodes.isEmpty ? <DecodedIrSignal>[decoded] : _dbMatchCodes,
       );
-      if (!mounted || models.isEmpty) return;
+      if (!mounted || route?.isCurrent != true || models.isEmpty) return;
       final chosen = await showModalBottomSheet<IrDbModelMatch>(
         context: context,
         isScrollControlled: true,
@@ -849,13 +850,13 @@ class _LearningModeScreenState extends State<LearningModeScreen>
           );
         },
       );
-      if (chosen == null || !mounted) return;
+      if (chosen == null || !mounted || route?.isCurrent != true) return;
 
       final keys = await IrBlasterDb.instance.fetchRemoteKeys(
         chosen.remoteId,
         protocol: decoded.protocol,
       );
-      if (!mounted) return;
+      if (!mounted || route?.isCurrent != true) return;
       final currentName = _buttonNameCtrl.text.trim();
       // Every button learned in this session is kept, also the ones the app could
       // not identify, and the capture on screen counts as learned too.
@@ -887,7 +888,7 @@ class _LearningModeScreenState extends State<LearningModeScreen>
       closing = true;
       Navigator.of(context).pop<List<IRButton>>(buttons);
     } catch (_) {
-      if (!mounted) return;
+      if (!mounted || route?.isCurrent != true) return;
       messenger
         ..hideCurrentSnackBar()
         ..showSnackBar(SnackBar(content: Text(l10n.learningDbLoadFailed)));
@@ -918,6 +919,7 @@ class _LearningModeScreenState extends State<LearningModeScreen>
         ? context.l10n.learningModeUnnamedCapture
         : _buttonNameCtrl.text.trim();
     if (widget.returnButtonMode) {
+      final route = ModalRoute.of(context);
       // Mark the screen busy before the first await: a second tap on "Add & learn
       // next" or "Add button" is then ignored instead of adding the same capture
       // twice or popping the editor as well.
@@ -925,6 +927,10 @@ class _LearningModeScreenState extends State<LearningModeScreen>
       _stopReplayLoop();
       await Haptics.mediumImpact();
       if (!mounted) return;
+      if (route?.isCurrent != true) {
+        setState(() => _busy = false);
+        return;
+      }
       final learned = _buildSavedButton(signal, buttonName);
       if (learnNext) {
         final learnedCode = _decodedSignal;
@@ -950,7 +956,7 @@ class _LearningModeScreenState extends State<LearningModeScreen>
         // _startListening() refuses to start while busy; it marks the screen busy
         // again itself for the whole capture.
         setState(() => _busy = false);
-        unawaited(_startListening());
+        if (route?.isCurrent == true) unawaited(_startListening());
         return;
       }
       // Stays busy: the screen is closing.
