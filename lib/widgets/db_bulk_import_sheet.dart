@@ -65,6 +65,7 @@ class _DbBulkImportSheetState extends State<DbBulkImportSheet> {
     _dbSearchDebounce?.cancel();
     _dbSearchCtl.dispose();
     _dbScrollCtl.dispose();
+    _filtersTileController.dispose();
     super.dispose();
   }
 
@@ -573,7 +574,7 @@ class _DbBulkImportSheetState extends State<DbBulkImportSheet> {
     );
   }
 
-  Widget _buildPresetBar({required bool enabled}) {
+  Widget _buildPresetBar() {
     final theme = Theme.of(context);
     final cs = theme.colorScheme;
 
@@ -584,12 +585,9 @@ class _DbBulkImportSheetState extends State<DbBulkImportSheet> {
         showCheckmark: false,
         label: Text(_dbPresetTitle(p)),
         avatar: Icon(_dbPresetIcon(p), size: 18),
-        onSelected: enabled
-            ? (v) {
-                if (!v) return;
-                _dbSetPreset(p);
-              }
-            : null,
+        onSelected: (selected) {
+          if (selected) _dbSetPreset(p);
+        },
         visualDensity: VisualDensity.compact,
         materialTapTargetSize: MaterialTapTargetSize.shrinkWrap,
       );
@@ -617,14 +615,6 @@ class _DbBulkImportSheetState extends State<DbBulkImportSheet> {
                       ?.copyWith(fontWeight: FontWeight.w800),
                 ),
               ),
-              if (!enabled)
-                Text(
-                  context.l10n.selectDeviceFirst,
-                  style: theme.textTheme.bodySmall?.copyWith(
-                    color: cs.onSurface.withValues(alpha: 0.65),
-                    fontWeight: FontWeight.w600,
-                  ),
-                ),
             ],
           ),
           const SizedBox(height: 6),
@@ -662,335 +652,340 @@ class _DbBulkImportSheetState extends State<DbBulkImportSheet> {
 
     final String effectiveSearch = _dbEffectiveSearch();
 
-    final String searchHint = canBrowseKeys
-        ? (_dbSearchCtl.text.trim().isNotEmpty
+    final String searchHint =
+        _dbSearchCtl.text.trim().isNotEmpty || _dbPreset == _DbPreset.all
             ? context.l10n.searchByLabelOrHex
-            : (_dbPreset == _DbPreset.all
-                ? context.l10n.searchByLabelOrHex
-                : context.l10n
-                    .optionalRefinePresetKeys(_dbPresetTitle(_dbPreset))))
-        : context.l10n.selectBrandModelProtocolFirst;
+            : context.l10n.optionalRefinePresetKeys(_dbPresetTitle(_dbPreset));
 
     return SafeArea(
-      child: Padding(
-        padding: const EdgeInsets.fromLTRB(16, 10, 16, 12),
-        child: Column(
-          children: [
-            Row(
-              children: [
-                Expanded(
-                  child: Text(
-                    context.l10n.importFromDatabaseTitle,
-                    style: theme.textTheme.titleLarge
-                        ?.copyWith(fontWeight: FontWeight.w800),
-                  ),
-                ),
-                IconButton(
-                  onPressed: () => Navigator.of(context).pop(),
-                  icon: const Icon(Icons.close_rounded),
-                ),
-              ],
-            ),
-            const SizedBox(height: 4),
-            Text(
-              context.l10n.importFromDatabaseSubtitle,
-              style: theme.textTheme.bodySmall?.copyWith(
-                color: cs.onSurface.withValues(alpha: 0.75),
-              ),
-            ),
-            const SizedBox(height: 8),
-            if (_dbMetaLoading) ...[
-              const LinearProgressIndicator(minHeight: 2),
-              const SizedBox(height: 10),
-            ],
-            ExpansionTile(
-              controller: _filtersTileController,
-              initiallyExpanded: _filtersExpanded || !canBrowseKeys,
-              onExpansionChanged: (v) => setState(() => _filtersExpanded = v),
-              tilePadding: EdgeInsets.zero,
-              title: Row(
-                children: [
-                  const Icon(Icons.tune_rounded),
-                  const SizedBox(width: 8),
-                  Expanded(
-                    child: Text(
-                      context.l10n.deviceAndFilters,
-                      style: theme.textTheme.titleSmall
-                          ?.copyWith(fontWeight: FontWeight.w800),
-                    ),
-                  ),
-                  if (canBrowseKeys)
-                    Text(
-                      context.l10n.loadedCount(_dbRows.length),
-                      style: theme.textTheme.bodySmall?.copyWith(
-                        color: cs.onSurface.withValues(alpha: 0.7),
-                      ),
-                    ),
-                ],
-              ),
-              subtitle: canBrowseKeys
-                  ? Text('$_dbBrand · $_dbModel',
-                      maxLines: 2,
-                      overflow: TextOverflow.ellipsis)
-                  : null,
-              trailing: canBrowseKeys
-                  ? IconButton(
-                      onPressed: _toggleFiltersExpanded,
-                      icon: Icon(
-                        _filtersExpanded
-                            ? Icons.keyboard_arrow_up_rounded
-                            : Icons.keyboard_arrow_down_rounded,
-                      ),
-                      tooltip: _filtersExpanded
-                          ? context.l10n.hideFilters
-                          : context.l10n.showFilters,
-                    )
-                  : null,
-              childrenPadding: const EdgeInsets.only(bottom: 8),
-              children: [
-                Row(
-                  children: [
-                    Expanded(
-                      child: _dbField(
-                        label: context.l10n.brand,
-                        icon: Icons.factory_outlined,
-                        value: hasBrand ? _dbBrand! : context.l10n.selectBrand,
-                        enabled: true,
-                        onTap: _dbSelectBrand,
-                      ),
-                    ),
-                    const SizedBox(width: 12),
-                    Expanded(
-                      child: _dbField(
-                        label: context.l10n.model,
-                        icon: Icons.devices_other_outlined,
-                        value: hasModel ? _dbModel! : context.l10n.selectModel,
-                        enabled: hasBrand,
-                        onTap: _dbSelectModel,
-                      ),
-                    ),
-                  ],
-                ),
-                const SizedBox(height: 12),
-                if (hasBrand && hasModel) ...[
-                  if (_dbProtocols.isEmpty && !_dbMetaLoading) ...[
-                    Container(
-                      width: double.infinity,
-                      padding: const EdgeInsets.all(12),
-                      decoration: BoxDecoration(
-                        color: cs.secondaryContainer.withValues(alpha: 0.5),
-                        borderRadius: BorderRadius.circular(12),
-                      ),
-                      child: Text(
-                        context.l10n.noProtocolFoundForBrandModel,
-                        style: theme.textTheme.bodySmall?.copyWith(
-                          color: cs.onSecondaryContainer,
-                          fontWeight: FontWeight.w600,
-                        ),
-                      ),
-                    ),
-                  ] else ...[
-                    DropdownButtonFormField<String>(
-                      initialValue: _dbProtocol,
-                      isExpanded: true,
-                      items: _dbProtocols
-                          .map((p) => DropdownMenuItem<String>(
-                                value: p,
-                                child: Text(p),
-                              ))
-                          .toList(growable: false),
-                      onChanged: (v) {
-                        if (v == null) return;
-                        _dbSelectProtocol(v);
-                      },
-                      decoration: InputDecoration(
-                        labelText: context.l10n.protocolAutoDetected,
-                        border: OutlineInputBorder(),
-                        helperText: context.l10n.protocolAutoDetectedHelper,
-                      ),
-                    ),
-                  ],
-                  const SizedBox(height: 12),
-                ],
-                _buildPresetBar(enabled: canBrowseKeys),
-                const SizedBox(height: 10),
-                TextField(
-                  controller: _dbSearchCtl,
-                  enabled: canBrowseKeys,
-                  textInputAction: TextInputAction.search,
-                  decoration: InputDecoration(
-                    hintText: searchHint,
-                    prefixIcon: const Icon(Icons.search_rounded),
-                    border: const OutlineInputBorder(),
-                    suffixIcon:
-                        (!canBrowseKeys || _dbSearchCtl.text.trim().isEmpty)
-                            ? null
-                            : IconButton(
-                                tooltip: context.l10n.clearAction,
-                                onPressed: () {
-                                  setState(() => _dbSearchCtl.clear());
-                                  _runDbSearchNow();
-                                },
-                                icon: const Icon(Icons.clear),
-                              ),
-                  ),
-                  onChanged: (_) {
-                    if (!canBrowseKeys) return;
-                    _queueDbSearchReload();
-                  },
-                  onSubmitted: (_) => _runDbSearchNow(),
-                  onTapOutside: (_) =>
-                      FocusManager.instance.primaryFocus?.unfocus(),
-                ),
-              ],
-            ),
-            const SizedBox(height: 8),
-            Expanded(
-              child: Container(
-                decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(12),
-                  border: Border.all(
-                      color: cs.outlineVariant.withValues(alpha: 0.8)),
-                ),
-                child: !canBrowseKeys
-                    ? Center(
-                        child: Padding(
-                          padding: const EdgeInsets.all(14),
-                          child: Text(
-                            context.l10n.selectBrandModelToLoadKeys,
-                            textAlign: TextAlign.center,
-                            style: theme.textTheme.bodySmall?.copyWith(
-                              color: cs.onSurface.withValues(alpha: 0.7),
+      child: Column(
+        children: [
+          Expanded(
+            child: CustomScrollView(
+              controller: _dbScrollCtl,
+              slivers: [
+                SliverPadding(
+                  padding: const EdgeInsets.fromLTRB(16, 10, 16, 12),
+                  sliver: SliverToBoxAdapter(
+                    child: Column(children: [
+                      Row(
+                        children: [
+                          Expanded(
+                            child: Text(
+                              context.l10n.importFromDatabaseTitle,
+                              style: theme.textTheme.titleLarge
+                                  ?.copyWith(fontWeight: FontWeight.w800),
                             ),
                           ),
+                          IconButton(
+                            tooltip: MaterialLocalizations.of(context)
+                                .closeButtonTooltip,
+                            onPressed: () => Navigator.of(context).pop(),
+                            icon: const Icon(Icons.close_rounded),
+                          ),
+                        ],
+                      ),
+                      const SizedBox(height: 4),
+                      Text(
+                        context.l10n.importFromDatabaseSubtitle,
+                        style: theme.textTheme.bodySmall?.copyWith(
+                          color: cs.onSurface.withValues(alpha: 0.75),
                         ),
-                      )
-                    : (_dbRows.isEmpty && _dbLoading)
-                        ? const Center(
-                            child: CircularProgressIndicator(strokeWidth: 2))
-                        : (_dbRows.isEmpty)
-                            ? Center(
-                                child: Padding(
-                                  padding: const EdgeInsets.all(14),
-                                  child: Text(
-                                    effectiveSearch.isEmpty
-                                        ? context.l10n.noKeysFound
-                                        : context.l10n.noKeysFoundForSearch(
-                                            effectiveSearch),
-                                    textAlign: TextAlign.center,
-                                    style: theme.textTheme.bodySmall?.copyWith(
-                                      color:
-                                          cs.onSurface.withValues(alpha: 0.7),
-                                    ),
+                      ),
+                      const SizedBox(height: 8),
+                      if (_dbMetaLoading) ...[
+                        const LinearProgressIndicator(minHeight: 2),
+                        const SizedBox(height: 10),
+                      ],
+                      ExpansionTile(
+                        key: const ValueKey('database-device-filters'),
+                        controller: _filtersTileController,
+                        initiallyExpanded: _filtersExpanded || !canBrowseKeys,
+                        onExpansionChanged: (v) =>
+                            setState(() => _filtersExpanded = v),
+                        tilePadding: EdgeInsets.zero,
+                        title: Row(
+                          children: [
+                            const Icon(Icons.tune_rounded),
+                            const SizedBox(width: 8),
+                            Expanded(
+                              child: Text(
+                                context.l10n.deviceAndFilters,
+                                style: theme.textTheme.titleSmall
+                                    ?.copyWith(fontWeight: FontWeight.w800),
+                              ),
+                            ),
+                            if (canBrowseKeys)
+                              Text(
+                                context.l10n.loadedCount(_dbRows.length),
+                                style: theme.textTheme.bodySmall?.copyWith(
+                                  color: cs.onSurface.withValues(alpha: 0.7),
+                                ),
+                              ),
+                          ],
+                        ),
+                        subtitle: canBrowseKeys
+                            ? Text('$_dbBrand · $_dbModel',
+                                maxLines: 2, overflow: TextOverflow.ellipsis)
+                            : null,
+                        trailing: canBrowseKeys
+                            ? IconButton(
+                                onPressed: _toggleFiltersExpanded,
+                                icon: Icon(
+                                  _filtersExpanded
+                                      ? Icons.keyboard_arrow_up_rounded
+                                      : Icons.keyboard_arrow_down_rounded,
+                                ),
+                                tooltip: _filtersExpanded
+                                    ? context.l10n.hideFilters
+                                    : context.l10n.showFilters,
+                              )
+                            : null,
+                        childrenPadding: const EdgeInsets.only(bottom: 8),
+                        children: [
+                          Row(
+                            children: [
+                              Expanded(
+                                child: _dbField(
+                                  label: context.l10n.brand,
+                                  icon: Icons.factory_outlined,
+                                  value: hasBrand
+                                      ? _dbBrand!
+                                      : context.l10n.selectBrand,
+                                  enabled: true,
+                                  onTap: _dbSelectBrand,
+                                ),
+                              ),
+                              const SizedBox(width: 12),
+                              Expanded(
+                                child: _dbField(
+                                  label: context.l10n.model,
+                                  icon: Icons.devices_other_outlined,
+                                  value: hasModel
+                                      ? _dbModel!
+                                      : context.l10n.selectModel,
+                                  enabled: hasBrand,
+                                  onTap: _dbSelectModel,
+                                ),
+                              ),
+                            ],
+                          ),
+                          const SizedBox(height: 12),
+                          if (hasBrand && hasModel) ...[
+                            if (_dbProtocols.isEmpty && !_dbMetaLoading) ...[
+                              Container(
+                                width: double.infinity,
+                                padding: const EdgeInsets.all(12),
+                                decoration: BoxDecoration(
+                                  color: cs.secondaryContainer
+                                      .withValues(alpha: 0.5),
+                                  borderRadius: BorderRadius.circular(12),
+                                ),
+                                child: Text(
+                                  context.l10n.noProtocolFoundForBrandModel,
+                                  style: theme.textTheme.bodySmall?.copyWith(
+                                    color: cs.onSecondaryContainer,
+                                    fontWeight: FontWeight.w600,
                                   ),
                                 ),
-                              )
-                            : ListView.separated(
-                                controller: _dbScrollCtl,
-                                itemCount:
-                                    _dbRows.length + (_dbLoading ? 1 : 0),
-                                separatorBuilder: (_, __) =>
-                                    const Divider(height: 0),
-                                itemBuilder: (ctx, i) {
-                                  if (i >= _dbRows.length) {
-                                    return const Padding(
-                                      padding: EdgeInsets.all(14),
-                                      child: Center(
-                                          child: CircularProgressIndicator(
-                                              strokeWidth: 2)),
-                                    );
-                                  }
-
-                                  final r = _dbRows[i];
-                                  final bool selected = _isSelected(r);
-
-                                  final String titleText =
-                                      (r.label ?? '').trim().isEmpty
-                                          ? context.l10n.unnamedKey
-                                          : (r.label ?? '').trim();
-                                  final String protoText =
-                                      r.protocol.trim().isEmpty
-                                          ? context.l10n.unknown
-                                          : r.protocol.trim();
-                                  final String hexText =
-                                      r.hexcode.trim().isEmpty
-                                          ? context.l10n.emDash
-                                          : r.hexcode.trim();
-
-                                  return CheckboxListTile(
-                                    value: selected,
-                                    onChanged: (_) => _toggleSelected(r),
-                                    title: Text(titleText),
-                                    subtitle: Text('$hexText · $protoText'),
-                                    secondary: IconButton(
-                                      tooltip: context.l10n.copyCode,
-                                      icon: const Icon(Icons.copy_rounded),
-                                      onPressed: () => Clipboard.setData(
-                                        ClipboardData(
-                                            text: '$protoText:$hexText'),
-                                      ),
-                                    ),
-                                  );
-                                },
                               ),
+                            ] else ...[
+                              DropdownButtonFormField<String>(
+                                initialValue: _dbProtocol,
+                                isExpanded: true,
+                                items: _dbProtocols
+                                    .map((p) => DropdownMenuItem<String>(
+                                          value: p,
+                                          child: Text(p),
+                                        ))
+                                    .toList(growable: false),
+                                onChanged: (v) {
+                                  if (v == null) return;
+                                  _dbSelectProtocol(v);
+                                },
+                                decoration: InputDecoration(
+                                  labelText: context.l10n.protocolAutoDetected,
+                                  border: OutlineInputBorder(),
+                                  helperText:
+                                      context.l10n.protocolAutoDetectedHelper,
+                                ),
+                              ),
+                            ],
+                            const SizedBox(height: 12),
+                          ],
+                          if (canBrowseKeys) ...[
+                            _buildPresetBar(),
+                            const SizedBox(height: 10),
+                            TextField(
+                              controller: _dbSearchCtl,
+                              enabled: canBrowseKeys,
+                              textInputAction: TextInputAction.search,
+                              decoration: InputDecoration(
+                                hintText: searchHint,
+                                prefixIcon: const Icon(Icons.search_rounded),
+                                border: const OutlineInputBorder(),
+                                suffixIcon: (!canBrowseKeys ||
+                                        _dbSearchCtl.text.trim().isEmpty)
+                                    ? null
+                                    : IconButton(
+                                        tooltip: context.l10n.clearAction,
+                                        onPressed: () {
+                                          setState(() => _dbSearchCtl.clear());
+                                          _runDbSearchNow();
+                                        },
+                                        icon: const Icon(Icons.clear),
+                                      ),
+                              ),
+                              onChanged: (_) {
+                                if (!canBrowseKeys) return;
+                                _queueDbSearchReload();
+                              },
+                              onSubmitted: (_) => _runDbSearchNow(),
+                              onTapOutside: (_) =>
+                                  FocusManager.instance.primaryFocus?.unfocus(),
+                            ),
+                          ],
+                        ],
+                      ),
+                      const SizedBox(height: 8),
+                      if (canBrowseKeys) ...[
+                        const SizedBox(height: 6),
+                        Wrap(
+                          spacing: 8,
+                          crossAxisAlignment: WrapCrossAlignment.center,
+                          children: [
+                            Text(
+                              context.l10n.selectedCount(_selectedKeys.length),
+                              style: theme.textTheme.bodyMedium
+                                  ?.copyWith(fontWeight: FontWeight.w700),
+                            ),
+                            TextButton(
+                              onPressed: _dbRows.isEmpty
+                                  ? null
+                                  : () => setState(() => _selectedKeys.clear()),
+                              child: Text(context.l10n.clearAction),
+                            ),
+                            TextButton(
+                              onPressed: _dbRows.isEmpty
+                                  ? null
+                                  : () => setState(() {
+                                        for (final r in _dbRows) {
+                                          _selectedKeys.add(_rowKey(r));
+                                        }
+                                      }),
+                              child: Text(context.l10n.selectVisible),
+                            ),
+                          ],
+                        ),
+                        SwitchListTile(
+                          contentPadding: EdgeInsets.zero,
+                          title: Text(context.l10n.skipDuplicates),
+                          subtitle: Text(context.l10n.skipDuplicatesSubtitle),
+                          value: _skipDuplicates,
+                          onChanged: (v) => setState(() => _skipDuplicates = v),
+                        ),
+                      ],
+                    ]),
+                  ),
+                ),
+                if (_dbRows.isEmpty || !canBrowseKeys)
+                  SliverToBoxAdapter(
+                    child: _buildKeyPlaceholder(canBrowseKeys, effectiveSearch),
+                  )
+                else
+                  SliverPadding(
+                    padding: const EdgeInsets.fromLTRB(16, 0, 16, 12),
+                    sliver: SliverList.separated(
+                      itemCount: _dbRows.length + (_dbLoading ? 1 : 0),
+                      separatorBuilder: (_, __) => const Divider(height: 0),
+                      itemBuilder: (ctx, i) {
+                        if (i >= _dbRows.length) {
+                          return const Padding(
+                            padding: EdgeInsets.all(14),
+                            child: Center(
+                                child:
+                                    CircularProgressIndicator(strokeWidth: 2)),
+                          );
+                        }
+
+                        final r = _dbRows[i];
+                        final bool selected = _isSelected(r);
+
+                        final String titleText = (r.label ?? '').trim().isEmpty
+                            ? context.l10n.unnamedKey
+                            : (r.label ?? '').trim();
+                        final String protoText = r.protocol.trim().isEmpty
+                            ? context.l10n.unknown
+                            : r.protocol.trim();
+                        final String hexText = r.hexcode.trim().isEmpty
+                            ? context.l10n.emDash
+                            : r.hexcode.trim();
+
+                        return CheckboxListTile(
+                          value: selected,
+                          onChanged: (_) => _toggleSelected(r),
+                          title: Text(titleText),
+                          subtitle: Text('$hexText · $protoText'),
+                          secondary: IconButton(
+                            tooltip: context.l10n.copyCode,
+                            icon: const Icon(Icons.copy_rounded),
+                            onPressed: () => Clipboard.setData(
+                              ClipboardData(text: '$protoText:$hexText'),
+                            ),
+                          ),
+                        );
+                      },
+                    ),
+                  ),
+              ],
+            ),
+          ),
+          if (canBrowseKeys)
+            Padding(
+              padding: const EdgeInsets.fromLTRB(16, 8, 16, 12),
+              child: Row(
+                children: [
+                  Expanded(
+                    child: OutlinedButton.icon(
+                      onPressed: _selectedKeys.isEmpty ? null : _importSelected,
+                      icon: const Icon(Icons.download_done_rounded),
+                      label: Text(context.l10n.importSelected),
+                    ),
+                  ),
+                  const SizedBox(width: 12),
+                  Expanded(
+                    child: FilledButton.icon(
+                      onPressed: _importAllMatching,
+                      icon: const Icon(Icons.playlist_add_rounded),
+                      label: Text(context.l10n.importAll),
+                    ),
+                  ),
+                ],
               ),
             ),
-            const SizedBox(height: 6),
-            Wrap(
-              spacing: 8,
-              crossAxisAlignment: WrapCrossAlignment.center,
-              children: [
-                Text(
-                  context.l10n.selectedCount(_selectedKeys.length),
-                  style: theme.textTheme.bodyMedium
-                      ?.copyWith(fontWeight: FontWeight.w700),
-                ),
-                TextButton(
-                  onPressed: _dbRows.isEmpty
-                      ? null
-                      : () => setState(() => _selectedKeys.clear()),
-                  child: Text(context.l10n.clearAction),
-                ),
-                TextButton(
-                  onPressed: _dbRows.isEmpty
-                      ? null
-                      : () => setState(() {
-                            for (final r in _dbRows) {
-                              _selectedKeys.add(_rowKey(r));
-                            }
-                          }),
-                  child: Text(context.l10n.selectVisible),
-                ),
-              ],
-            ),
-            SwitchListTile(
-              contentPadding: EdgeInsets.zero,
-              title: Text(context.l10n.skipDuplicates),
-              subtitle: Text(context.l10n.skipDuplicatesSubtitle),
-              value: _skipDuplicates,
-              onChanged: (v) => setState(() => _skipDuplicates = v),
-            ),
-            Row(
-              children: [
-                Expanded(
-                  child: OutlinedButton.icon(
-                    onPressed: _selectedKeys.isEmpty ? null : _importSelected,
-                    icon: const Icon(Icons.download_done_rounded),
-                    label: Text(context.l10n.importSelected),
-                  ),
-                ),
-                const SizedBox(width: 12),
-                Expanded(
-                  child: FilledButton.icon(
-                    onPressed: canBrowseKeys ? _importAllMatching : null,
-                    icon: const Icon(Icons.playlist_add_rounded),
-                    label: Text(context.l10n.importAll),
-                  ),
-                ),
-              ],
-            ),
-          ],
-        ),
+        ],
+      ),
+    );
+  }
+
+  Widget _buildKeyPlaceholder(bool canBrowseKeys, String effectiveSearch) {
+    final theme = Theme.of(context);
+    final cs = theme.colorScheme;
+    if (canBrowseKeys && _dbLoading) {
+      return const Center(child: CircularProgressIndicator(strokeWidth: 2));
+    }
+    final l10n = context.l10n;
+    final message = !canBrowseKeys
+        ? l10n.selectBrandModelToLoadKeys
+        : effectiveSearch.isEmpty
+            ? l10n.noKeysFound
+            : l10n.noKeysFoundForSearch(effectiveSearch);
+    return Padding(
+      padding: const EdgeInsets.all(24),
+      child: Text(
+        message,
+        textAlign: TextAlign.center,
+        style: theme.textTheme.bodySmall?.copyWith(color: cs.onSurfaceVariant),
       ),
     );
   }

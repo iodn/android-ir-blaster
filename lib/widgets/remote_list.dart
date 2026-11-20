@@ -12,6 +12,7 @@ import 'package:irblaster_controller/utils/ir.dart';
 import 'package:irblaster_controller/utils/remote.dart';
 import 'package:irblaster_controller/widgets/global_search_delegate.dart';
 import 'package:irblaster_controller/widgets/remote_view.dart';
+import 'package:irblaster_controller/widgets/remote_editor/remote_editor_actions.dart';
 import 'package:irblaster_controller/widgets/remote_editor/remote_editor_draft.dart';
 import 'package:irblaster_controller/widgets/remote_setup_screen.dart';
 import 'package:irblaster_controller/widgets/remote_studio_screen.dart';
@@ -371,19 +372,38 @@ class _RemoteListState extends State<RemoteList> {
     ).then((value) => value ?? false);
   }
 
-  Future<void> _addRemote() async {
+  Future<void> _addRemote({bool fromDatabase = false}) async {
+    if (ModalRoute.of(context)?.isCurrent != true) return;
     if (_reorderMode) _setReorderMode(false);
     try {
-      final RemoteEditorDraft? setupDraft =
-          await Navigator.push<RemoteEditorDraft?>(
-        context,
-        MaterialPageRoute(builder: (context) => const RemoteSetupScreen()),
-      );
-      if (setupDraft == null || !mounted) return;
+      final RemoteEditorDraft? setupDraft;
+      if (fromDatabase) {
+        final buttons = await RemoteEditorActions.importFromDatabase(
+          context,
+          existingButtons: const [],
+        );
+        if (buttons == null || buttons.isEmpty || !mounted) return;
+        setupDraft = RemoteEditorDraft(
+          name: context.l10n.untitledRemote,
+          layoutStyle: RemoteLayoutStyle.compact,
+          buttons: buttons,
+        );
+      } else {
+        setupDraft = await Navigator.push<RemoteEditorDraft?>(
+          context,
+          MaterialPageRoute(builder: (context) => const RemoteSetupScreen()),
+        );
+      }
+      final draft = setupDraft;
+      if (draft == null ||
+          !mounted ||
+          ModalRoute.of(context)?.isCurrent != true) {
+        return;
+      }
       final Remote? newRemote = await Navigator.push<Remote?>(
         context,
         MaterialPageRoute(
-          builder: (context) => RemoteStudioScreen(initialDraft: setupDraft),
+          builder: (context) => RemoteStudioScreen(initialDraft: draft),
         ),
       );
       if (newRemote == null || !mounted) return;
@@ -697,15 +717,16 @@ class _RemoteListState extends State<RemoteList> {
                       );
                     },
                   ),
-                IconButton(
-                  tooltip: _reorderMode
-                      ? context.l10n.done
-                      : context.l10n.reorderRemotes,
-                  icon: Icon(_reorderMode
-                      ? Icons.check_rounded
-                      : Icons.drag_indicator_rounded),
-                  onPressed: () => _setReorderMode(!_reorderMode),
-                ),
+                if (remotes.isNotEmpty || _reorderMode)
+                  IconButton(
+                    tooltip: _reorderMode
+                        ? context.l10n.done
+                        : context.l10n.reorderRemotes,
+                    icon: Icon(_reorderMode
+                        ? Icons.check_rounded
+                        : Icons.drag_indicator_rounded),
+                    onPressed: () => _setReorderMode(!_reorderMode),
+                  ),
               ],
             ),
             floatingActionButton: remotes.isEmpty
@@ -725,7 +746,10 @@ class _RemoteListState extends State<RemoteList> {
                         ),
                         SliverFillRemaining(
                           hasScrollBody: false,
-                          child: _EmptyState(onAdd: _addRemote),
+                          child: _EmptyState(
+                            onAdd: _addRemote,
+                            onImport: () => _addRemote(fromDatabase: true),
+                          ),
                         ),
                       ],
                     )
@@ -1118,8 +1142,9 @@ class _TopRemoteAccessCard extends StatelessWidget {
 
 class _EmptyState extends StatelessWidget {
   final VoidCallback onAdd;
+  final VoidCallback onImport;
 
-  const _EmptyState({required this.onAdd});
+  const _EmptyState({required this.onAdd, required this.onImport});
 
   @override
   Widget build(BuildContext context) {
@@ -1158,6 +1183,12 @@ class _EmptyState extends StatelessWidget {
             ),
             const SizedBox(height: 16),
             FilledButton.icon(
+              onPressed: onImport,
+              icon: const Icon(Icons.storage_rounded),
+              label: Text(context.l10n.importFromDatabase),
+            ),
+            const SizedBox(height: 8),
+            FilledButton.tonalIcon(
               onPressed: onAdd,
               icon: const Icon(Icons.add),
               label: Text(context.l10n.addRemote),

@@ -35,6 +35,11 @@ class _RemoteStudioScreenState extends State<RemoteStudioScreen> {
   bool _arranging = false;
   int? _selectedCell;
 
+  bool get _hasUnsavedChanges =>
+      _draft.isDirty ||
+      (widget.initialDraft.remoteId == null &&
+          widget.initialDraft.buttons.isNotEmpty);
+
   @override
   void initState() {
     super.initState();
@@ -54,7 +59,7 @@ class _RemoteStudioScreenState extends State<RemoteStudioScreen> {
   }
 
   Future<bool> _confirmDiscardIfNeeded() async {
-    if (!_draft.isDirty) return true;
+    if (!_hasUnsavedChanges) return true;
     final result = await showDialog<bool>(
       context: context,
       builder: (dialogContext) => AlertDialog(
@@ -832,7 +837,7 @@ class _RemoteStudioScreenState extends State<RemoteStudioScreen> {
         : _draft.name.trim();
 
     return PopScope(
-      canPop: !_draft.isDirty,
+      canPop: !_hasUnsavedChanges,
       onPopInvokedWithResult: (didPop, _) async {
         if (didPop) return;
         final discard = await _confirmDiscardIfNeeded();
