@@ -5533,4 +5533,79 @@ class AppLocalizationsMs extends AppLocalizations {
   @override
   String get githubAuthenticationFailed =>
       'Pengesahan GitHub gagal. Semak token akses peribadi anda.';
+
+  @override
+  String get learningModeAddAndLearnNext => 'Tambah & pelajari seterusnya';
+
+  @override
+  String learningModeAddedLearnNext(String name, int count) {
+    return '\"$name\" ditambah ($count setakat ini). Tekan butang seterusnya pada alat kawalan jauh anda.';
+  }
+
+  @override
+  String get learningDbSuggestionsTitle => 'Cadangan pangkalan data';
+
+  @override
+  String learningDbDetectedCode(String protocol, String code) {
+    return 'Kod $protocol dikesan: $code';
+  }
+
+  @override
+  String learningDbDetectedRc5(String code, int address, int command) {
+    return 'Kod RC5 dikesan: $code (alamat $address, arahan $command)';
+  }
+
+  @override
+  String get learningDbNoMatch =>
+      'Tiada alat kawalan jauh dalam pangkalan data yang menggunakan kod ini.';
+
+  @override
+  String learningDbMatchSummary(int models, int brands) {
+    return 'Model sepadan: $models · jenama: $brands';
+  }
+
+  @override
+  String learningDbScopeAllLearned(int count) {
+    return 'Setiap alat kawalan jauh ini mengandungi semua butang yang dipelajari setakat ini ($count).';
+  }
+
+  @override
+  String learningDbUsualLabels(String labels) {
+    return 'Label biasa: $labels';
+  }
+
+  @override
+  String get learningDbFellBack =>
+      'Tiada alat kawalan jauh dalam pangkalan data yang mengandungi semua butang yang dipelajari setakat ini, jadi padanan ini untuk butang ini sahaja.';
+
+  @override
+  String learningDbManyBrandsEditor(String action) {
+    return 'Digunakan oleh banyak jenama. Pelajari lebih banyak butang dengan \"$action\" (lebih jarang lebih baik) untuk mengecilkan hasil. Paling mungkin dahulu:';
+  }
+
+  @override
+  String get learningDbManyBrands =>
+      'Kod ini digunakan oleh banyak jenama, jadi satu butang tidak dapat membezakannya. Paling mungkin dahulu:';
+
+  @override
+  String get learningDbTapBrandHint =>
+      'Ketik jenama untuk menambah semua butang daripada salah satu alat kawalan jauhnya. Butang yang anda pelajari dikekalkan.';
+
+  @override
+  String learningDbModelCount(int count) {
+    return 'Model: $count';
+  }
+
+  @override
+  String learningDbChooseModel(String brand) {
+    return '$brand · pilih model';
+  }
+
+  @override
+  String get learningDbNoUsableButtons =>
+      'Alat kawalan jauh ini tiada butang yang boleh digunakan.';
+
+  @override
+  String get learningDbLoadFailed =>
+      'Tidak dapat memuatkan alat kawalan jauh daripada pangkalan data.';
 }

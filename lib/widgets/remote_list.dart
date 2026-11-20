@@ -711,6 +711,7 @@ class _RemoteListState extends State<RemoteList> {
             floatingActionButton: remotes.isEmpty
                 ? null
                 : FloatingActionButton.extended(
+                    heroTag: 'remote_list_add',
                     onPressed: _reorderMode ? null : _addRemote,
                     icon: const Icon(Icons.add),
                     label: Text(context.l10n.addRemote),

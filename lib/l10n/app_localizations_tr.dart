@@ -5518,4 +5518,77 @@ class AppLocalizationsTr extends AppLocalizations {
   @override
   String get githubAuthenticationFailed =>
       'GitHub kimlik doğrulaması başarısız oldu. Kişisel erişim belirtecinizi kontrol edin.';
+
+  @override
+  String get learningModeAddAndLearnNext => 'Ekle ve sonrakini öğren';
+
+  @override
+  String learningModeAddedLearnNext(String name, int count) {
+    return '\"$name\" eklendi (şu ana kadar $count). Kumandanızdaki sonraki düğmeye basın.';
+  }
+
+  @override
+  String get learningDbSuggestionsTitle => 'Veritabanı önerileri';
+
+  @override
+  String learningDbDetectedCode(String protocol, String code) {
+    return 'Algılanan $protocol kodu: $code';
+  }
+
+  @override
+  String learningDbDetectedRc5(String code, int address, int command) {
+    return 'Algılanan RC5 kodu: $code (adres $address, komut $command)';
+  }
+
+  @override
+  String get learningDbNoMatch => 'Veritabanında bu kodu kullanan kumanda yok.';
+
+  @override
+  String learningDbMatchSummary(int models, int brands) {
+    return 'Eşleşen modeller: $models · markalar: $brands';
+  }
+
+  @override
+  String learningDbScopeAllLearned(int count) {
+    return 'Bu kumandaların her biri şimdiye kadar öğrenilen tüm düğmeleri içeriyor ($count).';
+  }
+
+  @override
+  String learningDbUsualLabels(String labels) {
+    return 'Genellikle etiketi: $labels';
+  }
+
+  @override
+  String get learningDbFellBack =>
+      'Veritabanında şimdiye kadar öğrenilen tüm düğmeleri içeren kumanda yok; bu sonuçlar yalnızca bu düğme için.';
+
+  @override
+  String learningDbManyBrandsEditor(String action) {
+    return 'Birçok marka tarafından kullanılıyor. Sonuçları daraltmak için \"$action\" ile başka düğmeler öğretin (ne kadar az yaygınsa o kadar iyi). En olası olanlar önce:';
+  }
+
+  @override
+  String get learningDbManyBrands =>
+      'Bu kod birçok marka tarafından kullanılıyor, bu yüzden tek bir düğme onları ayırt edemez. En olası olanlar önce:';
+
+  @override
+  String get learningDbTapBrandHint =>
+      'Bir markanın kumandalarından birinin tüm düğmelerini eklemek için markaya dokunun. Öğrendiğiniz düğmeler korunur.';
+
+  @override
+  String learningDbModelCount(int count) {
+    return 'Model: $count';
+  }
+
+  @override
+  String learningDbChooseModel(String brand) {
+    return '$brand · model seçin';
+  }
+
+  @override
+  String get learningDbNoUsableButtons =>
+      'Bu kumandada kullanılabilir düğme yok.';
+
+  @override
+  String get learningDbLoadFailed => 'Kumanda veritabanından yüklenemedi.';
 }

@@ -5535,4 +5535,78 @@ class AppLocalizationsHi extends AppLocalizations {
   @override
   String get githubAuthenticationFailed =>
       'GitHub पर प्रमाणीकरण विफल रहा। अपना निजी एक्सेस टोकन जाँचें।';
+
+  @override
+  String get learningModeAddAndLearnNext => 'जोड़ें और अगला सीखें';
+
+  @override
+  String learningModeAddedLearnNext(String name, int count) {
+    return '\"$name\" जोड़ा गया (अब तक $count)। अपने रिमोट का अगला बटन दबाएँ।';
+  }
+
+  @override
+  String get learningDbSuggestionsTitle => 'डेटाबेस से सुझाव';
+
+  @override
+  String learningDbDetectedCode(String protocol, String code) {
+    return 'पहचाना गया $protocol कोड: $code';
+  }
+
+  @override
+  String learningDbDetectedRc5(String code, int address, int command) {
+    return 'पहचाना गया RC5 कोड: $code (पता $address, कमांड $command)';
+  }
+
+  @override
+  String get learningDbNoMatch =>
+      'डेटाबेस में कोई भी रिमोट इस कोड का उपयोग नहीं करता।';
+
+  @override
+  String learningDbMatchSummary(int models, int brands) {
+    return 'मेल खाते मॉडल: $models · ब्रांड: $brands';
+  }
+
+  @override
+  String learningDbScopeAllLearned(int count) {
+    return 'इनमें से हर रिमोट में अब तक सीखे गए सभी बटन हैं ($count)।';
+  }
+
+  @override
+  String learningDbUsualLabels(String labels) {
+    return 'आम तौर पर लेबल: $labels';
+  }
+
+  @override
+  String get learningDbFellBack =>
+      'डेटाबेस में किसी भी रिमोट में अब तक सीखे गए सभी बटन नहीं हैं, इसलिए ये मिलान केवल इस बटन के लिए हैं।';
+
+  @override
+  String learningDbManyBrandsEditor(String action) {
+    return 'कई ब्रांड इसका उपयोग करते हैं। नतीजे कम करने के लिए \"$action\" से और बटन सीखें (जितने कम आम, उतना बेहतर)। सबसे संभावित पहले:';
+  }
+
+  @override
+  String get learningDbManyBrands =>
+      'यह कोड कई ब्रांड इस्तेमाल करते हैं, इसलिए एक बटन से उन्हें अलग नहीं किया जा सकता। सबसे संभावित पहले:';
+
+  @override
+  String get learningDbTapBrandHint =>
+      'किसी ब्रांड पर टैप करके उसके किसी रिमोट के सभी बटन जोड़ें। आपके सीखे हुए बटन बने रहेंगे।';
+
+  @override
+  String learningDbModelCount(int count) {
+    return 'मॉडल: $count';
+  }
+
+  @override
+  String learningDbChooseModel(String brand) {
+    return '$brand · मॉडल चुनें';
+  }
+
+  @override
+  String get learningDbNoUsableButtons =>
+      'इस रिमोट में कोई उपयोगी बटन नहीं है।';
+
+  @override
+  String get learningDbLoadFailed => 'डेटाबेस से रिमोट लोड नहीं हो सका।';
 }

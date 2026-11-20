@@ -480,21 +480,38 @@ class TiqiaaUsbLearner private constructor(
             else -> return null
         }
         if (type == 5) {
-            if (decodePreviewPattern(frame).isEmpty()) return null
-            return ParsedFrame(type, 2, frame.copyOf(), 0, meta)
+            val start = timingStart(frame)
+            if (decodeTimings(frame, start).isEmpty()) return null
+            // With the no-meta layout byte 4 is already a timing byte, not a meta value.
+            return ParsedFrame(type, 2, frame.copyOf(), 0, if (start == 4) 0 else meta)
         }
         return ParsedFrame(type, (meta shr 3) and 0x3, frame.copyOfRange(5, frame.size - 2), 0, meta)
     }
 
-    private fun decodePreviewPattern(frame: ByteArray): IntArray {
+    /**
+     * Index of the first timing byte of a 'D' frame.
+     *
+     * The documented layout is `ST <seq> D <meta> <timings> EN` and is always tried
+     * first, so a meta byte is never read as part of the signal when that layout
+     * decodes. Some dongles (observed: ZaZa/Tiqiaa "Tview" 10c4:8468) omit <meta> and
+     * start the timings right after 'D'; the documented layout then starts with a
+     * space and is rejected, and only in that case the no-meta layout is used.
+     */
+    private fun timingStart(frame: ByteArray): Int =
+        if (decodeTimings(frame, 5).isNotEmpty()) 5 else 4
+
+    private fun decodePreviewPattern(frame: ByteArray): IntArray =
+        decodeTimings(frame, timingStart(frame))
+
+    private fun decodeTimings(frame: ByteArray, start: Int): IntArray {
         if (frame.size < 8) return IntArray(0)
         val bodyEndExclusive = frame.size - 2
-        if (bodyEndExclusive <= 5) return IntArray(0)
+        if (bodyEndExclusive <= start) return IntArray(0)
 
         val out = ArrayList<Int>(64)
         var currentPolarity = true
         var units = 0
-        for (i in 5 until bodyEndExclusive) {
+        for (i in start until bodyEndExclusive) {
             val b = frame[i].toInt() and 0xFF
             val polarity = (b and 0x80) != 0
             val value = b and 0x7F

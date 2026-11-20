@@ -5,6 +5,7 @@ enum AddButtonSheetAction {
   addButton,
   importFromRemotes,
   importFromDatabase,
+  learnFromRemote,
   browseGithubStore,
 }
 
@@ -58,6 +59,14 @@ class AddButtonSheet extends StatelessWidget {
                   subtitle: Text(l10n.importFromDatabaseSubtitle),
                   onTap: () => Navigator.of(context)
                       .pop(AddButtonSheetAction.importFromDatabase),
+                ),
+                const Divider(height: 0),
+                ListTile(
+                  leading: const Icon(Icons.sensors_rounded),
+                  title: Text(l10n.learningModeEntryTitle),
+                  subtitle: Text(l10n.learningModeEntrySubtitle),
+                  onTap: () => Navigator.of(context)
+                      .pop(AddButtonSheetAction.learnFromRemote),
                 ),
               ],
             ),

@@ -5589,4 +5589,77 @@ class AppLocalizationsEn extends AppLocalizations {
   @override
   String get githubAuthenticationFailed =>
       'GitHub authentication failed. Check your personal access token.';
+
+  @override
+  String get learningModeAddAndLearnNext => 'Add & learn next';
+
+  @override
+  String learningModeAddedLearnNext(String name, int count) {
+    return 'Added \"$name\" ($count so far). Press the next button on your remote.';
+  }
+
+  @override
+  String get learningDbSuggestionsTitle => 'Database suggestions';
+
+  @override
+  String learningDbDetectedCode(String protocol, String code) {
+    return 'Detected $protocol code: $code';
+  }
+
+  @override
+  String learningDbDetectedRc5(String code, int address, int command) {
+    return 'Detected RC5 code: $code (address $address, command $command)';
+  }
+
+  @override
+  String get learningDbNoMatch => 'No remote in the database uses this code.';
+
+  @override
+  String learningDbMatchSummary(int models, int brands) {
+    return 'Matching models: $models · brands: $brands';
+  }
+
+  @override
+  String learningDbScopeAllLearned(int count) {
+    return 'Each of these remotes contains all buttons learned so far ($count).';
+  }
+
+  @override
+  String learningDbUsualLabels(String labels) {
+    return 'Usually labeled: $labels';
+  }
+
+  @override
+  String get learningDbFellBack =>
+      'No remote in the database contains all the buttons learned so far, so these are matches for this button only.';
+
+  @override
+  String learningDbManyBrandsEditor(String action) {
+    return 'Shared by many brands. Learn more buttons with \"$action\" (the less common, the better) to narrow it down. Most likely first:';
+  }
+
+  @override
+  String get learningDbManyBrands =>
+      'This code is shared by many brands, so one button cannot tell them apart. Most likely first:';
+
+  @override
+  String get learningDbTapBrandHint =>
+      'Tap a brand to add all buttons of one of its remotes. The buttons you learned are kept.';
+
+  @override
+  String learningDbModelCount(int count) {
+    return 'Models: $count';
+  }
+
+  @override
+  String learningDbChooseModel(String brand) {
+    return '$brand · choose a model';
+  }
+
+  @override
+  String get learningDbNoUsableButtons => 'This remote has no usable buttons.';
+
+  @override
+  String get learningDbLoadFailed =>
+      'Could not load the remote from the database.';
 }

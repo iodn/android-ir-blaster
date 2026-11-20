@@ -5503,4 +5503,79 @@ class AppLocalizationsVi extends AppLocalizations {
   @override
   String get githubAuthenticationFailed =>
       'Xác thực GitHub thất bại. Hãy kiểm tra mã truy cập cá nhân.';
+
+  @override
+  String get learningModeAddAndLearnNext => 'Thêm và học nút tiếp theo';
+
+  @override
+  String learningModeAddedLearnNext(String name, int count) {
+    return 'Đã thêm \"$name\" (đến giờ $count). Hãy nhấn nút tiếp theo trên điều khiển.';
+  }
+
+  @override
+  String get learningDbSuggestionsTitle => 'Gợi ý từ cơ sở dữ liệu';
+
+  @override
+  String learningDbDetectedCode(String protocol, String code) {
+    return 'Đã nhận diện mã $protocol: $code';
+  }
+
+  @override
+  String learningDbDetectedRc5(String code, int address, int command) {
+    return 'Đã nhận diện mã RC5: $code (địa chỉ $address, lệnh $command)';
+  }
+
+  @override
+  String get learningDbNoMatch =>
+      'Không có điều khiển nào trong cơ sở dữ liệu dùng mã này.';
+
+  @override
+  String learningDbMatchSummary(int models, int brands) {
+    return 'Mẫu phù hợp: $models · hãng: $brands';
+  }
+
+  @override
+  String learningDbScopeAllLearned(int count) {
+    return 'Mỗi điều khiển này đều có tất cả các nút đã học ($count).';
+  }
+
+  @override
+  String learningDbUsualLabels(String labels) {
+    return 'Nhãn thường gặp: $labels';
+  }
+
+  @override
+  String get learningDbFellBack =>
+      'Không có điều khiển nào trong cơ sở dữ liệu chứa tất cả các nút đã học, nên đây chỉ là kết quả cho nút này.';
+
+  @override
+  String learningDbManyBrandsEditor(String action) {
+    return 'Nhiều hãng dùng mã này. Hãy học thêm nút bằng \"$action\" (nút càng ít phổ biến càng tốt) để thu hẹp kết quả. Khả năng cao nhất trước:';
+  }
+
+  @override
+  String get learningDbManyBrands =>
+      'Nhiều hãng dùng chung mã này nên một nút không thể phân biệt được. Khả năng cao nhất trước:';
+
+  @override
+  String get learningDbTapBrandHint =>
+      'Chạm vào một hãng để thêm tất cả nút của một điều khiển thuộc hãng đó. Các nút bạn đã học vẫn được giữ lại.';
+
+  @override
+  String learningDbModelCount(int count) {
+    return 'Mẫu: $count';
+  }
+
+  @override
+  String learningDbChooseModel(String brand) {
+    return '$brand · chọn mẫu';
+  }
+
+  @override
+  String get learningDbNoUsableButtons =>
+      'Điều khiển này không có nút nào dùng được.';
+
+  @override
+  String get learningDbLoadFailed =>
+      'Không thể tải điều khiển từ cơ sở dữ liệu.';
 }

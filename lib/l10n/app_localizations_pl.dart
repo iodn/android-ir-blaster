@@ -5650,4 +5650,79 @@ class AppLocalizationsPl extends AppLocalizations {
   @override
   String get githubAuthenticationFailed =>
       'Uwierzytelnienie w GitHubie nie powiodło się. Sprawdź osobisty token dostępu.';
+
+  @override
+  String get learningModeAddAndLearnNext => 'Dodaj i ucz następny';
+
+  @override
+  String learningModeAddedLearnNext(String name, int count) {
+    return 'Dodano „$name” (dotąd: $count). Naciśnij następny przycisk na pilocie.';
+  }
+
+  @override
+  String get learningDbSuggestionsTitle => 'Propozycje z bazy danych';
+
+  @override
+  String learningDbDetectedCode(String protocol, String code) {
+    return 'Wykryty kod $protocol: $code';
+  }
+
+  @override
+  String learningDbDetectedRc5(String code, int address, int command) {
+    return 'Wykryty kod RC5: $code (adres $address, polecenie $command)';
+  }
+
+  @override
+  String get learningDbNoMatch =>
+      'Żaden pilot w bazie danych nie używa tego kodu.';
+
+  @override
+  String learningDbMatchSummary(int models, int brands) {
+    return 'Pasujące modele: $models · marki: $brands';
+  }
+
+  @override
+  String learningDbScopeAllLearned(int count) {
+    return 'Każdy z tych pilotów zawiera wszystkie dotąd nauczone przyciski ($count).';
+  }
+
+  @override
+  String learningDbUsualLabels(String labels) {
+    return 'Zwykle opisany jako: $labels';
+  }
+
+  @override
+  String get learningDbFellBack =>
+      'Żaden pilot w bazie danych nie zawiera wszystkich dotąd nauczonych przycisków, więc są to wyniki tylko dla tego przycisku.';
+
+  @override
+  String learningDbManyBrandsEditor(String action) {
+    return 'Używany przez wiele marek. Naucz kolejne przyciski przez „$action” (im rzadsze, tym lepiej), aby zawęzić wyniki. Najbardziej prawdopodobne najpierw:';
+  }
+
+  @override
+  String get learningDbManyBrands =>
+      'Ten kod jest używany przez wiele marek, więc jeden przycisk nie wystarczy, by je rozróżnić. Najbardziej prawdopodobne najpierw:';
+
+  @override
+  String get learningDbTapBrandHint =>
+      'Dotknij marki, aby dodać wszystkie przyciski jednego z jej pilotów. Nauczone przyciski zostaną zachowane.';
+
+  @override
+  String learningDbModelCount(int count) {
+    return 'Modele: $count';
+  }
+
+  @override
+  String learningDbChooseModel(String brand) {
+    return '$brand · wybierz model';
+  }
+
+  @override
+  String get learningDbNoUsableButtons =>
+      'Ten pilot nie ma przycisków, których można użyć.';
+
+  @override
+  String get learningDbLoadFailed =>
+      'Nie udało się wczytać pilota z bazy danych.';
 }

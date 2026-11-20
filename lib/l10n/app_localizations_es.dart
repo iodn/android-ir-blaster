@@ -5608,4 +5608,79 @@ class AppLocalizationsEs extends AppLocalizations {
   @override
   String get githubAuthenticationFailed =>
       'La autenticación con GitHub falló. Comprueba tu token de acceso personal.';
+
+  @override
+  String get learningModeAddAndLearnNext => 'Añadir y aprender otro';
+
+  @override
+  String learningModeAddedLearnNext(String name, int count) {
+    return 'Se añadió \"$name\" ($count hasta ahora). Pulsa el siguiente botón del mando.';
+  }
+
+  @override
+  String get learningDbSuggestionsTitle => 'Sugerencias de la base de datos';
+
+  @override
+  String learningDbDetectedCode(String protocol, String code) {
+    return 'Código $protocol detectado: $code';
+  }
+
+  @override
+  String learningDbDetectedRc5(String code, int address, int command) {
+    return 'Código RC5 detectado: $code (dirección $address, comando $command)';
+  }
+
+  @override
+  String get learningDbNoMatch =>
+      'Ningún mando de la base de datos usa este código.';
+
+  @override
+  String learningDbMatchSummary(int models, int brands) {
+    return 'Modelos coincidentes: $models · marcas: $brands';
+  }
+
+  @override
+  String learningDbScopeAllLearned(int count) {
+    return 'Cada uno de estos mandos contiene todos los botones aprendidos hasta ahora ($count).';
+  }
+
+  @override
+  String learningDbUsualLabels(String labels) {
+    return 'Etiqueta habitual: $labels';
+  }
+
+  @override
+  String get learningDbFellBack =>
+      'Ningún mando de la base de datos contiene todos los botones aprendidos hasta ahora, así que estas coincidencias son solo para este botón.';
+
+  @override
+  String learningDbManyBrandsEditor(String action) {
+    return 'Lo usan muchas marcas. Aprende más botones con \"$action\" (cuanto menos comunes, mejor) para acotar la búsqueda. Los más probables primero:';
+  }
+
+  @override
+  String get learningDbManyBrands =>
+      'Muchas marcas usan este código, así que un solo botón no basta para distinguirlas. Las más probables primero:';
+
+  @override
+  String get learningDbTapBrandHint =>
+      'Toca una marca para añadir todos los botones de uno de sus mandos. Los botones que aprendiste se conservan.';
+
+  @override
+  String learningDbModelCount(int count) {
+    return 'Modelos: $count';
+  }
+
+  @override
+  String learningDbChooseModel(String brand) {
+    return '$brand · elige un modelo';
+  }
+
+  @override
+  String get learningDbNoUsableButtons =>
+      'Este mando no tiene botones utilizables.';
+
+  @override
+  String get learningDbLoadFailed =>
+      'No se pudo cargar el mando desde la base de datos.';
 }

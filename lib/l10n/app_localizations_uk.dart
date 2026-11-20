@@ -5666,4 +5666,78 @@ class AppLocalizationsUk extends AppLocalizations {
   @override
   String get githubAuthenticationFailed =>
       'Не вдалося пройти автентифікацію GitHub. Перевірте особистий токен доступу.';
+
+  @override
+  String get learningModeAddAndLearnNext => 'Додати й навчити наступну';
+
+  @override
+  String learningModeAddedLearnNext(String name, int count) {
+    return '«$name» додано (усього: $count). Натисніть наступну кнопку на пульті.';
+  }
+
+  @override
+  String get learningDbSuggestionsTitle => 'Варіанти з бази даних';
+
+  @override
+  String learningDbDetectedCode(String protocol, String code) {
+    return 'Розпізнано код $protocol: $code';
+  }
+
+  @override
+  String learningDbDetectedRc5(String code, int address, int command) {
+    return 'Розпізнано код RC5: $code (адреса $address, команда $command)';
+  }
+
+  @override
+  String get learningDbNoMatch => 'У базі даних немає пульта з цим кодом.';
+
+  @override
+  String learningDbMatchSummary(int models, int brands) {
+    return 'Відповідних моделей: $models · брендів: $brands';
+  }
+
+  @override
+  String learningDbScopeAllLearned(int count) {
+    return 'Кожен із цих пультів містить усі навчені досі кнопки ($count).';
+  }
+
+  @override
+  String learningDbUsualLabels(String labels) {
+    return 'Звичайний підпис: $labels';
+  }
+
+  @override
+  String get learningDbFellBack =>
+      'Жоден пульт у базі даних не містить усіх навчених кнопок, тому показано збіги лише для цієї кнопки.';
+
+  @override
+  String learningDbManyBrandsEditor(String action) {
+    return 'Використовується багатьма брендами. Навчіть ще кнопки через «$action» (що рідша кнопка, то краще), щоб звузити вибір. Спочатку найімовірніші:';
+  }
+
+  @override
+  String get learningDbManyBrands =>
+      'Цей код використовують багато брендів, тому за однією кнопкою їх не розрізнити. Спочатку найімовірніші:';
+
+  @override
+  String get learningDbTapBrandHint =>
+      'Торкніться бренду, щоб додати всі кнопки одного з його пультів. Навчені вами кнопки збережуться.';
+
+  @override
+  String learningDbModelCount(int count) {
+    return 'Моделей: $count';
+  }
+
+  @override
+  String learningDbChooseModel(String brand) {
+    return '$brand · виберіть модель';
+  }
+
+  @override
+  String get learningDbNoUsableButtons =>
+      'У цього пульта немає придатних кнопок.';
+
+  @override
+  String get learningDbLoadFailed =>
+      'Не вдалося завантажити пульт із бази даних.';
 }
