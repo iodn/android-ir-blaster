@@ -1,6 +1,8 @@
 package org.nslabs.ir_blaster
 
 import android.app.Application
+import android.content.BroadcastReceiver
+import android.content.Intent
 import android.hardware.usb.UsbDevice
 import android.hardware.usb.UsbManager
 import android.os.Looper
@@ -51,6 +53,7 @@ class MainActivityUsbLifecycleTest {
 
     @After fun cleanup() {
         RecordingUsbConnection.release.countDown()
+        awaitResumeCompletion()
         getField<UsbIrTransmitter?>(activity, "usbTransmitter")?.close()
     }
 
@@ -192,6 +195,15 @@ class MainActivityUsbLifecycleTest {
 
     private fun transmitter() = getField<UsbIrTransmitter?>(activity, "usbTransmitter")
 
+    private fun awaitResumeCompletion() {
+        val deadline = System.nanoTime() + TimeUnit.SECONDS.toNanos(3)
+        while (getField<Any?>(activity, "usbResumeOpen") != null && System.nanoTime() < deadline) {
+            shadowOf(Looper.getMainLooper()).idle()
+            Thread.sleep(5)
+        }
+        assertNull(getField<Any?>(activity, "usbResumeOpen"))
+    }
+
     /** What [UsbIdleCleanup] does shortly after onStop: the connection is released. */
     private fun releaseAsInBackground() {
         invoke("resetUsbTransmitter")
@@ -209,6 +221,7 @@ class MainActivityUsbLifecycleTest {
 
             val opensBefore = RecordingUsbConnection.opens.get()
             invoke("reopenUsbAfterBackground")
+            awaitResumeCompletion()
             val reopened = transmitter()
             assertNotNull(reopened)
             assertEquals(opensBefore + 1, RecordingUsbConnection.opens.get())
@@ -220,6 +233,72 @@ class MainActivityUsbLifecycleTest {
             assertEquals(opensBefore + 1, RecordingUsbConnection.opens.get())
             releaseAsInBackground()
         }
+    }
+
+    @Test fun blockedResumeDoesNotBlockMainThreadAndFirstSendSharesTheOpen() {
+        RecordingUsbConnection.release = CountDownLatch(1)
+        invoke("reopenUsbAfterBackground")
+        assertTrue(RecordingUsbConnection.started.await(3, TimeUnit.SECONDS))
+        assertNull(transmitter())
+        invoke("reopenUsbAfterBackground")
+
+        val sent = Result()
+        val send = {
+            invoke("handleTransmitRaw", MethodCall("transmitRaw", mapOf(
+                "list" to listOf(9000, 4500, 560, 560, 560, 560),
+                "frequency" to 38000,
+            )), sent)
+            Unit
+        }
+        invoke("afterUsbResume", sent, send)
+        assertFalse(sent.completed)
+        assertEquals(1, RecordingUsbConnection.opens.get())
+
+        RecordingUsbConnection.release.countDown()
+        awaitResumeCompletion()
+        assertTrue(sent.completed)
+        assertNull(sent.error)
+        assertNotNull(transmitter())
+        assertEquals(1, RecordingUsbConnection.opens.get())
+    }
+
+    @Test fun detachDuringResumeDoesNotPublishTheOpenedConnection() {
+        RecordingUsbConnection.release = CountDownLatch(1)
+        invoke("reopenUsbAfterBackground")
+        assertTrue(RecordingUsbConnection.started.await(3, TimeUnit.SECONDS))
+
+        shadowOf(manager).removeUsbDevice(device)
+        getField<BroadcastReceiver>(activity, "usbReceiver").onReceive(activity,
+            Intent(UsbManager.ACTION_USB_DEVICE_DETACHED).putExtra(UsbManager.EXTRA_DEVICE, device))
+        RecordingUsbConnection.release.countDown()
+        awaitResumeCompletion()
+
+        assertNull(transmitter())
+        assertFalse(UsbDeviceAccess.isOwned(device.deviceName))
+        assertEquals(1, RecordingUsbConnection.closes.get())
+    }
+
+    @Test fun failedResumeIsNotRetriedByQueuedRequestButLaterRequestCanOpen() {
+        RecordingUsbConnection.failWrites = true
+        RecordingUsbConnection.release = CountDownLatch(1)
+        invoke("reopenUsbAfterBackground")
+        assertTrue(RecordingUsbConnection.started.await(3, TimeUnit.SECONDS))
+
+        val request = Result()
+        invoke("afterUsbResume", request, {
+            request.success(invoke("getOrOpenUsbTransmitterOrRequest"))
+        })
+        RecordingUsbConnection.release.countDown()
+        awaitResumeCompletion()
+
+        assertTrue(request.completed)
+        assertNull(request.value)
+        assertEquals(1, RecordingUsbConnection.opens.get())
+        assertFalse(UsbDeviceAccess.isOwned(device.deviceName))
+
+        RecordingUsbConnection.failWrites = false
+        assertNotNull(invoke("getOrOpenUsbTransmitterOrRequest"))
+        assertEquals(2, RecordingUsbConnection.opens.get())
     }
 
     @Test fun reopenAfterAFirstSendDoesNotClaimTheDongleAgain() {

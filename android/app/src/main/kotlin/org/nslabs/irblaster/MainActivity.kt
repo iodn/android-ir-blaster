@@ -69,6 +69,14 @@ class MainActivity : FlutterActivity() {
             field = value
             if (value != null) usbIdleCleanup.connectionChanged()
         }
+    // Owned by the main thread. The worker only opens the connection.
+    private class UsbResumeOpen(val device: UsbDevice) {
+        var invalidated = false
+        var finished = false
+        var failed = false
+        val pending = mutableListOf<() -> Unit>()
+    }
+    private var usbResumeOpen: UsbResumeOpen? = null
     internal class UsbLearningOperation {
         @Volatile var cancelled = false
         val cancellationResults = mutableListOf<MethodChannel.Result>()
@@ -362,6 +370,19 @@ class MainActivity : FlutterActivity() {
     private val usbReceiver = object : BroadcastReceiver() {
         override fun onReceive(context: Context?, intent: Intent?) {
             val i = intent ?: return
+            if (usbActivityDestroyed) return
+            usbResumeOpen?.takeUnless { it.finished }?.let { opening ->
+                val device = getUsbDeviceExtra(i)
+                if (device == opening.device &&
+                    (i.action == UsbManager.ACTION_USB_DEVICE_DETACHED ||
+                        (i.action == UsbDiscoveryManager.ACTION_USB_PERMISSION &&
+                            !i.getBooleanExtra(UsbManager.EXTRA_PERMISSION_GRANTED, false)))
+                ) {
+                    opening.invalidated = true
+                }
+                opening.pending.add { onReceive(context, i) }
+                return
+            }
             when (i.action) {
                 UsbManager.ACTION_USB_DEVICE_ATTACHED -> {
                     val dev = getUsbDeviceExtra(i) ?: return
@@ -546,28 +567,28 @@ class MainActivity : FlutterActivity() {
         MethodChannel(flutterEngine.dartExecutor.binaryMessenger, CHANNEL)
             .setMethodCallHandler { call, result ->
                 when (call.method) {
-                    "transmit" -> handleTransmit(call, result)
-                    "transmitRaw" -> handleTransmitRaw(call, result)
-                    "transmitRawCycles" -> handleTransmitRawCycles(call, result)
+                    "transmit" -> afterUsbResume(result) { handleTransmit(call, result) }
+                    "transmitRaw" -> afterUsbResume(result) { handleTransmitRaw(call, result) }
+                    "transmitRawCycles" -> afterUsbResume(result) { handleTransmitRawCycles(call, result) }
                     "performHaptic" -> handlePerformHaptic(call, result)
                     "getHapticDiagnostics" -> result.success(buildHapticDiagnostics())
                     "hasIrEmitter" -> handleHasAnyEmitter(result)
                     "getTransmitterCapabilities" -> handleGetTxCaps(result)
-                    "setTransmitterType" -> handleSetTxType(call, result)
+                    "setTransmitterType" -> afterUsbResume(result) { handleSetTxType(call, result) }
                     "getTransmitterType" -> result.success(currentTxType.name)
-                    "usbScanAndRequest" -> handleUsbScanAndRequest(result)
+                    "usbScanAndRequest" -> afterUsbResume(result) { handleUsbScanAndRequest(result) }
                     "getSupportedFrequencies" -> handleGetSupportedFrequencies(result)
                     "usbDescribe" -> handleUsbDescribe(result)
                     "getPreferredTransmitterType" -> result.success(loadPreferredUiTxTypeFromPrefs())
                     "setPreferredTransmitterType" -> handleSetPreferredUiTxType(call, result)
                     "getAutoSwitchEnabled" -> result.success(autoSwitchEnabled)
-                    "setAutoSwitchEnabled" -> handleSetAutoSwitchEnabled(call, result)
+                    "setAutoSwitchEnabled" -> afterUsbResume(result) { handleSetAutoSwitchEnabled(call, result) }
                     "getOpenOnUsbAttachEnabled" -> result.success(openOnUsbAttachEnabled)
                     "setOpenOnUsbAttachEnabled" -> handleSetOpenOnUsbAttachEnabled(call, result)
                     "shareText" -> handleShareText(call, result)
-                    "learnUsbSignal" -> handleLearnUsbSignal(call, result)
-                    "cancelUsbLearning" -> handleCancelUsbLearning(result)
-                    "replayLearnedUsbSignal" -> handleReplayLearnedUsbSignal(call, result)
+                    "learnUsbSignal" -> afterUsbResume(result) { handleLearnUsbSignal(call, result) }
+                    "cancelUsbLearning" -> afterUsbResume(result) { handleCancelUsbLearning(result) }
+                    "replayLearnedUsbSignal" -> afterUsbResume(result) { handleReplayLearnedUsbSignal(call, result) }
                     "getAudioLearningDiagnostics" -> result.success(buildAudioLearningDiagnostics())
                     "requestAudioLearningPermission" -> handleRequestAudioLearningPermission(result)
                     "learnHuaweiSignal" -> handleLearnHuaweiSignal(call, result)
@@ -1054,19 +1075,11 @@ class MainActivity : FlutterActivity() {
         reopenUsbAfterBackground()
     }
 
-    /**
-     * [UsbIdleCleanup] releases the dongle shortly after the app goes to the background.
-     * Nothing reopened it on return, so Home kept showing "No IR transmitter available"
-     * until the user pressed "Request USB access". Reopen it here when the permission is
-     * already granted.
-     *
-     * This deliberately uses the same open path as a send ([acquireUsbTransmitter]) on the
-     * same (main) thread. A button tapped right after returning to the app is handled after
-     * this call, so it either finds the reopened transmitter or, if the reopen failed, opens
-     * the dongle itself. The two can never claim the device at the same time.
-     */
+    /** Restore readiness after [UsbIdleCleanup] without blocking the UI on USB I/O. */
     private fun reopenUsbAfterBackground() {
-        if (usbActivityDestroyed || usbLearningOperation != null || usbTransmitter != null) return
+        if (usbActivityDestroyed || usbLearningOperation != null ||
+            usbTransmitter != null || usbResumeOpen != null
+        ) return
         val disc = usbDiscovery ?: return
         val mgr = usbManager ?: return
         val dev = try {
@@ -1075,9 +1088,62 @@ class MainActivity : FlutterActivity() {
             null
         } ?: return
         if (!mgr.hasPermission(dev)) return
-        acquireUsbTransmitter(requestPermissionIfNeeded = false)
-        emitTxStatus("usb_reopen_on_start")
-        emitTxStatusDelayed("usb_reopen_on_start_delayed", 250L)
+        val opening = UsbResumeOpen(dev)
+        usbResumeOpen = opening
+        Thread {
+            val opened = try {
+                disc.openTransmitter(dev, deadlineMs = SystemClock.uptimeMillis() + 3000L)
+            } catch (e: Exception) {
+                Log.w(TAG, "USB reopen on resume failed", e)
+                null
+            }
+            runOnUiThread {
+                opening.finished = true
+                try {
+                    val stillAttached = !usbActivityDestroyed && !opening.invalidated &&
+                        mgr.deviceList[dev.deviceName] == dev && mgr.hasPermission(dev)
+                    opening.failed = stillAttached && opened == null
+                    if (stillAttached && opened != null) {
+                        usbTransmitter = opened
+                    } else {
+                        opened?.closeSafely()
+                    }
+                    if (!usbActivityDestroyed) {
+                        if (opening.failed) {
+                            setUsbState(
+                                UsbAvailabilityState.OPEN_FAILED,
+                                "USB permission is granted, but the dongle could not be initialized."
+                            )
+                        }
+                        refreshUsbStateSnapshot()
+                        emitTxStatus("usb_reopen_on_start")
+                    }
+                    opening.pending.forEach { it() }
+                } finally {
+                    usbResumeOpen = null
+                }
+            }
+        }.start()
+    }
+
+    private fun afterUsbResume(result: MethodChannel.Result, action: () -> Unit) {
+        val opening = usbResumeOpen
+        if (opening == null || opening.finished) {
+            action()
+            return
+        }
+        opening.pending.add {
+            if (usbActivityDestroyed) {
+                result.error("USB_UNAVAILABLE", "The activity closed while USB was opening.", null)
+            } else {
+                try {
+                    action()
+                } catch (e: Exception) {
+                    Log.w(TAG, "Deferred IR request failed", e)
+                    result.error("error", e.message, null)
+                }
+            }
+        }
     }
 
     override fun onStop() {
@@ -1149,6 +1215,9 @@ class MainActivity : FlutterActivity() {
         if (usbLearningOperation != null || usbActivityDestroyed) return null
         // Repeated attach/permission events must not try to claim our own active session.
         usbTransmitter?.let { if (it.device == device) return it }
+        // Requests queued during resume share that attempt, including its failure.
+        val opening = usbResumeOpen
+        if (opening != null && opening.device == device && (!opening.finished || opening.failed)) return null
         val disc = usbDiscovery ?: return null
         val tx = disc.openTransmitter(device)
         if (tx != null) {
