@@ -301,6 +301,8 @@ class RemoteViewState extends State<RemoteView> {
       await _sendOnce(button);
     } on PlatformException {
       // _sendOnce already displays the failure. A tap has no awaiting caller.
+    } on FormatException {
+      // Invalid signal data was already reported by _sendOnce.
     }
   }
 

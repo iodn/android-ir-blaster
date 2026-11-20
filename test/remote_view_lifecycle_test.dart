@@ -120,6 +120,55 @@ void main() {
     expect(attempts, 2);
   });
 
+  testWidgets('invalid SONY12 hex shows a send error without transmitting',
+      (tester) async {
+    SharedPreferences.setMockInitialValues({});
+    final sends = <MethodCall>[];
+    final messenger =
+        TestDefaultBinaryMessengerBinding.instance.defaultBinaryMessenger;
+    messenger.setMockMethodCallHandler(platform, (call) async {
+      if (call.method.startsWith('transmit')) {
+        sends.add(call);
+        return true;
+      }
+      if (call.method == 'performHaptic') return true;
+      return {'hasInternal': true};
+    });
+    addTearDown(() => messenger.setMockMethodCallHandler(platform, null));
+
+    await tester.pumpWidget(app(RemoteView(
+      remote: Remote(name: 'TV', buttons: const [
+        IRButton(
+          id: 'invalid',
+          image: 'Invalid power',
+          isImage: false,
+          protocol: 'sony12',
+          protocolParams: {'address': '<b', 'command': '15'},
+        ),
+        IRButton(
+          id: 'valid',
+          image: 'Valid power',
+          isImage: false,
+          protocol: 'sony12',
+          protocolParams: {'address': '1A', 'command': '15'},
+        ),
+      ]),
+    )));
+    await tester.pumpAndSettle();
+    await tester.tap(find.text('Invalid power').first);
+    await tester.pumpAndSettle();
+    expect(tester.takeException(), isNull);
+    expect(find.byType(SnackBar), findsOneWidget);
+    expect(sends, isEmpty);
+
+    await tester.tap(find.text('Valid power').first);
+    await tester.pumpAndSettle();
+    expect(sends.single.method, 'transmitRaw');
+    expect(tester.takeException(), isNull);
+    await tester.pumpWidget(const SizedBox());
+    await tester.pump(const Duration(seconds: 7));
+  });
+
   test('transmit errors reach the caller without global error reporting',
       () async {
     final reported = <FlutterErrorDetails>[];
