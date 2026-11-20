@@ -153,7 +153,7 @@ ImportPreviewResult analyzeImportedText(
   }
 
   try {
-    final kind = _detectImportFileKind(nameLower, extLower);
+    final kind = _detectImportFileKind(nameLower, extLower, contents);
     final remotes = _parseSupportedFileToRemotes(
       contents,
       filename: filename,
@@ -399,7 +399,7 @@ Future<ImportResult?> importRemotesFromPicker(
 
   final nameLower = pf.name.toLowerCase();
   final extLower = (pf.extension ?? '').toLowerCase();
-  final kind = _detectImportFileKind(nameLower, extLower);
+  final kind = _detectImportFileKind(nameLower, extLower, contents);
 
   if (kind == _ImportFileKind.unsupported) {
     return ImportResult(
@@ -879,7 +879,8 @@ bool _isSupportedImportFile(String nameLower, String extLower) {
   }
 }
 
-_ImportFileKind _detectImportFileKind(String nameLower, String extLower) {
+_ImportFileKind _detectImportFileKind(
+    String nameLower, String extLower, String contents) {
   if (extLower == 'json' || nameLower.endsWith('.json')) {
     return _ImportFileKind.json;
   }
@@ -890,6 +891,13 @@ _ImportFileKind _detectImportFileKind(String nameLower, String extLower) {
       extLower == 'irplus' ||
       nameLower.endsWith('.xml') ||
       nameLower.endsWith('.irplus')) {
+    // Some attachments give plain LIRC configs an XML extension.
+    if (!contents.trimLeft().startsWith('<') &&
+        RegExp(r'^[ \t]*begin[ \t]+remote[ \t\r]*$',
+                multiLine: true, caseSensitive: false)
+            .hasMatch(contents)) {
+      return _ImportFileKind.lircConfig;
+    }
     return _ImportFileKind.irplusXml;
   }
   if (nameLower.endsWith('.lircd.conf') ||
@@ -910,19 +918,9 @@ List<Remote> _parseSupportedFileToRemotes(
   required String remoteNameHint,
   required String fallbackButtonLabel,
 }) {
-  final String nameLower = filename.toLowerCase();
-  final bool isJson = extLower == 'json' || nameLower.endsWith('.json');
-  final bool isIr = extLower == 'ir' || nameLower.endsWith('.ir');
-  final bool isXmlLike = extLower == 'xml' ||
-      extLower == 'irplus' ||
-      nameLower.endsWith('.xml') ||
-      nameLower.endsWith('.irplus');
-  final bool isConfLike = extLower == 'conf' ||
-      extLower == 'cfg' ||
-      extLower == 'lirc' ||
-      extLower == 'lrc';
+  final kind = _detectImportFileKind(filename.toLowerCase(), extLower, contents);
 
-  if (isJson) {
+  if (kind == _ImportFileKind.json) {
     final dynamic decoded = jsonDecode(contents);
 
     if (decoded is List) {
@@ -947,13 +945,13 @@ List<Remote> _parseSupportedFileToRemotes(
     return const <Remote>[];
   }
 
-  if (isIr) {
+  if (kind == _ImportFileKind.flipperIr) {
     final Remote? r = _parseFlipperIrFile(contents, remoteName: remoteNameHint);
     if (r == null) return const <Remote>[];
     return <Remote>[r];
   }
 
-  if (isXmlLike) {
+  if (kind == _ImportFileKind.irplusXml) {
     final Remote? r = _parseIrplusXml(
       contents,
       filename: filename,
@@ -969,7 +967,7 @@ List<Remote> _parseSupportedFileToRemotes(
     caseSensitive: false,
   ).hasMatch(contents);
 
-  if (isConfLike && isLirc) {
+  if (kind == _ImportFileKind.lircConfig && isLirc) {
     final Remote? r = _parseLircConfig(
       contents,
       remoteName: remoteNameHint,
@@ -1812,6 +1810,15 @@ Remote? _parseLircConfig(
 
     final int? ptrail = _lircReadInt(block, 'ptrail');
     final int? gap = _lircReadInt(block, 'gap');
+    final repeatCount = _lircSonyFullFrameRepeatCount(
+      block,
+      flags.toUpperCase(),
+      bits,
+      header,
+      one,
+      zero,
+      gap,
+    );
 
     final parsedCodes = _parseLircCodesSection(codesSection);
 
@@ -1834,6 +1841,7 @@ Remote? _parseLircConfig(
         code: c.value,
         postDataBits: postBits,
         postData: postData,
+        fullFrameRepeats: repeatCount,
       );
 
       if (raw != null) {
@@ -1965,6 +1973,42 @@ bool _within(int v, int target, int tol) => (v - target).abs() <= tol;
 bool _looksSony(List<int>? header) {
   if (header == null || header.length != 2) return false;
   return _within(header[0], 2400, 700) && _within(header[1], 600, 300);
+}
+
+int _lircSonyFullFrameRepeatCount(
+  String block,
+  String flags,
+  int? bits,
+  List<int>? header,
+  List<int>? one,
+  List<int>? zero,
+  int? gap,
+) {
+  final repeats = _lircReadInt(block, 'min_repeat') ?? 0;
+  if (repeats == 0 ||
+      (bits != 12 && bits != 15 && bits != 20) ||
+      !_looksSony(header) ||
+      one == null ||
+      zero == null ||
+      !_within(one[0], 1200, 200) ||
+      !_within(zero[0], 600, 150) ||
+      !_within(one[1], 600, 150) ||
+      !_within(zero[1], 600, 150) ||
+      !flags.contains('CONST_LENGTH') ||
+      (gap ?? 0) <= 0) {
+    return 0;
+  }
+  // Only repeat an identical frame when no special repeat behavior is declared.
+  if (flags.contains('NO_HEAD_REP') ||
+      flags.contains('NO_FOOT_REP') ||
+      _lircReadString(block, 'repeat') != null ||
+      _lircReadString(block, 'repeat_gap') != null ||
+      (_lircReadBigInt(block, 'repeat_mask') ?? BigInt.zero) != BigInt.zero ||
+      (_lircReadBigInt(block, 'toggle_bit_mask') ?? BigInt.zero) != BigInt.zero ||
+      (_lircReadInt(block, 'toggle_bit') ?? 0) != 0) {
+    return 0;
+  }
+  return repeats.clamp(0, 20);
 }
 
 bool _looksJvc(List<int>? header) {
@@ -2349,6 +2393,7 @@ String? _encodeLircSpaceEncToRaw({
   required BigInt code,
   required int? postDataBits,
   required BigInt? postData,
+  required int fullFrameRepeats,
 }) {
   final String f = flags.toUpperCase();
   if (!f.contains('SPACE_ENC')) return null;
@@ -2409,12 +2454,16 @@ String? _encodeLircSpaceEncToRaw({
     pat.add(ptrail);
   }
 
+  var hasConstantFrameGap = false;
   final int gapUs = (gap != null && gap > 0) ? gap : 0;
   if (gapUs > 0) {
     if (f.contains('CONST_LENGTH')) {
       final elapsedUs = pat.fold(0, (total, duration) => total + duration);
       final remainingUs = gapUs - elapsedUs;
-      if (remainingUs > 0) _appendOff(pat, remainingUs);
+      if (remainingUs > 0) {
+        _appendOff(pat, remainingUs);
+        hasConstantFrameGap = true;
+      }
     } else {
       _appendOff(pat, gapUs);
     }
@@ -2430,7 +2479,10 @@ String? _encodeLircSpaceEncToRaw({
     if (v <= 0) return null;
   }
 
-  return pat.join(' ');
+  final raw = pat.join(' ');
+  return hasConstantFrameGap && fullFrameRepeats > 0
+      ? List.filled(fullFrameRepeats + 1, raw).join(' ')
+      : raw;
 }
 
 bool _lircShouldUseLsbFirst({

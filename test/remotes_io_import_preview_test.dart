@@ -1,4 +1,5 @@
 import 'package:flutter_test/flutter_test.dart';
+import 'package:irblaster_controller/ir/protocols/sony12.dart';
 import 'package:irblaster_controller/utils/ir.dart';
 import 'package:irblaster_controller/utils/remote.dart';
 import 'package:irblaster_controller/utils/remotes_io.dart';
@@ -81,6 +82,80 @@ end remote
   }
 ]
 ''';
+
+  const sonyLirc = '''
+begin remote
+  name RM-Y180
+  bits 12
+  flags SPACE_ENC|CONST_LENGTH
+  header 2400 600
+  one 1200 600
+  zero 600 600
+  gap 45000
+  min_repeat 2
+  toggle_bit_mask 0x0
+  frequency 40000
+  begin codes
+    display 0x05d0
+    KEY_5 0x0210
+    KEY_VOLUMEUP 0x0490
+    KEY_POWER 0x0a90
+  end codes
+end remote
+''';
+
+  for (final filename in ['RM-Y180.conf', 'RM-Y180.lirc.copy.conf.xml']) {
+    test('Sony LIRC preserves three full frames from $filename', () {
+      final preview = analyzeImportedText(
+        sonyLirc,
+        filename: filename,
+        fallbackRemoteName: fallbackRemoteName,
+        fallbackButtonLabel: fallbackButtonLabel,
+      );
+      expect(preview.isSupported, isTrue);
+      final buttons = preview.remotes.single.buttons;
+      expect(buttons.map((button) => button.image),
+          ['display', 'KEY_5', 'KEY_VOLUMEUP', 'KEY_POWER']);
+      const commands = ['3A', '04', '12', '15'];
+      for (var i = 0; i < buttons.length; i++) {
+        final actual = previewIRButton(buttons[i]);
+        final expected = const Sony12ProtocolEncoder()
+            .encode({'address': '01', 'command': commands[i]});
+        expect(actual.frequencyHz, 40000);
+        expect(actual.pattern, expected.pattern);
+      }
+    });
+  }
+
+  test('Sony LIRC preserves the declared repeat count, including zero', () {
+    for (final (directive, frameCount) in [
+      ('', 1),
+      ('min_repeat 0', 1),
+      ('min_repeat 1', 2),
+      ('min_repeat 2\n  repeat 2400 600', 1),
+    ]) {
+      final preview = analyzeImportedText(
+        sonyLirc.replaceFirst('min_repeat 2', directive),
+        filename: 'RM-Y180.conf',
+        fallbackRemoteName: fallbackRemoteName,
+        fallbackButtonLabel: fallbackButtonLabel,
+      );
+      final signal = previewIRButton(preview.remotes.single.buttons.first);
+      expect(signal.pattern.where((duration) => duration == 2400),
+          hasLength(frameCount));
+    }
+  });
+
+  test('a genuine IRPlus XML file named .conf.xml still imports as XML', () {
+    final preview = analyzeImportedText(
+      '<!--\nbegin remote\n-->\n$irplusXml',
+      filename: 'remote.conf.xml',
+      fallbackRemoteName: fallbackRemoteName,
+      fallbackButtonLabel: fallbackButtonLabel,
+    );
+    expect(preview.formatLabel, 'IRPlus XML');
+    expect(preview.remotes.single.buttons.single.image, 'Power');
+  });
 
   void expectRemoteIsUsable(Remote remote) {
     expect(remote.name.trim(), isNotEmpty);
