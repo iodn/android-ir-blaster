@@ -1,7 +1,7 @@
 name: release
 
 # F-Droid reads this revision from the file; keep the line format unchanged.
-# flutter-version: '8b872868494e429d94fa06dca855c306438b22c0'
+# flutter-version: '00b0c91f06209d9e4a41f71b7a512d6eb3b9c694'
 
 on:
   workflow_dispatch:
