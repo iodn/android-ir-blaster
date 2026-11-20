@@ -1,1 +1,1 @@
-Another Universal IR remote: Hex/Raw, Flipper Zero, LIRC, IRPlus + Signal Tester
+Control TVs and more with built-in IR or a compatible USB or audio IR adapter.

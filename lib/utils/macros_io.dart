@@ -169,8 +169,6 @@ Future<void> exportMacrosToDownloads(
   Future<bool> doPickerSave() async {
     final savedUri = await FilePicker.saveFile(
       fileName: fileName,
-      type: FileType.custom,
-      allowedExtensions: const <String>['json'],
       mimeType: 'application/json',
       bytes: Uint8List.fromList(utf8.encode(jsonString)),
     );

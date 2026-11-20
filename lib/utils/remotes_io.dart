@@ -316,8 +316,6 @@ Future<void> exportRemotesToDownloads(
   Future<bool> doPickerSave() async {
     final savedUri = await FilePicker.saveFile(
       fileName: fileName,
-      type: FileType.custom,
-      allowedExtensions: const <String>['json'],
       mimeType: 'application/json',
       bytes: Uint8List.fromList(utf8.encode(jsonString)),
     );
@@ -632,10 +630,10 @@ Future<ImportResult?> importRemotesFromFolderPicker(
     );
   }
 
-  final String? dirPath = await FilePicker.getDirectoryPath();
-  if (dirPath == null || dirPath.trim().isEmpty) return null;
+  final dirUri = await FilePicker.pickDirectory();
+  if (dirUri == null) return null;
 
-  final Directory dir = Directory(dirPath);
+  final dir = Directory.fromUri(dirUri);
   if (!await dir.exists()) {
     return ImportResult(
       remotes: current,

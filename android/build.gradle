@@ -6,10 +6,9 @@ allprojects {
 
     configurations.configureEach {
         resolutionStrategy.eachDependency { details ->
-            // home_widget 0.8.1 uses "1.+", which can select Glance alpha
-            // releases requiring a newer compile SDK and Android Gradle Plugin.
+            // Keep Glance modules on the stable version used by home_widget.
             if (details.requested.group == "androidx.glance") {
-                details.useVersion "1.1.1"
+                details.useVersion "1.2.0"
                 details.because "Keep Glance on the SDK 36 / AGP 8.13 compatible stable release"
             }
         }

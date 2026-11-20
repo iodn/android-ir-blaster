@@ -1,0 +1,6 @@
+- Learn buttons directly in the remote editor and find matching remotes in the IR database.
+- Improve USB dongle reconnection and compatibility with some ZaZa and Tiqiaa captures.
+- Fix blank screens when granting USB access or switching tabs.
+- Improve JVC timing and support pasted Pronto Hex.
+- Prevent crashes from invalid IR codes and backup file picker errors.
+- Fix the Flutter version mismatch that blocked F-Droid builds.

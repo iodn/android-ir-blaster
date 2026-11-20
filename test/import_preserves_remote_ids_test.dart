@@ -150,7 +150,7 @@ class _ImportPicker extends FilePickerPlatform {
       _ImportFile(path);
 
   @override
-  Future<String?> getDirectoryPath({
+  Future<Uri?> pickDirectory({
     String? dialogTitle,
     String? initialDirectory,
     AndroidOptions androidOptions = const AndroidOptions(),
@@ -158,7 +158,7 @@ class _ImportPicker extends FilePickerPlatform {
     LinuxOptions linuxOptions = const LinuxOptions(),
     WebOptions webOptions = const WebOptions(),
   }) async =>
-      path;
+      Uri.directory(path);
 }
 
 final class _ImportFile extends PlatformFile {
