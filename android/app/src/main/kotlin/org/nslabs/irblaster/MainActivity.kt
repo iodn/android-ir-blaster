@@ -1051,6 +1051,33 @@ class MainActivity : FlutterActivity() {
     override fun onStart() {
         super.onStart()
         usbIdleCleanup.onStart()
+        reopenUsbAfterBackground()
+    }
+
+    /**
+     * [UsbIdleCleanup] releases the dongle shortly after the app goes to the background.
+     * Nothing reopened it on return, so Home kept showing "No IR transmitter available"
+     * until the user pressed "Request USB access". Reopen it here when the permission is
+     * already granted.
+     *
+     * This deliberately uses the same open path as a send ([acquireUsbTransmitter]) on the
+     * same (main) thread. A button tapped right after returning to the app is handled after
+     * this call, so it either finds the reopened transmitter or, if the reopen failed, opens
+     * the dongle itself. The two can never claim the device at the same time.
+     */
+    private fun reopenUsbAfterBackground() {
+        if (usbActivityDestroyed || usbLearningOperation != null || usbTransmitter != null) return
+        val disc = usbDiscovery ?: return
+        val mgr = usbManager ?: return
+        val dev = try {
+            disc.scanSupported().firstOrNull()
+        } catch (_: Throwable) {
+            null
+        } ?: return
+        if (!mgr.hasPermission(dev)) return
+        acquireUsbTransmitter(requestPermissionIfNeeded = false)
+        emitTxStatus("usb_reopen_on_start")
+        emitTxStatusDelayed("usb_reopen_on_start_delayed", 250L)
     }
 
     override fun onStop() {
