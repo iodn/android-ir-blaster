@@ -5542,6 +5542,73 @@ class AppLocalizationsAr extends AppLocalizations {
   String learningModeAddedLearnNext(String name, int count) {
     return 'تمت إضافة \"$name\" ($count حتى الآن). اضغط الزر التالي على جهاز التحكم.';
   }
+
+  @override
+  String get learningDbSuggestionsTitle => 'اقتراحات من قاعدة البيانات';
+
+  @override
+  String learningDbDetectedCode(String protocol, String code) {
+    return 'تم التعرّف على رمز $protocol: $code';
+  }
+
+  @override
+  String learningDbDetectedRc5(String code, int address, int command) {
+    return 'تم التعرّف على رمز RC5: $code (العنوان $address، الأمر $command)';
+  }
+
+  @override
+  String get learningDbNoMatch =>
+      'لا يوجد جهاز تحكم في قاعدة البيانات يستخدم هذا الرمز.';
+
+  @override
+  String learningDbMatchSummary(int models, int brands) {
+    return 'الطرازات المطابقة: $models · العلامات: $brands';
+  }
+
+  @override
+  String learningDbScopeAllLearned(int count) {
+    return 'يحتوي كل جهاز من هذه الأجهزة على جميع الأزرار التي تم تعلّمها حتى الآن ($count).';
+  }
+
+  @override
+  String learningDbUsualLabels(String labels) {
+    return 'التسمية المعتادة: $labels';
+  }
+
+  @override
+  String get learningDbFellBack =>
+      'لا يوجد جهاز تحكم في قاعدة البيانات يحتوي على كل الأزرار التي تم تعلّمها حتى الآن، لذا هذه النتائج لهذا الزر فقط.';
+
+  @override
+  String learningDbManyBrandsEditor(String action) {
+    return 'يستخدمه عدد كبير من العلامات. تعلّم أزرارًا أخرى عبر \"$action\" (كلما كان الزر أقل شيوعًا كان أفضل) لتضييق النتائج. الأكثر احتمالًا أولًا:';
+  }
+
+  @override
+  String get learningDbManyBrands =>
+      'يستخدم هذا الرمز عدد كبير من العلامات، لذلك لا يكفي زر واحد للتمييز بينها. الأكثر احتمالًا أولًا:';
+
+  @override
+  String get learningDbTapBrandHint =>
+      'اضغط على علامة لإضافة جميع أزرار أحد أجهزتها. ستبقى الأزرار التي تعلّمتها.';
+
+  @override
+  String learningDbModelCount(int count) {
+    return 'الطرازات: $count';
+  }
+
+  @override
+  String learningDbChooseModel(String brand) {
+    return '$brand · اختر طرازًا';
+  }
+
+  @override
+  String get learningDbNoUsableButtons =>
+      'لا يحتوي جهاز التحكم هذا على أزرار صالحة للاستخدام.';
+
+  @override
+  String get learningDbLoadFailed =>
+      'تعذّر تحميل جهاز التحكم من قاعدة البيانات.';
 }
 
 /// The translations for Arabic, as used in Egypt (`ar_EG`).
@@ -11082,4 +11149,69 @@ class AppLocalizationsArEg extends AppLocalizationsAr {
   String learningModeAddedLearnNext(String name, int count) {
     return 'اتضاف \"$name\" ($count لحد دلوقتي). دوس على الزر اللي بعده في الريموت.';
   }
+
+  @override
+  String get learningDbSuggestionsTitle => 'اقتراحات من قاعدة البيانات';
+
+  @override
+  String learningDbDetectedCode(String protocol, String code) {
+    return 'اتعرفنا على كود $protocol: $code';
+  }
+
+  @override
+  String learningDbDetectedRc5(String code, int address, int command) {
+    return 'اتعرفنا على كود RC5: $code (العنوان $address، الأمر $command)';
+  }
+
+  @override
+  String get learningDbNoMatch =>
+      'مفيش ريموت في قاعدة البيانات بيستخدم الكود ده.';
+
+  @override
+  String learningDbMatchSummary(int models, int brands) {
+    return 'الطرازات المطابقة: $models · العلامات: $brands';
+  }
+
+  @override
+  String learningDbScopeAllLearned(int count) {
+    return 'كل ريموت من دول فيه كل الأزرار اللي اتعلمت لحد دلوقتي ($count).';
+  }
+
+  @override
+  String learningDbUsualLabels(String labels) {
+    return 'التسمية المعتادة: $labels';
+  }
+
+  @override
+  String get learningDbFellBack =>
+      'مفيش ريموت في قاعدة البيانات فيه كل الأزرار اللي اتعلمت لحد دلوقتي، فدي نتايج للزر ده بس.';
+
+  @override
+  String learningDbManyBrandsEditor(String action) {
+    return 'ماركات كتير بتستخدمه. اتعلم أزرار تانية من \"$action\" (كل ما الزر يكون أقل انتشارًا يبقى أحسن) عشان تقلل النتايج. الأقرب الأول:';
+  }
+
+  @override
+  String get learningDbManyBrands =>
+      'ماركات كتير بتستخدم الكود ده، فزر واحد مش كفاية عشان نفرّق بينهم. الأقرب الأول:';
+
+  @override
+  String get learningDbTapBrandHint =>
+      'دوس على ماركة عشان تضيف كل أزرار ريموت من بتوعها. الأزرار اللي اتعلمتها هتفضل موجودة.';
+
+  @override
+  String learningDbModelCount(int count) {
+    return 'الطرازات: $count';
+  }
+
+  @override
+  String learningDbChooseModel(String brand) {
+    return '$brand · اختار طراز';
+  }
+
+  @override
+  String get learningDbNoUsableButtons => 'الريموت ده مفيهوش أزرار تنفع.';
+
+  @override
+  String get learningDbLoadFailed => 'مقدرناش نحمّل الريموت من قاعدة البيانات.';
 }

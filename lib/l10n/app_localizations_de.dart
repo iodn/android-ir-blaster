@@ -5624,4 +5624,71 @@ class AppLocalizationsDe extends AppLocalizations {
   String learningModeAddedLearnNext(String name, int count) {
     return '„$name“ hinzugefügt (bisher $count). Drücke die nächste Taste auf deiner Fernbedienung.';
   }
+
+  @override
+  String get learningDbSuggestionsTitle => 'Vorschläge aus der Datenbank';
+
+  @override
+  String learningDbDetectedCode(String protocol, String code) {
+    return 'Erkannter $protocol-Code: $code';
+  }
+
+  @override
+  String learningDbDetectedRc5(String code, int address, int command) {
+    return 'Erkannter RC5-Code: $code (Adresse $address, Befehl $command)';
+  }
+
+  @override
+  String get learningDbNoMatch =>
+      'Keine Fernbedienung in der Datenbank verwendet diesen Code.';
+
+  @override
+  String learningDbMatchSummary(int models, int brands) {
+    return 'Passende Modelle: $models · Marken: $brands';
+  }
+
+  @override
+  String learningDbScopeAllLearned(int count) {
+    return 'Jede dieser Fernbedienungen enthält alle bisher gelernten Tasten ($count).';
+  }
+
+  @override
+  String learningDbUsualLabels(String labels) {
+    return 'Übliche Beschriftung: $labels';
+  }
+
+  @override
+  String get learningDbFellBack =>
+      'Keine Fernbedienung in der Datenbank enthält alle bisher gelernten Tasten. Diese Treffer gelten nur für diese Taste.';
+
+  @override
+  String learningDbManyBrandsEditor(String action) {
+    return 'Wird von vielen Marken verwendet. Lerne mit „$action“ weitere Tasten (je seltener, desto besser), um die Auswahl einzugrenzen. Wahrscheinlichste zuerst:';
+  }
+
+  @override
+  String get learningDbManyBrands =>
+      'Dieser Code wird von vielen Marken verwendet, eine einzelne Taste kann sie nicht unterscheiden. Wahrscheinlichste zuerst:';
+
+  @override
+  String get learningDbTapBrandHint =>
+      'Tippe auf eine Marke, um alle Tasten einer ihrer Fernbedienungen hinzuzufügen. Deine gelernten Tasten bleiben erhalten.';
+
+  @override
+  String learningDbModelCount(int count) {
+    return 'Modelle: $count';
+  }
+
+  @override
+  String learningDbChooseModel(String brand) {
+    return '$brand · Modell wählen';
+  }
+
+  @override
+  String get learningDbNoUsableButtons =>
+      'Diese Fernbedienung hat keine verwendbaren Tasten.';
+
+  @override
+  String get learningDbLoadFailed =>
+      'Die Fernbedienung konnte nicht aus der Datenbank geladen werden.';
 }

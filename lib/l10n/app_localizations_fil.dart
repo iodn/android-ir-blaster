@@ -5550,4 +5550,71 @@ class AppLocalizationsFil extends AppLocalizations {
   String learningModeAddedLearnNext(String name, int count) {
     return 'Naidagdag ang \"$name\" ($count na sa ngayon). Pindutin ang susunod na button sa remote mo.';
   }
+
+  @override
+  String get learningDbSuggestionsTitle => 'Mga mungkahi mula sa database';
+
+  @override
+  String learningDbDetectedCode(String protocol, String code) {
+    return 'Natukoy na $protocol code: $code';
+  }
+
+  @override
+  String learningDbDetectedRc5(String code, int address, int command) {
+    return 'Natukoy na RC5 code: $code (address $address, command $command)';
+  }
+
+  @override
+  String get learningDbNoMatch =>
+      'Walang remote sa database na gumagamit ng code na ito.';
+
+  @override
+  String learningDbMatchSummary(int models, int brands) {
+    return 'Mga tugmang modelo: $models · brand: $brands';
+  }
+
+  @override
+  String learningDbScopeAllLearned(int count) {
+    return 'Bawat remote dito ay may lahat ng button na nakopya na ($count).';
+  }
+
+  @override
+  String learningDbUsualLabels(String labels) {
+    return 'Karaniwang label: $labels';
+  }
+
+  @override
+  String get learningDbFellBack =>
+      'Walang remote sa database na may lahat ng button na nakopya na, kaya para sa button na ito lang ang mga tugmang ito.';
+
+  @override
+  String learningDbManyBrandsEditor(String action) {
+    return 'Ginagamit ng maraming brand. Kumopya pa ng mga button gamit ang \"$action\" (mas mabuti kung hindi karaniwan) para paliitin ang resulta. Pinakamalamang muna:';
+  }
+
+  @override
+  String get learningDbManyBrands =>
+      'Maraming brand ang gumagamit ng code na ito, kaya hindi sila mapaghihiwalay ng isang button lang. Pinakamalamang muna:';
+
+  @override
+  String get learningDbTapBrandHint =>
+      'I-tap ang isang brand para idagdag ang lahat ng button ng isa sa mga remote nito. Mananatili ang mga button na kinopya mo.';
+
+  @override
+  String learningDbModelCount(int count) {
+    return 'Modelo: $count';
+  }
+
+  @override
+  String learningDbChooseModel(String brand) {
+    return '$brand · pumili ng modelo';
+  }
+
+  @override
+  String get learningDbNoUsableButtons =>
+      'Walang magagamit na button ang remote na ito.';
+
+  @override
+  String get learningDbLoadFailed =>
+      'Hindi ma-load ang remote mula sa database.';
 }

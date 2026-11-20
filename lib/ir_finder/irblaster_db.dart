@@ -362,38 +362,20 @@ class IrBlasterDb {
     _signalIndexReady = true;
   }
 
-  /// `SELECT id FROM keys ... INTERSECT ...`: the ids of the remotes that contain
-  /// every one of [codes].
-  _RemoteIdsQuery _remoteIdsContaining(List<DecodedIrSignal> codes) {
-    final parts = <String>[];
-    final args = <Object?>[];
-    for (final code in codes) {
-      final String marks =
-          List<String>.filled(code.hexcodes.length, '?').join(',');
-      parts.add(
-        'SELECT id FROM keys WHERE protocol = ? AND hexcode IN ($marks)',
-      );
-      args.add(code.protocol);
-      args.addAll(code.hexcodes);
-    }
-    return _RemoteIdsQuery(parts.join(' INTERSECT '), args);
-  }
-
-  /// Brands and models whose remote contains *all* of [codes], most models first.
-  /// Each code is a `(protocol, hexcodes)` pair; [hexcodes] are alternative
-  /// encodings of the same code.
+  /// Brands and models whose remote contains *all* of [codes] (exact protocol and
+  /// hexcode), most models first.
   Future<IrDbSignalMatches> findBrandsForCodes({
     required List<DecodedIrSignal> codes,
     int brandLimit = 6,
     int sampleModels = 3,
   }) async {
-    if (codes.isEmpty || codes.any((c) => c.hexcodes.isEmpty)) {
+    if (codes.isEmpty) {
       return IrDbSignalMatches.empty;
     }
     await ensureInitialized();
     final db = _requireDb();
     await _ensureSignalIndex(db);
-    final q = _remoteIdsContaining(codes);
+    final q = RemoteIdsQuery(codes);
 
     final totals = await db.rawQuery(
       'SELECT COUNT(DISTINCT m.brand) AS brands, '
@@ -407,14 +389,12 @@ class IrBlasterDb {
 
     // Usual label of the newest code among the matching remotes.
     final last = codes.last;
-    final String lastMarks =
-        List<String>.filled(last.hexcodes.length, '?').join(',');
     final labelRows = await db.rawQuery(
       'SELECT k.label AS label, COUNT(*) AS c FROM keys k '
-      'WHERE k.protocol = ? AND k.hexcode IN ($lastMarks) '
+      'WHERE k.protocol = ? AND k.hexcode = ? '
       'AND k.id IN (${q.sql}) '
       'GROUP BY k.label ORDER BY c DESC LIMIT 3;',
-      <Object?>[last.protocol, ...last.hexcodes, ...q.args],
+      <Object?>[last.protocol, last.hexcode, ...q.args],
     );
     final List<String> labels = labelRows
         .map((r) => (r['label'] as String?)?.trim() ?? '')
@@ -464,13 +444,13 @@ class IrBlasterDb {
     required List<DecodedIrSignal> codes,
     int limit = 300,
   }) async {
-    if (codes.isEmpty || codes.any((c) => c.hexcodes.isEmpty)) {
+    if (codes.isEmpty) {
       return <IrDbModelMatch>[];
     }
     await ensureInitialized();
     final db = _requireDb();
     await _ensureSignalIndex(db);
-    final q = _remoteIdsContaining(codes);
+    final q = RemoteIdsQuery(codes);
     final rows = await db.rawQuery(
       'SELECT m.model AS model, m.id AS remote_id FROM models m '
       'WHERE m.id IN (${q.sql}) AND m.brand = ? '
@@ -721,11 +701,4 @@ class _ProtocolFilter {
     required this.normalizedKey,
     required this.canonicalDbValue,
   });
-}
-
-class _RemoteIdsQuery {
-  const _RemoteIdsQuery(this.sql, this.args);
-
-  final String sql;
-  final List<Object?> args;
 }

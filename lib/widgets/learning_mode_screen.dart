@@ -12,7 +12,7 @@ import 'package:irblaster_controller/l10n/l10n.dart';
 import 'package:irblaster_controller/state/haptics.dart';
 import 'package:irblaster_controller/state/orientation_pref.dart';
 import 'package:irblaster_controller/state/remotes_state.dart';
-import 'package:irblaster_controller/utils/db_button_import.dart';
+import 'package:irblaster_controller/utils/learned_db_import.dart';
 import 'package:irblaster_controller/utils/ir.dart';
 import 'package:irblaster_controller/utils/ir_transmitter_platform.dart';
 import 'package:irblaster_controller/utils/remote.dart';
@@ -23,9 +23,9 @@ class LearningModeScreen extends StatefulWidget {
   const LearningModeScreen({super.key, this.returnButtonMode = false});
 
   /// When true the screen was opened from the remote editor: saving pops the
-  /// learned [IRButton] back to the caller (as a one-item list) instead of writing
-  /// it to a remote, and a database suggestion can be tapped to pop all buttons of
-  /// that remote instead.
+  /// learned [IRButton]s back to the caller instead of writing them to a remote,
+  /// and a database suggestion can be tapped to pop the learned buttons together
+  /// with the other buttons of that database remote.
   final bool returnButtonMode;
 
   @override
@@ -55,7 +55,9 @@ class _LearningModeScreenState extends State<LearningModeScreen>
   IrTransmitterType? _preferredType;
   LearnedUsbSignal? _capturedSignal;
   final List<IRButton> _collectedButtons = <IRButton>[];
-  final List<DecodedIrSignal> _collectedCodes = <DecodedIrSignal>[];
+  /// Code of each entry of [_collectedButtons] (same index); null when the app
+  /// could not identify that signal.
+  final List<DecodedIrSignal?> _collectedButtonCodes = <DecodedIrSignal?>[];
   List<DecodedIrSignal> _dbMatchCodes = const <DecodedIrSignal>[];
   bool _dbMatchFellBack = false;
   DecodedIrSignal? _decodedSignal;
@@ -604,7 +606,10 @@ class _LearningModeScreenState extends State<LearningModeScreen>
   List<DecodedIrSignal> _codesForMatching(DecodedIrSignal current) {
     final seen = <String>{};
     final codes = <DecodedIrSignal>[];
-    for (final code in <DecodedIrSignal>[..._collectedCodes, current]) {
+    for (final code in <DecodedIrSignal>[
+      ..._collectedButtonCodes.whereType<DecodedIrSignal>(),
+      current,
+    ]) {
       if (seen.add(code.key)) codes.add(code);
     }
     return codes;
@@ -636,23 +641,37 @@ class _LearningModeScreenState extends State<LearningModeScreen>
     }
   }
 
+  String _describeDecoded(DecodedIrSignal decoded) {
+    final l10n = context.l10n;
+    final address = decoded.address;
+    final command = decoded.command;
+    if (address != null && command != null) {
+      return l10n.learningDbDetectedRc5(decoded.hexcode, address, command);
+    }
+    return l10n.learningDbDetectedCode(decoded.protocol, decoded.hexcode);
+  }
+
   List<Widget> _buildDbMatchesSection(BuildContext context) {
     final decoded = _decodedSignal;
     if (decoded == null) return const <Widget>[];
+    final l10n = context.l10n;
     final theme = Theme.of(context);
     final cs = theme.colorScheme;
     final matches = _dbMatches;
+    final hintStyle = theme.textTheme.bodySmall?.copyWith(
+      color: cs.onSurfaceVariant,
+    );
 
     final children = <Widget>[
       Text(
-        'Database suggestions',
+        l10n.learningDbSuggestionsTitle,
         style: theme.textTheme.titleMedium?.copyWith(
           fontWeight: FontWeight.w800,
         ),
       ),
       const SizedBox(height: 4),
       Text(
-        'Detected ${decoded.description}',
+        _describeDecoded(decoded),
         style: theme.textTheme.bodyMedium?.copyWith(
           color: cs.onSurfaceVariant,
         ),
@@ -664,23 +683,13 @@ class _LearningModeScreenState extends State<LearningModeScreen>
       children.add(const LinearProgressIndicator());
     } else if (matches == null || matches.totalBrands == 0) {
       children.add(
-        Text(
-          'No remote in the database uses this code.',
-          style: theme.textTheme.bodyMedium,
-        ),
+        Text(l10n.learningDbNoMatch, style: theme.textTheme.bodyMedium),
       );
     } else {
-      final labels = matches.commonLabels.isEmpty
-          ? ''
-          : ' Usually labeled ${matches.commonLabels.join(', ')}.';
-      final codeCount = _dbMatchCodes.length;
-      final scope =
-          codeCount > 1 ? 'contain all $codeCount learned buttons' : 'use this code';
       if (_dbMatchFellBack) {
         children.add(
           Text(
-            'No remote in the database contains all the buttons learned so far, '
-            'so these are matches for this button only.',
+            l10n.learningDbFellBack,
             style: theme.textTheme.bodySmall?.copyWith(color: cs.error),
           ),
         );
@@ -688,40 +697,50 @@ class _LearningModeScreenState extends State<LearningModeScreen>
       }
       children.add(
         Text(
-          '${matches.totalModels} models from ${matches.totalBrands} brands '
-          '$scope.$labels',
+          l10n.learningDbMatchSummary(
+            matches.totalModels,
+            matches.totalBrands,
+          ),
           style: theme.textTheme.bodyMedium,
         ),
       );
+      final codeCount = _dbMatchCodes.length;
+      if (codeCount > 1) {
+        children.add(
+          Text(
+            l10n.learningDbScopeAllLearned(codeCount),
+            style: theme.textTheme.bodyMedium,
+          ),
+        );
+      }
+      if (matches.commonLabels.isNotEmpty) {
+        children.add(
+          Text(
+            l10n.learningDbUsualLabels(matches.commonLabels.join(', ')),
+            style: theme.textTheme.bodyMedium,
+          ),
+        );
+      }
       if (matches.totalBrands > 20) {
         children.add(const SizedBox(height: 4));
         children.add(
           Text(
             widget.returnButtonMode
-                ? 'Shared by many brands. Learn more buttons with "Add & learn '
-                    'next" (the less common, the better) to narrow it down. '
-                    'Most likely first:'
-                : 'This code is shared by many brands, so one button cannot '
-                    'tell them apart. Most likely first:',
-            style: theme.textTheme.bodySmall?.copyWith(
-              color: cs.onSurfaceVariant,
-            ),
+                ? l10n.learningDbManyBrandsEditor(
+                    l10n.learningModeAddAndLearnNext,
+                  )
+                : l10n.learningDbManyBrands,
+            style: hintStyle,
           ),
         );
       }
       if (widget.returnButtonMode) {
         children.add(const SizedBox(height: 4));
-        children.add(
-          Text(
-            'Tap a brand to add all buttons of one of its remotes.',
-            style: theme.textTheme.bodySmall?.copyWith(
-              color: cs.onSurfaceVariant,
-            ),
-          ),
-        );
+        children.add(Text(l10n.learningDbTapBrandHint, style: hintStyle));
       }
       children.add(const SizedBox(height: 8));
       for (final brand in matches.brands) {
+        final count = Text(l10n.learningDbModelCount(brand.modelCount));
         children.add(
           ListTile(
             dense: true,
@@ -741,11 +760,11 @@ class _LearningModeScreenState extends State<LearningModeScreen>
                 ? Row(
                     mainAxisSize: MainAxisSize.min,
                     children: [
-                      Text('${brand.modelCount} models'),
+                      count,
                       const Icon(Icons.chevron_right_rounded),
                     ],
                   )
-                : Text('${brand.modelCount} models'),
+                : count,
           ),
         );
       }
@@ -773,9 +792,15 @@ class _LearningModeScreenState extends State<LearningModeScreen>
 
   Future<void> _importFromBrand(IrDbBrandMatch brand) async {
     final decoded = _decodedSignal;
-    if (decoded == null || !widget.returnButtonMode || _busy) return;
-    final unnamed = context.l10n.unnamedKey;
+    final signal = _capturedSignal;
+    if (decoded == null || signal == null || !widget.returnButtonMode || _busy) {
+      return;
+    }
+    final l10n = context.l10n;
     final messenger = ScaffoldMessenger.of(context);
+    // Busy from the first tap on: a second tap must not open a second sheet.
+    setState(() => _busy = true);
+    var closing = false;
     try {
       final models = await IrBlasterDb.instance.listModelsForCodes(
         brand: brand.brand,
@@ -800,7 +825,7 @@ class _LearningModeScreenState extends State<LearningModeScreen>
                 Padding(
                   padding: const EdgeInsets.fromLTRB(20, 0, 20, 8),
                   child: Text(
-                    '${brand.brand} · choose a model',
+                    l10n.learningDbChooseModel(brand.brand),
                     style: theme.textTheme.titleMedium?.copyWith(
                       fontWeight: FontWeight.w800,
                     ),
@@ -826,42 +851,48 @@ class _LearningModeScreenState extends State<LearningModeScreen>
       );
       if (chosen == null || !mounted) return;
 
-      setState(() => _busy = true);
-      final rows = await IrBlasterDb.instance.fetchRemoteKeys(
+      final keys = await IrBlasterDb.instance.fetchRemoteKeys(
         chosen.remoteId,
         protocol: decoded.protocol,
       );
-      final buttons = <IRButton>[];
-      for (final row in rows) {
-        final button = buildButtonFromDbRow(row, unnamedLabel: unnamed);
-        if (button != null) buttons.add(button);
-      }
       if (!mounted) return;
-      if (buttons.isEmpty) {
-        setState(() => _busy = false);
+      final currentName = _buttonNameCtrl.text.trim();
+      // Every button learned in this session is kept, also the ones the app could
+      // not identify, and the capture on screen counts as learned too.
+      final learned = <LearnedButton>[
+        for (var i = 0; i < _collectedButtons.length; i++)
+          LearnedButton(_collectedButtons[i], _collectedButtonCodes[i]),
+        LearnedButton(
+          _buildSavedButton(
+            signal,
+            currentName.isEmpty ? l10n.learningModeUnnamedCapture : currentName,
+          ),
+          decoded,
+        ),
+      ];
+      final buttons = mergeLearnedWithDbRemote(
+        learned: learned,
+        remoteKeys: keys,
+        unnamedLabel: l10n.unnamedKey,
+      );
+      if (buttons.length == learned.length) {
         messenger
           ..hideCurrentSnackBar()
           ..showSnackBar(
-            const SnackBar(content: Text('This remote has no usable buttons.')),
+            SnackBar(content: Text(l10n.learningDbNoUsableButtons)),
           );
         return;
       }
       _stopReplayLoop();
-      // The imported remote already contains every button learned so far, unless the
-      // matches fell back to the last button alone: then keep the learned ones too.
-      Navigator.of(context).pop<List<IRButton>>(
-        <IRButton>[if (_dbMatchFellBack) ..._collectedButtons, ...buttons],
-      );
+      closing = true;
+      Navigator.of(context).pop<List<IRButton>>(buttons);
     } catch (_) {
       if (!mounted) return;
-      setState(() => _busy = false);
       messenger
         ..hideCurrentSnackBar()
-        ..showSnackBar(
-          const SnackBar(
-            content: Text('Could not load the remote from the database.'),
-          ),
-        );
+        ..showSnackBar(SnackBar(content: Text(l10n.learningDbLoadFailed)));
+    } finally {
+      if (!closing && mounted) setState(() => _busy = false);
     }
   }
 
@@ -899,7 +930,7 @@ class _LearningModeScreenState extends State<LearningModeScreen>
         final learnedCode = _decodedSignal;
         setState(() {
           _collectedButtons.add(learned);
-          if (learnedCode != null) _collectedCodes.add(learnedCode);
+          _collectedButtonCodes.add(learnedCode);
         });
         _buttonNameCtrl.clear();
         ScaffoldMessenger.of(context)

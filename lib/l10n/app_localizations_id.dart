@@ -5528,4 +5528,70 @@ class AppLocalizationsId extends AppLocalizations {
   String learningModeAddedLearnNext(String name, int count) {
     return '\"$name\" ditambahkan ($count sejauh ini). Tekan tombol berikutnya di remote Anda.';
   }
+
+  @override
+  String get learningDbSuggestionsTitle => 'Saran dari database';
+
+  @override
+  String learningDbDetectedCode(String protocol, String code) {
+    return 'Kode $protocol terdeteksi: $code';
+  }
+
+  @override
+  String learningDbDetectedRc5(String code, int address, int command) {
+    return 'Kode RC5 terdeteksi: $code (alamat $address, perintah $command)';
+  }
+
+  @override
+  String get learningDbNoMatch =>
+      'Tidak ada remote di database yang memakai kode ini.';
+
+  @override
+  String learningDbMatchSummary(int models, int brands) {
+    return 'Model yang cocok: $models · merek: $brands';
+  }
+
+  @override
+  String learningDbScopeAllLearned(int count) {
+    return 'Setiap remote ini berisi semua tombol yang sudah dipelajari ($count).';
+  }
+
+  @override
+  String learningDbUsualLabels(String labels) {
+    return 'Label umum: $labels';
+  }
+
+  @override
+  String get learningDbFellBack =>
+      'Tidak ada remote di database yang berisi semua tombol yang sudah dipelajari, jadi hasil ini hanya untuk tombol ini.';
+
+  @override
+  String learningDbManyBrandsEditor(String action) {
+    return 'Dipakai banyak merek. Pelajari tombol lain dengan \"$action\" (makin jarang, makin baik) untuk mempersempit hasil. Paling mungkin lebih dulu:';
+  }
+
+  @override
+  String get learningDbManyBrands =>
+      'Kode ini dipakai banyak merek, jadi satu tombol tidak cukup untuk membedakannya. Paling mungkin lebih dulu:';
+
+  @override
+  String get learningDbTapBrandHint =>
+      'Ketuk merek untuk menambahkan semua tombol dari salah satu remotenya. Tombol yang sudah Anda pelajari tetap disimpan.';
+
+  @override
+  String learningDbModelCount(int count) {
+    return 'Model: $count';
+  }
+
+  @override
+  String learningDbChooseModel(String brand) {
+    return '$brand · pilih model';
+  }
+
+  @override
+  String get learningDbNoUsableButtons =>
+      'Remote ini tidak punya tombol yang dapat dipakai.';
+
+  @override
+  String get learningDbLoadFailed => 'Tidak dapat memuat remote dari database.';
 }

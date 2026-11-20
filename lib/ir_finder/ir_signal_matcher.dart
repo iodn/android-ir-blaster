@@ -7,22 +7,29 @@ library;
 class DecodedIrSignal {
   const DecodedIrSignal({
     required this.protocol,
-    required this.hexcodes,
-    required this.description,
+    required this.hexcode,
+    this.address,
+    this.command,
   });
 
   /// Protocol exactly as stored in `keys.protocol` (e.g. `NEC`, `RC5`).
   final String protocol;
 
-  /// Hex codes to look up. The first entry is the exact code; the others are
-  /// equivalent encodings used by some database entries.
-  final List<String> hexcodes;
+  /// The exact code as stored in `keys.hexcode`. Lookups match it exactly: for
+  /// RC5 the field bit is part of the code, so `02E` and `82E` are different
+  /// commands and never match each other.
+  final String hexcode;
 
-  /// Short human readable description, e.g. `RC5 · address 1 · command 12`.
-  final String description;
+  /// RC5 address and 7-bit command (field bit applied), for display. Null for NEC.
+  final int? address;
+  final int? command;
 
   /// Identifies the exact code, so the same button learned twice counts once.
-  String get key => '$protocol|${hexcodes.first}';
+  String get key => keyFor(protocol, hexcode);
+
+  /// The same identity for a database row (`keys.protocol`, `keys.hexcode`).
+  static String keyFor(String protocol, String hexcode) =>
+      '${protocol.trim().toUpperCase()}|${hexcode.trim().toUpperCase()}';
 }
 
 class IrDbBrandMatch {
@@ -70,6 +77,23 @@ class IrDbSignalMatches {
   final List<IrDbBrandMatch> brands;
 }
 
+/// SQL (`SELECT id FROM keys ... INTERSECT ...`) for the ids of the database
+/// remotes that contain every one of [codes], each matched by its exact
+/// protocol and hexcode.
+class RemoteIdsQuery {
+  RemoteIdsQuery(List<DecodedIrSignal> codes)
+      : sql = List<String>.filled(
+          codes.length,
+          'SELECT id FROM keys WHERE protocol = ? AND hexcode = ?',
+        ).join(' INTERSECT '),
+        args = <Object?>[
+          for (final code in codes) ...<Object?>[code.protocol, code.hexcode],
+        ];
+
+  final String sql;
+  final List<Object?> args;
+}
+
 class IrSignalDecoder {
   const IrSignalDecoder._();
 
@@ -103,16 +127,13 @@ class IrSignalDecoder {
       value = (value << 1) | bit;
     }
     final hex = value.toRadixString(16).toUpperCase().padLeft(8, '0');
-    return DecodedIrSignal(
-      protocol: 'NEC',
-      hexcodes: <String>[hex],
-      description: 'NEC · $hex',
-    );
+    return DecodedIrSignal(protocol: 'NEC', hexcode: hex);
   }
 
   // RC5: 14 Manchester bits of 889 us half-bits: start(1), field, toggle,
   // address(5), command(6). The database stores field + address + command as
-  // 3 hex digits (the toggle bit is not part of the code).
+  // 3 hex digits (the toggle bit is not part of the code). Only that exact code
+  // is returned: the field bit selects command 0..63 or 64..127.
   static DecodedIrSignal? _decodeRc5(List<int> p) {
     if (p.length < 10) return null;
     final halves = <int>[0]; // the idle half of the start bit is not transmitted
@@ -155,16 +176,16 @@ class IrSignalDecoder {
       payload = (payload << 1) | bits[i];
     }
     final field = bits[1];
+    // Same packing as the database and Rc5ProtocolEncoder: bit 11 is the field
+    // bit (1 for commands 0..63), then address (5 bits) and command (6 bits).
     final value = (field << 11) | payload;
     final address = payload >> 6;
     final command = (payload & 0x3F) + (field == 0 ? 0x40 : 0);
-
-    String hex3(int v) => v.toRadixString(16).toUpperCase().padLeft(3, '0');
-    final codes = <String>{hex3(value), hex3(value | 0x800), hex3(value & 0x7FF)};
     return DecodedIrSignal(
       protocol: 'RC5',
-      hexcodes: codes.toList(growable: false),
-      description: 'RC5 · address $address · command $command',
+      hexcode: value.toRadixString(16).toUpperCase().padLeft(3, '0'),
+      address: address,
+      command: command,
     );
   }
 }

@@ -5621,4 +5621,71 @@ class AppLocalizationsNl extends AppLocalizations {
   String learningModeAddedLearnNext(String name, int count) {
     return '\"$name\" toegevoegd ($count tot nu toe). Druk op de volgende knop van je afstandsbediening.';
   }
+
+  @override
+  String get learningDbSuggestionsTitle => 'Suggesties uit de database';
+
+  @override
+  String learningDbDetectedCode(String protocol, String code) {
+    return 'Herkende $protocol-code: $code';
+  }
+
+  @override
+  String learningDbDetectedRc5(String code, int address, int command) {
+    return 'Herkende RC5-code: $code (adres $address, commando $command)';
+  }
+
+  @override
+  String get learningDbNoMatch =>
+      'Geen enkele afstandsbediening in de database gebruikt deze code.';
+
+  @override
+  String learningDbMatchSummary(int models, int brands) {
+    return 'Overeenkomende modellen: $models · merken: $brands';
+  }
+
+  @override
+  String learningDbScopeAllLearned(int count) {
+    return 'Elk van deze afstandsbedieningen bevat alle tot nu toe geleerde knoppen ($count).';
+  }
+
+  @override
+  String learningDbUsualLabels(String labels) {
+    return 'Gebruikelijk label: $labels';
+  }
+
+  @override
+  String get learningDbFellBack =>
+      'Geen enkele afstandsbediening in de database bevat alle tot nu toe geleerde knoppen, dus dit zijn alleen resultaten voor deze knop.';
+
+  @override
+  String learningDbManyBrandsEditor(String action) {
+    return 'Gedeeld door veel merken. Leer meer knoppen met \"$action\" (hoe minder gebruikelijk, hoe beter) om de lijst te verkleinen. Meest waarschijnlijk eerst:';
+  }
+
+  @override
+  String get learningDbManyBrands =>
+      'Deze code wordt door veel merken gebruikt, dus één knop kan ze niet onderscheiden. Meest waarschijnlijk eerst:';
+
+  @override
+  String get learningDbTapBrandHint =>
+      'Tik op een merk om alle knoppen van een van zijn afstandsbedieningen toe te voegen. Je geleerde knoppen blijven behouden.';
+
+  @override
+  String learningDbModelCount(int count) {
+    return 'Modellen: $count';
+  }
+
+  @override
+  String learningDbChooseModel(String brand) {
+    return '$brand · kies een model';
+  }
+
+  @override
+  String get learningDbNoUsableButtons =>
+      'Deze afstandsbediening heeft geen bruikbare knoppen.';
+
+  @override
+  String get learningDbLoadFailed =>
+      'Kan de afstandsbediening niet uit de database laden.';
 }

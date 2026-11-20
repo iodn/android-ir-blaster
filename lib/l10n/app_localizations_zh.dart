@@ -5277,4 +5277,65 @@ class AppLocalizationsZh extends AppLocalizations {
   String learningModeAddedLearnNext(String name, int count) {
     return '已添加“$name”（目前共 $count 个）。请按遥控器上的下一个按钮。';
   }
+
+  @override
+  String get learningDbSuggestionsTitle => '数据库建议';
+
+  @override
+  String learningDbDetectedCode(String protocol, String code) {
+    return '检测到 $protocol 代码：$code';
+  }
+
+  @override
+  String learningDbDetectedRc5(String code, int address, int command) {
+    return '检测到 RC5 代码：$code（地址 $address，命令 $command）';
+  }
+
+  @override
+  String get learningDbNoMatch => '数据库中没有使用此代码的遥控器。';
+
+  @override
+  String learningDbMatchSummary(int models, int brands) {
+    return '匹配的型号：$models · 品牌：$brands';
+  }
+
+  @override
+  String learningDbScopeAllLearned(int count) {
+    return '这些遥控器都包含目前已学习的全部按钮（$count 个）。';
+  }
+
+  @override
+  String learningDbUsualLabels(String labels) {
+    return '常见标签：$labels';
+  }
+
+  @override
+  String get learningDbFellBack => '数据库中没有遥控器包含目前已学习的全部按钮，因此这里只显示此按钮的匹配结果。';
+
+  @override
+  String learningDbManyBrandsEditor(String action) {
+    return '许多品牌都使用此代码。用“$action”学习更多按钮（越少见越好）即可缩小范围。最可能的排在前面：';
+  }
+
+  @override
+  String get learningDbManyBrands => '许多品牌共用此代码，仅凭一个按钮无法区分。最可能的排在前面：';
+
+  @override
+  String get learningDbTapBrandHint => '点按品牌即可添加其某个遥控器的全部按钮。你学习的按钮会保留。';
+
+  @override
+  String learningDbModelCount(int count) {
+    return '型号：$count';
+  }
+
+  @override
+  String learningDbChooseModel(String brand) {
+    return '$brand · 选择型号';
+  }
+
+  @override
+  String get learningDbNoUsableButtons => '此遥控器没有可用的按钮。';
+
+  @override
+  String get learningDbLoadFailed => '无法从数据库加载遥控器。';
 }

@@ -5379,4 +5379,68 @@ class AppLocalizationsKo extends AppLocalizations {
   String learningModeAddedLearnNext(String name, int count) {
     return '\"$name\" 추가됨(지금까지 $count개). 리모컨의 다음 버튼을 누르세요.';
   }
+
+  @override
+  String get learningDbSuggestionsTitle => '데이터베이스 추천';
+
+  @override
+  String learningDbDetectedCode(String protocol, String code) {
+    return '감지된 $protocol 코드: $code';
+  }
+
+  @override
+  String learningDbDetectedRc5(String code, int address, int command) {
+    return '감지된 RC5 코드: $code (주소 $address, 명령 $command)';
+  }
+
+  @override
+  String get learningDbNoMatch => '이 코드를 사용하는 리모컨이 데이터베이스에 없습니다.';
+
+  @override
+  String learningDbMatchSummary(int models, int brands) {
+    return '일치하는 모델: $models · 브랜드: $brands';
+  }
+
+  @override
+  String learningDbScopeAllLearned(int count) {
+    return '이 리모컨들은 모두 지금까지 학습한 버튼($count개)을 전부 포함합니다.';
+  }
+
+  @override
+  String learningDbUsualLabels(String labels) {
+    return '일반적인 이름: $labels';
+  }
+
+  @override
+  String get learningDbFellBack =>
+      '지금까지 학습한 버튼을 모두 포함하는 리모컨이 데이터베이스에 없어 이 버튼에 대한 결과만 표시합니다.';
+
+  @override
+  String learningDbManyBrandsEditor(String action) {
+    return '여러 브랜드에서 사용하는 코드입니다. \"$action\" 버튼으로 다른 버튼도 학습하면(흔하지 않은 버튼일수록 좋음) 범위를 좁힐 수 있습니다. 가능성 높은 순:';
+  }
+
+  @override
+  String get learningDbManyBrands =>
+      '이 코드는 여러 브랜드에서 사용하므로 버튼 하나로는 구분할 수 없습니다. 가능성 높은 순:';
+
+  @override
+  String get learningDbTapBrandHint =>
+      '브랜드를 탭하면 해당 브랜드 리모컨 하나의 모든 버튼이 추가됩니다. 학습한 버튼은 그대로 유지됩니다.';
+
+  @override
+  String learningDbModelCount(int count) {
+    return '모델: $count';
+  }
+
+  @override
+  String learningDbChooseModel(String brand) {
+    return '$brand · 모델 선택';
+  }
+
+  @override
+  String get learningDbNoUsableButtons => '이 리모컨에는 사용할 수 있는 버튼이 없습니다.';
+
+  @override
+  String get learningDbLoadFailed => '데이터베이스에서 리모컨을 불러올 수 없습니다.';
 }

@@ -5631,4 +5631,71 @@ class AppLocalizationsFr extends AppLocalizations {
   String learningModeAddedLearnNext(String name, int count) {
     return '« $name » ajouté ($count jusqu’ici). Appuyez sur le bouton suivant de votre télécommande.';
   }
+
+  @override
+  String get learningDbSuggestionsTitle => 'Suggestions de la base de données';
+
+  @override
+  String learningDbDetectedCode(String protocol, String code) {
+    return 'Code $protocol détecté : $code';
+  }
+
+  @override
+  String learningDbDetectedRc5(String code, int address, int command) {
+    return 'Code RC5 détecté : $code (adresse $address, commande $command)';
+  }
+
+  @override
+  String get learningDbNoMatch =>
+      'Aucune télécommande de la base de données n’utilise ce code.';
+
+  @override
+  String learningDbMatchSummary(int models, int brands) {
+    return 'Modèles correspondants : $models · marques : $brands';
+  }
+
+  @override
+  String learningDbScopeAllLearned(int count) {
+    return 'Chacune de ces télécommandes contient tous les boutons appris jusqu’ici ($count).';
+  }
+
+  @override
+  String learningDbUsualLabels(String labels) {
+    return 'Libellé habituel : $labels';
+  }
+
+  @override
+  String get learningDbFellBack =>
+      'Aucune télécommande de la base de données ne contient tous les boutons appris jusqu’ici : ces résultats concernent uniquement ce bouton.';
+
+  @override
+  String learningDbManyBrandsEditor(String action) {
+    return 'Partagé par de nombreuses marques. Apprenez d’autres boutons avec « $action » (les moins courants sont les meilleurs) pour affiner. Les plus probables d’abord :';
+  }
+
+  @override
+  String get learningDbManyBrands =>
+      'Ce code est partagé par de nombreuses marques : un seul bouton ne permet pas de les distinguer. Les plus probables d’abord :';
+
+  @override
+  String get learningDbTapBrandHint =>
+      'Touchez une marque pour ajouter tous les boutons d’une de ses télécommandes. Les boutons que vous avez appris sont conservés.';
+
+  @override
+  String learningDbModelCount(int count) {
+    return 'Modèles : $count';
+  }
+
+  @override
+  String learningDbChooseModel(String brand) {
+    return '$brand · choisissez un modèle';
+  }
+
+  @override
+  String get learningDbNoUsableButtons =>
+      'Cette télécommande n’a aucun bouton utilisable.';
+
+  @override
+  String get learningDbLoadFailed =>
+      'Impossible de charger la télécommande depuis la base de données.';
 }

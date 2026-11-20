@@ -5609,4 +5609,70 @@ class AppLocalizationsRu extends AppLocalizations {
   String learningModeAddedLearnNext(String name, int count) {
     return '«$name» добавлена (всего: $count). Нажмите следующую кнопку на пульте.';
   }
+
+  @override
+  String get learningDbSuggestionsTitle => 'Варианты из базы данных';
+
+  @override
+  String learningDbDetectedCode(String protocol, String code) {
+    return 'Распознан код $protocol: $code';
+  }
+
+  @override
+  String learningDbDetectedRc5(String code, int address, int command) {
+    return 'Распознан код RC5: $code (адрес $address, команда $command)';
+  }
+
+  @override
+  String get learningDbNoMatch => 'В базе данных нет пульта с этим кодом.';
+
+  @override
+  String learningDbMatchSummary(int models, int brands) {
+    return 'Подходящих моделей: $models · брендов: $brands';
+  }
+
+  @override
+  String learningDbScopeAllLearned(int count) {
+    return 'Каждый из этих пультов содержит все кнопки, обученные на данный момент ($count).';
+  }
+
+  @override
+  String learningDbUsualLabels(String labels) {
+    return 'Обычная подпись: $labels';
+  }
+
+  @override
+  String get learningDbFellBack =>
+      'Ни один пульт в базе данных не содержит все обученные кнопки, поэтому показаны совпадения только для этой кнопки.';
+
+  @override
+  String learningDbManyBrandsEditor(String action) {
+    return 'Используется многими брендами. Обучите ещё кнопки через «$action» (чем реже кнопка, тем лучше), чтобы сузить выбор. Сначала наиболее вероятные:';
+  }
+
+  @override
+  String get learningDbManyBrands =>
+      'Этот код используют многие бренды, поэтому по одной кнопке их не различить. Сначала наиболее вероятные:';
+
+  @override
+  String get learningDbTapBrandHint =>
+      'Нажмите на бренд, чтобы добавить все кнопки одного из его пультов. Обученные вами кнопки сохранятся.';
+
+  @override
+  String learningDbModelCount(int count) {
+    return 'Моделей: $count';
+  }
+
+  @override
+  String learningDbChooseModel(String brand) {
+    return '$brand · выберите модель';
+  }
+
+  @override
+  String get learningDbNoUsableButtons =>
+      'У этого пульта нет подходящих кнопок.';
+
+  @override
+  String get learningDbLoadFailed =>
+      'Не удалось загрузить пульт из базы данных.';
 }

@@ -5618,6 +5618,73 @@ class AppLocalizationsPt extends AppLocalizations {
   String learningModeAddedLearnNext(String name, int count) {
     return '\"$name\" adicionado ($count até agora). Prima o botão seguinte do comando.';
   }
+
+  @override
+  String get learningDbSuggestionsTitle => 'Sugestões da base de dados';
+
+  @override
+  String learningDbDetectedCode(String protocol, String code) {
+    return 'Código $protocol detetado: $code';
+  }
+
+  @override
+  String learningDbDetectedRc5(String code, int address, int command) {
+    return 'Código RC5 detetado: $code (endereço $address, comando $command)';
+  }
+
+  @override
+  String get learningDbNoMatch =>
+      'Nenhum comando da base de dados usa este código.';
+
+  @override
+  String learningDbMatchSummary(int models, int brands) {
+    return 'Modelos correspondentes: $models · marcas: $brands';
+  }
+
+  @override
+  String learningDbScopeAllLearned(int count) {
+    return 'Cada um destes comandos contém todos os botões aprendidos até agora ($count).';
+  }
+
+  @override
+  String learningDbUsualLabels(String labels) {
+    return 'Rótulo habitual: $labels';
+  }
+
+  @override
+  String get learningDbFellBack =>
+      'Nenhum comando da base de dados contém todos os botões aprendidos até agora, por isso estes resultados são apenas para este botão.';
+
+  @override
+  String learningDbManyBrandsEditor(String action) {
+    return 'Partilhado por muitas marcas. Aprenda mais botões com \"$action\" (quanto menos comuns, melhor) para restringir. Os mais prováveis primeiro:';
+  }
+
+  @override
+  String get learningDbManyBrands =>
+      'Este código é partilhado por muitas marcas, por isso um só botão não as distingue. As mais prováveis primeiro:';
+
+  @override
+  String get learningDbTapBrandHint =>
+      'Toque numa marca para adicionar todos os botões de um dos seus comandos. Os botões que aprendeu são mantidos.';
+
+  @override
+  String learningDbModelCount(int count) {
+    return 'Modelos: $count';
+  }
+
+  @override
+  String learningDbChooseModel(String brand) {
+    return '$brand · escolha um modelo';
+  }
+
+  @override
+  String get learningDbNoUsableButtons =>
+      'Este comando não tem botões utilizáveis.';
+
+  @override
+  String get learningDbLoadFailed =>
+      'Não foi possível carregar o comando da base de dados.';
 }
 
 /// The translations for Portuguese, as used in Brazil (`pt_BR`).
@@ -11228,4 +11295,71 @@ class AppLocalizationsPtBr extends AppLocalizationsPt {
   String learningModeAddedLearnNext(String name, int count) {
     return '\"$name\" adicionado ($count até agora). Pressione o próximo botão do controle remoto.';
   }
+
+  @override
+  String get learningDbSuggestionsTitle => 'Sugestões do banco de dados';
+
+  @override
+  String learningDbDetectedCode(String protocol, String code) {
+    return 'Código $protocol detectado: $code';
+  }
+
+  @override
+  String learningDbDetectedRc5(String code, int address, int command) {
+    return 'Código RC5 detectado: $code (endereço $address, comando $command)';
+  }
+
+  @override
+  String get learningDbNoMatch =>
+      'Nenhum controle remoto do banco de dados usa este código.';
+
+  @override
+  String learningDbMatchSummary(int models, int brands) {
+    return 'Modelos correspondentes: $models · marcas: $brands';
+  }
+
+  @override
+  String learningDbScopeAllLearned(int count) {
+    return 'Cada um destes controles contém todos os botões aprendidos até agora ($count).';
+  }
+
+  @override
+  String learningDbUsualLabels(String labels) {
+    return 'Rótulo comum: $labels';
+  }
+
+  @override
+  String get learningDbFellBack =>
+      'Nenhum controle do banco de dados contém todos os botões aprendidos até agora, então estes resultados são só para este botão.';
+
+  @override
+  String learningDbManyBrandsEditor(String action) {
+    return 'Usado por muitas marcas. Aprenda mais botões com \"$action\" (quanto menos comuns, melhor) para refinar. Os mais prováveis primeiro:';
+  }
+
+  @override
+  String get learningDbManyBrands =>
+      'Este código é usado por muitas marcas, então um só botão não consegue diferenciá-las. As mais prováveis primeiro:';
+
+  @override
+  String get learningDbTapBrandHint =>
+      'Toque em uma marca para adicionar todos os botões de um dos controles dela. Os botões que você aprendeu são mantidos.';
+
+  @override
+  String learningDbModelCount(int count) {
+    return 'Modelos: $count';
+  }
+
+  @override
+  String learningDbChooseModel(String brand) {
+    return '$brand · escolha um modelo';
+  }
+
+  @override
+  String get learningDbNoUsableButtons =>
+      'Este controle não tem botões utilizáveis.';
+
+  @override
+  String get learningDbLoadFailed =>
+      'Não foi possível carregar o controle do banco de dados.';
 }

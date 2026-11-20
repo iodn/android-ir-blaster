@@ -9937,6 +9937,96 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Added \"{name}\" ({count} so far). Press the next button on your remote.'**
   String learningModeAddedLearnNext(String name, int count);
+
+  /// No description provided for @learningDbSuggestionsTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Database suggestions'**
+  String get learningDbSuggestionsTitle;
+
+  /// No description provided for @learningDbDetectedCode.
+  ///
+  /// In en, this message translates to:
+  /// **'Detected {protocol} code: {code}'**
+  String learningDbDetectedCode(String protocol, String code);
+
+  /// No description provided for @learningDbDetectedRc5.
+  ///
+  /// In en, this message translates to:
+  /// **'Detected RC5 code: {code} (address {address}, command {command})'**
+  String learningDbDetectedRc5(String code, int address, int command);
+
+  /// No description provided for @learningDbNoMatch.
+  ///
+  /// In en, this message translates to:
+  /// **'No remote in the database uses this code.'**
+  String get learningDbNoMatch;
+
+  /// No description provided for @learningDbMatchSummary.
+  ///
+  /// In en, this message translates to:
+  /// **'Matching models: {models} · brands: {brands}'**
+  String learningDbMatchSummary(int models, int brands);
+
+  /// No description provided for @learningDbScopeAllLearned.
+  ///
+  /// In en, this message translates to:
+  /// **'Each of these remotes contains all buttons learned so far ({count}).'**
+  String learningDbScopeAllLearned(int count);
+
+  /// No description provided for @learningDbUsualLabels.
+  ///
+  /// In en, this message translates to:
+  /// **'Usually labeled: {labels}'**
+  String learningDbUsualLabels(String labels);
+
+  /// No description provided for @learningDbFellBack.
+  ///
+  /// In en, this message translates to:
+  /// **'No remote in the database contains all the buttons learned so far, so these are matches for this button only.'**
+  String get learningDbFellBack;
+
+  /// No description provided for @learningDbManyBrandsEditor.
+  ///
+  /// In en, this message translates to:
+  /// **'Shared by many brands. Learn more buttons with \"{action}\" (the less common, the better) to narrow it down. Most likely first:'**
+  String learningDbManyBrandsEditor(String action);
+
+  /// No description provided for @learningDbManyBrands.
+  ///
+  /// In en, this message translates to:
+  /// **'This code is shared by many brands, so one button cannot tell them apart. Most likely first:'**
+  String get learningDbManyBrands;
+
+  /// No description provided for @learningDbTapBrandHint.
+  ///
+  /// In en, this message translates to:
+  /// **'Tap a brand to add all buttons of one of its remotes. The buttons you learned are kept.'**
+  String get learningDbTapBrandHint;
+
+  /// No description provided for @learningDbModelCount.
+  ///
+  /// In en, this message translates to:
+  /// **'Models: {count}'**
+  String learningDbModelCount(int count);
+
+  /// No description provided for @learningDbChooseModel.
+  ///
+  /// In en, this message translates to:
+  /// **'{brand} · choose a model'**
+  String learningDbChooseModel(String brand);
+
+  /// No description provided for @learningDbNoUsableButtons.
+  ///
+  /// In en, this message translates to:
+  /// **'This remote has no usable buttons.'**
+  String get learningDbNoUsableButtons;
+
+  /// No description provided for @learningDbLoadFailed.
+  ///
+  /// In en, this message translates to:
+  /// **'Could not load the remote from the database.'**
+  String get learningDbLoadFailed;
 }
 
 class _AppLocalizationsDelegate
