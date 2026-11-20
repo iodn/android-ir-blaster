@@ -491,14 +491,14 @@ class TiqiaaUsbLearner private constructor(
     /**
      * Index of the first timing byte of a 'D' frame.
      *
-     * Expected layout is `ST <seq> D <meta> <timings> EN`, but some dongles (observed:
-     * ZaZa/Tiqiaa "Tview" 10c4:8468) omit <meta> and start the timings right after 'D'.
-     * A zero byte is ignored by the decoder, so a zero <meta> decodes identically from
-     * either index. Try the no-meta layout first; it is rejected when it would start
-     * with a space, in which case the documented layout is used.
+     * The documented layout is `ST <seq> D <meta> <timings> EN` and is always tried
+     * first, so a meta byte is never read as part of the signal when that layout
+     * decodes. Some dongles (observed: ZaZa/Tiqiaa "Tview" 10c4:8468) omit <meta> and
+     * start the timings right after 'D'; the documented layout then starts with a
+     * space and is rejected, and only in that case the no-meta layout is used.
      */
     private fun timingStart(frame: ByteArray): Int =
-        if (decodeTimings(frame, 4).isNotEmpty()) 4 else 5
+        if (decodeTimings(frame, 5).isNotEmpty()) 5 else 4
 
     private fun decodePreviewPattern(frame: ByteArray): IntArray =
         decodeTimings(frame, timingStart(frame))
