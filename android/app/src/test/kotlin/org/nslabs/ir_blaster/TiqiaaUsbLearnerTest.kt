@@ -96,6 +96,49 @@ class TiqiaaUsbLearnerTest {
         assertArrayEquals(intArrayOf(4064, 16, 16), preview(hex("5354014400ffff0181454e")))
     }
 
+    private fun meta(parsed: Any): Int = parsed.javaClass.getDeclaredMethod("getMeta")
+        .apply { isAccessible = true }.invoke(parsed) as Int
+
+    // Timings captured from a ZaZa/Tiqiaa dongle (10c4:8468), followed by two gap bytes.
+    private val capturedTimings = "b836b935f036b836b836b86df135b86db836f036b8" + "7f7f"
+
+    private val capturedPreview = intArrayOf(
+        896, 864, 912, 848, 1792, 864, 896, 864, 896, 864, 896,
+        1744, 1808, 848, 896, 1744, 896, 864, 1792, 864, 896, 4064,
+    )
+
+    @Test fun dFrameWithoutMetaByteFallsBackToNoMetaLayout() {
+        // This dongle starts the timings right after 'D'. The documented layout would
+        // start with a space and is rejected, so the no-meta layout is used.
+        val frame = hex("53540044$capturedTimings" + "454e")
+        val parsed = requireNotNull(parse(frame))
+        assertArrayEquals(frame, payload(parsed))
+        assertEquals(0, meta(parsed))
+        assertArrayEquals(capturedPreview, preview(frame))
+    }
+
+    @Test fun dFrameWithZeroMetaByteUsesDocumentedLayout() {
+        val frame = hex("5354004400$capturedTimings" + "454e")
+        val parsed = requireNotNull(parse(frame))
+        assertEquals(0, meta(parsed))
+        assertArrayEquals(capturedPreview, preview(frame))
+    }
+
+    @Test fun nonzeroMetaByteIsNotReadAsSignal() {
+        // 0x9a has the mark bit set, so it would also decode as a mark. Both layouts decode;
+        // the documented layout must win and the meta byte must stay out of the signal.
+        val withMarkBit = hex("535400449a$capturedTimings" + "454e")
+        val parsed = requireNotNull(parse(withMarkBit))
+        assertEquals(0x9a, meta(parsed))
+        assertArrayEquals(withMarkBit, payload(parsed))
+        assertArrayEquals(capturedPreview, preview(withMarkBit))
+
+        // A nonzero meta byte without the mark bit is not part of the signal either.
+        val withoutMarkBit = hex("5354004413$capturedTimings" + "454e")
+        assertEquals(0x13, meta(requireNotNull(parse(withoutMarkBit))))
+        assertArrayEquals(capturedPreview, preview(withoutMarkBit))
+    }
+
     @Test fun unrelatedAckCannotCompleteCapture() {
         assertNull(feed(packet(1, 2, 1, first())))
         val ack = hex("5354025213454e")
