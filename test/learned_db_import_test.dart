@@ -70,4 +70,29 @@ void main() {
     );
     expect(buttons.map((b) => b.image).toList(), <String>['POWER', 'VOL+', 'VOL-']);
   });
+
+  test('a suggested remote can import keys from another supported protocol', () {
+    final power = _learned('My power');
+    final buttons = mergeLearnedWithDbRemote(
+      learned: [
+        LearnedButton(
+          power,
+          const DecodedIrSignal(protocol: 'RC5', hexcode: '84C'),
+        ),
+      ],
+      remoteKeys: [
+        ...remote,
+        IrDbKeyCandidate(
+          id: 7,
+          protocol: 'NEC',
+          hexcode: '04FB30CF',
+          remoteId: 7,
+          label: '0',
+        ),
+      ],
+    );
+
+    expect(buttons.first, same(power));
+    expect(buttons.map((button) => button.image), ['My power', 'VOL+', 'VOL-', '0']);
+  });
 }

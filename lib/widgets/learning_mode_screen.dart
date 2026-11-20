@@ -852,10 +852,7 @@ class _LearningModeScreenState extends State<LearningModeScreen>
       );
       if (chosen == null || !mounted || route?.isCurrent != true) return;
 
-      final keys = await IrBlasterDb.instance.fetchRemoteKeys(
-        chosen.remoteId,
-        protocol: decoded.protocol,
-      );
+      final keys = await IrBlasterDb.instance.fetchRemoteKeys(chosen.remoteId);
       if (!mounted || route?.isCurrent != true) return;
       final currentName = _buttonNameCtrl.text.trim();
       // Every button learned in this session is kept, also the ones the app could

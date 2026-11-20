@@ -75,6 +75,11 @@ void main() {
       directory.deleteSync(recursive: true);
     });
 
+    test('suggested remote lookup returns keys of every protocol', () async {
+      final keys = await IrBlasterDb.instance.fetchRemoteKeys(2);
+      expect(keys.map((key) => key.protocol).toSet(), {'NEC', 'NEC2'});
+    });
+
     test('faster brand query returns exactly the previous catalog', () async {
       final brands = await IrBlasterDb.instance.listBrands(limit: 1 << 30);
       final previous = query('''

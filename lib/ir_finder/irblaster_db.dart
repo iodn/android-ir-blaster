@@ -468,19 +468,14 @@ class IrBlasterDb {
         .toList(growable: false);
   }
 
-  /// Keys of one database remote. Some remotes mix protocols (for example TV and
-  /// DVD codes); pass [protocol] to keep only the keys of the matched protocol.
-  Future<List<IrDbKeyCandidate>> fetchRemoteKeys(
-    int remoteId, {
-    String? protocol,
-  }) async {
+  /// All keys of one database remote, including mixed-protocol remotes.
+  Future<List<IrDbKeyCandidate>> fetchRemoteKeys(int remoteId) async {
     await ensureInitialized();
     final db = _requireDb();
     final rows = await db.rawQuery(
       'SELECT label, hexcode, protocol FROM keys WHERE id = ? '
-      '${protocol == null ? '' : 'AND protocol = ? '}'
       'ORDER BY label COLLATE NOCASE, hexcode;',
-      <Object?>[remoteId, if (protocol != null) protocol],
+      <Object?>[remoteId],
     );
     return rows
         .map(
