@@ -6,10 +6,13 @@ import 'package:flutter/material.dart';
 import '../sharing/sharing_screen.dart';
 import 'package:flutter/services.dart';
 import 'package:irblaster_controller/ir/ir_protocol_registry.dart';
+import 'package:irblaster_controller/ir_finder/ir_signal_matcher.dart';
+import 'package:irblaster_controller/ir_finder/irblaster_db.dart';
 import 'package:irblaster_controller/l10n/l10n.dart';
 import 'package:irblaster_controller/state/haptics.dart';
 import 'package:irblaster_controller/state/orientation_pref.dart';
 import 'package:irblaster_controller/state/remotes_state.dart';
+import 'package:irblaster_controller/utils/learned_db_import.dart';
 import 'package:irblaster_controller/utils/ir.dart';
 import 'package:irblaster_controller/utils/ir_transmitter_platform.dart';
 import 'package:irblaster_controller/utils/remote.dart';
@@ -20,7 +23,9 @@ class LearningModeScreen extends StatefulWidget {
   const LearningModeScreen({super.key, this.returnButtonMode = false});
 
   /// When true the screen was opened from the remote editor: saving pops the
-  /// learned [IRButton]s back to the caller instead of writing them to a remote.
+  /// learned [IRButton]s back to the caller instead of writing them to a remote,
+  /// and a database suggestion can be tapped to pop the learned buttons together
+  /// with the other buttons of that database remote.
   final bool returnButtonMode;
 
   @override
@@ -50,6 +55,15 @@ class _LearningModeScreenState extends State<LearningModeScreen>
   IrTransmitterType? _preferredType;
   LearnedUsbSignal? _capturedSignal;
   final List<IRButton> _collectedButtons = <IRButton>[];
+  /// Code of each entry of [_collectedButtons] (same index); null when the app
+  /// could not identify that signal.
+  final List<DecodedIrSignal?> _collectedButtonCodes = <DecodedIrSignal?>[];
+  List<DecodedIrSignal> _dbMatchCodes = const <DecodedIrSignal>[];
+  bool _dbMatchFellBack = false;
+  DecodedIrSignal? _decodedSignal;
+  IrDbSignalMatches? _dbMatches;
+  bool _dbMatchesLoading = false;
+  int _dbMatchGeneration = 0;
   bool _busy = false;
   int _usbLearningGeneration = 0;
   bool _usbListening = false;
@@ -359,11 +373,16 @@ class _LearningModeScreenState extends State<LearningModeScreen>
           );
         return;
       }
+      final decoded = IrSignalDecoder.decode(learned.rawPatternUs);
       setState(() {
         _busy = false;
         _capturedSignal = learned;
         _captureState = _LearningCaptureState.captured;
+        _decodedSignal = decoded;
+        _dbMatches = null;
+        _dbMatchesLoading = decoded != null;
       });
+      if (decoded != null) unawaited(_loadDbMatches(decoded));
       await Haptics.selectionClick();
     } catch (e) {
       if (!mounted || (usb && generation != _usbLearningGeneration)) return;
@@ -582,10 +601,309 @@ class _LearningModeScreenState extends State<LearningModeScreen>
     await Haptics.selectionClick();
   }
 
+  /// The codes of the buttons already added in this session plus the new capture,
+  /// each exact code once. A remote must contain all of them to be suggested.
+  List<DecodedIrSignal> _codesForMatching(DecodedIrSignal current) {
+    final seen = <String>{};
+    final codes = <DecodedIrSignal>[];
+    for (final code in <DecodedIrSignal>[
+      ..._collectedButtonCodes.whereType<DecodedIrSignal>(),
+      current,
+    ]) {
+      if (seen.add(code.key)) codes.add(code);
+    }
+    return codes;
+  }
+
+  Future<void> _loadDbMatches(DecodedIrSignal decoded) async {
+    final generation = ++_dbMatchGeneration;
+    try {
+      var codes = _codesForMatching(decoded);
+      var matches = await IrBlasterDb.instance.findBrandsForCodes(codes: codes);
+      var fellBack = false;
+      if (matches.totalBrands == 0 && codes.length > 1) {
+        // No single database remote has every learned button (they may come from
+        // different remotes): show the matches of this button alone.
+        codes = <DecodedIrSignal>[decoded];
+        matches = await IrBlasterDb.instance.findBrandsForCodes(codes: codes);
+        fellBack = true;
+      }
+      if (!mounted || generation != _dbMatchGeneration) return;
+      setState(() {
+        _dbMatches = matches;
+        _dbMatchCodes = codes;
+        _dbMatchFellBack = fellBack;
+        _dbMatchesLoading = false;
+      });
+    } catch (_) {
+      if (!mounted || generation != _dbMatchGeneration) return;
+      setState(() => _dbMatchesLoading = false);
+    }
+  }
+
+  String _describeDecoded(DecodedIrSignal decoded) {
+    final l10n = context.l10n;
+    final address = decoded.address;
+    final command = decoded.command;
+    if (address != null && command != null) {
+      return l10n.learningDbDetectedRc5(decoded.hexcode, address, command);
+    }
+    return l10n.learningDbDetectedCode(decoded.protocol, decoded.hexcode);
+  }
+
+  List<Widget> _buildDbMatchesSection(BuildContext context) {
+    final decoded = _decodedSignal;
+    if (decoded == null) return const <Widget>[];
+    final l10n = context.l10n;
+    final theme = Theme.of(context);
+    final cs = theme.colorScheme;
+    final matches = _dbMatches;
+    final hintStyle = theme.textTheme.bodySmall?.copyWith(
+      color: cs.onSurfaceVariant,
+    );
+
+    final children = <Widget>[
+      Text(
+        l10n.learningDbSuggestionsTitle,
+        style: theme.textTheme.titleMedium?.copyWith(
+          fontWeight: FontWeight.w800,
+        ),
+      ),
+      const SizedBox(height: 4),
+      Text(
+        _describeDecoded(decoded),
+        style: theme.textTheme.bodyMedium?.copyWith(
+          color: cs.onSurfaceVariant,
+        ),
+      ),
+      const SizedBox(height: 12),
+    ];
+
+    if (_dbMatchesLoading) {
+      children.add(const LinearProgressIndicator());
+    } else if (matches == null || matches.totalBrands == 0) {
+      children.add(
+        Text(l10n.learningDbNoMatch, style: theme.textTheme.bodyMedium),
+      );
+    } else {
+      if (_dbMatchFellBack) {
+        children.add(
+          Text(
+            l10n.learningDbFellBack,
+            style: theme.textTheme.bodySmall?.copyWith(color: cs.error),
+          ),
+        );
+        children.add(const SizedBox(height: 6));
+      }
+      children.add(
+        Text(
+          l10n.learningDbMatchSummary(
+            matches.totalModels,
+            matches.totalBrands,
+          ),
+          style: theme.textTheme.bodyMedium,
+        ),
+      );
+      final codeCount = _dbMatchCodes.length;
+      if (codeCount > 1) {
+        children.add(
+          Text(
+            l10n.learningDbScopeAllLearned(codeCount),
+            style: theme.textTheme.bodyMedium,
+          ),
+        );
+      }
+      if (matches.commonLabels.isNotEmpty) {
+        children.add(
+          Text(
+            l10n.learningDbUsualLabels(matches.commonLabels.join(', ')),
+            style: theme.textTheme.bodyMedium,
+          ),
+        );
+      }
+      if (matches.totalBrands > 20) {
+        children.add(const SizedBox(height: 4));
+        children.add(
+          Text(
+            widget.returnButtonMode
+                ? l10n.learningDbManyBrandsEditor(
+                    l10n.learningModeAddAndLearnNext,
+                  )
+                : l10n.learningDbManyBrands,
+            style: hintStyle,
+          ),
+        );
+      }
+      if (widget.returnButtonMode) {
+        children.add(const SizedBox(height: 4));
+        children.add(Text(l10n.learningDbTapBrandHint, style: hintStyle));
+      }
+      children.add(const SizedBox(height: 8));
+      for (final brand in matches.brands) {
+        final count = Text(l10n.learningDbModelCount(brand.modelCount));
+        children.add(
+          ListTile(
+            dense: true,
+            contentPadding: EdgeInsets.zero,
+            enabled: !_busy,
+            onTap: widget.returnButtonMode ? () => _importFromBrand(brand) : null,
+            leading: const Icon(Icons.storage_rounded),
+            title: Text(brand.brand),
+            subtitle: brand.sampleModels.isEmpty
+                ? null
+                : Text(
+                    brand.sampleModels.join(', '),
+                    maxLines: 1,
+                    overflow: TextOverflow.ellipsis,
+                  ),
+            trailing: widget.returnButtonMode
+                ? Row(
+                    mainAxisSize: MainAxisSize.min,
+                    children: [
+                      count,
+                      const Icon(Icons.chevron_right_rounded),
+                    ],
+                  )
+                : count,
+          ),
+        );
+      }
+    }
+
+    return <Widget>[
+      Card(
+        elevation: 0,
+        color: cs.surfaceContainerHighest.withValues(alpha: 0.5),
+        shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.circular(20),
+          side: BorderSide(color: cs.outlineVariant.withValues(alpha: 0.45)),
+        ),
+        child: Padding(
+          padding: const EdgeInsets.all(18),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: children,
+          ),
+        ),
+      ),
+      const SizedBox(height: 14),
+    ];
+  }
+
+  Future<void> _importFromBrand(IrDbBrandMatch brand) async {
+    final decoded = _decodedSignal;
+    final signal = _capturedSignal;
+    if (decoded == null || signal == null || !widget.returnButtonMode || _busy) {
+      return;
+    }
+    final l10n = context.l10n;
+    final messenger = ScaffoldMessenger.of(context);
+    // Busy from the first tap on: a second tap must not open a second sheet.
+    setState(() => _busy = true);
+    var closing = false;
+    try {
+      final models = await IrBlasterDb.instance.listModelsForCodes(
+        brand: brand.brand,
+        codes: _dbMatchCodes.isEmpty ? <DecodedIrSignal>[decoded] : _dbMatchCodes,
+      );
+      if (!mounted || models.isEmpty) return;
+      final chosen = await showModalBottomSheet<IrDbModelMatch>(
+        context: context,
+        isScrollControlled: true,
+        useSafeArea: true,
+        showDragHandle: true,
+        builder: (sheetContext) {
+          final theme = Theme.of(sheetContext);
+          return ConstrainedBox(
+            constraints: BoxConstraints(
+              maxHeight: MediaQuery.sizeOf(sheetContext).height * 0.7,
+            ),
+            child: Column(
+              mainAxisSize: MainAxisSize.min,
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Padding(
+                  padding: const EdgeInsets.fromLTRB(20, 0, 20, 8),
+                  child: Text(
+                    l10n.learningDbChooseModel(brand.brand),
+                    style: theme.textTheme.titleMedium?.copyWith(
+                      fontWeight: FontWeight.w800,
+                    ),
+                  ),
+                ),
+                Flexible(
+                  child: ListView.builder(
+                    shrinkWrap: true,
+                    itemCount: models.length,
+                    itemBuilder: (_, index) {
+                      final model = models[index];
+                      return ListTile(
+                        title: Text(model.model),
+                        onTap: () => Navigator.of(sheetContext).pop(model),
+                      );
+                    },
+                  ),
+                ),
+              ],
+            ),
+          );
+        },
+      );
+      if (chosen == null || !mounted) return;
+
+      final keys = await IrBlasterDb.instance.fetchRemoteKeys(
+        chosen.remoteId,
+        protocol: decoded.protocol,
+      );
+      if (!mounted) return;
+      final currentName = _buttonNameCtrl.text.trim();
+      // Every button learned in this session is kept, also the ones the app could
+      // not identify, and the capture on screen counts as learned too.
+      final learned = <LearnedButton>[
+        for (var i = 0; i < _collectedButtons.length; i++)
+          LearnedButton(_collectedButtons[i], _collectedButtonCodes[i]),
+        LearnedButton(
+          _buildSavedButton(
+            signal,
+            currentName.isEmpty ? l10n.learningModeUnnamedCapture : currentName,
+          ),
+          decoded,
+        ),
+      ];
+      final buttons = mergeLearnedWithDbRemote(
+        learned: learned,
+        remoteKeys: keys,
+        unnamedLabel: l10n.unnamedKey,
+      );
+      if (buttons.length == learned.length) {
+        messenger
+          ..hideCurrentSnackBar()
+          ..showSnackBar(
+            SnackBar(content: Text(l10n.learningDbNoUsableButtons)),
+          );
+        return;
+      }
+      _stopReplayLoop();
+      closing = true;
+      Navigator.of(context).pop<List<IRButton>>(buttons);
+    } catch (_) {
+      if (!mounted) return;
+      messenger
+        ..hideCurrentSnackBar()
+        ..showSnackBar(SnackBar(content: Text(l10n.learningDbLoadFailed)));
+    } finally {
+      if (!closing && mounted) setState(() => _busy = false);
+    }
+  }
+
   Future<void> _learnAnother() async {
     _stopReplayLoop();
+    _dbMatchGeneration++;
     setState(() {
       _capturedSignal = null;
+      _decodedSignal = null;
+      _dbMatches = null;
+      _dbMatchesLoading = false;
       _captureState = _LearningCaptureState.idle;
       _errorText = null;
     });
@@ -609,7 +927,11 @@ class _LearningModeScreenState extends State<LearningModeScreen>
       if (!mounted) return;
       final learned = _buildSavedButton(signal, buttonName);
       if (learnNext) {
-        setState(() => _collectedButtons.add(learned));
+        final learnedCode = _decodedSignal;
+        setState(() {
+          _collectedButtons.add(learned);
+          _collectedButtonCodes.add(learnedCode);
+        });
         _buttonNameCtrl.clear();
         ScaffoldMessenger.of(context)
           ..hideCurrentSnackBar()
@@ -1352,6 +1674,7 @@ class _LearningModeScreenState extends State<LearningModeScreen>
           ),
         ),
         const SizedBox(height: 14),
+        ..._buildDbMatchesSection(context),
         Card(
           elevation: 0,
           color: cs.surfaceContainerHighest.withValues(alpha: 0.5),

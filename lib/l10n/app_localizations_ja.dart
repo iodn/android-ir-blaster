@@ -5363,4 +5363,68 @@ class AppLocalizationsJa extends AppLocalizations {
   String learningModeAddedLearnNext(String name, int count) {
     return '「$name」を追加しました（現在$count個）。リモコンの次のボタンを押してください。';
   }
+
+  @override
+  String get learningDbSuggestionsTitle => 'データベースの候補';
+
+  @override
+  String learningDbDetectedCode(String protocol, String code) {
+    return '検出された$protocolコード: $code';
+  }
+
+  @override
+  String learningDbDetectedRc5(String code, int address, int command) {
+    return '検出されたRC5コード: $code（アドレス $address、コマンド $command）';
+  }
+
+  @override
+  String get learningDbNoMatch => 'このコードを使うリモコンはデータベースにありません。';
+
+  @override
+  String learningDbMatchSummary(int models, int brands) {
+    return '一致するモデル: $models · ブランド: $brands';
+  }
+
+  @override
+  String learningDbScopeAllLearned(int count) {
+    return 'これらのリモコンはどれも、これまでに学習したすべてのボタン（$count個）を含みます。';
+  }
+
+  @override
+  String learningDbUsualLabels(String labels) {
+    return '一般的なラベル: $labels';
+  }
+
+  @override
+  String get learningDbFellBack =>
+      'これまでに学習したすべてのボタンを含むリモコンはデータベースにないため、このボタンだけの候補を表示しています。';
+
+  @override
+  String learningDbManyBrandsEditor(String action) {
+    return '多くのブランドで使われています。「$action」でほかのボタンも学習すると（珍しいボタンほど効果的）、候補を絞り込めます。可能性の高い順:';
+  }
+
+  @override
+  String get learningDbManyBrands =>
+      'このコードは多くのブランドで使われているため、1つのボタンだけでは区別できません。可能性の高い順:';
+
+  @override
+  String get learningDbTapBrandHint =>
+      'ブランドをタップすると、そのリモコンの1つにあるすべてのボタンを追加できます。学習したボタンはそのまま残ります。';
+
+  @override
+  String learningDbModelCount(int count) {
+    return 'モデル: $count';
+  }
+
+  @override
+  String learningDbChooseModel(String brand) {
+    return '$brand · モデルを選択';
+  }
+
+  @override
+  String get learningDbNoUsableButtons => 'このリモコンには使用できるボタンがありません。';
+
+  @override
+  String get learningDbLoadFailed => 'データベースからリモコンを読み込めませんでした。';
 }

@@ -5486,4 +5486,68 @@ class AppLocalizationsTh extends AppLocalizations {
   String learningModeAddedLearnNext(String name, int count) {
     return 'เพิ่ม \"$name\" แล้ว (ตอนนี้ $count ปุ่ม) กดปุ่มถัดไปบนรีโมต';
   }
+
+  @override
+  String get learningDbSuggestionsTitle => 'คำแนะนำจากฐานข้อมูล';
+
+  @override
+  String learningDbDetectedCode(String protocol, String code) {
+    return 'ตรวจพบรหัส $protocol: $code';
+  }
+
+  @override
+  String learningDbDetectedRc5(String code, int address, int command) {
+    return 'ตรวจพบรหัส RC5: $code (แอดเดรส $address, คำสั่ง $command)';
+  }
+
+  @override
+  String get learningDbNoMatch => 'ไม่มีรีโมตในฐานข้อมูลที่ใช้รหัสนี้';
+
+  @override
+  String learningDbMatchSummary(int models, int brands) {
+    return 'รุ่นที่ตรงกัน: $models · ยี่ห้อ: $brands';
+  }
+
+  @override
+  String learningDbScopeAllLearned(int count) {
+    return 'รีโมตแต่ละตัวนี้มีปุ่มทั้งหมดที่เรียนรู้มาแล้ว ($count)';
+  }
+
+  @override
+  String learningDbUsualLabels(String labels) {
+    return 'ป้ายที่ใช้บ่อย: $labels';
+  }
+
+  @override
+  String get learningDbFellBack =>
+      'ไม่มีรีโมตในฐานข้อมูลที่มีปุ่มทั้งหมดที่เรียนรู้มาแล้ว จึงแสดงผลที่ตรงกับปุ่มนี้เท่านั้น';
+
+  @override
+  String learningDbManyBrandsEditor(String action) {
+    return 'มีหลายยี่ห้อที่ใช้รหัสนี้ เรียนรู้ปุ่มเพิ่มด้วย \"$action\" (ยิ่งเป็นปุ่มที่ไม่ค่อยพบยิ่งดี) เพื่อจำกัดผลลัพธ์ ที่น่าจะเป็นที่สุดแสดงก่อน:';
+  }
+
+  @override
+  String get learningDbManyBrands =>
+      'รหัสนี้มีหลายยี่ห้อใช้ร่วมกัน ปุ่มเดียวจึงแยกไม่ออก ที่น่าจะเป็นที่สุดแสดงก่อน:';
+
+  @override
+  String get learningDbTapBrandHint =>
+      'แตะยี่ห้อเพื่อเพิ่มปุ่มทั้งหมดจากรีโมตตัวหนึ่งของยี่ห้อนั้น ปุ่มที่คุณเรียนรู้ไว้จะยังอยู่';
+
+  @override
+  String learningDbModelCount(int count) {
+    return 'รุ่น: $count';
+  }
+
+  @override
+  String learningDbChooseModel(String brand) {
+    return '$brand · เลือกรุ่น';
+  }
+
+  @override
+  String get learningDbNoUsableButtons => 'รีโมตนี้ไม่มีปุ่มที่ใช้ได้';
+
+  @override
+  String get learningDbLoadFailed => 'โหลดรีโมตจากฐานข้อมูลไม่ได้';
 }

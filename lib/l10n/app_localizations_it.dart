@@ -5616,4 +5616,71 @@ class AppLocalizationsIt extends AppLocalizations {
   String learningModeAddedLearnNext(String name, int count) {
     return '\"$name\" aggiunto ($count finora). Premi il prossimo tasto del telecomando.';
   }
+
+  @override
+  String get learningDbSuggestionsTitle => 'Suggerimenti dal database';
+
+  @override
+  String learningDbDetectedCode(String protocol, String code) {
+    return 'Codice $protocol rilevato: $code';
+  }
+
+  @override
+  String learningDbDetectedRc5(String code, int address, int command) {
+    return 'Codice RC5 rilevato: $code (indirizzo $address, comando $command)';
+  }
+
+  @override
+  String get learningDbNoMatch =>
+      'Nessun telecomando nel database usa questo codice.';
+
+  @override
+  String learningDbMatchSummary(int models, int brands) {
+    return 'Modelli corrispondenti: $models · marche: $brands';
+  }
+
+  @override
+  String learningDbScopeAllLearned(int count) {
+    return 'Ognuno di questi telecomandi contiene tutti i tasti appresi finora ($count).';
+  }
+
+  @override
+  String learningDbUsualLabels(String labels) {
+    return 'Etichetta abituale: $labels';
+  }
+
+  @override
+  String get learningDbFellBack =>
+      'Nessun telecomando nel database contiene tutti i tasti appresi finora, quindi questi risultati valgono solo per questo tasto.';
+
+  @override
+  String learningDbManyBrandsEditor(String action) {
+    return 'Usato da molte marche. Impara altri tasti con \"$action\" (meno comuni sono, meglio è) per restringere i risultati. Prima i più probabili:';
+  }
+
+  @override
+  String get learningDbManyBrands =>
+      'Questo codice è usato da molte marche, quindi un solo tasto non basta a distinguerle. Prima le più probabili:';
+
+  @override
+  String get learningDbTapBrandHint =>
+      'Tocca una marca per aggiungere tutti i tasti di uno dei suoi telecomandi. I tasti che hai appreso vengono mantenuti.';
+
+  @override
+  String learningDbModelCount(int count) {
+    return 'Modelli: $count';
+  }
+
+  @override
+  String learningDbChooseModel(String brand) {
+    return '$brand · scegli un modello';
+  }
+
+  @override
+  String get learningDbNoUsableButtons =>
+      'Questo telecomando non ha tasti utilizzabili.';
+
+  @override
+  String get learningDbLoadFailed =>
+      'Impossibile caricare il telecomando dal database.';
 }
