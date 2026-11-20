@@ -5,6 +5,7 @@ import 'dart:typed_data';
 
 import 'package:file_picker/file_picker.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart' show PlatformException;
 import 'package:irblaster_controller/l10n/app_localizations.dart';
 import 'package:irblaster_controller/l10n/app_localizations_en.dart';
 import 'package:irblaster_controller/l10n/l10n.dart';
@@ -358,21 +359,31 @@ Future<ImportResult?> importRemotesFromPicker(
   required List<Remote> current,
 }) async {
   final l10n = context.l10n;
-  final PlatformFile? pf = await FilePicker.pickFile(
-    type: Platform.isAndroid ? FileType.any : FileType.custom,
-    allowedExtensions: Platform.isAndroid
-        ? null
-        : const <String>[
-            'json',
-            'ir',
-            'xml',
-            'irplus',
-            'conf',
-            'cfg',
-            'lirc',
-            'lrc',
-          ],
-  );
+  final PlatformFile? pf;
+  try {
+    pf = await FilePicker.pickFile(
+      type: Platform.isAndroid ? FileType.any : FileType.custom,
+      allowedExtensions: Platform.isAndroid
+          ? null
+          : const <String>[
+              'json',
+              'ir',
+              'xml',
+              'irplus',
+              'conf',
+              'cfg',
+              'lirc',
+              'lrc',
+            ],
+    );
+  } on PlatformException {
+    return ImportResult(
+      remotes: current,
+      macros: null,
+      success: false,
+      message: l10n.importFailedInvalidUnreadableFile,
+    );
+  }
   if (pf == null) return null;
   final String? contents = await _readPlatformFileText(pf);
 

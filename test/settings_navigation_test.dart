@@ -70,28 +70,31 @@ void main() {
     );
   });
 
-  testWidgets('failed Japanese backup import preserves existing remotes',
-      (tester) async {
-    final previous = state.remotes;
-    final picker = FilePickerPlatform.instance;
-    addTearDown(() {
-      state.remotes = previous;
-      FilePickerPlatform.instance = picker;
+  for (final pickerFails in [false, true]) {
+    testWidgets(
+        'failed Japanese backup import preserves remotes, picker failure=$pickerFails',
+        (tester) async {
+      final previous = state.remotes;
+      final picker = FilePickerPlatform.instance;
+      addTearDown(() {
+        state.remotes = previous;
+        FilePickerPlatform.instance = picker;
+      });
+      final original = Remote(id: 100, name: 'TV', buttons: []);
+      state.remotes = [original];
+      FilePickerPlatform.instance = _UnreadableBackupPicker(pickerFails);
+      await tester.pumpWidget(settings(locale: const Locale('ja')));
+      await tester.pumpAndSettle();
+      final l10n =
+          AppLocalizations.of(tester.element(find.byType(SettingsScreen)))!;
+      await openCategory(tester, l10n.backupTitle);
+      await tester.tap(find.text(l10n.importBackup));
+      await tester.pumpAndSettle();
+      expect(state.remotes, [original]);
+      expect(find.text(l10n.importFailedInvalidUnreadableFile), findsOneWidget);
+      expect(tester.takeException(), isNull);
     });
-    final original = Remote(id: 100, name: 'TV', buttons: []);
-    state.remotes = [original];
-    FilePickerPlatform.instance = _UnreadableBackupPicker();
-    await tester.pumpWidget(settings(locale: const Locale('ja')));
-    await tester.pumpAndSettle();
-    final l10n =
-        AppLocalizations.of(tester.element(find.byType(SettingsScreen)))!;
-    await openCategory(tester, l10n.backupTitle);
-    await tester.tap(find.text(l10n.importBackup));
-    await tester.pumpAndSettle();
-    expect(state.remotes, [original]);
-    expect(find.text(l10n.importFailedInvalidUnreadableFile), findsOneWidget);
-    expect(tester.takeException(), isNull);
-  });
+  }
 
   testWidgets(
       'overview has categories, not expanded controls or hardware calls',
@@ -229,6 +232,10 @@ void main() {
 }
 
 class _UnreadableBackupPicker extends FilePickerPlatform {
+  _UnreadableBackupPicker(this.fails);
+
+  final bool fails;
+
   @override
   Future<PlatformFile?> pickFile({
     String? dialogTitle,
@@ -242,8 +249,13 @@ class _UnreadableBackupPicker extends FilePickerPlatform {
     WindowsOptions windowsOptions = const WindowsOptions(),
     LinuxOptions linuxOptions = const LinuxOptions(),
     WebOptions webOptions = const WebOptions(),
-  }) async =>
-      _UnreadableBackup();
+  }) async {
+    if (fails) {
+      throw PlatformException(
+          code: 'unknown_path', message: 'Failed to retrieve path.');
+    }
+    return _UnreadableBackup();
+  }
 }
 
 final class _UnreadableBackup extends PlatformFile {
