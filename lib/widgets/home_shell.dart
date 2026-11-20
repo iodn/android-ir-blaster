@@ -183,7 +183,7 @@ class _HomeShellState extends State<HomeShell> {
 
       WidgetsBinding.instance.addPostFrameCallback((_) {
         if (!mounted) return;
-        _maybeShowStartupNotice(caps);
+        _maybeShowStartupNotice(_caps ?? caps);
       });
     } catch (_) {
       // ignore
@@ -277,6 +277,7 @@ class _HomeShellState extends State<HomeShell> {
   }
 
   Future<void> _maybeShowStartupNotice(IrTransmitterCapabilities caps) async {
+    if (_index != 0 || ModalRoute.of(context)?.isCurrent != true) return;
     if (_startupNoticeShown) return;
     if (_hardwareEducationSeen) return;
     if (!_needsHardwareNotice(caps)) return;
@@ -288,7 +289,7 @@ class _HomeShellState extends State<HomeShell> {
   }
 
   Future<void> _showHardwareExplainer(IrTransmitterCapabilities caps) async {
-    if (!mounted) return;
+    if (!mounted || _startupSheetOpen) return;
 
     _startupSheetOpen = true;
     _startupSheetContext = null;
@@ -552,7 +553,7 @@ class _HomeShellState extends State<HomeShell> {
 
   Widget _hardwareBanner(BuildContext context) {
     final caps = _caps;
-    if (caps == null) return const SizedBox.shrink();
+    if (caps == null || _index == 3) return const SizedBox.shrink();
     if (_bannerDismissed) return const SizedBox.shrink();
     if (!_needsHardwareNotice(caps)) return const SizedBox.shrink();
 

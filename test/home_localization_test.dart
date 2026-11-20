@@ -1,3 +1,5 @@
+import 'dart:async';
+
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_test/flutter_test.dart';
@@ -31,6 +33,51 @@ void main() {
       .instance.defaultBinaryMessenger
       .setMockMethodCallHandler(
           const MethodChannel('com.tekartik.sqflite'), null));
+
+  testWidgets('late hardware detection does not interrupt the settings tab',
+      (tester) async {
+    SharedPreferences.setMockInitialValues({});
+    const channel = MethodChannel('org.nslabs/irtransmitter');
+    const events = MethodChannel('org.nslabs/irtransmitter_events');
+    final messenger =
+        TestDefaultBinaryMessengerBinding.instance.defaultBinaryMessenger;
+    final capabilities = Completer<Object?>();
+    messenger.setMockMethodCallHandler(channel, (call) async {
+      if (call.method == 'getTransmitterCapabilities') return capabilities.future;
+      if (call.method == 'getPreferredTransmitterType') return 'INTERNAL';
+      return null;
+    });
+    messenger.setMockMethodCallHandler(events, (_) async => null);
+    addTearDown(() {
+      messenger.setMockMethodCallHandler(channel, null);
+      messenger.setMockMethodCallHandler(events, null);
+    });
+    await tester.pumpWidget(const MaterialApp(
+      supportedLocales: AppLocalizations.supportedLocales,
+      localizationsDelegates: AppLocalizations.localizationsDelegates,
+      home: HomeShell(),
+    ));
+    await tester.pump();
+    final l10n = AppLocalizations.of(tester.element(find.byType(HomeShell)))!;
+    await tester
+        .tap(find.widgetWithText(NavigationDestination, l10n.settingsNavLabel));
+    await tester.pump();
+    capabilities.complete({'hasInternal': false, 'hasUsb': false});
+    await tester.pump();
+    await tester.pump(const Duration(milliseconds: 400));
+
+    expect(find.widgetWithText(AppBar, l10n.settingsTitle), findsOneWidget);
+    expect(find.text(l10n.homeHardwareRequiredTitle), findsNothing);
+    expect(find.text(l10n.homeNoIrTransmitterTitle), findsNothing);
+
+    await tester
+        .tap(find.widgetWithText(NavigationDestination, l10n.remotesNavLabel));
+    await tester.pump();
+    await tester.pump(const Duration(milliseconds: 400));
+    expect(find.text(l10n.homeNoIrTransmitterTitle), findsOneWidget);
+    expect(tester.takeException(), isNull);
+  });
+
   for (final locale in AppLocalizations.supportedLocales) {
     for (final status in [
       'NO_DEVICE',
