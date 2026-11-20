@@ -5542,4 +5542,12 @@ class AppLocalizationsFil extends AppLocalizations {
   @override
   String get githubAuthenticationFailed =>
       'Hindi nagtagumpay ang pagpapatunay sa GitHub. Suriin ang iyong personal na access token.';
+
+  @override
+  String get learningModeAddAndLearnNext => 'Idagdag at kopyahin ang susunod';
+
+  @override
+  String learningModeAddedLearnNext(String name, int count) {
+    return 'Naidagdag ang \"$name\" ($count na sa ngayon). Pindutin ang susunod na button sa remote mo.';
+  }
 }

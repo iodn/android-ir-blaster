@@ -5608,4 +5608,12 @@ class AppLocalizationsIt extends AppLocalizations {
   @override
   String get githubAuthenticationFailed =>
       'Autenticazione GitHub non riuscita. Controlla il tuo token di accesso personale.';
+
+  @override
+  String get learningModeAddAndLearnNext => 'Aggiungi e impara il prossimo';
+
+  @override
+  String learningModeAddedLearnNext(String name, int count) {
+    return '\"$name\" aggiunto ($count finora). Premi il prossimo tasto del telecomando.';
+  }
 }

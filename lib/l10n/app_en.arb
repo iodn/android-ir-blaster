@@ -2737,5 +2737,8 @@
   "githubRateLimitAfter": "GitHub’s request limit has been reached. Try again after {time}.",
   "githubRateLimitTokenHint": "You can optionally add a personal token in GitHub connection settings for a higher request limit.",
   "githubAuthenticationFailed": "GitHub authentication failed. Check your personal access token.",
-  "@githubRateLimitAfter": {"placeholders": {"time": {"type": "String"}}}
+  "@githubRateLimitAfter": {"placeholders": {"time": {"type": "String"}}},
+  "learningModeAddAndLearnNext": "Add & learn next",
+  "learningModeAddedLearnNext": "Added \"{name}\" ({count} so far). Press the next button on your remote.",
+  "@learningModeAddedLearnNext": {"placeholders": {"name": {"type": "String"}, "count": {"type": "int"}}}
 }

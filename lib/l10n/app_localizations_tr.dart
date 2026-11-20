@@ -5518,4 +5518,12 @@ class AppLocalizationsTr extends AppLocalizations {
   @override
   String get githubAuthenticationFailed =>
       'GitHub kimlik doğrulaması başarısız oldu. Kişisel erişim belirtecinizi kontrol edin.';
+
+  @override
+  String get learningModeAddAndLearnNext => 'Ekle ve sonrakini öğren';
+
+  @override
+  String learningModeAddedLearnNext(String name, int count) {
+    return '\"$name\" eklendi (şu ana kadar $count). Kumandanızdaki sonraki düğmeye basın.';
+  }
 }

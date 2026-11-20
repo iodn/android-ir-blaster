@@ -9925,6 +9925,18 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'GitHub authentication failed. Check your personal access token.'**
   String get githubAuthenticationFailed;
+
+  /// No description provided for @learningModeAddAndLearnNext.
+  ///
+  /// In en, this message translates to:
+  /// **'Add & learn next'**
+  String get learningModeAddAndLearnNext;
+
+  /// No description provided for @learningModeAddedLearnNext.
+  ///
+  /// In en, this message translates to:
+  /// **'Added \"{name}\" ({count} so far). Press the next button on your remote.'**
+  String learningModeAddedLearnNext(String name, int count);
 }
 
 class _AppLocalizationsDelegate

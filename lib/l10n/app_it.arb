@@ -2506,5 +2506,8 @@
   "githubRateLimitAfter": "Hai raggiunto il limite di richieste di GitHub. Riprova dopo {time}.",
   "githubRateLimitTokenHint": "Se vuoi un limite di richieste più alto, puoi aggiungere un token personale nelle impostazioni di connessione a GitHub. È facoltativo.",
   "githubAuthenticationFailed": "Autenticazione GitHub non riuscita. Controlla il tuo token di accesso personale.",
-  "@githubRateLimitAfter": {"placeholders": {"time": {"type": "String"}}}
+  "@githubRateLimitAfter": {"placeholders": {"time": {"type": "String"}}},
+  "learningModeAddAndLearnNext": "Aggiungi e impara il prossimo",
+  "learningModeAddedLearnNext": "\"{name}\" aggiunto ({count} finora). Premi il prossimo tasto del telecomando.",
+  "@learningModeAddedLearnNext": {"placeholders": {"name": {"type": "String"}, "count": {"type": "int"}}}
 }

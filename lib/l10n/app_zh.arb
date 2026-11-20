@@ -2506,5 +2506,8 @@
   "githubRateLimitAfter": "已达到GitHub请求次数上限，请在{time}之后重试。",
   "githubRateLimitTokenHint": "如需提高请求次数上限，可以在GitHub连接设置中添加个人令牌。这是可选操作。",
   "githubAuthenticationFailed": "GitHub身份验证失败，请检查个人访问令牌。",
-  "@githubRateLimitAfter": {"placeholders": {"time": {"type": "String"}}}
+  "@githubRateLimitAfter": {"placeholders": {"time": {"type": "String"}}},
+  "learningModeAddAndLearnNext": "添加并学习下一个",
+  "learningModeAddedLearnNext": "已添加“{name}”（目前共 {count} 个）。请按遥控器上的下一个按钮。",
+  "@learningModeAddedLearnNext": {"placeholders": {"name": {"type": "String"}, "count": {"type": "int"}}}
 }

@@ -2506,5 +2506,8 @@
   "githubRateLimitAfter": "La limite de requêtes GitHub est atteinte. Réessayez après {time}.",
   "githubRateLimitTokenHint": "Vous pouvez ajouter un jeton personnel dans les paramètres de connexion à GitHub pour augmenter la limite de requêtes. C’est facultatif.",
   "githubAuthenticationFailed": "L’authentification auprès de GitHub a échoué. Vérifiez votre jeton d’accès personnel.",
-  "@githubRateLimitAfter": {"placeholders": {"time": {"type": "String"}}}
+  "@githubRateLimitAfter": {"placeholders": {"time": {"type": "String"}}},
+  "learningModeAddAndLearnNext": "Ajouter et apprendre le suivant",
+  "learningModeAddedLearnNext": "« {name} » ajouté ({count} jusqu’ici). Appuyez sur le bouton suivant de votre télécommande.",
+  "@learningModeAddedLearnNext": {"placeholders": {"name": {"type": "String"}, "count": {"type": "int"}}}
 }

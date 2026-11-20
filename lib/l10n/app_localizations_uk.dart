@@ -5666,4 +5666,12 @@ class AppLocalizationsUk extends AppLocalizations {
   @override
   String get githubAuthenticationFailed =>
       'Не вдалося пройти автентифікацію GitHub. Перевірте особистий токен доступу.';
+
+  @override
+  String get learningModeAddAndLearnNext => 'Додати й навчити наступну';
+
+  @override
+  String learningModeAddedLearnNext(String name, int count) {
+    return '«$name» додано (усього: $count). Натисніть наступну кнопку на пульті.';
+  }
 }

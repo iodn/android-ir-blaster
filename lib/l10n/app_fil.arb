@@ -2506,5 +2506,8 @@
   "githubRateLimitAfter": "Naabot na ang limitasyon ng GitHub sa mga request. Subukan ulit pagkalipas ng {time}.",
   "githubRateLimitTokenHint": "Kung kailangan mo ng mas mataas na limitasyon, puwede kang magdagdag ng personal na token sa mga setting ng koneksiyon sa GitHub. Opsyonal ito.",
   "githubAuthenticationFailed": "Hindi nagtagumpay ang pagpapatunay sa GitHub. Suriin ang iyong personal na access token.",
-  "@githubRateLimitAfter": {"placeholders": {"time": {"type": "String"}}}
+  "@githubRateLimitAfter": {"placeholders": {"time": {"type": "String"}}},
+  "learningModeAddAndLearnNext": "Idagdag at kopyahin ang susunod",
+  "learningModeAddedLearnNext": "Naidagdag ang \"{name}\" ({count} na sa ngayon). Pindutin ang susunod na button sa remote mo.",
+  "@learningModeAddedLearnNext": {"placeholders": {"name": {"type": "String"}, "count": {"type": "int"}}}
 }

@@ -600,6 +600,10 @@ class _LearningModeScreenState extends State<LearningModeScreen>
         ? context.l10n.learningModeUnnamedCapture
         : _buttonNameCtrl.text.trim();
     if (widget.returnButtonMode) {
+      // Mark the screen busy before the first await: a second tap on "Add & learn
+      // next" or "Add button" is then ignored instead of adding the same capture
+      // twice or popping the editor as well.
+      setState(() => _busy = true);
       _stopReplayLoop();
       await Haptics.mediumImpact();
       if (!mounted) return;
@@ -612,15 +616,22 @@ class _LearningModeScreenState extends State<LearningModeScreen>
           ..showSnackBar(
             SnackBar(
               content: Text(
-                'Added "$buttonName" (${_collectedButtons.length} so far). '
-                'Press the next button on your remote.',
+                l10n.learningModeAddedLearnNext(
+                  buttonName,
+                  _collectedButtons.length,
+                ),
               ),
             ),
           );
         await _learnAnother();
-        if (mounted) unawaited(_startListening());
+        if (!mounted) return;
+        // _startListening() refuses to start while busy; it marks the screen busy
+        // again itself for the whole capture.
+        setState(() => _busy = false);
+        unawaited(_startListening());
         return;
       }
+      // Stays busy: the screen is closing.
       Navigator.of(context).pop<List<IRButton>>(
         <IRButton>[..._collectedButtons, learned],
       );
@@ -1470,7 +1481,7 @@ class _LearningModeScreenState extends State<LearningModeScreen>
               child: OutlinedButton.icon(
                 onPressed: _busy ? null : () => _saveCapture(learnNext: true),
                 icon: const Icon(Icons.add_circle_outline_rounded),
-                label: const Text('Add & learn next'),
+                label: Text(context.l10n.learningModeAddAndLearnNext),
               ),
             ),
             const SizedBox(width: 10),

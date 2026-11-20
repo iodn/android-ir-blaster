@@ -5616,4 +5616,12 @@ class AppLocalizationsDe extends AppLocalizations {
   @override
   String get githubAuthenticationFailed =>
       'Die Anmeldung bei GitHub ist fehlgeschlagen. Prüfe deinen persönlichen Zugriffstoken.';
+
+  @override
+  String get learningModeAddAndLearnNext => 'Hinzufügen & nächste lernen';
+
+  @override
+  String learningModeAddedLearnNext(String name, int count) {
+    return '„$name“ hinzugefügt (bisher $count). Drücke die nächste Taste auf deiner Fernbedienung.';
+  }
 }

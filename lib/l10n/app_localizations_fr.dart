@@ -5623,4 +5623,12 @@ class AppLocalizationsFr extends AppLocalizations {
   @override
   String get githubAuthenticationFailed =>
       'L’authentification auprès de GitHub a échoué. Vérifiez votre jeton d’accès personnel.';
+
+  @override
+  String get learningModeAddAndLearnNext => 'Ajouter et apprendre le suivant';
+
+  @override
+  String learningModeAddedLearnNext(String name, int count) {
+    return '« $name » ajouté ($count jusqu’ici). Appuyez sur le bouton suivant de votre télécommande.';
+  }
 }

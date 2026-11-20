@@ -5478,4 +5478,12 @@ class AppLocalizationsTh extends AppLocalizations {
   @override
   String get githubAuthenticationFailed =>
       'ยืนยันตัวตนกับ GitHub ไม่สำเร็จ โปรดตรวจสอบโทเค็นการเข้าถึงส่วนบุคคล';
+
+  @override
+  String get learningModeAddAndLearnNext => 'เพิ่มและเรียนรู้ปุ่มถัดไป';
+
+  @override
+  String learningModeAddedLearnNext(String name, int count) {
+    return 'เพิ่ม \"$name\" แล้ว (ตอนนี้ $count ปุ่ม) กดปุ่มถัดไปบนรีโมต';
+  }
 }

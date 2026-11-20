@@ -5613,4 +5613,12 @@ class AppLocalizationsNl extends AppLocalizations {
   @override
   String get githubAuthenticationFailed =>
       'De GitHub-authenticatie is mislukt. Controleer je persoonlijke toegangstoken.';
+
+  @override
+  String get learningModeAddAndLearnNext => 'Toevoegen en volgende leren';
+
+  @override
+  String learningModeAddedLearnNext(String name, int count) {
+    return '\"$name\" toegevoegd ($count tot nu toe). Druk op de volgende knop van je afstandsbediening.';
+  }
 }
