@@ -3147,6 +3147,9 @@ class _CreateButtonState extends State<CreateButton> {
       previewError = e.toString();
     }
 
+    final invalidSony12 = _signalType == _SignalType.protocol &&
+        _selectedProtocolId == IrProtocolIds.sony12 &&
+        previewError != null;
     return Scaffold(
       appBar: AppBar(
         title: Text(_screenTitle),
@@ -3170,7 +3173,7 @@ class _CreateButtonState extends State<CreateButton> {
             Expanded(
               child: FilledButton.icon(
                 onPressed: _currentStep == _kTotalSteps - 1
-                    ? (_canSave ? _onSavePressed : null)
+                    ? (_canSave && !invalidSony12 ? _onSavePressed : null)
                     : _goToNextStep,
                 icon: Icon(
                   _currentStep == _kTotalSteps - 1

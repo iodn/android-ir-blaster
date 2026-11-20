@@ -23,7 +23,7 @@ void main() {
           image: 'Power',
           isImage: false,
           protocol: 'sony12',
-          protocolParams: {'address': 1, 'command': 2},
+          protocolParams: {'address': '01', 'command': '80'},
         ),
       ),
     ));
@@ -32,6 +32,8 @@ void main() {
       await tester.tap(find.text('Continue'));
       await tester.pumpAndSettle();
     }
+    final save = find.widgetWithText(FilledButton, 'Save');
+    expect(tester.widget<FilledButton>(save).onPressed, isNull);
     final edit = find.text('Edit Code of the button');
     await tester.ensureVisible(edit);
     await tester.pumpAndSettle();
@@ -48,6 +50,7 @@ void main() {
     await tester.pumpAndSettle();
     expect(tester.takeException(), isNull);
     expect(dialog, findsNothing);
+    expect(tester.widget<FilledButton>(save).onPressed, isNotNull);
     tester.view.resetViewInsets();
     await tester.pumpAndSettle();
     await tester.ensureVisible(edit);

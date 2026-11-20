@@ -101,7 +101,7 @@ int _readHexInt(dynamic v, {required String name, required int max}) {
   final String s = v.trim();
   if (s.isEmpty || s.length > 8) throw ArgumentError('$name invalid hex');
   final int value = int.parse(s, radix: 16);
-  if (value > max) throw ArgumentError('$name out of range');
+  if (value < 0 || value > max) throw ArgumentError('$name out of range');
   return value;
 }
 

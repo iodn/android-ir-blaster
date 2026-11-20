@@ -120,7 +120,7 @@ void main() {
     expect(attempts, 2);
   });
 
-  testWidgets('invalid SONY12 hex shows a send error without transmitting',
+  testWidgets('invalid SONY12 values show a send error without transmitting',
       (tester) async {
     SharedPreferences.setMockInitialValues({});
     final sends = <MethodCall>[];
@@ -146,6 +146,13 @@ void main() {
           protocolParams: {'address': '<b', 'command': '15'},
         ),
         IRButton(
+          id: 'out-of-range',
+          image: 'Out of range',
+          isImage: false,
+          protocol: 'sony12',
+          protocolParams: {'address': '1A', 'command': '80'},
+        ),
+        IRButton(
           id: 'valid',
           image: 'Valid power',
           isImage: false,
@@ -159,6 +166,15 @@ void main() {
     await tester.pumpAndSettle();
     expect(tester.takeException(), isNull);
     expect(find.byType(SnackBar), findsOneWidget);
+    expect(sends, isEmpty);
+
+    ScaffoldMessenger.of(tester.element(find.byType(RemoteView)))
+        .removeCurrentSnackBar();
+    await tester.pumpAndSettle();
+    await tester.tap(find.text('Out of range').first);
+    await tester.pumpAndSettle();
+    expect(tester.takeException(), isNull);
+    expect(find.textContaining('SONY12 command out of range'), findsOneWidget);
     expect(sends, isEmpty);
 
     await tester.tap(find.text('Valid power').first);
